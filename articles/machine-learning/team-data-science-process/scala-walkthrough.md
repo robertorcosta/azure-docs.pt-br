@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76716768"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
@@ -56,7 +56,7 @@ Para obter uma descrição dos dados da corrida de táxi na cidade de Nova York 
 
 ![Painel do cluster e notebooks Jupyter](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
-Você também pode acessar blocos de anotações do Jupyter em https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Substitua o nome do *cluster* pelo nome do seu cluster. Você precisa da senha de sua conta de administrador para acessar os notebooks Jupyter.
+Você também pode acessar blocos de anotações do Jupyter em https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Substitua *ClusterName* pelo nome do cluster. Você precisa da senha de sua conta de administrador para acessar os notebooks Jupyter.
 
 ![Acesse os notebooks Jupyter usando o nome do cluster](./media/scala-walkthrough/spark-jupyter-notebook.png)
 
@@ -224,7 +224,7 @@ O exemplo de código a seguir especifica o local dos dados de entrada a serem li
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Saída:**
+**Der**
 
 Tempo de execução da célula: oito segundos.
 
@@ -245,7 +245,7 @@ Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; f
     # SHOW ONLY THE TOP THREE ROWS
     sqlResultsDF.show(3)
 
-**Saída:**
+**Der**
 
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
@@ -254,12 +254,12 @@ Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; f
 |        10.5 |2,0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualização e exploração de dados
-Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Em seguida, importe os resultados em um quadro de dados para traçar as variáveis-alvo e recursos prospectivos para inspeção visual usando o recurso Jupyter de visualização automática.
+Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Em seguida, importe os resultados em um quadro de dados para plotar as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de Jupyter de visualização automática.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Usar local e palavra mágica do SQL para criar gráficos com dados
 Por padrão, a saída de qualquer snippet de código executado em um notebook Jupyter é disponibilizada no contexto da sessão que é persistida nos nós de trabalho. Se desejar salvar uma corrida nos nós de trabalho para cada cálculo e, se todos os dados necessários para o cálculo estiverem disponíveis localmente no nó do servidor do Jupyter (que é o nó de cabeçalho), você poderá usar a palavra mágica `%%local` para executar o snippet de código no servidor do Jupyter.
 
-* **Magia SQL** (`%%sql`). O kernel HDInsight Spark dá suporte a consultas do HiveQL fáceis e embutidas no SQLContext. O argumento (`-o VARIABLE_NAME`) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Esta configuração significa que a saída estará disponível no modo local.
+* **Mágica** do SQL`%%sql`(). O kernel HDInsight Spark dá suporte a consultas do HiveQL fáceis e embutidas no SQLContext. O argumento (`-o VARIABLE_NAME`) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Essa configuração significa que a saída estará disponível no modo local.
 * `%%local` **palavra mágica**. A palavra mágica `%%local` executa o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a palavra mágica `%%local` em conjunto com a palavra mágica `%%sql` com o parâmetro `-o`. O parâmetro `-o` persistiria a saída da consulta SQL localmente e, em seguida, as palavras mágicas `%%local` disparariam o próximo conjunto de snippets de código para serem executados localmente na saída das consultas SQL que é persistida localmente.
 
 ### <a name="query-the-data-by-using-sql"></a>Consultar os dados usando SQL
@@ -327,7 +327,7 @@ Este é o código para criar gráficos com os dados:
     plt.show()
 
 
-**Saída:**
+**Der**
 
 ![Histograma do valor da gorjeta](./media/scala-walkthrough/plot-tip-amount-histogram.png)
 
@@ -409,7 +409,7 @@ Para indexação, use `StringIndexer()` e para codificação one-hot, use as fun
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Saída:**
+**Der**
 
 Tempo de execução da célula: quatro segundos.
 
@@ -448,7 +448,7 @@ Adicione um número aleatório (entre 0 e 1) à linha de alcance (em uma coluna 
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Saída:**
+**Der**
 
 Tempo de execução da célula: dois segundos.
 
@@ -491,7 +491,7 @@ Nesse código, você pode especificar a variável de destino (dependente) e os r
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Saída:**
+**Der**
 
 Tempo de execução da célula: quatro segundos.
 
@@ -594,7 +594,7 @@ Carregue, pontue e salve os resultados.
     println("ROC on test data = " + ROC)
 
 
-**Saída:**
+**Der**
 
 ROC nos dados de teste = 0,9827381497557599
 
@@ -632,7 +632,7 @@ Use o Python em quadros de dados locais Panda para criar gráficos com a curva R
     plt.show()
 
 
-**Saída:**
+**Der**
 
 ![Curva ROC de gorjeta ou não](./media/scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
@@ -665,7 +665,7 @@ Em seguida, criamos um modelo de classificação de floresta aleatória usando a
     println("ROC on test data = " + ROC)
 
 
-**Saída:**
+**Der**
 
 ROC nos dados de teste = 0,9847103571552683
 
@@ -721,7 +721,7 @@ Em seguida, criamos um modelo de classificação GBT usando a função `Gradient
     println(s"Area under ROC curve: ${metrics.areaUnderROC}")
 
 
-**Saída:**
+**Der**
 
 Área sob a curva ROC = 0,9846895479241554
 
@@ -773,7 +773,7 @@ Nesta seção, você criará dois tipos de modelo de regressão para prever o va
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Saída:**
+**Der**
 
 Tempo de execução da célula: 13 segundos.
 
@@ -804,7 +804,7 @@ Tempo de execução da célula: 13 segundos.
     println("R-sqr on test data = " + r2)
 
 
-**Saída:**
+**Der**
 
 R-sqr nos dados de teste = 0,5960320470835743
 
@@ -846,14 +846,14 @@ Crie gráficos usando matplotlib do Python.
     plt.axis([-1, 15, -1, 8])
     plt.show(ax)
 
-**Saída:**
+**Der**
 
 ![Valor da gorjeta: real vs. previsto](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Criar um modelo de regressão GBT
 Crie um modelo de regressão GBT usando a função `GBTRegressor()` da AM do Spark e avalie o modelo nos dados de teste.
 
-[Árvores impulsionadas por gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) são conjuntos de árvores de decisão. O GBTS treina árvores de decisão iterativamente para minimizar uma função de perda. Você pode usar GBTS para regressão e classificação. Elas podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Use-as também em uma configuração de classificação multiclasse.
+As [árvores aumentadas para gradiente](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) são conjuntos de árvores de decisão. GBTS treina árvores de decisão iterativamente para minimizar uma função de perda. Você pode usar GBTS para regressão e classificação. Elas podem manipular recursos categóricos, não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. Use-as também em uma configuração de classificação multiclasse.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -879,7 +879,7 @@ Crie um modelo de regressão GBT usando a função `GBTRegressor()` da AM do Spa
     println("Test R-sqr is: " + Test_R2);
 
 
-**Saída:**
+**Der**
 
 R-sqr do teste é: 0,7655383534596654
 
@@ -936,7 +936,7 @@ Em seguida, divida os dados em conjuntos de treinamento e validação, use a lim
     println("Test R-sqr is: " + Test_R2);
 
 
-**Saída:**
+**Der**
 
 R-sqr do teste é: 0,6226484708501209
 
@@ -980,7 +980,7 @@ Esta seção mostra como otimizar um modelo de classificação binária usando a
     println("Time taken to run the above cell: " + elapsedtime + " seconds.");
 
 
-**Saída:**
+**Der**
 
 Tempo de execução da célula: 33 segundos.
 
@@ -1095,7 +1095,7 @@ Em seguida, otimize o modelo usando código personalizado e identifique os melho
     val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 
 
-**Saída:**
+**Der**
 
 Tempo de execução da célula: 61 segundos.
 

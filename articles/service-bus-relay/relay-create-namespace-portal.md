@@ -1,6 +1,6 @@
 ---
 title: Criar um namespace do retransmissão usando o Portal do Azure | Microsoft Docs
-description: Este artigo fornece um passo a passo que mostra como criar um espaço de nome relay usando o portal Azure.
+description: Este artigo fornece instruções que mostram como criar um namespace de retransmissão usando o portal do Azure.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: b9811ef92aba4891627c20e0269be136582a3304
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514656"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Criar um namespace de retransmissão usando o Portal do Azure
@@ -26,7 +26,7 @@ ms.locfileid: "76514656"
 Um namespace é um contêiner de escopo para todos os componentes do Azure Relay. Várias retransmissões podem residir em um único namespace e os namespaces geralmente servem como contêineres de aplicativos. Atualmente, existem duas maneiras diferentes de criar um namespace de retransmissão:
 
 1. Portal do Azure (este artigo).
-2. [Modelos do Azure Resource Manager.](../azure-resource-manager/management/overview.md)
+2. Modelos de [Azure Resource Manager](../azure-resource-manager/management/overview.md) .
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Criar um namespace no Portal do Azure
 

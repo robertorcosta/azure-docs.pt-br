@@ -1,6 +1,6 @@
 ---
-title: FAQ - Azure DNS
-description: Neste artigo, conheça perguntas frequentes sobre o Azure DNS
+title: Perguntas frequentes-DNS do Azure
+description: Neste artigo, saiba mais sobre as perguntas frequentes sobre o DNS do Azure
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
 ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77121728"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
@@ -42,7 +42,7 @@ Para saber mais, confira a [página de SLA do DNS do Azure](https://azure.micros
 
 Um domínio é um nome exclusivo no sistema de nomes de domínio. Um exemplo é contoso.com.
 
-Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Por exemplo, o domínio contoso.com pode conter vários registros DNS. Os registros podem incluir mail.contoso.com para\.um servidor de e-mail e www contoso.com para um site. Esses registros estão hospedados na zona DNS contoso.com.
+Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Por exemplo, o domínio contoso.com pode conter vários registros DNS. Os registros podem incluir mail.contoso.com para um servidor de email e\.o www contoso.com para um site. Esses registros estão hospedados na zona DNS contoso.com.
 
 É um nome de domínio *apenas um nome*. Uma zona DNS é um recurso de dados que contém os registros DNS de um nome de domínio. Você pode usar o DNS do Azure para hospedar uma zona DNS e gerenciar os registros DNS para um domínio no Azure. Ele também fornece servidores de nomes de DNS para resolver consultas de DNS da Internet.
 
@@ -118,7 +118,7 @@ Os conjuntos de registros de alias são suportados para os seguintes tipos de re
 
 - **Aponte para um recurso IP público de um conjunto de registros DNS A / AAAA.** Você pode criar um conjunto de registros A / AAAA e torná-lo um conjunto de registros de alias para apontar para um recurso IP público.
 - **Aponte para um perfil do Gerenciador de Tráfego de um conjunto de registros DNS A / AAAA / CNAME.** Você pode apontar para o CNAME de um perfil do Gerenciador de Tráfego a partir de um conjunto de registros CNAME do DNS. Um exemplo é contoso.trafficmanager.net. Agora, você também pode apontar para um perfil do Gerenciador de Tráfego que tenha pontos de extremidade externos de um registro A ou AAAA definido em sua zona DNS.
-- **Aponte para um ponto final de CDN (Azure Content Delivery Network, rede de entrega de conteúdo do Azure).** Isso é útil quando você cria sites estáticos usando o armazenamento Azure e o CDN do Azure.
+- **Aponte para um ponto de extremidade da CDN (rede de distribuição de conteúdo) do Azure**. Isso é útil quando você cria sites estáticos usando o armazenamento do Azure e a CDN do Azure.
 - **Apontar para outro conjunto de registros DNS dentro da mesma zona.** Registros de alias podem fazer referência a outros conjuntos de registros do mesmo tipo. Por exemplo, você pode ter um conjunto de registros DNS CNAME como um alias para outro conjunto de registros CNAME do mesmo tipo. Essa organização é útil se você quiser que alguns conjuntos de registros sejam aliases e alguns não-aliases.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Posso criar e atualizar os registros de alias do portal do Azure?
@@ -143,11 +143,11 @@ Os registros de alias são uma qualificação em um conjunto de registros DNS v�
 
 ## <a name="use-azure-dns"></a>Use o DNS do Azure
 
-### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Posso co-hospedar um domínio usando o Azure DNS e outro provedor de DNS?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Posso cohospedar um domínio usando o DNS do Azure e outro provedor de DNS?
 
 Sim. O DNS do Azure oferece suporte a domínios de co-hospedagem com outros serviços de DNS.
 
-Para configurar a co-hospedagem, modifique os registros NS para o domínio para apontar para os servidores de nome de ambos os provedores. Os registros do servidor de nomes (NS) controlam quais provedores recebem consultas DNS para o domínio. Você pode modificar esses registros do NS no DNS do Azure, no outro provedor e na zona pai. A zona pai geralmente é configurada por meio do registrador de nomes de domínio. Para saber mais sobre delegação de DNS, veja [Delegação de domínio de DNS](dns-domain-delegation.md).
+Para configurar a hospedagem cooperativa, modifique os registros NS para o domínio para apontar para os servidores de nome de ambos os provedores. Os registros do servidor de nomes (NS) controlam quais provedores recebem consultas DNS para o domínio. Você pode modificar esses registros do NS no DNS do Azure, no outro provedor e na zona pai. A zona pai geralmente é configurada por meio do registrador de nomes de domínio. Para saber mais sobre delegação de DNS, veja [Delegação de domínio de DNS](dns-domain-delegation.md).
 
 Além disso, verifique se os registros DNS do domínio estão sincronizados entre os dois provedores de DNS. O DNS do Azure atualmente não oferece suporte a transferências de zona DNS. Os registros DNS devem ser sincronizados usando o [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](https://docs.microsoft.com/rest/api/dns/), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou [Ferramenta CLI](dns-operations-recordsets-cli.md).
 
@@ -197,10 +197,10 @@ Para configurar IDNs no DNS do Azure, converta o nome da zona ou o nome do conju
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba mais sobre o Azure DNS](dns-overview.md).
+- [Saiba mais sobre o DNS do Azure](dns-overview.md).
 
 - [Saiba mais sobre como usar o DNS do Azure para domínios privados](private-dns-overview.md).
 
-- [Saiba mais sobre zonas e registros de DNS.](dns-zones-records.md)
+- [Saiba mais sobre zonas e registros DNS](dns-zones-records.md).
 
-- [Comece com o Azure DNS](dns-getstarted-portal.md).
+- [Introdução ao DNS do Azure](dns-getstarted-portal.md).

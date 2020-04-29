@@ -1,5 +1,5 @@
 ---
-title: Gerenciar registros de fluxo NSG - Azure PowerShell
+title: Gerenciar logs de fluxo NSG-Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: Esta página explica como gerenciar logs de fluxo de Grupo de Segurança de Rede no Observador de Rede do Azure com o PowerShell
 services: network-watcher
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 9612afdb63c6988c0027f003caeacd456b5e50e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840937"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurar logs de fluxo de Grupo de Segurança de Rede com o PowerShell
 
 > [!div class="op_single_selector"]
-> - [Portal Azure](network-watcher-nsg-flow-logging-portal.md)
-> - [Powershell](network-watcher-nsg-flow-logging-powershell.md)
-> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Logs de fluxo do Grupo de Segurança de Rede são um recurso do Observador de Rede permite que você exiba informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede. Esses logs de fluxo são escritos no formato json e mostram os fluxos de entrada e de saída por regra, a NIC à qual o fluxo se aplica, as informações de cinco tuplas sobre o fluxo (IP de Origem/Destino, Porta de Origem/Destino, Protocolo) e se o tráfego foi permitido ou negado.
@@ -89,7 +89,7 @@ Se uma conta de armazenamento for especificada, os arquivos de log de fluxo ser�
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Para obter informações sobre a estrutura do log, visite o registro de fluxo do grupo de [segurança da rede Visão geral](network-watcher-nsg-flow-logging-overview.md)
+Para obter informações sobre a estrutura do log, visite [visão geral do log de fluxo do grupo de segurança de rede](network-watcher-nsg-flow-logging-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

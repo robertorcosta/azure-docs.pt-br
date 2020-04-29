@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas de operações de dados com diagnósticos e analisador de mensagens
+title: Solucionando problemas de operações de dados com o diagnóstico e o analisador de mensagem
 titleSuffix: Azure Storage
 description: Um tutorial que demonstra a solução de problemas ponta a ponta com Análise de Armazenamento do Azure, AzCopy e Analisador de Mensagem da Microsoft
 author: normesta
@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76314752"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
@@ -30,20 +30,20 @@ Este tutorial fornece uma exploração prática de um cenário de solução de p
 
 Para solucionar problemas de aplicativos cliente que usam o armazenamento do Microsoft Azure, você pode usar uma combinação de ferramentas para determinar quando um problema ocorreu e o que pode ser a causa do problema. Essas ferramentas incluem:
 
-* **Azure Storage Analytics**. [A Análise de Armazenamento do Azure](/rest/api/storageservices/Storage-Analytics) fornece métricas e registro em log para o Armazenamento do Azure.
+* **Análise de armazenamento do Azure**. [A Análise de Armazenamento do Azure](/rest/api/storageservices/Storage-Analytics) fornece métricas e registro em log para o Armazenamento do Azure.
 
   * **A métrica de armazenamento** controla as métricas de transação e as métricas de capacidade para sua conta de armazenamento. Usando métricas, você pode determinar o desempenho do seu aplicativo de acordo com uma variedade de medidas diferentes. Consulte o [Esquema da Tabela de Métricas de Análise do Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) para obter mais informações sobre os tipos de métricas controladas pela Análise de Armazenamento.
   * **O log de armazenamento** registra cada solicitação dos serviços de Armazenamento do Azure em um log do servidor. O log registra dados detalhados para cada solicitação, incluindo a operação executada, o status da operação e informações de latência. Consulte o [Formato do Log de Análise de Armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) para obter mais informações sobre os dados de solicitação e resposta gravados nos logs pela Análise de Armazenamento.
 
-* **Portal Azure**. Você pode configurar métricas e registrar sua conta de armazenamento no [portal Azure](https://portal.azure.com). Você também pode exibir grafos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
+* **Portal do Azure**. Você pode configurar as métricas e o registro em log para sua conta de armazenamento no [portal do Azure](https://portal.azure.com). Você também pode exibir grafos que mostram o desempenho do seu aplicativo ao longo do tempo e configurar alertas para notificá-lo se seu aplicativo for executado de forma diferente do esperado para uma métrica especificada.
 
-    Consulte [Monitorar uma conta de armazenamento no portal Azure](storage-monitor-storage-account.md) para obter informações sobre a configuração do monitoramento no portal Azure.
+    Consulte [monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md) para obter informações sobre como configurar o monitoramento no portal do Azure.
 * **AzCopy**. Os logs do servidor do Armazenamento do Azure são armazenados como blobs, então você pode usar o AzCopy para copiar os blobs de log para um diretório local para análise usando o Analisador de Mensagem da Microsoft. Confira [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
-* **Analisador de mensagens da Microsoft**. O Analisador de Mensagem é uma ferramenta que consome os arquivos de log e exibe dados de log em um formato visual que torna mais fácil a filtragem, pesquisa e agrupamento de dados de log em conjuntos úteis que você pode usar para analisar erros e problemas de desempenho. Consulte o [Guia Operacional do Analisador de Mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o Analisador de Mensagem.
+* **Analisador de mensagem da Microsoft**. O Analisador de Mensagem é uma ferramenta que consome os arquivos de log e exibe dados de log em um formato visual que torna mais fácil a filtragem, pesquisa e agrupamento de dados de log em conjuntos úteis que você pode usar para analisar erros e problemas de desempenho. Consulte o [Guia Operacional do Analisador de Mensagem da Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o Analisador de Mensagem.
 
 ## <a name="about-the-sample-scenario"></a>Sobre o cenário de exemplo
 
-Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica de taxa de sucesso de baixo percentual (mostrada como **PercentSuccess** no [portal Azure](https://portal.azure.com) e nas tabelas métricas) rastreia as operações que são bem sucedidas, mas que retornam um código de status HTTP maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Para este tutorial, vamos examinar um cenário onde as métricas de armazenamento do Azure indicam uma taxa de sucesso de porcentagem baixa de um aplicativo que chama o armazenamento do Azure. A métrica de taxa de êxito de porcentagem baixa (mostrada como **PercentSuccess** no [portal do Azure](https://portal.azure.com) e nas tabelas de métricas) controla as operações bem-sucedidas, mas que retornam um código de status http maior que 299. Nos arquivos de log do lado do servidor, essas operações são registradas com um status de transação de **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de sucesso de porcentagem baixa, consulte [As métricas mostram o PercentSuccess baixo ou as entradas do log de análise têm operações com status de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Operações de armazenamento do Azure podem retornar códigos de status HTTP maior 299 como parte de sua funcionalidade normal. Porém esses erros em alguns casos indicam que você poderá otimizar o aplicativo cliente para melhorar o desempenho.
 
@@ -85,7 +85,7 @@ Neste tutorial, usaremos o Analisador de Mensagem para trabalhar com três tipos
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar o log de servidor e métricas
 
-Primeiro, precisaremos configurar o registro e as métricas do Azure Storage, para que tenhamos dados do lado do serviço para analisar. Você pode configurar o registro e métricas de várias maneiras - através do [portal Azure](https://portal.azure.com)- usando o PowerShell ou programáticamente. Consulte [Habilitar métricas](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [Habilitar o registro](storage-analytics-logging.md#enable-storage-logging) para obter detalhes sobre a configuração de registro e métricas.
+Primeiro, precisaremos configurar o log e as métricas do armazenamento do Azure para que tenhamos dados do lado do serviço para análise. Você pode configurar o registro em log e as métricas de várias maneiras, por meio do [portal do Azure](https://portal.azure.com), usando o PowerShell ou programaticamente. Consulte [habilitar métricas](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [habilitar o registro em log](storage-analytics-logging.md#enable-storage-logging) para obter detalhes sobre como configurar o log e as métricas.
 
 ### <a name="configure-net-client-side-logging"></a>Configurar o log de cliente .NET
 
@@ -126,7 +126,7 @@ Consulte [Usando os Recursos de Rastreamento de Rede](https://technet.microsoft.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Examinar dados de métricas no portal do Azure
 
-Uma vez que seu aplicativo esteja sendo executado por um período de tempo, você pode rever os gráficos de métricas que aparecem no [portal Azure](https://portal.azure.com) para observar como seu serviço tem sido executado.
+Depois que o aplicativo estiver em execução por um período de tempo, você poderá examinar os gráficos de métricas que aparecem no [portal do Azure](https://portal.azure.com) para observar como o serviço foi executado.
 
 Primeiro, navegue para sua conta de armazenamento no portal do Azure. Por padrão, um gráfico de monitoramento com a métrica **Percentual de êxito** é exibido na folha da conta. Se você modificou o gráfico anteriormente para exibir métricas diferentes, adicione a métrica **Percentual de êxito**.
 
@@ -143,7 +143,7 @@ Para obter mais detalhes sobre como adicionar e personalizar gráficos de métri
 
 O Armazenamento do Azure grava os dados de log do servidor para blobs, enquanto as métricas são gravadas em tabelas. Os blobs de log estão disponíveis no contêiner `$logs` conhecido para sua conta de armazenamento. Blobs de log são nomeados hierarquicamente por ano, mês, dia e hora, para que você possa localizar facilmente o intervalo de tempo que deseja investigar. Por exemplo, na conta `storagesample`, o contêiner para os blobs de log para 02/01/2015, de 8:00-9:00, é `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Os blobs individuais nesse contêiner são nomeados em sequência, começando com `000000.log`.
 
-Você pode usar a ferramenta de linha de comando AzCopy para baixar esses arquivos de log do servidor para um local de sua escolha no computador local. Por exemplo, você pode usar o seguinte comando para baixar os arquivos de log para operações blob que ocorreram em 2 de janeiro de 2015 para a pasta `C:\Temp\Logs\Server`; substituir `<storageaccountname>` com o nome da sua conta de armazenamento:
+Você pode usar a ferramenta de linha de comando AzCopy para baixar esses arquivos de log do servidor para um local de sua escolha no computador local. Por exemplo, você pode usar o seguinte comando para baixar os arquivos de log para operações de BLOB que ocorreram em 2 de janeiro de 2015 `C:\Temp\Logs\Server`para a pasta; Substitua `<storageaccountname>` pelo nome da sua conta de armazenamento:
 
 ```azcopy
 azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
@@ -288,7 +288,7 @@ A figura a seguir mostra uma solicitação específica em que uma operação Get
 Em seguida, correlacionamos essa ID de solicitação do cliente com os dados de log do cliente para ver as ações que o cliente tomou quando o erro ocorreu. Você pode exibir uma nova exibição de grade de análise para essa sessão para exibir os dados de log do cliente, que é aberto em uma segunda guia:
 
 1. Primeiro, copie o valor do campo **ClientRequestId** para a área de transferência. Você pode fazer isso selecionando qualquer linha, localizando o campo **ClientRequestId**, clicando com o botão direito no valor dos dados e escolhendo **Copiar 'ClientRequestId'**.
-2. Na fita da barra de ferramentas, selecione **Novo visualizador**e selecione **'Grade de análise'** para abrir uma nova guia. A nova guia mostra todos os dados em seus arquivos de log, sem agrupamento, filtragem ou regras de cor.
+2. Na faixa de opções da barra de ferramentas, selecione **novo visualizador**e, em seguida, selecione **grade de análise** para abrir uma nova guia. A nova guia mostra todos os dados em seus arquivos de log, sem agrupamento, filtragem ou regras de cor.
 3. Na faixa de opções da barra de ferramentas, selecione **Layout de Exibição** e **Todas as Colunas do Cliente .NET** na seção **Armazenamento do Azure**. Esse layout do modo de exibição mostra dados do log do cliente, bem como os logs de rastreamento de servidor e rede. Por padrão, ele é classificado pela coluna **MessageNumber** .
 4. Em seguida, pesquise o log do cliente para a ID de solicitação do cliente. Na faixa de opções da barra de ferramentas, selecione **Localizar Mensagens** e especifique um filtro personalizado na ID de solicitação do cliente no campo **Localizar**. Use esta sintaxe para o filtro, especificando sua própria ID de solicitação de cliente:
 
@@ -319,10 +319,10 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Problema de autorização de SAS (Assinatura de Acesso Compartilhado) |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |Rede |
 | Mensagens HTTP 409 (Conflito) |HTTP.Response.StatusCode   == 409 |Rede |
 | 409 (todos) |*StatusCode   == 409 |Todos |
-| Baixo PercentSuccess ou as entradas de log analíticas têm operações com status de transação de ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Servidor |
-| Aviso Nagle |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Servidor |
+| Baixo PercentSuccess ou as entradas de log analíticas têm operações com status de transação de ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Server (Servidor) |
+| Aviso Nagle |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Server (Servidor) |
 | Intervalo de horas nos logs de Servidor e Rede |#Timestamp   >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 |Servidor, Rede |
-| Intervalo de horas nos logs de Servidor |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Servidor |
+| Intervalo de horas nos logs de Servidor |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Server (Servidor) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

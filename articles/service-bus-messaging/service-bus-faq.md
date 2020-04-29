@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs
-description: Este artigo fornece respostas para algumas das perguntas mais frequentes (FAQ) sobre o Azure Service Bus.
+description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76760242"
 ---
-# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Ônibus de serviço azure - Perguntas frequentes (FAQ)
+# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
 Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço do Microsoft Azure. Você também pode visitar as [Perguntas frequentes de suporte do Azure](https://azure.microsoft.com/support/faq/) para obter informações gerais sobre preços e suporte do Azure.
 
@@ -24,10 +24,10 @@ Este artigo discute algumas perguntas frequentes sobre o Barramento de Serviço 
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Barramento de Serviço do Azure
 ### <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
-[O Azure Service Bus](service-bus-messaging-overview.md) é uma plataforma de nuvem de mensagens assíncrona que permite enviar dados entre sistemas desacoplados. A Microsoft oferece esse recurso como um serviço, o que significa que você não precisa hospedar seu próprio hardware para usá-lo.
+O [barramento de serviço do Azure](service-bus-messaging-overview.md) é uma plataforma de nuvem de mensagens assíncronas que permite que você envie dados entre sistemas separados. A Microsoft oferece esse recurso como um serviço, o que significa que você não precisa hospedar seu próprio hardware para usá-lo.
 
 ### <a name="what-is-a-service-bus-namespace"></a>O que é um namespace do Barramento de Serviço?
-Um [namespace](service-bus-create-namespace-portal.md) fornece um contêiner de escopo para abordar os recursos do Service Bus dentro do seu aplicativo. A criação de um namespace é necessária para a utilização do Barramento de Serviço e é uma das primeiras etapas da introdução.
+Um [namespace](service-bus-create-namespace-portal.md) fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. A criação de um namespace é necessária para a utilização do Barramento de Serviço e é uma das primeiras etapas da introdução.
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>O que é uma fila do Barramento de Serviço do Azure?
 A [Fila do Barramento de Serviço](service-bus-queues-topics-subscriptions.md) é uma entidade na qual as mensagens são armazenadas. As filas são úteis quando você tem vários aplicativos ou várias partes de um aplicativo distribuído que precisam se comunicar umas com as outras. A fila é semelhante a um centro de distribuição em que vários produtos (mensagens) são recebidos e então enviados desse local.
@@ -42,46 +42,46 @@ A ordenação não é garantida ao usar entidades particionadas. Se uma partiç�
 
  As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso para abrir no firewall? 
-Você pode usar os seguintes protocolos com o Azure Service Bus para enviar e receber mensagens:
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas eu preciso abrir no firewall? 
+Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
 - Advanced Message Queuing Protocol (AMQP)
 - Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
 - HTTP
 
-Veja a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com o Azure Event Hubs. 
+Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os hubs de eventos do Azure. 
 
 | Protocolo | Portas | Detalhes | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Veja [o guia de protocolo samt](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350-9354 | Ver [modo conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| AMQP | 5671 e 5672 | Consulte o [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP eu preciso para lista branca?
-Para encontrar os endereços IP certos na lista branca para suas conexões, siga estas etapas:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
+Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
 
-1. Execute o seguinte comando a partir de um prompt de comando: 
+1. Execute o seguinte comando em um prompt de comando: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote o endereço IP `Non-authoritative answer`retornado em . Este endereço IP é estático. O único ponto no tempo que mudaria é se você restaurar o namespace em um cluster diferente.
+2. Anote o endereço IP retornado em `Non-authoritative answer`. Esse endereço IP é estático. O único ponto no tempo que seria alterado seria se você restaurasse o namespace em um cluster diferente.
 
-Se você usar a redundância de região para o seu namespace, você precisa fazer algumas etapas adicionais: 
+Se você usar a redundância de zona para seu namespace, precisará executar algumas etapas adicionais: 
 
-1. Primeiro, você executa nslookup no namespace.
+1. Primeiro, execute nslookup no namespace.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote o nome na seção **de resposta não autorizada,** que está em um dos seguintes formatos: 
+2. Anote o nome na seção de **resposta não autoritativa** , que está em um dos seguintes formatos: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
+3. Execute nslookup para cada um com sufixos S1, S2 e S3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
 
 ## <a name="best-practices"></a>Práticas recomendadas
@@ -107,17 +107,17 @@ Você também pode visitar as [Perguntas frequentes sobre o suporte do Azure](ht
 Para saber mais sobre o preço do Barramento de Serviço, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview]. Além dos preços mencionados, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo está provisionado.
 
 ### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Quais usos do barramento de serviço estão sujeitos à transferência de dados? O que é não está?
-Todas as transferências de dados dentro de uma determinada região do Azure são feitas gratuitamente, bem como qualquer transferência de dados recebida. A transferência de dados fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui.](https://azure.microsoft.com/pricing/details/bandwidth/)
+Todas as transferências de dados dentro de uma determinada região do Azure são feitas gratuitamente, bem como qualquer transferência de dados recebida. A transferência de dados fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>O Barramento de Serviço cobra pelo armazenamento?
 Não, o Barramento de Serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as Perguntas Frequentes a seguir.
 
-### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um espaço de nome padrão do Ônibus de Serviço. Por que vejo acusações o grupo de recursos '$system'?
-O Azure Service Bus atualizou recentemente os componentes de faturamento. Devido a isso, se você tiver um namespace padrão de barramento de serviço, poderá ver itens de linha para o recurso '/assinaturas/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' no grupo de recursos '$system'.
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tenho um namespace standard do barramento de serviço. Por que vejo encargos no grupo de recursos ' $system '?
+O barramento de serviço do Azure atualizou os componentes de cobrança recentemente. Devido a isso, se você tiver um namespace padrão do barramento de serviço, poderá ver itens de linha para o recurso '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system ' no grupo de recursos ' $system '.
 
-Essas taxas representam a taxa base por assinatura do Azure que provisionou um espaço de nome Service Bus Standard. 
+Esses encargos representam o encargo base por assinatura do Azure que provisionou um namespace padrão do barramento de serviço. 
 
-É importante notar que estes não são novos encargos, ou seja, também existiam no modelo de faturamento anterior. A única mudança é que eles estão agora listados em '$system'. Isso é feito devido a contrações no novo sistema de cobrança que agrupa taxas de nível de assinatura, não vinculadas a um recurso específico, o id de recurso '$system'.
+É importante observar que esses não são novos encargos, ou seja, eles já existiam no modelo de cobrança anterior. A única alteração é que agora eles estão listados em ' $system '. Isso é feito devido a restrições no novo sistema de cobrança que agrupa encargos de nível de assinatura, não vinculado a um recurso específico, sob a ID de recurso ' $system '.
 
 ## <a name="quotas"></a>Cotas
 
@@ -141,7 +141,7 @@ Quando você exclui um namespace de uma assinatura, aguarde até 4 horas antes d
 Para obter uma lista de exceções possíveis do Barramento de Serviço, confira [Visão geral das exceções][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>O que é uma Assinatura de Acesso Compartilhado e quais idiomas oferecem suporte para a geração de uma assinatura?
-Assinaturas de acesso compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em Node.js, PHP, Java, Python e C#, consulte o artigo [Assinaturas de Acesso Compartilhado.][Shared Access Signatures]
+Assinaturas de acesso compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em node. js, PHP, Java, Python e C#, consulte o artigo [assinaturas de acesso compartilhado][Shared Access Signatures] .
 
 ## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinaturas e de namespaces
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um namespace para outra assinatura do Azure?
@@ -172,7 +172,7 @@ Para saber mais sobre o Barramento de Serviço, consulte os seguintes artigos:
 
 * [Introdução ao Barramento de Serviço Premium do Azure (postagem de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introdução ao Barramento de Serviço Premium do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Visão geral do Ônibus de Serviço](service-bus-messaging-overview.md)
+* [Visão geral do barramento de serviço](service-bus-messaging-overview.md)
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

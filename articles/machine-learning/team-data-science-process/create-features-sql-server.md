@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721737"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
@@ -47,7 +47,7 @@ Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:
 > 
 
 ### <a name="count-based-feature-generation"></a><a name="sql-countfeature"></a>Geração de recursos baseada em contagem
-Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo usa a cláusula 'where'. Esses novos recursos podem então ser acompanhados com a tabela original (usando colunas de teclas primárias) para ter recursos de contagem ao lado dos dados originais.
+Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa soma condicional e o segundo usa a cláusula 'where'. Esses novos recursos podem então ser Unidos com a tabela original (usando colunas de chave primária) para ter recursos de contagem ao lado dos dados originais.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -68,15 +68,15 @@ Aqui está uma breve cartilha sobre os dados de localização de latitude/longit
 * O sinal indica se estamos norte ou sul, leste ou oeste no globo.
 * Um dígito de centena não zero indica longitude, não a latitude que está sendo usada.
 * O dígito de dezena indica uma posição de cerca de 1.000 quilômetros. Ele fornece informações úteis sobre o continente ou o oceano em que estamos.
-* O dígito e unidades (um grau decimal) oferece uma posição até 111 quilômetros (60 milhas náuticas, cerca de 69 milhas). Indica, aproximadamente, em que grande estado ou país/região estamos.
+* O dígito e unidades (um grau decimal) oferece uma posição até 111 quilômetros (60 milhas náuticas, cerca de 69 milhas). Ele indica, aproximadamente, o estado grande ou país/região em que estamos.
 * A primeira casa decimal representa até 11,1 km: ela pode distinguir a posição de uma cidade grande de uma cidade grande vizinha.
 * A segunda casa decimal representa 1,1 km: ela pode separar um vila da próxima.
 * A terceira casa decimal representa até 110 m: ela pode identificar um campo agrícola ou campus institucional grande.
 * A quarta casa decimal representa até 11 m: ela pode identificar um lote de terreno. Ela é comparável à precisão típica de uma unidade GPS não corrigida sem interferência.
 * A quinta casa decimal representa até 1,1 m: ela distingue as árvores umas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
-* O sexto lugar decimal vale até 0,11 m: você pode usar este nível para colocar estruturas em detalhes, para projetar paisagens, construir estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Esse objetivo pode ser alcançado tomando medidas minuciosas com GPS, como GPS corrigido diferencialmente.
+* A sexta casa decimal vale até 0,11 m: você pode usar esse nível para dispor estruturas em detalhes, para criar cenários, criando estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Essa meta pode ser obtida por meio de medidas criteriosas com GPS, como o GPS com uma diferença diferencial.
 
-As informações de localização podem ser distinguidas separando a região, a localização e as informações da cidade. Uma vez também pode chamar um ponto final REST, como bing maps API (ver `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações da região/distrito).
+As informações de localização podem ser distinguidas separando a região, a localização e as informações da cidade. Uma vez também pode chamar um ponto de extremidade REST, como a API do `https://msdn.microsoft.com/library/ff701710.aspx` Bing Maps (consulte para obter as informações de região/distrito).
 
     select
         <location_columnname>
@@ -111,7 +111,7 @@ O seguinte formato de cadeia de conexão pode ser usado para se conectar a um ba
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-A [biblioteca Pandas](https://pandas.pydata.org/) em Python fornece um rico conjunto de estruturas de dados e ferramentas de análise de dados para manipulação de dados para programação Python. O código a seguir lê os resultados retornados de um banco de dados do SQL Server em um quadro de dados Pandas:
+A [biblioteca pandas](https://pandas.pydata.org/) no Python fornece um rico conjunto de estruturas de dados e ferramentas de análise de dados para a manipulação de dados para a programação em Python. O código a seguir lê os resultados retornados de um banco de dados do SQL Server em um quadro de dados Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

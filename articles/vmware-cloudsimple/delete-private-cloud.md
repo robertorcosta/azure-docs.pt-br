@@ -1,6 +1,6 @@
 ---
-title: Exclua uma solução Azure VMware por CloudSimple Private Cloud
-description: Descreve como excluir uma nuvem privada cloudsimple.
+title: Excluir uma solução do Azure VMware da nuvem privada CloudSimple
+description: Descreve como excluir uma nuvem privada do CloudSimple.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/06/2019
@@ -9,52 +9,52 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 6bc3e7030c500ea2d6072a1cce0f0b3d9fc62801
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024748"
 ---
-# <a name="delete-a-cloudsimple-private-cloud"></a>Exclua uma nuvemde nuvem simples nuvem privada
+# <a name="delete-a-cloudsimple-private-cloud"></a>Excluir uma nuvem privada do CloudSimple
 
-O CloudSimple oferece a flexibilidade para excluir uma Nuvem Privada.  Uma Nuvem Privada consiste em um ou mais clusters vSphere. Cada cluster pode ter de 3 a 16 nódulos. Quando você excluir uma Nuvem Privada, todos os clusters serão excluídos.
+O CloudSimple fornece a flexibilidade para excluir uma nuvem privada.  Uma nuvem privada consiste em um ou mais clusters vSphere. Cada cluster pode ter de 3 a 16 nós. Quando você exclui uma nuvem privada, todos os clusters serão excluídos.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A exclusão de uma nuvem privada exclui toda a Nuvem Privada.  Todos os componentes da Nuvem Privada serão excluídos.  Se você quiser manter qualquer um dos dados, certifique-se de fazer backup dos dados para armazenamento no local ou armazenamento Azure.
+A exclusão de uma nuvem privada exclui toda a nuvem privada.  Todos os componentes da nuvem privada serão excluídos.  Se você quiser manter qualquer um dos dados, certifique-se de ter feito backup dos dados no armazenamento local ou no armazenamento do Azure.
 
-Os componentes de uma Nuvem Privada incluem:
+Os componentes de uma nuvem privada incluem:
 
-* Nódulos cloudsimple
+* Nós CloudSimple
 * Máquinas virtuais
 * VLANs/sub-redes
-* Todos os dados do usuário armazenados na Nuvem Privada
-* Todos os anexos de regras de firewall a uma VLAN/Sub-rede
+* Todos os dados de usuário armazenados na nuvem privada
+* Todos os anexos de regra de firewall para uma VLAN/sub-rede
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="delete-a-private-cloud"></a>Excluir uma nuvem privada
 
-1. [Acesse o portal CloudSimple](access-cloudsimple-portal.md).
+1. [Acesse o portal do CloudSimple](access-cloudsimple-portal.md).
 
-2. Abra a página **Recursos.**
+2. Abra a página **recursos** .
 
-3. Clique na Nuvem Privada que deseja excluir
+3. Clique na nuvem privada que você deseja excluir
 
-4. Na página de resumo, clique em **Excluir**.
+4. Na página Resumo, clique em **excluir**.
 
     ![Excluir nuvem privada](media/delete-private-cloud.png)
 
-5. Na página de confirmação, digite o nome da Nuvem Privada e clique em **Excluir**. 
+5. Na página confirmação, insira o nome da nuvem privada e clique em **excluir**. 
 
-    ![Excluir nuvem privada - confirmar](media/delete-private-cloud-confirm.png)
+    ![Excluir nuvem privada-confirmar](media/delete-private-cloud-confirm.png)
 
-A Nuvem Privada está marcada para exclusão.  O processo de exclusão começa após três horas e exclui a Nuvem Privada.
+A nuvem privada está marcada para exclusão.  O processo de exclusão é iniciado após três horas e exclui a nuvem privada.
 
 > [!CAUTION]
-> Os nós devem ser excluídos após a exclusão da Nuvem Privada.  A medição dos nós continuará até que os nós sejam excluídos da sua assinatura.
+> Os nós devem ser excluídos após a exclusão da nuvem privada.  A medição de nós continuará até que os nós sejam excluídos da sua assinatura.
 
 ## <a name="next-steps"></a>Próximas etapas
 

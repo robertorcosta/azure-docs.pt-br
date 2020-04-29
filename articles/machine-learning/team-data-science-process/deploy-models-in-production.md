@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722230"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Implantar modelos para produção para desempenhar um papel ativo na tomada de decisões de negócios
@@ -25,7 +25,7 @@ A implantação de produção permite que um modelo execute uma função ativa e
 
 Há várias abordagens e plataformas para colocar modelos em produção. Veja algumas opções:
 
-- [Onde implantar modelos com o Azure Machine Learning](../how-to-deploy-and-where.md)
+- [Onde implantar modelos com Azure Machine Learning](../how-to-deploy-and-where.md)
 - [Implantação de um modelo no SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -39,7 +39,7 @@ Há várias abordagens e plataformas para colocar modelos em produção. Veja al
 
 ## <a name="ab-testing"></a>Testes de A/B
 
-Quando vários modelos estão em produção, [o teste A/B](https://en.wikipedia.org/wiki/A/B_testing) pode ser usado para comparar o desempenho do modelo. 
+Quando vários modelos estão em produção, os [testes a/B](https://en.wikipedia.org/wiki/A/B_testing) podem ser usados para comparar o desempenho do modelo. 
  
 ## <a name="next-steps"></a>Próximas etapas
 

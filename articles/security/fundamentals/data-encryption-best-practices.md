@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas de segurança de dados e criptografia - Microsoft Azure
+title: Práticas recomendadas de segurança de dados e criptografia-Microsoft Azure
 description: Este artigo fornece um conjunto de práticas recomendadas de segurança de dados e criptografia usando recursos internos do Azure.
 services: security
 documentationcenter: na
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243491"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados e criptografia do Azure
-Este artigo descreve as melhores práticas de segurança de dados e criptografia.
+Este artigo descreve as práticas recomendadas para segurança e criptografia de dados.
 
-As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. Opiniões e tecnologias mudam ao longo do tempo e este artigo é atualizado regularmente para refletir essas mudanças.
+As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. As opiniões e tecnologias mudam ao longo do tempo e este artigo é atualizado regularmente para refletir essas alterações.
 
 ## <a name="protect-data"></a>Proteger dados
 Para ajudar a proteger os dados na nuvem, você precisa levar em consideração os possíveis estados em que seus dados podem ocorrer e quais controles estão disponíveis para esse estado. Práticas recomendadas para criptografia e segurança de dados do Azure se relacionam aos seguintes estados de dados:
@@ -37,7 +37,7 @@ Para ajudar a proteger os dados na nuvem, você precisa levar em consideração 
 
 Proteger suas chaves é essencial para proteger seus dados na nuvem.
 
-[O Azure Key Vault](/azure/key-vault/key-vault-overview) ajuda a proteger chaves e segredos criptográficos que aplicativos e serviços em nuvem usam. O Cofre da Chave simplifica o processo de gerenciamento de chaves e permite que você tenha controle das chaves que acessam e criptografam seus dados. Desenvolvedores podem criar chaves para desenvolvimento e teste em minutos e depois migrá-las para chaves de produção. Administradores de segurança podem conceder (e revogar) permissão a chaves conforme for necessário.
+[Azure Key Vault](/azure/key-vault/key-vault-overview) ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços de nuvem. O Cofre da Chave simplifica o processo de gerenciamento de chaves e permite que você tenha controle das chaves que acessam e criptografam seus dados. Desenvolvedores podem criar chaves para desenvolvimento e teste em minutos e depois migrá-las para chaves de produção. Administradores de segurança podem conceder (e revogar) permissão a chaves conforme for necessário.
 
 Você pode usar o Key Vault para criar vários contêineres seguros, chamados de cofre. Esses cofres contam com HSMs. Os cofres ajudam a reduzir a possibilidade de perda acidental de informações de segurança pela centralização do armazenamento de segredos do aplicativo. Os Key Vaults também controlam e registram o acesso a todas as coisas armazenadas neles. O Azure Key Vault pode tratar da solicitação e renovação de certificados de Segurança de Camada de Transporte (TLS). Fornece recursos para uma solução robusta para gerenciamento de ciclo de vida do certificado.
 
@@ -111,7 +111,7 @@ Estas são melhores práticas específicas para o uso de HTTPS, SSL/TLS e o Gate
 **Opção**: Use [ExpressRoute](/azure/expressroute/expressroute-introduction). Se você optar por usar o ExpressRoute, também poderá criptografar os dados no nível do aplicativo usando SSL/TLS ou outros protocolos para proteção adicional.
 
 **Prática recomendada**: interagir com o Armazenamento do Microsoft Azure por meio do portal do Azure.   
-**Detalhes**: todas as transações ocorrerão via HTTPS. Você também pode usar [a API Storage REST](https://msdn.microsoft.com/library/azure/dd179355.aspx) sobre HTTPS para interagir com o [Azure Storage](https://azure.microsoft.com/services/storage/).
+**Detalhes**: todas as transações ocorrerão via HTTPS. Você também pode usar a [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) sobre HTTPS para interagir com o [armazenamento do Azure](https://azure.microsoft.com/services/storage/).
 
 As organizações que não protegem dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [espionagem](https://technet.microsoft.com/library/gg195641.aspx)e sequestro de sessão. Esses ataques podem ser a primeira etapa na obtenção de acesso a dados confidenciais.
 
@@ -139,4 +139,4 @@ Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-p
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
 * [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - onde as vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou por e-mail parasecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou enviadas por email parasecure@microsoft.com

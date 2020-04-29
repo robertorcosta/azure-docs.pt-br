@@ -1,6 +1,6 @@
 ---
-title: Ônibus de serviço azure - expiração da mensagem
-description: Este artigo explica sobre a expiração e o tempo para viver das mensagens do Ônibus de Serviço do Azure. Após esse prazo, a mensagem não é mais entregue.
+title: Barramento de serviço do Azure-expiração de mensagem
+description: Este artigo explica a expiração e a vida útil das mensagens do barramento de serviço do Azure. Após esse prazo, a mensagem não é mais entregue.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: e86c92fa1cfb13929d5617502224f479709efdd3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76756327"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração da mensagem (vida útil)
@@ -26,7 +26,7 @@ O conteúdo de uma mensagem ou um comando ou consulta que uma mensagem transmite
 
 Para ambientes de desenvolvimento e teste em que as consultas e tópicos são frequentemente usadas no contexto de execuções parciais de aplicativos ou partes de aplicativos, também é desejável que as mensagens de teste presas sejam automaticamente coletadas no lixo para que a próxima execução de teste possa começar limpa.
 
-A expiração para qualquer mensagem individual pode ser controlada pela configuração da propriedade do sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), que especifica uma duração relativa. A expiração se torna um instante absoluto quando a mensagem é enfileirada na entidade. Nesse momento, a propriedade [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume o valor [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**).](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) A configuração de tempo para viver (TTL) em uma mensagem intermediada não é aplicada quando não há clientes ouvindo ativamente.
+A expiração para qualquer mensagem individual pode ser controlada pela configuração da propriedade do sistema [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive), que especifica uma duração relativa. A expiração se torna um instante absoluto quando a mensagem é enfileirada na entidade. Nesse momento, a propriedade [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) assume o valor [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). A configuração de vida útil (TTL) em uma mensagem orientada não é imposta quando não há clientes ouvindo ativamente.
 
 Após o instante **ExpiresAtUtc**, as mensagens se tornam não qualificadas para recuperação. A expiração não afeta as mensagens que estão bloqueadas no momento para entrega, essas mensagens ainda são manipuladas normalmente. Se o bloqueio expirar ou se a mensagem for abandonada, a expiração entrará em vigor imediatamente.
 
@@ -37,9 +37,9 @@ Enquanto a mensagem está em um bloqueio, o aplicativo pode estar em posse de um
 Todas as mensagens enviadas para uma fila ou tópico estão sujeitas a uma expiração padrão que é definida no nível da entidade com a propriedade [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) e que também pode ser definida no portal durante a criação e ajustada posteriormente. A expiração padrão é usada para todas as mensagens enviadas para a entidade em que [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) não é definida explicitamente. A expiração padrão também funciona como um limite para o valor de **TimeToLive**. Mensagens que têm uma expiração de **TimeToLive** maior do que o valor padrão são silenciosamente ajustadas para o valor de **defaultMessageTimeToLive** antes de serem enfileiradas.
 
 > [!NOTE]
-> O valor padrão [timeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) para uma mensagem intermediada é [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) se não for especificado de outra forma.
+> O valor [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) padrão para uma mensagem orientada é [TimeSpan. Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) se não for especificado de outra forma.
 >
-> Para entidades de mensagens (filas e tópicos), o tempo de expiração padrão também é [timeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) para níveis padrão e premium do Service Bus.  Para o nível básico, o prazo de validade padrão é de 14 dias.
+> Para entidades de mensagens (filas e tópicos), o tempo de expiração padrão também é [TimeSpan. Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) para as camadas Standard e Premium do barramento de serviço.  Para a camada básica, o tempo de expiração padrão é de 14 dias.
 
 As mensagens expiradas podem, opcionalmente, ser movidas para uma [fila de mensagens mortas](service-bus-dead-letter-queues.md) definindo a propriedade [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) ou marcando a caixa respectiva no portal. Se a opção estiver desabilitada, as mensagens expiradas serão descartadas. As mensagens expiradas movidas para a fila de mensagens mortas podem ser distinguidas de outras mensagens mortas avaliando a propriedade [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) que o agente armazena na seção de propriedades do usuário, o valor é [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) nesse caso.
 

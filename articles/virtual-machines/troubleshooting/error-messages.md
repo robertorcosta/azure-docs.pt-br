@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76543011"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Entender as mensagens de erro comuns ao gerenciar máquinas virtuais no Azure
@@ -99,8 +99,8 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  InvalidParameter  |  "A senha fornecida deve ter entre {0}-{1} caracteres e deve atender pelo menos {2} requisitos de complexidade de senha entre os seguintes: <ol><li> Contém um caractere maiúsculo</li><li>Contém um caractere minúsculo</li><li>Contém um dígito numérico</li><li>Contém um caractere especial.</li></ol>  |
 |  InvalidParameter  |  O Nome de Utilizador de Admin especificado não é permitido.  |
 |  InvalidParameter  |  Não é possível anexar um disco de SO existente quando a VM é criada a partir de uma imagem de plataforma ou de utilizador.  |
-|  InvalidParameter  |  O nome de contêiner {0} é inválido. Os nomes de contêiner devem ter de três a 63 caracteres e conter somente caracteres alfanuméricos minúsculos e hífen. O hífen deve ser precedido e seguido por um caráter alfanumérico.  |
-|  InvalidParameter  |  O nome de contêiner {0} na URL {1} é inválido. Os nomes de contêiner devem ter de três a 63 caracteres e conter somente caracteres alfanuméricos minúsculos e hífen. O hífen deve ser precedido e seguido por um caráter alfanumérico.  |
+|  InvalidParameter  |  O nome de contêiner {0} é inválido. Os nomes de contêiner devem ter de três a 63 caracteres e conter somente caracteres alfanuméricos minúsculos e hífen. Hífen deve ser precedido e seguido por um caractere alfanumérico.  |
+|  InvalidParameter  |  O nome de contêiner {0} na URL {1} é inválido. Os nomes de contêiner devem ter de três a 63 caracteres e conter somente caracteres alfanuméricos minúsculos e hífen. Hífen deve ser precedido e seguido por um caractere alfanumérico.  |
 |  InvalidParameter  |  O nome de blob na URL {0} contém uma barra invertida. Atualmente, não há suporte para isso em discos.  |
 |  InvalidParameter  |  O URI {0} não parece ser um URI de blob correto.  |
 |  InvalidParameter  |  Um disco chamado "{0}" já utiliza o mesmo LUN: {1}.  |
@@ -205,7 +205,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 |  VMExtensionManagementInternalError  |  Vários erros ocorreram ao preparar as extensões da VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
 |  VMExtensionProvisioningError  |  A VM reportou uma falha durante o processamento da extensão "{0}". Mensagem de erro: “{1}”.  |
 |  VMExtensionProvisioningError  |  Houve falha no provisionamento de várias extensões de VM na VM. Consulte a exibição de instância de extensão de VM para obter detalhes.  |
-|  VMExtensionProvisioningTimeout  |  O provisionamento da{0}extensão VM ' ' tem tempo. A instalação de extensão pode estar demorando muito, ou o status de extensão não pode ser obtido.  |
+|  VMExtensionProvisioningTimeout  |  O provisionamento da extensão de VM '{0}' atingiu o tempo limite. A instalação da extensão pode estar demorando muito ou não foi possível obter o status da extensão.  |
 |  VMMarketplaceInvalidInput  |  A criação de uma máquina virtual a partir de uma imagem do tipo não Mercado não necessita de Informações do plano. Remova as Informações do plano existentes no pedido. O nome de disco do SO é {0}.  |
 |  VMMarketplaceInvalidInput  |  As informações de compra não coincidem. Não é possível implantar a partir da imagem do Marketplace. O nome de disco do SO é {0}.  |
 |  VMMarketplaceInvalidInput  |  A criação de uma máquina virtual a partir da imagem de Mercado necessita que o pedido inclua as Informações do plano. O nome de disco do SO é {0}.  |
@@ -216,4 +216,4 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao geren
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Se precisar de mais ajuda, você pode contatar os especialistas do Azure nos [fóruns do MSDN do Azure e nos fóruns do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá ao site de suporte do [Azure](https://azure.microsoft.com/support/options/) e **selecione Obter suporte**.
+Se precisar de mais ajuda, você pode contatar os especialistas do Azure nos [fóruns do MSDN do Azure e nos fóruns do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.

@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76838251"
 ---
-# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informações de imagens em cenários de enriquecimento de IA
+# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Como processar e extrair informações de imagens em cenários de enriquecimento de ia
 
-O Azure Cognitive Search tem vários recursos para trabalhar com imagens e arquivos de imagem. Durante a quebra de documento, você pode usar o parâmetro *imageAction* extrair texto de fotos ou imagens que contêm texto alfanumérico, como a palavra "PARE" em um sinal de parada. Outros cenários incluem gerar uma representação de texto de uma imagem, como "dente-de-leão" para uma foto de um dente-de-leão ou a cor "amarela". Você também pode extrair metadados sobre a imagem, como seu tamanho.
+O Azure Pesquisa Cognitiva tem vários recursos para trabalhar com imagens e arquivos de imagem. Durante a quebra de documento, você pode usar o parâmetro *imageAction* extrair texto de fotos ou imagens que contêm texto alfanumérico, como a palavra "PARE" em um sinal de parada. Outros cenários incluem gerar uma representação de texto de uma imagem, como "dente-de-leão" para uma foto de um dente-de-leão ou a cor "amarela". Você também pode extrair metadados sobre a imagem, como seu tamanho.
 
-Este artigo aborda o processamento de imagens com mais detalhes e fornece orientação para trabalhar com imagens em um pipeline de enriquecimento de IA.
+Este artigo aborda o processamento de imagem em mais detalhes e fornece orientação para trabalhar com imagens em um pipeline de enriquecimento de ia.
 
 <a name="get-normalized-images"></a>
 
@@ -27,20 +27,20 @@ Este artigo aborda o processamento de imagens com mais detalhes e fornece orient
 
 Como parte da quebra do documento, há um novo conjunto de parâmetros de configuração do indexador para lidar com arquivos de imagem ou imagens incorporadas em arquivos. Esses parâmetros são usados para normalizar imagens para processamento downstream maior. Normalizar imagens as torna mais uniformes. Imagens grandes são redimensionadas para uma altura e largura máximas, para torná-las consumíveis. Para imagens que fornecem metadados na orientação, a rotação da imagem será ajustada para carregamento vertical. Ajustes de metadados são capturados em um tipo complexo criado para cada imagem. 
 
-Você não pode desativar a normalização de imagem. Habilidades que iteram sobre imagens esperam imagens normalizadas. Habilitar a normalização da imagem em um indexador requer que um conjunto de habilidades seja anexado a esse indexador.
+Você não pode desativar a normalização de imagem. Habilidades que iteram sobre imagens esperam imagens normalizadas. Habilitar a normalização de imagem em um indexador requer que um conconhecimento seja anexado a esse indexador.
 
 | Parâmetro de configuração | Descrição |
 |--------------------|-------------|
-| imageAction   | Definido como "none" se nenhuma ação puder ser tomada quando os arquivos de imagem ou imagens incorporadas forem encontrados. <br/>Defina como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da quebra de documento.<br/>Definido como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas onde, para PDFs em sua fonte de dados, cada página é renderizada em uma imagem de saída.  A funcionalidade é a mesmo que "generateNormalizedImages" para tipos de arquivos que não são PDF.<br/>Para qualquer opção que não seja "none", essas imagens serão expostas no campo *normalized_images*. <br/>O padrão é "none". Essa configuração só é pertinente a fontes de dados de blob, quando "dataToExtract" é definido como "contentAndMetadata". <br/>Um máximo de 1000 imagens serão extraídas de um determinado documento. Se houver mais de 1000 imagens em um documento, as primeiras 1000 serão extraídas e um aviso será gerado. |
+| imageAction   | Definido como "none" se nenhuma ação puder ser tomada quando os arquivos de imagem ou imagens incorporadas forem encontrados. <br/>Defina como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da quebra de documento.<br/>Definido como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas onde, para PDFs na fonte de dados, cada página é renderizada para uma imagem de saída.  A funcionalidade é a mesmo que "generateNormalizedImages" para tipos de arquivos que não são PDF.<br/>Para qualquer opção que não seja "none", essas imagens serão expostas no campo *normalized_images*. <br/>O padrão é "none". Essa configuração só é pertinente a fontes de dados de blob, quando "dataToExtract" é definido como "contentAndMetadata". <br/>Um máximo de 1000 imagens será extraído de um determinado documento. Se houver mais de 1000 imagens em um documento, o primeiro 1000 será extraído e um aviso será gerado. |
 |  normalizedImageMaxWidth | A largura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000. O valor máximo permitido é 10000. | 
 |  normalizedImageMaxHeight | A altura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000. O valor máximo permitido é 10000.|
 
 > [!NOTE]
-> Se você definir a propriedade *imageAction* para qualquer outra coisa que não seja "nenhum", você não será capaz de definir a propriedade *parsingMode* para nada além de "padrão".  Você só pode definir uma dessas duas propriedades como um valor não padrão na configuração do indexador.
+> Se você definir a propriedade *imageaction* como algo diferente de "None", não será possível definir a propriedade *parsingMode* como algo diferente de "default".  Você só pode definir uma dessas duas propriedades como um valor não padrão na configuração do indexador.
 
 Defina o parâmetro **parsingMode**`json`(para indexar cada blob como um único documento) ou `jsonArray` (se seus blobs contêm matrizes JSON e você precisa que cada elemento da matriz seja tratado como um documento separado).
 
-O padrão de 2000 pixels para a largura e altura máximas das imagens normalizadas se baseia nos tamanhos máximos compatíveis com a [habilidade de OCR](cognitive-search-skill-ocr.md) e a [habilidade de análise de imagem](cognitive-search-skill-image-analysis.md). A [habilidade OCR](cognitive-search-skill-ocr.md) suporta uma largura máxima e altura de 4200 para línguas não inglesas, e 10000 para inglês.  Se você aumentar os limites máximos, o processamento pode falhar em imagens maiores, dependendo da definição de suas habilidades e da linguagem dos documentos. 
+O padrão de 2000 pixels para a largura e altura máximas das imagens normalizadas se baseia nos tamanhos máximos compatíveis com a [habilidade de OCR](cognitive-search-skill-ocr.md) e a [habilidade de análise de imagem](cognitive-search-skill-image-analysis.md). A [habilidade de OCR](cognitive-search-skill-ocr.md) dá suporte a uma largura e altura máxima de 4200 para idiomas que não estão em inglês e 10000 para inglês.  Se você aumentar os limites máximos, o processamento poderá falhar em imagens maiores, dependendo da sua definição de Skills e do idioma dos documentos. 
 
 Especifique o imageAction na [definição do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) da seguinte maneira:
 
@@ -69,7 +69,7 @@ Quando o campo *imageAction* for definido para qualquer valor diferente de "none
 | originalHeight      | A altura original da imagem antes da normalização. |
 | rotationFromOriginal |  Rotação no sentido anti-horário em graus para criar a imagem normalizada. Um valor entre 0 graus e 360 graus. Esta etapa lê os metadados da imagem gerada por uma câmera ou scanner. Geralmente, é um múltiplo de 90 graus. |
 | contentOffset | O deslocamento de caractere dentro do campo de conteúdo do qual a imagem foi extraída. Este campo só é aplicável a arquivos com imagens incorporadas. |
-| Pagenumber | Se a imagem foi extraída ou renderizada de um PDF, este campo contém o número da página no PDF de que foi extraído ou renderizado, a partir de 1.  Se a imagem não fosse de um PDF, este campo seria 0.  |
+| pageNumber | Se a imagem tiver sido extraída ou renderizada de um PDF, esse campo conterá o número da página no PDF em que foi extraído ou renderizado, começando em 1.  Se a imagem não fosse de um PDF, esse campo será 0.  |
 
  Exemplo de valor de *normalized_images*:
 ```json
@@ -95,7 +95,7 @@ Atualmente, essas habilidades só funcionam com imagens geradas na etapa de queb
 
 ### <a name="image-analysis-skill"></a>Habilidade Análise de Imagens
 
-A [habilidade de Análise de Imagens](cognitive-search-skill-image-analysis.md) extrai um rico conjunto de recursos visuais com base no conteúdo da imagem. Por exemplo, é possível gerar uma legenda de uma imagem, criar marcas ou identificar celebridades e pontos de referência.
+A [habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) extrai um conjunto avançado de recursos visuais com base no conteúdo da imagem. Por exemplo, é possível gerar uma legenda de uma imagem, criar marcas ou identificar celebridades e pontos de referência.
 
 ### <a name="ocr-skill"></a>Habilidade OCR
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect Health com relatório IP arriscado da AD FS | Microsoft Docs
-description: Descreve o relatório IP arriscado AD Connect Health AD FS do Azure AD.
+title: Azure AD Connect Health com AD FS relatório de IP arriscado | Microsoft Docs
+description: Descreve o Azure AD Connect Health AD FS relatório de IP arriscado.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
@@ -17,13 +17,13 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: defdf8118f1b07f8d6ddc4d232cda0fc423ef9f6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897265"
 ---
-# <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (visualização pública)
+# <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (visualização pública)
 Os clientes do AD FS podem expor pontos de extremidade de autenticação de senha para a Internet a fim de fornecer serviços de autenticação para os usuários finais acessarem aplicativos SaaS como o Office 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
 
 Além disso, é possível que um único endereço IP tente vários logons em relação a vários usuários. Nesses casos, o número de tentativas por usuário pode estar abaixo do limite para a proteção de bloqueio de conta no AD FS. O Azure AD Connect Health agora fornece o "Relatório IP arriscado", que detecta essa condição e notifica os administradores quando isso ocorre. Estes são os principais benefícios do relatório: 
@@ -38,14 +38,14 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 > Para acessar a versão prévia, uma permissão de Administrador Global ou [Leitor de segurança](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) é necessária.  
 > 
 
-## <a name="what-is-in-the-report"></a>O que está no relatório?
-Os endereços IP do cliente de registro de falha na atividade são agregados através de servidores Proxy de aplicativos da Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+## <a name="what-is-in-the-report"></a>O que há no relatório?
+Os endereços IP do cliente de atividade de entrada com falha são agregados por meio de servidores proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Item do relatório | Descrição |
 | ------- | ----------- |
 | Carimbo de Data/Hora | Mostra o carimbo de data/hora com base na hora local do portal do Azure quando a janela de tempo de detecção é iniciada.<br /> Todos os eventos diários são gerados à meia-noite, horário UTC. <br />Os eventos por hora têm o carimbo de data/hora arredondado para o início da hora. Você pode encontrar a hora de início da primeira atividade de "firstAuditTimestamp" no arquivo exportado. |
 | Tipo de gatilho | Mostra o tipo de janela de tempo de detecção. Os tipos de gatilho de agregação são por hora ou por dia. Isso é útil para detectar um ataque de força bruta de alta frequência versus um ataque lento, em que o número de tentativas é distribuído ao longo do dia. |
-| Endereço IP | O único endereço IP arriscado que tinha senha incorreta ou atividades de entrada do bloqueio de extranet. Pode ser um IPv4 ou um endereço IPv6. |
+| Endereço IP | O único endereço IP arriscado que tinha senha incorreta ou atividades de entrada do bloqueio de extranet. Pode ser um endereço IPv4 ou IPv6. |
 | Contagem de erro de senha inválida | Ocorreu a contagem de erro de senha incorreta no endereço IP durante a janela de tempo de detecção. Os erros de senha incorreta podem ocorrer várias vezes para determinados usuários. Observe que isso não inclui tentativas com falha devido a senhas expiradas. |
 | Contagem de erro de bloqueio de extranet | Ocorreu a contagem de erro de bloqueio de extranet no endereço IP durante a janela de tempo de detecção. Os erros de bloqueio de Extranet podem ocorrer várias vezes para determinados usuários. Isso só será visto se o Bloqueio de Extranet for configurado no AD FS (versões 2012R2 ou superior). <b>Observação</b> Recomendamos ativar esse recurso se você permite logons extranet com senhas. |
 | Usuários exclusivos tentados | Contagem de tentativas de contas de usuário exclusivas no endereço IP durante a janela de tempo de detecção. Isso fornece um mecanismo para diferenciar um padrão de ataque de usuário único versus um padrão de ataque de multiusuário.  |
@@ -65,7 +65,7 @@ Por exemplo, o item de relatório abaixo indica, da janela de 18h às 19h em 28/
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Endereços IP do balanceador de carga na lista
 Atividades de entrada com falha agregadas ao balanceador de carga e limite de alerta atingido. Se você está vendo endereços IP do balanceador de carga, é muito provável que o seu balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web. Configure o balanceador de carga corretamente para encaminhar o endereço IP do cliente. 
 
-## <a name="download-risky-ip-report"></a>Baixe o relatório IP arriscado 
+## <a name="download-risky-ip-report"></a>Baixar relatório de IP arriscado 
 Usando a função **Baixar**, a lista de endereços IP arriscados inteira nos últimos 30 dias pode ser exportada do Portal do Connect Health O resultado de exportação incluirá todas as atividades de entrada do AD FS com falha em cada janela de tempo de detecção, para que você possa personalizar a filtragem após a exportação. Além de agregações realçadas no portal, o resultado da exportação também mostra mais detalhes sobre as atividades de entrada com falha por endereço IP:
 
 |  Item do relatório  |  Descrição  | 
@@ -75,10 +75,10 @@ Usando a função **Baixar**, a lista de endereços IP arriscados inteira nos ú
 | attemptCountThresholdIsExceeded | O sinalizador que indica se as atividades atuais estão excedendo o limite de alerta.  | 
 | isWhitelistedIpAddress | O sinalizador que indica se o endereço IP foi filtrado de alertas e relatórios. Endereços IP privados (<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) e endereços IP do Exchange são filtrados e marcados como Verdadeiros. Se você está vendo intervalos de endereços IP privados, é muito provável que o balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web.  | 
 
-## <a name="configure-notification-settings"></a>Configurar configurações de notificação
+## <a name="configure-notification-settings"></a>Definir configurações de notificação
 Os contatos de Admin do relatório podem ser atualizados por meio das **Configurações de Notificação**. Por padrão, a notificação de email de alerta de IP arriscado está desativada. Você pode habilitar a notificação alternando o botão em "Obter notificações por email para endereços IP que excederem o limite de atividades com falha do relatório" Como as configurações de notificação de alerta genérico no Connect Health, ele permite que você personalize a lista de destinatários designados para a notificação sobre o relatório de IPs arriscados aqui. Você também pode notificar todos os administradores globais ao fazer a alteração. 
 
-## <a name="configure-threshold-settings"></a>Configurar configurações de limiar
+## <a name="configure-threshold-settings"></a>Definir configurações de limite
 O limite de alerta pode ser atualizado com as Configurações de Limite. Para começar, o sistema tem um limite definido por padrão. Há quatro categorias nas configurações de limite do relatório de IP arriscado:
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)

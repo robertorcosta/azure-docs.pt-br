@@ -12,19 +12,19 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4c47dfb8b221b6cb4b6237669ecd17c1637107a2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721091"
 ---
 # <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Processar dados de blob do Azure com análise avançada
 Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carregar os dados em um quadro de dados Pandas
-Para explorar e manipular um conjunto de dados, ele deve ser baixado da fonte blob para um arquivo local que pode ser carregado em um quadro de dados Pandas. Aqui estão as etapas para este procedimento:
+Para explorar e manipular um conjunto de dados, ele deve ser baixado da origem do blob para um arquivo local que pode ser carregado em um quadro de dados do pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do Blob do Azure com o seguinte código Python de amostra usando o serviço Blob. Substitua a variável no código abaixo pelos valores específicos: 
+1. Baixe os dados do blob do Azure com o seguinte código Python de exemplo usando o serviço BLOB. Substitua a variável no código abaixo pelos valores específicos: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -48,7 +48,7 @@ Para explorar e manipular um conjunto de dados, ele deve ser baixado da fonte bl
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-## <a name="data-exploration"></a><a name="blob-dataexploration"></a>Exploração de Dados
+## <a name="data-exploration"></a><a name="blob-dataexploration"></a>Exploração de dados
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
 1. Verificar o número de linhas e colunas 
@@ -131,7 +131,7 @@ Para gerar recursos compartimentalizados, faça o seguinte:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Azure Machine Learning
-Depois de explorar os dados e criar os recursos necessários, você pode carregar os dados (amostrados ou featurizados) para uma bolha do Azure e consumi-lo no Azure Machine Learning usando as seguintes etapas: Recursos adicionais podem ser criados no Azure Machine Learning Estúdio (clássico) também. 
+Depois de explorar os dados e criar os recursos necessários, você pode carregar os dados (amostras ou destacados) em um blob do Azure e consumi-los em Azure Machine Learning usando as seguintes etapas: os recursos adicionais podem ser criados no Azure Machine Learning Studio (clássico) também. 
 
 1. Grave o quadro de dados no arquivo local
    

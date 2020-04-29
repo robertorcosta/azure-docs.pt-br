@@ -12,14 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76719986"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo nas tabelas Hive do Azure HDInsight
-Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir isso a um tamanho mais gerenciável para análise. Abrange três métodos de amostragem popularmente utilizados:
+Este artigo descreve como reduzir os dados de amostra armazenados nas tabelas Hive do Azure HDInsight usando consultas de Hive para reduzir isso a um tamanho mais gerenciável para análise. Ele aborda três métodos de amostragem populares usados:
 
 * Amostragem aleatória uniforme
 * Amostragem aleatória por grupos
@@ -31,7 +31,7 @@ Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Como enviar consultas de Hive
-Consultas de Hive podem ser enviadas do console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop.  Entre no nó principal do cluster Hadoop, abra o console Hadoop Command-Line e envie as consultas da Colmeia a partir daí. Para obter instruções sobre como enviar consultas de Hive no console Linha de Comando do Hadoop, confira [Como enviar consultas de Hive](move-hive-tables.md#submit).
+Consultas de Hive podem ser enviadas do console de Linha de Comando do Hadoop no nó principal do cluster do Hadoop.  Faça logon no nó principal do cluster do Hadoop, abra o console de linha de comando do Hadoop e envie as consultas de Hive a partir daí. Para obter instruções sobre como enviar consultas de Hive no console Linha de Comando do Hadoop, confira [Como enviar consultas de Hive](move-hive-tables.md#submit).
 
 ## <a name="uniform-random-sampling"></a><a name="uniform"></a> Amostragem aleatória uniforme
 A amostragem aleatória uniforme significa que cada linha no conjunto de dados tem a mesma chance de amostra. Isso pode ser implementado adicionando um campo rand() extra ao conjunto de dados na consulta interna "select" e na consulta externa “select”, esta condição estará nesse campo aleatório.

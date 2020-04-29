@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840563"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Exibir a topologia de uma Rede Virtual do Azure
@@ -51,7 +51,7 @@ Os recursos mostrados no diagrama são um subconjunto dos componentes na rede vi
 
 É possível executar os comandos nestas etapas:
 - No Azure Cloud Shell, selecione **Experimente** na parte superior direita de qualquer comando. O Azure Cloud Shell é um shell de interativo gratuito com ferramentas comuns do Azure pré-instaladas e configuradas para usar com sua conta.
-- Executar a CLI do seu computador. Se você executar a CLI do seu computador, as etapas neste artigo exigirão a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Caso precise instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
+- Executar a CLI do seu computador. Se você executar a CLI do seu computador, as etapas neste artigo exigirão a CLI do Azure versão 2.0.31 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver executando a CLI do Azure localmente, você também precisará executar o `az login` para criar uma conexão com o Azure.
 
 A conta que você usa deve ter as [permissões](required-rbac-permissions.md) necessárias.
 
@@ -84,17 +84,17 @@ A conta que você usa deve ter as [permissões](required-rbac-permissions.md) ne
 
 É possível executar os comandos nestas etapas:
 - No Azure Cloud Shell, selecione **Experimente** na parte superior direita de qualquer comando. O Azure Cloud Shell é um shell de interativo gratuito com ferramentas comuns do Azure pré-instaladas e configuradas para usar com sua conta.
-- Executar o PowerShell do seu computador. Se você executar o PowerShell a partir do seu `Az` computador, este artigo requer o módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
+- Executar o PowerShell do seu computador. Se você executar o PowerShell do seu computador, este artigo exigirá `Az` o módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Connect-AzAccount` para criar uma conexão com o Azure.
 
 A conta que você usa deve ter as [permissões](required-rbac-permissions.md) necessárias.
 
-1. Se você já tiver um observador de rede na mesma região da rede virtual para a qual você deseja criar uma topologia, pule para a etapa 3. Crie um grupo de recursos para conter um observador de rede com [o New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo a seguir cria o grupo de recursos na região *eastus*:
+1. Se você já tiver um observador de rede na mesma região da rede virtual para a qual você deseja criar uma topologia, pule para a etapa 3. Crie um grupo de recursos para conter um observador de rede com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). O exemplo a seguir cria o grupo de recursos na região *eastus*:
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Crie um observador de rede com [o New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). O exemplo a seguir cria um observador de rede na região eastus:
+2. Crie um observador de rede com [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). O exemplo a seguir cria um observador de rede na região eastus:
 
     ```azurepowershell-interactive
     New-AzNetworkWatcher `
@@ -102,7 +102,7 @@ A conta que você usa deve ter as [permissões](required-rbac-permissions.md) ne
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Recupere uma instância do Observador de Rede com [get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). O exemplo a seguir recupera um observador de rede na região Leste dos EUA:
+3. Recupere uma instância do observador de rede com [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). O exemplo a seguir recupera um observador de rede na região Leste dos EUA:
 
     ```azurepowershell-interactive
     $nw = Get-AzResource `

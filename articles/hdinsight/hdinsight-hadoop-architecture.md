@@ -1,6 +1,6 @@
 ---
 title: Arquitetura do Apache Hadoop - Azure HDInsight
-description: Descreve o armazenamento e o processamento do Apache Hadoop nos clusters Azure HDInsight.
+description: Descreve Apache Hadoop armazenamento e processamento em clusters HDInsight do Azure.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162201"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
@@ -47,26 +47,26 @@ Todos os tipos de Cluster HDInsight implantam o YARN. O ResourceManager é impla
 
 ![Apache YARN no Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
-## <a name="soft-delete"></a>Exclusão suave
+## <a name="soft-delete"></a>Exclusão reversível
 
-Para desexcluir um arquivo da sua conta de armazenamento, consulte:
+Para restaurar um arquivo da sua conta de armazenamento, consulte:
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
 * [Exclusão reversível para blobs do Armazenamento do Azure ](../storage/blobs/storage-blob-soft-delete.md)
-* [Bolha sem exclusão](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+* [Restaurar blob](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
 
 ### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
 
-[Restaurar-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
 
 ### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
 
 [Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs](../storage/blobs/data-lake-storage-known-issues.md)
 
-## <a name="trash-purging"></a>Purga de lixo
+## <a name="trash-purging"></a>Descarte de lixo
 
-A `fs.trash.interval` propriedade do **hdfs** > **advanced core-site** `0` deve permanecer no valor padrão porque você não deve armazenar nenhum dado no sistema de arquivos local. Esse valor não afeta contas de armazenamento remotas (WASB, ADLS GEN1, ABFS)
+A `fs.trash.interval` Propriedade do **HDFS** > **Advanced Core-site** deve permanecer no valor `0` padrão porque você não deve armazenar nenhum dado no sistema de arquivos local. Esse valor não afeta as contas de armazenamento remoto (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Próximas etapas
 

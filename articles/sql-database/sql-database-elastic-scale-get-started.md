@@ -12,10 +12,10 @@ ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76987015"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
@@ -81,7 +81,7 @@ Para instalar a biblioteca, acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Cli
 
 Para baixar e executar a amostra, siga estas etapas: 
 
-1. Baixe as [ferramentas elásticas DB para a amostra Azure SQL - Getting Started](https://github.com/Azure/elastic-db-tools). Descompacte o exemplo em um local de sua escolha.
+1. Baixe as [ferramentas de banco de BD elástico para o SQL do Azure-introdução exemplo](https://github.com/Azure/elastic-db-tools). Descompacte o exemplo em um local de sua escolha.
 
 2. Para criar um projeto, abra a solução *ElasticScaleStarterKit.sln* do diretório *C#*.
 
@@ -120,7 +120,7 @@ A biblioteca das Ferramentas de Banco de Dados Elástico é gratuita. Ao usar as
 
 Por exemplo, o aplicativo de exemplo cria novos bancos de dados. O custo desse recurso depende da edição de Banco de Dados SQL do Azure escolhida e do uso que o Azure faz de seu aplicativo.
 
-Para obter informações sobre preços, consulte [os detalhes dos preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+Para obter informações sobre preços, consulte [detalhes de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

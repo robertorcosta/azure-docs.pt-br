@@ -1,6 +1,6 @@
 ---
 title: Visão geral das APIs de Node de Retransmissão do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral da API Node.js para o serviço Azure Relay. Ele também mostra como usar o pacote hyco-ws Node.
+description: Este artigo fornece uma visão geral da API do node. js para o serviço de retransmissão do Azure. Ele também mostra como usar o pacote de nó hyco-WS.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514503"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API de Node de Conexões Híbridas de Retransmissão
 
 ## <a name="overview"></a>Visão geral
 
-O [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) pacote Nó para Conexões Híbridas azure Relay é construído e estende o pacote [NPM 'ws'.](https://www.npmjs.com/package/ws) Este pacote novamente exporta todas as exportações do pacote base e adiciona novos exportações que permitem a integração com o recurso de Conexões Híbridas do serviço de retransmissão do Azure. 
+O [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) pacote de nó para retransmissão do Azure conexões híbridas é criado e estende o pacote de NPM [' WS '](https://www.npmjs.com/package/ws) . Este pacote novamente exporta todas as exportações do pacote base e adiciona novos exportações que permitem a integração com o recurso de Conexões Híbridas do serviço de retransmissão do Azure. 
 
 Os aplicativos existentes que `require('ws')` pode usar esse pacote com `require('hyco-ws')` em vez disso, que também permite cenários híbridos em que um aplicativo pode escutar conexões WebSocket localmente do "dentro do firewall" e por meio de Conexões Híbridas, tudo ao mesmo tempo.
   
@@ -143,7 +143,7 @@ function(headers)
 
 O evento `headers` é gerado antes de uma conexão de entrada ser aceita, permitindo a modificação dos cabeçalhos a enviar ao cliente. 
 
-##### <a name="connection"></a>conexão
+##### <a name="connection"></a>connection
 
 ```JavaScript
 function(socket)

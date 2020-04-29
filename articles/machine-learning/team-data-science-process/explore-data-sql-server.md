@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ae8c7c43ecbf9bc625e1e46be3e2c71c8d57b6f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720088"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explorar dados na Máquina Virtual do SQL Server no Azure
@@ -51,7 +51,7 @@ Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar 
 > 
 
 ## <a name="explore-sql-data-with-python"></a><a name="python"></a>Explorar dados de SQL com o Python
-Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no Azure blob usando Python, conforme documentado nos [dados do Process Azure Blob em seu ambiente de ciência de dados](data-blob.md). Carregue os dados do banco de dados em um DataFrame pandas e, em seguida, pode ser processado mais adiante. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um DataFrame nesta seção.
+Usar o Python para explorar dados e gerar recursos quando os dados estão em SQL Server é semelhante a processar dados no blob do Azure usando o Python, conforme documentado em [processar dados de blob do Azure em seu ambiente de ciência de dados](data-blob.md). Carregue os dados do banco de dado em um dataframe do pandas e, em seguida, pode ser processado mais detalhadamente. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um DataFrame nesta seção.
 
 O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, username e password pelos seus valores específicos):
 
@@ -59,7 +59,7 @@ O seguinte formato de cadeia de conexão pode ser usado para se conectar a um ba
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-A [biblioteca Pandas](https://pandas.pydata.org/) em Python fornece um rico conjunto de estruturas de dados e ferramentas de análise de dados para manipulação de dados para programação Python. O código a seguir lê os resultados retornados de um banco de dados do SQL Server em um quadro de dados Pandas:
+A [biblioteca pandas](https://pandas.pydata.org/) no Python fornece um rico conjunto de estruturas de dados e ferramentas de análise de dados para a manipulação de dados para a programação em Python. O código a seguir lê os resultados retornados de um banco de dados do SQL Server em um quadro de dados Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

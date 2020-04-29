@@ -17,14 +17,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897214"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorar a sincronização do Azure AD Connect com o Azure AD Connect Health
-A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Além disso, para obter informações sobre o monitoramento dos serviços de domínio do Active Directory com o Azure AD Connect Health, consulte [usando o Azure AD Connect Health com DS](how-to-connect-health-adds.md).
+A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Além disso, para obter informações sobre como monitorar Active Directory Domain Services com Azure AD Connect Health consulte [usando Azure ad Connect Health com AD DS](how-to-connect-health-adds.md).
 
 ![Azure AD Connect Health para sincronização](./media/how-to-connect-health-sync/syncsnapshot.png)
 
@@ -70,7 +70,7 @@ Esse recurso fornece um relatório sobre os erros de sincronização que podem o
 * O relatório abrange erros registrados pelo cliente de sincronização (Azure AD Connect versão 1.1.281.0 ou superior)
 * Ele inclui os erros que ocorreram na última operação de sincronização no mecanismo de sincronização. ("Exportar" no Azure AD Connector.)
 * O agente do Azure AD Connect Health para sincronização deve ter conectividade de saída para os pontos de extremidade necessários para o relatório incluir os dados mais recentes.
-* O relatório é **atualizado após cada 30 minutos** usando os dados carregados pelo agente Azure AD Connect Health para sincronização. Ele fornece os seguintes recursos-chave
+* O relatório é **atualizado após a cada 30 minutos** usando os dados carregados pelo agente Azure ad Connect Health para sincronização. Ele fornece os seguintes recursos principais
 
   * Categorização de erros
   * Lista de objetos com erro por categoria
@@ -114,12 +114,12 @@ Ao selecionar o botão "Exportar", você pode baixar um arquivo CSV com todos os
 Para o cenário de erro específico da sincronização de atributos duplicados que envolve a atualização de Source Anchor do usuário, você pode corrigi-los diretamente do portal. Leia mais sobre [Diagnosticar e corrigir erros de sincronização de atributos duplicados](how-to-connect-health-diagnose-sync-errors.md)
 
 ## <a name="related-links"></a>Links relacionados
-* [Solução de problemas Erros durante a sincronização](tshoot-connect-sync-errors.md)
-* [Resiliência de atributo duplicado](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
+* [Solucionando erros durante a sincronização](tshoot-connect-sync-errors.md)
+* [Duplicar resiliência de atributo](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Usar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
 * [Perguntas frequentes do Azure AD Connect Health](reference-connect-health-faq.md)
-* [Azure AD Connect Health Version History](reference-connect-health-version-history.md)
+* [Histórico de versão do Azure AD Connect Health](reference-connect-health-version-history.md)

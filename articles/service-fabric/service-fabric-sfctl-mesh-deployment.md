@@ -1,15 +1,15 @@
 ---
-title: Implantação de malha CLI-sfctl de malha do Azure Service
-description: Saiba mais sobre a sfctl, a interface de linha de comando azure Service Fabric. Inclui uma lista de comandos para criar recursos de malha de malha de malha de malha de malha de serviço.
+title: CLI do Azure Service Fabric-implantação de malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para criar Service Fabric recursos de malha.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906030"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
@@ -28,8 +28,8 @@ Cria uma implantação de Recursos da Malha do Service Fabric.
 
 |Argumento|Descrição|
 | --- | --- |
-| --input-yaml-files [Obrigatório] | Caminhos de arquivos relativos ou absolutos separados por comma de todos os arquivos de inhame ou caminho relativo ou absoluto do diretório (recursivo) que contenham arquivos de yaml. |
-| --parameters | Um caminho relativo ou absoluto para um arquivo de inhame ou um objeto json que contém os parâmetros que precisam ser substituídos. |
+| --input-yaml-files [Obrigatório] | Caminhos de arquivo relativos ou absolutos separados por vírgula de todos os arquivos YAML ou caminho relativo ou absoluto do diretório (recursivo) que contêm arquivos YAML. |
+| --parameters | Um caminho relativo ou absoluto para um arquivo YAML ou um objeto JSON que contém os parâmetros que precisam ser substituídos. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -55,12 +55,12 @@ Consolida e implanta todos os recursos em um diretório no cluster substituindo 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
-Consolida e implanta todos os recursos em um diretório para agrupar, substituindo os parâmetros que são passados diretamente como objeto json
+Consolida e implanta todos os recursos em um diretório para cluster substituindo os parâmetros que são passados diretamente como objeto JSON
 ``` 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :    
 {'value' : 'my_value'} }"   
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

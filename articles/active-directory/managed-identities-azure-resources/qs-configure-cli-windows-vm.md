@@ -1,5 +1,5 @@
 ---
-title: Configure identidades gerenciadas no Azure VM usando a Cli azure - Azure AD
+title: Configurar identidades gerenciadas na VM do Azure usando o CLI do Azure-Azure AD
 description: Instruções passo a passo para configurar identidades gerenciadas atribuídas ao usuário e ao sistema em uma VM do Azure usando a CLI do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2efaceefc53b3c0b5dfd899baf9fd30fdf9a76
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244141"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando a CLI do Azure
@@ -130,7 +130,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM durante sua cria�
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   A resposta contém detalhes para a identidade gerenciada atribuída ao usuário criada, semelhante à seguinte. O valor de ID de recurso atribuído à identidade gerenciada atribuída pelo usuário é usado na etapa seguinte.
+   A resposta contém detalhes para a identidade gerenciada atribuída ao usuário criada, semelhante à seguinte. O valor da ID de recurso atribuído à identidade gerenciada atribuída pelo usuário é usado na etapa a seguir.
 
    ```json
    {

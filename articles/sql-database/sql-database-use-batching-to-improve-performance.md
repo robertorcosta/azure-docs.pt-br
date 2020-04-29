@@ -1,5 +1,5 @@
 ---
-title: Como usar o loteamento para melhorar o desempenho do aplicativo
+title: Como usar o envio em lote para melhorar o desempenho do aplicativo
 description: O tópico fornece provas de que as operações de banco de dados de envio em lote melhorar consideravelmente a velocidade e a escalabilidade de seus aplicativos de Banco de Dados SQL do Azure. Embora essas técnicas de envio em lote funcionem para qualquer banco de dados do SQL Server, o foco do artigo é no Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76545017"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
@@ -95,7 +95,7 @@ Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro e
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executaram as mesmas inserções sequenciais, com e sem transações. Para obter uma perspectiva maior, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados localizados no mesmo datacenter do Microsoft Azure (Oeste dos Estados Unidos). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais, com e sem transações.
 
-**On-Premises para Azure**:
+**Local para o Azure**:
 
 | Operações | Sem transação (ms) | Com transação (ms) |
 | --- | --- | --- |
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro avaliado em tabela, ** \@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
+No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, ** \@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado e não um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que utiliza o parâmetro com valor de tabela **SimpleTestTableType** .
 
@@ -191,7 +191,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equivalente ou superior às outras técnicas de envio em lote. Normalmente, a preferência fica com os parâmetros com valor de tabela, pois são mais flexíveis do que as outras opções. Por exemplo, outras técnicas, como cópia em massa do SQL, só permitem a inserção de novas linhas. Porém, com os parâmetros com valor de tabela, você pode usar lógica no procedimento armazenado para determinar quais linhas serão atualizações e quais serão inserções. O tipo de tabela também pode ser modificado para conter uma coluna "Operação" que indica se a linha especificada deve ser inserida, atualizada ou excluída.
 
-A tabela a seguir mostra os resultados dos testes ad hoc para o uso de parâmetros avaliados em tabela em milissegundos.
+A tabela a seguir mostra os resultados de teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
 
 | Operações | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
@@ -231,7 +231,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Há alguns casos nos quais é preferível usar a cópia em massa do que os parâmetros com valor de tabela. Consulte a tabela de comparação de Parâmetros com valor de tabela versus operações BULK INSERT no artigo [Parâmetros com valor de tabela](https://msdn.microsoft.com/library/bb510489.aspx).
 
-Os resultados aseguir do teste ad hoc mostram o desempenho do loteamento com **SqlBulkCopy** em milissegundos.
+Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
 
 | Operações | Local para o Azure (ms) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
@@ -246,7 +246,7 @@ Os resultados aseguir do teste ad hoc mostram o desempenho do loteamento com **S
 > 
 > 
 
-Em lotes menores, o uso dos parâmetros com valor de tabela superaram a classe **SqlBulkCopy** . No entanto, **o SqlBulkCopy** executou 12-31% mais rápido do que os parâmetros de valor de tabela para os testes de 1.000 e 10.000 linhas. Assim como os parâmetros com valor de tabela, **SqlBulkCopy** é uma boa opção para inserções em lotes, especialmente quando comparado ao desempenho de operações que não são feitas em lotes.
+Em lotes menores, o uso dos parâmetros com valor de tabela superaram a classe **SqlBulkCopy** . No entanto, o **SqlBulkCopy** realizou 12-31% mais rápido do que os parâmetros com valor de tabela para os testes de 1.000 e 10.000 linhas. Assim como os parâmetros com valor de tabela, **SqlBulkCopy** é uma boa opção para inserções em lotes, especialmente quando comparado ao desempenho de operações que não são feitas em lotes.
 
 Para obter mais informações sobre a cópia em massa no ADO.NET, consulte [Operações de cópia em massa no SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
@@ -276,7 +276,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Esse exemplo tem como objetivo mostrar o conceito básico. Um cenário mais realista percorreria as entidades necessárias a fim de construir simultaneamente a cadeia de caracteres de consulta e os parâmetros de comando. Você está limitado a um total de 2100 parâmetros de consulta, e isso limita o número total de linhas que podem ser processadas dessa maneira.
 
-Os resultados aseguir do teste ad hoc mostram o desempenho deste tipo de instrução de inserção em milissegundos.
+Os seguintes resultados de teste ad hoc mostram o desempenho desse tipo de instrução INSERT em milissegundos.
 
 | Operações | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
 | --- | --- | --- |
@@ -297,7 +297,7 @@ A classe **DataAdapter** permite que você modifique um objeto **DataSet** e env
 
 ### <a name="entity-framework"></a>Entity Framework
 
-No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para ver esta discussão, consulte [Design Meeting Notes - 2 de agosto de 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para exibir essa discussão, consulte [notas de reunião de design – 2 de agosto de 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 

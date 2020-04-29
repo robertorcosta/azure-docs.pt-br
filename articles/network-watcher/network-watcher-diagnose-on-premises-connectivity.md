@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar conectividade on-premises via gateway VPN
+title: Diagnosticar a conectividade local por meio do gateway de VPN
 titleSuffix: Azure Network Watcher
 description: Este artigo descreve como diagnosticar a conectividade local por meio do gateway de VPN com a solução de problemas de recursos do Observador de Rede do Azure.
 services: network-watcher
@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 835b3a69e779b536961110b674ae67f4e8c13ce0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76845060"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
 
-O Gateway de VPN do Azure permite criar a solução híbrida que atenderá à necessidade de uma conexão segura entre sua rede local e sua rede virtual do Azure. Como os requisitos são exclusivos, a escolha do dispositivo VPN local também é exclusiva. Atualmente, o Azure suporta [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que são constantemente validados em parceria com os fornecedores de dispositivos. Examine as definições de configuração específicas do dispositivo antes de configurar seu dispositivo VPN local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [parâmetros IPsec suportados](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são usados para estabelecer conexões. Atualmente, não há formas de especificar ou selecionar uma combinação específica de parâmetros IPsec a partir do Gateway de VPN do Azure. Para estabelecer uma conexão bem-sucedida entre a rede local e o Azure, as configurações do dispositivo VPN local devem obedecer os parâmetros de IPsec prescritos pelo Gateway de VPN do Azure. Se as configurações estiverem incorretas, há uma perda de conectividade e até agora a solução de problemas não foi trivial e geralmente levou horas para identificar e corrigir o problema.
+O Gateway de VPN do Azure permite criar a solução híbrida que atenderá à necessidade de uma conexão segura entre sua rede local e sua rede virtual do Azure. Como os requisitos são exclusivos, a escolha do dispositivo VPN local também é exclusiva. Atualmente, o Azure suporta [vários dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que são constantemente validados em parceria com os fornecedores de dispositivos. Examine as definições de configuração específicas do dispositivo antes de configurar seu dispositivo VPN local. Da mesma forma, o Gateway de VPN do Azure está configurado com um conjunto de [parâmetros IPsec suportados](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que são usados para estabelecer conexões. Atualmente, não há formas de especificar ou selecionar uma combinação específica de parâmetros IPsec a partir do Gateway de VPN do Azure. Para estabelecer uma conexão bem-sucedida entre a rede local e o Azure, as configurações do dispositivo VPN local devem obedecer os parâmetros de IPsec prescritos pelo Gateway de VPN do Azure. Se as configurações estiverem incorretas, haverá perda de conectividade e, até agora, a solução desses problemas não era trivial e geralmente levava horas para identificar e corrigir o problema.
 
 Com o recurso de solução de problemas do Observador de Rede do Azure, é possível diagnosticar problemas com seu Gateway e Conexões e, em poucos minutos, obter informações suficientes para tomar uma decisão informada para corrigir o problema.
 
@@ -44,7 +44,7 @@ Uma das etapas críticas da configuração é a definição dos parâmetros de c
 
 ### <a name="ike-phase-1-setup"></a>Fase 1 da configuração IKE
 
-| **Propriedade** | **Baseado em políticas** | **Gateway de VPN RouteBased e Standard ou de Alto Desempenho** |
+| **Propriedade** | **PolicyBased** | **Gateway de VPN RouteBased e Standard ou de Alto Desempenho** |
 | --- | --- | --- |
 | Versão IKE |IKEv1 |IKEv2 |
 | Grupo Diffie-Hellman |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |

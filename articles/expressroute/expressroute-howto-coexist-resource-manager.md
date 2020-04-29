@@ -1,5 +1,5 @@
 ---
-title: 'Configure conexões coexistentes expressRoute e S2S VPN: Azure PowerShell'
+title: 'Configurar conexões coexistentes de VPN do ExpressRoute e S2S: Azure PowerShell'
 description: Configure uma conexão VPN site a site e de ExpressRoute que pode coexistir para o modelo do Resource Manager usando o PowerShell.
 services: expressroute
 author: charwen
@@ -9,10 +9,10 @@ ms.date: 12/11/2019
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: 5a7ac1b6a9f75655f7e07cc8af89b676ec611421
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905466"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões coexistentes Site a Site e ExpressRoute usando o PowerShell
@@ -38,10 +38,10 @@ As etapas para configurar as duas situações são cobertas neste artigo. Este a
 ## <a name="limits-and-limitations"></a>Limites e limitações
 * **Não há suporte para o roteamento do tráfego.** Não é possível fazer o roteamento (por meio do Azure) entre sua rede local conectada via VPN Site a Site e sua rede local conectada via ExpressRoute.
 * **Não há suporte para o gateway SKU básico.** Você deve usar um gateway SKU não Básico para o [gateway de ExpressRoute](expressroute-about-virtual-network-gateways.md) e o [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-* **Há suporte para apenas um gateway de VPN baseado em rotas.** Você deve usar um [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)baseado em rota . Você também pode usar um gateway VPN baseado em rota com uma conexão VPN configurada para 'seletores de tráfego baseados em políticas' conforme descrito no [Connect a vários dispositivos VPN baseados em políticas](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+* **Há suporte para apenas um gateway de VPN baseado em rotas.** Você deve usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)baseado em rota. Você também pode usar um gateway de VPN baseado em rota com uma conexão VPN configurada para ' seletores de tráfego baseado em políticas ', conforme descrito em [conectar-se a vários dispositivos VPN baseados em políticas](../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 * **O roteamento estático deve ser configurado para o gateway de VPN.** Se sua rede local estiver conectada à VPN Site a Site e de ExpressRoute, será necessário ter uma rota estática configurada em sua rede local para rotear a conexão VPN Site a Site para a Internet pública.
 * **O Gateway de VPN usa ASN 65515 como padrão se essa opção não é especificada.** O Gateway de VPN do Azure dá suporte ao protocolo de roteamento BGP. Você pode especificar o ASN (número AS) de uma rede virtual adicionando a opção -Asn. Se você não especificar esse parâmetro, o número AS padrão será 65515. Você pode usar qualquer ASN para a configuração, mas se selecionar algo diferente de 65515, precisará redefinir o gateway para que a configuração entre em vigor.
-* **A sub-rede gateway deve ser de /27 ou um prefixo mais curto**(como /26, /25), ou você receberá uma mensagem de erro quando adicionar o gateway de rede virtual ExpressRoute.
+* **A sub-rede de gateway deve ser/27 ou um prefixo mais curto**, (por exemplo,/26,/25), ou você receberá uma mensagem de erro ao adicionar o gateway de rede virtual do ExpressRoute.
 
 ## <a name="configuration-designs"></a>Designs de configuração
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurar uma VPN site a site como um caminho de failover para o ExpressRoute
@@ -242,7 +242,7 @@ Os cmdlets que você usará para essa configuração podem ser ligeiramente dife
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Para adicionar a configuração de ponto a site ao gateway de VPN
 
-Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto ao seu gateway VPN em uma configuração de coexistência. Para carregar o certificado raiz VPN, você deve instalar o PowerShell localmente no seu computador ou usar o portal Azure.
+Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto ao seu gateway VPN em uma configuração de coexistência. Para carregar o certificado raiz de VPN, você deve instalar o PowerShell localmente no computador ou usar o portal do Azure.
 
 1. Adicione o pool de endereços do Cliente VPN.
 
@@ -250,7 +250,7 @@ Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
    Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. Carregue o certificado-raiz da VPN para Azure para seu gateway de VPN. Neste exemplo, presume-se que o certificado raiz é armazenado na máquina local onde os seguintes cmdlets PowerShell são executados e que você está executando o PowerShell localmente. Você também pode carregar o certificado usando o portal Azure.
+2. Carregue o certificado-raiz da VPN para Azure para seu gateway de VPN. Neste exemplo, supõe-se que o certificado raiz está armazenado no computador local em que os seguintes cmdlets do PowerShell são executados e que você está executando o PowerShell localmente. Você também pode carregar o certificado usando o portal do Azure.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 
@@ -264,4 +264,4 @@ Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto
 Para saber mais sobre a VPN de Ponto a Site, confira [Configurar uma conexão de Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre o ExpressRoute, consulte o [FAQ ExpressRoute](expressroute-faqs.md).
+Para obter mais informações sobre o ExpressRoute, consulte as [perguntas frequentes](expressroute-faqs.md)sobre o expressroute.

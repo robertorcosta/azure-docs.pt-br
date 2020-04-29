@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI- sfctl
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerenciar recursos de aplicativos de malha de malha service fabric.
+title: CLI do Azure Service Fabric-aplicativo de malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar Service Fabric recursos de aplicativo de malha.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906065"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
@@ -21,7 +21,7 @@ Obter e excluir os recursos do aplicativo.
 | --- | --- |
 | excluir | Exclui o recurso de aplicativo. |
 | list | Lista todos os recursos do aplicativo. |
-| mostrar | Obtém o recurso do aplicativo com o nome fornecido. |
+| show | Obtém o recurso do aplicativo com o nome fornecido. |
 
 ## <a name="sfctl-mesh-app-delete"></a>sfctl mesh app delete
 Exclui o recurso de aplicativo.
@@ -82,5 +82,5 @@ Obtém as informações sobre o recurso do aplicativo com o nome fornecido. As i
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

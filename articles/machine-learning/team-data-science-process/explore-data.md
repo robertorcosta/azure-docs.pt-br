@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ca993fd6a449b2655b13da337875fa3f9f27cade
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721261"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Explorar dados no Processo de Ciência de Dados de Equipe
@@ -28,4 +28,4 @@ Os artigos a seguir descrevem como explorar dados em três ambientes de armazena
 * Explore os dados do [SQL Server](explore-data-sql-server.md) usando o SQL e usando uma linguagem de programação como Python.
 * Explore os dados de [tabela de Hive](explore-data-hive-tables.md) usando as consultas do Hive.
 
-Além disso, o vídeo, [Preprocessing Data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), descreve os módulos comumente usados para limpeza e transformação de dados.
+Além disso, o vídeo, [pré-processando dados no Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/), descreve os módulos usados com frequência para limpar e transformar dados.

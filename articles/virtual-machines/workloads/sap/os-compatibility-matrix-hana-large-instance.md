@@ -1,6 +1,6 @@
 ---
-title: Matriz de compatibilidade do sistema operacional para SAP HANA (Instâncias Grandes)| Microsoft Docs
-description: A matriz de compatibilidade representa a compatibilidade de diferentes versões do Sistema Operacional com diferentes tipos de hardware (Instâncias Grandes)
+title: Matriz de compatibilidade do sistema operacional para SAP HANA (instâncias grandes) | Microsoft Docs
+description: A matriz de compatibilidade representa a compatibilidade de diferentes versões do sistema operacional com tipos de hardware diferentes (instâncias grandes)
 services: virtual-machines-linux
 documentationcenter: ''
 author: sasarava
@@ -14,27 +14,27 @@ ms.date: 03/03/2020
 ms.author: sasarava
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: aa19433ef6446932da3509694ccccd08538b964f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78675634"
 ---
-# <a name="compatible-operating-systems-for-hana-large-instances"></a>Sistemas operacionais compatíveis para hana instâncias grandes
+# <a name="compatible-operating-systems-for-hana-large-instances"></a>Sistemas operacionais compatíveis para instâncias grandes HANA
 
-## <a name="hana-large-instance-type-i"></a>HANA Grande Instância Tipo I     
+## <a name="hana-large-instance-type-i"></a>Tipo de instância grande HANA I     
   | Sistema operacional | Disponibilidade        | SKUs                                                          |
   |------------------|---------------------|---------------------------------------------------------------|
   | SLES 12 SP2      | Não é mais oferecido | S72, S72m, S96, S144, S144m, S192, S192m, S192xm              |
   | SLES 12 SP3      | Disponível           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm              |
-  | Less12 SP4      | Disponível           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m |
+  | SLES 12 SP4      | Disponível           | S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m |
   
-### <a name="persistent-memory-skus"></a>Memória Persistente SKUs
+### <a name="persistent-memory-skus"></a>SKUs de memória persistente
   | Sistema operacional | Disponibilidade | SKUs                             |
   |------------------|--------------|----------------------------------|
-  | Less12 SP4      | Disponível    | S224oo, S224om, S224ooo, S224oom |
+  | SLES 12 SP4      | Disponível    | S224oo, S224om, S224ooo, S224oom |
   
-## <a name="hana-large-instance-type-ii"></a>HANA Grande Instância Tipo II     
+## <a name="hana-large-instance-type-ii"></a>Tipo de instância grande do HANA II     
   |  Sistema operacional       | Disponibilidade        | SKUs                                                              |
   |-------------------------|---------------------|-------------------------------------------------------------------|
   | SLES 12 SP2             | Não é mais oferecido | S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, S960m |
@@ -42,8 +42,8 @@ ms.locfileid: "78675634"
   
 ## <a name="related-documents"></a>Documentos Relacionados
 
-- Para saber mais sobre [SKUs disponíveis](hana-available-skus.md)
-- Para saber sobre [como atualizar o sistema operacional](os-upgrade-hana-large-instance.md)
+- Para saber mais sobre os [SKUs disponíveis](hana-available-skus.md)
+- Para saber mais sobre [a atualização do sistema operacional](os-upgrade-hana-large-instance.md)
   
 
   

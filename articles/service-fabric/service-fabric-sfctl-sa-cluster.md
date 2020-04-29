@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl sa-cluster
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerenciar clusters autônomos.
+title: CLI do Azure Service Fabric-sfctl SA-cluster
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar clusters autônomos.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 233148c04fb1a9c6cf1d6c7042c12c54eebd0205
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76904929"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
@@ -33,7 +33,7 @@ A configuração do cluster contém propriedades do cluster que incluem diferent
 |Argumento|Descrição|
 | --- | --- |
 | --configuration-api-version [Obrigatório] | A versão da API da configuração do json do cluster autônomo. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -94,7 +94,7 @@ Obtenha detalhes do status de atualização de configuração do cluster de um c
 
 |Argumento|Descrição|
 | --- | --- |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -108,5 +108,5 @@ Obtenha detalhes do status de atualização de configuração do cluster de um c
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

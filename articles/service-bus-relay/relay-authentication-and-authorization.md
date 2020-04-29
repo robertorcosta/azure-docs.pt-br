@@ -1,6 +1,6 @@
 ---
 title: Autenticação e autorização de Retransmissão do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral da autenticação SAS (SAS) de Assinatura de Acesso Compartilhado com o serviço Azure Relay.
+description: Este artigo fornece uma visão geral da autenticação SAS (assinatura de acesso compartilhado) com o serviço de retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: aac5c973a99b13d5918a0162feb7f1ede443463b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514571"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticação e autorização da Retransmissão do Azure
@@ -29,7 +29,7 @@ Os aplicativos podem autenticar a Retransmissão do Azure usando a autenticaçã
 
 A [autenticação SAS](../service-bus-messaging/service-bus-sas.md) permite que você conceda a um usuário acesso a recursos de Retransmissão do Azure com direitos específicos. A autenticação SAS envolve a configuração de uma chave de criptografia com direitos associados em um recurso. Os clientes podem obter acesso a esse recurso apresentando um token SAS que consiste em acessar o URI de recurso e assinar uma expiração com a tecla configurada.
 
-É possível configurar chaves para SAS em um namespace da Retransmissão. Ao contrário do sistema de mensagens do Barramento de Serviço, as [Conexões Híbridas de Retransmissão](relay-hybrid-connections-protocol.md) dão suporte a remetentes anônimos ou não autorizados. Você pode habilitar acesso anônimo para a entidade ao criá-la, como mostrado na captura de tela a seguir do portal:
+É possível configurar chaves para SAS em um namespace da Retransmissão. Ao contrário do sistema de mensagens do Barramento de Serviço, as [Conexões Híbridas de Retransmissão](relay-hybrid-connections-protocol.md) dão suporte a remetentes anônimos ou não autorizados. Você pode habilitar o acesso anônimo para a entidade ao criá-la, conforme mostrado na seguinte captura de tela do portal:
 
 ![][0]
 

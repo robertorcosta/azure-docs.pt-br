@@ -1,6 +1,6 @@
 ---
 title: Usar o PowerShell para gerenciar recursos do Barramento de Serviço do Azure | Microsoft Docs
-description: Este artigo explica como usar o módulo Azure PowerShell para criar e gerenciar entidades de Service Bus (namespaces, filas, tópicos, assinaturas).
+description: Este artigo explica como usar Azure PowerShell módulo para criar e gerenciar entidades do barramento de serviço (namespaces, filas, tópicos, assinaturas).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: e333dfb109840538fd5dec8110e1c32adedce989
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759237"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
@@ -43,7 +43,7 @@ A primeira etapa é usar o PowerShell para fazer logon em sua conta do Azure e a
 
 ## <a name="provision-a-service-bus-namespace"></a>Provisionar um namespace do Barramento de Serviço
 
-Ao trabalhar com espaços de nome de Barra de Serviço, você pode usar os cmdlets [Get-AzServiceBusNamespace,](/powershell/module/az.servicebus/get-azservicebusnamespace) [New-AzServiceBusNamespace,](/powershell/module/az.servicebus/new-azservicebusnamespace) [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)e [Set-AzServiceBusNamespace.](/powershell/module/az.servicebus/set-azservicebusnamespace)
+Ao trabalhar com namespaces do barramento de serviço, você pode usar os cmdlets [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)e [set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) .
 
 Este exemplo cria algumas variáveis locais no script; `$Namespace` e `$Location`.
 
@@ -83,7 +83,7 @@ Esta parte do script tem a seguinte função:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Criar uma regra de autorização de namespace
 
-O exemplo a seguir mostra como gerenciar as regras de autorização de namespace usando os cmdlets [New-AzServiceBusAuthorizationRule,](/powershell/module/az.servicebus/new-azservicebusauthorizationrule) [Get-AzServiceBusAuthorizationRule,](/powershell/module/az.servicebus/get-azservicebusauthorizationrule) [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule)e [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) cmdlets.
+O exemplo a seguir mostra como gerenciar as regras de autorização de namespace usando os cmdlets [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule)e [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) .
 
 ```powershell
 # Query to see if rule exists
@@ -147,7 +147,7 @@ else
 
 ### <a name="modify-queue-properties"></a>Modificar propriedades da fila
 
-Depois de executar o script na seção anterior, você pode usar o cmdlet [Set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) para atualizar as propriedades de uma fila, como no exemplo a seguir:
+Depois de executar o script na seção anterior, você pode usar o cmdlet [set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) para atualizar as propriedades de uma fila, como no exemplo a seguir:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True

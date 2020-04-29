@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 5199cf95452f93db2c2dd747fcabc67a6722d31e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840886"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando a API REST do Azure
 
 > [!div class="op_single_selector"]
-> - [Portal Azure](network-watcher-packet-capture-manage-portal.md)
-> - [Powershell](network-watcher-packet-capture-manage-powershell.md)
-> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
+> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
+> - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
+> - [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
 > - [API REST do Azure](network-watcher-packet-capture-manage-rest.md)
 
 Captura de pacote do Observador de Rede permite que você crie sessões de captura para controlar o tráfego em uma máquina virtual. Os filtros são fornecidos para a sessão de captura garantir que somente o tráfego que você deseja capturar. Captura de pacote ajuda a diagnosticar problemas de rede reativo e proativo. Outros usos incluem a coleta de estatísticas de rede, obter informações sobre as invasões de rede, para depurar comunicações cliente-servidor e muito mais. Por poder remotamente disparar a captura de pacote, esse recurso alivia a carga da execução de uma captura de pacote e manualmente no computador desejado, o que economiza tempo.
@@ -60,7 +60,7 @@ Execute o script a seguir para retornar para uma máquina virtual. Essas informa
 
 O código a seguir precisa de variáveis:
 
-- **subscriptionId** - O id de assinatura também pode ser recuperado com o **cmdlet Get-AzSubscription.**
+- **SubscriptionId** -a ID da assinatura também pode ser recuperada com o cmdlet **Get-AzSubscription** .
 - **resourceGroupName** - o nome de um grupo de recursos que contém as máquinas virtuais.
 
 ```powershell
@@ -301,7 +301,7 @@ armclient delete "https://management.azure.com/subscriptions/${subscriptionId}/R
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Mais informações sobre Gerenciador de Armazenamento podem ser encontradas aqui no seguinte link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 Saiba como automatizar a captura de pacote com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote acionado alerta](network-watcher-alert-triggered-packet-capture.md)
 

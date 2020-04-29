@@ -1,5 +1,5 @@
 ---
-title: Monitore eventos do Azure Media Services com event grid com portal
+title: Monitorar eventos dos serviços de mídia do Azure com a grade de eventos com o portal
 description: Este artigo mostra como se inscrever no Event Grid para monitorar eventos do Azure Media Services.
 services: media-services
 documentationcenter: na
@@ -16,17 +16,17 @@ ms.workload: media
 ms.date: 01/21/2020
 ms.author: juliako
 ms.openlocfilehash: 18503e64dc6f38daab61599153cd0e0fb6fadb20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76509216"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Criar e monitorar eventos do Media Services com o Event Grid usando o portal do Azure
 
-A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Este serviço usa [assinaturas de eventos](../../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de eventos aos assinantes. Os eventos dos Serviços de Mídia contêm todas as informações que você precisa para responder às alterações em seus dados. Você pode identificar um evento de Serviços de Mídia porque a propriedade eventType começa com "Microsoft.Media". Para obter mais informações, confira [Esquemas de eventos dos Serviços de Mídia](media-services-event-schemas.md).
+A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Esse serviço usa [assinaturas de evento](../../event-grid/concepts.md#event-subscriptions) para rotear mensagens de evento para assinantes. Os eventos dos Serviços de Mídia contêm todas as informações que você precisa para responder às alterações em seus dados. Você pode identificar um evento de Serviços de Mídia porque a propriedade eventType começa com "Microsoft.Media". Para obter mais informações, confira [Esquemas de eventos dos Serviços de Mídia](media-services-event-schemas.md).
 
-Neste artigo, você usa o portal do Azure para assinar eventos da sua conta dos Serviços de Mídia do Azure. Em seguida, você aciona eventos para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No artigo, enviamos eventos para um aplicativo web que coleta e exibe as mensagens.
+Neste artigo, você usa o portal do Azure para assinar eventos da sua conta dos Serviços de Mídia do Azure. Em seguida, você aciona eventos para exibir o resultado. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No artigo, enviamos eventos para um aplicativo Web que coleta e exibe as mensagens.
 
 Ao concluir, você verá que os dados do evento foram enviados para um aplicativo Web.
 
@@ -59,7 +59,7 @@ Assine um tópico para indicar à Grade de Eventos quais eventos você deseja ac
    ![Selecionar web hook](./media/monitor-events-portal/select-web-hook.png)
 
 1. A assinatura do evento é preenchida com valores para sua conta do Media Services. 
-1. Selecione 'Web Hook' para o **tipo endpoint**.
+1. Selecione ' gancho da Web ' para o **tipo de ponto de extremidade**.
 1. Neste tópico, deixamos a **inscrição para todos os tipos de eventos** marcada. No entanto, você pode desmarcar a ele e filtrar por tipos de evento específico. 
 1. Clique no **selecione um ponto de extremidade** link.
 

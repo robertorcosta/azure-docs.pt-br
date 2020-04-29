@@ -1,6 +1,6 @@
 ---
 title: Como verificar o andamento do trabalho usando a API REST | Microsoft Docs
-description: Este artigo demonstra como verificar o progresso do trabalho usando a API Azure Media Services v2 REST.
+description: Este artigo demonstra como verificar o andamento do trabalho usando a API REST dos serviços de mídia do Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: cac8622c95ca2cb08ef412ac7117caac0c52ca56
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773606"
 ---
 # <a name="how-to-check-job-progress"></a>Como verificar o andamento do trabalho
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode descobrir o status do trabalho, usando a propriedade de estado do trabalho. Para obter mais informações sobre a propriedade State, consulte [Propriedades da entidade de trabalho](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
@@ -65,9 +65,9 @@ Resposta:
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Confira também
 
-[Visão geral das operações de Serviços de Mídia REST API](media-services-rest-how-to-use.md)
+[Visão geral da API REST de operações dos serviços de mídia](media-services-rest-how-to-use.md)

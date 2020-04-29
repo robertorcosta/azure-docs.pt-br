@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76897184"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
@@ -34,7 +34,7 @@ Para obter mais informações sobre o Azure AD, consulte [ Sincronização de id
 
 ## <a name="problems"></a>Problemas
 ### <a name="a-common-scenario"></a>Um cenário comum
-Quando ocorrem ** erros de sincronização QuarantinedAttributeValueMustBeUnique ** e ** AttributeValueMustBeUnique **, é comum ver um conflito entre **UserPrincipalName ** ou ** Proxy Addresses ** no AD do Azure. Você pode resolver os erros de sincronização atualizando o objeto de origem conflitante do lado local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, esta imagem indica que dois usuários têm um conflito de seu **UserPrincipalName**. Ambos são **Joe.J\@contoso.com.** Os objetos conflitantes são colocados em quarentena no Microsoft Azure Active Directory.
+Quando ocorrem ** erros de sincronização QuarantinedAttributeValueMustBeUnique ** e ** AttributeValueMustBeUnique **, é comum ver um conflito entre **UserPrincipalName ** ou ** Proxy Addresses ** no AD do Azure. Você pode resolver os erros de sincronização atualizando o objeto de origem conflitante do lado local. O erro de sincronização será resolvido após a próxima sincronização. Por exemplo, essa imagem indica que dois usuários têm um conflito de **userPrincipalName**. Ambos são **Joe. J\@contoso.com**. Os objetos conflitantes são colocados em quarentena no Microsoft Azure Active Directory.
 
 ![Diagnosticar cenário comum de erro de sincronização](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -129,31 +129,31 @@ Com base nas respostas às perguntas anteriores, você verá o botão ** Aplicar
 > A alteração ** Aplicar correção ** se aplica apenas a casos de objeto órfãos.
 >
 
-Após as etapas anteriores, o usuário pode acessar o recurso original, que é um link para um objeto existente. O valor **de status diagnosticar** na exibição da lista atualiza-se para **Sincronização pendente**. O erro de sincronização será resolvido após a próxima sincronização. O Connect Health não mostrará mais o erro de sincronização resolvido na exibição da lista.
+Após as etapas anteriores, o usuário pode acessar o recurso original, que é um link para um objeto existente. O valor do **status de diagnóstico** na exibição de lista é atualizado para **sincronização pendente**. O erro de sincronização será resolvido após a próxima sincronização. O Connect Health não mostrará mais o erro de sincronização resolvido na exibição de lista.
 
 ## <a name="failures-and-error-messages"></a>Mensagens de erro e falhas
-**O usuário com atributo conflitante é excluído suavemente no Diretório Ativo do Azure. Certifique-se de que o usuário é duramente excluído antes de tentar novamente.**  
+**O usuário com atributo conflitante é excluído de maneira reversível no Azure Active Directory. Verifique se o usuário foi excluído de hardware antes de tentar novamente.**  
 O usuário com atributo conflitante no Azure AD deve ser excluído antes de aplicar a correção. Confira [como excluir o usuário permanentemente no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de tentar novamente a correção. O usuário também será automaticamente excluído permanentemente após 30 dias no estado excluído flexível. 
 
 **Não há suporte para atualizar âncora de origem para usuário baseado em nuvem no locatário.**  
 O usuário baseado em nuvem no Azure AD não deve ter uma âncora de origem. Nesse caso, não há suporte para atualizar âncora de origem. É necessária a correção manual no local. 
 
 ## <a name="faq"></a>Perguntas frequentes
-**Q.** O que acontece se a execução do ** Apply Fix ** falhar?  
-**A.** Se a execução falhar, é possível que o Azure AD Connect esteja executando um erro de exportação. Atualize a página do portal e tente novamente após a próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
+**P.:** O que acontece se a execução do ** Apply Fix ** falhar?  
+**R.:** Se a execução falhar, é possível que o Azure AD Connect esteja executando um erro de exportação. Atualize a página do portal e tente novamente após a próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
 
 
-**Q.** E se o **objeto existente** deve ser o objeto a ser excluído?  
-**A.** Se o ** objeto existente ** deve ser excluído, o processo não envolve uma mudança de ** Âncora de Origem **. Normalmente, você pode corrigi-lo no Active Directory local. 
+**P.:** E se o **objeto existente** deve ser o objeto a ser excluído?  
+**R.:** Se o ** objeto existente ** deve ser excluído, o processo não envolve uma mudança de ** Âncora de Origem **. Normalmente, você pode corrigi-lo no Active Directory local. 
 
 
-**Q.** Qual permissão o usuário precisa para aplicar a correção?  
-**A.** ** Global Admin ** ou ** Contributor ** das configurações do RBAC, tem permissão para acessar o processo de diagnóstico e solução de problemas.
+**P.:** Qual permissão o usuário precisa para aplicar a correção?  
+**R.:** ** Global Admin ** ou ** Contributor ** das configurações do RBAC, tem permissão para acessar o processo de diagnóstico e solução de problemas.
 
 
-**Q.** Preciso configurar o Azure AD Connect ou atualizar o agente de integridade do Azure AD Connect para esse recurso?  
-**A.** Não, o processo de diagnóstico é um recurso completo baseado em nuvem.
+**P.:** Preciso configurar o Azure AD Connect ou atualizar o agente de integridade do Azure AD Connect para esse recurso?  
+**R.:** Não, o processo de diagnóstico é um recurso completo baseado em nuvem.
 
 
-**Q.** Se o objeto existente for apagado, o processo de diagnóstico tornará o objeto ativo novamente?  
-**A.** Não, a correção não atualizará atributos de objetos diferentes de ** Âncora de origem **.
+**P.:** Se o objeto existente for apagado, o processo de diagnóstico tornará o objeto ativo novamente?  
+**R.:** Não, a correção não atualizará atributos de objetos diferentes de ** Âncora de origem **.

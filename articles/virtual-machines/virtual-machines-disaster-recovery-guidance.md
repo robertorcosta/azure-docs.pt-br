@@ -1,5 +1,5 @@
 ---
-title: Cenários de recuperação de desastres
+title: Cenários de recuperação de desastre
 description: Saiba o que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
 ms.openlocfilehash: f2dc43e1f07d449bf2f8ed39ce4523c99b551dae
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77115617"
 ---
-# <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>E se uma interrupção no serviço do Azure impactar as VMs do Azure
+# <a name="what-if-an-azure-service-disruption-impacts-azure-vms"></a>E se uma interrupção do serviço do Azure impactar as VMs do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
 
 A Microsoft fornece um SLA (Contrato de Nível de Serviço) para seus serviços como um compromisso com o tempo de atividade e a conectividade. O SLA para serviços individuais do Azure pode ser encontrado em [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
@@ -35,7 +35,7 @@ Essa será a melhor opção se você não tiver instalado o Azure Site Recovery,
 
 
 > [!NOTE]
-> Lembre-se de que você não tem nenhum controle sobre esse processo e de que ele ocorrerá apenas em caso de interrupção do serviço em toda uma região. Por isso, você também deve contar com outras estratégias de backup específicas ao aplicativo para chegar ao nível mais alto de disponibilidade. Para obter mais informações, consulte a seção sobre [estratégias de Dados para recuperação de desastres](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
+> Lembre-se de que você não tem nenhum controle sobre esse processo e de que ele ocorrerá apenas em caso de interrupção do serviço em toda uma região. Por isso, você também deve contar com outras estratégias de backup específicas ao aplicativo para chegar ao nível mais alto de disponibilidade. Para obter mais informações, consulte a seção sobre [estratégias de dados para recuperação de desastres](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan).
 >
 >
 

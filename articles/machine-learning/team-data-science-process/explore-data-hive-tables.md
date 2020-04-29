@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 75dce2b5a83d13fe4a7d166595456e9a8d6324ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76722162"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Explorar dados em tabelas do Hive com consultas do Hive.
@@ -28,7 +28,7 @@ Esta tarefa é uma etapa no [Processo de Ciência de Dados da Equipe](overview.m
 Este artigo supõe que você:
 
 * Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-account-create.md)
-* Provisionou um cluster do Hadoop personalizado com o serviço HDInsight. Se você precisar de instruções, consulte [Personalizar clusters Hadoop Do Azure HDInsight para análise avançada](customize-hadoop-cluster.md).
+* Provisionou um cluster do Hadoop personalizado com o serviço HDInsight. Se você precisar de instruções, consulte [Personalizar clusters Azure HDInsight Hadoop para análise avançada](customize-hadoop-cluster.md).
 * Os dados foram carregados para tabelas Hive em clusters do Hadoop do Azure HDInsight. Se não tiverem sido, siga as instruções em [Criar e carregar dados para tabelas Hive](move-hive-tables.md) para carregar dados para tabelas Hive primeiro.
 * Habilitou o acesso remoto ao cluster. Se precisar de instruções, consulte [Acessar o nó principal do Cluster do Hadoop](customize-hadoop-cluster.md).
 * Se você precisar de instruções sobre como enviar consultas do Hive, consulte [Como enviar consultas do Hive](move-hive-tables.md#submit)

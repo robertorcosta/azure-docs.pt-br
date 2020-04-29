@@ -1,5 +1,5 @@
 ---
-title: Configure identidades gerenciadas na Azure VM usando REST - Azure AD
+title: Configurar identidades gerenciadas na VM do Azure usando REST-Azure AD
 description: Instruções passo a passo para configurar um sistema e identidades gerenciadas atribuídas pelo usuário em uma VM do Azure usando CURL para fazer chamadas da API REST.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f975595e935a5c0254450168aa295e6e7366a94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244154"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando chamadas da API REST
@@ -79,14 +79,14 @@ Para criar uma VM do Azure com a identidade gerenciada atribuída ao sistema hab
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
    
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
    
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
      {
@@ -168,14 +168,14 @@ Para habilitar a identidade gerenciada atribuída ao sistema em uma VM que foi o
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
    
-   **Solicitar corpo**
+   **Corpo da solicitação**
     
    ```JSON
     {  
@@ -200,14 +200,14 @@ Para habilitar a identidade gerenciada atribuída ao sistema em uma VM que foi o
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {  
@@ -235,14 +235,14 @@ Para habilitar a identidade gerenciada atribuída ao sistema em uma VM que foi o
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
     
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {  
@@ -278,14 +278,14 @@ Para desabilitar a identidade gerenciada atribuída ao sistema em uma VM, a cont
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {  
@@ -337,14 +337,14 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {  
@@ -418,14 +418,14 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {
@@ -498,7 +498,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    az account get-access-token
    ```
 
-2.  Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui, [Crie uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
+2.  Crie uma identidade gerenciada atribuída pelo usuário usando as instruções encontradas aqui, [crie uma identidade gerenciada atribuída pelo usuário](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity).
 
 3. Para garantir que você não exclua as identidades gerenciadas atribuídas pelo usuário ou pelo sistema atribuídas à VM, é necessário listar os tipos de identidade atribuídos à VM usando o seguinte comando CURL. Se houver identidades gerenciadas atribuídas ao conjunto de dimensionamento de máquinas virtuais, elas serão listadas no valor `identity`.
 
@@ -509,13 +509,13 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    ```HTTP
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.
 
-    Se você tiver quaisquer identidades gerenciadas atribuídas ao usuário ou sistema `identity` atribuídas à VM como identificadas no valor na resposta, pule para a etapa 5 que mostre como reter a identidade gerenciada atribuída ao sistema enquanto adiciona uma identidade gerenciada atribuída pelo usuário em sua VM.
+    Se você tiver qualquer usuário ou identidades gerenciadas atribuídas pelo sistema atribuídas à VM, `identity` conforme identificado no valor da resposta, pule para a etapa 5 que mostra como manter a identidade gerenciada atribuída pelo sistema ao adicionar uma identidade gerenciada atribuída pelo usuário em sua VM.
 
 4. Se você não tiver nenhuma identidade gerenciada atribuída pelo usuário atribuída à sua VM, use o seguinte comando CURL para chamar o ponto de extremidade REST do Azure Resource Manager para atribuir a primeira identidade gerenciada atribuída pelo usuário à VM.
 
@@ -530,14 +530,14 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    ```HTTP
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        |
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        |
  
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {
@@ -562,14 +562,14 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
    
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {
@@ -598,14 +598,14 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {
@@ -637,14 +637,14 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {
@@ -678,12 +678,12 @@ Para remover uma identidade atribuída ao usuário a uma VM, a conta precisará 
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.
  
    Se houver identidades gerenciadas atribuídas à VM, elas serão listadas na resposta no valor `identity`.
 
@@ -701,14 +701,14 @@ Para remover uma identidade atribuída ao usuário a uma VM, a conta precisará 
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
 
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {
@@ -733,14 +733,14 @@ Para remover uma identidade atribuída ao usuário a uma VM, a conta precisará 
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
    ```
 
-   **Cabeçalhos da solicitação**
+   **Cabeçalhos de solicitação**
 
    |Cabeçalho da solicitação  |Descrição  |
    |---------|---------|
    |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-   |*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
+   |*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        | 
 
-   **Solicitar corpo**
+   **Corpo da solicitação**
 
    ```JSON
     {
@@ -763,14 +763,14 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Cabeçalhos da solicitação**
+**Cabeçalhos de solicitação**
 
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
+|*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido. | 
 
-**Solicitar corpo**
+**Corpo da solicitação**
 
 ```JSON
 {
@@ -790,14 +790,14 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
 ```
 
-**Cabeçalhos da solicitação**
+**Cabeçalhos de solicitação**
 
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
 |*Tipo de conteúdo*     | Obrigatórios. Defina como `application/json`.        |
-|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.| 
+|*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.| 
 
-**Solicitar corpo**
+**Corpo da solicitação**
 
 ```JSON
 {

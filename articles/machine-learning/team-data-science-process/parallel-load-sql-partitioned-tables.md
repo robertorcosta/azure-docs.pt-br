@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721329"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Criar e otimizar tabelas para rápida importação de dados em paralelo para um SQL Server em uma VM do Azure
@@ -57,7 +57,7 @@ O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que 
 ## <a name="create-a-partitioned-table"></a>Criar uma tabela particionada
 Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grupos de arquivos de banco de dados criados na etapa anterior, você deve antes criar uma função partitiva e um esquema. Quando dados são importados em massa para a tabela particionada, os registros são distribuídos entre os grupos de arquivos de acordo com um esquema de partição, conforme descrito abaixo.
 
-### <a name="1-create-a-partition-function"></a>1. Crie uma função de partição
+### <a name="1-create-a-partition-function"></a>1. criar uma função de partição
 [Criar uma função de partição](https://msdn.microsoft.com/library/ms187802.aspx), que define o intervalo de valores/limites a serem incluídos em cada tabela de partição individual, por exemplo, para limitar as partições por month(some\_datetime\_field) no ano de 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
@@ -66,7 +66,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
 
-### <a name="2-create-a-partition-scheme"></a>2. Crie um esquema de partição
+### <a name="2-create-a-partition-scheme"></a>2. criar um esquema de partição
 [Criar um esquema de partição](https://msdn.microsoft.com/library/ms179854.aspx). Este esquema mapeia cada intervalo de partição na função de partição para um grupo de arquivos físicos, por exemplo:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -85,7 +85,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
 
-### <a name="3-create-a-partition-table"></a>3. Crie uma tabela de partição
+### <a name="3-create-a-partition-table"></a>3. criar uma tabela de partição
 [Crie tabelas particionadas](https://msdn.microsoft.com/library/ms174979.aspx)de acordo com seu esquema de dados e especifique o campo de esquema e de restrição usados para particionar a tabela, por exemplo:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
@@ -99,7 +99,7 @@ Para obter mais informações, consulte [Criar tabelas e índices particionados]
 * [Altere o banco de dados](https://msdn.microsoft.com/library/bb522682.aspx) para alterar o esquema de registro em log de transações como BULK_LOGGED para minimizar a sobrecarga de registros, por exemplo:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Para acelerar o carregamento de dados, inicie as operações de importação em massa paralela. Para obter dicas sobre como agilizar a importação em massa de big data para bancos de dados SQL Server, consulte [Load 1 TB em menos de 1 hora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Para acelerar o carregamento de dados, inicie as operações de importação em massa paralela. Para obter dicas sobre como agilizar a importação de Big Data em bancos de dados do SQL Server, consulte [carregar 1 TB em menos de 1 hora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 O script do PowerShell a seguir é um exemplo de carregamento de dados paralela que usa o BCP.
 

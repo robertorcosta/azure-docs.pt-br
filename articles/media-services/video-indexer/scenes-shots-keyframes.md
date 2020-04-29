@@ -1,7 +1,7 @@
 ---
-title: Cenas de indexador de vídeo, fotos e quadros-chave
+title: Video Indexer cenas, capturas e quadros-chave
 titleSuffix: Azure Media Services
-description: Este tópico fornece uma visão geral das cenas, fotos e quadros do Indexador de Vídeo.
+description: Este tópico fornece uma visão geral das Video Indexer cenas, capturas e quadros-chave.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,52 +11,52 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245935"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Cenas, capturas e quadros-chave
 
-O Video Indexer suporta segmentar vídeos em unidades temporais com base em propriedades estruturais e semânticas. Esse recurso permite que os clientes naveguem, gerenciem e editem facilmente seu conteúdo de vídeo com base em granularidades variadas. Por exemplo, com base em cenas, tiros e quadros-chave, descritos neste tópico.   
+Video Indexer dá suporte ao segmentação de vídeos em unidades temporais com base nas propriedades estruturais e semânticas. Essa funcionalidade permite que os clientes naveguem, gerenciem e editem com facilidade seu conteúdo de vídeo com base em diferentes granularidades. Por exemplo, com base em cenas, capturas e quadros-chave, descritos neste tópico.   
 
 ![Cenas, capturas e quadros-chave](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
  
 ## <a name="scene-detection"></a>Detecção de cena  
  
-O Video Indexer determina quando uma cena muda no vídeo com base em sinais visuais. Uma cena retrata um único evento e é composta de uma série de tomadas consecutivas, que estão semanticamente relacionadas. Uma miniatura de cena é o primeiro quadro-chave de seu tiro subjacente. O indexador de vídeo segmenta um vídeo em cenas baseadas na coerência de cores em tomadas consecutivas e recupera o tempo de início e fim de cada cena. A detecção de cena é considerada uma tarefa desafiadora, pois envolve quantificar aspectos semânticos de vídeos.
+Video Indexer determina quando uma cena é alterada em vídeo com base em indicações visuais. Uma cena descreve um único evento e é composta de uma série de capturas consecutivas, que são relacionadas semanticamente. Uma miniatura de cena é o primeiro quadro-chave de sua captura subjacente. O video indexer segmenta um vídeo em cenas com base em coerência de cores em capturas consecutivas e recupera a hora de início e de término de cada cena. A detecção de cena é considerada uma tarefa desafiadora, pois envolve a quantificação de aspectos semânticos de vídeos.
 
 > [!NOTE]
-> Aplicável a vídeos que contenham pelo menos 3 cenas.
+> Aplicável a vídeos que contêm pelo menos 3 cenas.
 
 ## <a name="shot-detection"></a>Detecção de captura
 
-O Video Indexer determina quando uma imagem muda no vídeo com base em pistas visuais, rastreando transições abruptas e graduais no esquema de cores de quadros adjacentes. Os metadados do tiro incluem um tempo de início e fim, bem como a lista de quadros-chave incluídos nessa tomada. As fotos são quadros consecutivos tirados da mesma câmera ao mesmo tempo.
+Video Indexer determina quando uma captura é alterada no vídeo com base em indicações visuais, rastreando transições abruptas e graduais no esquema de cores de quadros adjacentes. Os metadados da captura incluem uma hora de início e de término, bem como a lista de quadros-chave incluídos nessa captura. As capturas são quadros consecutivos tirados da mesma câmera ao mesmo tempo.
 
-## <a name="keyframe-detection"></a>Detecção de frame-chave
+## <a name="keyframe-detection"></a>Detecção de quadro-chave
 
-O Video Indexer seleciona os quadros que melhor representam cada tiro. Quadros-chave são os quadros representativos selecionados de todo o vídeo com base em propriedades estéticas (por exemplo, contraste e estabilidade). O Video Indexer recupera uma lista de IDs de quadro-chave como parte dos metadados da tomada, com base no qual os clientes podem extrair o quadro-chave como uma imagem de alta resolução.  
+Video Indexer seleciona os quadros que melhor representam cada imagem. Quadros-chave são os quadros representativos selecionados de todo o vídeo com base em Propriedades estética (por exemplo, contraste e capacidade de ativação). Video Indexer recupera uma lista de IDs de quadro-chave como parte dos metadados da captura, com base nas quais os clientes podem extrair o quadro-chave como uma imagem de alta resolução.  
 
 ### <a name="extracting-keyframes"></a>Extraindo quadros-chave
 
-Para extrair quadros-chave de alta resolução para o seu vídeo, você deve primeiro carregar e indexar o vídeo.
+Para extrair quadros-chave de alta resolução para seu vídeo, você deve primeiro carregar e indexar o vídeo.
 
 ![Quadros chave](./media/scenes-shots-keyframes/extracting-keyframes.png)
 
-#### <a name="with-the-video-indexer-website"></a>Com o site do Indexador de Vídeo
+#### <a name="with-the-video-indexer-website"></a>Com o site Video Indexer
 
-Para extrair quadros-chave usando o site do Indexador de Vídeo, carregue e indexe seu vídeo. Uma vez que o trabalho de indexação esteja concluído, clique no botão **Baixar** e selecione **Artefatos (ZIP)**. Isso baixará a pasta de artefatos para o seu computador. 
+Para extrair quadros-chave usando o site Video Indexer, carregue e indexe seu vídeo. Depois que o trabalho de indexação for concluído, clique no botão **baixar** e selecione **artefatos (zip)**. Isso baixará a pasta de artefatos em seu computador. 
 
 ![Quadros chave](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
-Descompacte e abra a pasta. Na *pasta _KeyframeThumbnail,* e você encontrará todos os quadros-chave que foram extraídos do seu vídeo. 
+Descompacte e abra a pasta. Na pasta *_KeyframeThumbnail* , você encontrará todos os quadros-chave extraídos do seu vídeo. 
 
-#### <a name="with-the-video-indexer-api"></a>Com a API do indexador de vídeo
+#### <a name="with-the-video-indexer-api"></a>Com a API de Video Indexer
 
-Para obter quadros-chave usando a API do Indexador de vídeo, carregue e indexe seu vídeo usando a chamada [Upload Video.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) Uma vez que o trabalho de indexação esteja concluído, ligue [para obter índice de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Isso lhe dará todos os insights que o Video Indexer extratou do seu conteúdo em um arquivo JSON.  
+Para obter quadros-chave usando a API Video Indexer, carregue e indexe seu vídeo usando a chamada [carregar vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Upload-Video?) . Quando o trabalho de indexação estiver concluído, chame [obter índice de vídeo](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?). Isso fornecerá a você todas as informações que Video Indexer extraídas do seu conteúdo em um arquivo JSON.  
 
-Você receberá uma lista de IDs de quadro-chave como parte dos metadados de cada tiro. 
+Você obterá uma lista de IDs de quadro-chave como parte dos metadados de cada captura. 
 
 ```json
 "shots":[  
@@ -98,35 +98,35 @@ Você receberá uma lista de IDs de quadro-chave como parte dos metadados de cad
 ]
 ```
 
-Agora você precisará executar cada um desses IDs de quadro-chave na chamada [Obter miniaturas.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) Isso baixará cada uma das imagens do quadro-chave para o seu computador. 
+Agora, você precisará executar cada uma dessas IDs de quadro-chave na chamada [obter miniaturas](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Thumbnail?) . Isso baixará cada uma das imagens de quadro-chave em seu computador. 
 
-## <a name="editorial-shot-type-detection"></a>Detecção do tipo de tiro editorial
+## <a name="editorial-shot-type-detection"></a>Detecção de tipo editorial shot
 
-Os quadros-chave estão associados a tiros na saída JSON. 
+Os quadros-chave são associados a capturas no JSON de saída. 
 
-O tipo de tiro associado a um tiro individual nos insights JSON representa seu tipo editorial. Você pode achar essas características de tipo de tiro úteis ao editar vídeos em clipes, trailers ou ao procurar um estilo específico de quadro-chave para fins artísticos. Os diferentes tipos são determinados com base na análise do primeiro quadro-chave de cada tiro. Os tiros são identificados pela escala, tamanho e localização dos rostos que aparecem em seu primeiro quadro-chave. 
+O tipo de captura associado a uma captura individual no JSON do insights representa seu tipo editorial. Você pode encontrar essas características de tipo de captura úteis ao editar vídeos em clipes, trailers ou ao pesquisar um estilo específico de quadro-chave para fins artísticos. Os diferentes tipos são determinados com base na análise do primeiro quadro-chave de cada captura. As capturas são identificadas pela escala, pelo tamanho e pelo local das faces que aparecem no primeiro quadro-chave. 
 
-O tamanho e a escala da filmagem são determinados com base na distância entre a câmera e os rostos que aparecem no quadro. Usando essas propriedades, o Video Indexer detecta os seguintes tipos de tiro:
+O tamanho e a escala da captura são determinados com base na distância entre a câmera e as faces que aparecem no quadro. Usando essas propriedades, Video Indexer detecta os seguintes tipos de captura:
 
-* Amplo: mostra o corpo de uma pessoa inteira.
-* Médio: mostra a parte superior do corpo e o rosto de uma pessoa.
-* Close-up: mostra principalmente o rosto de uma pessoa.
-* Close-up extremo: mostra o rosto de uma pessoa enchendo a tela. 
+* Largo: mostra o corpo de uma pessoa inteira.
+* Médio: mostra o corpo superior e a face de uma pessoa.
+* Fechar: mostra principalmente a face de uma pessoa.
+* Close-up extremo: mostra a aparência de uma pessoa que está preenchendo a tela. 
 
-Os tipos de tiro também podem ser determinados pela localização dos caracteres sujeitos em relação ao centro do quadro. Esta propriedade define os seguintes tipos de tiro no Indexador de vídeo:
+Os tipos de captura também podem ser determinados pelo local dos caracteres de assunto em relação ao centro do quadro. Essa propriedade define os seguintes tipos de captura no Video Indexer:
 
-* Rosto esquerdo: uma pessoa aparece no lado esquerdo da moldura.
-* Cara central: uma pessoa aparece na região central do quadro.
-* Cara direita: uma pessoa aparece no lado direito da moldura.
-* Ao ar livre: uma pessoa aparece em um ambiente ao ar livre.
-* Interior: uma pessoa aparece em um ambiente interno.
+* Face para a esquerda: uma pessoa aparece no lado esquerdo do quadro.
+* Face central: uma pessoa aparece na região central do quadro.
+* Face direita: uma pessoa aparece no lado direito do quadro.
+* Externamente: uma pessoa aparece em uma configuração externa.
+* Interno: uma pessoa aparece em uma configuração de interno.
 
 Características adicionais:
 
-* Dois tiros: mostra o rosto de duas pessoas de tamanho médio.
-* Várias faces: mais de duas pessoas.
+* Duas capturas: mostra as faces de duas pessoas de tamanho médio.
+* Vários rostos: mais de duas pessoas.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Examine a saída do indexador de vídeo produzido pela API](video-indexer-output-json-v2.md#scenes)
+[Examinar a saída de Video Indexer produzida pela API](video-indexer-output-json-v2.md#scenes)

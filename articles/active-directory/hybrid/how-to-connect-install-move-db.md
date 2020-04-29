@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 742bc307c90ad58b83b7d4c92f9546b87c163c3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77019274"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mover o banco de dados do Azure AD Connect do SQL Server Express para o SQL Server 
@@ -25,13 +25,13 @@ Este documento descreve como mover o banco de dados do Azure AD Connect do servi
 ## <a name="about-this-scenario"></a>Sobre este cenário
 A seguir estão algumas informações rápidas sobre este cenário.  Neste cenário, a versão do Azure AD Connect (1.1.819.0) está instalada em um único controlador de domínio do Windows Server 2016.  Ele está usando o SQL Server 2012 Express Edition interno para seu banco de dados.  O banco de dados será movido para um servidor do SQL Server 2017.
 
-![arquitetura de cenário](media/how-to-connect-install-move-db/move1.png)
+![arquitetura do cenário](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Mover o banco de dados do Azure AD Connect
 Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um SQL Server remoto.
 
 1. No servidor do Azure AD Connect, acesse **Serviços** e pare o serviço **Microsoft Azure AD Sync**.
-2. Localize a pasta **%ProgramFiles%\Microsoft AD Sync\Data** e copie os arquivos **ADSync.mdf** e **ADSync_log.ldf** para o SQL Server remoto.
+2. Localize a pasta **%ProgramFiles%\Microsoft Azure ad Sync\Data** e copie os arquivos **AdSync. MDF** e **ADSync_log. ldf** para o SQL Server remoto.
 3. Reinicie o serviço **Microsoft Azure AD Sync** no servidor do Azure AD Connect.
 4. Desinstale o Azure AD Connect acessando o Painel de Controle - - Programas - Programas e Recursos.  Selecione Microsoft Azure AD Connect e clique em Desinstalar, na parte superior.
 5. No SQL server remoto, abra o SQL Server Management Studio.
@@ -42,11 +42,11 @@ Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um S
 8. Depois que o banco de dados for anexado, volte para o servidor do Azure AD Connect e instale o Azure AD Connect.
 9. Depois de concluir a instalação do MSI, o assistente do Azure AD Connect começa a instalação do modo Express. Feche a tela clicando no ícone de Saída.
    ![Bem-vindo](./media/how-to-connect-install-move-db/db1.png)
-10. Inicie um novo prompt de comando ou sessão do PowerShell. Navegue \<até a unidade de pastas>\arquivos do programa\Microsoft Azure AD Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Usar banco de dados existente".
+10. Inicie um novo prompt de comando ou sessão do PowerShell. Navegue até a \<pasta unidade> \program Files\Microsoft Azure ad Connect. Execute o comando .\AzureADConnect.exe /useexistingdatabase para iniciar o assistente do Azure AD Connect no modo de configuração "Usar banco de dados existente".
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. Você receberá boas-vindas com a tela Bem-vindo ao Azure AD Connect. Depois que você concordar com os termos de licença e o aviso de privacidade, clique em **Continuar**.
     ![Bem-vindo](./media/how-to-connect-install-move-db/db3.png)
-12. Na tela **Instalar os componentes necessários**, a opção **Usar um SQL Server existente** é habilitada. Especifique o nome do SQL Server hospedando o banco de dados ADSync. Se a instância do mecanismo SQL usada para hospedar o banco de dados ADSync não for a instância padrão no SQL Server, você deverá especificar o nome de instância do mecanismo SQL. Além disso, se a pesquisa do SQL não está habilitada, você também deve especificar o número da porta da instância do mecanismo SQL. Por exemplo:          
+12. Na tela **Instalar os componentes necessários**, a opção **Usar um SQL Server existente** é habilitada. Especifique o nome do SQL Server hospedando o banco de dados ADSync. Se a instância do mecanismo SQL usada para hospedar o banco de dados ADSync não for a instância padrão no SQL Server, você deverá especificar o nome de instância do mecanismo SQL. Além disso, se a pesquisa do SQL não está habilitada, você também deve especificar o número da porta da instância do mecanismo SQL. Por exemplo:         
     ![Bem-vindo](./media/how-to-connect-install-move-db/db4.png)           
 
 13. Na tela **Conectar ao Azure AD**, você deve fornecer as credenciais de um administrador global do seu diretório do Azure AD. Uma recomendação é usar uma conta no domínio onmicrosoft.com padrão. Lembre-se de que essa conta é usada apenas para criar uma conta de serviço no Azure AD e não é usada após a conclusão do assistente.
@@ -64,7 +64,7 @@ Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um S
     ![Bem-vindo](./media/how-to-connect-install-move-db/db8.png)
  
  
-17. Na tela **Pronto para configurar**, clique em **Instalar**.
+17. Na tela **pronto para configurar** , clique em **instalar**.
     ![Bem-vindo](./media/how-to-connect-install-move-db/db9.png)
  
  
@@ -72,7 +72,7 @@ Use as etapas a seguir para mover o banco de dados do Azure AD Connect para um S
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+- Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
 - [Instalar o Azure AD Connect usando um banco de dados ADSync existente](how-to-connect-install-existing-database.md)
 - [Instalar o Azure AD Connect usando permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md)
 

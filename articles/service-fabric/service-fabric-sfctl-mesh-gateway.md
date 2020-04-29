@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI- sfctl gateway de malha
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter e excluir recursos do gateway de malha de malha de malha de malha de serviço.
+title: CLI do Azure Service Fabric – gateway de malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir Service Fabric recursos do gateway de malha.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 3e398ff8a1a0a28fd9d0650a7c9d18ba04817d33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906007"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
@@ -21,7 +21,7 @@ Obter e excluir recursos de gateway da malha.
 | --- | --- |
 | excluir | Exclui o recurso de gateway. |
 | list | Lista todos os recursos de gateway. |
-| mostrar | Obtém o recurso de gateway com o nome fornecido. |
+| show | Obtém o recurso de gateway com o nome fornecido. |
 
 ## <a name="sfctl-mesh-gateway-delete"></a>sfctl mesh gateway delete
 Exclui o recurso de gateway.
@@ -82,5 +82,5 @@ Obtém as informações sobre o recurso de gateway com o nome fornecido. As info
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

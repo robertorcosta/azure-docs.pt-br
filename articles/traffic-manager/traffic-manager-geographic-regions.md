@@ -1,5 +1,5 @@
 ---
-title: Hierarquia país/região usada por roteamento geográfico - Gerente de Tráfego do Azure
+title: Hierarquia de país/região usada pelo roteamento geográfico – Gerenciador de tráfego do Azure
 description: Este artigo lista a hierarquia País/Região usada pelo tipo de roteamento Geográfico do Gerenciador de Tráfego do Azure
 services: traffic-manager
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: rohink
 ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76938638"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia País/Região usada pelo Gerenciador de Tráfego do Azure para método de roteamento de tráfico geográfico
@@ -99,7 +99,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - Me(Montenegro)
 
-        - MK (Macedônia do Norte)
+        - MK (nordeste da Macedônia)
 
         - MT(Malta)
 
@@ -128,7 +128,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
         - SM(San Marino)
 
         - UA(Ucrânia)
-            - Região da Criméia
+            - Região de Crimeia
 
         - VA(Cidade do Vaticano)
 
@@ -270,7 +270,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - TT(Trinidad e Tobago)
 
-        - UM (Ilhas Periféricas dos EUA)
+        - UM (territórios insulares dos EUA)
 
         - US(Estados Unidos)
 
@@ -380,7 +380,7 @@ Este artigo lista os países e regiões usados pelo método de roteamento de tr�
 
         - VG(Ilhas Virgens Britânicas)
 
-        - VI (Ilhas Virgens Americanas)
+        - VI (Ilhas Virgens dos EUA)
 
         - XE(Santo Eustáquio)
 

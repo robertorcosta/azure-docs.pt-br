@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b8a01b5f2f5ec64fea014468356408220f9c4f1a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76721363"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server em uma máquina virtual do Azure
@@ -26,12 +26,12 @@ Para um tópico que descreve as opções para movimentação de dados para um Ba
 
 A tabela a seguir resume as opções para mover dados para o SQL Server em uma máquina virtual do Azure.
 
-| <b>Fonte</b> | <b>DESTINO: SQL Server na VM do Azure</b> |
+| <b>ORIGINAL</b> | <b>DESTINO: SQL Server na VM do Azure</b> |
 | --- | --- |
-| <b>Arquivo plano</b> |1. <a href="#insert-tables-bcp">Utilitário de cópia em massa de linha de comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserção em massa </a><br> 3. <a href="#sql-builtin-utilities">Utilitários integrados gráficos no servidor SQL</a> |
-| <b>SQL Server local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Implante um banco de dados do SQL Server em um assistente de VM do Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportar para um arquivo plano</a><br> 3. <a href="#sql-migration">Assistente de Migração de Banco de Dados SQL </a> <br> 4. <a href="#sql-backup">Backup e restauração de banco de dados </a><br> |
+| <b>Arquivo simples</b> |1. <a href="#insert-tables-bcp">Utilitário de cópia em massa de linha de comando (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Consulta SQL de inserção em massa </a><br> 3. <a href="#sql-builtin-utilities">utilitários internos gráficos no SQL Server</a> |
+| <b>SQL Server local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">implantar um banco de dados SQL Server em um assistente de VM Microsoft Azure</a><br> 2. <a href="#export-flat-file">exportar para um arquivo simples</a><br> 3. <a href="#sql-migration">Assistente de Migração de Banco de Dados SQL </a> <br> 4. <a href="#sql-backup">Backup e restauração de banco de dados </a><br> |
 
-Este documento pressupõe que os comandos SQL sejam executados no SQL Server Management Studio ou no Visual Studio Database Explorer.
+Este documento pressupõe que comandos SQL sejam executados a partir de SQL Server Management Studio ou do Visual Studio Gerenciador de Banco de Dados.
 
 > [!TIP]
 > Como alternativa, você pode usar o [Azure  Factory](https://azure.microsoft.com/services/data-factory/) para criar e agendar um pipeline que move dados para uma VM do SQL Server no Azure. Para obter mais informações, consulte [Copiar dados com o Azure Data Factory (Atividade de Cópia)](../../data-factory/copy-activity-overview.md).
@@ -41,20 +41,20 @@ Este documento pressupõe que os comandos SQL sejam executados no SQL Server Man
 ## <a name="prerequisites"></a><a name="prereqs"></a>Pré-requisitos
 Este tutorial presume que você tenha:
 
-* Uma **assinatura do Azure.** Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento Azure.** Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md) . Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Gerenciar as chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
+* Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md) . Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [gerenciar chaves de acesso da conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
 * **SQL Server em uma VM do Azure**provisionado. Para obter instruções, consulte [Configurar uma máquina virtual do SQL Server do Azure como um servidor do IPython Notebook para análises avançadas](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
 ## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Movimentação de dados de uma fonte de arquivo simples para o SQL Server em uma VM do Azure
 Se os dados estiverem em um arquivo simples (organizado em um formato de linha/coluna), ele pode ser movido para a VM do SQL Server no Azure pelos métodos a seguir:
 
-1. [Utilitário de cópia em massa (BCP) de linha de comando](#insert-tables-bcp)
+1. [Utilitário de cópia em massa de linha de comando (BCP)](#insert-tables-bcp)
 2. [Consulta SQL de inserção em massa](#insert-tables-bulkquery)
 3. [Utilitários gráficos internos no SQL Server (Importar/Exportar, SSIS)](#sql-builtin-utilities)
 
 ### <a name="command-line-bulk-copy-utility-bcp"></a><a name="insert-tables-bcp"></a>Utilitário de BCP (cópia em massa de linha de comando)
-O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma das maneiras mais rápidas de mover dados. Ele funciona em todas as três variantes do SQL Server (On-premises SQL Server, SQL Azure e SQL Server VM no Azure).
+O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma das maneiras mais rápidas de mover dados. Ele funciona em todas as três SQL Server variantes (SQL Server local, SQL Azure e VM SQL Server no Azure).
 
 > [!NOTE]
 > **Onde os dados devem estar para o BCP?**  
@@ -75,10 +75,10 @@ O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma 
     )
     ```
 
-1. Gere o arquivo de formato que descreve o esquema para a tabela emitindo o seguinte comando a partir da linha de comando da máquina onde bcp está instalado.
+1. Gere o arquivo de formato que descreve o esquema da tabela emitindo o seguinte comando na linha de comando do computador em que o bcp está instalado.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-1. Insira os dados no banco de dados usando o comando bcp, que deve funcionar a partir da linha de comando quando o SQL Server estiver instalado na mesma máquina:
+1. Insira os dados no banco de dado usando o comando bcp, que deve funcionar na linha de comando quando SQL Server estiver instalado no mesmo computador:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -87,7 +87,7 @@ O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma 
 >
 
 ### <a name="parallelizing-inserts-for-faster-data-movement"></a><a name="insert-tables-bulkquery-parallel"></a>Paralelização de inserções para movimentação de dados mais rápida
-Se os dados que você está movendo forem grandes, você pode acelerar as coisas executando simultaneamente vários comandos BCP em paralelo em um Script PowerShell.
+Se os dados que você está movendo forem grandes, você poderá acelerar as coisas executando simultaneamente vários comandos BCP em paralelo em um script do PowerShell.
 
 > [!NOTE]
 > **Ingestão de Big Data** Para otimizar o carregamento de dados para conjuntos de dados grandes e muito grandes, particione suas tabelas de banco de dados lógicas e físicas usando várias tabelas de partição e grupos de arquivos. Para obter mais informações sobre como criar e carregar dados em tabelas de partição, consulte [Tabelas de partição do SQL de carga paralela](parallel-load-sql-partitioned-tables.md).
@@ -157,7 +157,7 @@ Aqui estão alguns comandos de exemplo para inserção em massa:
     ```
 
 ### <a name="built-in-utilities-in-sql-server"></a><a name="sql-builtin-utilities"></a>Utilitários internos no SQL Server
-Você pode usar o SSIS (SSIS) SQL Server Integration Services (SSIS) para importar dados para o SQL Server VM no Azure a partir de um arquivo plano.
+Você pode usar SQL Server Integration Services (SSIS) para importar dados para SQL Server VM no Azure de um arquivo simples.
 O SSIS está disponível em dois ambientes de estúdio. Para obter detalhes, consulte [Ambientes do Integration Services (SSIS) e Estúdio](https://technet.microsoft.com/library/ms140028.aspx):
 
 * Para obter detalhes sobre SQL Server Data Tools, consulte [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
@@ -168,8 +168,8 @@ Você também pode usar as seguintes estratégias de migração:
 
 1. [Assistente para implantar um Banco de Dados do SQL Server em uma VM do Microsoft Azure](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
 2. [Exportar para arquivo simples](#export-flat-file)
-3. [Assistente de migração de banco de dados SQL](#sql-migration)
-4. [Banco de dados de backup e restauração](#sql-backup)
+3. [Assistente de migração do banco de dados SQL](#sql-migration)
+4. [Backup e restauração de banco de dados](#sql-backup)
 
 Descrevemos cada uma dessas opções abaixo:
 

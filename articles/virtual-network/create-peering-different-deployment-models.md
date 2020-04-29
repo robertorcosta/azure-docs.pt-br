@@ -17,15 +17,15 @@ ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
 ms.openlocfilehash: 61df13e78dc7115d4f4d45ab18b9ffdae107dc96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77023252"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um emparelhamento de rede virtual – modelos de implantação diferentes e na mesma assinatura
 
-Neste tutorial, você aprende a criar um emparelhamento de rede virtual entre redes virtuais criadas por modelos de implantação diferentes. Ambas as redes virtuais existem na mesma assinatura. O emparelhamento de duas redes virtuais permite que recursos em diferentes redes virtuais se comuniquem com a mesma largura de banda e latência, como se os recursos estivessem na mesma rede virtual. Saiba mais sobre [peering de rede virtual](virtual-network-peering-overview.md).
+Neste tutorial, você aprende a criar um emparelhamento de rede virtual entre redes virtuais criadas por modelos de implantação diferentes. Ambas as redes virtuais existem na mesma assinatura. O emparelhamento de duas redes virtuais permite que recursos em diferentes redes virtuais se comuniquem com a mesma largura de banda e latência, como se os recursos estivessem na mesma rede virtual. Saiba mais sobre o [emparelhamento de rede virtual](virtual-network-peering-overview.md).
 
 As etapas para criar um emparelhamento de rede virtual são diferentes, dependendo de as redes virtuais estarem na mesma ou em diferentes assinaturas e do [modelo de implantação do Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pelo qual as redes virtuais são criadas. Saiba como criar um emparelhamento de rede virtual em outros cenários clicando no cenário na tabela a seguir:
 
@@ -39,30 +39,30 @@ Não é possível criar um emparelhamento de rede virtual entre duas redes virtu
 
 Este tutorial emparelha redes virtuais na mesma região. Você também pode emparelhar redes virtuais em [regiões com suporte](virtual-network-manage-peering.md#cross-region) diferentes. É recomendável que você se familiarize com os [requerimentos e as restrições de emparelhamento](virtual-network-manage-peering.md#requirements-and-constraints) antes de emparelhar redes virtuais.
 
-Você pode usar o portal Azure, a [interface de linha de comando](#cli) azure (CLI), o Azure [PowerShell](#powershell)ou um modelo do Azure Resource Manager para criar um peering de rede virtual. Clique em um dos links de ferramentas anteriores para ir diretamente para as etapas para a criação de um emparelhamento de rede virtual usando a ferramenta de sua escolha.
+Você pode usar o portal do Azure, a CLI ( [interface de linha de comando](#cli) ) do Azure, o Azure [PowerShell](#powershell)ou um modelo de Azure Resource Manager para criar um emparelhamento de rede virtual. Clique em um dos links de ferramentas anteriores para ir diretamente para as etapas para a criação de um emparelhamento de rede virtual usando a ferramenta de sua escolha.
 
 ## <a name="create-peering---azure-portal"></a>Criar emparelhamento – portal do Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com). A conta com a qual você entra deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [Permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints).
+1. Entre no [portal do Azure](https://portal.azure.com). A conta com a qual você entra deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [Permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 2. Clique em **+ Novo**, em **Rede** e, em seguida, em **Rede virtual**.
 3. Na folha **Criar rede virtual**, insira ou selecione valores para as seguintes configurações e, depois, clique em **Criar**:
     - **Nome**: *myVnet1*
     - **Espaço de endereço**: *10.0.0.0/16*
     - **Nome da sub-rede**: *padrão*
     - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
-    - **Assinatura**: Selecione sua assinatura
+    - **Assinatura**: selecione sua assinatura
     - **Grupo de recursos**: selecione **Criar novo** e insira *myResourceGroup*
-    - **Localização**: *Leste dos EUA*
-4. Clique **+ Novo**. No campo **Pesquisar no Marketplace**, digite *Rede virtual*. Clique em **Rede virtual** quando essa opção aparecer entre os resultados da pesquisa.
+    - **Local**: *leste dos EUA*
+4. Clique em **+ novo**. No campo **Pesquisar no Marketplace**, digite *Rede virtual*. Clique em **Rede virtual** quando essa opção aparecer entre os resultados da pesquisa.
 5. Na folha **Rede virtual**, selecione **Clássico** na caixa **Selecionar um modelo de implantação** e clique em **Criar**.
 6. Na folha **Criar rede virtual**, insira ou selecione valores para as seguintes configurações e, depois, clique em **Criar**:
     - **Nome**: *myVnet2*
     - **Espaço de endereço**: *10.1.0.0/16*
     - **Nome da sub-rede**: *padrão*
-    - **Faixa de endereço de sub-rede**: *10.1.0.0/24*
-    - **Assinatura**: Selecione sua assinatura
-    - **Grupo de recursos**: Selecione **Usar existente** e selecione *myResourceGroup*
-    - **Localização**: *Leste dos EUA*
+    - **Intervalo de endereços da sub-rede**: *10.1.0.0/24*
+    - **Assinatura**: selecione sua assinatura
+    - **Grupo de recursos**: selecione **usar existente** e selecione *MyResource* Group
+    - **Local**: *leste dos EUA*
 7. Na caixa **Pesquisar recursos** na parte superior do portal, digite *myResourceGroup*. Clique em **myResourceGroup** quando ele for exibido nos resultados da pesquisa. Uma folha é exibida para o grupo de recursos **myresourcegroup**. O grupo de recursos contém as duas redes virtuais criadas nas etapas anteriores.
 8. Clique em **myVNet1**.
 9. Na folha **myVnet1** exibida, clique em **Emparelhamentos** na lista vertical de opções no lado esquerdo da folha.
@@ -70,7 +70,7 @@ Você pode usar o portal Azure, a [interface de linha de comando](#cli) azure (C
 11. Na folha **Adicionar emparelhamento** exibida, insira ou selecione as seguintes opções e clique em **OK**:
      - **Nome**: *myVnet1ToMyVnet2*
      - **Modelo de implantação de rede virtual**: selecione **Clássico**.
-     - **Assinatura**: Selecione sua assinatura
+     - **Assinatura**: selecione sua assinatura
      - **Rede virtual**: clique em **Escolher uma rede virtual** e, em seguida, clique em **myVnet2**.
      - **Permitir acesso à rede virtual:** verifique se a opção **Habilitado** está selecionada.
     Nenhuma outra configuração é usada neste tutorial. Para saber mais sobre todas as configurações de emparelhamento, leia [Gerenciar emparelhamentos de rede virtual](virtual-network-manage-peering.md#create-a-peering).
@@ -145,7 +145,7 @@ Conclua as etapas a seguir usando a CLI Clássica do Azure e a CLI do Azure. Voc
 
 ## <a name="create-peering---powershell"></a><a name="powershell"></a>Criar emparelhamento – PowerShell
 
-1. Instale a versão mais recente dos módulos PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [Az.](https://www.powershellgallery.com/packages/Az/) Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Instale a versão mais recente dos módulos [Azure](https://www.powershellgallery.com/packages/Azure) e [AZ](https://www.powershellgallery.com/packages/Az/) do PowerShell. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão do PowerShell.
 3. No PowerShell, faça logon no Azure inserindo o comando `Add-AzureAccount`. A conta com a qual você entra deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [Permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints).
 4. Para criar uma rede virtual (clássico) com o PowerShell, você deve criar um arquivo de configuração de rede novo ou modificar um existente. Saiba como [exportar, atualizar e importar arquivos de configuração de rede](virtual-networks-using-network-configuration-file.md). O arquivo deve incluir o elemento **VirtualNetworkSite** a seguir para a rede virtual usada neste tutorial:
@@ -210,13 +210,13 @@ Conclua as etapas a seguir usando a CLI Clássica do Azure e a CLI do Azure. Voc
 
 Ao concluir este tutorial, talvez você deseje excluir os recursos criados no tutorial para não incorrer em encargos de uso. A exclusão de um grupo de recursos também exclui todos os recursos que estão no grupo de recursos.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Portal Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portal do Azure
 
-1. Na caixa de pesquisa do portal, digite **myResourceGroup**. Nos resultados da pesquisa, clique em **myResourceGroup**.
-2. Na lâmina **myResourceGroup,** clique no ícone **Excluir.**
-3. Para confirmar a exclusão, na caixa **TIPO NOME DO GRUPO DE RECURSOS,** digite **myResourceGroup**e clique em **Excluir**.
+1. Na caixa de pesquisa do portal, insira **MyResource**. Nos resultados da pesquisa, clique em **MyResource**.
+2. Na folha **Myresourceus** , clique no ícone **excluir** .
+3. Para confirmar a exclusão, na caixa **digite o nome do grupo de recursos** , insira **MyResource**Group e clique em **excluir**.
 
-### <a name="azure-cli"></a><a name="delete-cli"></a>Azure CLI
+### <a name="azure-cli"></a><a name="delete-cli"></a>CLI do Azure
 
 1. Use a CLI do Azure para excluir a rede virtual (Resource Manager) com o seguinte comando:
 
@@ -232,7 +232,7 @@ Ao concluir este tutorial, talvez você deseje excluir os recursos criados no tu
     azure network vnet delete --vnet myVnet2 --quiet
     ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>Powershell
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. Digite o seguinte comando para excluir a rede virtual (Resource Manager):
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243946"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modelos de perfil de usuário no Gerenciamento de API do Azure
@@ -40,10 +40,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a>Perfil  
+##  <a name="profile"></a><a name="Profile"></a>Criar  
  O modelo **perfil** permite que você personalize a seção de perfil do usuário da página correspondente no portal do desenvolvedor.  
   
- ![Página de Perfil do Usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil do usuário APIM")  
+ ![Página perfil do usuário](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Página de perfil de usuário do APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -108,14 +108,14 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
-|`lastName`|string|O sobrenome do usuário atual.|  
-|`companyName`|string|O nome da empresa do usuário atual.|  
-|`addresserEmail`|string|Endereço de email do usuário atual.|  
-|`developersUsageStatisticsLink`|string|URL relativa para exibir a análise para o usuário atual.|  
+|`lastName`|cadeia de caracteres|O sobrenome do usuário atual.|  
+|`companyName`|cadeia de caracteres|O nome da empresa do usuário atual.|  
+|`addresserEmail`|cadeia de caracteres|Endereço de email do usuário atual.|  
+|`developersUsageStatisticsLink`|cadeia de caracteres|URL relativa para exibir a análise para o usuário atual.|  
 |`subscriptions`|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|As assinaturas da usuário atual.|  
 |`applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
-|`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
-|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
+|`changePasswordUrl`|cadeia de caracteres|A URL relativa para alterar a senha do usuário atual.|  
+|`changeNameOrEmailUrl`|cadeia de caracteres|A URL relativa para alterar o nome e o email para o usuário atual.|  
 |`canChangePassword`|booleano|Se o usuário atual pode alterar sua senha.|  
 |`isSystemUser`|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
   
@@ -188,7 +188,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ##  <a name="subscriptions"></a><a name="Subscriptions"></a>Assinaturas  
  O modelo **Assinaturas** permite que você personalize a seção de assinaturas da página de perfil do usuário no portal do desenvolvedor.  
   
- ![Página de Assinatura do Usuário](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de assinatura do usuário do APIM")  
+ ![Página de assinatura do usuário](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Página de assinatura de usuário do APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -317,7 +317,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- Este modelo pode usar os [seguintes controles de página](api-management-page-controls.md).  
+ Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
 -   [assinatura-cancelar](api-management-page-controls.md#subscription-cancel)  
   
@@ -329,14 +329,14 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
-|`lastName`|string|O sobrenome do usuário atual.|  
-|`companyName`|string|O nome da empresa do usuário atual.|  
-|`addresserEmail`|string|Endereço de email do usuário atual.|  
-|`developersUsageStatisticsLink`|string|URL relativa para exibir a análise para o usuário atual.|  
+|`lastName`|cadeia de caracteres|O sobrenome do usuário atual.|  
+|`companyName`|cadeia de caracteres|O nome da empresa do usuário atual.|  
+|`addresserEmail`|cadeia de caracteres|Endereço de email do usuário atual.|  
+|`developersUsageStatisticsLink`|cadeia de caracteres|URL relativa para exibir a análise para o usuário atual.|  
 |`subscriptions`|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|As assinaturas da usuário atual.|  
 |`applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
-|`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
-|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
+|`changePasswordUrl`|cadeia de caracteres|A URL relativa para alterar a senha do usuário atual.|  
+|`changeNameOrEmailUrl`|cadeia de caracteres|A URL relativa para alterar o nome e o email para o usuário atual.|  
 |`canChangePassword`|booleano|Se o usuário atual pode alterar sua senha.|  
 |`isSystemUser`|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
   
@@ -409,7 +409,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ##  <a name="applications"></a><a name="Applications"></a>Aplicativos  
  O modelo **Aplicativos** permite que você personalize a seção de aplicativos da página de perfil do usuário no portal do desenvolvedor.  
   
- ![Página de Aplicativos de Conta de Usuário](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de Aplicativos de Conta de Usuário da APIM")  
+ ![Página aplicativos de conta de usuário](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Página de aplicativos da conta de usuário do APIM")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -480,9 +480,9 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```  
   
 ### <a name="controls"></a>Controles  
- Este modelo pode usar os [seguintes controles de página](api-management-page-controls.md).  
+ Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
--   [ações de aplicativos](api-management-page-controls.md#app-actions)  
+-   [ações de aplicativo](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
@@ -492,14 +492,14 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 |Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
 |`firstName`|string|O primeiro nome do usuário atual.|  
-|`lastName`|string|O sobrenome do usuário atual.|  
-|`companyName`|string|O nome da empresa do usuário atual.|  
-|`addresserEmail`|string|Endereço de email do usuário atual.|  
-|`developersUsageStatisticsLink`|string|URL relativa para exibir a análise para o usuário atual.|  
+|`lastName`|cadeia de caracteres|O sobrenome do usuário atual.|  
+|`companyName`|cadeia de caracteres|O nome da empresa do usuário atual.|  
+|`addresserEmail`|cadeia de caracteres|Endereço de email do usuário atual.|  
+|`developersUsageStatisticsLink`|cadeia de caracteres|URL relativa para exibir a análise para o usuário atual.|  
 |`subscriptions`|Coleção de entidades de [Assinatura](api-management-template-data-model-reference.md#Subscription).|As assinaturas da usuário atual.|  
 |`applications`|Coleção de entidades de [Aplicativo](api-management-template-data-model-reference.md#Application).|Os aplicativos do usuário atual.|  
-|`changePasswordUrl`|string|A URL relativa para alterar a senha do usuário atual.|  
-|`changeNameOrEmailUrl`|string|A URL relativa para alterar o nome e o email para o usuário atual.|  
+|`changePasswordUrl`|cadeia de caracteres|A URL relativa para alterar a senha do usuário atual.|  
+|`changeNameOrEmailUrl`|cadeia de caracteres|A URL relativa para alterar o nome e o email para o usuário atual.|  
 |`canChangePassword`|booleano|Se o usuário atual pode alterar sua senha.|  
 |`isSystemUser`|booleano|Se o usuário atual é membro de um dos [grupos](api-management-key-concepts.md#groups) internos.|  
   
@@ -572,7 +572,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a> Atualizar informações da conta  
  O modelo **Atualizar informações da conta** permite que você personalize a página **Atualizar informações da conta** no portal do desenvolvedor.  
   
- ![Modelos do portal do desenvolvedor da página de informações da conta do usuário](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modelos do Portal de Desenvolvedores da Página de Informações da Conta de Usuário da APIM")  
+ ![Página de informações da conta de usuário modelos do portal do desenvolvedor](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Página de informações da conta de usuário do APIM modelos do portal do desenvolvedor")  
   
 ### <a name="default-template"></a>Modelo padrão  
   

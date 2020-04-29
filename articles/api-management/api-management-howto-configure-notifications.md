@@ -1,5 +1,5 @@
 ---
-title: Configure notificações e modelos de e-mail
+title: Configurar notificações e modelos de email
 titleSuffix: Azure API Management
 description: Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244063"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de email no Gerenciamento de API do Azure
@@ -48,7 +48,7 @@ Se você não tiver uma instância do serviço de Gerenciamento de API, conclua 
     -   **Limite de cota de assinatura se aproximando** - Os usuários e destinatários de email a seguir receberão notificações por email quando o uso de assinaturas estiver se aproximando da cota.
 
         > [!NOTE]
-        > As notificações são acionadas apenas pela cota por meio de política [de assinatura.](api-management-access-restriction-policies.md#SetUsageQuota) [Cota por política-chave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) não gera notificações.
+        > As notificações são disparadas pela política de [cota por assinatura](api-management-access-restriction-policies.md#SetUsageQuota) apenas. [A política de cota por chave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) não gera notificações.
 
     Para cada evento, você pode especificar destinatários de email usando a caixa de texto de endereço de email ou selecionando os usuários em uma lista.
 

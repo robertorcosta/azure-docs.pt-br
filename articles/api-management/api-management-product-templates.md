@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243920"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Modelos de produto no Gerenciamento de API do Azure
@@ -28,7 +28,7 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 -   [Lista de produtos](#ProductList)  
   
--   [Product](#Product)  
+-   [Remessa](#Product)  
   
 > [!NOTE]
 >  Os modelos de amostra padrão estão incluídos na documentação a seguir, mas estão sujeitos à alteração devido a melhorias contínuas. Você pode exibir os modelos padrão em tempo real no portal do desenvolvedor, navegando até os modelos individuais desejados. Para saber mais sobre como trabalhar com modelos, consulte [Como personalizar o portal de desenvolvedor de Gerenciamento de API usando modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
@@ -123,10 +123,10 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }  
 ```  
   
-##  <a name="product"></a><a name="Product"></a>Produto  
+##  <a name="product"></a><a name="Product"></a>Remessa  
  O modelo **Produto** permite personalizar o corpo da página de produtos no portal do desenvolvedor.  
   
- ![Página do produto do portal do desenvolvedor](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
+ ![Página de produto do portal do desenvolvedor](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
   
 ### <a name="default-template"></a>Modelo padrão  
   
@@ -200,18 +200,18 @@ O Gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ### <a name="controls"></a>Controles  
  O modelo `Product list` pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
--   [subscrever-botão](api-management-page-controls.md#subscribe-button)  
+-   [assinar-botão](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 |Propriedade|Type|Descrição|  
 |--------------|----------|-----------------|  
-|Produto|[Product](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
+|Produto|[Remessa](api-management-template-data-model-reference.md#Product)|O produto especificado.|  
 |IsDeveloperSubscribed|booleano|Se o usuário atual assinou esse produto.|  
 |SubscriptionState|número|O estado da assinatura. Os possíveis estados são:<br /><br /> -   `0 - suspended` – a assinatura está bloqueada e o assinante não pode chamar APIs do produto.<br />-   `1 - active` – a assinatura está ativa.<br />-   `2 - expired` – a assinatura atingiu sua data de validade e foi desativada.<br />-   `3 - submitted` – a solicitação de assinatura foi feita pelo desenvolvedor, mas ainda não foi aprovada ou rejeitada.<br />-   `4 - rejected` – a solicitação de assinatura foi negada por um administrador.<br />-   `5 - cancelled` – a assinatura foi cancelada pelo desenvolvedor ou administrador.|  
 |limites|matriz|Essa propriedade foi preterida e não deve ser usada.|  
 |DelegatedSubscriptionEnabled|booleano|Se [delegação](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para essa assinatura.|  
-|DelegatedSubscriptionUrl|string|Se delegação estiver habilitada, a URL da assinatura delegada.|  
+|DelegatedSubscriptionUrl|cadeia de caracteres|Se delegação estiver habilitada, a URL da assinatura delegada.|  
 |IsAgreed|booleano|Se o produto tiver termos, se o atual usuário concordou com os termos.|  
 |Assinaturas|Coleção de entidades de [Resumo da assinatura](api-management-template-data-model-reference.md#SubscriptionSummary).|As assinaturas para o produto.|  
 |Apis|Coleção de entidades de [API](api-management-template-data-model-reference.md#API).|As APIs nesse produto.|  

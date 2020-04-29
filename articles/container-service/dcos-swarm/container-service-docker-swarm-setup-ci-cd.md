@@ -8,10 +8,10 @@ ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
 ms.openlocfilehash: 11a6debe735459b617f6f93c3f67a32350dd4623
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76549046"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(PRETERIDO) Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Docker Swarm usando Azure DevOps Services
@@ -44,7 +44,7 @@ Antes de iniciar este tutorial, você precisa concluir as seguintes tarefas:
 
 - [Criar um Cluster Swarm no Serviço de Contêiner do Azure](container-service-deployment.md)
 - [Conectar-se ao cluster Swarm no Serviço de Contêiner do Azure](../container-service-connect.md)
-- [Criar um registro de contêiner Azure](../../container-registry/container-registry-get-started-portal.md)
+- [Criar um registro de contêiner do Azure](../../container-registry/container-registry-get-started-portal.md)
 - [Ter uma organização do Azure DevOps Services e o projeto criado](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Dividir o repositório GitHub para sua conta do GitHub](https://github.com/jcorioland/MyShop/)
 
@@ -80,7 +80,7 @@ Configure uma conexão entre seu projeto do Azure DevOps Services e sua conta Gi
 
     ![Azure DevOps Services – Conexão externa](./media/container-service-docker-swarm-setup-ci-cd/vsts-services-menu.png)
 
-1. À esquerda, clique em **Novo Ponto final de** > serviço**GitHub**.
+1. À esquerda, clique em **novo ponto de extremidade** > de serviço**GitHub**.
 
     ![Azure DevOps Services – GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
 
@@ -159,7 +159,7 @@ Você precisa adicionar duas etapas do Docker para cada imagem, uma para compila
 
 1. Depois de configurar as etapas de compilação e envio para cada uma das cinco imagens, adicione mais duas etapas do fluxo de trabalho de compilação.
 
-    a. Uma tarefa de linha de comando que usa um script de bash para substituir a ocorrência *BuildNumber* no arquivo docker-compose.yml com o ID de compilação atual. Consulte a tela a seguir para obter detalhes.
+    a. Uma tarefa de linha de comando que usa um script bash para substituir a ocorrência *BuildNumber* no arquivo Docker-Compose. yml pela ID de compilação atual. Consulte a tela a seguir para obter detalhes.
 
     ![Azure DevOps Services – Atualizar arquivo de composição](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
@@ -177,9 +177,9 @@ O Azure DevOps Services permite que você [gerencie as versões nos ambientes](h
 
 ### <a name="initial-release-setup"></a>Configuração da versão inicial
 
-1. Para criar um pipeline de versão, clique em **Release +** > **Release**
+1. Para criar um pipeline de liberação, clique em **liberações** > **+ versão**
 
-1. Para configurar a fonte do artefato, clique em **Artefatos** > **Link uma fonte de artefato**. Aqui, vincule esse novo pipeline de lançamento ao build definido na etapa anterior. Fazendo isso, o arquivo docker-compose.yml fica disponível no processo da versão.
+1. Para configurar a origem do artefato, clique em **artefatos** > **vincular uma fonte de artefato**. Aqui, vincule esse novo pipeline de lançamento ao build definido na etapa anterior. Fazendo isso, o arquivo docker-compose.yml fica disponível no processo da versão.
 
     ![Azure DevOps Services – Lançar artefatos](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
@@ -222,4 +222,4 @@ Agora que você concluiu a configuração, é hora de testar esse novo pipeline 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter mais informações sobre CI/CD com os Serviços Azure DevOps, consulte o artigo [da Documentação de Pipelines do Azure.](/azure/devops/pipelines/?view=azure-devops)
+* Para obter mais informações sobre CI/CD com Azure DevOps Services, consulte o artigo [Azure pipelines documentação](/azure/devops/pipelines/?view=azure-devops) .

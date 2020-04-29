@@ -12,17 +12,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720445"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>O ciclo de vida do Processo de Ciência de Dados de Equipe
 
-O TDSP (Processo de Ciência de Dados da Equipe) fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve as etapas completas que os projetos de sucesso seguem. Se usar outro ciclo de vida de ciência de dados, como [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining) (Processo Padrão para Data Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) (Descoberta de Conhecimento em Banco de Dados) ou o próprio processo personalizado da sua organização, você ainda poderá usar o TDSP baseado em tarefas. 
+O TDSP (Processo de Ciência de Dados da Equipe) fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve as etapas completas que os projetos bem-sucedidos seguem. Se usar outro ciclo de vida de ciência de dados, como [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining) (Processo Padrão para Data Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) (Descoberta de Conhecimento em Banco de Dados) ou o próprio processo personalizado da sua organização, você ainda poderá usar o TDSP baseado em tarefas. 
 
-Esse ciclo de vida foi projetado para projetos de ciência de dados que devem ser fornecidos como parte de aplicativos inteligentes. Esses aplicativos implantam modelos de machine learning ou de inteligência artificial para análise preditiva. Projetos exploratórios de ciência de dados e projetos de análise improvisada também podem se beneficiar do uso desse processo. Mas, para esses projetos, algumas das etapas descritas aqui podem não ser necessárias. 
+Esse ciclo de vida foi projetado para projetos de ciência de dados que devem ser fornecidos como parte de aplicativos inteligentes. Esses aplicativos implantam modelos de machine learning ou de inteligência artificial para análise preditiva. Projetos de ciência de dados exploratórios e projetos de análise de improvisadas também podem se beneficiar do uso desse processo. Mas, para esses projetos, algumas das etapas descritas aqui podem não ser necessárias. 
 
 ## <a name="five-lifecycle-stages"></a>Cinco estágios do ciclo de vida
 

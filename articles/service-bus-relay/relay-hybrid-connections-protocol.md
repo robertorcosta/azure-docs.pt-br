@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: clemensv
 ms.openlocfilehash: 68668452152064584d1c419a3053ccb642b103f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514945"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
 
-A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade _Conexões Híbridas_ da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo recurso _biztalk services,_ igualmente chamado de BizTalk Services, que foi construído em uma fundação de protocolo proprietária. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
+A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade _Conexões Híbridas_ da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo recurso de _Serviços BizTalk_ , igualmente nomeado, criado em uma base de protocolo proprietário. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
 
 As Conexões Híbridas permitem a comunicação de fluxo binário bidirecional e o fluxo de datagrama simples entre dois aplicativos em rede. Uma ou ambas as partes podem residir atrás de firewalls ou NATs.
 
@@ -51,7 +51,7 @@ As mensagens de escuta, aceitação e solicitação são recebidas do serviço. 
 
 Para indicar a preparação para o serviço sinalizando que um ouvinte está pronto para aceitar conexões, ele cria uma conexão WebSocket de saída. O handshake de conexão recebe o mesmo nome de uma Conexão Híbrida configurada no namespace de Retransmissão, além de um token de segurança que confere o direito "Listen" (de escuta) nesse nome.
 
-Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket estabelecido é mantido ativo como o "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos para uma Conexão Híbrida. A cota de AppHooks deve ser determinada.
+Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket estabelecido é mantido ativo como o "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos para uma conexão híbrida. A cota de AppHooks deve ser determinada.
 
 Para as Conexões Híbridas, se houver dois ou mais ouvintes ativos, as conexões de entrada serão balanceadas entre eles em ordem aleatória, com o máximo de esforço para realizar uma distribuição justa.
 
@@ -146,7 +146,7 @@ As opções de parâmetro de cadeia de caracteres de consulta são conforme demo
 
 | Parâmetro        | Obrigatório | Descrição
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Sim      | Para a função de ouvinte, o parâmetro deve ser **sb-hc-action=listen**
+| `sb-hc-action`   | Sim      | Para a função de ouvinte, o parâmetro deve ser **SB-HC-Action = escutar**
 | `{path}`         | Sim      | O caminho de namespace codificado como URL da Conexão Híbrida pré-configurada na qual este ouvinte será registrado. Esta expressão é acrescentada à parte do caminho `$hc/` fixa.
 | `sb-hc-token`    | Sim\*    | O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Listen** (escutar).
 | `sb-hc-id`       | Não       | Essa ID opcional fornecida pelo cliente permite o rastreamento de diagnóstico de ponta a ponta.
@@ -402,7 +402,7 @@ Se houver um erro, o serviço poderá responder da seguinte maneira:
 
 Quando o token do ouvinte estiver prestes a expirar, ele poderá ser substituído enviando uma mensagem de quadro de texto ao serviço por meio do canal de controle estabelecido. A mensagem contém um objeto JSON chamado `renewToken`, que define a propriedade a seguir neste momento:
 
-* **token** – um token de acesso compartilhado válido e codificado por URL para o namespace ou conexão híbrida que confere o direito **ouvir.**
+* **token** – um token de acesso compartilhado de barramento de serviço de codificação de URL válido para o namespace ou conexão híbrida que confere o direito de **escuta** .
 
 ```json
 {
@@ -434,7 +434,7 @@ A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
 
-| Param          | Obrigatório? | Descrição
+| Param          | Necessário? | Descrição
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Sim       | Para a função de remetente, o parâmetro deve ser `sb-hc-action=connect`.
 | `{path}`       | Sim       | (confira no parágrafo a seguir)
@@ -482,7 +482,7 @@ A solicitação pode conter cabeçalhos HTTP adicionais arbitrários, incluindo 
 
 As opções de parâmetro de cadeia de caracteres de consulta são conforme demonstrado a seguir:
 
-| Param          | Obrigatório? | Descrição
+| Param          | Necessário? | Descrição
 | -------------- | --------- | ---------------- |
 | `sb-hc-token`  | Sim\*     | O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Send**.
 
@@ -510,6 +510,6 @@ Se houver algum erro, o serviço poderá responder da seguinte maneira. É poss�
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Perguntas frequentes sobre Retransmissão](relay-faq.md)
-* [Crie um namespace](relay-create-namespace-portal.md)
+* [Criar um namespace](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)

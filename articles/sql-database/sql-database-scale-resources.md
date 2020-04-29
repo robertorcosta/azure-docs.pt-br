@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
 ms.openlocfilehash: c4366b2718271b1e27325e6946c5016e9230cea4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76835905"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente os recursos de banco de dados com o tempo de inatividade mínimo
 
-O Azure SQL Database permite adicionar dinamicamente mais recursos ao seu banco de dados com tempo mínimo [de inatividade;](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/) no entanto, há uma mudança ao longo do período em que a conectividade é perdida para o banco de dados por um curto período de tempo, que pode ser atenuada usando a lógica de repetição.
+O banco de dados SQL do Azure permite que você adicione dinamicamente mais recursos ao seu banco de dados com [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)mínimo; no entanto, há uma mudança no período em que a conectividade é perdida no banco de dados por um curto período de tempo, o que pode ser mitigado usando a lógica de repetição.
 
 ## <a name="overview"></a>Visão geral
 
@@ -35,12 +35,12 @@ Você não precisa se preocupar com a compra do hardware e a alteração da infr
 O Banco de Dados SQL do Azure oferece o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 - O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece uma mistura de computação, memória e recursos de E/S em três camadas de serviço para dar suporte a cargas de trabalho leves e pesadas de banco de dados: Básico, Standard e Premium. Níveis de desempenho dentro de cada camada fornecem uma mistura diferente desses recursos, aos quais você pode adicionar recursos de armazenamento.
-- O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite que você escolha o número de vCores, a quantidade ou a memória e a quantidade e a velocidade de armazenamento. Este modelo de compra oferece três níveis de serviço: General Purpose, Business Critical e Hyperscale.
+- O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite que você escolha o número de vCores, a quantidade ou a memória e a quantidade e a velocidade de armazenamento. Esse modelo de compra oferece três camadas de serviço: Uso Geral, Comercialmente Crítico e hiperescala.
 
 Você pode criar seu primeiro aplicativo em um banco de dados individual pequeno com um baixo custo mensal na camada de serviço de Básica, Geral ou de Uso Geral e, depois, alterar a camada de serviço manualmente ou de forma programática a qualquer momento para a camada de serviço Premium ou Comercialmente Crítico para atender às necessidades da solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
 
 > [!NOTE]
-> A escalabilidade dinâmica é diferente do dimensionamento automático. A escala automática é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual com um tempo mínimo de inatividade.
+> A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço é dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual com um tempo de inatividade mínimo.
 
 O Banco de Dados SQL do Azure Individual oferece suporte à escalabilidade dinâmica manual, mas não ao dimensionamento automático. Para uma experiência mais *automática*, considere o uso de pools elásticos, que permitem que os bancos de dados compartilhem recursos em um pool com base nas necessidades individuais do banco de dados.
 No entanto, há scripts que podem ajudar a automatizar a escalabilidade de um Banco de Dados SQL do Azure individual. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um Banco de Dados SQL individual](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -55,17 +55,17 @@ Todos os três tipos de Bancos de Dados SQL do Azure oferecem alguma capacidade 
 - Uma [Instância Gerenciada](sql-database-managed-instance.md) usa o modo [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) e permite que você defina o máximo de núcleos de CPU e o máximo de armazenamento alocado para sua instância. Todos os bancos de dados na instância compartilharão os recursos alocados para a instância.
 - Os [pools elásticos](sql-database-elastic-pool-scale.md) permitem que você defina o limite máximo de recursos por grupo de bancos de dados no pool.
 
-Iniciando a escala para cima ou reduzir a ação em qualquer um dos sabores reiniciaria o processo do mecanismo do banco de dados e o moveria para uma máquina virtual diferente, se necessário. Mover o processo do mecanismo de banco de dados para uma nova máquina virtual é **um processo on-line** onde você pode continuar usando o serviço de banco de dados Azure SQL existente enquanto o processo está em andamento. Uma vez que o mecanismo de banco de dados de destino esteja totalmente inicializado e pronto para processar as consultas, as conexões serão [comutadas de fonte para mecanismo de banco de dados de destino](sql-database-single-database-scale.md#impact). 
+Iniciar a ação escalar verticalmente ou reduzir horizontalmente em qualquer um dos tipos reiniciaria o processo do mecanismo de banco de dados e o moveria para uma máquina virtual diferente, se necessário. Mover o processo do mecanismo de banco de dados para uma nova máquina virtual é um **processo online** no qual você pode continuar usando o serviço de banco de dados SQL do Azure existente enquanto o processo está em andamento. Depois que o mecanismo de banco de dados de destino estiver totalmente inicializado e pronto para processar as consultas, as conexões serão [alternadas da origem para o mecanismo de banco de dados de destino](sql-database-single-database-scale.md#impact). 
 
 
 > [!NOTE]
-> Você pode esperar uma pequena quebra de conexão quando o processo de escala para cima/escala para baixo estiver concluído. Se você implementou [a lógica De try para erros transitórios padrão,](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)você não notará o failover.
+> Você pode esperar uma pequena interrupção de conexão quando o processo de escalar/reduzir verticalmente for concluído. Se você tiver implementado a [lógica de repetição para erros transitórios padrão](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), não perceberá o failover.
 
 ## <a name="alternative-scale-methods"></a>Métodos alternativos de escala
 
-O dimensionamento de recursos é a maneira mais fácil e eficaz de melhorar o desempenho do seu banco de dados sem alterar o banco de dados ou o código do aplicativo. Em alguns casos, mesmo os mais altos níveis de serviço, tamanhos de computação e otimizações de desempenho podem não lidar com sua carga de trabalho de forma bem-sucedida e econômica. Nesse caso, você tem essas opções adicionais para dimensionar seu banco de dados:
+O dimensionamento de recursos é a maneira mais fácil e mais eficiente de melhorar o desempenho do banco de dados sem alterar o código do banco de dados ou do aplicativo. Em alguns casos, até mesmo as mais altas camadas de serviço, tamanhos de computação e otimizações de desempenho podem não lidar com a carga de trabalho de uma maneira bem-sucedida e econômica. Nesse caso, você tem essas opções adicionais para dimensionar seu banco de dados:
 
-- [A escala de leitura](sql-database-read-scale-out.md) é um recurso disponível onde você está recebendo uma réplica somente de leitura de seus dados onde você pode executar consultas somente de leitura exigentes, como relatórios. A réplica somente leitura manipulará a carga de trabalho somente leitura sem afetar o uso de recursos no banco de dados primário.
+- A [expansão de leitura](sql-database-read-scale-out.md) é um recurso disponível no qual você está obtendo uma réplica somente leitura de seus dados, em que você pode executar consultas somente leitura, como relatórios. A réplica somente leitura manipulará a carga de trabalho somente leitura sem afetar o uso de recursos no banco de dados primário.
 - A [fragmentação de banco de dados](sql-database-elastic-scale-introduction.md) é um conjunto de técnicas que permite dividir os dados em vários bancos de dados e dimensioná-los de forma independente.
 
 ## <a name="next-steps"></a>Próximas etapas

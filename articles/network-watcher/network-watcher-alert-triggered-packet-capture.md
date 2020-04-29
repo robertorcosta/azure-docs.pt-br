@@ -1,5 +1,5 @@
 ---
-title: Use a captura de pacotes para fazer o monitoramento proativo da rede com alertas - Funções do Azure
+title: Use a captura de pacote para fazer o monitoramento de rede proativo com alertas-Azure Functions
 titleSuffix: Azure Network Watcher
 description: Este artigo descreve como criar uma captura de pacotes disparada por alertas com o Observador de Rede do Azure
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76842930"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
@@ -79,7 +79,7 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |**Nome do aplicativo**|PacketCaptureExample|O nome do aplicativo de funções.|
     |**Assinatura**|[Sua assinatura]A assinatura na qual a criar o aplicativo de funções.||
     |**Grupo de recursos**|PacketCaptureRG|O nome do grupo de recursos para conter o aplicativo de funções.|
-    |**Plano de Hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
+    |**Plano de hospedagem**|Plano de consumo| O tipo de plano de que seu aplicativo de funções usa. As opções são planos de consumo ou planos do serviço de aplicativo do Azure. |
     |**Local**|Centro dos EUA| A região na qual um aplicativo de funções será criado.|
     |**Conta de armazenamento**|{gerado automaticamente}| A conta de armazenamento que o Azure Functions usa para armazenamento de finalidade geral.|
 
@@ -89,7 +89,7 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
 
     |**Configuração** | **Valor** | **Detalhes** |
     |---|---|---|
-    |**Cenário**|Experimental|Tipo de cenário|
+    |**Cenário**|Habilitação|Tipo de cenário|
     |**Nomeie sua função**|AlertPacketCapturePowerShell|Nome da função|
     |**Nível de autorização**|Função|Nível de autorização para a função|
 
@@ -120,7 +120,7 @@ Para usar os cmdlets do PowerShell no Observador de Rede, faça upload do últim
 
      ![Pastas do PowerShell][functions5]
 
-1. Selecione **Configurações** > do aplicativo Função**Vá para o App Service Editor**.
+1. Selecione **configurações** > do aplicativo**de funções ir para editor do serviço de aplicativo**.
 
     ![Configurações do aplicativo de funções][functions2]
 
@@ -136,11 +136,11 @@ Para usar os cmdlets do PowerShell no Observador de Rede, faça upload do últim
 
     * Az.Resources
 
-1. Clique com o botão direito do mouse na subpasta **Az.Network** e, em seguida, selecione **'Upload Files '**. 
+1. Clique com o botão direito do mouse na subpasta **AZ. Network** e selecione **carregar arquivos**. 
 
-6. Vá para os módulos do Azure. Na pasta **Az.Network** local, selecione todos os arquivos da pasta. Em seguida, selecione **OK**. 
+6. Vá para os módulos do Azure. Na pasta **AZ. Network** local, selecione todos os arquivos na pasta. Em seguida, selecione **OK**. 
 
-7. Repita essas etapas para **Az.Accounts** e **Az.Resources**.
+7. Repita essas etapas para **AZ. Accounts** e **AZ. Resources**.
 
     ![Carregar arquivos][functions6]
 
@@ -246,7 +246,7 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>Armazenar as variáveis de ambiente
 
-1. Vá para o aplicativo de funções. Em seguida, **selecione Configurações** > do aplicativo**Função Configure as configurações do aplicativo**.
+1. Vá para o aplicativo de funções. Em seguida, selecione **configurações** > do aplicativo de funções**definir configurações do aplicativo**.
 
     ![Definir configurações de aplicativo][functions11]
 
@@ -348,9 +348,9 @@ Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais doc
   |**Descrição**|Segmentos TCP enviados limite excedido|A descrição para a regra de alerta.|
   |**Métrica**|Segmentos TCP enviados| A métrica para usar para disparar o alerta. |
   |**Condição**|Maior que| A condição para usar ao avaliar a métrica.|
-  |**Limite**|100| O valor da métrica que dispara o alerta. Esse valor deve ser definido como um valor válido para o seu ambiente.|
+  |**Os**|100| O valor da métrica que dispara o alerta. Esse valor deve ser definido como um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período no qual procurar o limite na métrica.|
-  |**Gancho de web**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
+  |**Webhook**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
 
 > [!NOTE]
 > A métrica de segmentos TCP não está habilitada por padrão. Saiba mais sobre como habilitar outras métricas visitando [Habilitar o monitoramento e o diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

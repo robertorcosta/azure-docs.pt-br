@@ -1,16 +1,16 @@
 ---
 title: Fontes de dados com suporte no Catálogo de Dados do Azure
-description: Este artigo lista especificações das fontes de dados atualmente suportadas para o Azure Data Catalog.
+description: Este artigo lista as especificações das fontes de dados com suporte no momento para o catálogo de dados do Azure.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898157"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no Catálogo de Dados do Azure
@@ -21,7 +21,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
 
 <table>
     <tr>
-       <td><b>Objeto de origem de dados</b></td>
+       <td><b>Objeto de fonte de dados</b></td>
        <td><b>API</b></td>
        <td><b>Entrada manual</b></td>
        <td><b>Ferramenta de registro</b></td>
@@ -29,7 +29,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
        <td><b>Observações</b></td>
     </tr>
     <tr>
-      <td>Diretório da Azure Data Lake Store (Somente Gen 1)</td>
+      <td>Azure Data Lake Store Directory (somente Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -37,7 +37,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td></td>
     </tr>
     <tr>
-      <td>Arquivo Azure Data Lake Store (Somente Gen 1)</td>
+      <td>Arquivo de Azure Data Lake Store (somente Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td></td>
     </tr>
     <tr>
-      <td>Exibição do Azure SQL Data Warehouse</td>
+      <td>Exibição de SQL Data Warehouse do Azure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -196,7 +196,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td>✓</td>
       <td>✓</td>
       <td>Navegador</td>
-      <td>Somente os servidores de modo nativo. Não há suporte para o modo do SharePoint. SQL Server 2008 e versões posteriores apenas</td>
+      <td>Somente os servidores de modo nativo. Não há suporte para o modo do SharePoint. Somente SQL Server 2008 e versões posteriores</td>
     </tr>
     <tr>
       <td>Tabela do SQL Server</td>
@@ -236,7 +236,7 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Só funciona em inglês. As medidas não são suportadas.</td>
+      <td>Funciona apenas em inglês. Não há suporte para medidas.</td>
     </tr>
     <tr>
       <td>Exibição do SAP HANA</td>
@@ -449,9 +449,9 @@ Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou man
 
 <table>
     <tr>
-       <td><b>Tipo de origem</b></td>
+       <td><b>Tipo de fonte</b></td>
        <td><b>Tipo de ativo</b></td>
-       <td><b>Tipos de objetos</b></td>
+       <td><b>Tipos de objeto</b></td>
        <td><b>Estrutura de DSL<b></td>
     </tr>
     <tr>

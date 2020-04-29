@@ -1,5 +1,5 @@
 ---
-title: Realize transmissões ao vivo usando o Azure Media Services para criar transmissões multibitrate com o portal Azure | Microsoft Docs
+title: Executar a transmissão ao vivo usando os serviços de mídia do Azure para criar fluxos de múltiplas taxas de bits com portal do Azure | Microsoft Docs
 description: Este tutorial fornece uma orientação pelas etapas de criação de um Canal que recebe uma transmissão ao vivo de taxa de bits única, e a codifica em um fluxo de múltiplas taxas de bits usando o Portal do Azure.
 services: media-services
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77162558"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Realize transmissões ao vivo usando serviços de mídia para criar fluxos multibitrate com o portal Azure  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Executar a transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com portal do Azure  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -29,7 +29,7 @@ ms.locfileid: "77162558"
 > 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Este tutorial orienta você pelas etapas de criação de um **Canal** que recebe um fluxo ao vivo de taxa de bits única e o codifica em fluxo de múltiplas taxas de bits.
 
@@ -43,8 +43,8 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 
 1. Conecte uma câmera de vídeo a um computador. <br/>Para obter ideias de instalação, confira [Configuração da engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
 
-    Se você não tiver acesso a uma câmera, ferramentas como [o Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) podem ser usadas para gerar uma transmissão ao vivo a partir de um arquivo de vídeo.
-1. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, confira este blog: [Produção de streaming ao vivo com OBS](https://link.medium.com/ttuwHpaJeT).
+    Se você não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) poderão ser usadas para gerar um feed ao vivo de um arquivo de vídeo.
+1. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, confira este blog: [produção de transmissão ao vivo com Obs](https://link.medium.com/ttuwHpaJeT).
 
     Essa etapa também pode ser realizada após a criação do canal.
 1. Crie e inicie um Canal. 
@@ -66,7 +66,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 Os itens a seguir são necessários para concluir o tutorial.
 
 * Para concluir este tutorial, você precisa de uma conta do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. 
-  Para obter detalhes, consulte [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+  Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Criar Conta](media-services-portal-create-account.md).
 * Uma webcam e um codificador que possa enviar um fluxo ao vivo de taxa de bits única.
 
@@ -77,7 +77,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 3. Escolha **Criação personalizada**. Essa opção permitirá a criação de um canal habilitado para codificação ativa.
 
     ![Criar um canal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
-4. Clique em **Configurações**.
+4. Clique em **configurações**.
 
    1. Escolha o tipo de canal **Codificação Ativa** . Esse tipo especifica que você deseja criar um canal que esteja habilitado para codificação ao vivo. Isso significa que a entrada fluxo com taxa de bits única é enviado para o canal e codificado em um fluxo com múltiplas taxas de bits usando configurações do codificador ao vivo especificado. Para obter mais informações, consulte [Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits](media-services-manage-live-encoder-enabled-channels.md). Clique em OK.
    2. Especifique o nome do canal.
@@ -114,7 +114,7 @@ Para obter mais informações, consulte [Transmissão ao vivo usando os Serviço
 ## <a name="get-ingest-urls"></a>Obter URLs de ingestão
 Depois que o canal é criado, você pode obter URLs de ingestão que você fornecerá ao codificador ao vivo. O codificador usa essas URLs para gerar entrada de um fluxo ao vivo.
 
-![ingerem urls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![URLs de ingestão](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Criar e gerenciar eventos
 
@@ -141,7 +141,7 @@ Se desejar manter o conteúdo arquivado mas ele não está disponível para stre
 Uma vez que o fluxo está fluindo para o canal, você pode começar o evento de transmissão criando um ativo, programa e localizador de Streaming. Isso vai arquivar o fluxo e torná-lo disponível para usuários por meio do ponto de extremidade de Streaming. 
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Parado.** Para começar a transmitir seu conteúdo e aproveitar a embalagem dinâmica e a criptografia dinâmica, o ponto final de streaming a partir do qual você deseja transmitir conteúdo tem que estar no estado **em execução.** 
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta no estado **parado** . Para começar a transmitir seu conteúdo e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **executando** . 
 
 Há duas maneiras de começar o evento: 
 
@@ -194,6 +194,6 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

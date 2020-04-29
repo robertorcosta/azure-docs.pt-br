@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 68159577cb31145be5063bb19af6db71ca1727bd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77115691"
 ---
-# <a name="handling-planned-maintenance-notifications"></a>Manuseio de notificações de manutenção planejadas
+# <a name="handling-planned-maintenance-notifications"></a>Manipulando notificações de manutenção planejada
 
-O Azure realiza atualizações periodicamente para aumentar a confiabilidade, o desempenho e a segurança da infraestrutura de host para máquinas virtuais. As atualizações são as alterações como, por exemplo, aplicação de patches no ambiente de hospedagem ou atualização e desativação de hardware. A maioria dessas atualizações são concluídas sem qualquer impacto para as máquinas virtuais hospedadas. No entanto, há casos em que as atualizações possuem um impacto:
+O Azure realiza atualizações periodicamente para aumentar a confiabilidade, o desempenho e a segurança da infraestrutura de host para máquinas virtuais. As atualizações são as alterações como, por exemplo, aplicação de patches no ambiente de hospedagem ou atualização e desativação de hardware. A maioria dessas atualizações é concluída sem nenhum impacto nas máquinas virtuais hospedadas. No entanto, há casos em que as atualizações possuem um impacto:
 
-- Se a manutenção não exigir uma reinicialização, o Azure usa migração in-loco para pausar a máquina virtual enquanto o host está atualizado. Esses tipos de operações de manutenção são aplicados domínio de falha por domínio de falha. O andamento será interrompido se algum sinal de integridade de aviso for recebido.
+- Se a manutenção não exigir uma reinicialização, o Azure usa migração in-loco para pausar a máquina virtual enquanto o host está atualizado. Essas operações de manutenção de tipos são aplicadas ao domínio de falha por domínio de falha. O andamento será interrompido se algum sinal de integridade de aviso for recebido.
 
-- Se a manutenção requer uma reinicialização, você receberá um aviso informando para quando a manutenção está planejada. Você tem uma janela de tempo de cerca de 35 dias onde você pode começar a manutenção você mesmo, quando ele funciona para você.
+- Se a manutenção requer uma reinicialização, você receberá um aviso informando para quando a manutenção está planejada. Você recebe uma janela de tempo de cerca de 35 dias, em que você pode iniciar a manutenção por conta própria, quando ela funciona para você.
 
 
 Uma manutenção planejada que requer uma reinicialização é agendada em ondas. Cada onda tem um escopo diferente (regiões).
 
-- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada ao Administrador de Serviços e co-administradores. Você pode adicionar mais destinatários e opções de mensagens, como e-mail, SMS e webhooks, usando [alertas de registro de atividades](../service-health/alerts-activity-log-service-notifications.md).  
-- Uma vez que uma notificação é aberta, uma *janela de autoatendimento* é disponibilizada. Durante esta janela, você pode consultar quais de suas máquinas virtuais são afetadas e iniciar a manutenção com base em suas próprias necessidades de agendamento. A janela de autoatendimento é tipicamente de cerca de 35 dias.
+- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada para o administrador de serviços e coadministradores. Você pode adicionar mais destinatários e opções de mensagens como email, SMS e WebHooks, usando [alertas do log de atividades](../service-health/alerts-activity-log-service-notifications.md).  
+- Quando uma notificação sai, uma *janela de autoatendimento* é disponibilizada. Durante essa janela, você pode consultar quais das suas máquinas virtuais são afetadas e iniciar a manutenção com base nas suas necessidades de agendamento. A janela de autoatendimento normalmente é de cerca de 35 dias.
 - Após a janela de autoatendimento, *janela de manutenção agendada* inicia. Em algum momento durante esta janela, o Azure agenda e aplica a manutenção necessária à sua máquina virtual. 
 
 O objetivo de ter duas janelas é dar a você tempo suficiente para iniciar a manutenção e reiniciar sua máquina virtual sabendo quando o Azure iniciará automaticamente a manutenção.
@@ -43,10 +43,10 @@ As diretrizes a seguir devem ajudá-lo a decidir se você deseja usar essa funci
 > A manutenção de autoatendimento pode não estar disponível para todas as suas VMs. Para determinar se a reimplantação pró-ativa está disponível para sua VM, procure o status de manutenção **Iniciar agora**. No momento, a manutenção de autoatendimento não está disponível para os serviços de nuvem (função Web/de trabalho) nem para o Service Fabric.
 
 
-A manutenção de autoatendimento não é recomendada para implantações usando **conjuntos de disponibilidade**. Os conjuntos de disponibilidade já são atualizados apenas um domínio de atualização por vez. 
+A manutenção de autoatendimento não é recomendada para implantações usando **conjuntos de disponibilidade**. Os conjuntos de disponibilidade já estão atualizados apenas em um domínio de atualização por vez. 
 
-- Permita que o Azure dispare a manutenção. Para manutenção que exija reinicialização, a manutenção será feita atualizar o domínio pelo domínio de atualização. Os domínios de atualização não recebem necessariamente a manutenção sequencialmente, e que há uma pausa de 30 minutos entre os domínios de atualização. 
-- Se uma perda temporária de alguma capacidade (1 domínio de atualização) for uma preocupação, você pode adicionar instâncias durante o período de manutenção. 
+- Permita que o Azure dispare a manutenção. Para manutenção que requer reinicialização, a manutenção será feita ao atualizar domínio pelo domínio de atualização. Os domínios de atualização não recebem necessariamente a manutenção sequencialmente e há uma pausa de 30 minutos entre os domínios de atualização. 
+- Se uma perda temporária de alguma capacidade (1 domínio de atualização) for uma preocupação, você poderá adicionar instâncias durante o período de manutenção. 
 - Para a manutenção que não exige reinicialização, as atualizações são aplicadas no nível do domínio de falha. 
 
 **Não** use o autoatendimento de manutenção nos seguintes cenários: 
@@ -72,17 +72,17 @@ A manutenção de autoatendimento não é recomendada para implantações usando
 
 **R:** enquanto a maioria das atualizações para a plataforma do Azure não afete a disponibilidade da máquina virtual, há casos em que não podemos evitar o reinício de máquinas virtuais hospedadas no Azure. Nós acumulamos várias alterações que exigem que nossos servidores sejam reiniciados, o que resultará no reinício das máquinas virtuais.
 
-**P: Se eu seguir suas recomendações de alta disponibilidade usando um conjunto de disponibilidade, estou seguro?**
+**P: se eu seguir as recomendações para alta disponibilidade usando um conjunto de disponibilidade, estou seguro?**
 
 **R:** as máquinas virtuais implantadas em um conjunto de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais têm a noção de UD (domínios de atualização). Ao fazer a manutenção, o Azure respeita a restrição de UD e não reinicia máquinas virtuais de UDs diferentes (dentro do mesmo conjunto de disponibilidade).  O Azure também espera pelo menos 30 minutos antes de passar para o próximo grupo de máquinas virtuais. 
 
-Para obter mais informações sobre alta disponibilidade, consulte [Disponibilidade para máquinas virtuais no Azure](./linux/availability.md).
+Para obter mais informações sobre alta disponibilidade, consulte [disponibilidade para máquinas virtuais no Azure](./linux/availability.md).
 
 **P: como fazer para ser notificado sobre manutenção planejada?**
 
-**R:** uma onda manutenção planejada começa pela definição de uma agenda para uma ou mais regiões do Azure. Logo depois, uma notificação por e-mail é enviada para os Admins de assinatura (um e-mail por assinatura). Os canais adicionais e os destinatários dessa notificação podem ser configurados usando Alertas de Log de Atividades. Caso você implante uma máquina virtual em uma região em que a manutenção planejada já foi agendada, não receberá a notificação e precisará verificar o estado de manutenção da VM.
+**R:** uma onda manutenção planejada começa pela definição de uma agenda para uma ou mais regiões do Azure. Logo após, uma notificação por email é enviada para os administradores de assinatura (um email por assinatura). Os canais adicionais e os destinatários dessa notificação podem ser configurados usando Alertas de Log de Atividades. Caso você implante uma máquina virtual em uma região em que a manutenção planejada já foi agendada, não receberá a notificação e precisará verificar o estado de manutenção da VM.
 
-**P: Não vejo nenhuma indicação de manutenção planejada no portal, Powershell ou CLI. Qual é o problema?**
+**P: não vejo nenhuma indicação de manutenção planejada no portal, no PowerShell ou na CLI. Qual é o problema?**
 
 **R:** As informações relacionadas à manutenção planejada ficam disponíveis durante uma onda de manutenção planejada apenas para as VMs que serão afetadas por ela. Em outras palavras, se você não vir os dados, pode ser que a fase de manutenção já tenha sido concluída (ou não iniciada) ou que sua máquina virtual já esteja hospedada em um servidor atualizado.
 
@@ -96,20 +96,20 @@ Para obter mais informações sobre alta disponibilidade, consulte [Disponibilid
 
 **P: Qual é a experiência no caso de conjuntos de dimensionamento de máquinas virtuais?**
 
-**A:** A manutenção planejada já está disponível para conjuntos de escala de máquinas virtuais. Para obter instruções sobre como iniciar a manutenção de autoatendimento, consulte a manutenção planejada para o documento [de conjuntos de escala de máquinavirtual.](../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)
+**R:** A manutenção planejada agora está disponível para conjuntos de dimensionamento de máquinas virtuais. Para obter instruções sobre como iniciar a manutenção de autoatendimento, consulte documento [manutenção planejada para conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) .
 
 **P: Qual é a experiência no caso de serviços de nuvem (função Web/de trabalho) e do Service Fabric?**
 
 **R:** embora essas plataformas sejam afetadas pela manutenção planejada, considera-se que os clientes que usam essas plataformas estejam seguros, já que somente as VMs em um UD (domínio de atualização) simples serão afetadas em determinado momento. No momento, a manutenção de autoatendimento não está disponível para os serviços de nuvem (função Web/de trabalho) nem para o Service Fabric.
 
-**Q: Eu não vejo nenhuma informação de manutenção em minhas VMs. O que deu errado?**
+**P: não vejo nenhuma informação de manutenção em minhas VMs. O que deu errado?**
 
 **R:** existem várias razões para não se ver informações de manutenção em suas VMs:
 1.  Você está usando uma assinatura marcada como Microsoft interna.
 2.  Suas VMs não estão agendadas para manutenção. É possível que a onda de manutenção tenha sido concluída, cancelada ou modificada de modo que suas VMs não são afetadas por ela.
 3.  Você não tem a coluna **Manutenção** adicionada ao modo de exibição de lista da VM. Embora tenhamos adicionado essa coluna à exibição padrão, os clientes que configuraram para ver colunas não padrão devem adicionar manualmente a coluna **Manutenção** ao modo de exibição de lista da VM.
 
-**P: Meu VM está programado para manutenção pela segunda vez. Porque?**
+**P: minha VM está agendada para manutenção pela segunda vez. Por?**
 
 **R:** há diversos casos de uso em que você verá sua VM agendada para manutenção depois de ter concluído a reimplantação da manutenção:
 1.  Nós cancelamos a fase de manutenção e a reiniciamos com uma carga diferente. É possível que tenhamos detectado uma carga com falha e seja necessário simplesmente implantar uma carga adicional.
@@ -121,5 +121,5 @@ Para obter mais informações sobre alta disponibilidade, consulte [Disponibilid
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode lidar com a manutenção planejada usando o [Azure CLI,](maintenance-notifications-cli.md) [Azure PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
+Você pode lidar com a manutenção planejada usando o [CLI do Azure](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).
 

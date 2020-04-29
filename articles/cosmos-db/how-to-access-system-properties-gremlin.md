@@ -8,15 +8,15 @@ ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
 ms.openlocfilehash: 4ed7e67ae0ef027b260d0e0f0407e4e05ed5a8f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898300"
 ---
 # <a name="system-document-properties"></a>Propriedades do documento do sistema
 
-O Azure Cosmos DB ```_ts```possui ```_self``` ```_attachments```propriedades ```_rid```do ```_etag``` [sistema,](https://docs.microsoft.com/rest/api/cosmos-db/databases) tais como, e em todos os documentos. Além disso, o mecanismo do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas bordas. Por padrão, essas propriedades estão disponíveis para passagem. No entanto, é possível incluir propriedades específicas ou todas elas em passagem de Gremlin.
+Azure Cosmos DB tem [Propriedades do sistema](https://docs.microsoft.com/rest/api/cosmos-db/databases) , ```_ts```como ```_self```, ```_attachments``` ```_rid```,, e ```_etag``` em cada documento. Além disso, o mecanismo do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas bordas. Por padrão, essas propriedades estão disponíveis para passagem. No entanto, é possível incluir propriedades específicas ou todas elas em passagem de Gremlin.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())
@@ -42,4 +42,4 @@ g.addV('vertex-one').property('ttl', 123)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Simultaneidade otimista do Cosmos DB](faq.md#how-does-the-sql-api-provide-concurrency)
-* [Time to Live (TTL)](time-to-live.md) no Azure Cosmos DB
+* [Vida útil (TTL)](time-to-live.md) no Azure Cosmos DB

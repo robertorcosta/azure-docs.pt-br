@@ -1,5 +1,5 @@
 ---
-title: Parceiros de migração e desenvolvimento de aplicativos para o Azure Cosmos DB
+title: Parceiros de desenvolvimento de aplicativos e migração para Azure Cosmos DB
 description: Lista os parceiros da Microsoft com soluções de migração compatíveis com o Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76988168"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Parceiros de desenvolvimento de aplicativo e de migração do NoSQL do Azure Cosmos DB
@@ -19,13 +19,13 @@ Da migração do NoSQL ao desenvolvimento de aplicativo, é possível escolher e
 
 ## <a name="migration-tools"></a>Ferramentas de migração
 
-|**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |**Contato**  |
+|**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |**Contact**  |
 |---------|---------|---------|---------|
-|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> O Striim simplifica a coleta e a movimentação em tempo real de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log no Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
+|![Striim][2]    |  [Mover dados em tempo real para o Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) de uma ampla variedade de fontes de dados. <br/> O Striim simplifica a coleta em tempo real e a movimentação de dados de uma ampla variedade de fontes locais, incluindo documentos corporativos e bancos de dados relacionais, sensores e arquivos de log em Azure Cosmos DB. |   EUA   |  [Site](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Parceiros de Integrador de Sistemas
 
-|**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |**Contato**  |
+|**Parceiro**  |**Funcionalidades e experiência**  |**Países/regiões com suporte**  |**Contact**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | Migração de NoSQL; desenvolvimento de novos aplicativos | EUA | [Site](https://www.10thmagnitude.com/)|
 |![Altoros Development LLC][3]    |  Migração do NoSQL, <br/> Inovação de aplicativo (aplicativos existentes), <br/> Desenvolvimento de novos aplicativos |   EUA, Noruega, Finlândia, Belarus, Argentina |  [Site](https://www.altoros.com/)     |

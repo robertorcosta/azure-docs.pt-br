@@ -7,10 +7,10 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1426d6e770cca566c4b77ca4742e2f8a0fbb5465
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76715067"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Associação de Twilio para o Azure Functions
@@ -25,7 +25,7 @@ As ligações do Twilio são fornecidas no pacote [ Microsoft.Azure.WebJobs.Exte
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Pacotes - Funções 2.x e superior
+## <a name="packages---functions-2x-and-higher"></a>Pacotes-funções 2. x e superior
 
 As ligações do Twilio são fornecidas no pacote [ Microsoft.Azure.WebJobs.Extensions.Twilio ](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet, versão 3.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/).
 
@@ -33,9 +33,9 @@ As ligações do Twilio são fornecidas no pacote [ Microsoft.Azure.WebJobs.Exte
 
 <a id="example"></a>
 
-## <a name="example---functions-2x-and-higher"></a>Exemplo - Funções 2.x e superior
+## <a name="example---functions-2x-and-higher"></a>Exemplo – funções 2. x e superior
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 A exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que envia uma mensagem de texto quando é acionada por uma mensagem de fila.
 
@@ -156,7 +156,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de saída do Twilio em um arquivo *function.json* e código [script C#](functions-reference-node.md) que usa a associação.
 
@@ -203,7 +203,7 @@ module.exports = function (context, myQueueItem) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra como enviar uma mensagem SMS usando a vinculação de saída conforme definido na *seguinte função.js*.
+O exemplo a seguir mostra como enviar uma mensagem SMS usando a associação de saída, conforme definido no *Function. js*a seguir.
 
 ```json
     {
@@ -241,7 +241,7 @@ def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra como usar a anotação [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) para enviar uma mensagem SMS. Valores `to` `from`para `body` , e são necessários na definição de atributo, mesmo se você substituí-los programáticamente.
+O exemplo a seguir mostra como usar a anotação [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) para enviar uma mensagem SMS. Os valores `to`para `from`, e `body` são necessários na definição de atributo mesmo se você os substituir programaticamente.
 
 ```java
 package com.function;
@@ -287,7 +287,7 @@ public class TwilioOutput {
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Em [bibliotecas de classes do C#](functions-dotnet-class-library.md), use o atributo [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs).
 
@@ -307,36 +307,36 @@ Para ver um exemplo completo, consulte [Exemplo de C#](#example).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Os atributos não são suportados pelo script C#.
+Não há suporte para atributos pelo script C#.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Os atributos não são suportados pelo JavaScript.
+Não há suporte para atributos pelo JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Os atributos não são suportados pelo Python.
+Não há suporte para atributos no Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Coloque [Anotação TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) em um [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) parâmetro onde `T` possa `int`ser `String` `byte[]`qualquer tipo java nativo, como , , ou um tipo POJO.
+Coloque a anotação [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) em [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) um parâmetro `T` `int`, em que pode ser qualquer tipo Java nativo `String`, `byte[]`como,, ou um tipo POJO.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de `TwilioSms` vinculação que você definiu no arquivo *function.json* e no atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `TwilioSms` atributo.
 
 | propriedade function.json v1 | propriedade function.json v2 | Propriedade de atributo |Descrição|
 |---------|---------|---------|----------------------|
-|**type**|**type**| deve ser definido como `twilioSms`.|
-|**direction**|**direction**| deve ser definido como `out`.|
+|**tipo**|**type**| deve ser definido como `twilioSms`.|
+|**direção**|**direção**| deve ser definido como `out`.|
 |**name**|**name**| Nome da variável usada no código de função para a mensagem de texto SMS do Twilio. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Esse valor deve ser definido como o nome de uma configuração`TwilioAccountSid`de aplicativo que contém o Seu Twilio Account Sid ( ). Se não configurado, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAccountSid". |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Esse valor deve ser definido como nome de uma configuração de aplicativo`TwilioAccountAuthToken`que contém seu token de autenticação Twilio (). Se não configurado, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAuthToken". |
-|**Para**| N/D – especificar no código | **Para**| Esse valor é definido como o número de telefone para o qual será enviada a mensagem de texto SMS.|
-|**De**|**De** | **De**| Esse valor é definido como o número de telefone com o qual será enviada a mensagem de texto SMS.|
-|**Corpo**|**Corpo** | **Corpo**| Esse valor pode ser usado para fixar a mensagem de texto SMS no código se você não precisa defini-la dinamicamente no código de sua função. |  
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Esse valor deve ser definido como o nome de uma configuração de aplicativo que contém o SID da conta`TwilioAccountSid`do twilio (). Se não configurado, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAccountSid". |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Esse valor deve ser definido como o nome de uma configuração de aplicativo que contém o token de autenticação`TwilioAccountAuthToken`twilio (). Se não configurado, o nome da configuração do aplicativo padrão será "AzureWebJobsTwilioAuthToken". |
+|**to**| N/D – especificar no código | **Para**| Esse valor é definido como o número de telefone para o qual será enviada a mensagem de texto SMS.|
+|**from**|**from** | **De**| Esse valor é definido como o número de telefone com o qual será enviada a mensagem de texto SMS.|
+|**body**|**body** | **Conteúdo**| Esse valor pode ser usado para fixar a mensagem de texto SMS no código se você não precisa defini-la dinamicamente no código de sua função. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

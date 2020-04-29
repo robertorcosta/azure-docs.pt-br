@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77049997"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicar conteúdo dos Serviços de Mídia do Azure usando o REST 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
-> * [Resto](media-services-rest-deliver-streaming-content.md)
+> * [REST](media-services-rest-deliver-streaming-content.md)
 > * [Portal](media-services-portal-publish.md)
 > 
 > 
@@ -33,12 +33,12 @@ Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um
 
 Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
 
-Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra como construir URLs de download progressivos.
+Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra como criar URLs de download progressivo.
 
 A seção [a seguir](#types) mostra os tipos de enumeração cujos valores são usados nas chamadas de REST.   
 
 > [!NOTE]
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento de API REST de serviços de mídia](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md).
 > 
 
 ## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
@@ -190,11 +190,11 @@ exemplo:
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Confira também
-[Visão geral das operações de Serviços de Mídia REST API](media-services-rest-how-to-use.md)
+[Visão geral da API REST de operações dos serviços de mídia](media-services-rest-how-to-use.md)
 
-[Configurar a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)
+[Configurar política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md)
 

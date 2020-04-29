@@ -1,6 +1,6 @@
 ---
 title: Mover dados do Armazenamento de Blobs com conectores SSIS – processo de ciência de dados de equipe
-description: Saiba como mover dados para ou a partir do Armazenamento Azure Blob usando o Pacote de recursos de serviços de integração do servidor SQL para o Azure.
+description: Saiba como mover dados de ou para o armazenamento de BLOBs do Azure usando o SQL Server Integration Services Feature Pack para o Azure.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 77bfd9d5bcae7bedd673354e32464d5f59bdc9b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76720864"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados para ou do Armazenamento de Blobs do Azure usando conectores SSIS
@@ -23,9 +23,9 @@ O [Feature Pack dos Serviços de Integração do SQL Server para Azure](https://
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Uma vez que os clientes tenham movido os dados locais para a nuvem, eles podem acessar seus dados de qualquer serviço do Azure para aproveitar todo o poder do conjunto de tecnologias Do Zure. Os dados podem ser usados posteriormente, por exemplo, no Azure Machine Learning ou em um cluster HDInsight.
+Depois que os clientes movevam dados locais para a nuvem, eles podem acessar seus dados de qualquer serviço do Azure para aproveitar todo o potencial do pacote de tecnologias do Azure. Os dados podem ser usados posteriormente, por exemplo, em Azure Machine Learning ou em um cluster HDInsight.
 
-Exemplos para o uso desses recursos do Azure estão nos passo a passos [do SQL](sql-walkthrough.md) e [do HDInsight.](hive-walkthrough.md)
+Exemplos para usar esses recursos do Azure estão no passo a passos do [SQL](sql-walkthrough.md) e do [HDInsight](hive-walkthrough.md) .
 
 Para conferir uma discussão de cenários canônicos que usam o SSIS para atender às necessidades comerciais comuns em cenários de integração de dados híbridos, consulte o blog [Realizando mais com o Feature Pack dos serviços de integração do SQL Server para o Azure](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) .
 
@@ -35,15 +35,15 @@ Para conferir uma discussão de cenários canônicos que usam o SSIS para atende
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para executar as tarefas descritas neste artigo, você deve ter uma assinatura do Azure e uma conta do Azure Storage configurada. Você precisa do nome da conta do Azure Storage e da chave da conta para carregar ou baixar dados.
+Para executar as tarefas descritas neste artigo, você deve ter uma assinatura do Azure e uma conta de armazenamento do Azure configurada. Você precisa do nome da conta de armazenamento do Azure e da chave de conta para carregar ou baixar dados.
 
 * Para configurar uma **assinatura do Azure**, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
-* Para obter instruções sobre a criação de uma **conta de armazenamento** e para obter informações de conta e chaves, consulte Sobre as contas de armazenamento do [Azure](../../storage/common/storage-create-storage-account.md).
+* Para obter instruções sobre como criar uma **conta de armazenamento** e obter informações de conta e chave, consulte [sobre contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 
 Para usar os **conectores SSIS**, você deverá baixar:
 
 * **SQL Server 2014 ou 2016 Standard (ou mais recente)**: a instalação inclui os SQL Server Integration Services.
-* **Pacote de recursos do Microsoft SQL Server 2014 ou 2016 Integration Services para o Azure**: Esses conectores podem ser baixados, respectivamente, das páginas [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) e [SQL Server 2016 Integration Services.](https://www.microsoft.com/download/details.aspx?id=49492)
+* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack para Azure**: esses conectores podem ser baixados, respectivamente, das páginas [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) e [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) .
 
 > [!NOTE]
 > O SSIS é instalado com o SQL Server, mas não está incluído na versão Express. Para obter informações sobre quais aplicativos estão incluídos nas várias edições do SQL Server, veja [Edições do SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -55,7 +55,7 @@ Para obter os materiais de treinamento sobre o SSIS, veja [Treinamento prático 
 Para obter informações sobre como começar a usar o SISS para compilar pacotes ETL (extração, transformação e carregamento) simples, veja [Tutorial do SSIS: criando um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Baixar o conjunto de dados NYC Taxi
-O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos, cada um dos quais é cerca de 2 GB descompactado.
+O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos, cada um com cerca de 2 GB descompactados.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de blob do Azure
 Para mover dados do local para o Armazenamento de Blobs do Azure usando o pacote de recursos do SSIS, podemos usar uma instância da [**Tarefa de Carregamento de Blob do Azure**](https://msdn.microsoft.com/library/mt146776.aspx), como mostrado aqui:
@@ -66,11 +66,11 @@ Os parâmetros usados pela tarefa são descritos aqui:
 
 | Campo | Descrição |
 | --- | --- |
-| **AzureStorageConnection** |Especifica um Gerenciador de conexão de armazenamento Azure existente ou cria um novo que se refere a uma conta do Azure Storage que aponta para onde os arquivos blob estão hospedados. |
-| **BlobContainer** |Especifica o nome do recipiente blob que contém os arquivos enviados como blobs. |
+| **AzureStorageConnection** |Especifica um Gerenciador de conexões de armazenamento do Azure existente ou cria um novo que se refere a uma conta de armazenamento do Azure que aponta para onde os arquivos de blob estão hospedados. |
+| **BlobContainer** |Especifica o nome do contêiner de BLOB que contém os arquivos carregados como BLOBs. |
 | **BlobDirectory** |Especifica o diretório de blob em que o arquivo carregado é armazenado como um blob de blocos. O diretório de blob é uma estrutura hierárquica virtual. Se o blob já existir, ele será substituído. |
 | **LocalDirectory** |Especifica o diretório local que contém os arquivos a serem carregados. |
-| **Filename** |Especifica um filtro de nome para selecionar arquivos com o padrão de nome especificado. Por exemplo, MySheet\*.xls\* inclui arquivos como MySheet001.xls e MySheetABC.xlsx |
+| **FileName** |Especifica um filtro de nome para selecionar arquivos com o padrão de nome especificado. Por exemplo, MySheet\*.xls\* inclui arquivos como MySheet001.xls e MySheetABC.xlsx |
 | **TimeRangeFrom/TimeRangeTo** |Especifica um filtro de intervalo de tempo. Arquivos modificados após *TimeRangeFrom* e antes de *TimeRangeTo* são incluídos. |
 
 > [!NOTE]

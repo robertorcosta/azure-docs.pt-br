@@ -1,6 +1,6 @@
 ---
-title: Azure Relay - Migrar para autorização de assinatura de acesso compartilhado
-description: Descreve como migrar os aplicativos do Azure Relay do uso do Serviço de Controle de Acesso ativo do Azure para a autorização de assinatura de acesso compartilhada.
+title: Retransmissão do Azure-migrar para autorização de assinatura de acesso compartilhado
+description: Descreve como migrar aplicativos de retransmissão do Azure usando Azure Active Directory serviço de controle de acesso para autorização de assinatura de acesso compartilhado.
 services: service-bus-relay
 documentationcenter: ''
 author: clemensv
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 59b9e734526c56016e2ddf59c2afb5b8f7b4ad09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76514894"
 ---
-# <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay - Migrar do Serviço de Controle de Acesso ao Diretório Ativo do Azure para a autorização de assinatura de acesso compartilhado
+# <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Retransmissão do Azure-migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
 
 Historicamente, os aplicativos da Retransmissão do Azure podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-sas.md) fornecido diretamente pelo serviço de Retransmissão e um modelo federado no qual o gerenciamento de regras de autorização é feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/) e os tokens obtidos do ACS são passados para a Retransmissão para autorização do acesso aos recursos desejados.
 

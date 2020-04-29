@@ -1,6 +1,6 @@
 ---
 title: Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente | Microsoft Docs
-description: Este artigo fornece uma matriz de suporte sobre quais séries vm você pode misturar no mesmo conjunto de disponibilidade
+description: Este artigo fornece uma matriz de suporte sobre qual série de VMs você pode misturar no mesmo conjunto de disponibilidade
 documentationcenter: ''
 author: Deland-Han
 manager: dcscontentpm
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: a9ca8f219bef787de04b51600209bfd3a24dd166
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77122916"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente
@@ -32,4 +32,4 @@ Série e conjunto de disponibilidade|Segunda VM|Um|Av2|D|Dv2|Dv3|
 
 Todas as outras séries não podem estar no mesmo conjunto de disponibilidade porque exigem um hardware específico.
 
-O tamanho do A8/A9 VM não pode ser misturado devido à exigência de rede backend RDMA dedicada.
+O tamanho da VM A8/A9 não pode ser misturado devido ao requisito na rede de back-end RDMA dedicada.

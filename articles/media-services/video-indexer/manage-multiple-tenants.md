@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76990497"
 ---
 # <a name="manage-multiple-tenants"></a>Gerenciar vários locatários
@@ -68,7 +68,7 @@ Ao [carregar vídeos](https://api-portal.videoindexer.ai/docs/services/operation
 
 ## <a name="azure-subscription-per-tenant"></a>Assinatura do Azure por locatário 
 
-Ao usar essa arquitetura, cada inquilino terá sua própria assinatura do Azure. Para cada usuário, você criará uma nova conta do Video Indexer na assinatura do locatário.
+Ao usar essa arquitetura, cada locatário terá sua própria assinatura do Azure. Para cada usuário, você criará uma nova conta do Video Indexer na assinatura do locatário.
 
 ![Assinatura do Azure por locatário](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

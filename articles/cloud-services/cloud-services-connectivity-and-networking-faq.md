@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
 ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77019393"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de rede e conectividade para Serviços de Nuvem do Azure: perguntas frequentes
@@ -43,7 +43,7 @@ Para testar a conectividade, é recomendável fazer um ping de porta. Enquanto P
 Para obter mais informações, consulte [Usar pings de porta em vez de ICMP para testar a conectividade de VM do Azure](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>Como fazer para impedir o recebimento de milhares de visitas de endereços IP desconhecidos que indiquem um ataque mal-intencionado ao serviço de nuvem?
-O Azure implementa um segurança de rede de várias camadas para proteger seus serviços de plataforma contra ataques de DDoS (negação de serviço distribuída). O sistema de proteção contra DDoS do Azure faz parte do processo de monitoramento contínuo do Azure, que é aprimorado continuamente por meio de teste de penetração. Esse sistema de proteção DDoS foi projetado para resistir não só a ataques externos, como também a de outros locatários do Azure. Para obter mais informações, consulte [a segurança da rede Azure](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
+O Azure implementa um segurança de rede de várias camadas para proteger seus serviços de plataforma contra ataques de DDoS (negação de serviço distribuída). O sistema de proteção contra DDoS do Azure faz parte do processo de monitoramento contínuo do Azure, que é aprimorado continuamente por meio de teste de penetração. Esse sistema de proteção DDoS foi projetado para resistir não só a ataques externos, como também a de outros locatários do Azure. Para obter mais informações, consulte [segurança de rede do Azure](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
 
 Você pode criar uma tarefa de inicialização para bloquear seletivamente alguns endereços IP específicos. Para obter mais informações, consulte [Bloquear um endereço IP específico](cloud-services-startup-tasks-common.md#block-a-specific-ip-address).
 
@@ -54,7 +54,7 @@ Você pode receber a mensagem de erro "Esta conta de usuário expirou" quando vo
 
 2. Selecione o slot de implantação de **Produção** ou **Preparo**.
 
-3. Alterar **a data Expira da** data e, em seguida, salvar a configuração.
+3. Altere a data **expira em** e, em seguida, salve a configuração.
 
 Agora você deve ser capaz de fazer RDP para seu computador.
 
@@ -65,14 +65,14 @@ O algoritmo de distribuição usado é um hash de 5 tuplas (IP de origem, porta 
 
 ## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Como redirecionar o tráfego de entrada para a URL padrão do meu Serviço de Nuvem para uma URL personalizada?
 
-O Módulo de Reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega na URL padrão do serviço de nuvem (por exemplo, \*.cloudapp.net) para alguma URL/Nome DNS personalizada. Como o módulo url rewrite está habilitado em funções da Web por padrão e suas regras estão configuradas na web.config do aplicativo, ele está sempre disponível na VM, independentemente de reinicializações/reimagens. Para obter mais informações, consulte:
+O Módulo de Reescrita de URL do IIS pode ser usado para redirecionar o tráfego que chega na URL padrão do serviço de nuvem (por exemplo, \*.cloudapp.net) para alguma URL/Nome DNS personalizada. Como o módulo de reescrita de URL é habilitado em funções Web por padrão e suas regras são configuradas no Web. config do aplicativo, ela está sempre disponível na VM, independentemente das reinicializações/recriações de imagem. Para obter mais informações, consulte:
 
 - [Criar regras de reescrita para o Módulo de Reescrita de URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remova o link padrão](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Como bloquear/desabilitar o tráfego de entrada para a URL padrão do meu serviço de nuvem?
 
-Você pode impedir o tráfego de entrada para o padrão de URL/nome do seu serviço da sua nuvem (por exemplo, \*. >.cloudapp.NET). Defina o cabeçalho do host como\.um nome DNS personalizado (por exemplo, www MyCloudService.com) na configuração de vinculação do site no arquivo de definição de serviço na nuvem (*.csdef), conforme indicado:
+Você pode impedir o tráfego de entrada para o padrão de URL/nome do seu serviço da sua nuvem (por exemplo, \*. >.cloudapp.NET). Defina o cabeçalho de host para um nome DNS personalizado (por exemplo,\.www MyCloudService.com) em configuração de associação de site no arquivo de definição do serviço de nuvem (*. csdef), conforme indicado:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -104,7 +104,7 @@ Para certificar-se de que o endereço IP público do seu serviço de nuvem (tamb
 - [Reservar o endereço IP de um serviço de nuvem existente](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associar um IP reservado a um serviço de nuvem usando um arquivo de configuração de serviço](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Se você tiver mais de uma instância para suas funções, associar RIP ao seu Serviço de Nuvem não causaria nenhum tempo de inatividade. Alternativamente, você pode adicionar o intervalo IP do seu datacenter Azure a uma lista de permitir. Você pode encontrar todos os intervalos de IP do Azure no [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+Se você tiver mais de uma instância para suas funções, associar RIP ao seu Serviço de Nuvem não causaria nenhum tempo de inatividade. Como alternativa, você pode adicionar o intervalo de IP do seu datacenter do Azure a uma lista de permissões. Você pode encontrar todos os intervalos de IP do Azure no [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 Esse arquivo contém intervalos de endereços IP (inclusive intervalos de Computação, SQL e Armazenamento) usados em Datacenters do Azure. Um arquivo atualizado que reflete os intervalos atualmente implantados e quaisquer alterações futuras para os intervalos de IP, é postado semanalmente. Novos intervalos que aparecem no arquivo não são usados nos centros de dados por pelo menos uma semana. Baixe o novo arquivo .xml semanalmente e faça as alterações necessárias no seu site para identificar corretamente os serviços em execução no Azure. Os usuários do Azure ExpressRoute podem observar esse arquivo usado para atualizar o anúncio de BGP de espaço do Azure na primeira semana de cada mês.
 

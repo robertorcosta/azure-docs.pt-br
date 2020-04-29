@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl é
-description: Saiba mais sobre a sfctl, a interface de linha de comando azure Service Fabric. Inclui uma lista de comandos para gerenciamento de infra-estrutura.
+title: CLI do Azure Service Fabric-sfctl é
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar a infraestrutura do.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a64aaca97c9df61d795c82d64e6048d6f9ae032f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906082"
 ---
 # <a name="sfctl-is"></a>sfctl is
@@ -70,5 +70,5 @@ Para clusters que têm uma ou mais instâncias do serviço de infraestrutura con
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).
