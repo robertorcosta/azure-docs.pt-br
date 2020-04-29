@@ -9,15 +9,15 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 266cd52117f36b282fdd4bc8615a15e451cc203f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80132626"
 ---
 As funções facilitam a adição da integração do Application Insights a um aplicativo de funções do [portal do Azure].
 
-1. No [portal][Portal Azure], digite `Function Apps` a barra de pesquisa na parte superior da página, escolha seu aplicativo de função e, em seguida, selecione o banner do aplicativo **Insights não está configurado** na parte superior da janela. Se você não ver esse banner, então seu aplicativo já tem o Application Insights ativado.
+1. No portal do [portal][do Azure], `Function Apps` digite na barra de pesquisa na parte superior da página, escolha seu aplicativo de funções e, em seguida, selecione a faixa **Application insights não está configurada** na parte superior da janela. Se você não vir essa faixa, seu aplicativo já terá Application Insights habilitado.
 
     ![Habilitar o Application Insights no portal](media/functions-connect-new-app-insights/enable-application-insights.png)
 
@@ -34,4 +34,4 @@ As funções facilitam a adição da integração do Application Insights a um a
 
 1. No aplicativo de funções, selecione **Configurações do aplicativo** e role para baixo até **Configurações do aplicativo**. Se você vir uma configuração chamada `APPINSIGHTS_INSTRUMENTATIONKEY`, isso significa que a integração do Application Insights está habilitada para seu aplicativo de funções em execução no Azure.
 
-[Azure Portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

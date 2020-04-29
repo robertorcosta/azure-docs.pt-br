@@ -1,6 +1,6 @@
 ---
-title: Atualizações tLS do Notification Hubs
-description: Saiba mais sobre o suporte para TLS nos Hubs de Notificação do Azure.
+title: Atualizações de TLS dos hubs de notificação
+description: Saiba mais sobre o suporte para TLS nos hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,28 +15,28 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
 ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885745"
 ---
 # <a name="transport-layer-security-tls"></a>Protocolo TLS
 
-Para garantir um nível mais alto de segurança, os Hubs de Notificação desabilitarão o suporte para as versões 1.0 e 1.1 do TLS em 31 de maio de 2020 (estendido a partir de 30 de abril de 2020). Esses protocolos mais antigos fornecem criptografia fraca, e são vulneráveis a ataques BEAST e POODLE. Os aplicativos implantados em dispositivos que executam a versão 5 ou superior do Android, ou versão 5 ou superior do iOS, não são afetados por essa mudança, pois esses sistemas operacionais suportam o TLS 1.2 e o cliente e o servidor negociarão a versão mais alta suportada mutuamente do protocolo após a conexão.
+Para garantir um nível mais alto de segurança, os hubs de notificação desabilitarão o suporte para as versões 1,0 e 1,1 de TLS em 31 de maio de 2020 (estendido de 30 de abril de 2020). Esses protocolos mais antigos fornecem criptografia fraca e estão vulneráveis a ataques fera e POODLE. Os aplicativos implantados em dispositivos que executam o Android versão 5 ou superior, ou iOS versão 5 ou superior, não são afetados por essa alteração, pois esses sistemas operacionais dão suporte a TLS 1,2 e o cliente e o servidor negociarão a versão mais recente com suporte mútuo do protocolo na conexão.
 
-Recomendamos que você revise todos os seus aplicativos que usam hubs de notificação do Azure, para garantir que eles usem as bibliotecas e pilhas TLS mais aplicáveis que suportam o TLS 1.2.
+Recomendamos que você examine todos os seus aplicativos que usam os hubs de notificação do Azure para garantir que eles usem as bibliotecas mais aplicáveis e pilhas TLS que dão suporte a TLS 1,2.
 
 ## <a name="update-apps"></a>Atualizar aplicativos
 
-Você pode garantir que seus aplicativos para iOS estejam usando o TLS 1.2 usando o recurso de segurança de rede da Apple chamado App Transport Security (ATS). AtS não pode ser usado para SDKs mais antigos que o iOS 9.0 ou macOS 10.11, e você pode ler mais sobre isso a partir [da documentação da Apple](https://developer.apple.com/documentation/security/preventing_insecure_network_connections).
+Você pode garantir que seus aplicativos iOS estejam usando o TLS 1,2 usando o recurso de segurança de rede da Apple chamado segurança de transporte de aplicativo (ATS). O ATS não pode ser usado para SDKs com mais de iOS 9,0 ou macOS 10,11, e você pode ler mais sobre ele na [documentação da Apple](https://developer.apple.com/documentation/security/preventing_insecure_network_connections).
 
-Para aplicativos Android que usam as instâncias sslsocket, defina protocolos ativados em cada instância do SSLSocket, conforme observado em [setEnabledProtocols](https://developer.android.com/reference/javax/net/ssl/SSLSocket#setEnabledProtocols(java.lang.String%5B%5D)).
+Para aplicativos Android usando instâncias de SSLSocket, defina protocolos habilitados em cada instância de SSLSocket, conforme observado em [setEnabledProtocols](https://developer.android.com/reference/javax/net/ssl/SSLSocket#setEnabledProtocols(java.lang.String%5B%5D)).
 
-A tabela na página de suporte [à compatibilidade de protocolo TLS](https://support.globalsign.com/customer/portal/articles/2934392-tls-protocol-compatibility) ajuda a mapear sistemas operacionais com versões TLS compatíveis.
+A tabela na página de suporte de [compatibilidade do protocolo TLS](https://support.globalsign.com/customer/portal/articles/2934392-tls-protocol-compatibility) ajuda a mapear sistemas operacionais com versões compatíveis do TLS.
 
-Para obter mais informações, consulte a visão geral do [suporte aos protocolos TLS no Windows](https://docs.microsoft.com/archive/blogs/kaushal/support-for-ssltls-protocols-on-windows).
+Para obter mais informações, consulte a visão geral do [suporte para protocolos TLS no Windows](https://docs.microsoft.com/archive/blogs/kaushal/support-for-ssltls-protocols-on-windows).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Visão geral dos Hubs de Notificação](notification-hubs-push-notification-overview.md)
+- [Visão geral dos hubs de notificação](notification-hubs-push-notification-overview.md)

@@ -1,5 +1,5 @@
 ---
-title: Requisitos do servidor de configuração de recuperação de desastres do VMware na recuperação do site do Azure
+title: Recuperação de desastre do VMware – requisitos do servidor de configuração no Azure Site Recovery
 description: Este artigo descreve o suporte e os requisitos ao implantar o servidor de configuração para recuperação de desastre do VMware no Azure com Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/09/2019
 ms.author: raynew
 ms.openlocfilehash: 0b0942b517c8dc83c048bd1203a58d9861515dfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257401"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Requisitos do servidor de configuração para recuperação de desastre do VMware para Azure

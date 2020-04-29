@@ -1,6 +1,6 @@
 ---
 title: Navegadores e dispositivos com suporte para o Portal do Azure | Microsoft Docs
-description: Você pode usar o portal Azure em todos os dispositivos modernos e com as versões mais recentes do navegador. Consulte este artigo para ter certeza de que seu navegador está suportado.
+description: Você pode usar o portal do Azure em todos os dispositivos modernos e com as versões mais recentes do navegador. Consulte este artigo para ter certeza de que o navegador tem suporte.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -16,17 +16,17 @@ ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
 ms.openlocfilehash: 63bfb7c92e77c4059a46a83b76b3818fcb6d63be
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754194"
 ---
 # <a name="supported-devices"></a>Dispositivos com suporte
 
-O [portal Azure](https://portal.azure.com) é um console baseado na Web e funciona no navegador de todos os desktops e dispositivos tablet modernos. Para usar o portal, você deve ter JavaScript ativado no seu navegador.
+O [portal do Azure](https://portal.azure.com) é um console baseado na Web e é executado no navegador de todos os desktops modernos e dispositivos de Tablet. Para usar o portal, você deve ter o JavaScript habilitado em seu navegador.
 
-Se você precisa gerenciar os recursos do Azure a partir de um dispositivo móvel, experimente o [aplicativo móvel Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Está disponível para iOS e Android.
+Se você precisar gerenciar recursos do Azure de um dispositivo móvel, tente a [aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/). Ele está disponível para iOS e Android.
 
 ## <a name="recommended-browsers"></a>Navegadores recomendados
 

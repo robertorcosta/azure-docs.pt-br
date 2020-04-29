@@ -1,18 +1,18 @@
 ---
 title: Entender ciclo de vida de um blueprint
-description: Conheça o ciclo de vida pelo qual uma definição de projeto passa e detalhes sobre cada etapa, incluindo atualização e remoção de atribuições do projeto.
+description: Saiba mais sobre o ciclo de vida que uma definição do plano gráfico passa e detalhes sobre cada estágio, incluindo a atualização e a remoção de atribuições de plano gráfico.
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 46da42ec97f16af91ef8e41362a085d466bbb887
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80677378"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 
-Como muitos recursos no Azure, um blueprint no Azure Blueprints tem um ciclo de vida típico e natural. Eles são criados, implantados e finalmente excluídos quando não forem mais necessários ou relevantes. O Azure Blueprints suporta operações padrão do ciclo de vida. Ele cria, em seguida, após a eles para fornecer níveis de status adicionais que dão suporte a pipelines de implantação contínua e integração contínua comuns para as organizações que gerenciam sua infraestrutura como código – um elemento fundamental em DevOps.
+Como muitos recursos no Azure, um blueprint no Azure Blueprints tem um ciclo de vida típico e natural. Eles são criados, implantados e finalmente excluídos quando não forem mais necessários ou relevantes. Os planos gráficos do Azure dão suporte a operações de ciclo de vida padrão. Ele cria, em seguida, após a eles para fornecer níveis de status adicionais que dão suporte a pipelines de implantação contínua e integração contínua comuns para as organizações que gerenciam sua infraestrutura como código – um elemento fundamental em DevOps.
 
 Para entender completamente um blueprint e os estágios, vamos abordar um ciclo de vida padrão:
 
@@ -28,7 +28,7 @@ Para entender completamente um blueprint e os estágios, vamos abordar um ciclo 
 
 Ao criar um blueprint, adicione artefatos, salve em um grupo de gerenciamento ou assinatura e forneça um nome e uma versão exclusivos. O blueprint agora está no modo **Rascunho** e ainda não pode ser atribuído. Enquanto no modo **Rascunho**, ele pode continuar a ser atualizado e alterado.
 
-Um blueprint nunca publicado no **modo Rascunho** exibe um ícone diferente na página **Blueprint Definitions** do que aqueles que foram **Publicados**. A **versão mais recente** é exibida como **Rascunho** para estes projetos nunca publicados.
+Um blueprint nunca publicado no **modo Rascunho** exibe um ícone diferente na página **Blueprint Definitions** do que aqueles que foram **Publicados**. A **versão mais recente** é exibida como **rascunho** para essas nunca publicadas.
 
 Crie e edite um blueprint com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou a [API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -62,11 +62,11 @@ Cada versão de um blueprint é um objeto exclusivo que pode ser individualmente
 
 1. Selecione **Todos os serviços** no painel esquerdo. Pesquise e selecione **Blueprints**.
 
-1. Selecione **definições** de Projeto na página à esquerda e use as opções de filtro para localizar o projeto que deseja excluir uma versão. Selecione-o para abrir a página de edição.
+1. Selecione **definições de plano gráfico** na página à esquerda e use as opções de filtro para localizar o plano gráfico para o qual você deseja excluir uma versão. Selecione-o para abrir a página Editar.
 
-1. Selecione a guia **'Versões publicadas'** e localize a versão que deseja excluir.
+1. Selecione a guia **versões publicadas** e localize a versão que você deseja excluir.
 
-1. Clique com o botão direito do mouse na versão para excluir e selecionar **Excluir esta versão**.
+1. Clique com o botão direito do mouse na versão a ser excluída e selecione **excluir esta versão**.
 
 ## <a name="deleting-the-blueprint"></a>Exclusão do blueprint
 
@@ -93,16 +93,16 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 Para saber como, confira [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 
-### <a name="unassigning-assignments"></a>Desatribuindo atribuições
+### <a name="unassigning-assignments"></a>Cancelando atribuição de atribuições
 
-Se o projeto não for mais necessário, ele pode ser desatribuído do grupo de gerenciamento ou da assinatura. Durante a desatribuição do projeto, ocorre o seguinte:
+Se o plano gráfico não for mais necessário, ele poderá não ser atribuído do grupo de gerenciamento ou da assinatura. Durante a desatribuição do plano gráfico, ocorre o seguinte:
 
-- Remoção do bloqueio de [recursos do projeto](resource-locking.md)
-- Exclusão do objeto de atribuição do projeto
-- (Condicional) Se uma **identidade gerenciada atribuída ao sistema** foi usada, ela também será excluída
+- Remoção do [bloqueio de recursos do Blueprint](resource-locking.md)
+- Exclusão do objeto de atribuição Blueprint
+- Condiciona Se uma **identidade gerenciada atribuída pelo sistema** foi usada, ela também será excluída
 
 > [!NOTE]
-> Todos os recursos implantados pela atribuição do projeto permanecem no local, mas não são mais protegidos pelo Azure Blueprints.
+> Todos os recursos implantados pela atribuição Blueprint permanecem em vigor, mas não são mais protegidos pelas plantas do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

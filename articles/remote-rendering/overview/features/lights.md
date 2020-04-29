@@ -1,76 +1,76 @@
 ---
 title: Luzes
-description: Descrição da fonte de luz e propriedades
+description: Descrição e propriedades da fonte de luz
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.openlocfilehash: 0a4a226af1347b5302b0c3964889fc072f89e7f8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80680941"
 ---
 # <a name="lights"></a>Luzes
 
-Por padrão, os objetos renderizados remotamente são acesos usando uma [luz do céu](sky.md). Para a maioria dos aplicativos isso já é suficiente, mas você pode adicionar mais fontes de luz à cena.
+Por padrão, os objetos renderizados remotamente são acesos usando uma [luz céu](sky.md). Para a maioria dos aplicativos, isso já é suficiente, mas você pode adicionar mais fontes de luz à cena.
 
 > [!IMPORTANT]
-> Apenas [os materiais PBR](pbr-materials.md) são afetados por fontes de luz. [Os materiais coloridos](color-materials.md) sempre parecem totalmente brilhantes.
+> Somente [materiais PBR](pbr-materials.md) são afetados por fontes de luz. Os [materiais coloridos](color-materials.md) sempre aparecem totalmente brilhantes.
 
 > [!NOTE]
-> As sombras de fundição não são suportadas no momento. A renderização remota do Azure é otimizada para renderizar enormes quantidades de geometria, utilizando várias GPUs, se necessário. Abordagens tradicionais para o casting de sombras não funcionam bem em tais cenários.
+> Atualmente, não há suporte para as sombras de conversão. A renderização remota do Azure é otimizada para renderizar enormes quantidades de geometria, utilizando várias GPUs, se necessário. As abordagens tradicionais para a conversão de sombra não funcionam bem nesses cenários.
 
-## <a name="common-light-component-properties"></a>Propriedades comuns de componentes de luz
+## <a name="common-light-component-properties"></a>Propriedades comuns do componente de luz
 
-Todos os tipos de luz `LightComponent` derivam da classe base abstrata e compartilham essas propriedades:
+Todos os tipos de luz derivam da classe `LightComponent` base abstrata e compartilham essas propriedades:
 
-* **Cor:** A cor da luz no [espaço Gama.](https://en.wikipedia.org/wiki/SRGB) Alpha é ignorado.
+* **Cor:** A cor da luz no [espaço gama](https://en.wikipedia.org/wiki/SRGB). Alfa é ignorado.
 
-* **Intensidade:** O brilho da luz. Para luzes pontuais e pontuais, a intensidade também define o quão longe a luz brilha.
+* **Intensidade:** O brilho da luz. Para luzes de ponto e Spot, a intensidade também define o quanto a luz se destaca.
 
-## <a name="point-light"></a>Luz de ponto
+## <a name="point-light"></a>Luz pontual
 
-Na renderização remota `PointLightComponent` do Azure, o pode não apenas emitir luz de um único ponto, mas também de uma pequena esfera ou de um pequeno tubo, para simular fontes de luz mais suaves.
+Na renderização remota do Azure `PointLightComponent` , o pode não apenas emitir luz de um único ponto, mas também de uma esfera pequena ou de um pequeno tubo, para simular fontes de luz mais suaves.
 
-### <a name="pointlightcomponent-properties"></a>Propriedades PointLightComponent
+### <a name="pointlightcomponent-properties"></a>Propriedades de PointLightComponent
 
-* **Raio:** O raio padrão é zero, nesse caso a luz age como uma luz de ponto. Se o raio for maior que zero, ele age como fonte de luz esférica, o que muda a aparência dos destaques especular.
+* **Raio:** O raio padrão é zero; nesse caso, a luz age como uma luz pontual. Se o raio for maior que zero, ele atuará como fonte de luz esférica, que altera a aparência dos realces especulares.
 
-* **Comprimento:** Se `Length` ambos `Radius` e não são zero, a luz age como uma luz de tubo. Isto pode ser usado para simular tubos de néon.
+* **Comprimento:** Se ambos `Length` e `Radius` forem diferentes de zero, a luz agirá como uma luz de tubo. Isso pode ser usado para simular tubos de neon.
 
-* **AtenuaçãoCutoff:** Se deixada para (0,0) a atenuação da luz `Intensity`só depende do seu . No entanto, você pode fornecer distâncias min/max personalizadas sobre as quais a intensidade da luz é dimensionada linearmente até 0. Este recurso pode ser usado para impor uma menor gama de influência de uma luz específica.
+* **AttenuationCutoff:** Se esquerda para (0, 0) a atenuação da luz depende apenas de seu `Intensity`. No entanto, você pode fornecer distâncias mínimas/máximas personalizadas em que a intensidade da luz é dimensionada linearmente para 0. Esse recurso pode ser usado para impor um intervalo menor de influência de uma luz específica.
 
-* **Cubemap projetado:** Se definido como um [cubemap](../../concepts/textures.md)válido, a textura é projetada na geometria circundante da luz. A cor do cubo é modulada com a cor da luz.
+* **ProjectedCubemap:** Se for definido como um [cubemap](../../concepts/textures.md)válido, a textura será projetada na geometria ao redor da luz. A cor da cubemap é modulada com a cor da luz.
 
-## <a name="spot-light"></a>Luz spot
+## <a name="spot-light"></a>Luz Spot
 
-O `SpotLightComponent` é semelhante `PointLightComponent` ao, mas a luz é restrita à forma de um cone. A orientação do cone é definida pelo *eixo z negativo da entidade proprietária.*
+O `SpotLightComponent` é semelhante a `PointLightComponent` , mas a luz é restrita à forma de um cone. A orientação do cone é definida pelo *eixo z negativo da entidade do proprietário*.
 
-### <a name="spotlightcomponent-properties"></a>Propriedades do SpotLightComponent
+### <a name="spotlightcomponent-properties"></a>Propriedades de SpotLightComponent
 
-* **Raio:** O mesmo `PointLightComponent`que para o .
+* **Raio:** O mesmo que para `PointLightComponent`o.
 
-* **SpotAngleDeg:** Este intervalo define o ângulo interno e externo do cone, medido em grau. Tudo dentro do ângulo interno é iluminado com brilho total. Uma queda é aplicada em direção ao ângulo externo que gera um efeito semelhante à penumbra.
+* **SpotAngleDeg:** Esse intervalo define o ângulo interno e externo do cone, medido em graus. Tudo dentro do ângulo interno é iluminado com brilho completo. Uma queda é aplicada em direção ao ângulo externo que gera um efeito semelhante a penumbra.
 
-* **FalloffExponent:** Define o quão acentuadamente a queda transita entre o ângulo interno e o cone externo. Um valor mais alto resulta em uma transição mais nítida. A inadimplência do 1.0 resulta em uma transição linear.
+* **FalloffExponent:** Define a nitidez da transição entre o ângulo do cone interno e o exterior. Um valor mais alto resulta em uma transição mais nítida. O padrão de 1,0 resulta em uma transição linear.
 
-* **AtenuaçãoCutoff:** O mesmo `PointLightComponent`que para o .
+* **AttenuationCutoff:** O mesmo que para `PointLightComponent`o.
 
-* **Projeção2dTextura:** Se definida como uma [textura 2D](../../concepts/textures.md)válida, a imagem é projetada na geometria em que a luz brilha. A cor da textura é modulada com a cor da luz.
+* **Projected2dTexture:** Se for definido como uma [textura 2D](../../concepts/textures.md)válida, a imagem será projetada em geometry em que a luz se destaca. A cor da textura é modulada com a cor da luz.
 
 ## <a name="directional-light"></a>Luz direcional
 
-Simula `DirectionalLightComponent` uma fonte de luz que está infinitamente longe. A luz brilha na direção do *eixo z negativo da entidade proprietária.* A posição da entidade é ignorada.
+O `DirectionalLightComponent` simula uma fonte de luz que está infinitamente distante. A luz se destaca na direção do *eixo z negativo da entidade do proprietário*. A posição da entidade é ignorada.
 
-Não há propriedades adicionais.
+Não há nenhuma propriedade adicional.
 
 ## <a name="performance-considerations"></a>Considerações sobre o desempenho
 
-Fontes de luz têm um impacto significativo no desempenho de renderização. Use-os com cuidado e somente se necessário pelo aplicativo. Qualquer condição de iluminação global estática, incluindo um componente direcional estático, pode ser alcançada com uma [textura de céu personalizada,](sky.md)sem custo adicional de renderização.
+Fontes de luz têm um impacto significativo no desempenho de renderização. Use-os com cuidado e apenas se exigido pelo aplicativo. Qualquer condição de iluminação global estática, incluindo um componente direcional estático, pode ser obtida com uma [textura céu personalizada](sky.md), sem custo de renderização adicional.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Materiais](../../concepts/materials.md)
-* [Céu](sky.md)
+* [Celeste](sky.md)

@@ -1,5 +1,5 @@
 ---
-title: Crie uma VM Linux com a API REST
+title: Criar uma VM do Linux com a API REST
 description: Saiba como criar uma máquina virtual do Linux no Azure que use Managed Disks e autenticação SSH com a API REST do Azure.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78970268"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que usa autenticação SSH com a API REST
@@ -45,7 +45,7 @@ Os cabeçalhos a seguir são necessários:
 
 | Cabeçalho da solicitação   | Descrição |
 |------------------|-----------------|
-| *Tipo de conteúdo:*  | Obrigatórios. Defina como `application/json`. |
+| *Tipo de Conteúdo:*  | Obrigatórios. Defina como `application/json`. |
 | *Autorização:* | Obrigatórios. Defina como um  [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |
 
 Para obter informações gerais sobre como trabalhar com solicitações da API REST, confira [Componentes de uma solicitação/resposta da API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
@@ -54,10 +54,10 @@ Para obter informações gerais sobre como trabalhar com solicitações da API R
 
 As definições comuns a seguir são usadas para criar um corpo de solicitação:
 
-| Nome                       | Obrigatório | Type                                                                                | Descrição  |
+| Name                       | Obrigatório | Type                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | local                   | True     | string                                                                              | Local do recurso. |
-| name                       |          | string                                                                              | Nome da máquina virtual. |
+| name                       |          | cadeia de caracteres                                                                              | Nome da máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as configurações de hardware da máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as configurações de armazenamento dos discos da máquina virtual. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as configurações do sistema operacional da máquina virtual. |
@@ -118,7 +118,7 @@ Abaixo, há um exemplo de corpo da solicitação. Lembre-se de especificar o nom
 }
 ```
 
-Para obter uma lista completa das definições disponíveis no órgão de solicitação, consulte [máquinas virtuais criar ou atualizar definições de corpo](/rest/api/compute/virtualmachines/createorupdate#definitions)de solicitação .
+Para obter uma lista completa das definições disponíveis no corpo da solicitação, consulte [máquinas virtuais criar ou atualizar definições do corpo da solicitação](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Enviando a solicitação
 
@@ -150,5 +150,5 @@ Para saber mais sobre as APIs REST do Azure ou outras ferramentas de gerenciamen
 
 - [API REST do provedor de Computação do Azure](/rest/api/compute/)
 - [Iniciar com a API REST do Azure](/rest/api/azure/)
-- [Azure CLI](/cli/azure/)
+- [CLI do Azure](/cli/azure/)
 - [Módulo do Azure PowerShell](/powershell/azure/overview)

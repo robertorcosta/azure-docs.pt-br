@@ -1,15 +1,15 @@
 ---
-title: Implementar recursos em atores de fabric de serviço azure
+title: Implementar recursos no Azure Service Fabric atores
 description: Descreve como gravar seu próprio serviço de ator que implementa recursos de nível de serviço da mesma forma como você faria ao herdar StatefulService.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 55ee4c7498dcda3060d4e4221711793b80132bdf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9f5f9e00c374b16026f22d4efdee51ec94d2902a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79502276"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementar recursos de nível de serviço em seu serviço de ator
@@ -143,7 +143,7 @@ public class Program
 
 ## <a name="implement-actor-backup-and-restore"></a>Implementar o backup e a restauração de ator
 
-Um serviço de ator personalizado pode expor um método para fazer backup dos dados do ator aproveitando o ouvinte de comunicação remota já presente em `ActorService`. Para obter um exemplo, consulte [Atores de backup e restauração](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).
+Um serviço de ator personalizado pode expor um método para fazer backup dos dados do ator aproveitando o ouvinte de comunicação remota já presente em `ActorService`. Para obter um exemplo, consulte [Atores de backup e restauração](service-fabric-reliable-actors-backup-and-restore.md).
 
 ## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Ator que usa uma pilha de comunicação remota V2 (compatível com a interface)
 
@@ -172,7 +172,7 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
 2. Atualize os clientes de ator depois de concluir a atualização anterior.
    Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2_1.
 
-3. Esta etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
+3. Essa etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
@@ -205,7 +205,7 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
 2. Atualize os clientes de ator depois de concluir a atualização anterior.
    Esta etapa garante que o proxy do ator use a pilha de comunicação remota V2.
 
-3. Esta etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
+3. Essa etapa é opcional. Altere o atributo anterior para remover o ouvinte V1.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
@@ -216,7 +216,7 @@ Essa alteração é uma atualização em duas etapas. Siga as etapas deste tutor
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API dos Atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [.NET código de amostra](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

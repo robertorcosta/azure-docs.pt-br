@@ -1,6 +1,6 @@
 ---
-title: Ônibus de serviço azure - contagem de mensagens
-description: Recupere a contagem de mensagens mantidas em filas e assinaturas usando o Azure Resource Manager e as APIs do Azure Service Bus NamespaceManager.
+title: Barramento de serviço do Azure-contagem de mensagens
+description: Recupere a contagem de mensagens mantidas em filas e assinaturas usando Azure Resource Manager e as APIs NamespaceManager do barramento de serviço do Azure.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/08/2020
 ms.author: aschhab
 ms.openlocfilehash: 8020b12ca892fbf7dec6fed6259526d958fb110f
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80891757"
 ---
 # <a name="message-counters"></a>Contadores de mensagens
@@ -45,9 +45,9 @@ Saber a contagem de mensagens ativas é útil para determinar se uma fila cria u
 Se um aplicativo desejar dimensionar os recursos com base no comprimento da fila, ele deverá fazer isso com um ritmo calculado. A aquisição dos contadores de mensagem é uma operação cara dentro do agente de mensagens e executá-la com frequência afeta de forma direta e adversa o desempenho da entidade.
 
 > [!NOTE]
-> As mensagens enviadas para um tópico de Service Bus são encaminhadas para assinaturas para esse tópico. Assim, a contagem de mensagens ativas sobre o tópico em si é 0, pois essas mensagens foram encaminhadas com sucesso para a assinatura. Obtenha a contagem de mensagens na assinatura e verifique se ela é maior que 0. Mesmo que você veja mensagens na assinatura, elas são realmente armazenadas em um armazenamento de propriedade do tópico. 
+> As mensagens enviadas a um tópico do barramento de serviço são encaminhadas para assinaturas para esse tópico. Portanto, a contagem de mensagens ativas no próprio tópico é 0, pois essas mensagens foram encaminhadas com êxito para a assinatura. Obtenha a contagem de mensagens na assinatura e verifique se ela é maior que 0. Mesmo que você veja mensagens na assinatura, elas são realmente armazenadas em um armazenamento de Propriedade do tópico. 
 
-Se você olhar para as assinaturas, então elas teriam uma contagem de mensagens não zero (que somam 323MB de espaço para toda essa entidade).
+Se você examinar as assinaturas, elas teriam uma contagem de mensagens diferente de zero (que somam até 323MB de espaço para toda a entidade).
 
 ## <a name="next-steps"></a>Próximas etapas
 

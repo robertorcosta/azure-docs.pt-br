@@ -1,49 +1,49 @@
 ---
-title: Funções de modelo - string
+title: Funções de modelo – cadeia de caracteres
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com cadeias de caracteres.
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: c0517375b273384f263e8ba421995d4afb6c193b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982407"
 ---
-# <a name="string-functions-for-arm-templates"></a>Funções de string para modelos ARM
+# <a name="string-functions-for-arm-templates"></a>Funções de cadeia de caracteres para modelos ARM
 
-O Resource Manager fornece as seguintes funções para trabalhar com strings em seus modelos ARM (Azure Resource Manager, gerenciador de recursos do Azure):
+O Gerenciador de recursos fornece as seguintes funções para trabalhar com cadeias de caracteres em seus modelos de Azure Resource Manager (ARM):
 
-* [base64](#base64)
+* [Base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [Concat](#concat)
-* [Contém](#contains)
+* [contains](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [empty](#empty)
-* [Endswith](#endswith)
-* [Primeiro](#first)
-* [Formato](#format)
-* [Guid](#guid)
-* [Indexof](#indexof)
-* [Última](#last)
+* [esvaziá](#empty)
+* [endsWith](#endswith)
+* [primeiro](#first)
+* [format](#format)
+* [volume](#guid)
+* [indexOf](#indexof)
+* [última](#last)
 * [lastIndexOf](#lastindexof)
-* [comprimento](#length)
-* [Newguid](#newguid)
+* [length](#length)
+* [newGuid](#newguid)
 * [padLeft](#padleft)
-* [Substituir](#replace)
-* [skip](#skip)
-* [split](#split)
-* [Startswith](#startswith)
+* [replace](#replace)
+* [saltar](#skip)
+* [Divisão](#split)
+* [startsWith](#startswith)
 * [cadeia de caracteres](#string)
-* [Subsequência](#substring)
-* [Levar](#take)
-* [Tolower](#tolower)
-* [Toupper](#toupper)
-* [Guarnição](#trim)
+* [Subcadeia](#substring)
+* [ter](#take)
+* [toLower](#tolower)
+* [toUpper](#toupper)
+* [Trim](#trim)
 * [uniqueString](#uniquestring)
-* [Uri](#uri)
+* [URI](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
 
@@ -53,11 +53,11 @@ O Resource Manager fornece as seguintes funções para trabalhar com strings em 
 
 Retorna a representação base64 da cadeia de caracteres de entrada.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |O valor a retornar como uma representação base64. |
+| inputString |Sim |cadeia de caracteres |O valor a retornar como uma representação base64. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -108,8 +108,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | um, dois, três |
+| base64Output | Cadeia de caracteres | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia de caracteres | um, dois, três |
 | toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -118,11 +118,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte uma representação base64 em um objeto JSON.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |string |A representação base64 a ser convertida em um objeto JSON. |
+| base64Value |Sim |cadeia de caracteres |A representação base64 a ser convertida em um objeto JSON. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -173,8 +173,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | um, dois, três |
+| base64Output | Cadeia de caracteres | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia de caracteres | um, dois, três |
 | toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -183,11 +183,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte uma representação base64 em uma cadeia de caracteres.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |string |A representação base64 a ser convertida em uma cadeia de caracteres. |
+| base64Value |Sim |cadeia de caracteres |A representação base64 a ser convertida em uma cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -238,8 +238,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | um, dois, três |
+| base64Output | Cadeia de caracteres | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Cadeia de caracteres | um, dois, três |
 | toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
@@ -248,14 +248,14 @@ A saída do exemplo anterior com os valores padrão é:
 
 Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres concatenada ou combina várias matrizes e retorna a matriz concatenada.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres ou matriz |A primeira seqüência ou matriz para concatenação. |
-| argumentos adicionais |Não |cadeia de caracteres ou matriz |Cordas ou matrizes adicionais em ordem seqüencial para concatenação. |
+| arg1 |Sim |cadeia de caracteres ou matriz |A primeira cadeia de caracteres ou matriz para concatenação. |
+| argumentos adicionais |Não |cadeia de caracteres ou matriz |Cadeias de caracteres ou matrizes adicionais em ordem sequencial para concatenação. |
 
-Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes como parâmetros. No entanto, você não pode fornecer ambas as matrizes e strings para parâmetros. As cordas só são concatenadas com outras cordas.
+Essa função pode conter qualquer número de argumentos e pode aceitar cadeias de caracteres ou matrizes como parâmetros. No entanto, você não pode fornecer matrizes e cadeias de caracteres para parâmetros. As cadeias de caracteres são concatenadas apenas com outras cadeias de caracteres.
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -289,7 +289,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Cadeia de caracteres | prefix-5yj4yjf5mbg72 |
 
 O próximo [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) mostra como combinar duas matrizes.
 
@@ -338,9 +338,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cadeia de caracteres contém uma subcadeia de caracteres. A comparação de cadeia de caracteres diferencia maiúsculas de minúsculas. No entanto, ao testar se um objeto contém uma chave, a comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | contêiner |Sim |matriz, objeto ou cadeia de caracteres |O valor que contém o valor a ser encontrado. |
 | itemToFind |Sim |cadeia de caracteres ou inteiro |O valor a ser encontrado. |
@@ -406,11 +406,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| stringTrue | Bool | True |
+| stringTrue | Bool | verdadeiro |
 | stringFalse | Bool | Falso |
-| objectTrue | Bool | True |
+| objectTrue | Bool | verdadeiro |
 | objectFalse | Bool | Falso |
-| arrayTrue | Bool | True |
+| arrayTrue | Bool | verdadeiro |
 | arrayFalse | Bool | Falso |
 
 ## <a name="datauri"></a>dataUri
@@ -419,11 +419,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte um valor em um URI de dados.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |string |O valor a ser convertido em um URI de dados. |
+| stringToConvert |Sim |cadeia de caracteres |O valor a ser convertido em um URI de dados. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -465,8 +465,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Cadeia de caracteres | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Cadeia de caracteres | Hello, World! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -474,11 +474,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte um valor formatado como um URI de dados em uma cadeia de caracteres.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sim |string |Os valor de URI de dados a ser convertido. |
+| dataUriToConvert |Sim |cadeia de caracteres |Os valor de URI de dados a ser convertido. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -520,20 +520,20 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Cadeia de caracteres | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Cadeia de caracteres | Hello, World! |
 
-## <a name="empty"></a>empty
+## <a name="empty"></a>vazio
 
 `empty(itemToTest)`
 
 Determina se uma matriz, objeto ou uma cadeia de caracteres está vazio.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se está vazio. |
+| itemToTest |Sim |matriz, objeto ou cadeia de caracteres |O valor para verificar se ele está vazio. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -584,9 +584,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayEmpty | Bool | True |
-| objectEmpty | Bool | True |
-| stringEmpty | Bool | True |
+| arrayEmpty | Bool | verdadeiro |
+| objectEmpty | Bool | verdadeiro |
+| stringEmpty | Bool | verdadeiro |
 
 ## <a name="endswith"></a>endsWith
 
@@ -594,12 +594,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Determina se uma cadeia de caracteres termina com um valor. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |string |O valor a ser encontrado. |
+| stringToSearch |Sim |cadeia de caracteres |O valor que contém o item a ser encontrado. |
+| stringToFind |Sim |cadeia de caracteres |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -647,11 +647,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| startsTrue | Bool | True |
-| startsCapTrue | Bool | True |
+| startsTrue | Bool | verdadeiro |
+| startsCapTrue | Bool | verdadeiro |
 | startsFalse | Bool | Falso |
-| endsTrue | Bool | True |
-| endsCapTrue | Bool | True |
+| endsTrue | Bool | verdadeiro |
+| endsCapTrue | Bool | verdadeiro |
 | endsFalse | Bool | Falso |
 
 ## <a name="first"></a>first
@@ -660,9 +660,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o primeiro caractere da cadeia de caracteres ou o primeiro elemento da matriz.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o primeiro elemento ou caractere. |
 
@@ -703,30 +703,30 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O  |
+| arrayOutput | Cadeia de caracteres | one |
+| stringOutput | Cadeia de caracteres | O |
 
 ## <a name="format"></a>format
 
 `format(formatString, arg1, arg2, ...)`
 
-Cria uma seqüência formatada a partir de valores de entrada.
+Cria uma cadeia de caracteres formatada a partir de valores de entrada.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| formatString | Sim | string | A cadeia de caracteres de formato de composição. |
-| arg1 | Sim | corda, inteiro, ou booleano | O valor a ser inserido na seqüência formatada. |
-| argumentos adicionais | Não | corda, inteiro, ou booleano | Valores adicionais a serem inseridos na seqüência formatada. |
+| formatString | Sim | cadeia de caracteres | A cadeia de caracteres de formato de composição. |
+| arg1 | Sim | Cadeia de caracteres, inteiro ou booliano | O valor a ser incluído na cadeia de caracteres formatada. |
+| argumentos adicionais | Não | Cadeia de caracteres, inteiro ou booliano | Valores adicionais a serem incluídos na cadeia de caracteres formatada. |
 
 ### <a name="remarks"></a>Comentários
 
-Use esta função para formatar uma seqüência de string em seu modelo. Ele usa as mesmas opções de formatação do método [System.String.Format](/dotnet/api/system.string.format) em .NET.
+Use essa função para formatar uma cadeia de caracteres em seu modelo. Ele usa as mesmas opções de formatação que o método [System. String. Format](/dotnet/api/system.string.format) no .net.
 
 ### <a name="examples"></a>Exemplos
 
-O modelo a seguir mostra como usar a função de formato.
+O modelo de exemplo a seguir mostra como usar a função Format.
 
 ```json
 {
@@ -761,7 +761,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| formatoTeste | String | Olá, usuário. Número formatado: 8.175.133 |
+| formatTest | Cadeia de caracteres | Olá, usuário. Número formatado: 8.175.133 |
 
 ## <a name="guid"></a>guid
 
@@ -769,18 +769,18 @@ A saída do exemplo anterior com os valores padrão é:
 
 Cria um valor no formato de um identificador global exclusivo com base nos valores fornecidos como parâmetros.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |string |O valor usado na função de hash para criar o GUID. |
-| parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |cadeia de caracteres |O valor usado na função de hash para criar o GUID. |
+| parâmetros extras conforme necessário |Não |cadeia de caracteres |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Comentários
 
 Essa função é útil quando você precisa criar um valor no formato de um identificador global exclusivo. Você fornece valores de parâmetros que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação.
 
-O valor retornado não é uma seqüência aleatória, mas sim o resultado de uma função hash nos parâmetros. O valor retornado tem 36 caracteres. Não é globalmente único. Para criar um novo GUID que não se baseie no valor hash dos parâmetros, use a função [newGuid.](#newguid)
+O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash nos parâmetros. O valor retornado tem 36 caracteres. Não é globalmente exclusivo. Para criar um novo GUID que não seja baseado nesse valor de hash dos parâmetros, use a função [newGuid](#newguid) .
 
 Os exemplos a seguir mostram como usar guid para criar um valor exclusivo para níveis usados com mais frequência.
 
@@ -840,16 +840,16 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 Retorna a primeira posição de um valor em uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |string |O valor a ser encontrado. |
+| stringToSearch |Sim |cadeia de caracteres |O valor que contém o item a ser encontrado. |
+| stringToFind |Sim |cadeia de caracteres |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
-Um inteiro que representa a posição do item a ser encontrado. O valor é baseado em zero. Se o item não for encontrado, -1 é devolvido.
+Um inteiro que representa a posição do item a ser encontrado. O valor é baseado em zero. Se o item não for encontrado,-1 será retornado.
 
 ### <a name="examples"></a>Exemplos
 
@@ -901,9 +901,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna o último caractere da cadeia de caracteres ou o último elemento da matriz.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |matriz ou cadeia de caracteres |O valor para recuperar o último elemento ou caractere. |
 
@@ -944,8 +944,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | três |
-| stringOutput | String | e |
+| arrayOutput | Cadeia de caracteres | três |
+| stringOutput | Cadeia de caracteres | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -953,16 +953,16 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna a última posição de um valor em uma cadeia de caracteres. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |string |O valor a ser encontrado. |
+| stringToSearch |Sim |cadeia de caracteres |O valor que contém o item a ser encontrado. |
+| stringToFind |Sim |cadeia de caracteres |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
-Um inteiro que representa a última posição do item a ser encontrado. O valor é baseado em zero. Se o item não for encontrado, -1 é devolvido.
+Um inteiro que representa a última posição do item a ser encontrado. O valor é baseado em zero. Se o item não for encontrado,-1 será retornado.
 
 ### <a name="examples"></a>Exemplos
 
@@ -1012,13 +1012,13 @@ A saída do exemplo anterior com os valores padrão é:
 
 `length(string)`
 
-Retorna o número de caracteres em uma seqüência, elementos em uma matriz ou propriedades de nível raiz em um objeto.
+Retorna o número de caracteres em uma cadeia de caracteres, elementos em uma matriz ou propriedades de nível raiz em um objeto.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |matriz, string ou objeto |A matriz a ser usada para obter o número de elementos, a seqüência de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades de nível raiz. |
+| arg1 |Sim |matriz, Cadeia de caracteres ou objeto |A matriz a ser usada para obter o número de elementos, a cadeia de caracteres a ser usada para obter o número de caracteres ou o objeto a ser usado para obter o número de propriedades no nível raiz. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1082,27 +1082,27 @@ A saída do exemplo anterior com os valores padrão é:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
-| objetoComprimento | Int | 4 |
+| ObjectLength | Int | 4 |
 
-## <a name="newguid"></a>Newguid
+## <a name="newguid"></a>newGuid
 
 `newGuid()`
 
-Retorna um valor no formato de um identificador globalmente único. **Esta função só pode ser usada no valor padrão de um parâmetro.**
+Retorna um valor no formato de um identificador global exclusivo. **Essa função só pode ser usada no valor padrão para um parâmetro.**
 
 ### <a name="remarks"></a>Comentários
 
-Você só pode usar esta função dentro de uma expressão para o valor padrão de um parâmetro. Usar esta função em qualquer outro lugar em um modelo retorna um erro. A função não é permitida em outras partes do modelo porque retorna um valor diferente cada vez que é chamada. Implantar o mesmo modelo com os mesmos parâmetros não produziria os mesmos resultados de forma confiável.
+Você só pode usar essa função dentro de uma expressão para o valor padrão de um parâmetro. O uso dessa função em qualquer outro lugar em um modelo retorna um erro. A função não é permitida em outras partes do modelo porque ela retorna um valor diferente cada vez que é chamada. Implantar o mesmo modelo com os mesmos parâmetros não produziria com confiança os mesmos resultados.
 
-A função newGuid difere da função [guid](#guid) porque não tem parâmetros. Quando você chama guid com o mesmo parâmetro, ele retorna o mesmo identificador todas as vezes. Use guia quando precisar gerar o mesmo GUID de forma confiável para um ambiente específico. Use o newGuid quando precisar de um identificador diferente cada vez, como a implantação de recursos em um ambiente de teste.
+A função newGuid difere da função [GUID](#guid) porque ela não assume nenhum parâmetro. Quando você chama o GUID com o mesmo parâmetro, ele retorna o mesmo identificador a cada vez. Use o GUID quando precisar gerar com confiança o mesmo GUID para um ambiente específico. Use newGuid quando precisar de um identificador diferente a cada vez, como a implantação de recursos em um ambiente de teste.
 
-A função newGuid usa a [estrutura Guid](/dotnet/api/system.guid) no .NET Framework para gerar o identificador globalmente único.
+A função newGuid usa a [estrutura de GUID](/dotnet/api/system.guid) na .NET Framework para gerar o identificador global exclusivo.
 
-Se você usar a [opção para reimplantar uma implantação bem-sucedida anteriormente,](rollback-on-error.md)e a implantação anterior incluir um parâmetro que usa newGuid, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
+Se você usar a [opção para reimplantar uma implantação bem-sucedida anterior](rollback-on-error.md)e a implantação anterior incluir um parâmetro que usa newGuid, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
 
-Em um ambiente de teste, você pode precisar implantar repetidamente recursos que só vivem por um curto período de tempo. Em vez de construir nomes únicos, você pode usar o newGuid com [uniqueString](#uniquestring) para criar nomes únicos.
+Em um ambiente de teste, talvez seja necessário implantar repetidamente os recursos que só moram por um curto período de tempo. Em vez de construir nomes exclusivos, você pode usar newGuid com [uniquestring](#uniquestring) para criar nomes exclusivos.
 
-Tenha cuidado ao reimplantar um modelo que dependa da função newGuid por um valor padrão. Quando você reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se você quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro da implantação anterior.
+Tenha cuidado ao reimplantar um modelo que dependa da função newGuid para um valor padrão. Quando você reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se você quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro da implantação anterior.
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1133,13 +1133,13 @@ O modelo de exemplo a seguir mostra um parâmetro com um novo identificador.
 }
 ```
 
-A saída do exemplo anterior varia para cada implantação, mas será semelhante a:
+A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| guiaSaída | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | cadeia de caracteres | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma conta de armazenamento. Este modelo pode funcionar para um ambiente de teste onde a conta de armazenamento existe por um curto período de tempo e não é reimplantado.
+O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma conta de armazenamento. Esse modelo pode funcionar para o ambiente de teste em que a conta de armazenamento existe por um curto período e não é reimplantada.
 
 ```json
 {
@@ -1176,11 +1176,11 @@ O exemplo a seguir usa a função newGuid para criar um nome exclusivo para uma 
 }
 ```
 
-A saída do exemplo anterior varia para cada implantação, mas será semelhante a:
+A saída do exemplo anterior varia de acordo com cada implantação, mas será semelhante a:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| nomeSaída | string | storagenziwvyru7uxie |
+| nameOutput | cadeia de caracteres | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1189,9 +1189,9 @@ A saída do exemplo anterior varia para cada implantação, mas será semelhante
 
 Retorna uma cadeia de caracteres alinhada à direita adicionando caracteres à esquerda até alcançar o comprimento total especificado.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sim |cadeia de caracteres ou inteiro |O valor para alinhar à direita. |
 | totalLength |Sim |INT |O número total de caracteres na cadeia de caracteres retornada. |
@@ -1231,7 +1231,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Cadeia de caracteres | 0000000123 |
 
 ## <a name="replace"></a>substituir
 
@@ -1239,13 +1239,13 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma nova cadeia de caracteres com todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalString |Sim |string |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
-| oldString |Sim |string |A cadeia de caractere a ser removida da cadeia de caracteres original. |
-| newString |Sim |string |A cadeia de caracteres a ser adicionada no lugar da cadeia removida. |
+| originalString |Sim |cadeia de caracteres |O valor que tem todas as instâncias de uma cadeia de caracteres substituídas por outra cadeia de caracteres. |
+| oldString |Sim |cadeia de caracteres |A cadeia de caractere a ser removida da cadeia de caracteres original. |
+| newString |Sim |cadeia de caracteres |A cadeia de caracteres a ser adicionada no lugar da cadeia removida. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1283,8 +1283,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secondOutput | String | 123-123-xxxx |
+| firstOutput | Cadeia de caracteres | 1231231234 |
+| secondOutput | Cadeia de caracteres | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1292,12 +1292,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres com todos os caracteres após o número especificado de caracteres ou uma matriz com todos os elementos após o número especificado de elementos.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres a ser usada para ignorar. |
-| numberToSkip |Sim |INT |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior do que o comprimento da matriz ou string, uma matriz vazia ou string é devolvida. |
+| numberToSkip |Sim |INT |O número de elementos ou caracteres a ser ignorado. Se esse valor for 0 ou menos, todos os elementos ou caracteres no valor serão retornados. Se for maior do que o comprimento da matriz ou da cadeia de caracteres, uma matriz ou cadeia de caracteres vazia será retornada. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1352,7 +1352,7 @@ A saída do exemplo anterior com os valores padrão é:
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | Cadeia de caracteres | two three |
 
 ## <a name="split"></a>split
 
@@ -1360,11 +1360,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma matriz de cadeias de caracteres que contém as subcadeias de caracteres da cadeia de caracteres de entrada que são delimitadas por delimitadores especificados.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |string |A cadeia de caracteres a dividir. |
+| inputString |Sim |cadeia de caracteres |A cadeia de caracteres a dividir. |
 | delimiter |Sim |cadeia de caracteres ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor retornado
@@ -1419,12 +1419,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Determina se uma cadeia de caracteres começa com um valor. A comparação não diferencia maiúsculas de minúsculas.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |string |O valor que contém o item a ser encontrado. |
-| stringToFind |Sim |string |O valor a ser encontrado. |
+| stringToSearch |Sim |cadeia de caracteres |O valor que contém o item a ser encontrado. |
+| stringToFind |Sim |cadeia de caracteres |O valor a ser encontrado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1472,11 +1472,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| startsTrue | Bool | True |
-| startsCapTrue | Bool | True |
+| startsTrue | Bool | verdadeiro |
+| startsCapTrue | Bool | verdadeiro |
 | startsFalse | Bool | Falso |
-| endsTrue | Bool | True |
-| endsCapTrue | Bool | True |
+| endsTrue | Bool | verdadeiro |
+| endsCapTrue | Bool | verdadeiro |
 | endsFalse | Bool | Falso |
 
 ## <a name="string"></a>string
@@ -1485,9 +1485,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte o valor especificado em uma cadeia de caracteres.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sim | Qualquer |O valor a ser convertido em cadeia de caracteres. Qualquer tipo de valor pode ser convertido, incluindo objetos e matrizes. |
 
@@ -1546,9 +1546,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | Cadeia de caracteres | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | Cadeia de caracteres | ["a","b","c"] |
+| intOutput | Cadeia de caracteres | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1556,11 +1556,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma subcadeia de caraceteres que começa na posição do caractere especificado e contém o número especificado de caracteres.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |string |A cadeia original da qual a subcadeia de caracteres é extraída. |
+| stringToParse |Sim |cadeia de caracteres |A cadeia original da qual a subcadeia de caracteres é extraída. |
 | startIndex |Não |INT |A posição inicial do caractere baseada em zero para a subcadeia de caracteres. |
 | comprimento |Não |INT |O número de caracteres para a subcadeia de caracteres. Deve se referir a uma localização dentro da cadeia de caracteres. Deve ser zero ou maior. |
 
@@ -1609,7 +1609,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| substringOutput | String | dois |
+| substringOutput | Cadeia de caracteres | dois |
 
 ## <a name="take"></a>take
 
@@ -1617,12 +1617,12 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres com o número especificado de caracteres desde o início da cadeia de caracteres ou uma matriz com o número especificado de elementos desde o início da matriz.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sim |matriz ou cadeia de caracteres |A matriz ou cadeia de caracteres da qual extrair os elementos. |
-| numberToTake |Sim |INT |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento da matriz ou string dada, todos os elementos da matriz ou string são devolvidos. |
+| numberToTake |Sim |INT |O número de elementos ou caracteres a ser extraído. Se esse valor for 0 ou menos, uma matriz ou cadeia de caracteres vazia será retornada. Se for maior do que o comprimento da matriz ou cadeia de caracteres determinada, todos os elementos na matriz ou na cadeia de caracteres serão retornados. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1677,7 +1677,7 @@ A saída do exemplo anterior com os valores padrão é:
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | on |
+| stringOutput | Cadeia de caracteres | on |
 
 ## <a name="tolower"></a>toLower
 
@@ -1685,11 +1685,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte a cadeia de caracteres especificada em letras minúsculas.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor a ser convertido em letras minúsculas. |
+| stringToChange |Sim |cadeia de caracteres |O valor a ser convertido em letras minúsculas. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1727,8 +1727,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | um dois três |
-| toUpperOutput | String | UM DOIS TRÊS |
+| toLowerOutput | Cadeia de caracteres | um dois três |
+| toUpperOutput | Cadeia de caracteres | UM DOIS TRÊS |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1736,11 +1736,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Converte a cadeia de caracteres especificada em maiúsculas.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |string |O valor a ser convertido em letras maiúsculas. |
+| stringToChange |Sim |cadeia de caracteres |O valor a ser convertido em letras maiúsculas. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1778,8 +1778,8 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | um dois três |
-| toUpperOutput | String | UM DOIS TRÊS |
+| toLowerOutput | Cadeia de caracteres | um dois três |
+| toUpperOutput | Cadeia de caracteres | UM DOIS TRÊS |
 
 ## <a name="trim"></a>cortar
 
@@ -1787,11 +1787,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Remove todos os caracteres de espaço em branco à esquerda e à direita da cadeia de caracteres especificada.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sim |string |O valor de corte. |
+| stringToTrim |Sim |cadeia de caracteres |O valor de corte. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1825,7 +1825,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| return | String | um dois três |
+| return | Cadeia de caracteres | um dois três |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1833,18 +1833,18 @@ A saída do exemplo anterior com os valores padrão é:
 
 Cria uma cadeia de caracteres de hash determinístico com base nos valores fornecidos como parâmetros. 
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |string |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
-| parâmetros extras conforme necessário |Não |string |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |cadeia de caracteres |O valor usado na função de hash para criar uma cadeia de caracteres exclusiva. |
+| parâmetros extras conforme necessário |Não |cadeia de caracteres |Você pode adicionar quantas cadeias de caracteres forem necessárias para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Comentários
 
 Essa função é útil quando você precisa criar um nome exclusivo para um recurso. Você fornece valores de parâmetros que limitam o escopo de exclusividade para o resultado. Você pode especificar se o nome é exclusivo para a assinatura, grupo de recursos ou implantação. 
 
-O valor retornado não é uma seqüência aleatória, mas sim o resultado de uma função hash. O valor retornado tem 13 caracteres. Não é globalmente único. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome significativo. O exemplo a seguir mostra o formato do valor retornado. O valor real poderá variar de acordo com os parâmetros fornecidos.
+O valor retornado não é uma cadeia de caracteres aleatória, mas sim o resultado de uma função de hash. O valor retornado tem 13 caracteres. Não é globalmente exclusivo. Você talvez queira combinar o valor com um prefixo de sua convenção de nomenclatura para criar um nome significativo. O exemplo a seguir mostra o formato do valor retornado. O valor real poderá variar de acordo com os parâmetros fornecidos.
 
     tcvhiyu5h2o5o
 
@@ -1868,7 +1868,7 @@ Escopo exclusivo para a implantação de um grupo de recursos
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos. Dentro do grupo de recursos, o nome não é único se construído da mesma maneira.
+O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazenamento com base em seu grupo de recursos. Dentro do grupo de recursos, o nome não é exclusivo se construído da mesma maneira.
 
 ```json
 "resources": [{ 
@@ -1877,7 +1877,7 @@ O exemplo a seguir mostra como criar um nome exclusivo para uma conta de armazen
     ...
 ```
 
-Se você precisar criar um novo nome único cada vez que implantar um modelo e não pretende atualizar o recurso, você pode usar a função [utcNow](template-functions-date.md#utcnow) com uniqueString. Você poderia usar essa abordagem em um ambiente de teste. Por exemplo, veja [utcNow](template-functions-date.md#utcnow).
+Se você precisar criar um novo nome exclusivo cada vez que implantar um modelo e não pretender atualizar o recurso, poderá usar a função [UtcNow](template-functions-date.md#utcnow) com uniquestring. Você pode usar essa abordagem em um ambiente de teste. Para obter um exemplo, consulte [UtcNow](template-functions-date.md#utcnow).
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1911,20 +1911,20 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |string |Cadeia de caracteres do URI de base. Tenha o cuidado de observar o comportamento em relação ao manuseio da barra de arrasto ('/'), conforme descrito nesta tabela.  |
-| relativeUri |Sim |string |Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base. |
+| baseUri |Sim |cadeia de caracteres |Cadeia de caracteres do URI de base. Tome cuidado para observar o comportamento em relação à manipulação da barra à direita ('/'), conforme descrito a seguir nesta tabela.  |
+| relativeUri |Sim |cadeia de caracteres |Cadeia de caracteres de uri relativo para adicionar a cadeia de caracteres do uri de base. |
 
-* Se **baseUri** termina em uma barra de arrasto, o resultado é simplesmente **baseUri** seguido por **relativeUri**.
+* Se **BaseUri** terminar em uma barra à direita, o resultado será simplesmente **BaseUri** seguido por **relativeUri**.
 
-* Se **baseUri** não terminar em uma barra de arrasto uma das duas coisas acontece.  
+* Se **BaseUri** não terminar em uma barra à direita, uma das duas coisas ocorrerá.  
 
-   * Se **baseUri** não tiver nenhum slashes (além do "//" perto da frente) o resultado é simplesmente **baseUri** seguido por **relativeUri**.
+   * Se **BaseUri** não tiver nenhuma barra (além da "//" próxima à frente), o resultado será simplesmente **BaseUri** seguido por **relativeUri**.
 
-   * Se **baseUri** tem alguns cortes, mas não termina com uma barra, tudo da última barra em diante é removido da **baseUri** e o resultado é **baseUri** seguido por **relativeUri**.
+   * Se **BaseUri** tiver algumas barras, mas não terminar com uma barra, tudo da última barra em diante será removido do **BaseUri** e o resultado será **BaseUri** seguido por **relativeUri**.
      
 Estes são alguns exemplos:
 
@@ -1934,7 +1934,7 @@ uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstp
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
-Para detalhes completos, os parâmetros **baseUri** e **relativeUri** são resolvidos conforme especificado no [RFC 3986, seção 5](https://tools.ietf.org/html/rfc3986#section-5).
+Para obter detalhes completos, os parâmetros **BaseUri** e **relativeUri** são resolvidos conforme especificado na [RFC 3986, seção 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -1981,9 +1981,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia de caracteres | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Cadeia de caracteres | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Cadeia de caracteres | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1991,11 +1991,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Codifica um URI.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sim |string |O valor a ser codificado. |
+| stringToEncode |Sim |cadeia de caracteres |O valor a ser codificado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -2036,9 +2036,9 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia de caracteres | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Cadeia de caracteres | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Cadeia de caracteres | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2046,11 +2046,11 @@ A saída do exemplo anterior com os valores padrão é:
 
 Retorna uma cadeia de caracteres de um valor codificado em URI.
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sim |string |O valor codificado em URI a ser convertido em uma cadeia de caracteres. |
+| uriEncodedString |Sim |cadeia de caracteres |O valor codificado em URI a ser convertido em uma cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -2091,13 +2091,13 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
-| toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| uriOutput | Cadeia de caracteres | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | Cadeia de caracteres | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | Cadeia de caracteres | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções em um modelo do Azure Resource Manager, consulte [Os modelos do Azure Resource Manager](template-syntax.md).
-* Para mesclar vários modelos, consulte [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
-* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
+* Para obter uma descrição das seções em um modelo de Azure Resource Manager, consulte [criando modelos de Azure Resource Manager](template-syntax.md).
+* Para mesclar vários modelos, consulte [usando modelos vinculados com Azure Resource Manager](linked-templates.md).
+* Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
 * Para ver como implantar o modelo que você criou, consulte [Implantar um aplicativo com o Modelo do Azure Resource Manager](deploy-powershell.md).
 

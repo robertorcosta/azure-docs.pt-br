@@ -1,6 +1,6 @@
 ---
-title: Mensagens de ônibus do Azure Service - filas, tópicos e assinaturas
-description: Este artigo fornece uma visão geral das entidades de mensagens do Azure Bus (fila, tópicos e assinaturas).
+title: Mensagens do barramento de serviço do Azure – filas, tópicos e assinaturas
+description: Este artigo fornece uma visão geral das entidades de mensagens do barramento de serviço do Azure (fila, tópicos e assinaturas).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: aschhab
 ms.openlocfilehash: 3dc78a22e0e596d812d90fec63475a0b21e9164f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259507"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
@@ -41,7 +41,7 @@ Para um exemplo de trabalho, consulte o [exemplo BasicSendReceiveUsingQueueClien
 
 ### <a name="receive-modes"></a>Modos de recepção
 
-É possível especificar dois modos diferentes nos quais o Barramento de Serviço recebe mensagens: *ReceiveAndDelete* ou *PeekLock*. No modo [ReceiveAndDelete,](/dotnet/api/microsoft.azure.servicebus.receivemode) a operação receber é de tiro único; ou seja, quando a Service Bus recebe a solicitação do consumidor, ela marca a mensagem como sendo consumida e a devolve ao aplicativo do consumidor. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários em que o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para reconhecer esse cenário, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem consumida antes da falha.
+É possível especificar dois modos diferentes nos quais o Barramento de Serviço recebe mensagens: *ReceiveAndDelete* ou *PeekLock*. No modo [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) , a operação Receive é única; ou seja, quando o barramento de serviço recebe a solicitação do consumidor, ele marca a mensagem como sendo consumida e a retorna ao aplicativo consumidor. O modo **ReceiveAndDelete** é o modelo mais simples e funciona melhor em cenários em que o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para reconhecer esse cenário, considere um cenário no qual o consumidor emite a solicitação de recebimento e, em seguida, ocorre falha antes de processá-la. Como o Barramento de Serviço marca a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem consumida antes da falha.
 
 No modo [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), a operação de recebimento se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe a solicitação, ele localiza a próxima mensagem a ser consumida, bloqueia-a para evitar que outros consumidores a recebam e, em seguida, retorna-a para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) na mensagem recebida. Quando o Barramento de Serviço vê a chamada a **CompleteAsync**, marca a mensagem como sendo consumida.
 
@@ -63,7 +63,7 @@ Para obter um exemplo funcional completo, confira a [amostra BasicSendReceiveUsi
 
 ### <a name="rules-and-actions"></a>Regras e ações
 
-Em muitos cenários, as mensagens com características específicas precisam ser processadas de maneiras diferentes. Para habilitar esse processamento, você pode configurar assinaturas para localizar as mensagens com as propriedades desejáveis e, em seguida, realizar determinadas modificações nessas propriedades. Embora as assinaturas do Barramento de Serviço vejam todas as mensagens enviadas para o tópico, você só poderá copiar um subconjunto dessas mensagens para a fila de assinatura virtual. Essa filtragem é realizada usando filtros de assinatura. Tais modificações são chamadas de *ações de filtro*. Quando uma assinatura é criada, você pode fornecer uma expressão de filtro que opera nas propriedades da mensagem, tanto as propriedades do sistema (por exemplo, **Label)** quanto as propriedades de aplicativos personalizados (por exemplo, **StoreName**.) Neste caso, a expressão do filtro SQL é opcional; sem uma expressão de filtro SQL, qualquer ação de filtro definida em uma assinatura será realizada em todas as mensagens para essa assinatura.
+Em muitos cenários, as mensagens com características específicas precisam ser processadas de maneiras diferentes. Para habilitar esse processamento, você pode configurar assinaturas para localizar as mensagens com as propriedades desejáveis e, em seguida, realizar determinadas modificações nessas propriedades. Embora as assinaturas do Barramento de Serviço vejam todas as mensagens enviadas para o tópico, você só poderá copiar um subconjunto dessas mensagens para a fila de assinatura virtual. Essa filtragem é realizada usando filtros de assinatura. Tais modificações são chamadas de *ações de filtro*. Quando uma assinatura é criada, você pode fornecer uma expressão de filtro que opere nas propriedades da mensagem, ambas as propriedades do sistema (por exemplo, **rótulo**) e propriedades de aplicativo personalizadas (por exemplo, **StoreName**). A expressão de filtro SQL é opcional nesse caso; sem uma expressão de filtro SQL, qualquer ação de filtro definida em uma assinatura será executada em todas as mensagens para essa assinatura.
 
 Para um exemplo de trabalho completo, consulte o [exemplo TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) no GitHub.
 

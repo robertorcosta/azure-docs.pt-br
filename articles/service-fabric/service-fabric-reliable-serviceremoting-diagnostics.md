@@ -1,15 +1,15 @@
 ---
-title: Diagnóstico e monitoramento do Azure ServiceFabric
+title: Diagnóstico e monitoramento do Azure infabric
 description: Este artigo descreve os recursos de monitoramento de desempenho no runtime de Service Fabric Reliable ServiceRemoting, como os contadores de desempenho emitidos por ele.
 author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282270"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitoramento de desempenho para Reliable Service Remoting
@@ -36,7 +36,7 @@ Para a categoria `Service Fabric Service`, os nomes da instância do contador es
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de string do ID de partição de malha de serviço com a que a instância de contador de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e sua representação de string é gerada através do método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) é gerada por meio do método com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceID* é a representação da cadeia de caracteres da ID da Réplica/Instância do Service Fabric à qual a instância do contador de desempenho está associada.
 
@@ -57,7 +57,7 @@ Para a categoria `Service Fabric Service Method`, os nomes da instância do cont
 
 *ServiceRuntimeMethodID* é a representação da cadeia de caracteres de um inteiro de 32 bits que é gerada pelo tempo de execução do Fabric Service para seu uso interno. Isso está incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflito com outros nomes da instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de string do ID de partição de malha de serviço com a que a instância de contador de desempenho está associada. O ID de partição é um GUID, [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) e sua representação de string é gerada através do método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) é gerada por meio do método com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceID* é a representação da cadeia de caracteres da ID da Réplica/Instância do Service Fabric à qual a instância do contador de desempenho está associada.
 
@@ -91,5 +91,5 @@ Quando um cliente chama um método por meio de um objeto de proxy do serviço, i
 | Serviço do Service Fabric |Média de milissegundos para serialização de resposta |Tempo (em milissegundos) para serializar a mensagem de resposta do serviço no serviço antes de a resposta ser enviada ao cliente |
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Código de amostra](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
+* [Código de exemplo](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

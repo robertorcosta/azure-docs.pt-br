@@ -1,6 +1,6 @@
 ---
-title: Conexão de serviço de solução de problemas Windows Virtual Desktop - Azure
-description: Como resolver problemas ao configurar conexões de cliente em um ambiente de inquilino do Windows Virtual Desktop.
+title: Solucionar problemas de conexão de serviço área de trabalho virtual do Windows-Azure
+description: Como resolver problemas ao configurar conexões de cliente em um ambiente de locatário de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,37 +9,37 @@ ms.date: 12/13/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 57d5198cb54dc096fb09bb52d76539b1e4bbc1f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127452"
 ---
-# <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
+# <a name="windows-virtual-desktop-service-connections"></a>Conexões do serviço de área de trabalho virtual do Windows
 
-Use este artigo para resolver problemas com conexões de clientes do Windows Virtual Desktop.
+Use este artigo para resolver problemas com conexões de cliente de área de trabalho virtual do Windows.
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 
-Você pode nos dar feedback e discutir o Serviço de Desktop Virtual do Windows com a equipe de produtos e outros membros ativos da comunidade na [Comunidade De Desktop Virtual](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)do Windows .
+Você pode nos enviar comentários e discutir o serviço de área de trabalho virtual do Windows com a equipe de produto e outros membros ativos da Comunidade na [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>O usuário se conecta, mas nada é exibido (sem feed)
 
-Um usuário pode iniciar clientes de Área de Trabalho Remota e é capaz de autenticar, no entanto, o usuário não vê nenhum ícone no feed de descoberta da Web.
+Um usuário pode iniciar Área de Trabalho Remota clientes e é capaz de autenticar, no entanto, o usuário não vê nenhum ícone no feed de descoberta da Web.
 
-Confirme se o usuário que reporta os problemas foi atribuído a grupos de aplicativos usando esta linha de comando:
+Confirme se o usuário que relata os problemas foi atribuído a grupos de aplicativos usando esta linha de comando:
 
 ```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
-Confirme se o usuário está fazendo login com as credenciais corretas.
+Confirme se o usuário está fazendo logon com as credenciais corretas.
 
-Se o cliente web estiver sendo usado, confirme se não há problemas de credenciais armazenadas em cache.
+Se o cliente Web estiver sendo usado, confirme se não há problemas de credenciais em cache.
 
-## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>As máquinas virtuais multi-sessões do Windows 10 Enterprise não respondem
+## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>Máquinas virtuais de várias sessões do Windows 10 Enterprise não respondem
 
-Se uma máquina virtual não estiver respondendo e você não puder acessá-la através de RDP, você precisará soluciocá-la com o recurso de diagnóstico, verificando o status do host.
+Se uma máquina virtual não estiver respondendo e você não puder acessá-la por meio de RDP, você precisará solucioná-la com o recurso de diagnóstico verificando o status do host.
 
 Para verificar o status do host, execute este cmdlet:
 
@@ -47,7 +47,7 @@ Para verificar o status do host, execute este cmdlet:
 Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
 ```
 
-Se o status `NoHeartBeat`do host for , isso significa que a VM não está respondendo e o agente não pode se comunicar com o serviço de desktop virtual do Windows.
+Se o status do host `NoHeartBeat`for, isso significa que a VM não está respondendo e o agente não pode se comunicar com o serviço de área de trabalho virtual do Windows.
 
 ```powershell
 SessionHostName          LastHeartBeat     AllowNewSession    Status 
@@ -59,17 +59,17 @@ WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat
 WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
 ```
 
-Existem algumas coisas que você pode fazer para corrigir o status NoHeartBeat.
+Há algumas coisas que você pode fazer para corrigir o status noheartbeat.
 
-### <a name="update-fslogix"></a>Atualizar FSlogix
+### <a name="update-fslogix"></a>Atualizar FSLogix
 
-Se o seu FSLogix não estiver atualizado, especialmente se for a versão 2.9.7205.27375 de frxdrvvt.sys, pode causar um impasse. Certifique-se de [atualizar o FSLogix para a versão mais recente](https://go.microsoft.com/fwlink/?linkid=2084562).
+Se o seu FSLogix não estiver atualizado, especialmente se for a versão 2.9.7205.27375 do frxdrvvt. sys, isso poderá causar um deadlock. Certifique-se de [atualizar o FSLogix para a versão mais recente](https://go.microsoft.com/fwlink/?linkid=2084562).
 
-### <a name="disable-bgtaskregistrationmaintenancetask"></a>Desativar BgTaskRegistrationMaintenanceTaskTask
+### <a name="disable-bgtaskregistrationmaintenancetask"></a>Desabilitar BgTaskRegistrationMaintenanceTask
 
-Se a atualização do FSLogix não funcionar, o problema pode ser que um componente BiSrv esteja esgotando os recursos do sistema durante uma tarefa de manutenção semanal. Desative temporariamente a tarefa de manutenção desativando o BgTaskRegistrationMaintenanceTask com um desses dois métodos:
+Se a atualização do FSLogix não funcionar, o problema poderá ser que um componente BiSrv esteja esgotando os recursos do sistema durante uma tarefa de manutenção semanal. Desabilite temporariamente a tarefa de manutenção desabilitando o BgTaskRegistrationMaintenanceTask com um destes dois métodos:
 
-- Vá para o menu Iniciar e procure o **Agendador de tarefas**. Navegue até a **Biblioteca de Agendadores de Tarefas** > **Microsoft** > **Windows** > **BrokerInfrastructure**. Procure uma tarefa chamada **BgTaskRegistrationMaintenanceTask**. Ao encontrá-lo, clique com o botão direito do mouse e **selecione Desativar** no menu suspenso.
+- Vá para o menu iniciar e procure **Agendador de tarefas**. Navegue até **Agendador de tarefas biblioteca** > **Microsoft** > **Windows** > **BrokerInfrastructure**. Procure uma tarefa chamada **BgTaskRegistrationMaintenanceTask**. Quando encontrá-lo, clique nele com o botão direito do mouse e selecione **desabilitar** no menu suspenso.
 - Abra um menu de linha de comando como administrador e execute o seguinte comando:
     
     ```cmd
@@ -78,8 +78,8 @@ Se a atualização do FSLogix não funcionar, o problema pode ser que um compone
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral sobre a solução de problemas do Windows Virtual Desktop e as faixas de escalonamento, consulte [Visão geral, feedback e suporte](troubleshoot-set-up-overview.md)de solução de problemas.
-- Para solucionar problemas ao criar um inquilino e um pool de host em um ambiente de Desktop Virtual do Windows, consulte [Criação de inquilino e pool de host](troubleshoot-set-up-issues.md).
-- Para solucionar problemas enquanto configura uma máquina virtual (VM) no Windows Virtual Desktop, consulte [Configuração da máquina virtual do host session](troubleshoot-vm-configuration.md).
-- Para solucionar problemas ao usar o PowerShell com o Windows Virtual Desktop, consulte [o Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Para passar por um tutorial de solução de problemas, consulte Tutorial: Implantação de [modelo do Gerenciador de recursos de solução de problemas](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
+- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues.md).
+- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
+- Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

@@ -1,5 +1,5 @@
 ---
-title: Crie uma rede virtual para instância gerenciada
+title: Criar uma rede virtual para instância gerenciada
 description: Este artigo descreve como criar uma rede virtual em que você pode implantar uma Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
 ms.openlocfilehash: 0ce88f9a61b8aa7c2588a6e077d694afa6fb8631
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878843"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Criar uma rede virtual para uma Instância Gerenciada do Banco de Dados SQL do Azure
@@ -34,14 +34,14 @@ A Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantada em um
 >
 > Se você planeja utilizar uma rede virtual existente, será necessário modificar essa configuração de rede para acomodar sua Instância Gerenciada. Para obter mais informações, confira [Modificar uma rede virtual existente para Instância Gerenciada](sql-database-managed-instance-configure-vnet-subnet.md).
 >
-> Depois que uma instância gerenciada é criada, a movimentação da instância gerenciada ou do VNet para outro grupo de recursos ou assinatura não é suportada.  A mudança da instância gerenciada para outra sub-rede também não é suportada.
+> Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.  Também não há suporte para a movimentação da instância gerenciada para outra sub-rede.
 >
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 A maneira mais fácil de criar e configurar uma rede virtual é usar um modelo de implantação do Azure Resource Manager.
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 
 2. Selecione o botão **Implantar no Azure**:
 

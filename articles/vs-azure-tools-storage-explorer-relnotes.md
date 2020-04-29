@@ -1,5 +1,5 @@
 ---
-title: Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
+title: Notas sobre a versão do Gerenciador de Armazenamento do Microsoft Azure
 description: Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 services: storage
 documentationcenter: na
@@ -15,78 +15,78 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 986da8980a569583ef454833957ace85dd1bfbb6
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80351070"
 ---
-# <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
+# <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas sobre a versão do Gerenciador de Armazenamento do Microsoft Azure
 
-Este artigo contém as notas de versão mais recentes do Azure Storage Explorer, bem como notas de versão para versões anteriores. 
+Este artigo contém as notas de versão mais recentes para Gerenciador de Armazenamento do Azure, bem como notas de versão para versões anteriores. 
 
 O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 
-Para baixar versões anteriores do Storage Explorer, você pode visitar a [página Releases](https://github.com/microsoft/AzureStorageExplorer/releases) do nosso repo GitHub.
+Para baixar versões anteriores do Gerenciador de Armazenamento, você pode visitar a [página de lançamentos](https://github.com/microsoft/AzureStorageExplorer/releases) do repositório github.
 
-## <a name="version-1110"></a>Versão 1.11.0
+## <a name="version-1110"></a>1.11.0 da versão
 4/11/2019
 
 ### <a name="new"></a>Novo
-* As operações para Blobs, ADLS Gen2 e Discos Gerenciados usam o AzCopy integrado. Mais especificamente, as seguintes operações são feitas usando o AzCopy:
+* Operações para BLOBs, ADLS Gen2 e Managed Disks usam o AzCopy integrado. Mais especificamente, as seguintes operações são feitas usando AzCopy:
    * Blobs
-      * Aberto para edição + Upload
-      * Faça upload, incluindo arrastar & queda
+      * Abrir para edição + carregamento
+      * Carregar, incluindo arrastar & soltar
       * Baixar
-      * Copiar #1249 de colar de &
+      * Copiar & colar #1249
       * Excluir
-   * ADLS Gen2 Blobs
-      * Faça upload, incluindo arrastar & queda
+   * Blobs de ADLS Gen2
+      * Carregar, incluindo arrastar & soltar
       * Baixar
-      * Copiar pasta de &
-      * Excluir, incluindo a exclusão de pastas
+      * Copiar & colar
+      * Excluir, incluindo exclusão de pasta
    * Managed Disks
       * Carregar
       * Baixar
-      * Copiar pasta de &
+      * Copiar & colar
 
-   Além disso, vários recursos frequentemente solicitados foram adicionados à experiência integrada do AzCopy:
-   * Resoluções de conflitos - você será solicitado durante as transferências para resolver conflitos. #1455
-   * Faça upload como blobs de página - você pode escolher se o AzCopy carrega ou não arquivos .vhd e .vhdx como blobs de página. #1164 e #1601
-   * Parâmetros azCopy configuráveis - Várias configurações foram adicionadas para ajustar o desempenho e o uso de recursos do AzCopy. Veja mais detalhes abaixo.
+   Além disso, vários recursos solicitados com frequência foram adicionados à experiência de AzCopy integrada:
+   * Resoluções de conflitos-você será solicitado durante as transferências para resolver conflitos. #1455
+   * Carregar como BLOBs de páginas – você pode escolher se o AzCopy carrega ou não arquivos. vhd e. vhdx como BLOBs de páginas. #1164 e #1601
+   * Parâmetros AzCopy configuráveis – várias configurações foram adicionadas para ajustar o desempenho e o uso de recursos do AzCopy. Veja mais detalhes abaixo.
 
-* Para habilitar o acesso multiprotocolo ADLS Gen2 e Blobs e melhorar ainda mais as experiências do ADLS Gen2, adicionamos os seguintes recursos para as contas ADLS Gen2:
-   * Pesquise usando nomes amigáveis para definir permissões ACL
-   * Veja contêineres ocultos, como $logs e $web
-   * Adquirir e quebrar o arrendamento de contêineres
-   * Adquira e quebre o #848 de locação da Blob
-   * Gerenciar políticas de acesso a contêineres
-   * Configure os níveis de acesso blob
-   * Copiar & Blobs de pasta
+* Para habilitar o acesso de vários protocolos de ADLS Gen2 e BLOBs e aprimorar ainda mais as experiências de ADLS Gen2, adicionamos os seguintes recursos para as contas de ADLS Gen2:
+   * Pesquisar usando nomes amigáveis para definir permissões de ACL
+   * Exibir contêineres ocultos, como $logs e $web
+   * Adquirir e interromper a concessão de contêiner
+   * Adquirir e interromper a concessão de blob #848
+   * Gerenciar políticas de acesso de contêiner
+   * Configurar camadas de acesso de BLOB
+   * Copiar & colar BLOBs
 
-* Nesta versão, estamos visualizando 17 idiomas adicionais. Você pode mudar para um idioma de sua escolha na página de configurações em "Aplicativo" → "Configurações Regionais" → "Idioma (Visualização)". Ainda estamos trabalhando duro para traduzir strings adicionais e melhorar a qualidade da tradução. Se você tiver algum feedback sobre uma tradução, ou se você notar uma string que ainda não foi traduzida, abra [um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%F0%9F%8C%90%20localization&template=bug-report.md&title=).
-* Em cada versão, tentamos embarcar algumas configurações para permitir uma boa virada do Storage Explorer. Nesta versão, adicionamos configurações para configurar ainda mais o AzCopy, bem como para ocultar nós de serviço:
-   * Limite de largura de banda do AzCopy - ajuda a controlar quanto da rede AzCopy usa. Você pode encontrar esta configuração em "Transfers" → "AzCopy" → "Taxa máxima de transferência". #1099
-   * A zCopy MD5 check - permite configurar se e como estritamente AzCopy verifica para hashes MD5 no download. Você pode encontrar esta configuração em "Transfers" → "AzCopy" → "Check MD5".
-   * AzCopy concurrency e tamanho de buffer de memória - por padrão, o AzCopy analisará sua máquina para determinar valores padrão razoáveis para essas configurações. Mas se você encontrar problemas de desempenho, essas configurações avançadas podem ser usadas para adaptar ainda mais como o AzCopy é executado no seu computador. Você pode encontrar essas configurações em "Transfers" → "AzCopy". #994
-   * Exibir e ocultar nós de serviço - essas configurações dão a você as opções para exibir ou ocultar qualquer um dos serviços do Azure que o Storage Explorer suporta. Você pode encontrar essas configurações na seção "Serviços". #1877
+* Nesta versão, estamos visualizando 17 idiomas adicionais. Você pode alternar para um idioma de sua escolha na página configurações em "aplicativo" → "configurações regionais" → "idioma (visualização)". Ainda estamos trabalhando duro para traduzir cadeias de caracteres adicionais e melhorar a qualidade da tradução. Se você tiver algum comentário sobre uma tradução ou se observar uma cadeia de caracteres que ainda não está traduzida, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%F0%9F%8C%90%20localization&template=bug-report.md&title=).
+* Em todas as versões, tentamos integrar algumas configurações para habilitar a desativação correta Gerenciador de Armazenamento. Nesta versão, adicionamos as configurações para configurar ainda mais o AzCopy, bem como para ocultar os nós de serviço:
+   * Limite de largura de banda AzCopy-ajuda a controlar a quantidade de AzCopy de rede usada. Você pode encontrar essa configuração em "Transfers" → "AzCopy" → "taxa de transferência máxima". #1099
+   * Verificação de MD5 do AzCopy – permite que você configure se e como a estritamente AzCopy verifica se há hashes MD5 no download. Você pode encontrar essa configuração em "Transfers" → "AzCopy" → "check MD5".
+   * Tamanho do buffer de memória e simultaneidade de AzCopy – por padrão, o AzCopy analisará seu computador para determinar valores padrão razoáveis para essas configurações. Mas se você tiver problemas de desempenho, essas configurações avançadas poderão ser usadas para adaptar ainda mais o modo como o AzCopy é executado no computador. Você pode encontrar essas configurações em "transferes" → "AzCopy". #994
+   * Exibir e ocultar nós de serviço-essas configurações fornecem as opções para exibir ou ocultar qualquer um dos serviços do Azure aos quais Gerenciador de Armazenamento dá suporte. Você pode encontrar essas configurações na seção "serviços". #1877
 
-* Ao criar um snapshot de um disco gerenciado, um nome padrão agora é fornecido. #1847
-* Ao anexar com o Azure AD, se você anexar um recipiente ADLS Gen2 Blob, então "(ADLS Gen2)" será mostrado ao lado do nó. #1861
+* Ao criar um instantâneo de um disco gerenciado, um nome padrão é fornecido agora. #1847
+* Ao anexar com o Azure AD, se você anexar um contêiner de blob ADLS Gen2, "(ADLS Gen2)" será mostrado ao lado do nó. #1861
 
 ### <a name="fixes"></a>Correções
-* Ao copiar, carregar ou baixar discos grandes, o Storage Explorer às vezes falhava em revogar o acesso aos discos envolvidos na operação. Esse problema foi corrigido. #2048
-* As estatísticas da tabela falharam ao visualizar uma consulta de chave de partição. Esse problema foi corrigido. #1886
+* Ao copiar, carregar ou baixar discos grandes, Gerenciador de Armazenamento às vezes falharia em revogar o acesso aos discos envolvidos na operação. Esse problema foi corrigido. #2048
+* As estatísticas de tabela falharam ao exibir uma consulta de chave de partição. Esse problema foi corrigido. #1886
 
 ### <a name="known-issues"></a>Problemas conhecidos
-* O Storage Explorer 1.11.0 agora requer um ponto final DFS (como "myaccount.dfs.core.windows.net") para anexar aos contêineres ADLS Gen2. Versões anteriores do Storage Explorer permitiram que você usasse um ponto final blob. Esses anexos podem não funcionar mais após a atualização para 1.11.0. Se você encontrar esse problema, reconecte usando o ponto final do DFS.
-* As configurações numéricas não são verificadas se estão em um intervalo válido.#2140
-* Copiar recipientes blob de uma conta de armazenamento para outra na exibição da árvore pode falhar. Estamos investigando a questão.#2124
-* A configuração Auto Refresh ainda não afeta todas as operações do Blob Explorer.
-* Os recursos do disco gerenciado não são suportados no Azure Stack.
-* Se um upload ou colar de disco falhar e um novo disco for criado antes da falha, o Storage Explorer não excluirá o Disco para você.
-* Dependendo de quando você cancela um upload ou colar um disco, é possível deixar o novo Disco em um estado corrompido. Se isso acontecer, você precisa excluir o novo Disco ou chamar manualmente as APIs do disco para substituir o conteúdo do Disco de modo que ele não esteja mais corrompido.
-* Ao usar o RBAC, o Storage Explorer requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte o [guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Gerenciador de Armazenamento 1.11.0 agora requer um ponto de extremidade DFS (como "myaccount.dfs.core.windows.net") para anexar a contêineres de ADLS Gen2. As versões anteriores do Gerenciador de Armazenamento permitiam que você usa um ponto de extremidade de BLOB. Esses anexos podem não funcionar mais após a atualização para o 1.11.0. Se você encontrar esse problema, anexe novamente usando o ponto de extremidade do DFS.
+* As configurações numéricas não são verificadas se se encontram em um intervalo válido. #2140
+* A cópia de contêineres de blob de uma conta de armazenamento para outra no modo de exibição de árvore pode falhar. Estamos investigando o problema. #2124
+* A configuração de atualização automática ainda não afeta todas as operações no Gerenciador de BLOBs.
+* Os recursos de disco gerenciado não têm suporte no Azure Stack.
+* Se um upload ou uma colagem do disco falhar e um novo disco tiver sido criado antes da falha, Gerenciador de Armazenamento não excluirá o disco para você.
+* Dependendo de quando você cancela um upload de disco ou cola, é possível deixar o novo disco em um estado corrompido. Se isso acontecer, você precisará excluir o novo disco ou chamar manualmente as APIs de disco para substituir o conteúdo do disco de modo que ele não seja mais corrompido.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -108,15 +108,15 @@ Para baixar versões anteriores do Storage Explorer, você pode visitar a [pági
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Storage Explorer no Linux requer que certas dependências sejam instaladas primeiro. Verifique o guia de [solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 ## <a name="previous-releases"></a>Versões anteriores
 
-* [Versão 1.10.1](#version-1101)
-* [Versão 1.10.0](#version-1100)
-* [Versão 1.9.0](#version-190)
-* [Versão 1.8.1](#version-181)
-* [Versão 1.8.0](#version-180)
+* [1.10.1 da versão](#version-1101)
+* [1.10.0 da versão](#version-1100)
+* [1.9.0 da versão](#version-190)
+* [1.8.1 da versão](#version-181)
+* [1.8.0 da versão](#version-180)
 * [Versão 1.7.0](#version-170)
 * [Versão 1.6.2](#version-162)
 * [Versão 1.6.1](#version-161)
@@ -153,56 +153,56 @@ Para baixar versões anteriores do Storage Explorer, você pode visitar a [pági
 * [Versão 0.7.20160105.0](#version-07201601050)
 * [Versão 0.7.20151116.0](#version-07201511160)
 
-## <a name="version-1101"></a>Versão 1.10.1
+## <a name="version-1101"></a>1.10.1 da versão
 19/9/2019
 
 ### <a name="hotfix"></a>Hotfix
-* Alguns usuários encontraram um erro no 1.10.0 ao tentar visualizar seus dados em suas contas ADLS Gen 1. Este erro impediu que o painel do explorador se renderizasse corretamente. Esse problema foi corrigido. #1853 #1865
+* Alguns usuários encontraram um erro no 1.10.0 ao tentar exibir seus dados em suas contas do ADLS Gen 1. Esse erro impediu que o painel do Explorer fosse renderizado corretamente. Esse problema foi corrigido. #1853 #1865
 
 ### <a name="new"></a>Novo
-* O Storage Explorer agora tem uma ui de configurações dedicada. Você pode acessá-lo a partir de Editar → Configurações ou clicando no ícone Configurações (a engrenagem) na barra de ferramentas vertical à esquerda. Este recurso é o primeiro passo que estamos dando para fornecer uma variedade de [configurações solicitadas pelo usuário](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). A partir desta versão, as seguintes configurações são suportadas:
+* Agora Gerenciador de Armazenamento tem uma interface do usuário de configurações dedicada. Você pode acessá-lo em Editar configurações de → ou clicando no ícone de configurações (a engrenagem) na barra de ferramentas vertical à esquerda. Esse recurso é a primeira etapa que estamos levando em voltar a fornecer uma variedade de [configurações solicitadas pelo usuário](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). A partir desta versão, há suporte para as seguintes configurações:
   * Tema
   * Proxy
-  * Logout na #6 de saída
-  * Habilite o login de fluxo de fluxo de código do dispositivo
+  * Fazer logoff na #6 de saída
+  * Habilitar entrada de fluxo de código do dispositivo
   * #1526 de atualização automática
-  * Habilitar o AzCopy
-  * Duração do AzCopy SAS Se houver outras configurações que você gostaria de ver adicionadas, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) descrevendo a configuração que deseja ver.
-* O Storage Explorer agora suporta discos gerenciados. Você pode:
-  * Carregue um VHD no local para um novo Disco
-  * Baixe um disco
-  * Copiar e colar discos em grupos de recursos e regiões
+  * Habilitar AzCopy
+  * Duração da SAS do AzCopy se houver outras configurações que você gostaria de ver adicionadas, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=) que descreva a configuração que você deseja ver.
+* Gerenciador de Armazenamento agora dá suporte a Managed Disks. Você pode:
+  * Carregar um VHD local para um novo disco
+  * Baixar um disco
+  * Copiar e colar discos entre grupos de recursos e regiões
   * Excluir discos
   * Criar um instantâneo de um disco
 
-O upload, o download e a cópia entre regiões dos discos são alimentados pelo AzCopy v10.
-* O Storage Explorer agora pode ser instalado através da loja Snap no Linux. Quando você instala através da loja Snap, todas as dependências são instaladas para você, incluindo .NET Core! Atualmente verificamos que o Storage Explorer funciona bem no Ubuntu e no CentOS. Se você encontrar problemas de instalação da loja Snap em outras distros linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação na loja Snap, consulte nosso [guia de início](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux). #68
-* Duas grandes mudanças foram feitas para anexar ao Azure Active Directory (Azure AD) que se destina a tornar o recurso mais útil para usuários do ADLS Gen2:
-  * Agora você seleciona o inquilino em que o recurso que você está anexando está. Isso significa que você não precisa mais ter acesso RBAC à assinatura do recurso.
-  * Se você estiver anexando um contêiner ADLS Gen2 Blob, agora você pode anexar a um caminho específico no contêiner.
-* Ao gerenciar ACLs para arquivos e pastas ADLS Gen2, o Storage Explorer agora mostrará os nomes amigáveis para entidades na ACL. #957
-* Ao adicionar via OID a um ACL ADLS Gen2, o Storage Explorer validará agora que o OID pertence a uma entidade válida em seu inquilino. #1603
-* Os atalhos de teclado para navegar entre as guias agora usam combinações de teclas mais padrão. #1018
-* O clique do meio em uma guia agora vai fechá-la. #1348
-* Se uma transferência do AzCopy contiver saltos e nenhuma falha, o Storage Explorer mostrará agora um ícone de aviso para destacar que os saltos ocorreram. #1490
-* O AzCopy integrado foi atualizado para a versão 10.2.1. Além disso, agora você pode visualizar a versão do AzCopy instalada na caixa de diálogo Sobre. #1343
+O carregamento, o download e a cópia entre regiões de discos são alimentados por AzCopy v10.
+* Agora, o Gerenciador de Armazenamento pode ser instalado por meio do armazenamento de snap no Linux. Quando você instala o por meio do repositório de snap, todas as dependências são instaladas para você, incluindo o .NET Core! Atualmente, verificamos se Gerenciador de Armazenamento é executado bem no Ubuntu e no CentOS. Se você encontrar problemas ao instalar do repositório de snap em outros distribuições do Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação do repositório de snap, consulte nosso [Guia de introdução](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux). #68
+* Duas alterações importantes foram feitas para anexar com Azure Active Directory (Azure AD), que se destinam a tornar o recurso mais útil para ADLS Gen2 usuários:
+  * Agora você seleciona o locatário no qual está anexando o recurso. Isso significa que você não precisa mais ter acesso de RBAC à assinatura do recurso.
+  * Se você estiver anexando um contêiner de blob ADLS Gen2, agora você poderá anexar a um caminho específico no contêiner.
+* Ao gerenciar ACLs para ADLS Gen2 arquivos e pastas, Gerenciador de Armazenamento agora mostrará os nomes amigáveis para entidades na ACL. #957
+* Ao adicionar por meio de OID a um ADLS Gen2 ACL, o Gerenciador de Armazenamento agora validará que o OID pertence a uma entidade válida em seu locatário. #1603
+* Os atalhos de teclado para navegar entre as guias agora usam mais combinações de teclas padrão. #1018
+* O meio de clique em uma guia agora o fechará. #1348
+* Se uma transferência AzCopy contiver ignorar e não houver falhas, Gerenciador de Armazenamento agora mostrará um ícone de aviso para realçar que as ignorações ocorreram. #1490
+* O AzCopy integrado foi atualizado para a versão 10.2.1. Além disso, agora você pode exibir a versão do AzCopy instalada na caixa de diálogo sobre. #1343
 
 ### <a name="fixes"></a>Correções
-* Muitos usuários se depararam com vários erros "não é possível ler versão de indefinido" ou "não pode ler conexão de erros indefinidos" ao trabalhar com contas de armazenamento anexadas. Embora ainda continuemos investigando a causa raiz deste problema, em 1.10.0 melhoramos o manuseio de erros em torno do carregamento de contas de armazenamento anexadas. #1626, #985 e #1532
-* Era possível para a árvore exploradora (lado esquerdo) entrar em um estado onde o foco saltaria para o nó superior repetidamente. Esse problema foi corrigido. #1596
-* Ao gerenciar os instantâneos de uma bolha, os leitores de tela não leriam o carimbo de tempo associado ao instantâneo. Esse problema foi corrigido. #1202
-* A configuração de proxy no macOS não estava sendo definida a tempo para que o processo de autenticação os utilizasse. Esse problema foi corrigido. #1567
-* Se uma conta de armazenamento em uma nuvem soberana fosse anexada usando nome e chave, o AzCopy não funcionaria. Esse problema foi corrigido. #1544
-* Ao anexar através de uma cadeia de conexão, o Storage Explorer removerá agora os espaços de arrasto. #1387
+* Muitos usuários se apresentaram a vários erros "não é possível ler a versão de indefinido" ou "não é possível ler a conexão de erro indefinido" ao trabalhar com contas de armazenamento anexadas. Embora ainda continuemos investigando a causa raiz desse problema, no 1.10.0, melhoramos a manipulação de erros em relação ao carregamento de contas de armazenamento anexadas. #1626, #985 e #1532
+* Era possível que a árvore do Gerenciador (lado esquerdo) entrasse em um estado em que o foco saltaria para o nó superior repetidamente. Esse problema foi corrigido. #1596
+* Ao gerenciar os instantâneos de um blob, os leitores de tela não lêem o carimbo de data/hora associado ao instantâneo. Esse problema foi corrigido. #1202
+* A configuração de proxy no macOS não estava sendo definida no tempo para o processo de autenticação usá-las. Esse problema foi corrigido. #1567
+* Se uma conta de armazenamento em uma nuvem soberanas foi anexada usando o nome e a chave, AzCopy não funcionaria. Esse problema foi corrigido. #1544
+* Ao anexar por meio de uma cadeia de conexão, Gerenciador de Armazenamento agora removerá espaços à direita. #1387
 
 ### <a name="known-issues"></a>Problemas conhecidos
-* A configuração Auto Refresh ainda não afeta todas as operações do Blob Explorer.
-* Os recursos do disco gerenciado não são suportados no Azure Stack.
-* Se um upload ou colar de disco falhar e um novo disco for criado antes da falha, o Storage Explorer não excluirá o Disco para você.
-* Dependendo de quando você cancela um upload ou colar um disco, é possível deixar o novo Disco em um estado corrompido. Se isso acontecer, você precisa excluir o novo Disco ou chamar manualmente as APIs do disco para substituir o conteúdo do Disco de modo que ele não esteja mais corrompido.
-* Dependendo de quando você cancela um upload ou colar um disco, é possível deixar o novo Disco em um estado corrompido. Se isso acontecer, você precisa excluir o novo Disco ou chamar manualmente as APIs do disco para substituir o conteúdo do Disco de modo que ele não esteja mais corrompido.
-* Ao realizar um download não-AzCopy Blob, o MD5 para arquivos grandes não está sendo verificado. Isso é devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, o Storage Explorer requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte o [guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A configuração de atualização automática ainda não afeta todas as operações no Gerenciador de BLOBs.
+* Os recursos de disco gerenciado não têm suporte no Azure Stack.
+* Se um upload ou uma colagem do disco falhar e um novo disco tiver sido criado antes da falha, Gerenciador de Armazenamento não excluirá o disco para você.
+* Dependendo de quando você cancela um upload de disco ou cola, é possível deixar o novo disco em um estado corrompido. Se isso acontecer, você precisará excluir o novo disco ou chamar manualmente as APIs de disco para substituir o conteúdo do disco de modo que ele não seja mais corrompido.
+* Dependendo de quando você cancela um upload de disco ou cola, é possível deixar o novo disco em um estado corrompido. Se isso acontecer, você precisará excluir o novo disco ou chamar manualmente as APIs de disco para substituir o conteúdo do disco de modo que ele não seja mais corrompido.
+* Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -224,61 +224,61 @@ O upload, o download e a cópia entre regiões dos discos são alimentados pelo 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Storage Explorer no Linux requer que certas dependências sejam instaladas primeiro. Verifique o guia de [solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 
-## <a name="version-1100"></a>Versão 1.10.0
+## <a name="version-1100"></a>1.10.0 da versão
 9/12/2019
 
 ### <a name="new"></a>Novo
 
-* O Storage Explorer agora tem uma ui de configurações dedicada. Você pode acessá-lo a partir de Editar → Configurações ou clicando no ícone Configurações (a engrenagem) na barra de ferramentas vertical à esquerda. Este recurso é o primeiro passo que estamos dando para fornecer uma variedade de [configurações solicitadas pelo usuário](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). A partir desta versão, as seguintes configurações são suportadas:
+* Agora Gerenciador de Armazenamento tem uma interface do usuário de configurações dedicada. Você pode acessá-lo em Editar configurações de → ou clicando no ícone de configurações (a engrenagem) na barra de ferramentas vertical à esquerda. Esse recurso é a primeira etapa que estamos levando em voltar a fornecer uma variedade de [configurações solicitadas pelo usuário](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). A partir desta versão, há suporte para as seguintes configurações:
     * Tema
     * Proxy
-    * Logout na [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6) de saída
-    * Habilite o login de fluxo de fluxo de código do dispositivo
-    * #1526 de atualização [automática](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1526)
-    * Habilitar o AzCopy
-    * Duração do SAS do AzCopy
+    * Fazer logoff na [#6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6) de saída
+    * Habilitar entrada de fluxo de código do dispositivo
+    * [#1526](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1526) de atualização automática
+    * Habilitar AzCopy
+    * Duração da SAS do AzCopy
 
-    Se houver outras configurações que você gostaria de ver adicionadas, [abra um problema no GitHub descrevendo a configuração que você deseja ver](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
-* O Storage Explorer agora suporta discos gerenciados. Você pode:
-    * Carregue um VHD no local para um novo Disco
-    * Baixe um disco
-    * Copiar e colar discos em grupos de recursos e regiões
+    Se houver outras configurações que você gostaria de ver adicionadas, [abra um problema no GitHub que descreva a configuração que você deseja ver](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
+* Gerenciador de Armazenamento agora dá suporte a Managed Disks. Você pode:
+    * Carregar um VHD local para um novo disco
+    * Baixar um disco
+    * Copiar e colar discos entre grupos de recursos e regiões
     * Excluir discos
     * Criar um instantâneo de um disco
 
-    O upload, o download e a cópia entre regiões dos discos são alimentados pelo AzCopy v10.
-* O Storage Explorer agora pode ser instalado através da loja Snap no Linux. Quando você instala através da loja Snap, todas as dependências são instaladas para você, incluindo .NET Core! Atualmente verificamos que o Storage Explorer funciona bem no Ubuntu e no CentOS. Se você encontrar problemas de instalação da loja Snap em outras distros linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação na loja Snap, consulte nosso [guia de início](https://aka.ms/storageexplorer/snapinformation). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
-* Duas grandes alterações foram feitas para anexar ao Azure Active Directory (Azure AD) que se destina a tornar o recurso mais útil para usuários do ADLS Gen2: * Agora você seleciona o inquilino em que o recurso que você está anexando está. Isso significa que você não precisa mais ter acesso RBAC à assinatura do recurso.
-        * Se você estiver anexando um recipiente Blob ADLS Gen2, agora você pode anexar a um caminho específico no recipiente.
-* Ao gerenciar ACLs para arquivos e pastas ADLS Gen2, o Storage Explorer agora mostrará os nomes amigáveis para entidades na ACL. [#957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
-* Ao adicionar via OID a um ACL ADLS Gen2, o Storage Explorer validará agora que o OID pertence a uma entidade válida em seu inquilino. [#1603](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1603)
-* Os atalhos de teclado para navegar entre as guias agora usam combinações de teclas mais padrão. [#1018](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1018)
-* O clique do meio em uma guia agora vai fechá-la. [#1348](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1348)
-* Se uma transferência do AzCopy contiver saltos e nenhuma falha, o Storage Explorer mostrará agora um ícone de aviso para destacar que os saltos ocorreram. [#1490](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1490)
-* O AzCopy integrado foi atualizado para a versão 10.2.1. Além disso, agora você pode visualizar a versão do AzCopy instalada na caixa de diálogo Sobre. [#1343](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1343)
+    O carregamento, o download e a cópia entre regiões de discos são alimentados por AzCopy v10.
+* Agora, o Gerenciador de Armazenamento pode ser instalado por meio do armazenamento de snap no Linux. Quando você instala o por meio do repositório de snap, todas as dependências são instaladas para você, incluindo o .NET Core! Atualmente, verificamos se Gerenciador de Armazenamento é executado bem no Ubuntu e no CentOS. Se você encontrar problemas ao instalar do repositório de snap em outros distribuições do Linux, [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Para saber mais sobre a instalação do repositório de snap, consulte nosso [Guia de introdução](https://aka.ms/storageexplorer/snapinformation). [#68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* Duas alterações importantes foram feitas para anexar com Azure Active Directory (Azure AD), que são destinadas a tornar o recurso mais útil para ADLS Gen2 usuários: * agora você seleciona o locatário no qual está anexando o recurso. Isso significa que você não precisa mais ter acesso de RBAC à assinatura do recurso.
+        * Se você estiver anexando um contêiner de blob ADLS Gen2, agora você pode anexar a um caminho específico no contêiner.
+* Ao gerenciar ACLs para ADLS Gen2 arquivos e pastas, Gerenciador de Armazenamento agora mostrará os nomes amigáveis para entidades na ACL. [#957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
+* Ao adicionar por meio de OID a um ADLS Gen2 ACL, o Gerenciador de Armazenamento agora validará que o OID pertence a uma entidade válida em seu locatário. [#1603](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1603)
+* Os atalhos de teclado para navegar entre as guias agora usam mais combinações de teclas padrão. [#1018](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1018)
+* O meio de clique em uma guia agora o fechará. [#1348](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1348)
+* Se uma transferência AzCopy contiver ignorar e não houver falhas, Gerenciador de Armazenamento agora mostrará um ícone de aviso para realçar que as ignorações ocorreram. [#1490](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1490)
+* O AzCopy integrado foi atualizado para a versão 10.2.1. Além disso, agora você pode exibir a versão do AzCopy instalada na caixa de diálogo sobre. [#1343](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1343)
 
 ### <a name="fixes"></a>Correções
 
-* Muitos usuários se depararam com vários erros "não é possível ler versão de indefinido" ou "não pode ler conexão de erros indefinidos" ao trabalhar com contas de armazenamento anexadas. Embora ainda continuemos investigando a causa raiz deste problema, em 1.10.0 melhoramos o manuseio de erros em torno do carregamento de contas de armazenamento anexadas. [#1626,](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1626) [#985](https://www.github.com/Microsoft/AzureStorageExplorer/issues/985)e [#1532](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1532)
-* Era possível para a árvore exploradora (lado esquerdo) entrar em um estado onde o foco saltaria para o nó superior repetidamente. Esse problema foi corrigido. [#1596](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1596)
-* Ao gerenciar os instantâneos de uma bolha, os leitores de tela não leriam o carimbo de tempo associado ao instantâneo. Esse problema foi corrigido. [#1202](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1202)
-* A configuração de proxy no macOS não estava sendo definida a tempo para que o processo de autenticação os utilizasse. Esse problema foi corrigido. [#1567](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1567)
-* Se uma conta de armazenamento em uma nuvem soberana fosse anexada usando nome e chave, o AzCopy não funcionaria. Esse problema foi corrigido. [#1544](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1544)
-* Ao anexar através de uma cadeia de conexão, o Storage Explorer removerá agora os espaços de arrasto. [#1387](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1387)
+* Muitos usuários se apresentaram a vários erros "não é possível ler a versão de indefinido" ou "não é possível ler a conexão de erro indefinido" ao trabalhar com contas de armazenamento anexadas. Embora ainda continuemos investigando a causa raiz desse problema, no 1.10.0, melhoramos a manipulação de erros em relação ao carregamento de contas de armazenamento anexadas. [#1626](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1626), [#985](https://www.github.com/Microsoft/AzureStorageExplorer/issues/985)e [#1532](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1532)
+* Era possível que a árvore do Gerenciador (lado esquerdo) entrasse em um estado em que o foco saltaria para o nó superior repetidamente. Esse problema foi corrigido. [#1596](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1596)
+* Ao gerenciar os instantâneos de um blob, os leitores de tela não lêem o carimbo de data/hora associado ao instantâneo. Esse problema foi corrigido. [#1202](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1202)
+* A configuração de proxy no macOS não estava sendo definida no tempo para o processo de autenticação usá-las. Esse problema foi corrigido. [#1567](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1567)
+* Se uma conta de armazenamento em uma nuvem soberanas foi anexada usando o nome e a chave, AzCopy não funcionaria. Esse problema foi corrigido. [#1544](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1544)
+* Ao anexar por meio de uma cadeia de conexão, Gerenciador de Armazenamento agora removerá espaços à direita. [#1387](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1387)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* A configuração Auto Refresh ainda não afeta todas as operações do Blob Explorer.
-* Os recursos do disco gerenciado não são suportados no Azure Stack.
-* Se um upload ou colar de disco falhar e um novo disco for criado antes da falha, o Storage Explorer não excluirá o Disco para você.
-* Dependendo de quando você cancela um upload ou colar um disco, é possível deixar o novo Disco em um estado corrompido. Se isso acontecer, você precisa excluir o novo Disco ou chamar manualmente as APIs do disco para substituir o conteúdo do Disco de modo que ele não esteja mais corrompido.
-* Ao realizar um download não-AzCopy Blob, o MD5 para arquivos grandes não está sendo verificado. Isso é devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, o Storage Explorer requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte o [guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A configuração de atualização automática ainda não afeta todas as operações no Gerenciador de BLOBs.
+* Os recursos de disco gerenciado não têm suporte no Azure Stack.
+* Se um upload ou uma colagem do disco falhar e um novo disco tiver sido criado antes da falha, Gerenciador de Armazenamento não excluirá o disco para você.
+* Dependendo de quando você cancela um upload de disco ou cola, é possível deixar o novo disco em um estado corrompido. Se isso acontecer, você precisará excluir o novo disco ou chamar manualmente as APIs de disco para substituir o conteúdo do disco de modo que ele não seja mais corrompido.
+* Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
-* Se você usar VS para Mac e já criou uma configuração AAD personalizada, você pode não conseguir fazer login. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
+* Se você usar o VS para Mac e já tiver criado uma configuração personalizada do AAD, talvez não consiga entrar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
 * Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
 * Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron. Para solucionar esse problema ao carregar ou fazer o download de um contêiner de blob, você pode usar o recurso experimental do AzCopy.
@@ -298,44 +298,44 @@ O upload, o download e a cópia entre regiões dos discos são alimentados pelo 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Storage Explorer no Linux requer que certas dependências sejam instaladas primeiro. Verifique o guia de [solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
-## <a name="version-190"></a>Versão 1.9.0
+## <a name="version-190"></a>1.9.0 da versão
 7/1/2019
 
-### <a name="download-azure-storage-explorer-190"></a>Baixe Azure Storage Explorer 1.9.0
-- [Azure Storage Explorer 1.9.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.9.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.9.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-190"></a>Baixar Gerenciador de Armazenamento do Azure 1.9.0
+- [Gerenciador de Armazenamento do Azure 1.9.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 1.9.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 1.9.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 
-* Agora você pode anexar recipientes Blob através do Azure AD (permissões RBAC ou ACL). Esse recurso destina-se a ajudar os usuários que têm acesso a contêineres, mas não as Contas de Armazenamento em que os contêineres estão. Consulte nosso Guia de Início para obter mais informações sobre este recurso.
-* Adquirir e quebrar o contrato agora funciona com o RBAC. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* Agora você pode anexar contêineres de blob por meio do Azure AD (permissões RBAC ou ACL). Esse recurso destina-se a ajudar os usuários que têm acesso aos contêineres, mas não às contas de armazenamento nas quais os contêineres estão. Consulte nosso guia de Introdução para obter mais informações sobre esse recurso.
+* Adquira e interrompa a concessão agora trabalhe com o RBAC. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
 * O gerenciamento de políticas de acesso e a definição do nível de acesso público agora funcionam com o RBAC. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
-* A exclusão de pastas blob agora funciona com rbac. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
-* A alteração do nível de acesso blob agora funciona com o RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
-* Agora você pode redefinir rapidamente o Acesso Rápido através de "Ajuda" → "Redefinir". [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+* A exclusão de pastas de BLOBs agora funciona com o RBAC. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* A alteração da camada de acesso ao blob agora funciona com o RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* Agora você pode redefinir rapidamente o acesso rápido por meio de "Help" → "Reset". [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
 
 ### <a name="preview-features"></a>Recursos de visualização
 
-* O login de fluxo de código do dispositivo já está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use Device Code Flow Sign-in". Encorajamos todos os usuários que tiveram problemas com janelas de login em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de login.
-* O Storage Explorer integrado ao AzCopy está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use AzCopy para melhor upload e download de blob". As transferências de blob concluídas com o AzCopy devem ser mais rápidas e mais performáticas.
+* A entrada do fluxo de código do dispositivo agora está disponível para visualização. Para habilitá-lo, vá para "visualização" → "usar entrada de fluxo de código de dispositivo". Incentivamos qualquer usuário que tenha problemas com janelas de entrada em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de entrar.
+* O Gerenciador de Armazenamento integrado ao AzCopy está disponível para visualização no momento. Para habilitá-lo, acesse "visualização" → "usar AzCopy para upload e download de blob aprimorados". As transferências de blob concluídas com AzCopy devem ser mais rápidas e com melhor desempenho.
 
 ### <a name="fixes"></a>Correções
 
-* Fixo ser incapaz de carregar mais de 50 assinaturas para uma conta. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
-* Corrigimos o botão "Entrar" que não funciona na barra de informações que aparece quando um link direto falha. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
-* Corrigido não sendo para carregar arquivos .app no macOS. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
-* Corrigida "Retry All" não funcionando para uma renomea da bolha com falha. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
-* Fixo "Cancelar" não funciona enquanto abre uma bolha. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
-* Corrigimos vários problemas de ortografia e ponta de ferramenta em todo o produto. Muito obrigado a todos que relataram esses problemas! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303) [, #1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331) [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+* Corrigido não é possível carregar mais de 50 assinaturas para uma conta. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* Corrigido o botão "entrar" não está funcionando na barra de referências que aparece quando um link direto falha. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* Correção de não carregar arquivos. app no macOS. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* "Repetir tudo" corrigido não está funcionando para uma renomeação de blob com falha. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* "Cancelar" fixo não está funcionando ao abrir um blob. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* Correção de vários problemas de ortografia e dica de ferramenta em todo o produto. Muitos agradecimentos a todos os que relataram esses problemas! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Ao realizar um download não-AzCopy Blob, o MD5 para arquivos grandes não está sendo verificado. Isso é devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, o Storage Explorer requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte o [guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
-* Tentar acessar Blobs ADLS Gen2 quando atrás de um proxy pode falhar.
+* Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -356,43 +356,43 @@ O upload, o download e a cópia entre regiões dos discos são alimentados pelo 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Storage Explorer no Linux requer que certas dependências sejam instaladas primeiro. Verifique o guia de [solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
-## <a name="version-181"></a>Versão 1.8.1
+## <a name="version-181"></a>1.8.1 da versão
 5/13/2019
 
 ### <a name="hotfixes"></a>Hotfixes
-* Em alguns casos, clicar em "Carregar mais" no nível de recursos não retornaria a próxima página de recursos. Esse problema foi corrigido. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
-* No Windows, os downloads do AzCopy falhariam se um único arquivo ou pasta estivesse sendo baixado e o nome do arquivo ou pasta tivesse um caractere que era inválido para um caminho do Windows. Esse problema foi corrigido. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
-* Em casos extremamente raros, ao executar um renomeação de um Compartilhamento de Arquivos ou um renomeação em um Compartilhamento de Arquivos, se as cópias para o renomefalhar, ou se o Storage Explore não foi capaz de confirmar o sucesso das cópias com o Azure, havia o potencial para o Storage Explorer excluir o arquivos originais antes da cópia tinha terminado. Esse problema foi corrigido.
+* Em alguns casos, clicar em "carregar mais" no nível de recurso não retornará a próxima página de recursos. Esse problema foi corrigido. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
+* No Windows, os downloads do AzCopy falharão se um único arquivo ou pasta fosse baixado e o nome do arquivo ou da pasta tivesse um caractere que era inválido para um caminho do Windows. Esse problema foi corrigido. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
+* Em casos extremamente raros, ao executar uma renomeação de um compartilhamento de arquivos ou uma renomeação em um compartilhamento de arquivos, se as cópias da renomeação falharem ou se o Storage Explore não conseguir confirmar o sucesso das cópias com o Azure, houve o potencial para Gerenciador de Armazenamento excluir os arquivos originais antes de a cópia ter sido concluída. Esse problema foi corrigido.
 
 ### <a name="new"></a>Novo
 
 * A versão integrada do AzCopy foi atualizada para a versão 10.1.0.
-* Ctrl/Cmd+R agora pode ser usado para atualizar o editor atualmente focado. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
-* A versão da API de armazenamento do Azure Stack foi alterada para 2017-04-17.
-* O Diálogo gerenciar acesso para ADLS Gen2 agora manterá a Máscara em sincronia de forma semelhante a outras ferramentas de permissões POSIX. A ui também irá avisá-lo se for feita uma alteração que faça com que as permissões de um usuário ou grupo excedam os limites da Máscara. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
-* Para uploads do AzCopy, o sinalizador para calcular e definir o hash MD5 está agora ativado. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+* Ctrl/Cmd + R agora pode ser usado para atualizar o editor voltado para o momento. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* A versão da API de armazenamento Azure Stack foi alterada para 2017-04-17.
+* A caixa de diálogo Gerenciar acesso para ADLS Gen2 agora manterá a máscara sincronizada de forma semelhante a outras ferramentas de permissões POSIX. A interface do usuário também avisará se for feita uma alteração que faz com que as permissões de um usuário ou grupo excedam os limites da máscara. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* Para carregamentos do AzCopy, o sinalizador para calcular e definir o hash MD5 agora está habilitado. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
 ### <a name="preview-features"></a>Recursos de visualização
 
-* O login de fluxo de código do dispositivo já está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use Device Code Flow Sign-in". Encorajamos todos os usuários que tiveram problemas com janelas de login em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de login.
-* O Storage Explorer integrado ao AzCopy está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use AzCopy para melhor upload e download de blob". As transferências de blob concluídas com o AzCopy devem ser mais rápidas e mais performáticas.
+* A entrada do fluxo de código do dispositivo agora está disponível para visualização. Para habilitá-lo, vá para "visualização" → "usar entrada de fluxo de código de dispositivo". Incentivamos qualquer usuário que tenha problemas com janelas de entrada em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de entrar.
+* O Gerenciador de Armazenamento integrado ao AzCopy está disponível para visualização no momento. Para habilitá-lo, acesse "visualização" → "usar AzCopy para upload e download de blob aprimorados". As transferências de blob concluídas com AzCopy devem ser mais rápidas e com melhor desempenho.
 
 ### <a name="fixes"></a>Correções
 
-* A caixa de diálogo Políticas de acesso não definirá mais uma data de validade nas Políticas de Acesso ao Armazenamento que não tenham um vencimento. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
-* Algumas alterações foram feitas na caixa de diálogo Gerar SAS para garantir que as políticas de acesso armazenado sejam usadas corretamente ao gerar um SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
-* Ao tentar carregar um arquivo não-512 alinhado a um Blob de página, o Storage Explorer agora exporá um erro mais relevante. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
-* Copiar um recipiente Blob que utilizava um nome de exibição falharia. Agora, o nome real do recipiente Blob é usado. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
-* Tentar executar certas ações em uma pasta ADLS Gen2 que tivesse caracteres unicode em seu nome falharia. Todas as ações agora devem funcionar. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+* A caixa de diálogo políticas de acesso não definirá mais uma data de expiração nas políticas de acesso de armazenamento que não têm expiração. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Algumas alterações foram feitas na caixa de diálogo gerar SAS para garantir que as políticas de acesso armazenadas sejam usadas corretamente ao gerar uma SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* Ao tentar carregar um arquivo com alinhamento de não 512 bytes em um blob de páginas, Gerenciador de Armazenamento agora vai expor um erro mais relevante. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* A cópia de um contêiner de BLOB que utiliza um nome de exibição falharia. Agora, o nome real do contêiner de BLOBs é usado. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* A tentativa de executar determinadas ações em uma pasta ADLS Gen2 que tinha caracteres Unicode em seu nome falharia. Todas as ações agora devem funcionar. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Ao realizar um download não-AzCopy Blob, o MD5 para arquivos grandes não está sendo verificado. Isso é devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, o Storage Explorer requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte o [guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
-* Tentar acessar Blobs ADLS Gen2 quando atrás de um proxy pode falhar.
+* Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -413,38 +413,38 @@ O upload, o download e a cópia entre regiões dos discos são alimentados pelo 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Storage Explorer no Linux requer que certas dependências sejam instaladas primeiro. Verifique o guia de [solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
-## <a name="version-180"></a>Versão 1.8.0
+## <a name="version-180"></a>1.8.0 da versão
 5/1/2019
 
 ### <a name="new"></a>Novo
 
 * A versão integrada do AzCopy foi atualizada para a versão 10.1.0.
-* Ctrl/Cmd+R agora pode ser usado para atualizar o editor atualmente focado. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
-* A versão da API de armazenamento do Azure Stack foi alterada para 2017-04-17.
-* O Diálogo gerenciar acesso para ADLS Gen2 agora manterá a Máscara em sincronia de forma semelhante a outras ferramentas de permissões POSIX. A ui também irá avisá-lo se for feita uma alteração que faça com que as permissões de um usuário ou grupo excedam os limites da Máscara. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
-* Para uploads do AzCopy, o sinalizador para calcular e definir o hash MD5 está agora ativado. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+* Ctrl/Cmd + R agora pode ser usado para atualizar o editor voltado para o momento. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* A versão da API de armazenamento Azure Stack foi alterada para 2017-04-17.
+* A caixa de diálogo Gerenciar acesso para ADLS Gen2 agora manterá a máscara sincronizada de forma semelhante a outras ferramentas de permissões POSIX. A interface do usuário também avisará se for feita uma alteração que faz com que as permissões de um usuário ou grupo excedam os limites da máscara. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* Para carregamentos do AzCopy, o sinalizador para calcular e definir o hash MD5 agora está habilitado. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
 ### <a name="preview-features"></a>Recursos de visualização
 
-* O login de fluxo de código do dispositivo já está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use Device Code Flow Sign-in". Encorajamos todos os usuários que tiveram problemas com janelas de login em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de login.
-* O Storage Explorer integrado ao AzCopy está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use AzCopy para melhor upload e download de blob". As transferências de blob concluídas com o AzCopy devem ser mais rápidas e mais performáticas.
+* A entrada do fluxo de código do dispositivo agora está disponível para visualização. Para habilitá-lo, vá para "visualização" → "usar entrada de fluxo de código de dispositivo". Incentivamos qualquer usuário que tenha problemas com janelas de entrada em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de entrar.
+* O Gerenciador de Armazenamento integrado ao AzCopy está disponível para visualização no momento. Para habilitá-lo, acesse "visualização" → "usar AzCopy para upload e download de blob aprimorados". As transferências de blob concluídas com AzCopy devem ser mais rápidas e com melhor desempenho.
 
 ### <a name="fixes"></a>Correções
 
-* A caixa de diálogo Políticas de acesso não definirá mais uma data de validade nas Políticas de Acesso ao Armazenamento que não tenham um vencimento. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
-* Algumas alterações foram feitas na caixa de diálogo Gerar SAS para garantir que as políticas de acesso armazenado sejam usadas corretamente ao gerar um SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
-* Ao tentar carregar um arquivo não-512 alinhado a um Blob de página, o Storage Explorer agora exporá um erro mais relevante. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
-* Copiar um recipiente Blob que utilizava um nome de exibição falharia. Agora, o nome real do recipiente Blob é usado. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
-* Tentar executar certas ações em uma pasta ADLS Gen2 que tivesse caracteres unicode em seu nome falharia. Todas as ações agora devem funcionar. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+* A caixa de diálogo políticas de acesso não definirá mais uma data de expiração nas políticas de acesso de armazenamento que não têm expiração. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Algumas alterações foram feitas na caixa de diálogo gerar SAS para garantir que as políticas de acesso armazenadas sejam usadas corretamente ao gerar uma SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* Ao tentar carregar um arquivo com alinhamento de não 512 bytes em um blob de páginas, Gerenciador de Armazenamento agora vai expor um erro mais relevante. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* A cópia de um contêiner de BLOB que utiliza um nome de exibição falharia. Agora, o nome real do contêiner de BLOBs é usado. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* A tentativa de executar determinadas ações em uma pasta ADLS Gen2 que tinha caracteres Unicode em seu nome falharia. Todas as ações agora devem funcionar. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Ao realizar um download não-AzCopy Blob, o MD5 para arquivos grandes não está sendo verificado. Isso é devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* Ao usar o RBAC, o Storage Explorer requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte o [guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
-* Tentar acessar Blobs ADLS Gen2 quando atrás de um proxy pode falhar.
+* Ao executar um download de BLOB não AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK de armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
 * O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
@@ -465,42 +465,42 @@ O upload, o download e a cópia entre regiões dos discos são alimentados pelo 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* A execução do Storage Explorer no Linux requer que certas dependências sejam instaladas primeiro. Verifique o guia de [solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) do Storage Explorer para obter mais informações.
+* A execução do Gerenciador de Armazenamento no Linux exige que determinadas dependências sejam instaladas primeiro. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) Gerenciador de armazenamento para obter mais informações.
 
 ## <a name="version-170"></a>Versão 1.7.0
 3/5/2019
 
-### <a name="download-azure-storage-explorer-170"></a>Baixe Azure Storage Explorer 1.7.0
-- [Azure Storage Explorer 1.7.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.7.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.7.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-170"></a>Baixar Gerenciador de Armazenamento do Azure 1.7.0
+- [Gerenciador de Armazenamento do Azure 1.7.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 1.7.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 1.7.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Novo
 
-* Agora você pode alterar o proprietário e o grupo proprietário ao gerenciar o acesso para um contêiner, arquivo ou pasta ADLS Gen2.
-* No Windows, atualizar o Storage Explorer de dentro do produto agora é uma instalação incremental. Isso deve resultar em uma experiência de atualização mais rápida. Se você preferir uma instalação limpa, então você pode baixar o [instalador](https://azure.microsoft.com/features/storage-explorer/) você mesmo e, em seguida, instalar manualmente. #1089
+* Agora você pode alterar o proprietário e o grupo proprietário ao gerenciar o acesso para um ADLS Gen2 contêiner, arquivo ou pasta.
+* No Windows, a atualização de Gerenciador de Armazenamento de dentro do produto agora é uma instalação incremental. Isso deve resultar em uma experiência de atualização mais rápida. Se você preferir uma instalação limpa, poderá baixar o [instalador](https://azure.microsoft.com/features/storage-explorer/) por conta própria e, em seguida, instalá-lo manualmente. #1089
 
 ### <a name="preview-features"></a>Recursos de visualização
 
-* O login de fluxo de código do dispositivo já está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use Device Code Flow Sign-in". Encorajamos todos os usuários que tiveram problemas com janelas de login em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de login. #938
-* O Storage Explorer integrado ao AzCopy está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use AzCopy para melhor upload e download de blob". As transferências de blob concluídas com o AzCopy devem ser mais rápidas e mais performáticas.
+* A entrada do fluxo de código do dispositivo agora está disponível para visualização. Para habilitá-lo, vá para "visualização" → "usar entrada de fluxo de código de dispositivo". Incentivamos qualquer usuário que tenha problemas com janelas de entrada em branco para experimentar esse recurso, pois pode ser uma forma mais confiável de entrar. #938
+* O Gerenciador de Armazenamento integrado ao AzCopy está disponível para visualização no momento. Para habilitá-lo, acesse "visualização" → "usar AzCopy para upload e download de blob aprimorados". As transferências de blob concluídas com AzCopy devem ser mais rápidas e com melhor desempenho.
 
 ### <a name="fixes"></a>Correções
 
-* Agora você pode escolher o tipo blob que deseja carregar como quando o AzCopy está ativado. #1111
-* Anteriormente, se você tivesse ativado sites estáticos para uma conta de armazenamento ADLS Gen2 e, em seguida, anexado-o com nome e chave, o Storage Explorer não teria detectado que o namespace hierárquico estava ativado. Esse problema foi corrigido. #1081
-* No editor blob, a classificação por dias de retenção restantes ou status foi quebrada. Esse problema foi corrigido. #1106
-* Após o 1.5.0, o Storage Explorer não esperou mais que as cópias do lado do servidor terminassem antes de reportar o sucesso durante uma renomeação ou cópia & colar. Esse problema foi corrigido. #976
-* Ao usar o recurso experimental AzCopy, o comando copiado após clicar em "Copiar comando para área de transferência" nem sempre era executado por conta própria. Agora, todos os comandos necessários para executar a transferência manualmente serão copiados. #1079
-* Anteriormente, as bolhas ADLS Gen2 não eram acessíveis se você estivesse por trás de um proxy. Isso foi devido a um bug em uma nova biblioteca de rede usada pelo Storage SDK. Em 1.7.0, uma tentativa de mitigar essa questão foi feita, mas algumas pessoas podem continuar a ver problemas. Uma correção completa será lançada em uma atualização futura. #1090
-* Em 1.7.0, a caixa de diálogo salvar arquivo agora lembra corretamente o último local para o qual você salvou um arquivo. #16
-* No painel de propriedades, o nível SKU de uma conta de armazenamento estava sendo mostrado como o tipo da conta. Esse problema foi corrigido. #654
-* Às vezes, era impossível quebrar o contrato de uma bolha, mesmo se você digitasse o nome da bolha corretamente. Esse problema foi corrigido. #1070
+* Agora você pode escolher o tipo de BLOB que deseja carregar como quando AzCopy está habilitado. #1111
+* Anteriormente, se você tivesse habilitado sites estáticos para uma conta de armazenamento ADLS Gen2 e, em seguida, anexou-o com o nome e a chave, Gerenciador de Armazenamento não detectou que o namespace hierárquico estava habilitado. Esse problema foi corrigido. #1081
+* No editor de BLOB, a classificação por dias de retenção restantes ou o status foi rompido. Esse problema foi corrigido. #1106
+* Depois da 1.5.0, Gerenciador de Armazenamento não espere mais que as cópias do lado do servidor sejam concluídas antes de relatar o sucesso durante uma renomeação ou cópia & colar. Esse problema foi corrigido. #976
+* Ao usar o recurso AzCopy experimental, o comando copiado depois de clicar em "copiar comando para a área de transferência" nem sempre era executável por si só. Agora, todos os comandos necessários para executar a transferência manualmente serão copiados. #1079
+* Anteriormente, ADLS Gen2 BLOBs não eram acessíveis se você estivesse atrás de um proxy. Isso ocorreu devido a um bug em uma nova biblioteca de rede usada pelo SDK de armazenamento. No 1.7.0, uma tentativa de mitigar esse problema foi feita, mas algumas pessoas podem continuar a ver os problemas. Uma correção completa será lançada em uma atualização futura. #1090
+* No 1.7.0, a caixa de diálogo Salvar arquivo agora memoriza corretamente o último local em que você salvou um arquivo. #16
+* No painel Propriedades, a camada de SKU de uma conta de armazenamento estava sendo mostrada como a espécie da conta. Esse problema foi corrigido. #654
+* Às vezes, era impossível interromper a concessão de um blob, mesmo se você inseriu o nome do blob corretamente. Esse problema foi corrigido. #1070
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-* Ao usar o RBAC, o Storage Explorer requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte o [guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
-* Tentar acessar Blobs ADLS Gen2 quando atrás de um proxy pode falhar.
+* Ao usar o RBAC, Gerenciador de Armazenamento requer algumas permissões de camada de gerenciamento para acessar os recursos de armazenamento. Consulte o [Guia de solução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A tentativa de acessar BLOBs ADLS Gen2 quando por trás de um proxy pode falhar.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
 * Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Para obter mais informações, veja #537.
 * Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
@@ -1201,8 +1201,8 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Autenticação aprimorada que permite que o Gerenciador de Armazenamento use o mesmo repositório de contas que o Visual Studio 2017. Para usar esse recurso, você precisará fazer logon novamente em suas contas e definir novamente as assinaturas filtradas.
 * Para contas do Azure Stack com suporte do AAD, o Gerenciador de Armazenamento agora recupera as assinaturas do Azure Stack quando “Azure Stack de Destino” é habilitado. Você não precisa mais criar um ambiente de logon personalizado.
 * Vários atalhos foram adicionados para permitir a navegação mais rápida. Eles incluem a alternância entre vários painéis e o movimento entre editores. Consulte o Menu Exibir para obter mais detalhes.
-* Os comentários do Gerenciador de Armazenamento agora ficam no GitHub. Você pode acessar nossa página de problemas clicando no botão [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)Feedback no canto inferior esquerdo ou indo para . Fique à vontade para fazer sugestões, relatar problemas, fazer perguntas ou deixar qualquer outro tipo de comentário.
-* Se você estiver encontrando problemas com o Certificado TLS/SSL e não conseguir encontrar o certificado `--ignore-certificate-errors` ofensivo, agora você pode iniciar o Storage Explorer da linha de comando com o sinalizador. Quando for iniciado com este sinalizador, o Storage Explorer ignorará os erros de certificado TLS/SSL.
+* Os comentários do Gerenciador de Armazenamento agora ficam no GitHub. Você pode acessar nossa página de problemas clicando no botão de comentários na parte inferior esquerda ou acessando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). Fique à vontade para fazer sugestões, relatar problemas, fazer perguntas ou deixar qualquer outro tipo de comentário.
+* Se você estiver executando problemas de certificado TLS/SSL e não conseguir localizar o certificado transgressor, agora poderá iniciar o Gerenciador de Armazenamento na linha de comando com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, Gerenciador de Armazenamento ignorará os erros de certificado TLS/SSL.
 * Agora há uma opção de 'Download' no menu de contexto para itens de arquivo e blob.
 * Acessibilidade aprimorada e suporte para leitor de tela. Se você usa recursos de acessibilidade, confira nossa [documentação de acessibilidade](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) para obter mais informações.
 * O Gerenciador de Armazenamento agora usa o Electron 1.8.3
@@ -1313,7 +1313,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 ### <a name="fixes"></a>Correções
 * Melhorias de desempenho da inicialização.
-* Correções de vários bugs.
+* Várias correções de bugs.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
@@ -1479,7 +1479,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Se você tentasse abrir ou baixar um blob com um nome de arquivo inválido do Windows, essa operação falharia. O Gerenciador de Armazenamento agora detecta se um nome de blob é inválido e pergunta se você deseja codificá-lo ou ignorar o blob. O Gerenciador de Armazenamento também detecta se um nome de arquivo parece ser codificado e pergunta se você deseja decodificá-lo antes do carregamento.
 * Durante o upload de blob, o editor do contêiner de blobs de destino não era atualizado corretamente durante o upload de blobs. Esse problema foi corrigido.
 * O suporte para várias formas de cadeias de conexão e URIs de SAS voltou. Resolvemos todos os problemas conhecidos, mas envie-nos comentários se você encontrar outros problemas.
-* A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Este problema foi corrigido, e para aqueles afetados pelo bug, você pode baixar manualmente a versão mais recente do Storage Explorer [aqui](https://azure.microsoft.com/features/storage-explorer/)
+* A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Esse problema foi corrigido e, para aqueles afetados pelo Bug, você pode baixar manualmente a versão mais recente do Gerenciador de Armazenamento [aqui](https://azure.microsoft.com/features/storage-explorer/)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 * O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
@@ -1590,7 +1590,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 
 * Corrigido: o carregamento do arquivo tinha uma chance maior de causar um erro de falta de memória
 * Corrigido: agora você pode entrar com PIN/Cartão inteligente
-* Fixo: Open in Portal agora trabalha com Azure China 21Vianet, Azure Germany, Azure US Government e Azure Stack
+* Corrigido: abrir no Portal agora funciona com o Azure China 21Vianet, o Azure Alemanha, o governo dos EUA do Azure e o Azure Stack
 * Corrigido: às vezes, durante o carregamento de uma pasta em um contêiner de blob, um erro "Operação ilegal" ocorria
 * Corrigido: selecionar tudo foi desabilitado ao gerenciar instantâneos
 * Corrigido: os metadados do blob de base podem ser substituídos após a exibição das propriedades de seus instantâneos
@@ -1627,7 +1627,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Agora, você pode entrar em contas do Azure Stack com base no AAD (Azure Active Directory).
 * Agora você pode carregar arquivos com mais de 32 MB em contas de armazenamento Premium
 * Suporte a acessibilidade aprimorado
-* Agora você pode adicionar certificados X.509 TLS/SSL codificados confiávels&gt; da Base-64&gt; indo para Edit - Certificados SSL - Certificados de importação
+* Agora você pode adicionar certificados de TLS/SSL codificados em base de 64 confiáveis, acessando Edit&gt; -SSL Certificates-&gt; Import Certificates
 
 #### <a name="fixes"></a>Correções
 
@@ -1672,7 +1672,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 * Agora você pode entrar em contas do Azure China 21Vianet, Azure Alemanha e o Azure US Government.
 * Agora você pode alterar o nível de zoom. Use as opções no menu Exibir para Ampliar, Reduzir e Redefinir o Zoom.
 * Agora há suporte para caracteres Unicode nos metadados do usuário para blobs e arquivos.
-* Aprimoramentos de acessibilidade.
+* Aprimoramentos na acessibilidade.
 * As notas de versão da próxima versão podem ser exibidas na notificação da atualização. Você também pode exibir as notas de versão atuais no menu Ajuda.
 
 #### <a name="fixes"></a>Correções
@@ -1724,7 +1724,7 @@ Por fim, o suporte para o uso do AzCopy com Compartilhamentos de Arquivos será 
 #### <a name="new"></a>Novo
 
 * Você pode agora pin usados com mais frequência serviços para o acesso rápido para facilitar a navegação
-* Agora você pode abrir vários editores em guias diferentes. Clique em um único clique para abrir uma guia temporária; clique duas vezes para abrir uma guia permanente. Você também pode clicar na guia temporária para torná-la uma guia permanente
+* Agora você pode abrir vários editores em guias diferentes. Clique único para abrir uma guia temporária; Clique duas vezes para abrir uma guia permanente. Você também pode clicar na guia temporária para torná-la uma guia permanente
 * Fizemos aperfeiçoamentos de desempenho e estabilidade para carregamentos e downloads, especialmente para grandes arquivos em máquinas rápidas
 * Pastas "virtuais" vazias agora podem ser criadas em contêineres de blob
 * Introduzimos novamente a pesquisa com escopo com nossa nova pesquisa avançada de subcadeia de caracteres, e agora você tem duas opções de pesquisa:

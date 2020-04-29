@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79255529"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Use o DistCp para copiar dados entre os Azure Storage Blobs e o Azure Data Lake Storage Gen2
@@ -23,7 +23,7 @@ O DistCp fornece uma variedade de parâmetros de linha de comando e é altamente
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta de Armazenamento do Microsoft Azure existente sem os recursos do Data Lake Storage Gen2 (namespace hierárquico) habilitados**.
 * **Uma conta de Armazenamento do Microsoft Azure com o recurso Data Lake Storage Gen2 habilitado**. Para instruções sobre como criar uma, consulte [Criar uma conta de armazenamento do Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 * **Um sistema de arquivos** que foi criado na conta de armazenamento com namespace hierárquico habilitado.
@@ -41,7 +41,7 @@ Um cluster HDInsight é fornecido com o utilitário DistCp que pode ser usado pa
 
     A saída deve fornecer uma lista de conteúdo no contêiner.
 
-3. Do mesmo modo, verifique se é possível acessar a conta de armazenamento com o namespace hierárquico habilitado do cluster. Execute o comando a seguir:
+3. Do mesmo modo, verifique se é possível acessar a conta de armazenamento com o namespace hierárquico habilitado do cluster. Execute o seguinte comando:
 
         hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 
@@ -71,9 +71,9 @@ Como a granularidade mais baixa do DistCp é um único arquivo, definir o númer
 
 Aqui estão algumas diretrizes que podem ser usadas.
 
-* **Passo 1: Determine a memória total disponível na fila do aplicativo 'padrão' YARN** - O primeiro passo é determinar a memória disponível na fila do aplicativo 'padrão' do aplicativo YARN. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue até YARN e exiba a guia Configs para ver a memória YARN disponível para a fila de aplicativos 'padrão'. Essa é a memória total disponível para o trabalho DistCp (que efetivamente é um trabalho do MapReduce).
+* **Etapa 1: determinar a memória total disponível para a fila de aplicativo yarn ' padrão '** -a primeira etapa é determinar a memória disponível para a fila de aplicativos do yarn ' default '. Essas informações estão disponíveis no portal do Ambari associado ao cluster. Navegue até YARN e exiba a guia Configs para ver a memória YARN disponível para a fila de aplicativos 'padrão'. Essa é a memória total disponível para o trabalho DistCp (que efetivamente é um trabalho do MapReduce).
 
-* **Etapa 2: Calcular o número de mapeadores** ‑ O valor de **m** é igual ao quociente de memória total de YARN dividida pelo tamanho do contêiner YARN. As informações de tamanho do contêiner YARN também estão disponíveis no portal do Ambari. Navegue até O Fio e visualize a guia Configs. O tamanho do recipiente YARN é exibido nesta janela. A equação para chegar até o número de mapeadores (**m**) é
+* **Etapa 2: Calcular o número de mapeadores** ‑ O valor de **m** é igual ao quociente de memória total de YARN dividida pelo tamanho do contêiner YARN. As informações de tamanho do contêiner YARN também estão disponíveis no portal do Ambari. Navegue até YARN e exiba a guia Configurações. O tamanho do contêiner YARN é exibido nesta janela. A equação para chegar até o número de mapeadores (**m**) é
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
@@ -85,7 +85,7 @@ Vamos supor que você tenha um cluster 4x D14v2s e esteja tentando transferir 10
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Número de mapeadores**: No portal Ambari você determina que o tamanho do contêiner YARN é de 3.072 MB para um nó de cluster D14. Portanto, o número de mapeadores é:
+* **Número de Mapeadores**: no portal do Ambari, você determina que o tamanho do contêiner YARN é 3.072 MB para um nó de cluster D14. Portanto, o número de mapeadores é:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 
