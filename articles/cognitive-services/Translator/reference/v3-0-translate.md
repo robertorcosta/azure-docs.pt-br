@@ -1,7 +1,7 @@
 ---
 title: Método de Tradução de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Entenda os parâmetros, cabeçalhos e mensagens corporais para o método API De tradução de texto do Tradutor de Serviços Cognitivos do Azure para traduzir texto.
+description: Entenda os parâmetros, os cabeçalhos e as mensagens de corpo para os serviços cognitivas do Azure API de Tradução de Texto o método translate para traduzir o texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: swmachan
 ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80052403"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: tradução
@@ -55,7 +55,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   <th>Descrição</th>
   <tr>
     <td>de</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve <code>from</code> usar o parâmetro em vez de detecção automática ao usar o recurso <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">de dicionário dinâmico.</a></td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o <code>from</code> parâmetro em vez da detecção automática ao usar o recurso de <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> .</td>
   </tr>  
   <tr>
     <td>textType</td>
@@ -63,7 +63,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com <a href="../customization.md">Tradutor Personalizado</a>. Adicione o ID de categoria dos <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes</a> do projeto Do Tradutor Personalizado a este parâmetro para usar o sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
+    <td><em>Parâmetro opcional</em>.<br/>Uma cadeia de caracteres especificando a categoria (domínio) da tradução. Esse parâmetro é usado para obter traduções de um sistema personalizado compilado com <a href="../customization.md">Tradutor Personalizado</a>. Adicione a ID da categoria de seus <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes do projeto</a> do tradutor personalizado a esse parâmetro para usar seu sistema personalizado implantado. O valor padrão é: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -106,12 +106,12 @@ Os cabeçalhos de solicitação incluem:
   <th width="20%">headers</th>
   <th>Descrição</th>
   <tr>
-    <td>Cabeçalho de autenticação(s)</td>
+    <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Especifica o tipo de conteúdo da carga.<br/> O valor <code>application/json; charset=UTF-8</code>aceito é .</td>
+    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Especifica o tipo de conteúdo da carga.<br/> O valor aceito <code>application/json; charset=UTF-8</code>é.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
@@ -383,14 +383,14 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
     <td>Palavras ofensivas são substituídas por um marcador na saída. O marcador depende do parâmetro <code>ProfanityMarker</code>.<br/><br/>
 Para <code>ProfanityMarker=Asterisk</code>, palavras ofensivas são substituídas por <code>***</code>:<br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
-    <strong>Tradução por Exemplo (Inglês)</strong>: Ele é um \* \* \*.<br/><br/>
+    <strong>Tradução de exemplo (inglês)</strong>: ele é \* \* \*um.<br/><br/>
 Para <code>ProfanityMarker=Tag</code>, palavras ofensivas são circundadas por marcas XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     <strong>Origem de exemplo (japonês)</strong>: 彼はジャッカスです。<br/>
     <strong>Exemplo de tradução (inglês)</strong>: Ele é um &lt;profanity&gt;idiota&lt;/profanity&gt;.
   </tr>
 </table> 
 
-Por exemplo: 
+Por exemplo:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
@@ -479,15 +479,15 @@ A resposta é:
 As informações de alinhamento iniciam com `0:2-0:1`, significando que os três primeiros caracteres no texto de origem (`The`) são mapeados para os dois primeiros caracteres no texto traduzido (`La`).
 
 #### <a name="limitations"></a>Limitações
-A obtenção de informações de alinhamento é uma característica experimental que possibilitamos para prototipagem de pesquisas e experiências com potenciais mapeamentos de frases. Podemos optar por parar de apoiar isso no futuro. Aqui estão algumas das restrições notáveis onde os alinhamentos não são suportados:
+A obtenção de informações de alinhamento é um recurso experimental que habilitamos para a protótipo de pesquisas e experiências com possíveis mapeamentos de frase. Podemos optar por parar de dar suporte a isso no futuro. Aqui estão algumas das restrições notáveis em que não há suporte para alinhamentos:
 
-* O alinhamento não está disponível para texto em formato HTML, ou seja, textType=html
+* O alinhamento não está disponível para texto no formato HTML, ou seja, TextType = HTML
 * O alinhamento é retornado apenas para um subconjunto dos pares de idiomas:
   - do inglês para qualquer outro idioma;
   - de qualquer outro idioma para o inglês, exceto chinês simplificado, chinês tradicional e letão para inglês;
   - do japonês para o coreano ou do coreano para o japonês.
 * Você não receberá alinhamento se a sentença for uma tradução predefinida. Exemplo de uma tradução predefinida é "Isso é um teste", "eu te amo", e outras frases de alta frequência.
-* O alinhamento não está disponível quando você aplica qualquer uma das abordagens para impedir a tradução como descrito [aqui](../prevent-translation.md)
+* O alinhamento não está disponível quando você aplica uma das abordagens para impedir a tradução, conforme descrito [aqui](../prevent-translation.md)
 
 ### <a name="obtain-sentence-boundaries"></a>Obter limites de sentença
 

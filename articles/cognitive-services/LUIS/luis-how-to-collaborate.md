@@ -1,7 +1,7 @@
 ---
-title: Colaborar com os demais - LUIS
+title: Colaborar com outras pessoas – LUIS
 titleSuffix: Azure Cognitive Services
-description: Um proprietário de aplicativo pode adicionar contribuintes ao recurso de autoria. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo.
+description: Um proprietário de aplicativo pode adicionar colaboradores ao recurso de criação. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,42 +12,42 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: 913a2b26f67773d9fafbc0a8430d121fbabb97cd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80053453"
 ---
-# <a name="add-contributors-to-your-app"></a>Adicione colaboradores ao seu aplicativo
+# <a name="add-contributors-to-your-app"></a>Adicionar colaboradores ao seu aplicativo
 
-Um proprietário de aplicativo pode adicionar contribuintes aos aplicativos. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo. 
+Um proprietário de aplicativo pode adicionar colaboradores a aplicativos. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo. 
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
-## <a name="add-contributor-to-azure-authoring-resource"></a>Adicionar contribuinte ao recurso de autoria do Azure
+## <a name="add-contributor-to-azure-authoring-resource"></a>Adicionar colaborador ao recurso de criação do Azure
 
-O procedimento a seguir é para todos os usuários que **migraram** para usar o recurso de autoria do Azure.
+O procedimento a seguir é para todos os usuários que **migraram** para usar o recurso de criação do Azure.
 
-Você migrou se sua experiência de autoria do LUIS estiver vinculada a um recurso de Autoria na página **gerenciar -> recursos do Azure** no portal LUIS.
+Você migrou se sua experiência de criação do LUIS está vinculada a um recurso de criação na página **gerenciar recursos do Azure->** no portal do Luis.
 
-1. No portal Azure, encontre o recurso de autoria do Language Understanding (LUIS). Tem o `LUIS.Authoring`tipo.
-1. Na página iam **(Access Control, controle** de acesso) deste recurso, selecione **+Adicione** e selecione **Adicionar atribuição de função**.
+1. Na portal do Azure, localize o recurso de criação de Reconhecimento vocal (LUIS). Ele tem o tipo `LUIS.Authoring`.
+1. Na página controle de **acesso deste recurso (iam)** , selecione **+ Adicionar** e selecione **Adicionar atribuição de função**.
 
-    ![No portal Azure, adicione atribuição de função no recurso de autoria.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
+    ![Em portal do Azure, adicione atribuição de função ao recurso de criação.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
 
-1. Na janela **Adicionar função,** selecione a **função** De contribuinte. Na opção **Atribuir acesso à** opção, selecione **usuário, grupo ou principal de serviço do Azure AD**. Na opção **Selecionar,** digite o endereço de e-mail do usuário. Se o usuário for conhecido por mais de 1 endereço de e-mail para o mesmo domínio, certifique-se de inserir a conta de e-mail _principal._
+1. Na janela **Adicionar atribuição de função** , selecione a **função** de colaborador. Na opção **atribuir acesso a** , selecione **usuário, grupo ou entidade de serviço do Azure ad**. Na opção **selecionar** , insira o endereço de email do usuário. Se o usuário for conhecido por mais de um endereço de email para o mesmo domínio, certifique-se de inserir a conta de email _principal_ .
 
-    ![Adicione o e-mail do usuário à função contribuinte do Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
+    ![Adicionar email do usuário à função colaborador do Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
 
-    Quando o e-mail do usuário for encontrado, selecione a conta e selecione **Salvar**. 
+    Quando o email do usuário for encontrado, selecione a conta e selecione **salvar**. 
 
-    Se você tiver problemas com essa atribuição de função, [revise as atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) e a solução de [problemas de controle de acesso do Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
+    Se você tiver problemas com essa atribuição de função, examine as [atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md) e [solução de problemas do controle de acesso do Azure](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
 
 ## <a name="add-collaborator-to-luis-app"></a>Adicionar colaborador ao aplicativo LUIS
 
-O procedimento a seguir é para todos os usuários que **não migraram** para usar o recurso de autoria do Azure.
+O procedimento a seguir é para todos os usuários que **não migraram** para usar o recurso de criação do Azure.
 
-Você não migrou se sua experiência de autoria do LUIS não estiver vinculada a um recurso de Autoria na página **gerenciar -> recursos do Azure** no portal LUIS.
+Você não migrou se sua experiência de criação do LUIS não estiver vinculada a um recurso de criação na página **gerenciar recursos do Azure->** no portal do Luis.
 
 Um aplicativo tem um único autor, mas pode ter vários colaboradores. Para permitir que os colaboradores editem o aplicativo LUIS, você deve adicionar o email que eles usam para acessar o portal do LUIS à lista de colaboradores. Depois que eles são adicionados, o aplicativo aparece no portal do LUIS deles.
 
@@ -60,9 +60,9 @@ Um aplicativo tem um único autor, mas pode ter vários colaboradores. Para perm
     ![Adicionar o endereço de email do colaborado](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
 
-### <a name="users-with-multiple-emails"></a>Usuários com vários e-mails 
+### <a name="users-with-multiple-emails"></a>Usuários com vários emails 
 
-Se você adicionar colaboradores/colaboradores a um aplicativo LUIS, você está especificando o endereço de e-mail exato. Embora o Azure Active Directory (Azure AD) permita que um único usuário tenha mais de uma conta de e-mail usada de forma intercambiável, o LUIS exige que o usuário faça login com o endereço de e-mail especificado ao adicionar o colaborador/colaborador.
+Se você adicionar colaboradores/colaboradores a um aplicativo LUIS, você estará especificando o endereço de email exato. Embora Azure Active Directory (Azure AD) permita que um único usuário tenha mais de uma conta de email usada de forma intercambiável, o LUIS exige que o usuário entre com o endereço de email especificado ao adicionar o colaborador/colaborador.
 
 <a name="owner-and-collaborators"></a>
 
@@ -89,14 +89,14 @@ O administrador do locatário deverá trabalhar diretamente com o usuário que p
 
 Se o administrador de locatários desejar que somente determinados usuários usem o LUIS, haverá duas soluções possíveis:
 * Fornecer o "consentimento do administrador" (consentimento a todos os usuários do Azure AD), mas, em seguida, definir como "Sim" a opção "Atribuição de usuário obrigatória" em Propriedades do Aplicativo Empresarial e, por fim, atribuir/adicionar somente os usuários desejados ao Aplicativo. Com esse método, o Administrador ainda fornece o "consentimento do administrador" ao Aplicativo, mas é possível controlar os usuários que podem acessá-lo.
-* Uma segunda solução, é usando a [API de gerenciamento de identidade e acesso do Azure AD no Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para fornecer consentimento a cada usuário específico. 
+* Uma segunda solução é usar a API de [Gerenciamento de acesso e identidade do Azure AD no Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) para fornecer consentimento para cada usuário específico. 
 
 Saiba mais sobre o consentimento e os usuários do Azure Active Directory: 
 * [Restringir seu aplicativo](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a um conjunto de usuários
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida do aplicativo.
-* Entenda os conceitos, incluindo o [recurso de autoria](luis-concept-keys.md#authoring-key) e os [contribuintes](luis-concept-keys.md#contributions-from-other-authors) sobre esse recurso.
-* [Saiba como criar](luis-how-to-azure-subscription.md) recursos de criação e tempo de execução
-* Migrar para o novo [recurso de autoria](luis-migration-authoring.md) 
+* Saiba [como usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida do aplicativo.
+* Entenda os conceitos, incluindo o [recurso de criação](luis-concept-keys.md#authoring-key) e os [colaboradores](luis-concept-keys.md#contributions-from-other-authors) nesse recurso.
+* Saiba [como criar](luis-how-to-azure-subscription.md) recursos de criação e tempo de execução
+* Migrar para o novo [recurso de criação](luis-migration-authoring.md) 

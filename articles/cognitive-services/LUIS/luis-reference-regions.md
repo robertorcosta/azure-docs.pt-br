@@ -1,23 +1,23 @@
 ---
-title: Regiões editoras & pontos finais - LUIS
-description: A região especificada no portal Azure é a mesma onde você publicará o aplicativo LUIS e uma URL de ponto final é gerada para esta mesma região.
+title: Regiões de publicação & pontos de extremidade-LUIS
+description: A região especificada no portal do Azure é a mesma em que você publicará o aplicativo LUIS e uma URL de ponto de extremidade será gerada para essa mesma região.
 ms.topic: reference
 ms.date: 11/19/2019
 ms.openlocfilehash: a7709d15a51637772d7a4775cd71c307dc21c52b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292096"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Criação e publicação de regiões e as chaves associadas
 
-Três regiões autorais são apoiadas por portais correspondentes de LUIS. Para publicar um aplicativo LUIS em mais de uma região, é necessário ter pelo menos uma chave por região.
+Três regiões de criação têm suporte dos portais correspondentes do LUIS. Para publicar um aplicativo LUIS em mais de uma região, é necessário ter pelo menos uma chave por região.
 
 <a name="luis-website"></a>
 
-## <a name="luis-authoring-regions"></a>Luis Regiões de Autoria
-Existem três portais de autoria do LUIS, baseados na região. É necessário criar e publicar na mesma região.
+## <a name="luis-authoring-regions"></a>Regiões de criação do LUIS
+Há três portais de criação de LUIS, com base na região. É necessário criar e publicar na mesma região.
 
 |LUIS|Região de criação|Nome da região do Azure|
 |--|--|--|
@@ -25,19 +25,19 @@ Existem três portais de autoria do LUIS, baseados na região. É necessário cr
 |[au.luis.ai][au.luis.ai] <br>[preview.au.luis.ai](https://preview.au.luis.ai)|Austrália| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] <br>[preview.eu.luis.ai](https://preview.eu.luis.ai)|Europa|`westeurope`|
 
-As regiões de autoria [associaram regiões de fail-over.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+Regiões de criação têm [regiões de failover emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 <a name="regions-and-azure-resources"></a>
 
 ## <a name="publishing-regions-and-azure-resources"></a>Regiões de publicação e recursos do Azure
-O aplicativo é publicado em todas as regiões associadas aos recursos do LUIS adicionados no portal do LUIS. Por exemplo, para um aplicativo criado em [www.luis.ai][www.luis.ai], se você criar um recurso LUIS ou Serviço Cognitivo em **westus** e [adicioná-lo ao aplicativo como um recurso,](luis-how-to-azure-subscription.md)o aplicativo é publicado nessa região.
+O aplicativo é publicado em todas as regiões associadas aos recursos do LUIS adicionados no portal do LUIS. Por exemplo, para um aplicativo criado em [www.Luis.ai][www.luis.ai], se você criar um recurso de serviço Luis ou cognitiva na **westus** e [adicioná-lo ao aplicativo como um recurso](luis-how-to-azure-subscription.md), o aplicativo será publicado nessa região.
 
 ## <a name="public-apps"></a>Aplicativos públicos
 Um aplicativo público é publicado em todas as regiões para que um usuário com uma chave de recurso do LUIS baseada em região possa acessar o aplicativo em qualquer região associada com a chave de recurso.
 
 <a name="publishing-regions"></a>
 
-## <a name="publishing-regions-are-tied-to-authoring-regions"></a>Regiões editoras estão ligadas a regiões de autoria
+## <a name="publishing-regions-are-tied-to-authoring-regions"></a>Regiões de publicação estão vinculadas a regiões de criação
 
 O aplicativo da região de criação só pode ser publicado em uma região de publicação correspondente. Se seu aplicativo estiver, no momento, na região de criação incorreta, exporte-o e importe-o para a região de criação correta para sua região de publicação.
 
@@ -45,9 +45,9 @@ Os aplicativos LUIS criados no https://www.luis.ai podem ser publicados em todos
 
 ## <a name="publishing-to-europe"></a>Publicando na Europa
 
-Para publicar nas regiões europeias, crie os aplicativos LUIS em https://eu.luis.ai apenas. Se você tentar publicar em outro lugar usando uma chave na região Europa, o LUIS exibirá uma mensagem de aviso. Em vez disso, use https://eu.luis.ai. Os aplicativos LUIS [https://eu.luis.ai][eu.luis.ai] criados não migram automaticamente para outras regiões. Exporte e importe o aplicativo LUIS para migrá-lo.
+Para publicar nas regiões europeias, crie os aplicativos LUIS em https://eu.luis.ai apenas. Se você tentar publicar em outro lugar usando uma chave na região Europa, o LUIS exibirá uma mensagem de aviso. Em vez disso, use https://eu.luis.ai. Os aplicativos LUIS criados [https://eu.luis.ai][eu.luis.ai] em não são migrados automaticamente para outras regiões. Exporte e importe o aplicativo LUIS para migrá-lo.
 
-## <a name="europe-publishing-regions"></a>Regiões de publicação na Europa
+## <a name="europe-publishing-regions"></a>Regiões de publicação da Europa
 
  Região global | Região da API de criação e site de criação| Região de publicação e de consulta<br>`API region name`   |  Formato da URL do ponto de extremidade   |
 |-----|------|------|------|
@@ -58,17 +58,17 @@ Para publicar nas regiões europeias, crie os aplicativos LUIS em https://eu.lui
 
 ## <a name="publishing-to-australia"></a>Publicando na Austrália
 
-Para publicar nas regiões australianas, crie os aplicativos LUIS em https://au.luis.ai apenas. Se você tentar publicar em outro lugar usando uma chave na região australiana, o LUIS exibirá uma mensagem de aviso. Em vez disso, use https://au.luis.ai. Os aplicativos LUIS [https://au.luis.ai][au.luis.ai] criados não migram automaticamente para outras regiões. Exporte e importe o aplicativo LUIS para migrá-lo.
+Para publicar nas regiões australianas, crie os aplicativos LUIS em https://au.luis.ai apenas. Se você tentar publicar em outro lugar usando uma chave na região australiana, o LUIS exibirá uma mensagem de aviso. Em vez disso, use https://au.luis.ai. Os aplicativos LUIS criados [https://au.luis.ai][au.luis.ai] em não são migrados automaticamente para outras regiões. Exporte e importe o aplicativo LUIS para migrá-lo.
 
-## <a name="australia-publishing-regions"></a>Austrália publicando regiões
+## <a name="australia-publishing-regions"></a>Regiões de publicação da Austrália
 
  Região global | Região da API de criação e site de criação| Região de publicação e de consulta<br>`API region name`   |  Formato da URL do ponto de extremidade   |
 |-----|------|------|------|
 | [Austrália](#publishing-to-australia) | `australiaeast`<br>[au.luis.ai][au.luis.ai]| Leste da Austrália<br>`australiaeast`     |  `https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 
-## <a name="publishing-to-other-regions"></a>Publicação para outras regiões
+## <a name="publishing-to-other-regions"></a>Publicando em outras regiões
 
-Para publicar para as outras regiões, você cria aplicativos LUIS [https://www.luis.ai](https://www.luis.ai) apenas.
+Para publicar em outras regiões, você cria aplicativos LUIS somente em [https://www.luis.ai](https://www.luis.ai) .
 
 ## <a name="other-publishing-regions"></a>Outras regiões de publicação
 
@@ -94,13 +94,13 @@ Para publicar para as outras regiões, você cria aplicativos LUIS [https://www.
 
 ## <a name="endpoints"></a>Pontos de extremidade
 
-Saiba mais sobre os [pontos finais de autoria e previsão.](developer-reference-resource.md)
+Saiba mais sobre os [pontos de extremidade de criação e previsão](developer-reference-resource.md).
 
 ## <a name="failover-regions"></a>Regiões de failover
 
-Cada região tem uma região secundária para falhar. A Europa falha dentro da Europa e a Austrália falha dentro da Austrália.
+Cada região tem uma região secundária para fazer failover para. O failover da Europa na Europa e na Austrália faz failover dentro da Austrália.
 
-As regiões de autoria [associaram regiões de fail-over.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
+Regiões de criação têm [regiões de failover emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="next-steps"></a>Próximas etapas
 

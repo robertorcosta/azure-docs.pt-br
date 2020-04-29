@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79221101"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de tinta para a API de Reconhecimento de Tinta Digital 
 
 Escrita à tinta digital se refere às tecnologias que permitem representações digitais de entrada, como manuscrito e desenhos. Normalmente, isso é feito usando um digitalizador que captura os movimentos de dispositivos de entrada, como uma caneta. Conforme os dispositivos continuam possibilitando experiências sofisticadas de escrita à tinta digital, a inteligência artificial e o aprendizado de máquina permitem o reconhecimento de formas e texto escritos em qualquer contexto. A API de Reconhecimento de Tinta Digital permite que você envie traços de tinta e obtenha informações detalhadas sobre eles. 
 
-## <a name="the-ink-recognizer-api-vs-ocr-services"></a>AAPI de reconhecimento de tinta vs. serviços OCR
+## <a name="the-ink-recognizer-api-vs-ocr-services"></a>A API do reconhecedor de tinta vs. serviços de OCR
 
 A API de Reconhecimento de Tinta Digital não usa o OCR (reconhecimento óptico de caracteres). Os serviços de OCR processam os dados de pixel de imagens para fornecer o reconhecimento de manuscrito e texto. Às vezes, isso é chamado de reconhecimento offline. Em vez disso, a API de Reconhecimento de Tinta Digital exige dados de traço de tinta digital capturados conforme o dispositivo de entrada é utilizado. Dessa maneira, o processamento de dados de tinta digital pode produzir resultados de reconhecimento mais precisos comparado aos serviços de OCR. 
 
@@ -82,7 +82,7 @@ Ter os resultados de reconhecimento com antecedência fornece informações sobr
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrar a API de Reconhecimento de Tinta Digital ao Windows Ink
 
-O [Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornece ferramentas e tecnologias para proporcionar experiências de escrita à tinta digital em uma ampla variedade de dispositivos. Você pode combinar a plataforma Windows Ink com a API Ink Recognizer para criar aplicativos que exibem e interpretam traçados de tinta digital.
+O [Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornece ferramentas e tecnologias para proporcionar experiências de escrita à tinta digital em uma ampla variedade de dispositivos. Você pode combinar a plataforma de tinta do Windows com a API do reconhecedor de tinta para criar aplicativos que exibem e interpretam traços de tinta digital.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -90,6 +90,6 @@ O [Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-styl
 * [Referência da API REST do Reconhecimento de Tinta Digital](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 * Comece a enviar dados de traço de tinta digital usando:
-    * [C #](../quickstarts/csharp.md)
+    * [C#](../quickstarts/csharp.md)
     * [Java](../quickstarts/java.md)
-    * [Javascript](../quickstarts/javascript.md)
+    * [JavaScript](../quickstarts/javascript.md)

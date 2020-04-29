@@ -4,46 +4,46 @@ description: A configuração do serviço inclui como o serviço trata as recomp
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: adb97db53d1fc0b6f0cdb14b697c82ec52501b84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80336053"
 ---
-# <a name="create-a-personalizer-resource"></a>Crie um recurso Personalizador
+# <a name="create-a-personalizer-resource"></a>Criar um recurso personalizado
 
-Um recurso Personalizador é a mesma coisa que um loop de aprendizagem do Personalizador. Um único recurso, ou loop de aprendizado, é criado para cada domínio de assunto ou área de conteúdo que você tem. Não use várias áreas de conteúdo no mesmo loop porque isso confundirá o ciclo de aprendizado e fornecerá previsões ruins.
+Um recurso personalizado é a mesma coisa que um loop de aprendizagem personalizado. Um único recurso, ou loop de aprendizagem, é criado para cada domínio de assunto ou área de conteúdo que você tem. Não use várias áreas de conteúdo no mesmo loop porque isso irá confundir o loop de aprendizado e fornecer previsões ruins.
 
-Se você quiser que o Personalr selecione o melhor conteúdo para mais de uma área de conteúdo de uma página da Web, use um loop de aprendizado diferente para cada um.
+Se você quiser que o personalizador selecione o melhor conteúdo para mais de uma área de conteúdo de uma página da Web, use um loop de aprendizagem diferente para cada.
 
 
 ## <a name="create-a-resource-in-the-azure-portal"></a>Crie um recurso no portal do Azure
 
 Crie um recurso do Personalizador para cada loop de comentários.
 
-1. Faça login no [portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você à página **Criar** do serviço do Personalizador.
+1. Entre no [Portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você à página **Criar** do serviço do Personalizador.
 1. Insira o nome do seu serviço, selecione uma assinatura, um local, um tipo de preço e um grupo de recursos.
 
     > [!div class="mx-imgBorder"]
-    > ![Use o portal Azure para criar o recurso Personalr, também chamado de loop de aprendizado.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
+    > ![Use portal do Azure para criar um recurso personalizado, também chamado de loop de aprendizado.](./media/how-to-create-resource/how-to-create-personalizer-resource-learning-loop.png)
 
-1. Selecione **Criar** para criar o recurso.
+1. Selecione **criar** para criar o recurso.
 
-1. Depois que seu recurso for implantado, selecione o botão **Ir para Recurso** para ir ao recurso Personalizador.
+1. Depois que o recurso tiver sido implantado, selecione o botão **ir para o recurso** para ir para o recurso personalizador.
 
-1. Selecione a **página inicial rápida** para o seu recurso e copie os valores para o ponto final e a chave. Você precisa do ponto final de recurso e da chave para usar as APIs Rank e Reward.
+1. Selecione a página **início rápido** para seu recurso e copie os valores para o ponto de extremidade e a chave. Você precisa do ponto de extremidade do recurso e da chave para usar as APIs de classificação e recompensa.
 
-1. Selecione a **página Configuração** para o novo recurso para [configurar o loop de aprendizagem](how-to-settings.md).
+1. Selecione a página de **configuração** do novo recurso para [Configurar o loop de aprendizagem](how-to-settings.md).
 
-## <a name="create-a-resource-with-the-azure-cli"></a>Crie um recurso com o Azure CLI
+## <a name="create-a-resource-with-the-azure-cli"></a>Criar um recurso com o CLI do Azure
 
-1. Faça login na CLI do Azure com o seguinte comando:
+1. Entre no CLI do Azure com o seguinte comando:
 
     ```azurecli-interactive
     az login
     ```
 
-1. Crie um grupo de recursos, um agrupamento lógico para gerenciar todos os recursos do Azure que você pretende usar com o recurso Personalr.
+1. Crie um grupo de recursos, um agrupamento lógico para gerenciar todos os recursos do Azure que você pretende usar com o recurso personalizador.
 
 
     ```azurecli-interactive
@@ -52,7 +52,7 @@ Crie um recurso do Personalizador para cada loop de comentários.
         --location westus2
     ```
 
-1. Crie um novo recurso Personalr, _loop de aprendizagem,_ com o seguinte comando para um grupo de recursos existente.
+1. Crie um novo recurso personalizado, o _loop de aprendizagem_, com o comando a seguir para um grupo de recursos existente.
 
     ```azurecli-interactive
     az cognitiveservices account create \
@@ -64,9 +64,9 @@ Crie um recurso do Personalizador para cada loop de comentários.
         --yes
     ```
 
-    Isso retorna um objeto JSON, que inclui o ponto **final do recurso**.
+    Isso retorna um objeto JSON, que inclui o **ponto de extremidade do recurso**.
 
-1. Use o seguinte comando Azure CLI para obter sua **chave de recursos**.
+1. Use o comando CLI do Azure a seguir para obter a **chave de recurso**.
 
     ```azurecli-interactive
         az cognitiveservices account keys list \
@@ -74,8 +74,8 @@ Crie um recurso do Personalizador para cada loop de comentários.
         --resource-group your-personalizer-resource-group
     ```
 
-    Você precisa do ponto final de recurso e da chave para usar as APIs Rank e Reward.
+    Você precisa do ponto de extremidade do recurso e da chave para usar as APIs de classificação e recompensa.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar](how-to-settings.md) Loop de aprendizado de personalizador
+* [Configurar](how-to-settings.md) Loop de aprendizagem do personalizador

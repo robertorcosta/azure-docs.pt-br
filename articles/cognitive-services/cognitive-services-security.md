@@ -1,7 +1,7 @@
 ---
 title: Segurança
 titleSuffix: Azure Cognitive Services
-description: Conheça as várias considerações de segurança para o uso de Serviços Cognitivos.
+description: Saiba mais sobre as várias considerações de segurança para o uso de serviços cognitivas.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,72 +10,72 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: dapine
 ms.openlocfilehash: c86d806c408c2e8226e632a0b15e1e8729c987f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80131530"
 ---
-# <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos do Azure
+# <a name="azure-cognitive-services-security"></a>Segurança de serviços cognitivas do Azure
 
-A segurança deve ser considerada uma prioridade máxima no desenvolvimento de toda e qualquer aplicação. Com o início das aplicações habilitadas para inteligência artificial, a segurança é ainda mais importante. Neste artigo, vários aspectos da segurança do Azure Cognitive Services são descritos, como o uso da segurança da camada de transporte, autenticação e configuração segura de dados confidenciais.
+A segurança deve ser considerada uma prioridade principal ao desenvolver qualquer e todos os aplicativos. Com o início de aplicativos habilitados para inteligência artificial, a segurança é ainda mais importante. Neste artigo, vários aspectos da segurança dos serviços cognitivas do Azure são descritos, como o uso da segurança da camada de transporte, a autenticação e a configuração segura de dados confidenciais.
 
 ## <a name="transport-layer-security-tls"></a>Protocolo TLS
 
-Todos os pontos finais dos Serviços Cognitivos expostos sobre http aplicam o TLS 1.2. Com um protocolo de segurança reforçado, os consumidores que tentam chamar um ponto final dos Serviços Cognitivos devem seguir essas diretrizes:
+Todos os pontos de extremidade de serviços cognitivas expostos por HTTP impõem o TLS 1,2. Com um protocolo de segurança imposto, os consumidores que tentam chamar um ponto de extremidade de serviços cognitivas devem aderir a estas diretrizes:
 
-* O sistema operacional cliente (OS) precisa suportar o TLS 1.2
-* O idioma (e a plataforma) usados para fazer a chamada HTTP precisam especificar o TLS 1.2 como parte da solicitação
-  * Dependendo do idioma e da plataforma, especificar o TLS é feito de forma implícita ou explícita
+* O sistema operacional do cliente (SO) precisa dar suporte a TLS 1,2
+* A linguagem (e a plataforma) usada para fazer a chamada HTTP precisar especificar o TLS 1,2 como parte da solicitação
+  * Dependendo do idioma e da plataforma, a especificação do TLS é feita implicitamente ou explicitamente
 
-Para usuários .NET, considere as <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">práticas <span class="docon docon-navigate-external x-hidden-focus"> </span>recomendadas de segurança de camada de transporte </a>.
+Para usuários do .NET, considere as <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">práticas <span class="docon docon-navigate-external x-hidden-focus"> </span>recomendadas de segurança da camada de transporte </a>.
 
 ## <a name="authentication"></a>Autenticação
 
-Quando se discute autenticação, há vários equívocos comuns. Autenticação e autorização são muitas vezes confundidas umas com as outras. A identidade também é um componente importante na segurança. Uma identidade é uma coleção de informações sobre um <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">diretor. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a> Os provedores de identidade (IdP) fornecem identidades para serviços de autenticação. Autenticação é o ato de verificar a identidade de um usuário. Autorização é a especificação de direitos de acesso e privilégios aos recursos para uma determinada identidade. Várias das ofertas de Serviços Cognitivos incluem o Controle de Acesso Baseado em Papéis (RBAC). O RBAC poderia ser usado para simplificar parte da cerimônia envolvida com o gerenciamento manual dos diretores. Para obter mais detalhes, consulte [o controle de acesso baseado em função para os recursos do Azure](../role-based-access-control/overview.md).
+Ao discutir a autenticação, há várias concepções comuns. A autenticação e a autorização geralmente são confusas entre si. A identidade também é um componente importante na segurança. Uma identidade é uma coleção de informações sobre uma <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidade <span class="docon docon-navigate-external x-hidden-focus"> </span>de segurança </a>. Os IdP (provedores de identidade) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um usuário. Autorização é a especificação de direitos de acesso e privilégios para recursos para uma determinada identidade. Várias ofertas de serviços cognitivas incluem o RBAC (controle de acesso baseado em função). O RBAC poderia ser usado para simplificar parte da cerimônia envolvida com o gerenciamento manual de entidades. Para obter mais detalhes, consulte [controle de acesso baseado em função para recursos do Azure](../role-based-access-control/overview.md).
 
-Para obter mais informações sobre autenticação com chaves de assinatura, tokens de acesso e AAD (AAD) de acesso, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">solicitações autenticadas para<span class="docon docon-navigate-external x-hidden-focus"></span>os Serviços Cognitivos do Azure</a>.
+Para obter mais informações sobre autenticação com chaves de assinatura, tokens de acesso e Azure Active Directory (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autenticar<span class="docon docon-navigate-external x-hidden-focus"></span>solicitações para serviços cognitivas do Azure</a>.
 
-## <a name="environment-variables-and-application-configuration"></a>Variáveis de ambiente e configuração de aplicativos
+## <a name="environment-variables-and-application-configuration"></a>Variáveis de ambiente e configuração de aplicativo
 
-As variáveis de ambiente são pares de valor de nome, armazenados em um ambiente específico. Uma alternativa mais segura para usar valores codificados para dados confidenciais é usar variáveis de ambiente. Os valores codificados são inseguros e devem ser evitados.
+As variáveis de ambiente são pares de nome-valor, armazenadas em um ambiente específico. Uma alternativa mais segura ao uso de valores codificados para dados confidenciais é usar variáveis de ambiente. Os valores codificados são inseguros e devem ser evitados.
 
 > [!CAUTION]
-> **Não** use valores codificados para dados confidenciais, fazendo isso é uma grande vulnerabilidade de segurança.
+> Não **use valores** codificados para dados confidenciais, fazendo isso é uma grande vulnerabilidade de segurança.
 
 > [!NOTE]
-> Enquanto as variáveis de ambiente são armazenadas em texto simples, elas são isoladas a um ambiente. Se um ambiente está comprometido, também são as variáveis com o ambiente.
+> Embora as variáveis de ambiente sejam armazenadas em texto sem formatação, elas são isoladas em um ambiente. Se um ambiente for comprometido, também serão as variáveis com o ambiente.
 
 ### <a name="set-environment-variable"></a>Definir variável de ambiente
 
-Para definir variáveis de ambiente, use um `ENVIRONMENT_VARIABLE_KEY` dos seguintes `value` comandos - onde o é a chave nomeada e é o valor armazenado na variável ambiente.
+Para definir variáveis de ambiente, use um dos comandos a seguir, `ENVIRONMENT_VARIABLE_KEY` em que o é a `value` chave nomeada e é o valor armazenado na variável de ambiente.
 
-# <a name="command-line"></a>[Linha de Comando](#tab/command-line)
+# <a name="command-line"></a>[Linha de comando](#tab/command-line)
 
-Criar e atribuir variável de ambiente persistente, dado o valor.
+Crie e atribua a variável de ambiente persistente, dado o valor.
 
 ```CMD
 :: Assigns the env var to the value
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-Em uma nova instância do **Prompt de comando,** leia a variável ambiente.
+Em uma nova instância do **prompt de comando**, leia a variável de ambiente.
 
 ```CMD
 :: Prints the env var value
 echo %ENVIRONMENT_VARIABLE_KEY%
 ```
 
-# <a name="powershell"></a>[Powershell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Criar e atribuir variável de ambiente persistente, dado o valor.
+Crie e atribua a variável de ambiente persistente, dado o valor.
 
 ```powershell
 # Assigns the env var to the value
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-Em uma nova instância do **Windows PowerShell,** leia a variável ambiente.
+Em uma nova instância do **Windows PowerShell**, leia a variável de ambiente.
 
 ```powershell
 # Prints the env var value
@@ -84,14 +84,14 @@ Em uma nova instância do **Windows PowerShell,** leia a variável ambiente.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
-Criar e atribuir variável de ambiente persistente, dado o valor.
+Crie e atribua a variável de ambiente persistente, dado o valor.
 
 ```Bash
 # Assigns the env var to the value
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-Em uma nova instância do **Bash,** leia a variável ambiente.
+Em uma nova instância do **bash**, leia a variável de ambiente.
 
 ```Bash
 # Prints the env var value
@@ -104,15 +104,15 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 ---
 
 > [!TIP]
-> Depois de definir uma variável de ambiente, reinicie seu ambiente de desenvolvimento integrado (IDE) para garantir que as variáveis de ambiente recém-adicionadas estejam disponíveis.
+> Depois de definir uma variável de ambiente, reinicie o IDE (ambiente de desenvolvimento integrado) para garantir que as variáveis de ambiente adicionadas recentemente estejam disponíveis.
 
 ### <a name="get-environment-variable"></a>Obter variável de ambiente
 
-Para obter uma variável de ambiente, ele deve ser lido na memória. Dependendo do idioma que você está usando, considere os seguintes trechos de código. Esses trechos de código demonstram como `ENVIRONMENT_VARIABLE_KEY` obter a variável ambiente `value`dada a atribuição e atribuir a uma variável chamada .
+Para obter uma variável de ambiente, ele deve ser lido na memória. Dependendo do idioma que você estiver usando, considere os trechos de código a seguir. Esses trechos de código demonstram como obter a variável de `ENVIRONMENT_VARIABLE_KEY` ambiente dada ao e atribuir a `value`uma variável chamada.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Para obter mais <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informações, consulte .
+Para obter mais informações, <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
 
 ```csharp
 using static System.Environment;
@@ -129,9 +129,9 @@ class Program
 }
 ```
 
-# <a name="c"></a>[C++](#tab/cpp)
+# <a name="c"></a>[C](#tab/cpp)
 
-Para obter mais <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informações, consulte .
+Para obter mais informações, <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
 
 ```cpp
 #include <stdlib.h>
@@ -146,7 +146,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para obter mais <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informações, consulte .
+Para obter mais informações, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
 
 ```java
 import java.lang.*;
@@ -163,7 +163,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Para obter mais <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informações, consulte .
+Para obter mais informações, <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -173,7 +173,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para obter mais <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informações, consulte .
+Para obter mais informações, <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
 
 ```python
 import os
@@ -184,7 +184,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Para obter mais <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>informações, consulte .
+Para obter mais informações, <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -196,5 +196,5 @@ NSString* value =
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Explore os vários [Serviços Cognitivos](welcome.md)
-* Saiba mais sobre [redes virtuais de serviços cognitivos](cognitive-services-virtual-networks.md)
+* Explore os vários [Serviços cognitivas](welcome.md)
+* Saiba mais sobre [redes virtuais de serviços cognitivas](cognitive-services-virtual-networks.md)

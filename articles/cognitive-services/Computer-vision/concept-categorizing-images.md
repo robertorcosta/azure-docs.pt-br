@@ -1,5 +1,5 @@
 ---
-title: Categorização de imagens - Visão computacional
+title: Categorização de imagem-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
 description: Aprenda mais sobre conceitos relacionados ao recurso de categorização de imagem da API da Pesquisa Visual Computacional.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80244743"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Categorizar imagens por assunto
@@ -24,7 +24,7 @@ Além das marcas e da descrição, a Pesquisa Visual Computacional retorna as ca
 
 ## <a name="the-86-category-concept"></a>O conceito de 86 categorias
 
-A visão computacional pode categorizar uma imagem de forma ampla ou específica, usando a lista de 86 categorias no diagrama a seguir. Para obter a taxonomia completa em formato de texto, confira [Taxonomia de categoria](category-taxonomy.md).
+A visão computacional pode categorizar uma imagem de forma ampla ou específica, usando a lista de categorias 86 no diagrama a seguir. Para obter a taxonomia completa em formato de texto, confira [Taxonomia de categoria](category-taxonomy.md).
 
 ![Listas agrupadas de todas as categorias na categoria taxonomia](./Images/analyze_categories-v2.png)
 
@@ -53,7 +53,7 @@ A resposta JSON a seguir ilustra o que a Computer Vision retorna ao categorizar 
 
 A tabela a seguir ilustra um conjunto de imagens típico e a categoria retornada pelo Computer Vision para cada imagem.
 
-| Imagem | Categoria |
+| Image | Categoria |
 |-------|----------|
 | ![Quatro pessoas posando juntas como uma família](./Images/family_photo.png) | people_group |
 | ![Um filhote de cão sentado em um gramado](./Images/cute_dog.png) | animal_dog |
@@ -62,11 +62,11 @@ A tabela a seguir ilustra um conjunto de imagens típico e a categoria retornada
 
 ## <a name="use-the-api"></a>Usar a API
 
-O recurso de categorização faz parte da API [Analisar imagem.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Categories` no parâmetro de consulta **visualFeatures.** Em seguida, quando você receber a resposta JSON completa, `"categories"` basta analisar a seqüência para o conteúdo da seção.
+O recurso de categorização faz parte da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Você pode chamar essa API por meio de um SDK nativo ou por meio de chamadas REST. Inclua `Categories` no parâmetro de consulta **visualFeatures** . Em seguida, quando você obtém a resposta JSON completa, simplesmente analise a cadeia de caracteres para o `"categories"` conteúdo da seção.
 
-* [Partida rápida: Visão computacional .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Quickstart: Analise uma imagem (Rest API)](./quickstarts/csharp-analyze.md)
+* [Início rápido: SDK do .NET Pesquisa Visual Computacional](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Início rápido: analisar uma imagem (API REST)](./quickstarts/csharp-analyze.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda os conceitos relacionados de [marcar imagens](concept-tagging-images.md) e [descrever imagens.](concept-describing-images.md)
+Aprenda os conceitos relacionados de [marcação de imagens](concept-tagging-images.md) e [Descrição de imagens](concept-describing-images.md).

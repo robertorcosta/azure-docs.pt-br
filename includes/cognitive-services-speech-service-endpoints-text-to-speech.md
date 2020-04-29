@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80234199"
 ---
-### <a name="standard-and-neural-voices"></a>Vozes padrão e neurais
+### <a name="standard-and-neural-voices"></a>Vozes padrão e neural
 
-Use esta tabela para determinar a disponibilidade de vozes padrão e neurais por região/ponto final:
+Use esta tabela para determinar a disponibilidade de vozes padrão e neurais por região/ponto de extremidade:
 
-| Região | Ponto de extremidade | Vozes Padrão | Vozes Neurais |
+| Região | Ponto de extremidade | Vozes padrão | Vozes neurais |
 |--------|----------|-----------------|---------------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Não |
@@ -40,7 +40,7 @@ Use esta tabela para determinar a disponibilidade de vozes padrão e neurais por
 
 ### <a name="custom-voices"></a>Vozes personalizadas
 
-Se você criou uma fonte de voz personalizada, use o ponto final que você criou. Você também pode usar os pontos finais `{deploymentId}` listados abaixo, substituindo o iD de implantação pelo seu modelo de voz.
+Se você tiver criado uma fonte de voz personalizada, use o ponto de extremidade que você criou. Você também pode usar os pontos de extremidade listados abaixo, substituindo `{deploymentId}` pelo pela ID de implantação do seu modelo de voz.
 
 | Região | Ponto de extremidade |
 |--------|----------|

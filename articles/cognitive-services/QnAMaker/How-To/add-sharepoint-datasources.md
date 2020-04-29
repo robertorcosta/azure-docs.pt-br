@@ -1,77 +1,77 @@
 ---
-title: Arquivos SharePoint - QnA Maker
-description: Adicione fontes de dados sharePoint seguras à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com o Active Directory.
+title: Arquivos do SharePoint-QnA Maker
+description: Adicione fontes de dados do SharePoint protegidas à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80294873"
 ---
-# <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicione uma fonte de dados sharePoint segura à sua base de conhecimento
+# <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma fonte de dados protegida do SharePoint à sua base de conhecimento
 
-Adicione fontes de dados SharePoint baseadas em nuvem seguras à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com o Active Directory.
+Adicione fontes de dados do SharePoint protegidas baseadas em nuvem à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com Active Directory.
 
-Quando você adiciona um documento sharepoint protegido à sua base de conhecimento, como gerente do QnA Maker, você deve solicitar permissão do Active Directory para o QnA Maker. Uma vez que essa permissão é dada do gerenciador active directory ao QnA Maker para acesso ao SharePoint, ela não precisa ser dada novamente. Cada adição de documento subseqüente à base de conhecimento não precisará de autorização se estiver no mesmo recurso do SharePoint.
+Ao adicionar um documento protegido do SharePoint à sua base de dados de conhecimento, como o Gerenciador de QnA Maker, você deve solicitar a permissão Active Directory para QnA Maker. Depois que essa permissão for fornecida do Active Directory Manager para QnA Maker para acesso ao SharePoint, ela não precisará ser fornecida novamente. Cada adição de documento subsequente à base de dados de conhecimento não precisará de autorização se estiver no mesmo recurso do SharePoint.
 
-Se o gerente da base de conhecimento Do Fabricante de QnA não for o gerente do Active Directory, você precisará se comunicar com o gerente do Active Directory para concluir esse processo.
+Se o QnA Maker Gerenciador da base de dados de conhecimento não for o Active Directory Manager, você precisará se comunicar com o Gerenciador de Active Directory para concluir esse processo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* SharePoint - QnA Maker, baseado em nuvem, usa o Microsoft Graph para permissões. Se o Seu SharePoint estiver no local, você não poderá extrair do SharePoint porque o Microsoft Graph não será capaz de determinar permissões.
-* Formato de URL - QnA Maker só suporta urls SharePoint que são gerados para compartilhamento e são de formato`https://\*.sharepoint.com`
+* O SharePoint baseado em nuvem – QnA Maker usa Microsoft Graph para permissões. Se o seu SharePoint for local, você não poderá extrair do SharePoint porque Microsoft Graph não poderá determinar as permissões.
+* Formato da URL-QnA Maker dá suporte apenas a URLs do SharePoint que são geradas para compartilhamento e são do formato`https://\*.sharepoint.com`
 
-## <a name="add-supported-file-types-to-knowledge-base"></a>Adicionar tipos de arquivos suportados à base de conhecimento
+## <a name="add-supported-file-types-to-knowledge-base"></a>Adicionar tipos de arquivo com suporte à base de dados de conhecimento
 
-Você pode adicionar todos os tipos de [arquivos](../Concepts/content-types.md) suportados pelo QnA Maker a partir de um site do SharePoint à sua base de conhecimento. Você pode ter que conceder [permissões](#permissions) se o recurso de arquivo estiver protegido.
+Você pode adicionar todos os tipos de [arquivo](../Concepts/content-types.md) com suporte QnA Maker de um site do SharePoint à sua base de dados de conhecimento. Talvez você precise conceder [permissões](#permissions) se o recurso de arquivo estiver protegido.
 
-1. Na biblioteca com o site SharePoint, selecione o `...`menu ellipsis do arquivo, .
+1. Na biblioteca com o site do SharePoint, selecione o menu de reticências do `...`arquivo,.
 1. Copie a URL do arquivo.
 
-   ![Obtenha a URL do arquivo SharePoint selecionando o menu ellipsis do arquivo e copiando a URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+   ![Obtenha a URL do arquivo do SharePoint selecionando o menu de reticências do arquivo e, em seguida, copiando a URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. No portal QnA Maker, na página **Configurações,** [adicione a URL](manage-knowledge-bases.md#edit-knowledge-base) à base de conhecimento.
+1. No portal de QnA Maker, na página **configurações** , [adicione a URL](manage-knowledge-bases.md#edit-knowledge-base) à base de dados de conhecimento.
 
-### <a name="images-with-sharepoint-files"></a>Imagens com arquivos SharePoint
+### <a name="images-with-sharepoint-files"></a>Imagens com arquivos do SharePoint
 
-Se os arquivos incluem imagens, essas não serão extraídas. Você pode adicionar a imagem, a partir do portal QnA Maker, depois que o arquivo é extraído em pares de QnA.
+Se os arquivos incluírem imagens, elas não serão extraídas. Você pode adicionar a imagem, no portal de QnA Maker, depois que o arquivo é extraído em pares de QnA.
 
-Adicione a imagem com a seguinte sintaxe de marcação:
+Adicione a imagem com a seguinte sintaxe de redução:
 
 ```markdown
 ![Explanation or description of image](URL of public image)
 ```
 
-O texto nos suportes `[]`quadrados, explica a imagem. A URL nos parênteses é `()`o link direto para a imagem.
+O texto entre colchetes, `[]`, explica a imagem. A URL entre parênteses, `()`, é o link direto para a imagem.
 
-Quando você testa o par De QnA no painel de teste interativo, no portal QnA Maker, a imagem é exibida, em vez do texto de marcação. Isso valida que a imagem pode ser recuperada publicamente do seu aplicativo cliente.
+Quando você testa o par QnA no painel de teste interativo, no portal de QnA Maker, a imagem é exibida, em vez do texto de redução. Isso valida que a imagem pode ser recuperada publicamente do aplicativo cliente.
 
 ## <a name="permissions"></a>Permissões
 
-A concessão de permissões acontece quando um arquivo protegido de um servidor SharePoint é adicionado a uma base de conhecimento. Dependendo de como o SharePoint está configurado e as permissões da pessoa adicionando o arquivo, isso pode exigir:
+A concessão de permissões ocorre quando um arquivo protegido de um servidor do SharePoint é adicionado a uma base de dados de conhecimento. Dependendo de como o SharePoint é configurado e as permissões da pessoa que adiciona o arquivo, isso pode exigir:
 
-* sem etapas adicionais - a pessoa adicionando o arquivo tem todas as permissões necessárias.
-* passos tanto pelo [gerente da base de conhecimento](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) quanto pelo gerente do Active [Directory](#active-directory-manager-grant-file-read-access-to-qna-maker).
+* nenhuma etapa adicional-a pessoa que está adicionando o arquivo tem todas as permissões necessárias.
+* etapas tanto pelo [Gerenciador de base de conhecimento](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) quanto pelo [Gerenciador de Active Directory](#active-directory-manager-grant-file-read-access-to-qna-maker).
 
-Veja as etapas listadas abaixo.
+Consulte as etapas listadas abaixo.
 
-### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>Gerente de base de conhecimento: adicione a fonte de dados SharePoint no portal QnA Maker
+### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>Gerenciador da base de dados de conhecimento: Adicionar fonte de dados do SharePoint no portal QnA Maker
 
-Quando o **gerente do QnA Maker** adiciona um documento sharePoint seguro a uma base de conhecimento, o gerente da base de conhecimento inicia um pedido de permissão que o gerente do Active Directory precisa concluir.
+Quando o **QnA Maker Manager** adiciona um documento do SharePoint protegido a uma base de dados de conhecimento, o Gerenciador da base de dados de conhecimento inicia uma solicitação de permissão que o gerenciador de Active Directory precisa concluir.
 
-A solicitação começa com um pop-up para autenticar em uma conta do Active Directory.
+A solicitação começa com um pop-up para autenticar em uma conta de Active Directory.
 
 ![Autenticar conta de usuário](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Uma vez que o gerenciador do QnA Maker selecione a conta, o administrador do Azure Active Directory receberá um aviso de que eles precisam permitir que o aplicativo QnA Maker (não o gerenciador do QnA Maker) acesse o recurso SharePoint. O gerenciador do Azure Active Directory precisará fazer isso para cada recurso do SharePoint, mas não todos os documentos desse recurso.
+Depois que o Gerenciador de QnA Maker selecionar a conta, o administrador do Azure Active Directory receberá um aviso de que precisa permitir que o aplicativo QnA Maker (não o QnA Maker Manager) acesse o recurso do SharePoint. O Gerenciador de Azure Active Directory precisará fazer isso para todos os recursos do SharePoint, mas nem todos os documentos desse recurso.
 
-### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Gerenciador ativo de diretórios: arquivo de concessão ler acesso ao QnA Maker
+### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Gerenciador do Active Directory: conceder acesso de leitura de arquivo para QnA Maker
 
-O gerente do Active Directory (não o gerente do QnA Maker) precisa conceder acesso ao QnA Maker para acessar o recurso SharePoint, selecionando [este link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) para autorizar o aplicativo corporativo QnA Maker Portal SharePoint a ter permissões de leitura de arquivo.
+O Gerenciador de Active Directory (não o QnA Maker Manager) precisa conceder acesso ao QnA Maker para acessar o recurso do SharePoint, selecionando [este link](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) para autorizar o aplicativo do Portal do QnA Maker SharePoint Enterprise a ter permissões de leitura de arquivo.
 
-![O gerente do Azure Active Directory concede permissão de forma interativa](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
+![Azure Active Directory Manager concede permissão interativamente](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
 The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`.
@@ -109,19 +109,19 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
 -->
-### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Conceder acesso do centro de administrador esporu do Diretório Ativo do Azure
+### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Conceder acesso do centro de administração Azure Active Directory
 
-1. O gerenciador de Diretório Ativo entra no portal Azure e abre **[aplicativos Enterprise](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**.
+1. O Active Directory Manager entra na portal do Azure e abre **[aplicativos empresariais](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**.
 
-1. Procure `QnAMakerPortalSharePoint` o aplicativo Select The QnA Maker.
+1. Pesquise por `QnAMakerPortalSharePoint` selecionar o aplicativo QnA Maker.
 
-    [![Procure por QnAMakerPortalSharePoint na lista de aplicativos corporativos](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Pesquisar QnAMakerPortalSharePoint na lista de aplicativos empresariais](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
-1. Em **Segurança,** vá para **Permissões**. Selecione **o consentimento do grant para organização**.
+1. Em **segurança**, vá para **permissões**. Selecione **conceder consentimento de administrador para a organização**.
 
-    [![Selecione o usuário autenticado para o Active Directory Admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![Selecionar usuário autenticado para Active Directory admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
-1. Selecione uma conta de Login com permissões para conceder permissões para o Diretório Ativo.
+1. Selecione uma conta de logon com permissões para conceder permissões para o Active Directory.
 
 
 

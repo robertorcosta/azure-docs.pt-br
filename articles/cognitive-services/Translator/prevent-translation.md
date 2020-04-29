@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: swmachan
 ms.openlocfilehash: c7be4a0ea1a9d24a8b262132632a0bbb63ae1b96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80052478"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Como evitar a tradução de conteúdo com a API de Tradução de Texto
@@ -23,7 +23,7 @@ A API de Tradução de Texto permite que marcar conteúdo para que não seja tra
 
 ## <a name="methods-for-preventing-translation"></a>Métodos para evitar a tradução
 
-1. Marcar seu conteúdo com `notranslate`. É por design que isso só funciona quando o textType de entrada é definido como HTML
+1. Marcar seu conteúdo com `notranslate`. É por design que isso funciona somente quando o TextType de entrada é definido como HTML
 
    Exemplo:
 
@@ -41,7 +41,7 @@ A API de Tradução de Texto permite que marcar conteúdo para que não seja tra
 
 3. Não passe a cadeia de caracteres para a API de Tradução de Texto para tradução.
 
-4. Tradutor personalizado: Use um [dicionário no Tradutor Personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com 100% de probabilidade.
+4. Tradutor personalizado: Use um [dicionário no Tradutor personalizado](custom-translator/what-is-dictionary.md) para prescrever a tradução de uma frase com uma probabilidade de 100%.
 
 
 ## <a name="next-steps"></a>Próximas etapas
