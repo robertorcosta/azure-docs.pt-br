@@ -1,6 +1,6 @@
 ---
 title: Saiba mais sobre o Azure Image Builder (visualização)
-description: Saiba mais sobre o Azure Image Builder para máquinas virutais no Azure.
+description: Saiba mais sobre o Azure Image Builder para máquinas virtuais no Azure.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.openlocfilehash: d0644fca56b852bb34a001a73511f4df33a5f441
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78944987"
 ---
-# <a name="preview-azure-image-builder-overview"></a>Visualização: Visão geral do Azure Image Builder
+# <a name="preview-azure-image-builder-overview"></a>Visualização: visão geral do construtor de imagens do Azure
 
 [!INCLUDE [virtual-machines-image-builder-overview](../../../includes/virtual-machines-image-builder-overview.md)]

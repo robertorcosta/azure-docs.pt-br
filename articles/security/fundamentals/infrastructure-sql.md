@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78942965"
 ---
 # <a name="azure-sql-database-security-features"></a>Recursos de segurança do Banco de Dados SQL do Azure    
@@ -75,7 +75,7 @@ O isolamento da raiz do sistema operacional de VMs convidadas e as VMs convidada
 ### <a name="types-of-rules-on-firewalls"></a>Tipos de regras de firewalls
 Uma regra é definida como:
 
-{Src IP, Porta Src, IP de destino, Porto de Destino, Protocolo de Destino, Entrada/Saída, Apátrida/Apátrida, Tempo de Fluxo Stateful}.
+{Src IP, porta src, IP de destino, porta de destino, protocolo de destino, entrada/saída, com estado/sem estado, tempo limite de fluxo com estado}.
 
 Os pacotes de caracteres ociosos síncronos (SYN) só são permitidos dentro ou fora se qualquer uma das regras permitir. Para TCP, o Azure usa regras sem estado em que o princípio é que ele permite que apenas todos os pacotes não-SYN entrem ou saiam da VM. A premissa de segurança é que qualquer pilha de host seja resiliente de ignorar um não SYN se ele não tiver sido visto como um pacote SYN anteriormente. O protocolo TCP em si é stateful e, em combinação com a regra baseada em SYN sem estado, atinge um comportamento geral de uma implementação com estado.
 

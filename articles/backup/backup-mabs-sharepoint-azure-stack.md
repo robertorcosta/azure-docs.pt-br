@@ -4,10 +4,10 @@ description: Use o Servidor de Backup do Azure para fazer backup e restaurar seu
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: d080605022cadf121fa6be99c9758fe9c0d878ef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673024"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
@@ -59,12 +59,12 @@ Você pode encontrar o **ConfigureSharePoint.exe** na pasta [Caminho de instala�
 
 1. No servidor WFE, em um prompt de comando, vá para [Local de instalação do MABS]\bin\
 2. Insira ConfigureSharePoint -EnableSharePointProtection.
-3. Insira as credenciais de administrador do farm. Essa conta deve ser um membro do grupo de administradores local no servidor WFE. Se o administrador da fazenda não for um administrador local, conceda as seguintes permissões no servidor WFE:
+3. Insira as credenciais de administrador do farm. Essa conta deve ser um membro do grupo de administradores local no servidor WFE. Se o administrador do farm não for um administrador local, conceda as seguintes permissões no servidor WFE:
    * Conceda o controle total do grupo WSS_Admin_WPG para a pasta do DPM (%Arquivos de Programas%\Microsoft Azure Backup\DPM).
    * Conceda acesso de leitura do grupo WSS_Admin_WPG à chave do Registro do DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Você precisará reexecutar ConfigureSharePoint.exe sempre que houver uma alteração nas credenciais de administrador da fazenda SharePoint.
+> Você precisará executar novamente o ConfigureSharePoint. exe sempre que houver uma alteração nas credenciais de administrador do farm do SharePoint.
 >
 >
 
@@ -95,7 +95,7 @@ Depois de configurar o MABS e o farm do SharePoint conforme explicado anteriorme
    > O método de proteção de disco ajuda a atender os objetivos de tempo de recuperação breves.
    >
    >
-5. Na página **Especificar Metas de Curto Prazo,** selecione o **intervalo de retenção**preferido e identifique quando deseja que ocorram backups.
+5. Na página **especificar objetivos de curto prazo** , selecione o período de **retenção**preferencial e identifique quando deseja que os backups ocorram.
 
     ![Especificar objetivos de curto prazo](./media/backup-azure-backup-sharepoint/specify-short-term-goals2.png)
 

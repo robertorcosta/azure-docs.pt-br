@@ -1,5 +1,5 @@
 ---
-title: Monitorar o desempenho de um banco de dados de vários inquilinos com fragmentos
+title: Monitorar o desempenho de um banco de dados multilocatário fragmentado
 description: Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 0af476b69f2effd836fe76d62059259076c16f53
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214152"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
@@ -47,15 +47,15 @@ O gerenciamento de desempenho do banco de dados consiste na compilação e anál
 * Para evitar precisar monitorar o desempenho manualmente, é mais eficaz **definir alertas que são disparados quando os bancos de dados se desviam dos intervalos normais**.
 * Para responder a flutuações de curto prazo no tamanho da computação de um banco de dados, o **nível de DTU pode ser escalado ou reduzido verticalmente**. Se essa flutuação acontecer de maneira regular ou previsível, **o dimensionamento do banco de dados poderá ser agendado para ocorrer automaticamente**. Por exemplo, reduzir verticalmente quando você souber que sua carga de trabalho é leve, talvez durante a noite ou durante os finais de semana.
 * Para responder a flutuações de longo prazo ou a alterações nos locatários, **os locatários individuais podem ser movidos para outro banco de dados**.
-* Para responder a aumentos de curto prazo em cargas de locatários *individuais*, **os locatários individuais podem ser retirados de um banco de dados e atribuídos a um tamanho da computação individual**. Depois que a carga é reduzida, o locatário pode ser devolvido ao banco de dados multilocatário. Quando isso é conhecido com antecedência, os inquilinos podem ser movidos preventivamente para garantir que o banco de dados tenha sempre os recursos necessários, e para evitar impacto sobre outros inquilinos no banco de dados de vários locatários. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
+* Para responder a aumentos de curto prazo em cargas de locatários *individuais*, **os locatários individuais podem ser retirados de um banco de dados e atribuídos a um tamanho da computação individual**. Depois que a carga é reduzida, o locatário pode ser devolvido ao banco de dados multilocatário. Quando isso é conhecido com antecedência, os locatários podem ser movidos de modo preventivo para garantir que o banco de dados sempre tenha os recursos de que precisa e para evitar o impacto em outros locatários no banco de dados de vários locatários. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
 
 O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são convenientes ao trabalhar com muitos recursos.
 
-Para cenários de alto volume, onde você está trabalhando com muitos recursos, [os logs do Monitor Do Azure](https://azure.microsoft.com/services/log-analytics/) podem ser usados. Este é um serviço separado do Azure que fornece análises sobre logs emitidos reunidos em um espaço de trabalho do Log Analytics. Os logs do Monitor do Azure podem coletar telemetria de muitos serviços e serem usados para consultar e definir alertas.
+Para cenários de alto volume, nos quais você está trabalhando com muitos recursos, [Azure monitor logs](https://azure.microsoft.com/services/log-analytics/) podem ser usados. Esse é um serviço do Azure separado que fornece análise sobre logs emitidos coletados em um espaço de trabalho Log Analytics. Os logs de Azure Monitor podem coletar telemetria de vários serviços e serem usados para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 
-Os scripts de banco de dados multi-inquilinos Wingtip Tickets SaaS e o código-fonte do aplicativo estão disponíveis no repo [WingtipTicketsSaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
+Os scripts de banco de dados multilocatário do Wingtip tickets SaaS e o código-fonte do aplicativo estão disponíveis no repositório GitHub [repositório wingtipticketssaas-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) . Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="provision-additional-tenants"></a>Provisionar locatários adicionais
 
@@ -64,7 +64,7 @@ Para obter um bom entendimento de como funciona o monitoramento de desempenho e 
 Se você já provisionou um lote de locatários em um tutorial anterior, vá para a seção [Simular o uso em todos os bancos de dados de locatário](#simulate-usage-on-all-tenant-databases).
 
 1. No **ISE do PowerShell**, abra... \\Módulos de Aprendizado\\Monitoramento e Gerenciamento de Desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto pois você executará vários cenários durante este tutorial.
-1. Definir **$DemoScenario** = **1**, _Provisão de um lote de inquilinos_
+1. Definir **$DemoScenario** = **1**, _provisionar um lote de locatários_
 1. Pressione **F5** para executar o script.
 
 O script implanta 17 locatários no banco de dados multilocatário em poucos minutos. 
@@ -79,13 +79,13 @@ O script *New-TenantBatch* cria novos locatários com chaves de locatário exclu
 |:--|:--|
 | 2 | Gerar carga de intensidade normal (aproximadamente 30 DTU) |
 | 3 | Gerar carga com intermitências mais longas por locatário|
-| 4 | Gerar carga com rajadas dtu mais altas por inquilino (aproximadamente 70 DTU)|
-| 5 | Gerar uma alta intensidade (aproximadamente 90 DTU) em um único inquilino mais uma carga de intensidade normal em todos os outros inquilinos |
+| 4 | Gerar carga com intermitências de DTU mais altas por locatário (aproximadamente 70 DTU)|
+| 5 | Gerar uma alta intensidade (aproximadamente 90 DTU) em um único locatário mais uma carga de intensidade normal em todos os outros locatários |
 
 O gerador de carga aplica uma carga *sintética* somente da CPU em cada banco de dados de locatário. O gerador inicia um trabalho para cada banco de dados de locatário, que chama um procedimento armazenado que gera a carga periodicamente. Os níveis de carga (em DTUs), a duração e os intervalos variam em todos os bancos de dados, simulando uma atividade de locatário imprevisível.
 
 1. No **ISE do PowerShell**, abra... \\Módulos de Aprendizado\\Monitoramento e Gerenciamento de Desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto pois você executará vários cenários durante este tutorial.
-1. Definir **$DemoScenario** = **2,** _Gerar carga de intensidade normal_
+1. Definir **$DemoScenario** = **2**, _gerar carga de intensidade normal_
 1. Pressione **F5** para aplicar uma carga a todos os locatários.
 
 O aplicativo de banco de dados multilocatário SaaS Wingtip Tickets é um aplicativo SaaS, e a carga real em um aplicativo SaaS normalmente é esporádica e imprevisível. Para simular isso, o gerador de carga gera uma carga aleatória distribuída entre todos os locatários. São necessários vários minutos para que o padrão de carga surja. Portanto execute o gerador de carga durante 3 a 5 minutos antes de tentar monitorar a carga nas próximas seções.
@@ -117,7 +117,7 @@ Defina um alerta no banco de dados que é disparado após \>75% de utilização,
 1. Defina os seguintes valores:
    * **Métrica = porcentagem de DTU**
    * **Condição = maior que**
-   * **Limiar = 75**.
+   * **Limite = 75**.
    * **Período = nos últimos 30 minutos**
 1. Adicione um endereço de email à caixa *Emails de administrador adicionais* e clique em **OK**.
 
@@ -133,7 +133,7 @@ A **longo prazo**, considere a possibilidade de otimizar o uso de consultas ou d
 
 Você pode simular um banco de dados ocupado aumentando a carga produzida pelo gerador. Fazendo com que os locatários fiquem intermitentes com mais frequência e por mais tempo, aumentando a carga no banco de dados multilocatário sem alterar os requisitos de locatários individuais. O portal ou o PowerShell podem ser usados para escalar verticalmente o banco de dados facilmente. Este exercício usa o portal.
 
-1. Definir *$DemoScenario* = **3**, Gerar carga _com rajadas mais longas e mais freqüentes por banco_ de dados para aumentar a intensidade da carga agregada no banco de dados sem alterar a carga máxima exigida por cada inquilino.
+1. Defina *$DemoScenario* = **3**, _gerar carga com intermitências mais longas e mais frequentes por banco de dados_ para aumentar a intensidade da carga agregada no banco de dados sem alterar a carga de pico exigida por cada locatário.
 1. Pressione **F5** para aplicar uma carga em todos os seus bancos de dados de locatário.
 1. Acesse o banco de dados **tenants1** no portal do Azure.
 
@@ -143,19 +143,19 @@ Monitore o maior uso de DTU de banco de dados no gráfico superior. São necess�
 1. Ajuste o **DTU** definindo como **100**. 
 1. Clique em **Aplicar** para enviar a solicitação para dimensionar o banco de dados.
 
-Volte para **inquilinos1** > **Visão geral** para visualizar os gráficos de monitoramento. Monitore o efeito do fornecimento de mais recursos ao banco de dados (embora com poucos locatários e uma carga aleatória não seja sempre fácil observar conclusivamente, até a execução durante um período). Ao observar os gráficos, lembre-se de que 100% no gráfico superior agora representa 100 DTUs, enquanto no gráfico inferior 100% ainda corresponde a 50 DTUs.
+Volte para **tenants1** > **visão geral** para exibir os gráficos de monitoramento. Monitore o efeito do fornecimento de mais recursos ao banco de dados (embora com poucos locatários e uma carga aleatória não seja sempre fácil observar conclusivamente, até a execução durante um período). Ao observar os gráficos, lembre-se de que 100% no gráfico superior agora representa 100 DTUs, enquanto no gráfico inferior 100% ainda corresponde a 50 DTUs.
 
 Os bancos de dados permanecem online e totalmente disponíveis durante todo o processo. O código do aplicativo sempre deve ser escrito para repetir conexões interrompidas e, assim, reconectar ao banco de dados.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Provisionar um novo locatário em seu próprio banco de dados 
 
-O modelo multilocatário fragmentado permite que você escolha se deseja provisionar um novo locatário em um banco de dados multilocatário junto com outros locatários ou provisionar o locatário em um banco de dados separado. Ao provisionar um inquilino em seu próprio banco de dados, ele se beneficia do isolamento inerente ao banco de dados separado, permitindo que você gerencie o desempenho desse inquilino independentemente dos outros, restaure esse inquilino independentemente dos outros, etc. Por exemplo, você pode optar por colocar clientes com teste livre ou clientes regulares em um banco de dados de vários locatários e clientes premium em bancos de dados individuais.  Se bancos de dados de locatário único isolados forem criados, ainda poderão ser gerenciados coletivamente em um pool elástico para otimizar os custos de recursos.
+O modelo multilocatário fragmentado permite que você escolha se deseja provisionar um novo locatário em um banco de dados multilocatário junto com outros locatários ou provisionar o locatário em um banco de dados separado. Ao provisionar um locatário em seu próprio banco de dados, ele se beneficia do isolamento inerente ao banco de dados separado, permitindo que você gerencie o desempenho desse locatário independentemente de outros, restaure esse locatário independentemente de outros, etc. Por exemplo, você pode optar por colocar clientes regulares ou de avaliação gratuita em um banco de dados multilocatário e clientes Premium em bancos de dados individuais.  Se bancos de dados de locatário único isolados forem criados, ainda poderão ser gerenciados coletivamente em um pool elástico para otimizar os custos de recursos.
 
 Se você já provisionou um novo locatário em seu próprio banco de dados, ignore as próximas etapas.
 
 1. No **ISE do PowerShell**, abra... \\Módulos de Aprendizado\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
 1. Modifique **$TenantName = "Salix Salsa"** e **$VenueType  = "dance"**
-1. Definir **$Scenario** = **2**, _Provisão um inquilino em um novo banco de dados de inquilino único_
+1. Definir **$Scenario** = **2**, _provisionar um locatário em um novo banco de dados de locatário único_
 1. Pressione **F5** para executar o script.
 
 O script provisionará esse locatário em um banco de dados separado, registrará o banco de dados e o locatário no catálogo e abrirá a página Eventos do locatário no navegador. Atualize a página Hub de Eventos e você verá que "Salix Salsa" foi adicionado como um local.
@@ -167,11 +167,11 @@ Se um único locatário em um banco de dados multilocatário enfrentar uma alta 
 Este exercício simula o efeito em que Salix Salsa enfrenta uma alta carga quando tíquetes são colocados à venda para um evento popular.
 
 1. Abra o script …\\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Definir **$DemoScenario = 5**, Gerar uma carga normal mais uma carga alta em um único inquilino _(aproximadamente 90 DTU)._
+1. Defina **$DemoScenario = 5**, _gerar uma carga normal mais uma carga alta em um único locatário (aproximadamente 90 DTU)._
 1. Defina **$SingleTenantName = Salix Salsa**
 1. Execute o script usando **F5**.
 
-Vá para o portal e navegue até a**visão geral** **da salixsalsa** > para visualizar os gráficos de monitoramento. 
+Acesse o portal e navegue até **salixsalsa** > **visão geral** para exibir os gráficos de monitoramento. 
 
 ## <a name="other-performance-management-patterns"></a>Outros padrões de gerenciamento de desempenho
 
@@ -196,4 +196,4 @@ Neste tutorial, você aprenderá a:
 ## <a name="additional-resources"></a>Recursos adicionais
 
 <!--* [Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
-* [Automação azure](../automation/automation-intro.md)
+* [Automação do Azure](../automation/automation-intro.md)

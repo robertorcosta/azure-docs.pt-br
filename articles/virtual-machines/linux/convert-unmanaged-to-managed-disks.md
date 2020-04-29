@@ -1,6 +1,6 @@
 ---
-title: Converter um VM Linux de discos não gerenciados para discos gerenciados
-description: Como converter uma VM Linux de discos não gerenciados para discos gerenciados usando o Azure CLI.
+title: Converter uma VM do Linux de discos não gerenciados em discos gerenciados
+description: Como converter uma VM do Linux de discos não gerenciados em discos gerenciados usando CLI do Azure.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 2774dcbd5fc5b01627b965c2c02d870412c8bf77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78969689"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não gerenciados em Managed Disks
@@ -25,10 +25,10 @@ Este artigo mostra como converter VMs usando a CLI do Azure. Se você precisar i
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-* Os VHDs originais e a conta de armazenamento usados pela VM antes da conversão não são excluídos. Eles continuam a incorrer em encargos. Para evitar ser cobrado por esses artefatos, exclua os blobs VHD originais depois de verificar que a conversão foi concluída. Se você precisar encontrar esses discos não conectados para excluí-los, consulte nosso artigo [Encontrar e excluir discos gerenciados e não gerenciados do Azure não conectados](find-unattached-disks.md).
+* Os VHDs originais e a conta de armazenamento usados pela VM antes da conversão não são excluídos. Eles continuam a incorrer em encargos. Para evitar ser cobrado por esses artefatos, exclua os blobs VHD originais depois de verificar que a conversão foi concluída. Se você precisar encontrar esses discos desanexados para excluí-los, consulte nosso artigo [Localizar e excluir discos gerenciados e não geridos do Azure desconectados](find-unattached-disks.md).
 
 ## <a name="convert-single-instance-vms"></a>Converter VMs de instância única
-Esta seção aborda como converter suas VMs de instância única do Azure de discos não gerenciados em discos gerenciados. (Se suas VMs estiverem em um conjunto de disponibilidade, consulte a próxima seção.) Você pode usar esse processo para converter as VMs de discos não gerenciados premium (SSD) em discos gerenciados premium ou de discos não gerenciados padrão (HDD) para discos gerenciados padrão.
+Esta seção aborda como converter suas VMs de instância única do Azure de discos não gerenciados em discos gerenciados. (Se suas VMs estiverem em um conjunto de disponibilidade, consulte a próxima seção.) Você pode usar esse processo para converter as VMs de discos não gerenciados Premium (SSD) em discos gerenciados Premium ou discos não gerenciados padrão (HDD) em discos gerenciados Standard.
 
 1. Desaloque a VM usando [az vm deallocate](/cli/azure/vm). O seguinte exemplo desaloca a VM `myVM` no grupo de recursos chamado `myResourceGroup`:
 
@@ -94,7 +94,7 @@ Todas as VMs no conjunto de disponibilidade devem ser desalocadas antes de conve
 
 Também é possível converter discos não gerenciados em discos gerenciados usando o portal do Azure.
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 2. Selecione a VM na lista de VMs no portal.
 3. Na folha da VM, selecione **Discos** no menu.
 4. Na parte superior da folha **Discos**, selecione **Migrar para discos gerenciados**.

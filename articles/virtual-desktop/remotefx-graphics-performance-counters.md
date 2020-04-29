@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar problemas de desempenho gráfico Sumido - Azure
-description: Este artigo descreve como usar contadores gráficos RemoteFX em sessões de protocolo de desktop remota sustais para diagnosticar problemas de desempenho com gráficos no Windows Virtual Desktop.
+title: Diagnosticar problemas de desempenho de gráficos Área de Trabalho Remota-Azure
+description: Este artigo descreve como usar os contadores gráficos do RemoteFX em sessões de protocolo de área de trabalho remota para diagnosticar problemas de desempenho com elementos gráficos na área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,99 +9,99 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 84cee86dbddff77f6142925eec01889cf793a466
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127562"
 ---
-# <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho gráfico na área de trabalho remota
+# <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho de gráficos no Área de Trabalho Remota
 
-Para diagnosticar problemas de qualidade de experiência com suas sessões remotas, os contadores foram fornecidos na seção RemoteFX Graphics do Performance Monitor. Este artigo ajuda você a identificar e corrigir gargalos de desempenho relacionados a gráficos durante as sessões de RDP (Remote Desktop Protocol, protocolo de desktop remoto) usando esses contadores.
+Para diagnosticar problemas de qualidade de experiência com suas sessões remotas, os contadores foram fornecidos na seção elementos gráficos do RemoteFX do monitor de desempenho. Este artigo ajuda você a identificar e corrigir gargalos de desempenho relacionados a gráficos durante sessões de protocolo RDP (RDP) usando esses contadores.
 
-## <a name="find-your-remote-session-name"></a>Encontre seu nome de sessão remota
+## <a name="find-your-remote-session-name"></a>Localizar o nome da sessão remota
 
-Você precisará do seu nome de sessão remota para identificar os contadores de desempenho gráficos. Siga as instruções nesta seção para identificar sua instância de cada contador.
+Você precisará do nome da sessão remota para identificar os contadores de desempenho de gráficos. Siga as instruções nesta seção para identificar sua instância de cada contador.
 
-1. Abra o prompt de comando do Windows a partir de sua sessão remota.
-2. Execute o comando **qwinsta** e encontre o nome da sessão.
-    - Se sua sessão estiver hospedada em uma máquina virtual de várias sessões (VM): sua instância de cada contador será sufixada pelo mesmo número que sufixa seu nome de sessão, como "rdp-tcp 37".
-    - Se sua sessão estiver hospedada em uma VM que suporta unidades de processamento de gráficos virtuais (vGPU): sua instância de cada contador será armazenada no servidor em vez de em sua VM. Suas instâncias contrárias incluem o nome VM em vez do número no nome da sessão, como "Win8 Enterprise VM".
+1. Abra o prompt de comando do Windows em sua sessão remota.
+2. Execute o comando **Qwinsta** e localize o nome da sessão.
+    - Se sua sessão estiver hospedada em uma VM (máquina virtual) de várias sessões: sua instância de cada contador será sufixada pelo mesmo número que sufixos no nome da sessão, como "RDP-TCP 37".
+    - Se sua sessão estiver hospedada em uma VM que dá suporte a vGPU (unidades de processamento de gráficos virtuais): sua instância de cada contador é armazenada no servidor em vez de em sua VM. As instâncias do contador incluem o nome da VM em vez do número no nome da sessão, como "VM do win8 Enterprise".
 
 >[!NOTE]
-> Embora os contadores tenham RemoteFX em seus nomes, eles incluem gráficos de desktop remotos em cenários vGPU também.
+> Embora os contadores tenham o RemoteFX em seus nomes, eles incluem gráficos de área de trabalho remota em cenários de vGPU também.
 
 ## <a name="access-performance-counters"></a>Contadores de desempenho de acesso
 
-Depois de determinar o nome da sessão remota, siga estas instruções para coletar os contadores de desempenho do RemoteFX Graphics para a sessão remota.
+Depois de determinar o nome da sessão remota, siga estas instruções para coletar os contadores de desempenho de gráficos do RemoteFX para sua sessão remota.
 
-1. Selecione **Iniciar** > monitor de desempenho**de ferramentas** > **administrativas**.
-2. Na caixa de diálogo Monitor de **desempenho,** expanda **as ferramentas de monitoramento,** selecione **Monitor de desempenho**e selecione **Adicionar**.
-3. Na caixa de diálogo Adicionar contadores, da lista **Contadores Disponíveis,** expanda a seção para **Gráficos** RemoteFX.
+1. Selecione **Iniciar** > **ferramentas** > administrativas**Monitor de desempenho**.
+2. Na caixa de diálogo **Monitor de desempenho** , expanda **ferramentas de monitoramento**, selecione **Monitor de desempenho**e, em seguida, selecione **Adicionar**.
+3. Na caixa de diálogo **Adicionar contadores** , na lista **contadores disponíveis** , expanda a seção para gráficos do RemoteFX.
 4. Selecione os contadores a serem monitorados.
-5. Nas **instâncias da** lista de objetos selecionados, selecione as instâncias específicas a serem monitoradas para os contadores selecionados e, em seguida, **selecione Adicionar**. Para selecionar todas as contra-instâncias disponíveis, selecione **Todas as instâncias**.
+5. Na lista **instâncias do objeto selecionado** , selecione as instâncias específicas a serem monitoradas para os contadores selecionados e, em seguida, selecione **Adicionar**. Para selecionar todas as instâncias de contador disponíveis, selecione **todas as instâncias**.
 6. Depois de adicionar os contadores, selecione **OK**.
 
-Os contadores de desempenho selecionados aparecerão na tela do Monitor de Desempenho.
+Os contadores de desempenho selecionados aparecerão na tela do monitor de desempenho.
 
 >[!NOTE]
 >Cada sessão ativa em um host tem sua própria instância de cada contador de desempenho.
 
 ## <a name="diagnose-issues"></a>Diagnosticar problemas
 
-Problemas de desempenho relacionados a gráficos geralmente se enquadram em quatro categorias:
+Os problemas de desempenho relacionados a gráficos geralmente se enquadram em quatro categorias:
 
-- Baixa taxa de quadros
-- Barracas aleatórias
+- Taxa de quadros baixa
+- Interrupções aleatórias
 - Alta latência de entrada
-- Má qualidade do quadro
+- Qualidade de quadro ruim
 
-### <a name="addressing-low-frame-rate-random-stalls-and-high-input-latency"></a>Abordando baixa taxa de quadros, bancas aleatórias e latência de entrada alta
+### <a name="addressing-low-frame-rate-random-stalls-and-high-input-latency"></a>Abordando a taxa de quadros baixa, paralisações aleatórias e alta latência de entrada
 
-Primeiro verifique o contador De quadros/segundo. Ele mede o número de quadros disponibilizados ao cliente. Se esse valor for menor do que o contador Input Frames/Second, os quadros serão ignorados. Para identificar o gargalo, use os contadores Frames Skipped/Second.
+Primeiro, verifique o contador de quadros de saída/segundo. Ele mede o número de quadros disponibilizados para o cliente. Se esse valor for menor que o contador de quadros de entrada/segundo, os quadros serão ignorados. Para identificar o afunilamento, use os contadores de quadros ignorados/segundo.
 
-Existem três tipos de quadros ignorados/segundo contadores:
+Há três tipos de quadros ignorados/segundo contadores:
 
-- Quadros ignorados/segundo (recursos insuficientes do servidor)
+- Quadros ignorados/segundo (recursos de servidor insuficientes)
 - Quadros ignorados/segundo (recursos de rede insuficientes)
 - Quadros ignorados/segundo (recursos insuficientes do cliente)
 
-Um alto valor para qualquer um dos contadores Frames Skipped/Second implica que o problema está relacionado com o recurso que o contador rastreia. Por exemplo, se o cliente não decodificar e apresentar quadros na mesma taxa que o servidor fornece os quadros, o contador Quadros Skipped/Second (Recursos Insuficientes do Cliente) será alto.
+Um valor alto para qualquer um dos quadros ignorados/segundo os contadores implica que o problema está relacionado ao recurso que o contador rastreia. Por exemplo, se o cliente não decodificar e apresentar quadros na mesma taxa em que o servidor fornece os quadros, o contador de quadros ignorados/segundo (recursos de cliente insuficientes) será alto.
 
-Se o contador Descamação/Segundo corresponder ao contador Input Frames/Segundo, ainda assim você notará atraso ou paralisação incomuns, o Tempo médio de codificação pode ser o culpado. Codificação é um processo síncrono que ocorre no servidor no cenário de sessão única (vGPU) e no VM no cenário de várias sessões. O tempo médio de codificação deve ser inferior a 33 ms. Se o Tempo Médio de Codificação estiver abaixo de 33 ms, mas você ainda tiver problemas de desempenho, pode haver um problema com o aplicativo ou sistema operacional que você está usando.
+Se o contador de quadros/segundos de saída corresponder ao contador de quadros de entrada/segundo, ainda assim você perceberá um atraso ou parada incomum, o tempo médio de codificação poderá ser o culpado. A codificação é um processo síncrono que ocorre no servidor no cenário de vGPU (única sessão) e na VM no cenário de várias sessões. O tempo médio de codificação deve ser inferior a 33 MS. Se o tempo médio de codificação estiver abaixo de 33 MS, mas você ainda tiver problemas de desempenho, poderá haver um problema com o aplicativo ou o sistema operacional que você está usando.
 
-Para obter mais informações sobre o diagnóstico de problemas relacionados ao aplicativo, consulte [os contadores](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/)de desempenho de atraso de entrada do usuário .
+Para obter mais informações sobre como diagnosticar problemas relacionados ao aplicativo, consulte [contadores de desempenho de atraso de entrada do usuário](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
-Como o RDP suporta um tempo médio de codificação de 33 ms, ele suporta uma taxa de quadros de entrada de até 30 quadros/segundo. Observe que 33 ms é a taxa máxima de quadros suportada. Em muitos casos, a taxa de quadros experimentada pelo usuário será menor, dependendo da frequência com que um quadro é fornecido ao RDP pela fonte. Por exemplo, tarefas como assistir a um vídeo exigem uma taxa completa de quadros de entrada de 30 quadros/segundo, mas tarefas menos intensivas computacionalmente como editar um documento raramente resultam em um valor muito menor para Quadros de Entrada/Segundo sem degradação na qualidade da experiência do usuário.
+Como o RDP dá suporte a um tempo médio de codificação de 33 MS, ele dá suporte a uma taxa de quadros de entrada de até 30 quadros/segundo. Observe que 33 MS é a taxa de quadros máxima com suporte. Em muitos casos, a taxa de quadros experimentada pelo usuário será menor, dependendo da frequência com que um quadro é fornecido ao RDP pela origem. Por exemplo, tarefas como assistir a um vídeo exigem uma taxa de quadros de entrada completa de 30 quadros/segundo, mas menos tarefas computacionalmente intensivas, como a edição infrequente de um documento, resultam em um valor muito menor para quadros de entrada/segundo sem degradação na qualidade da experiência do usuário.
 
-### <a name="addressing-poor-frame-quality"></a>Abordando a má qualidade do quadro
+### <a name="addressing-poor-frame-quality"></a>Lidando com uma qualidade de quadro ruim
 
-Use o contador frame quality para diagnosticar problemas de qualidade de quadro. Este contador expressa a qualidade do quadro de saída como uma porcentagem da qualidade do quadro de origem. A perda de qualidade pode ser devido ao RemoteFX, ou pode ser inerente à fonte gráfica. Se o RemoteFX causou a perda de qualidade, o problema pode ser a falta de recursos de rede ou servidor para enviar conteúdo de maior fidelidade.
+Use o contador de qualidade do quadro para diagnosticar problemas de qualidade do quadro. Esse contador expressa a qualidade do quadro de saída como uma porcentagem da qualidade do quadro de origem. A perda de qualidade pode ser devido ao RemoteFX ou pode ser inerente à fonte de gráficos. Se o RemoteFX causou a perda de qualidade, o problema pode ser uma falta de recursos de rede ou de servidor para enviar conteúdo de alta fidelidade.
 
 ## <a name="mitigation"></a>Atenuação
 
-Se os recursos do servidor estiverem causando o gargalo, tente uma das seguintes abordagens para melhorar o desempenho:
+Se os recursos do servidor estiverem causando o afunilamento, tente uma das seguintes abordagens para melhorar o desempenho:
 
 - Reduza o número de sessões por host.
-- Aumente a memória e compute os recursos no servidor.
-- Solte a resolução da conexão.
+- Aumente a memória e os recursos de computação no servidor.
+- Remova a resolução da conexão.
 
-Se os recursos de rede estiverem causando o gargalo, tente uma das seguintes abordagens para melhorar a disponibilidade da rede por sessão:
+Se os recursos de rede estiverem causando o afunilamento, tente uma das seguintes abordagens para melhorar a disponibilidade da rede por sessão:
 
 - Reduza o número de sessões por host.
-- Use uma rede de largura de banda mais alta.
-- Solte a resolução da conexão.
+- Use uma rede de largura de banda maior.
+- Remova a resolução da conexão.
 
-Se os recursos do cliente estiverem causando o gargalo, tente uma das seguintes abordagens para melhorar o desempenho:
+Se os recursos do cliente estiverem causando o afunilamento, tente uma das seguintes abordagens para melhorar o desempenho:
 
-- Instale o cliente de desktop remoto mais recente.
-- Aumente a memória e computação de recursos na máquina cliente.
+- Instale o cliente de Área de Trabalho Remota mais recente.
+- Aumente a memória e os recursos de computação no computador cliente.
 
 > [!NOTE]
-> No momento, não suportamos o contador Source Frames/Second. Por enquanto, o contador Quadros de Origem/Segundo sempre exibirá 0.
+> No momento, não há suporte para o contador de quadros de origem/segundo. Por enquanto, o contador de quadros/segundos de origem sempre exibirá 0.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para criar uma máquina virtual Azure otimizada para GPU, consulte [Configure graphics processing unit (GPU) aceleração para o ambiente Windows Virtual Desktop](configure-vm-gpu.md).
-- Para obter uma visão geral das faixas de solução de problemas e escalonamento, consulte Visão geral, feedback e suporte de [solução de problemas.](troubleshoot-set-up-overview.md)
-- Para saber mais sobre o serviço, consulte o [ambiente Windows Desktop](environment-setup.md).
+- Para criar uma máquina virtual do Azure otimizada para GPU, consulte [Configurar a aceleração da GPU (unidade de processamento gráfico) para o ambiente de área de trabalho virtual do Windows](configure-vm-gpu.md).
+- Para obter uma visão geral das faixas de solução de problemas e escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
+- Para saber mais sobre o serviço, consulte [ambiente de área de trabalho do Windows](environment-setup.md).

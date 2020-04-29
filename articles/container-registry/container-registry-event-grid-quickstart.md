@@ -1,17 +1,17 @@
 ---
-title: Quickstart - Envie eventos para event grid
+title: Início rápido – enviar eventos para a grade de eventos
 description: Neste início rápido, você habilita os eventos da Grade de Eventos para o registro de contêiner e, em seguida, efetua push de imagens de contêiner e exclui eventos para um aplicativo de exemplo.
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78403229"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Envie eventos do registro privado de contêineres para event grid
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início rápido: enviar eventos do registro de contêiner privado para a grade de eventos
 
 A Grade de Eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que fornece consumo uniforme de eventos usando um modelo de publicação-assinatura. Neste início rápido, você usa a CLI do Azure para criar um registro de contêiner, assinar eventos de registro e, em seguida, implantar um aplicativo Web de exemplo para receber os eventos. Por fim, você dispara os eventos `push` e `delete` da imagem de contêiner e exibe a carga do evento no aplicativo de exemplo.
 
@@ -202,7 +202,7 @@ A captura de tela a seguir mostra o aplicativo de exemplo com os três eventos e
 
 Parabéns! Se você visualizar os eventos `ImagePushed` e `ImageDeleted`, isso significa que o registro está enviando eventos para a Grade de Eventos e a Grade de Eventos está encaminhando esses eventos para o ponto de extremidade do aplicativo Web.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Após concluir os recursos criados neste início rápido, você poderá excluí-los com o seguinte comando da CLI do Azure. Quando você excluir um grupo de recursos, todos os recursos nele contidos serão permanentemente excluídos.
 

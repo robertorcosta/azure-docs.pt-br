@@ -1,6 +1,6 @@
 ---
-title: TETO no idioma de consulta azure Cosmos DB
-description: Saiba como o sistema CEILING SQL funciona no Azure Cosmos DB retorna o menor valor inteiro maior ou igual à expressão numérica especificada.
+title: TETO na linguagem de consulta Azure Cosmos DB
+description: Saiba mais sobre como a função de sistema SQL de teto em Azure Cosmos DB retorna o menor valor inteiro maior que, ou igual a, a expressão numérica especificada.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 81f113aa51a7f739b506ec7e3eb5bf2cb9f49a03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302637"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>TETO (Azure Cosmos DB)
@@ -34,7 +34,7 @@ CEILING (<numeric_expr>)
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a seguir mostra valores numéricos positivos, negativos e zero com a `CEILING` função.  
+  O exemplo a seguir mostra valores numéricos positivos, negativos e zero com `CEILING` a função.  
   
 ```sql
 SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3  
@@ -48,10 +48,10 @@ SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3
 
 ## <a name="remarks"></a>Comentários
 
-Esta função do sistema beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
+Essa função de sistema se beneficiará de um [índice de intervalo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

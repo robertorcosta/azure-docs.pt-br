@@ -1,16 +1,16 @@
 ---
-title: Fazer backup de uma fazenda SharePoint para Azure com MABS
+title: Fazer backup de um farm do SharePoint no Azure com o MABS
 description: Use o Servidor de Backup do Azure para fazer backup e restaurar seus dados do SharePoint. Este artigo fornece informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.openlocfilehash: 441a896f2faa67a1380007ebb9474d7c311a4842
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78673136"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Fazer backup de uma fazenda SharePoint para Azure com MABS
+# <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Fazer backup de um farm do SharePoint no Azure com o MABS
 
 Faça backup de um farm do SharePoint para o Microsoft Azure usando o MABS (Servidor de Backup do Microsoft Azure) da mesma maneira que você faz backup de outras fontes de dados. O Backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diariamente, semanalmente, mensalmente ou anualmente e fornece opções de política de retenção para diversos pontos de backup. Ele também fornece a capacidade de armazenar cópias de disco locais para obter RTOs (Objetivos de Tempo de Recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
 
@@ -46,7 +46,7 @@ Se o farm do SharePoint tiver bancos de dados do SQL Server configurados com ali
 
 ### <a name="sharepoint-server"></a>SharePoint Server
 
-Embora o desempenho dependa de muitos fatores, como o tamanho da fazenda SharePoint, como a orientação geral de um MABS pode proteger uma fazenda SharePoint de 25 TB.
+Embora o desempenho dependa de muitos fatores, como o tamanho do farm do SharePoint, como orientação geral, um MABS pode proteger um farm do SharePoint de 25 TB.
 
 ### <a name="whats-not-supported"></a>O que não tem suporte
 
@@ -68,7 +68,7 @@ Você pode encontrar o **ConfigureSharePoint.exe** na pasta [Caminho de instala�
    * Conceda acesso de leitura do grupo WSS_Admin_WPG à chave do Registro do DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Você precisará reexecutar ConfigureSharePoint.exe sempre que houver uma alteração nas credenciais de administrador da fazenda SharePoint.
+> Você precisará executar novamente o ConfigureSharePoint. exe sempre que houver uma alteração nas credenciais de administrador do farm do SharePoint.
 >
 >
 
@@ -127,7 +127,7 @@ Depois de configurar o MABS e o farm do SharePoint conforme explicado anteriorme
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > O MABS fornece um máximo de dois backups diários para o Azure do ponto de backup de disco mais recente disponível nesses momentos. O Azure Backup também pode controlar a quantidade de largura de banda WAN que pode ser usada para backups em horários de pico e fora do pico usando o estrangulamento da [rede de backup do Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
+    > O MABS fornece um máximo de dois backups diários para o Azure do ponto de backup de disco mais recente disponível nesses momentos. O backup do Azure também pode controlar a quantidade de largura de banda de WAN que pode ser usada para backups em horários de pico e fora de pico usando a [limitação de rede de backup do Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Dependendo do agendamento de backup selecionado, na página **Especificar Política de Retenção Online** , selecione a política de retenção para pontos de backup diários, semanais, mensais e anuais.

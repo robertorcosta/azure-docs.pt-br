@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: b-juche
 ms.openlocfilehash: 48055a774808aea86452e8410b7e717f5019d172
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78267896"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
-Você pode usar o Azure NetApp Files para criar manualmente um instantâneo demanda para um volume ou restaurar de um snapshot para um novo volume. O serviço Azure NetApp Files não cria automaticamente instantâneos de volume.  
+Você pode usar Azure NetApp Files para criar manualmente um instantâneo sob demanda para um volume ou restaurar de um instantâneo para um novo volume. O serviço de Azure NetApp Files não cria instantâneos de volume automaticamente.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Criar um instantâneo sob demanda para um volume
 
@@ -53,7 +53,7 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
     ![Restaurar instantâneo para o novo volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 4. Na janela Novo Volume, forneça informações para o novo volume:  
-    * **Nome**   
+    * **Nomes**   
         Especifique o nome para o volume que você está criando.  
         
         O nome precisa ser exclusivo em um grupo de recursos. Ele precisa ter, pelo menos, três caracteres.  Deve usar qualquer caractere alfanumérico.
@@ -72,7 +72,7 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
 
     *   **Rede virtual**  
         Especifique a rede virtual (VNet) do Azure da qual você deseja acessar o volume.  
-        A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. Você pode acessar o Azure NetApp Files somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. Você pode acessar o volume da sua rede local através do Express Route. 
+        A VNET especificada precisa ter uma sub-rede delegada ao Azure NetApp Files. Você pode acessar o Azure NetApp Files somente na mesma VNET ou em uma VNET que esteja na mesma região do volume por meio do emparelhamento VNET. Você pode acessar o volume de sua rede local por meio da rota expressa. 
 
     * **Sub-rede**  
         Especifique a sub-rede que você deseja usar para o volume.  

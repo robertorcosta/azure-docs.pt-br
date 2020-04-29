@@ -1,5 +1,5 @@
 ---
-title: TAN no azure Cosmos DB linguagem de consulta
+title: TAN na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL TAN no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9d7187ba116067445e835769fc33aa70677ef80b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78301974"
 ---
 # <a name="tan-azure-cosmos-db"></a>TAN (Azure Cosmos DB)
@@ -48,10 +48,10 @@ SELECT TAN(PI()/2) AS tan
 
 ## <a name="remarks"></a>Comentários
 
-Esta função do sistema não utilizará o índice.
+Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Funções matemáticas Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

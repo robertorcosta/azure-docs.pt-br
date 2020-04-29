@@ -1,47 +1,47 @@
 ---
-title: Funções do Azure em Kubernetes com KEDA
-description: Entenda como executar funções do Azure em Kubernetes na nuvem ou no local usando o KEDA, autoscaling baseado em eventos baseado em Kubernetes.
+title: Azure Functions em kubernetes com KEDA
+description: Entenda como executar o Azure Functions no kubernetes na nuvem ou no local usando o KEDA, o dimensionamento automático controlado por evento baseado em kubernetes.
 author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
 ms.openlocfilehash: 2c06fdba8f60243acf4e0fabd23df8b832c210db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78301668"
 ---
-# <a name="azure-functions-on-kubernetes-with-keda"></a>Funções do Azure em Kubernetes com KEDA
+# <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions em kubernetes com KEDA
 
-O tempo de execução do Azure Functions oferece flexibilidade na hospedagem onde e como você deseja.  [O KEDA](https://keda.sh) (Event Driven Autoscaling, baseado em Kubernetes) emparelha-se perfeitamente com o tempo de execução e ferramentas do Azure Functions para fornecer escala orientada a eventos em Kubernetes.
+O tempo de execução de Azure Functions fornece flexibilidade na Hospedagem de onde e como você deseja.  Os pares de [Keda](https://keda.sh) (dimensionamento automático controlado por eventos baseados em kubernetes) diretamente com o tempo de execução Azure Functions e ferramentas para fornecer escala controlada por evento em kubernetes.
 
-## <a name="how-kubernetes-based-functions-work"></a>Como funcionam as funções baseadas em Kubernetes
+## <a name="how-kubernetes-based-functions-work"></a>Como funcionam as funções baseadas em kubernetes
 
-O serviço Funções do Azure é composto por dois componentes-chave: um tempo de execução e um controlador de escala.  O tempo de execução functions é executado e executa seu código.  O tempo de execução inclui a lógica de como ativar, registrar e gerenciar execuções de funções.  O tempo de execução do Azure Functions pode ser executado *em qualquer lugar*.  O outro componente é um controlador de escala.  O controlador de escala monitora a taxa de eventos que estão direcionando sua função e dimensiona proativamente o número de instâncias que executam seu aplicativo.  Para saber mais, confira [Escala e hospedagem do Azure Functions](functions-scale.md).
+O serviço de Azure Functions é composto por dois componentes principais: um tempo de execução e um controlador de escala.  O tempo de execução do Functions é executado e executa seu código.  O tempo de execução inclui a lógica sobre como disparar, registrar e gerenciar execuções de função.  O tempo de execução do Azure Functions pode ser executado *em qualquer lugar*.  O outro componente é um controlador de escala.  O controlador de escala monitora a taxa de eventos que estão direcionando sua função e dimensiona de forma proativa o número de instâncias que executam seu aplicativo.  Para saber mais, confira [Escala e hospedagem do Azure Functions](functions-scale.md).
 
-Funções baseadas em Kubernetes fornecem o tempo de execução functions em um [contêiner Docker](functions-create-function-linux-custom-image.md) com dimensionamento orientado por eventos através do KEDA.  O KEDA pode dimensionar em 0 instâncias (quando não ocorrem eventos) e em *n* instâncias. Ele faz isso expondo métricas personalizadas para o autoscaler Kubernetes (Horizontal Pod Autoscaler).  O uso de recipientes Functions com KEDA permite replicar recursos de função sem servidor em qualquer cluster Kubernetes.  Essas funções também podem ser implantadas usando o recurso [de nãodos virtuais Azure Kubernetes Services (AKS)](../aks/virtual-nodes-cli.md) para infra-estrutura sem servidor.
+As funções baseadas em kubernetes fornecem o tempo de execução de funções em um [contêiner do Docker](functions-create-function-linux-custom-image.md) com dimensionamento controlado por eventos por meio de Keda.  KEDA pode ser dimensionado para 0 instâncias (quando nenhum evento está ocorrendo) e para as instâncias *n* . Ele faz isso expondo métricas personalizadas para o kubernetes AutoScaler (dimensionamento de escala horizontal).  O uso de contêineres de funções com KEDA torna possível replicar recursos de função sem servidor em qualquer cluster kubernetes.  Essas funções também podem ser implantadas usando o recurso de [nós virtuais do AKS (serviços Kubernetess do Azure)](../aks/virtual-nodes-cli.md) para a infraestrutura sem servidor.
 
-## <a name="managing-keda-and-functions-in-kubernetes"></a>Gerenciamento de KEDA e funções em Kubernetes
+## <a name="managing-keda-and-functions-in-kubernetes"></a>Gerenciando KEDA e funções no kubernetes
 
-Para executar funções no cluster Kubernetes, você deve instalar o componente KEDA. Você pode instalar este componente usando [as ferramentas principais do Azure Functions](functions-run-local.md).
+Para executar funções em seu cluster do kubernetes, você deve instalar o componente KEDA. Você pode instalar esse componente usando [Azure Functions Core Tools](functions-run-local.md).
 
-### <a name="installing-with-helm"></a>Instalando com helm
+### <a name="installing-with-helm"></a>Instalando com Helm
 
-Existem várias maneiras de instalar keda em qualquer cluster Kubernetes, incluindo Helm.  As opções de implantação estão documentadas no [site keda](https://keda.sh/deploy/).
+Há várias maneiras de instalar o KEDA em qualquer cluster kubernetes, incluindo Helm.  As opções de implantação estão documentadas no [site do Keda](https://keda.sh/deploy/).
 
-## <a name="deploying-a-function-app-to-kubernetes"></a>Implantando um aplicativo de função para kubernetes
+## <a name="deploying-a-function-app-to-kubernetes"></a>Implantando um aplicativo de funções no kubernetes
 
-Você pode implantar qualquer aplicativo de função em um cluster Kubernetes executando o KEDA.  Uma vez que suas funções são executadas em um contêiner Docker, seu projeto precisa de um `Dockerfile`.  Se ele ainda não tiver um, você pode adicionar um arquivo Docker executando o seguinte comando na raiz do projeto Funções:
+Você pode implantar qualquer aplicativo de funções em um cluster kubernetes que executa o KEDA.  Como suas funções são executadas em um contêiner do Docker, seu projeto `Dockerfile`precisa de um.  Se ele ainda não tiver um, você poderá adicionar um Dockerfile executando o seguinte comando na raiz do seu projeto do Functions:
 
 ```cli
 func init --docker-only
 ```
 
-Para construir uma imagem e implantar suas funções no Kubernetes, execute o seguinte comando:
+Para criar uma imagem e implantar suas funções no kubernetes, execute o seguinte comando:
 
 > [!NOTE]
-> As Ferramentas Principais aproveitarão a CLI docker para construir e publicar a imagem. Certifique-se de ter o docker já `docker login`instalado e conectado à sua conta com .
+> As ferramentas principais aproveitarão a CLI do Docker para criar e publicar a imagem. Certifique-se de que o Docker já esteja instalado e conectado à `docker login`sua conta com o.
 
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
@@ -49,15 +49,15 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Substitua `<name-of-function-deployment>` pelo nome do aplicativo de funções.
 
-Isso cria um recurso `Deployment` Kubernetes, um `ScaledObject` recurso e `Secrets`, que `local.settings.json` inclui variáveis de ambiente importadas do seu arquivo.
+Isso cria um recurso `Deployment` kubernetes, um `ScaledObject` recurso, e `Secrets`, que inclui as variáveis de ambiente importadas do seu `local.settings.json` arquivo.
 
-### <a name="deploying-a-function-app-from-a-private-registry"></a>Implantando um aplicativo de função a partir de um registro privado
+### <a name="deploying-a-function-app-from-a-private-registry"></a>Implantando um aplicativo de funções de um registro particular
 
-O fluxo acima funciona para registros privados também.  Se você estiver retirando sua imagem de `--pull-secret` contêiner de um registro privado, inclua a bandeira `func kubernetes deploy`que faz referência ao segredo kubernetes que mantém as credenciais de registro privado ao executar .
+O fluxo acima funciona para registros privados também.  Se você estiver extraindo a imagem de contêiner de um registro privado `--pull-secret` , inclua o sinalizador que faz referência ao segredo kubernetes que contém as `func kubernetes deploy`credenciais de registro particulares durante a execução.
 
-## <a name="removing-a-function-app-from-kubernetes"></a>Removendo um aplicativo de função do Kubernetes
+## <a name="removing-a-function-app-from-kubernetes"></a>Removendo um aplicativo de funções do kubernetes
 
-Depois de implantado, você pode remover `Deployment`uma `ScaledObject`função `Secrets` removendo o associado , um criado.
+Depois de implantar, você pode remover uma função removendo o `Deployment`associado `ScaledObject`,, `Secrets` um criado.
 
 ```cli
 kubectl delete deploy <name-of-function-deployment>
@@ -65,27 +65,27 @@ kubectl delete ScaledObject <name-of-function-deployment>
 kubectl delete secret <name-of-function-deployment>
 ```
 
-## <a name="uninstalling-keda-from-kubernetes"></a>Desinstalação de KEDA de Kubernetes
+## <a name="uninstalling-keda-from-kubernetes"></a>Desinstalando o KEDA do kubernetes
 
-As etapas para desinstalar o KEDA estão documentadas [no site keda](https://keda.sh/deploy/).
+As etapas para desinstalar o KEDA estão documentadas [no site do Keda](https://keda.sh/deploy/).
 
-## <a name="supported-triggers-in-keda"></a>Gatilhos suportados no KEDA
+## <a name="supported-triggers-in-keda"></a>Gatilhos com suporte no KEDA
 
-O KEDA tem suporte para os seguintes gatilhos da função Azure:
+O KEDA tem suporte para os seguintes gatilhos de função do Azure:
 
 * [Filas de Armazenamento do Azure](functions-bindings-storage-queue.md)
-* [Filas de ônibus de serviço do Azure](functions-bindings-service-bus.md)
-* [Azure Event / IoT Hubs](functions-bindings-event-hubs.md)
+* [Filas do barramento de serviço do Azure](functions-bindings-service-bus.md)
+* [Hub IoT/evento do Azure](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
-* [Fila rabbitmq](https://github.com/azure/azure-functions-rabbitmq-extension)
+* [RabbitMQ fila](https://github.com/azure/azure-functions-rabbitmq-extension)
 
-### <a name="http-trigger-support"></a>Suporte ao gatilho HTTP
+### <a name="http-trigger-support"></a>Suporte a gatilho HTTP
 
-Você pode usar funções do Azure que expõem gatilhos HTTP, mas o KEDA não os gerencia diretamente.  Você pode aproveitar o gatilho prometheus KEDA para [dimensionar as funções HTTP Azure de 1 a *n* instâncias](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42).
+Você pode usar Azure Functions que expõem gatilhos HTTP, mas KEDA não os gerencia diretamente.  Você pode aproveitar o gatilho KEDA Prometheus para [dimensionar Azure Functions http de 1 para *n* instâncias](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
-* [Crie uma função usando uma imagem personalizada](functions-create-function-linux-custom-image.md)
+* [Criar uma função usando uma imagem personalizada](functions-create-function-linux-custom-image.md)
 * [Codificar e testar o Azure Functions localmente](functions-develop-local.md)
-* [Como funciona o plano de consumo de funções do Azure](functions-scale.md)
+* [Como funciona o plano de consumo da função do Azure](functions-scale.md)

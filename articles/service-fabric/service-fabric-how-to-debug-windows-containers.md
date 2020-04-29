@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127611"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Como: Depurar contêineres do Windows no Azure Service Fabric usando o Visual Studio 2019
 
-Com o Visual Studio 2019, você pode depurar aplicativos .NET em contêineres como serviços de Malha de Serviço. Este artigo mostra como configurar seu ambiente e, em seguida, depurar um aplicativo .NET em um contêiner em execução em um cluster do Service Fabric local.
+Com o Visual Studio 2019, você pode depurar aplicativos .NET em contêineres como Service Fabric Services. Este artigo mostra como configurar seu ambiente e, em seguida, depurar um aplicativo .NET em um contêiner em execução em um cluster do Service Fabric local.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ Com o Visual Studio 2019, você pode depurar aplicativos .NET em contêineres co
 
 1. Verifique se que o serviço Docker for Windows está em execução antes de prosseguir com a próxima etapa.
 
-1. Para suportar a resolução de DNS entre contêineres, você terá que configurar seu cluster de desenvolvimento local, usando o nome da máquina. Essas etapas também são necessárias para serviços de endereço por meio do proxy reverso.
+1. Para dar suporte à resolução de DNS entre contêineres, você precisará configurar seu cluster de desenvolvimento local usando o nome do computador. Essas etapas também são necessárias para serviços de endereço por meio do proxy reverso.
    1. Abra o PowerShell como administrador
    2. Navegue até a pasta de instalação do Cluster do SDK, normalmente `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
    3. Execute o script `DevClusterSetup.ps1`
@@ -44,19 +44,19 @@ Com o Visual Studio 2019, você pode depurar aplicativos .NET em contêineres co
 
 Abaixo está uma lista de limitações conhecidas com contêineres de depuração no Service Fabric e as possíveis resoluções:
 
-* O uso do host local para ClusterFQDNorIP não suportará a resolução De DNS em contêineres.
+* Usar localhost para ClusterFQDNorIP não dará suporte à resolução de DNS em contêineres.
     * Resolução: configurar o cluster local usando o nome do computador (veja acima)
-* A execução do Windows10 em uma máquina virtual não receberá resposta de DNS de volta ao contêiner.
+* Executar o Windows10 em uma máquina virtual não fará a resposta DNS de volta para o contêiner.
     * Resolução: desabilitar o descarregamento de soma de verificação de UDP para IPv4 no NIC de Máquinas Virtuais
-    * A execução do Windows10 degradará o desempenho da rede na máquina.
+    * A execução de Windows10 diminuirá o desempenho da rede no computador.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* Resolver serviços no mesmo aplicativo usando o nome de serviço DNS não funciona no Windows10, se o aplicativo foi implantado usando o Docker Compose
+* Resolver serviços no mesmo aplicativo usando o nome do serviço DNS não funciona em Windows10, se o aplicativo tiver sido implantado usando Docker Compose
     * Resolução: use servicename.applicationname para resolver pontos de extremidade de serviço
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Se estiver usando o endereço IP para ClusterFQDNorIP, alterar o IP primário no host interromperá a funcionalidade DNS.
-    * Resolução: recrie o cluster usando o novo IP primário no host ou use o nome do computador. Esta quebra é por design.
-* Se o FQDN com o que o cluster foi criado não for solucionável na rede, o DNS falhará.
-    * Resolução: recrie o cluster local usando o IP primário do host. Esta falha é por design.
+    * Resolução: recrie o cluster usando o novo IP primário no host ou use o nome do computador. Essa quebra é por design.
+* Se o FQDN no qual o cluster foi criado não puder ser resolvido na rede, o DNS falhará.
+    * Resolução: recrie o cluster local usando o IP primário do host. Essa falha é por design.
 * Durante a depuração de um contêiner, os logs de docker só estarão disponíveis na janela de saída do Visual Studio, não por meio de APIs do Service Fabric, incluindo o Service Fabric Explorer
 
 ## <a name="debug-a-net-application-running-in-docker-containers-on-service-fabric"></a>Depurar um aplicativo .NET em execução em contêineres do docker no Service Fabric
@@ -67,9 +67,9 @@ Abaixo está uma lista de limitações conhecidas com contêineres de depuraçã
 
 1. Clique com o botão direito do mouse no projeto e selecione **Adicionar -> Suporte de Orquestrador de Contêineres -> Service Fabric**
 
-1. Pressione **F5** para começar a depurar o aplicativo.
+1. Pressione **F5** para iniciar a depuração do aplicativo.
 
     O Visual Studio oferece suporte ao console e aos tipos de projeto de ASP.NET para .NET e .NET Core.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre os recursos do Service Fabric e dos contêineres, consulte [a visão geral dos contêineres Service Fabric](service-fabric-containers-overview.md).
+Para saber mais sobre os recursos de Service Fabric e contêineres, consulte [visão geral de contêineres de Service Fabric](service-fabric-containers-overview.md).

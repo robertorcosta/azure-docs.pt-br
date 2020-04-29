@@ -9,23 +9,23 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 68260bf8aafbbe5afd46ec7dfb763eb88ee2123e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78893040"
 ---
-Nesta seção, você usa o Azure CLI para criar uma identidade de dispositivo para este artigo. As IDs de Dispositivo diferenciam maiúsculas de minúsculas.
+Nesta seção, você usa o CLI do Azure para criar uma identidade de dispositivo para este artigo. As IDs de Dispositivo diferenciam maiúsculas de minúsculas.
 
-1. Abra [a Cloud Shell Do Azure](https://shell.azure.com/).
+1. Abra o [Azure Cloud Shell](https://shell.azure.com/).
 
-1. No Azure Cloud Shell, execute o seguinte comando para instalar a extensão De IoT do Microsoft Azure para Azure CLI:
+1. No Azure Cloud Shell, execute o seguinte comando para instalar a extensão de IoT Microsoft Azure para CLI do Azure:
 
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
 
-2. Crie uma nova `myDeviceId` identidade de dispositivo chamada e recupere a seqüência de conexão do dispositivo com esses comandos:
+2. Crie uma nova identidade de dispositivo `myDeviceId` chamada e recupere a cadeia de conexão do dispositivo com estes comandos:
 
     ```azurecli-interactive
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}

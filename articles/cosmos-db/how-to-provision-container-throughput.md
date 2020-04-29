@@ -1,29 +1,29 @@
 ---
 title: Provisionar taxa de transferência de contêiner no Azure Cosmos DB
-description: Aprenda a provisionar o throughput no nível de contêiner no Azure Cosmos DB usando o portal Azure, CLI, PowerShell e vários outros SDKs.
+description: Saiba como provisionar a taxa de transferência no nível de contêiner em Azure Cosmos DB usando portal do Azure, CLI, PowerShell e vários outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
 ms.openlocfilehash: e416501cb3c532b3ba0a262442b35b236875a463
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273288"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionar a taxa de transferência em um contêiner do Azure Cosmos
 
-Este artigo explica como provisionar a taxa de transferência em um contêiner (coleção, grafo, tabela) no Azure Cosmos DB. Você pode provisionramento de throughput em um único contêiner ou [provisionamento de throughput em um banco de dados](how-to-provision-database-throughput.md) e compartilhá-lo entre os contêineres dentro do banco de dados. É possível provisionar a taxa de transferência em um contêiner usando o portal do Azure, a CLI do Azure ou SDKs do Azure Cosmos DB.
+Este artigo explica como provisionar a taxa de transferência em um contêiner (coleção, grafo, tabela) no Azure Cosmos DB. Você pode provisionar a produtividade em um único contêiner ou [provisionar a taxa de transferência em um banco de dados](how-to-provision-database-throughput.md) e compartilhá-lo entre os contêineres no banco de dados. É possível provisionar a taxa de transferência em um contêiner usando o portal do Azure, a CLI do Azure ou SDKs do Azure Cosmos DB.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. [Crie uma conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
 
-1. Abra o painel **data explorer** e selecione **Nova coleção**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **Data Explorer** e selecione **nova coleção**. Em seguida, forneça os seguintes detalhes:
 
    * Indique se você está criando um banco de dados ou usando um existente.
    * Insira uma ID de contêiner (ou de tabela ou de grafo).
@@ -33,12 +33,12 @@ Este artigo explica como provisionar a taxa de transferência em um contêiner (
 
     ![Captura de tela do Data Explorer, com Nova coleção realçado](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="azure-cli-or-powershell"></a>Azure CLI ou PowerShell
+## <a name="azure-cli-or-powershell"></a>CLI do Azure ou PowerShell
 
-Para criar um contêiner com throughput dedicado ver,
+Para criar um contêiner com taxa de transferência dedicada, consulte
 
 * [Criar um contêiner usando a CLI do Azure](manage-with-cli.md#create-a-container)
-* [Crie um recipiente usando o Powershell](manage-with-powershell.md#create-container)
+* [Criar um contêiner usando o PowerShell](manage-with-powershell.md#create-container)
 
 > [!Note]
 > Se você estiver provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a API do Azure Cosmos DB para MongoDB, use `/myShardKey` para o caminho da chave de partição. Se você estiver provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a API do Cassandra, use `/myPrimaryKey` para o caminho da chave de partição.
@@ -96,9 +96,9 @@ offer.content.offerThroughput = 2000;
 await client.offer(offer.id).replace(offer);
 ```
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Cassandra API
+### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>API Cassandra
 
-Comandos semelhantes podem ser emitidos através de qualquer driver compatível com CQL.
+Comandos semelhantes podem ser emitidos por meio de qualquer driver compatível com CQL.
 
 ```csharp
 // Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
@@ -108,7 +108,7 @@ session.Execute("CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=400");
 
 ```
-### <a name="alter-or-change-throughput-for-cassandra-table"></a>Alterar ou alterar o throughput para a tabela de Cassandra
+### <a name="alter-or-change-throughput-for-cassandra-table"></a>Alterar ou alterar a taxa de transferência para a tabela Cassandra
 
 ```csharp
 // Altering the throughput too can be done through code by issuing following command

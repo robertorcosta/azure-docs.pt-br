@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: menchi
 ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303589"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Entender e usar módulos gêmeos no Hub IoT
@@ -45,7 +45,7 @@ O ciclo de vida de um módulo gêmeo está vinculado a correspondente [identidad
 
 Um módulo gêmeo é um documento JSON que inclui:
 
-* **Tags**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcações não são visíveis para os módulos no dispositivo. As marcações são definidas para fins de consulta.
+* **Marcações**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcações não são visíveis para os módulos no dispositivo. As marcações são definidas para fins de consulta.
 
 * **Propriedades desejadas**. Usado junto com as propriedades relatadas para sincronizar a configuração ou condições de módulo. O back-end da solução pode definir as propriedades desejadas e o aplicativo de módulo pode lê-las. O aplicativo do módulo também pode receber notificações de alterações nas propriedades desejadas.
 
@@ -113,7 +113,7 @@ No exemplo anterior, o módulo gêmeo contém uma propriedade `batteryLevel` que
 
 ### <a name="desired-property-example"></a>Exemplo da propriedade desejada
 
-No exemplo anterior, as propriedades relatadas e desejadas do módulo gêmeo `telemetryConfig` são usadas pelo aplicativo do módulo e pelo back-end da solução para sincronizar a configuração de telemetria para o módulo em questão. Por exemplo: 
+No exemplo anterior, as propriedades relatadas e desejadas do módulo gêmeo `telemetryConfig` são usadas pelo aplicativo do módulo e pelo back-end da solução para sincronizar a configuração de telemetria para o módulo em questão. Por exemplo:
 
 1. O back-end da solução define a propriedade desejada com o valor de configuração desejado. Aqui está a parte do documento com o conjunto de propriedades desejado:
 
@@ -236,15 +236,15 @@ Os [SDKs do dispositivo IoT do Azure](iot-hub-devguide-sdks.md) facilitam o uso 
 
 Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
-* **Teclas**: Todas as teclas em objetos JSON são sensíveis a maiúsculas e minúsculas 64 bytes UTF-8 UNICODE strings. Caracteres permitidos excluir caracteres de controle UNICODE (segmentos C0 e C1) e `.`, SP, e `$`.
+* **Chaves**: todas as chaves em objetos JSON diferenciam maiúsculas de minúsculas 64 bytes de cadeia de caracteres Unicode UTF-8. Caracteres permitidos excluir caracteres de controle UNICODE (segmentos C0 e C1) e `.`, SP, e `$`.
 
-* **Valores**: Todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booleano, número, string, objeto. Não há permissão para matrizes.
+* **Valores**: todos os valores em objetos JSON podem ser dos seguintes tipos JSON: booliano, número, Cadeia de caracteres, objeto. Não há permissão para matrizes.
 
-    * Os inteiros podem ter um valor mínimo de -4503599627370496 e um valor máximo de 4503599627370495.
+    * Os inteiros podem ter um valor mínimo de-4503599627370496 e um valor máximo de 4503599627370495.
 
-    * Os valores das cordas são codificados utf-8 e podem ter um comprimento máximo de 512 bytes.
+    * Os valores de cadeia de caracteres são codificados em UTF-8 e podem ter um comprimento máximo de 512 bytes.
 
-* **Profundidade**: Todos os objetos JSON em tags, desejados e propriedades relatadas podem ter uma profundidade máxima de 5. Por exemplo, o seguinte objeto é válido:
+* **Profundidade**: todos os objetos JSON em marcas, propriedades desejadas e relatadas podem ter uma profundidade máxima de 5. Por exemplo, o seguinte objeto é válido:
 
     ```json
     {
@@ -268,26 +268,26 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
 
 ## <a name="module-twin-size"></a>Tamanho do módulo gêmeo
 
-O IoT Hub impõe um limite de `tags`tamanho de 8 KB no valor de `properties/desired` `properties/reported`, e um limite de tamanho de 32 KB cada um no valor de e . Esses totais são exclusivos de `$etag`elementos somente leitura, como , `$version`e `$metadata/$lastUpdated`.
+O Hub IoT impõe um limite de tamanho de 8 KB no valor de `tags`e um limite de tamanho de 32 KB, cada um com `properties/desired` o `properties/reported`valor de e. Esses totais são exclusivos de elementos somente leitura como `$etag`, `$version`e. `$metadata/$lastUpdated`
 
-O tamanho duplo é calculado da seguinte forma:
+O tamanho do papel é calculado da seguinte maneira:
 
-* Para cada propriedade no documento JSON, o IoT Hub computa cumulativamente e adiciona o comprimento da chave e do valor da propriedade.
+* Para cada propriedade no documento JSON, o Hub IoT computa cumulativamente e adiciona o comprimento da chave e do valor da propriedade.
 
-* As chaves de propriedade são consideradas como strings codificadas pelo UTF8.
+* As chaves de propriedade são consideradas cadeias de caracteres codificadas em UTF8.
 
-* Valores de propriedade simples são considerados como strings codificadas por UTF8, valores numéricos (8 Bytes) ou valores booleanos (4 Bytes).
+* Valores de propriedade simples são considerados cadeias de caracteres codificadas em UTF8, valores numéricos (8 bytes) ou valores Boolianos (4 bytes).
 
-* O tamanho das strings codificadas pelo UTF8 é calculado contando todos os caracteres, excluindo caracteres de controle UNICODE (segmentos C0 e C1).
+* O tamanho das cadeias de caracteres codificadas em UTF8 é calculado por meio da contagem de todos os caracteres, excluindo caracteres de controle UNICODE (segmentos C0 e C1).
 
-* Os valores de propriedade complexos (objetos aninhados) são calculados com base no tamanho agregado das chaves de propriedade e valores de propriedade que eles contêm.
+* Valores de propriedade complexos (objetos aninhados) são calculados com base no tamanho agregado das chaves de propriedade e dos valores de propriedade que eles contêm.
 
 O Hub IoT rejeita com erro todas as operações que podem aumentar o tamanho desses documentos acima do limite.
 
 ## <a name="module-twin-metadata"></a>Metadados do módulo gêmeo
 
 O Hub IoT mantém o carimbo de data e hora da última atualização de cada objeto JSON nas propriedades desejadas e reportadas do módulo gêmeo. Os carimbos de data e hora estão em UTC e são codificados no formato [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Por exemplo: 
+Por exemplo:
 
 ```json
 {
@@ -339,7 +339,7 @@ Essas informações são armazenadas em cada nível (não apenas nas folhas da e
 ## <a name="optimistic-concurrency"></a>Simultaneidade otimista
 
 Marcas, propriedades desejadas e reportadas oferecem suporte à simultaneidade otimista.
-As tags possuem uma ETag, conforme [RFC7232](https://tools.ietf.org/html/rfc7232), que representa a representação JSON da tag. Você pode usar ETags em operações de atualização condicionais do back-end da solução para garantir a consistência.
+As marcas têm uma ETag, de acordo com a [RFC7232](https://tools.ietf.org/html/rfc7232), que representa a representação JSON da marca. Você pode usar ETags em operações de atualização condicionais do back-end da solução para garantir a consistência.
 
 As propriedades desejadas e reportadas do módulo gêmeo não têm as ETags, mas um valor `$version` com garantia de ser incremental. De forma semelhante a uma ETag, a versão pode ser usada pela parte de atualização para impor a consistência das atualizações. Por exemplo, um aplicativo de módulo para uma propriedade relatada ou o back-end de solução para uma propriedade desejada.
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Threat Modeling Tool lançamento 12/09/2018
+title: Versão de Microsoft Threat Modeling Tool 9/12/2018
 titleSuffix: Azure
 description: Documentando as notas sobre a versão da Threat Modeling Tool
 author: jegeib
@@ -9,15 +9,15 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78269909"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Versão 7.1.50911.2 da Threat Modeling Tool de disponibilidade geral – 12/09/2018
 
-Estamos felizes em anunciar que a Microsoft Threat Modeling Tool agora está disponível para download como uma versão de disponibilidade geral com suporte. Essa versão contém atualizações importantes de privacidade e segurança, além de correções de bug, atualizações de recurso e melhorias de estabilidade. Os usuários existentes da versão prévia de 2017 serão solicitados a atualizar para a versão mais recente usando a tecnologia ClickOnce depois de abrir o cliente. Para novos usuários da ferramenta, você pode [baixar o cliente.](https://aka.ms/threatmodelingtool)
+Estamos felizes em anunciar que a Microsoft Threat Modeling Tool agora está disponível para download como uma versão de disponibilidade geral com suporte. Essa versão contém atualizações importantes de privacidade e segurança, além de correções de bug, atualizações de recurso e melhorias de estabilidade. Os usuários existentes da versão prévia de 2017 serão solicitados a atualizar para a versão mais recente usando a tecnologia ClickOnce depois de abrir o cliente. Para novos usuários da ferramenta, você pode [baixar o cliente](https://aka.ms/threatmodelingtool).
 
 Com esta versão, estamos encerrando o suporte da versão prévia de 2017 e recomendamos que todos os usuários dela atualizem para a versão de disponibilidade geral. Em 15 de outubro de 2018 ou após essa data, definiremos a versão mínima do ClickOnce necessária para a Threat Modeling Tool. Todos os clientes da versão prévia deverão atualizar.
 
@@ -75,7 +75,7 @@ Os usuários do OneDrive são incentivados a usar o cliente [OneDrive para Windo
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>Minha organização usa a versão de 2016 da ferramenta, posso usar o conjunto de estênceis do Azure?
 
-Sim, você pode. O [conjunto de estêncil Azure está disponível no GitHub](https://github.com/Microsoft/threat-modeling-templates/), e pode ser carregado na versão 2016 da ferramenta. Para criar um modelo com o conjunto de estênceis do Azure, use a caixa de diálogo "Modelo para novos modelos" na tela do menu principal. A TMT 2016 não pode renderizar os links encontrados nos campos "Possíveis Mitigações" do conjunto de estênceis do Azure, portanto os links poderão ser exibidos como marcas HTML.
+Sim, você pode. O [conjunto de estênceis do Azure está disponível no GitHub](https://github.com/Microsoft/threat-modeling-templates/)e pode ser carregado na versão 2016 da ferramenta. Para criar um modelo com o conjunto de estênceis do Azure, use a caixa de diálogo "Modelo para novos modelos" na tela do menu principal. A TMT 2016 não pode renderizar os links encontrados nos campos "Possíveis Mitigações" do conjunto de estênceis do Azure, portanto os links poderão ser exibidos como marcas HTML.
 
 ![Atualizações de estêncil do Azure no cliente de 2016](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
@@ -84,7 +84,7 @@ Sim, você pode. O [conjunto de estêncil Azure está disponível no GitHub](htt
 - Sistemas operacionais com suporte
   - Microsoft Windows 10
 - Versão necessária do .NET
-  - .NET 3.5.2
+  - 3.5.2 .NET
 - Requisitos adicionais
   - Uma conexão de Internet é necessária para receber as atualizações da ferramenta e também os modelos.
 

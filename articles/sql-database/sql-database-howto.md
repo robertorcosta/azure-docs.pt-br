@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
 ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79209414"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Como usar o Banco de Dados SQL do Azure
@@ -27,7 +27,7 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Copiar um banco de dados individual ou em pool dentro do Azure](sql-database-copy.md)
 - [Importar um BD de um BACPAC](sql-database-import.md)
 - [Exportar um BD de um BACPAC](sql-database-export.md)
-- [Carregar dados com BCP](sql-database-load-from-csv-with-bcp.md)
+- [Carregar dados com o BCP](sql-database-load-from-csv-with-bcp.md)
 - [Carregar dados com o ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Sincronização de dados
@@ -46,7 +46,7 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 - [Usar o Repositório de Consultas para monitorar o desempenho](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Solucionar problemas de desempenho com o Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Usar o log de diagnóstico do Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md)
-- [Monitorar o espaço OLTP in-memory](sql-database-in-memory-oltp-monitoring.md)
+- [Monitorar o espaço OLTP na memória](sql-database-in-memory-oltp-monitoring.md)
 
 ### <a name="extended-events"></a>Eventos estendidos
 
@@ -57,7 +57,7 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 ## <a name="configure-features"></a>Configurar recursos
 
 - [Configurar a autenticação do Azure AD](sql-database-aad-authentication-configure.md)
-- [Configurar acesso condicional](sql-database-conditional-access.md)
+- [Configurar o acesso condicional](sql-database-conditional-access.md)
 - [Autenticação multifator do AAD](sql-database-ssms-mfa-authentication.md)
 - [Configurar autenticação multifator](sql-database-ssms-mfa-authentication-configure.md)
 - [Configurar a política de retenção temporal](sql-database-temporal-tables-retention-policy.md)
@@ -71,10 +71,10 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 
 - [Conectividade](sql-database-libraries.md)
 - [Usar o Conector do Spark](sql-database-spark-connector.md)
-- [Aplicativo de autenticação](sql-database-client-id-keys.md)
+- [Autenticar aplicativo](sql-database-client-id-keys.md)
 - [Usar o envio em lote para obter melhor desempenho](sql-database-use-batching-to-improve-performance.md)
 - [Diretrizes de conectividade](sql-database-connectivity-issues.md)
-- [Aliases DNS](dns-alias-overview.md)
+- [Aliases de DNS](dns-alias-overview.md)
 - [Configurar PowerShell de alias do DNS](dns-alias-powershell.md)
 - [Portas - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C e C ++](sql-database-develop-cplusplus-simple.md)
@@ -89,8 +89,8 @@ Nesta seção, é possível encontrar vários guias, scripts e explicações que
 ### <a name="design-multi-tenant-saas-applications"></a>Design de aplicativos SaaS multilocatários
 
 - [Padrões de design do SaaS](saas-tenancy-app-design-patterns.md)
-- [Video Indexer de SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
-- [Segurança de aplicativo SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
+- [Indexador de vídeo de SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [Segurança de aplicativo de SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

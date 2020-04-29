@@ -1,7 +1,7 @@
 ---
-title: Ingestão de dados com fábrica de dados do Azure
+title: Ingestão de dados com o Azure Data Factory
 titleSuffix: Azure Machine Learning
-description: Saiba como construir um pipeline de ingestão de dados com a Fábrica de Dados Azure.
+description: Saiba como criar um pipeline de ingestão de dados com Azure Data Factory.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,92 +12,92 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.openlocfilehash: 5b4ed40048aab815397c9726098880b2125b732c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78274782"
 ---
-# <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com fábrica de dados do Azure
+# <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com o Azure Data Factory
 
-Neste artigo, você aprende a construir um pipeline de ingestão de dados com a Azure Data Factory (ADF). Este pipeline é usado para ingerir dados para uso com o Azure Machine Learning. A Fábrica de Dados do Azure permite extrair, transformar e carregar facilmente dados (ETL). Uma vez que os dados foram transformados e carregados em armazenamento, ele pode ser usado para treinar seus modelos de aprendizado de máquina.
+Neste artigo, você aprenderá a criar um pipeline de ingestão de dados com o Azure Data Factory (ADF). Esse pipeline é usado para ingerir dados para uso com Azure Machine Learning. Azure Data Factory permite que você extraia, transforme e carregue dados (ETL) facilmente. Depois que os dados tiverem sido transformados e carregados no armazenamento, eles poderão ser usados para treinar seus modelos de aprendizado de máquina.
 
-A simples transformação de dados pode ser tratada com atividades e instrumentos nativos do ADF, como [o fluxo de dados.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity) Quando se trata de cenários mais complicados, os dados podem ser processados com algum código personalizado. Por exemplo, código Python ou R.
+A transformação de dados simples pode ser tratada com atividades e instrumentos do ADF nativo, como o [fluxo de dados](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity). Quando se trata de cenários mais complicados, os dados podem ser processados com algum código personalizado. Por exemplo, Python ou código R.
 
-Existem várias técnicas comuns de usar o Azure Data Factory para transformar dados durante a ingestão. Cada técnica tem prós e contras que determinam se é um bom ajuste para um caso de uso específico:
+Há várias técnicas comuns de usar Azure Data Factory para transformar dados durante a ingestão. Cada técnica tem prós e contras que determinam se é uma boa opção para um caso de uso específico:
 
 | Técnica | Vantagens | Desvantagens |
 | ----- | ----- | ----- |
-| Funções ADF + Azure | Baixa latência, computação sem servidor</br>Funções imponentes</br>Funções reutilizáveis | Só é bom para processamento em curto prazo |
-| ADF + componente personalizado | Computação paralela em larga escala</br>Adequado para algoritmos pesados | Código de embrulho em um executável</br>Complexidade de lidar com dependências e IO |
-| Notebook ADF + Azure Databricks | Apache Spark</br>Ambiente Python nativo | Pode ser caro</br>Criar clusters inicialmente leva tempo e adiciona latência
+| ADF + Azure Functions | Computação sem servidor de baixa latência</br>Funções com estado</br>Funções reutilizáveis | Só bom para processamento de execução curta |
+| ADF + componente personalizado | Computação paralela em larga escala</br>Adequado para algoritmos pesados | Encapsulando código em um executável</br>Complexidade de lidar com dependências e e/s |
+| ADF + Azure Databricks Notebook | Apache Spark</br>Ambiente de Python nativo | Pode ser caro</br>A criação de clusters inicialmente leva tempo e adiciona latência
 
-## <a name="adf-with-azure-functions"></a>ADF com funções do Azure
+## <a name="adf-with-azure-functions"></a>ADF com o Azure Functions
 
-![adf-função](media/how-to-data-ingest-adf/adf-function.png)
+![AAD-função](media/how-to-data-ingest-adf/adf-function.png)
 
-O Azure Functions permite executar pequenos pedaços de código (funções) sem se preocupar com a infra-estrutura do aplicativo. Nesta opção, os dados são processados com código Python personalizado embrulhado em uma função Azure. 
+Azure Functions permite que você execute pequenas partes de código (funções) sem se preocupar com a infraestrutura do aplicativo. Nessa opção, os dados são processados com o código Python personalizado encapsulado em uma função do Azure. 
 
-A função é invocada com a [atividade aDF Azure Function](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). Essa abordagem é uma boa opção para transformações de dados leves. 
+A função é invocada com a [atividade de função do Azure do ADF](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity). Essa abordagem é uma boa opção para transformações de dados leves. 
 
 * Prós:
-    * Os dados são processados em um cálculo sem servidor com uma latência relativamente baixa
-    * O pipeline ADF pode invocar uma [função Azure durável](/azure/azure-functions/durable/durable-functions-overview) que pode implementar um fluxo de transformação de dados sofisticado 
-    * Os detalhes da transformação de dados são abstratos pela Função Azure que pode ser reutilizada e invocada de outros lugares
+    * Os dados são processados em uma computação sem servidor com uma latência relativamente baixa
+    * O pipeline do ADF pode invocar uma [função durável do Azure](/azure/azure-functions/durable/durable-functions-overview) que pode implementar um fluxo de transformação de dados sofisticado 
+    * Os detalhes da transformação de dados são dissociados para fora da função do Azure que podem ser reutilizados e invocados de outros locais
 * Contras:
-    * As funções do Azure devem ser criadas antes de serem usados com o ADF
-    * Funções do Azure é bom apenas para processamento de dados em curto prazo
+    * O Azure Functions deve ser criado antes do uso com o ADF
+    * Azure Functions é bom somente para processamento de dados de execução curta
 
-## <a name="adf-with-custom-component-activity"></a>ADF com atividade de componentes personalizados
+## <a name="adf-with-custom-component-activity"></a>ADF com atividade de componente Personalizada
 
-![adf-customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![ADF-customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
-Nesta opção, os dados são processados com código Python personalizado embrulhado em um executável. Ele é invocado com uma [atividade de componente personalizado ADF](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). Esta abordagem é mais adequada para dados grandes do que a técnica anterior.
+Nessa opção, os dados são processados com o código Python personalizado encapsulado em um executável. Ele é invocado com uma [atividade de componente Personalizada do ADF](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). Essa abordagem é uma melhor opção para dados grandes do que a técnica anterior.
 
 * Prós:
-    * Os dados são processados no [pool Azure Batch,](https://docs.microsoft.com/azure/batch/batch-technical-overview) que fornece computação paralela e de alto desempenho em larga escala
+    * Os dados são processados no pool [do lote do Azure](https://docs.microsoft.com/azure/batch/batch-technical-overview) , que fornece computação em larga escala paralela e de alto desempenho
     * Pode ser usado para executar algoritmos pesados e processar quantidades significativas de dados
 * Contras:
-    * A piscina azure Batch deve ser criada antes de usar com a ADF
-    * Sobre a engenharia relacionada ao embrulho do código Python em um executável. Complexidade do manuseio de dependências e parâmetros de entrada/saída
+    * O pool do lote do Azure deve ser criado antes do uso com o ADF
+    * Sobre a engenharia relacionada à disposição do código Python em um executável. Complexidade de tratamento de dependências e parâmetros de entrada/saída
 
-## <a name="adf-with-azure-databricks-python-notebook"></a>ADF com notebook Python Databricks Azure
+## <a name="adf-with-azure-databricks-python-notebook"></a>ADF com Azure Databricks Notebook Python
 
-![adf-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
+![ADF-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
 
-[O Azure Databricks](https://azure.microsoft.com/services/databricks/) é uma plataforma de análise baseada em Apache Spark na nuvem da Microsoft.
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) é uma plataforma de análise baseada em Apache Spark no Microsoft Cloud.
 
-Nesta técnica, a transformação de dados é realizada por um [notebook Python](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook), executado em um cluster Azure Databricks. Esta é provavelmente a abordagem mais comum que aproveita todo o poder de um serviço Azure Databricks. Ele foi projetado para o processamento de dados distribuídos em escala.
+Nessa técnica, a transformação de dados é executada por um [Notebook Python](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook), em execução em um cluster Azure Databricks. Isso é provavelmente, a abordagem mais comum que aproveita todo o poder de um serviço de Azure Databricks. Ele foi projetado para processamento de dados distribuídos em escala.
 
 * Prós:
-    * Os dados são transformados no serviço azure de processamento de dados mais poderoso, que é apoiado pelo ambiente Apache Spark
-    * Suporte nativo do Python, juntamente com frameworks e bibliotecas de ciência de dados, incluindo TensorFlow, PyTorch e scikit-learn
-    * Não há necessidade de envolver o código Python em funções ou módulos executáveis. O código funciona como está.
+    * Os dados são transformados no serviço de processamento de dados mais potente do Azure, cujo backup é feito por Apache Spark ambiente
+    * Suporte nativo do Python juntamente com estruturas e bibliotecas de ciência de dados, incluindo TensorFlow, PyTorch e scikit-Learn
+    * Não é necessário encapsular o código Python em funções ou módulos executáveis. O código funciona como está.
 * Contras:
-    * A infra-estrutura do Azure Databricks deve ser criada antes de ser usada com o ADF
+    * A infraestrutura de Azure Databricks deve ser criada antes do uso com o ADF
     * Pode ser caro dependendo da configuração do Azure Databricks
-    * Girar clusters de computação do modo "frio" leva algum tempo que traz alta latência para a solução 
+    * A rotação de clusters de computação do modo "frio" leva algum tempo que leva alta latência para a solução 
     
 
-## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Consumindo dados em pipelines de Machine Learning do Azure
+## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Consumindo dados em pipelines de Azure Machine Learning
 
-![conjunto de dados aml](media/how-to-data-ingest-adf/aml-dataset.png)
+![AML-conjunto de uma](media/how-to-data-ingest-adf/aml-dataset.png)
 
-Os dados transformados do pipeline ADF são salvos no armazenamento de dados (como o Azure Blob). O Azure Machine Learning pode acessar esses dados usando [datastores](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) e [conjuntos de dados](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
+Os dados transformados do pipeline do ADF são salvos no armazenamento de dados (como o blob do Azure). Azure Machine Learning pode acessar esses dados usando os [armazenamentos](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) e os [DataSets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
-Cada vez que o pipeline ADF é executado, os dados são salvos em um local diferente no armazenamento. Para passar a localização para o Azure Machine Learning, o pipeline aDF chama um pipeline de Machine Learning do Azure. Ao chamar o pipeline ML, a localização dos dados e o ID de execução são enviados como parâmetros. O pipeline ML pode então criar um conjunto de dados/conjunto de dados usando a localização dos dados. 
+Cada vez que o pipeline do ADF é executado, os dados são salvos em um local diferente no armazenamento. Para passar o local para Azure Machine Learning, o pipeline do ADF chama um pipeline de Azure Machine Learning. Ao chamar o pipeline de ML, o local de dados e a ID de execução são enviados como parâmetros. O pipeline ML pode, então, criar um datastore/DataSet usando o local de dados. 
 
 > [!TIP]
-> Os conjuntos de dados [suportam a versão](https://docs.microsoft.com/azure/machine-learning/how-to-version-track-datasets), para que o pipeline ML possa registrar uma nova versão do conjunto de dados que aponta para os dados mais recentes do pipeline ADF.
+> Os conjuntos de dados [dão suporte ao controle de versão](https://docs.microsoft.com/azure/machine-learning/how-to-version-track-datasets), de modo que o pipeline ml pode registrar uma nova versão do conjunto de dados que aponta para o dado mais recente do pipeline do ADF.
 
-Uma vez que os dados são acessíveis através de um datastore ou conjunto de dados, você pode usá-los para treinar um modelo ML. O processo de treinamento pode fazer parte do mesmo gasoduto ML que é chamado de ADF. Ou pode ser um processo separado, como experimentação em um caderno jupyter.
+Depois que os dados estiverem acessíveis por meio de um datastore ou DataSet, você poderá usá-los para treinar um modelo de ML. O processo de treinamento pode fazer parte do mesmo pipeline ML chamado do ADF. Ou pode ser um processo separado, como experimentação em um notebook Jupyter.
 
-Uma vez que os conjuntos de dados suportam a versão, e cada execução do pipeline cria uma nova versão, é fácil entender qual versão dos dados foi usada para treinar um modelo.
+Como os conjuntos de dados dão suporte ao controle de versão e cada execução do pipeline cria uma nova versão, é fácil entender qual versão dos dados foi usada para treinar um modelo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Execute um notebook Databricks na Fábrica de Dados do Azure](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook)
-* [Dados de acesso em serviços de armazenamento do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)
-* [Treinar modelos com conjuntos de dados no Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
+* [Executar um bloco de anotações do databricks no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook)
+* [Acessar dados nos serviços de armazenamento do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores)
+* [Treinar modelos com conjuntos de os Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
 * [DevOps para um pipeline de ingestão de dados](https://docs.microsoft.com/azure/machine-learning/how-to-cicd-data-ingestion)
 

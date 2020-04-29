@@ -1,15 +1,15 @@
 ---
-title: Gerenciar contêineres Linux personalizados com CLI
-description: Aprenda a gerenciar contêineres Linux personalizados no Azure App Service a partir da linha de comando. Automatize o provisionamento ou manutenção de aplicativos.
+title: Gerenciar contêineres personalizados do Linux com a CLI
+description: Saiba como gerenciar contêineres personalizados do Linux no serviço Azure App na linha de comando. Automatize o provisionamento ou a manutenção de aplicativos.
 keywords: serviço de aplicativo do azure, aplicativo web, cli, linux, oss
 ms.topic: article
 ms.date: 08/22/2017
 ms.custom: seodec18
 ms.openlocfilehash: 5ca5322467402af710df68c82d747f8f8d65e142
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78255934"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerenciar aplicativo Web para Contêineres usando a CLI do Azure
@@ -98,4 +98,4 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Instalar a CLI do Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (versão prévia)](../../cloud-shell/overview.md)
 * [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implantação contínua com web app para contêineres](app-service-linux-ci-cd.md)
+* [Implantação contínua com Aplicativo Web para Contêineres](app-service-linux-ci-cd.md)

@@ -1,6 +1,6 @@
 ---
-title: DIREITO no azure Cosmos DB linguagem de consulta
-description: Saiba mais sobre a função do sistema SQL DIREITO no Azure Cosmos DB.
+title: DIRETAMENTE na linguagem de consulta Azure Cosmos DB
+description: Saiba mais sobre a função do sistema SQL no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 247616d2ac4f2a5799a5896d679f6e6d5917d5a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302144"
 ---
 # <a name="right-azure-cosmos-db"></a>DIREITA (Azure Cosmos DB)
@@ -26,7 +26,7 @@ RIGHT(<str_expr>, <num_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É a expressão de string para extrair caracteres de.  
+   É a expressão de cadeia de caracteres da qual extrair caracteres.  
   
 *num_expr*  
    É uma expressão numérica que especifica o número de caracteres.  
@@ -51,10 +51,10 @@ SELECT RIGHT("abc", 1) AS r1, RIGHT("abc", 2) AS r2
 
 ## <a name="remarks"></a>Comentários
 
-Esta função do sistema não utilizará o índice.
+Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções de string Azure Cosmos DB](sql-query-string-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
+- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

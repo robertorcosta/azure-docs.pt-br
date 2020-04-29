@@ -1,6 +1,6 @@
 ---
-title: Regras de saída - Azure Load Balancer
-description: Com esse caminho de aprendizado, comece a usar as regras de saída para definir traduções de endereços de rede de saída.
+title: Regras de saída-Azure Load Balancer
+description: Com este roteiro de aprendizagem, comece a usar as regras de saída para definir as conversões de endereço de rede de saída.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
 ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78304184"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Load Balancer
@@ -34,7 +34,7 @@ Regras de saída permitem que você controle:
 - como [portas SNAT de saída](load-balancer-outbound-connections.md#snat) devem ser alocadas.
 - para quais protocolos fornecer conversão de saída.
 - qual duração usar para o tempo limite de ociosidade da conexão de saída (4-120 minutos).
-- quer enviar um TCP Reset no tempo de tempo inocioso
+- Se deseja enviar uma redefinição de TCP no tempo limite ocioso
 
 Regras de saída expandem o [cenário 2](load-balancer-outbound-connections.md#lb) descrito no artigo [conexões de saída](load-balancer-outbound-connections.md) e a precedência de cenário permanece como no estado em que se encontra.
 
@@ -42,7 +42,7 @@ Regras de saída expandem o [cenário 2](load-balancer-outbound-connections.md#l
 
 Como todas as regras do Load Balancer, regras de saída seguem a mesma sintaxe familiar que regras NAT de entrada e balanceamento de carga:
 
-**frontend** + **piscina de backend parâmetros** + **backend pool** frontend
+**frontend** + **parameters** + **pool de back-end** de parâmetros de frontend
 
 Uma regra de saída configura o NAT de saída para _todas as máquinas virtuais identificadas pelo pool de back-end_ a serem convertidas no _front-end_.  Os _parâmetros_ fornecem controle refinado adicional sobre o algoritmo NAT de saída.
 
@@ -83,9 +83,9 @@ Use o parâmetro a seguir para alocar 10.000 portas SNAT por VM (configuração 
 
           "allocatedOutboundPorts": 10000
 
-Cada endereço IP público de todos os front-ends de uma regra de saída contribui com até 64.000 portas efêmeras para serem usadas como portas SNAT.  O Load Balancer aloca portas SNAT em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada.  Se você tentar alocar mais portas SNAT do que estão disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e 7 VMs em um pool de backend compartilharia um único endereço IP público, a configuração seria rejeitada (7 x 10.000 portas SNAT > 64.000 portas SNAT).  Você pode adicionar mais endereços de IP ao front-end da regra de saída para habilitar o cenário.
+Cada endereço IP público de todos os front-ends de uma regra de saída contribui com até 64.000 portas efêmeras para serem usadas como portas SNAT.  O Load Balancer aloca portas SNAT em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada.  Se você tentar alocar mais portas SNAT do que estão disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e 7 VMs em um pool de back-end compartilharão um único endereço IP público, a configuração será rejeitada (7 x 10.000 portas SNAT > 64.000 portas SNAT).  Você pode adicionar mais endereços de IP ao front-end da regra de saída para habilitar o cenário.
 
-Você pode reverter para a [alocação da porta SNAT automática com base no tamanho do pool de back-end](load-balancer-outbound-connections.md#preallocatedports) especificando 0 como o número de portas. Nesse caso, as primeiras 50 instâncias de VM receberão 1024 portas, 51-100 vm instâncias receberão 512 e assim por diante de acordo com a tabela.
+Você pode reverter para a [alocação da porta SNAT automática com base no tamanho do pool de back-end](load-balancer-outbound-connections.md#preallocatedports) especificando 0 como o número de portas. Nesse caso, as primeiras 50 instâncias de VM receberão 1024 portas, 51-100 as instâncias de VM terão 512 e assim por diante, de acordo com a tabela.
 
 ### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a> Controlar o tempo limite de ociosidade de fluxo de saída
 
@@ -95,7 +95,7 @@ Use o parâmetro a seguir para definir o tempo limite de ociosidade de saída co
 
           "idleTimeoutInMinutes": 60
 
-### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Habilitar o TCP Reset no tempo de saída ocioso
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Habilitar a redefinição de TCP no tempo limite ocioso
 
 O comportamento padrão do Load Balancer é remover o fluxo silenciosamente quando o tempo limite de ociosidade de saída é atingido.  Com o parâmetro enableTCPReset, você pode habilitar um comportamento mais previsível do aplicativo e controlar se deseja enviar Redefinição de TCP (RST TCP) bidirecional ao atingir o tempo limite de ociosidade de saída. 
 
@@ -103,7 +103,7 @@ Use o parâmetro a seguir para habilitar a Redefinição de TCP em uma regra de 
 
            "enableTcpReset": true
 
-Revise [o TCP Reset no tempo de tempo inocioso](https://aka.ms/lbtcpreset) para obter detalhes, incluindo disponibilidade da região.
+Examine a [redefinição de TCP no tempo limite ocioso](https://aka.ms/lbtcpreset) para obter detalhes, incluindo a disponibilidade da região.
 
 ### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a> Suporte a protocolos de transporte TCP e UDP com uma única regra
 
@@ -206,11 +206,11 @@ Ao usar um Standard Load Balancer interno, a NAT de saída não estará disponí
 - O número máximo de portas efêmeras utilizáveis por endereço IP de front-end é 64.000.
 - O intervalo do tempo limite de ociosidade de saída configurável é de 4 a 120 minutos (240 a 7.200 segundos).
 - O Load Balancer não dá suporte a ICMP para NAT de saída.
-- As regras de saída só podem ser aplicadas à configuração de IP principal de uma NIC.  Várias NICs são suportadas.
+- As regras de saída só podem ser aplicadas à configuração de IP primário de uma NIC.  Há suporte para várias NICs.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como usar o [Azure Load Balancer para conexões de saída](load-balancer-outbound-connections.md).
-- Saiba mais sobre o [Standard Load Balancer](load-balancer-standard-overview.md).
+- Saiba mais sobre [Standard Load Balancer](load-balancer-standard-overview.md).
 - Saiba mais sobre [Redefinição TCP bidirecional no tempo limite de ociosidade](load-balancer-tcp-reset.md).
 - [Configurar regras de saída com a CLI do Azure 2.0](configure-load-balancer-outbound-cli.md).

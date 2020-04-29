@@ -1,7 +1,7 @@
 ---
 title: Destinos de computação remotos do ML automatizado
 titleSuffix: Azure Machine Learning
-description: Aprenda a construir modelos usando aprendizado de máquina automatizado em um alvo remoto de computação de aprendizado remoto do Azure Machine Learning com o Azure Machine Learning
+description: Saiba como criar modelos usando o aprendizado de máquina automatizado em um Azure Machine Learning de destino de computação remota com Azure Machine Learning
 services: machine-learning
 author: cartacioS
 ms.author: sacartac
@@ -12,27 +12,27 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79080404"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Treinar modelos com o aprendizado de máquina automatizado na nuvem
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-No Azure Machine Learning, você treina seu modelo em diferentes tipos de recursos de computação que gerencia. O alvo da computação pode ser um computador local ou um recurso na nuvem.
+No Azure Machine Learning, você treina seu modelo em diferentes tipos de recursos de computação que gerencia. O destino de computação pode ser um computador local ou um recurso na nuvem.
 
-Você pode facilmente escalar ou dimensionar seu experimento de aprendizado de máquina adicionando metas adicionais de computação, como o Azure Machine Learning Compute (AmlCompute). A AmlCompute é uma infraestrutura de computação gerenciada que permite ao usuário criar facilmente uma computação de nó único ou de vários nós.
+Você pode facilmente escalar ou escalar horizontalmente seu experimento de aprendizado de máquina adicionando destinos de computação adicionais, como computação de Azure Machine Learning (AmlCompute). A AmlCompute é uma infraestrutura de computação gerenciada que permite ao usuário criar facilmente uma computação de nó único ou de vários nós.
 
-Neste artigo, você aprende a construir um modelo usando ML automatizado com AmlCompute.
+Neste artigo, você aprenderá a criar um modelo usando o ML automatizado com AmlCompute.
 
 ## <a name="how-does-remote-differ-from-local"></a>Como remoto difere do local?
 
-O tutorial "[Train a classification model with automated machine learning](tutorial-auto-train-models.md)" ensina como usar um computador local para treinar um modelo com ML automatizado. O fluxo de trabalho durante o treinamento local também se aplica aos destinos remotos. No entanto, com a computação remota, as iterações de experimento de ML automatizado são executadas de maneira Assíncrona. Essa funcionalidade permite que você cancele uma iteração específica, observe o status da execução ou continue trabalhando em outras células no Jupyter Notebook. Para treinar remotamente, primeiro você cria um alvo remoto de computação, como o AmlCompute. Em seguida, configura o recurso remoto e envia seu código para ele.
+O tutorial "[treinar um modelo de classificação com o Machine Learning automatizado](tutorial-auto-train-models.md)" ensina a usar um computador local para treinar um modelo com ml automatizado. O fluxo de trabalho durante o treinamento local também se aplica aos destinos remotos. No entanto, com a computação remota, as iterações de experimento de ML automatizado são executadas de maneira Assíncrona. Essa funcionalidade permite que você cancele uma iteração específica, observe o status da execução ou continue trabalhando em outras células no Jupyter Notebook. Para treinar remotamente, você primeiro cria um destino de computação remota, como AmlCompute. Em seguida, configura o recurso remoto e envia seu código para ele.
 
-Este artigo mostra as etapas extras necessárias para executar um experimento ML automatizado em um alvo remoto da AmlCompute. O objeto de workspace, `ws`, do tutorial, é usado em todo o código aqui.
+Este artigo mostra as etapas adicionais necessárias para executar um experimento de ML automatizado em um destino de AmlCompute remoto. O objeto de workspace, `ws`, do tutorial, é usado em todo o código aqui.
 
 ```python
 ws = Workspace.from_config()
@@ -40,9 +40,9 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Criar recurso
 
-Crie [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) o alvo em`ws`seu espaço de trabalho ( ) se ele ainda não existir.
+Crie o [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) destino em seu espaço de`ws`trabalho () se ele ainda não existir.
 
-**Estimativa de tempo**: A criação do alvo AmlCompute leva aproximadamente 5 minutos.
+**Tempo estimado**: a criação do destino AmlCompute leva aproximadamente 5 minutos.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -81,15 +81,15 @@ else:
 
 Agora você pode usar o objeto `compute_target` como o destino de computação remota.
 
-As restrições de nome do cluster incluem:
+As restrições de nome de cluster incluem:
 + Deve ser menor do que 64 caracteres.
-+ Não pode incluir nenhum dos seguintes caracteres: `\` ~! @ # # $ ^ & * ( \\ \\ ) = + _ [ ] } : \' \\" < > / ?. `
++ Não pode incluir nenhum dos seguintes caracteres: `\` ~! @ # $% ^ & * () = + _ [] {} \\ \\ |; : \' \\",  < > /?. `
 
-## <a name="access-data-using-tabulardataset-function"></a>Dados de acesso usando a função TabularDataset
+## <a name="access-data-using-tabulardataset-function"></a>Acessar dados usando a função TabularDataset
 
-Definido training_data [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) como e o rótulo, que [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)são passados para Ml automatizado no . O `TabularDataset` `from_delimited_files`método , por `infer_column_types` padrão, define o "true", que inferirá o tipo de colunas automaticamente. 
+Definido training_data como [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e o rótulo, que são passados para ml automatizado no [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). O `TabularDataset` método `from_delimited_files`, por padrão, define o `infer_column_types` como true, o que inferirá o tipo de colunas automaticamente. 
 
-Se você deseja definir manualmente os tipos de `set_column_types` coluna, você pode definir o argumento para definir manualmente o tipo de cada coluna. No exemplo de código a seguir, os dados vêm do pacote sklearn.
+Se você deseja definir manualmente os tipos de coluna, pode definir o `set_column_types` argumento para definir manualmente o tipo de cada coluna. No exemplo de código a seguir, os dados vêm do pacote sklearn.
 
 ```python
 from sklearn import datasets
@@ -196,7 +196,7 @@ Você verá uma saída semelhante ao exemplo a seguir:
 
 ## <a name="explore-results"></a>Explorar os resultados
 
-Você pode usar o mesmo [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) como mostrado [no tutorial de treinamento](tutorial-auto-train-models.md#explore-the-results) para ver um gráfico e tabela de resultados.
+Você pode usar o mesmo [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) , conforme mostrado no [tutorial de treinamento](tutorial-auto-train-models.md#explore-the-results) para ver um gráfico e uma tabela de resultados.
 
 ```python
 from azureml.widgets import RunDetails
@@ -210,21 +210,21 @@ Aqui está uma imagem estática do widget.  No notebook, você pode clicar em qu
 
 O widget exibirá uma URL que você pode usar para ver e explorar os detalhes individuais da execução.  
 
-Se você não estiver em um notebook Jupyter, você pode exibir a URL a partir da própria execução:
+Se você não estiver em um notebook Jupyter, poderá exibir a URL da própria execução:
 
 ```
 remote_run.get_portal_url()
 ```
 
-As mesmas informações estão disponíveis em seu espaço de trabalho.  Para saber mais sobre esses resultados, consulte [Entenda os resultados automatizados de aprendizado de máquina.](how-to-understand-automated-ml.md)
+As mesmas informações estão disponíveis no seu espaço de trabalho.  Para saber mais sobre esses resultados, confira [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
 
 ## <a name="example"></a>Exemplo
 
-O [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) a seguir demonstra conceitos neste artigo.
+O [Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) a seguir demonstra os conceitos neste artigo.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba [como definir as configurações para treinamento automático](how-to-configure-auto-train.md).
-* Veja [o como](how-to-machine-learning-interpretability-automl.md) ativar os recursos de interpretação do modelo em experimentos automatizados de ML.
+* Consulte [como](how-to-machine-learning-interpretability-automl.md) habilitar recursos de interpretação de modelo em experimentos de ml automatizados.

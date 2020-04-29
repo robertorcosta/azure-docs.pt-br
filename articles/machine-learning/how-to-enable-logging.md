@@ -1,6 +1,6 @@
 ---
-title: Habilite o login no Azure Machine Learning
-description: Saiba como ativar o login no Azure Machine Learning usando o pacote de registro Python padrão, bem como usando a funcionalidade específica do SDK.
+title: Habilitar logon Azure Machine Learning
+description: Saiba como habilitar o registro em log no Azure Machine Learning usando o pacote de log do Python padrão, bem como usando a funcionalidade específica do SDK.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 03/05/2020
 ms.openlocfilehash: 73b9ae6bc3c15526bfdafd74330c7b86286631b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78396142"
 ---
-# <a name="enable-logging-in-azure-machine-learning"></a>Habilite o login no Azure Machine Learning
+# <a name="enable-logging-in-azure-machine-learning"></a>Habilitar logon Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 O SDK do Python do Azure Machine Learning permite que você habilite o registro em log usando o pacote de log do Python padrão e a funcionalidade específica do SDK, tanto para registro em log local quanto para log no workspace no portal. Os logs fornecem aos desenvolvedores informações em tempo real sobre o estado do aplicativo e podem auxiliar no diagnóstico de erros ou avisos. Neste artigo, você aprenderá maneiras diferentes de habilitar registro em log nas seguintes áreas:
@@ -27,7 +27,7 @@ O SDK do Python do Azure Machine Learning permite que você habilite o registro 
 > * Modelos implantados
 > * Configurações do Python `logging`
 
-[Crie um espaço de trabalho de aprendizado de máquina do Azure](how-to-manage-workspace.md). Use o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obter mais informações sobre o SDK.
+[Crie um espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md). Use o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obter mais informações sobre o SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Modelos de treinamento e registro em log de destino de computação
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Consulte a documentação de referência da classe [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) para obter funções adicionais de registro.
+Consulte a documentação de referência para a classe [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) para funções de log adicionais.
 
 Para habilitar o registro em log local do estado do aplicativo durante o andamento do treinamento, use o parâmetro `show_output`. Ao habilitar o registro em log detalhado, será possível visualizar os detalhes do processo de treinamento e as informações sobre quaisquer recursos remotos ou destinos de computação. Use o código a seguir para habilitar registro em log no envio do experimento.
 
@@ -101,7 +101,7 @@ Do mesmo modo, é possível registrar rastreamentos de pilha personalizados para
 service.update(enable_app_insights=True)
 ```
 
-Para obter mais informações, consulte [Monitorar e coletar dados de pontos finais de serviço web ML](how-to-enable-app-insights.md).
+Para obter mais informações, consulte [monitorar e coletar dados de pontos de extremidade de serviço Web do ml](how-to-enable-app-insights.md).
 
 ## <a name="python-native-logging-settings"></a>Configurações de registro em log nativo do Python
 
@@ -114,4 +114,4 @@ logging.basicConfig(level=logging.DEBUG)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Monitore e colete dados de pontos finais de serviçoweb ML](how-to-enable-app-insights.md)
+* [Monitorar e coletar dados de pontos de extremidade de serviço Web do ML](how-to-enable-app-insights.md)

@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79213953"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos estendidos no Banco de Dados SQL
@@ -31,14 +31,14 @@ Este tópico explica como a implementação de eventos estendidos no Banco de Da
 
 Informações adicionais sobre eventos estendidos, para Banco de Dados SQL do Azure e Microsoft SQL Server, estão disponíveis em:
 
-- [Início rápido: Eventos estendidos no SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
-- [Eventos Estendidos](https://msdn.microsoft.com/library/bb630282.aspx)
+- [Início Rápido: eventos estendidos em SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Eventos estendidos](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tópico pressupõe que você já tem algum conhecimento de:
 
-- [Serviço de banco de dados Azure SQL](https://azure.microsoft.com/services/sql-database/).
+- [Serviço de banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/).
 - [Eventos estendidos](https://msdn.microsoft.com/library/bb630282.aspx) no Microsoft SQL Server.
 
 - A maior parte da nossa documentação sobre eventos estendidos se aplica ao SQL Server e ao Banco de Dados SQL.
@@ -100,10 +100,10 @@ O Banco de Dados SQL do Azure tem [exibições de gerenciamento dinâmico (DMVs)
 | **sys.dm_xe_database_session_event_actions** |Retorna informações sobre ações da sessão de evento. |
 | **sys.dm_xe_database_session_events** |Retorna informações sobre os eventos da sessão. |
 | **sys.dm_xe_database_session_object_columns** |Mostra os valores de configuração de objetos associados a uma sessão. |
-| **sys.dm_xe_database_session_targets** |Retorna informações sobre os destinos da sessão. |
-| **sys.dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento com escopo no banco de dados atual. |
+| **sys. dm_xe_database_session_targets** |Retorna informações sobre os destinos da sessão. |
+| **sys. dm_xe_database_sessions** |Retorna uma linha para cada sessão de evento com escopo no banco de dados atual. |
 
-No Microsoft SQL Server, visualizações * \_* semelhantes do catálogo são nomeadas sem a parte do banco de dados do nome, tais como:
+No Microsoft SQL Server, exibições de catálogo semelhantes são nomeadas sem a * \_* parte do banco de dados do nome, como:
 
 - **sys.dm_xe_sessions**, em vez de nome<br/>**sys.dm_xe_database_sessions**.
 
@@ -190,7 +190,7 @@ O destino **Arquivo de Evento** pode enfrentar latência de rede ou falhas ao pe
 
 ## <a name="related-links"></a>Links relacionados
 
-- [Usando o Azure PowerShell com armazenamento Azure](../storage/common/storage-powershell-guide-full.md).
+- [Usando Azure PowerShell com o armazenamento do Azure](../storage/common/storage-powershell-guide-full.md).
 - [Cmdlets do Armazenamento do Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/common/storage-powershell-guide-full.md) - fornece informações abrangentes sobre o PowerShell e o serviço de Armazenamento do Azure.
 - [Como usar o Armazenamento de blob do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)

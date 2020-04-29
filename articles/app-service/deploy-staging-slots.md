@@ -1,171 +1,171 @@
 ---
-title: Configure ambientes de encenação
-description: Aprenda a implantar aplicativos em um slot de não-produção e troca automaticamente na produção. Aumente a confiabilidade e elimine o tempo de inatividade do aplicativo a partir de implantações.
+title: Configurar ambientes de preparo
+description: Saiba como implantar aplicativos em um slot que não seja de produção e o AutoSwap para produção. Aumente a confiabilidade e elimine o tempo de inatividade do aplicativo de implantações.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 03/04/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78300836"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
 
-Quando você implanta seu aplicativo web, aplicativo web no Linux, back-end móvel ou aplicativo API para [o Azure App Service,](https://go.microsoft.com/fwlink/?LinkId=529714)você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver em execução no nível de plano **padrão,** **premium**ou serviço de aplicativo **isolado.** Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
+Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel ou aplicativo de API para [Azure app serviço](https://go.microsoft.com/fwlink/?LinkId=529714), você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver executando na camada de plano do serviço de aplicativo **padrão**, **Premium**ou **isolado** . Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
 
 A implantação do aplicativo em um slot de não produção traz os seguintes benefícios:
 
 * É possível validar as alterações no aplicativo em um slot de implantação de preparo antes de permutá-lo pelo slot de produção.
-* Implantar um aplicativo em um slot primeiro e alterná-lo para produção garantem que todas as instâncias do slot estejam aquecidas antes de alterná-lo para produção. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. O redirecionamento de tráfego é contínuo, e nenhuma solicitação é removida devido a operações de alternância. Você pode automatizar todo esse fluxo de trabalho configurando [troca automática](#Auto-Swap) quando a validação de pré-swap não é necessária.
+* Implantar um aplicativo em um slot primeiro e alterná-lo para produção garantem que todas as instâncias do slot estejam aquecidas antes de alterná-lo para produção. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. O redirecionamento de tráfego é contínuo, e nenhuma solicitação é removida devido a operações de alternância. Você pode automatizar todo esse fluxo de trabalho configurando a [troca automática](#Auto-Swap) quando a validação de pré-atualização não for necessária.
 * Após a troca, o slot com o aplicativo de preparo anterior terá o aplicativo de produção anterior. Se as alterações alternadas para o slot de produção não correspondem às suas expectativas, você pode realizar a mesma alternância imediatamente para ter o "último site válido conhecido" de volta.
 
-Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Não há custo adicional para usar slots de implantação. Para descobrir o número de slots que o nível de suporte do aplicativo suporta, consulte [os limites do App Service](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
+Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Não há nenhum custo adicional para usar os slots de implantação. Para descobrir o número de Slots com suporte na camada do aplicativo, consulte [limites do serviço de aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
-Para dimensionar seu aplicativo para um nível diferente, certifique-se de que o nível de destino suporta o número de slots que seu aplicativo já usa. Por exemplo, se o seu aplicativo tiver mais de cinco slots, você não pode dimensioná-lo para o nível **Padrão,** porque o nível **Padrão** suporta apenas cinco slots de implantação. 
+Para dimensionar seu aplicativo para uma camada diferente, verifique se a camada de destino dá suporte ao número de slots que seu aplicativo já usa. Por exemplo, se seu aplicativo tiver mais de cinco slots, você não poderá dimensioná-lo para a camada **Standard** , pois a camada **Standard** oferece suporte a apenas cinco slots de implantação. 
 
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>Adicionar um slot
-O aplicativo deve estar em execução no nível **Padrão,** **Premium**ou **Isolado** para que você habilite vários slots de implantação.
+O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Isolated** para que você habilite vários slots de implantação.
 
 
-1. no [portal Azure,](https://portal.azure.com/)procure e selecione **Serviços de Aplicativos** e selecione seu aplicativo. 
+1. na [portal do Azure](https://portal.azure.com/), procure e selecione serviços de **aplicativos** e selecione seu aplicativo. 
    
-    ![Procure serviços de aplicativos](./media/web-sites-staged-publishing/search-for-app-services.png)
+    ![Pesquisar serviços de aplicativos](./media/web-sites-staged-publishing/search-for-app-services.png)
    
 
-2. No painel esquerdo, selecione **'Espaços de implantação' Adicionar** > **slot**.
+2. No painel esquerdo, selecione **Slots** > de implantação**Adicionar slot**.
    
     ![Adicionar um novo slot de implantação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Se o aplicativo ainda não estiver no nível **Padrão,** **Premium**ou **Isolado,** você receberá uma mensagem que indica os níveis suportados para habilitar a publicação em etapas. Neste ponto, você tem a opção de selecionar **Atualizar** e ir para a guia **Escala** do seu aplicativo antes de continuar.
+   > Se o aplicativo ainda não estiver na camada **Standard**, **Premium**ou **Isolated** , você receberá uma mensagem que indica as camadas com suporte para habilitar a publicação em etapas. Neste ponto, você tem a opção de selecionar **Atualizar** e ir para a guia **escala** do seu aplicativo antes de continuar.
    > 
 
-3. Na caixa de diálogo **Adicionar um slot,** dar um nome ao slot e selecionar se deve clonar uma configuração de aplicativo de outro slot de implantação. Selecione **Adicionar** para continuar.
+3. Na caixa de diálogo **Adicionar um slot** , dê um nome ao slot e selecione se deseja clonar uma configuração de aplicativo de outro slot de implantação. Selecione **Adicionar** para continuar.
    
     ![Fonte de configuração](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
     Você pode clonar uma configuração de qualquer slot existente. As configurações que podem ser clonadas incluem configurações de aplicativo, cadeias de conexão, versões da estrutura de linguagem, soquetes da Web, versão HTTP e número de bits da plataforma.
 
-4. Depois que o slot for adicionado, selecione **Fechar** para fechar a caixa de diálogo. O novo slot agora é mostrado na página **de slots de implantação.** Por padrão, **o Tráfego %** é definido como 0 para o novo slot, com todo o tráfego do cliente encaminhado para o slot de produção.
+4. Depois que o slot for adicionado, selecione **fechar** para fechar a caixa de diálogo. O novo slot agora é mostrado na página **Slots de implantação** . Por padrão, o **tráfego%** é definido como 0 para o novo slot, com todo o tráfego do cliente roteado para o slot de produção.
 
-5. Selecione o novo slot de implantação para abrir a página de recursos desse slot.
+5. Selecione o novo slot de implantação para abrir a página de recursos do slot.
    
-    ![Título de slot de implantação](./media/web-sites-staged-publishing/StagingTitle.png)
+    ![Título do slot de implantação](./media/web-sites-staged-publishing/StagingTitle.png)
 
     O slot de preparo tem uma página de gerenciamento como qualquer outro aplicativo do Serviço de Aplicativo. É possível alterar a configuração do slot. O nome do slot é mostrado na parte superior da página para lembrá-lo de que você está exibindo o slot de implantação.
 
-6. Selecione a URL do aplicativo na página de recursos do slot. O slot de implantação tem seu próprio nome de host e também é um aplicativo ao vivo. Para limitar o acesso público ao slot de implantação, consulte [as restrições de IP do Azure App Service](app-service-ip-restrictions.md).
+6. Selecione a URL do aplicativo na página de recursos do slot. O slot de implantação tem seu próprio nome de host e também é um aplicativo ativo. Para limitar o acesso público ao slot de implantação, consulte [Azure app restrições de IP do serviço](app-service-ip-restrictions.md).
 
-O novo slot de implantação não tem nenhum conteúdo, mesmo se as configurações são clonadas de outro slot. Por exemplo, você pode [publicar para este slot com Git](app-service-deploy-local-git.md). É possível fazer uma implantação no slot de outro branch do repositório ou de outro repositório. 
+O novo slot de implantação não tem nenhum conteúdo, mesmo se as configurações são clonadas de outro slot. Por exemplo, você pode [publicar neste slot com o Git](app-service-deploy-local-git.md). É possível fazer uma implantação no slot de outro branch do repositório ou de outro repositório. 
 
 <a name="AboutConfiguration"></a>
 
-## <a name="what-happens-during-a-swap"></a>O que acontece durante uma troca
+## <a name="what-happens-during-a-swap"></a>O que acontece durante uma permuta
 
-### <a name="swap-operation-steps"></a>Etapas de operação de swap
+### <a name="swap-operation-steps"></a>Etapas da operação de permuta
 
-Quando você troca dois slots (geralmente de um slot de preparação para o slot de produção), o App Service faz o seguinte para garantir que o slot de destino não tenha tempo de inatividade:
+Quando você troca dois slots (geralmente de um slot de preparo no slot de produção), o serviço de aplicativo faz o seguinte para garantir que o slot de destino não experimente tempo de inatividade:
 
-1. Aplique as seguintes configurações do slot de destino (por exemplo, o slot de produção) em todas as instâncias do slot de origem: 
-    - [Configurações de](#which-settings-are-swapped) aplicativo específicas para slot e strings de conexão, se aplicável.
-    - [Configurações de implantação contínuas,](deploy-continuous-deployment.md) se ativadas.
-    - [Configurações de autenticação do Serviço](overview-authentication-authorization.md) de Aplicativo, se ativada.
+1. Aplique as seguintes configurações do slot de destino (por exemplo, o slot de produção) a todas as instâncias do slot de origem: 
+    - Configurações do aplicativo e cadeias [de conexão específicas do slot](#which-settings-are-swapped) , se aplicável.
+    - Configurações de [implantação contínua](deploy-continuous-deployment.md) , se habilitadas.
+    - Configurações de [autenticação do serviço de aplicativo](overview-authentication-authorization.md) , se habilitadas.
     
-    Qualquer um desses casos aciona todas as instâncias no slot de origem para reiniciar. Durante [a troca com a visualização,](#Multi-Phase)isso marca o fim da primeira fase. A operação de swap é pausada e você pode validar que o slot de origem funciona corretamente com as configurações do slot de destino.
+    Qualquer um desses casos disparará todas as instâncias no slot de origem para reiniciar. Durante a [troca com visualização](#Multi-Phase), isso marca o final da primeira fase. A operação de permuta está pausada e você pode validar que o slot de origem funciona corretamente com as configurações do slot de destino.
 
-1. Aguarde todas as instâncias no slot de origem para concluir sua reinicialização. Se qualquer instância não for reiniciada, a operação de swap reverte todas as alterações no slot de origem e interrompe a operação.
+1. Aguarde até que cada instância no slot de origem conclua sua reinicialização. Se alguma instância não for reiniciada, a operação de permuta reverterá todas as alterações no slot de origem e interromperá a operação.
 
-1. Se [o cache local](overview-local-cache.md) estiver ativado, acione a inicialização do cache local fazendo uma solicitação HTTP para a raiz do aplicativo ("/") em cada instância do slot de origem. Aguarde até que cada instância retorne qualquer resposta HTTP. A inicialização do cache local faz com que outra reinicialização em cada instância.
+1. Se o [cache local](overview-local-cache.md) estiver habilitado, dispare a inicialização do cache local fazendo uma solicitação HTTP para a raiz do aplicativo ("/") em cada instância do slot de origem. Aguarde até que cada instância retorne qualquer resposta HTTP. A inicialização do cache local causa outra reinicialização em cada instância.
 
-1. Se [a troca automática](#Auto-Swap) estiver ativada com aquecimento [personalizado,](#Warm-up)acione [a iniciação do aplicativo](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) fazendo uma solicitação HTTP para a raiz do aplicativo ("/") em cada instância do slot de origem.
+1. Se a [troca automática](#Auto-Swap) estiver habilitada com a inicialização [personalizada](#Warm-up)do [aplicativo](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) de disparo, fazendo uma solicitação HTTP para a raiz do aplicativo ("/") em cada instância do slot de origem.
 
-    Se `applicationInitialization` não for especificado, acione uma solicitação HTTP para a raiz do aplicativo do slot de origem em cada instância. 
+    Se `applicationInitialization` não for especificado, dispare uma solicitação HTTP para a raiz do aplicativo do slot de origem em cada instância. 
     
-    Se uma instância retornar qualquer resposta HTTP, ela será considerada aquecida.
+    Se uma instância retornar qualquer resposta HTTP, ela será considerada como ativada.
 
-1. Se todas as instâncias do slot de origem forem aquecidas com sucesso, troque os dois slots mudando as regras de roteamento para os dois slots. Após essa etapa, o slot de destino (por exemplo, o slot de produção) tem o aplicativo que já foi aquecido no slot de origem.
+1. Se todas as instâncias no slot de origem forem ativadas com êxito, troque os dois slots alternando as regras de roteamento para os dois slots. Após essa etapa, o slot de destino (por exemplo, o slot de produção) tem o aplicativo que foi anteriormente ativado no slot de origem.
 
-1. Agora que o slot de origem tem o aplicativo de pré-swap anteriormente no slot de destino, execute a mesma operação aplicando todas as configurações e reiniciando as instâncias.
+1. Agora que o slot de origem tem o aplicativo de pré-permuta anteriormente no slot de destino, execute a mesma operação aplicando todas as configurações e reiniciando as instâncias.
 
-Em qualquer ponto da operação de swap, todo o trabalho de inicialização dos aplicativos trocados acontece no slot de origem. O slot de destino permanece on-line enquanto o slot de origem está sendo preparado e aquecido, independentemente de onde a troca tenha sucesso ou falhe. Para trocar um slot de preparação com o slot de produção, certifique-se de que o slot de produção é sempre o slot de destino. Dessa forma, a operação de swap não afeta seu aplicativo de produção.
+Em qualquer ponto da operação de permuta, todo o trabalho de inicializar os aplicativos trocados ocorre no slot de origem. O slot de destino permanece online enquanto o slot de origem está sendo preparado e ativado, independentemente de onde a troca tenha êxito ou falhe. Para trocar um slot de preparo pelo slot de produção, verifique se o slot de produção é sempre o slot de destino. Dessa forma, a operação de permuta não afeta seu aplicativo de produção.
 
 ### <a name="which-settings-are-swapped"></a>Quais configurações são trocadas?
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-Para configurar uma configuração de aplicativo ou uma seqüência de conexão para ficar com um slot específico (não trocado), vá para a página **Configuração** para esse slot. Adicione ou edite uma configuração e, em seguida, selecione **a configuração de slot de implantação**. A seleção desta caixa de seleção diz ao App Service que a configuração não pode ser trocada. 
+Para configurar uma cadeia de conexão ou configuração de aplicativo para se conectar a um slot específico (não trocado), vá para a página de **configuração** desse slot. Adicione ou edite uma configuração e, em seguida, selecione **configuração do slot de implantação**. Marcar essa caixa de seleção informa ao serviço de aplicativo que a configuração não é intercambiável. 
 
 ![Configuração do slot](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
 ## <a name="swap-two-slots"></a>Alternar dois slots 
-Você pode trocar os slots de implantação na página **de slots de implantação do** aplicativo e na página Visão **Geral.** Para obter detalhes técnicos sobre a troca de slot, consulte [o que acontece durante a troca](#AboutConfiguration).
+Você pode alternar os slots de implantação na página de **Slots de implantação** do aplicativo e na página **visão geral** . Para obter detalhes técnicos sobre a troca de slot, consulte [o que acontece durante a permuta](#AboutConfiguration).
 
 > [!IMPORTANT]
-> Antes de trocar um aplicativo de um slot de implantação para a produção, certifique-se de que a produção é o seu slot de destino e que todas as configurações no slot de origem estão configuradas exatamente como você deseja tê-los em produção.
+> Antes de trocar um aplicativo de um slot de implantação em produção, verifique se a produção é o slot de destino e se todas as configurações no slot de origem estão configuradas exatamente como você deseja tê-las em produção.
 > 
 > 
 
-Para trocar os slots de implantação:
+Para permutar slots de implantação:
 
-1. Vá para a página **de slots de implantação do** aplicativo e selecione **Swap**.
+1. Vá para a página **Slots de implantação** do aplicativo e selecione **alternar**.
    
-    ![Botão de troca](./media/web-sites-staged-publishing/SwapButtonBar.png)
+    ![Botão Alternar](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
-    A caixa de diálogo **Swap** mostra as configurações nos slots de origem e destino selecionados que serão alterados.
+    A caixa de diálogo **alternar** mostra as configurações nos slots de origem e destino selecionados que serão alterados.
 
-2. Selecione os slots de **Origem** e de **Destino** desejados. Geralmente, o destino é o slot de produção. Além disso, selecione as **guias 'Alterações de origem'** e **alterações de destino** e verifique se as alterações de configuração são esperadas. Quando terminar, poderá trocar os slots imediatamente selecionando **Swap**.
+2. Selecione os slots de **Origem** e de **Destino** desejados. Geralmente, o destino é o slot de produção. Além disso, selecione as guias **alterações de origem** e **alterações de destino** e verifique se as alterações de configuração são esperadas. Quando tiver terminado, você poderá trocar os slots imediatamente selecionando **alternar**.
 
     ![Troca completa](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    Para ver como o slot de destino seria executado com as novas configurações antes da troca realmente acontecer, não selecione **Swap,** mas siga as instruções em [Swap com visualização](#Multi-Phase).
+    Para ver como o slot de destino seria executado com as novas configurações antes que a permuta realmente aconteça, não selecione **alternar**, mas siga as instruções em [alternar com visualização](#Multi-Phase).
 
-3. Quando terminar, feche a caixa de diálogo selecionando **Fechar**.
+3. Quando tiver terminado, feche a caixa de diálogo selecionando **fechar**.
 
-Se você tiver algum problema, consulte [Trocas de solução de problemas](#troubleshoot-swaps).
+Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
 <a name="Multi-Phase"></a>
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>Troca com visualização (troca de várias fases)
 
-Antes de trocar a produção como o slot de destino, valide se o aplicativo é executado com as configurações trocadas. O slot de origem também é aquecido antes da conclusão do swap, o que é desejável para aplicações de missão crítica.
+Antes de trocar para produção como o slot de destino, valide se o aplicativo é executado com as configurações trocadas. O slot de origem também é ativado antes da conclusão da permuta, o que é desejável para aplicativos de missão crítica.
 
-Quando você realiza uma troca com a visualização, o App Service executa a mesma [operação de swap,](#AboutConfiguration) mas faz uma pausa após a primeira etapa. Em seguida, você pode verificar o resultado no slot de preparação antes de concluir a troca. 
+Quando você executa uma troca com visualização, o serviço de aplicativo executa a mesma [operação de permuta](#AboutConfiguration) , mas pausa após a primeira etapa. Em seguida, você pode verificar o resultado no slot de preparo antes de concluir a permuta. 
 
-Se você cancelar a troca, o Serviço de Aplicativo reaplicará elementos de configuração no slot de origem.
+Se você cancelar a troca, o serviço de aplicativo reaplicará os elementos de configuração ao slot de origem.
 
-Para trocar com a visualização:
+Para alternar com a visualização:
 
-1. Siga as etapas nos [slots de implantação do Swap,](#Swap) mas selecione **Executar swap com visualização**.
+1. Siga as etapas em [trocar slots de implantação](#Swap) , mas selecione **executar permuta com visualização**.
 
     ![Alternância com visualização](./media/web-sites-staged-publishing/SwapWithPreview.png)
 
-    A caixa de diálogo mostra como a configuração no slot de origem muda na fase 1 e como o slot de origem e destino mudam na fase 2.
+    A caixa de diálogo mostra como a configuração no slot de origem muda na fase 1 e como a origem e o slot de destino são alterados na fase 2.
 
-2. Quando estiver pronto para iniciar a troca, selecione **Iniciar swap**.
+2. Quando estiver pronto para iniciar a troca, selecione **Iniciar permuta**.
 
-    Quando a fase 1 terminar, você é notificado na caixa de diálogo. Visualizar a troca no slot `https://<app_name>-<source-slot-name>.azurewebsites.net`de origem indo para . 
+    Quando a fase 1 for concluída, você será notificado na caixa de diálogo. Visualize a troca no slot de origem acessando `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
 
-3. Quando estiver pronto para concluir a troca pendente, selecione **Swap completo** na **ação Swap** e selecione Swap **completo**.
+3. Quando estiver pronto para concluir a permuta pendente, selecione **concluir permuta** na **ação de permuta** e selecione **concluir permuta**.
 
-    Para cancelar uma troca pendente, **selecione '''''Troca de** cancelamento'.
+    Para cancelar uma permuta pendente, selecione **Cancelar permuta** em vez disso.
 
-4. Quando terminar, feche a caixa de diálogo selecionando **Fechar**.
+4. Quando tiver terminado, feche a caixa de diálogo selecionando **fechar**.
 
-Se você tiver algum problema, consulte [Trocas de solução de problemas](#troubleshoot-swaps).
+Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
-Para automatizar uma troca de várias fases, consulte [Automate com powerShell](#automate-with-powershell).
+Para automatizar uma troca de várias fases, consulte [automatizar com o PowerShell](#automate-with-powershell).
 
 <a name="Rollback"></a>
 
-## <a name="roll-back-a-swap"></a>Reverter uma troca
+## <a name="roll-back-a-swap"></a>Reverter uma permuta
 Se ocorrerem erros no slot de destino (por exemplo, o slot de produção) após uma alternância de slot, restaure os slots para seus estados de pré-alternância alternando os mesmos dois slots imediatamente.
 
 <a name="Auto-Swap"></a>
@@ -173,31 +173,31 @@ Se ocorrerem erros no slot de destino (por exemplo, o slot de produção) após 
 ## <a name="configure-auto-swap"></a>Configurar a alternância automática
 
 > [!NOTE]
-> A troca automática não é suportada em aplicativos web no Linux.
+> A troca automática não tem suporte em aplicativos Web no Linux.
 
-A troca automática simplifica os cenários do Azure DevOps onde você deseja implantar seu aplicativo continuamente com zero partidas frias e zero tempo de inatividade para os clientes do aplicativo. Quando a troca automática é ativada a partir de um slot para a produção, toda vez que você empurra seu código altera para esse slot, o App Service troca automaticamente [o aplicativo em produção](#swap-operation-steps) depois que ele é aquecido no slot de origem.
+A troca automática simplifica os cenários de DevOps do Azure em que você deseja implantar seu aplicativo continuamente com inícios inativos sem interrupção e sem tempo de inatividade para clientes do aplicativo. Quando a troca automática está habilitada de um slot para produção, sempre que você envia por push as alterações de código para esse slot, [o serviço de aplicativo troca automaticamente o aplicativo em produção](#swap-operation-steps) depois que ele é ativado no slot de origem.
 
    > [!NOTE]
-   > Antes de configurar a troca automática para o slot de produção, considere testar a troca automática em um slot de destino não-produzido.
+   > Antes de configurar a troca automática para o slot de produção, considere testar a troca automática em um slot de destino de não produção.
    > 
 
 Para configurar a troca automática:
 
-1. Acesse a página de recursos do seu aplicativo. Selecione **Slots de implantação desejados** > *\<slot de origem>*  > **configurações gerais**de **configuração** > .
+1. Vá para a página de recursos do aplicativo. Selecione **Slots** >   >  **Configuration** > **General settings**de implantação*desejados slot de origem>configurações gerais de\< *configuração.
    
-2. Para **troca automática ativada, selecione** **Em**. Em seguida, selecione o slot de destino desejado para **slot de implantação de troca automática**e **selecione Salvar** na barra de comando. 
+2. Para a **troca automática habilitada**, selecione **ativado**. Em seguida, selecione o slot de destino desejado para o **slot de implantação de permuta automática**e selecione **salvar** na barra de comandos. 
    
-    ![Seleções para configurar troca automática](./media/web-sites-staged-publishing/AutoSwap02.png)
+    ![Seleções para configurar a troca automática](./media/web-sites-staged-publishing/AutoSwap02.png)
 
-3. Execute um push de código para o slot de origem. A troca automática acontece após um curto período de tempo, e a atualização é refletida na URL do seu slot de destino.
+3. Execute um push de código para o slot de origem. A troca automática ocorre após um curto período de tempo e a atualização é refletida na URL do slot de destino.
 
-Se você tiver algum problema, consulte [Trocas de solução de problemas](#troubleshoot-swaps).
+Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>Especificar aquecimento personalizado
 
-Alguns aplicativos podem exigir ações personalizadas de aquecimento antes da troca. O `applicationInitialization` elemento de configuração no web.config permite especificar ações de inicialização personalizadas. A [operação de troca](#AboutConfiguration) aguarda o término deste aquecimento personalizado antes de ser trocada pelo slot de destino. Aqui está uma amostra de fragmento web.config.
+Alguns aplicativos podem exigir ações de aquecimento personalizadas antes da troca. O `applicationInitialization` elemento de configuração no Web. config permite que você especifique ações de inicialização personalizadas. A [operação de permuta](#AboutConfiguration) aguarda que esse aquecimento personalizado seja concluído antes de alternar com o slot de destino. Aqui está um fragmento Web. config de exemplo.
 
     <system.webServer>
         <applicationInitialization>
@@ -206,23 +206,23 @@ Alguns aplicativos podem exigir ações personalizadas de aquecimento antes da t
         </applicationInitialization>
     </system.webServer>
 
-Para obter mais informações `applicationInitialization` sobre a personalização do elemento, consulte [Falhas de troca de slot de implantação mais comuns e como corrigi-las](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Para obter mais informações sobre como personalizar `applicationInitialization` o elemento, consulte [falhas de permuta de slot de implantação mais comuns e como corrigi-los](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-Você também pode personalizar o comportamento de aquecimento com uma ou ambas as configurações do aplicativo a [seguir:](configure-common.md)
+Você também pode personalizar o comportamento de aquecimento com uma ou ambas as seguintes configurações de [aplicativo](configure-common.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para ping para aquecer seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra (“/”) como o valor. Um exemplo é `/statuscheck`. O valor padrão é `/`. 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas dos códigos HTTP. Um exemplo `200,202` é. Se o código de status retornado não estiver na lista, as operações de aquecimento e troca serão interrompidas. Por padrão, todos os códigos de resposta são válidos.
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para o ping para aquecimento do seu site. Adicione essa configuração de aplicativo especificando um caminho personalizado que começa com uma barra (“/”) como o valor. Um exemplo é `/statuscheck`. O valor padrão é `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione essa configuração de aplicativo com uma lista separada por vírgulas dos códigos HTTP. Um exemplo é `200,202` . Se o código de status retornado não estiver na lista, as operações aquecimento e swap serão interrompidas. Por padrão, todos os códigos de resposta são válidos.
 
 > [!NOTE]
-> O `<applicationInitialization>` elemento de configuração faz parte de cada inicialinicialde aplicativo, enquanto as duas configurações do aplicativo de comportamento de aquecimento se aplicam apenas a swaps de slot.
+> O `<applicationInitialization>` elemento de configuração faz parte de cada inicialização de aplicativo, enquanto as duas configurações de aplicativo de comportamento de aquecimento se aplicam somente a trocas de slot.
 
-Se você tiver algum problema, consulte [Trocas de solução de problemas](#troubleshoot-swaps).
+Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoot-swaps).
 
-## <a name="monitor-a-swap"></a>Monitore uma troca
+## <a name="monitor-a-swap"></a>Monitorar uma troca
 
-Se a [operação de swap](#AboutConfiguration) demorar muito tempo para ser concluída, você poderá obter informações sobre a operação de swap no registro de [atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Se a [operação de permuta](#AboutConfiguration) levar muito tempo para ser concluída, você poderá obter informações sobre a operação de permuta no [log de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
-Na página de recursos do seu aplicativo no portal, no painel esquerdo, selecione **Registro de atividades**.
+Na página de recursos do aplicativo no portal, no painel esquerdo, selecione log de **atividades**.
 
 Uma operação de troca é exibida na consulta de log como `Swap Web App Slots`. Você pode expandi-lo e selecionar uma das suboperações ou um dos erros para ver os detalhes.
 
@@ -232,47 +232,47 @@ Por padrão, todas as solicitações de cliente para a URL de produção do apli
 
 ### <a name="route-production-traffic-automatically"></a>Rotear o tráfego de produção automaticamente
 
-Para direcionar o tráfego de produção automaticamente:
+Para rotear o tráfego de produção automaticamente:
 
-1. Vá para a página de recursos do seu aplicativo e selecione **slots de implantação**.
+1. Vá para a página de recursos do aplicativo e selecione **Slots de implantação**.
 
 2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Selecione **Salvar**.
 
-    ![Definindo uma porcentagem de tráfego](./media/web-sites-staged-publishing/RouteTraffic.png)
+    ![Definindo um percentual de tráfego](./media/web-sites-staged-publishing/RouteTraffic.png)
 
 Depois que a configuração é salva, a porcentagem especificada de clientes é roteada aleatoriamente para o slot de não produção. 
 
-Depois que um cliente é automaticamente encaminhado para um slot específico, ele é "fixado" a esse slot para a vida útil daquela sessão de cliente. No navegador do cliente, você pode ver em qual slot a sessão está fixada observando o cookie `x-ms-routing-name` nos cabeçalhos HTTP. Uma solicitação roteada para o slot "de preparo" tem o cookie `x-ms-routing-name=staging`. Uma solicitação roteada para o slot de produção tem o cookie `x-ms-routing-name=self`.
+Depois que um cliente é roteado automaticamente para um slot específico, ele é "fixado" a esse slot durante a vida útil dessa sessão de cliente. No navegador do cliente, você pode ver em qual slot a sessão está fixada observando o cookie `x-ms-routing-name` nos cabeçalhos HTTP. Uma solicitação roteada para o slot "de preparo" tem o cookie `x-ms-routing-name=staging`. Uma solicitação roteada para o slot de produção tem o cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Ao lado do portal Azure, [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) você também pode usar o comando no Azure CLI para definir as porcentagens de roteamento de ferramentas de CI/CD, como pipelines DevOps ou outros sistemas de automação.
+   > Ao lado do portal do Azure, você também pode usar o [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) comando na CLI do Azure para definir as porcentagens de roteamento de ferramentas de CI/CD, como pipelines DevOps ou outros sistemas de automação.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Rotear o tráfego de produção manualmente
 
-Além do roteamento de tráfego automático, o Serviço de Aplicativo pode rotear solicitações para um slot específico. Isso é útil quando você quer que seus usuários possam optar ou optar por sair do seu aplicativo beta. Para rotear o tráfego de produção manualmente, use o parâmetro de consulta `x-ms-routing-name`.
+Além do roteamento de tráfego automático, o Serviço de Aplicativo pode rotear solicitações para um slot específico. Isso é útil quando você deseja que os usuários possam aceitar ou recusar seu aplicativo beta. Para rotear o tráfego de produção manualmente, use o parâmetro de consulta `x-ms-routing-name`.
 
-Para permitir que os usuários optem por sair do seu aplicativo beta, por exemplo, você pode colocar este link em sua página web:
+Para permitir que os usuários recusem seu aplicativo beta, por exemplo, você pode colocar esse link em sua página da Web:
 
 ```HTML
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
-A cadeia de caracteres `x-ms-routing-name=self` especifica o local de produção. Depois que o navegador cliente acessa o link, ele é redirecionado para o slot de produção. Cada solicitação subseqüente tem o `x-ms-routing-name=self` cookie que prende a sessão ao slot de produção.
+A cadeia de caracteres `x-ms-routing-name=self` especifica o local de produção. Depois que o navegador do cliente acessa o link, ele é redirecionado para o slot de produção. Cada solicitação subsequente tem o `x-ms-routing-name=self` cookie que fixa a sessão ao slot de produção.
 
-Para permitir que os usuários optem pelo seu aplicativo beta, defina o mesmo parâmetro de consulta para o nome do slot de não produção. Aqui está um exemplo:
+Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâmetro de consulta como o nome do slot de não produção. Aqui está um exemplo:
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
 
-Por padrão, novos slots recebem uma `0%`regra de roteamento de , mostrado em cinza. Quando você define explicitamente `0%` esse valor para (mostrado em texto preto), seus usuários `x-ms-routing-name` podem acessar o slot de preparação manualmente usando o parâmetro de consulta. Mas eles não serão encaminhados automaticamente para o slot porque a porcentagem de roteamento está definida como 0. Este é um cenário avançado onde você pode "esconder" seu slot de preparação do público, permitindo que equipes internas testem mudanças no slot.
+Por padrão, novos slots recebem uma regra de `0%`roteamento, mostrada em cinza. Quando você define esse valor explicitamente como `0%` (mostrado em texto preto), os usuários podem acessar o slot de preparo manualmente usando o parâmetro `x-ms-routing-name` de consulta. Mas eles não serão roteados para o slot automaticamente porque a porcentagem de roteamento é definida como 0. Esse é um cenário avançado em que você pode "Ocultar" o slot de preparo do público, permitindo que as equipes internas testem as alterações no slot.
 
 <a name="Delete"></a>
 
-## <a name="delete-a-slot"></a>Exclua um slot
+## <a name="delete-a-slot"></a>Excluir um slot
 
-Pesquise e selecione seu aplicativo. Selecione **slots** > *\<de *implantação para excluir> >  **Visão Geral**. Selecione **Excluir** na barra de comando.  
+Pesquise e selecione seu aplicativo. Selecione o slot dos **Slots** > *\<de implantação para excluir>*  >  **visão geral**. Selecione **excluir** na barra de comandos.  
 
 ![Excluir um slot de implantação](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -301,14 +301,14 @@ New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot
 ```
 
 ---
-### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Inicie uma troca com uma visualização (troca de várias fases) e aplique a configuração do slot de destino no slot de origem
+### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Iniciar uma troca com uma visualização (troca de várias fases) e aplicar a configuração do slot de destino ao slot de origem
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 ---
-### <a name="cancel-a-pending-swap-swap-with-review-and-restore-the-source-slot-configuration"></a>Cancele uma troca pendente (swap com revisão) e restaure a configuração do slot de origem
+### <a name="cancel-a-pending-swap-swap-with-review-and-restore-the-source-slot-configuration"></a>Cancelar uma permuta pendente (trocar com revisão) e restaurar a configuração do slot de origem
 ```powershell
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
@@ -320,27 +320,27 @@ $ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
-### <a name="monitor-swap-events-in-the-activity-log"></a>Monitore eventos de swap no registro de atividades
+### <a name="monitor-swap-events-in-the-activity-log"></a>Monitorar eventos de permuta no log de atividades
 ```powershell
 Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 ---
-### <a name="delete-a-slot"></a>Exclua um slot
+### <a name="delete-a-slot"></a>Excluir um slot
 ```powershell
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-resource-manager-templates"></a>Automatize com modelos do Gerenciador de Recursos
+## <a name="automate-with-resource-manager-templates"></a>Automatizar com modelos do Resource Manager
 
-[Os modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) são arquivos JSON declarativos usados para automatizar a implantação e a configuração dos recursos do Azure. Para trocar slots usando modelos do Gerenciador de recursos, você definirá duas propriedades nos recursos *Microsoft.Web/sites/slots* e *Microsoft.Web/sites:*
+Os [modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) são arquivos JSON declarativos usados para automatizar a implantação e a configuração de recursos do Azure. Para trocar os slots usando modelos do Resource Manager, você definirá duas propriedades nos recursos *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
 
-- `buildVersion`: esta é uma propriedade string que representa a versão atual do aplicativo implantado no slot. Por exemplo: "v1", "1.0.0.1" ou "2019-09-20T11:53:25.2887393-07:00".
-- `targetBuildVersion`: esta é uma propriedade `buildVersion` de string que especifica o que o slot deve ter. Se o targetBuildVersion não `buildVersion`for igual à corrente, isso desencadeará a operação `buildVersion`de swap encontrando o slot que tem o especificado .
+- `buildVersion`: essa é uma propriedade de cadeia de caracteres que representa a versão atual do aplicativo implantado no slot. Por exemplo: "v1", "1.0.0.1" ou "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: essa é uma propriedade de cadeia de caracteres `buildVersion` que especifica o que o slot deve ter. Se o targetBuildVersion não for igual ao atual `buildVersion`, isso disparará a operação de permuta localizando o slot que tem o `buildVersion`especificado.
 
-### <a name="example-resource-manager-template"></a>Exemplo de modelo do Gerenciador de recursos
+### <a name="example-resource-manager-template"></a>Exemplo de modelo do Resource Manager
 
-O modelo seguinte do `buildVersion` Gerenciador de Recursos atualizará o slot de preparação e definirá o `targetBuildVersion` slot de produção. Isso vai trocar os dois slots. O modelo pressupõe que você já tenha um webapp criado com um slot chamado "staging".
+O modelo `buildVersion` do Resource Manager a seguir atualizará o slot de preparo e definirá `targetBuildVersion` o no slot de produção. Isso mudará os dois slots. O modelo pressupõe que você já tenha um webapp criado com um slot chamado "preparo".
 
 ```json
 {
@@ -384,27 +384,27 @@ O modelo seguinte do `buildVersion` Gerenciador de Recursos atualizará o slot d
 }
 ```
 
-Este modelo de Gerenciador de recursos é impotente, o que significa que ele pode ser executado repetidamente e produzir o mesmo estado dos slots. Após a primeira `targetBuildVersion` execução, `buildVersion`corresponderá à corrente, de modo que uma troca não será acionada.
+Esse modelo do Resource Manager é idempotente, o que significa que ele pode ser executado repetidamente e produzir o mesmo estado dos slots. Após a primeira execução, `targetBuildVersion` o corresponderá `buildVersion`ao atual, de modo que uma troca não será disparada.
 
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
 
-## <a name="automate-with-the-cli"></a>Automatize com a CLI
+## <a name="automate-with-the-cli"></a>Automatizar com a CLI
 
 Para obter os comandos da [CLI do Azure](https://github.com/Azure/azure-cli) para slots de implantação, confira [Slot de implantação do az webapp](/cli/azure/webapp/deployment/slot).
 
-## <a name="troubleshoot-swaps"></a>Trocas de solução de problemas
+## <a name="troubleshoot-swaps"></a>Solucionar problemas de trocas
 
-Se ocorrer algum erro durante uma [troca de slot,](#AboutConfiguration)ele será registrado em *D:\home\LogFiles\eventlog.xml*. Também está registrado no registro de erro específico do aplicativo.
+Se ocorrer algum erro durante uma [troca de slot](#AboutConfiguration), ele será registrado em *D:\home\LogFiles\eventlog.xml*. Ele também é registrado no log de erros específico do aplicativo.
 
-Aqui estão alguns erros comuns de swap:
+Aqui estão alguns erros de permuta comuns:
 
-- Uma solicitação HTTP para a raiz do aplicativo é cronometrada. A operação de troca espera por 90 segundos para cada solicitação HTTP e tenta tentativas em até 5 vezes. Se todas as repetições estiverem cronometradas, a operação de troca será interrompida.
+- Uma solicitação HTTP para a raiz do aplicativo é cronometrada. A operação de permuta aguarda por 90 segundos para cada solicitação HTTP e tenta novamente até 5 vezes. Se todas as novas tentativas atingirem o tempo limite, a operação de permuta será interrompida.
 
-- A inicialização do cache local pode falhar quando o conteúdo do aplicativo exceder a cota de disco local especificada para o cache local. Para obter mais informações, consulte [visão geral do cache local](overview-local-cache.md).
+- A inicialização do cache local poderá falhar quando o conteúdo do aplicativo exceder a cota de disco local especificada para o cache local. Para obter mais informações, consulte [visão geral do cache local](overview-local-cache.md).
 
-- Durante [o aquecimento personalizado,](#Warm-up)as solicitações HTTP são feitas internamente (sem passar pela URL externa). Eles podem falhar com certas regras de reescrita de URL na *Web.config*. Por exemplo, regras para redirecionar nomes de domínio ou aplicar HTTPS podem impedir que solicitações de aquecimento cheguem ao código do aplicativo. Para contornar esse problema, modifique suas regras de reescrita adicionando as duas condições a seguir:
+- Durante o [aquecimento personalizado](#Warm-up), as solicitações HTTP são feitas internamente (sem passar pela URL externa). Eles podem falhar com determinadas regras de regravação de URL em *Web. config*. Por exemplo, regras para redirecionar nomes de domínio ou impor HTTPS podem impedir que solicitações de aquecimento atinjam o código do aplicativo. Para contornar esse problema, modifique suas regras de reescrita adicionando as duas condições a seguir:
 
     ```xml
     <conditions>
@@ -413,7 +413,7 @@ Aqui estão alguns erros comuns de swap:
       ...
     </conditions>
     ```
-- Sem um aquecimento personalizado, as regras de reescrita de URL ainda podem bloquear solicitações HTTP. Para contornar esse problema, modifique suas regras de reescrita adicionando a seguinte condição:
+- Sem um aquecimento personalizado, as regras de regravação de URL ainda podem bloquear solicitações HTTP. Para contornar esse problema, modifique suas regras de reescrita adicionando a seguinte condição:
 
     ```xml
     <conditions>
@@ -421,9 +421,9 @@ Aqui estão alguns erros comuns de swap:
       ...
     </conditions>
     ```
-- Algumas [regras de restrição](app-service-ip-restrictions.md) de IP podem impedir que a operação de swap envie solicitações HTTP para o seu aplicativo. Os intervalos de endereços `10.` `100.` IPv4 que começam e são internos para sua implantação. Você deve permitir que eles se conectem ao seu aplicativo.
+- Algumas [regras de restrição de IP](app-service-ip-restrictions.md) podem impedir que a operação de permuta envie solicitações HTTP para seu aplicativo. Os intervalos de endereços IPv4 que `10.` começam `100.` com e são internos à sua implantação. Você deve permitir que eles se conectem ao seu aplicativo.
 
-- Após trocas de slot, o aplicativo pode sofrer reinicializações inesperadas. Isso porque após uma troca, a configuração de vinculação do nome de host fica fora de sincronia, o que por si só não causa reinicializações. No entanto, certos eventos de armazenamento subjacentes (como failovers de volume de armazenamento) podem detectar essas discrepâncias e forçar todos os processos de trabalhadores a reiniciar. Para minimizar esses tipos de reinicializações, defina a [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` configuração](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) do aplicativo em *todos os slots*. No entanto, esta configuração do aplicativo *não* funciona com aplicativos WCF (Windows Communication Foundation).
+- Após trocas de slot, o aplicativo pode experimentar reinicializações inesperadas. Isso ocorre porque, após uma troca, a configuração de associação de nome de host fica fora de sincronia, o que por si só não causa reinicializações. No entanto, determinados eventos de armazenamento subjacentes (como failovers de volume de armazenamento) podem detectar essas discrepâncias e forçar a reinicialização de todos os processos de trabalho. Para minimizar esses tipos de reinicializações, defina a [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` configuração do aplicativo](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) em *todos os slots*. No entanto, essa configuração de aplicativo *não funciona com* aplicativos Windows Communication Foundation (WCF).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Bloquear o acesso aos slots de não produção](app-service-ip-restrictions.md)

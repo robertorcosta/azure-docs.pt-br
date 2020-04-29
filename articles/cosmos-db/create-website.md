@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: sngun
 ms.openlocfilehash: 2306dbe234e171ac613c33458df1990b767637df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79128378"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implantar o Azure Cosmos DB e Aplicativos Web do Serviço de Aplicativo do Azure usando um modelo do Azure Resource Manager
-Este tutorial mostra como usar um modelo do Azure Resource Manager para implantar e integrar [o Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), o aplicativo web [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo web de exemplo.
+Este tutorial mostra como usar um modelo de Azure Resource Manager para implantar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), Azure app aplicativo Web de [serviço](https://go.microsoft.com/fwlink/?LinkId=529714) e um aplicativo Web de exemplo.
 
 Usando modelos do Azure Resource Manager, é possível automatizar com facilidade a implantação e a configuração de seus recursos do Azure.  Este tutorial mostra como implantar um aplicativo Web e configurar automaticamente as informações de conexão da conta do Azure Cosmos DB.
 
@@ -56,7 +56,7 @@ Agora, vamos implantar seu primeiro modelo.
    ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment3.png)
 4. Clique em **Editar parâmetros**, forneça valores para cada um dos parâmetros obrigatórios e clique em **OK**.  Os parâmetros são os seguintes:
    
-   1. SITENAME: Especifica o nome do aplicativo web app service e é usado para construir a URL que você usa para acessar o aplicativo web (por `mydemodocdbwebapp.azurewebsites.net`exemplo, se você especificar "mydemodocdbwebapp", então a URL pela qual você acessa o aplicativo web é ).
+   1. SITENAME: especifica o nome do aplicativo Web do serviço de aplicativo e é usado para construir a URL que você usa para acessar o aplicativo Web (por exemplo, se você especificar "mydemodocdbwebapp", a URL pela qual você acessa o aplicativo `mydemodocdbwebapp.azurewebsites.net`Web é).
    2. HOSTINGPLANNAME: especifica o nome do plano de hospedagem do Serviço de Aplicativo a ser criado.
    3. LOCATION: especifica a localização do Azure na qual serão criados os recursos do Azure Cosmos DB e do aplicativo Web.
    4. DATABASEACCOUNTNAME: especifica o nome da conta do Azure Cosmos DB a ser criada.   
@@ -69,7 +69,7 @@ Agora, vamos implantar seu primeiro modelo.
    ![Captura de tela da interface do usuário da implantação do modelo](./media/create-website/TemplateDeployment6.png)
 7. Quando a implantação for concluída, o painel do Grupo de recursos é aberto.
    ![Captura de tela do painel Grupo de recursos](./media/create-website/TemplateDeployment7.png)  
-8. Para usar o aplicativo, navegue até a URL do aplicativo `http://mydemodocdbwebapp.azurewebsites.net`web (no exemplo acima, a URL seria ).  Você verá o seguinte aplicativo Web:
+8. Para usar o aplicativo, navegue até a URL do aplicativo Web (no exemplo acima, a URL seria `http://mydemodocdbwebapp.azurewebsites.net`).  Você verá o seguinte aplicativo Web:
    
    ![Aplicativo Todo de exemplo](./media/create-website/image2.png)
 9. Vá em frente e crie algumas tarefas no aplicativo web e, em seguida, retorne ao painel de Grupo de recursos no portal do Azure. Clique no recurso de conta do Azure Cosmos DB na lista de Recursos e, em seguida, clique em **Data Explorer**.
@@ -122,7 +122,7 @@ Parabéns! Você implantou o Azure Cosmos DB, um aplicativo Web do Serviço de A
 * Para saber mais sobre modelos do Gerenciador de Recursos do Azure, clique [aqui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>O que mudou
-* Para obter um guia para a mudança de sites para serviço de aplicativos, consulte: [Serviço de aplicativos do Azure e seu impacto nos serviços existentes do Azure](https://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obter um guia para a alteração de sites para o serviço de aplicativo, consulte: [Azure app serviço e seu impacto sobre os serviços existentes do Azure](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
 > Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
