@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
 ms.openlocfilehash: 1ab6243be39bf30bc060ed5745fbf600924743a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71839202"
 ---
 | Recurso | Limite |
@@ -19,7 +19,7 @@ ms.locfileid: "71839202"
 | Cache do Azure para réplicas Redis, para alta disponibilidade |1 |
 | Fragmentos em um cache premium com clustering |10 |
 
-Os limites e tamanhos do Cache Redis do Azure são diferentes para cada camada de preços. Para ver os níveis de preços e seus tamanhos associados, consulte [O Cache do Azure para preços redis](https://azure.microsoft.com/pricing/details/cache/).
+Os limites e tamanhos do Cache Redis do Azure são diferentes para cada camada de preços. Para ver os tipos de preço e seus tamanhos associados, veja [preços do cache do Azure para Redis](https://azure.microsoft.com/pricing/details/cache/).
 
 Para obter informações sobre os limites de configuração do Cache Redis do Azure, veja [Configuração padrão do servidor do Redis](../articles/azure-cache-for-redis/cache-configure.md#default-redis-server-configuration).
 

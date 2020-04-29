@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76748751"
 ---
 Este artigo fornece detalhes avançados para proteger sua a infraestrutura IoT (Internet das Coisas) baseada em Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
@@ -77,7 +77,7 @@ Ao estabelecer uma conexão TLS segura com o IoT Hub, o dispositivo IoT autentic
 
 ## <a name="securing-the-connection"></a>Protegendo a conexão
 
-A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT suporta [TLS 1.2,](https://tools.ietf.org/html/rfc5246)TLS 1.1 e TLS 1.0, nesta ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. Verifique [o suporte ao TLS no IoT Hub](../articles/iot-hub/iot-hub-tls-support.md) para ver como configurar seu hub para usar o TLS 1.2, pois ele fornece mais segurança.
+A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT dá suporte a [tls 1,2](https://tools.ietf.org/html/rfc5246), TLS 1,1 e TLS 1,0, nesta ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. Verifique o [suporte a TLS no Hub IOT](../articles/iot-hub/iot-hub-tls-support.md) para ver como configurar seu hub para usar o TLS 1,2, pois ele fornece a maior segurança.
 
 ## <a name="securing-the-cloud"></a>Proteger a nuvem
 
@@ -107,7 +107,7 @@ Dados ingeridos pelo Hub IoT do Azure podem ser consumidos por diversos serviço
 
 * [Aplicativos lógicos](https://azure.microsoft.com/services/app-service/logic/): o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
 
-* [Armazenamento Azure Blob](https://azure.microsoft.com/services/storage/): Armazenamento em nuvem confiável e econômico para os dados que seus dispositivos enviam para a nuvem.
+* [Armazenamento de BLOBs do Azure](https://azure.microsoft.com/services/storage/): armazenamento em nuvem confiável e econômico para os dados que seus dispositivos enviam para a nuvem.
 
 ## <a name="conclusion"></a>Conclusão
 

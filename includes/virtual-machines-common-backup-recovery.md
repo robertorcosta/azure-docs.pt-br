@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: be71b269e618d13a126e4005754b307e9c6517d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67171916"
 ---
 ## <a name="azure-backup"></a>Serviço de Backup do Azure
@@ -38,8 +38,8 @@ Em ambientes de desenvolvimento e teste, os instantâneos fornecem uma opção s
 
 Para saber mais sobre a criação de instantâneos, veja:
 
-* [Criar cópia de VHD armazenada como um disco gerenciado usando snapshots no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Criar cópia de VHD armazenada como um disco gerenciado usando snapshots no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Criar cópia do VHD armazenado como um disco gerenciado usando instantâneos no Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Criar cópia do VHD armazenado como um disco gerenciado usando instantâneos no Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 

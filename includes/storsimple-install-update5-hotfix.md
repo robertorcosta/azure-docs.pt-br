@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172119"
 ---
 #### <a name="to-download-hotfixes"></a>Para baixar os hotfixes
 
 Execute as etapas a seguir para baixar a atualização do software do Catálogo do Microsoft Update.
 
-1. Inicie o Internet [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)Explorer e navegue para .
+1. Inicie o Internet Explorer e navegue [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)até.
 2. Caso esta seja a primeira vez que você usa o Catálogo do Microsoft Update neste computador, clique em **Instalar** quando a instalação do complemento do Catálogo do Microsoft Update for solicitada.
 
     ![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -26,7 +26,7 @@ Execute as etapas a seguir para baixar a atualização do software do Catálogo 
    
     ![Pesquisar o catálogo](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. Clique em **Baixar**. Especifique ou **Navegue** até o local em que deseja que o download apareça. Clique nos arquivos para baixar no local e pasta especificados. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
+4. Clique em **Download**. Especifique ou **Navegue** até o local em que deseja que o download apareça. Clique nos arquivos para baixar no local e pasta especificados. A pasta também pode ser copiada para um compartilhamento de rede que seja acessível do dispositivo.
 5. Procure quaisquer hotfixes adicionais listados na tabela acima (**4037266**) e baixe os arquivos correspondentes às pastas específicas, conforme listado na tabela anterior.
 
 > [!NOTE]

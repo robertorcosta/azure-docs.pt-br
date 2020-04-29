@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: ba2985b8b6c92e299e8ab378263c9b4c062561d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172128"
 ---
 #### <a name="to-mount-initialize-and-format-a-volume"></a>Para montar, inicializar e formatar um volume
@@ -16,7 +16,7 @@ ms.locfileid: "67172128"
 2. Na janela **Propriedades do Iniciador iSCSI** na guia **Descoberta**, clique em **Descobrir Portal**.
 3. Na caixa de diálogo **Descobrir Portal de Destino**, forneça o endereço IP de seu adaptador de rede habilitado para iSCSI e clique em **OK**. 
 4. Na janela **Propriedades do Iniciador iSCSI** na guia **Destinos**, localize os **Destinos descobertos**. O status do dispositivo deve aparecer como **Inativo**.
-5. Selecione o dispositivo de destino e depois clique em **Conectar**. Após o dispositivo ter sido conectado, o status deverá mudar para **Conectado**. (Para obter mais informações sobre o uso do iniciador Microsoft iSCSI, consulte Instalar e Configurar o [iniciador microsoft iSCSI][1]).
+5. Selecione o dispositivo de destino e depois clique em **Conectar**. Após o dispositivo ter sido conectado, o status deverá mudar para **Conectado**. (Para obter mais informações sobre como usar o iniciador iSCSI da Microsoft, consulte [Instalando e Configurando o iniciador iSCSI da Microsoft][1]).
 6. No host do Windows, aperte a tecla do logotipo do Windows + X e depois clique em **Executar**. 
 7. Na caixa de diálogo **Executar**, digite **Diskmgmt.msc**. Clique em **OK** e a caixa de diálogo **Gerenciamento de disco** será exibida. O painel do lado direito exibirá os volumes do seu host.
 8. Na janela **Gerenciamento de Disco**, os volumes montados serão exibidos conforme mostrado na ilustração. Clique com o botão direito do mouse no volume descoberto (clique no nome do disco) e, em seguida, clique em **Online**.

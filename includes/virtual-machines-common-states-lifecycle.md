@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67171861"
 ---
 As VMs (Máquinas Virtuais) do Azure passam por diferentes estados que podem ser categorizados entre os estados de *provisionamento* e *energia*. A finalidade deste artigo é descrever esses estados e realçar especificamente quando os clientes são cobrados pelo uso de instância. 
@@ -40,7 +40,7 @@ Cobrança de uso de instância
 </tr>
 <tr>
 <td>
-<p><b>Começando</b></p>
+<p><b>Iniciando</b></p>
 </td>
 <td>
 <p>A VM está iniciando.</p>
@@ -71,12 +71,12 @@ Cobrança de uso de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Faturado</b></p>
+<p><b>Cobrado</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Parar</b></p>
+<p><b>Parando</b></p>
 </td>
 <td>
 <p>Esse é um estado de transição. Quando concluído, ele será exibido como **Parado**.</p>
@@ -89,12 +89,12 @@ Cobrança de uso de instância
  ]</code><br>
 </td>
 <td>
-<p><b>Faturado</b></p>
+<p><b>Cobrado</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Parou</b></p>
+<p><b>Parado</b></p>
 </td>
 <td>
 <p>A VM foi desligada de dentro do sistema operacional convidado ou usando as APIs PowerOff.</p>
@@ -196,7 +196,7 @@ Aqui estão os estados operação de transição depois que a plataforma aceitou
 </tr>
 <tr>
 <td width="162">
-<p><b>Atualizando</b></p>
+<p><b>Atualizar</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -210,7 +210,7 @@ Aqui estão os estados operação de transição depois que a plataforma aceitou
 </tr>
 <tr>
 <td width="162">
-<p><b>Excluir</b></p>
+<p><b>Excluído</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>

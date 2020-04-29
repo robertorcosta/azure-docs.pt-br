@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172382"
 ---
-1. [Conecte-se à interface PowerShell](#connect-to-the-powershell-interface).
-2. Use `Get-HcsApplianceInfo` o para obter as informações para o seu dispositivo.
+1. [Conecte-se à interface do PowerShell](#connect-to-the-powershell-interface).
+2. Use o `Get-HcsApplianceInfo` para obter as informações do seu dispositivo.
 
-    O exemplo a seguir mostra o uso deste cmdlet:
+    O exemplo a seguir mostra o uso desse cmdlet:
 
     ```
     [10.100.10.10]: PS>Get-HcsApplianceInfo
@@ -43,16 +43,16 @@ ms.locfileid: "67172382"
     IsRegistered                  : False
     ```
 
-    Aqui está uma tabela resumindo algumas das informações importantes do dispositivo:
+    Aqui está uma tabela que resume algumas das informações importantes do dispositivo:
     
     | Parâmetro                             | Descrição                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | O nome amigável do dispositivo configurado através da ui web local durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |   |
-    | SerialNumber                   | O número de série do dispositivo é um número único atribuído na fábrica.                                                                             |   |
-    | Modelo                          | O modelo para o dispositivo Data Box Edge ou Data Box Gateway. O modelo é virtual para Data Box Gateway e físico para Data Box Edge.                   |   |
-    | FriendlySoftwareVersion        | A cadeia de caracteres amigável que corresponde à versão do software do dispositivo. Para uma visualização do sistema em execução, a versão amigável do software seria data box edge 1902. |   |
+    | FriendlyName                   | O nome amigável do dispositivo, conforme configurado por meio da interface do usuário da Web local durante a implantação do dispositivo. O nome amigável padrão é o número de série do dispositivo.  |   |
+    | SerialNumber                   | O número de série do dispositivo é um número exclusivo atribuído na fábrica.                                                                             |   |
+    | Modelo                          | O modelo para seu Data Box Edge ou Gateway do Data Box dispositivo. O modelo é virtual para Gateway do Data Box e físico para Data Box Edge.                   |   |
+    | FriendlySoftwareVersion        | A cadeia de caracteres amigável que corresponde à versão do software do dispositivo. Para um sistema executando a visualização, a versão de software amigável seria Data Box Edge 1902. |   |
     | HcsVersion                     | A versão do software HCS em execução no seu dispositivo. Por exemplo, a versão do software HCS correspondente ao Data Box Edge 1902 é 1.4.771.324.            |   |
-    | Capacidade localInMb              | A capacidade local total do dispositivo em Megabits.                                                                                                        |   |
-    | Está registrado                   | Este valor indica se o dispositivo está ativado com o serviço.                                                                                         |   |
+    | LocalCapacityInMb              | A capacidade local total do dispositivo em megabits.                                                                                                        |   |
+    | IsRegistered                   | Esse valor indica se o dispositivo está ativado com o serviço.                                                                                         |   |
 
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67171844"
 ---
 ## <a name="scenario"></a>Cenário
@@ -23,4 +23,4 @@ Uma VM com uma única NIC é criada e conectada a uma rede virtual. A VM requer 
 As configurações de IP são associadas à NIC quando a NIC é criada e a NIC é conectada à máquina Virtual quando a VM é criada. Os tipos de endereços IP usados para o cenário são para fins de ilustração. Você pode atribuir quaisquer tipos de atribuição e de endereço IP necessários.
 
 > [!NOTE]
-> Embora as etapas neste artigo atribuam todas as configurações de IP a uma única NIC, você também pode atribuir várias configurações de IP para qualquer NIC em uma VM. Para aprender como criar uma VM com várias NICs, leia o [Criar uma VM com vários NICs.](../articles/virtual-machines/windows/multiple-nics.md)
+> Embora as etapas neste artigo atribuam todas as configurações de IP a uma única NIC, você também pode atribuir várias configurações de IP para qualquer NIC em uma VM. Para saber como criar uma VM com várias NICs, leia o artigo [criar uma VM com várias NICs](../articles/virtual-machines/windows/multiple-nics.md) .

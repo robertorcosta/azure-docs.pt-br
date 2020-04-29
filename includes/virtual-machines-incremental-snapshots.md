@@ -9,10 +9,10 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74014544"
 ---
 ## <a name="overview"></a>Visão geral
@@ -112,5 +112,5 @@ As etapas a seguir descrevem como restaurar o disco premium *mypremiumdisk* para
 Use os links a seguir para saber mais sobre como criar instantâneos de um blob e planejar a infraestrutura de backup da VM.
 
 * [Criando um instantâneo de um Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
-* [Planeje sua infra-estrutura de backup de VM](../articles/backup/backup-azure-vms-introduction.md)
+* [Planejar sua infraestrutura de backup de VM](../articles/backup/backup-azure-vms-introduction.md)
 

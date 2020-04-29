@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 02274bacb66a33ef54e07bc8113d7db46d4d5296
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172112"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Para adicionar uma política de backup do StorSimple
@@ -35,7 +35,7 @@ ms.locfileid: "67172112"
 
        1. Para **Tipo de instantâneo**, selecione **Nuvem** ou **Local**.
 
-       2. Indique a freqüência de backups (especifique um número e escolha **Dias** ou **Semanas** na lista de baixa.
+       2. Indique a frequência dos backups (especifique um número e escolha **dias** ou **semanas** na lista suspensa.
 
        3. Insira um agendamento de retenção.
 

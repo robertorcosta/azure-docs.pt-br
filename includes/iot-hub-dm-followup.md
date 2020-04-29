@@ -9,10 +9,10 @@ ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 2514325c93f0f72aa979f871e86e465093479402
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69558717"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar e estender as ações de gerenciamento do dispositivo
@@ -27,6 +27,6 @@ Normalmente, você pode configurar os dispositivos para executar ações em um h
 
 Neste tutorial, você usou um método direto para disparar uma reinicialização remota em um dispositivo. Você usou as propriedades relatadas para relatar a hora da última reinicialização do dispositivo e consultou o dispositivo gêmeo para descobrir a hora da última reinicialização do dispositivo na nuvem.
 
-Para continuar começando com o IoT Hub e padrões de gerenciamento de dispositivos, como atualização remota sobre o firmware do ar, consulte [Como fazer uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md).
+Para continuar a introdução aos padrões do Hub IoT e do gerenciamento de dispositivos, como remoto pela atualização do firmware do ar, consulte [como fazer uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md).
 
-Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, consulte [Agendar e transmitir trabalhos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
+Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, consulte [agendar e difundir trabalhos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

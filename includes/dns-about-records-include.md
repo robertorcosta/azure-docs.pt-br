@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73832036"
 ---
 ### <a name="record-names"></a>Nomes de registros
 
-No DNS do Azure, os registros são especificados usando nomes relativos. Um nome de domínio *totalmente qualificado* (FQDN) inclui o nome da região, enquanto um nome *relativo* não. Por exemplo, o `www` nome do `contoso.com` registro relativo `www.contoso.com`na região dá o nome de registro totalmente qualificado .
+No DNS do Azure, os registros são especificados usando nomes relativos. Um FQDN (nome de domínio *totalmente qualificado* ) inclui o nome da zona, enquanto que um nome *relativo* não. Por exemplo, o nome `www` relativo do registro na zona `contoso.com` fornece o nome `www.contoso.com`totalmente qualificado do registro.
 
-Um registro *apex* é um registro DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona `contoso.com`DNS, um registro de `contoso.com` ápice também tem o nome totalmente qualificado (às vezes é chamado de domínio *nu).*  Por convenção, o nome relativo '\@' é usado para representar os registros de apex.
+Um registro *apex* é um registro DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona `contoso.com`DNS, um registro de Apex também tem o nome `contoso.com` totalmente qualificado (isso, às vezes, é chamado de domínio *descoberto* ).  Por convenção, o nome relativo '\@' é usado para representar os registros de apex.
 
 ### <a name="record-types"></a>Tipos de registro
 

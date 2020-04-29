@@ -5,30 +5,30 @@ ms.topic: include
 ms.date: 03/06/2019
 ms.author: alkohli
 ms.openlocfilehash: 348f7bdd333da4f4a6cb41a438b7aee08d6a6bbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172384"
 ---
 Dependendo do sistema operacional do cliente, os procedimentos para se conectar remotamente ao dispositivo são diferentes.
 
-### <a name="remotely-connect-from-a-windows-client"></a>Conecte-se remotamente a partir de um cliente Windows
+### <a name="remotely-connect-from-a-windows-client"></a>Conectar remotamente de um cliente Windows
 
-Antes de começar, certifique-se de que seu cliente Windows esteja executando o Windows PowerShell 5.0 ou posterior.
+Antes de começar, verifique se o seu cliente Windows está executando o Windows PowerShell 5,0 ou posterior.
 
-Siga essas etapas para se conectar remotamente a partir de um cliente do Windows.
+Siga estas etapas para se conectar remotamente de um cliente Windows.
 
 1. Execute uma sessão do Windows PowerShell como administrador.
-2. Certifique-se de que o serviço de gerenciamento remoto do Windows está sendo executado em seu cliente. No prompt de comando, digite:
+2. Verifique se o serviço de Gerenciamento Remoto do Windows está em execução no seu cliente. No prompt de comando, digite:
 
     `winrm quickconfig`
 
-3. Atribuir uma variável ao endereço IP do dispositivo.
+3. Atribua uma variável ao endereço IP do dispositivo.
 
     $ip = "<device_ip>"
 
-    Substitua pelo `<device_ip>` endereço IP do seu dispositivo.
+    Substitua `<device_ip>` pelo endereço IP do seu dispositivo.
 
 4. Para adicionar o endereço IP do seu dispositivo à lista de hosts confiáveis do cliente, digite o seguinte comando:
 
@@ -38,7 +38,7 @@ Siga essas etapas para se conectar remotamente a partir de um cliente do Windows
 
     `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell`
 
-6. Forneça a senha quando solicitado. Use a mesma senha usada para entrar na ui local. A senha padrão da Web UI local é *Password1*. Quando você se conecta com sucesso ao dispositivo usando o PowerShell remoto, você verá a seguinte saída de amostra:  
+6. Forneça a senha quando solicitado. Use a mesma senha usada para entrar na interface do usuário da Web local. A senha padrão da interface do usuário da Web local é *password1*. Quando você se conectar com êxito ao dispositivo usando o PowerShell remoto, você verá a seguinte saída de exemplo:  
 
     ```
     Windows PowerShell
@@ -54,27 +54,27 @@ Siga essas etapas para se conectar remotamente a partir de um cliente do Windows
     [10.100.10.10]: PS>
     ```
 
-### <a name="remotely-connect-from-a-linux-client"></a>Conecte-se remotamente a partir de um cliente Linux
+### <a name="remotely-connect-from-a-linux-client"></a>Conectar remotamente de um cliente Linux
 
-No cliente Linux que você usará para conectar:
+No cliente Linux que você usará para se conectar:
 
-- [Instale o mais recente PowerShell Core para Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) do GitHub para obter o recurso de remoção SSH. 
-- [Instale `gss-ntlmssp` apenas o pacote do módulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Para clientes Ubuntu, use o seguinte comando:
+- [Instale o PowerShell Core mais recente para Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) do GitHub para obter o recurso de comunicação remota do SSH. 
+- [Instale apenas o `gss-ntlmssp` pacote do módulo NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Para clientes do Ubuntu, use o seguinte comando:
     - `sudo apt-get install gss-ntlmssp`
 
-Para obter mais informações, vá para [PowerShell remoting over SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
+Para obter mais informações, acesse [comunicação remota do PowerShell por SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
 
-Siga essas etapas para se conectar remotamente a partir de um cliente NFS.
+Siga estas etapas para se conectar remotamente de um cliente NFS.
 
-1. Para abrir a sessão PowerShell, digite:
+1. Para abrir a sessão do PowerShell, digite:
 
     `sudo pwsh`
  
-2. Para conectar usando o cliente remoto, digite:
+2. Para se conectar usando o cliente remoto, digite:
 
     `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
-    Quando solicitado, forneça a senha usada para entrar no seu dispositivo.
+    Quando solicitado, forneça a senha usada para entrar em seu dispositivo.
  
 > [!NOTE]
-> Este procedimento não funciona no Mac OS.
+> Este procedimento não funciona em Mac OS.

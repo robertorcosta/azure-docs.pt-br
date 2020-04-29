@@ -11,16 +11,16 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67172002"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obter a cadeia de conexão no portal do Azure
 Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão que é necessária para o seu programa cliente interagir com o Banco de Dados SQL do Azure.
 
-1. Selecione **Todos os serviços** > **de bancos de dados SQL**.
+1. Selecione **todos os serviços** > **bancos de dados SQL**.
 
 2. Insira o nome do banco de dados na caixa de texto de filtro próximo ao canto superior esquerdo da folha dos **bancos de dados SQL**.
 
@@ -38,7 +38,7 @@ Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão que
 
 8. Em um formato ou outro, cole as informações da cadeia de conexão no código do programa cliente.
 
-Para obter mais informações, consulte [strings e arquivos de configuração](https://msdn.microsoft.com/library/ms254494.aspx)de Conexão .
+Para obter mais informações, consulte [cadeias de conexão e arquivos de configuração](https://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 
