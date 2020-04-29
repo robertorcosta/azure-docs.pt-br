@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 5f794420eebb052538de0903727951de39f44a48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73747867"
 ---
 ### <a name="installation-failures"></a>Falhas de instalação
@@ -17,10 +17,10 @@ ms.locfileid: "73747867"
 |ERRO   Falha ao carregar Contas. Erro: System.IO.IOException: não é possível ler dados da conexão de transporte ao instalar e registrar o servidor CS.| Verifique se TLS 1.0 está habilitado no computador. |
 
 ### <a name="registration-failures"></a>Falhas de registro
-As falhas de registro podem ser depuradas revisando os logs na pasta **%ProgramData%\ASRLogs.**
+As falhas de registro podem ser depuradas examinando os logs na pasta **da%ProgramData%\asrlogs** .
 
 | **Mensagem de erro de exemplo** | **Ação recomendada** |
 |--------------------------|------------------------|
 |**09:20:06**:InnerException.Type: SrsRestApiClientLib.AcsException,InnerException.<br>Mensagem: ACS50008: token SAML é inválido.<br>ID de rastreamento: 1921ea5b-4723-4be7-8087-a75d3f9e1072<br>ID de correlação: 62fea7e6-2197-4be4-a2c0-71ceb7aa2d97><br>Carimbo de data/hora: **2016-12-12 14:50:08Z<br>** | Verifique se o horário no relógio do sistema não está mais de 15 minutos antes/depois do horário local. Execute novamente o instalador para concluir o registro.|
 |**09:35:27** : DRRegistrationException ao tentar obter todo o cofre de recuperação de desastre para o certificado selecionado: : Exception.Type:Microsoft.DisasterRecovery.Registration.DRRegistrationException lançado, Exception.Message: ACS50008: o token SAML é inválido.<br>ID de rastreamento: e5ad1af1-2d39-4970-8eef-096e325c9950<br>ID de correlação: abe9deb8-3e64-464d-8375-36db9816427a<br>Carimbo de data/hora: **2016-05-19 01:35:39Z**<br> | Verifique se o horário no relógio do sistema não está mais de 15 minutos antes/depois do horário local. Execute novamente o instalador para concluir o registro.|
-|06:28:45: Falha ao criar certificado<br>06:28:45: A instalação não pode continuar. Não é possível criar um certificado necessário para autenticar a Recuperação de Site. Executar a instalação novamente | Certifique-se de que você está executando a configuração como um administrador local. |
+|06:28:45: Falha ao criar certificado<br>06:28:45: A instalação não pode continuar. Não é possível criar um certificado necessário para autenticar a Recuperação de Site. Executar a instalação novamente | Verifique se você está executando a instalação como um administrador local. |

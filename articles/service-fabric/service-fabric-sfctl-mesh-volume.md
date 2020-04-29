@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI- volume de malha sfctl
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter e excluir recursos de volume.
+title: CLI do Azure Service Fabric-volume de malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir recursos de volume.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905916"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
@@ -21,7 +21,7 @@ Obter e excluir recursos do volume.
 | --- | --- |
 | excluir | Exclui o recurso do volume. |
 | list | Lista todos os recursos do volume. |
-| mostrar | Obtém o recurso de volume com o nome fornecido. |
+| show | Obtém o recurso de volume com o nome fornecido. |
 
 ## <a name="sfctl-mesh-volume-delete"></a>sfctl mesh volume delete
 Exclui o recurso do volume.
@@ -82,5 +82,5 @@ Obtém as informações sobre o recurso de volume com o nome fornecido. As infor
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

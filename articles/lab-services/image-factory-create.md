@@ -1,6 +1,6 @@
 ---
 title: Criar uma fábrica de imagens no Azure DevTest Labs | Microsoft Docs
-description: Este artigo mostra como configurar uma fábrica de imagens personalizada usando scripts de exemplo disponíveis no repositório Git (Azure DevTest Labs).
+description: Este artigo mostra como configurar uma fábrica de imagens Personalizada usando scripts de exemplo disponíveis no repositório git (Azure DevTest Labs).
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -13,49 +13,49 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 2c5a44a9505d4a312be521cdc3219c5e4ce95a42
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759441"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Crie uma fábrica de imagens personalizada no Azure DevTest Labs
-Este artigo mostra como configurar uma fábrica de imagens personalizada usando scripts de exemplo disponíveis no [repositório Git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
+# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Criar uma fábrica de imagens Personalizada no Azure DevTest Labs
+Este artigo mostra como configurar uma fábrica de imagens Personalizada usando scripts de exemplo disponíveis no [repositório git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
 ## <a name="whats-an-image-factory"></a>O que é uma fábrica de imagens?
-Uma fábrica de imagens é uma solução de configuração como código que constrói e distribui imagens automaticamente regularmente com todas as configurações desejadas. As imagens na fábrica de imagens estão sempre atualizadas, e a manutenção contínua é quase zero quando todo o processo é automatizado. E, como todas as configurações necessárias já estão na imagem, ela economiza o tempo de configurar manualmente o sistema depois que uma VM foi criada com o sistema operacional base.
+Uma fábrica de imagens é uma solução de configuração como código que cria e distribui imagens automaticamente de forma regular com todas as configurações desejadas. As imagens na fábrica de imagens estão sempre atualizadas e a manutenção contínua é quase zero quando o processo inteiro é automatizado. E, como todas as configurações necessárias já estão na imagem, ela poupa a hora de configurar manualmente o sistema após a criação de uma VM com o sistema operacional base.
 
-O acelerador significativo para obter um desktop de desenvolvedor para um estado pronto no DevTest Labs está usando imagens personalizadas. A desvantagem das imagens personalizadas é que há algo extra para manter no laboratório. Por exemplo, as versões de teste dos produtos expiram ao longo do tempo (ou) atualizações de segurança recém-lançadas não são aplicadas, o que nos força a atualizar a imagem personalizada periodicamente. Com uma fábrica de imagens, você tem uma definição da imagem verificada para o controle de código fonte e tem um processo automatizado para produzir imagens personalizadas com base na definição.
+O acelerador significativo para obter uma área de trabalho do desenvolvedor para um estado pronto no DevTest Labs está usando imagens personalizadas. A desvantagem das imagens personalizadas é que há algo extra a ser mantido no laboratório. Por exemplo, versões de avaliação de produtos expiram ao longo do tempo (ou) atualizações de segurança liberadas recentemente não são aplicadas, o que nos obriga a atualizar a imagem personalizada periodicamente. Com uma fábrica de imagens, você tem uma definição da imagem verificada no controle do código-fonte e tem um processo automatizado para produzir imagens personalizadas com base na definição.
 
-A solução permite a velocidade de criação de máquinas virtuais a partir de imagens personalizadas, eliminando custos adicionais de manutenção contínua. Com esta solução, você pode criar automaticamente imagens personalizadas, distribuí-las para outros Laboratórios DevTest e retirar as imagens antigas. No vídeo a seguir, você aprende sobre a fábrica de imagens e como ela é implementada com o DevTest Labs.  Todos os scripts do Azure Powershell estão [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory)disponíveis gratuitamente e localizados aqui: .
+A solução permite a velocidade de criação de máquinas virtuais a partir de imagens personalizadas, ao mesmo tempo que elimina custos de manutenção contínuas adicionais. Com essa solução, você pode criar automaticamente imagens personalizadas, distribuí-las a outros laboratórios do DevTest e desativar as imagens antigas. No vídeo a seguir, você aprende sobre a fábrica de imagens e como ela é implementada com o DevTest Labs.  Todos os scripts do Azure PowerShell estão disponíveis gratuitamente e estão localizados [https://aka.ms/dtlimagefactory](https://aka.ms/dtlimagefactory)aqui:.
 
 <br/>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Custom-Image-Factory-with-Azure-DevTest-Labs/player]
 
 
-## <a name="high-level-view-of-the-solution"></a>Visão de alto nível da solução
-A solução permite a velocidade de criação de máquinas virtuais a partir de imagens personalizadas, eliminando custos adicionais de manutenção contínua. Com esta solução, você pode criar automaticamente imagens personalizadas e distribuí-las para outros Laboratórios DevTest. Você usa o Azure DevOps (anteriormente Visual Studio Team Services) como o motor de orquestração para automatizar todas as operações no DevTest Labs.
+## <a name="high-level-view-of-the-solution"></a>Exibição de alto nível da solução
+A solução permite a velocidade de criação de máquinas virtuais a partir de imagens personalizadas, ao mesmo tempo que elimina custos de manutenção contínuas adicionais. Com essa solução, você pode criar imagens personalizadas automaticamente e distribuí-las a outros laboratórios do DevTest. Você usa o Azure DevOps (anteriormente Visual Studio Team Services) como o mecanismo de orquestração para automatizar todas as operações no DevTest Labs.
 
-![Visão de alto nível da solução](./media/create-image-factory/high-level-view-of-solution.png)
+![Exibição de alto nível da solução](./media/create-image-factory/high-level-view-of-solution.png)
 
-Há uma [extensão VSTS para DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que permite executar essas etapas individuais:
+Há uma [extensão do VSTS para DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que permite executar essas etapas individuais:
 
 - Criar imagem personalizada
 - Criar VM
 - Excluir VM
 - Criar ambiente
 - Excluir ambiente
-- Ambiente de povoar
+- Popular ambiente
 
-O uso da extensão DevTest Labs é uma maneira fácil de começar com a criação automática de imagens personalizadas no DevTest Labs.
+Usar a extensão do DevTest Labs é uma maneira fácil de começar a criar automaticamente imagens personalizadas no DevTest Labs.
 
-Há uma implementação alternativa usando o script PowerShell para um cenário mais complexo. Usando o PowerShell, você pode automatizar totalmente uma fábrica de imagens baseada em DevTest Labs que pode ser usada em sua cadeia de ferramentas de Integração Contínua e Entrega Contínua (CI/CD). Os princípios seguidos nesta solução alternativa são:
+Há uma implementação alternativa usando o script do PowerShell para um cenário mais complexo. Usando o PowerShell, você pode automatizar totalmente uma fábrica de imagens com base no DevTest Labs que pode ser usado em sua ferramentas de CI/CD (integração contínua e entrega contínua). Os princípios seguidos nesta solução alternativa são:
 
-- Atualizações comuns não devem exigir alterações na fábrica de imagens. (por exemplo, adicionar um novo tipo de imagem personalizada, retirar automaticamente imagens antigas, adicionar um novo 'endpoint' DevTest Labs para receber imagens personalizadas, e assim por diante.)
-- As alterações comuns são apoiadas pelo controle de código-fonte (infra-estrutura como código)
-- O DevTest Labs que recebe imagens personalizadas pode não estar na mesma assinatura do Azure (assinaturas de laboratórios abrangem)
-- Os scripts PowerShell devem ser reutilizáveis para que possamos girar fábricas adicionais conforme necessário
+- Atualizações comuns não devem exigir nenhuma alteração na fábrica de imagens. (por exemplo, adicionar um novo tipo de imagem personalizada, desativar automaticamente imagens antigas, adicionar um novo ' Endpoint ' DevTest Labs para receber imagens personalizadas e assim por diante.)
+- As alterações comuns são apoiadas pelo controle do código-fonte (infraestrutura como código)
+- Os laboratórios de DevTest que recebem imagens personalizadas podem não estar na mesma assinatura do Azure (laboratórios abrangem assinaturas)
+- Os scripts do PowerShell devem ser reutilizáveis para que possamos acelerar fábricas adicionais conforme necessário
 
 ## <a name="next-steps"></a>Próximas etapas
-Passe para o próximo artigo nesta seção: [Execute uma fábrica de imagens do Azure DevOps](image-factory-set-up-devops-lab.md)
+Vá para o próximo artigo nesta seção: [executar uma fábrica de imagens do Azure DevOps](image-factory-set-up-devops-lab.md)

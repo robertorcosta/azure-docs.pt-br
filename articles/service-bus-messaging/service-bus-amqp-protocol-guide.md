@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77086159"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
@@ -82,13 +82,13 @@ Atualmente, o Barramento de Serviço do Azure usa exatamente uma sessão para ca
 
 As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente for recolhida,as conexões, o túnel TLS, o contexto de autorização SASL e as sessões deverão ser restabelecidas.
 
-### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída AMQP
+### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída do AMQP
 
-Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver ativado. `EnableLinkRedirect`é um novo recurso de mensagens que ajuda a pular um salto enquanto recebe mensagens, ajudando assim a aumentar o throughput. O cliente começaria a se comunicar diretamente com o serviço back-end sobre a faixa de porta 104XX, conforme mostrado na imagem a seguir. 
+Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver habilitado. `EnableLinkRedirect`é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
 
-![Lista de portos de destino][4]
+![Lista de portas de destino][4]
 
-Um cliente .NET falharia com um SocketException ("Uma tentativa foi feita para acessar um soquete de uma maneira proibida por suas permissões de acesso") se essas portas forem bloqueadas pelo firewall. O recurso pode ser `EnableAmqpLinkRedirect=false` desativado configurando na seqüência connectiong string, que força os clientes a se comunicarem com o serviço remoto pela porta 5671.
+Um cliente .NET falharia com uma SocketException ("foi feita uma tentativa de acessar um soquete de uma maneira proibida por suas permissões de acesso") se essas portas estiverem bloqueadas pelo firewall. O recurso pode ser desabilitado pela `EnableAmqpLinkRedirect=false` configuração na cadeia de caracteres se conectar, que força os clientes a se comunicarem com o serviço remoto pela porta 5671.
 
 
 ### <a name="links"></a>Links
@@ -133,7 +133,7 @@ Além do modelo de controle de fluxo no nível de sessão discutido anteriorment
 
 ![][4]
 
-Em um link, as transferências só podem acontecer quando o remetente tiver crédito de *link*suficiente . O crédito de link é um contador definido pelo destinatário usando a performativa *fluxo*, que tem como escopo um link. Quando o remetente recebe o crédito de link, ele tenta usar esse crédito ao entregar mensagens. Cada entrega de mensagem decrementa o crédito de link restante em um. Quando o crédito de link acabar, as entregas serão interrompidas.
+Em um link, as transferências só podem acontecer quando o remetente tem *crédito de link*suficiente. O crédito de link é um contador definido pelo destinatário usando a performativa *fluxo*, que tem como escopo um link. Quando o remetente recebe o crédito de link, ele tenta usar esse crédito ao entregar mensagens. Cada entrega de mensagem decrementa o crédito de link restante em um. Quando o crédito de link acabar, as entregas serão interrompidas.
 
 Quando o Barramento de Serviço está na função de receptor, ele instantaneamente fornece ao remetente crédito de link suficiente para que as mensagens possam ser enviadas imediatamente. À medida que o crédito de link é usado, o Barramento de Serviço às vezes envia um *fluxo* performativo ao remetente para atualizar o saldo do crédito de link.
 
@@ -176,8 +176,8 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 
 | Cliente | Barramento de Serviço |
 | --- | --- |
-| --> detach(<br/>handle={numeric handle},<br/>fechado=**verdadeiro**<br/>) |Nenhuma ação |
-| Nenhuma ação |<-- detach(<br/>handle={numeric handle},<br/>fechado=**verdadeiro**<br/>) |
+| --> detach(<br/>handle={numeric handle},<br/>fechado =**verdadeiro**<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- detach(<br/>handle={numeric handle},<br/>fechado =**verdadeiro**<br/>) |
 
 #### <a name="send-success"></a>Enviar (êxito)
 
@@ -223,7 +223,7 @@ Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa d
 | --- | --- | --- |
 | durável |- |- |
 | priority |- |- |
-| ttl |Vida útil desta mensagem |[Timetolive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |Vida útil desta mensagem |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | primeiro comprador |- |- |
 | Contagem de entrega |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -234,14 +234,14 @@ Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa d
 | message-id |Identificador de forma livre definido pelo aplicativo para esta mensagem. Usado para detecção de duplicidade. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificador de usuário definido pelo aplicativo, não interpretado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
 | para |Identificador de destino definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Rótulo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| reply-to |Identificador reply-path definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Replyto](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| correlation-id |Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Correlationid](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| content-type |Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |[Contenttype](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Rotular](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| reply-to |Identificador reply-path definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| correlation-id |Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Identificador content-encoding definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
 | absolute-expiry-time |Declara em qual instante absoluto a mensagem expira. Ignorado na entrada (a vida útil do cabeçalho é observada), autoritativo na saída. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | creation-time |Declara a hora em que a mensagem foi criada. Não é usado pelo Barramento de Serviço |Não é acessível por meio da API do Barramento de Serviço. |
-| group-id |Identificador definido pelo aplicativo para um conjunto relacionado de mensagens. Usado para sessões do Barramento de Serviço. |[Sessionid](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| group-id |Identificador definido pelo aplicativo para um conjunto relacionado de mensagens. Usado para sessões do Barramento de Serviço. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | group-sequence |Contador que identifica o número de sequência relativa da mensagem em uma sessão. Ignorado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -255,7 +255,7 @@ Há algumas outras propriedades de mensagem do barramento de serviço que não f
 | x-opt-partition-key | Chave definida pelo aplicativo que determina em qual partição a mensagem deve chegar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
 | x-opt-via-partition-key | Valor de chave da partição definido pelo aplicativo quando uma transação deve ser usada para enviar mensagens por meio de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
 | x-opt-enqueued-time | Hora UTC definida pelo serviço que representa a hora real do enfileiramento da mensagem. Ignorado na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-sequence-number | Número exclusivo definido pelo serviço atribuído a uma mensagem. | [Sequencenumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
+| x-opt-sequence-number | Número exclusivo definido pelo serviço atribuído a uma mensagem. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
 | x-opt-offset | Número de sequência da mensagem enfileirada definido pelo serviço. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
 | x-opt-locked-until | Definido pelo serviço. A data e hora até quando a mensagem ficará bloqueada na fila/assinatura. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
 | x-opt-deadletter-source | Definido pelo serviço. A origem da mensagem original se a mensagem for recebida da fila de mensagens mortas. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
@@ -279,8 +279,8 @@ Para iniciar o trabalho transacional. o controlador precisa obter um `txn-id` do
 | --- | --- | --- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))|
+| transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (**declare ()**}| ------> |  |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**TXN-ID**= {ID da transação}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Descarregando uma transação
 
@@ -294,11 +294,11 @@ O controlador conclui o trabalho transacional enviando uma mensagem `discharge` 
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | . . . <br/>Trabalho transacional<br/>em outros links<br/> . . . |
 | transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
-| | <------ | disposition( <br/> first=57, last=57, <br/>estado=**Aceito()**|
+| | <------ | disposition( <br/> first=57, last=57, <br/>estado =**aceito ()**)|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Enviando uma mensagem em uma transação
 
-Todo o trabalho transacional é `transactional-state` feito com o estado de entrega transacional que carrega o txn-id. No caso do envio de mensagens, o estado transacional é transportado pelo quadro de transferência da mensagem. 
+Todo o trabalho transacional é feito com o estado `transactional-state` de entrega transacional que transporta o TXN. No caso de envio de mensagens, o estado transacional é executado pelo quadro de transferência da mensagem. 
 
 | Cliente (controlador) | | Barramento de Serviço (coordenador) |
 | --- | --- | --- |
@@ -370,27 +370,27 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| operação |Não |string |**put-token** |
-| type |Não |string |O tipo do token colocado. |
-| name |Não |string |O "público" ao qual o token se aplica. |
-| expiração |Sim | timestamp |A hora de expiração do token. |
+| operação |Não |cadeia de caracteres |**put-token** |
+| type |Não |cadeia de caracteres |O tipo do token colocado. |
+| name |Não |cadeia de caracteres |O "público" ao qual o token se aplica. |
+| expiração |Sim |timestamp |A hora de expiração do token. |
 
 A propriedade *name* identifica a entidade à qual o token deve ser associado. No Barramento de Serviço, é o caminho para a fila ou tópico/assinatura. A propriedade *type* identifica o tipo de token:
 
-| Tipo de token | Descrição do token | Tipo de corpo | Observações |
+| Tipo de token | Descrição do token | Tipo de corpo | Anotações |
 | --- | --- | --- | --- |
 | amqp:jwt |JWT (Token Web JSON) |Valor de AMQP (cadeia de caracteres) |Ainda não está disponível. |
 | amqp:swt |SWT (Token Web Simples) |Valor de AMQP (cadeia de caracteres) |Só tem suporte para tokens SWT emitidos pelo AAD/ACS |
 | servicebus.windows.net:sastoken |Token SAS do barramento de serviço |Valor de AMQP (cadeia de caracteres) |- |
 
-Os tokens conferem direitos. O Barramento de Serviço conhece três direitos fundamentais: "Enviar", permite o envio, "Ouvir", permite o recebimento, e "Gerenciar", permite a manipulação de entidades. Os tokens SWT emitidos pelo ACS/AAD incluem explicitamente esses direitos como declarações. Os tokens SAS do Barramento de Serviço consultam regras configuradas no namespace ou na entidade, e essas regras são configuradas com direitos. Assinar o token com a chave associada a essa regra, portanto, faz com que o token expresse os respectivos direitos. O token associado a uma entidade que usa *put-token* permite que o cliente conectado interaja com a entidade de acordo com os direitos do token. Um link onde o cliente assume a função *de remetente* requer o direito de "Enviar"; assumir a função *receptora* requer o direito "Ouvir".
+Os tokens conferem direitos. O Barramento de Serviço conhece três direitos fundamentais: "Enviar", permite o envio, "Ouvir", permite o recebimento, e "Gerenciar", permite a manipulação de entidades. Os tokens SWT emitidos pelo ACS/AAD incluem explicitamente esses direitos como declarações. Os tokens SAS do Barramento de Serviço consultam regras configuradas no namespace ou na entidade, e essas regras são configuradas com direitos. Assinar o token com a chave associada a essa regra, portanto, faz com que o token expresse os respectivos direitos. O token associado a uma entidade que usa *put-token* permite que o cliente conectado interaja com a entidade de acordo com os direitos do token. Um link em que o cliente assume a função de *remetente* requer o direito "enviar"; a tomada da função *Receiver* requer o direito "escutar".
 
 A mensagem de resposta tem os seguintes valores de *application-properties*
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | status-code |Não |INT |Código de resposta HTTP **[RFC2616]**. |
-| status-description |Sim |string |A descrição do status. |
+| status-description |Sim |cadeia de caracteres |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancela todos os tokens retidos quando a conexão cair.
 
@@ -412,7 +412,7 @@ Com essa funcionalidade, você pode criar um remetente e estabelecer o link com 
 
 | Cliente | | Barramento de Serviço |
 | --- | --- | --- |
-| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>alvo=**{via-entidade}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>destino =**{via-Entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Próximas etapas

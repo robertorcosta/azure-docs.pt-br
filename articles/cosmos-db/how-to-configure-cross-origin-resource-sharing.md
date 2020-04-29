@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: dech
 ms.openlocfilehash: 7a487cb10965a379a0a418efaa061be88c5d10dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77082985"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configurar CORS (Compartilhamento de Recursos entre Origens)
 
-O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo Web em execução em um domínio acesse recursos em outro domínio. Os navegadores da Web implementam uma restrição de segurança, conhecida como política de mesma origem, que impede que uma página da Web chame APIs em um domínio diferente. No entanto, o CORS fornece uma maneira segura de permitir que o domínio de origem chame APIs em outro domínio. A API Core (SQL) no Azure Cosmos DB agora suporta o Cross-Origin Resource Sharing (CORS) usando o cabeçalho "allowedOrigins". Após habilitar o suporte para CORS na conta do Azure Cosmos, somente as solicitações autenticadas serão avaliadas para determinar se são permitidas de acordo com as regras especificadas.
+O CORS (Compartilhamento de Recursos entre Origens) é um recurso HTTP que permite que um aplicativo Web em execução em um domínio acesse recursos em outro domínio. Os navegadores da Web implementam uma restrição de segurança, conhecida como política de mesma origem, que impede que uma página da Web chame APIs em um domínio diferente. No entanto, o CORS fornece uma maneira segura de permitir que o domínio de origem chame APIs em outro domínio. A API básica (SQL) no Azure Cosmos DB agora dá suporte ao compartilhamento de recursos entre origens (CORS) usando o cabeçalho "allowedOrigins". Após habilitar o suporte para CORS na conta do Azure Cosmos, somente as solicitações autenticadas serão avaliadas para determinar se são permitidas de acordo com as regras especificadas.
 
-É possível definir a configuração de CORS (Compartilhamento de Recursos entre Origens) no portal do Azure ou em um modelo do Azure Resource Manager. Para contas Cosmos usando a API Core (SQL), o Azure Cosmos DB suporta uma biblioteca JavaScript que funciona tanto em ambientes node.js quanto no navegador. Essa biblioteca agora pode aproveitar o suporte do CORS ao usar o modo Gateway. Não há configuração do lado do cliente necessária para usar esse recurso. Com o suporte de CORS, os recursos de um navegador podem acessar diretamente o Azure Cosmos DB por meio da [Biblioteca JavaScript](https://www.npmjs.com/package/@azure/cosmos) ou diretamente da [API REST](https://docs.microsoft.com/rest/api/cosmos-db/) para operações simples.
+É possível definir a configuração de CORS (Compartilhamento de Recursos entre Origens) no portal do Azure ou em um modelo do Azure Resource Manager. Para contas de Cosmos usando a API básica (SQL), o Azure Cosmos DB dá suporte a uma biblioteca JavaScript que funciona em ambientes de Node. js e baseados em navegador. Essa biblioteca agora pode aproveitar o suporte do CORS ao usar o modo Gateway. Não há configuração do lado do cliente necessária para usar esse recurso. Com o suporte de CORS, os recursos de um navegador podem acessar diretamente o Azure Cosmos DB por meio da [Biblioteca JavaScript](https://www.npmjs.com/package/@azure/cosmos) ou diretamente da [API REST](https://docs.microsoft.com/rest/api/cosmos-db/) para operações simples.
 
 > [!NOTE]
-> O suporte ao CORS é apenas aplicável e suportado para a API Azure Cosmos DB Core (SQL). Não é aplicável às APIs Azure Cosmos DB para Cassandra, Gremlin ou MongoDB, pois esses protocolos não usam HTTP para comunicação cliente-servidor.
+> O suporte a CORS só é aplicável e tem suporte para a API do Azure Cosmos DB Core (SQL). Ele não é aplicável às APIs de Azure Cosmos DB para Cassandra, Gremlin ou MongoDB, pois esses protocolos não usam HTTP para comunicação de cliente-servidor.
 
 ## <a name="enable-cors-support-from-azure-portal"></a>Habilitar o suporte de CORS do portal do Azure
 

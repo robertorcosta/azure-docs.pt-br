@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl malha secretvalue
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter e excluir recursos de valor secreto da Malha de Malha de Malha de Serviço.
+title: CLI do Azure Service Fabric-segredo de malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir Service Fabric recursos de segredo de malha.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905969"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
@@ -21,7 +21,7 @@ Obtém e exclui recursos de valor secreto da malha.
 | --- | --- |
 | excluir | Exclui o valor especificado do recurso de segredo nomeado. |
 | list | Lista os nomes de todos os valores do recurso de segredo especificado. |
-| mostrar | Lista o valor especificado do recurso secreto. |
+| show | Lista o valor especificado do recurso secreto. |
 
 ## <a name="sfctl-mesh-secretvalue-delete"></a>sfctl mesh secretvalue delete
 Exclui o valor especificado do recurso de segredo nomeado.
@@ -89,5 +89,5 @@ Lista o valor especificado do recurso secreto.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

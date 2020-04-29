@@ -1,6 +1,6 @@
 ---
 title: Criar um laboratório no Azure DevTest Labs | Microsoft Docs
-description: Este artigo orienta você sobre o processo de criação de um laboratório usando o portal Azure e o Azure DevTest Labs.
+description: Este artigo orienta você pelo processo de criação de um laboratório usando o portal do Azure e Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 5cd675823b85e975dcb8dfe152c27b2d30463c1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76759730"
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Criar Laboratórios de Desenvolvimento/Teste do Azure
@@ -32,7 +32,7 @@ Para criar um laboratório, você precisa de:
 ## <a name="steps-to-create-a-lab-in-azure-devtest-labs"></a>Etapas para criar um laboratório n o Azure DevTest Labs
 As etapas a seguir ilustram como usar o portal do Azure para criar um laboratório no Azure DevTest Labs. 
 
-1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. No menu principal à esquerda, selecione **Todos os Serviços** (na parte superior da lista). Selecione * (estrela) próximo a **DevTest Labs** na seção **DEVOPS**. Essa ação adicionará o **DevTest Labs** no menu de navegação esquerdo para que você possa acessá-lo facilmente da próxima vez. 
 
     ![Todos os serviços – selecionar DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -59,9 +59,9 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
 ## <a name="next-steps"></a>Próximas etapas
 Depois de criar seu laboratório, aqui estão algumas das próximas etapas a serem consideradas:
 
-* [Acesso seguro a um laboratório](devtest-lab-add-devtest-user.md)
+* [Proteger o acesso a um laboratório](devtest-lab-add-devtest-user.md)
 * [Definir políticas de laboratório](devtest-lab-set-lab-policy.md)
-* [Crie um modelo de laboratório](devtest-lab-create-template.md)
-* [Crie artefatos personalizados para suas VMs](devtest-lab-artifact-author.md)
+* [Criar um modelo de laboratório](devtest-lab-create-template.md)
+* [Criar artefatos personalizados para suas VMs](devtest-lab-artifact-author.md)
 * [Adicionar uma VM a um laboratório](devtest-lab-add-vm.md)
 

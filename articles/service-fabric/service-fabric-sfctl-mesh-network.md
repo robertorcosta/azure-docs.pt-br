@@ -1,15 +1,15 @@
 ---
-title: Rede de malha CLI-sfctl de malha azure
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter e excluir recursos da rede Malha de malha de malha de malha de serviço.
+title: CLI do Azure Service Fabric – rede de malha sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter e excluir Service Fabric recursos de rede de malha.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906004"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
@@ -21,7 +21,7 @@ Obter e excluir recursos de rede da malha.
 | --- | --- |
 | excluir | Exclui o recurso de rede. |
 | list | Lista todos os recursos de rede. |
-| mostrar | Obtém o recurso de rede com o nome fornecido. |
+| show | Obtém o recurso de rede com o nome fornecido. |
 
 ## <a name="sfctl-mesh-network-delete"></a>sfctl mesh network delete
 Exclui o recurso de rede.
@@ -82,5 +82,5 @@ Obtém as informações sobre o recurso de rede com o nome fornecido. As informa
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

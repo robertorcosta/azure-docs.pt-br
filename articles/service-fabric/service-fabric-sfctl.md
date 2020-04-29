@@ -1,19 +1,19 @@
 ---
-title: Azure Service Fabric CLI-sfctl
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos e subgrupos.
+title: CLI do Azure Service Fabric-sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos e subgrupos.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 56efa15a7de3414f9c535e66bd80c94594cd5038
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906210"
 ---
 # <a name="sfctl"></a>sfctl
-Comandos para gerenciar clusters e entidades do Service Fabric. Esta versão é compatível com o tempo de execução service fabric 7.0.
+Comandos para gerenciar clusters e entidades do Service Fabric. Esta versão é compatível com o tempo de execução do Service Fabric 7,0.
 
 Os comandos seguem o padrão de substantivo-verbo. Confira subgrupos para saber mais.
 
@@ -22,22 +22,22 @@ Os comandos seguem o padrão de substantivo-verbo. Confira subgrupos para saber 
 | --- | --- |
 | [aplicativo](service-fabric-sfctl-application.md) | Criar, excluir e gerenciar aplicativos e tipos de aplicativo. |
 | [chaos](service-fabric-sfctl-chaos.md) | Iniciar, parar e emitir relatórios sobre o serviço de teste de caos. |
-| [Cluster](service-fabric-sfctl-cluster.md) | Selecionar, gerenciar e operar clusters do Service Fabric. |
-| [Compor](service-fabric-sfctl-compose.md) | Criar, excluir e gerenciar aplicativos do Docker Compose. |
-| [Recipiente](service-fabric-sfctl-container.md) | Execute comandos relacionados ao contêiner em um nó de cluster. |
-| [Eventos](service-fabric-sfctl-events.md) | Recupere eventos da loja de eventos (se o serviço EventStore já estiver instalado). |
+| [em](service-fabric-sfctl-cluster.md) | Selecionar, gerenciar e operar clusters do Service Fabric. |
+| [Compose](service-fabric-sfctl-compose.md) | Criar, excluir e gerenciar aplicativos do Docker Compose. |
+| [Container](service-fabric-sfctl-container.md) | Execute comandos relacionados ao contêiner em um nó de cluster. |
+| [LostFocus](service-fabric-sfctl-events.md) | Recupere eventos do repositório de eventos (se o serviço EventStore já estiver instalado). |
 | [is](service-fabric-sfctl-is.md) | Consultar e enviar comandos para o serviço de infraestrutura. |
 | [mesh](service-fabric-sfctl-mesh.md) | Excluir e gerenciar aplicativos de Malha do Service Fabric. |
-| [Nó](service-fabric-sfctl-node.md) | Gerenciar os nós que formam um cluster. |
-| [Partição](service-fabric-sfctl-partition.md) | Consultar e gerenciar partições para qualquer serviço. |
-| [Propriedade](service-fabric-sfctl-property.md) | Propriedades de armazenamento e a consulta em nomes do Service Fabric. |
-| [Réplica](service-fabric-sfctl-replica.md) | Gerenciar as réplicas que pertencem a partições de serviço. |
+| [nó](service-fabric-sfctl-node.md) | Gerenciar os nós que formam um cluster. |
+| [particion](service-fabric-sfctl-partition.md) | Consultar e gerenciar partições para qualquer serviço. |
+| [property](service-fabric-sfctl-property.md) | Propriedades de armazenamento e a consulta em nomes do Service Fabric. |
+| [Replica](service-fabric-sfctl-replica.md) | Gerenciar as réplicas que pertencem a partições de serviço. |
 | [rpm](service-fabric-sfctl-rpm.md) | Consultar e enviar comandos para o serviço de gerenciador de reparo. |
 | [sa-cluster](service-fabric-sfctl-sa-cluster.md) | Gerencie clusters autônomos do Service Fabric. |
-| [Serviço](service-fabric-sfctl-service.md) | Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviço. |
+| [serviço](service-fabric-sfctl-service.md) | Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviço. |
 | [configurações](service-fabric-sfctl-settings.md) | Defina as configurações locais para essa instância do sfctl. |
 | [loja](service-fabric-sfctl-store.md) | Execute operações de arquivo de nível básico no repositório de imagens do cluster. |
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 08/20/2019
 ms.openlocfilehash: c412f7f3e20e4d04083e457bfb245b850b65e126
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70050452"
 ---
 > [!div class="op_single_selector"]
@@ -25,17 +25,17 @@ Use os dispositivos gêmeos para:
 
 * Armazene os metadados de dispositivo de seu back-end da solução.
 
-* Informe as informações do estado atual, como recursos e condições disponíveis, por exemplo, o método de conectividade utilizado, a partir do aplicativo do seu dispositivo.
+* Relatar informações de estado atual, como as condições e os recursos disponíveis, por exemplo, o método de conectividade usado, do seu aplicativo de dispositivo.
 
-* Sincronize o estado dos fluxos de trabalho de longo prazo, como firmware e atualizações de configuração, entre um aplicativo de dispositivo e um aplicativo back-end.
+* Sincronizar o estado de fluxos de trabalho de longa execução, como atualizações de firmware e configuração, entre um aplicativo de dispositivo e um aplicativo de back-end.
 
 * Consultar os metadados, a configuração ou o estado do seu dispositivo.
 
 Dispositivos gêmeos são projetados para sincronização e para consultar condições e configurações de dispositivos. Mais informações sobre quando usar dispositivos gêmeos podem ser localizadas em [Entender dispositivos gêmeos](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-Os gêmeos do dispositivo são armazenados em um hub de IoT e contêm os seguintes elementos:
+Os dispositivos gêmeos são armazenados em um hub IoT e contêm os seguintes elementos:
 
-* **Tags**. Metadados do dispositivo acessíveis apenas pelo back-end da solução.
+* **Marcações**. Metadados de dispositivo acessíveis somente pelo back-end da solução.
 
 * **Propriedades desejadas**. Objetos JSON modificáveis pelo back-end da solução e observáveis pelo aplicativo do dispositivo.
 
@@ -43,12 +43,12 @@ Os gêmeos do dispositivo são armazenados em um hub de IoT e contêm os seguint
 
 Marcas e propriedades não podem conter matrizes, mas objetos podem ser aninhados.
 
-A ilustração a seguir mostra a organização do dispositivo gêmeo:
+A ilustração a seguir mostra a organização de dispositivos de dispositivo:
 
 ![Imagem de dispositivo gêmeo mostrando a funcionalidade](./media/iot-hub-selector-twin-get-started/twin.png)
 
 Além disso, o back-end da solução pode consultar dispositivos gêmeos com base em todos os dados acima.
-Para obter mais informações sobre gêmeos do dispositivo, consulte [Entenda os gêmeos do dispositivo](../articles/iot-hub/iot-hub-devguide-device-twins.md). Para obter mais informações sobre consulta, consulte [o idioma de consulta do IoT Hub](../articles/iot-hub/iot-hub-devguide-query-language.md).
+Para obter mais informações sobre dispositivos gêmeos, consulte [entender o dispositivo gêmeos](../articles/iot-hub/iot-hub-devguide-device-twins.md). Para obter mais informações sobre consultas, consulte [linguagem de consulta do Hub IOT](../articles/iot-hub/iot-hub-devguide-query-language.md).
 
 
 Este tutorial mostra como:

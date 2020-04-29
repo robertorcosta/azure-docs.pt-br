@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI- aplicativo sfctl
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerenciar aplicativos.
+title: CLI do Azure Service Fabric-aplicativo sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar aplicativos.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76906201"
 ---
 # <a name="sfctl-application"></a>aplicativo sfctl
@@ -29,7 +29,7 @@ Criar, excluir e gerenciar aplicativos e tipos de aplicativo.
 | list | Obtém a lista de aplicativos criados no cluster do Service Fabric que correspondem aos filtros especificados. |
 | load | Obtém informações de carregamento sobre um aplicativo do Service Fabric. |
 | manifest | Obtém o manifesto que descreve um tipo de aplicativo. |
-| provision | Provisões ou registra um tipo de aplicativo Service Fabric com o cluster usando o pacote '.sfpkg' na loja externa ou usando o pacote de aplicativos na loja de imagens. |
+| provision | Provisiona ou registra um tipo de aplicativo Service Fabric com o cluster usando o pacote '. sfpkg ' no repositório externo ou usando o pacote de aplicativos no repositório de imagens. |
 | report-health | Envia um relatório de integridade sobre o aplicativo do Service Fabric. |
 | type | Obtém a lista de tipos de aplicativo criados no cluster do Service Fabric que correspondem exatamente ao nome especificado. |
 | type-list | Obtém a lista de tipos de aplicativo criados no cluster do Service Fabric. |
@@ -77,7 +77,7 @@ Um aplicativo deve ser criado antes que possa ser excluído. A exclusão de um a
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --force-remove | Force a remoção de um aplicativo ou serviço do Service Fabric sem passar pela sequência de desligamento normal. Esse parâmetro pode ser usado para forçar a exclusão de um aplicativo ou serviço para o qual a exclusão estiver ultrapassando o tempo limite, devido a problemas no código do serviço que impedem o fechamento normal das réplicas. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -101,7 +101,7 @@ Essa consulta retorna informações do aplicativo do sistema se a ID do aplicati
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --node-name      [Obrigatório] | O nome do nó. |
 | --include-health-state | Inclua o estado de integridade de uma entidade. Se esse parâmetro for definido como false ou não especificado, o estado de integridade retornado será "Desconhecido". Quando definido como true, a consulta será paralela ao nó e ao serviço do sistema de integridade, antes que os resultados sejam mesclados. Consequentemente, a consulta é mais onerosa e pode levar mais tempo. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -127,7 +127,7 @@ Obtém as informações sobre a integridade de um aplicativo implantado em um n�
 | --deployed-service-packages-health-state-filter | Permite filtrar os objetos de estado de integridade do pacote de serviços implantado retornados no resultado da consulta de integridade do aplicativo implantado com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Serão retornados somente os pacotes de serviços implantados que corresponderem ao filtro. Todos os pacotes de serviços implantados são usados para avaliar o estado de integridade agregado do aplicativo implantado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for "6", será retornado o estado de integridade dos pacotes de serviços com um valor OK (2) e Warning (4) de HealthState.  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas nos estados de integridade Ok, Warning e Error. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -152,7 +152,7 @@ Obtém a lista de aplicativos implantados em um nó do Service Fabric. Os result
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --include-health-state | Inclua o estado de integridade de uma entidade. Se esse parâmetro for definido como false ou não especificado, o estado de integridade retornado será "Desconhecido". Quando definido como true, a consulta será paralela ao nó e ao serviço do sistema de integridade, antes que os resultados sejam mesclados. Consequentemente, a consulta é mais onerosa e pode levar mais tempo. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser inferiores aos resultados máximos especificados se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -178,7 +178,7 @@ Retorna o estado de integridade do aplicativo do service fabric. A resposta most
 | --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas nos estados de integridade Ok, Warning e Error. |
 | --services-health-state-filter | Permite filtrar os objetos de estado de integridade de serviços retornados no resultado da consulta de integridade de serviços com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Serão retornados somente os serviços que corresponderem ao filtro. Todos os serviços são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, será retornado o estado de integridade dos serviços com um valor OK (2) e Warning (4) de HealthState.  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -201,7 +201,7 @@ Retorna as informações sobre o aplicativo que foi criado, ou que está sendo c
 | --- | --- |
 | --application-id      [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --exclude-application-parameters | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -227,7 +227,7 @@ Obtém as informações sobre os aplicativos que foram criados, ou que estão se
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --exclude-application-parameters | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser inferiores aos resultados máximos especificados se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -249,7 +249,7 @@ Retorna as informações de carga sobre o aplicativo que foi criado ou que estav
 |Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -272,7 +272,7 @@ A resposta contém o XML do manifesto do aplicativo como uma cadeia de caractere
 | --- | --- |
 | --application-type-name    [Obrigatório] | O nome do tipo de aplicativo. |
 | --application-type-version [Obrigatório] | A versão do tipo de aplicativo. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -285,9 +285,9 @@ A resposta contém o XML do manifesto do aplicativo como uma cadeia de caractere
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-application-provision"></a>sfctl application provision
-Provisões ou registra um tipo de aplicativo Service Fabric com o cluster usando o pacote '.sfpkg' na loja externa ou usando o pacote de aplicativos na loja de imagens.
+Provisiona ou registra um tipo de aplicativo Service Fabric com o cluster usando o pacote '. sfpkg ' no repositório externo ou usando o pacote de aplicativos no repositório de imagens.
 
-Provisiona um tipo de aplicativo do Service Fabric com o cluster. A provisão é necessária antes que quaisquer novos aplicativos possam ser instanciados. A operação de provisão pode ser realizada no pacote de aplicativos especificado pelo parentePathInImageStore ou usando o URI do '.sfpkg' externo. A menos que --external-provision esteja definido, esse comando irá esperar o provisionamento do repositório de imagens.
+Provisiona um tipo de aplicativo do Service Fabric com o cluster. O provisionamento é necessário antes que qualquer novo aplicativo possa ser instanciado. A operação de provisionamento pode ser executada no pacote de aplicativos especificado pelo relativePathInImageStore ou usando o URI do '. sfpkg ' externo. A menos que --external-provision esteja definido, esse comando irá esperar o provisionamento do repositório de imagens.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -355,7 +355,7 @@ Retorna as informações sobre os tipos de aplicativos provisionados, ou que est
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --exclude-application-parameters | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser inferiores aos resultados máximos especificados se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -380,7 +380,7 @@ Retorna as informações sobre os tipos de aplicativos provisionados, ou que est
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --exclude-application-parameters | O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser inferiores aos resultados máximos especificados se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -404,7 +404,7 @@ Esta operação só pode ser executada se todas as instâncias de aplicativo do 
 | --application-type-name    [Obrigatório] | O nome do tipo de aplicativo. |
 | --application-type-version [Obrigatório] | A versão do tipo de aplicativo, conforme definido no manifesto do aplicativo. |
 | --async-parameter | O sinalizador que indica se o desprovisionamento deve ocorrer de modo assíncrono ou não. Quando definido como true, a operação de desprovisionamento retorna quando a solicitação é aceita pelo sistema e a operação de desprovisionamento continua sem nenhum tempo limite. O valor padrão é false. No entanto, recomendamos que você defina-o como true para pacotes de aplicativos grandes que foram provisionados. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -464,7 +464,7 @@ Retoma a atualização manual não monitorada de um aplicativo do Service Fabric
 | --- | --- |
 | --application-id      [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | --upgrade-domain-name [Obrigatório] | O nome do domínio de atualização no qual continuar a atualização. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -486,7 +486,7 @@ Inicia a reversão da atualização do aplicativo atual para a versão anterior.
 |Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -508,7 +508,7 @@ Retorna informações sobre o estado da atualização mais recente do aplicativo
 |Argumento|Descrição|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -529,13 +529,13 @@ Opcionalmente, exiba o progresso do carregamento para cada arquivo no pacote. O 
 
 |Argumento|Descrição|
 | --- | --- |
-| --caminho [Obrigatório] | Caminho até o pacote de aplicativo local. |
-| --compress | Aplicável apenas aos pacotes de aplicativos Service Fabric. Crie uma nova pasta contendo o pacote de aplicativos compactado para o local padrão ou para o local especificado pelo parâmetro de localização compactada e, em seguida, faça upload da pasta recém-criada. <br><br> Se já houver um arquivo compactado gerado por sfctl, ele será substituído se este sinalizador estiver definido. Um erro será retornado se o diretório não for um pacote de aplicativos. Se já for um pacote de aplicativo compactado, a pasta será copiada como está. Por padrão, o pacote de aplicativo compactado recém-criado será excluído após um upload bem-sucedido. Se o upload não for bem sucedido, limpe manualmente o pacote comprimido conforme necessário. A exclusão não remove nenhum dir vazio que possa ter sido criado se o parâmetro de localização compactado referenciar diretórios inexistentes. |
-| --localização compactada | O local para colocar o pacote de aplicativos compactados. <br><br> Se nenhum local for fornecido, o pacote compactado será colocado uma pasta recém-criada chamada sfctl_compressed_temp o diretório pai especificado no argumento do caminho. Por exemplo, se o argumento\:de caminho tiver valor C /FolderA/AppPkg, então o pacote compactado será adicionado a C\:/FolderA/sfctl_compressed_temp/AppPkg. |
-| --imagestore-string | Repositório de imagens de destino no qual carregar o pacote de aplicativos.  Padrão\: fabric\:ImageStore. <br><br> Para fazer upload para um local de\:arquivo, inicie este parâmetro com 'arquivo'. Caso contrário, o valor deve ser a cadeia de conexão do armazenamento de imagens, como o valor padrão. |
-| --manter-comprimido | Manter ou não o pacote compactado gerado em conclusão de upload bem-sucedida. <br><br> Se não for definido, em seguida, em conclusão bem-sucedida, os pacotes de aplicativos compactados serão excluídos. Se o upload não foi bem sucedido, então o pacote do aplicativo será sempre mantido no diretório de saída para re-upload. |
+| --caminho [obrigatório] | Caminho até o pacote de aplicativo local. |
+| --compactar | Aplicável somente a Service Fabric pacotes de aplicativos. Crie uma nova pasta contendo o pacote de aplicativo compactado para o local padrão ou para o local especificado pelo parâmetro de local compactado e, em seguida, carregue a pasta recém-criada. <br><br> Se já houver um arquivo compactado gerado pelo sfctl, ele será substituído se esse sinalizador for definido. Um erro será retornado se o diretório não for um pacote de aplicativos. Se já for um pacote de aplicativo compactado, a pasta será copiada no estado em que se encontra. Por padrão, o pacote de aplicativos compactados recentemente criado será excluído após um upload bem-sucedido. Se o carregamento não for bem-sucedido, limpe manualmente o pacote compactado, conforme necessário. A exclusão não remove nenhum dirs vazio que possa ter sido criado se o parâmetro de local compactado referenciar diretórios não existentes. |
+| --local compactado | O local para colocar o pacote de aplicativo compactado. <br><br> Se nenhum local for fornecido, o pacote compactado será colocado em uma pasta recém-criada chamada sfctl_compressed_temp sob o diretório pai especificado no argumento Path. Por exemplo, se o argumento de caminho tiver o\:valor C/FolderA/AppPkg, o pacote compactado será adicionado a\:C/FolderA/sfctl_compressed_temp/apppkg. |
+| --imagestore-string | Repositório de imagens de destino no qual carregar o pacote de aplicativos.  Padrão\: fabric\:ImageStore. <br><br> Para carregar em um local de arquivo, inicie esse parâmetro com '\:File '. Caso contrário, o valor deverá ser a cadeia de conexão do repositório de imagens, como o valor padrão. |
+| --manter compactado | Se deseja ou não manter o pacote compactado gerado na conclusão bem-sucedida do upload. <br><br> Se não estiver definido, após a conclusão bem-sucedida, os pacotes de aplicativos compactados serão excluídos. Se o carregamento não for bem-sucedido, o pacote de aplicativos sempre será mantido no diretório de saída para upload novamente. |
 | --show-progress | Mostra progresso do carregamento de arquivo para pacotes grandes. |
-| --timeout -t | O tempo total em segundos. O upload falhará e retornará o erro depois que a duração do tempo de envio passar. Este tempo se aplica a todo o pacote de aplicativos, e os tempos de intervalo de arquivos individuais serão iguais à duração restante do tempo de tempo. O tempo hámenos não inclui o tempo necessário para compactar o pacote do aplicativo.  Padrão\: 300. |
+| --timeout -t | O tempo limite total em segundos. O upload falhará e retornará um erro depois que a duração do tempo limite de carregamento for aprovada. Esse tempo limite se aplica a todo o pacote de aplicativo, e os tempos limite de arquivo individual serão iguais à duração do tempo limite restante. O tempo limite não inclui o tempo necessário para compactar o pacote de aplicativos.  Padrão\: 300. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

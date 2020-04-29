@@ -4,10 +4,10 @@ description: Como um provedor de serviços que usa o gerenciamento de recursos d
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76543419"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Exibir e gerenciar clientes e recursos delegados
@@ -16,9 +16,9 @@ Provedores de serviço que usam o [gerenciamento de recursos delegados do Azure]
 
 Para acessar a página **Meus clientes** no portal do Azure, selecione **Todos os serviços**, pesquise **Meus clientes** e selecione-o. Também é possível encontrá-lo inserindo "Meus clientes" na caixa de pesquisa próxima à parte superior do portal do Azure.
 
-Tenha em mente que a seção principal **clientes** da página **Meus clientes** só mostra informações sobre clientes que delegaram assinaturas ou grupos de recursos. Se você trabalhar com outros clientes (como por meio do [programa Cloud Solution Provider),](https://docs.microsoft.com/partner-center/csp-overview)você não verá informações sobre esses clientes na seção **Clientes,** a menos que tenha embarcado seus recursos para o gerenciamento de recursos delegados do Azure.
+Tenha em mente que a seção principais **clientes** da página **meus clientes** mostra apenas informações sobre os clientes que delegaram assinaturas ou grupos de recursos. Se você trabalhar com outros clientes (por exemplo, por meio do [programa provedor de soluções na nuvem](https://docs.microsoft.com/partner-center/csp-overview), você não verá informações sobre esses clientes na seção **clientes** , a menos que tenha integrado seus recursos para o gerenciamento de recursos delegado do Azure.
 
-Mais abaixo na página, uma seção separada chamada **Cloud Solution Provider (Preview)** mostra informações de faturamento e recursos para seus clientes CSP que [assinaram o Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e estão [sob o plano Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Para saber mais, confira [Introdução à conta de cobrança do Contrato de Parceiro da Microsoft](../../billing/mpa-overview.md). Observe que esses clientes CSP aparecem nesta seção se você também os abordopara o gerenciamento de recursos delegado do Azure. Da mesma forma, um cliente CSP não precisa aparecer na seção **Cloud Solution Provider (Preview)** dos **Meus clientes** para que você os faça a bordo para o gerenciamento de recursos delegado do Azure.
+Inferior na página, uma seção separada chamada **provedor de soluções de nuvem (versão prévia)** mostra informações de cobrança e recursos para seus clientes CSP que [assinaram o Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e estão [no plano do Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Para saber mais, confira [Introdução à conta de cobrança do Contrato de Parceiro da Microsoft](../../billing/mpa-overview.md). Observe que esses clientes do CSP aparecem nesta seção se você também os tiver integrado para o gerenciamento de recursos delegado do Azure. Da mesma forma, um cliente CSP não precisa aparecer na seção **provedor de soluções na nuvem (versão prévia)** de **meus clientes** para que você possa integrá-los para o gerenciamento de recursos delegado do Azure.
 
 > [!NOTE]
 > Seus clientes podem exibir informações sobre provedores de serviços navegando até **Provedores de serviços** no portal do Azure. Para saber mais, confira [Exibir e gerenciar provedores de serviços](view-manage-service-providers.md).
@@ -40,7 +40,7 @@ Os filtros na parte superior da página permitem que você classifique e agrupe 
 - Para ver mais detalhes sobre uma oferta e suas delegações, selecione o nome dela.
 - Para exibir mais detalhes sobre atribuições de função para assinaturas ou grupos de recursos delegados, selecione a entrada na coluna **Delegações**.
 
-## <a name="view-and-manage-delegations"></a>Ver e gerenciar delegações
+## <a name="view-and-manage-delegations"></a>Exibir e gerenciar delegações
 
 As delegações mostram a assinatura/o grupo de recursos que foi delegado, junto com os usuários e permissões que têm acesso a ele. Para exibir essas informações, selecione **Delegações** no lado esquerdo da página **Meus clientes**.
 
@@ -52,7 +52,7 @@ Os usuários e as permissões associados a cada delegação aparecem na coluna *
 
 ### <a name="remove-delegations"></a>Remover delegações
 
-Se você incluiu usuários com a [Função de Exclusão de Atribuição de Registro de Serviços Gerenciados](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao embarcar em um cliente para o gerenciamento de recursos delegados do Azure, esses usuários podem remover uma delegação selecionando o ícone da lata de lixo que aparece na linha para essa delegação. Quando o fizerem, nenhum usuário do inquilino do provedor de serviços poderá acessar os recursos que haviam sido delegados anteriormente.
+Se você tiver incluído usuários com a [atribuição de registro de serviços gerenciados excluir função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) ao integrar um cliente para o gerenciamento de recursos delegado do Azure, esses usuários poderão remover uma delegação selecionando o ícone de lixeira que aparece na linha para essa delegação. Quando eles fizerem isso, nenhum usuário no locatário do provedor de serviços poderá acessar os recursos que foram previamente delegados.
 
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Trabalhar no contexto de uma assinatura delegada

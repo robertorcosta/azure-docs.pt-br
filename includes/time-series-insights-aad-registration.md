@@ -10,25 +10,25 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 02/03/2020
 ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76984499"
 ---
 1. No [portal do Azure](https://ms.portal.azure.com/), selecione **Azure Active Directory** > **Registros de aplicativo** > **Novo registro**.
 
-   [![Novo registro de inscrição no Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
+   [![Novo registro de aplicativo no Azure Active Directory](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
 
     Seu aplicativo aparecerá aqui depois que você registrá-lo.
 
 1. Dê um nome ao aplicativo e selecione **Somente contas neste diretório organizacional** para especificar os **Tipos de conta com suporte** que podem acessar a API. Escolha um URI válido para redirecionar os usuários após a autenticação e depois **Registre**.
 
-   [![Crie o aplicativo no Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
+   [![Criar o aplicativo no Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
 1. As informações importantes do aplicativo Azure Active Directory são exibidas na folha **Visão geral** do aplicativo listado. Selecione o aplicativo em **Aplicativos próprios** e depois **Visão geral**.
 
-   [![Copie o ID do aplicativo](media/time-series-insights-aad-registration/active-directory-copy-application-id.png)](media/time-series-insights-aad-registration/active-directory-copy-application-id.png#lightbox)
+   [![Copiar a ID do aplicativo](media/time-series-insights-aad-registration/active-directory-copy-application-id.png)](media/time-series-insights-aad-registration/active-directory-copy-application-id.png#lightbox)
 
    Cópia sua **ID de aplicativo (cliente)** para usar em seu aplicativo cliente.
 
@@ -36,11 +36,11 @@ ms.locfileid: "76984499"
 
     1. Adicione os **URIs de redirecionamento** e configure os **Tokens de acesso** selecionando **+ Adicionar uma plataforma**.
 
-    1. Determine se o aplicativo é um **cliente público** ou não selecionando **Sim** ou **Não**.
+    1. Determine se o aplicativo é um **cliente público** ou não selecionando **Sim** ou **não**.
 
-    1. Verifique quais contas e inquilinos estão suportados.
+    1. Verifique quais contas e locatários têm suporte.
 
-    [![Configurar subvenção implícita](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+    [![Configurar concessão implícita](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
 1. Depois de selecionar a plataforma apropriada, configure seus **URIs de redirecionamento** e **Tokens de acesso** no painel lateral à direita da interface do usuário.
 
@@ -57,18 +57,18 @@ ms.locfileid: "76984499"
 
     Clique em **Configurar** e **Salvar**.
 
-1. Selecione **Certificados & segredos** e, em seguida, **novo segredo do cliente** para criar uma senha de aplicativo que seu aplicativo cliente pode usar para provar sua identidade.
+1. Selecione **certificados & segredos** e, em seguida, **novo segredo do cliente** para criar uma senha de aplicativo que seu aplicativo cliente possa usar para provar sua identidade.
 
-   [![Crie um novo segredo de cliente](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
+   [![Criar um novo segredo do cliente](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 
    A senha do segredo do cliente será exibida. Copie a chave para o seu editor de texto favorito.
 
    > [!NOTE]
    > Em vez disso, você tem a capacidade de importar um certificado. Para melhorar a segurança, recomenda-se ter um certificado. Para usar um certificado, selecione **Carregar certificado**.
 
-1. Associe seu aplicativo do Azure Active Directory ao Azure Time Series Insights. Selecione **permissões** > de API**Adicione uma APIs de permissão** > **que minha organização usa**. 
+1. Associe seu aplicativo do Azure Active Directory ao Azure Time Series Insights. Selecione **permissões de API adicionar as** > APIs**de permissão** > que**minha organização usa**. 
 
-    [![Associe uma API ao seu aplicativo Azure Active Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
+    [![Associar uma API ao seu aplicativo Azure Active Directory](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 
    Digite `Azure Time Series Insights` na barra em seguida e selecione `Azure Time Series Insights`.
 

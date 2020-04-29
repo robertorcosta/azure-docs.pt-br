@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl mesh service-replica
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para obter detalhes de réplica para os recursos de um aplicativo.
+title: CLI do Azure Service Fabric-serviço de malha sfctl-réplica
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para obter detalhes da réplica para os recursos do aplicativo.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: ac604ec0a854964746ef34627b054e853662265f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905944"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
@@ -20,7 +20,7 @@ Obtenha detalhes da réplica e listar as réplicas de um determinado serviço em
 |Comando|Descrição|
 | --- | --- |
 | list | Lista todas as réplicas de um serviço. |
-| mostrar | Obtém a réplica fornecida do serviço de um aplicativo. |
+| show | Obtém a réplica fornecida do serviço de um aplicativo. |
 
 ## <a name="sfctl-mesh-service-replica-list"></a>sfctl mesh service-replica list
 Lista todas as réplicas de um serviço.
@@ -69,5 +69,5 @@ Obtém as informações sobre a réplica do serviço com o nome fornecido. As in
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

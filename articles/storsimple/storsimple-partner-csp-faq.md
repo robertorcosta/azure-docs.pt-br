@@ -1,5 +1,5 @@
 ---
-title: 'PERGUNTAS FREQUENTES para parceiros: Programa de provedor de soluções em nuvem StorSimple para Soluções em Nuvem'
+title: 'Perguntas frequentes para parceiros: programa do StorSimple for Cloud Solutions Provider'
 description: Encontre respostas para perguntas comuns sobre o StorSimple e o CSP para parceiros.
 services: storsimple
 documentationcenter: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: eaf22773e581f0b7557a64917e183573039d1cef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77116157"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple do programa de provedor de soluções de nuvem: perguntas frequentes
@@ -63,7 +63,7 @@ Há várias soluções:
 - Eles também podem descobrir novos modelos de negócios ao fornecer serviços gerenciados.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quais são os incentivos disponíveis para parceiros StorSimple CSP? São qualificadas para qualquer incentivos do programa CSP?
-Para obter informações sobre incentivos, vá para [os incentivos do programa CSP](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Para obter informações sobre incentivos, vá para [incentivos do programa CSP](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Implantar e gerenciar StorSimple como um parceiro
@@ -94,7 +94,7 @@ O modelo de suporte para StorSimple em CSP é o mesmo que outros serviços do Az
 Para saber mais sobre o StorSimple para CSP, vá para:
 
 - [Programa Microsoft Cloud Solution Provider](https://partner.microsoft.com/Membership)
-- [Centro de Parceiros](https://partnercenter.microsoft.com/) 
+- [Partner Center](https://partnercenter.microsoft.com/) 
 
 
 ## <a name="next-steps"></a>Próximas etapas

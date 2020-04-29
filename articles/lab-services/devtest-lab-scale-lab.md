@@ -1,6 +1,6 @@
 ---
 title: Dimensionar limites e cotas em seu laboratório no Azure DevTest Labs | Microsoft Docs
-description: Este artigo descreve como você pode escalar seu laboratório no Azure DevTest Labs. Veja suas cotas e limites de uso e solicite um aumento.
+description: Este artigo descreve como você pode dimensionar seu laboratório no Azure DevTest Labs. Exiba suas cotas e limites de uso e solicite um aumento.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: f3299c24bc751263ccd284a4fddb492fba5dd1e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76761178"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Dimensionar cotas e limites no DevTest Labs
@@ -35,10 +35,10 @@ O item [Assinatura e Limites de Serviço do Azure](https://docs.microsoft.com/az
 ## <a name="view-your-usage-and-quotas"></a>Exibir seu uso e cotas
 Estas etapas mostram como visualizar as cotas atuais em sua assinatura para recursos específicos do Azure e ver o percentual de cada cota usada.
 
-1. Faça login no [portal Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entre no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **Mais Serviços** e, em seguida, selecione **Cobrança** na lista.
 1. Selecione uma assinatura na folha de Cobrança.
-4. Selecione **Uso + cotas**.
+4. Selecione **uso + cotas**.
 
    ![Botão Uso e cotas](./media/devtest-lab-scale-lab/devtestlab-usage-and-quotas.png)
 
@@ -67,4 +67,4 @@ Estas etapas mostram como solicitar um aumento de cota por meio do [portal do Az
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Próximas etapas
-* Explore a [galeria de modelos QuickStart do DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Explore a [Galeria de modelos do DevTest Labs Azure Resource Manager guia de início rápido](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

@@ -9,10 +9,10 @@ ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 98d765e2f6909f00f8dfe76d06aef017aad67adf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "71174925"
 ---
 ## <a name="terminology"></a>Terminologia
@@ -21,7 +21,7 @@ Uma imagem do Marketplace no Azure tem os seguintes atributos:
 
 * **Publicador**: a organização que criou a imagem. Exemplos: Canonical, MicrosoftWindowsServer
 * **Oferta**: Nome de um grupo de imagens relacionadas criadas por um publicador. Exemplos: UbuntuServer, WindowsServer
-* **SKU**: uma instância de uma oferta, como uma versão principal de uma distribuição. Exemplos: 18.04-LTS, 2019-Datacenter
+* **SKU**: uma instância de uma oferta, como uma versão principal de uma distribuição. Exemplos: 18, 4-LTS, 2019-datacenter
 * **Versão**: o número de versão de uma imagem de SKU. 
 
 Para identificar uma imagem do Marketplace quando implantar uma VM de forma programática, forneça esses valores individualmente como parâmetros, ou algumas ferramentas aceitam a imagem URN. Algumas ferramentas aceitam uma imagem *URN*, que combina esses valores, separados por dois pontos (:) caractere: *Publicador*: *Oferta*: *Sku* : *versão*. Em uma URN, substitua o número de versão por "mais recente", o que seleciona a versão mais recente da imagem. 

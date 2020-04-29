@@ -1,6 +1,6 @@
 ---
-title: Egresso e endpoints - Azure Digital Twins | Microsoft Docs
-description: Aprenda a criar e criar pontos finais de eventos no Azure Digital Twins.
+title: Saída e pontos de extremidade – Azure digital gêmeos | Microsoft Docs
+description: Saiba como criar e saída de pontos de extremidade de evento no Azure digital gêmeos.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,13 +9,13 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76511562"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Egress e pontos finais em Gêmeos Digitais Azure
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Saída e pontos de extremidade no Azure digital gêmeos
 
 Os *pontos de extremidade* dos Gêmeos Digitais do Azure representam um agente de mensagens ou eventos na assinatura de um usuário do Azure. Eventos e mensagens podem ser enviados para os tópicos Hubs de Eventos do Azure, Grade de Eventos do Azure e Barramento de Serviço do Azure.
 
@@ -49,14 +49,14 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 
 | Atributo | Type | Descrição |
 | --- | --- | --- |
-| id | string | Identificador exclusivo do evento. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
+| id | cadeia de caracteres | Identificador exclusivo do evento. |
+| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
 | data | objeto | Dados do evento específicos ao provedor de recursos. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
-| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
 
 Para obter mais informações sobre o esquema de evento da Grade de Eventos:
 
@@ -95,7 +95,7 @@ Formatos de eventos para cada um dos tipos de eventos são descritos nas seçõe
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- Sistema
+- System (sistema)
 - Usuário
 - UserBlobMetadata
 - UserExtendedProperty
@@ -246,7 +246,7 @@ Os exemplos a seguir demonstram como configurar os pontos de extremidade suporta
 >[!IMPORTANT]
 > Preste muita atenção ao atributo **eventTypes**. Ele define quais tipos de evento são manipulados pelo ponto de extremidade e assim, determinam seu roteamento.
 
-Uma solicitação HTTP POST autenticada contra:
+Uma solicitação HTTP POST autenticada em relação a:
 
 ```URL
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -320,7 +320,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
     | YOUR_SECONDARY_KEY | A cadeia de conexão secundária usada para autenticar |
     | YOUR_EVENT_HUB_NAME | O nome do hub de eventos |
 
-- Rotear para o tipo de evento Hubs de Eventos **DeviceMessage**. A inclusão `EntityPath` na **conexãoString** é obrigatória:
+- Rotear para o tipo de evento Hubs de Eventos **DeviceMessage**. A inclusão de `EntityPath` em **ConnectionString** é obrigatória:
 
   ```JSON
   {
