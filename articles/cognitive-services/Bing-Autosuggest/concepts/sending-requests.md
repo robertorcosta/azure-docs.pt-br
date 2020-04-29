@@ -1,7 +1,7 @@
 ---
 title: Enviar solicitações para a API de Sugestão Automática do Bing
 titleSuffix: Azure Cognitive Services
-description: A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial da caixa de pesquisa. Saiba mais sobre o envio de solicitações.
+description: A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial da caixa de pesquisa. Saiba mais sobre como enviar solicitações.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
 ms.openlocfilehash: d479548e682e814345e13d9416d08ec453f90304
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072857"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Enviando solicitações para a API de Sugestão Automática do Bing.
@@ -48,14 +48,14 @@ Para obter exemplos de solicitações básicas usando a API de Sugestão Automá
 
 É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente dá mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas em um servidor fornece um ponto único de upgrade para atualizações futuras.
 
-A solicitação deve especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) que contém o termo de pesquisa parcial do usuário. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), que identifica o mercado de onde você deseja obter os resultados. Para obter uma lista de parâmetros opcionais de consulta, consulte [Parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta devem ser codificados em URL.
+A solicitação deve especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) que contém o termo de pesquisa parcial do usuário. Embora seja opcional, a solicitação também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), que identifica o mercado de onde você deseja obter os resultados. Para obter uma lista de parâmetros de consulta opcionais, consulte [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta devem ser codificados em URL.
 
 A solicitação precisa especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Embora isso seja opcional, você é incentivado a especificar também os seguintes cabeçalhos:
 
-- [Agente de Usuário](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
+- [Agente do usuário](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
 - [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
 - [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
-- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
+- [Localização de pesquisa X](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
 
 Os cabeçalhos de IP e local do cliente são importantes para retornar o conteúdo com reconhecimento de local.
 

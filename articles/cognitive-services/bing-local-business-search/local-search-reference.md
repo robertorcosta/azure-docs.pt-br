@@ -1,5 +1,5 @@
 ---
-title: Bing Local Business Search API v7 Reference
+title: Referência do Bing local da API de pesquisa de negócios v7
 titleSuffix: Azure Cognitive Services
 description: Este artigo fornece detalhes técnicos sobre os objetos de resposta e os parâmetros de consulta e cabeçalhos que afetam os resultados da pesquisa.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: db764a73aa1bb18ef2fc0f8f6e5ffe8fd60d388c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74075691"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API v7 da Pesquisa de empresa local do Bing
 
-A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. Os resultados de entidade incluem pessoas, lugares ou coisas. Nesse contexto estão entidades empresariais, estados, países/regiões, etc.  
+A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. Os resultados de entidade incluem pessoas, lugares ou coisas. O local neste contexto é entidades de negócios, Estados, países/regiões, etc.  
 
 Esta seção fornece detalhes técnicos sobre os objetos de resposta e os parâmetros e cabeçalhos de consulta que afetam os resultados da pesquisa. Para exemplos que mostram como fazer solicitações, consulte [Início rápido da Pesquisa C# de empresa local](quickstarts/local-quickstart.md) ou [Início rápido de Java da Pesquisa de empresa local](quickstarts/local-search-java-quickstart.md). 
   
@@ -71,9 +71,9 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL.  
   
   
-|Nome|Valor|Type|Obrigatório|  
+|Nome|Valor|Type|Necessária|  
 |----------|-----------|----------|--------------|
-|<a name="count" />Contagem|O número de resultados a retornar, começando `offset` pelo índice especificado pelo parâmetro.|String|Não|   
+|<a name="count" />Contagem|O número de resultados a serem retornados, começando com o índice especificado pelo `offset` parâmetro.|String|Não|   
 |<a name="localCategories" />localCategories|Lista de opções que definem a pesquisa por categoria de negócio.  Consulte [categorias de negócios locais de pesquisa](local-categories.md)|String|Não|  
 |<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira Códigos de mercado.<br /><br /> **OBSERVAÇÃO:** Atualmente, a API de pesquisa de empresa local suporta apenas o mercado e o idioma do en-us.<br /><br />|String|Sim|
 |<a name="offset"/>deslocamento|O índice para iniciar os resultados especificados pelo parâmetro `count`.|Integer|Não|  
@@ -89,10 +89,10 @@ A seguir estão os objetos de resposta JSON que a resposta pode incluir. Se a so
 
 |Objeto|Descrição|  
 |------------|-----------------|  
-|[Lugar](#place)|Define informações sobre uma empresa local, como um restaurante ou hotel.|  
+|[Local](#place)|Define informações sobre uma empresa local, como um restaurante ou hotel.|  
 
   
-### <a name="error"></a>Erro  
+### <a name="error"></a>Erro do  
 Define o erro ocorrido.  
   
 |Elemento|Descrição|Type|  
@@ -167,10 +167,10 @@ Define o contexto de consulta usado pelo Bing para a solicitação.
   
 |Elemento|Descrição|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|Boolean|  
+|adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|Booliano|  
 |alterationOverrideQuery|A cadeia de caracteres de consulta a ser usada para forçar o Bing a usar a cadeia de caracteres original. Por exemplo, se a cadeia de caracteres de consulta for *velejando na direção do vento*, a cadeia de caracteres de consulta de substituição será *+velejando na direção do vento*. Lembre-se de codificar a cadeia de caracteres de consulta que resulta em *%2Bvelejando+na direção do vento*.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|String|  
 |alteredQuery|A cadeia de caracteres de consulta usada pelo Bing para executar a consulta. O Bing usa a cadeia de caracteres de consulta alterada se a cadeia de caracteres de consulta original contém erros de ortografia. Por exemplo, se a cadeia de caracteres de consulta for `saling downwind`, a cadeia de caracteres de consulta alterada será `sailing downwind`.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|String|  
-|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), ignore esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes próximos ao meu local" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true**.<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "clima de Seattle"), esse campo é definido como **false**. Esse campo também é definido como **false** para consultas sem reconhecimento de local, como "campeões de venda".|Boolean|  
+|askUserForLocation|Um valor booliano que indica se o Bing exige o local do usuário para fornecer resultados precisos. Se você especificou o local do usuário usando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), ignore esse campo.<br /><br /> Para consultas com reconhecimento de local, como "clima de hoje" ou "restaurantes próximos ao meu local" que precisam do local do usuário para fornecer resultados precisos, esse campo é definido como **true**.<br /><br /> Para consultas com reconhecimento de local que incluem o local (por exemplo, "clima de Seattle"), esse campo é definido como **false**. Esse campo também é definido como **false** para consultas sem reconhecimento de local, como "campeões de venda".|Booliano|  
 |originalQuery|A cadeia de caracteres de consulta especificada na solicitação.|String|  
 
 ### <a name="identifiable"></a>Identifiable
@@ -271,6 +271,6 @@ Veja a seguir os possíveis valores de código de erro e de código de suberro.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
-- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Início Rápido da Pesquisa Java em empresas locais](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](quickstarts/local-search-node-quickstart.md)
 - [Início Rápido do Python em Pesquisa de empresa local](quickstarts/local-search-python-quickstart.md)

@@ -1,7 +1,7 @@
 ---
 title: Sugerindo termos de pesquisa com a API de Sugestão Automática do Bing
 titleSuffix: Azure Cognitive Services
-description: Este artigo discute o conceito de sugerir termos de consulta usando a API Bing Autosuggest e o impacto do comprimento da consulta na relevância.
+description: Este artigo discute o conceito de sugestão de termos de consulta usando o API de Sugestão Automática do Bing e o impacto do comprimento da consulta em relevância.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072881"
 ---
 # <a name="suggesting-query-terms"></a>Sugestão de termos de consulta

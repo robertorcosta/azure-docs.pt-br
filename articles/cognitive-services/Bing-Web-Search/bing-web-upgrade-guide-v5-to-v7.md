@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: 2133cd59c524112ae8a77c0a20cbce1d1336a38d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68881313"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Atualizar a API de Pesquisa na Web do Bing da v5 para v7
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa na Web do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 
-## <a name="breaking-changes"></a>Alterações da falha
+## <a name="breaking-changes"></a>Alterações de quebra
 
 ### <a name="endpoints"></a>Pontos de extremidade
 

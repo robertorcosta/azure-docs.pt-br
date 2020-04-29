@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
 ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72429034"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave usando o Text Analytics
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair frases-chave usando Análise de Texto
 
 A [API de Extração de Frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) avalia o texto desestruturado e para cada documento JSON, retorna uma lista de frases-chave.
 
 Esse recurso é útil se você precisar identificar rapidamente os principais pontos de estratégias em uma coleção de documentos. Por exemplo, para o texto de entrada dado "A comida estava deliciosa e a equipe era maravilhosa", o serviço retorna os principais pontos de discussão: "comida" e "equipe maravilhosa".
 
-Para obter mais informações, consulte [idiomas suportados](../text-analytics-supported-languages.md).
+Para obter mais informações, consulte [idiomas com suporte](../text-analytics-supported-languages.md).
 
 > [!TIP]
 > A Análise de Texto também fornece uma imagem de contêiner do Docker baseado em Linux para extração de frases-chave, para que você possa [instalar e executar o contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) perto de seus dados.
@@ -72,7 +72,7 @@ O tamanho do documento precisa ter 5.120 caracteres ou menos por documento, e vo
 
 Para saber mais sobre a definição de solicitação, confira [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
 
-+ Criar uma solicitação de **Postagem**. Revise a documentação da API para esta solicitação: [API de frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
++ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
 
 + Defina o ponto de extremidade HTTP para extração de frases-chave usando um recurso de Análise de Texto no Azure ou um [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. Você precisa incluir `/text/analytics/v2.1/keyPhrases` na URL. Por exemplo: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`.
 
@@ -91,7 +91,7 @@ Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua cont
 
 ## <a name="step-3-view-results"></a>Etapa 3: exibir resultados
 
-Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs e as propriedades detectadas. A ordem das frases-chave devolvidas é determinada internamente, pelo modelo.
+Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs e as propriedades detectadas. A ordem das frases-chave retornadas é determinada internamente pelo modelo.
 
 A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local e, em seguida, importá-lo para um aplicativo que permite que você classifique, pesquise e manipule os dados.
 
@@ -165,4 +165,4 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho de extração de
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [API de análise de texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
+> [API de Análise de Texto do Azure Machine Learning](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)

@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 367ae27a6afec803d2e3f98f54bdcf852330ddc6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70274648"
 ---
-## <a name="configure-an-environment-variable-for-authentication"></a>Configure uma variável de ambiente para autenticação
+## <a name="configure-an-environment-variable-for-authentication"></a>Configurar uma variável de ambiente para autenticação
 
-Os aplicativos precisam autenticar o acesso aos Serviços Cognitivos que utilizam. Para autenticar, recomendamos criar uma variável de ambiente para armazenar as chaves dos recursos do Azure. 
+Os aplicativos precisam autenticar o acesso aos serviços cognitivas que eles usam. Para autenticar, é recomendável criar uma variável de ambiente para armazenar as chaves para os recursos do Azure. 
 
-Depois de ter sua chave, escreva-a para uma nova variável de ambiente na máquina local executando o aplicativo. Para definir a variável de ambiente, abra uma janela de console e siga as instruções do seu sistema operacional. Substitua por `your-key` uma das chaves do seu recurso.
+Depois de ter sua chave, grave-a em uma nova variável de ambiente no computador local que executa o aplicativo. Para definir a variável de ambiente, abra uma janela de console e siga as instruções do seu sistema operacional. Substitua `your-key` por uma das chaves do recurso.
 
 #### <a name="windows"></a>[Windows](#tab/windows)
 

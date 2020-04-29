@@ -1,5 +1,5 @@
 ---
-title: Miniaturas de corte inteligente - Visão computacional
+title: Miniaturas cortadas com inteligência inteligente-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
 description: Conceitos relacionados à geração de miniaturas de imagens usando a API do Computer Vision.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68945229"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Gerar miniaturas de corte inteligente com Pesquisa Visual Computacional
@@ -24,7 +24,7 @@ Uma miniatura é uma representação em tamanho reduzido de uma imagem. As minia
 
 O algoritmo de geração de miniatura da Pesquisa Visual Computacional funciona da seguinte maneira:
 
-1. Remova elementos de distração da imagem e identifique a _área de interesse_&mdash;da área da imagem em que o objeto principal aparece.
+1. Remova elementos de distração da imagem e identifique a _área de interesse_&mdash;da área da imagem na qual os objetos principais são exibidos.
 1. Corte a imagem com base na _área de interesse_ identificada.
 1. Altere a taxa de proporção para se ajustar às dimensões da miniatura de destino.
 
@@ -38,15 +38,15 @@ Você também pode obter as coordenadas de caixa delimitadora bruta dessa mesma 
 
 Remove os elementos que causam distração da imagem e identifica o objeto principal, a região de interesse.
 
-![Uma imagem de montanha ao lado de várias configurações de corte](./Images/thumbnail-demo.png)
+![Uma imagem de Mountain ao lado de várias configurações de corte](./Images/thumbnail-demo.png)
 
 A tabela a seguir ilustra as miniaturas típicas geradas pelo Computer Vision para as imagens de exemplo. As miniaturas foram geradas para uma altura e largura de destino especificada de 50 pixels, com recorte inteligente ativado.
 
-| Imagem | Miniatura |
+| Image | Miniatura |
 |-------|-----------|
-|![Montanha ao ar livre ao pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista.png) | ![Miniatura da Montanha Ao Ar Livre ao pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista_thumbnail.png) |
+|![Montanhas de ar no pôr do sol, com a silhueta de uma pessoa](./Images/mountain_vista.png) | ![Miniatura de montanhas de externa ao sol, com a silhueta de uma pessoa](./Images/mountain_vista_thumbnail.png) |
 |![Uma flor branca com um fundo verde](./Images/flower.png) | ![Miniatura de analisar Flor de visão](./Images/flower_thumbnail.png) |
-|![Uma mulher no telhado de um edifício residencial](./Images/woman_roof.png) | ![miniatura de uma mulher no telhado de um prédio de apartamentos](./Images/woman_roof_thumbnail.png) |
+|![Uma mulher no telhado de um edifício residencial](./Images/woman_roof.png) | ![miniatura de uma mulher no telhado de um prédio de apartamento](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

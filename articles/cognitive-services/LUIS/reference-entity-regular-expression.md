@@ -1,5 +1,5 @@
 ---
-title: Tipo de entidade de expressão regular - LUIS
+title: Tipo de entidade de expressão regular-LUIS
 titleSuffix: Azure Cognitive Services
 description: Uma expressão regular é melhor para texto de enunciado bruto. Não diferencia maiúsculas de minúsculas e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações ortográficas no nível do caractere, não no nível do token.
 services: cognitive-services
@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74841210"
 ---
 # <a name="regular-expression-entity"></a>Entidade de expressão regular
 
-Uma entidade de expressão regular extrai uma entidade com base em um padrão de expressão regular que você fornece.
+Uma entidade de expressão regular extrai uma entidade com base em um padrão de expressão regular fornecido por você.
 
-Uma expressão regular é melhor para texto de enunciado bruto. Não diferencia maiúsculas de minúsculas e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações ortográficas no nível do caractere, não no nível do token. Se a expressão regular for muito complexa, como o uso de vários colchetes, não será possível adicionar a expressão ao modelo. Usa parte, mas não toda a biblioteca [.NET Regex.](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions)
+Uma expressão regular é melhor para texto de enunciado bruto. Não diferencia maiúsculas de minúsculas e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações ortográficas no nível do caractere, não no nível do token. Se a expressão regular for muito complexa, como o uso de vários colchetes, não será possível adicionar a expressão ao modelo. Usa parte, mas não toda a biblioteca [Regex .net](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) .
 
 **A entidade é uma boa opção quando:**
 
@@ -32,13 +32,13 @@ Uma expressão regular é melhor para texto de enunciado bruto. Não diferencia 
 
 ## <a name="usage-considerations"></a>Considerações sobre o uso
 
-Expressões regulares podem corresponder mais do que você espera corresponder. Um exemplo disso é a correspondência `one` numérica `two`de palavras, como e . Um exemplo é o seguinte regex, que corresponde ao número `one` com outros números:
+Expressões regulares podem corresponder a mais do que você espera corresponder. Um exemplo disso é a correspondência de palavras numéricas `one` , `two`como e. Um exemplo é o seguinte Regex, que corresponde ao número `one` junto com outros números:
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ```
 
-Esta expressão regex também corresponde a qualquer palavra `phone`que termine com esses números, tais como . Para corrigir problemas como este, certifique-se de que as correspondências regex levem em conta os limites das palavras. O regex para usar limites de palavras para este exemplo é usado no seguinte regex:
+Essa expressão Regex também corresponde a quaisquer palavras que terminem com esses números, `phone`como. Para corrigir problemas como esse, verifique se as correspondências de Regex levam em conta limites de palavras. O Regex para usar limites de palavras para este exemplo é usado no seguinte Regex:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
@@ -46,7 +46,7 @@ Esta expressão regex também corresponde a qualquer palavra `phone`que termine 
 
 ### <a name="example-json"></a>JSON de exemplo
 
-Ao `kb[0-9]{6}`usar , como definição de entidade de expressão regular, a seguinte resposta JSON é um exemplo de expressão com as entidades de expressão regular retornadas para a consulta:
+Ao usar `kb[0-9]{6}`, como a definição de entidade de expressão regular, a resposta JSON a seguir é um exemplo de expressão com as entidades de expressão regular retornadas para a consulta:
 
 `When was kb123456 published?`:
 
@@ -67,7 +67,7 @@ Ao `kb[0-9]{6}`usar , como definição de entidade de expressão regular, a segu
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
 
-Este é o JSON se `verbose=false` estiver definido na seqüência de consultas:
+Esse é o JSON se `verbose=false` estiver definido na cadeia de caracteres de consulta:
 
 ```json
 "entities": {
@@ -77,7 +77,7 @@ Este é o JSON se `verbose=false` estiver definido na seqüência de consultas:
 }
 ```
 
-Este é o JSON se `verbose=true` estiver definido na seqüência de consultas:
+Esse é o JSON se `verbose=true` estiver definido na cadeia de caracteres de consulta:
 
 ```json
 "entities": {
@@ -106,4 +106,4 @@ Este é o JSON se `verbose=true` estiver definido na seqüência de consultas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste [tutorial,](tutorial-regex-entity.md)crie um aplicativo para extrair dados formatados consistentemente de um enunciado usando a entidade **Expressão Regular.**
+Neste [tutorial](tutorial-regex-entity.md), crie um aplicativo para extrair dados formatados de forma consistente de um expressão usando a entidade **expressão regular** .

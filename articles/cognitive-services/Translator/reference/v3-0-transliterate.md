@@ -1,7 +1,7 @@
 ---
 title: Método de Transliteração de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Converta texto em um idioma de um script para outro com o método Transliterrate Do Texto tradutor.
+description: Converta o texto em um idioma de um script para outro com o método transliterate API de Tradução de Texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837274"
 ---
 # <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: transliteração
@@ -60,7 +60,7 @@ Os cabeçalhos de solicitação incluem:
   <th width="20%">headers</th>
   <th>Descrição</th>
   <tr>
-    <td>Cabeçalho de autenticação(s)</td>
+    <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>

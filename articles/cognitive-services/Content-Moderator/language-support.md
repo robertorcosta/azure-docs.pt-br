@@ -1,7 +1,7 @@
 ---
 title: Suporte de idioma – API do Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Esta é uma lista de linguagens naturais que a API de Moderador de Conteúdo de Serviços Cognitivos do Azure suporta.
+description: Esta é uma lista de linguagens naturais às quais a API de Content Moderator de serviços cognitivas do Azure dá suporte.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73744371"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Suporte de idioma para a API do Content Moderator
@@ -40,7 +40,7 @@ ms.locfileid: "73744371"
 | Tcheco |  Bielorrusso | Grego (moderno)         | Polonês |
 | Dhivehi | Bósnio - Cirílico | Húngaro      | Português |
 | Holandês | Bósnio - Latim | Italiano             | Romeno |
-| Inglês (crioulo) | Bretão [não GeoPol] | Japonês  | Russo |
+| Inglês (haitiano) | Bretão [não GeoPol] | Japonês  | Russo |
 | Farsi | Búlgaro | Coreano                        | Eslovaco |
 | Francês | Catalão | Norueguês                        | Espanhol |
 | Alemão | Curdo Central | Polonês        | Turco |

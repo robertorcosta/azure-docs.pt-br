@@ -1,7 +1,7 @@
 ---
 title: Método Detectar da API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Identifique a linguagem de um texto com o método Azure Cognitive Services Translator Text API Detect.
+description: Identifique o idioma de um pedaço de texto com o método de detecção API de Tradução de Texto de serviços cognitivas do Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837288"
 ---
 # <a name="translator-text-api-30-detect"></a>API de Tradução de Texto 3.0: detectar
@@ -48,7 +48,7 @@ Os cabeçalhos de solicitação incluem:
   <th width="20%">headers</th>
   <th>Descrição</th>
   <tr>
-    <td>Cabeçalho de autenticação(s)</td>
+    <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>

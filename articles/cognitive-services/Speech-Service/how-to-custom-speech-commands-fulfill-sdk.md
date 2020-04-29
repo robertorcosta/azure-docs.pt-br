@@ -1,7 +1,7 @@
 ---
-title: Como cumprir comandos de um cliente com o Speech SDK
+title: Como atender a comandos de um cliente com o SDK de fala
 titleSuffix: Azure Cognitive Services
-description: Neste artigo, explicamos como lidar com as atividades de Comandos Personalizados em um cliente com o Speech SDK.
+description: Neste artigo, explicamos como lidar com atividades de comandos personalizados em um cliente com o SDK de fala.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,52 +11,52 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: donkim
 ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79367731"
 ---
-# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Cumprir comandos de um cliente com o Speech SDK (Preview)
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Preencher comandos de um cliente com o SDK de fala (versão prévia)
 
-Para concluir tarefas usando um aplicativo de Comandos Personalizados, você pode enviar cargas personalizadas para um dispositivo cliente conectado.
+Para concluir tarefas usando um aplicativo de comandos personalizados, você pode enviar cargas personalizadas para um dispositivo de cliente conectado.
 
-Neste artigo, você:
+Neste artigo, você vai:
 
-- Defina e envie uma carga json personalizada do seu aplicativo de comandos personalizados
-- Receba e visualize o conteúdo de carga JSON personalizado a partir de um aplicativo cliente C# UWP Speech SDK
+- Definir e enviar uma carga JSON personalizada de seu aplicativo de comandos personalizados
+- Receber e visualizar o conteúdo da carga JSON personalizada de um aplicativo cliente do SDK de fala do C# UWP
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Uma chave de assinatura do Azure para o serviço speech
-  - [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure](https://portal.azure.com)
+- Uma chave de assinatura do Azure para o serviço de fala
+  - [Obtenha um gratuitamente](get-started.md) ou crie-o no [portal do Azure](https://portal.azure.com)
 - Um aplicativo de comandos personalizados criado anteriormente
-  - [Quickstart: Crie um comando personalizado com parâmetros (Visualização)](./quickstart-custom-speech-commands-create-parameters.md)
-- Um aplicativo cliente habilitado para Speech SDK
-  - [Partida rápida: Conecte-se a um aplicativo de comando personalizado com o Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
+  - [Início rápido: criar um comando personalizado com parâmetros (versão prévia)](./quickstart-custom-speech-commands-create-parameters.md)
+- Um aplicativo cliente habilitado para SDK de fala
+  - [Início rápido: conectar a um aplicativo de comando personalizado com o SDK de fala (versão prévia)](./quickstart-custom-speech-commands-speech-sdk.md)
 
-## <a name="optional-get-started-fast"></a>Opcional: Comece rápido
+## <a name="optional-get-started-fast"></a>Opcional: introdução rápida
 
-Este artigo descreve, passo a passo, como fazer um aplicativo cliente para falar com seu aplicativo de Comandos Personalizados. Se você preferir mergulhar direito, o código-fonte completo e pronto para compilar usado neste artigo está disponível no [Speech SDK Samples](https://aka.ms/csspeech/samples).
+Este artigo descreve, passo a passo, como fazer um aplicativo cliente se comunicar com seu aplicativo de comandos personalizados. Se você preferir se aprofundar diretamente no, o código-fonte completo e pronto para compilar usado neste artigo está disponível nos exemplos do [SDK de fala](https://aka.ms/csspeech/samples).
 
-## <a name="fulfill-with-json-payload"></a>Cumprir com a carga útil JSON
+## <a name="fulfill-with-json-payload"></a>Atender à carga JSON
 
-1. Abra seu aplicativo de comandos personalizados criado anteriormente no [Speech Studio](https://speech.microsoft.com/)
-1. Verifique a seção **Regras de conclusão** para ter certeza de que você tem a regra criada anteriormente que responde ao usuário
-1. Para enviar uma carga diretamente ao cliente, crie uma nova regra com uma ação Enviar atividade
+1. Abra o aplicativo de comandos personalizados criado anteriormente no [Speech Studio](https://speech.microsoft.com/)
+1. Marque a seção **regras de conclusão** para verificar se você tem a regra criada anteriormente que responde de volta ao usuário
+1. Para enviar uma carga diretamente para o cliente, crie uma nova regra com uma ação enviar atividade
 
    > [!div class="mx-imgBorder"]
-   > ![Enviar regra de conclusão de atividade](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
+   > ![Regra de conclusão de atividade de envio](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
    | Configuração | Valor sugerido | Descrição |
    | ------- | --------------- | ----------- |
-   | Nome da Regra | AtualizaçãoDeviceState | Um nome descrevendo o propósito da regra |
-   | Condições | Parâmetro obrigatório `OnOff` - e`SubjectDevice` | Condições que determinam quando a regra pode ser executada |
-   | Ações | `SendActivity`(veja abaixo) | A ação a tomar quando a condição de regra é verdadeira |
+   | Nome da Regra | UpdateDeviceState | Um nome que descreve a finalidade da regra |
+   | Condições | Parâmetro obrigatório- `OnOff` e`SubjectDevice` | Condições que determinam quando a regra pode ser executada |
+   | Ações | `SendActivity`(veja abaixo) | A ação a ser tomada quando a condição da regra for verdadeira |
 
    > [!div class="mx-imgBorder"]
-   > ![Enviar carga útil da atividade](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
+   > ![Enviar carga da atividade](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
    ```json
    {
@@ -67,11 +67,11 @@ Este artigo descreve, passo a passo, como fazer um aplicativo cliente para falar
    }
    ```
 
-## <a name="create-visuals-for-device-on-or-off-state"></a>Criar visuais para dispositivos dentro ou fora do estado
+## <a name="create-visuals-for-device-on-or-off-state"></a>Criar visuais para o estado ligado ou desligado do dispositivo
 
-No [Quickstart: Conecte-se a um aplicativo de comando personalizado com o Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md) você criou um aplicativo cliente Speech SDK que lidava com comandos como `turn on the tv`, `turn off the fan`. Agora adicione alguns visuais para que você possa ver o resultado desses comandos.
+No [início rápido: conectar a um aplicativo de comando personalizado com o SDK de fala (versão prévia)](./quickstart-custom-speech-commands-speech-sdk.md) você criou um aplicativo cliente de SDK de `turn on the tv`fala `turn off the fan`que tratou comandos como,. Agora, adicione alguns visuais para que você possa ver o resultado desses comandos.
 
-Adicione caixas rotuladas com texto indicando **ligado** ou **desligado** usando o Seguinte XML adicionado`MainPage.xaml.cs`
+Adicione caixas rotuladas com texto indicando **Ativar** ou **desativar** usando o seguinte XML adicionado ao`MainPage.xaml.cs`
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
@@ -90,14 +90,14 @@ Adicione caixas rotuladas com texto indicando **ligado** ou **desligado** usando
 </StackPanel>
 ```
 
-## <a name="handle-customizable-payload"></a>Lidar com carga útil personalizável
+## <a name="handle-customizable-payload"></a>Tratar conteúdo personalizável
 
-Agora que você criou uma carga JSON, você pode adicionar uma referência à biblioteca [JSON.NET](https://www.newtonsoft.com/json) para lidar com a desserialização.
+Agora que você criou uma carga JSON, é possível adicionar uma referência à biblioteca [JSON.net](https://www.newtonsoft.com/json) para lidar com a desserialização.
 
 > [!div class="mx-imgBorder"]
-> ![Enviar carga útil da atividade](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
+> ![Enviar carga da atividade](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
-Adicione `InitializeDialogServiceConnector` o seguinte `ActivityReceived` ao seu manipulador de eventos. O código adicional extrairá a carga da atividade e alterará o estado visual da TV ou ventilador de acordo.
+Em `InitializeDialogServiceConnector` adicionar o seguinte ao seu `ActivityReceived` manipulador de eventos. O código adicional extrairá a carga da atividade e alterará o estado visual da TV ou do ventilador de acordo.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -131,15 +131,15 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
 1. Iniciar o aplicativo
-1. Selecione Ativar microfone
-1. Selecione o botão Falar
-1. Dizer`turn on the tv`
-1. O estado visual da TV deve mudar para "On"
+1. Selecione habilitar microfone
+1. Selecione o botão falar
+1. Mencione`turn on the tv`
+1. O estado visual da TV deve mudar para "on"
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Como: Adicionar validações aos parâmetros de comando personalizado (visualização)](./how-to-custom-speech-commands-validations.md)
+> [Como: Adicionar validações a parâmetros de comando personalizados (visualização)](./how-to-custom-speech-commands-validations.md)

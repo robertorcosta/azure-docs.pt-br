@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75448253"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderar imagens do console da API
 
-Use a [API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) no Content Moderator do Azure para iniciar os fluxos de trabalho de moderação de revisão e verificação de conteúdo de imagem. O trabalho de moderação escaneia seu conteúdo por palavrões e o compara com listas de bloqueio personalizadas e compartilhadas.
+Use a [API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) no Content Moderator do Azure para iniciar os fluxos de trabalho de moderação de revisão e verificação de conteúdo de imagem. O trabalho de moderação examina seu conteúdo em caso de profanação e o compara em relação a bloqueio personalizadas e compartilhadas.
 
 ## <a name="use-the-api-console"></a>Usar o console de API
-Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão geral](overview.md).
+Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [visão geral](overview.md).
 
 1. Vá para a [referência da API de Moderação de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
@@ -102,4 +102,4 @@ Você pode usar o recurso OCR do Content Moderator para detectar texto em imagen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use a API REST em seu código ou siga o [quickstart do .NET SDK](dotnet-sdk-quickstart.md) para adicionar moderação de imagem ao seu aplicativo.
+Use a API REST em seu código ou siga o [início rápido do SDK do .net](dotnet-sdk-quickstart.md) para adicionar moderação de imagem ao seu aplicativo.

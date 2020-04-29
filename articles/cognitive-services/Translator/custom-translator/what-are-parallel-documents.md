@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72675478"
 ---
 # <a name="what-are-parallel-documents"></a>O que são documentos paralelos?
@@ -23,7 +23,7 @@ Não importa qual idioma está marcado como "source" e qual idioma está marcado
 
 ## <a name="requirements"></a>Requisitos
 
-Você precisará de um mínimo de 10.000 frases paralelas alinhadas únicas para treinar um sistema. Essa limitação é uma rede de segurança para garantir que suas frases paralelas contenham vocabulário único suficiente para treinar com sucesso um modelo de tradução. Como uma prática recomendada, adicione continuamente mais conteúdo paralelo e retreine para melhorar a qualidade do seu sistema de tradução. Consulte o [Alinhamento de Sentenças](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
+Você precisará de um mínimo de 10.000 sentenças paralelas alinhadas exclusivamente para treinar um sistema. Essa limitação é uma rede de segurança para garantir que suas frases paralelas contenham um vocabulário exclusivo suficiente para treinar com êxito um modelo de tradução. Como prática recomendada, adicione continuamente mais conteúdo paralelo e retreine para melhorar a qualidade do seu sistema de tradução. Consulte alinhamento de [frase](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
 A Microsoft exige que os documentos carregados para o conversor personalizado não violem as propriedades de direitos autorais ou intelectual de terceiros. Para mais informações, consulte os [Termos de Uso](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 O upload de um documento usando o portal não altera a propriedade da propriedade intelectual no próprio documento.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68881916"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de Pesquisa de Imagem do Bing
@@ -32,9 +32,9 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 > - en-AU (inglês, Austrália)
 > - zh-CN (chinês, China)
 
-## <a name="countriesregions"></a>Países/Regiões
+## <a name="countriesregions"></a>Países/regiões
 
-|País/Região|Código|
+|País/região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
@@ -50,7 +50,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|IT|
+|Itália|TI|
 |Japão|JP|
 |Coreia do Sul|KR|
 |Malásia|MY|
@@ -76,7 +76,7 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 
 ## <a name="markets"></a>Mercados
 
-|País/Região|Idioma|Código de mercado|
+|País/região|Linguagem|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|

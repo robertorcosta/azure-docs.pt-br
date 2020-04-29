@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
 ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73499487"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usar uma entidade de lista para aumentar a detecção de entidade 
-Este artigo demonstra o uso de uma entidade de [lista](luis-concept-entity-types.md) para aumentar a detecção da entidade. Entidades de lista não precisam ser rotuladas já que elas são uma correspondência exata de termos.  
+Este artigo demonstra o uso de uma [entidade List](luis-concept-entity-types.md) para aumentar a detecção de entidades. Entidades de lista não precisam ser rotuladas já que elas são uma correspondência exata de termos.  
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
@@ -39,7 +39,7 @@ Neste artigo, você aprenderá como:
 > [!Tip]
 > Se você ainda não tiver uma assinatura, poderá se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/).
 
-Todo o código deste artigo está disponível no [repositório Azure-Samples GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+Todo o código deste artigo está disponível no [repositório GitHub Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Usar o aplicativo HomeAutomation
 O aplicativo HomeAutomation oferece controle de dispositivos como luzes, sistemas de entretenimento e controles de ambiente como aquecimento e refrigeração. Esses sistemas possuem vários nomes diferentes que podem incluir nomes de fabricantes, apelidos, acrônimos e gírias. 

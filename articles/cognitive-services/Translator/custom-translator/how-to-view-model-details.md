@@ -10,17 +10,17 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595570"
 ---
 # <a name="view-model-details"></a>Exibir detalhes do modelo
 
 A guia Modelos no projeto mostra todos os modelos nesse projeto. Todos os modelos treinados para esse projeto estão listados nesta guia.
 
-Para cada modelo do projeto, esses detalhes são exibidos.
+Para cada modelo no projeto, esses detalhes são exibidos.
 
 1.  Nome do modelo: mostra o nome do modelo de um determinado modelo.
 

@@ -1,7 +1,7 @@
 ---
-title: Tipo de entidade simples - LUIS
+title: Tipo de entidade simples-LUIS
 titleSuffix: Azure Cognitive Services
-description: Uma entidade simples descreve um único conceito a partir do contexto aprendido por máquina. Adicione uma lista de frases ao usar uma entidade simples para melhorar os resultados.
+description: Uma entidade simples descreve um único conceito do contexto aprendido por máquina. Adicione uma lista de frases ao usar uma entidade simples para melhorar os resultados.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74894756"
 ---
 # <a name="simple-entity"></a>Entidade simples
@@ -51,7 +51,7 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto 
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Este é o JSON se `verbose=false` estiver definido na seqüência de consultas:
+Esse é o JSON se `verbose=false` estiver definido na cadeia de caracteres de consulta:
 
 ```json
 "entities": {
@@ -95,4 +95,4 @@ This is the JSON if `verbose=true` is set in the query string:
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Aprenda sintaxe padrão](reference-pattern-syntax.md)
+> [Aprenda a sintaxe do padrão](reference-pattern-syntax.md)

@@ -1,7 +1,7 @@
 ---
 title: Perguntas Frequentes sobre a Conversão de Texto em Fala
 titleSuffix: Azure Cognitive Services
-description: Obtenha respostas para as perguntas freqüentes sobre o serviço Texto para Fala.
+description: Obtenha respostas para as perguntas frequentes sobre o serviço de Conversão de Texto em Fala.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
 ms.openlocfilehash: 19b8be83a3678164197ec0650b07091e941a04d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74110501"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Perguntas Frequentes sobre a Conversão de Texto em Fala
@@ -29,7 +29,7 @@ Se você não encontrar respostas para suas perguntas nas perguntas frequentes, 
 
 **Pergunta: Por onde começar, se eu quiser usar um modelo de voz padrão?**
 
-**Resposta**: Mais de 80 modelos de voz padrão em mais de 45 idiomas estão disponíveis através de solicitações HTTP. Primeiro, obtenha uma [chave de assinatura.](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) Para fazer chamadas REST para os modelos de voz pré-implantados, consulte a [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+**Resposta**: Mais de 80 modelos de voz padrão em mais de 45 idiomas estão disponíveis através de solicitações HTTP. Primeiro, obtenha uma [chave de assinatura](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Para fazer chamadas REST para os modelos de voz pré-implantados, consulte a [API REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 **Pergunta**: Se eu quiser usar um modelo de voz personalizado, a API será a mesma das vozes padrão?
 
@@ -41,7 +41,7 @@ Se você não encontrar respostas para suas perguntas nas perguntas frequentes, 
 
 Uma coleção de dados de fala é necessária para criar um modelo de voz personalizado. Esta coleção consiste em um conjunto de arquivos de áudio de gravações de fala e um arquivo de texto da transcrição de cada arquivo de áudio. O resultado da sua voz digital depende intensamente da qualidade dos seus dados de treinamento. Para produzir uma voz de texto em fala bom, é importante que as gravações sejam feitas em uma sala silenciosa com um microfone de alta qualidade. Volume consistente, velocidade de fala, densidade fala e até a consistência nos maneirismos expressivos da fala são essenciais para compilação de uma excelente voz digital. É altamente recomendável gravar as vozes em um estúdio de gravação.
 
-Atualmente, não damos suporte para gravação online nem recomendações sobre estúdios de gravação. Para a exigência de formato, veja [como preparar gravações e transcrições](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
+Atualmente, não damos suporte para gravação online nem recomendações sobre estúdios de gravação. Para o requisito de formato, consulte [como preparar gravações e transcrições](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
 
 **Pergunta: quais scripts devo usar para registrar os dados de fala para treinamento de voz personalizada?**
 

@@ -12,29 +12,29 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68854053"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usar marcadores de decoração para realçar texto
 
-Bing suporta hit highlighting, que marca termos de consulta (ou outros termos que Bing acha relevantes) nas seqüências de exibição de algumas respostas. Por exemplo, um resultado `name`de `displayUrl`página `snippet` web e campos podem conter termos de consulta marcados. 
+O Bing dá suporte ao realce de visita, que marca os termos de consulta (ou outros termos que o Bing encontra relevante) nas cadeias de caracteres de exibição de algumas respostas. Por exemplo, os campos, `name` `displayUrl`e `snippet` dos resultados de uma página da Web podem conter os termos de consulta marcados. 
 
-Por padrão, o Bing não inclui realce de marcadores em cadeias de exibição. Para habilitar os marcadores, inclua o `textDecorations` parâmetro de `true`consulta na sua solicitação e defina-o como .
+Por padrão, o Bing não inclui realce de marcadores em cadeias de exibição. Para habilitar os marcadores, inclua o `textDecorations` parâmetro de consulta em sua solicitação e defina-o `true`como.
 
-## <a name="hit-highlighting-example"></a>Exemplo de destaque de hit
+## <a name="hit-highlighting-example"></a>Exemplo de realce de clique
 
-O exemplo a seguir `Sailing Dinghy`mostra um resultado da Web para . Bing marcou o início e o fim do termo de consulta usando os caracteres Unicode E000 e E001.
+O exemplo a seguir mostra um resultado da `Sailing Dinghy`Web para. Bing marcou o início e o final do termo de consulta usando os caracteres Unicode E000 e E001.
   
 ![Realce de ocorrência](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
 
-Antes de exibir o resultado na interface do usuário, substitua os caracteres Unicode por aqueles apropriados para o formato de exibição.
+Antes de exibir o resultado na interface do usuário, substitua os caracteres Unicode pelos que são apropriados para seu formato de exibição.
 
-## <a name="marker-formatting"></a>Formatação de marcadores
+## <a name="marker-formatting"></a>Formatação do marcador
 
-Bing oferece a opção de usar caracteres Unicode ou tags HTML como marcadores. Para especificar quais marcadores usar, inclua o parâmetro de consulta [textFormat:](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) 
+O Bing fornece a opção de usar caracteres Unicode ou marcas HTML como marcadores. Para especificar quais marcadores usar, inclua o parâmetro de consulta [TextFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
 
 | Valor             | Marker                       |
 |-------------------|------------------------------|
@@ -43,13 +43,13 @@ Bing oferece a opção de usar caracteres Unicode ou tags HTML como marcadores. 
 
 ## <a name="additional-text-decorations"></a>Decorações de texto adicionais
 
-Bing pode devolver várias decorações de texto diferentes. Por exemplo, `Computation` uma resposta pode conter marcadores `log(2)` de `expression` subscritos para o termo de consulta no campo.
+O Bing pode retornar várias decorações de texto diferentes. Por exemplo, uma `Computation` resposta pode conter marcadores de subscrito para o termo `log(2)` de consulta no `expression` campo.
 
 ![marcadores de computação](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
 
-Se a solicitação não especificasse decorações, o `expression` campo conteria `log10(2)`. 
+Se a solicitação não especificou decorações, o `expression` campo conterá `log10(2)`. 
 
-Se `textDecorations` `true`for, Bing pode incluir os seguintes marcadores nas seqüências de respostas do display. Se não houver uma tag HTML equivalente, a célula de tabela está vazia.
+Se `textDecorations` for `true`, o Bing pode incluir os marcadores a seguir nas cadeias de caracteres de exibição de respostas. Se não houver nenhuma marca HTML equivalente, a célula da tabela estará vazia.
 
 |Unicode|HTML|Descrição
 |-|-|-

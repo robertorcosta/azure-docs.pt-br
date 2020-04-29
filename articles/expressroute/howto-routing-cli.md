@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Configure peering: CLI'
+title: 'Azure ExpressRoute: configurar o emparelhamento: CLI'
 description: Este artigo ajuda a criar e provisionar o emparelhamento público, privado e da Microsoft de um circuito da ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 services: expressroute
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 91a1b6cc877b31fbcef638e34d3147d3377ce85c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476110"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Criar e modificar o emparelhamento de um circuito do ExpressRoute usando a CLI
@@ -20,10 +20,10 @@ ms.locfileid: "79476110"
 Esse artigo ajuda a criar e gerenciar a configuração de roteamento/emparelhamento de um circuito da ExpressRoute no modelo de implantação do Resource Manager usando a CLI. Você também pode verificar o status, atualizar ou excluir e desprovisionar emparelhamentos de um circuito do ExpressRoute. Se quiser usar um método diferente para trabalhar com seu circuito, selecione um artigo na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](expressroute-howto-routing-portal-resource-manager.md)
-> * [Powershell](expressroute-howto-routing-arm.md)
-> * [Azure CLI](howto-routing-cli.md)
-> * [Peering público](about-public-peering.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell](expressroute-howto-routing-arm.md)
+> * [CLI do Azure](howto-routing-cli.md)
+> * [Emparelhamento público](about-public-peering.md)
 > * [Vídeo – Emparelhamento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Vídeo – Emparelhamento da Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
@@ -37,9 +37,9 @@ Esse artigo ajuda a criar e gerenciar a configuração de roteamento/emparelhame
 
 Estas instruções se aplicam apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de Camada 2. Se você estiver usando um provedor de serviços que ofereça serviços gerenciados de Camada 3 (normalmente um IPVPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
 
-Você pode configurar peering privado e Microsoft peering para um circuito ExpressRoute (peering público do Azure é preterido para novos circuitos). Os peerings podem ser configurados em qualquer ordem que você escolher. No entanto, você deve concluir a configuração de um emparelhamento por vez. Para obter mais informações sobre o roteamento de domínios e emparelhamentos, consulte [Domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre peering público, consulte [O peering público ExpressRoute](about-public-peering.md).
+Você pode configurar emparelhamento privado e emparelhamento da Microsoft para um circuito do ExpressRoute (o emparelhamento público do Azure é preterido para novos circuitos). Os emparelhamentos podem ser configurados em qualquer ordem escolhida. No entanto, você deve concluir a configuração de um emparelhamento por vez. Para obter mais informações sobre o roteamento de domínios e emparelhamentos, consulte [Domínios de roteamento do ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre o emparelhamento público, consulte [emparelhamento público do ExpressRoute](about-public-peering.md).
 
-## <a name="microsoft-peering"></a><a name="msft"></a>Peering da Microsoft
+## <a name="microsoft-peering"></a><a name="msft"></a>Emparelhamento da Microsoft
 
 Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento da Microsoft para um circuito do ExpressRoute.
 
@@ -50,7 +50,7 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 ### <a name="to-create-microsoft-peering"></a>Criar emparelhamento da Microsoft
 
-1. Instale a versão mais recente do CLI do Azure. Use a versão mais recente da Interface de linha de Comando do Azure (CLI). Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
+1. Instale a versão mais recente do CLI do Azure. Use a versão mais recente da CLI (interface de linha de comando) do Azure. Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
    ```azurecli
    az login
@@ -125,9 +125,9 @@ Você pode obter detalhes de configuração usando o exemplo a seguir:
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
 > [!IMPORTANT]
-> A Microsoft verifica se os 'prefixos públicos anunciados' e 'Peer ASN' (ou 'Customer ASN') são atribuídos a você no Registro de Roteamento da Internet. Se você estiver recebendo os prefixos públicos de outra entidade e se a atribuição não for registrada no registro de roteamento, a validação automática não será concluída e exigirá validação manual. Se a validação automática falhar, você verá 'AdvertisedPublicPrefixesState' como 'Validação necessária' na saída do comando acima. 
+> A Microsoft verifica se os ' prefixos públicos publicados ' e ' peer ASN ' (ou ' cliente ASN ') especificados estão atribuídos a você no registro de roteamento da Internet. Se você estiver obtendo os prefixos públicos de outra entidade e se a atribuição não for registrada com o registro de roteamento, a validação automática não será concluída e exigirá validação manual. Se a validação automática falhar, você verá "AdvertisedPublicPrefixesState" como "validação necessária" na saída do comando acima. 
 > 
-> Se você vir a mensagem 'Validação necessária', colete os documentos que mostram os prefixos públicos são atribuídos à sua organização pela entidade que está listada como a proprietária dos prefixos no registro de roteamento e envie esses documentos para validação manual por abrindo um bilhete de suporte, como mostrado abaixo. 
+> Se você vir a mensagem "validação necessária", colete os documentos que mostram os prefixos públicos são atribuídos à sua organização pela entidade que está listada como o proprietário dos prefixos no registro de roteamento e envie esses documentos para validação manual, abrindo um tíquete de suporte, conforme mostrado abaixo. 
 > 
 >
 

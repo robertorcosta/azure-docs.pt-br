@@ -1,7 +1,7 @@
 ---
-title: Tipo de entidade composta - LUIS
+title: Tipo de entidade composta-LUIS
 titleSuffix: Azure Cognitive Services
-description: Uma entidade composta é composta por outras entidades, como entidades pré-construídas, simples, expressão regular e entidades de lista. As entidades separadas formam uma entidade inteira.
+description: Uma entidade composta é composta por outras entidades, como entidades predefinidas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71695162"
 ---
 # <a name="composite-entity"></a>Entidade composta 
 
-Uma entidade composta é composta por outras entidades, como entidades pré-construídas, simples, expressão regular e entidades de lista. As entidades separadas formam uma entidade inteira. 
+Uma entidade composta é composta por outras entidades, como entidades predefinidas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira. 
 
 **Essa entidade é uma boa opção quando os dados:**
 
@@ -33,7 +33,7 @@ Uma entidade composta é composta por outras entidades, como entidades pré-cons
 
 ## <a name="example-json"></a>JSON de exemplo
 
-Considere uma entidade composta `number` `Location::ToLocation` de pré-construída e com a seguinte expressão:
+Considere uma entidade composta de pré-criados `number` e `Location::ToLocation` com os seguintes expressão:
 
 `book 2 tickets to cairo`
 
@@ -91,7 +91,7 @@ Entidades compostas são retornadas em uma matriz `compositeEntities` e todas as
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Este é o JSON se `verbose=false` estiver definido na seqüência de consultas:
+Esse é o JSON se `verbose=false` estiver definido na cadeia de caracteres de consulta:
 
 ```json
 "entities": {
@@ -108,7 +108,7 @@ Este é o JSON se `verbose=false` estiver definido na seqüência de consultas:
 }
 ```
 
-Este é o JSON se `verbose=true` estiver definido na seqüência de consultas:
+Esse é o JSON se `verbose=true` estiver definido na cadeia de caracteres de consulta:
 
 ```json
 "entities": {
@@ -175,8 +175,8 @@ Este é o JSON se `verbose=true` estiver definido na seqüência de consultas:
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
 |Entidade predefinida – número|"builtin.number"|"2"|
-|Entidade Pré-Construída - GeografiaV2|"Location::ToLocation"|"Cairo"|
+|Entidade predefinida – GeographyV2|"Location::ToLocation"|Cairo|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste [tutorial,](luis-tutorial-composite-entity.md)adicione uma **entidade composta** para agrupar dados extraídos de vários tipos em uma única entidade contendo. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.
+Neste [tutorial](luis-tutorial-composite-entity.md), adicione uma **entidade composta** para agrupar dados extraídos de vários tipos em uma única entidade contentora. Agrupando os dados, o aplicativo cliente poderá extrair com facilidade dados relacionados em diferentes tipos de dados.

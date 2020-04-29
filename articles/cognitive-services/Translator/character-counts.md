@@ -1,7 +1,7 @@
 ---
 title: Contagens de caractere - API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Este artigo explica como a API de texto do Tradutor de Serviços Cognitivos do Azure conta caracteres para que você possa entender como ele ingere conteúdo.
+description: Este artigo explica como os serviços cognitivas do Azure API de Tradução de Texto contam caracteres para que você possa entender como ele consome conteúdo.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: cb70b8624ac0d909511032622948f14f8764b153
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73888154"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Como a API de Tradução de Texto conta caracteres
@@ -26,14 +26,14 @@ O que conta é:
 * O texto é transferido para a API de Tradução de Texto no corpo da solicitação
    * `Text` ao usar os métodos Tradução, Transliteração e Pesquisa no dicionário
    * `Text` e `Translation` ao usar o método Exemplos de dicionário
-* Todas as marcações: TAGS HTML, XML, etc. no campo de texto do corpo de solicitação. A notação JSON usada para construir a solicitação (por exemplo "Text:") não é contabilizada.
+* Todas as marcações: HTML, marcas XML, etc. no campo de texto do corpo da solicitação. A notação JSON usada para construir a solicitação (por exemplo "Text:") não é contabilizada.
 * Uma letra individual
 * Pontuação
 * Espaço, tabulação, marcação e qualquer tipo de caractere de espaço em branco
 * Cada ponto de código definido no Unicode
 * Uma tradução repetida, mesmo que você já tenha traduzido o mesmo texto anteriormente
 
-Para scripts com base em ideogramas, como chinês e japonês Kanji, a API de Tradução de Texto ainda contará o número de pontos de código Unicode, um caractere por ideograma. Exceção: os substitutos unicode contam como dois caracteres.
+Para scripts com base em ideogramas, como chinês e japonês Kanji, a API de Tradução de Texto ainda contará o número de pontos de código Unicode, um caractere por ideograma. Exceção: os substitutos Unicode contam como dois caracteres.
 
 O número de solicitações, palavras, bytes ou frases é irrelevante na contagem de caracteres.
 

@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: c4c6b95996206cfb38ea3f77b89c3ebe3c2c0026
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68883498"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Guia de atualização da API v7 de Pesquisa de Imagem do Bing
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa de Imagem do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 
-## <a name="breaking-changes"></a>Alterações da falha
+## <a name="breaking-changes"></a>Alterações de quebra
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo,\/https:\*\*/api.cognitive.microsoft.com/bing/ v7.0**/images/search.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, https:\//API.cognitive.Microsoft.com/Bing/\*\*v 7.0 * */images/Search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
@@ -98,13 +98,13 @@ Bloqueado|InvalidRequest.Blocked
 - Os parâmetros de consulta a seguir agora são válidos apenas com o ponto de extremidade `/images/details`.  
 
     -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken)  
-    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
+    -   [módulos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
     -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl)  
     -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
     -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
     -   [car](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
-    -   [Gato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
-    -   [Ct](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
+    -   [Cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+    -   [CT](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
 
 - Renomeado o objeto `ImageInsightsResponse` para [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights).  
 

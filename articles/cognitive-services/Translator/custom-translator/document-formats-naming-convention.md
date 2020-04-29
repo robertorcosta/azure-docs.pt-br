@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595860"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Formatos de documentos e diretrizes de convenção de nomenclatura
@@ -31,13 +31,13 @@ Essa tabela inclui todos os formatos de arquivos com suporte que podem ser utili
 | Microsoft Word    | .DOCX        | Documento do Microsoft Word                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Documento portátil do Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
-| Arquivo de texto         | .TXT         | Arquivos de texto codificados UTF-16 ou UTF-8. O nome do arquivo não deve conter caracteres japoneses.                                                                                                                                                                                        |
+| Arquivo de texto         | .TXT         | Arquivos de texto codificados em UTF-16 ou UTF-8. O nome do arquivo não deve conter caracteres japoneses.                                                                                                                                                                                        |
 | Arquivo de texto alinhado | .ALIGN       | A extensão `.ALIGN` é uma extensão especial que você poderá usar se souber que as sentenças no par de documentos estão perfeitamente alinhadas. Se você fornecer um arquivo `.ALIGN`, o Tradutor Personalizado não alinhará as sentenças para você. |
 | Arquivo do Excel        | .XLSX        | Arquivo Excel (2013 ou posterior). A primeira linha/linha da planilha deverá ser o código do idioma.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Formatos de dicionário
 
-Para dicionários, o Personal Translator suporta todos os formatos de arquivo suportados para conjuntos de treinamento. Se você estiver usando um dicionário excel, a primeira linha/linha da planilha deve ser códigos de idioma.
+Para dicionários, o tradutor personalizado dá suporte a todos os formatos de arquivo que têm suporte para conjuntos de treinamento. Se você estiver usando um dicionário do Excel, a primeira linha/linha da planilha deverá ser de códigos de idioma.
 
 ## <a name="zip-file-formats"></a>Formatos de arquivo zip
 

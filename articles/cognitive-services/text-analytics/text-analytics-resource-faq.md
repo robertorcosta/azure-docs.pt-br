@@ -1,7 +1,7 @@
 ---
 title: Perguntas frequentes sobre a API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Encontre respostas para perguntas comumente feitas sobre conceitos, códigos e cenários relacionados à API de Análise de Texto para Serviços Cognitivos Azure.
+description: Encontre respostas para perguntas frequentes sobre conceitos, código e cenários relacionados ao API de Análise de Texto para serviços cognitivas do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837133"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>FAQ (perguntas frequentes) sobre o Serviço Cognitivo de Análise de Texto
@@ -53,5 +53,5 @@ A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solic
 
 ## <a name="see-also"></a>Confira também
 
- [StackOverflow: API de análise de texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: API de Análise de Texto](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

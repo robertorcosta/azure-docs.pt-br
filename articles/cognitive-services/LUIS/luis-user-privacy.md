@@ -1,7 +1,7 @@
 ---
-title: Exportação & excluir dados - LUIS
+title: Exportar & excluir dados-LUIS
 titleSuffix: Azure Cognitive Services
-description: Você tem controle total sobre a visualização, exportação e exclusão de seus dados. Exclua os dados do cliente para garantir privacidade e conformidade.
+description: Você tem controle total sobre a exibição, a exportação e a exclusão de seus dados. Exclua os dados do cliente para garantir a privacidade e a conformidade.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,79 +12,79 @@ ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273356"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
 
-Exclua os dados do cliente para garantir privacidade e conformidade.
+Exclua os dados do cliente para garantir a privacidade e a conformidade.
 
 ## <a name="summary-of-customer-data-request-features"></a>Resumo dos recursos de solicitação de dados do cliente
-O LUIS (Serviço Inteligente de Reconhecimento Vocal) preserva o conteúdo do cliente para operar o serviço, mas o usuário do LUIS tem controle total sobre a exibição, a exportação e a exclusão dos próprios dados. Isso pode ser feito através do [portal](luis-reference-regions.md) LUIS ou das APIs de [Autoria do LUIS (também conhecida como Programática).](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)
+O LUIS (Serviço Inteligente de Reconhecimento Vocal) preserva o conteúdo do cliente para operar o serviço, mas o usuário do LUIS tem controle total sobre a exibição, a exportação e a exclusão dos próprios dados. Isso pode ser feito por meio do [portal](luis-reference-regions.md) da Web do Luis ou das [APIs de criação do Luis (também conhecidas como programáticas)](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 O conteúdo do cliente foi armazenado criptografado no armazenamento do Azure regional da Microsoft e inclui:
 
 - Conteúdo da conta de usuário coletado no momento do registro
-- Dados de treinamento necessários para construir os modelos
+- Dados de treinamento necessários para criar os modelos
 - Consultas de usuário registradas usadas pelo [aprendizado ativo](luis-concept-review-endpoint-utterances.md) para ajudar a melhorar o modelo
   - Os usuários podem desligar o registro em log de consulta anexando `&log=false` à solicitação; detalhes [aqui](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
-Os usuários do LUIS têm controle total para excluir qualquer conteúdo do usuário, seja através do portal luis ou das APIs de Autoria do LUIS (também conhecida como Programmatic). A tabela a seguir exibe links para ajudar a ajudar com ambos:
+LUIS os usuários têm controle total para excluir qualquer conteúdo de usuário, seja por meio do portal da Web do LUIS ou das APIs de criação de LUIS (também conhecidas como programáticas). A tabela a seguir exibe links para ajudar a ajudar com ambos:
 
-| | **Conta de Usuário** | **Aplicativo** | **Exemplo de Enunciado(s)** | **Consultas do usuário final** |
+| | **Conta de Usuário** | **Aplicativo** | **Expressão (s) de exemplo** | **Consultas do usuário final** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Enunciados de aprendizagem ativos](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Enunciados registrados](luis-concept-data-storage.md#disable-logging-utterances) |
-| **Apis** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
+| **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Declarações de aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Declarações registrados](luis-concept-data-storage.md#disable-logging-utterances) |
+| **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
-Os usuários do LUIS têm controle total para visualizar os dados no portal, porém devem ser exportados através das APIs de Autoria do LUIS (também conhecida como Programática). A tabela a seguir exibe links que auxiliam nas exportações de dados através das APIs de Autoria luis (também conhecidas como Programáticas):
+Os usuários do LUIS têm controle total para exibir os dados no portal, no entanto, eles devem ser exportados por meio das APIs de criação de LUIS (também conhecidas como programáticas). A tabela a seguir exibe links que auxiliam com exportações de dados por meio das APIs de criação LUIS (também conhecidas como programáticas):
 
-| | **Conta de Usuário** | **Aplicativo** | **Enunciado(s)** | **Consultas do usuário final** |
+| | **Conta de Usuário** | **Aplicativo** | **Expressão (s)** | **Consultas do usuário final** |
 | --- | --- | --- | --- | --- |
-| **Apis** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
+| **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
-## <a name="location-of-active-learning"></a>Localização do aprendizado ativo
+## <a name="location-of-active-learning"></a>Local do aprendizado ativo
 
-Para permitir [o aprendizado ativo,](luis-how-to-review-endpoint-utterances.md#enable-active-learning)as declarações registradas dos usuários, recebidas nos pontos finais do LUIS publicados, são armazenadas nas seguintes geografias do Azure:
+Para habilitar o [aprendizado ativo](luis-how-to-review-endpoint-utterances.md#enable-active-learning), os declarações registrados em log dos usuários, recebidos nos pontos de extremidade Luis publicados, são armazenados nas seguintes regiões geográficas do Azure:
 
 * [Europa](#europe)
 * [Austrália](#australia)
 * [Estados Unidos](#united-states)
 
-Com exceção dos dados de aprendizagem ativa (detalhados abaixo), o LUIS segue as [práticas de armazenamento de dados para serviços regionais.](https://azuredatacentermap.azurewebsites.net/)
+Com exceção dos dados de aprendizado ativos (detalhados abaixo), o LUIS segue as [práticas de armazenamento de dados para serviços regionais](https://azuredatacentermap.azurewebsites.net/).
 
 ### <a name="europe"></a>Europa
 
-O portal [eu.luis.ai](https://eu.luis.ai) e a Europe Authoring (também conhecida como PROGRAMmatic APIs) estão hospedados na geografia europeia do Azure. O portal eu.luis.ai e a Europe Authoring (também conhecida como PROGRAMmatic APIs) apoiam a implantação de pontos finais para as seguintes geografias do Azure:
+O portal [eu.Luis.ai](https://eu.luis.ai) e a criação da Europa (também conhecidas como APIs programáticas) são hospedados na geografia da Europa do Azure. O portal do eu.luis.ai e a criação da Europa (também conhecida como APIs programáticas) dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
 
 * Europa
 * França
 * United Kingdom
 
-Ao implantar nessas geografias do Azure, as declarações recebidas até o ponto final dos usuários finais do seu aplicativo serão armazenadas na geografia da Europa do Azure para aprendizado ativo. Você pode desativar o aprendizado ativo, ver [Desativar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar expressões armazenadas, consulte [Excluir enunciados](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia da Europa do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="australia"></a>Austrália
 
-O portal [au.luis.ai](https://au.luis.ai) e a Australia Authoring (também conhecida como PROGRAMmatic APIs) estão hospedados na geografia australiana do Azure. O portal au.luis.ai e a Australia Authoring (também conhecida como PROGRAMmatic APIs) suportam a implantação de pontos finais para as seguintes geografias do Azure:
+O portal [au.Luis.ai](https://au.luis.ai) e a criação da Austrália (também conhecidas como APIs programáticas) são hospedados na geografia da Austrália do Azure. O portal do au.luis.ai e a criação da Austrália (também conhecida como APIs programáticas) dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
 
 * Austrália
 
-Ao implantar nessas geografias do Azure, as declarações recebidas até o ponto final dos usuários finais do seu aplicativo serão armazenadas na geografia australiana do Azure para aprendizado ativo. Você pode desativar o aprendizado ativo, ver [Desativar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar expressões armazenadas, consulte [Excluir enunciados](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia da Austrália do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="united-states"></a>Estados Unidos
 
-O portal [luis.ai](https://www.luis.ai) e a Autoria dos Estados Unidos (também conhecidos como APIs Programáticas) estão hospedados na geografia dos Estados Unidos do Azure. O portal luis.ai e a Autoria dos Estados Unidos (também conhecidacomo PROGRAMmatic APIs) apoiam a implantação de pontos finais para as seguintes geografias do Azure:
+O portal do [Luis.ai](https://www.luis.ai) e a criação de Estados Unidos (também conhecida como APIs programáticas) são hospedados na geografia de Estados Unidos do Azure. O portal do luis.ai e a criação de Estados Unidos (também conhecida como APIs programáticas) dão suporte à implantação de pontos de extremidade para as seguintes regiões geográficas do Azure:
 
-* Geografias azure não apoiadas pela Europa ou Austrália regiões de autoria
+* Geografias do Azure sem suporte nas regiões de criação da Europa ou da Austrália
 
-Ao implantar nessas geografias do Azure, as declarações recebidas até o ponto final dos usuários finais do seu aplicativo serão armazenadas na geografia dos Estados Unidos do Azure para aprendizado ativo. Você pode desativar o aprendizado ativo, ver [Desativar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar expressões armazenadas, consulte [Excluir enunciados](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia Estados Unidos do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Próximas etapas

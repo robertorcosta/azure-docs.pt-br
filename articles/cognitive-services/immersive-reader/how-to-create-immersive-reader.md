@@ -1,7 +1,7 @@
 ---
 title: Criar um recurso de Leitura Avançada
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostrará como criar um novo recurso immersive Reader com um subdomínio personalizado e, em seguida, configurar o Azure AD no seu inquilino Do Zure.
+description: Este artigo mostrará como criar um novo recurso de leitor de imersão com um subdomínio personalizado e, em seguida, configurar o Azure AD em seu locatário do Azure.
 services: cognitive-services
 author: rwaller
 manager: guillasi
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
 ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78330712"
 ---
-# <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Crie um recurso do Immersive Reader e configure a autenticação do Azure Active Directory
+# <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory
 
-Neste artigo, fornecemos um script que criará um recurso do Immersive Reader e configurará a autenticação do Azure Active Directory (Azure AD). Cada vez que um recurso do Immersive Reader é criado, seja com este script ou no portal, ele também deve ser configurado com permissões Azure AD. Este roteiro vai ajudá-lo com isso.
+Neste artigo, fornecemos um script que criará um recurso de leitor de imersão e configurará a autenticação do Azure Active Directory (Azure AD). Cada vez que um recurso de leitor de imersão é criado, seja com esse script ou no portal, ele também deve ser configurado com permissões do Azure AD. Esse script o ajudará com isso.
 
-O script foi projetado para criar e configurar todos os recursos necessários do Immersive Reader e do Azure AD para todos vocês em uma etapa. No entanto, você também pode configurar a autenticação do Azure AD para um recurso de Leitor Imersivo existente, se, por exemplo, você já tiver criado um no portal Azure.
+O script foi projetado para criar e configurar todos os recursos do leitor de imersão e do Azure AD necessários para você em uma única etapa. No entanto, você também pode apenas configurar a autenticação do Azure AD para um recurso de leitor de imersão existente, se, por exemplo, você já tiver criado um no portal do Azure.
 
-Para alguns clientes, pode ser necessário criar vários recursos do Immersive Reader, para desenvolvimento versus produção, ou talvez para várias regiões diferentes em que seu serviço está implantado. Para esses casos, você pode voltar e usar o script várias vezes para criar diferentes recursos do Immersive Reader e configurá-los com as permissões do Azure AD.
+Para alguns clientes, pode ser necessário criar vários recursos de leitor de imersão, para desenvolvimento versus produção, ou talvez para várias regiões diferentes em que seu serviço está implantado. Para esses casos, você pode voltar e usar o script várias vezes para criar diferentes recursos de leitor de imersão e obtê-los configurados com as permissões do Azure AD.
 
-O roteiro foi projetado para ser flexível. Ele primeiro procurará os recursos existentes do Immersive Reader e do Azure AD em sua assinatura, e os criará apenas quando necessário se eles ainda não existirem. Se for sua primeira vez criando um recurso do Immersive Reader, o script fará tudo o que você precisa. Se você quiser usá-lo apenas para configurar o Azure AD para um recurso de Leitor Imersivo existente que foi criado no portal, ele fará isso também. Ele também pode ser usado para criar e configurar vários recursos do Immersive Reader.
+O script foi projetado para ser flexível. Ele primeiro procurará os recursos existentes do leitor de imersão e do Azure AD em sua assinatura e os criará somente conforme necessário, caso ainda não existam. Se for a primeira vez que você cria um recurso de leitor de imersão, o script fará tudo o que você precisa. Se você quiser usá-lo apenas para configurar o Azure AD para um recurso de leitor de imersão existente que foi criado no portal, ele também fará isso. Ele também pode ser usado para criar e configurar vários recursos de leitor de imersão.
 
-## <a name="set-up-powershell-environment"></a>Configure o ambiente PowerShell
+## <a name="set-up-powershell-environment"></a>Configurar o ambiente do PowerShell
 
-1. Comece abrindo [o Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Certifique-se de que o shell da nuvem está definido como `pwsh`PowerShell na gota da mão superior esquerda ou digitando .
+1. Comece abrindo a [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Verifique se o Cloud Shell está definido como PowerShell no menu suspenso superior esquerdo ou digitando `pwsh`.
 
-1. Copie e cole o seguinte trecho de código na concha.
+1. Copie e cole o trecho de código a seguir no Shell.
 
     ```azurepowershell-interactive
     function Create-ImmersiveReaderResource(
@@ -141,7 +141,7 @@ O roteiro foi projetado para ser flexível. Ele primeiro procurará os recursos 
     }
     ```
 
-1. Execute a `Create-ImmersiveReaderResource`função, fornecendo os parâmetros conforme apropriado.
+1. Execute a função `Create-ImmersiveReaderResource`, fornecendo os parâmetros conforme apropriado.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
@@ -159,16 +159,16 @@ O roteiro foi projetado para ser flexível. Ele primeiro procurará os recursos 
 
     | Parâmetro | Comentários |
     | --- | --- |
-    | SubscriptionName |Nome da assinatura do Azure para usar no recurso Immersive Reader. Você deve ter uma assinatura para criar um recurso. |
-    | ResourceName |  Deve ser alfanumérico, e pode conter '-', desde que o '-' não seja o primeiro ou último caractere. O comprimento não pode exceder 63 caracteres.|
-    | Subdomínio de recursos |Um subdomínio personalizado é necessário para o recurso Immersive Reader. O subdomínio é usado pelo SDK ao ligar para o serviço Immersive Reader para iniciar o Reader. O subdomínio deve ser globalmente único. O subdomínio deve ser alfanumérico, e pode conter '-', desde que o '-' não seja o primeiro ou último caractere. O comprimento não pode exceder 63 caracteres. Este parâmetro é opcional se o recurso já existir. |
-    | RecursosKU |Opções: `S0`. Visite nossa [página de preços de Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para saber mais sobre cada SKU disponível. Este parâmetro é opcional se o recurso já existir. |
-    | ResourceLocation |`eastus`Opções: `eastus2` `southcentralus`, `westus` `westus2`, `australiaeast` `southeastasia`, `centralindia` `japaneast`, `northeurope` `uksouth`, `westeurope`, , , , , , , . Este parâmetro é opcional se o recurso já existir. |
+    | SubscriptionName |Nome da assinatura do Azure a ser usada para o recurso de leitura de imersão. Você deve ter uma assinatura do para criar um recurso. |
+    | ResourceName |  Deve ser alfanumérico e pode conter '-', desde que '-' não seja o primeiro ou o último caractere. O comprimento não pode exceder 63 caracteres.|
+    | ResourceSubdomain |Um subdomínio personalizado é necessário para o recurso de leitura de imersão. O subdomínio é usado pelo SDK ao chamar o serviço de leitura de imersão para iniciar o leitor. O subdomínio deve ser globalmente exclusivo. O subdomínio deve ser alfanumérico e pode conter '-', desde que '-' não seja o primeiro ou o último caractere. O comprimento não pode exceder 63 caracteres. Esse parâmetro será opcional se o recurso já existir. |
+    | ResourceSKU |Opções: `S0`. Visite nossa [página de preços de serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para saber mais sobre cada SKU disponível. Esse parâmetro será opcional se o recurso já existir. |
+    | ResourceLocation |Opções: `eastus`, `eastus2`, `southcentralus` `westus` `westus2` `southeastasia` `centralindia` `japaneast` `northeurope` `uksouth`,,,,,,,,, `westeurope` `australiaeast` Esse parâmetro será opcional se o recurso já existir. |
     | ResourceGroupName |Os recursos são criados em grupos de recursos dentro de assinaturas. Forneça o nome de um grupo de recursos existente. Se o grupo de recursos ainda não existir, um novo com esse nome será criado. |
-    | ResourceGroupLocation |Se o seu grupo de recursos não existir, você precisa fornecer um local para criar o grupo. Para encontrar uma lista `az account list-locations`de locais, execute . Use a propriedade *nome* (sem espaços) do resultado devolvido. Este parâmetro é opcional se o seu grupo de recursos já existir. |
-    | AADAppDisplayName |O nome de exibição do aplicativo Azure Active Directory. Se um aplicativo Azure AD existente não for encontrado, um novo com esse nome será criado. Este parâmetro é opcional se o aplicativo Azure AD já existir. |
-    | AADAppIdentifierUri |O URI para o aplicativo Azure AD. Se um aplicativo Azure AD existente não for encontrado, um novo com este URI será criado. Por exemplo, `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |Uma senha criada que será usada posteriormente para autenticar ao adquirir um token para lançar o Leitor Imersivo. A senha deve ter pelo menos 16 caracteres, conter pelo menos 1 caractere especial e conter pelo menos 1 caractere numérico. |
+    | ResourceGroupLocation |Se o grupo de recursos não existir, você precisará fornecer um local no qual criar o grupo. Para localizar uma lista de locais, execute `az account list-locations`. Use a propriedade *Name* (sem espaços) do resultado retornado. Esse parâmetro será opcional se o grupo de recursos já existir. |
+    | AADAppDisplayName |O nome de exibição do aplicativo Azure Active Directory. Se um aplicativo existente do Azure AD não for encontrado, um novo com esse nome será criado. Esse parâmetro será opcional se o aplicativo do Azure AD já existir. |
+    | AADAppIdentifierUri |O URI para o aplicativo do Azure AD. Se um aplicativo do Azure AD existente não for encontrado, um novo com esse URI será criado. Por exemplo, `https://immersivereaderaad-mycompany`. |
+    | AADAppClientSecret |Uma senha que você cria que será usada posteriormente para autenticar ao adquirir um token para iniciar o leitor de imersão. A senha deve ter pelo menos 16 caracteres de comprimento, conter pelo menos um caractere especial e conter pelo menos um caractere numérico. |
 
 1. Copie a saída JSON em um arquivo de texto para uso posterior. A saída deve parecer com o seguinte.
 
@@ -185,7 +185,7 @@ O roteiro foi projetado para ser flexível. Ele primeiro procurará os recursos 
 
 * Confira o [Início rápido do Node.js](./quickstart-nodejs.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Node.js
 * Confira o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
-* Veja o [tutorial swift](./tutorial-ios-picture-immersive-reader.md) para ver o que mais você pode fazer com o Leitor Imersivo SDK usando Swift
+* Veja o [tutorial do Swift](./tutorial-ios-picture-immersive-reader.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Swift
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](./reference.md)
 
 

@@ -1,5 +1,5 @@
 ---
-title: Obtenha valores para autenticação de aplicativos
+title: Obter valores para autenticação de aplicativo
 description: Crie uma entidade de serviço para acessar o Banco de Dados SQL do código.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5b2c64660f37745f5b13d53559037e84ca20c47b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476959"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtenha os valores necessários para autenticar um aplicativo para acessar o Banco de Dados SQL do código
@@ -24,12 +24,12 @@ Para criar e gerenciar o Banco de Dados SQL do código, você deve registrar seu
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Criar uma entidade de serviço para acessar os recursos de um aplicativo
 
-Os exemplos a seguir criam o aplicativo Active Directory (AD) e o diretor de serviço que precisamos para autenticar nosso aplicativo C#. O script gera os valores necessários para o exemplo anterior do C#. Para obter informações detalhadas, consulte [usar o Azure PowerShell para criar uma entidade de serviço para acessar os recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Os exemplos a seguir criam o aplicativo Active Directory (AD) e a entidade de serviço que precisamos para autenticar nosso aplicativo C#. O script gera os valores necessários para o exemplo anterior do C#. Para obter informações detalhadas, consulte [usar o Azure PowerShell para criar uma entidade de serviço para acessar os recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> O módulo RM (PowerShell Azure Resource Manager, gerente de recursos do Azure) ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. O módulo AzureRM continuará recebendo correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [Introduzindo o novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
+> O módulo Azure Resource Manager do PowerShell (RM) ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. O módulo AzureRM continuará a receber correções de bugs até pelo menos dezembro de 2020.  Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos. Para obter mais informações sobre sua compatibilidade, consulte [apresentando o novo módulo Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
 
 ```powershell
 # sign in to Azure
@@ -63,7 +63,7 @@ Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
 Write-Output "_applicationSecret:" $secret
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
 # sign in to Azure
@@ -102,4 +102,4 @@ Write-Output "_applicationSecret:" $secret
 ## <a name="see-also"></a>Confira também
 
 [Criar um Banco de Dados SQL com C#](sql-database-get-started-csharp.md)  
-[Conectando-se ao banco de dados SQL usando a autenticação do diretório ativo do Azure](sql-database-aad-authentication.md)
+[Conectar-se ao Banco de Dados SQL usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md)

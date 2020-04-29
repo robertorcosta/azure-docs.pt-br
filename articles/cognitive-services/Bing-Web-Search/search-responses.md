@@ -12,15 +12,15 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74110622"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta da API do Bing Web Search e tipos de resposta  
 
-Quando você envia bing web search uma [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) solicitação de pesquisa, ele retorna um objeto no corpo de resposta. O objeto inclui um campo para cada resposta que Bing considerou relevante para a consulta. Este exemplo ilustra um objeto de resposta caso o Bing retorne todas as respostas:
+Quando você envia Pesquisa na Web do Bing uma solicitação de pesquisa, ela retorna [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) um objeto no corpo da resposta. O objeto inclui um campo para cada resposta que Bing considerou relevante para a consulta. Este exemplo ilustra um objeto de resposta caso o Bing retorne todas as respostas:
 
 ```json
 {
@@ -38,7 +38,7 @@ Quando você envia bing web search uma [`SearchResponse`](https://docs.microsoft
 }, ...
 ```
 
-Normalmente, a Pesquisa na Web do Bing retorna um subconjunto das respostas. Por exemplo, se o termo de consulta fosse *de botes de vela,* a resposta poderia incluir `webPages`, `images`e `rankingResponse`. A menos que você tenha usado [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar as páginas da Web, a resposta sempre incluirá as respostas `webpages` e `rankingResponse`.
+Normalmente, a Pesquisa na Web do Bing retorna um subconjunto das respostas. Por exemplo, se o termo de consulta era *velejando Dinghies*, a resposta pode `webPages`incluir `images`, e `rankingResponse`. A menos que você tenha usado [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar as páginas da Web, a resposta sempre incluirá as respostas `webpages` e `rankingResponse`.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -296,7 +296,7 @@ Uma expressão matemática pode conter os seguintes símbolos:
 |-|Subtração|
 |/|Divisão|
 |*|Multiplicação|
-|^|Potência|
+|^|Energia|
 |!|Fatorial|
 |.|Decimal|
 |()|Agrupamento de precedência|
@@ -332,7 +332,7 @@ Se o usuário inserir uma consulta de data ou hora, a resposta poderá conter um
 
 A resposta `timeZone` fornece o nome do local, a data e a hora UTC atual no local especificado, e a diferença UTC. Se o limite do local estiver dentro de vários fusos horários, a resposta conterá a data e a hora UTC atual de todos os fusos horários dentro dos limites. Por exemplo, como o estado da Flórida está dentro de dois fusos horários, a resposta conteria a data e hora local em ambos os fusos horários.  
 
-Se a consulta solicitar o tempo de um estado ou país/região, Bing determinará a cidade `primaryCityTime` primária dentro do limite geográfico do local e a devolve no campo. Se o limite contiver vários fusos horários, os fusos horários restantes serão retornados no campo `otherCityTimes`.
+Se a consulta solicitar a hora de um Estado ou país/região, o Bing determinará a cidade principal dentro do limite geográfico do local e a `primaryCityTime` retornará no campo. Se o limite contiver vários fusos horários, os fusos horários restantes serão retornados no campo `otherCityTimes`.
 
 O exemplo a seguir mostra consultas de exemplo que retornam a resposta `timeZone`.
 

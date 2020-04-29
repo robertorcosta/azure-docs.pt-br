@@ -1,7 +1,7 @@
 ---
 title: Método Exemplos de Dicionário de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: O método Exemplos de Dicionário de API de texto tradutor fornece exemplos que mostram como os termos no dicionário são usados no contexto.
+description: O método de exemplos de dicionário API de Tradução de Texto fornece exemplos que mostram como os termos no dicionário são usados no contexto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76548060"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API de Tradução de Texto 3.0: exemplos de dicionário
@@ -43,7 +43,7 @@ Os cabeçalhos de solicitação incluem:
 
 | headers  | Descrição |
 | ------ | ----------- |
-| Cabeçalho de autenticação(s) <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
+| Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
 | Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
 | Content-Length   | **Cabeçalho de solicitação obrigatório**.<br/>O tamanho do corpo da solicitação. |
 | X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. É possível omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`. |

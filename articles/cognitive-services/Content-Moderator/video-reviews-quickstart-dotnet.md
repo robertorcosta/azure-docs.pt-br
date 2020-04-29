@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 7130ed43183d64b00f8f5ef1697b9a3b456ad396
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72931671"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar análises de vídeo usando .NET
@@ -29,7 +29,7 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Faça login ou crie uma conta no site da [ferramenta Revisão](https://contentmoderator.cognitive.microsoft.com/) de Moderador de Conteúdo.
+- Entre ou crie uma conta no site da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 - Este artigo pressupõe que você tenha [moderado o vídeo (consulte o guia de início rápido)](video-moderation-api.md) e tenha os dados de resposta. Ele é necessário para a criação de análises baseadas em quadro para moderadores humanos.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificar se a chave de API pode chamar a API de revisão para a criação de revisão
@@ -92,7 +92,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Adicione propriedades privadas
 
-Adicione as seguintes propriedades privadas ao namespace **VideoReviews**, class **Program**. Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e os campos com os valores de sua URL de ponto final e chave de assinatura. Você pode encontrá-los na guia **Início Rápido** do seu recurso no portal Azure.
+Adicione as propriedades particulares a seguir ao namespace **VideoReviews**, classe **Program**. Atualize os `AzureEndpoint` campos `CMSubscriptionKey` e com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
 
 
 ```csharp
@@ -131,7 +131,7 @@ namespace VideoReviews
 
 ### <a name="create-content-moderator-client-object"></a>Crie o objeto de cliente do Content Moderator
 
-Adicione a definição do método a seguir para namespace **VideoReviews**, class **Program**.
+Adicione a seguinte definição de método ao namespace **VideoReviews**, classe **Program**.
 
 ```csharp
 /// <summary>
@@ -157,7 +157,7 @@ Crie uma análise de vídeo com **ContentModeratorClient.Reviews.CreateVideoRevi
 **CreateVideoReviews** tem os seguintes parâmetros necessários:
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "application/json". 
 1. O nome da sua equipe do Content Moderator.
-1. Uma **iList\<CreateVideoReviewsBodyItem>** objeto. Cada objeto **CreateVideoReviewsBodyItem** representa uma análise de vídeo. Este guia de início rápido cria uma análise de cada vez.
+1. Um **objeto\<>IList CreateVideoReviewsBodyItem** . Cada objeto **CreateVideoReviewsBodyItem** representa uma análise de vídeo. Este guia de início rápido cria uma análise de cada vez.
 
 **CreateVideoReviewsBodyItem** tem várias propriedades. Defina, no mínimo, as propriedades a seguir:
 - **Conteúdo**. A URL do vídeo a ser analisado.
@@ -165,7 +165,7 @@ Crie uma análise de vídeo com **ContentModeratorClient.Reviews.CreateVideoRevi
 - **Status**. Defina o valor como "Não publicado." Se você não defini-lo, o padrão será "Pendente", o que significa que a análise de vídeo será publicada e a análise humana ficará como pendente. Após uma análise de vídeo ser publicada, você já não poderá adicionar quadros de vídeo, uma transcrição ou um resultado de moderação da transcrição a ela.
 
 > [!NOTE]
-> **CreateVideoReviews** retorna uma\<seqüência de> iList. Cada uma dessas cadeias de caracteres contém uma ID de uma análise de vídeo. Esses IDs são GUIDs e não são iguais ao valor da propriedade **ContentId**. 
+> **CreateVideoReviews** retorna uma cadeia\<de caracteres IList>. Cada uma dessas cadeias de caracteres contém uma ID de uma análise de vídeo. Esses IDs são GUIDs e não são iguais ao valor da propriedade **ContentId**. 
 
 Adicione a seguinte definição de método ao namespace VideoReviews, classe Programa.
 
@@ -215,18 +215,18 @@ Você pode adicionar quadros de vídeo a uma análise de vídeo com **ContentMod
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "application/json".
 1. O nome da sua equipe do Content Moderator.
 1. A ID da análise de vídeo retornada por **CreateVideoReviews**.
-1. Um **objeto\<iList VideoFrameBodyItem>.** Cada objeto **VideoFrameBodyItem** representa um quadro de vídeo.
+1. Um **objeto\<>IList VideoFrameBodyItem** . Cada objeto **VideoFrameBodyItem** representa um quadro de vídeo.
 
 **VideoFrameBodyItem** tem as propriedades a seguir:
-- **Carimbo de tempo**. Uma cadeia de caracteres que contém, em segundos, o tempo do vídeo do qual foi feito o quadro de vídeo.
+- **Carimbo de data/hora**. Uma cadeia de caracteres que contém, em segundos, o tempo do vídeo do qual foi feito o quadro de vídeo.
 - **FrameImage**. A URL do quadro de vídeo.
-- **Metadados**. Uma iList\<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** é simplesmente um par chave/valor. Chaves válidas incluem:
+- **Metadados**. > IList\<VideoFrameBodyItemMetadataItem. **VideoFrameBodyItemMetadataItem** é simplesmente um par chave/valor. Chaves válidas incluem:
 - **reviewRecommended**. True se uma revisão humana do quadro de vídeo é recomendada.
 - **adultScore**. Um valor de 0 a 1 que classifica a severidade do conteúdo somente para adultos no quadro de vídeo.
 - **a**. True se o vídeo contém conteúdo adulto.
 - **racyScore**. Um valor de 0 a 1 que classifica a severidade do conteúdo obsceno no quadro de vídeo.
 - **r**. True se o quadro de vídeo contém conteúdo obsceno.
-- **ReviewerResultTags**. Um IList\<VideoFrameBodyItemReviewerItEm>. **VideoFrameBodyItemReviewerResultTagsItem** é simplesmente um par chave/valor. Um aplicativo pode usar essas marcas para organizar os quadros de vídeo.
+- **ReviewerResultTags**. > IList\<VideoFrameBodyItemReviewerResultTagsItem. **VideoFrameBodyItemReviewerResultTagsItem** é simplesmente um par chave/valor. Um aplicativo pode usar essas marcas para organizar os quadros de vídeo.
 
 > [!NOTE]
 > Este guia de início rápido gera valores aleatórios para as propriedades **adultScore** e **racyScore**. Em um aplicativo de produção, você poderia obter esses valores do [serviço de moderação de vídeo](video-moderation-api.md), implantado como um Serviço de Mídia do Azure.
@@ -541,7 +541,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>Conferir a análise de vídeo
 
-Finalmente, você vê a revisão de vídeo em sua conta de ferramenta de revisão de moderador de conteúdo na tela**De Vídeo** **de Revisão.**>
+Por fim, você verá a revisão de vídeo em seu Content moderator conta de ferramenta de revisão na tela de**vídeo** de **revisão**>.
 
 ![Análise de vídeo para moderadores humanos](images/ams-video-review.PNG)
 

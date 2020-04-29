@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595606"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
@@ -26,7 +26,7 @@ Selecione um projeto, selecione a guia de modelos desse projeto, localize o mode
 
 A guia teste mostra:
 
-1.  **Resultados do teste do sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação do BLEU.
+1.  **Resultados de teste do sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação do BLEU.
 
     **Contagem de sentença:** sentenças paralelas quantos foram usadas no conjunto de teste.
 
@@ -54,11 +54,11 @@ Clique no link Baixar Traduções para fazer o download de um arquivo zip. O zip
 
 Este arquivo zip para fazer o download contém três arquivos.
 
-1.  **custom.mt.txt:** Este arquivo contém traduções automáticas de frases de idioma de origem no idioma de destino feito pelo modelo treinado com os dados do usuário.
+1.  **. Mt. txt personalizado:** Esse arquivo contém traduções de computador de sentenças de idioma de origem no idioma de destino feito pelo modelo treinado com os dados do usuário.
 
-2.  **ref.txt:** Este arquivo contém traduções fornecidas pelo usuário de frases de idioma de origem no idioma de destino.
+2.  **ref. txt:** Esse arquivo contém traduções fornecidas pelo usuário de frases de idioma de origem no idioma de destino.
 
-3.  **fonte.txt:** Este arquivo contém frases no idioma de origem.
+3.  **Source. txt:** Esse arquivo contém sentenças no idioma de origem.
 
     ![Resultados de testes do sistema descarregadas](media/how-to/how-to-download-system-test.png)
 
@@ -80,7 +80,7 @@ Para solicitar uma implantação:
 5.  Você pode ver o status do seu modelo na coluna "Status".
 
 >[!Note]
->O Personal Translator suporta 10 modelos implantados dentro de um espaço de trabalho a qualquer momento.
+>O tradutor personalizado dá suporte a 10 modelos implantados em um espaço de trabalho a qualquer momento.
 
 ## <a name="update-deployment-settings"></a>Atualizar configurações de implantação
 
@@ -92,7 +92,7 @@ Para atualizar configurações de implantação:
 
     ![Implantar modelo](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Selecione **Atualização**.
+3.  Selecione **Atualizar**.
 4.  Selecione **Implantado** ou **Não Implantado** para as regiões onde você deseja seu modelo implantado ou não implantando, em seguida, clique em **Salvar**.
 
     ![Implantar modelo](media/how-to/how-to-undeploy-model.png)

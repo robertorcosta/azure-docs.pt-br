@@ -1,7 +1,7 @@
 ---
 title: Pontos de extremidade da API de Pesquisa de Imagem do Bing
 titleSuffix: Azure Cognitive Services
-description: A API de pesquisa de imagens inclui três pontos finais. O endpoint 1 retorna imagens da web. O ponto de extremidade 2 retorna ImageInsights. O ponto de extremidade 3 retorna imagens populares.
+description: A API de Pesquisa de Imagem inclui três pontos de extremidade. O ponto de extremidade 1 retorna imagens da Web. O ponto de extremidade 2 retorna ImageInsights. O ponto de extremidade 3 retorna imagens populares.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 38416f6a580d270aefc287de0c198bd418a44db9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072636"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Pontos de extremidade da API de Pesquisa de Imagem do Bing

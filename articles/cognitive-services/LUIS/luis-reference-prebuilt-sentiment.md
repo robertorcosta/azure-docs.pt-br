@@ -12,21 +12,21 @@ ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
 ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270414"
 ---
 # <a name="sentiment-analysis"></a>Análise de sentimento
 Se a análise de sentimento estiver configurada, a resposta JSON do LUIS incluirá a análise de sentimento. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-## <a name="resolution-for-sentiment"></a>Resolução para o sentimento
+## <a name="resolution-for-sentiment"></a>Resolução de sentimentos
 
 Dados de sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados.
 
-#### <a name="english-language"></a>[Língua inglesa](#tab/english)
+#### <a name="english-language"></a>[Idioma inglês](#tab/english)
 
 Quando a cultura for `en-us`, a resposta será:
 
@@ -37,7 +37,7 @@ Quando a cultura for `en-us`, a resposta será:
 }
 ```
 
-#### <a name="other-languages"></a>[Outras línguas](#tab/other-languages)
+#### <a name="other-languages"></a>[Outros idiomas](#tab/other-languages)
 
 Para todas as outras culturas, a resposta é:
 

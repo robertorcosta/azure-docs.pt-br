@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77086912"
 ---
-## <a name="personal-information-entity-types"></a>Tipos de entidades de informações pessoais:
+## <a name="personal-information-entity-types"></a>Tipos de entidade de informações pessoais:
 
 ### <a name="person"></a>Person
-Reconheça os nomes das pessoas no texto.
+Reconhece nomes de pessoas no texto.
 
 Linguagens:
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                                               | Disponível a partir da versão do modelo |
 |--------------|-----------------------------------------------------------|----------------------------------------|
@@ -29,23 +29,23 @@ Linguagens:
 
 ### <a name="organization"></a>Organização  
 
-Reconhecer organizações, corporações, agências, empresas, clubes e outros grupos de pessoas.
+Reconheça organizações, corporações, agências, empresas, clubes e outros grupos de pessoas.
 
 Linguagens: 
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                                                                                       | Disponível a partir da versão do modelo|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| N/D          | organizações, `Microsoft`por `NASA`exemplo,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| N/D          | organizações, por exemplo `Microsoft` `NASA`,,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>Número do telefone
 
-Números de telefone (apenas números de telefone dos EUA). 
+Números de telefone (somente números de telefone dos EUA). 
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                                    | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------|----------------------------------------|
@@ -57,11 +57,11 @@ Endereço de email.
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                                      | Disponível a partir da versão do modelo |
 |--------------|--------------------------------------------------|----------------------------------------|
-| N/D          | Endereço de e-mail, por exemplo`support@contoso.com` | `2020-02-01`                           |
+| N/D          | Endereço de email, por exemplo`support@contoso.com` | `2020-02-01`                           |
 
 ### <a name="url"></a>URL
 
@@ -69,7 +69,7 @@ URLs da Internet.
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                                          | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------|----------------------------------------|
@@ -77,15 +77,15 @@ Linguagens:
 
 ### <a name="ip-address"></a>Endereço IP
 
-Endereço do Protocolo da Internet
+Endereço de protocolo de Internet
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                              | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------|----------------------------------------|
-| N/D          | Endereço de rede, por exemplo,`10.0.0.101` | `2020-02-01`                           |
+| N/D          | Endereço de rede, por exemplo`10.0.0.101` | `2020-02-01`                           |
 
 ### <a name="quantity"></a>Quantidade 
 
@@ -93,7 +93,7 @@ Quantidades numéricas
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                   | Disponível a partir da versão do modelo |
 |--------------|-------------------------------|----------------------------------------|
@@ -101,11 +101,11 @@ Linguagens:
 
 ### <a name="datetime"></a>Datetime
 
-Entidades de Data e Hora
+Entidades de data e hora
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                   | Disponível a partir da versão do modelo |
 |--------------|-------------------------------|----------------------------------------|
@@ -113,220 +113,220 @@ Linguagens:
 
 ### <a name="eu-gps-coordinates"></a>Coordenadas de GPS da UE
 
- Coordenadas GPS para locais dentro da União Europeia. 
+ Coordenadas de GPS para locais na União Europeia. 
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo | Descrição                               | Disponível a partir da versão do modelo |
 |--------------|-------------------------------------------|----------------------------------------|
-| N/D          | Coordenadas gps dentro da União Europeia | `2019-10-01`                           |
+| N/D          | Coordenadas de GPS na União Europeia | `2019-10-01`                           |
 
 ### <a name="azure-information"></a>Informações do Azure
 
-Informações identificáveis do Azure, incluindo informações de autenticação e strings de conexão. 
+Informações identificáveis do Azure, incluindo informações de autenticação e cadeias de conexão. 
 
-* Disponível a `2019-10-01`partir da versão do modelo .
+* Disponível a partir da versão `2019-10-01`do modelo.
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
 | Nome do subtipo                          | Descrição                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| Chave de autenticação DocumentDB do Azure             | Chave de autorização para um servidor Azure DocumentDB.                           |
-| String de conexão de banco de dados Azure IAAS | String de conexão para um banco de dados Azure Infrastructure as a service (IaaS). |
-| String de conexão SQL do Azure           | String de conexão para um banco de dados SQL do Azure.                                |
-| Cadeia de conexão do IoT do Azure           | String de conexão para Internet das coisas Azure (IoT).                        |
-| Senha das configurações de publicação do Azure        | Senha para configurações do Azure Publish.                                        |
-| Cadeia de conexão do Cache Redis do Azure   | String de conexão para um Cache Azure para Redis.                             |
-| Azure SAS                             | String de conexão para Azure Software as a Service(SAS).                     |
-| Cadeia de conexão do Barramento de Serviço do Azure   | String de conexão para um ônibus de serviço Azure.                                |
-| Chave da conta de armazenamento do Azure             | A chave da conta para uma conta de armazenamento do Azure.                                   |
-| Chave da conta de armazenamento do Azure (genérica)   | Chave de conta genérica para uma conta de armazenamento Do Zure.                           |
-| Cadeia de conexão do SQL Server          | String de conexão para um servidor SQL.                                         |
+| Chave de autenticação DocumentDB do Azure             | Chave de autorização para um servidor do Azure DocumentDB.                           |
+| Cadeia de conexão do banco de dados IAAS do Azure | Cadeia de conexão para um banco de dados IaaS (infraestrutura como serviço) do Azure. |
+| Cadeia de conexão SQL do Azure           | Cadeia de conexão para um banco de dados SQL do Azure.                                |
+| Cadeia de conexão do IoT do Azure           | Cadeia de conexão para a IoT (Internet das coisas) do Azure.                        |
+| Senha das configurações de publicação do Azure        | Senha para as configurações de publicação do Azure.                                        |
+| Cadeia de conexão do Cache Redis do Azure   | Cadeia de conexão para um cache do Azure para Redis.                             |
+| Azure SAS                             | Cadeia de conexão para o software como um serviço (SAS) do Azure.                     |
+| Cadeia de conexão do Barramento de Serviço do Azure   | Cadeia de conexão para um barramento de serviço do Azure.                                |
+| Chave de conta de armazenamento do Azure             | Chave de conta para uma conta de armazenamento do Azure.                                   |
+| Chave da conta de armazenamento do Azure (genérica)   | Chave de conta genérica para uma conta de armazenamento do Azure.                           |
+| Cadeia de conexão do SQL Server          | Cadeia de conexão para um SQL Server.                                         |
 
 ### <a name="identification"></a>Identificação
 
-* Disponível a `2019-10-01`partir da versão do modelo .
+* Disponível a partir da versão `2019-10-01`do modelo.
 
 Linguagens:
 
-* Pré-visualização pública:`English`
+* Visualização pública:`English`
 
-#### <a name="financial-account-identification"></a>Identificação de Contas Financeiras
+#### <a name="financial-account-identification"></a>Identificação da conta financeira
 
 | Nome do subtipo               | Descrição                                                                |
 |----------------------------|----------------------------------------------------------------------------|
-| Números de roteamento ABA        | Números de roteamento de trânsito da American Banker Association (ABA).                  |
+| ABAr números de roteamento        | Números de roteamento de trânsito da ABA (Associação Americana do Banker).                  |
 | Código SWIFT                 | Códigos SWIFT para informações de instrução de pagamento.                           |
 | Cartão de crédito                | Números de cartão de crédito.                                                       |
-| Código IBAN                  | Códigos IBAN para informações de instrução de pagamento.                            |
+| Código do IBAN                  | Códigos de IBAN para informações de instrução de pagamento.                            |
 
 #### <a name="government-and-country-specific-identification"></a>Identificação específica do governo e do país
 
 As entidades abaixo são agrupadas e listadas por país:
 
 Argentina
-* Número de Identidade Nacional (DNI)
+* Número de identidade nacional (DNI)
 
 Austrália
-* Número do arquivo fiscal 
-* Carteira de Motorista
+* Número do arquivo de imposto 
+* ID da licença do driver
 * ID do passaporte
 * Número da conta médica
-* números de contas bancárias (por exemplo, contas de cheques, poupanças e débito)
+* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
 
 Bélgica
 * Número nacional
 
 Brasil
-* Número de Pessoa Jurídica (CNPJ)
+* Número da entidade legal (CNPJ)
 * Número do CPF
-* Carteira de Identidade Nacional (RG)
+* Cartão de ID nacional (RG)
 
 Canada
 * ID do passaporte
-* Carteira de Motorista
-* Número do seguro de saúde
-* Número de ID de Saúde Pessoal (PHIN)
+* ID da licença do driver
+* Número de seguro de integridade
+* Número de ID de integridade pessoal (PHIN)
 * Cadastro de Pessoa Física
-* números de contas bancárias (por exemplo, contas de cheques, poupanças e débito)
+* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
 
 Chile
-* Número da carteira de identidade 
+* Número do cartão de identidade 
 
 China
-* Número da carteira de identidade
-* Número do cartão de identificação residente (RPC)
+* Número do cartão de identidade
+* Número de placa de ID residente (PRC)
 
 Croácia
-* Número do cartão de identificação
-* Número de ID Pessoal (OIB)
+* Número do cartão de ID
+* Número da ID pessoal (OIB)
 
 República Tcheca
-* Número da carteira de identidade nacional
+* Número do cartão da ID nacional
 
 Dinamarca
-* Número de ID pessoal
+* Número da ID pessoal
 
 União Europeia (UE)
-* Número de ID Nacional
+* Número de ID nacional
 * ID do passaporte
-* Carteira de Motorista
-* Número da Previdência Social (SSN) ou ID equivalente
+* ID da licença do driver
+* Número do seguro social (SSN) ou ID equivalente
 * Número de Identificação Tributária da UE (TIN)
 * Número do cartão de débito da UE
 
 Finlândia
-* Número de ID Nacional
+* Número de ID nacional
 * ID do passaporte
 
 França
-* Carteira Nacional de Identificação (CNI)
-* Número da Previdência Social (INSEE)
+* Placa de ID nacional (CNI)
+* Número do seguro social (INSEE)
 * ID do passaporte
-* Carteira de Motorista
+* ID da licença do driver
 
 Alemanha
-* Número do cartão de identificação
+* Número do cartão de ID
 * ID do passaporte
-* Carteira de Motorista
+* ID da licença do driver
 
 Grécia 
-* Número da carteira de identidade nacional
+* Número do cartão da ID nacional
 
 RAE de Hong Kong
-* Número do cartão de identificação (HKID)
+* Número do cartão de ID (HKID)
 
 Índia
-* Número da Conta Permanente (PAN)
-* Número de Identificação Única (Aadhaar)
+* Número da conta permanente (PAN)
+* Número de ID exclusiva (Aadhaar)
 
 Indonésia
-* Número do cartão de identificação (KTP)
+* Número do cartão de ID (KTP)
 
 Irlanda
-* Número do Serviço Público Pessoal (PPS)
+* Número do PPS (serviço público pessoal)
 
 Israel
-* ID Nacional
-* números de contas bancárias (por exemplo, contas de cheques, poupanças e débito)
+* ID nacional
+* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
 
 Itália
-* Carteira de Motorista
+* ID da licença do driver
 
 Japão
-* Número de registro de residente
-* Número do cartão de residência
-* Carteira de Motorista
-* Número do Seguro Social (SIN)
+* Número de registro residente
+* Número da placa de residência
+* ID da licença do driver
+* Número de seguro social (SIN)
 * ID do passaporte
-* números de contas bancárias (por exemplo, contas de cheques, poupanças e débito)
+* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
 
 Malásia
-* Número do cartão de identificação
+* Número do cartão de ID
 
 Países Baixos
-* Número do Serviço de Atendimento ao Cidadão (BSN)
+* Número de serviço do cidadão (BSN)
 
 Nova Zelândia
-* Número do Ministério da Saúde
+* Ministério do número de integridade
 
 Noruega
-* Número do cartão de identificação
+* Número do cartão de ID
 
 Filipinas
-* Número de ID Multiuso Unificado
+* Número de ID de multipropósito unificado
 
 Polônia
-* Número do cartão de identificação
-* ID Nacional (PESEL)
+* Número do cartão de ID
+* ID nacional (PESEL)
 * ID do passaporte
 
 Portugal 
-* Número do Cartão Cidadão
+* Número do cartão do cidadão
 
 Arábia Saudita
-* ID Nacional
+* ID nacional
 
 Singapura
-* Número da Carteira Nacional de Identificação de Registro (NRIC)
+* Número do NRIC (ID de Registro Nacional)
 
 África do Sul
-* Número de ID
-* Número de registro de residente
+* Número da ID
+* Número de registro residente
 
 Coreia do Sul
-* Número de Registro de Residente
+* Número de registro residente
 
 Espanha 
 * CPF
 
 Suécia
-* ID Nacional
+* ID nacional
 * ID do passaporte
 
 Taiwan 
-* ID Nacional
-* Número do Certificado de Residente (ARC/TARC)
+* ID nacional
+* Número do certificado residente (arco/TARC)
 * ID do passaporte
 
 Tailândia
-* Código de Identificação Populacional
+* Código de identificação da população
 
 United Kingdom
 * ID do passaporte
-* Carteira de Motorista
-* Número do Seguro Nacional (NINO)
-* Número do Serviço Nacional de Saúde (NHS)
+* ID da licença do driver
+* Número de seguro nacional (NINO)
+* Número de Serviço de Integridade nacional (NHS)
 
 Estados Unidos
 * CPF
-* Carteira de Motorista
+* ID da licença do driver
 * ID do passaporte
-* Número do rolo eleitoral
-* Número de ID Fiscal Individual (ITIN)
-* Número da Agência antidrogas (DEA)
-* números de contas bancárias (por exemplo, contas de cheques, poupanças e débito)
+* Número de reversão do eleitoral
+* Número de ID de imposto individual (certa)
+* Número da Agência de aplicação de drogas (DEA)
+* números de conta bancária (por exemplo, contas de verificação, poupança e débito)

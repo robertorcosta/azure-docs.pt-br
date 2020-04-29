@@ -1,7 +1,7 @@
 ---
 title: Migração da API v1 para a v2
 titleSuffix: Azure Cognitive Services
-description: A versão 1 endpoint e a autoria de APIs de compreensão de idiomas são depreciadas. Use este guia para entender como migrar para as APIs de criação e o ponto de extremidade versão 2.
+description: O ponto de extremidade da versão 1 e a criação de APIs Reconhecimento vocal foram preteridos. Use este guia para entender como migrar para as APIs de criação e o ponto de extremidade versão 2.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,32 +12,32 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 2f67bf0951ef8928297c71e8fc9f924cf05c63f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68932682"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guia de migração da API v1 para a v2 para aplicativos do LUIS
-A versão 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) e as APIs [de autoria](https://aka.ms/v1-authoring-api-docs) são depreciadas. Use este guia para entender como migrar para o [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356) da versão 2 e [criar](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
+O ponto de [extremidade](https://aka.ms/v1-endpoint-api-docs) da versão 1 e as APIs de [criação](https://aka.ms/v1-authoring-api-docs) foram preteridas. Use este guia para entender como migrar para as APIs de [criação](https://go.microsoft.com/fwlink/?linkid=2092087) e de [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) da versão 2. 
 
 ## <a name="new-azure-regions"></a>Novas regiões do Azure
-O LUIS tem novas [regiões](https://aka.ms/LUIS-regions) fornecidas para as APIs do LUIS. Luis fornece um portal diferente para grupos da região. O aplicativo deve ser criado na mesma região que você espera consultar. Os aplicativos não migram regiões automaticamente. Exporte o aplicativo de uma região e importe para outra para que ele fique disponível em uma nova região.
+O LUIS tem novas [regiões](https://aka.ms/LUIS-regions) fornecidas para as APIs do LUIS. O LUIS fornece um portal diferente para grupos de regiões. O aplicativo deve ser criado na mesma região que você espera consultar. Os aplicativos não migram regiões automaticamente. Exporte o aplicativo de uma região e importe para outra para que ele fique disponível em uma nova região.
 
 ## <a name="authoring-route-changes"></a>Criação de alterações de rota
 A rota da API de criação mudou de usar a rota **prog** para usar a rota **api**.
 
 
-| version | rota |
+| Versão | rota |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
 
 
 ## <a name="endpoint-route-changes"></a>Alterações de rota de ponto de extremidade
-A API de ponto final tem novos parâmetros de seqüência de consulta, bem como uma resposta diferente. Se o sinalizador detalhado for true, todas as intenções, independentemente da pontuação, serão retornadas em uma matriz denominada intenções, além de topScoringIntent.
+A API de ponto de extremidade tem novos parâmetros de cadeia de caracteres de consulta, bem como uma resposta diferente. Se o sinalizador detalhado for true, todas as intenções, independentemente da pontuação, serão retornadas em uma matriz denominada intenções, além de topScoringIntent.
 
-| version | Rota GET |
+| Versão | Rota GET |
 |--|--|
 |1|/luis/v1/application?ID={appId}&q={q}|
 |2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
@@ -107,7 +107,7 @@ Resposta de êxito do ponto de extremidade v2:
 ## <a name="key-management-no-longer-in-api"></a>O gerenciamento de chaves não está mais na API
 As APIs da chave do ponto de extremidade de assinatura estão preteridas, retornando 410 GONE.
 
-| version | rota |
+| Versão | rota |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
@@ -117,7 +117,7 @@ As [chaves de ponto de extremidade](luis-how-to-azure-subscription.md) são gera
 ## <a name="new-versioning-route"></a>Nova rota de controle de versão
 Agora o modelo v2 está contido em uma [versão](luis-how-to-manage-versions.md). Um nome de versão tem 10 caracteres na rota. A versão padrão é "0,1".
 
-| version | rota |
+| Versão | rota |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versions**/{versionId}/entities|
@@ -136,7 +136,7 @@ Várias APIs que retornam metadados do LUIS têm novos nomes.
 ## <a name="sample-renamed-to-suggest"></a>"Exemplo" renomeado para "sugestão"
 O LUIS sugere declarações com base em [declarações de ponto de extremidade](luis-how-to-review-endpoint-utterances.md) existentes que podem aprimorar o modelo. Na versão anterior, isso era chamado de **exemplo**. Na nova versão, o nome é alterado de exemplo para **sugestão**. Isso é chamado de **[Examinar declarações de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)** no site do LUIS.
 
-| version | rota |
+| Versão | rota |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**sample**|

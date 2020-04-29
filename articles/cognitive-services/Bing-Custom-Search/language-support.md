@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66388572"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte de idioma e região para a API de Pesquisa Personalizada do Bing
@@ -27,9 +27,9 @@ Embora seja opcional, a solicitação deve especificar o parâmetro de consulta 
 
 O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuamente exclusivos — não especifique ambos. Para obter detalhes, consulte [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## <a name="countriesregions"></a>Países/Regiões
+## <a name="countriesregions"></a>Países/regiões
 
-|País/Região|Código|
+|País/região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
@@ -45,7 +45,7 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|IT|
+|Itália|TI|
 |Japão|JP|
 |Coreia do Sul|KR|
 |Malásia|MY|
@@ -71,7 +71,7 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 
 ## <a name="markets"></a>Mercados
 
-|País/Região|Idioma|Código de mercado|
+|País/região|Linguagem|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -86,7 +86,7 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|Hong Kong|Chinês tradicional|zh-HK|
+|Rae de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|

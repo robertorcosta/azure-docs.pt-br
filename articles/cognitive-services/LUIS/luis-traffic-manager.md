@@ -1,5 +1,5 @@
 ---
-title: Aumento da cota de ponto final - LUIS
+title: Aumentar a cota do ponto de extremidade-LUIS
 titleSuffix: Azure Cognitive Services
 description: O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**.
 author: diberry
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
 ms.openlocfilehash: c4ea9c5663755a4feb1693dd925d99b10c466140
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70256597"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar o Gerenciador de Tráfego do Microsoft Azure para gerenciar a cota do ponto de extremidade entre chaves
@@ -37,7 +37,7 @@ As seções a seguir usam os [cmdlets do PowerShell do Gerenciador de Tráfego](
 ## <a name="create-azure-resource-group-with-powershell"></a>Criar grupo de recursos do Azure com o PowerShell
 Antes de criar os recursos do Azure, crie um grupo de recursos para conter todos eles. Dê o nome `luis-traffic-manager` ao grupo de recursos e use a região `West US`. A região do grupo de recursos armazena metadados sobre o grupo. Ela não desacelerará seus recursos se eles estiverem em outra região. 
 
-Criar grupo de recursos com o cmdlet **[do New-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)**
+Criar grupo de recursos com o cmdlet **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** :
 
 ```powerShell
 New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
@@ -48,7 +48,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Captura de tela do portal do Azure com duas chaves LUIS no grupo de recursos luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. No site [do LUIS,][LUIS] na seção **Gerenciar,** na página Recursos do **Azure,** atribua as chaves ao aplicativo e republique o aplicativo selecionando o botão **Publicar** no menu superior direito. 
+2. No site do [Luis][LUIS] , na seção **gerenciar** , na página **recursos do Azure** , atribua chaves ao aplicativo e Republique o aplicativo selecionando o botão **publicar** no menu superior direito. 
 
     A URL de exemplo na coluna **ponto de extremidade** usa uma solicitação GET com a chave de ponto de extremidade como um parâmetro de consulta. Copie as URLs do ponto de extremidade das duas novas chaves. Elas são usadas como parte da configuração do Gerenciador de Tráfego posteriormente neste artigo.
 
@@ -90,7 +90,7 @@ Para criar o perfil do Gerenciador de Tráfego do Leste dos EUA, há várias eta
     
     Uma solicitação bem-sucedida não tem nenhuma resposta.
 
-2. Adicionar ponto final do East US com **[add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** cmdlet
+2. Adicionar ponto de extremidade leste dos EUA com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
@@ -125,7 +125,7 @@ Para criar o perfil do Gerenciador de Tráfego do Leste dos EUA, há várias eta
     Endpoints                        : {luis-east-endpoint}
     ```
 
-3. Defina o ponto final do East US com **[o cmdlet Set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**
+3. Definir ponto de extremidade leste dos EUA com o cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerprofile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $eastprofile
@@ -158,7 +158,7 @@ Para criar o perfil do Gerenciador de Tráfego do Oeste dos EUA, siga as mesmas 
     
     Uma solicitação bem-sucedida não tem nenhuma resposta.
 
-2. Adicionar ponto final do West US com **[add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** cmdlet
+2. Adicionar ponto de extremidade oeste dos EUA com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
@@ -194,7 +194,7 @@ Para criar o perfil do Gerenciador de Tráfego do Oeste dos EUA, siga as mesmas 
     Endpoints                        : {luis-west-endpoint}
     ```
 
-3. Definir o ponto final do West US com **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet
+3. Definir ponto de extremidade oeste dos EUA com o cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $westprofile
@@ -205,7 +205,7 @@ Para criar o perfil do Gerenciador de Tráfego do Oeste dos EUA, siga as mesmas 
 ### <a name="create-parent-traffic-manager-profile"></a>Criar um perfil pai do Gerenciador de Tráfego
 Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gerenciador de Tráfego ao pai.
 
-1. Criar perfil pai com o cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
+1. Criar perfil pai com cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/New-azTrafficManagerProfile)**
 
     ```powerShell
     $parentprofile = New-AzTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
@@ -225,7 +225,7 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
 
     Uma solicitação bem-sucedida não tem nenhuma resposta.
 
-2. Adicionar o perfil de filho do Leste dos EUA ao pai com o tipo **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** e **AndEndpoints**
+2. Adicionar perfil filho leste dos EUA ao pai com **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** e tipo **NestedEndpoints**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
@@ -262,7 +262,7 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
     Endpoints                        : {child-endpoint-useast}
     ```
 
-3. Adicionar o perfil do filho do West US ao pai com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** e o tipo **AndEndpoints**
+3. Adicione o perfil filho do oeste dos EUA ao pai com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)** e o tipo **NestedEndpoints**
 
     ```powerShell
     Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
@@ -299,7 +299,7 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Definir pontos finais com **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** cmdlet 
+4. Definir pontos de extremidade com o cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** 
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -308,7 +308,7 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
     Uma resposta bem-sucedida é a mesma resposta que a etapa 3.
 
 ### <a name="powershell-variables"></a>Variáveis do PowerShell
-Nas seções anteriores, três variáveis do PowerShell foram criadas: `$eastprofile`, `$westprofile`, `$parentprofile`. Essas variáveis são usadas no fim da configuração do Gerenciador de Tráfego. Se você optou por não criar as variáveis, ou esqueceu, ou o tempo de janela do PowerShell, você pode usar o cmdlet PowerShell, **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, para obter o perfil novamente e atribuí-lo a uma variável. 
+Nas seções anteriores, três variáveis do PowerShell foram criadas: `$eastprofile`, `$westprofile`, `$parentprofile`. Essas variáveis são usadas no fim da configuração do Gerenciador de Tráfego. Se você optou por não criar as variáveis ou se esqueceu de, ou a janela do PowerShell atingir o tempo limite, poderá usar o cmdlet do PowerShell, **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, para obter o perfil novamente e atribuí-lo a uma variável. 
 
 Substitua os itens entre colchetes angulares, `<>`, pelos valores corretos para cada um dos três perfis de que você precisa. 
 

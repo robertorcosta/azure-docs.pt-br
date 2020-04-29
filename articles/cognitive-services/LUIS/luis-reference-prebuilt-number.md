@@ -1,5 +1,5 @@
 ---
-title: Número Entidade Pré-Construída - LUIS
+title: Número de entidades predefinidas-LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida de número de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273457"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entidade numérica predefinida para um aplicativo LUIS
 Há muitas maneiras de usar os valores numéricos para quantificar, expressar e descrever informações. Este artigo aborda apenas alguns dos exemplos possíveis. O LUIS interpreta as variações em enunciados do usuário e retorna valores numéricos consistentes. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo número às intenções do aplicativo.
 
 ## <a name="types-of-number"></a>Tipos de número
-O número é gerenciado a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
+O número é gerenciado do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
 
 ## <a name="examples-of-number-resolution"></a>Exemplos de resolução de número
 
@@ -38,17 +38,17 @@ O número é gerenciado a partir do repositório GitHub [de texto de reconhecime
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-Luis inclui o valor **`builtin.number`** reconhecido de `resolution` uma entidade no campo da resposta JSON que retorna.
+LUIS inclui o valor reconhecido de uma **`builtin.number`** entidade no `resolution` campo da resposta JSON que ela retorna.
 
 ## <a name="resolution-for-prebuilt-number"></a>Resolução para número predefinido
 
-Os seguintes objetos de entidade são devolvidos para a consulta:
+Os seguintes objetos de entidade são retornados para a consulta:
 
 `order two dozen eggs`
 
-#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
-O JSON a `verbose` seguir está `false`com o parâmetro definido para:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 "entities": {
@@ -57,9 +57,9 @@ O JSON a `verbose` seguir está `false`com o parâmetro definido para:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
 
-O JSON a `verbose` seguir está `true`com o parâmetro definido para:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 "entities": {
@@ -83,7 +83,7 @@ O JSON a `verbose` seguir está `true`com o parâmetro definido para:
     }
 }
 ```
-#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
 
 O exemplo a seguir mostra uma resposta JSON de LUIS, que inclui a resolução do valor de 24, para o enunciado "duas dúzias".
 

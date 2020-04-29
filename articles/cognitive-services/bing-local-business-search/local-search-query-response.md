@@ -1,5 +1,5 @@
 ---
-title: Envio e uso de consultas e respostas da API - Bing Local Business Search
+title: Enviando e usando respostas e consultas de API – pesquisa de negócios local do Bing
 titleSuffix: Azure Cognitive Services
 description: Use este artigo para aprender como enviar e usar consultas de pesquisa com a API da Pesquisa de empresa local do Bing.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74326732"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envio e uso de consultas e respostas da API da Pesquisa de empresa local do Bing
@@ -23,7 +23,7 @@ Você pode obter resultados locais da API de Pesquisa de Empresa Local do Bing e
 
 ## <a name="creating-a-request"></a>Criando uma solicitação
 
-Para enviar uma solicitação à API de Pesquisa de Empresa Local do Bing, anexe um termo de pesquisa ao parâmetro `q=`antes de adicioná-lo ao ponto de extremidade da API e incluir o cabeçalho`Ocp-Apim-Subscription-Key`. Por exemplo: 
+Para enviar uma solicitação à API de Pesquisa de Empresa Local do Bing, anexe um termo de pesquisa ao parâmetro `q=`antes de adicioná-lo ao ponto de extremidade da API e incluir o cabeçalho`Ocp-Apim-Subscription-Key`. Por exemplo:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -148,6 +148,6 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 
 ## <a name="next-steps"></a>Próximas etapas
 - [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
-- [Local Business Search Java quickstart](quickstarts/local-search-java-quickstart.md)
+- [Início Rápido da Pesquisa Java em empresas locais](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](quickstarts/local-search-node-quickstart.md)
 - [Início Rápido do Python em Pesquisa de empresa local](quickstarts/local-search-python-quickstart.md)

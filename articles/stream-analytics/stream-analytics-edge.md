@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: seodec18
 ms.openlocfilehash: 8bb1bd018866bda9270b78507f0462b6c4d4ea17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79475885"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>O Stream Analytics do Azure no IoT Edge
@@ -44,10 +44,10 @@ O ASA usa o Hub IoT para implantar os trabalhos de borda para o(s) dispositivo(s
 ### <a name="installation-instructions"></a>Instruções de instalação
 As etapas de alto nível são descritas na tabela a seguir. Mais detalhes são fornecidos nas seções a seguir.
 
-|      |Etapa   | Observações   |
+|      |Etapa   | Anotações   |
 | ---   | ---   |  ---      |
 | 1   | **Criar um contêiner de armazenamento**   | Contêineres de armazenamento são usados para salvar a definição de trabalho em que eles podem ser acessados por dispositivos IoT. <br>  Você pode reutilizar qualquer contêiner de armazenamento existente.     |
-| 2   | **Crie um trabalho de borda ASA**   |  Crie um novo trabalho e selecione **Borda** como **ambiente de hospedagem**. <br> Esses trabalhos são criados/gerenciados na nuvem e executados em seus próprios dispositivos IoT Edge.     |
+| 2   | **Criar um trabalho do ASA Edge**   |  Crie um novo trabalho e selecione **Borda** como **ambiente de hospedagem**. <br> Esses trabalhos são criados/gerenciados na nuvem e executados em seus próprios dispositivos IoT Edge.     |
 | 3   | **Configurar o ambiente IoT Edge nos dispositivos**   | Instruções para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) ou [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Implantar o ASA em dispositivos IoT Edge**   |  A definição de trabalho ASA é exportada para o contêiner de armazenamento criado anteriormente.       |
 
@@ -82,7 +82,7 @@ Um contêiner de armazenamento é necessário para exportar a consulta compilada
 
 5. Definir configurações opcionais
     1. **Ordenação de eventos**. Você pode configurar a política fora de ordem no portal. A documentação está disponível [aqui](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-    2. **Locale**. Defina o formato de internacionalização.
+    2. **Localidade**. Defina o formato de internacionalização.
 
 
 
@@ -110,7 +110,7 @@ Essas etapas são descritas na documentação do IoT Edge para [Windows](https:/
 
 > [!Note]
 > Durante esta etapa, o ASA cria uma pasta chamada "EdgeJobs" no contêiner de armazenamento (se ela ainda não existe). Para cada tipo de implantação, uma nova subpasta é criada na pasta "EdgeJobs".
-> Quando você implanta seu trabalho em dispositivos IoT Edge, o ASA cria uma assinatura de acesso compartilhado (SAS) para o arquivo de definição de trabalho. A chave SAS é transmitida com segurança para os dispositivos IoT Edge usando o dispositivo gêmeo. A expiração dessa chave é de três anos a partir do dia de sua criação. Quando você atualiza um trabalho ioT Edge, o SAS mudará, mas a versão de imagem não mudará. Depois **de atualizar,** siga o fluxo de trabalho de implantação e uma notificação de atualização será registrada no dispositivo.
+> Quando você implanta seu trabalho em dispositivos IoT Edge, o ASA cria uma SAS (assinatura de acesso compartilhado) para o arquivo de definição de trabalho. A chave SAS é transmitida com segurança para os dispositivos IoT Edge usando o dispositivo gêmeo. A expiração dessa chave é de três anos a partir do dia de sua criação. Quando você atualiza um trabalho de IoT Edge, a SAS será alterada, mas a versão da imagem não será alterada. Depois de **Atualizar**, siga o fluxo de trabalho de implantação e uma notificação de atualização será registrada no dispositivo.
 
 
 Para obter mais detalhes sobre implantações do IoT Edge, confira [esta página](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -143,7 +143,7 @@ Este exemplo define as seguintes rotas:
 
 ## <a name="technical-information"></a>Informações técnicas
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitações atuais dos trabalhos do IoT Edge em comparação com os trabalhos de nuvem
-O objetivo é ter a paridade entre os trabalhos do IoT Edge e os trabalhos de nuvem. A maioria dos recursos de linguagem de consulta SQL são suportados, permitindo executar a mesma lógica tanto na nuvem quanto no IoT Edge.
+O objetivo é ter a paridade entre os trabalhos do IoT Edge e os trabalhos de nuvem. Há suporte para a maioria dos recursos da linguagem de consulta SQL, permitindo que o execute a mesma lógica em nuvem e IoT Edge.
 No entanto, os recursos a seguir ainda não têm suporte para trabalhos de borda:
 * Funções definidas pelo usuário (UDF) no JavaScript. Os UDF estão disponíveis no [C# para trabalhos do IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (versão prévia).
 * Agregações definidas pelo usuário (UDA).
@@ -176,7 +176,7 @@ No momento, os únicos tipos de entrada e saída de fluxo com suporte são do Hu
 
 
 ##### <a name="reference-data"></a>Dados de referência
-Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza. Ele é usado para executar uma pesquisa ou para se correlacionar ao fluxo de dados. Para fazer uso de dados de referência em seu trabalho do Azure Stream Analytics, você geralmente usará um [Join de dados de referência](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. Para obter mais informações, consulte o [Usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md).
+Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza. Ele é usado para executar uma pesquisa ou para se correlacionar ao fluxo de dados. Para fazer uso de dados de referência em seu trabalho de Azure Stream Analytics, você geralmente usará uma [junção de dados de referência](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. Para obter mais informações, consulte o [Usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md).
 
 Apenas dados de referência local são suportados. Quando um trabalho é implantado no dispositivo IoT Edge, ele carrega dados de referência do caminho do arquivo definido pelo usuário.
 
@@ -204,25 +204,25 @@ Existem duas maneiras de atualizar os dados de referência:
 
 ## <a name="azure-stream-analytics-module-image-information"></a>Informações de imagem do módulo Azure Stream Analytics 
 
-Esta versão foi atualizada pela última vez em 2019-06-27:
+Esta informação de versão foi atualizada pela última vez em 2019-06-27:
 
 - Imagem: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - imagem base: microsoft/dotnet:2.1.6-runtime-alpine3.7
-   - Plataforma:
-      - arquitetura: amd64
-      - os: linux
+   - imagem base: Microsoft/dotnet: 2.1.6-Runtime-Alpine 3.7
+   - plataforma
+      - arquitetura: AMD64
+      - sistema operacional: Linux
   
 - Imagem: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - imagem base: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
-   - Plataforma:
-      - arquitetura: braço
-      - os: linux
+   - imagem base: Microsoft/dotnet: 2.1.6-Runtime-Bionic-arm32v7
+   - plataforma
+      - arquitetura: ARM
+      - sistema operacional: Linux
   
 - Imagem: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - imagem base: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
-   - Plataforma:
-      - arquitetura: amd64
-      - sistema operacional: janelas
+   - imagem base: Microsoft/dotnet: 2.1.6-Runtime-beserver-1809
+   - plataforma
+      - arquitetura: AMD64
+      - sistema operacional: Windows
       
       
 ## <a name="get-help"></a>Obter ajuda
@@ -230,7 +230,7 @@ Para obter mais assistência, experimente o [fórum Azure Stream Analytics](http
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Mais informações sobre Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
+* [Mais informações sobre o Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA no tutorial de IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Desenvolver trabalhos de Borda do Stream Analytics utilizando ferramentas do Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 * [Implementar CI/CD para Stream Analytics usando APIs](stream-analytics-cicd-api.md)

@@ -1,7 +1,7 @@
 ---
 title: Criar análises de transcrições de vídeo usando .NET – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Aprenda a criar revisões de transcrição de vídeo usando o Azure Cognitive Services Content Moderator SDK para .NET.
+description: Saiba como criar análises de transcrição de vídeo usando o SDK de Content Moderator de serviços cognitivas do Azure para .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73744382"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar análises de transcrições de vídeo usando .NET
@@ -27,7 +27,7 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Faça login ou crie uma conta no site da [ferramenta Revisão](https://contentmoderator.cognitive.microsoft.com/) de Moderador de Conteúdo se você ainda não fez isso.
+- Entre ou crie uma conta no site da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) de Content moderator, se você ainda não tiver feito isso.
 - Este artigo pressupõe que você tenha [moderado o vídeo](video-moderation-api.md) e [criado a análise de vídeo](video-reviews-quickstart-dotnet.md) na ferramenta de análise de tomada de decisões humana. Convém agora adicionar transcrições de vídeo moderadas à ferramenta de análise.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>Verifique se a chave de API pode chamar a API (criação de trabalho)
@@ -80,7 +80,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Adicione propriedades privadas
 
-Adicione as seguintes propriedades privadas ao namespace **VideoTranscriptReviews**, class **Program**. Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e os campos com os valores de sua URL de ponto final e chave de assinatura. Você pode encontrá-los na guia **Início Rápido** do seu recurso no portal Azure.
+Adicione as propriedades particulares a seguir ao namespace **VideoTranscriptReviews**, classe **Program**. Atualize os `AzureEndpoint` campos `CMSubscriptionKey` e com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
 
 ```csharp
 namespace VideoReviews
@@ -144,7 +144,7 @@ Crie uma análise de vídeo com **ContentModeratorClient.Reviews.CreateVideoRevi
 **CreateVideoReviews** tem os seguintes parâmetros necessários:
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "application/json". 
 1. O nome da sua equipe do Content Moderator.
-1. Uma **iList\<CreateVideoReviewsBodyItem>** objeto. Cada objeto **CreateVideoReviewsBodyItem** representa uma análise de vídeo. Este guia de início rápido cria uma análise de cada vez.
+1. Um **objeto\<>IList CreateVideoReviewsBodyItem** . Cada objeto **CreateVideoReviewsBodyItem** representa uma análise de vídeo. Este guia de início rápido cria uma análise de cada vez.
 
 **CreateVideoReviewsBodyItem** tem várias propriedades. Defina, no mínimo, as propriedades a seguir:
 - **Conteúdo**. A URL do vídeo a ser analisado.
@@ -152,7 +152,7 @@ Crie uma análise de vídeo com **ContentModeratorClient.Reviews.CreateVideoRevi
 - **Status**. Defina o valor como "Não publicado." Se você não defini-lo, o padrão será "Pendente", o que significa que a análise de vídeo será publicada e a análise humana ficará como pendente. Após uma análise de vídeo ser publicada, você já não poderá adicionar quadros de vídeo, uma transcrição ou um resultado de moderação da transcrição a ela.
 
 > [!NOTE]
-> **CreateVideoReviews** retorna uma\<seqüência de> iList. Cada uma dessas cadeias de caracteres contém uma ID de uma análise de vídeo. Esses IDs são GUIDs e não são iguais ao valor da propriedade **ContentId**.
+> **CreateVideoReviews** retorna uma cadeia\<de caracteres IList>. Cada uma dessas cadeias de caracteres contém uma ID de uma análise de vídeo. Esses IDs são GUIDs e não são iguais ao valor da propriedade **ContentId**.
 
 Adicione a seguinte definição de método ao namespace VideoReviews, classe Programa.
 
@@ -234,15 +234,15 @@ Além de adicionar uma transcrição a uma análise de vídeo, também é possí
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "application/json". 
 1. O nome da sua equipe do Content Moderator.
 1. A ID da análise de vídeo retornada por **CreateVideoReviews**.
-1. Um iList\<TranscriptSBodyItem>. Um **TranscriptModerationBodyItem** tem as seguintes propriedades:
-1. **Termos**. Uma transcrição iListModeraçãoCorpoItemItens>.\< Um **TranscriptModerationBodyItemTermsItem** tem as seguintes propriedades:
+1. > IList\<TranscriptModerationBodyItem. Um **TranscriptModerationBodyItem** tem as seguintes propriedades:
+1. **Termos**. > IList\<TranscriptModerationBodyItemTermsItem. Um **TranscriptModerationBodyItemTermsItem** tem as seguintes propriedades:
 1. **Índice**. Índice baseado em zero do termo.
 1. **Termo**. Uma cadeia de caracteres que contém o termo.
-1. **Carimbo de tempo**. Uma cadeia de caracteres que contém, em segundos, o tempo na transcrição onde os termos estão localizados.
+1. **Carimbo de data/hora**. Uma cadeia de caracteres que contém, em segundos, o tempo na transcrição onde os termos estão localizados.
 
 A transcrição deve estar no formato WebVTT. Para mais informações, confira [WebVTT: o formato de faixas de texto de vídeo na Web](https://www.w3.org/TR/webvtt1/).
 
-Adicione a seguinte definição de método ao namespace VideoTranscriptReviews, classe Program. Esse método envia uma transcrição ao método **ContentModeratorClient.TextModeration.ScreenText**. Ele também traduz o resultado\<em um iList TranscriptSModeração>, e se submete a **AddVideoTranscriptModeraçãoResult**.
+Adicione a seguinte definição de método ao namespace VideoTranscriptReviews, classe Program. Esse método envia uma transcrição ao método **ContentModeratorClient.TextModeration.ScreenText**. Ele também traduz o resultado em um> IList\<TranscriptModerationBodyItem e envia para **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -366,7 +366,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Navegue até sua análise da transcrição de vídeo
 
-Vá para a revisão da transcrição de vídeo em sua ferramenta de revisão de moderador de conteúdo na tela **Revisar**>**transcrição de** **vídeo.**>
+Vá para a revisão de transcrição de vídeo em sua ferramenta de revisão de Content moderator na tela **revisar**>**Video**>**transcrição** de vídeo.
 
 Você verá os seguintes recursos:
 - As duas linhas da transcrição que você adicionou

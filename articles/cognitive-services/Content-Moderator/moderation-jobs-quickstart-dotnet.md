@@ -1,7 +1,7 @@
 ---
-title: Use trabalhos de moderação usando .NET - Moderador de conteúdo
+title: Usar trabalhos de moderação usando o .NET-Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use o Content Moderator .NET SDK para iniciar trabalhos de moderação de conteúdo completo para conteúdo de imagem ou texto no Azure Content Moderator.
+description: Use o SDK do .NET Content Moderator para iniciar trabalhos de moderação de conteúdo de ponta a ponta para conteúdo de imagem ou texto na Content Moderator do Azure.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76294330"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definir e usar trabalhos de moderação (.NET)
 
-Um trabalho de moderação serve como uma espécie de invólucro para a funcionalidade de moderação de conteúdo, fluxos de trabalho e avaliações. Este guia fornece informações e amostras de código para ajudá-lo a começar a usar o [SDK moderador de conteúdo para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
+Um trabalho de moderação serve como um tipo de wrapper para a funcionalidade de moderação de conteúdo, fluxos de trabalho e revisões. Este guia fornece informações e exemplos de código para ajudá-lo a começar a usar o [SDK do Content moderator para .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 
 - Iniciar um trabalho de moderação para verificar e criar análises para moderadores humanos
 - Obter o status da análise pendente
 - Controlar e obter o status final da revisão
-- Envie os resultados da revisão para a URL de retorno de chamada
+- Enviar os resultados da revisão para a URL de retorno de chamada
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Faça login ou crie uma conta no site da [ferramenta Revisão](https://contentmoderator.cognitive.microsoft.com/) de Moderador de Conteúdo.
+- Entre ou crie uma conta no site da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificar se a chave de API pode chamar a API de revisão para a criação de revisão
 
@@ -80,7 +80,7 @@ using System.Threading;
 Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura.
 
 > [!IMPORTANT]
-> Atualize os campos **AzureEndpoint** e **CMSubscriptionKey** com os valores da sua URL de ponto final e da chave de assinatura.
+> Atualize os campos **AzureEndpoint** e **CMSubscriptionKey** com os valores da URL do ponto de extremidade e da chave de assinatura.
 
 ```csharp
 /// <summary>
@@ -127,7 +127,7 @@ Adicione as seguintes constantes e campos estáticos à classe **Programa** em P
 > Você define a constante TeamName para o nome usado ao criar a assinatura do Content Moderator. Você pode recuperar o TeamName no site do Content Moderator.
 > Depois de fazer logon, selecione **Credenciais** do menu **Configurações** (engrenagem).
 >
-> O nome da sua equipe é o valor do campo **de Id** na seção **API.**
+> O nome da equipe é o valor do campo **ID** na seção da **API** .
 
 ```csharp
 /// <summary>

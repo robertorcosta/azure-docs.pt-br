@@ -1,5 +1,5 @@
 ---
-title: Conteúdo específico de domínio - Visão computacional
+title: Conteúdo específico do domínio-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
 description: Saiba como especificar um domínio de categorização de imagem para retornar informações mais detalhadas sobre uma imagem.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68946332"
 ---
 # <a name="detect-domain-specific-content"></a>Detectar conteúdo específico de um domínio
@@ -30,7 +30,7 @@ Você pode analisar uma imagem usando apenas o modelo de domínio específico es
 
 A seguir está um exemplo de resposta JSON retornada pela API **modelos/celebridades/analisar** para determinada imagem:
 
-![Satya Nadella em pé, sorrindo](./images/satya.jpeg)
+![Satya Nadella pé, sorrindo](./images/satya.jpeg)
 
 ```json
 {

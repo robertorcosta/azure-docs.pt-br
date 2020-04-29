@@ -1,7 +1,7 @@
 ---
-title: Suporte à linguagem e região para a API de reconhecimento de tinta
+title: Suporte a idiomas e regiões para a API do reconhecedor de tinta
 titleSuffix: Azure Cognitive Services
-description: Uma lista de línguas naturais suportadas pela API de reconhecimento de tinta.
+description: Uma lista de idiomas naturais com suporte pela API do reconhecedor de tinta.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67721747"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Suporte à linguagem e região para a API de reconhecimento de tinta
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Suporte a idiomas e regiões para a API do reconhecedor de tinta
 
-Este artigo explica quais idiomas são suportados para a API de reconhecimento de tinta. O conteúdo de tinta digital escrito nas seguintes línguas pode ser interpretado e processado pela API.
+Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tinta. O conteúdo de tinta digital escrito nos idiomas a seguir pode ser interpretado e processado pela API.
 
 ## <a name="supported-languages"></a>Idiomas com suporte
 
-| Idioma                                   | Código de idioma   |
+| Linguagem                                   | Código de idioma   |
 |:-------------------------------------------|:---------------:|
 | Africâner                                  |    `af-ZA`      |
 | Albanês                                   |     `sq-AL`     |
@@ -54,7 +54,7 @@ Este artigo explica quais idiomas são suportados para a API de reconhecimento d
 | Italiano (Itália)                            |     `it-IT`     |
 | Japonês                                   |     `ja-JP`     |
 | Quiniaruanda                                |     `rw-RW`     |
-| Kiswahili (Quênia)                          |     `sw-KE`     |
+| Suaíli (Quênia)                          |     `sw-KE`     |
 | Coreano                                     |     `ko-KR`     |
 | Luxemburguês                              |     `lb-LU`     |
 | Malaio (Brunei Darussalam)                  |     `ms-BN`     |
@@ -71,10 +71,10 @@ Este artigo explica quais idiomas são suportados para a API de reconhecimento d
 | Gaélico escocês                            |     `gd-GB`     |
 | Soto setentrional                           |    `nso-ZA`     |
 | Sérvio (cirílico, Bósnia e Herzegovina) |  `sr-Cyrl-BA`   |
-| Sérvio (cirílico, montenegro)             |  `sr-Cyrl-ME`   |
+| Sérvio (cirílico, Montenegro)             |  `sr-Cyrl-ME`   |
 | Sérvio (Cirílico, Sérvia)                 |  `sr-Cyrl-RS`   |
-| Sérvio (latim, Bósnia e Herzegovina)    |  `sr-Latn-BA`   |
-| Sérvio (latim, Montenegro)                |  `sr-Latn-ME`   |
+| Sérvio (latino, Bósnia e Herzegovina)    |  `sr-Latn-BA`   |
+| Sérvio (latino, Montenegro)                |  `sr-Latn-ME`   |
 | Sérvio (Latino, Sérvia)                    |  `sr-Latn-RS`   |
 | Setswana (África do Sul)                    |     `tn-ZA`     |
 | Eslovaco                                     |     `sk-SK`     |
@@ -92,4 +92,4 @@ Este artigo explica quais idiomas são suportados para a API de reconhecimento d
 ## <a name="see-also"></a>Confira também
 
 * [O que é a API de Reconhecimento de Tinta Digital?](overview.md)
-* [Enviando traçados de tinta digital para a API do Ink Recognizer](concepts/send-ink-data.md)
+* [Enviando traços de tinta digital para a API do reconhecedor de tinta](concepts/send-ink-data.md)

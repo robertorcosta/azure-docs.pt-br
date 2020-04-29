@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72935949"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Verificar o texto em relação a uma lista de termos personalizados em C#
 
 A lista de termos global padrão do Content Moderator do Azure é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, você precisará de examinar os termos que são específicos para sua organização. Por exemplo, você talvez queira marcar nomes de concorrentes para análise adicional. 
 
-Você pode usar o [SDK moderador de conteúdo para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para criar listas personalizadas de termos para usar com a API de moderação de texto.
+Você pode usar o [SDK do Content moderator para .net](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para criar listas personalizadas de termos a serem usados com a API de moderação de texto.
 
 Este artigo fornece informações e exemplos de código para ajudá-lo a começar a usar o SDK do Content Moderator para .NET para:
 - Cria uma lista.
@@ -69,7 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Criar o cliente do Content Moderator
 
-Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura. Atualize `AzureEndpoint` `CMSubscriptionKey` os campos e os campos com os valores de sua URL de ponto final e chave de assinatura. Você pode encontrá-los na guia **Início Rápido** do seu recurso no portal Azure.
+Adicione o código a seguir para criar um cliente do Content Moderator para sua assinatura. Atualize os `AzureEndpoint` campos `CMSubscriptionKey` e com os valores de sua URL de ponto de extremidade e chave de assinatura. Você pode encontrá-los na guia **início rápido** do recurso na portal do Azure.
 
 ```csharp
 /// <summary>
@@ -264,7 +264,7 @@ Tela de texto usando uma lista de termos com **ContentModeratorClient.TextModera
 - Um tipo MIME, que pode ser "text/html", "texto/xml", "texto/markdown" ou "texto/simples".
 - O texto para a tela.
 - Um valor booliano. Defina este campo como **verdadeiro** para a correção automática de texto antes de colocar na tela.
-- Um valor booliano. Defina este campo **como verdadeiro** para detectar dados pessoais no texto.
+- Um valor booliano. Defina esse campo como **true** para detectar dados pessoais no texto.
 - ID de Lista de termos.
 
 Para obter mais informações, confira a [referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -362,7 +362,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Componha o método principal
+## <a name="compose-the-main-method"></a>Compor o método Main
 
 Adicione a definição de método **Principal** para o namespace **TermLists** da classe **Programa**. Por fim, feche a classe **Programa** e o namespace **TermLists**.
 
@@ -404,7 +404,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Execute o aplicativo de console para ver a saída
 
-A saída do console será pareada com a seguinte:
+A saída do console se parecerá com o seguinte:
 
 ```console
 Creating term list.

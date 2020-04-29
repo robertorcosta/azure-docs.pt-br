@@ -1,7 +1,7 @@
 ---
-title: Use o método de avaliação offline - Personalizador
+title: Usar o método de avaliação offline-personalizador
 titleSuffix: Azure Cognitive Services
-description: Este artigo explicará como usar a avaliação offline para medir a eficácia do seu aplicativo e analisar seu ciclo de aprendizado.
+description: Este artigo explicará como usar a avaliação offline para medir a eficácia de seu aplicativo e analisar seu loop de aprendizado.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: diberry
 ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77623599"
 ---
 # <a name="offline-evaluation"></a>Avaliação offline
 
-A avaliação offline é um método que permite testar e avaliar a eficácia do serviço Personalizador sem alterar o código nem afetar a experiência do usuário. A avaliação offline usa dados passados, enviados do seu aplicativo para as APIs Rank e Reward, para comparar o desempenho de diferentes classificações.
+A avaliação offline é um método que permite testar e avaliar a eficácia do serviço Personalizador sem alterar o código nem afetar a experiência do usuário. A avaliação offline usa dados passados, enviados do seu aplicativo para as APIs de classificação e recompensa, para comparar a forma como as classificações diferentes foram executadas.
 
 A avaliação offline é executada em um intervalo de datas. O intervalo pode terminar na hora atual. O início do intervalo não pode ser maior que o número de dias especificado para a [retenção de dados](how-to-settings.md).
 
@@ -48,17 +48,17 @@ Os seguintes aspectos são considerações importantes para uma avaliação offl
 
 O Personalizador pode usar o processo de avaliação offline para descobrir uma política de aprendizado mais ideal automaticamente.
 
-Depois de executar a avaliação offline, você poderá ver a eficácia comparativa do Personalizador com essa nova política em comparação com a atual política online. Em seguida, você pode aplicar essa política de aprendizagem para torná-la eficaz imediatamente no Personalr, baixando-a e carregando-a no painel Modelos e Políticas. Você também pode baixá-lo para análise futura ou uso.
+Depois de executar a avaliação offline, você poderá ver a eficácia comparativa do Personalizador com essa nova política em comparação com a atual política online. Em seguida, você pode aplicar essa política de aprendizado para torná-la eficaz imediatamente no Personalizador, baixando-a e carregando-a no painel modelos e políticas. Você também pode baixá-lo para análise ou uso futuro.
 
 Políticas atuais incluídas na avaliação:
 
-| Configurações de aprendizagem | Finalidade|
+| Configurações de aprendizado | Finalidade|
 |--|--|
-|**Política Online**| A Política de Aprendizado atual usada no Personalizador |
-|**Base**|Padrão do aplicativo (conforme determinado pela primeira Ação enviada em Chamadas de Rank)|
-|**Política Aleatória**|Um comportamento de Classificação imaginário que sempre retorna uma escolha aleatória de ações daquelas fornecidas.|
+|**Política online**| A Política de Aprendizado atual usada no Personalizador |
+|**Linha de base**|O padrão do aplicativo (conforme determinado pela primeira ação enviada em chamadas de classificação)|
+|**Política aleatória**|Um comportamento de Classificação imaginário que sempre retorna uma escolha aleatória de ações daquelas fornecidas.|
 |**Políticas personalizadas**|Políticas de Aprendizado adicionais carregadas ao iniciar a avaliação.|
-|**Política Otimizada**|Se a avaliação tiver sido iniciada com a opção para descobrir uma política otimizada, ela também será comparada, e você poderá baixá-la ou torná-la a política de aprendizado online, substituindo a atual.|
+|**Política otimizada**|Se a avaliação tiver sido iniciada com a opção para descobrir uma política otimizada, ela também será comparada, e você poderá baixá-la ou torná-la a política de aprendizado online, substituindo a atual.|
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Como entender a relevância dos resultados da avaliação offline
 
@@ -102,11 +102,11 @@ Recomendamos examinar as avaliações de recurso e fazer as seguintes perguntas:
 
 * Quais outros recursos adicionais o aplicativo ou o sistema pode fornecer semelhantes àqueles que são mais eficazes?
 * Quais recursos podem ser removidos devido à baixa eficácia? Recursos de baixa eficácia adicionam _ruído_ ao aprendizado de máquina.
-* Há algum recurso incluído acidentalmente? Exemplos disso são: informações identificáveis do usuário, IDs duplicados, etc.
+* Há algum recurso incluído acidentalmente? Exemplos são: informações de identificação do usuário, IDs duplicadas, etc.
 * Há algum recurso indesejável que não deve ser usado para personalização devido a considerações regulamentares ou referentes a uso responsável? Há algum recurso que pode representar (ou seja, estar correlacionado ou espelhar de maneira aproximada) recursos indesejáveis?
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Configurar avaliações](how-to-settings.md)
-[offline](how-to-offline-evaluation.md) do personalizador Entenda [como funciona o personalizador](how-personalizer-works.md)
+[Configurar o personalizado](how-to-settings.md)
+[executar avaliações offline](how-to-offline-evaluation.md) entender [como o personalizador funciona](how-personalizer-works.md)

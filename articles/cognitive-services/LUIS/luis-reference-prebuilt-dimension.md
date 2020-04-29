@@ -1,5 +1,5 @@
 ---
-title: Dimensão Entidades Pré-Construídas - LUIS
+title: Entidades predefinidas da dimensão – LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações de entidade predefinida de dimensão em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 3c7bebb38d0331c76eeaaa1d9d6464c568a61b83
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270642"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidade de dimensão predefinida para um aplicativo LUIS
@@ -23,17 +23,17 @@ A entidade de dimensão predefinida detecta vários tipos de dimensões, indepen
 
 ## <a name="types-of-dimension"></a>Tipos de dimensão
 
-A dimensão é gerenciada a partir do repositório GitHub [de reconhecimento-texto.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml)
+A dimensão é gerenciada do repositório GitHub de [texto de reconhecedores](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) .
 
 ## <a name="resolution-for-dimension-entity"></a>Resolução para entidade de dimensão
 
-Os seguintes objetos de entidade são devolvidos para a consulta:
+Os seguintes objetos de entidade são retornados para a consulta:
 
 `10 1/2 miles of cable`
 
-#### <a name="v3-response"></a>[Resposta V3](#tab/V3)
+#### <a name="v3-response"></a>[Resposta v3](#tab/V3)
 
-O JSON a `verbose` seguir está `false`com o parâmetro definido para:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 "entities": {
@@ -45,8 +45,8 @@ O JSON a `verbose` seguir está `false`com o parâmetro definido para:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O JSON a `verbose` seguir está `true`com o parâmetro definido para:
+#### <a name="v3-verbose-response"></a>[V3, resposta detalhada](#tab/V3-verbose)
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 "entities": {
@@ -74,7 +74,7 @@ O JSON a `verbose` seguir está `true`com o parâmetro definido para:
 }
 ```
 
-#### <a name="v2-response"></a>[Resposta V2](#tab/V2)
+#### <a name="v2-response"></a>[Resposta v2](#tab/V2)
 
 O exemplo a seguir mostra a resolução da entidade **builtin.dimension**.
 

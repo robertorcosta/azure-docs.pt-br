@@ -1,7 +1,7 @@
 ---
 title: Tipos com Suporte para Reconhecimento de Entidade Nomeada
 titleSuffix: Azure Cognitive Services
-description: Conheça os tipos de entidades suportadas na API de análise de texto.
+description: Saiba mais sobre os tipos de entidade com suporte no API de Análise de Texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 164e803a6af8a7d1ccdc9c70cc3e42b787857b3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77086887"
 ---
-# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipos suportados para a versão 3 (visualização) de reconhecimento de entidade nomeado
+# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipos com suporte para reconhecimento de entidade nomeada versão 3 (visualização)
 
-A API text analytics fornece a capacidade de identificar e desambiguar entidades encontradas no texto. [Denominada Reconhecimento de Entidade](how-tos/text-analytics-how-to-entity-linking.md) (NER) é a capacidade de identificar diferentes entidades em texto e categorizá-las em classes pré-definidas.
+O API de Análise de Texto fornece a capacidade de identificar e desambiguar as entidades encontradas no texto. O Ner ( [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md) ) é a capacidade de identificar diferentes entidades no texto e categorizá-las em classes predefinidas.
 
 ## <a name="entity-types"></a>Tipos de entidade
 
-Os tipos e subtipos de entidades suportados (quando aplicável) estão listados abaixo:
+Os tipos de entidade e subtipos com suporte (onde aplicável) estão listados abaixo:
 
 #### <a name="general"></a>[Geral](#tab/general)
 
@@ -37,4 +37,4 @@ Os tipos e subtipos de entidades suportados (quando aplicável) estão listados 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Como usar o reconhecimento de entidade nomeado no Text Analytics](how-tos/text-analytics-how-to-entity-linking.md)
+* [Como usar o reconhecimento de entidade nomeada no Análise de Texto](how-tos/text-analytics-how-to-entity-linking.md)

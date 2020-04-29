@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68882683"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de idioma e região para a API de Pesquisa na Web do Bing
@@ -27,7 +27,7 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 
 ## <a name="countriesregions"></a>Países/regiões
 
-|País/Região|Código|
+|País/região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
@@ -43,7 +43,7 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 |RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|IT|
+|Itália|TI|
 |Japão|JP|
 |Coreia do Sul|KR|
 |Malásia|MY|
@@ -68,7 +68,7 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 
 ## <a name="markets"></a>Mercados
 
-|País/Região|Idioma|Código de mercado|
+|País/região|Linguagem|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -113,4 +113,4 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Referência de API da Pesquisa de Imagem do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referência da API de Pesquisa de Imagem do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

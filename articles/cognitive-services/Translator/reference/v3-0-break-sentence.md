@@ -1,7 +1,7 @@
 ---
 title: Método de BreakSentence de API de texto do tradutor
 titleSuffix: Azure Cognitive Services
-description: O método Desmembramento da API de texto tradutor identifica o posicionamento dos limites da sentença em um pedaço de texto.
+description: O método API de Tradução de Texto BreakSentence identifica o posicionamento dos limites de sentença em um pedaço de texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76548111"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>3.0 da API de tradução de texto: BreakSentence
@@ -43,7 +43,7 @@ Os cabeçalhos de solicitação incluem:
 
 | headers | Descrição |
 | ------- | ----------- |
-| Cabeçalho de autenticação(s) <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
+| Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
 | Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
 | Content-Length    | **Cabeçalho de solicitação obrigatório**.<br/>O tamanho do corpo da solicitação.  | 
 | X-ClientTraceId   | **Opcional**.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Observe que você poderá omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`.  | 

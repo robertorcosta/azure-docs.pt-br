@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
 ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73490813"
 ---
 # <a name="exploration-and-exploitation"></a>Exploration e exploitation
@@ -29,7 +29,7 @@ Atualmente, o Personalizador usa um algoritmo chamado *epsilon greedy* para expl
 
 ## <a name="choosing-an-exploration-setting"></a>Como escolher a configuração de exploração
 
-Você configura a porcentagem de tráfego a ser usado para exploração na página **configuração** do portal Azure para Personalizar. Essa configuração determina a porcentagem de chamadas de classificação que realizam exploração. 
+Configure a porcentagem de tráfego a ser usada para exploração na página de **configuração** do portal do Azure para personalizador. Essa configuração determina a porcentagem de chamadas de classificação que realizam exploração. 
 
 O Personalizador determina se fará a exploration ou exploitation com essa probabilidade em cada chamada de classificação. Isso é diferente do comportamento de algumas estruturas A/B que bloqueiam um tratamento em IDs de usuário específicas.
 

@@ -1,7 +1,7 @@
 ---
 title: Migrar para V3 - API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: Este artigo fornece as etapas para ajudá-lo a migrar de V2 para V3 da API de texto de texto do tradutor de serviços cognitivos do Azure.
+description: Este artigo fornece as etapas para ajudá-lo a migrar do v2 para a V3 do API de Tradução de Texto de serviços cognitivas do Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73837318"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migração da API de Tradução de Texto V2 para V3
 
 > [!NOTE]
-> V2 foi preterido em 30 de abril de 2018. Por favor, migre seus aplicativos para V3 para aproveitar as novas funcionalidades disponíveis exclusivamente em V3.
+> O v2 foi preterido em 30 de abril de 2018. Migre seus aplicativos para v3 a fim de aproveitar as novas funcionalidades disponíveis exclusivamente na v3.
 > 
-> O Microsoft Translator Hub será aposentado em 17 de maio de 2019. [Exibir informações e datas importantes de migração](https://www.microsoft.com/translator/business/hub/).  
+> O Hub do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).  
 
 A equipe do Microsoft Translator lançou a versão 3 (V3) da API de Tradução de Texto. Esta versão inclui novos recursos, métodos preteridos e um novo formato para enviar e receber dados do Serviço do Microsoft Translator. Este documento apresenta informações sobre como alterar os aplicativos para usar a V3. 
 
@@ -53,7 +53,7 @@ A seguinte lista de métodos V2 e V3 identifica as APIs e os métodos da V3 que 
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Não há mais suporte para o recurso       |
 | `AddTranslationArray`    | Não há mais suporte para o recurso          |
-| `BreakSentences`      | [Sentença de quebra](reference/v3-0-break-sentence.md)       |
+| `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | `GetTranslations`      | Não há mais suporte para o recurso         |
 | `GetTranslationsArray`      | Não há mais suporte para o recurso         |
 
@@ -65,7 +65,7 @@ Esta alteração afetará vários aspectos de um aplicativo escrito para a API d
 
 O método languages não exige autenticação; ao clicar no link a seguir, você pode ver todas as informações de idioma para V3 em JSON:
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dicionário,transliteração](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation, dicionário, transliteração](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>Chave de autenticação
 
@@ -110,7 +110,7 @@ Global
 
 > [!NOTE]
 > 
-> O Microsoft Translator Hub será aposentado em 17 de maio de 2019. [Exibir informações e datas importantes de migração](https://www.microsoft.com/translator/business/hub/).   
+> O Hub do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).   
 
 Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como tal, não pode ser utilizado com o Hub do Microsoft Translator. O Hub do Translator dá suporte somente para tradução automática de estatística herdada. A personalização para tradução neural agora está disponível usando o Tradutor Personalizado. [Saiba mais sobre como personalizar a tradução automática neural](custom-translator/overview.md)
 

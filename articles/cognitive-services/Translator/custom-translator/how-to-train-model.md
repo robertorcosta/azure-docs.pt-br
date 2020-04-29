@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595689"
 ---
 # <a name="train-a-model"></a>Treinar um modelo
@@ -34,9 +34,9 @@ Para treinar um modelo:
 
     -  Par de idiomas: mostra o idioma de origem e de destino do projeto.
 
-    -  Frases de origem: Mostra o número de frases extraídas do arquivo de origem.
+    -  Sentenças de origem: mostra o número de frases extraídas do arquivo de origem.
 
-    -  Frases-alvo: Mostra o número de sentenças extraídas do arquivo de destino.
+    -  Sentenças de destino: mostra o número de frases extraídas do arquivo de destino.
 
     ![Treinar um modelo](media/how-to/how-to-train-model.png)
 
@@ -53,7 +53,7 @@ Para treinar um modelo:
     ![Página de modelo de treinamento](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->O Personal Translator suporta 10 treinamentos simultâneos dentro de um espaço de trabalho em qualquer momento.
+>O tradutor personalizado dá suporte a 10 treinamentos simultâneos em um espaço de trabalho em qualquer ponto no tempo.
 
 
 ## <a name="edit-a-model"></a>Editar um modelo

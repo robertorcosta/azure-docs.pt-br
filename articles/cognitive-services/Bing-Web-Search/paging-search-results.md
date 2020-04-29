@@ -1,7 +1,7 @@
 ---
-title: Como fazer a página através dos resultados da pesquisa - Bing Search APIs
+title: Como percorrer os resultados da pesquisa-APIs de Pesquisa do Bing
 titleSuffix: Azure Cognitive Services
-description: Aprenda a fazer a página através dos resultados de pesquisa das APIs de Pesquisa de Bing.
+description: Saiba como paginar os resultados da pesquisa do APIs de Pesquisa do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
 ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73481743"
 ---
-# <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Como fazer a página através dos resultados das APIs de Pesquisa de Bing
+# <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Como paginar os resultados da APIs de Pesquisa do Bing
 
-Quando você envia uma chamada para as APIs de pesquisa de bing, custom, image, news ou video search, Bing retorna um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número total estimado de resultados `totalEstimatedMatches` disponíveis, acesse o campo do objeto de resposta. 
+Quando você envia uma chamada para as APIs Web, personalizada, imagem, notícias ou Pesquisa de Vídeo do Bing, o Bing retorna um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número total estimado de resultados disponíveis, acesse o campo `totalEstimatedMatches` do objeto de resposta. 
 
-Por exemplo:  
+Por exemplo: 
 
 ```json
 {
@@ -35,21 +35,21 @@ Por exemplo:
 }  
 ```
 
-## <a name="paging-through-search-results"></a>Paginando através dos resultados da pesquisa
+## <a name="paging-through-search-results"></a>Paginação por meio de resultados da pesquisa
 
-Para fazer a página através `count` `offset` dos resultados disponíveis, use os parâmetros e consulta ao enviar sua solicitação.  
+Para paginar os resultados disponíveis, use `count` os `offset` parâmetros de consulta e ao enviar sua solicitação.  
 
 > [!NOTE]
 >
-> * A paginação com as APIs bing video, image`/video/search`e news`/news/search`aplica-se`/image/search`apenas às pesquisas de vídeo geral ( ), notícias ( ) e imagem ( ) . A paginação através de tópicos e categorias de tendências não é suportada.  
-> * O `TotalEstimatedMatches` campo é uma estimativa do número total de resultados de pesquisa para a consulta atual. Quando você `count` define `offset` os parâmetros, essa estimativa pode mudar.
+> * A paginação com as APIs de vídeo, imagem e notícias do Bing aplica-`/video/search`se somente às pesquisas`/news/search`gerais de vídeo (`/image/search`), de notícias () e de imagem (). Não há suporte para paginação por meio de tópicos e categorias de tendências.  
+> * O `TotalEstimatedMatches` campo é uma estimativa do número total de resultados da pesquisa para a consulta atual. Quando você define os `count` parâmetros `offset` e, essa estimativa pode ser alterada.
 
 | Parâmetro | Descrição                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `count`   | Especifica o número de resultados a serem retornados na resposta. Observe que o `count`valor padrão de , e o número máximo de resultados que você pode solicitar varia de acordo com a API. Você pode encontrar esses valores na documentação de referência em [Próximaetapas](#next-steps). |
+| `count`   | Especifica o número de resultados a serem retornados na resposta. Observe que o valor padrão de `count`e o número máximo de resultados que você pode solicitar variam de acordo com a API. Você pode encontrar esses valores na documentação de referência em [próximas etapas](#next-steps). |
 | `offset`  | Especifica o número de resultados para ignorar. O `offset` é baseado em zero e deve ser menor que (`totalEstimatedMatches` - `count`).                                           |
 
-Como exemplo, se você quiser exibir 15 resultados `count` por página, `offset` você definiria para 15 e para 0 para obter a primeira página de resultados. Para cada chamada de API `offset` subseqüente, você aumentaria em 15. O exemplo a seguir solicita 15 páginas da Web começando no deslocamento 45.
+Por exemplo, se você quiser exibir 15 resultados por página, defina `count` como 15 e `offset` como 0 para obter a primeira página de resultados. Para cada chamada de API subsequente, você incrementaria `offset` 15. O exemplo a seguir solicita 15 páginas da Web começando no deslocamento 45.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Se você usar `count` o valor padrão, `offset` você só precisa especificar o parâmetro de consulta em suas chamadas de API.  
+Se você usar o valor `count` padrão, só precisará especificar o `offset` parâmetro de consulta em suas chamadas à API.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
@@ -65,18 +65,18 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Ao usar as APIs de imagem e `nextOffset` vídeo bing, você pode usar o valor para evitar resultados de pesquisa duplicados. Obtenha o valor `Images` `Videos` dos objetos ou resposta e `offset` use-o em suas solicitações com o parâmetro.  
+Ao usar as APIs de imagem e vídeo do Bing, você pode `nextOffset` usar o valor para evitar resultados de pesquisa duplicados. Obtenha o valor dos objetos `Images` de `Videos` resposta ou e use-o em suas solicitações com o `offset` parâmetro.  
 
 > [!NOTE]
-> A API de pesquisa da Web Bing retorna resultados de pesquisa que podem incluir páginas da web, imagens, vídeos e notícias. Quando você faz a página através dos resultados de pesquisa da API de pesquisa da Bing Web Search, você está paginando apenas [Páginas da Web,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)e não outros tipos de resposta, como imagens ou notícias. Os resultados `WebPage` da pesquisa em objetos podem incluir resultados que aparecem em outros tipos de resposta também.
+> O API de Pesquisa na Web do Bing retorna resultados da pesquisa que podem incluir páginas da Web, imagens, vídeos e notícias. Ao percorrer os resultados da pesquisa da API de Pesquisa na Web do Bing, você está paginando apenas as [páginas da Web](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)e não outros tipos de resposta, como imagens ou notícias. Os resultados da `WebPage` pesquisa em objetos podem incluir resultados que também apareçam em outros tipos de resposta.
 >
-> Se você `responseFilter` usar o parâmetro de consulta sem especificar `count` quaisquer `offset` valores de filtro, não use os parâmetros e parâmetros. 
+> Se você usar o `responseFilter` parâmetro de consulta sem especificar nenhum valor de filtro, não `count` use `offset` os parâmetros e. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que são as APIs de Pesquisa na Web do Bing?](bing-api-comparison.md)
+* [Quais são as APIs de Pesquisa na Web do Bing?](bing-api-comparison.md)
 * [Referência da API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [Referência a API v7 de pesquisa personalizada de bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [Referência da API v7 da Bing News Search](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [Referência a API v7 de pesquisa de vídeo de bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [Referência a API v7 de pesquisa de imagem de bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referência do API de Pesquisa Personalizada do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [Referência do API de Pesquisa de Notícias do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [Referência do API de Pesquisa de Vídeo do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [Referência do API de Pesquisa de Imagem do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

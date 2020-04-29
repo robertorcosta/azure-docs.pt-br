@@ -1,7 +1,7 @@
 ---
 title: Método de idiomas de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: O método Languages recebe o conjunto de idiomas atualmente suportado por outras operações da API de texto tradutor.
+description: O método Languages Obtém o conjunto de idiomas com suporte no momento por outras operações do API de Tradução de Texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73835824"
 ---
 # <a name="translator-text-api-30-languages"></a>API de Tradução de Texto 3.0: idiomas
@@ -40,7 +40,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
     <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
-    <td>scope</td>
+    <td>escopo</td>
     <td>*Parâmetro opcional*.<br/>Uma lista separada por vírgula de nomes que definem o grupo de idiomas a ser retornado. Os nomes de grupo permitidos são: `translation`, `transliteration` e `dictionary`. Se nenhum escopo é fornecido, todos os grupos são retornados, o que é equivalente a passar `scope=translation,transliteration,dictionary`. Para decidir qual conjunto de idiomas compatíveis é apropriado para seu cenário, confira a descrição do [objeto de resposta](#response-body).</td>
   </tr>
 </table> 
