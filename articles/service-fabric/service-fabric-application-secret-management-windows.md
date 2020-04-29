@@ -1,21 +1,21 @@
 ---
-title: Configure um cert de criptografia em clusters windows
+title: Configurar um certificado de criptografia em clusters do Windows
 description: Saiba como configurar um certificado de criptografia e criptografar segredos em clusters Windows.
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: d563b338169ab26649b42c73f5fb7ed2fe8c0312
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460181"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configurar um certificado de criptografia e criptografar segredos em clusters Windows
 Este artigo mostra como configurar um certificado de criptografia e criptografar segredos em clusters Windows. Para clusters Linux, consulte [Configurar um certificado de criptografia e criptografar segredos em clusters Linux.][secret-management-linux-specific-link]
 
-O [Azure Key Vault][key-vault-get-started] é usado aqui como um local de armazenamento seguro para certificados e como uma maneira de obter certificados instalados em clusters do Service Fabric no Azure. Se não estiver implantando no Azure, você não precisará usar o cofre de chaves para gerenciar segredos em aplicativos do Service Fabric. No entanto, *o uso de* segredos em um aplicativo é agnóstico em nuvem para permitir que os aplicativos sejam implantados em um cluster hospedado em qualquer lugar. 
+O [Azure Key Vault][key-vault-get-started] é usado aqui como um local de armazenamento seguro para certificados e como uma maneira de obter certificados instalados em clusters do Service Fabric no Azure. Se não estiver implantando no Azure, você não precisará usar o cofre de chaves para gerenciar segredos em aplicativos do Service Fabric. No entanto, o *uso* de segredos em um aplicativo é independente da plataforma de nuvem para permitir que os aplicativos sejam implantados em um cluster hospedado em qualquer lugar. 
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Obter um certificado de codificação de dados
 Um certificado de codificação de dados é usado estritamente para criptografia e descriptografia de [parâmetros][parameters-link] no arquivo Settings.xml de um serviço e nas [variáveis de ambiente][environment-variables-link] do ServiceManifest.xml do serviço. Ele não é usado para autenticação ou assinatura do texto codificado. O certificado deve atender aos seguintes requisitos:

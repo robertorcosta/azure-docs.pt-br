@@ -1,6 +1,6 @@
 ---
 title: A estrutura de Painéis do Azure | Microsoft Docs
-description: Caminhe pela estrutura JSON de um Painel Azure usando um painel de exemplo. Inclui referência a propriedades de recursos.
+description: Percorra a estrutura JSON de um painel do Azure usando um painel de exemplo. Inclui referência a propriedades de recurso.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459212"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
@@ -294,10 +294,10 @@ Vamos dividir as seções relevantes do JSON.  As propriedades de nível superio
 
 ### <a name="the-id-property"></a>A propriedade ID
 
-O ID de recursos do Azure, sujeito às [convenções de nomeação dos recursos do Azure.](/azure/architecture/best-practices/resource-naming) Quando o portal cria um painel, geralmente escolhe um ID na forma de uma guia, mas você é livre para usar qualquer nome válido quando você criá-los programáticamente. 
+A ID de recurso do Azure, sujeita às [convenções de nomenclatura dos recursos do Azure](/azure/architecture/best-practices/resource-naming). Quando o portal cria um painel, ele geralmente escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criá-los programaticamente. 
 
 ### <a name="the-name-property"></a>A propriedade name
-O nome é o segmento do ID de recurso que não inclui as informações de assinatura, tipo de recurso ou grupo de recursos. Essencialmente, é o último segmento do ID de recursos.
+O nome é o segmento da ID do recurso que não inclui a assinatura, o tipo de recurso ou as informações do grupo de recursos. Basicamente, é o último segmento da ID do recurso.
 
 ### <a name="the-type-property"></a>A propriedade type
 Todos os painéis são do tipo __Microsoft.Portal/dashboards__.
@@ -311,13 +311,13 @@ Marcas são um recurso comum de recursos do Azure que lhe permitem organizar seu
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>O objeto proprierties
-O objeto de propriedades contém duas propriedades, __lenses__ e __metadata__. A propriedade __de lentes__ contém informações sobre as telhas no painel.  A propriedade __metadata__ está disponível para futuros recursos potenciais.
+O objeto de propriedades contém duas propriedades, __lenses__ e __metadata__. A propriedade __lentes__ contém informações sobre os blocos no painel.  A propriedade __metadata__ está disponível para futuros recursos potenciais.
 
 ### <a name="the-lenses-property"></a>A propriedade lenses
 A propriedade __lenses__ contém o painel. Observe que o objeto lenses neste exemplo contém uma única propriedade chamada "0". As lentes são um conceito de agrupamento que não está implementado atualmente nos painéis. Por enquanto, todos os seus painéis têm essa propriedade única no objeto lens, novamente, chamada "0".
 
 ### <a name="the-lens-object"></a>O objeto lens
-O objeto sob o "0" contém duas propriedades, __order__ e __parts__.  Na versão atual de painéis, __ordem__ é sempre 0. A propriedade __de peças__ contém um objeto que define as partes individuais (também chamadas de telhas) no painel.
+O objeto sob o "0" contém duas propriedades, __order__ e __parts__.  Na versão atual de painéis, __ordem__ é sempre 0. A propriedade __Parts__ contém um objeto que define as partes individuais (também chamadas de blocos) no painel.
 
 O objeto __parts__ contém uma propriedade para cada parte, no qual o nome da propriedade é um número. Esse número não é significativo. 
 
@@ -343,7 +343,7 @@ Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedad
 Cada tipo de parte tem sua própria configuração. As propriedades de configuração possíveis são chamadas de __entradas__, __configurações__ e __ativo__. 
 
 ### <a name="the-inputs-object"></a>O objeto inputs
-O objeto inputs geralmente contém informações que associam um bloco a uma instância do recurso.  A parte da máquina virtual em nosso painel de amostra contém uma única entrada que usa o ID de recurso do Azure para expressar a vinculação.  Esse formato de ID de recurso é consistente em todos os recursos do Azure.
+O objeto inputs geralmente contém informações que associam um bloco a uma instância do recurso.  A parte da máquina virtual em nosso painel de exemplo contém uma única entrada que usa a ID de recurso do Azure para expressar a associação.  Esse formato de ID de recurso é consistente em todos os recursos do Azure.
 
 ```json
 "inputs":
@@ -428,6 +428,6 @@ Da mesma forma, o bloco de vídeo tem suas próprias configurações que contêm
 ```
 
 ### <a name="the-asset-object"></a>O objeto asset
-Os blocos que estão associados aos objetos de portal gerenciáveis de primeira classe (chamados de ativos) têm essa relação expressa pelo objeto asset.  Em nosso painel de exemplo, o bloco de máquina virtual contém a descrição do ativo.  A propriedade __idInputName__ informa ao portal que a entrada iD contém o identificador exclusivo para o ativo, neste caso o ID de recurso. A maioria dos tipos de recursos do Azure tem ativos definidos no portal.
+Os blocos que estão associados aos objetos de portal gerenciáveis de primeira classe (chamados de ativos) têm essa relação expressa pelo objeto asset.  Em nosso painel de exemplo, o bloco de máquina virtual contém a descrição do ativo.  A propriedade __idInputName__ informa ao portal que a entrada de ID contém o identificador exclusivo para o ativo, nesse caso, a ID do recurso. A maioria dos tipos de recursos do Azure tem ativos definidos no portal.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

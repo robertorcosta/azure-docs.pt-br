@@ -1,15 +1,15 @@
 ---
-title: Use o Key Vault ao implantar um aplicativo gerenciado
+title: Usar Key Vault ao implantar o aplicativo gerenciado
 description: Mostra como usar segredos de acesso no Azure Key Vault ao implantar Aplicativos Gerenciados
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458276"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acessar segredo do Azure Key Vault durante a implantação de Aplicativos Gerenciados do Azure
@@ -30,13 +30,13 @@ Este artigo descreve como configurar o Key Vault para trabalhar com os Aplicativ
 
    ![Mostrar políticas de acesso avançado](./media/key-vault-access/advanced.png)
 
-1. Selecione **Habilitar acesso ao Azure Resource Manager para implantação de modelos**. Em seguida, **selecione Salvar**.
+1. Selecione **Habilitar acesso ao Azure Resource Manager para implantação de modelos**. Em seguida, selecione **salvar**.
 
    ![Habilitar a implantação de modelo](./media/key-vault-access/enable-template.png)
 
 ## <a name="add-service-as-contributor"></a>Adicionar o serviço como colaborador
 
-1. Selecione **controle de acesso (IAM)**.
+1. Selecione **controle de acesso (iam)**.
 
    ![Selecionar o controle de acesso](./media/key-vault-access/access-control.png)
 
@@ -48,11 +48,11 @@ Este artigo descreve como configurar o Key Vault para trabalhar com os Aplicativ
 
    ![Pesquisar por provedor](./media/key-vault-access/search-provider.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="reference-key-vault-secret"></a>Referenciar segredo do Key Vault
 
-Para passar um segredo de um Key Vault para um modelo em seu Aplicativo Gerenciado, você deve usar um [modelo vinculado ou aninhado](../templates/linked-templates.md) e referenciar o Key Vault nos parâmetros para o modelo vinculado ou aninhado. Forneça a ID de recurso do Key Vault e o nome do segredo.
+Para passar um segredo de um Key Vault para um modelo em seu aplicativo gerenciado, você deve usar um [modelo vinculado ou aninhado](../templates/linked-templates.md) e referenciar o Key Vault nos parâmetros para o modelo vinculado ou aninhado. Forneça a ID de recurso do Key Vault e o nome do segredo.
 
 ```json
 {

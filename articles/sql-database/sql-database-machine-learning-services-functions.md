@@ -1,7 +1,7 @@
 ---
 title: Gravar funções avançadas de R
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Aprenda a escrever uma função R para computação estatística avançada no Banco de Dados Azure SQL usando Serviços de Aprendizagem de Máquina (visualização).
+description: Saiba como escrever uma função do R para computação estatística avançada no banco de dados SQL do Azure usando Serviços de Machine Learning (versão prévia).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,15 +15,15 @@ manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: ba78267b1c6dc8f0e1bd25bb8ecdb1d8d344d03e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81453107"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Escrever funções do R avançadas em Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 
-Este artigo descreve como incorporar funções matemáticas e de utilidade R em um procedimento armazenado em SQL. As funções estatísticas avançadas que são complicadas de implementar no T-SQL podem ser feitas no R com apenas uma única linha de código.
+Este artigo descreve como inserir funções matemáticas e de utilitário R em um procedimento armazenado do SQL. As funções estatísticas avançadas que são complicadas de implementar no T-SQL podem ser feitas no R com apenas uma única linha de código.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -31,13 +31,13 @@ Este artigo descreve como incorporar funções matemáticas e de utilidade R em 
 
 - Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/) antes de começar.
 
-- Para executar o código de exemplo nesses exercícios, primeiro você deve ter [o Banco de Dados SQL do Azure com serviços de aprendizagem de máquina (com R)](sql-database-machine-learning-services-overview.md) ativado.
+- Para executar o código de exemplo nesses exercícios, primeiro você deve ter o [banco de dados SQL do Azure com serviços de Machine Learning (com R)](sql-database-machine-learning-services-overview.md) habilitado.
 
 - Verifique se você instalou a versão mais recente do SSMS ([SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)). Você pode executar scripts R usando outras ferramentas de consulta ou gerenciamento de banco de dados, mas neste início rápido, você usará o SSMS.
 
 ## <a name="create-a-stored-procedure-to-generate-random-numbers"></a>Criar um procedimento armazenado para gerar números aleatórios
 
-Para simplificar, vamos usar o `stats` pacote R instalado e carregado por padrão com o Banco de Dados SQL do Azure usando Serviços de Aprendizagem de Máquina (visualização). O pacote contém centenas de funções para `rnorm` tarefas estatísticas comuns, entre elas a função. Esta função gera um número especificado de números aleatórios usando a distribuição normal, dado um desvio padrão e meios.
+Para simplificar, vamos usar o pacote `stats` R que está instalado e carregado por padrão com o banco de dados SQL do Azure usando serviços de Machine Learning (versão prévia). O pacote contém centenas de funções para tarefas estatísticas comuns, entre elas a `rnorm` função. Essa função gera um número especificado de números aleatórios usando a distribuição normal, dado um desvio padrão e significa.
 
 Por exemplo, o código R a seguir retorna 100 números em uma média de 50, dado um desvio padrão de 3.
 
@@ -45,7 +45,7 @@ Por exemplo, o código R a seguir retorna 100 números em uma média de 50, dado
 as.data.frame(rnorm(100, mean = 50, sd = 3));
 ```
 
-Para chamar esta linha de R de `sp_execute_external_script` T-SQL, execute e adicione a função R no parâmetro r script, assim:
+Para chamar essa linha de R do T-SQL, execute `sp_execute_external_script` e adicione a função r no parâmetro de script r, desta forma:
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -58,7 +58,7 @@ WITH RESULT SETS(([Density] FLOAT NOT NULL));
 
 E se você quiser facilitar a geração de um conjunto de números aleatórios diferente?
 
-Isso é fácil quando combinado com SQL. Você define um procedimento armazenado que obtém os argumentos do usuário e, em seguida, passa esses argumentos para o script R como variáveis.
+Isso é fácil quando combinado com o SQL. Você define um procedimento armazenado que obtém os argumentos do usuário e, em seguida, passa esses argumentos para o script R como variáveis.
 
 ```sql
 CREATE PROCEDURE MyRNorm (
@@ -95,7 +95,7 @@ EXECUTE MyRNorm @param1 = 100
 
 ## <a name="use-r-utility-functions-for-troubleshooting"></a>Usar funções de utilitário de R para solução de problemas
 
-O `utils` pacote, instalado por padrão, fornece uma variedade de funções de utilidade para investigar o ambiente R atual. Essas funções podem ser úteis se você estiver encontrando discrepâncias na forma como seu código R é executado em SQL e em ambientes externos. Por exemplo, você pode usar a função R `memory.limit()` para obter memória para o ambiente atual de R.
+O `utils` pacote, instalado por padrão, fornece uma variedade de funções de utilitário para investigar o ambiente de R atual. Essas funções podem ser úteis se você estiver encontrando discrepâncias na maneira como o código R é executado no SQL e em ambientes externos. Por exemplo, você pode usar a função R `memory.limit()` para obter memória para o ambiente atual de R.
 
 Uma vez que o pacote `utils` é instalado, mas não carregado por padrão, primeiro é necessário usar a função `library()` para carregá-lo.
 
@@ -111,4 +111,4 @@ WITH RESULT SETS(([Col1] INT NOT NULL));
 ```
 
 > [!TIP]
-> Muitos usuários gostam de usar as funções `system.time` de `proc.time`tempo do sistema em R, como e , para capturar o tempo usado pelos processos R e analisar problemas de desempenho.
+> Muitos usuários gostam de usar as funções de tempo do sistema em R, `system.time` como `proc.time`e, para capturar o tempo usado pelos processos do r e analisar problemas de desempenho.

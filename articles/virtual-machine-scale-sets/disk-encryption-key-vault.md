@@ -1,6 +1,6 @@
 ---
 title: Criando e configurando um cofre de chaves para Azure Disk Encryption
-description: Este artigo fornece etapas para criar e configurar um cofre de chaves para uso com criptografia de disco Azure
+description: Este artigo fornece etapas para criar e configurar um cofre de chaves para uso com Azure Disk Encryption
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 author: msmbaldwin
@@ -8,33 +8,33 @@ ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 30fa6b910c0241621c2b2cdae9bb9a164f27cedb
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81454536"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption
 
-A Criptografia de Disco do Azure usa o Azure Key Vault para controlar e gerenciar chaves e segredos de criptografia de disco.  Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md) e [Proteja seu cofre de chaves](../key-vault/general/secure-your-key-vault.md).
+Azure Disk Encryption usa Azure Key Vault para controlar e gerenciar chaves de criptografia de disco e segredos.  Para obter mais informações sobre cofres-chave, consulte [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md) e [Proteja seu cofre de chaves](../key-vault/general/secure-your-key-vault.md).
 
 Criar e configurar um cofre de chaves para uso com o Azure Disk Encryption envolve três etapas:
 
-1. Criando um grupo de recursos, se necessário.
+1. Criar um grupo de recursos, se necessário.
 2. Criando um cofre de chaves. 
-3. Definindo políticas avançadas de acesso do cofre de chaves.
+3. Definindo políticas de acesso avançado do cofre de chaves.
 
-Estas etapas são ilustradas nas seguintes partidas rápidas:
+Essas etapas são ilustradas nos seguintes guias de início rápido:
 
-Você também pode, se desejar, gerar ou importar uma chave de criptografia (KEK).
+Você também pode, se desejar, gerar ou importar uma chave de criptografia de chave (KEK).
 
-## <a name="install-tools-and-connect-to-azure"></a>Instale ferramentas e conecte-se ao Azure
+## <a name="install-tools-and-connect-to-azure"></a>Instalar ferramentas e conectar-se ao Azure
 
-As etapas deste artigo podem ser completadas com o [Azure CLI](/cli/azure/), o [módulo Azure PowerShell Az](/powershell/azure/overview)ou o [portal Azure](https://portal.azure.com).
+As etapas neste artigo podem ser concluídas com o [CLI do Azure](/cli/azure/), o [módulo Azure PowerShell Az](/powershell/azure/overview)ou o [portal do Azure](https://portal.azure.com).
 
 ### <a name="connect-to-your-azure-account"></a>Conectar-se à sua conta do Azure
 
-Antes de usar o Azure CLI ou Azure PowerShell, você deve primeiro conectar-se à sua assinatura do Azure. Você faz isso [fazendo login com a Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), fazendo login com o [Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)ou fornecendo suas credenciais para o portal Azure quando solicitado.
+Antes de usar o CLI do Azure ou Azure PowerShell, você deve primeiro se conectar à sua assinatura do Azure. Você faz isso [entrando com CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [entrando com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)ou fornecendo suas credenciais para o portal do Azure quando solicitado.
 
 ```azurecli-interactive
 az login

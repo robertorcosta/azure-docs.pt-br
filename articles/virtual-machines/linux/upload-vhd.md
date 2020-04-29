@@ -1,5 +1,5 @@
 ---
-title: Carregar ou copiar um VM Linux personalizado com o Azure CLI
+title: Carregar ou copiar uma VM Linux personalizada com CLI do Azure
 description: Carregue ou copie uma máquina virtual personalizada usando o modelo de implantação do Gerenciador de Recursos e a CLI do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: 3306647078c46a7c66b3d7b257b213c7a48e690d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460419"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar uma VM Linux usando um disco personalizado com a CLI do Azure
@@ -50,7 +50,7 @@ Para concluir as etapas a seguir, você precisará de:
 
 - Certifique-se de que você tenha a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e você está conectado a uma conta do Azure com [login az](/cli/azure/reference-index#az-login).
 
-Nos exemplos a seguir, substitua os nomes dos `myResourceGroup`parâmetros por seus próprios valores, tais como , `mystorageaccount`e `mydisks`.
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo pelos seus próprios valores `myResourceGroup`, `mystorageaccount`como, `mydisks`e.
 
 <a id="prepimage"> </a>
 
@@ -75,15 +75,15 @@ Veja também as [Observações de instalação do Linux](create-upload-generic.m
 
 ## <a name="option-1-upload-a-vhd"></a>Opção 1: Carregar um VHD
 
-Agora você pode carregar VHD diretamente em um disco gerenciado. Para obter instruções, consulte [Enviar um VHD para o Azure usando o Azure CLI](disks-upload-vhd-to-managed-disk-cli.md).
+Agora você pode carregar o VHD diretamente em um disco gerenciado. Para obter instruções, consulte [carregar um VHD no Azure usando CLI do Azure](disks-upload-vhd-to-managed-disk-cli.md).
 
 ## <a name="option-2-copy-an-existing-vm"></a>Opção 2: Copiar uma VM existente
 
 Você pode também criar uma VM personalizada no Azure e, em seguida, copie o disco do sistema operacional e anexe-o a uma nova VM para criar outra cópia. Isso é bom para teste, mas se você quiser usar uma VM do Azure existente como modelo para várias novas VMs, crie uma *imagem* em vez disso. Para obter mais informações sobre como criar uma imagem de uma VM do Azure existente, consulte [Criar uma imagem personalizada de uma VM do Azure usando a CLI](tutorial-custom-images.md).
 
-Se você quiser copiar uma VM existente para outra região, você pode querer usar a zcópia para [creat uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
+Se você quiser copiar uma VM existente para outra região, talvez queira usar azcopy para criar [uma cópia de um disco em outra região](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk). 
 
-Caso contrário, você deve tirar um instantâneo da VM e, em seguida, criar um novo OS VHD a partir do instantâneo.
+Caso contrário, você deve tirar um instantâneo da VM e, em seguida, criar um novo VHD do sistema operacional a partir do instantâneo.
 
 ### <a name="create-a-snapshot"></a>Criar um instantâneo
 

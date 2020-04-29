@@ -5,37 +5,37 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d1ec61bf18248ea56c8ee5e430a671af7f39d732
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458652"
 ---
-É importante manter sua máquina virtual (VM) segura para os aplicativos que você executa. Proteger suas VMs pode incluir um ou mais serviços do Azure e recursos que abrangem o acesso seguro a suas máquinas virtuais e armazenamento seguro de seus dados. Este artigo fornece informações que permite que você mantenha sua VM e aplicativos seguros.
+É importante manter sua VM (máquina virtual) segura para os aplicativos que você executa. Proteger suas VMs pode incluir um ou mais serviços do Azure e recursos que abrangem o acesso seguro a suas máquinas virtuais e armazenamento seguro de seus dados. Este artigo fornece informações que permite que você mantenha sua VM e aplicativos seguros.
 
 ## <a name="antimalware"></a>Antimalware
 
-O panorama atual de ameaças a ambientes de nuvem é dinâmico, aumentando a pressão para manter uma proteção eficaz e atender aos requisitos de conformidade e segurança na nuvem. O [Microsoft Antimalware para Azure](../articles/security/fundamentals/antimalware.md) é uma funcionalidade de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Os alertas podem ser configurados para notificar você quando se sabe que software mal-intencionado ou indesejado tenta se instalar ou ser executado em sua VM. Ele não é suportado em VMs executando Linux ou Windows Server 2008.
+O panorama atual de ameaças a ambientes de nuvem é dinâmico, aumentando a pressão para manter uma proteção eficaz e atender aos requisitos de conformidade e segurança na nuvem. O [Microsoft Antimalware para Azure](../articles/security/fundamentals/antimalware.md) é uma funcionalidade de proteção em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares mal-intencionados. Os alertas podem ser configurados para notificar você quando se sabe que software mal-intencionado ou indesejado tenta se instalar ou ser executado em sua VM. Não há suporte para ele em VMs que executam o Linux ou o Windows Server 2008.
 
 ## <a name="azure-security-center"></a>Central de Segurança do Azure
 
 A [Central de Segurança do Azure](../articles/security-center/security-center-intro.md) ajuda você a evitar, detectar e responder a ameaças às suas VMs. O Centro de Segurança permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-O acesso just-in-time do Security Center pode ser aplicado em toda a sua implantação de VM para bloquear o tráfego de entrada em suas VMs do Azure, reduzindo a exposição a ataques e fornecendo acesso fácil para se conectar às VMs quando necessário. Quando o Just-In-Time está habilitado e um usuário solicita acesso a uma VM, a Central de Segurança verifica quais permissões o usuário tem para a VM. Se o usuário tem as permissões corretas, a solicitação é aprovada e a Central de Segurança configura automaticamente os NSGs (Grupos de Segurança de Rede) para permitir o tráfego de entrada às portas selecionadas pelo período limitado. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores. 
+O acesso just-in-time da central de segurança pode ser aplicado em sua implantação de VM para bloquear o tráfego de entrada para suas VMs do Azure, reduzindo a exposição a ataques e, ao mesmo tempo, fornecendo acesso fácil para se conectar às VMs quando necessário. Quando o Just-In-Time está habilitado e um usuário solicita acesso a uma VM, a Central de Segurança verifica quais permissões o usuário tem para a VM. Se o usuário tem as permissões corretas, a solicitação é aprovada e a Central de Segurança configura automaticamente os NSGs (Grupos de Segurança de Rede) para permitir o tráfego de entrada às portas selecionadas pelo período limitado. Depois que o tempo expirar, a Central de Segurança restaura os NSGs aos seus estados anteriores. 
 
 ## <a name="encryption"></a>Criptografia
 
-Dois métodos de criptografia são oferecidos para discos gerenciados. Criptografia no nível do SO, que é a criptografia de disco Do Zure, e a criptografia no nível da plataforma, que é a criptografia do lado do servidor.
+Dois métodos de criptografia são oferecidos para discos gerenciados. Criptografia no nível do sistema operacional, que é Azure Disk Encryption e criptografia no nível da plataforma, que é a criptografia do lado do servidor.
 
 ### <a name="server-side-encryption"></a>Criptografia no servidor
 
-Os discos gerenciados do Azure criptografam automaticamente seus dados por padrão ao persistirem na nuvem. A criptografia do lado do servidor protege seus dados e ajuda você a cumprir seus compromissos de segurança organizacional e conformidade. Os dados em discos gerenciados do Azure são criptografados de forma transparente usando [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uma das cifras de bloco mais fortes disponíveis, e é compatível com FIPS 140-2.
+O Azure Managed disks criptografa automaticamente os dados por padrão ao mantê-los para a nuvem. A criptografia do lado do servidor protege seus dados e ajuda a atender aos compromissos de segurança e conformidade da organização. Os dados nos Managed disks do Azure são criptografados de forma transparente usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2.
 
-A criptografia não afeta o desempenho dos discos gerenciados. Não há custo adicional para a criptografia.
+A criptografia não afeta o desempenho dos discos gerenciados. Não há nenhum custo adicional para a criptografia.
 
-Você pode confiar em chaves gerenciadas pela plataforma para a criptografia do seu disco gerenciado ou gerenciar a criptografia usando suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, você pode especificar uma *chave gerenciada pelo cliente* para usar para criptografar e descriptografar todos os dados em discos gerenciados. 
+Você pode contar com chaves gerenciadas por plataforma para a criptografia do seu disco gerenciado ou pode gerenciar a criptografia usando suas próprias chaves. Se você optar por gerenciar a criptografia com suas próprias chaves, poderá especificar uma *chave gerenciada pelo cliente* a ser usada para criptografar e descriptografar todos os dados em discos gerenciados. 
 
-Para saber mais sobre criptografia do lado do servidor, consulte os artigos para [Windows](../articles/virtual-machines/windows/disk-encryption.md) ou [Linux](../articles/virtual-machines/linux/disk-encryption.md).
+Para saber mais sobre a criptografia do lado do servidor, consulte os artigos para [Windows](../articles/virtual-machines/windows/disk-encryption.md) ou [Linux](../articles/virtual-machines/linux/disk-encryption.md).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 

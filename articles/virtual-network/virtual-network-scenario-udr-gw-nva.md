@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81455355"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
@@ -29,23 +29,23 @@ Um cenário comum entre os maiores clientes do Azure é a necessidade de fornece
 * Todo o tráfego indo para o servidor de aplicativos deve passar por um dispositivo virtual de firewall. Este dispositivo virtual será usado para acesso ao servidor de back-end e para acesso proveniente da rede local por meio de um Gateway de VPN.
 * Os administradores devem ser capazes de gerenciar os dispositivos virtuais de firewall em seus computadores locais usando um terceiro dispositivo virtual de firewall usado exclusivamente para fins de gerenciamento.
 
-Este é um cenário de rede de perímetro padrão (também conhecido como DMZ) com um DMZ e uma rede protegida. Tal cenário pode ser construído no Azure usando NSGs, dispositivos virtuais de firewall ou uma combinação de ambos. A tabela a seguir mostra alguns dos prós e contras entre NSGs e dispositivos virtuais de firewall.
+Esse é um cenário de rede de perímetro padrão (também conhecido como DMZ) com uma DMZ e uma rede protegida. Esse cenário pode ser construído no Azure usando NSGs, dispositivos virtuais de firewall ou uma combinação de ambos. A tabela a seguir mostra alguns dos prós e contras entre NSGs e dispositivos virtuais de firewall.
 
 |  | Vantagens | Desvantagens |
 | --- | --- | --- |
-| NSG |Sem custo. <br/>Integrado ao RBAC do Azure. <br/>As regras podem ser criadas nos modelos do Azure Resource Manager. |A complexidade pode variar em ambientes maiores. |
+| NSG |Sem custo. <br/>Integrado ao RBAC do Azure. <br/>As regras podem ser criadas em modelos de Azure Resource Manager. |A complexidade pode variar em ambientes maiores. |
 | Firewall |Controle total sobre o plano de dados. <br/>Gerenciamento central por meio do console do firewall. |Custo do dispositivo de firewall. <br/>Não é integrado ao RBAC do Azure. |
 
-A solução abaixo usa aparelhos virtuais de firewall para implementar um cenário de rede de perímetro (DMZ)/rede protegida.
+A solução a seguir usa dispositivos virtuais de firewall para implementar um cenário de rede de rede de perímetro (DMZ)/protected.
 
 ## <a name="considerations"></a>Considerações
 Você pode implantar o ambiente explicado anteriormente no Azure usando da seguinte maneira diferentes recursos disponíveis hoje.
 
-* **Rede virtual (VNet)**. Uma VNet do Azure funciona de maneira semelhante a uma rede local e pode ser segmentada em uma ou mais sub-redes para fornecer isolamento de tráfego e separação de preocupações.
-* **Aparelho virtual**. Vários parceiros fornecem dispositivos virtuais no Azure Marketplace que podem ser usados para os três firewalls descritos acima. 
+* **Rede virtual (VNet)** . Uma VNet do Azure funciona de maneira semelhante a uma rede local e pode ser segmentada em uma ou mais sub-redes para fornecer isolamento de tráfego e separação de preocupações.
+* **Dispositivo virtual**. Vários parceiros fornecem dispositivos virtuais no Azure Marketplace que podem ser usados para os três firewalls descritos acima. 
 * **UDR (Rotas Definidas pelo Usuário)**. As tabelas de rotas podem conter UDRs usadas pela rede do Azure para controlar o fluxo de pacotes em uma VNet. Essas tabelas de rotas podem ser aplicadas a sub-redes. Um dos recursos mais recentes no Azure é a capacidade de aplicar uma tabela de rotas para o GatewaySubnet, fornecendo a capacidade de encaminhar todo o tráfego de entrada da VNet do Azure de uma conexão híbrida para um dispositivo virtual.
-* **Encaminhamento ip**. Por padrão, o mecanismo de rede do Azure encaminhará pacotes a NICs (placas de interface de rede virtual) somente se o endereço IP de destino do pacote corresponder ao endereço IP da NIC. Portanto, se uma UDR definir que um pacote deverá ser enviado para um determinado dispositivo virtual, o mecanismo de rede do Azure deverá remover esse pacote. Para garantir que o pacote seja entregue a uma VM (no caso, um dispositivo virtual) que não seja o destino real do pacote, você precisará habilitar o encaminhamento IP para o dispositivo virtual.
-* **Grupos de segurança de rede (NSGs)**. O exemplo a seguir não faz uso de NSGs, mas você pode usar os NSGs aplicados às sub-redes e/ou NICs nesta solução para filtrar ainda mais o tráfego de entrada e saída dessas NICs e sub-redes.
+* **Encaminhamento de IP**. Por padrão, o mecanismo de rede do Azure encaminhará pacotes a NICs (placas de interface de rede virtual) somente se o endereço IP de destino do pacote corresponder ao endereço IP da NIC. Portanto, se uma UDR definir que um pacote deverá ser enviado para um determinado dispositivo virtual, o mecanismo de rede do Azure deverá remover esse pacote. Para garantir que o pacote seja entregue a uma VM (no caso, um dispositivo virtual) que não seja o destino real do pacote, você precisará habilitar o encaminhamento IP para o dispositivo virtual.
+* **NSGs (grupos de segurança de rede)**. O exemplo a seguir não faz uso de NSGs, mas você pode usar os NSGs aplicados às sub-redes e/ou NICs nesta solução para filtrar ainda mais o tráfego de entrada e saída dessas NICs e sub-redes.
 
 ![Conectividade IPv6](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -166,5 +166,5 @@ Para implantar este cenário, siga as etapas de alto nível abaixo.
 2. Se você desejar implantar uma VNet para imitar a rede local, provisione os recursos que fazem parte do **ONPREMRG**.
 3. Provisione os recursos que fazem parte do **AZURERG**.
 4. Provisionar o túnel de **onpremvnet** para **azurevnet**.
-5. Uma vez que todos os recursos sejam provisionados, faça login no **onpremvm2** e no ping 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
+5. Depois que todos os recursos forem provisionados, entre em **onpremvm2** e execute ping 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
 

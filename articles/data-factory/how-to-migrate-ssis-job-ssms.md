@@ -1,6 +1,6 @@
 ---
-title: Migrar empregos de SQL Server Integration Services (SSIS) no local para a fábrica de dados do Azure
-description: Este artigo descreve como migrar os empregos sql server integration services (SSIS) para pipelines/atividades/gatilhos da Fábrica de Dados Do Azure usando o SQL Server Management Studio.
+title: Migrar trabalhos do SSIS (SQL Server Integration Services local) para Azure Data Factory
+description: Este artigo descreve como migrar trabalhos do SQL Server Integration Services (SSIS) para Azure Data Factory pipelines/atividades/gatilhos usando SQL Server Management Studio.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -12,71 +12,71 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81455080"
 ---
-# <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrar empregos de agente de servidor SQL para ADF com SSMS
+# <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrar trabalhos do SQL Server Agent para o ADF com o SSMS
 
-Ao [migrar as cargas de trabalho do SQL Server Integration Services (SSIS) para SSIS no ADF](scenario-ssis-migration-overview.md), depois que os pacotes SSIS forem migrados, você pode fazer a migração em lote de trabalhos do SQL Server Agent **SSIS Job Migration Wizard**com o tipo de passo de trabalho do Pacote de Serviços de Integração de Servidores SQL para a af
+Ao [migrar cargas de trabalho do SSIS (SQL Server Integration Services locais) para o SSIS no ADF](scenario-ssis-migration-overview.md), depois que os pacotes SSIS são migrados, você pode fazer a migração em lote de trabalhos de SQL Server Agent com o tipo de etapa de trabalho do pacote de SQL Server Integration Services para Azure data Factory (ADF) pipelines/atividades/agendamentos de agendamento por meio do **Assistente de migração de trabalho SSIS**do SQL Server Management Studio (SSMS).
 
-Em geral, para trabalhos de agente SQL selecionados com tipos de etapas de trabalho aplicáveis, **o SSIS Job Migration Wizard** pode:
+Em geral, para trabalhos selecionados do SQL Agent com tipos de etapa de trabalho aplicáveis, o **Assistente de migração de trabalho do SSIS** pode:
 
-- mapear a localização do pacote SSIS no local para onde os pacotes são migrados, que são acessíveis pelo SSIS no ADF.
+- Mapeie a localização do pacote SSIS local para o qual os pacotes são migrados, que podem ser acessados pelo SSIS no ADF.
     > [!NOTE]
-    > A localização do pacote do Sistema de Arquivos é suportada apenas.
-- migrar os trabalhos aplicáveis com etapas de trabalho aplicáveis aos recursos Correspondentes do ADF conforme abaixo:
+    > Só há suporte para o local do pacote do sistema de arquivos.
+- Migre trabalhos aplicáveis com etapas de trabalho aplicáveis para os recursos do ADF correspondentes, como mostrado abaixo:
 
-|Objeto de trabalho do Agente SQL  |Recurso ADF  |Observações|
+|Objeto de trabalho do SQL Agent  |Recurso do ADF  |Anotações|
 |---------|---------|---------|
-|Trabalho de agente SQL|pipeline     |O nome do gasoduto será *gerado para \<nome de emprego>*. <br> <br> Os trabalhos de agente incorporado não são aplicáveis: <li> Trabalho de manutenção do servidor SSIS <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
-|Etapa de trabalho do SSIS|Executar a atividade do pacote SSIS|<li> O nome da \<atividade será o nome da etapa>. <li> A conta proxy usada na etapa de trabalho será migrada à medida que o Windows autenticar essa atividade. <li> *Opções de execução,* *exceto Use o tempo de execução de 32 bits* definido na etapa de trabalho será ignorado na migração. <li> *A verificação* definida na etapa de trabalho será ignorada na migração.|
-|schedule      |agendar o gatilho        |O nome do gatilho de agendamento será *gerado para \<o nome do horário>*. <br> <br> As opções abaixo no cronograma de trabalho do SQL Agent serão ignoradas na migração: <li> Intervalo de segundo nível. <li> *Iniciar automaticamente quando o SQL Server Agent for iniciado* <li> *Iniciar sempre que as CPUs estiverem ociosas* <li> *dia da semana* e *dia de fim de semana*<time zone> <br> Abaixo estão as diferenças após o cronograma de trabalho do Agente SQL ser migrado para o gatilho de cronograma do ADF: <li> ADF Schedule Trigger a execução subseqüente é independente do estado de execução do antecedente acionado. <li> A configuração de recorrência do acionamento de gatilho do ADF difere da freqüência diária no trabalho de agente SQL.|
+|Trabalho do SQL Agent|pipeline     |O nome do pipeline será *gerado para \<o nome do trabalho>*. <br> <br> Os trabalhos internos do agente não são aplicáveis: <li> Trabalho de manutenção do servidor SSIS <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
+|Etapa de trabalho do SSIS|Atividade executar pacote SSIS|<li> O nome da atividade será o \<nome da etapa>. <li> A conta proxy usada na etapa de trabalho será migrada como autenticação do Windows desta atividade. <li> *As opções de execução* , exceto *usar tempo de execução de 32 bits* definidos na etapa de trabalho, serão ignoradas na migração. <li> A *verificação* definida na etapa de trabalho será ignorada na migração.|
+|schedule      |agendar o gatilho        |O nome do gatilho de agendamento será *gerado para \<o nome da agenda>*. <br> <br> As opções abaixo na agenda de trabalho do SQL Agent serão ignoradas na migração: <li> Intervalo de segundo nível. <li> *Iniciar automaticamente quando o SQL Server Agent for iniciado* <li> *Iniciar sempre que as CPUs estiverem ociosas* <li> dia *útil* e fim de *semana*<time zone> <br> Abaixo estão as diferenças após o agendamento de trabalho do SQL Agent ser migrado para o gatilho de agenda do ADF: <li> O gatilho de agendamento do ADF de execução subsequente é independente do estado de execução da execução disparada por Antecedent. <li> A configuração de recorrência do gatilho de agendamento do ADF difere da frequência diária no trabalho do SQL Agent.|
 
-- gerar modelos ARM (Azure Resource Manager) na pasta de saída local e implantar na fábrica de dados diretamente ou posteriormente. Para obter mais informações sobre os modelos do ADF Resource Manager, consulte [os tipos de recursos microsoft.dataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
+- gere modelos de Azure Resource Manager (ARM) na pasta de saída local e implante em data factory diretamente ou mais tarde manualmente. Para obter mais informações sobre os modelos do Gerenciador de recursos do ADF, consulte [tipos de recurso Microsoft. datafactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O recurso descrito neste artigo requer sql server management studio versão 18.5 ou superior. Para obter a versão mais recente do SSMS, confira [Baixar o SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
+O recurso descrito neste artigo requer SQL Server Management Studio versão 18,5 ou superior. Para obter a versão mais recente do SSMS, confira [Baixar o SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 
-## <a name="migrate-ssis-jobs-to-adf"></a>Migrar empregos do SSIS para ODF
+## <a name="migrate-ssis-jobs-to-adf"></a>Migrar trabalhos do SSIS para o ADF
 
-1. No SSMS, no Object Explorer, selecione SQL Server Agent, selecione Jobs e clique com o botão direito do mouse e selecione **Migrar trabalhos SSIS para ADF**.
-![Menu](media/how-to-migrate-ssis-job-ssms/menu.png)
+1. No SSMS, no Pesquisador de objetos, selecione SQL Server Agent, selecione trabalhos, clique com o botão direito do mouse e selecione **migrar trabalhos do SSIS para o ADF**.
+![AdicionarMenu](media/how-to-migrate-ssis-job-ssms/menu.png)
 
-1. Inscreva-se no Azure, selecione Azure Subscription, Data Factory e Integration Runtime. O Azure Storage é opcional, que é usado na etapa de mapeamento de localização do pacote se os trabalhos do SSIS a serem migrados tiverem pacotes do Sistema de Arquivos SSIS.
-![Menu](media/how-to-migrate-ssis-job-ssms/step1.png)
+1. Entre no Azure, selecione assinatura do Azure, Data Factory e Integration Runtime. O armazenamento do Azure é opcional, que será usado na etapa de mapeamento de local do pacote se os trabalhos do SSIS a serem migrados tiverem pacotes do sistema de arquivos SSIS.
+![AdicionarMenu](media/how-to-migrate-ssis-job-ssms/step1.png)
 
-1. Mapeie os caminhos dos pacotes SSIS e arquivos de configuração em trabalhos ssis para caminhos de destino onde os pipelines migrados podem acessar. Nesta etapa de mapeamento, você pode:
+1. Mapeie os caminhos de pacotes do SSIS e arquivos de configuração em trabalhos do SSIS para caminhos de destino em que os pipelines migrados podem acessar. Nesta etapa de mapeamento, você pode:
 
-    1. Selecione uma pasta de origem e, em seguida, **adicione mapeamento**.
-    1. Atualizar o caminho da pasta de origem. Caminhos válidos são caminhos de pasta ou caminhos de pasta pai de pacotes.
-    1. Atualizar o caminho da pasta de destino. O padrão é o caminho relativo à conta de armazenamento padrão, que é selecionada na etapa 1.
-    1. Exclua um mapeamento selecionado via **Mapeamento de Exclusão**.
-![passo2](media/how-to-migrate-ssis-job-ssms/step2.png)
-![passo2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+    1. Selecione uma pasta de origem e, em seguida, **Adicionar mapeamento**.
+    1. Caminho da pasta de origem da atualização. Caminhos válidos são caminhos de pasta ou caminhos de pasta pai de pacotes.
+    1. Caminho da pasta de destino da atualização. O padrão é o caminho relativo para a conta de armazenamento padrão, que é selecionada na etapa 1.
+    1. Exclua um mapeamento selecionado por meio de **mapeamento de exclusão**.
+![etapa 2](media/how-to-migrate-ssis-job-ssms/step2.png)
+![etapa 2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
-1. Selecione os trabalhos aplicáveis para migrar e configure as configurações da atividade correspondente do *pacote SSIS executado*.
+1. Selecione os trabalhos aplicáveis a serem migrados e defina as configurações da *atividade de pacote SSIS executada*correspondente.
 
-    - *Configuração padrão,* aplica-se a todas as etapas selecionadas por padrão. Para obter mais informações sobre cada propriedade, consulte *A guia Configurações* para executar a [atividade do pacote SSIS](how-to-invoke-ssis-package-ssis-activity.md) quando o local do pacote é *O Sistema de Arquivos (Pacote)*.
-    ![passo3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
-    - *Configuração de*etapas , configure a configuração de uma etapa selecionada.
+    - A *configuração padrão*aplica-se a todas as etapas selecionadas por padrão. Para obter mais informações sobre cada propriedade, consulte a *guia Configurações* da [atividade executar pacote SSIS](how-to-invoke-ssis-package-ssis-activity.md) quando o local *do pacote é sistema de arquivos (pacote)*.
+    ![etapa 3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
+    - *Configuração de etapa*, defina a configuração para uma etapa selecionada.
         
-        **Aplicar Configuração padrão**: o padrão é selecionado. Desmarcar para configurar a configuração apenas para a etapa selecionada.  
-        Para obter mais informações sobre outras propriedades, consulte *A guia Configurações* para executar a [atividade do pacote SSIS](how-to-invoke-ssis-package-ssis-activity.md) quando o local do pacote é *O Sistema de Arquivos (Pacote)*.
-    ![passo3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
+        **Aplicar configuração padrão**: o padrão é selecionado. Desmarque para definir a configuração somente para a etapa selecionada.  
+        Para obter mais informações sobre outras propriedades, consulte a *guia Configurações* da [atividade executar pacote SSIS](how-to-invoke-ssis-package-ssis-activity.md) quando o local *do pacote é sistema de arquivos (pacote)*.
+    ![etapa 3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
 
-1. Gerar e implantar o modelo ARM.
-    1. Selecione ou insira o caminho de saída para os modelos ARM dos gasodutos ADF migrados. A pasta será criada automaticamente se não existir.
-    2. Selecione a opção **implantar modelos ARM na fábrica de dados**:
-        - O padrão não é selecionado. Você pode implantar modelos ARM gerados mais tarde manualmente.
-        - Selecione para implantar modelos ARM gerados na fábrica de dados diretamente.
+1. Gere e implante o modelo ARM.
+    1. Selecione ou insira o caminho de saída para os modelos ARM dos pipelines do ADF migrados. A pasta será criada automaticamente se não existir.
+    2. Selecione a opção de **implantar modelos de ARM em seu data Factory**:
+        - O padrão é desmarcado. Você pode implantar modelos ARM gerados mais tarde manualmente.
+        - Selecione para implantar modelos ARM gerados para data factory diretamente.
     ![etapa4](media/how-to-migrate-ssis-job-ssms/step4.png)
 
-1. Migre e verifique os resultados.
-![passo5](media/how-to-migrate-ssis-job-ssms/step5.png)
+1. Migre e, em seguida, verifique os resultados.
+![Step5](media/how-to-migrate-ssis-job-ssms/step5.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

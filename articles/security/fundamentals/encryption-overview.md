@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
 ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81454638"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
@@ -105,7 +105,7 @@ A CLE tem funções internas que você pode usar para criptografar dados usando 
 
 ### <a name="cosmos-db-database-encryption"></a>Criptografia de banco de dados do Cosmos DB
 
-[O Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) é o banco de dados multimodelo distribuído globalmente pela Microsoft. Os dados de usuário armazenados no Cosmos DB em um armazenamento não volátil (unidades de estado sólido) são criptografados por padrão. Não existem controles para ativá-lo nem desativá-lo. A criptografia em repouso é implementada usando várias tecnologias de segurança, incluindo sistemas seguros de armazenamento de chaves, redes criptografadas e APIs criptográficas. As chaves de criptografia são gerenciadas pela Microsoft e giradas conforme as diretrizes internas da Microsoft.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) é o banco de dados multimodelo distribuído globalmente da Microsoft. Os dados de usuário armazenados no Cosmos DB em um armazenamento não volátil (unidades de estado sólido) são criptografados por padrão. Não existem controles para ativá-lo nem desativá-lo. A criptografia em repouso é implementada usando várias tecnologias de segurança, incluindo sistemas seguros de armazenamento de chaves, redes criptografadas e APIs criptográficas. As chaves de criptografia são gerenciadas pela Microsoft e giradas conforme as diretrizes internas da Microsoft.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Criptografia em repouso no Data Lake
 
