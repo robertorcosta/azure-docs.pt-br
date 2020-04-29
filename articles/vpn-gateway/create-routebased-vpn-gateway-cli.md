@@ -1,5 +1,5 @@
 ---
-title: 'Crie um Gateway Azure VPN baseado em rota: CLI'
+title: 'Criar um gateway de VPN do Azure baseado em rota: CLI'
 description: Saiba como criar rapidamente um Gateway de VPN usando CLI
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
 ms.openlocfilehash: 121790fce220874babedf67cd72471caa7e92ae6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241099"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Criar um Gateway de VPN baseado em rota usando CLI
@@ -22,7 +22,7 @@ As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Caso opte por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão instalada, execute `az --version`. Caso precise instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Caso opte por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão instalada, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -33,7 +33,7 @@ Crie um grupo de recursos usando o comando [az group create](/cli/azure/group). 
 az group create --name TestRG1 --location eastus
 ```
 
-## <a name="create-a-virtual-network"></a><a name="vnet"></a>Crie uma rede virtual
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Criar uma rede virtual
 
 Crie uma rede virtual usando o comando [az network vnet create](/cli/azure/network/vnet). O exemplo a seguir cria uma rede virtual padrão chamada **VNet1** no local **EastUS**:
 
@@ -70,7 +70,7 @@ az network public-ip create \
   --allocation-method Dynamic 
 ```
 
-## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Crie o gateway VPN
+## <a name="create-the-vpn-gateway"></a><a name="CreateGateway"></a>Criar o gateway de VPN
 
 Criar o gateway de VPN usando o comando [az network vnet-gateway create](/cli/azure/group).
 
@@ -171,7 +171,7 @@ Resposta de exemplo:
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos criados não forem mais necessários, use [az group delete](/cli/azure/group) para excluir o grupo de recursos. Isso excluirá o grupo de recursos e todos os recursos que ele contém.
 

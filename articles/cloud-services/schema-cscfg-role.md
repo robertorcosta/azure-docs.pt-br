@@ -1,6 +1,6 @@
 ---
 title: Esquema de função dos Serviços de Nuvem do Azure | Microsoft Docs
-description: O elemento Função de um arquivo de configuração de serviço especifica quantas instâncias de função devem ser implantadas para cada função, valores de configuração e impressões digitais do certificado.
+description: O elemento Role de um arquivo de configuração de serviço especifica quantas instâncias de função implantar para cada função, valores de configuração e impressões digitais de certificado.
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
@@ -10,10 +10,10 @@ caps.latest.revision: 12
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: b64f9d27e382a39b132593502fed32c565af473a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79528414"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Esquema de função de configuração dos Serviços de Nuvem do Azure
@@ -51,8 +51,8 @@ A tabela a seguir descreve os elementos filho do elemento `Role`.
 | Elemento | Descrição |
 | ------- | ----------- |
 | Instâncias | Obrigatórios. Especifica o número de instâncias a serem implantadas para a função. O número de instâncias é definido por um inteiro para o atributo `count`.|
-| Configuração   | Opcional. Especifica um nome e valor da configuração em uma coleção de configurações para uma função. O nome da configuração é definido por uma cadeia de caracteres para o atributo `name` e o valor da configuração é definido por uma cadeia de caracteres para o atributo `value`.|
+| Setting   | Opcional. Especifica um nome e valor da configuração em uma coleção de configurações para uma função. O nome da configuração é definido por uma cadeia de caracteres para o atributo `name` e o valor da configuração é definido por uma cadeia de caracteres para o atributo `value`.|
 | Certificado | Opcional. Especifica o nome, a impressão digital e o algoritmo de um certificado de serviço a ser associado à função. O nome do certificado é definido por uma cadeia de caracteres para o atributo `name`. A impressão digital do certificado é definida por uma cadeia de caracteres de números hexadecimais sem espaços para o atributo `thumbprint`. Os números hexadecimais devem ser representados usando dígitos e caracteres alfa maiúsculos. O algoritmo do certificado é definido por uma cadeia de caracteres para o atributo `thumbprintAlgorithm`.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Esquema de configuração do Serviço de Nuvem (clássico)](schema-cscfg-file.md)

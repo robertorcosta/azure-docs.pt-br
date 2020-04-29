@@ -4,25 +4,25 @@ description: Descreve como resolver o erro de ter mais de 800 implantações no 
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.openlocfilehash: 919cd9a3482401cd47516e2677b0bf58387488b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80245082"
 ---
-# <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolver erro quando a contagem de implantação excede 800
+# <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolver erro quando a contagem de implantação exceder 800
 
-Cada grupo de recursos está limitado a 800 implantações em seu histórico de implantação. Este artigo descreve o erro que você recebe quando uma implantação falha porque excederia as 800 implantações permitidas. Para resolver esse erro, exclua implantações do histórico do grupo de recursos. A exclusão de uma implantação do histórico não afeta nenhum dos recursos que foram implantados.
+Cada grupo de recursos é limitado a 800 implantações em seu histórico de implantação. Este artigo descreve o erro que você recebe quando uma implantação falha porque ela excederia as implantações permitidas do 800. Para resolver esse erro, exclua as implantações do histórico do grupo de recursos. A exclusão de uma implantação do histórico não afeta nenhum dos recursos que foram implantados.
 
 ## <a name="symptom"></a>Sintoma
 
-Durante a implantação, você recebe um erro afirmando que a implantação atual excederá a cota de 800 implantações.
+Durante a implantação, você receberá um erro informando que a implantação atual excederá a cota de implantações de 800.
 
 ## <a name="solution"></a>Solução
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Use o [comando az deployment group delete](/cli/azure/group/deployment) para excluir implantações do histórico.
+Use o comando [AZ Deployment Group Delete](/cli/azure/group/deployment) para excluir implantações do histórico.
 
 ```azurecli-interactive
 az deployment group delete --resource-group exampleGroup --name deploymentName
@@ -48,7 +48,7 @@ az deployment group list --resource-group exampleGroup --query "length(@)"
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Use o [comando Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) para excluir implantações do histórico.
+Use o comando [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) para excluir implantações do histórico.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymentName
@@ -72,7 +72,7 @@ Você pode obter a contagem atual no histórico de implantação com o seguinte 
 
 ## <a name="third-party-solutions"></a>Soluções de terceiros
 
-As seguintes soluções externas abordam cenários específicos:
+As soluções externas a seguir abordam cenários específicos:
 
-* [Azure Logic Apps e soluções PowerShell](https://devkimchi.com/2018/05/30/managing-excessive-arm-deployment-histories-with-logic-apps/)
+* [Aplicativos lógicos do Azure e soluções do PowerShell](https://devkimchi.com/2018/05/30/managing-excessive-arm-deployment-histories-with-logic-apps/)
 * [Extensão AzDevOps](https://github.com/christianwaha/AzureDevOpsExtensionCleanRG)

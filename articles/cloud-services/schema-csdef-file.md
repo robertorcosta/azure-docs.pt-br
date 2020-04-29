@@ -1,6 +1,6 @@
 ---
 title: Esquema de definição (arquivo .csdef) dos Serviços de Nuvem do Azure | Microsoft Docs
-description: Um arquivo de definição de serviço (.csdef) define um modelo de serviço para um aplicativo, contendo funções disponíveis, pontos finais e valores de configuração para o serviço.
+description: Um arquivo de definição de serviço (. csdef) define um modelo de serviço para um aplicativo, contendo funções disponíveis, pontos de extremidade e valores de configuração para o serviço.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -10,10 +10,10 @@ caps.latest.revision: 42
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: dadb50bd0663f47e6a1bf3d58b5187c8b466964d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79528363"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição (arquivo .csdef) dos Serviços de Nuvem do Azure
@@ -68,4 +68,4 @@ A tabela a seguir descreve os atributos do elemento `ServiceDefinition`.
 | name                    |Obrigatórios. O nome do serviço. O nome deve ser exclusivo dentro da conta de serviço.|
 | topologyChangeDiscovery | Opcional. Especifica o tipo de notificação de alteração de topologia. Os valores possíveis são:<br /><br /> -   `Blast` – Envia a atualização assim que possível para todas as instâncias de função. Se você escolher uma opção, a função deverá ser capaz de lidar com a atualização da topologia sem ser reiniciada.<br />-   `UpgradeDomainWalk` – Envia a atualização para cada instância de função de maneira sequencial depois que a instância anterior tiver aceitado a atualização com sucesso.|
 | schemaVersion           | Opcional. Especifica a versão do esquema de definição de serviço. A versão do esquema permitirá que o Visual Studio selecione as ferramentas do SDK corretas para usar para a validação de esquema se mais de uma versão do SDK for instalada lado a lado.|
-| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização entre quais funções neste serviço são alocadas. As instâncias de função são alocadas para um domínio de atualização quando o serviço é implantado. Para obter mais informações, consulte [Atualizar uma função de serviço em nuvem ou implantação,](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment)gerenciar a disponibilidade de [máquinas virtuais](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) e o que é um [modelo de serviço em nuvem.](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package)<br /><br /> É possível especificar até 20 domínios de atualização. Se não especificado, o número padrão de domínios de atualização é 5.|
+| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização entre quais funções neste serviço são alocadas. As instâncias de função são alocadas para um domínio de atualização quando o serviço é implantado. Para obter mais informações, consulte [atualizar uma função ou implantação de serviço de nuvem](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [gerenciar a disponibilidade de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) e [o que é um modelo de serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> É possível especificar até 20 domínios de atualização. Se não especificado, o número padrão de domínios de atualização é 5.|

@@ -1,18 +1,18 @@
 ---
 title: Saídas em modelos
-description: Descreve como definir valores de saída em um modelo do Azure Resource Manager.
+description: Descreve como definir valores de saída em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460017"
 ---
-# <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo do Azure Resource Manager
+# <a name="outputs-in-azure-resource-manager-template"></a>Saídas no modelo de Azure Resource Manager
 
-Este artigo descreve como definir valores de saída no modelo do Azure Resource Manager. Você usa saídas quando precisa devolver valores dos recursos implantados.
+Este artigo descreve como definir valores de saída em seu modelo de Azure Resource Manager. Você usa saídas quando precisa retornar valores dos recursos implantados.
 
 ## <a name="define-output-values"></a>Definir valores de saída
 
@@ -29,7 +29,7 @@ O exemplo a seguir mostra como retornar a ID de recurso para um endereço IP pú
 
 ## <a name="conditional-output"></a>Saída condicional
 
-Na seção saídas, você pode condicionalmente retornar um valor. Normalmente, você usa a condição nas saídas quando você [implantou condicionalmente](conditional-resource-deployment.md) um recurso. O exemplo a seguir mostra como devolver condicionalmente o ID de recurso para um endereço IP público com base em se um novo foi implantado:
+Na seção de saídas, você pode retornar um valor condicionalmente. Normalmente, você usa a condição nas saídas quando [implantou condicionalmente](conditional-resource-deployment.md) um recurso. O exemplo a seguir mostra como retornar condicionalmente a ID de recurso para um endereço IP público com base no fato de um novo ter sido implantado:
 
 ```json
 "outputs": {
@@ -41,11 +41,11 @@ Na seção saídas, você pode condicionalmente retornar um valor. Normalmente, 
 }
 ```
 
-Para um exemplo simples de saída condicional, consulte [o modelo de saída condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+Para obter um exemplo simples de saída condicional, consulte [modelo de saída condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
 ## <a name="dynamic-number-of-outputs"></a>Número dinâmico de saídas
 
-Em alguns cenários, você não sabe o número de instâncias de um valor que você precisa retornar ao criar o modelo. Você pode retornar um número variável de valores usando o elemento **de cópia.**
+Em alguns cenários, você não sabe o número de instâncias de um valor que precisa retornar ao criar o modelo. Você pode retornar um número variável de valores usando o elemento **Copy** .
 
 ```json
 "outputs": {
@@ -59,11 +59,11 @@ Em alguns cenários, você não sabe o número de instâncias de um valor que vo
 }
 ```
 
-Para obter mais informações, consulte [a iteração de saídas nos modelos do Azure Resource Manager](copy-outputs.md).
+Para obter mais informações, consulte [iteração de saída em modelos de Azure Resource Manager](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Modelos vinculados
 
-Para recuperar o valor de saída de um modelo vinculado, use a função [de referência](template-functions-resource.md#reference) no modelo pai. A sintaxe no modelo pai é:
+Para recuperar o valor de saída de um modelo vinculado, use a função de [referência](template-functions-resource.md#reference) no modelo pai. A sintaxe no modelo pai é:
 
 ```json
 "[reference('<deploymentName>').outputs.<propertyName>.value]"
@@ -71,7 +71,7 @@ Para recuperar o valor de saída de um modelo vinculado, use a função [de refe
 
 Ao obter uma propriedade de saída de um modelo vinculado, o nome da propriedade não pode incluir um traço.
 
-O exemplo a seguir mostra como definir o endereço IP em um balanceador de carga, recuperando um valor de um modelo vinculado.
+O exemplo a seguir mostra como definir o endereço IP em um balanceador de carga recuperando um valor de um modelo vinculado.
 
 ```json
 "publicIPAddress": {
@@ -83,11 +83,11 @@ Não é possível usar a `reference` função na seção de saídas de um [model
 
 ## <a name="get-output-values"></a>Obter valores de saída
 
-Quando a implantação é bem sucedida, os valores de saída são automaticamente devolvidos nos resultados da implantação.
+Quando a implantação for realizada com sucesso, os valores de saída serão retornados automaticamente nos resultados da implantação.
 
-Para obter valores de saída do histórico de implantação, você pode usar script.
+Para obter valores de saída do histórico de implantação, você pode usar o script.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment `
@@ -95,7 +95,7 @@ Para obter valores de saída do histórico de implantação, você pode usar scr
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az deployment group show \
@@ -118,4 +118,4 @@ Os exemplos a seguir demonstram cenários para o uso de saídas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as propriedades disponíveis para saídas, consulte [Entenda a estrutura e a sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
+* Para saber mais sobre as propriedades disponíveis para saídas, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).

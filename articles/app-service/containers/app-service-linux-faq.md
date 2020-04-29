@@ -1,6 +1,6 @@
 ---
-title: Executar contêineres embutidos FAQ
-description: Encontre respostas para as perguntas freqüentes sobre os contêineres Linux incorporados no Azure App Service.
+title: Perguntas frequentes de execução de contêineres internos
+description: Encontre respostas para as perguntas frequentes sobre os contêineres internos do Linux no serviço Azure App.
 keywords: serviço de aplicativo do Azure, aplicativo Web, perguntas frequentes, Linux, OSS, aplicativo Web para contêineres, vários contêineres
 author: msangapu-msft
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: f0a8b1758571a9473402d11a4d5141a11f76504d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80245813"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
@@ -22,7 +22,7 @@ Se você tiver qualquer dúvida, comente este artigo.
 
 ## <a name="built-in-images"></a>Imagens internas
 
-**Quero bifurcar os contêineres Docker embutidos que a plataforma fornece. Onde posso encontrar esses arquivos?**
+**Quero bifurcar os contêineres internos do Docker que a plataforma fornece. Onde posso encontrar esses arquivos?**
 
 É possível encontrar todos os arquivos do Docker no [GitHub](https://github.com/azure-app-service). É possível encontrar todos os contêineres do Docker no [Hub do Docker](https://hub.docker.com/u/appsvc/).
 
@@ -32,13 +32,13 @@ Se você tiver qualquer dúvida, comente este artigo.
 
 | Pilha           | Valor Esperado                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | o comando para iniciar seu aplicativo `java -jar /home/site/wwwroot/app.jar --server.port=80`JAR (por exemplo, ) |
-| Tomcat          | a localização de um script para executar quaisquer `/home/site/deployments/tools/startup_script.sh`configurações necessárias (por exemplo, )          |
-| Node.js         | o arquivo de configuração pm2 ou seu arquivo de script                                |
-| .NET Core       | o nome DLL compilado como`dotnet <myapp>.dll`                                 |
-| Ruby            | o script Ruby que você deseja inicializar seu aplicativo com                     |
+| Java SE         | o comando para iniciar seu aplicativo JAR (por exemplo, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
+| Tomcat          | o local de um script para executar as configurações necessárias (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | o arquivo de configuração PM2 ou o arquivo de script                                |
+| .NET Core       | o nome da DLL compilada como`dotnet <myapp>.dll`                                 |
+| Ruby            | o script Ruby com o qual você deseja inicializar seu aplicativo                     |
 
-Esses comandos ou scripts são executados depois que o contêiner Docker incorporado é iniciado, mas antes que o código do aplicativo seja iniciado.
+Esses comandos ou scripts são executados depois que o contêiner interno do Docker é iniciado, mas antes do código do aplicativo ser iniciado.
 
 ## <a name="management"></a>Gerenciamento
 
@@ -58,9 +58,9 @@ Sim, você pode fazer isso por meio do site de gerenciamento do controle de orig
 
 Defina o campo **reservado** do serviço de aplicativo como *verdadeiro*.
 
-## <a name="continuous-integration-and-deployment"></a>Integração e implantação contínuas
+## <a name="continuous-integration-and-deployment"></a>Integração contínua e implantação
 
-**Meu aplicativo web ainda usa uma imagem de contêiner Docker antiga depois que eu atualizei a imagem no Docker Hub. Você suporta integração contínua e implantação de contêineres personalizados?**
+**Meu aplicativo Web ainda usa uma imagem de contêiner do Docker antiga depois de atualizar a imagem no Hub do Docker. Você dá suporte à integração e à implantação contínuas de contêineres personalizados?**
 
 Sim, para configurar integração/implantação contínua para o Registro de Contêiner do Azure ou DockerHub, seguindo a [Implantação contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
 
@@ -72,11 +72,11 @@ Sim.
 
 Sim, você precisa definir uma configuração de aplicativo chamada `WEBSITE_WEBDEPLOY_USE_SCM` como *false*.
 
-**A implantação do Git do meu aplicativo falha ao usar o aplicativo web Linux. Como posso contornar o assunto?**
+**A implantação do git do meu aplicativo falha ao usar o aplicativo Web do Linux. Como posso contornar o problema?**
 
 Se a implantação do Git falhar no aplicativo Web do Linux, escolha uma das opções a seguir para implantar o código do aplicativo:
 
-- Use o recurso De entrega contínua (Preview): Você pode armazenar o código-fonte do seu aplicativo em um repo Azure DevOps Git ou no GitHub repo para usar o Azure Continuous Delivery. Para obter mais informações, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Usar o recurso entrega contínua (versão prévia): você pode armazenar o código-fonte do aplicativo em um repositório Git do Azure DevOps ou repositório GitHub para usar a entrega contínua do Azure. Para obter mais informações, consulte [Como configurar a Entrega Contínua para aplicativos Web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Usar a [API de implantação via arquivo ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar essa API, [adicione o SSH ao seu aplicativo Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) e vá para a pasta onde você deseja implantar seu código. Execute o seguinte código:
 
@@ -108,9 +108,9 @@ Sim, durante uma implantação do Git, o Kudu deve detectar que você está impl
 
 ## <a name="custom-containers"></a>Contêineres personalizados
 
-**Estou usando meu próprio recipiente personalizado. Quero que a plataforma monte um `/home/` compartilhamento de SMB para o diretório.**
+**Estou usando meu próprio contêiner personalizado. Quero que a plataforma monte um compartilhamento SMB no `/home/` diretório.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a configuração não for `/home/` **especificada** ou definida como *true,* o diretório será **compartilhado** em instâncias de escala e os arquivos gravados **persistirão** em reinicializações. A configuração `WEBSITES_ENABLE_APP_SERVICE_STORAGE` explícita *de falso* desativará a montagem.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a configuração não for **especificada** ou definida *como true*, `/home/` o diretório **será compartilhado** entre as instâncias de escala e os arquivos gravados **persistirão** entre as reinicializações. Definir `WEBSITES_ENABLE_APP_SERVICE_STORAGE` explicitamente como *false* desabilitará a montagem.
 
 **Meu contêiner personalizado demora para iniciar e a plataforma o reinicia antes que ele termine a inicialização.**
 
@@ -122,11 +122,11 @@ Forneça a URL completa do registro, incluindo `http://` ou `https://`.
 
 **Qual é o formato do nome da imagem na opção de Registro privado?**
 
-Adicione o nome de imagem completa, incluindo a URL de registro particular (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam a porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para `docker-custom-image-name`definir, [ `az` ](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)use a ferramenta de linha de comando .
+Adicione o nome de imagem completa, incluindo a URL de registro particular (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam a porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, use a [ `az` ferramenta de linha de comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Posso expor mais de uma porta em minha imagem de contêiner personalizados?**
 
-Não apoiamos expor mais de um porto.
+Não há suporte para expor mais de uma porta.
 
 **Posso colocar meu próprio armazenamento?**
 
@@ -136,7 +136,7 @@ Sim, [Traga seu próprio armazenamento](https://docs.microsoft.com/azure/app-ser
 
 O site do SCM é executado em um contêiner separado. Não é possível verificar o sistema de arquivos ou os processos em execução do contêiner de aplicativo.
 
-**Meu contêiner personalizado ouve um porto diferente do porto 80. Como posso configurar meu aplicativo para encaminhar solicitações para essa porta?**
+**Meu contêiner personalizado escuta uma porta diferente da porta 80. Como posso configurar meu aplicativo para rotear solicitações para essa porta?**
 
 Temos a detecção automática de porta. Também é possível especificar uma configuração de aplicativo chamada *WEBSITES_PORT* e fornecer a ela o valor do número da porta esperada. Anteriormente, a plataforma usava a configuração de aplicativo *PORTA*. Nós estamos planejando substituir essa configuração de aplicativo e usar *WEBSITES_PORT* exclusivamente.
 
@@ -144,16 +144,16 @@ Temos a detecção automática de porta. Também é possível especificar uma co
 
 Não, a plataforma manipula a terminação HTTPS nos front-ends compartilhados.
 
-## <a name="multi-container-with-docker-compose"></a>Multi-contêiner com Docker Compose
+## <a name="multi-container-with-docker-compose"></a>Vários contêineres com Docker Compose
 
 **Como fazer para configurar o ACR (Registro de Contêiner do Azure) para usá-lo com vários contêineres?**
 
-Para usar o ACR com vários contêineres, **todas as imagens de contêiner** precisam estar hospedadas no mesmo servidor de registro do ACR. Uma vez que eles estejam no mesmo servidor de registro, você precisará criar configurações de aplicativo e, em seguida, atualizar o arquivo de configuração Docker Compose para incluir o nome de imagem ACR.
+Para usar o ACR com vários contêineres, **todas as imagens de contêiner** precisam estar hospedadas no mesmo servidor de registro do ACR. Quando estiverem no mesmo servidor do registro, você precisará criar configurações do aplicativo e, em seguida, atualizar o arquivo de configuração Docker Compose para incluir o nome da imagem ACR.
 
 Crie as seguintes configurações de aplicativo:
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (URL completo, `https://<server-name>.azurecr.io`ex: )
+- DOCKER_REGISTRY_SERVER_URL (URL completa, ex: `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD (habilite o acesso de administrador nas configurações do ACR)
 
 No arquivo de configuração, referencie a imagem do ACR como o seguinte exemplo:
@@ -176,22 +176,22 @@ Estas são as regras para determinar qual contêiner está acessível – na ord
 
 ## <a name="web-sockets"></a>Soquetes Web
 
-Os Soquetes da Web são suportados em aplicativos Linux.
+Os Web Sockets têm suporte em aplicativos do Linux.
 
 > [!IMPORTANT]
-> Os Soquetes da Web não são suportados atualmente para aplicativos Linux em Planos de Serviço de Aplicativos Gratuitos. Estamos trabalhando na remoção dessa limitação e planejamos suportar até 5 conexões de soquete web em planos de serviço de aplicativo gratuitos.
+> Atualmente, os Web Sockets não têm suporte para aplicativos do Linux em planos de Serviço de Aplicativo Gratuito. Estamos trabalhando para remover essa limitação e planejar o suporte de até 5 conexões de soquete da Web em planos de Serviço de Aplicativo Gratuito.
 
 ## <a name="pricing-and-sla"></a>Preço e SLA
 
 **Qual é o preço agora que o serviço está disponível?**
 
-Os preços variam de acordo com o SKU e a região, mas você pode ver mais detalhes em nossa página de preços: [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
+Os preços variam de acordo com a SKU e a região, mas você pode ver mais detalhes em nossa página de preços: [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
 ## <a name="other-questions"></a>Outras perguntas
 
-**O que significa "Recurso solicitado não está disponível no grupo de recursos"?**
+**O que significa "o recurso solicitado não está disponível no grupo de recursos"?**
 
-Você pode ver essa mensagem ao criar um aplicativo web usando o Arm (Azure Resource Manager, gerenciador de recursos do Azure). Com base em uma limitação atual, para o mesmo grupo de recursos, você não pode misturar aplicativos Windows e Linux na mesma região.
+Você poderá ver esta mensagem ao criar o aplicativo Web usando o Azure Resource Manager (ARM). Com base em uma limitação atual, para o mesmo grupo de recursos, você não pode misturar aplicativos Windows e Linux na mesma região.
 
 **Quais são os caracteres com suporte em nomes de configurações do aplicativo?**
 
@@ -205,4 +205,4 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 
 - [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
 - [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Implantação contínua com web app para contêineres](./app-service-linux-ci-cd.md)
+- [Implantação contínua com Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md)
