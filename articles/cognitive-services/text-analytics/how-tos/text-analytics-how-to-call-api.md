@@ -1,7 +1,7 @@
 ---
 title: Chamar a API da Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: Este artigo explica como você pode chamar a API e Carteiro de Serviços Cognitivos do Azure.
+description: Este artigo explica como você pode chamar os serviços cognitivas do Azure Análise de Texto a API REST e o postmaster.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219297"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
@@ -39,7 +39,7 @@ A entrada deve ser JSON em texto não processado. Não há suporte para XML. O e
 
 No momento, é possível enviar os mesmos documentos para todas as operações de Análise de Texto: sentimento, frases-chave, detecção de idioma e identificação da entidade. (O esquema pode variar para cada análise no futuro).
 
-| Elemento | Valores válidos | Obrigatório? | Uso |
+| Elemento | Valores válidos | Necessário? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |O tipo de dados é a cadeia de caracteres, mas na prática as IDs do documento tendem a ser números inteiros. | Obrigatório | O sistema usa as IDs que você fornece para estruturar o resultado. São gerados códigos de idioma, pontuações de sentimento e frases-chave para cada ID na solicitação.|
 |`text` | Texto bruto não estruturado, até 5.120 caracteres. | Obrigatório | O texto pode ser expresso em qualquer idioma para a detecção de idioma. Para análise de sentimento, extração de frases-chave e identificação de entidades, o texto deve estar em um [idioma compatível](../text-analytics-supported-languages.md). |
@@ -80,19 +80,19 @@ O serviço aceita solicitações de até 1 MB de tamanho. Se você estiver usand
 
 5. Cole alguns documentos JSON em um formato válido para a análise pretendida. Para saber mais sobre uma análise específica nos tópicos a seguir:
 
-  + [Detecção de idiomas](text-analytics-how-to-language-detection.md)  
+  + [Detecção de idioma](text-analytics-how-to-language-detection.md)  
   + [Extração de frases-chave](text-analytics-how-to-keyword-extraction.md)  
   + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
+  + [Reconhecimento de entidade](text-analytics-how-to-entity-linking.md)  
 
 
-6. Clique em **Enviar** para enviar a solicitação. Consulte a seção [de limites de dados](../overview.md#data-limits) na visão geral para obter informações sobre o número de solicitações que você pode enviar por minuto e segundo.
+6. Clique em **Enviar** para enviar a solicitação. Consulte a seção [limites de dados](../overview.md#data-limits) na visão geral para obter informações sobre o número de solicitações que você pode enviar por minuto e segundo.
 
    No Postman, a resposta é exibida na próxima janela, como um único documento JSON, com um item para cada ID do documento fornecido na solicitação.
 
 ## <a name="see-also"></a>Confira também 
 
- [Visão geral do análise de texto](../overview.md)  
+ [Visão geral de Análise de Texto](../overview.md)  
  [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -6,33 +6,33 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: d7b9ecd048b080ae0ec9fd3fb7a4fb35009551b8
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681942"
 ---
 # <a name="entities"></a>Entidades
 
-Uma *Entidade* representa um objeto móvel no espaço e é o bloco fundamental de construção de conteúdo renderizado remotamente.
+Uma *entidade* representa um objeto móvel no espaço e é o bloco de construção fundamental do conteúdo renderizado remotamente.
 
 ## <a name="entity-properties"></a>Propriedades da entidade
 
-As entidades têm uma transformação definida por uma posição, rotação e escala. Por si só, as entidades não têm nenhuma funcionalidade observável. Em vez disso, o comportamento é adicionado através de componentes, que são anexados a entidades. Por exemplo, anexar um [CutPlaneComponent](../overview/features/cut-planes.md) criará um plano de corte na posição da entidade.
+As entidades têm uma transformação definida por uma posição, rotação e escala. Por si só, as entidades não têm nenhuma funcionalidade observável. Em vez disso, o comportamento é adicionado por meio de componentes, que são anexados a entidades. Por exemplo, anexar um [CutPlaneComponent](../overview/features/cut-planes.md) criará um plano de recorte na posição da entidade.
 
-O aspecto mais importante da própria entidade é a hierarquia e a transformação hierárquica resultante. Por exemplo, quando várias entidades são anexadas como crianças a uma entidade-mãe compartilhada, todas essas entidades podem ser movidas, giradas e dimensionadas em uníssão alterando a transformação da entidade-mãe.
+O aspecto mais importante da própria entidade é a hierarquia e a transformação hierárquica resultante. Por exemplo, quando várias entidades são anexadas como filhos a uma entidade pai compartilhada, todas essas entidades podem ser movidas, giradas e dimensionadas de forma não dinâmica alterando a transformação da entidade pai.
 
-Uma entidade é de propriedade exclusiva de seu pai, `Entity.Destroy()`o que significa que quando o pai é destruído com , assim como seus filhos e todos os [componentes](components.md)conectados . Assim, a remoção de um modelo `Destroy` da cena é realizada chamando `AzureSession.Actions.LoadModelAsync()` o nó raiz `AzureSession.Actions.LoadModelFromSASAsync()`de um modelo, devolvido por ou sua variante SAS .
+Uma entidade é exclusivamente de propriedade de seu pai, o que significa que, quando o pai `Entity.Destroy()`é destruído com, são seus filhos e todos os [componentes](components.md)conectados. Assim, a remoção de um modelo da cena é realizada chamando `Destroy` o nó raiz de um modelo, retornado por `AzureSession.Actions.LoadModelAsync()` ou sua variante `AzureSession.Actions.LoadModelFromSASAsync()`SAS.
 
-As entidades são criadas quando o servidor carrega conteúdo ou quando o usuário deseja adicionar um objeto à cena. Por exemplo, se um usuário quiser adicionar um plano de corte para visualizar o interior de uma malha, o usuário pode criar uma entidade onde o avião deve existir e, em seguida, adicionar o componente do plano de corte a ele.
+As entidades são criadas quando o servidor carrega o conteúdo ou quando o usuário deseja adicionar um objeto à cena. Por exemplo, se um usuário quiser adicionar um plano de recorte para visualizar o interior de uma malha, o usuário poderá criar uma entidade em que o plano deve existir e, em seguida, adicionar o componente plano de recorte a ela.
 
 ## <a name="query-functions"></a>Funções de consulta
 
-Existem dois tipos de funções de consulta em entidades: chamadas síncronas e assíncronas. Consultas síncronas só podem ser usadas para dados que estão presentes no cliente e não envolvem muita computação. Exemplos são consultas para componentes, transformações relativas de objetos ou relacionamentos entre pais e filhos. Consultas assíncronas são usadas para dados que só residem no servidor ou envolvem computação extra que seria muito caro para ser executado no cliente. Exemplos são consultas de limites espaciais ou consultas de meta dados.
+Há dois tipos de funções de consulta em entidades: chamadas síncronas e assíncronas. As consultas síncronas só podem ser usadas para dados que estão presentes no cliente e não envolvem muita computação. Os exemplos são consultas para componentes, transformações de objeto relativo ou relações pai/filho. As consultas assíncronas são usadas para dados que residem apenas no servidor ou envolvem uma computação extra que seria muito cara para ser executada no cliente. Exemplos são consultas de dados de limites espaciais ou consultas de metadados.
 
 ### <a name="querying-components"></a>Consultando componentes
 
-Para encontrar um componente de `FindComponentOfType`um tipo específico, use:
+Para localizar um componente de um tipo específico, use `FindComponentOfType`:
 
 ```cs
 CutPlaneComponent cutplane = (CutPlaneComponent)entity.FindComponentOfType(ObjectType.CutPlaneComponent);
@@ -43,10 +43,10 @@ CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
 
 ### <a name="querying-transforms"></a>Consultando transformações
 
-Transformar consultas são chamadas síncronas no objeto. É importante notar que as transformações consultadas através da API são transformações espaciais locais, em relação ao pai do objeto. Exceções são objetos radiculares, para os quais o espaço local e o espaço mundial são idênticos.
+As consultas de transformação são chamadas síncronas no objeto. É importante observar que as transformações consultadas por meio da API são transformações de espaço local, em relação ao pai do objeto. As exceções são objetos raiz, para os quais o espaço local e o espaço do mundo são idênticos.
 
 > [!NOTE]
-> Não há Uma API dedicada para consultar a transformação do espaço mundial de objetos arbitrários.
+> Não há API dedicada para consultar a transformação de espaço mundial de objetos arbitrários.
 
 ```cs
 // local space transform of the entity
@@ -56,13 +56,13 @@ Quaternion rotation = entity.Rotation;
 
 ### <a name="querying-spatial-bounds"></a>Consultando limites espaciais
 
-Consultas de limites são chamadas assíncronas que operam em uma hierarquia completa de objetos, usando uma entidade como raiz. Veja o capítulo dedicado sobre [os limites do objeto](object-bounds.md).
+As consultas de limites são chamadas assíncronas que operam em uma hierarquia de objetos completa, usando uma entidade como raiz. Consulte o capítulo dedicado sobre [limites de objeto](object-bounds.md).
 
 ### <a name="querying-metadata"></a>Consultando metadados
 
-Metadados são dados adicionais armazenados em objetos, que são ignorados pelo servidor. Metadados de objeto são essencialmente um conjunto de pares (nome, valor), onde _o valor_ pode ser do tipo numérico, booleano ou de seqüência. Metadados podem ser exportados com o modelo.
+Os metadados são dados adicionais armazenados em objetos, que são ignorados pelo servidor. Os metadados de objeto são essencialmente um conjunto de pares (nome, valor), em que o _valor_ pode ser numérico, booliano ou tipo de cadeia de caracteres. Os metadados podem ser exportados com o modelo.
 
-Consultas de metadados são chamadas assíncronas em uma entidade específica. A consulta só retorna os metadados de uma única entidade, não as informações mescladas de um subgráfico.
+As consultas de metadados são chamadas assíncronas em uma entidade específica. A consulta retorna apenas os metadados de uma única entidade, não as informações mescladas de um subgrafo.
 
 ```cs
 MetadataQueryAsync metaDataQuery = entity.QueryMetaDataAsync();
@@ -79,7 +79,7 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
 };
 ```
 
-A consulta será bem sucedida mesmo que o objeto não tenha metadados.
+A consulta terá sucesso mesmo se o objeto não mantiver nenhum metadado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

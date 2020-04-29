@@ -1,6 +1,6 @@
 ---
 title: Projetando tabelas
-description: Introdução ao desenho de tabelas no pool Synapse SQL.
+description: Introdução à criação de tabelas no pool de SQL do Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,50 +12,50 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 2802c62acef0d78f8cfa7dd7f06bc34d8eecca4c
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742617"
 ---
-# <a name="design-tables-in-synapse-sql-pool"></a>Mesas de design em pool Synapse SQL
+# <a name="design-tables-in-synapse-sql-pool"></a>Criar tabelas no pool do SQL Synapse
 
-Este artigo fornece conceitos introdutórios fundamentais para projetar tabelas no pool SQL.
+Este artigo fornece os principais conceitos introdutórios para a criação de tabelas no pool do SQL.
 
 ## <a name="determine-table-category"></a>Determinar a categoria da tabela
 
 Um [esquema em estrela](https://en.wikipedia.org/wiki/Star_schema) organiza dados em tabelas de fatos e dimensões. Algumas tabelas são usadas para dados de integração ou de preparo antes de movê-las para uma tabela de fatos ou dimensões. Ao criar uma tabela, decida se os dados da tabela pertencem a uma tabela de integração, de dimensão ou de fato. Essa decisão informa a distribuição e a estrutura da tabela apropriadas.
 
-- **As tabelas** de fatos contêm dados quantitativos que são comumente gerados em um sistema transacional e, em seguida, carregados no pool SQL. Por exemplo, uma empresa de varejo gera transações de vendas todos os dias e, em seguida, carrega os dados em uma tabela de fatos de pool SQL para análise.
+- As **tabelas de fatos** contêm dados quantitativos que normalmente são gerados em um sistema transacional e, em seguida, são carregados no pool do SQL. Por exemplo, uma empresa de varejo gera transações de vendas todos os dias e, em seguida, carrega os dados em uma tabela de fatos do pool SQL para análise.
 
-- As **Tabelas de dimensões** contêm dados de atributo que podem ser alterados, mas essas alterações são raras. Por exemplo, um nome e endereço do cliente são armazenados em uma tabela de dimensões e atualizados somente quando o perfil do cliente é alterado. Para minimizar o tamanho de uma grande tabela de fatos, o nome e endereço do cliente não precisam estar em todas as linhas de uma tabela de fatos. Em vez disso, a tabela de fatos e a tabela de dimensões podem compartilhar uma ID do cliente. Uma consulta pode unir as duas tabelas para associar o perfil e as transações de um cliente.
+- As **Tabelas de dimensões** contêm dados de atributo que podem ser alterados, mas essas alterações são raras. Por exemplo, um nome e endereço do cliente são armazenados em uma tabela de dimensões e atualizados somente quando o perfil do cliente é alterado. Para minimizar o tamanho de uma tabela de fatos grande, o nome e o endereço do cliente não precisam estar em todas as linhas de uma tabela de fatos. Em vez disso, a tabela de fatos e a tabela de dimensões podem compartilhar uma ID do cliente. Uma consulta pode unir as duas tabelas para associar o perfil e as transações de um cliente.
 
 - As **Tabelas de integrações** oferecem um local para dados de preparo ou integração. Você pode criar uma tabela de integração como uma tabela regular, uma tabela externa ou uma tabela temporária. Por exemplo, é possível carregar dados em uma tabela de preparo, executar transformações nos dados de preparo e, em seguida, inserir os dados em uma tabela de produção.
 
 ## <a name="schema-and-table-names"></a>Nomes de tabelas e esquemas
 
-Schemas são uma boa maneira de agrupar mesas, usadas de forma semelhante, juntas.  Se você está migrando vários bancos de dados de uma solução on-prem para o pool SQL, é melhor migrar todas as tabelas de fato, dimensão e integração para um esquema no pool SQL.
+Os esquemas são uma boa maneira de agrupar tabelas, usadas de maneira semelhante, em conjunto.  Se você estiver migrando vários bancos de dados de uma solução local para o pool do SQL, funcionará melhor migrar todas as tabelas de fatos, dimensões e integração para um esquema no pool do SQL.
 
-Por exemplo, você pode armazenar todas as tabelas no pool sql de amostra [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dentro de um esquema chamado wwi. O código a seguir cria um [esquema definido pelo usuário](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) chamado wwi.
+Por exemplo, você pode armazenar todas as tabelas no pool de SQL de exemplo [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) em um esquema chamado WWI. O código a seguir cria um [esquema definido pelo usuário](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) chamado WWI.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-Para mostrar a organização das tabelas no pool SQL, você pode usar fato, dim e int como prefixos para os nomes das tabelas. A tabela a seguir mostra alguns dos nomes de tabelas e esquema para WideWorldImportersDW.  
+Para mostrar a organização das tabelas no pool SQL, você pode usar fact, Dim e int como prefixos para os nomes de tabela. A tabela a seguir mostra alguns dos nomes de tabelas e esquema para WideWorldImportersDW.  
 
-| WideWorldImportersDW table  | Tipo de tabela | Piscina SQL |
+| WideWorldImportersDW table  | Tipo de tabela | Pool de SQL |
 |:-----|:-----|:------|:-----|
 | City | Dimensão | wwi.DimCity |
 | Order | Fato | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>Persistência da tabela
 
-As tabelas armazenam dados permanentemente no Azure Storage, temporariamente no Azure Storage ou em um armazenamento de dados externo ao pool SQL.
+As tabelas armazenam dados permanentemente no armazenamento do Azure, temporariamente no armazenamento do Azure ou em um repositório de dados externo ao pool do SQL.
 
 ### <a name="regular-table"></a>Tabela regular
 
-Uma tabela regular armazena dados no Azure Storage como parte do pool SQL. A tabela e os dados persistem independentemente se há uma sessão aberta.  O exemplo a seguir cria uma tabela regular com duas colunas.
+Uma tabela regular armazena dados no armazenamento do Azure como parte do pool do SQL. A tabela e os dados persistem independentemente se há uma sessão aberta.  O exemplo a seguir cria uma tabela regular com duas colunas.
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -63,33 +63,33 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ### <a name="temporary-table"></a>Tabela temporária
 
-Uma tabela temporária só existe durante a sessão. Você pode usar uma tabela temporária para evitar que outros usuários vejam resultados temporários e também para reduzir a necessidade de limpeza.  
+Uma tabela temporária só existe durante a sessão. Você pode usar uma tabela temporária para impedir que outros usuários vejam resultados temporários e também para reduzir a necessidade de limpeza.  
 
-As tabelas temporárias utilizam o armazenamento local para oferecer desempenho rápido.  Para obter mais informações, confira [Tabelas temporárias](sql-data-warehouse-tables-temporary.md).
+As tabelas temporárias utilizam o armazenamento local para oferecer um desempenho rápido.  Para obter mais informações, confira [Tabelas temporárias](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Tabela externa
 
-Uma tabela externa aponta para dados localizados no Azure Storage Blob ou Azure Data Lake Store. Quando usado em conjunto com a declaração CRIAR TABELA COMO SELECT, selecionando a partir de uma tabela externa importa dados para o pool SQL.
+Uma tabela externa aponta para dados localizados no Azure Storage Blob ou Azure Data Lake Store. Quando usado em conjunto com a instrução CREATE TABLE AS SELECT, a seleção de uma tabela externa importa dados para o pool do SQL.
 
-Como tal, tabelas externas são úteis para carregar dados. Para ver um tutorial de carregamento, confira [Usar o PolyBase para carregar dados do Armazenamento de Blobs do Azure](load-data-from-azure-blob-storage-using-polybase.md).
+Dessa forma, as tabelas externas são úteis para carregar dados. Para obter um tutorial de carregamento, consulte [usar o polybase para carregar dados do armazenamento de BLOBs do Azure](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Tipos de dados
 
-O pool SQL suporta os tipos de dados mais usados. Para obter uma lista dos tipos de dados com suporte, consulte [tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) na instrução CREATE TABLE. Para obter diretrizes sobre o uso dos tipos de dados, consulte [Tipos de dados](sql-data-warehouse-tables-data-types.md).
+O pool SQL oferece suporte aos tipos de dados usados com mais frequência. Para obter uma lista dos tipos de dados com suporte, consulte [tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) na instrução CREATE TABLE. Para obter diretrizes sobre o uso dos tipos de dados, consulte [Tipos de dados](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tabelas distribuídas
 
-Uma característica fundamental do pool SQL é a maneira como ele pode armazenar e operar em tabelas através [de distribuições](massively-parallel-processing-mpp-architecture.md#distributions).  O pool SQL suporta três métodos para distribuição de dados: round-robin (padrão), hash e replicado.
+Um recurso fundamental do pool do SQL é a maneira como ele pode armazenar e operar em tabelas entre [distribuições](massively-parallel-processing-mpp-architecture.md#distributions).  O pool SQL dá suporte a três métodos de distribuição de dados: Round Robin (padrão), hash e replicado.
 
 ### <a name="hash-distributed-tables"></a>Tabelas distribuídas em hash
 
-Uma tabela distribuída por hash distribui linhas com base no valor da coluna de distribuição. Uma tabela distribuída por hash foi projetada para obter alto desempenho para consultas em mesas grandes. Existem vários fatores a considerar ao escolher uma coluna de distribuição.
+Uma tabela distribuída por hash distribui linhas com base no valor na coluna de distribuição. Uma tabela distribuída por hash foi projetada para alcançar alto desempenho para consultas em tabelas grandes. Há vários fatores a serem considerados ao escolher uma coluna de distribuição.
 
 Para obter mais informações, consulte [Criação de diretrizes para tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
 
 ### <a name="replicated-tables"></a>Tabelas replicadas
 
-Uma tabela replicada possui uma cópia completa da tabela disponível em cada nó de Computação. As consultas são executadas rapidamente em tabelas replicadas, uma vez que as adesões em tabelas replicadas não exigem movimentação de dados. A replicação requer armazenamento extra, porém, e não é prática para mesas grandes.
+Uma tabela replicada possui uma cópia completa da tabela disponível em cada nó de Computação. As consultas são executadas rapidamente em tabelas replicadas, pois as junções em tabelas replicadas não exigem a movimentação de dados. No entanto, a replicação requer armazenamento extra e não é prática para tabelas grandes.
 
 Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md).
 
@@ -107,11 +107,11 @@ A categoria da tabela geralmente determina qual opção escolher para a distribu
 |:---------------|:--------------------|
 | Fato           | Use a distribuição de hash com índice columnstore clusterizado. O desempenho melhora quando duas tabelas de hash são unidas na mesma coluna de distribuição. |
 | Dimensão      | Use a replicada para tabelas menores. Se as tabelas forem grandes demais para serem armazenadas em cada nó de computação, use a distribuição de hash. |
-| Staging        | Use um round robin para a tabela de preparo. A carga com CTAS é rápida. Uma vez que os dados estão na tabela de estadiamento, use INSERT... SELECIONE para mover os dados para tabelas de produção. |
+| Preparando        | Use um round robin para a tabela de preparo. A carga com CTAS é rápida. Depois que os dados estiverem na tabela de preparo, use INSERT... Selecione para mover os dados para tabelas de produção. |
 
 ## <a name="table-partitions"></a>Partições de tabela
 
-Uma tabela particionada armazena e executa operações nas linhas da tabela de acordo com os intervalos de dados. Por exemplo, uma tabela pode ser particionada por dia, mês ou ano. Você pode melhorar o desempenho de consultas através da eliminação da partição, o que limita a verificação de uma consulta para dados dentro de uma partição. Você também pode manter os dados por meio de alternância de partição. Como os dados no SQL Data Warehouse já foram distribuídos, um número excessivo de partições pode diminuir o desempenho da consulta. Para saber mais informações, confira [Diretrizes de particionamento](sql-data-warehouse-tables-partition.md).  Ao alternar partições em partições de tabela que não estão vazias, considere usar a opção TRUNCATE_TARGET na sua declaração [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) se os dados existentes forem truncados. O código abaixo muda nos dados diários transformados no SalesFact substituindo quaisquer dados existentes.
+Uma tabela particionada armazena e executa operações nas linhas da tabela de acordo com os intervalos de dados. Por exemplo, uma tabela pode ser particionada por dia, mês ou ano. Você pode melhorar o desempenho de consultas através da eliminação da partição, o que limita a verificação de uma consulta para dados dentro de uma partição. Você também pode manter os dados por meio de alternância de partição. Como os dados no SQL Data Warehouse já foram distribuídos, um número excessivo de partições pode diminuir o desempenho da consulta. Para saber mais informações, confira [Diretrizes de particionamento](sql-data-warehouse-tables-partition.md).  Quando a partição muda para partições de tabela que não estão vazias, considere usar a opção TRUNCATE_TARGET na instrução [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) se os dados existentes forem truncados. O código abaixo alterna os dados diários transformados para o SalesFact, substituindo os dados existentes.
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -119,12 +119,12 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 
 ## <a name="columnstore-indexes"></a>Índices columnstore
 
-Por padrão, o pool SQL armazena uma tabela como um índice de columnstore agrupado. Essa forma de armazenamento de dados atinge a alta compactação de dados e o desempenho de consultas em tabelas grandes.  
+Por padrão, o pool do SQL armazena uma tabela como um índice columnstore clusterizado. Essa forma de armazenamento de dados atinge a alta compactação de dados e o desempenho de consultas em tabelas grandes.  
 
 Normalmente, o índice columnstore clusterizado é a melhor opção, mas existem alguns casos onde um índice clusterizado ou um heap são estruturas de armazenamento mais adequadas.  
 
 > [!TIP]
-> Uma tabela de pilhapode ser especialmente útil para carregar dados transitórios, como uma tabela de encenação que é transformada em uma tabela final.
+> Uma tabela de heap pode ser especialmente útil para carregar dados transitórios, como uma tabela de preparo que é transformada em uma tabela final.
 
 Para obter uma lista de recursos columnstore, confira [Quais são as novidades dos índices columnstores](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Para melhorar o desempenho do índice columnstore, confira [Como maximizar a qualidade do rowgroup para índices columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -132,13 +132,13 @@ Para obter uma lista de recursos columnstore, confira [Quais são as novidades d
 
 O otimizador de consulta usa estatísticas de nível de coluna quando cria o plano para executar uma consulta.
 
-Para melhorar o desempenho da consulta, é importante ter estatísticas em colunas individuais, especialmente colunas usadas em consultas. [A criação de estatísticas](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic) acontece automaticamente.  
+Para melhorar o desempenho da consulta, é importante ter estatísticas em colunas individuais, especialmente colunas usadas em junções de consulta. A [criação de estatísticas](sql-data-warehouse-tables-statistics.md#automatic-creation-of-statistic) ocorre automaticamente.  
 
-Atualizar estatísticas não acontece automaticamente. Atualize as estatísticas depois que um número significativo de linhas for adicionado ou alterado. Por exemplo, atualize as estatísticas depois de uma carga. Para obter mais informações, confira [Diretrizes sobre estatísticas](sql-data-warehouse-tables-statistics.md).
+A atualização de estatísticas não ocorre automaticamente. Atualize as estatísticas depois que um número significativo de linhas for adicionado ou alterado. Por exemplo, atualize as estatísticas depois de uma carga. Para obter mais informações, confira [Diretrizes sobre estatísticas](sql-data-warehouse-tables-statistics.md).
 
-## <a name="primary-key-and-unique-key"></a>Chave primária e chave única
+## <a name="primary-key-and-unique-key"></a>Chave primária e chave exclusiva
 
-Key PRIMARY só é suportado quando não agrupados e NÃO APLICADOs são usados.  A restrição UNIQUE só é suportada com NÃO APLICADO é usado.  Verifique [as restrições da tabela de sinuca SQL](sql-data-warehouse-table-constraints.md).
+Só há suporte para a chave primária quando não CLUSTERIZAdo e não imposto são usados.  Só há suporte para a restrição UNIQUE quando não imposta é usado.  Verifique as [restrições de tabela do pool do SQL](sql-data-warehouse-table-constraints.md).
 
 ## <a name="commands-for-creating-tables"></a>Comandos para a criação de tabelas
 
@@ -146,25 +146,25 @@ Você pode criar uma tabela como uma nova tabela vazia. Você também pode criar
 
 | Instrução T-SQL | Descrição |
 |:----------------|:------------|
-| [CRIAR TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela vazia com a definição de todas as opções e colunas da tabela. |
-| [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela externa. A definição da tabela é armazenada no pool SQL. Os dados da tabela são armazenados no Armazenamento de Blobs do Azure ou do Azure Data Lake Store. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela vazia com a definição de todas as opções e colunas da tabela. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela externa. A definição da tabela é armazenada no pool do SQL. Os dados da tabela são armazenados no Armazenamento de Blobs do Azure ou do Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Popula uma tabela nova com os resultados de uma instrução selecionada. Os tipos de dados e colunas de tabela baseiam-se nos resultados da instrução selecionada. Para importar dados, essa instrução pode selecionar de uma tabela externa. |
-| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela externa nova exportando os resultados de uma instrução selecionada para um local externo.  O local é o armazenamento de Blobs do Azure ou o Azure Data Lake Store. |
+| [CRIAR TABELA EXTERNA COMO SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela externa nova exportando os resultados de uma instrução selecionada para um local externo.  O local é o armazenamento de Blobs do Azure ou o Azure Data Lake Store. |
 
-## <a name="aligning-source-data-with-the-sql-pool"></a>Alinhando dados de origem com o pool SQL
+## <a name="aligning-source-data-with-the-sql-pool"></a>Alinhando dados de origem com o pool do SQL
 
-As tabelas de pool SQL são preenchidas pelo carregamento de dados de outra fonte de dados. Para executar uma carga bem-sucedida, o número e os tipos de dados das colunas nos dados de origem devem estar alinhados com a definição da tabela no pool SQL. Obter os dados para alinhar pode ser a parte mais difícil da criação de tabelas.
+As tabelas do pool do SQL são preenchidas por meio do carregamento de dados de outra fonte de dados. Para executar uma carga bem-sucedida, o número e os tipos de dados das colunas nos dados de origem devem ser alinhados com a definição de tabela no pool do SQL. Obter os dados para alinhar pode ser a parte mais difícil da criação de tabelas.
 
-Se os dados vêm de vários armazenamentos de dados, você carrega os dados no pool SQL e armazena-os em uma tabela de integração. Uma vez que os dados estão na tabela de integração, você pode usar o poder do pool SQL para executar operações de transformação. Quando os dados estiverem preparados, será possível inseri-los nas tabelas de produção.
+Se os dados forem provenientes de vários armazenamentos de dados, você carregará os dados no pool do SQL e os armazenará em uma tabela de integração. Depois que os dados estiverem na tabela de integração, você poderá usar o poder do pool do SQL para executar operações de transformação. Quando os dados estiverem preparados, será possível inseri-los nas tabelas de produção.
 
 ## <a name="unsupported-table-features"></a>Recursos da tabela sem suporte
 
-O pool SQL suporta muitos, mas não todos, dos recursos de tabela oferecidos por outros bancos de dados.  A lista a seguir mostra alguns dos recursos da tabela que não são suportados no pool SQL:
+O pool SQL oferece suporte a muitos, mas não a todos, dos recursos de tabela oferecidos por outros bancos de dados.  A lista a seguir mostra alguns dos recursos de tabela que não têm suporte no pool do SQL:
 
-- Tecla estrangeira, [restrições da tabela de verificação](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- Chave estrangeira, verificar [restrições de tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [Colunas computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Visualizações Indexadas](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Seqüência](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Exibições indexadas](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Ordem](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [Colunas esparsas](/sql/relational-databases/tables/use-sparse-columns?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - Chaves substitutas. Implementar com [identidade](sql-data-warehouse-tables-identity.md).
 - [Sinônimos](/sql/t-sql/statements/create-synonym-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -180,7 +180,7 @@ Uma maneira simples de identificar o espaço e as linhas consumidas por uma tabe
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-No entanto, usar comandos DBCC pode ser bastante limitado.  Exibições de gerenciamento dinâmico (DMVs) mostram mais detalhes que os comandos DBCC. Comece criando essa visualização:
+No entanto, usar comandos DBCC pode ser bastante limitado.  Exibições de gerenciamento dinâmico (DMVs) mostram mais detalhes que os comandos DBCC. Comece criando esta exibição:
 
 ```sql
 CREATE VIEW dbo.vTableSizes
@@ -297,7 +297,7 @@ FROM size
 
 ### <a name="table-space-summary"></a>Resumo do espaço da tabela
 
-Esta consulta retorna as linhas e o espaço por tabela.  Ele permite que você veja quais tabelas são suas maiores tabelas e se elas são redondas, replicadas ou distribuídas por hash.  Nas tabelas distribuídas em hash, a consulta exibe a coluna de distribuição.  
+Esta consulta retorna as linhas e o espaço por tabela.  Ele permite que você veja quais tabelas são suas maiores tabelas e se elas são de rodízio, replicadas ou distribuídas por hash.  Nas tabelas distribuídas em hash, a consulta exibe a coluna de distribuição.  
 
 ```sql
 SELECT
@@ -375,4 +375,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar as tabelas para o seu pool SQL, o próximo passo é carregar dados na tabela.  Para obter um tutorial de carregamento, consulte [Carregar dados para o pool SQL](load-data-wideworldimportersdw.md).
+Depois de criar as tabelas para seu pool SQL, a próxima etapa é carregar dados na tabela.  Para obter um tutorial de carregamento, consulte [carregando dados no pool do SQL](load-data-wideworldimportersdw.md).

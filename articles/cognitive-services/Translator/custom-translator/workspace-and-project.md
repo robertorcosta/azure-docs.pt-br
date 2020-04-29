@@ -1,7 +1,7 @@
 ---
 title: O que é um workspace e projeto? - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
-description: Este artigo explicará as diferenças entre um espaço de trabalho e um projeto, bem como categorias de projetos e rótulos para o serviço De Tradutor Personalizado.
+description: Este artigo explicará as diferenças entre um espaço de trabalho e um projeto, bem como categorias e rótulos de projeto para o serviço de Tradutor personalizado.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219429"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um workspace do Tradutor Personalizado?

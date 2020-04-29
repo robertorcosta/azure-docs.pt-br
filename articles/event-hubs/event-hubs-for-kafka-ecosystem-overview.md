@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 02/12/2020
 ms.author: shvija
 ms.openlocfilehash: 91e2d70bab8c1be4b3e5b400ce21122eccb1e9eb
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811368"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Usar Hubs de Eventos do Azure de aplicativos Apache Kafka
@@ -26,7 +26,7 @@ Os Hubs de Eventos fornecem um ponto de extremidade Kafka que pode ser usado por
 
 Os Hubs de eventos para o recurso de Kafka fornece um cabeçalho de protocolo na parte superior de Hubs de eventos do Azure que é binário compatível com versões do Kafka 1.0 e posterior para tanto leitura e gravação para os tópicos do Kafka. Você pode começar a usar o ponto de extremidade do Kafka dos aplicativos sem alteração de código, mas com uma alteração mínima de configuração. Você atualiza a cadeia de conexão nas configurações para apontar para o ponto de extremidade do Kafka exposto pelo hub de eventos, em vez de apontar para o cluster do Kafka. Em seguida, você poderá começar a transmitir eventos dos aplicativos que usam o protocolo Kafka nos Hubs de Eventos. Essa integração também dá suporte a estruturas como [Kafka conectar](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect), que está atualmente em visualização. 
 
-Conceitualmente Kafka e Event Hubs são quase idênticos: ambos são logs particionados construídos para streaming de dados. A tabela a seguir mapeia conceitos entre Kafka e Hubs de Eventos.
+Os hubs de eventos e Kafka conceitualmente são quase idênticos: ambos são logs particionados criados para streaming de dados. A tabela a seguir mapeia conceitos entre Kafka e Hubs de Eventos.
 
 ### <a name="kafka-and-event-hub-conceptual-mapping"></a>Mapeamento conceitual de Kafka e Hub de Eventos
 
@@ -40,20 +40,20 @@ Conceitualmente Kafka e Event Hubs são quase idênticos: ambos são logs partic
 
 ### <a name="key-differences-between-kafka-and-event-hubs"></a>Principais diferenças entre Kafka e Hubs de Eventos
 
-Embora o [Kafka Apache](https://kafka.apache.org/) seja um software, que pode ser executado sempre que você quiser, os Hubs de Eventos são um serviço de nuvem semelhante ao Armazenamento de Blobs do Azure. Não há nenhum servidor ou rede para gerenciar e nenhum agente para configurar. Crie um namespace, que é um FQDN no qual seus tópicos residem e crie Hubs de Eventos ou tópicos dentro desse namespace. Para obter mais informações sobre namespaces e Hubs de Eventos, consulte [Recursos de Hubs de Eventos](event-hubs-features.md#namespace). Como um serviço de nuvem, o Event Hubs usa um único endereço IP virtual estável como ponto final, para que os clientes não precisem saber sobre os corretores ou máquinas dentro de um cluster. 
+Embora o [Kafka Apache](https://kafka.apache.org/) seja um software, que pode ser executado sempre que você quiser, os Hubs de Eventos são um serviço de nuvem semelhante ao Armazenamento de Blobs do Azure. Não há nenhum servidor ou rede para gerenciar e nenhum agente para configurar. Crie um namespace, que é um FQDN no qual seus tópicos residem e crie Hubs de Eventos ou tópicos dentro desse namespace. Para obter mais informações sobre namespaces e Hubs de Eventos, consulte [Recursos de Hubs de Eventos](event-hubs-features.md#namespace). Como um serviço de nuvem, os hubs de eventos usam um único endereço IP virtual estável como o ponto de extremidade, para que os clientes não precisem saber sobre os agentes ou computadores em um cluster. 
 
 A escala em Hubs de Eventos é controlada pelo número de unidades de produtividade que você adquirir, com cada unidade de produtividade lhe dando direito a 1 MB por segundo ou 1000 eventos por segundo de entrada. Por padrão, os Hubs de Eventos ampliam as unidades de taxa de transferência quando você atinge seu limite com o recurso [Inflação Automática](event-hubs-auto-inflate.md); esse recurso também funciona com o recurso Hubs de Eventos para Kafka. 
 
 ### <a name="security-and-authentication"></a>Segurança e autenticação
-Toda vez que você publica ou consome eventos de um Event Hubs for Kafka, seu cliente está tentando acessar os recursos do Event Hubs. Você quer garantir que os recursos sejam acessados usando uma entidade autorizada. Ao usar o protocolo Apache Kafka com seus clientes, você pode definir sua configuração para autenticação e criptografia usando os mecanismos SASL. Ao usar hubs de eventos para Kafka requer a criptografia TLS (como todos os dados em trânsito com Hubs de Eventos são criptografados TLS). Ele pode ser feito especificando a opção SASL_SSL em seu arquivo de configuração. 
+Sempre que você publica ou consome eventos de um hub de eventos para Kafka, seu cliente está tentando acessar os recursos dos hubs de eventos. Você deseja garantir que os recursos sejam acessados usando uma entidade autorizada. Ao usar Apache Kafka protocolo com seus clientes, você pode definir sua configuração para autenticação e criptografia usando os mecanismos SASL. Ao usar os hubs de eventos para o Kafka, é necessário ter criptografia TLS (pois todos os dados em trânsito com hubs de eventos são criptografados como TLS). Isso pode ser feito especificando a opção SASL_SSL no arquivo de configuração. 
 
-O Azure Event Hubs oferece várias opções para autorizar o acesso aos seus recursos seguros. 
+Os hubs de eventos do Azure fornecem várias opções para autorizar o acesso aos seus recursos seguros. 
 
 - OAuth
 - Assinatura de acesso compartilhado (SAS)
 
 #### <a name="oauth"></a>OAuth
-O Event Hubs integra-se ao Azure Active Directory (Azure AD), que fornece um servidor de autorização centralizado compatível com **OAuth** 2.0. Com o Azure AD, você pode usar o RBAC (Role-Based Access Control, controle de acesso baseado em função) para conceder permissões finas de grãos às identidades de seus clientes. Você pode usar esse recurso com seus clientes Kafka especificando **SASL_SSL** para o protocolo e **OAUTHBEARER** para o mecanismo. Para obter detalhes sobre as funções e níveis de RBAC para acesso ao escopo, consulte [Autorizar o acesso com o Azure AD](authorize-access-azure-active-directory.md).
+Os hubs de eventos se integram com o Azure Active Directory (Azure AD), que fornece um servidor de autorização centralizada compatível com **OAuth** 2,0. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) para conceder permissões refinadas às suas identidades de cliente. Você pode usar esse recurso com os clientes do Kafka especificando **SASL_SSL** para o protocolo e **OAUTHBEARER** para o mecanismo. Para obter detalhes sobre as funções e os níveis de RBAC para acesso de escopo, consulte [autorizar o acesso com o Azure ad](authorize-access-azure-active-directory.md).
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -64,7 +64,7 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
 ```
 
 #### <a name="shared-access-signature-sas"></a>SAS (Assinatura de Acesso Compartilhado)
-O Event Hubs também fornece as **Assinaturas de Acesso Compartilhado (SAS)** para acesso delegado aos Hubs de Eventos para recursos Kafka. Autorizar o acesso usando o mecanismo baseado em token OAuth 2.0 proporciona maior segurança e facilidade de uso em relação ao SAS. As funções incorporadas também podem eliminar a necessidade de autorização baseada em ACL, que deve ser mantida e gerenciada pelo usuário. Você pode usar esse recurso com seus clientes Kafka especificando **SASL_SSL** para o protocolo e **PLAIN** para o mecanismo. 
+Os hubs de eventos também fornecem as **SAS (assinaturas de acesso compartilhado)** para acesso delegado aos hubs de eventos para recursos Kafka. A autorização de acesso usando o mecanismo baseado em token do OAuth 2,0 fornece segurança superior e facilidade de uso sobre SAS. As funções internas também podem eliminar a necessidade de autorização baseada em ACL, que deve ser mantida e gerenciada pelo usuário. Você pode usar esse recurso com os clientes do Kafka especificando **SASL_SSL** para o protocolo e **sem formatação** para o mecanismo. 
 
 ```xml
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -74,9 +74,9 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 ```
 
 #### <a name="samples"></a>Exemplos 
-Para obter um **tutorial** com instruções passo a passo para criar um hub de eventos e acessá-lo usando SAS ou OAuth, consulte [Quickstart: Fluxo de dados com Hubs de Eventos usando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
+Para obter um **tutorial** com as instruções detalhadas para criar um hub de eventos e acessá-lo usando SAS ou OAuth, consulte [início rápido: streaming de dados com hubs de eventos usando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
-Para obter mais **amostras** que mostrem como usar o OAuth com Event Hubs for Kafka, consulte [amostras no GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+Para obter mais **exemplos** que mostram como usar o OAuth com hubs de eventos para Kafka, consulte [exemplos no GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 
 ## <a name="other-event-hubs-features-available-for-kafka"></a>Outros recursos de Hubs de Eventos disponíveis para Kafka
 
@@ -96,6 +96,6 @@ Aqui está a lista de recursos de Kafka que ainda não têm suporte:
 *   Kafka Streams
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo forneceu uma introdução aos Hubs de Eventos para Kafka. Para saber mais, consulte [o guia de desenvolvedores Apache Kafka para o Azure Event Hubs](apache-kafka-developer-guide.md).
+Este artigo forneceu uma introdução aos Hubs de Eventos para Kafka. Para saber mais, confira [Guia do desenvolvedor do Apache Kafka para Hubs de Eventos do Azure](apache-kafka-developer-guide.md).
 
 

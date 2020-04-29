@@ -1,7 +1,7 @@
 ---
-title: Dispositivos de fala SDK Roobo Smart Audio Dev Kit v2 - Serviço de fala
+title: Speech Devices SDK Roobo Smart Audio dev kit v2 – Speech Service
 titleSuffix: Azure Cognitive Services
-description: Pré-requisitos e instruções para começar com os dispositivos de fala SDK, Roobo Smart Audio Dev Kit v2.
+description: Pré-requisitos e instruções para introdução ao SDK de dispositivos de fala, kit de desenvolvimento inteligente de áudio Roobo v2.
 services: cognitive-services
 author: anushapatnala
 manager: wellsi
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: v-anusp
 ms.openlocfilehash: 2f325c80877068c53d690bd7ff74f768dab3a174
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80371590"
 ---
-# <a name="device-roobo-smart-audio-dev-kit-v2"></a>Dispositivo: Roobo Smart Audio Dev Kit v2
+# <a name="device-roobo-smart-audio-dev-kit-v2"></a>Dispositivo: kit de desenvolvimento inteligente de áudio Roobo v2
 
-Este artigo fornece informações específicas do dispositivo para o Roobo Smart Audio Dev Kit2.
+Este artigo fornece informações específicas do dispositivo para o Roobo de desenvolvimento inteligente de áudio do kit2.
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
 
@@ -27,15 +27,15 @@ Este artigo fornece informações específicas do dispositivo para o Roobo Smart
     ![Conectar o kit de desenvolvimento](media/speech-devices-sdk/roobo-v2-connections.png)
 1. Ligue o kit de desenvolvimento usando um cabo micro USB para conectar a porta de energia a um PC ou adaptador de energia. Um indicador de energia verde acenderá sob o quadro superior.
 1. Para controlar o kit de desenvolvimento, conecte a porta de depuração a um computador usando um segundo cabo micro USB. É essencial usar um cabo de alta qualidade para garantir comunicações confiáveis.
-1. Oriente seu kit de desenvolvimento Circularly - Vertical, com microfones voltados para o teto como mostrado acima
+1. Oriente seu kit de desenvolvimento circularmente-verticalmente, com microfones voltados para o teto, conforme mostrado acima
 
 
-## <a name="development-information"></a>Informações sobre desenvolvimento
+## <a name="development-information"></a>Informações de desenvolvimento
 
-Para obter mais informações sobre o desenvolvimento, consulte o [guia de desenvolvimento da Roobo.](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf)
+Para obter mais informações de desenvolvimento, consulte o [Guia de desenvolvimento do Roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
-## <a name="audio-recordplay"></a>Gravação/Reprodução de áudio
+## <a name="audio-recordplay"></a>Registro/reprodução de áudio
 
 As operações de áudio DDK2 podem ser executadas das seguintes maneiras:
-* Use bibliotecas de código aberto da ALSA e seus aplicativos.
-* Use a interface appmainprog para fazer o desenvolvimento de aplicativos. Áudio DDK2 - estrutura de software relacionada usa estrutura ALSA padrão, você pode usar libasound. Então, para desenvolver software diretamente. Assim, você pode usar o registro e aplay da ALSA diretamente para gravar e reproduzir áudio.
+* Use bibliotecas de código-fonte aberto do ALSA e seus aplicativos.
+* Use a interface appmainprog para fazer o desenvolvimento de aplicativos. A estrutura de software relacionada a áudio DDK2 usa a estrutura ALSA padrão, você pode usar o libasound. Portanto, para desenvolver software diretamente. Portanto, você pode usar o arecord e o aplay da ALSA diretamente para gravar e reproduzir áudio.

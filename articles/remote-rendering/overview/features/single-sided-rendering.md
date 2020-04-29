@@ -1,43 +1,43 @@
 ---
-title: Renderização unilateral
-description: Descreve configurações de renderização de um lado e casos de uso
+title: Renderização de um lado
+description: Descreve configurações de renderização única e casos de uso
 author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.openlocfilehash: 34ee5d4978c6476da407cde33598a5713177078e
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80682007"
 ---
-# <a name="single-sided-rendering"></a>Renderização unilateral
+# <a name="single-sided-rendering"></a>Renderização de um lado
 
-A maioria dos renderizadores usa [abate back-face](https://en.wikipedia.org/wiki/Back-face_culling) para melhorar o desempenho. No entanto, quando as meshes são cortadas com [planos de corte,](cut-planes.md)os usuários muitas vezes olharão para o lado de trás dos triângulos. Se esses triângulos forem eliminados, o resultado não parece convincente.
+A maioria dos renderizadores usa a [remoção de frente e volta](https://en.wikipedia.org/wiki/Back-face_culling) para melhorar o desempenho. No entanto, quando as malhas são recortadas abertas com [planos de corte](cut-planes.md), os usuários costumam examinar o verso dos triângulos. Se esses triângulos forem descartados, o resultado não parecerá convincente.
 
-A maneira de prevenir esse problema de forma confiável é tornar triângulos *de dupla lateral*. Como não usar o abate back-face tem implicações de desempenho, por padrão, a renderização remota do Azure só muda para renderização dupla face para as fundações que estão se cruzando com um plano de corte.
+A maneira de evitar esse problema de forma confiável é renderizar os triângulos *duas vezes*. Como não usar a remoção de face para frente tem implicações de desempenho, por padrão, a renderização remota do Azure alterna apenas para renderização dupla para malhas que fazem interseção com um plano de recorte.
 
-A *configuração de renderização unilateral* permite personalizar esse comportamento.
+A configuração de *renderização única* permite que você personalize esse comportamento.
 
 > [!CAUTION]
-> A configuração de renderização unilateral é um recurso experimental. Pode ser removido novamente no futuro. Por favor, não altere a configuração padrão, a menos que realmente resolva um problema crítico em seu aplicativo.
+> A configuração de renderização de lado único é um recurso experimental. Ele pode ser removido novamente no futuro. Não altere a configuração padrão, a menos que ela realmente resolva um problema crítico em seu aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A configuração de renderização unilateral só tem um efeito para `opaqueMaterialDefaultSidedness` as meshes que foram [convertidas](../../how-tos/conversion/configure-model-conversion.md) com a opção definida como `SingleSided`. Por padrão, esta `DoubleSided`opção é definida como .
+A configuração de renderização única tem um efeito apenas para as malhas que foram [convertidas](../../how-tos/conversion/configure-model-conversion.md) com a `opaqueMaterialDefaultSidedness` opção definida como `SingleSided`. Por padrão, essa opção é definida `DoubleSided`como.
 
-## <a name="single-sided-rendering-setting"></a>Configuração de renderização unilateral
+## <a name="single-sided-rendering-setting"></a>Configuração de renderização de lado único
 
-Existem três modos diferentes:
+Há três modos diferentes:
 
-**Normal:** Neste modo, as meshes são sempre renderizadas à medida que são convertidas. Isso significa que as `opaqueMaterialDefaultSidedness` meshes convertidas com conjunto para `SingleSided` sempre serão renderizadas com abate back-face ativado, mesmo quando eles cruzam um plano de corte.
+**Normal:** Nesse modo, as malhas são sempre renderizadas à medida que são convertidas. Isso significa que as malhas `opaqueMaterialDefaultSidedness` convertidas com Set como `SingleSided` serão sempre renderizadas com a remoção de face de fundo habilitada, mesmo quando elas interseccionam um plano de recorte.
 
-**DynamicDoubleSiding:** Neste modo, quando um plano de corte cruza uma malha, ele é automaticamente comutado para renderização de dupla lateral. Este modo é o modo padrão.
+**DynamicDoubleSiding:** Nesse modo, quando um plano de recorte cruza uma malha, ele é alternado automaticamente para renderização de lado duplo. Esse modo é o modo padrão.
 
-**Sempre duplamente:** Força toda a geometria unilateral a ser feita de lado duplo o tempo todo. Este modo é exposto principalmente para que você possa facilmente comparar o impacto de desempenho entre renderização unilateral e dupla.
+**AlwaysDoubleSided:** Força que toda a geometria de lado único seja renderizada duas vezes. Esse modo é exposto principalmente para que você possa comparar facilmente o impacto de desempenho entre renderização única e dupla.
 
-A alteração das configurações de renderização de um lado pode ser feita da seguinte forma:
+A alteração das configurações de renderização de lado único pode ser feita da seguinte maneira:
 
 ``` cs
 void ChangeSingleSidedRendering(AzureSession session)
@@ -54,5 +54,5 @@ void ChangeSingleSidedRendering(AzureSession session)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Cortar aviões](cut-planes.md)
-* [Configuração da conversão do modelo](../../how-tos/conversion/configure-model-conversion.md)
+* [Recortar planos](cut-planes.md)
+* [Configurando a conversão de modelo](../../how-tos/conversion/configure-model-conversion.md)

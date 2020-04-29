@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: b6f61de23ab4b637cfb5b8ee365ddea9764bf515
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80810194"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implantar um serviço de mesclagem dividida para mover dados entre bancos de dados compartilhados
@@ -63,7 +63,7 @@ Os arquivos são colocados em um diretório chamado **Microsoft.Azure.SqlDatabas
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. Insira essa seqüência de conexão no arquivo *.cscfg* nas seções de função **SplitMergeWeb** e **SplitMergeWorker** na configuração ElasticScaleMetadata.
+1. Insira essa cadeia de conexão no arquivo *. cscfg* nas seções de função **SplitMergeWeb** e **SplitMergeWorker** na configuração ElasticScaleMetadata.
 
 1. Para a função **SplitMergeWorker**, digite uma cadeia de caracteres de conexão válida para o armazenamento do Azure para a configuração **WorkerRoleSynchronizationStorageAccountConnectionString**.
 
@@ -140,11 +140,11 @@ Observe que para implantações de produção devem ser usados certificados sepa
 
 ## <a name="deploy-your-service"></a>Implantar o serviço
 
-1. Vá para [o portal Azure](https://portal.azure.com)
+1. Vá para o [Portal do Azure](https://portal.azure.com)
 2. Selecione o serviço de nuvem que você já criou.
 3. Clique em **Visão Geral**.
 4. Escolha o ambiente de preparo e clique em **Carregar**.
-5. Na caixa de diálogo, digite um rótulo de implantação. Para 'Pacote' e 'Configuração', clique em 'De local' e escolha o arquivo *SplitMergeService.cspkg* e o arquivo cscfg que você configurou anteriormente.
+5. Na caixa de diálogo, digite um rótulo de implantação. Para ' Package ' e ' Configuration ', clique em ' from local ' e escolha o arquivo *SplitMergeService. cspkg* e o arquivo cscfg que você configurou anteriormente.
 6. Certifique-se de que a caixa de seleção rotulada **Implantar mesmo se uma ou mais funções contiverem uma única instância** esteja marcada.
 7. Clique no botão de escala no canto inferior direito para iniciar a implantação. Isso poderá levar alguns minutos para ser concluído.
 
@@ -230,13 +230,13 @@ Os arquivos de script incluídos são:
 2. Crie um servidor do Banco de Dados SQL do Azure (ou escolha um servidor existente) em que o gerenciador do mapa do fragmento e os fragmentos serão criados.
 
    > [!NOTE]
-   > O script *SetupSampleMergeMergeEnvironment.ps1* cria todos esses bancos de dados no mesmo servidor por padrão para manter o script simples. Isso não é uma restrição do Serviço de Divisão-Mesclagem em si.
+   > O script *SetupSampleSplitMergeEnvironment. ps1* cria todos esses bancos de dados no mesmo servidor por padrão para manter o script simples. Isso não é uma restrição do Serviço de Divisão-Mesclagem em si.
 
    Um logon de autenticação do SQL com acesso de leitura/gravação para os bancos de dados será necessário para que o serviço de Divisão-Mesclagem mova os dados e atualize o mapa do fragmento. Desde que o Serviço de Divisão-Mesclagem seja executado na nuvem, ele atualmente não dá suporte à Autenticação integrada.
 
    Verifique se o SQL Server do Azure está configurado para permitir acesso do endereço IP do computador que executa esses scripts. Você pode encontrar essa configuração em SQL Server do Azure / configuração / endereços de IP permitidos.
 
-3. Execute o *script SetupSampleMergeMergeEnvironment.ps1* para criar o ambiente de amostra.
+3. Execute o script *SetupSampleSplitMergeEnvironment. ps1* para criar o ambiente de exemplo.
 
    A execução desse script apagará quaisquer estruturas de dados de gerenciamento de mapa do fragmento existentes no banco de dados do gerenciador do mapa do fragmento e nos fragmentos. Ele pode ser útil para executar novamente o script, se desejar reinicializar o mapa do fragmento ou os fragmentos.
 
@@ -254,7 +254,7 @@ Os arquivos de script incluídos são:
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Execute o script *ExecuteMergeMerge.ps1* para executar uma operação dividida (movendo metade dos dados do primeiro fragmento para o segundo fragmento) e, em seguida, uma operação de fusão (movendo os dados de volta para o primeiro fragmento). Se você configurou o TLS e deixou o ponto final http desativado, certifique-se de usar o ponto final https://.
+5. Execute o script *ExecuteSampleSplitMerge. ps1* para executar uma operação de divisão (movendo metade dos dados no primeiro fragmento para o segundo fragmento) e, em seguida, uma operação de mesclagem (movendo os dados de volta para o primeiro fragmento). Se você configurou o TLS e saiu do ponto de extremidade http desabilitado, certifique-se de usar o ponto de extremidade https://em vez disso.
 
    Linha de comando de exemplo:
 
@@ -333,7 +333,7 @@ Você pode ver a mensagem abaixo ao executar os scripts do powershell de exemplo
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Este erro significa que seu certificado TLS/SSL não está configurado corretamente. Siga as instruções na seção 'Conectando-se com um navegador da Web'.
+Esse erro significa que o certificado TLS/SSL não está configurado corretamente. Siga as instruções na seção 'Conectando-se com um navegador da Web'.
 
 Se não for possível enviar solicitações, você verá isso:
 

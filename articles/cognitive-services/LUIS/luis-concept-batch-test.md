@@ -1,5 +1,5 @@
 ---
-title: Teste em lote - LUIS
+title: Teste em lote-LUIS
 titleSuffix: Azure Cognitive Services
 description: Use o teste em lote para trabalhar continuamente em seu aplicativo para aprimorá-lo e melhorar o reconhecimento do idioma.
 services: cognitive-services
@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220045"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com 1.000 declarações no portal do LUIS
 
-O teste em lote valida sua versão ativa treinada para medir sua precisão de previsão. Um teste em lote ajuda você a visualizar a precisão de cada intenção e entidade em sua versão ativa, exibindo resultados com um gráfico. Revise os resultados do teste em lote para tomar as medidas apropriadas para melhorar a precisão, como adicionar mais expressões de exemplo a uma intenção se o aplicativo frequentemente não identificar a intenção correta ou rotular entidades dentro do enunciado.
+O teste em lotes valida sua versão treinada ativa para medir sua precisão de previsão. Um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em sua versão ativa, exibindo os resultados com um gráfico. Examine os resultados do teste em lotes para tomar as medidas apropriadas para melhorar a precisão, como adicionar mais exemplos de declarações a uma intenção se seu aplicativo freqüentemente falhar ao identificar a intenção correta ou rotular entidades dentro do expressão.
 
 ## <a name="group-data-for-batch-test"></a>Agrupar dados para o teste em lote
 
-É importante que as declarações usadas para o teste em lote sejam novas no LUIS. Se você tiver um conjunto de dados de expressões, divida as expressões em três conjuntos: expressões de exemplo adicionadas a uma intenção, declarações recebidas do ponto final publicado e enunciados usados para testar LUIS em lote depois que ele é treinado. 
+É importante que as declarações usadas para o teste em lote sejam novas no LUIS. Se você tiver um conjunto de dados de declarações, divida o declarações em três conjuntos: exemplo declarações adicionado a uma intenção, declarações recebido do ponto de extremidade publicado e declarações usado para testar o lote LUIS depois de ser treinado. 
 
-## <a name="a-data-set-of-utterances"></a>Um conjunto de dados de expressões
+## <a name="a-data-set-of-utterances"></a>Um conjunto de dados de declarações
 
-Envie um arquivo em lote de declarações, conhecido como conjunto *de dados,* para testes em lote. O conjunto de dados é um arquivo formatado pelo JSON contendo um máximo de 1.000 expressões **não duplicadas** rotuladas. Você pode testar até 10 conjuntos de dados em um aplicativo. Se você precisar testar mais, exclua um conjunto de dados e adicione um novo.
+Envie um arquivo em lotes de declarações, conhecido como um *conjunto de dados*, para teste em lotes. O conjunto de dados é um arquivo formatado em JSON que contém um máximo de 1.000 rotulado como declarações **não duplicado** . Você pode testar até 10 conjuntos de dados em um aplicativo. Se você precisar testar mais, exclua um conjunto de dados e, em seguida, adicione um novo.
 
 |**Regras**|
 |--|
@@ -106,7 +106,7 @@ Os erros comuns incluem:
 
 ## <a name="batch-test-state"></a>Estado do teste em lote
 
-Luis rastreia o estado do último teste de cada conjunto de dados. Isso inclui o tamanho (número de declarações no lote), data da última execução e último resultado (número de declarações previstas com êxito).
+LUIS rastreia o estado do último teste de cada conjunto de dados. Isso inclui o tamanho (número de declarações no lote), data da última execução e último resultado (número de declarações previstas com êxito).
 
 <a name="sections-of-the-results-chart"></a>
 
@@ -114,7 +114,7 @@ Luis rastreia o estado do último teste de cada conjunto de dados. Isso inclui o
 
 O resultado do teste em lote é um gráfico de dispersão, conhecido como matriz de erro. Esse gráfico é uma comparação de 4 vias das declarações no arquivo de lote, intenção prevista do modelo atual e entidades. 
 
-Os pontos de dados nas seções **Falso Positivo** e **Falso Negativo** indicam os erros que devem ser investigados. Se todos os pontos de dados estiverem nas seções **True Positive** e **True Negative,** então a precisão do seu aplicativo é perfeita neste conjunto de dados.
+Os pontos de dados nas seções **Falso Positivo** e **Falso Negativo** indicam os erros que devem ser investigados. Se todos os pontos de dados estiverem nas seções **verdadeiro positivo** e **verdadeiro negativo** , a precisão do aplicativo será perfeita nesse conjunto de dados.
 
 ![Quatro seções do gráfico](./media/luis-concept-batch-test/chart-sections.png)
 

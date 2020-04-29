@@ -1,7 +1,7 @@
 ---
 title: Configure sua experiência de Pesquisa Personalizada do Bing | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: O portal permite criar uma instância de pesquisa que especifique as fatias da web; domínios, subpáginas e páginas da Web.
+description: O portal permite criar uma instância de pesquisa que especifica as fatias da Web; domínios, subpáginas e páginas da Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220210"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
@@ -27,7 +27,7 @@ Ao definir fatias da web, use o seguinte:
 
 | Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se `microsoft.com`você especificar, `support.microsoft.com` `technet.microsoft.com`Bing também retorna resultados ou . |
+| Domain     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com`, o Bing também retorna resultados `support.microsoft.com` de `technet.microsoft.com`ou. |
 | Subpágina    | Uma fatia de subpágina inclui todo o conteúdo localizado na subpágina e nos caminhos abaixo. É possível especificar no máximo duas subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página da web    | Uma fatia da página da Web pode incluir apenas essa página da Web em uma pesquisa personalizada. Opcionalmente, é possível especificar se quer incluir subpáginas.                                                                                                                                                                                  |
 
@@ -70,7 +70,7 @@ Para carregar um arquivo, crie um arquivo de texto e especifique um único domí
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Obtenha sugestões de sites para a sua experiência de pesquisa
 
-Depois de adicionar fatias da Web à lista **Ativa,** o portal Bing Custom Search gerará sugestões de site e subpáginas na parte inferior da guia. Estas são fatias que bing custom search acha que você pode querer incluir. Clique em **Atualizar** para obter sugestões atualizadas depois de atualizar as configurações da sua instância de pesquisa personalizada. Esta seção só é visível se as sugestões estiverem disponíveis.
+Depois de adicionar Web Slices à lista **ativa** , o portal de pesquisa personalizada do Bing gerará sugestões de site e subpágina na parte inferior da guia. Essas são fatias que Pesquisa Personalizada do Bing pensa que você talvez queira incluir. Clique em **Atualizar** para obter sugestões atualizadas depois de atualizar as configurações da sua instância de pesquisa personalizada. Esta seção só é visível se as sugestões estiverem disponíveis.
 
 ## <a name="search-for-images-and-videos"></a>Pesquisar imagens e vídeos
 
@@ -94,7 +94,7 @@ O portal permite que você ajuste a classificação da pesquisa de conteúdo de 
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Bloco      | Mova o domínio, a subpágina ou a página da Web para a lista Bloqueado. O Bing excluirá o conteúdo do site selecionado para não aparecer nos resultados da pesquisa.                    |
+| Bloquear      | Mova o domínio, a subpágina ou a página da Web para a lista Bloqueado. O Bing excluirá o conteúdo do site selecionado para não aparecer nos resultados da pesquisa.                    |
 | Aumentar      | Aumenta o conteúdo do domínio ou da subpágina nos resultados da pesquisa.                                                                                        |
 | Rebaixar     | Rebaixa o conteúdo do domínio ou subpágina ao nível abaixo nos resultados da pesquisa. Você seleciona se quer rebaixar o conteúdo do domínio ou da subpágina à qual a página da Web pertence. |
 | Fixar no início | Move o domínio, a subpágina ou a página da Web para a lista **Fixado**. Isso força que a página da Web sejam exibida como o primeiro resultado de pesquisa para uma determinada consulta de pesquisa.                   |
@@ -105,7 +105,7 @@ A classificação de ajuste não está disponível para pesquisas de imagem e v�
 
 É possível aumentar, superaumentar ou rebaixar qualquer domínio ou subpágina na lista **Ativo**. Por padrão, todas as fatias são adicionadas sem ajustes de classificação. As fatias da Web que são Superaumentadas ou Aumentadas apresentam uma classificação superior nos resultados da pesquisa (com classificação superaumentada maior que aumentada). Itens rebaixados são classificados abaixo nos resultados da pesquisa.
 
-Você pode super impulsionar, impulsionar ou rebaixar itens usando os controles De ajustar de **classificação** na lista **Ativa** ou usando os controles Boost e Rebaixo no painel Desinserção. O serviço adiciona a fatia à lista Ativo e ajusta a classificação adequadamente.
+Você pode melhorar, aumentar ou rebaixar itens usando os controles de **ajuste de classificação** na lista **ativa** ou usando os controles Boost e rebaixar no painel de visualização. O serviço adiciona a fatia à lista Ativo e ajusta a classificação adequadamente.
 
 > [!NOTE] 
 > Aumentar e o rebaixar domínios e subpáginas são um dos muitos métodos que a Pesquisa Personalizada do Bing usa para determinar a ordem dos resultados da pesquisa. Devido a outros fatores que influenciam a classificação de conteúdo da web diferente, os efeitos de ajustar a classificação podem variar. Use o painel de visualização para testar os efeitos de ajustar a classificação dos resultados da pesquisa. 
@@ -114,13 +114,13 @@ Superaumentar, aumentar e rebaixar não estão disponíveis para as pesquisas de
 
 ## <a name="pin-slices-to-the-top-of-search-results"></a>Fixar fatias na parte superior dos resultados da pesquisa
 
-O portal também permite fixar URLs no topo dos resultados de pesquisa para termos específicos de pesquisa, usando a guia **Fixado. Digite** uma URL e consulta para especificar a página da Web que aparecerá como o resultado principal. Observe que você pode fixar no máximo uma página da Web por consulta de pesquisa, e apenas as páginas da Web indexadas serão exibidas em pesquisas. A fixação de resultados não está disponível para pesquisas de imagem e vídeo.
+O portal também permite que você fixe URLs na parte superior dos resultados da pesquisa para termos de pesquisa específicos, usando a guia **fixado** . Insira uma URL e uma consulta para especificar a página da Web que será exibida como o resultado superior. Observe que você pode fixar no máximo uma página da Web por consulta de pesquisa, e apenas as páginas da Web indexadas serão exibidas em pesquisas. A fixação de resultados não está disponível para pesquisas de imagem e vídeo.
 
 Você pode fixar uma página da Web na parte superior de duas maneiras:
 
-* Na **guia Fixado, digite** a URL da página da Web para fixar na parte superior e sua consulta correspondente.
+* Na guia **fixado** , insira a URL da página da Web a ser fixada na parte superior e sua consulta correspondente.
 
-* No painel **Visualização**, insira uma consulta de pesquisa e clique em pesquisar. Encontre a página web que deseja fixar para sua consulta e clique **em Pin para cima**. A página da Web e a consulta serão adicionadas à lista **Fixado**.
+* No painel **Visualização**, insira uma consulta de pesquisa e clique em pesquisar. Localize a página da Web que você deseja fixar na consulta e clique em **fixar na parte superior**. A página da Web e a consulta serão adicionadas à lista **Fixado**.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificar a condição de correspondência da fixação
 

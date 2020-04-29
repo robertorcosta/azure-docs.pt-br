@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 630304bec17dd34befab4e5bd9f1cfdfb6505645
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811417"
 ---
 # <a name="azure-customer-data-protection"></a>Proteção de dados do cliente do Azure   
@@ -45,12 +45,12 @@ O Azure fornece aos clientes segurança de dados forte, por padrão e como opç�
 - O cliente e a nuvem.
 - Internamente entre sistemas do Azure e datacenters.
 
-**Criptografia**: a criptografia de dados em armazenamento e em trânsito pode ser implantada pelos clientes como uma prática recomendada para garantir a confidencialidade e a integridade dos dados. É simples que os clientes configurem seus serviços de nuvem do Azure para usar o TLS para proteger as comunicações da internet e até mesmo entre suas VMs hospedadas no Azure.
+**Criptografia**: a criptografia de dados em armazenamento e em trânsito pode ser implantada pelos clientes como uma prática recomendada para garantir a confidencialidade e a integridade dos dados. É fácil para os clientes configurar seus serviços de nuvem do Azure para usar o TLS para proteger as comunicações da Internet e até mesmo entre suas VMs hospedadas no Azure.
 
 **Redundância de dados**: a Microsoft ajuda a garantir que os dados estejam protegidos se houver um ataque cibernético ou danos físicos em um datacenter. Os clientes podem optar por:
 
-- Armazenamento no país/na região para considerações de conformidade ou latência.
-- Armazenamento fora do país/fora da região para fins de segurança ou recuperação de desastres.
+- Armazenamento no país/região para considerações de conformidade ou latência.
+- Armazenamento fora do país/fora de região para fins de segurança ou recuperação de desastre.
 
 Os dados podem ser replicados em uma área geográfica selecionada para redundância, mas não podem ser transmitidos fora dela. Os clientes têm várias opções para replicar dados, incluindo o número de cópias e o número e a localização dos datacenters de replicação.
 
@@ -81,7 +81,7 @@ Para saber mais sobre o que a Microsoft faz para proteger a infraestrutura do Az
 - [Componentes e limites do sistema de informações do Azure](infrastructure-components.md)
 - [Arquitetura de rede do Azure](infrastructure-network.md)
 - [Rede de produção do Azure](production-network.md)
-- [Recursos de segurança do banco de dados Azure SQL](infrastructure-sql.md)
+- [Recursos de segurança do banco de dados SQL do Azure](infrastructure-sql.md)
 - [Gerenciamento e operações de produção do Azure](infrastructure-operations.md)
 - [Monitoramento de infraestrutura do Microsoft Azure](infrastructure-monitoring.md)
 - [Integridade da infraestrutura do Azure](infrastructure-integrity.md)

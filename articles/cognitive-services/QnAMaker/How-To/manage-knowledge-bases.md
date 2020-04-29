@@ -1,24 +1,24 @@
 ---
-title: Gerenciar bases de conhecimento - QnA Maker
-description: O QnA Maker permite que você gerencie suas bases de conhecimento fornecendo acesso às configurações da base de conhecimento e conteúdo.
+title: Gerenciar bases de dados de conhecimento-QnA Maker
+description: QnA Maker permite que você gerencie suas bases de dados de conhecimento fornecendo acesso às configurações e ao conteúdo da base de dados de conhecimento.
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.openlocfilehash: 4eb07b30b10826c361f4f9b805b517e372fc5ea1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756810"
 ---
-# <a name="create-knowledge-base-and-manage-settings"></a>Crie base de conhecimento e gerencie configurações
+# <a name="create-knowledge-base-and-manage-settings"></a>Criar base de dados de conhecimento e gerenciar configurações
 
-O QnA Maker permite que você gerencie suas bases de conhecimento fornecendo acesso às configurações da base de conhecimento e às fontes de dados.
+QnA Maker permite que você gerencie suas bases de dados de conhecimento, fornecendo acesso às configurações da base de conhecimento e às fontes de dado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!div class="checklist"]
 > * Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-> * Um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) criado no portal Azure. Lembre-se de sua ID e sua assinatura do Azure Active Directory, bem como do nome do recurso do QnA que você selecionou ao criar o recurso.
+> * Um [recurso QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) criado no portal do Azure. Lembre-se de sua ID e sua assinatura do Azure Active Directory, bem como do nome do recurso do QnA que você selecionou ao criar o recurso.
 
 ## <a name="create-a-knowledge-base"></a>Como criar uma base de dados de conhecimento
 
@@ -36,7 +36,7 @@ O QnA Maker permite que você gerencie suas bases de conhecimento fornecendo ace
 
    ![Captura de tela da seleção de uma base de dados de conhecimento do serviço do QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. Na **Etapa 3,** nomeie sua base `My Sample QnA KB`de conhecimento.
+1. Na **etapa 3**, nomeie sua base `My Sample QnA KB`de dados de conhecimento.
 
 1. Na **Etapa 4**, defina as configurações com a seguinte tabela:
 
@@ -47,7 +47,7 @@ O QnA Maker permite que você gerencie suas bases de conhecimento fornecendo ace
     |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Bate-papo**|Selecione **Professional**|
 
-1. Na **Etapa 5**, selecione **Criar sua base de dados**.
+1. Na **etapa 5**, selecione **criar seu KB**.
 
     O processo de extração leva alguns instantes para ler o documento e identificar perguntas e respostas.
 
@@ -69,12 +69,12 @@ O QnA Maker permite que você gerencie suas bases de conhecimento fornecendo ace
        |--|--|
        |Adicionar URL|Você pode adicionar novos URLs para adicionar novos conteúdos de perguntas frequentes à base de conhecimento clicando em **Gerenciar base de conhecimento -> link "+ Adicionar URL"**.|
        |Excluir URL|Você pode excluir URLs existentes selecionando o ícone de exclusão, a lixeira.|
-       |Atualizar conteúdo|Se você quiser que sua base de conhecimento rastreie o conteúdo mais recente de URLs existentes, marque a caixa de seleção **Atualizar**. Isso atualizará a base de conhecimento com o conteúdo de URL mais recente uma vez. Isso não está definindo um cronograma regular de atualizações.|
+       |Atualizar conteúdo|Se você quiser que sua base de conhecimento rastreie o conteúdo mais recente de URLs existentes, marque a caixa de seleção **Atualizar**. Isso atualizará a base de dados de conhecimento com o conteúdo da URL mais recente uma vez. Isso não define uma agenda regular de atualizações.|
        |Adicionar arquivo|Você pode adicionar um documento de arquivo suportado para fazer parte de uma base de conhecimento, selecionando **Gerenciar base de conhecimento** e, em seguida, selecionando **+ Adicionar Arquivo**|
-    |Importar|Você também pode importar qualquer base de conhecimento existente selecionando o botão **base de conhecimento de importação.** |
-    |Atualizar|A atualização da base de conhecimento depende do **nível de preço de gerenciamento** usado durante a criação do serviço QnA Maker associado à sua base de conhecimento. Você também pode atualizar o nível de gerenciamento do portal Azure, se necessário.
+    |Importar|Você também pode importar qualquer base de dados de conhecimento existente selecionando o botão **importar base de dados de conhecimento** . |
+    |Atualizar|A atualização da base de conhecimento depende do **nível de preço de gerenciamento** usado durante a criação do serviço QnA Maker associado à sua base de conhecimento. Você também pode atualizar a camada de gerenciamento de portal do Azure, se necessário.
 
-  1. Depois de terminar de fazer alterações na base de conhecimento, **selecione Salvar e treine** no canto superior direito da página, a fim de persistir as alterações.
+  1. Quando terminar de fazer alterações na base de dados de conhecimento, selecione **salvar e treinar** no canto superior direito da página para manter as alterações.
 
        ![Salvar e Treinar](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
@@ -85,15 +85,15 @@ O QnA Maker permite que você gerencie suas bases de conhecimento fornecendo ace
 
 ## <a name="manage-large-knowledge-bases"></a>Gerenciar grandes bases de conhecimento
 
-* **Grupos de origem de dados**: Os QnAs são agrupados pela fonte de dados da qual foram extraídos. Você pode expandir ou recolher a fonte de dados.
+* **Grupos de fontes de dados**: os QnAs são agrupados pela fonte de dados da qual foram extraídos. Você pode expandir ou recolher a fonte de dados.
 
     ![Usar a barra de fonte de dados do QnA Maker para recolher e expandir perguntas e respostas da fonte de dados](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Busque base de conhecimento**: Você pode pesquisar a base de conhecimento digitando na caixa de texto no topo da tabela Base de Conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
+* **Pesquisar base de dados**de conhecimento: você pode pesquisar a base de dados de conhecimento digitando na caixa de texto na parte superior da tabela da base de dados de conhecimento. Clique em entrar para pesquisar a pergunta, a resposta ou o conteúdo de metadados. Clique no ícone X para remover o filtro de pesquisa.
 
     ![Usar a caixa de pesquisa do QnA Maker acima das perguntas e respostas para reduzir a exibição apenas para itens correspondentes ao filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **Paginação**: Mova-se rapidamente através de fontes de dados para gerenciar grandes bases de conhecimento
+* **Paginação**: movimentar-se rapidamente pelas fontes de dados para gerenciar grandes bases de conhecimento
 
     ![Usar os recursos de paginação do QnA Maker acima das perguntas e respostas para percorrer as páginas de perguntas e respostas](../media/qnamaker-how-to-edit-kb/pagination.png)
 
@@ -101,11 +101,11 @@ O QnA Maker permite que você gerencie suas bases de conhecimento fornecendo ace
 
 Excluir uma base de conhecimento (KB) é uma operação permanente. Não pode ser desfeito. Antes de excluir uma base de conhecimento, você deverá exportar a base de dados de conhecimento da página **Configurações** do portal do QnA Maker.
 
-Se você compartilhar sua base de conhecimento com colaboradores,](colabore-conhecimento-base.md) e depois exclua-a, todos perdem o acesso ao KB.
+Se você compartilhar sua base de dados de conhecimento com colaboradores,] (collaborate-Knowledge-base.md) e excluí-la, todos perderão o acesso ao KB.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda a [gerenciar a linguagem](language-knowledge-base.md) de todas as bases de conhecimento em um recurso.
+Saiba mais sobre como [gerenciar a linguagem](language-knowledge-base.md) de todas as bases de dados de conhecimento em um recurso.
 
-* Editar pares QnA
-* Gerenciar os recursos do Azure usados pelo QnA Maker
+* Editar pares de QnA
+* Gerenciar recursos do Azure usados pelo QnA Maker

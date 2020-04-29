@@ -1,159 +1,159 @@
 ---
 title: Tipos de recursos de extensão
-description: Listas dos tipos de recursos do Azure são usadas para ampliar os recursos de outros tipos de recursos.
+description: Lista os tipos de recursos do Azure são usados para estender os recursos de outros tipos de recursos.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80754860"
 ---
-# <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que ampliam recursos de outros recursos
+# <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que estendem funcionalidades de outros recursos
 
-Um recurso de extensão é um recurso que adiciona aos recursos de outro recurso. Por exemplo, o bloqueio de recursos é um recurso de extensão. Você aplica um bloqueio de recursos a outro recurso para evitar que ele seja excluído ou modificado. Não faz sentido criar um bloqueio de recursos sozinho. Um recurso de extensão é sempre aplicado a outro recurso.
+Um recurso de extensão é um recurso que o adiciona aos recursos de outro recurso. Por exemplo, o bloqueio de recurso é um recurso de extensão. Você aplica um bloqueio de recurso a outro recurso para impedir que ele seja excluído ou modificado. Não faz sentido criar um bloqueio de recurso por si só. Um recurso de extensão sempre é aplicado a outro recurso.
 
 ## <a name="extension-resource-types"></a>Tipos de recursos de extensão
 
-- Microsoft.Advisor/configurações
-- Microsoft.Advisor/recomendações
-- Microsoft.Advisor/supressões
-- Microsoft.AlertsGerenciamento/alertas
-- Microsoft.AlertsGerenciamento/alertasResumo de sumário
-- Microsoft.Authorization/checkAccess
-- Microsoft.Authorization/denyAssignments
-- Microsoft.Authorization/findOrphanRoleAssignments
+- Microsoft. Advisor/Configurations
+- Microsoft. Advisor/Recommendations
+- Microsoft. Advisor/supressões
+- Microsoft. AlertsManagement/alertas
+- Microsoft. AlertsManagement/alertsSummary
+- Microsoft. Authorization/checkAccess
+- Microsoft. Authorization/denyAssignments
+- Microsoft. Authorization/findOrphanRoleAssignments
 - Microsoft.Authorization/locks
-- Microsoft.Autorização/permissões
-- Microsoft.Authorization/policyAtribuições
-- Microsoft.Authorization/policyDefinições
-- Microsoft.Authorization/policySetDefinições
+- Microsoft. Authorization/Permissions
+- Microsoft. Authorization/policyAssignments
+- Microsoft. Authorization/policyDefinitions
+- Microsoft. Authorization/policySetDefinitions
 - Microsoft.Authorization/roleAssignments
-- Microsoft.Authorization/roleAssignmentSUseMetrics
-- Microsoft.Authorization/roleDefinições
-- Microsoft.Billing/billingPeriods
-- Microsoft.Billing/billingPermissões
-- Microsoft.Billing/billingRoleAssignments
-- Microsoft.Billing/billingRoleDefinições
-- Microsoft.Billing/createBillingRoleAssignment
-- Microsoft.Blueprint/blueprintAtribuições
-- Microsoft.Blueprint/blueprints
-- Microsoft.Consumption/Custo Agregado
-- Microsoft.Consumo/Saldos
-- Microsoft.Consumo/Orçamentos
-- Microsoft.Consumption/Charges
-- Microsoft.Consumption/CostTags
-- Microsoft.Consumption/Forecasts
-- Microsoft.Consumption/Marketplaces
-- Microsoft.Consumo/OperaçãoResultados
-- Microsoft.Consumo/OperaçãoStatus
-- Microsoft.Consumption/Pricesheets
-- Microsoft.Consumo/ReservasDetalhes
-- Microsoft.Consumo/Recomendações de reserva
-- Microsoft.Consumo/ReservasResumos
-- Microsoft.Consumption/ReservationTransactions
-- Microsoft.Consumption/Tags
-- Microsoft.Consumption/Termos
-- Microsoft.Consumo/UsoDetalhes
-- Microsoft.Consumo/créditos
-- Microsoft.Consumo/eventos
-- Microsoft.Consumo/lotes
-- Microsoft.Consumo/produtos
-- Microsoft.Consumo/inquilinos
-- Microsoft.ContainerInstance/serviceAssociationLinks
-- Microsoft.CostManagement/Alertas
-- Microsoft.CostManagement/Orçamentos
-- Microsoft.CostManagement/Dimensões
-- Microsoft.CostManagement/Exportações
-- Microsoft.CostManagement/Assinaturas externas
-- Microsoft.CostManagement/Forecast
-- Microsoft.CostManagement/Consulta
-- Microsoft.CostManagement/Reportconfigs
-- Microsoft.CostManagement/Reports
-- Microsoft.CostManagement/Views
-- Microsoft.CostManagement/showbackRules
+- Microsoft. Authorization/roleAssignmentsUsageMetrics
+- Microsoft. Authorization/roleDefinitions
+- Microsoft. billing/billingPeriods
+- Microsoft. billing/billingPermissions
+- Microsoft. billing/billingRoleAssignments
+- Microsoft. billing/billingRoleDefinitions
+- Microsoft. billing/createBillingRoleAssignment
+- Microsoft. Blueprint/blueprintAssignments
+- Microsoft. Blueprint/plantas
+- Microsoft. consumo/AggregatedCost
+- Microsoft. consumo/saldos
+- Microsoft. consumo/orçamentos
+- Microsoft. consumo/encargos
+- Microsoft. consumo/CostTags
+- Microsoft. consumo/previsões
+- Microsoft. consumo/Marketplaces
+- Microsoft. consumo/OperationResults
+- Microsoft. consumo/OperationStatus
+- Microsoft. consumo/Pricesheets
+- Microsoft. consumo/ReservationDetails
+- Microsoft. consumo/ReservationRecommendations
+- Microsoft. consumo/ReservationSummaries
+- Microsoft. consumo/ReservationTransactions
+- Microsoft. consumo/marcas
+- Microsoft. consumo/termos
+- Microsoft. consumo/UsageDetails
+- Microsoft. consumo/créditos
+- Microsoft. consumo/eventos
+- Microsoft. consumo/muitos
+- Microsoft. consumo/produtos
+- Microsoft. consumo/locatários
+- Microsoft. ContainerInstance/serviceAssociationLinks
+- Microsoft. CostManagement/alertas
+- Microsoft. CostManagement/orçamentos
+- Microsoft. CostManagement/Dimensions
+- Microsoft. CostManagement/Exports
+- Microsoft. CostManagement/ExternalSubscriptions
+- Microsoft. CostManagement/Forecast
+- Microsoft. CostManagement/Query
+- Microsoft. CostManagement/Reportconfigs
+- Microsoft. CostManagement/Reports
+- Microsoft. CostManagement/views
+- Microsoft. CostManagement/showbackRules
 - Microsoft.CustomProviders/associations
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
-- Microsoft.GuestConfiguração/configuraçãoPerfildeperfil
-- Atribuição de configuração/convidado do Microsoft.GuestConfiguration
-- Microsoft.GuestConfiguration/software
-- Microsoft.GuestConfiguration/softwareUpdateProfile
-- Microsoft.GuestConfiguration/softwareAtualizações
-- microsoft.insights/linha de base
-- microsoft.insights/calculatebaseline
-- microsoft.insights/dataCollectionRuleAssociations
-- microsoft.insights/diagnosticSettings
-- microsoft.insights/diagnosticSettingsCategorias
-- microsoft.insights/eventtypes
-- microsoft.insights/extendedDiagnosticSettings
-- microsoft.insights/guestDiagnosticSettingsAssociation
-- microsoft.insights/logDefinições
-- microsoft.insights/logs
-- microsoft.insights/metricDefinições
-- microsoft.insights/metricNamespaces
-- microsoft.insights/metricbaselines
-- microsoft.insights/métricas
-- microsoft.insights/myWorkbooks
-- microsoft.insights/topologia
-- microsoft.insights/transações
-- microsoft.insights/vmInsightsOnboardingStatuses
-- Microsoft.KubernetesConfiguração/origemConfigurações de controle
-- Microsoft.Manutenção/aplicarAtualizações
-- Microsoft.Manutenção/configuraçãoAtribuições
-- Microsoft.Manutenção/atualizações
-- Microsoft.ManagedIdentidade/Identidades
-- Microsoft.ManagedServices/registrationAtribuições
-- Microsoft.ManagedServices/registrationDefinições
-- Microsoft.OperationalInsights/storageInsightConfigs
-- Microsoft.OperationsCos de gerenciamento/gerenciamento
-- Microsoft.PolicyInsights/policyEventos
-- Microsoft.PolicyInsights/policyEstados
-- Microsoft.PolicyInsights/policyTrackedResources
-- Microsoft.PolicyInsights/remediações
-- Microsoft.RecoveryServices/backupItens protegidos
-- Microsoft.RecoveryServices/replicationElegibilidadeResultados de elegibilidade    
-- Microsoft.ResourceHealth/disponibilidadeStatuss
-- Microsoft.ResourceHealth/childAvailabilityStatuses
-- Microsoft.ResourceHealth/childResources
-- Microsoft.ResourceHealth/eventos
-- Microsoft.ResourceHealth/impactedResources
-- Microsoft.ResourceHealth/notificações
-- Microsoft.Resources/links
-- Microsoft.Resources/tags
-- Microsoft.Security/Compliances
-- Microsoft.Security/InformationProtectionPolicies
-- Microsoft.Security/adaptiveNetworkHardenings
-- Microsoft.Security/advancedThreatProtectionConfigurações
-- Microsoft.Security/assessmentMetadata
-- Microsoft.Security/avaliações
-- Microsoft.Security/complianceResultados
-- Microsoft.Security/dataCollectionAgents
-- Microsoft.Security/deviceSecurityGroups
-- Microsoft.Security/networkData
-- Microsoft.Security/serverAvaliações de vulnerabilidade
-- Microsoft.SecurityInsights/agregações
-- Microsoft.SecurityInsights/alertRuleTemplates
-- Microsoft.SecurityInsights/alertRules
-- Microsoft.SecurityInsights/marcadores
-- Microsoft.SecurityInsights/cases
-- Microsoft.SecurityInsights/dataConnectors
-- Microsoft.SecurityInsights/dataConectoresVerificamrequisitos
-- Microsoft.SecurityInsights/entidades
-- Microsoft.SecurityInsights/entityQueries
-- Microsoft.SecurityInsights/incidentes
-- Microsoft.SecurityInsights/officeConsents
-- Microsoft.SecurityInsights/configurações
-- Microsoft.SoftwarePlan/híbridoUsebenefícios
-- Microsoft.Subscription/CreateSubscription
-- microsoft.support/supporttickets
-- Microsoft.WorkloadMonitor/componentes
-- Microsoft.WorkloadMonitor/monitorInstâncias
-- Microsoft.WorkloadMonitor/monitores
-- Microsoft.WorkloadMonitor/notificationConfigurações
+- Microsoft. GuestConfiguration/configurationProfileAssignments
+- Microsoft. GuestConfiguration/guestConfigurationAssignments
+- Microsoft. GuestConfiguration/software
+- Microsoft. GuestConfiguration/softwareUpdateProfile
+- Microsoft. GuestConfiguration/softwareUpdates
+- Microsoft. insights/linha de base
+- Microsoft. insights/calculatebaseline
+- Microsoft. insights/dataCollectionRuleAssociations
+- Microsoft. insights/diagnosticSettings
+- Microsoft. insights/diagnosticSettingsCategories
+- Microsoft. insights/EventTypes
+- Microsoft. insights/extendedDiagnosticSettings
+- Microsoft. insights/guestDiagnosticSettingsAssociation
+- Microsoft. insights/logDefinitions
+- Microsoft. insights/logs
+- Microsoft. insights/metricDefinitions
+- Microsoft. insights/metricNamespaces
+- Microsoft. insights/metricbaselines
+- Microsoft. insights/métricas
+- Microsoft. insights/minhas pastas de trabalho
+- Microsoft. insights/topologia
+- Microsoft. insights/transações
+- Microsoft. insights/vmInsightsOnboardingStatuses
+- Microsoft. KubernetesConfiguration/sourceControlConfigurations
+- Microsoft. Maintenance/applyUpdates
+- Microsoft. Maintenance/configurationAssignments
+- Microsoft. Maintenance/updates
+- Microsoft. ManagedIdentity/Identities
+- Microsoft. Managedservices/registrationAssignments
+- Microsoft. Managedservices/registrationDefinitions
+- Microsoft. OperationalInsights/storageInsightConfigs
+- Microsoft. OperationsManagement/managementassociations
+- Microsoft. PolicyInsights/policyEvents
+- Microsoft. PolicyInsights/policyStates
+- Microsoft. PolicyInsights/policyTrackedResources
+- Microsoft. PolicyInsights/correções
+- Microsoft. Recoveryservices/backupProtectedItems
+- Microsoft. Recoveryservices/replicationEligibilityResults    
+- Microsoft. ResourceHealth/availabilityStatuses
+- Microsoft. ResourceHealth/childAvailabilityStatuses
+- Microsoft. ResourceHealth/childResources
+- Microsoft. ResourceHealth/eventos
+- Microsoft. ResourceHealth/impactedResources
+- Microsoft. ResourceHealth/Notifications
+- Microsoft. Resources/links
+- Microsoft. Resources/Tags
+- Segurança/conformidade da Microsoft
+- Microsoft. Security/InformationProtectionPolicies
+- Microsoft. Security/adaptiveNetworkHardenings
+- Microsoft. Security/advancedThreatProtectionSettings
+- Microsoft. Security/assessmentMetadata
+- Microsoft. Security/avaliações
+- Microsoft. Security/complianceResults
+- Microsoft. Security/dataCollectionAgents
+- Microsoft. Security/deviceSecurityGroups
+- Microsoft. Security/networkData
+- Microsoft. Security/serverVulnerabilityAssessments
+- Microsoft. SecurityInsights/agregações
+- Microsoft. SecurityInsights/alertRuleTemplates
+- Microsoft. SecurityInsights/alertRules
+- Microsoft. SecurityInsights/bookmarks
+- Microsoft. SecurityInsights/casos
+- Microsoft. SecurityInsights/dataconnecters
+- Microsoft. SecurityInsights/dataConnectorsCheckRequirements
+- Microsoft. SecurityInsights/Entities
+- Microsoft. SecurityInsights/entityQueries
+- Microsoft. SecurityInsights/Incidents
+- Microsoft. SecurityInsights/officeConsents
+- Microsoft. SecurityInsights/Settings
+- Microsoft. SoftwarePlan/hybridUseBenefits
+- Microsoft. Subscription/CreateSubscription
+- Microsoft. support/supporttickets
+- Microsoft. WorkloadMonitor/Components
+- Microsoft. WorkloadMonitor/monitorInstances
+- Microsoft. WorkloadMonitor/monitores
+- Microsoft. WorkloadMonitor/notificationSettings
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter o ID de recurso de recurso de extensão em um modelo do Azure Resource Manager, use a [extensãoResourceId](../templates/template-functions-resource.md#extensionresourceid).
-- Para um exemplo de criação de um recurso de extensão em um modelo, consulte Assinaturas de [eventos da Grade de Eventos](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions).
+- Para obter a ID de recurso para um recurso de extensão em um modelo de Azure Resource Manager, use o [extensionResourceId](../templates/template-functions-resource.md#extensionresourceid).
+- Para obter um exemplo de como criar um recurso de extensão em um modelo, consulte [assinaturas de evento de grade de eventos](/azure/templates/microsoft.eventgrid/2019-06-01/eventsubscriptions).

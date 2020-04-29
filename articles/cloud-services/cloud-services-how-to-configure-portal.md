@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: e862818a4fe2471af574d153d43f0096af7847b8
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811404"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
@@ -46,7 +46,7 @@ Se você precisar direcionar para uma versão específica do sistema operacional
 
 ## <a name="monitoring"></a>Monitoramento
 
-Você pode adicionar alertas para o seu serviço de nuvem. Clique em**Configurações** > Regras **de** > alerta**Adicionar alerta**.
+Você pode adicionar alertas para o seu serviço de nuvem. Clique em **configurações** > **regras** > de alerta**adicionar alerta**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +62,7 @@ Daqui, você pode configurar um alerta. Com a caixa suspensa **Métrica**, você
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configurar o monitoramento de um bloco de métrica
 
-Em vez de usar regras de alerta de **configurações,** > **Alert Rules**você pode clicar em uma das telhas métricas na seção **De monitoramento** do serviço em nuvem.
+Em vez de usar **as configurações** > **regras de alerta**, você pode clicar em um dos blocos de métrica na seção **monitoramento** do serviço de nuvem.
 
 ![Monitoramento de Serviço de Nuvem](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
@@ -103,7 +103,7 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo da 
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
-* Configure [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Configurar [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

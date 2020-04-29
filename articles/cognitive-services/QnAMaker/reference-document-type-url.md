@@ -1,16 +1,16 @@
 ---
-title: Tipos de URLs suportados para importação - QnA Maker
+title: Tipos de URLs com suporte para Import-QnA Maker
 description: Entenda como os tipos de URLs são usados para importar e criar pares de QnA.
 ms.topic: reference
 ms.date: 01/02/2020
 ms.openlocfilehash: c6c6c7ba19fe7be54733f45997134fddb56a6ba0
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804309"
 ---
-# <a name="urls-supported-for-importing-documents"></a>URLs suportados para importação de documentos
+# <a name="urls-supported-for-importing-documents"></a>URLs com suporte para importação de documentos
 
 Entenda como os tipos de URLs são usados para importar e criar pares de QnA.
 
@@ -20,7 +20,7 @@ O QnA Maker pode dar suporte a páginas da Web de perguntas frequentes em três 
 
 * Páginas de perguntas frequentes simples
 * Páginas de perguntas frequentes com links
-* Páginas de perguntas frequentes com uma página inicial de tópicos
+* Página de perguntas frequentes com uma home page de tópicos
 
 ### <a name="plain-faq-pages"></a>Páginas de perguntas frequentes simples
 
@@ -40,15 +40,15 @@ Abaixo está um exemplo de uma página de perguntas frequentes com links nas se�
  ![Exemplo de página de perguntas frequentes com link de seção para uma base de dados de conhecimento](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
-### <a name="parent-topics-page-links-to-child-answers-pages"></a>Links da página Tópicos dos Pais para páginas de respostas de filhos
+### <a name="parent-topics-page-links-to-child-answers-pages"></a>Links de página de tópicos pai para páginas de respostas filho
 
-Este tipo de PERGUNTAS FREQUENTES tem uma página De Tópicos onde cada tópico está vinculado a um conjunto correspondente de perguntas e respostas em uma página diferente. O QnA Maker rastreia todas as páginas vinculadas para extrair as perguntas correspondentes & respostas.
+Esse tipo de perguntas frequentes tem uma página de tópicos em que cada tópico está vinculado a um conjunto correspondente de perguntas e respostas em uma página diferente. QnA Maker rastreia todas as páginas vinculadas para extrair as perguntas correspondentes & respostas.
 
-Abaixo está um exemplo de uma página Tópicos com links para seções de perguntas frequentes em diferentes páginas.
+Abaixo está um exemplo de uma página de tópicos com links para seções de perguntas frequentes em páginas diferentes.
 
  ![Exemplo de página de perguntas frequentes com link profundo para uma base de dados de conhecimento](./media/qnamaker-concepts-datasources/topics-faq.png)
 
-## <a name="support-urls"></a>Suporte a URLs
+## <a name="support-urls"></a>URLs de suporte
 
 O QnA Maker pode processar páginas da web de suporte semiestruturadas, como artigos da web que descrevem como executar uma tarefa específica, como diagnosticar e resolver um problema específico e quais são as práticas recomendadas para um determinado processo. A extração funciona melhor em documentos que têm uma estrutura clara com cabeçalhos hierárquicos.
 

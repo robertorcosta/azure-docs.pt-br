@@ -1,6 +1,6 @@
 ---
-title: Acesso Condicional - Acesso ao bloco - Diretório Ativo do Azure
-description: Crie uma política de acesso condicional personalizado para
+title: Acesso condicional-bloquear acesso-Azure Active Directory
+description: Criar uma política de acesso condicional personalizada para
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,78 +12,78 @@ manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2834fd3d4901b6394eabe000f9efc572c2efd497
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80755087"
 ---
-# <a name="conditional-access-block-access"></a>Acesso Condicional: Acesso ao bloco
+# <a name="conditional-access-block-access"></a>Acesso condicional: bloquear acesso
 
-Para organizações com uma abordagem conservadora de migração em nuvem, a política do bloco é uma opção que pode ser usada. 
+Para organizações com uma abordagem de migração de nuvem conservadora, a política bloquear tudo é uma opção que pode ser usada. 
 
 > [!CAUTION]
-> A configuração errada de uma política de blocos pode levar as organizações a serem bloqueadas do portal Azure.
+> A configuração incorreta de uma política de bloqueio pode levar as organizações sendo bloqueadas na portal do Azure.
 
-Políticas como essas podem ter efeitos colaterais não intencionais. Testes e validação adequados são vitais antes de habilitar. Os administradores devem utilizar ferramentas como o [modo conditional access somente e](concept-conditional-access-report-only.md) a ferramenta E se no Acesso [Condicional](what-if-tool.md) ao fazer alterações.
+Políticas como essas podem ter efeitos colaterais indesejados. Os testes e a validação adequados são vitais antes da habilitação. Os administradores devem utilizar ferramentas como o [modo somente de relatório de acesso condicional](concept-conditional-access-report-only.md) e [a ferramenta de What If no acesso condicional](what-if-tool.md) ao fazer alterações.
 
-## <a name="user-exclusions"></a>Exclusões de usuários
+## <a name="user-exclusions"></a>Exclusões de usuário
 
 As políticas de acesso condicional são ferramentas poderosas, recomendamos excluir as seguintes contas da sua política:
 
-* **Acesso de emergência** ou **contas de vidro de quebra** para evitar o bloqueio de contas em todo o inquilino. No cenário improvável em que todos os administradores estão bloqueados do seu inquilino, sua conta administrativa de acesso de emergência pode ser usada para entrar no inquilino para recuperar o acesso.
-   * Mais informações podem ser encontradas no artigo, [Gerenciar contas de acesso de emergência no Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Contas de** serviço e **princípios de serviço,** como a Conta Sincronizada do Azure AD Connect. Contas de serviço são contas não interativas que não estão vinculadas a nenhum usuário em particular. Eles são normalmente usados por serviços back-end que permitem acesso programático aos aplicativos, mas também são usados para fazer login em sistemas para fins administrativos. Contas de serviço como essas devem ser excluídas, uma vez que o MFA não pode ser concluído programáticamente. As chamadas feitas pelos diretores do serviço não são bloqueadas pelo Conditional Access.
-   * Se sua empresa tiver essas contas em uso em scripts ou código, considere substituí-las [por identidades gerenciadas](../managed-identities-azure-resources/overview.md). Como uma solução temporária, você pode excluir essas contas específicas da política de linha de base.
+* Contas de **acesso de emergência** ou de **vidro** para impedir o bloqueio de conta em todo o locatário. No cenário improvável, todos os administradores são bloqueados de seu locatário, sua conta administrativa de acesso de emergência pode ser usada para fazer logon no locatário. siga as etapas para recuperar o acesso.
+   * Mais informações podem ser encontradas no artigo [gerenciar contas de acesso de emergência no Azure ad](../users-groups-roles/directory-emergency-access.md).
+* **Contas de serviço** e **entidades de serviço**, como a conta de sincronização de Azure ad Connect. As contas de serviço são contas não interativas que não estão ligadas a nenhum usuário específico. Normalmente, eles são usados por serviços de back-end que permitem acesso programático a aplicativos, mas também são usados para entrar em sistemas para fins administrativos. Contas de serviço como essas devem ser excluídas, pois a MFA não pode ser concluída programaticamente. Chamadas feitas por entidades de serviço não são bloqueadas pelo acesso condicional.
+   * Se sua empresa tiver essas contas em uso em scripts ou código, considere substituí-las [por identidades gerenciadas](../managed-identities-azure-resources/overview.md). Como solução alternativa temporária, você pode excluir essas contas específicas da política de linha de base.
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto [o Office 365,](concept-conditional-access-cloud-apps.md#office-365-preview) se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente relatório](howto-conditional-access-report-only.md) para iniciar para que os administradores possam determinar o impacto que terão nos usuários existentes. Quando os administradores estão confortáveis de que as políticas se aplicam como pretendem, eles podem trocá-las para **On**.
+As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto para o [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) , se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente de relatório](howto-conditional-access-report-only.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores se sentem confortáveis de que as políticas se aplicam conforme pretendido, eles podem alterná-los para **ativado**.
 
-A primeira política bloqueia o acesso a todos os aplicativos, exceto os aplicativos do Office 365, se não em um local confiável.
+A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplicativos do Office 365, se não estiver em um local confiável.
 
-1. Faça login no **portal Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
-1. Navegue até o Acesso**Condicional de****Segurança** > do Diretório >  **Ativo do Azure**.
-1. Selecione **Nova política**.
-1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **Atribuições**, selecione **Usuários e grupos**.
-   1. Em **Incluir,** selecione **Todos os usuários**.
-   1. Em **Exclusão,** selecione **Usuários e grupos** e escolha o acesso de emergência ou contas de vidro de quebra de sua organização. 
-   1. Selecione **Feito**.
-1. Em **aplicativos ou ações na Nuvem,** selecione as seguintes opções:
-   1. Em **Incluir,** selecione **Todos os aplicativos em nuvem**.
-   1. Em **Exclusão,** selecione **Office 365 (visualização)** e **selecione Selecionar**e selecione **'Feito 'Feito '''''''**
-1. Em **Condições:**
-   1. Em **Condições** > **de Localização**.
-      1. Definir **configurar** como **Sim**
-      1. Em **Incluir,** selecione **Qualquer local**.
-      1. Em **Exclusão,** selecione **Todos os locais confiáveis**.
-      1. Selecione **Feito**.
-   1. Em **Aplicativos clientes (Preview),** **configure Configure** para **Sim**e selecione **Feito,** em **seguida, Feito**.
-1. Em **Controles de** > **acesso, selecione** **Bloquear acesso**e selecione Selecionar **Selecionar**.
-1. Confirme suas configurações e **configure Ativar** a diretiva para **somente relatório**.
-1. Selecione **Criar** para criar para ativar sua política.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
+1. Selecione **nova política**.
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
+1. Em **Atribuições**, selecione **Usuários e Grupos**.
+   1. Em **incluir**, selecione **todos os usuários**.
+   1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 
+   1. Selecione **Concluído**.
+1. Em **aplicativos de nuvem ou ações**, selecione as seguintes opções:
+   1. Em **incluir**, selecione **todos os aplicativos de nuvem**.
+   1. Em **excluir**, selecione **Office 365 (versão prévia)**, selecione **selecionar**e **concluído**.
+1. Em **condições**:
+   1. Em **Conditions** > **local**das condições.
+      1. Defina **Configurar** como **Sim**
+      1. Em **incluir**, selecione **qualquer local**.
+      1. Em **excluir**, selecione **todos os locais confiáveis**.
+      1. Selecione **Concluído**.
+   1. Em **aplicativos cliente (versão prévia)**, defina **Configurar** como **Sim**e selecione **concluído**e, em seguida, **concluído**.
+1. Em **Access controls** > **concessão**de controles de acesso, selecione **bloquear acesso**e selecione **selecionar**.
+1. Confirme suas configurações e defina **habilitar política** como **somente relatório**.
+1. Selecione **criar** para criar para habilitar a política.
 
-Uma segunda política é criada abaixo para exigir autenticação multifatorial ou um dispositivo compatível para usuários do Office 365.
+Uma segunda política é criada abaixo para exigir a autenticação multifator ou um dispositivo compatível para os usuários do Office 365.
 
-1. Selecione **Nova política**.
-1. Dê um nome à sua apólice. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **Atribuições**, selecione **Usuários e grupos**.
-   1. Em **Incluir,** selecione **Todos os usuários**.
-   1. Em **Exclusão,** selecione **Usuários e grupos** e escolha o acesso de emergência ou contas de vidro de quebra de sua organização. 
-   1. Selecione **Feito**.
-1. Em **Aplicativos ou ações** > na**Nuvem, selecione** **Selecionar aplicativos,** escolha **o Office 365 (visualização)** e **selecione Selecionar**, em seguida, **Feito**.
-1. Em **Controles de** > **acesso, grant**, selecione Acesso de **Subvenção**.
-   1. Selecione **Exigir autenticação de vários fatores** e **exigir que o dispositivo seja marcado como compatível** selecionar **selecionar**.
-   1. **Certifique-se de exigir que todos os controles selecionados estão selecionados.**
+1. Selecione **nova política**.
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
+1. Em **Atribuições**, selecione **Usuários e Grupos**.
+   1. Em **incluir**, selecione **todos os usuários**.
+   1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 
+   1. Selecione **Concluído**.
+1. Em **aplicativos de nuvem ou ações** > **incluem**, selecione **selecionar aplicativos**, escolha **Office 365 (versão prévia)** e selecione **selecionar**e, em seguida, **concluído**.
+1. Em **Access controls** > **concessão**de controles de acesso, selecione **conceder acesso**.
+   1. Selecione **exigir autenticação multifator** e **exigir que o dispositivo seja marcado como em conformidade** selecione **selecionar**.
+   1. Certifique-se **de que exigir que todos os controles selecionados** esteja selecionado.
    1. Selecione **Selecionar**.
-1. Confirme suas configurações e **configure Ativar** a diretiva para **somente relatório**.
-1. Selecione **Criar** para criar para ativar sua política.
+1. Confirme suas configurações e defina **habilitar política** como **somente relatório**.
+1. Selecione **criar** para criar para habilitar a política.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
+[Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 
-[Determine o impacto usando o modo somente de relatório de acesso condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto usando o modo somente relatório de acesso condicional](howto-conditional-access-report-only.md)
 
-[Simule o comportamento do sinal usando a ferramenta Acesso Condicional E se](troubleshoot-conditional-access-what-if.md)
+[Simular comportamento de entrada usando a ferramenta de What If de acesso condicional](troubleshoot-conditional-access-what-if.md)

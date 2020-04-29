@@ -1,6 +1,6 @@
 ---
-title: Configure Azure ExpressRoute v1
-description: Configuração de rede para ambiente de serviço de aplicativo para PowerApps com Azure ExpressRoute. Este doc é fornecido apenas para clientes que usam o Legado v1 ASE.
+title: Configurar o Azure ExpressRoute v1
+description: Configuração de rede para Ambiente do Serviço de Aplicativo do PowerApps com o Azure ExpressRoute. Este documento é fornecido somente para clientes que usam o ASE v1 herdado.
 author: stefsch
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: fc11c6932d625b119ad933f5d4d128b4355530c5
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804428"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes da configuração de rede para o Ambiente do Serviço de Aplicativo para o PowerApps com o Azure ExpressRoute
@@ -39,7 +39,7 @@ O Ambiente do Serviço de Aplicativo requer as seguintes configurações de cone
 
 * Conectividade de rede de saída com os pontos de extremidade do plano de gerenciamento do Azure (modelo de implantação clássico do Azure e pontos de extremidade do Azure Resource Manager). A conectividade com esses pontos de extremidade inclui os domínios management.core.windows.net e management.azure.com. 
 
-* Conectividade de rede de saída com os domínios ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. A conectividade com esses domínios é necessária para suportar a funcionalidade TLS.
+* Conectividade de rede de saída com os domínios ocsp.msocsp.com, mscrl.microsoft.com e crl.microsoft.com. A conectividade com esses domínios é necessária para dar suporte à funcionalidade TLS.
 
 * A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados neste artigo. Se os pontos de extremidade não puderem ser resolvidos, a criação do Ambiente do Serviço de Aplicativo falhará. Qualquer Ambiente do Serviço de Aplicativo existente está marcado como não íntegro.
 
@@ -87,20 +87,20 @@ Esta seção mostra um exemplo de configuração da UDR para um Ambiente do Serv
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o Azure PowerShell da [página Downloads do Azure][AzureDownloads]. Escolha um download com uma data de junho de 2015 ou posterior. Em **ferramentas de linha** > de**comando, o Windows PowerShell,** **selecione Instalar** para instalar os cmdlets PowerShell mais recentes.
+* Instale o Azure PowerShell da [página Downloads do Azure][AzureDownloads]. Escolha um download com uma data de junho de 2015 ou posterior.  > Em **ferramentas de linha de comando****Windows PowerShell**, selecione **instalar** para instalar os cmdlets mais recentes do PowerShell.
 
 * Crie uma sub-rede única para uso exclusivo pelo Ambiente do Serviço de Aplicativo. Essa rede exclusiva garante que as UDRs aplicadas à sub-rede abrirão apenas tráfego de saída para o Ambiente do Serviço de Aplicativo.
 
 > [!IMPORTANT]
 > Implante o Ambiente do Serviço de Aplicativo apenas depois de concluir as etapas de configuração. As etapas garantem que a conectividade de rede de saída esteja disponível antes da tentativa de implantar um Ambiente do Serviço de Aplicativo.
 
-### <a name="step-1-create-a-route-table"></a>Passo 1: Crie uma tabela de rotas
+### <a name="step-1-create-a-route-table"></a>Etapa 1: criar uma tabela de rotas
 
 Crie uma tabela de rota chamada **DirectInternetRouteTable** na região Oeste dos EUA do Azure, conforme mostrado neste snippet:
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>Passo 2: Crie rotas na tabela
+### <a name="step-2-create-routes-in-the-table"></a>Etapa 2: criar rotas na tabela
 
 Adicione rotas à tabela de rotas para habilitar o acesso de saída à Internet.  
 
@@ -119,13 +119,13 @@ Como alternativa, baixe uma lista abrangente e atualizada de intervalos CIDR em 
 > Uma única UDR tem um limite superior padrão de 100 rotas. Você precisará "resumir" os intervalos de endereços IP do Azure para que eles caibam no limite de 100 rotas. Rotas definidas pela UDR precisam ser mais específicas que rotas anunciadas pela sua conexão do ExpressRoute.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>Passo 3: Associe a tabela à sub-rede
+### <a name="step-3-associate-the-table-to-the-subnet"></a>Etapa 3: associar a tabela à sub-rede
 
 Associe a tabela de rotas à sub-rede em que você pretende implantar Ambiente do Serviço de Aplicativo. Este comando associa a tabela **DirectInternetRouteTable** à sub-rede **ASESubnet** que conterá um Ambiente do Serviço de Aplicativo.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>Passo 4: Teste e confirme a rota
+### <a name="step-4-test-and-confirm-the-route"></a>Etapa 4: testar e confirmar a rota
 
 Após a tabela de rotas ser associada à sub-rede, teste e confirme a rota.
 

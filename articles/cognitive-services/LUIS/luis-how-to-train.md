@@ -1,5 +1,5 @@
 ---
-title: Aplicativo de trem - LUIS
+title: Treinar aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
 description: O treinamento é o processo de ensinar sua versão do aplicativo LUIS (Reconhecimento vocal) para melhorar o reconhecimento vocal natural. Treine seu aplicativo de LUIS após atualizações ao modelo, como adicionar, editar, rotular ou excluir entidades, intenções ou enunciados.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219858"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Treinar sua versão ativa do aplicativo LUIS 
@@ -34,19 +34,19 @@ Para iniciar o processo iterativo no [portal LUIS](https://www.luis.ai), primeir
 
 1. Em seu aplicativo, selecione **Treinar** no painel superior. 
 
-1. Quando o treinamento é concluído, uma notificação aparece na parte superior do navegador.
+1. Quando o treinamento for concluído, uma notificação aparecerá na parte superior do navegador.
 
-## <a name="training-date-and-time"></a>Data e hora do treinamento
+## <a name="training-date-and-time"></a>Data e hora de treinamento
 
-A data e a hora do treinamento são GMT + 2. 
+A data e a hora de treinamento são GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Treinar com todos os dados
 
 O treinamento usa um pequeno percentual de amostragem negativa. Se você quiser usar todos os dados em vez da pequena amostragem negativa, use a [API](#version-settings-api-use-of-usealltrainingdata).
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>Configurações da versão Uso da API de UseAllTrainingData
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>Configurações de versão uso da API de UseAllTrainingData
 
-Use a [API de configurações de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o `UseAllTrainingData` conjunto para desativar esse recurso. 
+Use a [API de configurações](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) de versão `UseAllTrainingData` com o definido como true para desativar esse recurso. 
 
 ## <a name="unnecessary-training"></a>Treinamento desnecessário
 
@@ -61,4 +61,4 @@ Para saber quando o treinamento está concluído, você precisa sondar o status 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Teste interativo](luis-interactive-test.md)
-* [Teste de lote](luis-how-to-batch-test.md)
+* [Teste em lote](luis-how-to-batch-test.md)

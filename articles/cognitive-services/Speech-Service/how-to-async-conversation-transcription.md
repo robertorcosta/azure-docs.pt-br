@@ -1,7 +1,7 @@
 ---
-title: Transcrição de Conversa Assíncrona (Preview) - Serviço de fala
+title: Transcrição de conversa assíncrona (versão prévia) – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar transcrição de conversaas assíncronas usando o serviço Speech. Disponível apenas para Java.
+description: Saiba como usar a transcrição de conversa assíncrona usando o serviço de fala. Disponível somente para Java.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,29 +11,29 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: amishu
 ms.openlocfilehash: 57543f4a3779145ce66259eec1abac195b63c7ba
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80384289"
 ---
-# <a name="asynchronous-conversation-transcription-preview"></a>Transcrição de Conversa Assíncrona (Visualização)
+# <a name="asynchronous-conversation-transcription-preview"></a>Transcrição de conversa assíncrona (versão prévia)
 
-Neste artigo, a Transcrição de Conversa assíncrona é demonstrada usando a API **RemoteConversationTranscriptionClient.** Se você configurou a Transcrição de Conversação para fazer `conversationId`transcrição assíncrona e `conversationId` tiver uma, você pode obter a transcrição associada a isso usando a API **RemoteConversationTranscriptionClient.**
+Neste artigo, a transcrição de conversa assíncrona é demonstrada usando a API **RemoteConversationTranscriptionClient** . Se você tiver configurado a transcrição de conversa para fazer a transcrição assíncrona e tiver um `conversationId`, poderá obter a transcrição `conversationId` associada a ela usando a API **RemoteConversationTranscriptionClient** .
 
-## <a name="asynchronous-vs-real-time--asynchronous"></a>Assíncrono vs. em tempo real + assíncrono
+## <a name="asynchronous-vs-real-time--asynchronous"></a>Assíncrono versus em tempo real + assíncrono
 
-Com transcrição assíncrona, você transmite o áudio da conversa, mas não precisa de uma transcrição devolvida em tempo real. Em vez disso, depois que `conversationId` `Conversation` o áudio é enviado, use o of para consultar o status da transcrição assíncrona. Quando a transcrição assíncrona estiver pronta, `RemoteConversationTranscriptionResult`você terá um.
+Com a transcrição assíncrona, você transmite o áudio da conversa, mas não precisa de uma transcrição retornada em tempo real. Em vez disso, depois que o áudio for enviado `conversationId` , `Conversation` use o de para consultar o status da transcrição assíncrona. Quando a transcrição assíncrona estiver pronta, você obterá `RemoteConversationTranscriptionResult`um.
 
-Com tempo real mais assíncrono, você recebe a transcrição em tempo real, mas `conversationId` também recebe a transcrição consultando com o (semelhante ao cenário assíncrono).
+Com mais assíncrono em tempo real, você obtém a transcrição em tempo real, mas também obtém a transcrição consultando com o `conversationId` (semelhante ao cenário assíncrono).
 
-Duas etapas são necessárias para realizar a transcrição assíncrona. O primeiro passo é carregar o áudio, escolhendo apenas assíncrono ou em tempo real, além de assíncrono. O segundo passo é obter os resultados da transcrição.
+São necessárias duas etapas para realizar a transcrição assíncrona. A primeira etapa é carregar o áudio, escolhendo somente assíncrono ou em tempo real, além de assíncrono. A segunda etapa é obter os resultados da transcrição.
 
-## <a name="upload-the-audio"></a>Faça upload do áudio
+## <a name="upload-the-audio"></a>Carregar o áudio
 
-Antes que a transcrição assíncrona possa ser realizada, você precisa enviar o áudio para o Serviço de Transcrição de Conversas usando o Cliente De Fala Cognitiva da Microsoft SDK (versão 1.8.0 ou superior).
+Antes que a transcrição assíncrona possa ser executada, você precisa enviar o áudio para o serviço de transcrição de conversa usando o SDK do cliente do Microsoft cognitiva Speech (versão 1.8.0 ou superior).
 
-Este código de exemplo mostra como criar transcritor de conversação para o modo somente assíncrono. Para transmitir áudio para o transcritor, você precisará adicionar código de streaming de áudio derivado de [conversas transcritor em tempo real com o Speech SDK](how-to-use-conversation-transcription-service.md). Consulte a seção **Limitações** desse tópico para ver as APIs de plataformas e idiomas suportadas.
+Este código de exemplo mostra como criar o transistor de conversa para o modo somente assíncrono. Para transmitir áudio para o transcrita, você precisará adicionar o código de streaming de áudio derivado de conversas de [transcrever em tempo real com o SDK de fala](how-to-use-conversation-transcription-service.md). Consulte a seção **limitações** do tópico para ver as plataformas com suporte e as APIs de linguagens.
 
 ```java
 // Create the speech config object
@@ -101,7 +101,7 @@ Future<?> future = transcriber.startTranscribingAsync();
 ...
 ```
 
-Se você quiser _em_ tempo real mais assíncrono, comente e não comente as linhas de código apropriadas da seguinte forma:
+Se você quiser em tempo real, _além_ de assíncrona, comente e remova os comentários das linhas de código apropriadas da seguinte maneira:
 
 ```java
 // Set the property for asynchronous transcription
@@ -111,17 +111,17 @@ Se você quiser _em_ tempo real mais assíncrono, comente e não comente as linh
 speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", ServicePropertyChannel.UriQueryParameter);
 ```
 
-## <a name="get-transcription-results"></a>Obter resultados de transcrição
+## <a name="get-transcription-results"></a>Obter resultados da transcrição
 
-Esta etapa obtém os resultados de transcrição assíncrona, mas assume que qualquer processamento em tempo real que você possa ter exigido é feito em outro lugar. Para obter mais informações, consulte [Transcrever conversas em tempo real com o Speech SDK](how-to-use-conversation-transcription-service.md).
+Esta etapa Obtém os resultados da transcrição assíncrona, mas supõe que qualquer processamento em tempo real que você possa ter necessário é feito em outro lugar. Para obter mais informações, consulte [transcrever conversas em tempo real com o SDK de fala](how-to-use-conversation-transcription-service.md).
 
-Para o código mostrado aqui, você precisa de **conversa remota versão 1.8.0**, suportado apenas para Java (1.8.0 ou superior) no Windows, Linux e Android (nível DePI 26 ou superior).
+Para o código mostrado aqui, você precisa da **versão de conversa remota 1.8.0**, com suporte apenas para Java (1.8.0 ou superior) no Windows, Linux e Android (somente API nível 26 ou acima).
 
-### <a name="obtaining-the-client-sdk"></a>Obtenção do Cliente SDK
+### <a name="obtaining-the-client-sdk"></a>Obtendo o SDK do cliente
 
-Você pode obter **conversa remota** editando seu arquivo pom.xml da seguinte forma.
+Você pode obter a **conversa remota** editando seu arquivo pom. XML da seguinte maneira.
 
-1. No final do arquivo, antes `</project>`da tag `repositories` de fechamento, crie um elemento com uma referência ao repositório Maven para o Speech SDK:
+1. No final do arquivo, antes da marca `</project>`de fechamento, crie um `repositories` elemento com uma referência ao repositório do Maven para o SDK de fala:
 
    ```xml
    <repositories>
@@ -133,7 +133,7 @@ Você pode obter **conversa remota** editando seu arquivo pom.xml da seguinte fo
    </repositories>
    ```
 
-2. Adicione também `dependencies` um elemento, com o remoteconversation-client-sdk 1.8.0 como uma dependência:
+2. Adicione também um `dependencies` elemento, com o remoteconversation-Client-SDK 1.8.0 como uma dependência:
 
    ```xml
    <dependencies>
@@ -147,9 +147,9 @@ Você pode obter **conversa remota** editando seu arquivo pom.xml da seguinte fo
 
 3. Salvar as alterações
 
-### <a name="sample-transcription-code"></a>Código de transcrição da amostra
+### <a name="sample-transcription-code"></a>Código de transcrição de exemplo
 
-Depois de `conversationId`ter o , criar um cliente de transcrição de conversa remota **RemoteConversationTranscriptionClient** no aplicativo cliente para consultar o status da transcrição assíncrona. Use o método **getTranscriptionOperation** no **RemoteConversationTranscriptionClient** para obter um objeto [PollerFlux.](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) O objeto PollerFlux terá informações sobre o status de operação remota **RemoteConversationTranscriptionOperation** e o resultado final **RemoteConversationTranscriptionResult**. Uma vez que a operação tenha terminado, obtenha **RemoteConversationTranscriptionResult** chamando **getFinalResult** em um [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). Neste código, simplesmente imprimimos o conteúdo do resultado para a saída do sistema.
+Depois de ter o `conversationId`, crie um cliente de transcrição de conversa remota **RemoteConversationTranscriptionClient** no aplicativo cliente para consultar o status da transcrição assíncrona. Use o método **getTranscriptionOperation** no **RemoteConversationTranscriptionClient** para obter um objeto [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) . O objeto PollerFlux terá informações sobre o status da operação remota **RemoteConversationTranscriptionOperation** e o resultado final **RemoteConversationTranscriptionResult**. Depois que a operação for concluída, obtenha **RemoteConversationTranscriptionResult** chamando **GetFinalResult** em um [SyncPoller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java). Nesse código, simplesmente imprimemos o conteúdo do resultado na saída do sistema.
 
 ```java
 // Create the speech config object

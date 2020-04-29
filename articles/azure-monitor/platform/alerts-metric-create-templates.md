@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
 ms.openlocfilehash: 02424d7df24305d6642c364f12e3ed6e8674a01d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80677002"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
@@ -21,13 +21,13 @@ ms.locfileid: "80677002"
 Este artigo mostra como você pode usar um [o modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de métricas novos](../../azure-monitor/platform/alerts-metric-near-real-time.md) no Azure Monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Alertas de métrica novos estão disponíveis atualmente [neste conjunto de tipos de recurso](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> O modelo de recurso para criar alertas métricos para o tipo de `Microsoft.OperationalInsights/workspaces`recurso: Azure Log Analytics Workspace (ou seja) requer etapas adicionais. Para obter detalhes, consulte o artigo sobre [Alerta de Métrica para Logs - Modelo de Recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modelo de recurso para criar alertas de métrica para o tipo de recurso: o espaço de `Microsoft.OperationalInsights/workspaces`trabalho do Azure log Analytics (ou seja,) requer etapas adicionais. Para obter detalhes, consulte o artigo sobre [Alerta de Métrica para Logs - Modelo de Recursos](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 As etapas básicas são as seguintes:
 
 1. Use um dos modelos abaixo como arquivo JSON que descreva como criar o alerta.
-2. Editar e usar o arquivo de parâmetros correspondentes como um JSON para personalizar o alerta.
-3. Para `metricName` obter o parâmetro, consulte as métricas disponíveis nas [métricas suportadas pelo Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+2. Edite e use o arquivo de parâmetros correspondente como um JSON para personalizar o alerta.
+3. Para o `metricName` parâmetro, consulte as métricas disponíveis em [Azure monitor métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 4. Implantar o modelo usando [qualquer método de implantação](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Modelo para um alerta de métrica de limite estático simples
@@ -561,15 +561,15 @@ az group deployment create \
 >
 > Embora o alerta de métrica possa ser criado em um grupo de recursos diferente do recurso de destino, é recomendável usar o mesmo grupo de recursos como recurso de destino.
 
-## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Modelo para um alerta métrico de limiar estático que monitora vários critérios
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Modelo para um alerta de métrica de limite estático que monitora vários critérios
 
-Alertas métricos mais novos suportam alertas sobre métricas multidimensionais, bem como suporte para definir vários critérios (até 5 critérios por regra de alerta). Você pode usar o modelo a seguir para criar uma regra de alerta métrica mais avançada sobre métricas dimensionais e especificar vários critérios.
+Alertas de métrica mais recentes dão suporte a alertas em métricas multidimensionais, bem como suporte para definir vários critérios (até 5 critérios por regra de alerta). Você pode usar o modelo a seguir para criar uma regra de alerta de métrica mais avançada em métricas dimensionais e especificar vários critérios.
 
 Observe as seguintes restrições ao usar dimensões em uma regra de alerta que contém vários critérios:
 - Você só pode selecionar um valor por dimensão dentro de cada critério.
-- Você não\*pode usar " " como um valor de dimensão.
-- Quando as métricas configuradas em diferentes critérios suportam a mesma dimensão, então um valor de dimensão configurado deve ser explicitamente definido da mesma forma para todas essas métricas (nos critérios relevantes).
-    - No exemplo abaixo, como as **métricas Transações** e **SuccessE2ELatency** têm uma dimensão **ApiName,** e o *critério1* especifica o valor *"GetBlob"* para a dimensão **ApiName,** então o *critério2* também deve definir um valor *"GetBlob"* para a dimensão **ApiName.**
+- Você não pode usar\*"" como um valor de dimensão.
+- Quando as métricas que são configuradas em critérios diferentes dão suporte à mesma dimensão, um valor de dimensão configurado deve ser definido explicitamente da mesma forma para todas essas métricas (nos critérios relevantes).
+    - No exemplo a seguir, como as métricas de **Transações** e **SuccessE2ELatency** têm uma **dimensão ApiName** e *critérion1* especifica o valor *"getBlob"* para a dimensão **ApiName** , *Criterion2* também deve definir um valor *"getBlob"* para a dimensão **ApiName** .
 
 
 Salve o json abaixo como advancedstaticmetricalert.json para usar neste passo a passo.
@@ -800,23 +800,23 @@ az group deployment create \
 ```
 
 
-## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Modelo para um alerta métrico estático que monitora várias dimensões
+## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Modelo para um alerta de métrica estática que monitora várias dimensões
 
-Você pode usar o modelo a seguir para criar uma regra de alerta métrico estático em métricas dimensionais.
+Você pode usar o modelo a seguir para criar uma regra de alerta de métrica estática em métricas dimensionais.
 
-Uma única regra de alerta pode monitorar várias séries de tempo métricas por vez, o que resulta em menos regras de alerta para gerenciar.
+Uma única regra de alerta pode monitorar várias séries de tempo de métrica por vez, o que resulta em menos regras de alerta para gerenciar.
 
-No exemplo abaixo, a regra de alerta monitora as combinações de valor das dimensões das dimensões **ResponseType** e **ApiName** para a métrica **Transações:**
-1. **ResponsType** - O uso\*do " curinga " significa que para cada valor da dimensão **ResponseType,** incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
-2. **ApiName** - Uma série temporal diferente é monitorada apenas para os valores de dimensão **GetBlob** e **PutBlob.**
+No exemplo a seguir, a regra de alerta monitora as combinações de valor de dimensões das dimensões **ResponseType** e **ApiName** para a métrica de **Transações** :
+1. **ResponsType** -o uso do caractere curinga\*"" significa que para cada valor da dimensão **ResponseType** , incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
+2. **ApiName** -uma série temporal diferente é monitorada apenas para os valores de dimensão **getBlob** e **PutBlob** .
 
-Por exemplo, algumas das séries tempois potenciais que são monitoradas por esta regra de alerta são:
-- Métrica = *Transações*, Tipo de resposta = *Sucesso*, ApiName = *GetBlob*
-- Métrica = *Transações*, Tipo de resposta = *Sucesso*, ApiName = *PutBlob*
-- Métrica = *Transações*, Tipo de resposta = *tempo de serviço*, ApiName = *GetBlob*
-- Métrica = *Transações*, Tipo de resposta = *tempo de serviço*, ApiName = *PutBlob*
+Por exemplo, algumas das séries temporais em potencial que são monitoradas por essa regra de alerta são:
+- Métrica = *Transações*, ResponseType = *êxito*, ApiName = *getBlob*
+- Métrica = *Transações*, ResponseType = *êxito*, ApiName = *PutBlob*
+- Métrica = *Transações*, ResponseType = *tempo limite do servidor*, ApiName = *getBlob*
+- Métrica = *Transações*, ResponseType = *tempo limite do servidor*, ApiName = *PutBlob*
 
-Salve o json abaixo como multidimensionalstaticmetricmetricalert.json para o propósito deste passo a passo.
+Salve o JSON abaixo como multidimensionalstaticmetricalert. JSON para fins deste passo a passos.
 
 ```json
 {
@@ -943,7 +943,7 @@ Salve o json abaixo como multidimensionalstaticmetricmetricalert.json para o pro
 
 Você pode usar o modelo acima junto com o arquivo de parâmetro fornecido abaixo. 
 
-Salve e modifique o json abaixo como multidimensionalstaticstaticmetricalert.parameters.json para o propósito deste passo a passo.
+Salve e modifique o JSON abaixo como multidimensionalstaticmetricalert. Parameters. JSON para fins deste passo a passos.
 
 ```json
 {
@@ -1020,21 +1020,21 @@ az group deployment create \
 ```
 
 
-## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>Modelo para um alerta métrico de Limiares Dinâmicos que monitora várias dimensões
+## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>Modelo para um alerta de métrica de limites dinâmicos que monitora várias dimensões
 
-Você pode usar o modelo a seguir para criar uma regra de alerta métrica de Limiares Dinâmicos mais avançada em métricas dimensionais.
+Você pode usar o modelo a seguir para criar uma regra de alerta de métrica de limites dinâmicos mais avançados em métricas dimensionais.
 
-Uma única regra de alerta de Limiares Dinâmicos pode criar limites personalizados para centenas de séries de tempo métricas (mesmo diferentes tipos) de cada vez, o que resulta em menos regras de alerta para gerenciar.
+Uma única regra de alerta de limites dinâmicos pode criar limites personalizados para centenas de séries temporais de métrica (mesmo tipos diferentes) por vez, o que resulta em menos regras de alerta para gerenciar.
 
-No exemplo abaixo, a regra de alerta monitora as combinações de valor das dimensões das dimensões **ResponseType** e **ApiName** para a métrica **Transações:**
-1. **ResponsType** - Para cada valor da dimensão **ResponseType,** incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
-2. **ApiName** - Uma série temporal diferente é monitorada apenas para os valores de dimensão **GetBlob** e **PutBlob.**
+No exemplo a seguir, a regra de alerta monitora as combinações de valor de dimensões das dimensões **ResponseType** e **ApiName** para a métrica de **Transações** :
+1. **ResponsType** – para cada valor da dimensão **ResponseType** , incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
+2. **ApiName** -uma série temporal diferente é monitorada apenas para os valores de dimensão **getBlob** e **PutBlob** .
 
-Por exemplo, algumas das séries tempois potenciais que são monitoradas por esta regra de alerta são:
-- Métrica = *Transações*, Tipo de resposta = *Sucesso*, ApiName = *GetBlob*
-- Métrica = *Transações*, Tipo de resposta = *Sucesso*, ApiName = *PutBlob*
-- Métrica = *Transações*, Tipo de resposta = *tempo de serviço*, ApiName = *GetBlob*
-- Métrica = *Transações*, Tipo de resposta = *tempo de serviço*, ApiName = *PutBlob*
+Por exemplo, algumas das séries temporais em potencial que são monitoradas por essa regra de alerta são:
+- Métrica = *Transações*, ResponseType = *êxito*, ApiName = *getBlob*
+- Métrica = *Transações*, ResponseType = *êxito*, ApiName = *PutBlob*
+- Métrica = *Transações*, ResponseType = *tempo limite do servidor*, ApiName = *getBlob*
+- Métrica = *Transações*, ResponseType = *tempo limite do servidor*, ApiName = *PutBlob*
 
 Salve o json abaixo como advanceddynamicmetricalert.json para usar neste passo a passo.
 
@@ -1241,18 +1241,18 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Vários critérios não são suportados atualmente para regras de alerta métrica que usam Limites Dinâmicos.
+> No momento, não há suporte para vários critérios para as regras de alerta de métrica que usam limites dinâmicos.
 
 
-## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>Modelo para um alerta métrico de limiar estático que monitora uma métrica personalizada
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>Modelo para um alerta de métrica de limite estático que monitora uma métrica personalizada
 
-Você pode usar o modelo a seguir para criar uma regra de alerta métrico de limiar estático mais avançado em uma métrica personalizada.
+Você pode usar o modelo a seguir para criar uma regra de alerta de métrica de limite estático mais avançada em uma métrica personalizada.
 
-Para saber mais sobre métricas personalizadas no Azure Monitor, consulte [métricas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Para saber mais sobre métricas personalizadas no Azure Monitor, consulte [métricas personalizadas em Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-Ao criar uma regra de alerta em uma métrica personalizada, você precisa especificar tanto o nome métrico quanto o espaço de nome métrico. Você também deve ter certeza de que a métrica personalizada já está sendo relatada, pois você não pode criar uma regra de alerta em uma métrica personalizada que ainda não existe.
+Ao criar uma regra de alerta em uma métrica personalizada, você precisa especificar o nome da métrica e o namespace da métrica. Você também deve certificar-se de que a métrica personalizada já está sendo relatada, pois não é possível criar uma regra de alerta em uma métrica personalizada que ainda não existe.
 
-Salve o json abaixo como customstaticmetricalert.json para o propósito deste passo a passo.
+Salve o JSON abaixo como customstaticmetricalert. JSON para fins deste passo a passos.
 
 ```json
 {
@@ -1432,7 +1432,7 @@ Salve o json abaixo como customstaticmetricalert.json para o propósito deste pa
 
 Você pode usar o modelo acima junto com o arquivo de parâmetro fornecido abaixo. 
 
-Salve e modifique o json abaixo como customstaticmetricalert.parameters.json para o propósito deste passo a passo.
+Salve e modifique o JSON abaixo como customstaticmetricalert. Parameters. JSON para fins deste passo a passos.
 
 ```json
 {
@@ -1504,24 +1504,24 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Você pode encontrar o espaço de nome métrico de uma métrica personalizada específica [navegando suas métricas personalizadas através do portal Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Você pode encontrar o namespace de métrica de uma métrica personalizada específica [navegando em suas métricas personalizadas por meio do portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
 
 
-## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modelo para um alerta métrico que monitora vários recursos
+## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modelo para um alerta de métrica que monitora vários recursos
 
-As seções anteriores descreveram os modelos do Azure Resource Manager de amostra para criar alertas de métrica que monitoram um único recurso. O Azure Monitor agora suporta o monitoramento de vários recursos (do mesmo tipo) com uma única regra de alerta métrico, para recursos existentes na mesma região do Azure. Atualmente, esse recurso é suportado apenas na nuvem pública do Azure e apenas para máquinas virtuais, bancos de dados de servidor SQL, pools elásticos de servidor SQL e dispositivos de borda databox. Além disso, esse recurso só está disponível para métricas da plataforma e não é suportado para métricas personalizadas.
+As seções anteriores descreveram os modelos do Azure Resource Manager de amostra para criar alertas de métrica que monitoram um único recurso. Azure Monitor agora dá suporte ao monitoramento de vários recursos (do mesmo tipo) com uma única regra de alerta de métrica, para recursos que existem na mesma região do Azure. Atualmente, esse recurso só tem suporte na nuvem pública do Azure e somente para máquinas virtuais, bancos de dados do SQL Server, pools elásticos do SQL Server e dispositivos do data Box Edge. Além disso, esse recurso só está disponível para métricas de plataforma e não tem suporte para métricas personalizadas.
 
 A regra de alerta de limites dinâmicos também pode ajudar a criar limites sob medida para centenas de série de métrica (até mesmo de diferentes tipos) de cada vez, o que resulta em menos regras de alerta a serem gerenciados.
 
 Esta seção descreverá modelos do Azure Resource Manager para três cenários a fim de monitorar vários recursos com uma única regra.
 
 - Monitoramento de todas as máquinas virtuais (em uma única região do Azure) em um ou mais grupos de recursos.
-- Monitorando todas as máquinas virtuais (em uma região Azure) em uma assinatura.
-- Monitorando uma lista de máquinas virtuais (em uma região Do Zure) em uma assinatura.
+- Monitorando todas as máquinas virtuais (em uma região do Azure) em uma assinatura.
+- Monitorando uma lista de máquinas virtuais (em uma região do Azure) em uma assinatura.
 
 > [!NOTE]
 >
-> Em uma regra de alerta métrica que monitora vários recursos, apenas uma condição é permitida.
+> Em uma regra de alerta de métrica que monitora vários recursos, apenas uma condição é permitida.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Alerta de limite estático em todas as máquinas virtuais em um ou mais grupos de recursos
 
@@ -3460,12 +3460,12 @@ az group deployment create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Modelo para um teste de disponibilidade, juntamente com um alerta métrico
+## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Modelo para um teste de disponibilidade junto com um alerta de métrica
 
-[Os testes de disponibilidade do Application Insights](../../azure-monitor/app/monitor-web-app-availability.md) ajudam a monitorar a disponibilidade do seu site/aplicativo em vários locais ao redor do mundo. Os alertas de teste de disponibilidade notificam quando os testes de disponibilidade falham em um determinado número de locais.
-Alertas de teste de disponibilidade do mesmo tipo de recurso que os alertas métricos (Microsoft.Insights/metricAlerts). A seguinte amostra O modelo do Azure Resource Manager pode ser usado para configurar um teste de disponibilidade simples e um alerta associado.
+[Application insights testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) ajudam a monitorar a disponibilidade do seu site/aplicativo de vários locais em todo o mundo. Alertas de teste de disponibilidade notificam você quando os testes de disponibilidade falham de um determinado número de locais.
+Alertas de teste de disponibilidade do mesmo tipo de recurso que os alertas de métrica (Microsoft. insights/metricAlerts). O modelo de Azure Resource Manager de exemplo a seguir pode ser usado para configurar um teste de disponibilidade simples e um alerta associado.
 
-Salve o json abaixo como availabilityalert.json para o propósito deste passo a passo.
+Salve o JSON abaixo como availabilityalert. JSON para fins deste passo a passos.
 
 ```json
 {
@@ -3572,9 +3572,9 @@ Você pode definir os valores para os parâmetros na linha de comando ou atravé
 
 > [!NOTE]
 >
-> `&amp`; é a referência da entidade HTML para &. Os parâmetros de URL ainda são separados por um único &, mas se você mencionar a URL em HTML, você precisa codificá-la. Então, se você tiver algum "&" no valor do parâmetro pingURL, você tem que escapar com "`&amp`;"
+> `&amp`; é a referência de entidade HTML para &. Os parâmetros de URL ainda são separados por um único &, mas se você mencionar a URL em HTML, precisará codificá-la. Portanto, se você tiver qualquer "&" em seu valor de parâmetro pingURL, você precisará escapar dele com`&amp`";"
 
-Salve o json abaixo como availabilityalert.parameters.json e modifique-o conforme necessário.
+Salve o JSON abaixo como availabilityalert. Parameters. JSON e modifique-o conforme necessário.
 
 ```json
 {
@@ -3597,7 +3597,7 @@ Salve o json abaixo como availabilityalert.parameters.json e modifique-o conform
 }
 ```
 
-Você pode criar o teste de disponibilidade e o alerta associado usando o arquivo de modelos e parâmetros usando o PowerShell ou o Azure CLI.
+Você pode criar o teste de disponibilidade e o alerta associado usando o modelo e o arquivo de parâmetros usando o PowerShell ou CLI do Azure.
 
 Usando o PowerShell do Azure
 

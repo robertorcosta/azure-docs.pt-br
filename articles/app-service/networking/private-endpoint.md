@@ -1,6 +1,6 @@
 ---
-title: Conecte-se privadamente a um aplicativo web usando o Azure Private Endpoint
-description: Conecte-se privadamente a um aplicativo web usando o Azure Private Endpoint
+title: Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure
+description: Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
@@ -10,60 +10,60 @@ ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80756286"
 ---
-# <a name="using-private-endpoints-for-azure-web-app-preview"></a>Usando pontos finais privados para o aplicativo Web Do Azure (Preview)
+# <a name="using-private-endpoints-for-azure-web-app-preview"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure (versão prévia)
 
 > [!Note]
-> A pré-visualização está disponível nas regiões leste dos EUA e Oeste dos EUA 2 para todos os Aplicativos PremiumV2 Windows e Linux Web e Funções Premium Elásticas. 
+> A versão prévia está disponível nas regiões leste dos EUA e oeste dos EUA 2 para todos os aplicativos Web PremiumV2 do Windows e Linux e funções Premium elásticos. 
 
-Você pode usar o Private Endpoint para o seu Azure Web App para permitir que os clientes localizados em sua rede privada acessem o aplicativo com segurança via Private Link. O Private Endpoint usa um endereço IP do espaço de endereço Do Azure VNet. O tráfego de rede entre um cliente em sua rede privada e o Aplicativo Web atravessa o VNet e um Link Privado na rede backbone da Microsoft, eliminando a exposição da Internet pública.
+Você pode usar o ponto de extremidade privado para seu aplicativo Web do Azure para permitir que clientes localizados em sua rede privada acessem com segurança o aplicativo sobre o link privado. O ponto de extremidade privado usa um endereço IP do seu espaço de endereço de VNet do Azure. O tráfego de rede entre um cliente na sua rede privada e o aplicativo Web atravessa a VNet e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública.
 
-Usar o Private Endpoint para o seu Aplicativo web permite:
+Usar o ponto de extremidade privado para seu aplicativo Web permite que você:
 
-- Proteja seu Aplicativo web configurando o Ponto Final Privado, eliminando a exposição pública.
-- Conecte-se com segurança ao Web App a partir de redes locais que se conectam à VNet usando uma VPN ou peering privado ExpressRoute.
+- Proteja seu aplicativo Web Configurando o ponto de extremidade privado, eliminando a exposição pública.
+- Conecte-se com segurança ao aplicativo Web de redes locais que se conectam à VNet usando um emparelhamento privado VPN ou ExpressRoute.
 
-Se você só precisa de uma conexão segura entre seu VNet e seu Aplicativo Web, um Ponto Final de Serviço é a solução mais simples. Se você também precisa acessar o aplicativo web a partir de locais através de um gateway Azure, um VNet regionalmente peered ou um VNet com peerly globalmente, private endpoint é a solução.  
+Se você precisar apenas de uma conexão segura entre sua VNet e seu aplicativo Web, um ponto de extremidade de serviço será a solução mais simples. Se você também precisar acessar o aplicativo Web do local por meio de um gateway do Azure, uma VNet emparelhada regionalmente ou uma VNet emparelhada globalmente, o ponto de extremidade privado será a solução.  
 
-Para obter mais informações, consulte [Pontos finais de serviço][serviceendpoint].
+Para obter mais informações, consulte [pontos de extremidade de serviço][serviceendpoint].
 
 ## <a name="conceptual-overview"></a>Visão geral conceitual
 
-Um Private Endpoint é uma interface de rede especial (NIC) para o seu Aplicativo Web Azure em uma sub-rede em sua Rede Virtual (VNet).
-Quando você cria um Ponto Final Privado para o seu Aplicativo Web, ele fornece conectividade segura entre os clientes em sua rede privada e seu Aplicativo Web. O Ponto Final Privado é atribuído a um endereço IP da faixa de endereço IP do seu VNet.
-A conexão entre o Private Endpoint e o Web App usa um [link privado][privatelink]seguro . Private Endpoint é usado apenas para fluxos de entrada para o seu Aplicativo Web. Os fluxos de saída não usarão este ponto final privado, mas você pode injetar fluxos de saída para sua rede em uma sub-rede diferente através do [recurso de integração VNet][vnetintegrationfeature].
+Um ponto de extremidade privado é uma NIC (interface de rede especial) para seu aplicativo Web do Azure em uma sub-rede em sua rede virtual (VNet).
+Quando você cria um ponto de extremidade privado para seu aplicativo Web, ele fornece conectividade segura entre clientes em sua rede privada e seu aplicativo Web. O ponto de extremidade privado recebe um endereço IP do intervalo de endereços IP de sua VNet.
+A conexão entre o ponto de extremidade privado e o aplicativo Web usa um [link privado][privatelink]seguro. O ponto de extremidade privado só é usado para fluxos de entrada para seu aplicativo Web. Os fluxos de saída não usarão esse ponto de extremidade privado, mas você pode injetar fluxos de saída para sua rede em uma sub-rede diferente por meio do [recurso de integração VNet][vnetintegrationfeature].
 
-A sub-rede onde você conecta o Ponto Final Privado pode ter outros recursos nele, você não precisa de uma sub-rede vazia dedicada.
-Você também pode implantar o Private Endpoint em uma região diferente do Web App. 
+A sub-rede na qual você conecta o ponto de extremidade privado pode ter outros recursos, você não precisa de uma sub-rede vazia dedicada.
+Você também pode implantar o ponto de extremidade privado em uma região diferente do aplicativo Web. 
 
 > [!Note]
->O recurso de integração VNet não pode usar a mesma sub-rede que o Private Endpoint, esta é uma limitação do recurso de integração VNet.
+>O recurso de integração VNet não pode usar a mesma sub-rede do que o ponto de extremidade privado, essa é uma limitação do recurso de integração VNet.
 
-De uma perspectiva de segurança:
+Do ponto de vista da segurança:
 
-- Quando você habilita pontos finais privados ao seu Aplicativo web, você desativa todo o acesso público.
-- Você pode habilitar vários pontos finais privados em outras VNets e Subnets, incluindo VNets em outras regiões.
-- O endereço IP da NIC private endpoint deve ser dinâmico, mas permanecerá o mesmo até que você exclua o Ponto Final Privado.
-- A NIC do Private Endpoint não pode ter um NSG associado.
-- A Subnet que hospeda o Private Endpoint pode ter um NSG associado, mas você deve desativar a aplicação das políticas de rede para o Ponto Final Privado: consulte [Desativar políticas de rede para pontos finais privados][disablesecuritype]. Como resultado, você não pode filtrar por qualquer NSG o acesso ao seu Ponto Final Privado.
-- Quando você habilita o Private Endpoint para o seu Aplicativo Web, a configuração de [restrições][accessrestrictions] de acesso do Aplicativo Web não é avaliada.
-- Você pode reduzir o risco de exfiltração de dados do VNet removendo todas as regras do NSG onde o destino é a tag Internet ou serviços Azure. Mas adicionar um Web App Private Endpoint em sua sub-rede permitirá que você alcance qualquer Web App hospedado no mesmo selo de implantação e exposto à Internet.
+- Ao habilitar pontos de extremidade privados para seu aplicativo Web, você desabilita todo o acesso público.
+- Você pode habilitar vários pontos de extremidade privados em outros VNets e sub-redes, incluindo VNets em outras regiões.
+- O endereço IP da NIC do ponto de extremidade privado deve ser dinâmico, mas permanecerá o mesmo até que você exclua o ponto de extremidade privado.
+- A NIC do ponto de extremidade privado não pode ter um NSG associado.
+- A sub-rede que hospeda o ponto de extremidade privado pode ter um NSG associado, mas você deve desabilitar a imposição de políticas de rede para o ponto de extremidade privado: consulte [desabilitar políticas de rede para pontos de extremidades privados][disablesecuritype]. Como resultado, você não pode filtrar por nenhum NSG o acesso ao seu ponto de extremidade privado.
+- Quando você habilita o ponto de extremidade privado para seu aplicativo Web, a configuração de [restrições de acesso][accessrestrictions] do aplicativo Web não é avaliada.
+- Você pode reduzir o risco de vazamento de dados da VNet removendo todas as regras de NSG em que o destino é marca Internet ou serviços do Azure. Mas adicionar um ponto de extremidade particular do aplicativo Web em sua sub-rede permitirá que você alcance qualquer aplicativo Web hospedado no mesmo carimbo de implantação e exposto à Internet.
 
-Nos logs Web HTTP do seu Web App, você encontrará o IP de origem do cliente. Isso é implementado usando o protocolo TCP Proxy, encaminhando a propriedade IP do cliente até o Web App. Para obter mais informações, consulte [Obter informações de conexão usando o Proxy TCP v2][tcpproxy].
+Nos logs HTTP da Web do seu aplicativo Web, você encontrará o IP de origem do cliente. Isso é implementado usando o protocolo proxy TCP, encaminhando a propriedade IP do cliente para o aplicativo Web. Para obter mais informações, consulte [obtendo informações de conexão usando o proxy TCP v2][tcpproxy].
 
 
   > [!div class="mx-imgBorder"]
-  > ![Visão geral global do Web App Private Endpoint](media/private-endpoint/global-schema-web-app.png)
+  > ![Visão geral global do ponto de extremidade particular do aplicativo Web](media/private-endpoint/global-schema-web-app.png)
 
 ## <a name="dns"></a>DNS
 
-Como este recurso está em pré-visualização, não alteramos a entrada do DNS durante a pré-visualização. Você precisa gerenciar a entrada dNS em seu servidor DNS privado ou zona privada Do Zure DNS você mesmo.
-Se você precisar usar um nome DNS personalizado, você deve adicionar o nome personalizado em seu Aplicativo web. Durante a pré-visualização, o nome personalizado deve ser validado como qualquer nome personalizado, usando resolução DNS pública. Consulte [a validação personalizada do DNS][dnsvalidation] para obter mais informações.
+Como esse recurso está em versão prévia, não alteramos a entrada DNS durante a visualização. Você mesmo precisa gerenciar a entrada DNS no seu servidor DNS privado ou na zona privada do DNS do Azure.
+Se você precisar usar um nome DNS personalizado, deverá adicionar o nome personalizado em seu aplicativo Web. Durante a visualização, o nome personalizado deve ser validado como qualquer nome personalizado, usando a resolução de DNS público. Consulte [validação de DNS personalizada][dnsvalidation] para obter mais informações.
 
 ## <a name="pricing"></a>Preços
 
@@ -71,11 +71,11 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure][pricing
 
 ## <a name="limitations"></a>Limitações
 
-Estamos melhorando o recurso Private Link e o Private Endpoint regularmente, verifique [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
+Estamos melhorando o recurso de link privado e o ponto de extremidade privado regularmente. consulte [Este artigo][pllimitations] para obter informações atualizadas sobre as limitações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para implantar o ponto final privado para o seu Aplicativo web através do portal, veja [como se conectar privadamente a um aplicativo da Web][howtoguide]
+Para implantar um ponto de extremidade privado para seu aplicativo Web por meio do portal, consulte [como conectar-se de forma privada a um aplicativo Web][howtoguide]
 
 
 

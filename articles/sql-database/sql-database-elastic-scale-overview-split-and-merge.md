@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: c7eb1670ee911895bdba23921845b8795f4998af
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811308"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bancos de dados na nuvem escalados horizontalmente
@@ -33,11 +33,11 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 ## <a name="documentation"></a>Documentação
 
 1. [Tutorial de ferramenta da Divisão de Mesclagem do banco de dados elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-2. [Configuração de segurança de mesclagem dividida](sql-database-elastic-scale-split-merge-security-configuration.md)
+2. [Configuração de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [Considerações de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md)
 5. [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md)
-6. [Ferramentas de banco de dados elásticas](sql-database-elastic-scale-introduction.md)
+6. [Ferramentas de banco de dados elástico](sql-database-elastic-scale-introduction.md)
 7. [Glossário de ferramentas de banco de dados elástico](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>Por que usar a ferramenta de divisão/mesclagem?
@@ -62,7 +62,7 @@ A ferramenta de divisão/mesclagem é executada como um serviço Web do Azure. U
 
 - **Serviços hospedados no cliente**
 
-  A divisão/mesclagem é fornecida como um serviço hospedado no cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Consulte o [tutorial divisão mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar TLS, autenticação de cliente baseada em certificados, criptografia para credenciais armazenadas, proteção do DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no documento de [configuração de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)a seguir.
+  A divisão/mesclagem é fornecida como um serviço hospedado no cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Consulte o [tutorial divisão mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar TLS, autenticação de cliente baseada em certificado, criptografia para credenciais armazenadas, proteção de DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no documento de [configuração de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)a seguir.
 
   O serviço padrão implantado é executado com um operador e uma função web. Cada um usa o tamanho da VM A1 nos Serviços de Nuvem do Azure. Embora não seja possível modificar essas configurações durante a implantação do pacote, eles podem ser alterados após uma implantação bem-sucedida no serviço de nuvem em execução (por meio do portal do Azure). Observe que a função de trabalho não deve ser configurada para mais de uma única instância por motivos técnicos.
 
@@ -186,11 +186,11 @@ O serviço de divisão/mesclagem é executado como um serviço de nuvem em sua a
 
 O Serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de dados de armazenamento dos metadados para o monitoramento das solicitações em andamento e concluídas. A tabela lista uma linha para cada solicitação de divisão/mesclagem enviada para essa instância do serviço de divisão/mesclagem. Ele oferece as seguintes informações para cada solicitação:
 
-- **Timestamp**
+- **Estampa**
 
   Hora e a data em que a solicitação foi iniciada.
 
-- **Operationid**
+- **OperationId**
 
   GUID que identifica exclusivamente a solicitação. Essa solicitação também pode ser usada para cancelar a operação enquanto ela ainda está em andamento.
 
@@ -202,7 +202,7 @@ O Serviço de divisão/mesclagem fornece a tabela **RequestStatus** no banco de 
 
   Um sinalizador que indica se a solicitação foi cancelada.
 
-- **Progresso**
+- **Andamento**
 
   Uma estimativa percentual da conclusão da operação. Um valor de 50 indica que a operação está aproximadamente 50% concluída.
 
@@ -219,7 +219,7 @@ O serviço de divisão/mesclagem usa o diagnóstico do Azure com base no SDK do 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> O módulo PowerShell Azure Resource Manager ainda é suportado pelo Banco de Dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para obter esses cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
 Para habilitar o monitoramento e diagnóstico usando a configuração de diagnóstico para as funções Web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos usando o Azure PowerShell:
 

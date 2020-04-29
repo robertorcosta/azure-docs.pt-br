@@ -11,25 +11,25 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220551"
 ---
-# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte ao idioma para um recurso e bases de conhecimento do QnA Maker
+# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Suporte a idiomas para um recurso QnA Maker e bases de dados de conhecimento
 
-O idioma para o serviço é selecionado quando você cria a primeira base de conhecimento no recurso. Todas as bases de conhecimento adicionais no recurso devem estar na mesma língua. 
+Idioma do serviço é selecionado quando você cria a primeira base de dados de conhecimento no recurso. Todas as bases de dados de conhecimento adicionais no recurso devem estar no mesmo idioma. 
 
-O idioma determina a relevância dos resultados que o QnA Maker fornece em resposta às consultas do usuário.
+O idioma determina a relevância dos resultados QnA Maker fornece em resposta a consultas de usuário.
 
-Saiba mais sobre o [impacto da seleção de idiomas.](../how-to/language-knowledge-base.md)
+Saiba mais sobre o [impacto da seleção de idioma](../how-to/language-knowledge-base.md).
 
 ## <a name="languages-supported"></a>Idiomas compatíveis
 
-A lista a seguir contém os idiomas suportados para um recurso QnA Maker. 
+A lista a seguir contém os idiomas com suporte para um recurso de QnA Maker. 
 
-|Idioma|
+|Linguagem|
 |--|
 |Árabe|
 |Armênia|

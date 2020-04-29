@@ -1,6 +1,6 @@
 ---
-title: Conecte-se ao pool Synapse SQL
-description: Conecte-se ao pool SQL.
+title: Conectar-se ao pool SQL do Synapse
+description: Conecte-se ao pool do SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,30 +12,30 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e5c015751e8b0aeed7bd84086cc4f65c234fdb41
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745322"
 ---
-# <a name="connect-to-synapse-sql-pool"></a>Conecte-se ao pool Synapse SQL
+# <a name="connect-to-synapse-sql-pool"></a>Conectar-se ao pool SQL do Synapse
 
-Conecte-se ao pool SQL.
+Conecte-se ao pool do SQL.
 
 ## <a name="find-your-server-name"></a>Localizar o nome do servidor
 
 O nome do servidor no exemplo a seguir é sqlpoolservername.database.windows.net. Para localizar o nome de servidor totalmente qualificado:
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
-2. Clique no **Azure Synapse Analytics**.
-3. Clique no pool SQL ao que deseja se conectar.
+2. Clique em **Azure Synapse Analytics**.
+3. Clique no pool SQL ao qual você deseja se conectar.
 4. Localize o nome completo do servidor.
 
    ![Nome completo do servidor](media/sql-data-warehouse-connect-overview/server-connect.PNG)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivers suportados e cadeias de conexão
 
-O pool SQL suporta [ADO.NET,](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) [ODBC,](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Para encontrar a versão e a documentação mais recentes, clique em um dos drivers anteriores.
+O pool SQL dá suporte a [ADO.net](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), [php](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Para encontrar a versão e a documentação mais recentes, clique em um dos drivers anteriores.
 
 Para gerar automaticamente a cadeia de conexão para o driver que você está usando no Portal do Azure, clique em **Mostrar cadeias de conexão de banco de dados** no exemplo anterior. A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
 
@@ -68,7 +68,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="connection-settings"></a>Configurações de conexão
 
-O pool SQL padroniza algumas configurações durante a conexão e a criação de objetos. Essas configurações não podem ser substituídas e incluem:
+O pool do SQL padroniza algumas configurações durante a conexão e a criação do objeto. Essas configurações não podem ser substituídas e incluem:
 
 | Configuração de banco de dados | Valor |
 |:--- |:--- |
@@ -79,4 +79,4 @@ O pool SQL padroniza algumas configurações durante a conexão e a criação de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para se conectar e consultar com o Visual Studio, veja [Consultar com o Visual Studio](sql-data-warehouse-query-visual-studio.md). Para saber mais sobre opções de autenticação, consulte [Autenticação no Azure Synapse Analytics](sql-data-warehouse-authentication.md).
+Para se conectar e consultar com o Visual Studio, veja [Consultar com o Visual Studio](sql-data-warehouse-query-visual-studio.md). Para saber mais sobre as opções de autenticação, confira [autenticação no Azure Synapse Analytics](sql-data-warehouse-authentication.md).

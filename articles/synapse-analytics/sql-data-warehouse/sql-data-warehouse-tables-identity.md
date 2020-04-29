@@ -1,6 +1,6 @@
 ---
-title: Usando identidade para criar chaves de substituto
-description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves de substituto em tabelas no pool Synapse SQL.
+title: Usando a identidade para criar chaves substitutas
+description: Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no pool do SQL Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80742644"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Usando identidade para criar chaves de substituto no pool Synapse SQL
+# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Usando a identidade para criar chaves substitutas no pool SQL Synapse
 
-Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves de substituto em tabelas no pool Synapse SQL.
+Recomendações e exemplos para usar a propriedade IDENTITY para criar chaves substitutas em tabelas no pool do SQL Synapse.
 
-## <a name="what-is-a-surrogate-key"></a>O que é uma chave de substituto
+## <a name="what-is-a-surrogate-key"></a>O que é uma chave substituta
 
 Uma chave substituta em uma tabela é uma coluna com um identificador exclusivo para cada linha. A chave não é gerada de dados da tabela. Os modeladores de dados gostam de criar chaves substitutas em suas tabelas quando criam modelos de data warehouse. Você pode usar a propriedade IDENTITY para atingir esse objetivo de forma simples e eficiente, sem afetar o desempenho de carga.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Criando uma tabela com uma coluna IDENTITY
 
-A propriedade IDENTITY foi projetada para dimensionar todas as distribuições no pool Synapse SQL sem afetar o desempenho da carga. Portanto, a implementação de IDENTITY é orientada para atingir esses objetivos.
+A propriedade IDENTITY foi projetada para escalar horizontalmente entre todas as distribuições no pool do SQL Synapse sem afetar o desempenho da carga. Portanto, a implementação de IDENTITY é orientada para atingir esses objetivos.
 
 Você pode definir uma tabela como tendo a propriedade IDENTITY quando você cria a tabela pela primeira vez usando uma sintaxe semelhante à instrução a seguir:
 
@@ -50,7 +50,7 @@ Este restante desta seção destaca as nuances da implementação para ajudá-lo
 
 ### <a name="allocation-of-values"></a>Alocação de valores
 
-A propriedade IDENTITY não garante a ordem na qual os valores substitutos são alocados, o que reflete o comportamento do SQL Server e do Banco de Dados SQL do Azure. No entanto, na piscina Synapse SQL, a ausência de uma garantia é mais acentuada.
+A propriedade IDENTITY não garante a ordem na qual os valores substitutos são alocados, o que reflete o comportamento do SQL Server e do Banco de Dados SQL do Azure. No entanto, no pool SQL Synapse, a ausência de uma garantia é mais pronunciada.
 
 O exemplo a seguir é uma ilustração:
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento do SQL Server que est�
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserir explicitamente os valores em uma coluna IDENTITY
 
-O pool Synapse SQL suporta `SET IDENTITY_INSERT <your table> ON|OFF` sintaxe. Você pode usar essa sintaxe para inserir explicitamente os valores na coluna IDENTITY.
+O pool SQL Synapse `SET IDENTITY_INSERT <your table> ON|OFF` dá suporte à sintaxe. Você pode usar essa sintaxe para inserir explicitamente os valores na coluna IDENTITY.
 
 Muitos modeladores de dados gostam de usar valores negativos predefinidos para determinadas linhas em suas dimensões. Um exemplo é de -1 ou a linha "membro desconhecido".
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Não é possível usar `CREATE TABLE AS SELECT` atualmente ao carregar dados em uma tabela com uma coluna IDENTITY.
 >
 
-Para obter mais informações sobre o carregamento de dados, consulte [Projetando Extrato, Carga e Transformação (ELT) para pool Synapse SQL](design-elt-data-loading.md) e [Práticas recomendadas de carregamento](guidance-for-loading-data.md).
+Para obter mais informações sobre como carregar dados, consulte [criação de extração, carregamento e transformação (ELT) para o pool SQL Synapse](design-elt-data-loading.md) e [as práticas recomendadas de carregamento](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Exibições do sistema
 
@@ -195,9 +195,9 @@ A propriedade IDENTITY não pode ser usada:
 - Quando a coluna é também a chave de distribuição
 - Quando a tabela é uma tabela externa
 
-As seguintes funções relacionadas não são suportadas no pool Synapse SQL:
+As seguintes funções relacionadas não têm suporte no pool SQL do Synapse:
 
-- [IDENTIDADE()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [IDENTIDADE ()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [SCOPE_IDENTITY](/sql/t-sql/functions/scope-identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [IDENT_CURRENT](/sql/t-sql/functions/ident-current-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

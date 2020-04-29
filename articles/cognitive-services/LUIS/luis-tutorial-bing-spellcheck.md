@@ -1,5 +1,5 @@
 ---
-title: Corrigir palavras mal escritas - LUIS
+title: Corrigir palavras incorretas-LUIS
 titleSuffix: Azure Cognitive Services
 description: Corrija palavras grafadas incorretamente na declaração adicionando a API de Verificação Ortográfica do Bing V7 para consultas de ponto de extremidade do LUIS.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
 ms.openlocfilehash: a1e43cfc55611c432652055db2ac8411d835608b
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80396827"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corrigir palavras grafas incorretamente com a Verificação Ortográfica do Bing
@@ -36,7 +36,7 @@ A [primeira chave da API de Verificação Ortográfica do Bing v7](https://azure
 ## <a name="create-endpoint-key"></a>Criar chave de ponto de extremidade
 Se a chave gratuita expirou, crie uma chave de ponto de extremidade.
 
-1. Faça login no [portal Azure](https://portal.azure.com). 
+1. Faça logon no [Portal do Azure](https://portal.azure.com). 
 
 2. No canto superior esquerdo, selecione **Criar um recurso**.
 
@@ -96,12 +96,12 @@ A URL do ponto de extremidade tem vários valores que precisam ser passados corr
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorar erros de ortografia
 
-Se você não quiser usar o serviço Bing Spell Check API v7, você precisa adicionar a ortografia correta e incorreta. 
+Se você não quiser usar o serviço do Verificação Ortográfica do Bing API v7, será necessário adicionar a grafia correta e incorreta. 
 
 Duas soluções são:
 
-* Rotular frases de exemplo que têm todas as diferentes ortografias para que LUIS possa aprender ortografia adequada, bem como erros de digitação. Essa opção exige mais esforço de aplicação de rótulos do que o uso de um verificador ortográfico.
-* Crie uma lista de frases com todas as variações da palavra. Com esta solução, você não precisa rotular as variações da palavra nas enunciadas de exemplo. 
+* Exemplo de rótulo declarações que têm todas as diferentes ortografias para que o LUIS possa aprender a grafia adequada, bem como erros de digitação. Essa opção exige mais esforço de aplicação de rótulos do que o uso de um verificador ortográfico.
+* Crie uma lista de frases com todas as variações da palavra. Com essa solução, você não precisa rotular as variações de palavras no exemplo declarações. 
 
 ## <a name="publishing-page"></a>Página de publicação
 A página de [publicação](luis-how-to-publish-app.md) tem uma caixa de seleção **Habilitar o verificador ortográfico do Bing**. Isso é uma conveniência para criar a chave e entender como a URL de ponto de extremidade é alterada. Você ainda precisará usar os parâmetros de ponto de extremidade corretos para que a ortografia seja corrigida em cada declaração. 

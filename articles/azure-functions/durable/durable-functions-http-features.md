@@ -1,45 +1,45 @@
 ---
-title: Recursos HTTP em Funções Duráveis - Funções Azure
-description: Conheça os recursos HTTP integrados na extensão Funções Duráveis para Funções Azure.
+title: Recursos de HTTP no Durable Functions-Azure Functions
+description: Saiba mais sobre os recursos de HTTP integrados na extensão de Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
 ms.openlocfilehash: fece1155d2f707f11dda9f3896bd8a08deff1557
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80802376"
 ---
-# <a name="http-features"></a>Recursos HTTP
+# <a name="http-features"></a>Recursos de HTTP
 
-Durable Functions possui vários recursos que facilitam a incorporação de orquestrações e entidades duráveis em fluxos de trabalho HTTP. Este artigo entra em detalhes sobre algumas dessas características.
+O Durable Functions tem vários recursos que facilitam a incorporação de orquestrações duráveis e entidades em fluxos de trabalho HTTP. Este artigo apresenta detalhes sobre alguns desses recursos.
 
 ## <a name="exposing-http-apis"></a>Expondo APIs HTTP
 
-Orquestrações e entidades podem ser invocadas e gerenciadas usando solicitações HTTP. A extensão Funções Duráveis expõe APIs HTTP incorporadas. Ele também fornece APIs para interagir com orquestrações e entidades de dentro de funções desencadeadas pelo HTTP.
+Orquestrações e entidades podem ser invocadas e gerenciadas usando solicitações HTTP. A extensão de Durable Functions expõe as APIs HTTP internas. Ele também fornece APIs para interagir com orquestrações e entidades de dentro de funções disparadas por HTTP.
 
-### <a name="built-in-http-apis"></a>APIs HTTP incorporadas
+### <a name="built-in-http-apis"></a>APIs HTTP internas
 
-A extensão Funções Duráveis adiciona automaticamente um conjunto de APIs HTTP ao host Funções do Azure. Com essas APIs, você pode interagir e gerenciar orquestrações e entidades sem escrever nenhum código.
+A extensão Durable Functions adiciona automaticamente um conjunto de APIs HTTP ao host Azure Functions. Com essas APIs, você pode interagir com e gerenciar orquestrações e entidades sem escrever nenhum código.
 
-As seguintes APIs HTTP incorporadas são suportadas.
+Há suporte para as seguintes APIs HTTP internas.
 
-* [Inicie uma nova orquestração](durable-functions-http-api.md#start-orchestration)
-* [Exemplo de orquestração de consulta](durable-functions-http-api.md#get-instance-status)
-* [Encerrar a instância de orquestração](durable-functions-http-api.md#terminate-instance)
-* [Envie um evento externo para uma orquestração](durable-functions-http-api.md#raise-event)
-* [História da orquestração de expurgo](durable-functions-http-api.md#purge-single-instance-history)
-* [Envie um evento de operação para uma entidade](durable-functions-http-api.md#signal-entity)
+* [Iniciar nova orquestração](durable-functions-http-api.md#start-orchestration)
+* [Instância de orquestração de consulta](durable-functions-http-api.md#get-instance-status)
+* [Encerrar instância de orquestração](durable-functions-http-api.md#terminate-instance)
+* [Enviar um evento externo para uma orquestração](durable-functions-http-api.md#raise-event)
+* [Limpar o histórico de orquestração](durable-functions-http-api.md#purge-single-instance-history)
+* [Enviar um evento de operação para uma entidade](durable-functions-http-api.md#signal-entity)
 * [Obter o estado de uma entidade](durable-functions-http-api.md#get-entity)
 * [Consultar a lista de entidades](durable-functions-http-api.md#list-entities)
 
-Consulte o [artigo HTTP APIs](durable-functions-http-api.md) para obter uma descrição completa de todas as APIs HTTP incorporadas expostas pela extensão Funções Duráveis.
+Consulte o [artigo APIs http](durable-functions-http-api.md) para obter uma descrição completa de todas as APIs http internas expostas pela extensão Durable functions.
 
 ### <a name="http-api-url-discovery"></a>Descoberta de URL na API HTTP
 
-A [vinculação do cliente de orquestração](durable-functions-bindings.md#orchestration-client) expõe APIs que podem gerar cargas de resposta HTTP convenientes. Por exemplo, ele pode criar uma resposta contendo links para APIs de gerenciamento para uma instância específica de orquestração. Os exemplos a seguir mostram uma função http-trigger que demonstra como usar esta API para uma nova instância de orquestração:
+A [Associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) expõe APIs que podem gerar conteúdos de resposta http convenientes. Por exemplo, ele pode criar uma resposta que contém links para APIs de gerenciamento para uma instância de orquestração específica. Os exemplos a seguir mostram uma função HTTP-Trigger que demonstra como usar essa API para uma nova instância de orquestração:
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -57,13 +57,13 @@ A [vinculação do cliente de orquestração](durable-functions-bindings.md#orch
 
 ---
 
-Iniciar uma função orquestradora usando as funções http-trigger mostradas anteriormente pode ser feito usando qualquer cliente HTTP. O seguinte comando cURL inicia `DoWork`uma função orquestradora chamada:
+Iniciar uma função de orquestrador usando as funções HTTP-Trigger mostradas anteriormente pode ser feito usando qualquer cliente HTTP. O comando de ondulação a seguir inicia uma função `DoWork`de orquestrador chamada:
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
 ```
 
-Em seguida, é uma resposta `abc123` de exemplo para uma orquestração que tem como seu ID. Alguns detalhes foram removidos para clareza.
+Em seguida, há um exemplo de resposta para uma orquestração que tem `abc123` como sua ID. Alguns detalhes foram removidos para fins de clareza.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -80,39 +80,39 @@ Retry-After: 10
 }
 ```
 
-No exemplo anterior, cada um `Uri` dos campos que terminam corresponde a uma API HTTP incorporada. Você pode usar essas APIs para gerenciar a instância de orquestração de destino.
+No exemplo anterior, cada um dos campos que termina em `Uri` corresponde a uma API http interna. Você pode usar essas APIs para gerenciar a instância de orquestração de destino.
 
 > [!NOTE]
-> O formato dos URLs do webhook depende de qual versão do host Funções do Azure você está executando. O exemplo anterior é para o host Funções 2.0 do Azure.
+> O formato das URLs de webhook depende de qual versão do host de Azure Functions você está executando. O exemplo anterior é para o host Azure Functions 2,0.
 
-Para obter uma descrição de todas as APIs HTTP incorporadas, consulte a [referência HTTP API](durable-functions-http-api.md).
+Para obter uma descrição de todas as APIs HTTP internas, consulte a [referência da API http](durable-functions-http-api.md).
 
 ### <a name="async-operation-tracking"></a>Acompanhamento de operação assíncrona
 
-A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar APIs assíncronas HTTP de execução longa com as Durable Functions. Esse padrão é às vezes referido como o *padrão de consumo de votação.* O fluxo de cliente/servidor funciona da seguinte maneira:
+A resposta HTTP mencionada anteriormente foi criada para ajudar a implementar APIs assíncronas HTTP de execução longa com as Durable Functions. Esse padrão é, às vezes, chamado de *padrão de consumidor de sondagem*. O fluxo de cliente/servidor funciona da seguinte maneira:
 
-1. O cliente emite uma solicitação HTTP para iniciar um processo de longa duração como uma função orquestradora.
-1. O gatilho HTTP de destino retorna uma resposta HTTP 202 com um cabeçalho de localização que tem o valor "statusQueryGetUri".
-1. O cliente pesquisa a URL no cabeçalho Localização. O cliente continua a ver respostas HTTP 202 com um cabeçalho de localização.
-1. Quando a ocorrência termina ou falha, o ponto final no cabeçalho de localização retorna HTTP 200.
+1. O cliente emite uma solicitação HTTP para iniciar um processo de execução longa, como uma função de orquestrador.
+1. O gatilho HTTP de destino retorna uma resposta HTTP 202 com um cabeçalho Location que tem o valor "statusQueryGetUri".
+1. O cliente sonda a URL no cabeçalho de local. O cliente continua a ver as respostas HTTP 202 com um cabeçalho de local.
+1. Quando a instância for concluída ou falhar, o ponto de extremidade no cabeçalho de local retornará HTTP 200.
 
-Este protocolo permite a coordenação de processos de longa duração com clientes ou serviços externos que podem sondar um ponto final HTTP e seguir o cabeçalho de localização. Tanto as implementações de cliente quanto de servidor desse padrão são incorporadas às APIs HTTP de funções duráveis.
-
-> [!NOTE]
-> Todas as ações baseadas em HTTP fornecidas pelos [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/) dão suporte ao padrão de operação assíncrona padrão. Essa capacidade possibilita inserir uma função durável de execução longa como parte de um fluxo de trabalho dos Aplicativos Lógicos. Você pode encontrar mais detalhes sobre o suporte a Aplicativos Lógicos para padrões HTTP assíncronos nas ações de fluxo de trabalho do [Azure Logic Apps e aciona a documentação](../../logic-apps/logic-apps-workflow-actions-triggers.md).
+Esse protocolo permite a coordenação de processos de execução longa com clientes ou serviços externos que podem sondar um ponto de extremidade HTTP e seguir o cabeçalho do local. As implementações de cliente e servidor desse padrão são incorporadas às APIs HTTP Durable Functions.
 
 > [!NOTE]
-> Interações com orquestrações podem ser feitas a partir de qualquer tipo de função, não apenas funções acionadas por HTTP.
+> Todas as ações baseadas em HTTP fornecidas pelos [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/) dão suporte ao padrão de operação assíncrona padrão. Essa capacidade possibilita inserir uma função durável de execução longa como parte de um fluxo de trabalho dos Aplicativos Lógicos. Você pode encontrar mais detalhes sobre o suporte a aplicativos lógicos para padrões HTTP assíncronos na [documentação de ações e gatilhos de fluxo de trabalho dos aplicativos lógicos do Azure](../../logic-apps/logic-apps-workflow-actions-triggers.md).
 
-Para obter mais informações sobre como gerenciar orquestrações e entidades usando APIs de clientes, consulte o [artigo de gerenciamento de instâncias](durable-functions-instance-management.md).
+> [!NOTE]
+> As interações com orquestrações podem ser feitas de qualquer tipo de função, não apenas funções disparadas por HTTP.
+
+Para obter mais informações sobre como gerenciar orquestrações e entidades usando APIs de cliente, consulte o [artigo gerenciamento de instâncias](durable-functions-instance-management.md).
 
 ## <a name="consuming-http-apis"></a>Consumindo APIs HTTP
 
-Como descrito nas restrições do [código de função do orquestrador,](durable-functions-code-constraints.md)as funções orquestradoras não podem fazer I/O diretamente. Em vez disso, eles normalmente chamam [funções de atividade](durable-functions-types-features-overview.md#activity-functions) que fazem operações de I/O.
+Conforme descrito nas [restrições de código da função de orquestrador](durable-functions-code-constraints.md), as funções de orquestrador não podem fazer e/s diretamente. Em vez disso, normalmente chamam [funções de atividade](durable-functions-types-features-overview.md#activity-functions) que fazem operações de e/s.
 
-Começando com funções duráveis 2.0, as orquestrações podem consumir nativamente APIs HTTP usando a vinculação do [gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger).
+A partir do Durable Functions 2,0, as orquestrações podem consumir nativamente APIs HTTP usando a [Associação de gatilho de orquestração](durable-functions-bindings.md#orchestration-trigger).
 
-O código de exemplo a seguir mostra uma função orquestradora fazendo uma solicitação HTTP de saída:
+O código de exemplo a seguir mostra uma função de orquestrador que faz uma solicitação HTTP de saída:
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -151,26 +151,26 @@ module.exports = df.orchestrator(function*(context){
 
 ---
 
-Usando a ação "chamar HTTP", você pode fazer as seguintes ações em suas funções orquestradoras:
+Usando a ação "chamar HTTP", você pode executar as seguintes ações em suas funções de orquestrador:
 
-* Ligue para as APIs HTTP diretamente das funções de orquestração, com algumas limitações que são mencionadas posteriormente.
-* Suporte automaticamente aos padrões de pesquisa de status HTTP 202 do lado do cliente.
-* Use [identidades gerenciadas do Azure](../../active-directory/managed-identities-azure-resources/overview.md) para fazer chamadas HTTP autorizadas para outros pontos finais do Azure.
+* Chame APIs HTTP diretamente de funções de orquestração, com algumas limitações que são mencionadas posteriormente.
+* Suporta automaticamente padrões de sondagem de status HTTP 202 do lado do cliente.
+* Use [identidades gerenciadas do Azure](../../active-directory/managed-identities-azure-resources/overview.md) para fazer chamadas http autorizadas para outros pontos de extremidade do Azure.
 
-A capacidade de consumir APIs HTTP diretamente de funções orquestradoras é destinada como uma conveniência para um determinado conjunto de cenários comuns. Você pode implementar todos esses recursos sozinho usando funções de atividade. Em muitos casos, as funções de atividade podem lhe dar mais flexibilidade.
+A capacidade de consumir APIs HTTP diretamente de funções de orquestrador é destinada a ser uma conveniência para um determinado conjunto de cenários comuns. Você pode implementar todos esses recursos por conta própria usando funções de atividade. Em muitos casos, as funções de atividade podem lhe proporcionar mais flexibilidade.
 
-### <a name="http-202-handling"></a>Manuseio http 202
+### <a name="http-202-handling"></a>Manipulação de HTTP 202
 
-A API "chamar HTTP" pode implementar automaticamente o lado cliente do padrão de consumo de votação. Se uma API chamada retornar uma resposta HTTP 202 com um cabeçalho de localização, a função orquestradora automaticamente pesquisa o recurso Localização até receber uma resposta diferente de 202. Esta resposta será a resposta retornada ao código de função do orquestrador.
+A API "chamar HTTP" pode implementar automaticamente o lado do cliente do padrão de consumidor de sondagem. Se uma API chamada retornar uma resposta HTTP 202 com um cabeçalho de local, a função de orquestrador sondará automaticamente o recurso de local até receber uma resposta diferente de 202. Essa resposta será a resposta retornada ao código de função do orquestrador.
 
 > [!NOTE]
-> As funções do orquestrador também suportam nativamente o padrão de consumo de pesquisa do lado do servidor, conforme descrito no [rastreamento de operação Async](#async-operation-tracking). Esse suporte significa que orquestrações em um aplicativo de função podem facilmente coordenar as funções do orquestrador em outros aplicativos de função. Isso é semelhante ao conceito [de suborquestração,](durable-functions-sub-orchestrations.md) mas com suporte para comunicação entre aplicativos. Esse suporte é particularmente útil para o desenvolvimento de aplicativos no estilo microservice.
+> As funções de orquestrador também dão suporte nativo ao padrão de consumidor de sondagem no lado do servidor, conforme descrito em [acompanhamento de operação assíncrona](#async-operation-tracking). Esse suporte significa que as orquestrações em um aplicativo de funções podem coordenar facilmente as funções de orquestrador em outros aplicativos de funções. Isso é semelhante ao conceito de [suborquestração](durable-functions-sub-orchestrations.md) , mas com suporte para comunicação entre aplicativos. Esse suporte é particularmente útil para o desenvolvimento de aplicativos no estilo de microserviço.
 
 ### <a name="managed-identities"></a>Identidades gerenciadas
 
-As funções duráveis suportam nativamente chamadas para APIs que aceitam tokens Azure Active Directory (Azure AD) para autorização. Esse suporte usa [identidades gerenciadas pelo Azure](../../active-directory/managed-identities-azure-resources/overview.md) para adquirir esses tokens.
+Durable Functions nativamente dá suporte a chamadas para APIs que aceitam tokens do Azure Active Directory (Azure AD) para autorização. Esse suporte usa [identidades gerenciadas do Azure](../../active-directory/managed-identities-azure-resources/overview.md) para adquirir esses tokens.
 
-O código a seguir é um exemplo de uma função orquestradora .NET. A função faz chamadas autenticadas para reiniciar uma máquina virtual usando as máquinas virtuais Do Azure Resource Manager [REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+O código a seguir é um exemplo de uma função de orquestrador do .NET. A função faz chamadas autenticadas para reiniciar uma máquina virtual usando a [API REST de Azure Resource Manager máquinas virtuais](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -224,41 +224,41 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-No exemplo anterior, `tokenSource` o parâmetro é configurado para adquirir tokens Azure AD para [o Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os tokens são identificados `https://management.core.windows.net`pelo recurso URI . O exemplo pressupõe que o aplicativo de função atual esteja sendo executado localmente ou foi implantado como um aplicativo de função com uma identidade gerenciada. Supõe-se que a identidade local ou a identidade gerenciada tenham `myRG`permissão para gerenciar VMs no grupo de recursos especificado .
+No exemplo anterior, o `tokenSource` parâmetro é configurado para adquirir tokens do Azure AD para [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Os tokens são identificados pelo URI `https://management.core.windows.net`do recurso. O exemplo supõe que o aplicativo de função atual seja executado localmente ou implantado como um aplicativo de funções com uma identidade gerenciada. Pressupõe-se que a identidade local ou a identidade gerenciada tenha permissão para gerenciar VMs no grupo `myRG`de recursos especificado.
 
-Em tempo de execução, a fonte de token configurada retorna automaticamente um token de acesso OAuth 2.0. A fonte então adiciona o token como um token portador ao cabeçalho de autorização da solicitação de saída. Este modelo é uma melhoria em relação à adição manual de cabeçalhos de autorização às solicitações HTTP pelas seguintes razões:
+Em tempo de execução, a origem do token configurada retorna automaticamente um token de acesso OAuth 2,0. A origem, em seguida, adiciona o token como um token de portador ao cabeçalho de autorização da solicitação de saída. Esse modelo é uma melhoria em relação à adição manual de cabeçalhos de autorização a solicitações HTTP pelos seguintes motivos:
 
-* A atualização do token é tratada automaticamente. Não precisa se preocupar com tokens vencidos.
+* A atualização de token é manipulada automaticamente. Você não precisa se preocupar com os tokens expirados.
 * Os tokens nunca são armazenados no estado de orquestração durável.
-* Você não precisa escrever nenhum código para gerenciar a aquisição de tokens.
+* Você não precisa escrever nenhum código para gerenciar a aquisição de token.
 
-Você pode encontrar um exemplo mais completo na [amostra c# RestartVMs pré-compilada](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
+Você pode encontrar um exemplo mais completo no [exemplo de RestartVMs C# pré-compilado](https://github.com/Azure/azure-functions-durable-extension/blob/dev/samples/precompiled/RestartVMs.cs).
 
-As identidades gerenciadas não se limitam ao gerenciamento de recursos do Azure. Você pode usar identidades gerenciadas para acessar qualquer API que aceite tokens portadores do Azure AD, incluindo serviços Azure da Microsoft e aplicativos web de parceiros. O aplicativo web de um parceiro pode até ser outro aplicativo de função. Para obter uma lista de serviços Azure da Microsoft que suportam autenticação com o Azure AD, consulte [os serviços do Azure que suportam a autenticação Azure AD](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Identidades gerenciadas não são limitadas ao gerenciamento de recursos do Azure. Você pode usar identidades gerenciadas para acessar qualquer API que aceite tokens de portador do Azure AD, incluindo serviços do Azure da Microsoft e aplicativos Web de parceiros. O aplicativo Web de um parceiro pode até ser outro aplicativo de funções. Para obter uma lista dos serviços do Azure da Microsoft que dão suporte à autenticação com o Azure AD, consulte [Serviços do Azure que dão suporte à autenticação do Azure ad](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ### <a name="limitations"></a>Limitações
 
-O suporte incorporado para chamar APIs HTTP é um recurso de conveniência. Não é apropriado para todos os cenários.
+O suporte interno para chamar APIs HTTP é um recurso de conveniência. Não é apropriado para todos os cenários.
 
-As solicitações HTTP enviadas por funções orquestradoras e suas respostas são serializadas e persistentes como mensagens de fila. Esse comportamento de fila garante que as chamadas HTTP sejam [confiáveis e seguras para a repetição de orquestração](durable-functions-orchestrations.md#reliability). No entanto, o comportamento de fila também tem limitações:
+Solicitações HTTP enviadas por funções de orquestrador e suas respostas são serializadas e persistentes como mensagens de fila. Esse comportamento de enfileiramento garante que as chamadas HTTP sejam [confiáveis e seguras para reprodução de orquestração](durable-functions-orchestrations.md#reliability). No entanto, o comportamento de enfileiramento também tem limitações:
 
 * Cada solicitação HTTP envolve latência adicional quando comparada a um cliente HTTP nativo.
-* Grandes mensagens de solicitação ou resposta que não podem caber em uma mensagem de fila podem degradar significativamente o desempenho de orquestração. A sobrecarga de descarregar cargas de mensagens para o armazenamento blob pode causar uma potencial degradação do desempenho.
-* Não são suportadas cargas de streaming, em pedaços e binárias.
+* Mensagens grandes de solicitação ou resposta que não cabem em uma mensagem da fila podem degradar significativamente o desempenho da orquestração. A sobrecarga de descarregar cargas de mensagens no armazenamento de BLOBs pode causar degradação de desempenho potencial.
+* Não há suporte para cargas de streaming, partes e binárias.
 * A capacidade de personalizar o comportamento do cliente HTTP é limitada.
 
-Se alguma dessas limitações pode afetar seu caso de uso, considere, em vez disso, usar funções de atividade e bibliotecas de clientes HTTP específicas do idioma para fazer chamadas HTTP de saída.
+Se qualquer uma dessas limitações puder afetar seu caso de uso, considere usar funções de atividade e bibliotecas de cliente HTTP específicas de idioma para fazer chamadas HTTP de saída.
 
 > [!NOTE]
-> Se você é um desenvolvedor .NET, você pode se perguntar por que esse recurso usa os tipos **DurableHttpRequest** e **DurableHttpResponse** em vez dos tipos .NET **HttpRequestMessage** e **HttpResponseMessage.**
+> Se você for um desenvolvedor do .NET, talvez se pergunte por que esse recurso usa os tipos **DurableHttpRequest** e **DurableHttpResponse** em vez dos tipos .NET **HttpRequestMessage** e **HttpResponseMessage** internos.
 >
-> Essa opção de design é intencional. A principal razão é que os tipos personalizados ajudam a garantir que os usuários não façam suposições incorretas sobre os comportamentos suportados do cliente HTTP interno. Tipos específicos para Funções Duráveis também tornam possível simplificar o design da API. Eles também podem disponibilizar mais facilmente recursos especiais, como [a integração de identidade gerenciada](#managed-identities) e o [padrão de consumo de votação.](#http-202-handling) 
+> Essa opção de design é intencional. O principal motivo é que os tipos personalizados ajudam a garantir que os usuários não façam suposições incorretas sobre os comportamentos com suporte do cliente HTTP interno. Tipos específicos para Durable Functions também possibilitam a simplificação do design de API. Eles também podem disponibilizar mais facilmente recursos especiais disponíveis como [integração de identidade gerenciada](#managed-identities) e o [padrão de consumidor de sondagem](#http-202-handling). 
 
-### <a name="extensibility-net-only"></a>Extensibilidade (somente.NET)
+### <a name="extensibility-net-only"></a>Extensibilidade (somente .NET)
 
-Personalizar o comportamento do cliente HTTP interno da orquestração é possível usando [a injeção de dependência do Azure Functions .NET](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Essa habilidade pode ser útil para fazer pequenas mudanças comportamentais. Ele também pode ser útil para testar a unidade do cliente HTTP injetando objetos falsos.
+É possível personalizar o comportamento do cliente HTTP interno da orquestração usando [Azure Functions injeção de dependência .net](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Essa capacidade pode ser útil para fazer pequenas alterações comportamentais. Ele também pode ser útil para o teste de unidade do cliente HTTP injetando objetos fictícios.
 
-O exemplo a seguir demonstra o uso de injeção de dependência para desativar a validação do certificado TLS/SSL para funções orquestradoras que chamam de pontos finais HTTP externos.
+O exemplo a seguir demonstra como usar injeção de dependência para desabilitar a validação de certificado TLS/SSL para funções de orquestrador que chamam pontos de extremidade HTTP externos.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -289,4 +289,4 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Conheça entidades duráveis](durable-functions-entities.md)
+> [Saiba mais sobre entidades duráveis](durable-functions-entities.md)

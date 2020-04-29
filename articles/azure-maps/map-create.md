@@ -1,6 +1,6 @@
 ---
-title: Crie um mapa com o Azure Maps | Mapas do Microsoft Azure
-description: Neste artigo, você aprenderá como renderizar um mapa em uma página da Web usando o Microsoft Azure Maps Web SDK.
+title: Criar um mapa com mapas do Azure | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a renderizar um mapa em uma página da Web usando o SDK da Web do Microsoft Azure Maps.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: c85d6078fce7fc8e5a5b5d8485517a8b262044a9
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80802324"
 ---
 # <a name="create-a-map"></a>Criar um mapa
@@ -22,48 +22,48 @@ Este artigo mostra maneiras de criar um mapa e animar um mapa.
 
 ## <a name="loading-a-map"></a>Carregando um mapa
 
-Para carregar um mapa, crie uma nova instância da [classe Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map). Ao inicializar o mapa, passe um ID de elemento DIV para renderizar o mapa e passar um conjunto de opções para usar ao carregar o mapa. Se as informações de autenticação padrão `atlas` não forem especificadas no namespace, essas informações precisarão ser especificadas nas opções do mapa ao carregar o mapa. O mapa carrega vários recursos assíncronamente para desempenho. Como tal, depois de criar `ready` a `load` instância do mapa, anexe um ou evento ao mapa e, em seguida, adicione qualquer código adicional que interaja com o mapa ao manipulador de eventos. O `ready` evento é acionado assim que o mapa tem recursos suficientes carregados para serem interagidos com a programação. O `load` evento é acionado após a exibição inicial do mapa ter terminado completamente o carregamento. 
+Para carregar um mapa, crie uma nova instância da [classe Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map). Ao inicializar o mapa, passe uma ID do elemento DIV para renderizar o mapa e passar um conjunto de opções a serem usadas ao carregar o mapa. Se as informações de autenticação padrão não forem `atlas` especificadas no namespace, essas informações precisarão ser especificadas nas opções de mapa ao carregar o mapa. O mapa carrega vários recursos de forma assíncrona para o desempenho. Assim, depois de criar a instância de mapa, anexe `ready` um `load` evento ou ao mapa e, em seguida, adicione qualquer código adicional que interaja com o mapa para o manipulador de eventos. O `ready` evento é acionado assim que o mapa tem recursos suficientes carregados para interagir com programaticamente. O `load` evento é acionado depois que o modo de exibição de mapa inicial termina completamente de ser carregado. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Carga básica do mapa" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>carga do mapa</a> Caneta<a href='https://codepen.io/azuremaps'>@azuremaps</a>Basic do Azure Maps ( ) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Carregamento de mapa básico" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte o <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>mapa básico</a> da caneta pelo mapas do Azure<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> Você pode carregar vários mapas na mesma página. Vários mapas na mesma página podem usar as mesmas ou diferentes configurações de autenticação e idioma.
+> Você pode carregar vários mapas na mesma página. Vários mapas na mesma página podem usar a mesma configuração e configurações de idioma e autenticação diferentes.
 
-## <a name="show-a-single-copy-of-the-world"></a>Mostre uma única cópia do mundo
+## <a name="show-a-single-copy-of-the-world"></a>Mostrar uma única cópia do mundo
 
-Quando o mapa é ampliado em uma tela wide, várias cópias do mundo aparecerão horizontalmente. Esta opção é ótima para alguns cenários, mas para outras aplicações é desejável ver uma única cópia do mundo. Esse comportamento é implementado `renderWorldCopies` definindo `false`a opção mapas para .
+Quando o mapa for ampliado em uma tela larga, várias cópias do mundo aparecerão horizontalmente. Essa opção é excelente para alguns cenários, mas para outros aplicativos, é desejável ver uma única cópia do mundo. Esse comportamento é implementado definindo a opção Maps `renderWorldCopies` como `false`.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="renderWorldCopies = falso" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>by Azure Maps ( ) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="renderWorldCopies = false" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Confira a caneta <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 ## <a name="map-options"></a>Opções de mapa
 
-Ao criar um mapa lá, existem vários tipos diferentes de opções que podem ser passadas para personalizar como o mapa funciona conforme listado abaixo.
+Ao criar um mapa, há vários tipos diferentes de opções que podem ser passados para personalizar como as funções de mapa são listadas abaixo.
 
 - [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions) e [CameraBoundOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraboundsoptions) são usados para especificar a área que o mapa deve exibir.
-- [ServiceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) são usados para especificar como o mapa deve interagir com serviços que alimentam o mapa.
-- [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) são usados para especificar que o mapa deve ser estilizado e renderizado.
-- [Interação do usuárioAs opções](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) são usadas para especificar como o mapa deve chegar quando o usuário está interagindo com o mapa. 
+- As [serviceoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) são usadas para especificar como o mapa deve interagir com os serviços que alimentam o mapa.
+- As [styleoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) são usadas para especificar que o mapa deve ser estilizado e renderizado.
+- [UserInteraction](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) é usado para especificar como o mapa deve alcançar quando o usuário está interagindo com o mapa. 
 
-Essas opções também podem ser atualizadas depois `setCamera` `setServiceOptions`que `setStyle`o `setUserInteraction` mapa for carregado usando as funções e funções. 
+Essas opções também podem ser atualizadas depois que o mapa tiver sido carregado `setCamera`usando `setServiceOptions`as `setStyle`funções, `setUserInteraction` , e. 
 
 ## <a name="controlling-the-map-camera"></a>Controlando a câmera do mapa
 
-Há duas maneiras de definir a área exibida do mapa usando a câmera de um mapa. Você pode definir as opções da câmera ao carregar o mapa. Ou, você pode `setCamera` chamar a opção a qualquer momento após o mapa ter carregado para atualizar programáticamente a visualização do mapa.  
+Há duas maneiras de definir a área exibida do mapa usando a câmera de um mapa. Você pode definir as opções de câmera ao carregar o mapa. Ou, você pode chamar a `setCamera` opção a qualquer momento depois que o mapa for carregado para atualizar programaticamente a exibição do mapa.  
 
 <a id="setCameraOptions"></a>
 
 ### <a name="set-the-camera"></a>Definir a câmera
 
-A câmera do mapa controla o que é exibido no viewport da tela do mapa. As opções de câmera podem ser passadas para `setCamera` as opções de mapa ao serem inicializadas ou passadas para a função de mapas.
+A câmera do mapa controla o que é exibido no visor da tela do mapa. As opções de câmera podem ser passadas para as opções de mapa ao serem inicializadas `setCamera` ou passadas para a função Maps.
 
 ```javascript
 //Set the camera options when creating the map.
@@ -81,7 +81,7 @@ map.setCamera({
 });
 ```
 
-No código a seguir, um [objeto Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) é criado e as opções centro e zoom são definidas. As propriedades do mapa, como o centro e o nível de zoom, fazem parte do [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions).
+No código a seguir, um [objeto MAP](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) é criado e as opções Center e zoom são definidas. As propriedades do mapa, como nível de centro e zoom, fazem parte das [câmerasoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -92,7 +92,7 @@ No código a seguir, um [objeto Mapa](https://docs.microsoft.com/javascript/api/
 
 ### <a name="set-the-camera-bounds"></a>Defina os limites de câmera
 
-Uma caixa delimitador pode ser usada para atualizar a câmera do mapa. Se a caixa delimitador foi calculada a partir de dados de ponto, muitas vezes é útil também especificar um valor de preenchimento de pixels nas opções de câmera para explicar o tamanho do ícone. Isso ajudará a garantir que os pontos não caiam da borda do ponto de exibição do mapa.
+Uma caixa delimitadora pode ser usada para atualizar a câmera do mapa. Se a caixa delimitadora foi calculada a partir de dados de ponto, geralmente é útil especificar também um valor de preenchimento de pixel nas opções da câmera para considerar o tamanho do ícone. Isso ajudará a garantir que os pontos não caiam na borda do visor do mapa.
 
 ```javascript
 map.setCamera({
@@ -101,7 +101,7 @@ map.setCamera({
 });
 ```
 
-No código a seguir, um objeto `new atlas.Map()` [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) é construído via . As propriedades do mapa, como `CameraBoundsOptions`, podem ser definidas por meio da função [ setCamera ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) da classe Map. As propriedades de limites e preenchimento são definidas usando `setCamera`.
+No código a seguir, um [objeto de mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) é construído `new atlas.Map()`por meio de. As propriedades do mapa, como `CameraBoundsOptions`, podem ser definidas por meio da função [ setCamera ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) da classe Map. As propriedades de limites e preenchimento são definidas usando `setCamera`.
 
 <br/>
 
@@ -110,7 +110,7 @@ No código a seguir, um objeto `new atlas.Map()` [Mapa](https://docs.microsoft.c
 
 ### <a name="animate-map-view"></a>Animar a exibição do mapa
 
-Ao definir as opções de câmera do mapa, [as opções](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.animationoptions) de animação também podem ser definidas. Essas opções especificam o tipo de animação e duração que deve levar para mover a câmera.
+Ao definir as opções de câmera do mapa, [as opções de animação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.animationoptions) também podem ser definidas. Essas opções especificam o tipo de animação e a duração que deve ser tomada para mover a câmera.
 
 ```javascript
 map.setCamera({
@@ -121,7 +121,7 @@ map.setCamera({
 });
 ```
 
-No código a seguir, o primeiro bloco de código cria um mapa e define os estilos de mapa de entrada e zoom. No segundo bloco de código, um manipulador de eventos de clique é criado para o botão animado. Quando este botão é `setCamera` clicado, a função é chamada com alguns valores aleatórios para as [Opções de Câmera](/javascript/api/azure-maps-control/atlas.cameraoptions) e [Opções de Animação](/javascript/api/azure-maps-control/atlas.animationoptions).
+No código a seguir, o primeiro bloco de código cria um mapa e define os estilos de mapa de inserção e zoom. No segundo bloco de código, um manipulador de eventos de clique é criado para o botão de animação. Quando esse botão é clicado, `setCamera` a função é chamada com alguns valores aleatórios para as [Câmerasoptions](/javascript/api/azure-maps-control/atlas.cameraoptions) e [animationoptions](/javascript/api/azure-maps-control/atlas.animationoptions).
 
 <br/>
 
@@ -130,7 +130,7 @@ No código a seguir, o primeiro bloco de código cria um mapa e define os estilo
 
 ## <a name="try-out-the-code"></a>Experimentar o código
 
-Olhe para as amostras de código. Você pode editar o código JavaScript dentro da **guia JS** e ver as alterações de exibição do mapa na **guia Resultado**. Você também pode clicar **em Editar no CodePen**, no canto superior direito, e modificar o código no CodePen.
+Examine os exemplos de código. Você pode editar o código JavaScript dentro da **guia js** e ver as alterações na exibição do mapa na **guia resultado**. Você também pode clicar em **Editar em CodePen**, no canto superior direito, e modificar o código em CodePen.
 
 <a id="relatedReference"></a>
 
@@ -139,13 +139,13 @@ Olhe para as amostras de código. Você pode editar o código JavaScript dentro 
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Opções de câmeras](/javascript/api/azure-maps-control/atlas.cameraoptions)
+> [Câmara de câmera](/javascript/api/azure-maps-control/atlas.cameraoptions)
 
 > [!div class="nextstepaction"]
-> [Opções de animação](/javascript/api/azure-maps-control/atlas.animationoptions)
+> [Animaçãooptions](/javascript/api/azure-maps-control/atlas.animationoptions)
 
 Consulte exemplos de código para adicionar funcionalidade ao seu aplicativo:
 

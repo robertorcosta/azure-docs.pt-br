@@ -1,60 +1,60 @@
 ---
-title: Use um certificado TLS/SSL em código
-description: Saiba como usar os certificados do cliente em seu código. Autenticar com recursos remotos com um certificado de cliente ou executar tarefas criptográficas com eles.
+title: Usar um certificado TLS/SSL no código
+description: Saiba como usar certificados de cliente em seu código. Autentique com recursos remotos com um certificado de cliente ou execute tarefas criptográficas com eles.
 ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811703"
 ---
-# <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Use um certificado TLS/SSL em seu código no Azure App Service
+# <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Usar um certificado TLS/SSL no seu código no Serviço de Aplicativo do Azure
 
-No código do aplicativo, você pode acessar os [certificados públicos ou privados que você adiciona ao App Service](configure-ssl-certificate.md). Seu código de aplicativo pode atuar como um cliente e acessar um serviço externo que requer autenticação de certificado, ou pode precisar realizar tarefas criptográficas. Este guia de como fazer mostra como usar certificados públicos ou privados no código do aplicativo.
+No código do aplicativo, você pode acessar os [certificados públicos ou privados adicionados ao serviço de aplicativo](configure-ssl-certificate.md). O código do aplicativo pode atuar como um cliente e acessar um serviço externo que requer autenticação de certificado ou pode precisar executar tarefas criptográficas. Este guia de instruções mostra como usar certificados públicos ou privados no código do aplicativo.
 
-Essa abordagem de usar certificados em seu código faz uso da funcionalidade TLS no App Service, que exige que seu aplicativo esteja no nível **Básico** ou acima. Se o aplicativo estiver no **nível Gratuito** ou **Compartilhado,** você pode [incluir o arquivo de certificado no repositório do aplicativo.](#load-certificate-from-file)
+Essa abordagem para usar certificados em seu código usa a funcionalidade TLS no serviço de aplicativo, o que exige que seu aplicativo esteja na camada **básica** ou acima. Se seu aplicativo estiver em uma camada **gratuita** ou **compartilhada** , você poderá [incluir o arquivo de certificado em seu repositório de aplicativos](#load-certificate-from-file).
 
-Quando você permite que o App Service gerencie seus certificados TLS/SSL, você pode manter os certificados e o código do aplicativo separadamente e proteger seus dados confidenciais.
+Quando você permite que o serviço de aplicativo gerencie seus certificados TLS/SSL, você pode manter os certificados e o código do aplicativo separadamente e proteger seus dados confidenciais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este guia de instruções, é necessário ter:
 
-- [Crie um aplicativo de serviço de aplicativos](/azure/app-service/)
-- [Adicione um certificado ao seu aplicativo](configure-ssl-certificate.md)
+- [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/)
+- [Adicionar um certificado ao seu aplicativo](configure-ssl-certificate.md)
 
-## <a name="find-the-thumbprint"></a>Encontre a impressão digital
+## <a name="find-the-thumbprint"></a>Localizar a impressão digital
 
-No <a href="https://portal.azure.com" target="_blank">portal Azure</a>, no menu esquerdo, selecione**\<app-name do ** **App Services** > >.
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<nome_do_aplicativo>** .
 
-Na navegação à esquerda do aplicativo, selecione **configurações TLS/SSL**e selecione **Certificados de chave privada (.pfx)** ou **Certificados de Chave Pública (.cer).**
+No painel de navegação à esquerda do seu aplicativo, selecione **configurações de TLS/SSL**e, em seguida, selecione **certificados de chave privada (. pfx)** ou **certificados de chave pública (. cer)**.
 
-Encontre o certificado que deseja usar e copie a impressão digital.
+Localize o certificado que você deseja usar e copie a impressão digital.
 
-![Copie a impressão digital do certificado](./media/configure-ssl-certificate/create-free-cert-finished.png)
+![Copiar a impressão digital do certificado](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
 ## <a name="make-the-certificate-accessible"></a>Tornar o certificado acessível
 
-Para acessar um certificado no código do aplicativo, adicione sua impressão digital à configuração do `WEBSITE_LOAD_CERTIFICATES` aplicativo, executando o seguinte comando no Cloud <a target="_blank" href="https://shell.azure.com" >Shell</a>:
+Para acessar um certificado em seu código do aplicativo, adicione sua impressão digital `WEBSITE_LOAD_CERTIFICATES` à configuração do aplicativo, executando o seguinte comando no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-Para tornar todos os seus certificados `*`acessíveis, defina o valor para .
+Para tornar todos os certificados acessíveis, defina o valor como `*`.
 
-## <a name="load-certificate-in-windows-apps"></a>Certificado de carga em aplicativos Windows
+## <a name="load-certificate-in-windows-apps"></a>Carregar o certificado em aplicativos do Windows
 
-A `WEBSITE_LOAD_CERTIFICATES` configuração do aplicativo torna os certificados especificados acessíveis ao seu aplicativo hospedado no Windows na loja de certificados do Windows, e a localização depende do [nível de preços:](overview-hosting-plans.md)
+A `WEBSITE_LOAD_CERTIFICATES` configuração do aplicativo torna os certificados especificados acessíveis para seu aplicativo hospedado do Windows no repositório de certificados do Windows e o local depende do [tipo de preço](overview-hosting-plans.md):
 
-- **Nível isolado** - em [Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
-- Todos os outros níveis - em [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+- Camada **isolada** -no [Machine\My local](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
+- Todas as outras camadas-no [User\My atual](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
-Em código C#, você acessa o certificado pela impressão digital do certificado. O código a seguir carrega um certificado com a impressão digital `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
+No código C#, você acessa o certificado pela impressão digital do certificado. O código a seguir carrega um certificado com a impressão digital `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
 ```csharp
 using System;
@@ -86,7 +86,7 @@ using (X509Store certStore = new X509Store(StoreName.My, StoreLocation.CurrentUs
 }
 ```
 
-No código Java, você acessa o certificado da loja "Windows-MY" usando o campo Nome Comum sujeito (consulte [Certificado de chave pública](https://en.wikipedia.org/wiki/Public_key_certificate)). O código a seguir mostra como carregar um certificado de chave privada:
+No código Java, você acessa o certificado do repositório "Windows-MY" usando o campo nome comum da entidade (consulte [certificado de chave pública](https://en.wikipedia.org/wiki/Public_key_certificate)). O código a seguir mostra como carregar um certificado de chave privada:
 
 ```java
 import org.springframework.web.bind.annotation.RestController;
@@ -105,16 +105,16 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 ...
 ```
 
-Para idiomas que não suportam ou oferecem suporte insuficiente para a loja de certificados do Windows, consulte [Certificado de carga do arquivo](#load-certificate-from-file).
+Para idiomas que não dão suporte ou oferecem suporte insuficiente para o repositório de certificados do Windows, consulte [carregar certificado do arquivo](#load-certificate-from-file).
 
-## <a name="load-certificate-in-linux-apps"></a>Certificado de carga em aplicativos Linux
+## <a name="load-certificate-in-linux-apps"></a>Carregar o certificado em aplicativos do Linux
 
-As `WEBSITE_LOAD_CERTIFICATES` configurações do aplicativo tornam os certificados especificados acessíveis aos seus aplicativos hospedados no Linux (incluindo aplicativos de contêiner personalizados) como arquivos. Os arquivos são encontrados sob os seguintes diretórios:
+As `WEBSITE_LOAD_CERTIFICATES` configurações do aplicativo tornam os certificados especificados acessíveis para seus aplicativos hospedados do Linux (incluindo aplicativos de contêiner personalizados) como arquivos. Os arquivos são encontrados nos seguintes diretórios:
 
-- Certificados privados - `/var/ssl/private` (arquivos) `.p12`
-- Certificados públicos `/var/ssl/certs` `.der` - (arquivos)
+- Certificados privados- `/var/ssl/private` ( `.p12` arquivos)
+- Certificados públicos- `/var/ssl/certs` ( `.der` arquivos)
 
-Os nomes dos arquivos do certificado são as impressões digitais do certificado. O código C# a seguir mostra como carregar um certificado público em um aplicativo Linux.
+Os nomes de arquivo de certificado são as impressões digitais do certificado. O código C# a seguir mostra como carregar um certificado público em um aplicativo Linux.
 
 ```csharp
 using System;
@@ -128,20 +128,20 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Para ver como carregar um certificado TLS/SSL de um arquivo em Node.js, PHP, Python, Java ou Ruby, consulte a documentação para a respectiva linguagem ou plataforma web.
+Para ver como carregar um certificado TLS/SSL de um arquivo em node. js, PHP, Python, Java ou Ruby, consulte a documentação do respectivo idioma ou plataforma da Web.
 
-## <a name="load-certificate-from-file"></a>Certificado de carga do arquivo
+## <a name="load-certificate-from-file"></a>Carregar o certificado do arquivo
 
-Se você precisar carregar um arquivo de certificado que você carrega manualmente, é melhor carregar o certificado usando [FTPS](deploy-ftp.md) em vez de [Git,](deploy-local-git.md)por exemplo. Você deve manter dados confidenciais como um certificado privado fora do controle de origem.
+Se você precisar carregar um arquivo de certificado que é carregado manualmente, é melhor carregar o certificado usando [FTPS](deploy-ftp.md) em vez de [git](deploy-local-git.md), por exemplo. Você deve manter dados confidenciais como um certificado privado fora do controle do código-fonte.
 
 > [!NOTE]
-> ASP.NET e ASP.NET Core no Windows devem acessar a loja de certificados mesmo se você carregar um certificado de um arquivo. Para carregar um arquivo de certificado em um aplicativo Windows .NET, carregue o perfil do usuário atual com o seguinte comando no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+> ASP.NET e ASP.NET Core no Windows devem acessar o repositório de certificados mesmo se você carregar um certificado de um arquivo. Para carregar um arquivo de certificado em um aplicativo do Windows .NET, carregue o perfil do usuário atual com o seguinte comando no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 >
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
 >
-> Essa abordagem de usar certificados em seu código faz uso da funcionalidade TLS no App Service, que exige que seu aplicativo esteja no nível **Básico** ou acima.
+> Essa abordagem para usar certificados em seu código usa a funcionalidade TLS no serviço de aplicativo, o que exige que seu aplicativo esteja na camada **básica** ou acima.
 
 O exemplo C# a seguir carrega um certificado público de um caminho relativo em seu aplicativo:
 
@@ -157,11 +157,11 @@ var cert = new X509Certificate2(bytes);
 // Use the loaded certificate
 ```
 
-Para ver como carregar um certificado TLS/SSL de um arquivo em Node.js, PHP, Python, Java ou Ruby, consulte a documentação para a respectiva linguagem ou plataforma web.
+Para ver como carregar um certificado TLS/SSL de um arquivo em node. js, PHP, Python, Java ou Ruby, consulte a documentação do respectivo idioma ou plataforma da Web.
 
 ## <a name="more-resources"></a>Mais recursos
 
-* [Proteja um nome DNS personalizado com uma vinculação TLS/SSL no Serviço de Aplicativos Do Azure](configure-ssl-bindings.md)
+* [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Impor o TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FAQ: Certificados de Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Perguntas frequentes: Certificados do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

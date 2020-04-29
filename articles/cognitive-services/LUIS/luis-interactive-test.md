@@ -4,10 +4,10 @@ description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trab
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219814"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
@@ -22,20 +22,20 @@ ms.locfileid: "79219814"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="train-before-testing"></a>Treine antes de testar
+## <a name="train-before-testing"></a>Treinar antes do teste
 
-Para testar a versão mais recente do aplicativo ativo, selecione **Treinar** no menu superior, antes de testar.
+Para testar a versão mais recente do aplicativo ativo, selecione **treinar** no menu superior, antes de testar.
 
 ## <a name="test-an-utterance"></a>Testar uma declaração
 
-A expressão do teste não deve ser exatamente a mesma que qualquer enunciado de exemplo no aplicativo. O enunciado do teste deve incluir escolha da palavra, comprimento da frase e uso da entidade que você espera para um usuário.
+O expressão de teste não deve ser exatamente o mesmo que qualquer declarações de exemplo no aplicativo. O expressão de teste deve incluir a opção de palavra, o comprimento da frase e o uso da entidade que você espera para um usuário.
 
 1. Acesse seu aplicativo selecionando seu nome na página **Meus Aplicativos**.
 
-1. Para acessar o painel de deslizamento **teste,** selecione **Teste** no painel superior do aplicativo.
+1. Para acessar o painel de deslizamento de **teste** , selecione **teste** no painel superior do seu aplicativo.
 
     > [!div class="mx-imgBorder"]
-    > ![Página do aplicativo de teste de & de trem](./media/luis-how-to-interactive-test/test.png)
+    > ![Página treinar & testar aplicativo](./media/luis-how-to-interactive-test/test.png)
 
 1. Insira uma declaração na caixa de texto e selecione Enter. É possível digitar quantas declarações de teste você desejar no **Teste**, mas apenas uma declaração por vez.
 
@@ -45,13 +45,13 @@ A expressão do teste não deve ser exatamente a mesma que qualquer enunciado de
 
 ## <a name="inspect-score"></a>Inspecionar pontuação
 
-Você inspeciona os detalhes do resultado do teste no painel **Inspecionar.**
+Você inspeciona detalhes do resultado do teste no painel **inspecionar** .
 
 1. Com o painel extensível **Testar** aberto, selecione **Inspecionar** para uma declaração que você deseja comparar.
 
     ![Selecione o botão Inspecionar para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
 
-1. O painel **de inspeção** é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
+1. O painel de **inspeção** é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
 
     ![O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
 

@@ -4,17 +4,17 @@ description: Testar a base de conhecimento do QnA Maker é uma parte importante 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78927272"
 ---
-# <a name="test-your-knowledge-base-in-qna-maker"></a>Teste sua base de conhecimento no QnA Maker
+# <a name="test-your-knowledge-base-in-qna-maker"></a>Teste sua base de dados de conhecimento no QnA Maker
 
 Testar a base de conhecimento do QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas que estão sendo retornadas. É possível testar a base de dados de conhecimento por meio de uma interface de chat avançada que também permite fazer edições.
 
-## <a name="interactively-test-in-qna-maker-portal"></a>Teste interativo no portal QnA Maker
+## <a name="interactively-test-in-qna-maker-portal"></a>Teste interativamente no portal QnA Maker
 
 1. Acesse a base de dados de conhecimento, selecionando o nome na página **Minhas bases de dados de conhecimento**.
 1. Para acessar o painel deslizante de Teste, selecione **Testar** no painel superior do aplicativo.
@@ -55,34 +55,34 @@ Se a resposta de pontuação mais alta estiver incorreta, selecione a resposta c
 
 Você poderá adicionar uma nova resposta, se alguma das respostas existentes que foram correspondidas estiver incorreta ou a resposta não existir na base de dados de conhecimento (nenhuma boa correspondência encontrada na base de dados de conhecimento).
 
-Na parte inferior da lista de respostas, use a caixa de texto para inserir uma nova resposta e pressione enter para adicioná-la.
+Na parte inferior da lista de respostas, use a caixa de texto para inserir uma nova resposta e pressione ENTER para adicioná-la.
 
 Selecione **Salvar e Treinar** para persistir essa resposta. Um novo par de perguntas e respostas foi adicionado à base de dados de conhecimento.
 
 > [!NOTE]
 > Todas as edições da base de dados de conhecimento somente serão salvas quando você pressionar o botão **Salvar e Treinar**.
 
-### <a name="test-the-published-knowledge-base"></a>Teste a base de conhecimento publicada
+### <a name="test-the-published-knowledge-base"></a>Testar a base de dados de conhecimento publicada
 
-Você pode testar a versão publicada da base de conhecimento no painel de teste. Depois de publicar o KB, selecione a caixa **KB publicada** e envie uma consulta para obter resultados do KB publicado.
+Você pode testar a versão publicada da base de dados de conhecimento no painel de teste. Depois de publicar a KB, selecione a caixa **KB publicados** e envie uma consulta para obter os resultados da KB publicada.
 
-![Teste contra um KB publicado](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Teste em relação a uma base de conhecimento publicada](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
-## <a name="batch-test-with-tool"></a>Teste em lote com ferramenta
+## <a name="batch-test-with-tool"></a>Teste em lote com a ferramenta
 
-Use a ferramenta de teste em lote quando quiser:
+Use a ferramenta de teste do lote quando desejar:
 
-* determinar a resposta superior e pontuação para um conjunto de perguntas
-* validar resposta esperada para conjunto de perguntas
+* determinar a resposta principal e a pontuação de um conjunto de perguntas
+* validar a resposta esperada para o conjunto de perguntas
 
-Leia o [tutorial](../Quickstarts/batch-testing.md) de teste em lote para obter instruções passo a passo.
+Leia o [tutorial](../Quickstarts/batch-testing.md) de teste em lotes para obter instruções passo a passo.
 
-O teste em lote é fornecido com a ferramenta de teste em lote. Esta ferramenta está disponível como um [executável fechado](https://aka.ms/qnamakerbatchtestingtool) para download ou como [código fonte C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
+Os testes em lote são fornecidos com a ferramenta de teste em lote. Essa ferramenta está disponível como um [executável compactado](https://aka.ms/qnamakerbatchtestingtool) para download ou como [código-fonte C#](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
 
 [A documentação de referência sobre a ferramenta](../reference-tsv-format-batch-testing.md) inclui:
 
 * o exemplo de linha de comando da ferramenta
-* o formato para arquivos de entrada e arquivo tsv
+* o formato para arquivos de entrada TSV e de outfile
 
 ## <a name="next-steps"></a>Próximas etapas
 

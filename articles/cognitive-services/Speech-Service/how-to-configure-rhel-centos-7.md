@@ -1,5 +1,5 @@
 ---
-title: Como configurar o RHEL/CentOS 7 - Serviço de fala
+title: Como configurar o serviço RHEL/CentOS 7-Speech
 titleSuffix: Azure Cognitive Services
 description: Saiba como configurar o RHEL/CentOS 7 para que o SDK de fala possa ser usado.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
 ms.openlocfilehash: dc09d517d95b5a3f2a88504a14f1451d1de5ffc9
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80639158"
 ---
-# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configure RHEL/CentOS 7 para SDK de fala
+# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Configurar o RHEL/CentOS 7 para o SDK de fala
 
-Red Hat Enterprise Linux (RHEL) 8 x64 e CentOS 8 x64 são oficialmente suportados pela versão 1.10.0 do Speech SDK e posteriores. Também é possível usar o Speech SDK no RHEL/CentOS 7 x64, mas isso requer a atualização do compilador C++ (para o desenvolvimento de C++) e a biblioteca de tempo de execução C++ compartilhada em seu sistema.
+Red Hat Enterprise Linux (RHEL) 8 x64 e CentOS 8 x64 são oficialmente suportados pelo Speech SDK versão 1.10.0 e posterior. Também é possível usar o SDK de fala no RHEL/CentOS 7 x64, mas isso requer a atualização do compilador C++ (para desenvolvimento em C++) e da biblioteca de tempo de execução C++ compartilhada em seu sistema.
 
 Para verificar a versão do compilador C++, execute:
 
@@ -27,29 +27,29 @@ Para verificar a versão do compilador C++, execute:
 g++ --version
 ```
 
-Se o compilador estiver instalado, a saída deve ficar assim:
+Se o compilador estiver instalado, a saída deverá ter a seguinte aparência:
 
 ```bash
 g++ (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)
 ```
 
-Esta mensagem permite que você saiba que a versão principal do GCC 4 está instalada. Esta versão não tem suporte total para o padrão C++ 11, que o Speech SDK usa. Tentar compilar um programa C++ com esta versão GCC e os cabeçalhos Do Speech SDK resultará em erros de compilação.
+Essa mensagem permite que você saiba que a versão 4 do GCC principal está instalada. Esta versão não tem suporte completo para o padrão C++ 11, que o SDK de fala usa. Tentar compilar um programa em C++ com essa versão GCC e os cabeçalhos do SDK de fala resultarão em erros de compilação.
 
-Também é importante verificar a versão da biblioteca de tempo de execução C++ compartilhada (libstdc++). A maioria do Speech SDK é implementado como bibliotecas C++ nativas, o que significa que depende do libstdc++ independentemente da linguagem que você usa para desenvolver aplicativos.
+Também é importante verificar a versão da biblioteca de tempo de execução C++ compartilhada (libstdc + +). A maior parte do SDK de fala é implementada como bibliotecas C++ nativas, o que significa que ela depende de libstdc + +, independentemente da linguagem usada para desenvolver aplicativos.
 
-Para encontrar a localização do libstdc++ em seu sistema, execute:
+Para encontrar o local de libstdc + + no seu sistema, execute:
 
 ```bash
 ldconfig -p | grep libstdc++
 ```
 
-A saída em baunilha RHEL/CentOS 7 (x64) é:
+A saída no RHEL/CentOS 7 (x64) é:
 
 ```
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
-Com base nesta mensagem, você vai querer verificar as definições da versão com este comando:
+Com base nessa mensagem, você desejará verificar as definições de versão com este comando:
 
 ```bash
 strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
@@ -65,14 +65,14 @@ CXXABI_1.3.7
 ...
 ```
 
-O SDK de fala requer **CXXABI_1.3.9** e **GLIBCXX_3.4.21**. Você pode encontrar essas `ldd libMicrosoft.CognitiveServices.Speech.core.so` informações executando nas bibliotecas Speech SDK a partir do pacote Linux.
+O SDK de fala requer **CXXABI_1.3.9** e **GLIBCXX_3.4.21**. Você pode encontrar essas informações executando `ldd libMicrosoft.CognitiveServices.Speech.core.so` nas bibliotecas do SDK de fala do pacote do Linux.
 
 > [!NOTE]
-> Recomenda-se que a versão do GCC instalada no sistema seja pelo menos **5.4.0**, com bibliotecas de tempo de execução correspondentes.
+> É recomendável que a versão do GCC instalado no sistema seja pelo menos **5.4.0**, com bibliotecas de tempo de execução correspondentes.
 
 ## <a name="example"></a>Exemplo
 
-Este é um comando de exemplo que ilustra como configurar RHEL/CentOS 7 x64 para desenvolvimento (C++, C#, Java, Python) com o Speech SDK 1.10.0 ou posterior:
+Este é um comando de exemplo que ilustra como configurar o RHEL/CentOS 7 x64 para desenvolvimento (C++, C#, Java, Python) com o SDK de fala 1.10.0 ou posterior:
 
 ```bash
 # Only run ONE of the following two commands

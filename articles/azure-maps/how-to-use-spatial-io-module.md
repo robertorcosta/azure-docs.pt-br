@@ -1,6 +1,6 @@
 ---
-title: Como usar o módulo Espacial IO do Azure Maps | Mapas do Microsoft Azure
-description: Aprenda a usar o módulo Espacial IO fornecido pelo Web SDK do Azure Maps. Este módulo fornece recursos robustos para facilitar a integração de dados espaciais aos desenvolvedores com o web sdk do Azure Maps.
+title: Como usar o módulo e/s espacial do mapas do Azure | Mapas do Microsoft Azure
+description: Saiba como usar o módulo de e/s espacial fornecido pelo SDK da Web do Azure Maps. Este módulo fornece recursos robustos para facilitar para os desenvolvedores a integração de dados espaciais com o SDK da Web do Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 02/28/2020
@@ -9,65 +9,65 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804632"
 ---
-# <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como usar o módulo IO espacial do Azure Maps
+# <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Como usar o módulo e/s espacial do mapas do Azure
 
-O Azure Maps Web SDK fornece o **módulo Espacial IO**, que integra dados espaciais com o Web SDK do Azure Maps usando JavaScript ou TypeScript. Os recursos robustos neste módulo permitem que os desenvolvedores:
+O SDK da Web do Azure Maps fornece o **módulo de e/s espacial**, que integra dados espaciais com o SDK da Web do Azure Maps usando JavaScript ou TypeScript. Os recursos robustos deste módulo permitem aos desenvolvedores:
 
-- [Ler e gravar arquivos de dados espaciais comuns](spatial-io-read-write-spatial-data.md). Os formatos de arquivo suportados incluem: KML, KMZ, GPX, GeoRSS, GML, GeoJSON e CSV arquivos contendo colunas com informações espaciais. Também suporta texto bem conhecido (WKT).
-- [Conecte-se aos serviços do Open Geospatial Consortium (OGC) e integre-se ao Web SDK do Azure Maps. Sobrepor os Serviços de Mapa web (WMS) e o Web Map Tile Services (WMTS) como camadas no mapa](spatial-io-add-ogc-map-layer.md).
-- [Consultar dados em um WfS (Web Feature Service, serviço de recursos da Web)](spatial-io-connect-wfs-service.md).
-- [Sobrepor conjuntos de dados complexos que contenham informações de estilo e que sejam renderizados automaticamente usando código mínimo](spatial-io-add-simple-data-layer.md).
-- [Aproveite o XML de alta velocidade e as classes de leitor de arquivos e escritores delimitados](spatial-io-core-operations.md).
+- [Ler e gravar arquivos de dados espaciais comuns](spatial-io-read-write-spatial-data.md). Os formatos de arquivo com suporte incluem os arquivos: KML, KMZ, GPX, GeoRSS, GML, geojson e CSV contendo colunas com informações espaciais. Também dá suporte a texto bem conhecido (WKT).
+- [Conecte-se aos serviços do Open Geospatial Consortium (OGC) e integre-o ao SDK da Web do Azure Maps. Sobreponha os serviços de mapa da Web (WMS) e os serviços de bloco do mapa da Web (WMTS) como camadas no mapa](spatial-io-add-ogc-map-layer.md).
+- [Consultar dados em um serviço de recurso da Web (WFS)](spatial-io-connect-wfs-service.md).
+- [Sobreponha conjuntos de dados complexos que contêm informações de estilo e faça com que eles sejam renderizados automaticamente usando o código mínimo](spatial-io-add-simple-data-layer.md).
+- [Aproveite o XML de alta velocidade e o leitor de arquivo delimitado e classes de gravador](spatial-io-core-operations.md).
 
-Neste guia, aprenderemos como integrar e usar o módulo IO espacial em um aplicativo web.
+Neste guia, aprenderemos como integrar e usar o módulo de e/s espacial em um aplicativo Web.
 
-Este vídeo fornece uma visão geral do módulo IO espacial no Web SDK do Azure Maps.
+Este vídeo fornece uma visão geral do módulo de e/s espacial no SDK da Web do Azure Maps.
 
 <br/>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integre facilmente dados espaciais no Azure Maps - Microsoft Channel 9 Video"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Easily-integrate-spatial-data-into-the-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0" title="Integre facilmente dados espaciais ao Azure Maps – vídeo do Microsoft Channel 9"></iframe>
 
 
 > [!WARNING]
-> Use apenas dados e serviços que são de uma fonte de sua confiança, especialmente se fizer referência a ele de outro domínio. O módulo io espacial toma medidas para minimizar o risco, no entanto, a abordagem mais segura também não permite que nenhum danagerous dados em sua aplicação para começar. 
+> Use apenas dados e serviços que sejam de uma fonte confiável, especialmente se fizer referência a ele de outro domínio. O módulo de e/s espacial executa etapas para minimizar o risco. no entanto, a abordagem mais segura não é permitir que todos os dados do danagerous em seu aplicativo comecem. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de usar o módulo IO espacial, você precisará [fazer uma conta do Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) e obter a chave de assinatura principal da sua [conta](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Antes de poder usar o módulo de e/s espacial, você precisará [fazer uma conta do Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) e [obter a chave de assinatura primária para sua conta](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
-## <a name="installing-the-spatial-io-module"></a>Instalação do módulo IO espacial
+## <a name="installing-the-spatial-io-module"></a>Instalando o módulo de e/s espacial
 
-Você pode carregar o módulo IO espacial do Azure Maps usando uma das duas opções:
+Você pode carregar o módulo e/s espacial do Azure Maps usando uma das duas opções:
 
-* O CDN azure hospedado globalmente para o módulo IO espacial do Azure Maps. Para esta opção, você adiciona uma referência `<head>` ao JavaScript no elemento do arquivo HTML.
+* A CDN do Azure hospedada globalmente para o módulo de e/s espacial do Azure Maps. Para essa opção, você adiciona uma referência ao JavaScript no `<head>` elemento do arquivo HTML.
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-* O código fonte [para azure-maps-spatial-io](https://www.npmjs.com/package/azure-maps-spatial-io) pode ser carregado localmente e, em seguida, hospedado com o seu aplicativo. Esse pacote também inclui definições de TypeScript. Para esta opção, use o seguinte comando para instalar o pacote:
+* O código-fonte para [Azure-Maps-espacial-Io](https://www.npmjs.com/package/azure-maps-spatial-io) pode ser carregado localmente e, em seguida, hospedado com seu aplicativo. Esse pacote também inclui definições de TypeScript. Para essa opção, use o seguinte comando para instalar o pacote:
 
     ```sh
     npm install azure-maps-spatial-io
     ```
 
-    Em seguida, adicione uma referência `<head>` ao JavaScript no elemento do documento HTML:
+    Em seguida, adicione uma referência ao JavaScript no `<head>` elemento do documento HTML:
 
     ```html
     <script src="node_modules/azure-maps-spatial-io/dist/atlas-spatial.min.js"></script>
     ```
 
-## <a name="using-the-spatial-io-module"></a>Usando o módulo IO espacial
+## <a name="using-the-spatial-io-module"></a>Usando o módulo de e/s espacial
 
 1. Criar um novo arquivo HTML.
 
-2. Carregue o Web SDK do Azure Maps e inicialize o controle do mapa. Consulte o guia de controle do [mapa do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) para obter os detalhes. Uma vez que você terminar com esta etapa, seu arquivo HTML deve ficar assim:
+2. Carregue o SDK da Web do Azure Maps e inicialize o controle de mapa. Consulte o guia de [controle do mapa do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) para obter os detalhes. Depois de concluir esta etapa, o arquivo HTML deverá ter esta aparência:
 
     ```html
     <!DOCTYPE html>
@@ -121,13 +121,13 @@ Você pode carregar o módulo IO espacial do Azure Maps usando uma das duas opç
     </html>
     ```
 
-2. Carregue o módulo IO espacial do Azure Maps. Para este exercício, use o CDN para o módulo IO espacial Do Azure Maps. Adicione a referência `<head>` abaixo ao elemento do seu arquivo HTML:
+2. Carregue o módulo de e/s espacial do Azure Maps. Para este exercício, use a CDN para o módulo de e/s espacial do mapas do Azure. Adicione a referência abaixo ao `<head>` elemento do seu arquivo HTML:
 
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/spatial/0/atlas-spatial.js"></script>
     ```
 
-3. Inicialize `datasource`a e adicione a fonte de dados ao mapa. Inicialize `layer`a e adicione a fonte de dados à camada do mapa. Em seguida, renderize tanto a fonte de dados quanto a camada. Antes de descer para ver o código completo na próxima etapa, pense nos melhores lugares para colocar os trechos de código de origem de dados e camada. Lembre-se que, antes de manipular o mapa, devemos esperar até que o recurso do mapa esteja pronto.
+3. Inicialize um `datasource`e adicione a fonte de dados ao mapa. Inicialize um `layer`e adicione a fonte de dados à camada do mapa. Em seguida, processe a fonte de dados e a camada. Antes de rolar para baixo para ver o código completo na próxima etapa, pense nos melhores lugares para colocar a fonte de dados e os trechos de código de camada. Lembre-se de que, antes de manipular programaticamente o mapa, devemos aguardar até que o recurso de mapa esteja pronto.
 
     ```javascript
     var datasource, layer;
@@ -145,7 +145,7 @@ Você pode carregar o módulo IO espacial do Azure Maps usando uma das duas opç
     map.layers.add(layer);
     ```
 
-4. Juntando tudo, seu código HTML deve parecer o seguinte código. Esta amostra demonstra como ler um arquivo XML de uma URL. Em seguida, carregue e exiba os dados do recurso do arquivo no mapa. 
+4. Juntando tudo isso, o código HTML deve ser semelhante ao código a seguir. Este exemplo demonstra como ler um arquivo XML de uma URL. Em seguida, carregue e exiba os dados de recurso do arquivo no mapa. 
 
     ```html
     <!DOCTYPE html>
@@ -222,37 +222,37 @@ Você pode carregar o módulo IO espacial do Azure Maps usando uma das duas opç
     </html>
     ```
 
-5. Lembre-se `<Your Azure Maps Key>` de substituir com sua chave principal. Abra seu arquivo HTML e verá resultados semelhantes à seguinte imagem:
+5. Lembre-se `<Your Azure Maps Key>` de substituir pela sua chave primária. Abra o arquivo HTML e você verá resultados semelhantes à imagem a seguir:
 
     <center>
 
-    ![Exemplo de Dados Espaciais](./media/how-to-use-spatial-io-module/spatial-data-example.png)
+    ![Exemplo de dados espaciais](./media/how-to-use-spatial-io-module/spatial-data-example.png)
 
     </center>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O recurso que demonstramos aqui é apenas um dos muitos recursos disponíveis no módulo IO espacial. Leia os guias abaixo para saber como usar outras funcionalidades no módulo IO espacial:
+O recurso que demonstramos aqui é apenas um dos muitos recursos disponíveis no módulo de e/s espacial. Leia os guias abaixo para saber como usar outras funcionalidades no módulo de e/s espacial:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de dados simples](spatial-io-add-simple-data-layer.md)
+> [Adicionar uma camada de dados simples](spatial-io-add-simple-data-layer.md)
 
 > [!div class="nextstepaction"]
-> [Ler e escrever dados espaciais](spatial-io-read-write-spatial-data.md)
+> [Ler e gravar dados espaciais](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de mapa OGC](spatial-io-add-ogc-map-layer.md)
+> [Adicionar uma camada do mapa do OGC](spatial-io-add-ogc-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [Conecte-se a um serviço WFS](spatial-io-connect-wfs-service.md)
+> [Conectar-se a um serviço WFS](spatial-io-connect-wfs-service.md)
 
 > [!div class="nextstepaction"]
-> [Alavancar operações principais](spatial-io-core-operations.md)
+> [Aproveitar as principais operações](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Detalhes do formato de dados suportados](spatial-io-supported-data-format-details.md)
+> [Detalhes de formato de dados com suporte](spatial-io-supported-data-format-details.md)
 
-Consulte a documentação de IO espacial do Azure Maps:
+Consulte a documentação de e/s espacial do Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Pacote De IO espacial do Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Pacote de e/s espacial do Azure Maps](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)

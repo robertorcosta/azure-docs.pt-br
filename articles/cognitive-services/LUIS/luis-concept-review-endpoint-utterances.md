@@ -1,13 +1,13 @@
 ---
-title: Revisar o enunciado do usuário - LUIS
+title: Examinar usuário expressão-LUIS
 description: Com o aprendizado ativo, seus enunciados de ponto de extremidade são analisados para verificar se a intenção e a entidade estão corretas. O LUIS escolhe os enunciados de ponto de extremidade sobre os quais ele não tem certeza.
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 8d267fc441dc2cbf7f8ae3746486d5e7be55f135
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80546863"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para habilitar o aprendizado ativo revisando declarações de ponto de extremidade
@@ -22,20 +22,20 @@ O LUIS adiciona declarações à lista de revisão quando a principal intenção
 ## <a name="single-pool-for-utterances-per-app"></a>Pool único para enunciados por aplicativo
 A lista **Examinar enunciados de ponto de extremidade** não altera com base na versão. Há um único conjunto de enunciados para revisar, independentemente de qual versão a expressão está ativamente editando ou qual versão do aplicativo foi publicado no ponto de extremidade.
 
-Na [API REST,](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)o nome da versão é necessário e tem que existir no aplicativo, mas não é usado além dessa validação. As declarações de revisão se aplicam a uma aplicação inteira. Se você remover expressões de uma _versão,_ todas as versões serão afetadas.
+Na [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9), o nome da versão é necessário e deve existir no aplicativo, mas não é usado além dessa validação. O declarações de revisão se aplica a um aplicativo inteiro. Se você remover o declarações de uma _versão_, todas as versões serão afetadas.
 
 ## <a name="where-are-the-utterances-from"></a>De onde são as declarações
-As declarações de ponto final são retiradas de consultas de usuário final no ponto final HTTP do aplicativo. Se o seu aplicativo não estiver publicado ou ainda não tiver acessos, você não terá declarações para examinar. Se nenhuma ocorrência do ponto de extremidade for recebida para uma intenção ou entidade específica, você não terá declarações para revisar que as contenha.
+Os declarações do ponto de extremidade são obtidos de consultas do usuário final no ponto de extremidade HTTP do aplicativo. Se o seu aplicativo não estiver publicado ou ainda não tiver acessos, você não terá declarações para examinar. Se nenhuma ocorrência do ponto de extremidade for recebida para uma intenção ou entidade específica, você não terá declarações para revisar que as contenha.
 
 ## <a name="schedule-review-periodically"></a>Agendar revisões periódicas
 A revisão de declarações sugeridas não precisa ser feita diariamente, mas deve fazer parte de sua manutenção regular do LUIS.
 
 ## <a name="delete-review-items-programmatically"></a>Excluir itens de revisão programaticamente
-Use a API **[de exclusão não rotulada.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** Faça backup dessas declarações antes da exclusão **[exportando os arquivos de log](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
+Use a API **[Excluir não rotulada do declarações](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** . Faça backup dessas declarações antes da exclusão **[exportando os arquivos de log](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
-## <a name="enable-active-learning"></a>Habilite o aprendizado ativo
+## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
-Para habilitar o aprendizado ativo, você deve registrar consultas de usuário. Isso é feito chamando a consulta `log=true` de ponto [final](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) com o parâmetro e o valor de consulta.
+Para habilitar o aprendizado ativo, você deve registrar as consultas de usuário. Isso é feito chamando a [consulta de ponto](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) de extremidade `log=true` com o parâmetro e o valor de QueryString.
 
 ## <a name="next-steps"></a>Próximas etapas
 

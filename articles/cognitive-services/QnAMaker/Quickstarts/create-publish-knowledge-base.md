@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Crie, treine e publique base de conhecimento - QnA Maker'
+title: 'Início rápido: criar, treinar e publicar a base de dados de conhecimento-QnA Maker'
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756831"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique sua base de conhecimento qnA Maker
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: criar, treinar e publicar sua base de dados de conhecimento QnA Maker
 
 É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 
@@ -47,7 +47,7 @@ ms.locfileid: "80756831"
     |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Bate-papo**|Selecione **Professional**|
 
-1. Na **Etapa 5**, selecione **Criar sua base de dados**.
+1. Na **etapa 5**, selecione **criar seu KB**.
 
     O processo de extração leva alguns instantes para ler o documento e identificar perguntas e respostas.
 
@@ -114,7 +114,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 1. É aberta uma nova guia do navegador para o portal do Azure com a página de criação do Serviço de Bot do Azure. Configure o serviço de bot do Azure. O bot e o QnA Maker podem compartilhar o plano do serviço de aplicativo Web, mas não podem compartilhar o aplicativo Web. Isso significa que o **nome do aplicativo** para o bot deve ser diferente do nome do aplicativo usado para o serviço do QnA Maker.
 
-    * **Faça**
+    * **Coincide**
         * Alterar o identificador de bot se ele não for exclusivo.
         * Selecionar a linguagem de programação do SDK. Depois que o bot for criado, você poderá baixar o código em seu ambiente de desenvolvimento local e continuar o processo de desenvolvimento.
     * **Não deve ser feito**
@@ -124,7 +124,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 
 1. Depois que o bot for criado, abra o recurso **Serviço de bot**.
-1. Em **Gerenciamento de Bots,** **selecione Teste no Web Chat**.
+1. Em **Gerenciamento de bot**, selecione **testar no Web Chat**.
 1. No prompt de chat de **Digite sua mensagem**, digite:
 
     `Azure services?`
@@ -135,7 +135,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
 ## <a name="what-did-you-accomplish"></a>O que você realizou?
 
-Você criou uma nova base de conhecimento, adicionou uma URL pública à base de conhecimento, adicionou seu próprio par de QnA, treinou, testou e publicou a base de conhecimento.
+Você criou uma nova base de dados de conhecimento, adicionou uma URL pública à base de dados de conhecimento, adicionou seu próprio par QnA, treinado, testado e publicou a base de dados de conhecimento.
 
 Depois de publicar a base de dados de conhecimento, você criou e testou um bot.
 
@@ -150,7 +150,7 @@ Se você não for prosseguir para o próximo início rápido, exclua os recursos
 > [!div class="nextstepaction"]
 > [Adicionar perguntas com metadados](add-question-metadata-portal.md)
 
-Para mais informações:
+Para obter mais informações:
 
 * [Formato de Markdown nas respostas](../reference-markdown-format.md)
 * [Fontes de dados](../concepts/knowledge-base.md) do QnA Maker.

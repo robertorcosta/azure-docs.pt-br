@@ -1,65 +1,65 @@
 ---
 title: Melhorar a base de dados de conhecimento – QnA Maker
-description: Melhore a qualidade de sua base de conhecimento com aprendizado ativo. Revisar, aceitar ou rejeitar, adicionar sem remover ou alterar perguntas existentes.
+description: Melhore a qualidade de sua base de dados de conhecimento com o aprendizado ativo. Examine, aceite ou rejeite, adicione sem remover ou altere as perguntas existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80756777"
 ---
-# <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceite questões sugeridas de aprendizagem ativa na base de conhecimento
+# <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
 
 
 <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
-O Aprendizado Ativo altera a Base de Conhecimento ou o Serviço de Pesquisa depois de aprovar a sugestão, em seguida, salvar e treinar. Se você aprovar a sugestão, ela será adicionada como uma pergunta alternativa.
+O aprendizado ativo altera a base de dados de conhecimento ou Serviço de Pesquisa depois que você aprova a sugestão, em seguida, salva e treina. Se você aprovar a sugestão, ela será adicionada como uma pergunta alternativa.
 
 ## <a name="turn-on-active-learning"></a>Ativar o aprendizado ativo
 
-Para ver as perguntas sugeridas, você deve [ativar o aprendizado ativo](use-active-learning.md) para o seu recurso QnA Maker.
+Para ver as perguntas sugeridas, você deve [ativar o aprendizado ativo](use-active-learning.md) para seu recurso de QnA Maker.
 
-## <a name="view-suggested-questions"></a>Ver perguntas sugeridas
+## <a name="view-suggested-questions"></a>Exibir perguntas sugeridas
 
-1. Para ver as perguntas sugeridas, na página base de conhecimento **Editar,** selecione **'Exibir opções'** e selecione **Mostrar sugestões ativas de aprendizagem**.
+1. Para ver as perguntas sugeridas, na página **Editar** base de dados de conhecimento, selecione **Opções de exibição**e, em seguida, selecione **Mostrar sugestões de aprendizado ativo**.
 
-    [![Na seção Editar do portal, selecione Mostrar Sugestões para ver as novas alternativas de perguntas do aprendizado ativo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![Na seção editar do portal, selecione Mostrar sugestões para ver as novas alternativas de pergunta do aprendizado ativo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtre a base de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtro por Sugestões**.
+1. Filtre a base de dados de conhecimento com pares de perguntas e respostas para mostrar apenas sugestões selecionando **Filtrar por sugestões**.
 
-    [![Use o Filtro por sugestões alternadas para visualizar apenas as alternativas de perguntas sugeridas pelo aprendizado ativo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Use a alternância filtrar por sugestões para exibir apenas as alternativas de perguntas sugeridas do aprendizado ativo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Cada par de QnA sugere as novas `✔` alternativas de pergunta `x` com uma marca de verificação, para aceitar a pergunta ou rejeitar as sugestões. Selecione a marca de seleção para adicionar a pergunta.
+1. Cada par de QnA sugere a nova pergunta alternativas com uma marca de `✔` seleção,, para aceitar a pergunta `x` ou um para rejeitar as sugestões. Selecione a marca de seleção para adicionar a pergunta.
 
-    [![Selecione ou rejeite as alternativas de pergunta sugeridas do aprendizado ativo selecionando a marca de seleção verde ou a marca de exclusão vermelha.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Selecione ou rejeite as alternativas de pergunta sugeridas do aprendizado ativo selecionando a marca de seleção verde ou de exclusão vermelha.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
-    Você pode adicionar ou excluir _todas as sugestões_ selecionando **Adicionar tudo** ou Rejeitar **todos** na barra de ferramentas contextual.
+    Você pode adicionar ou excluir _todas as sugestões_ selecionando **Adicionar tudo** ou **rejeitar tudo** na barra de ferramentas contextual.
 
 1. Selecione **Salvar e Treinar** para salvar as alterações à base de dados de conhecimento.
 
-1. Selecione **Publicar** para permitir que as alterações estejam disponíveis na [API Gerar Resposta](metadata-generateanswer-usage.md#generateanswer-request-configuration).
+1. Selecione **publicar** para permitir que as alterações estejam disponíveis na [API GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-request-configuration).
 
-    Quando 5 ou mais consultas semelhantes são agrupadas, a cada 30 minutos, o QnA Maker sugere as perguntas alternativas para você aceitar ou rejeitar.
+    Quando 5 ou mais consultas semelhantes são clusterizadas, a cada 30 minutos, QnA Maker sugere as perguntas alternativas para que você aceite ou rejeite.
 
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
-### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Fluxo arquitetônico para usar APIs de GerarResposta e Treinar a partir de um bot
+### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>Fluxo de arquitetura para usar GenerateAnswer e treinar APIs de um bot
 
-Um bot ou outro aplicativo cliente deve usar o seguinte fluxo arquitetônico para usar o aprendizado ativo:
+Um bot ou outro aplicativo cliente deve usar o seguinte fluxo de arquitetura para usar o aprendizado ativo:
 
-* O Bot [obtém a resposta da base de](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) `top` conhecimento com a API GenerateAnswer, usando a propriedade para obter uma série de respostas.
-* O Bot determina o feedback explícito:
-    * Usando sua própria [lógica de negócios personalizada,](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)filtre pontuações baixas.
-    * No bot ou aplicativo do cliente, exibir lista de possíveis respostas ao usuário e obter a resposta selecionada do usuário.
-* O [Bot envia resposta selecionada de volta ao QnA Maker](#bot-framework-sample-code) com a [API do Trem](#train-api).
+* O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer `top` , usando a propriedade para obter várias respostas.
+* O bot determina os comentários explícitos:
+    * Usando sua própria [lógica de negócios personalizada](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtre pontuações baixas.
+    * No bot ou no aplicativo cliente, exiba a lista de possíveis respostas para o usuário e obtenha a resposta selecionada do usuário.
+* O bot [envia a resposta selecionada de volta para QnA Maker](#bot-framework-sample-code) com a [API de treinamento](#train-api).
 
 
-### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade superior na solicitação GerarResposta para obter várias respostas correspondentes
+### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Use a propriedade Top na solicitação GenerateAnswer para obter várias respostas correspondentes
 
-Ao enviar uma pergunta ao QnA Maker `top` para obter uma resposta, a propriedade do corpo JSON define o número de respostas a retornar.
+Ao enviar uma pergunta para QnA Maker para uma resposta, a `top` Propriedade do corpo JSON define o número de respostas a serem retornadas.
 
 ```json
 {
@@ -69,9 +69,9 @@ Ao enviar uma pergunta ao QnA Maker `top` para obter uma resposta, a propriedade
 }
 ```
 
-### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade score junto com a lógica de negócios para obter lista de respostas para mostrar ao usuário
+### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Use a propriedade Score junto com a lógica de negócios para obter a lista de respostas para mostrar o usuário
 
-Quando o aplicativo cliente (como um bot de bate-papo) recebe a resposta, as 3 perguntas principais são retornadas. Use `score` a propriedade para analisar a proximidade entre os escores. Essa faixa de proximidade é determinada pela sua própria lógica empresarial.
+Quando o aplicativo cliente (como um bot de chat) recebe a resposta, as três principais perguntas são retornadas. Use a `score` propriedade para analisar a proximidade entre as pontuações. Esse intervalo de proximidade é determinado pela sua própria lógica de negócios.
 
 ```json
 {
@@ -112,13 +112,13 @@ Quando o aplicativo cliente (como um bot de bate-papo) recebe a resposta, as 3 p
 
 ## <a name="client-application-follow-up-when-questions-have-similar-scores"></a>Acompanhamento do aplicativo cliente quando perguntas têm pontuações semelhantes
 
-Seu aplicativo cliente exibe as perguntas com uma opção para o usuário selecionar _a única pergunta_ que mais representa sua intenção.
+O aplicativo cliente exibe as perguntas com uma opção para que o usuário selecione _a única pergunta_ que mais representa sua intenção.
 
-Uma vez que o usuário seleciona uma das perguntas existentes, o aplicativo cliente envia a escolha do usuário como feedback usando a API de trem do Fabricante qnA. Este feedback completa o ciclo de feedback de aprendizagem ativa.
+Depois que o usuário seleciona uma das perguntas existentes, o aplicativo cliente envia a opção do usuário como comentários usando a API de treinamento do QnA Maker. Este comentário conclui o loop de comentários do aprendizado ativo.
 
 ## <a name="train-api"></a>API de treinamento
 
-O feedback de aprendizagem ativa é enviado ao QnA Maker com a solicitação train API POST. A assinatura da API é:
+Os comentários do aprendizado ativo são enviados para QnA Maker com a solicitação Train API POST. A assinatura de API é:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -129,22 +129,22 @@ Content-Type: application/json
 
 |Propriedade de solicitação HTTP|Nome|Type|Finalidade|
 |--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de conhecimento|string|o GUID da base de dados de conhecimento.|
-|Subdomínio personalizado|Nome do recurso QnAMaker|string|O nome do recurso é usado como subdomínio personalizado para o seu QnA Maker. Isso está disponível na página Configurações depois de publicar a base de conhecimento. Está listado como `host`o .|
-|Cabeçalho|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. O valor padrão é:`application/json`|
-|Cabeçalho|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Corpo postal|Objeto JSON|JSON|O feedback do treinamento|
+|Parâmetro de rota de URL|ID da base de dados de conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
+|Subdomínio personalizado|Nome do recurso QnAMaker|cadeia de caracteres|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host`.|
+|Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. O valor padrão é:`application/json`|
+|Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Corpo da postagem|Objeto JSON|JSON|Os comentários de treinamento|
 
 O corpo JSON tem várias configurações:
 
-|Propriedade do corpo JSON|Type|Finalidade|
+|Propriedade de corpo JSON|Type|Finalidade|
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
-|`userId`|string|A ID do usuário da pessoa que aceita as perguntas sugeridas. O formato de ID do usuário depende de você. Por exemplo, um endereço de e-mail pode ser um ID de usuário válido em sua arquitetura. Opcional.|
-|`userQuestion`|string|Texto exato da consulta do usuário. Obrigatórios.|
-|`qnaID`|número|ID de pergunta, encontrado na [resposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`userId`|cadeia de caracteres|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
+|`userQuestion`|cadeia de caracteres|Texto exato da consulta do usuário. Obrigatórios.|
+|`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
-Um exemplo de corpo JSON se parece com:
+Um exemplo de corpo JSON é semelhante a:
 
 ```json
 {
@@ -158,13 +158,13 @@ Um exemplo de corpo JSON se parece com:
 }
 ```
 
-Uma resposta bem sucedida retorna um status de 204 e nenhum corpo de resposta JSON.
+Uma resposta bem-sucedida retorna um status de 204 e nenhum corpo de resposta JSON.
 
-### <a name="batch-many-feedback-records-into-a-single-call"></a>Lote muitos registros de feedback em uma única chamada
+### <a name="batch-many-feedback-records-into-a-single-call"></a>Lote de muitos registros de comentários em uma única chamada
 
-No aplicativo do lado do cliente, como um bot, você pode armazenar os dados e, em seguida, enviar muitos registros em um único corpo JSON na `feedbackRecords` matriz.
+No aplicativo do lado do cliente, como um bot, você pode armazenar os dados e, em seguida, enviar vários registros em um único corpo JSON `feedbackRecords` na matriz.
 
-Um exemplo de corpo JSON se parece com:
+Um exemplo de corpo JSON é semelhante a:
 
 ```json
 {
@@ -192,18 +192,18 @@ Um exemplo de corpo JSON se parece com:
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 
-## <a name="bot-framework-sample-code"></a>Código de amostra de estrutura de bot
+## <a name="bot-framework-sample-code"></a>Código de exemplo do bot Framework
 
-Seu código de estrutura de bot precisa chamar a API do Trem, se a consulta do usuário deve ser usada para aprendizado ativo. Há duas peças de código para escrever:
+O código do bot Framework precisa chamar a API de treinamento se a consulta do usuário deve ser usada para o aprendizado ativo. Há duas partes de código para escrever:
 
-* Determine se a consulta deve ser usada para aprendizado ativo
-* Enviar consulta de volta à API de trem do fabricante qnA para aprendizado ativo
+* Determinar se a consulta deve ser usada para o aprendizado ativo
+* Enviar consulta de volta para a API de treinamento do QnA Maker para aprendizagem ativa
 
-Na [amostra do Azure Bot,](https://aka.ms/activelearningsamplebot)ambas as atividades foram programadas.
+No [exemplo de bot do Azure](https://aka.ms/activelearningsamplebot), ambas as atividades foram programadas.
 
-### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Exemplo c# código para API de trem com Bot Framework 4.x
+### <a name="example-c-code-for-train-api-with-bot-framework-4x"></a>Código C# de exemplo para a API de treinamento com o bot Framework 4. x
 
-O código a seguir ilustra como enviar informações de volta ao QnA Maker com a API train.
+O código a seguir ilustra como enviar informações de volta para QnA Maker com a API de treinamento.
 
 ```csharp
 public class FeedbackRecords
@@ -264,9 +264,9 @@ public async static void CallTrain(string endpoint, FeedbackRecords feedbackReco
 }
 ```
 
-### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Exemplo código Node.js para API de trem com O Quadro de Bot 4.x
+### <a name="example-nodejs-code-for-train-api-with-bot-framework-4x"></a>Código do node. js de exemplo para a API de treinamento com o bot Framework 4. x
 
-O código a seguir ilustra como enviar informações de volta ao QnA Maker com a API train.
+O código a seguir ilustra como enviar informações de volta para QnA Maker com a API de treinamento.
 
 ```javascript
 async callTrain(stepContext){
@@ -307,11 +307,11 @@ async callTrain(stepContext){
 }
 ```
 
-## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>O aprendizado ativo é salvo na base de conhecimento exportada
+## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>O aprendizado ativo é salvo na base de dados de conhecimento exportada
 
-Quando seu aplicativo tem aprendizado ativo ativado e `SuggestedQuestions` você exporta o aplicativo, a coluna no arquivo tsv retém os dados de aprendizagem ativos.
+Quando seu aplicativo tem o aprendizado ativo habilitado e você exporta o aplicativo, a `SuggestedQuestions` coluna no arquivo TSV retém os dados de aprendizado ativos.
 
-A `SuggestedQuestions` coluna é um objeto JSON `autosuggested`de informações `usersuggested` de feedback implícito, e explícito. Um exemplo deste objeto JSON para uma única `help` pergunta enviada pelo usuário é:
+A `SuggestedQuestions` coluna é um objeto JSON de informações de `autosuggested` `usersuggested` comentários implícitos,, e explícitos. Um exemplo desse objeto JSON para uma única pergunta enviada pelo usuário do `help` é:
 
 ```JSON
 [
@@ -330,12 +330,12 @@ A `SuggestedQuestions` coluna é um objeto JSON `autosuggested`de informações 
 ]
 ```
 
-Você também pode usar a API de alterações de download para rever essas alterações, usando REST ou qualquer um dos SDKs baseados em idioma:
-* [API REST](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+Você também pode usar a API de alterações de download para examinar essas alterações, usando REST ou qualquer um dos SDKs baseados em linguagem:
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
 * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
 
 
-Quando você reimporta este aplicativo, o aprendizado ativo continua coletando informações e recomendando sugestões para sua base de conhecimento.
+Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar informações e recomendar sugestões para sua base de dados de conhecimento.
 
 
 

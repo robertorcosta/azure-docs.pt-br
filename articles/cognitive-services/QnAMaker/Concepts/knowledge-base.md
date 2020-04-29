@@ -1,46 +1,46 @@
 ---
-title: Importação de fontes de dados - QnA Maker
-description: Uma base de conhecimento qnA Maker consiste em um conjunto de conjuntos de perguntas e respostas (QnA) e metadados opcionais associados a cada par de QnA.
+title: Importando de fontes de dados-QnA Maker
+description: Uma base de dados de conhecimento QnA Maker consiste em um conjunto de conjuntos de QnA (perguntas e respostas) e metadados opcionais associados a cada par de QnA.
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80804275"
 ---
 # <a name="importing-from-data-sources"></a>Importar de fontes de dados
 
-Uma base de conhecimento consiste em conjuntos de perguntas e respostas trazidos por URLs e arquivos públicos.
+Uma base de dados de conhecimento consiste em conjuntos de perguntas e respostas trazidos por arquivos e URLs públicos.
 
 ## <a name="data-source-locations"></a>Locais de origem de dados
 
-O conteúdo é trazido para uma base de conhecimento a partir de uma fonte de dados. Os locais de origem dos dados são **URLs ou arquivos públicos,** que não requerem autenticação.
+O conteúdo é trazido para uma base de conhecimento de uma fonte de dados. Os locais de fonte de dados são **URLs ou arquivos públicos**, que não exigem autenticação.
 
-[Os arquivos SharePoint,](../how-to/add-sharepoint-datasources.md)protegidos com autenticação, são a exceção. Os recursos do SharePoint devem ser arquivos, não páginas da Web. Se a URL terminar com uma extensão web, como . ASPX, ele não importará para QnA Maker do SharePoint.
+Os [arquivos do SharePoint](../how-to/add-sharepoint-datasources.md), protegidos com autenticação, são a exceção. Os recursos do SharePoint devem ser arquivos, não páginas da Web. Se a URL terminar com uma extensão da Web, como. ASPX, ele não será importado para o QnA Maker do SharePoint.
 
-## <a name="chit-chat-content"></a>Conteúdo de bate-papo chit
+## <a name="chit-chat-content"></a>Conteúdo do chat Chit
 
-O conjunto de conteúdo QnA do bate-papo Chit é oferecido como uma fonte completa de dados de conteúdo em vários idiomas e estilos de conversação. Esse pode ser um ponto de partida para a personalidade do seu bot, o que economizará o tempo e o custo de escrevê-la do zero. [Saiba como adicionar](../how-to/chit-chat-knowledge-base.md) este conteúdo definido à sua base de conhecimento.
+O conjunto de conteúdo do Chit Chat QnA é oferecido como uma fonte de dados de conteúdo completa em vários idiomas e estilos de conversação. Esse pode ser um ponto de partida para a personalidade do seu bot, o que economizará o tempo e o custo de escrevê-la do zero. Saiba [como adicionar](../how-to/chit-chat-knowledge-base.md) esse conjunto de conteúdo à sua base de dados de conhecimento.
 
 ## <a name="structured-data-format-through-import"></a>Formato de dados estruturados por meio de importação
 
-Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer `.tsv` um arquivo estruturado que contenha perguntas e respostas. Essas informações ajudam o QnA Maker a agrupar os conjuntos de perguntas e atribuí-las a uma determinada fonte de dados.
+Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer um `.tsv` arquivo estruturado que contenha perguntas e respostas. Essas informações ajudam a QnA Maker agrupar os conjuntos de respostas de perguntas e os atributos para uma determinada fonte de dados.
 
 | Pergunta  | Resposta  | Fonte| Metadados (1 chave: 1 valor) |
 |-----------|---------|----|---------------------|
 | Pergunta1 | Resposta1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Pergunta2 | Resposta2 | Editorial|    `Key:Value`       |
 
-## <a name="structured-multi-turn-format-through-import"></a>Formato multi-turno estruturado através da importação
+## <a name="structured-multi-turn-format-through-import"></a>Formato de várias transformações estruturado por meio de importação
 
-Você pode criar as conversas de `.tsv` vários turnos em um formato de arquivo. O formato fornece a você a capacidade de criar as conversas de vários turnos analisando logs de bate-papo anteriores (com outros processos, não usando O Criador de QnA), e então criar o `.tsv` arquivo através da automação. Importe o arquivo para substituir a base de conhecimento existente.
+Você pode criar conversas com vários folheios em um `.tsv` formato de arquivo. O formato fornece a capacidade de criar as conversas de passagem múltipla analisando os logs de chat anteriores (com outros processos, não usando QnA Maker) e, em seguida `.tsv` , criar o arquivo por meio da automação. Importe o arquivo para substituir a base de dados de conhecimento existente.
 
 > [!div class="mx-imgBorder"]
-> ![Modelo conceitual de 3 níveis de questão multi-turn](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
+> ![Modelo conceitual de 3 níveis de pergunta de vários desligamentos](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-A coluna para um `.tsv`multi-turn , específico para multi-turn é **Prompts**. Um `.tsv`exemplo , mostrado no Excel, mostra as informações a serem incluempara definir as crianças em vários turnos:
+A coluna para uma passagem múltipla `.tsv`, específica para a múltipla ativação, é **solicitada**. Um exemplo `.tsv`, mostrado no Excel, mostra as informações a serem incluídas para definir os filhos de troca múltipla:
 
 ```JSON
 [
@@ -49,16 +49,16 @@ A coluna para um `.tsv`multi-turn , específico para multi-turn é **Prompts**. 
 ]
 ```
 
-O **displayOrder** é numérico e o **displayText** é um texto que não deve incluir marcação.
+O **displayOrder** é numérico e o **exibirtexto** é texto que não deve incluir redução.
 
 > [!div class="mx-imgBorder"]
-> ![Exemplo de pergunta de várias voltas como mostrado no Excel](../media/qnamaker-concepts-knowledgebase/multi-turn-tsv-columns-excel-example.png)
+> ![Exemplo de pergunta de várias pontas, como mostrado no Excel](../media/qnamaker-concepts-knowledgebase/multi-turn-tsv-columns-excel-example.png)
 
 ## <a name="export-as-example"></a>Exportar como exemplo
 
-Se você não tiver certeza de como `.tsv` representar seu par de QnA no arquivo:
+Se você não tiver certeza de como representar seu par de QnA no `.tsv` arquivo:
 * Use este [exemplo para download do GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
-* Ou crie o conjunto no portal QnA Maker, salve e exporte a base de conhecimento para um exemplo de como representar o conjunto.
+* Ou crie o conjunto no portal de QnA Maker, salve e, em seguida, exporte a base de dados de conhecimento para obter um exemplo de como representar o conjunto.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -67,14 +67,14 @@ Se você não tiver certeza de como `.tsv` representar seu par de QnA no arquivo
 
 ## <a name="see-also"></a>Confira também
 
-Use a referência QnA Maker [Markdown](../reference-markdown-format.md) para ajudá-lo a formatar suas respostas.
+Use a [referência de redução](../reference-markdown-format.md) QnA Maker para ajudá-lo a Formatar suas respostas.
 
 [Visão geral do QnA Maker](../Overview/overview.md)
 
-Crie e edite uma base de conhecimento com:
-* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
+Criar e editar uma base de dados de conhecimento com:
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
 * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
 
 Gerar uma resposta com:
-* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
 * [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

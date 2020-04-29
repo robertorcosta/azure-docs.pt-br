@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 63cf864a3f3b92728ad613ac45542bdbce2c9858
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811346"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Como criar e implantar um serviço de nuvem
@@ -30,7 +30,7 @@ Três componentes são necessários para implantar um aplicativo como um serviç
 
 * **Definição de serviço**  
    O arquivo de definição de serviço de nuvem (.csdef) define o modelo de serviço, inclusive o número de funções.
-* **Configuração de serviço**  
+* **Configuração do serviço**  
    O arquivo de configuração de serviço de nuvem (.cscfg) fornece as configurações para o serviço de nuvem e as funções individuais, inclusive o número de instâncias de função.
 * **Pacote de serviço**  
    O pacote de serviço (.cspkg) contém o código do aplicativo, as configurações e o arquivo de definição de serviço.
@@ -42,9 +42,9 @@ Antes de poder implantar um serviço de nuvem, você deve criar o pacote do serv
 
 Três recursos de serviço de nuvem precisam de configurações especiais antes que você exporte um pacote de serviço:
 
-* Se você quiser implantar um serviço em nuvem que use TLS (Transport Layer Security, segurança de camada de transporte), anteriormente conhecida como Secure Sockets Layer (SSL), para criptografia de dados, [configure seu aplicativo](cloud-services-configure-ssl-certificate-portal.md#modify) para TLS.
+* Se você quiser implantar um serviço de nuvem que usa o protocolo TLS, anteriormente conhecido como protocolo SSL (SSL), para criptografia de dados, [configure seu aplicativo](cloud-services-configure-ssl-certificate-portal.md#modify) para TLS.
 * Se você desejar configurar conexões de área de trabalho remota para as instâncias de função, [configure as funções](cloud-services-role-enable-remote-desktop-new-portal.md) para Área de Trabalho Remota.
-* Se você desejar configurar o monitoramento detalhado para o seu serviço de nuvem, habilite o Diagnóstico do Azure para o serviço de nuvem. *Monitoramento mínimo* (o nível de monitoramento padrão) usa contadores de desempenho coletados dos sistemas operacionais do host para as instâncias de função (máquinas virtuais). *O monitoramento verbose* reúne métricas adicionais com base em dados de desempenho dentro das instâncias de função para permitir uma análise mais aprofundada dos problemas que ocorrem durante o processamento do aplicativo. Para saber como ativar o Azure Diagnostics, consulte [Habilitando diagnósticos no Azure](cloud-services-dotnet-diagnostics.md).
+* Se você desejar configurar o monitoramento detalhado para o seu serviço de nuvem, habilite o Diagnóstico do Azure para o serviço de nuvem. *Monitoramento mínimo* (o nível de monitoramento padrão) usa contadores de desempenho coletados dos sistemas operacionais do host para as instâncias de função (máquinas virtuais). O *monitoramento detalhado* reúne métricas adicionais com base nos dados de desempenho nas instâncias de função para permitir uma análise mais próxima dos problemas que ocorrem durante o processamento do aplicativo. Para saber como habilitar Diagnóstico do Azure, consulte [habilitando o diagnóstico no Azure](cloud-services-dotnet-diagnostics.md).
 
 Para criar um serviço de nuvem com implantações de funções Web ou de Trabalho, você deve [criar o pacote de serviço](cloud-services-model-and-package.md#servicepackagecspkg).
 
@@ -53,12 +53,12 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 * Se alguma instância de função precisar de certificados, crie-os. Os serviços de nuvem requerem um arquivo .pfx e uma chave privada. Você pode carregar os certificados para o Azure enquanto cria e implanta o serviço de nuvem.
 
 ## <a name="create-and-deploy"></a>Criar e implantar
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Criar um recurso > Computação**, e, em seguida, role para baixo e clique em **Serviço de Nuvem**.
 
     ![Publicar o serviço de nuvem](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. No novo painel **Serviço de Nuvem**, insira um valor para o **Nome DNS**.
-4. Crie um novo **grupo de recursos** ou selecione um já existente.
+4. Crie um novo **grupo de recursos** ou selecione um existente.
 5. Selecione um **local**.
 6. Clique em **Empacotar**. Isso abre o painel **Carregar um pacote**. Preencha os campos obrigatórios. Se alguma das funções contiver uma única instância, verifique se **Implantar mesmo se uma ou mais funções contiverem uma única instância** está marcado.
 7. Verifique se a opção **Iniciar implantação** está selecionada.
@@ -70,7 +70,7 @@ Para criar um serviço de nuvem com implantações de funções Web ou de Trabal
 ## <a name="upload-a-certificate"></a>Carregar um certificado
 Se o pacote de implantação tiver sido [configurado para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), você poderá carregar o certificado agora.
 
-1. Selecione **Certificados**e, no painel **Adicionar certificados,** selecione o arquivo TLS/SSL .pfx e, em seguida, forneça a **Senha** para o certificado,
+1. Selecione **certificados**e, no painel **adicionar certificados** , selecione o arquivo. pfx do certificado TLS/SSL e forneça a **senha** para o certificado,
 2. Clique em **Anexar certificado** e, em seguida, clique em **OK** no painel **Adicionar certificados**.
 3. Clique em **Criar** no painel **Serviço de Nuvem**. Quando a implantação alcançar o status **Pronto** , será possível passar às próximas etapas.
 
@@ -90,7 +90,7 @@ Se o pacote de implantação tiver sido [configurado para usar certificados](clo
 * [Configuração geral do serviço de nuvem](cloud-services-how-to-configure-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
-* Configure [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
+* Configurar [certificados TLS/SSL](cloud-services-configure-ssl-certificate-portal.md).
 
 
 

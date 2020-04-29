@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80744151"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
@@ -33,7 +33,7 @@ O LUIS compreende declarações nos seguintes idiomas:
 | Linguagem |Local  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
-| Árabe (visualização - árabe padrão moderno) |`ar-AR`|-|-|-|-|
+| Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Holandês |`nl-NL` |✔|-|-|✔|
 | Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
@@ -107,19 +107,19 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Turco|✔|||
 
 
-### <a name="custom-tokenizer-versions"></a>Versões de tokenizador personalizado
+### <a name="custom-tokenizer-versions"></a>Versões personalizadas do criador
 
-As culturas a seguir têm versões de tokenizer personalizadas:
+As seguintes culturas têm versões de criador personalizadas:
 
 |Cultura|Versão|Finalidade|
 |--|--|--|
-|Alemão<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizador baseado em aprendizado de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um `Ich fahre einen krankenwagen` usuário entra como um enunciado, ele é voltado para `Ich fahre einen kranken wagen`. Permitindo a `kranken` marcação e `wagen` independentemente como entidades diferentes.|
-|Alemão<br>`de-de`|1.0.2|Tokeniza palavras dividindo-as em espaços.<br> Se um `Ich fahre einen krankenwagen` usuário entra como um enunciado, ele permanece um único token. Assim `krankenwagen` é marcada como uma única entidade. |
-|Holandês<br>`de-de`|1.0.0|Tokeniza palavras dividindo-as usando um tokenizador baseado em aprendizado de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um `Ik ga naar de kleuterschool` usuário entra como um enunciado, ele é voltado para `Ik ga naar de kleuter school`. Permitindo a `kleuter` marcação e `school` independentemente como entidades diferentes.|
-|Holandês<br>`de-de`|1.0.1|Tokeniza palavras dividindo-as em espaços.<br> Se um `Ik ga naar de kleuterschool` usuário entra como um enunciado, ele permanece um único token. Assim `kleuterschool` é marcada como uma única entidade. |
+|Alemão<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele será ativado `Ich fahre einen kranken wagen`. Permitir a marcação de `kranken` e `wagen` de forma independente como entidades diferentes.|
+|Alemão<br>`de-de`|1.0.2|Cria tokens palavras dividindo-as em espaços.<br> Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele permanecerá como um único token. Portanto `krankenwagen` , é marcado como uma única entidade. |
+|Holandês<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ik ga naar de kleuterschool` como um expressão, ele será ativado `Ik ga naar de kleuter school`. Permitir a marcação de `kleuter` e `school` de forma independente como entidades diferentes.|
+|Holandês<br>`de-de`|1.0.1|Cria tokens palavras dividindo-as em espaços.<br> Se um usuário inserir `Ik ga naar de kleuterschool` como um expressão, ele permanecerá como um único token. Portanto `kleuterschool` , é marcado como uma única entidade. |
 
 
-### <a name="migrating-between-tokenizer-versions"></a>Migração entre versões de tokenizer
+### <a name="migrating-between-tokenizer-versions"></a>Migrando entre versões do criador
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
@@ -222,6 +222,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-A tokenização acontece no nível do aplicativo. Não há suporte para tokenização em nível de versão.
+A geração de tokens ocorre no nível do aplicativo. Não há suporte para geração de tokens no nível de versão.
 
-[Importe o arquivo como um novo aplicativo,](luis-how-to-start-new-app.md)em vez de uma versão. Esta ação significa que o novo aplicativo tem uma ID de aplicativo diferente, mas usa a versão tokenizer especificada no arquivo.
+[Importe o arquivo como um novo aplicativo](luis-how-to-start-new-app.md), em vez de uma versão. Essa ação significa que o novo aplicativo tem uma ID de aplicativo diferente, mas usa a versão criador especificada no arquivo.

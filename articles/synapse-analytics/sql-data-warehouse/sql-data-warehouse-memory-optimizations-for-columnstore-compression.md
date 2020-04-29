@@ -1,6 +1,6 @@
 ---
-title: Melhorar o desempenho do índice de columnstore
-description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas dentro de cada grupo de linhas.
+title: Melhorar o desempenho do índice columnstore
+description: Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas em cada rowgroup.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d2cbe9b94c4698a93b93c032ee4dcb421a78e59b
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80743079"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
 
-A qualidade do grupo de linhas é determinada pelo número de linhas em um grupo de linhas. Aumentar a memória disponível pode maximizar o número de linhas que um índice de columnstore compacta em cada grupo de linhas.  Use estes métodos para melhorar as taxas de compactação e o desempenho da consulta em índices columnstore.
+A qualidade do grupo de linhas é determinada pelo número de linhas em um grupo de linhas. Aumentar a memória disponível pode maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.  Use estes métodos para melhorar as taxas de compactação e o desempenho da consulta em índices columnstore.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Por que o tamanho do rowgroup é importante
 
@@ -38,15 +38,15 @@ Não é um problema ter o número máximo de linhas por rowgroup. Os índices Co
 
 ## <a name="rowgroups-can-get-trimmed-during-compression"></a>Os rowgroups podem ser cortados durante a compactação
 
-Durante um carregamento em massa ou uma recompilação de índices columnstore, às vezes, não há memória suficiente disponível para compactar todas as linhas designadas para cada rowgroup. Quando a pressão de memória está presente, os índices da columnstore aparam os tamanhos do grupo de linhas para que a compactação na columnstore possa ter sucesso.
+Durante um carregamento em massa ou uma recompilação de índices columnstore, às vezes, não há memória suficiente disponível para compactar todas as linhas designadas para cada rowgroup. Quando a pressão de memória estiver presente, os índices columnstore cortarão os tamanhos de rowgroup para que a compactação no columnstore possa ter sucesso.
 
-Quando houver memória insuficiente para comprimir pelo menos 10.000 linhas em cada grupo de linhas, um erro será gerado.
+Quando não houver memória suficiente para compactar pelo menos 10.000 linhas em cada rowgroup, um erro será gerado.
 
 Para obter mais informações sobre o carregamento em massa, consulte [Carregamento em massa em um índice columnstore clusterizado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorar a qualidade do grupo de linhas
 
-O Dmv sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contém a definição de exibição correspondente ao SQL DB) que expõe informações úteis, como número de linhas em grupos de linhas e a razão para aparar, se houve corte.
+O DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([Sys. dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contém a definição de exibição correspondente ao banco de dados SQL) que expõe informações úteis, como o número de linhas em RowGroups e o motivo para corte, se houver corte.
 
 Você pode criar a exibição a seguir como uma maneira útil consultar essa DMV para obter informações sobre a fragmentação do grupo de linhas.
 
@@ -77,7 +77,7 @@ from cte;
 
 O trim_reason_desc informa se o grupo de linhas foi cortado (trim_reason_desc = NO_TRIM implica que não houve corte e grupo de linhas é de melhor qualidade). Os motivos de corte a seguir indicam prematuro corte do grupo de linhas:
 
-- CARREGAMENTO EM MASSA: Esse motivo de corte é usado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo criará grupos de linhas compactado se houver mais que 100.000 linhas sendo inseridas (em vez de inserir no repositório delta), mas define o motivo do corte para CARREGAMENTO EM MASSA. Neste cenário, considere aumentar sua carga de lote para incluir mais linhas. Além disso, reavalie seu esquema de particionamento para garantir que ele não seja muito granular, pois os grupos de linha não podem ultrapassar os limites de partição.
+- CARREGAMENTO EM MASSA: Esse motivo de corte é usado quando o lote de entrada de linhas para a carga tinha menos de 1 milhão de linhas. O mecanismo criará grupos de linhas compactado se houver mais que 100.000 linhas sendo inseridas (em vez de inserir no repositório delta), mas define o motivo do corte para CARREGAMENTO EM MASSA. Nesse cenário, considere aumentar a carga do lote para incluir mais linhas. Além disso, reavalie seu esquema de particionamento para garantir que ele não seja muito granular, pois grupos de linhas não podem abranger limites de partição.
 - MEMORY_LIMITATION: Para criar grupos de linhas com 1 milhão de linhas, uma determinada quantidade de memória de trabalho é necessária para o mecanismo. Quando a memória disponível da sessão de carregamento é menor do que a memória necessária do trabalho, grupos de linhas são cortados prematuramente. As seções a seguir explicam como estimar a memória necessária e alocar mais memória.
 - DICTIONARY_SIZE: Este motivo do corte indica que a fragmentação do grupo de linhas ocorreu devido a pelo menos uma coluna de cadeia de caracteres com cadeias de caracteres ampla e/ou de alta cardinalidade. O tamanho do dicionário está limitado a 16 MB de memória e quando esse limite é atingido o grupo de linhas é compactado. Se você se deparar com essa situação, considere isolar a coluna problemática em uma tabela separada.
 
@@ -91,15 +91,15 @@ O máximo de memória necessário para compactar um rowgroup é aproximadamente
 
 - 72 MB +
 - \#linhas \* \#colunas \* 8 bytes +
-- \#linhas \* \#de colunas \* de string-string 32 bytes +
+- \#linhas \* \#de cadeia de caracteres curta \* -colunas 32 bytes +
 - \#colunas de cadeia de caracteres longa \* 16 MB para o dicionário de compactação
 
 > [!NOTE]
-> As colunas de corda curta usam tipos de dados de seqüência de <= 32 bytes e as colunas de corda longa usam tipos de dados de seqüência de > 32 bytes.
+> Colunas de cadeia de caracteres curta usam tipos de dados de cadeia de caracteres de <= 32 bytes e cadeias de caracteres longas usam tipos de dados de cadeia de caracteres de > 32 bytes.
 
 As cadeias de caracteres longas são compactadas com um método de compactação projetado para a compactação de texto. Esse método de compactação usa um *dicionário* para armazenar os padrões de texto. O tamanho máximo de um dicionário é de 16 MB. Há apenas um dicionário para cada coluna de cadeia de caracteres longa no rowgroup.
 
-Para obter uma discussão aprofundada sobre os requisitos de memória da columnstore, consulte o vídeo [Synapse SQL pool scaling: configuração e orientação](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
+Para uma discussão aprofundada sobre os requisitos de memória columnstore, consulte o vídeo [Synapse o dimensionamento do pool SQL: configuração e diretrizes](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Maneiras de reduzir os requisitos de memória
 
@@ -109,7 +109,7 @@ Use as técnicas a seguir para reduzir os requisitos de memória para compactar 
 
 Se possível, crie a tabela com menos colunas. Quando um rowgroup é compactado no columnstore, o índice columnstore compacta cada segmento de coluna separadamente.
 
-Como tal, os requisitos de memória para compactar um grupo de linhas aumentam à medida que o número de colunas aumenta.
+Assim, os requisitos de memória para compactação de um rowgroup aumentam conforme o número de colunas aumenta.
 
 ### <a name="use-fewer-string-columns"></a>Usar menos colunas de cadeia de caracteres
 
@@ -122,9 +122,9 @@ Requisitos de memória adicionais para a compactação de cadeia de caracteres:
 
 ### <a name="avoid-over-partitioning"></a>Evitar o excesso de particionamento
 
-Os índices Columnstore criam um ou mais rowgroups por partição. Para o pool SQL no Azure Synapse Analytics, o número de partições cresce rapidamente porque os dados são distribuídos e cada distribuição é particionada.
+Os índices Columnstore criam um ou mais rowgroups por partição. Para o pool do SQL no Azure Synapse Analytics, o número de partições aumenta rapidamente porque os dados são distribuídos e cada distribuição é particionada.
 
-Se a tabela tiver um número excessivo de partições, talvez não haja linhas suficientes para preencher os rowgroups. A falta de linhas não cria pressão de memória durante a compressão. Mas, isso leva a grupos de linhas que não alcançam o melhor desempenho de consulta de columnstore.
+Se a tabela tiver um número excessivo de partições, talvez não haja linhas suficientes para preencher os rowgroups. A falta de linhas não cria pressão de memória durante a compactação. Mas, ele leva a grupos de colunas que não atingem o melhor desempenho de consulta columnstore.
 
 Outro motivo para evitar o excesso de particionamento é que há uma sobrecarga de memória no carregamento de linhas em um índice columnstore em uma tabela particionada.
 
@@ -165,4 +165,4 @@ Para aumentar a concessão de memória para uma consulta de carga, você pode au
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para encontrar mais maneiras de melhorar o desempenho do pool SQL, consulte a [visão geral](cheat-sheet.md)do desempenho .
+Para encontrar mais maneiras de melhorar o desempenho do pool SQL, consulte a [visão geral de desempenho](cheat-sheet.md).
