@@ -1,5 +1,5 @@
 ---
-title: Solução Agent Health no Monitor Azure | Microsoft Docs
+title: Integridade do Agente solução no Azure Monitor | Microsoft Docs
 description: Este artigo destina-se a ajudá-lo a entender como usar essa solução para monitorar a integridade de seus agentes que se reportam diretamente ao Log Analytics ou ao System Center Operations Manager.
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,14 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
 ms.openlocfilehash: 7093e20473b799a3f05ddf30803721636732241e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663245"
 ---
-#  <a name="agent-health-solution-in-azure-monitor"></a>Solução Agent Health no Monitor Azure
-A solução Agent Health no Azure ajuda você a entender, para todos os agentes que reportam diretamente ao espaço de trabalho do Log Analytics no Azure Monitor ou a um grupo de gerenciamento do System Center Operations Manager conectado ao Azure Monitor, que não respondem e submetendo dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Integridade do Agente solução no Azure Monitor
+A solução Integridade do Agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho Log Analytics no Azure Monitor ou um grupo de gerenciamento System Center Operations Manager conectado a Azure Monitor, que não respondem e enviam dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de implantar essa solução, confirme se você tem suporte no momento [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) relatórios no espaço de trabalho do Log Analytics ou em relatórios para um [grupo de gerenciamento do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado com seu espaço de trabalho.
@@ -41,7 +41,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 | Fonte Conectada | Com suporte | Descrição |
 | --- | --- | --- |
 | Agentes do Windows | Sim | Os eventos de pulsação são coletados dos agentes diretos do Windows.|
-| Grupo de gerenciamento do System Center Operations Manager | Sim | Os eventos de batimentos cardíacos são coletados de agentes reportando-se ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados ao Azure Monitor. Não é necessária uma conexão direta dos agentes do Gerente de Operações com o Monitor Do Azure. Os dados do evento heartbeat são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics.|
+| Grupo de gerenciamento do System Center Operations Manager | Sim | Os eventos de pulsação são coletados dos agentes subordinados ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Azure Monitor. Uma conexão direta de agentes de Operations Manager para Azure Monitor não é necessária. Os dados do evento de pulsação são encaminhados do grupo de gerenciamento para o espaço de trabalho Log Analytics.|
 
 ## <a name="using-the-solution"></a>Usando a solução
 Quando você adiciona a solução ao espaço de trabalho do Log Analytics, o **integridade do agente** bloco será adicionado ao seu painel. Esse bloco mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Bloco da solução Integridade do Agente no painel](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -55,8 +55,8 @@ Clique no bloco **Integridade do Agente** para abrir o painel **Integridade do A
 | Distribuição por tipo de sistema operacional | Uma partição de quantos agentes de Windows e Linux você tem em seu ambiente.|
 | Distribuição por versão do agente | Uma partição de diferentes versões do agente instaladas em seu ambiente e uma contagem de cada uma delas.|
 | Distribuição por categoria de agente | Uma partição das diferentes categorias de agentes que estão enviando eventos de pulsação: agentes diretos, agentes do OpsMgr ou o servidor de gerenciamento do OpsMgr.|
-| Distribuição por grupo de gerenciamento | Uma partição dos diferentes grupos de gerenciamento do gerente de operações em seu ambiente.|
-| Localização geográfica de agentes | Uma partição dos diferentes países/regiões onde você tem agentes e uma contagem total do número de agentes que foram instalados em cada país/região.|
+| Distribuição por grupo de gerenciamento | Uma partição dos diferentes grupos de gerenciamento de Operations Manager em seu ambiente.|
+| Localização geográfica de agentes | Uma partição dos diferentes países/regiões em que você tem agentes e uma contagem total do número de agentes que foram instalados em cada país/região.|
 | Contagem de gateways instalados | O número de servidores que possuem o Log Analytics Gateway instalado e uma lista desses servidores.|
 
 ![Exemplo de painel da solução Integridade do Agente](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
@@ -78,14 +78,14 @@ Um registro com o tipo **pulsação** é criado.  Esses registros têm as propri
 | `Version` | Versão do agente do log Analytics ou o agente do Operations Manager.|
 | `SCAgentChannel` | O valor é *Direct* e/ou *SCManagementServer*.|
 | `IsGatewayInstalled` | Se o Log de análise de Gateway estiver instalado, o valor é *verdadeira*, caso contrário, o valor é *falso*.|
-| `ComputerIP` | O endereço IP público do computador. Nas VMs do Azure, isso mostrará ao PÚBLICO IP se uma estiver disponível. Para VMs usando IPs privados, isso exibirá o endereço SNAT do Azure (não o endereço IP privado). |
+| `ComputerIP` | O endereço IP público do computador. Em VMs do Azure, isso mostrará o IP público, se houver um disponível. Para VMs que usam IPs privados, isso exibirá o endereço SNAT do Azure (não o endereço IP privado). |
 | `RemoteIPCountry` | Localização geográfica onde o computador está implantado.|
 | `ManagementGroupName` | Nome do grupo de gerenciamento do Operations Manager.|
 | `SourceComputerId` | ID exclusiva do computador.|
 | `RemoteIPLongitude` | Longitude do local geográfico do computador.|
 | `RemoteIPLatitude` | Latitude da localização geográfica do computador.|
 
-Cada agente reportando a um servidor de gerenciamento do Operations Manager enviará dois batimentos cardíacos, e o valor da propriedade SCAgentChannel incluirá o **Direct** e **o SCManagementServer,** dependendo das fontes de dados e das soluções de monitoramento que você habilitou em sua assinatura. Se você se lembrar, os dados das soluções são enviados diretamente de um servidor de gerenciamento do Gerente de Operações para o Azure Monitor, ou devido ao volume de dados coletados no agente, são enviados diretamente do agente para o Azure Monitor. Para eventos de pulsação que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gerenciamento, desde que os dados realmente sejam carregados por ele.  Para pulsações em que SCAgentChannel está definido como **Direct**, é o endereço IP público do agente.  
+Cada agente que se reporta a um servidor de gerenciamento de Operations Manager enviará duas pulsações e o valor da propriedade SCAgentChannel incluirá **Direct** e **SCManagementServer** dependendo de quais fontes de dados e soluções de monitoramento você habilitou em sua assinatura. Se você se lembrar, os dados das soluções serão enviados diretamente de um servidor de gerenciamento de Operations Manager para Azure Monitor, ou devido ao volume de dados coletados no agente, serão enviados diretamente do agente para Azure Monitor. Para eventos de pulsação que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gerenciamento, desde que os dados realmente sejam carregados por ele.  Para pulsações em que SCAgentChannel está definido como **Direct**, é o endereço IP público do agente.  
 
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 A tabela a seguir fornece pesquisas de log de exemplo para os registros coletados por essa solução.
@@ -110,4 +110,4 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros coletado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre como gerar alertas a partir de consultas de log. 
+* Saiba mais sobre [alertas no Azure monitor](../platform/alerts-overview.md) para obter detalhes sobre como gerar alertas de consultas de log. 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Leapsome para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para Leapsome.
+title: 'Tutorial: configurar o Leapsome para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Leapsome.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: jeedes
 ms.openlocfilehash: e5837887325c06f9140a3f40eb183139782e2a50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057457"
 ---
-# <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutorial: Configure Leapsome para provisionamento automático do usuário
+# <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutorial: configurar o Leapsome para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no Leapsome and Azure Active Directory (Azure AD) para configurar o Azure AD para provisão e desprovisionamento automático de usuários e/ou grupos para leapsome.
+O objetivo deste tutorial é demonstrar as etapas a serem executadas no Leapsome e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no Leapsome.
 
 > [!NOTE]
 >  Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -36,70 +36,70 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Leapsome
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD.
-* Um [inquilino leapsome.](https://www.Leapsome.com/en/pricing)
-* Uma conta de usuário em Leapsome com permissões de administração.
+* Um locatário do [Leapsome](https://www.Leapsome.com/en/pricing) .
+* Uma conta de usuário no Leapsome com permissões de administrador.
 
 ## <a name="assigning-users-to-leapsome"></a>Atribuindo usuários ao Leapsome
 
-O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso a aplicativos selecionados. No contexto do provisionamento automático do usuário, apenas os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático do usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam ter acesso ao Leapsome. Uma vez decidido, você pode atribuir esses usuários e/ou grupos ao Leapsome seguindo as instruções aqui:
+Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao Leapsome. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Leapsome seguindo as instruções aqui:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 
 ## <a name="important-tips-for-assigning-users-to-leapsome"></a>Dicas importantes para atribuir usuários ao Leapsome
 
-* Recomenda-se que um único usuário azure AD seja designado ao Leapsome para testar a configuração automática de provisionamento do usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* É recomendável que um único usuário do Azure AD seja atribuído ao Leapsome para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Leapsome, você deve selecionar qualquer função específica de aplicativo (se disponível) na caixa de diálogo de atribuição. Os usuários com a **função Default Access** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Leapsome, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
 
 
-## <a name="setup-leapsome-for-provisioning"></a>Configuração Leapsome para provisionamento
+## <a name="setup-leapsome-for-provisioning"></a>Configurar o Leapsome para provisionamento
 
-1. Faça login no seu [console de admin Leapsome .](https://www.Leapsome.com/app/#/login) Navegue até **Configurações > Configurações de Admin**.
+1. Entre no console do [administrador do Leapsome](https://www.Leapsome.com/app/#/login). Navegue até **configurações > configurações de administrador**.
 
-    ![Leapsome Admin Console](media/Leapsome-provisioning-tutorial/leapsome-admin-console.png)
+    ![Console de administração do Leapsome](media/Leapsome-provisioning-tutorial/leapsome-admin-console.png)
 
-2.  Navegue até **integrações > provisionamento do usuário SCIM**.
+2.  Navegue até **integrações > provisionamento de usuário scim**.
 
-    ![Leapsome Adicionar SCIM](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
+    ![Leapsome adicionar SCIM](media/Leapsome-provisioning-tutorial/leapsome-add-scim.png)
 
-3.  Copie o **Token de Autenticação SCIM**. Esse valor será inserido no campo Token Secreto na guia Provisionamento do seu aplicativo Leapsome no portal Azure.
+3.  Copie o **token de autenticação scim**. Esse valor será inserido no campo token secreto na guia provisionamento do seu aplicativo Leapsome no portal do Azure.
 
-    ![Leapsome Criar Token](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
+    ![Leapsome criar token](media/Leapsome-provisioning-tutorial/leapsome-create-token.png)
 
-## <a name="add-leapsome-from-the-gallery"></a>Adicione Leapsome da galeria
+## <a name="add-leapsome-from-the-gallery"></a>Adicionar o Leapsome da Galeria
 
-Antes de configurar leapsome para provisionamento automático do usuário com o Azure AD, você precisa adicionar Leapsome da galeria de aplicativos Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o Leapsome para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o Leapsome da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar Leapsome da galeria de aplicativos Azure AD, execute as seguintes etapas:**
+**Para adicionar o Leapsome da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos Enterprise**e selecione Todos **os aplicativos**.
+2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite Leapsome**, **selecione Leapsome** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **Leapsome**, selecione **Leapsome** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Leapsome na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-leapsome"></a>Configuração do provisionamento automático do usuário para Leapsome 
+## <a name="configuring-automatic-user-provisioning-to-leapsome"></a>Configurando o provisionamento automático de usuário para o Leapsome 
 
-Esta seção orienta você através das etapas para configurar o serviço de provisionamento Azure AD para criar, atualizar e desativar usuários e/ou grupos em Leapsome com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no Leapsome com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por ativar o login único baseado em SAML para Leapsome, seguindo as instruções fornecidas no [tutorial leapsome single sign-on](Leapsome-tutorial.md). O login único pode ser configurado independentemente do provisionamento automático do usuário, embora esses dois recursos complementem um ao outro
+> Você também pode optar por habilitar o logon único baseado em SAML para o Leapsome, seguindo as instruções fornecidas no [tutorial de logon único do Leapsome](Leapsome-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem uns aos outros
 
-### <a name="to-configure-automatic-user-provisioning-for-leapsome-in-azure-ad"></a>Para configurar o provisionamento automático do usuário para Leapsome no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-leapsome-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Leapsome no Azure AD:
 
-1. Faça login no [portal Azure](https://portal.azure.com). Selecione **Aplicativos Corporativos**e selecione **Todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -109,13 +109,13 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Guia provisionamento](common/provisioning.png)
 
 4. Defina o **modo de provisionamento** como **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **Credenciais de Admin,** entrada `https://www.leapsome.com/api/scim` na **URL do inquilino**. Insira o valor **do Token de Autenticação SCIM** recuperado anteriormente no **Secret Token**. Clique **em Conexão de teste** para garantir que o Azure AD possa se conectar ao Leapsome. Se a conexão falhar, certifique-se de que sua conta Leapsome tenha permissões de administração e tente novamente.
+5. Na seção **credenciais de administrador** , insira `https://www.leapsome.com/api/scim` a **URL de locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Leapsome. Se a conexão falhar, verifique se sua conta do Leapsome tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -125,29 +125,29 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
 7. Clique em **Salvar**.
 
-8. Na seção **Mapeamentos,** selecione **Sincronizar usuários do diretório ativo do Azure para Leapsome**.
+8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Leapsome**.
 
-    ![Leapsome Mapeamentos de Usuários](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
+    ![Mapeamentos de usuário Leapsome](media/Leapsome-provisioning-tutorial/Leapsome-user-mappings.png)
 
-9. Revise os atributos do usuário sincronizados do Azure AD para Leapsome na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades correspondentes** são usados para corresponder às contas de usuário em Leapsome para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que são sincronizados do Azure AD para o Leapsome na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Leapsome para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Leapsome Atributos do Usuário](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
+    ![Atributos de usuário do Leapsome](media/Leapsome-provisioning-tutorial/Leapsome-user-attributes.png)
 
-10. Na seção **Mapeamentos,** selecione **Sincronizar grupos de diretórios ativos do Azure para Leapsome**.
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para Leapsome**.
 
-    ![Mapeamentos de grupos leapsome](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
+    ![Mapeamentos de grupo Leapsome](media/Leapsome-provisioning-tutorial/Leapsome-group-mappings.png)
 
-11. Revise os atributos de grupo sincronizados do Azure AD para Leapsome na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades correspondentes** são usados para corresponder aos grupos em Leapsome para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de grupo que são sincronizados do Azure AD para o Leapsome na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no Leapsome para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de grupo leapsome](media/Leapsome-provisioning-tutorial/Leapsome-group-attributes.png)
+    ![Atributos do grupo Leapsome](media/Leapsome-provisioning-tutorial/Leapsome-group-attributes.png)
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento Azure AD para Leapsome, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações.**
+13. Para habilitar o serviço de provisionamento do Azure AD para o Leapsome, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos que você gostaria de prover para Leapsome escolhendo os valores desejados no **Escopo** na seção **Configurações.**
+14. Defina os usuários e/ou grupos que você deseja provisionar para o Leapsome escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -155,19 +155,19 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **Detalhes de sincronização** para monitorar o progresso e seguir links para o relatório de atividadede provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento Azure AD no Leapsome.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Leapsome.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* Leapsome requer que **userName** seja único.
-* Leapsome só permite que endereços de e-mail de trabalho sejam salvos.
+* Leapsome exige que o **nome de usuário** seja exclusivo.
+* Leapsome só permite que os endereços de email de trabalho sejam salvos.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: Coletar métricas de conjunto de escala do Windows no Monitor Do Azure com modelo
+title: Coletar métricas do conjunto de dimensionamento do Windows no Azure Monitor com o modelo
 description: Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Gerenciador de Recursos para um conjunto de dimensionamento de máquina virtual do Windows
 author: anirudhcavale
 services: azure-monitor
@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 24f83e4f6285d045e67bdaef431ebcff2345ef84
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663885"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para um conjunto de dimensionamento de máquina virtual do Windows
@@ -22,7 +22,7 @@ Usando a extensão do [Windows Azure Diagnostics](diagnostics-extension-overview
 
 O artigo descreve o processo para enviar métricas de desempenho do SO convidado de um conjunto de dimensionamento de máquinas virtuais do Windows para o armazenamento de dados do Azure Monitor. A partir do Windows Azure Diagnostics versão 1.11, você pode escrever métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas. Ao armazená-los nesse local, você pode acessar as mesmas ações que estão disponíveis para as métricas da plataforma. As ações incluem alertas, gráficos, roteamento, acesso da API REST e muito mais em tempo real. No passado, a extensão do Diagnóstico do Windows Azure era gravada no Armazenamento do Azure, mas não no armazenamento de dados do Monitor do Azure.  
 
-Se você é novo nos modelos do Gerenciador de Recursos, aprenda sobre [implantações de modelos](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.  
+Se você for novo nos modelos do Resource Manager, saiba mais sobre [implantações de modelo](../../azure-resource-manager/management/overview.md) e sua estrutura e sintaxe.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,15 +30,15 @@ Se você é novo nos modelos do Gerenciador de Recursos, aprenda sobre [implanta
 
 - Você precisa ter [Azure PowerShell](/powershell/azure) instalado, ou você pode usar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
-- Seu recurso vm deve estar em uma [região que suporta métricas personalizadas](metrics-custom-overview.md#supported-regions).
+- O recurso da VM deve estar em uma [região que ofereça suporte a métricas personalizadas](metrics-custom-overview.md#supported-regions).
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um coletor de dados 
-A extensão Azure Diagnostics usa um recurso chamado **data sinks** para direcionar métricas e logs para diferentes locais. As etapas a seguir mostram como usar um modelo do Resource Manager e o PowerShell para implantar uma VM usando o novo coletor de dados do Monitor do Azure. 
+A extensão Diagnóstico do Azure usa um recurso chamado **coletores de dados** para rotear métricas e logs para locais diferentes. As etapas a seguir mostram como usar um modelo do Resource Manager e o PowerShell para implantar uma VM usando o novo coletor de dados do Monitor do Azure. 
 
 ## <a name="author-a-resource-manager-template"></a>Autor de um modelo do Resource Manager 
-Para este exemplo, você pode usar um modelo de amostra disponível [publicamente:](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)  
+Para este exemplo, você pode usar um modelo de [exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)disponível publicamente:  
 
-- **O Azuredeploy.json** é um modelo pré-configurado do Gerenciador de Recursos para implantação de um conjunto de escala de máquina virtual.
+- **Azuredeploy. JSON** é um modelo pré-configurado do Resource Manager para a implantação de um conjunto de dimensionamento de máquinas virtuais.
 
 - **Azuredeploy.parameters.json** é um arquivo de parâmetros que armazena informações como o nome de usuário e a senha que você deseja definir para sua VM. Durante a implantação, o modelo do Resource Manager usa os parâmetros definidos no arquivo. 
 
@@ -65,7 +65,7 @@ Adicione uma variável para conter as informações da conta de armazenamento no
 "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
 ```
  
-Encontre a definição de conjunto de escala de máquina virtual na seção recursos e adicione a seção **de identidade** à configuração. Essa adição garante que o Azure atribua a ela uma identidade do sistema. Esta etapa também garante que as VMs no conjunto de dimensionamento possam emitir métricas de convidados sobre si mesmas para o Monitor do Azure:  
+Localize a definição do conjunto de dimensionamento de máquinas virtuais na seção recursos e adicione a seção **identidade** à configuração. Essa adição garante que o Azure atribua a ela uma identidade do sistema. Esta etapa também garante que as VMs no conjunto de dimensionamento possam emitir métricas de convidados sobre si mesmas para o Monitor do Azure:  
 
 ```json
     { 
@@ -197,7 +197,7 @@ O código a seguir da extensão MSI também adiciona a extensão e a configuraç
 ```
 
 
-Adicionar um **dependSQuanto** para a conta de armazenamento para garantir que ela seja criada na ordem correta: 
+Adicione uma **dependência** para a conta de armazenamento para garantir que ela seja criada na ordem correta: 
 
 ```json
 "dependsOn": [ 
@@ -232,7 +232,7 @@ Salve e feche ambos os arquivos.
 ## <a name="deploy-the-resource-manager-template"></a>Implantar o modelo do Resource Manager 
 
 > [!NOTE]  
-> Você deve estar executando a extensão Azure Diagnostics versão 1.5 ou superior **e** ter o **autoUpgradeMinorVersion:** propriedade definida como **true** no modelo Do Gerenciador de Recursos. Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo. 
+> Você deve estar executando a extensão de Diagnóstico do Azure versão 1,5 ou superior **e** ter a propriedade **autoUpgradeMinorVersion:** definida como **true** em seu modelo do Resource Manager. Então, o Azure carregará a extensão apropriada ao iniciar a VM. Se você não tiver essas configurações no seu modelo, altere-as e reimplemente o modelo. 
 
 
 Para implantar o modelo do Resource Manager, use o Azure PowerShell:  
@@ -245,7 +245,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. Crie um novo grupo de recursos para a VM sendo implantada. Execute o comando a seguir: 
+1. Crie um novo grupo de recursos para a VM sendo implantada. Execute o seguinte comando: 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
@@ -271,7 +271,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
 
 ## <a name="chart-your-metrics"></a>Fazer um gráfico das métricas 
 
-1. Entre no portal do Azure. 
+1. Entre no Portal do Azure. 
 
 1. No menu à esquerda, selecione **Monitor**. 
 
@@ -285,7 +285,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
 
 1. No menu suspenso namespaces, selecione **azure.vm.windows.guest**. 
 
-1. No menu suspenso de métricas, selecione **'Memória',\%Bytes comprometidos em uso**'  
+1. No menu suspenso métricas, selecione **memória\%bytes confirmados em uso**.  
 
 Você também pode optar por usar as dimensões nessa métrica para traçar uma VM específica ou plotar cada VM no conjunto de escala. 
 

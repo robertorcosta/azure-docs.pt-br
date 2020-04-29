@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI- propriedade sfctl
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para armazenar e consultar propriedades.
+title: CLI do Azure Service Fabric-Propriedade sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para armazenar e consultar Propriedades.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905820"
 ---
 # <a name="sfctl-property"></a>sfctl property
@@ -35,7 +35,7 @@ Exclui a propriedade do Service Fabric especificada em um determinado nome. Uma 
 | --- | --- |
 | – id de nome [requerido] | Nome da malha do serviço, sem o ' malha\:' esquema de URI. |
 | -nome de propriedade [requerido] | Especifica o nome da propriedade a ser obtida. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -58,7 +58,7 @@ Obtém a propriedade do Service Fabric especificada em um determinado nome. Isso
 | --- | --- |
 | – id de nome [requerido] | Nome da malha do serviço, sem o ' malha\:' esquema de URI. |
 | -nome de propriedade [requerido] | Especifica o nome da propriedade a ser obtida. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -82,7 +82,7 @@ Um nome de malha do serviço pode ter um ou mais propriedades nomeadas que armaz
 | – id de nome [requerido] | Nome da malha do serviço, sem o ' malha\:' esquema de URI. |
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | – incluir valores | Permite especificar se deseja incluir os valores das propriedades retornadas. Verdadeiro se os valores devem ser retornados com os metadados; Falso para retornar somente metadados de propriedade. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -105,7 +105,7 @@ Cria ou atualiza a propriedade de malha do serviço especificada em um determina
 | --- | --- |
 | – id de nome [requerido] | Nome da malha do serviço, sem o ' malha\:' esquema de URI. |
 | -nome de propriedade [requerido] | O nome da propriedade do Service Fabric. |
-| – valor [requerido] | Descreve um valor de propriedade do Service Fabric. Isso é uma cadeia de caracteres JSON. <br><br> A seqüência json tem dois campos, o 'Tipo' dos dados e o valor, inserido satisfaz como 'Dados' dos dados. O valor de 'Kind' deve ser o primeiro item deve aparecer na cadeia de caracteres JSON e pode ser valores 'Binário', 'Int64', 'Double', 'String' ou 'Guid'. O valor deve ser serializar-capaz de tipos de dados. Valores 'Tipo' e 'Data' devem ser fornecidos como cadeias de caracteres. |
+| – valor [requerido] | Descreve um valor de propriedade do Service Fabric. Isso é uma cadeia de caracteres JSON. <br><br> A cadeia de caracteres JSON tem dois campos, o ' tipo ' dos dados e o valor, inseridos como ' dados ' dos dados. O valor de 'Kind' deve ser o primeiro item deve aparecer na cadeia de caracteres JSON e pode ser valores 'Binário', 'Int64', 'Double', 'String' ou 'Guid'. O valor deve ser serializar-capaz de tipos de dados. Valores 'Tipo' e 'Data' devem ser fornecidos como cadeias de caracteres. |
 | --custom-id-type | Um tipo personalizado da propriedade ID. Usando essa propriedade, o usuário é capaz de marcar o tipo do valor da propriedade. |
 | --timeout -t | Padrão\: 60. |
 
@@ -121,5 +121,5 @@ Cria ou atualiza a propriedade de malha do serviço especificada em um determina
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Configure](service-fabric-cli.md) o CLI do tecido de serviço.
+- [Configure](service-fabric-cli.md) a CLI do Service Fabric.
 - Saiba como usar a CLI do Service Fabric usando os [scripts de exemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

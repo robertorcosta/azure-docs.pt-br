@@ -8,10 +8,10 @@ ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 50ad9d57b24fab9ee57c2f9caae8f4c39d2681f0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669073"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ações com um modelo do Resource Manager
@@ -163,7 +163,7 @@ Para criar um grupo de ações usando um modelo do Resource Manager, você cria 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).
+* Saiba mais sobre [grupos de ações](../../azure-monitor/platform/action-groups.md).
 * Saiba mais sobre [alertas](alerts-overview.md).
 * Saiba como adicionar [Alertas usando um modelo do Resource Manager](../../azure-monitor/platform/alerts-activity-log.md).
 

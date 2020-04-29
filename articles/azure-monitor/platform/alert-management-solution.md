@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
 ms.openlocfilehash: 48a825f31a1c5f2eab2fbb71b6f030b8acb5617d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77668376"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de Gerenciamento de Alertas no Azure Log Analytics
@@ -18,7 +18,7 @@ ms.locfileid: "77668376"
 ![Ícone do Gerenciamento de Alertas](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  O Azure Monitor agora suporta recursos aprimorados para [gerenciar seus alertas em escala, incluindo aqueles gerados](https://aka.ms/azure-alerts-overview)por ferramentas de monitoramento como System Center Operations [Manager, Zabbix ou Nagios.](https://aka.ms/managing-alerts-other-monitoring-services)
+>  O Azure Monitor agora dá suporte a recursos aprimorados para [gerenciar seus alertas em escala](https://aka.ms/azure-alerts-overview), incluindo aqueles gerados por [ferramentas de monitoramento como System Center Operations Manager, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
 >  
 
 
@@ -48,7 +48,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 | Fonte Conectada | Suporte | Descrição |
 |:--- |:--- |:--- |
 | [Agentes do Windows](agent-windows.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
-| [Agentes Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
+| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
 | [Grupo de gerenciamento do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Sim |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
 
 
@@ -61,13 +61,13 @@ Ao adicionar a solução de Gerenciamento de Alertas ao seu espaço de trabalho 
 
 ![Bloco do Gerenciamento de Alertas](media/alert-management-solution/tile.png)
 
-Clique no bloco **Gerenciamento de Alertas** para abrir o painel **Gerenciamento de Alertas**.  O painel inclui as colunas na tabela a seguir.  Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e intervalo de tempo especificados.  Você pode executar uma pesquisa de log que fornece toda a lista clicando em **Ver tudo** na parte inferior da coluna ou clicando no cabeçalho da coluna.
+Clique no bloco **Gerenciamento de Alertas** para abrir o painel **Gerenciamento de Alertas**.  O painel inclui as colunas na tabela a seguir.  Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e intervalo de tempo especificados.  Você pode executar uma pesquisa de logs que fornece a lista inteira clicando em **Ver todos** na parte inferior da coluna ou clicando no cabeçalho da coluna.
 
 | Coluna | Descrição |
 |:--- |:--- |
 | Alertas críticos |Todos os alertas com uma severidade de Crítico agrupados por nome do alerta.  Clique em um nome de alerta para executar uma pesquisa de log retornando todos os registros desse alerta. |
 | Alertas de aviso |Todos os alertas com uma severidade de Aviso agrupados por nome do alerta.  Clique em um nome de alerta para executar uma pesquisa de log retornando todos os registros desse alerta. |
-| Alertas do gerente de operações do centro ativo do sistema |Todos os alertas coletados do Operations Manager com qualquer estado diferente de *Fechado*, agrupados pela origem que gerou o alerta. |
+| Alertas do Active System Center Operations Manager |Todos os alertas coletados do Operations Manager com qualquer estado diferente de *Fechado*, agrupados pela origem que gerou o alerta. |
 | Todos os alertas ativos |Todos os alertas com qualquer severidade agrupados por nome do alerta. Inclui somente alertas do Operations Manager com qualquer estado diferente de *Fechado*. |
 
 Se você rolar para a direita, o painel listará várias consultas comuns nas quais você poderá clicar para realizar uma [pesquisa de logs](../../azure-monitor/log-query/log-query-overview.md) e obter dados de alerta.

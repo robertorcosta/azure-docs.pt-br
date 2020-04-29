@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
 ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667186"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
@@ -50,7 +50,7 @@ A [infraestrutura como código ](/azure/devops/learn/what-is-infrastructure-as-c
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Combine recursos em grupos de recursos do Azure
 Atualmente, um aplicativo típico do Azure inclui vários recursos, como VMs e Serviços de Aplicativos, ou microsserviços hospedados em Serviços de Nuvem, clusters AKS ou Service Fabric. Esses aplicativos usam com frequência dependências como Hubs de Eventos, Armazenamento, SQL e Barramento de Serviço.
 
-- Combine recursos em Grupos de Recursos do Azure para obter visibilidade total em todos os seus recursos que compõem seus diferentes aplicativos. O [Azure Monitor para grupos de recursos](../azure-monitor/insights/resource-group-insights.md) oferece uma maneira simples de acompanhar a integridade e o desempenho de todo o aplicativo de pilha completa e permite pesquisar os respectivos componentes para qualquer investigação ou depuração.
+- Combine recursos nos grupos de recursos do Azure para obter visibilidade total de todos os seus recursos que compõem seus aplicativos diferentes. O [Azure Monitor para grupos de recursos](../azure-monitor/insights/resource-group-insights.md) oferece uma maneira simples de acompanhar a integridade e o desempenho de todo o aplicativo de pilha completa e permite pesquisar os respectivos componentes para qualquer investigação ou depuração.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Garanta a qualidade por meio da implantação contínua
 A Integração Contínua/Implantação Contínua permite integrar e implantar automaticamente alterações de código no aplicativo com base nos resultados de testes automatizados. Ela agiliza o processo de implantação e garante a qualidade das alterações antes de passar para a produção.
@@ -58,7 +58,7 @@ A Integração Contínua/Implantação Contínua permite integrar e implantar au
 
 - Use o [Azure Pipelines](/azure/devops/pipelines) para implementar a Implantação Contínua e automatizar todo o processo, desde a confirmação de código até a produção com base nos testes de CI/CD.
 - Use o [Quality Gates](/azure/devops/pipelines/release/approvals/gates) para integrar o monitoramento na pré-implantação ou pós-implantação. Isso garante que você esteja alcançando as principais métricas de integridade/desempenho (KPIs) à medida que os aplicativos passam do desenvolvimento à produção. E também assegura que as diferenças no ambiente de infraestrutura ou escala não estejam impactando negativamente os KPIs.
-- [Mantenha instâncias de monitoramento separadas](../azure-monitor/app/separate-resources.md) entre seus diferentes ambientes de implantação, como Dev, Test, Canary e Prod. Isso garante que os dados coletados sejam relevantes entre os aplicativos e a infra-estrutura associados. Se você precisar correlacionar dados entre ambientes, poderá usar [gráficos com vários recursos no Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou criar [consultas entre recursos no Azure Monitor](log-query/cross-workspace-query.md).
+- [Mantenha instâncias de monitoramento separadas](../azure-monitor/app/separate-resources.md) entre seus diferentes ambientes de implantação, como dev, Test, canário e prod. Isso garante que os dados coletados sejam relevantes entre os aplicativos e a infraestrutura associados. Se você precisar correlacionar dados entre ambientes, poderá usar [gráficos com vários recursos no Metrics Explorer](../azure-monitor/platform/metrics-charts.md) ou criar [consultas entre recursos no Azure Monitor](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Crie alertas acionáveis com ações
@@ -86,4 +86,4 @@ Garantir que o desenvolvimento e as operações tenham acesso à mesma telemetri
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os diferentes componentes do [Azure Monitor](overview.md).
-- [Adicione monitoramento contínuo](../azure-monitor/app/continuous-monitoring.md) ao seu pipeline de liberação.
+- [Adicione monitoramento contínuo](../azure-monitor/app/continuous-monitoring.md) ao seu pipeline de lançamento.

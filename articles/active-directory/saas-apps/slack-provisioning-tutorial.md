@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Provisão de usuários para Slack - Azure AD'
+title: 'Tutorial: provisionamento de usuário para a margem de atraso-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário no Slack.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc912c2df435f9b7e591d7c5475e126e6b0aeb7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77062822"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
@@ -34,7 +34,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 * Um locatário do Slack com o [plano Plus](https://aadsyncfabric.slack.com/pricing), ou outro com mais recursos, habilitado
 * Uma conta de usuário no Slack com permissões de Administrador de Equipe
 
-Nota: A integração de provisionamento Azure AD conta com a [API Slack SCIM](https://api.slack.com/scim), que está disponível para as equipes do Slack no plano Plus ou melhor.
+Observação: a integração de provisionamento do Azure AD depende da [API scim de margem de atraso](https://api.slack.com/scim), que está disponível para as equipes de margem de atraso no plano mais ou melhor.
 
 ## <a name="assigning-users-to-slack"></a>Como atribuir usuários ao Slack
 
@@ -58,7 +58,7 @@ Esta seção orienta você pela conexão do Azure AD com a API de provisionament
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Slack no Azure AD:
 
-1. No [portal Azure,](https://portal.azure.com)navegue até a seção **Azure Active Directory > Enterprise Apps > All.**
+1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos** .
 
 2. Se você já tiver configurado o Slack para logon único, procure sua instância do Slack usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e procure **Slack** na galeria de aplicativos. Selecione o Slack nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
@@ -122,9 +122,9 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
   
 * O atributo **userName** do Slack precisa ter menos de 21 caracteres e ter um valor exclusivo.
 
-* O Slack só permite a correspondência com os atributos **userName** e **email**.  
+* A margem de atraso só permite correspondência com os atributos **username** e **email**.  
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

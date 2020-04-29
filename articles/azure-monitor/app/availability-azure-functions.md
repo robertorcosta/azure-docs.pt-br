@@ -1,51 +1,51 @@
 ---
-title: Crie e execute testes personalizados de disponibilidade usando funções do Azure
-description: Este doc cobrirá como criar uma função Azure com TrackAvailability() que será executada periodicamente de acordo com a configuração dada na função TimerTrigger. Os resultados deste teste serão enviados para o recurso Application Insights, onde você poderá consultar e alertar sobre os dados dos resultados de disponibilidade. Testes personalizados permitirão que você escreva testes de disponibilidade mais complexos do que é possível usando a ida e volta do portal, monitore um aplicativo dentro do seu VNET do Azure, altere o endereço do ponto final ou crie um teste de disponibilidade se ele não estiver disponível na sua região.
+title: Criar e executar testes de disponibilidade personalizados usando Azure Functions
+description: Este documento explicará como criar uma função do Azure com API trackavailability () que será executado periodicamente de acordo com a configuração fornecida na função TimerTrigger. Os resultados desse teste serão enviados para o recurso de Application Insights, no qual você poderá consultar e alertar sobre os dados de resultados de disponibilidade. Os testes personalizados permitirão que você escreva testes de disponibilidade mais complexos do que o possível usando a interface do usuário do portal, monitore um aplicativo dentro de sua VNET do Azure, altere o endereço do ponto de extremidade ou crie um teste de disponibilidade se ele não estiver disponível em sua região.
 ms.topic: conceptual
 author: morgangrobin
 ms.author: mogrobin
 ms.date: 11/22/2019
 ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665792"
 ---
-# <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Crie e execute testes personalizados de disponibilidade usando funções do Azure
+# <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando Azure Functions
 
-Este artigo abordará como criar uma função Azure com TrackAvailability() que será executada periodicamente de acordo com a configuração dada na função TimerTrigger com sua própria lógica de negócios. Os resultados deste teste serão enviados para o recurso Application Insights, onde você poderá consultar e alertar sobre os dados dos resultados de disponibilidade. Isso permite que você crie testes personalizados semelhantes ao que você pode fazer via [Monitoramento de Disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) no portal. Testes personalizados permitirão que você escreva testes de disponibilidade mais complexos do que é possível usando a ida e volta do portal, monitore um aplicativo dentro do seu VNET do Azure, altere o endereço do ponto final ou crie um teste de disponibilidade mesmo que este recurso não esteja disponível na sua região.
+Este artigo abordará como criar uma função do Azure com API trackavailability () que será executado periodicamente de acordo com a configuração fornecida na função TimerTrigger com sua própria lógica de negócios. Os resultados desse teste serão enviados para o recurso de Application Insights, no qual você poderá consultar e alertar sobre os dados de resultados de disponibilidade. Isso permite que você crie testes personalizados semelhantes ao que você pode fazer por meio do [monitoramento de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) no Portal. Os testes personalizados permitirão que você escreva testes de disponibilidade mais complexos do que o possível usando a interface do usuário do portal, monitore um aplicativo dentro de sua VNET do Azure, altere o endereço do ponto de extremidade ou crie um teste de disponibilidade mesmo que esse recurso não esteja disponível em sua região.
 
 > [!NOTE]
-> Este exemplo foi projetado exclusivamente para mostrar a mecânica de como a chamada aPI TrackAvailability() funciona dentro de uma função Azure. Não como escrever a lógica de código de teste HTTP subjacente/business que seria necessária para transformá-lo em um teste de disponibilidade totalmente funcional. Por padrão, se você passar por este exemplo, você estará criando um teste de disponibilidade que sempre gerará uma falha.
+> Este exemplo é projetado unicamente para mostrar a você a mecânica de como a chamada à API API trackavailability () funciona em uma função do Azure. Não como escrever o código de teste HTTP subjacente/lógica de negócios que seria necessário para transformá-lo em um teste de disponibilidade totalmente funcional. Por padrão, se você percorrer este exemplo, criará um teste de disponibilidade que sempre gerará uma falha.
 
-## <a name="create-timer-triggered-function"></a>Criar função acionada do temporizador
+## <a name="create-timer-triggered-function"></a>Criar função disparada pelo temporizador
 
-- Se você tiver um recurso de insights de aplicativo:
-    - Por padrão, o Azure Functions cria um recurso application Insights, mas se você quiser usar um dos seus recursos já criados, você precisará especificar isso durante a criação.
-    - Siga as instruções sobre como [criar um recurso de funções do Azure e função ativada do Temporizador](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (pare antes de limpar) com as seguintes opções.
-        -  Selecione a guia **Monitorar** perto da parte superior.
+- Se você tiver um recurso de Application Insights:
+    - Por padrão Azure Functions cria um recurso de Application Insights, mas se você quiser usar um dos recursos já criados, será necessário especificar isso durante a criação.
+    - Siga as instruções sobre como [criar um recurso de Azure Functions e uma função disparada por temporizador](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (parar antes de limpar) com as seguintes opções.
+        -  Selecione a guia **monitoramento** perto da parte superior.
 
-            ![ Crie um aplicativo de funções do Azure com seu próprio recurso App Insights](media/availability-azure-functions/create-function-app.png)
+            ![ Criar um aplicativo Azure Functions com seu próprio recurso do App insights](media/availability-azure-functions/create-function-app.png)
 
-        - Selecione a caixa de itens de entrada do Application Insights e digite ou selecione o nome do seu recurso.
+        - Selecione a caixa suspensa Application Insights e digite ou selecione o nome do recurso.
 
-            ![Selecionando o recurso de insights de aplicativos existentes](media/availability-azure-functions/app-insights-resource.png)
+            ![Selecionando recurso de Application Insights existente](media/availability-azure-functions/app-insights-resource.png)
 
-        - Selecione **Revisão + criar**
-- Se você ainda não tiver um recurso de insights de aplicativo criado para a função acionada pelo temporizador:
-    - Por padrão, quando você estiver criando o aplicativo Funções do Azure, ele criará um recurso application Insights para você.
-    - Siga as instruções sobre como [criar um recurso de funções do Azure e função ativada do Temporizador](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (pare antes da limpeza).
+        - Selecione **revisão + criar**
+- Se você ainda não tiver um recurso Application Insights criado para a função disparada pelo temporizador:
+    - Por padrão, quando você estiver criando seu aplicativo de Azure Functions, ele criará um recurso de Application Insights para você.
+    - Siga as instruções sobre como [criar um recurso de Azure Functions e uma função disparada por temporizador](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (parar antes da limpeza).
 
 ## <a name="sample-code"></a>Código de exemplo
 
-Copie o código abaixo no arquivo run.csx (isso substituirá o código pré-existente). Para fazer isso, entre no aplicativo Funções do Azure e selecione a função de gatilho do temporizador à esquerda.
+Copie o código abaixo no arquivo run. CSX (isso substituirá o código pré-existente). Para fazer isso, vá para o aplicativo Azure Functions e selecione a função de gatilho de temporizador à esquerda.
 
 >[!div class="mx-imgBorder"]
->![Função azure run.csx no portal Azure](media/availability-azure-functions/runcsx.png)
+>![Run. CSX da função do Azure em portal do Azure](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Para o endereço endpoint `EndpointAddress= https://dc.services.visualstudio.com/v2/track`que você usaria: . A menos que seu recurso esteja localizado em uma região como o Azure Government ou o Azure China, nesse caso, consulte este artigo sobre [a substituição dos pontos finais padrão](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selecione o ponto final apropriado do Canal de Telemetria para sua região.
+> Para o endereço do ponto de extremidade que `EndpointAddress= https://dc.services.visualstudio.com/v2/track`você usaria:. A menos que o recurso esteja localizado em uma região como o Azure governamental ou o Azure China, nesse caso, consulte este artigo sobre como [substituir os pontos de extremidade padrão](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) e selecionar o apontador de canal de telemetria apropriado para sua região.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -127,7 +127,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 
 ```
 
-À direita, em arquivos à vista, selecione **Adicionar**. Ligue para a nova **função de arquivo.proj** com a seguinte configuração.
+À direita em Exibir arquivos, selecione **Adicionar**. Chame o novo arquivo **Function. proj** com a configuração a seguir.
 
 ```C#
 <Project Sdk="Microsoft.NET.Sdk">
@@ -142,9 +142,9 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 ```
 
 >[!div class="mx-imgBorder"]
->![Na seleção à direita, adicione. Nomeie a função de arquivo.proj](media/availability-azure-functions/addfile.png)
+>![À direita, selecione Adicionar. Nomeie o arquivo function. proj](media/availability-azure-functions/addfile.png)
 
-À direita, em arquivos à vista, selecione **Adicionar**. Ligue para o novo arquivo **runAvailabilityTest.csx** com a seguinte configuração.
+À direita em Exibir arquivos, selecione **Adicionar**. Chame o novo arquivo **runAvailabilityTest. CSX** com a configuração a seguir.
 
 ```C#
 public async static Task RunAvailbiltyTestAsync(ILogger log)
@@ -157,37 +157,37 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 
 ## <a name="check-availability"></a>Verificar a disponibilidade
 
-Para ter certeza de que tudo está funcionando, você pode olhar para o gráfico na guia Disponibilidade do recurso Application Insights.
+Para verificar se tudo está funcionando, você pode examinar o grafo na guia disponibilidade do recurso de Application Insights.
 
 > [!NOTE]
-> Se você implementou sua própria lógica de negócios em runAvailabilityTest.csx, então você verá resultados bem sucedidos como nas capturas de tela abaixo, se você não o fez, então você verá resultados fracassados.
+> Se você implementou sua própria lógica de negócios em runAvailabilityTest. CSX, verá resultados bem-sucedidos como nas capturas de tela abaixo, se você não tiver feito isso, você verá resultados com falha.
 
 >[!div class="mx-imgBorder"]
->![Guia de disponibilidade com resultados bem-sucedidos](media/availability-azure-functions/availtab.png)
+>![Guia disponibilidade com resultados bem-sucedidos](media/availability-azure-functions/availtab.png)
 
-Quando você configurar seu teste usando funções do Azure, você notará que, ao contrário de usar **adicionar teste** na guia Disponibilidade, o nome do seu teste não aparecerá e você não poderá interagir com ele. Os resultados são visualizados, mas você tem uma exibição sumária em vez da mesma visualização detalhada que você recebe quando cria um teste de disponibilidade através do portal.
+Ao configurar seu teste usando Azure Functions você observará que, ao contrário de usar **Adicionar teste** na guia disponibilidade, o nome do teste não será exibido e você não poderá interagir com ele. Os resultados são visualizados, mas você obtém uma exibição resumida em vez da mesma exibição detalhada que você obtém ao criar um teste de disponibilidade por meio do Portal.
 
-Para ver os detalhes de transação de ponta a ponta, **selecione 'Sucesso'** ou **Falha** na broca e selecione uma amostra. Você também pode acessar os detalhes de transação de ponta a ponta selecionando um ponto de dados no gráfico.
-
->[!div class="mx-imgBorder"]
->![Selecione um teste de disponibilidade de amostra](media/availability-azure-functions/sample.png)
+Para ver os detalhes da transação de ponta a ponta, selecione **bem-sucedido** ou **falha** em analisar em e, em seguida, selecione um exemplo. Você também pode obter os detalhes da transação de ponta a ponta selecionando um ponto de dados no grafo.
 
 >[!div class="mx-imgBorder"]
->![Detalhes de transação de ponta a ponta](media/availability-azure-functions/end-to-end.png)
-
-Se você executou tudo como está (sem adicionar lógica de negócios), então você verá que o teste falhou.
-
-## <a name="query-in-logs-analytics"></a>Consulta em Logs (Analytics)
-
-Você pode usar logs(analytics) para exibir resultados de disponibilidade, dependências e muito mais. Para saber mais sobre logs, visite [a visão geral da consulta log](../../azure-monitor/log-query/log-query-overview.md).
+>![Selecione um teste de disponibilidade de exemplo](media/availability-azure-functions/sample.png)
 
 >[!div class="mx-imgBorder"]
->![Resultados de disponibilidade](media/availability-azure-functions/availabilityresults.png)
+>![Detalhes da transação de ponta a ponta](media/availability-azure-functions/end-to-end.png)
+
+Se você executou tudo como está (sem adicionar lógica de negócios), verá que o teste falhou.
+
+## <a name="query-in-logs-analytics"></a>Consulta em logs (análise)
+
+Você pode usar logs (análise) para exibir os resultados de disponibilidade, as dependências e muito mais. Para saber mais sobre logs, visite [visão geral de consultas de log](../../azure-monitor/log-query/log-query-overview.md).
+
+>[!div class="mx-imgBorder"]
+>![Resultados da disponibilidade](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
 >![Dependências](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Mapa do aplicativo](../../azure-monitor/app/app-map.md)
+- [Mapa de aplicativo](../../azure-monitor/app/app-map.md)
 - [Diagnóstico da transação](../../azure-monitor/app/transaction-diagnostics.md)

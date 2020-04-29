@@ -1,6 +1,6 @@
 ---
-title: Tratamento de exceções & cenário de registro de erros
-description: Caso de uso real e cenário para manipulação avançada de exceções e registro de erros em Apps Azure Logic
+title: Tratamento de exceção & cenário de log de erros
+description: Cenário e caso de uso real para tratamento de exceção avançada e log de erros em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
 author: hedidin
@@ -8,10 +8,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76902691"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
@@ -37,9 +37,9 @@ O projeto tinha dois requisitos principais:
 
 ## <a name="how-we-solved-the-problem"></a>Como solucionamos o problema
 
-Escolhemos [o Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como um repositório para registros de registro e erro (Cosmos DB refere-se a registros como documentos). Como os Aplicativos Lógicos do Azure têm um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
+Escolhemos [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como um repositório para os registros de log e de erro (Cosmos DB se refere a registros como documentos). Como os Aplicativos Lógicos do Azure têm um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
 
-Outro requisito era eliminar registros após determinada data. Cosmos DB tem uma propriedade chamada [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Tempo de viver") (TTL), que nos permitiu definir um valor time to **live** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do Cosmos DB.
+Outro requisito era eliminar registros após determinada data. Cosmos DB tem uma [propriedade chamada TTL (vida útil](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Vida útil") ), que nos permitiu definir um valor de **vida útil** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do Cosmos DB.
 
 > [!IMPORTANT]
 > Para concluir este tutorial, você precisa criar um banco de dados do Cosmos DB e duas coleções (Log e Erros).
@@ -431,7 +431,7 @@ Nosso aplicativo de API de gerenciamento de exceções dos Aplicativos Lógicos 
 
 Todos os documentos do Azure Cosmos DB devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
 
-Você pode visualizar o código-fonte da nossa API do controlador de erros do [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
+Você pode exibir o código-fonte da nossa API do controlador de erros do [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 Chamamos a API de um aplicativo lógico usando a seguinte sintaxe:
 
@@ -476,7 +476,7 @@ A expressão no exemplo de código anterior verifica o status de *Create_NewPati
 
 ### <a name="source-code"></a>Código-fonte
 
-O código-fonte do aplicativo API de gerenciamento de exceções do Logic Apps está disponível neste [repositório do GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gerenciamento de exceção de aplicativos de lógica").
+O código-fonte para o aplicativo de API de gerenciamento de exceções de aplicativos lógicos está disponível neste [repositório GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gerenciamento de exceções do aplicativo lógico").
 
 ## <a name="next-steps"></a>Próximas etapas
 

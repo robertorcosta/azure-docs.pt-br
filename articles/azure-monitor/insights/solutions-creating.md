@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f1605597c7716ba6a896c7ecdae968f07d66027b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663208"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Projetar e criar uma solução de gerenciamento no Azure (versão prévia)
@@ -68,8 +68,8 @@ Enquanto você estiver desenvolvendo sua solução, precisará instalar e testá
 ## <a name="publish-your-solution"></a>Publicar sua solução
 Depois de concluir e testar sua solução, disponibilize-a para clientes usando as seguintes fontes.
 
-- **Modelos Azure Quickstart**.  [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) é um conjunto de modelos do Resource Manager que contribuem para a comunidade por meio do GitHub.  Você pode disponibilizar sua solução seguindo as informações no [guia de contribuição](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
-- **Mercado Azure**.  O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) permite distribuir e vender sua solução para outros desenvolvedores, ISVs e profissionais de TI.  Aprenda a publicar sua solução no Azure Marketplace em [Como publicar e gerenciar uma oferta no Azure Marketplace](../../marketplace/marketplace-publishers-guide.md).
+- **Modelos de início rápido do Azure**.  [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) é um conjunto de modelos do Resource Manager que contribuem para a comunidade por meio do GitHub.  Você pode disponibilizar sua solução seguindo as informações no [guia de contribuição](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
+- **Azure Marketplace**.  O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) permite distribuir e vender sua solução para outros desenvolvedores, ISVs e profissionais de TI.  Aprenda a publicar sua solução no Azure Marketplace em [Como publicar e gerenciar uma oferta no Azure Marketplace](../../marketplace/marketplace-publishers-guide.md).
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Apache Hadoop & armazenamento seguro de transferência - Azure HDInsight
+title: Apache Hadoop & armazenamento de transferência segura-Azure HDInsight
 description: Saiba como criar clusters HDInsight com contas de armazenamento do Azure com transferência segura habilitada.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,38 +9,38 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
 ms.openlocfilehash: c1e5ca8b0bb828e5e8ce896bba6a5278266b118e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77560075"
 ---
-# <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Clusters Apache Hadoop com contas seguras de armazenamento de transferência no Azure HDInsight
+# <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop clusters com contas de armazenamento de transferência segura no Azure HDInsight
 
 O recurso [Transferência segura exigida](../storage/common/storage-require-secure-transfer.md) aprimora a segurança de sua conta de Armazenamento do Azure aplicando todas as solicitações à sua conta por meio de uma conexão segura. Esse recurso e o esquema wasbs só têm suporte da versão 3.6 ou mais recente do cluster HDInsight.
 
 > [!IMPORTANT]
-> Permitir a transferência segura de armazenamento após a criação de um cluster pode resultar em erros usando sua conta de armazenamento e não é recomendado. É melhor criar um novo cluster usando uma conta de armazenamento com transferência segura já ativada.
+> Habilitar a transferência de armazenamento seguro depois de criar um cluster pode resultar em erros ao usar sua conta de armazenamento e não é recomendado. É melhor criar um novo cluster usando uma conta de armazenamento com a transferência segura já habilitada.
 
 ## <a name="storage-accounts"></a>Contas de armazenamento
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Por padrão, a propriedade de transferência segura necessária é ativada quando você cria uma conta de armazenamento no portal Azure.
+Por padrão, a propriedade de transferência segura necessária é habilitada quando você cria uma conta de armazenamento no portal do Azure.
 
-Para atualizar uma conta de armazenamento existente com o portal Azure, consulte [Exigir transferência segura com o portal Azure](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-for-an-existing-storage-account).
+Para atualizar uma conta de armazenamento existente com portal do Azure, consulte [exigir transferência segura com portal do Azure](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-for-an-existing-storage-account).
 
 ### <a name="powershell"></a>PowerShell
 
-Para o PowerShell cmdlet [New-AzStorageAccount , certifique-se](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)de que o parâmetro `-EnableHttpsTrafficOnly` está definido como `1`.
+Para o cmdlet [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)do PowerShell, verifique `-EnableHttpsTrafficOnly` se o parâmetro `1`está definido como.
 
-Para atualizar uma conta de armazenamento existente com o PowerShell, consulte [Exigir transferência segura com o PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
+Para atualizar uma conta de armazenamento existente com o PowerShell, consulte [exigir transferência segura com o PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar a [conta de armazenamento az](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)do `--https-only` comando `true`Azure CLI, certifique-se de que o parâmetro está definido como .
+Para o comando CLI do Azure [AZ Storage Account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), verifique se `--https-only` o parâmetro está `true`definido como.
 
-Para atualizar uma conta de armazenamento existente com o Azure CLI, consulte [Exigir transferência segura com o Azure CLI](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
+Para atualizar uma conta de armazenamento existente com CLI do Azure, consulte [exigir transferência segura com CLI do Azure](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli).
 
 ## <a name="add-additional-storage-accounts"></a>Adicionar outras contas de armazenamento
 

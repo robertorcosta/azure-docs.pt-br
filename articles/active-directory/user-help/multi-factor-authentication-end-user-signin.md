@@ -1,6 +1,6 @@
 ---
-title: Faça login usando autenticação com uma conta de trabalho ou escola - Azure AD
-description: Aprenda a entrar na sua conta de trabalho ou escola usando os vários métodos de verificação de dois fatores.
+title: Entrar usando a autenticação com uma conta corporativa ou de estudante-Azure AD
+description: Saiba como entrar em sua conta corporativa ou de estudante usando os vários métodos de verificação de dois fatores.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,13 +14,13 @@ ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.openlocfilehash: 33cf9e284d2206ea497af7a5da7c3cf4a890cc87
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77064080"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Faça login na sua conta de trabalho ou escola usando seu método de verificação de dois fatores
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Entre em sua conta corporativa ou de estudante usando o método de verificação de dois fatores
 
 > [!NOTE]
 > A finalidade deste artigo é examinar uma experiência de conexão típica. Para obter ajuda com a conexão ou resolver problemas, consulte [Problemas com a Autenticação Multifator do Microsoft Azure](multi-factor-authentication-end-user-troubleshoot.md).

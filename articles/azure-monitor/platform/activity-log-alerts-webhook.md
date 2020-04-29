@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77669039"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
@@ -19,7 +19,7 @@ Para saber mais sobre alertas do log de atividades, veja como [Criar alertas do 
 Para saber mais sobre grupos de ações, veja como [criar grupos de ações](../../azure-monitor/platform/action-groups.md).
 
 > [!NOTE]
-> Você também pode usar o [esquema de alerta comum,](https://aka.ms/commonAlertSchemaDocs)que oferece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure Monitor, para suas integrações de webhook. [Conheça as definições comuns do esquema de alerta.](https://aka.ms/commonAlertSchemaDefinitions)
+> Você também pode usar o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure monitor, para suas integrações de webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](https://aka.ms/commonAlertSchemaDefinitions)
 
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
@@ -262,9 +262,9 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 | conditionType |Sempre "Evento". |
 | name |Nome da regra de alerta. |
 | id |ID do recurso do alerta. |
-| descrição |Descrição do alerta definida quando o alerta é criado. |
+| description |Descrição do alerta definida quando o alerta é criado. |
 | subscriptionId |Id de assinatura do Azure. |
-|  timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
+| timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
 | resourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
 | properties |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
@@ -287,8 +287,8 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 Para obter detalhes de esquema específico em todos os outros alertas do log de atividades, veja [Visão geral do log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre o registro de atividades](../../azure-monitor/platform/platform-logs-overview.md).
-* [Execute scripts de automação do Azure (Runbooks) em alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
+* [Saiba mais sobre o log de atividades](../../azure-monitor/platform/platform-logs-overview.md).
+* [Execute os scripts de automação do Azure (Runbooks) nos alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Usar aplicativo lógico para enviar um SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
 * [Usar aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
 * [Usar aplicativo lógico para enviar uma mensagem a uma fila do Azure de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.

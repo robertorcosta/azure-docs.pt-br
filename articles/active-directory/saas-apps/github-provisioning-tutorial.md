@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Provisionamento de usuários para GitHub - Azure AD'
+title: 'Tutorial: provisionamento de usuário para GitHub-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o GitHub.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82f7252f2d9cdd2c54fae593d8463bfe84bd6ce2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057644"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para provisionamento automático de usuário
@@ -32,11 +32,11 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes ite
 
 * Um locatário do Azure Active Directory
 * Uma organização do GitHub criada na [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), que requer o [plano de cobrança do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
-* Uma conta de usuário no GitHub com permissões de administração para a organização
-* Certifique-se de que o acesso OAuth foi fornecido para sua organização como descrito [aqui](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+* Uma conta de usuário no GitHub com permissões de administrador para a organização
+* Verifique se o acesso ao OAuth foi fornecido para sua organização, conforme descrito [aqui](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 
 > [!NOTE]
-> A integração de provisionamento ad do Azure conta com a [API GitHub SCIM](https://developer.github.com/v3/scim/), que está disponível para os clientes [do GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) no plano de cobrança da [GitHub Enterprise.](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+> A integração de provisionamento do Azure AD depende da [API scim do GitHub](https://developer.github.com/v3/scim/), que está disponível para os clientes do [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) no [plano de cobrança do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## <a name="assigning-users-to-github"></a>Atribuindo usuários ao GitHub
 
@@ -61,7 +61,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Configurar o provisionamento automático de conta de usuário para o GitHub no Azure AD
 
-1. No [portal Azure,](https://portal.azure.com)navegue até a seção **Azure Active Directory > Enterprise Apps > All.**
+1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos** .
 
 2. Se você já tiver configurado o GitHub para logon único, pesquise a instância do GitHub usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **GitHub** na galeria de aplicativos. Selecione o GitHub nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
@@ -71,7 +71,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
     ![Provisionamento do GitHub](./media/github-provisioning-tutorial/GitHub1.png)
 
-5. Na seção **Credenciais de Administrador**, clique em **Autorizar**. Essa operação abre uma caixa de diálogo de autorização do GitHub em uma nova janela do navegador. Observe que você precisa garantir que você está aprovado para autorizar o acesso. Siga as instruções descritas [aqui.](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+5. Na seção **Credenciais de Administrador**, clique em **Autorizar**. Essa operação abre uma caixa de diálogo de autorização do GitHub em uma nova janela do navegador. Observe que você precisa garantir que está aprovado para autorizar o acesso. Siga as instruções descritas [aqui](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization).
 
 6. Na nova janela, entre no GitHub usando sua conta do Administrador. Na caixa de diálogo de autorização resultante, selecione a equipe do GitHub para a qual você deseja habilitar o provisionamento e, em seguida, selecione **Autorizar**. Depois de concluído, retorne ao Portal do Azure para concluir a configuração de provisionamento.
 
@@ -99,8 +99,8 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 699a8a69621642d07d3547c07bb20c0d32ca7686
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616986"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configurar o servidor SMT para o SUSE Linux
@@ -34,7 +34,7 @@ Pré-requisitos para instalar um servidor SMT que realiza a tarefa para o HANA e
 
 Primeiro, entre no [Atendimento ao Cliente do SUSE](https://scc.suse.com/).
 
-Ir para**Credenciais da Organização da** **Organização** > . Nesta seção, você deve encontrar as credenciais necessárias para configurar o servidor SMT.
+Vá para **Organization** > **as credenciais da organização**da organização. Nesta seção, você deve encontrar as credenciais necessárias para configurar o servidor SMT.
 
 Em seguida, instale uma VM do Linux SUSE na rede virtual do Azure. Para implantar a máquina virtual, pegue uma imagem de galeria do SLES 12 SP2 do Azure (selecione imagem SUSE BYOS). No processo de implantação, não defina um nome DNS e não use endereços IP estáticos.
 

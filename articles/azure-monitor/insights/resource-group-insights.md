@@ -8,10 +8,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77663531"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorar grupos de recursos com Azure Monitor (versão prévia)
@@ -48,8 +48,8 @@ A página de informações do grupo de recursos fornece várias outras ferrament
    | ---------------- |:-----|
    | [**Alertas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Exiba, crie e gerencie os alertas. |
    | [**Métricas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualize e explore os dados baseados em métricas.    |
-   | [**Registros de atividades**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Eventos de nível de assinatura que ocorreram no Azure.  |
-   | [**Mapa de aplicativos**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navegue pela topologia do aplicativo distribuído para identificar gargalos de desempenho ou pontos de acesso. |
+   | [**Logs de atividade**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Eventos de nível de assinatura que ocorreram no Azure.  |
+   | [**Mapa do aplicativo**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navegue pela topologia do aplicativo distribuído para identificar gargalos de desempenho ou pontos de acesso. |
 
 ## <a name="failures-and-performance"></a>Falhas e desempenho
 

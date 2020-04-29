@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: rohink
 ms.openlocfilehash: b9244d9b2bdc9cb20195bbc103c0b1eb48a9de63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76932542"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gerenciar registros e conjuntos de registros DNS no DNS do Azure usando o Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Cli clássico do Azure](dns-operations-recordsets-cli-nodejs.md)
-> * [Azure CLI](dns-operations-recordsets-cli.md)
-> * [Powershell](dns-operations-recordsets.md)
+> * [Portal do Azure](dns-operations-recordsets-portal.md)
+> * [CLI clássica do Azure](dns-operations-recordsets-cli-nodejs.md)
+> * [CLI do Azure](dns-operations-recordsets-cli.md)
+> * [PowerShell](dns-operations-recordsets.md)
 
 Este artigo mostra como gerenciar os registros de DNS para sua zona de DNS usando o Azure PowerShell. Os registros DNS também podem ser gerenciados usando a [CLI do Azure](dns-operations-recordsets-cli.md) da plataforma cruzada ou o [portal do Azure](dns-operations-recordsets-portal.md).
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre os registros DNS no DNS do Azure, confira [Z
 
 ## <a name="create-a-new-dns-record"></a>Criar um novo registro DNS
 
-Se o seu novo registro tiver o mesmo nome e digite como um registro existente, você precisa [adicioná-lo ao conjunto de registros existente](#add-a-record-to-an-existing-record-set). Se o novo registro tiver um nome e tipo diferentes para todos os registros existentes, você precisará criar um novo conjunto de registros. 
+Se o novo registro tiver o mesmo nome e tipo de um registro existente, você precisará [adicioná-lo ao conjunto de registros existente](#add-a-record-to-an-existing-record-set). Se o novo registro tiver um nome e tipo diferentes para todos os registros existentes, você precisará criar um novo conjunto de registros. 
 
 ### <a name="create-a-records-in-a-new-record-set"></a>Criar registros 'A' em um novo conjunto de registros
 

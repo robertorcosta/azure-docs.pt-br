@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
 ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77666630"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo de ingestão de dados de log no Azure Monitor
@@ -39,10 +39,10 @@ Os agentes e as soluções de gerenciamento usam estratégias diferentes para co
 ### <a name="agent-upload-frequency"></a>Frequência de upload de agente
 Para garantir que o agente do Log Analytics seja leve, o agente armazena em buffer os logs e carrega-os periodicamente no Azure Monitor. A frequência de upload varia entre 30 segundos e 2 minutos, dependendo do tipo de dados. A maioria dos dados é carregada em menos de 1 minuto. As condições de rede podem afetar negativamente a latência com a qual esses dados são recebidos no ponto de ingestão do Azure Monitor.
 
-### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Logs de atividade do Azure, registros de recursos e métricas
+### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Logs de atividades do Azure, logs de recursos e métricas
 Os dados do Azure adicionam tempo extra para se tornarem disponíveis no ponto de ingestão do Log Analytics para processamento:
 
-- Os dados dos registros de recursos levam de 2 a 15 minutos, dependendo do serviço Azure. Confira a [consulta abaixo](#checking-ingestion-time) para examinar essa latência em seu ambiente
+- Os dados dos logs de recursos levam 2-15 minutos, dependendo do serviço do Azure. Confira a [consulta abaixo](#checking-ingestion-time) para examinar essa latência em seu ambiente
 - As métricas de plataforma do Azure levam 3 minutos para serem enviadas ao ponto de ingestão do Log Analytics.
 - Os dados do log de atividades levarão cerca de 10 a 15 minutos para serem enviados ao ponto de ingestão do Log Analytics.
 
@@ -57,7 +57,7 @@ Algumas soluções não coletam seus dados de um agente e podem usar um método 
 Veja a documentação de cada solução para determinar sua frequência de coleta.
 
 ### <a name="pipeline-process-time"></a>Tempo de processo de pipeline
-Uma vez que os registros de registro são ingeridos no pipeline do Azure Monitor (como identificado na propriedade [_TimeReceived),](log-standard-properties.md#_timereceived) eles são escritos para armazenamento temporário para garantir o isolamento do inquilino e para garantir que os dados não sejam perdidos. Normalmente, esse processo adiciona 5 a 15 segundos. Algumas soluções de gerenciamento implementam algoritmos mais pesados para agregar dados e obter insights conforme os dados são recebidos. Por exemplo, o Monitoramento de Desempenho de Rede agrega os dados recebidos em intervalos de 3 minutos, efetivamente, adicionando uma latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com logs personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência aos logs que são coletados de arquivos pelo agente.
+Depois que os registros de log são ingeridos no pipeline de Azure Monitor (conforme identificado na propriedade [_TimeReceived](log-standard-properties.md#_timereceived) ), eles são gravados no armazenamento temporário para garantir o isolamento do locatário e para garantir que os dados não sejam perdidos. Normalmente, esse processo adiciona 5 a 15 segundos. Algumas soluções de gerenciamento implementam algoritmos mais pesados para agregar dados e obter insights conforme os dados são recebidos. Por exemplo, o Monitoramento de Desempenho de Rede agrega os dados recebidos em intervalos de 3 minutos, efetivamente, adicionando uma latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com logs personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência aos logs que são coletados de arquivos pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionamento de novos tipos de dados personalizados
 Quando um novo tipo de dados personalizados é criado com base em um [log personalizado](data-sources-custom-logs.md) ou na [API do Coletor de Dados](data-collector-api.md), o sistema cria um contêiner de armazenamento dedicado. Essa é uma sobrecarga única que ocorre apenas na primeira aparência desse tipo de dados.
@@ -73,18 +73,18 @@ No momento, esse processo leva cerca de 5 minutos quando há um baixo volume de 
 
 
 ## <a name="checking-ingestion-time"></a>Verificando o tempo de ingestão
-O tempo de ingestão pode variar para recursos diferentes em circunstâncias diferentes. Você pode usar consultas de log para identificar um comportamento específico do seu ambiente. A tabela a seguir especifica como você pode determinar os diferentes horários para um registro à medida que ele é criado e enviado para o Azure Monitor.
+O tempo de ingestão pode variar para recursos diferentes em circunstâncias diferentes. Você pode usar consultas de log para identificar um comportamento específico do seu ambiente. A tabela a seguir especifica como você pode determinar as diferentes horas para um registro conforme ele é criado e enviado para Azure Monitor.
 
-| Etapa | Propriedade ou Função | Comentários |
+| Etapa | Propriedade ou função | Comentários |
 |:---|:---|:---|
-| Registro criado na fonte de dados | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir esse valor, ele será definido para o mesmo tempo que _TimeReceived. |
-| Registro recebido pelo Ponto Final de Ingestão do Monitor do Azure | [_TimeReceived](log-standard-properties.md#_timereceived) | |
-| Registro armazenado em espaço de trabalho e disponível para consultas | [ingestion_time](/azure/kusto/query/ingestiontimefunction) | |
+| Registro criado na fonte de dados | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Se a fonte de dados não definir esse valor, ela será definida para o mesmo horário que _TimeReceived. |
+| Registro recebido por Azure Monitor ponto de extremidade de ingestão | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Registro armazenado no espaço de trabalho e disponível para consultas | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Atrasos de latência de ingestão
-Você pode medir a latência de um registro específico comparando o resultado da função [ingestion_time()](/azure/kusto/query/ingestiontimefunction) com a propriedade _TimeGenerated._ Esses dados podem ser usados com várias agregações para descobrir como a latência de ingestão se comporta. Examine alguns percentil do tempo de ingestão para obter insights para uma grande quantidade de dados. 
+Você pode medir a latência de um registro específico comparando o resultado da função [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) com a propriedade _TimeGenerated_ . Esses dados podem ser usados com várias agregações para descobrir como a latência de ingestão se comporta. Examine alguns percentil do tempo de ingestão para obter insights para uma grande quantidade de dados. 
 
-Por exemplo, a consulta a seguir mostrará quais computadores tiveram o maior tempo de ingestão nas 8 horas anteriores: 
+Por exemplo, a consulta a seguir mostrará quais computadores tiveram o maior tempo de ingestão durante as 8 horas anteriores: 
 
 ``` Kusto
 Heartbeat
@@ -95,9 +95,9 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
 
-Os percentis anteriores são bons para encontrar tendências gerais de latência. Identificar um pico de latência a curto`max()`prazo, usar o máximo ( ) pode ser mais eficaz.
+As verificações de percentil anteriores são boas para localizar tendências gerais em latência. Para identificar um pico de curto prazo em latência, usar o máximo (`max()`) pode ser mais eficaz.
 
-Se você quiser detalhar o tempo de ingestão de um computador específico durante um período de tempo, use a seguinte consulta, que também visualiza os dados do dia passado em um gráfico: 
+Se você quiser fazer uma busca detalhada no tempo de ingestão de um computador específico durante um período de tempo, use a consulta a seguir, que também visualiza os dados do dia anterior em um grafo: 
 
 
 ``` Kusto
@@ -109,7 +109,7 @@ Heartbeat
 | render timechart
 ```
  
-Use a seguinte consulta para mostrar o tempo de ingestão do computador pelo país/região em que eles estão localizados, no qual se baseia em seu endereço IP: 
+Use a consulta a seguir para mostrar o tempo de ingestão do computador pelo país/região em que eles estão localizados, com base em seu endereço IP: 
 
 ``` Kusto
 Heartbeat 

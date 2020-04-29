@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure o Visitly para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para visitativamente.
+title: 'Tutorial: configurar o visitado para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para visitar.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,91 +16,91 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063136"
 ---
-# <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Tutorial: Configure visitly para provisionamento automático do usuário
+# <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Tutorial: configurar o visitado para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas que você executa no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários ou grupos para o Visitly.
+O objetivo deste tutorial é demonstrar as etapas executadas em visita e Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente os usuários ou grupos para visitar.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do serviço de provisionamento de usuários Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas freqüentes, consulte [Automate provisionamento e desprovisionamento de usuários para aplicativos de software como serviço (SaaS) com o Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Este tutorial descreve um conector criado sobre o serviço de provisionamento de usuário do Azure AD. Para obter detalhes importantes sobre o que esse serviço faz, como ele funciona e perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS (software como serviço) com Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os termos gerais de uso do Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Atualmente, esse conector está em versão prévia pública. Para obter mais informações sobre os termos de uso geral de Microsoft Azure para recursos de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um inquilino visitante](https://www.visitly.io/pricing/)
-* Uma conta de usuário em Visitly com permissões de administração
+* [Um locatário visitado](https://www.visitly.io/pricing/)
+* Uma conta de usuário em visite as permissões de administrador
 
-## <a name="assign-users-to-visitly"></a>Atribuir usuários ao Visitly 
+## <a name="assign-users-to-visitly"></a>Atribuir usuários para visitarem 
 
-O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso a aplicativos selecionados. No contexto do provisionamento automático do usuário, apenas os usuários ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático do usuário, decida quais usuários ou grupos no Azure AD precisam acessar o Visitly. Em seguida, atribua esses usuários ou grupos ao Visitly seguindo as instruções aqui:
+Antes de configurar e habilitar o provisionamento automático de usuário, decida quais usuários ou grupos no Azure AD precisam de acesso para visitar. Em seguida, atribua esses usuários ou grupos para visitar o seguindo as instruções aqui:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-visitly"></a>Dicas importantes para atribuir usuários ao Visitly 
+## <a name="important-tips-for-assigning-users-to-visitly"></a>Dicas importantes para atribuir usuários para visitarem 
 
-* Recomendamos que você designe um único usuário azure AD para visitar a configuração de provisionamento automático do usuário. Outros usuários ou grupos podem ser atribuídos posteriormente.
+* Recomendamos que você atribua um único usuário do Azure AD para visitar para testar a configuração automática de provisionamento de usuário. Usuários ou grupos adicionais podem ser atribuídos posteriormente.
 
-* Ao atribuir um usuário ao Visitly, você deve selecionar qualquer função específica de aplicativo (se disponível) na caixa de diálogo de atribuição. Os usuários com a função Default Access são excluídos do provisionamento.
+* Ao atribuir um usuário para visitar, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de acesso padrão são excluídos do provisionamento.
 
-## <a name="set-up-visitly-for-provisioning"></a>Configurar o Visitly para provisionamento
+## <a name="set-up-visitly-for-provisioning"></a>Configurar de forma visitada para provisionamento
 
-Antes de configurar o Visitly para provisionamento automático do usuário com o Azure AD, você precisa habilitar o provisionamento do System for Cross-domain Identity Management (SCIM) no Visitly.
+Antes de configurar o visitado para o provisionamento automático de usuário com o Azure AD, você precisa habilitar o sistema para o provisionamento do SCIM (gerenciamento de identidade entre domínios) em visite.
 
-1. Faça login em [Visitly](https://app.visitly.io/login). Selecione **integrações** > **sincronização do host**.
+1. Entre para [visitar](https://app.visitly.io/login). Selecione **integrações** > **host Synchronization**.
 
     ![Sincronização do host](media/Visitly-provisioning-tutorial/login.png)
 
-2. Selecione a seção **Azure AD.**
+2. Selecione a seção **Azure ad** .
 
-    ![Seção Azure AD](media/Visitly-provisioning-tutorial/integration.png)
+    ![Seção do Azure AD](media/Visitly-provisioning-tutorial/integration.png)
 
-3. Copie a **tecla API**. Esses valores são inseridos na caixa **Token Secreto** na guia **Provisionamento** do aplicativo Visitly no portal Azure.
+3. Copie a **chave de API**. Esses valores são inseridos na caixa **token secreto** na guia **provisionamento** do seu aplicativo visitado no portal do Azure.
 
     ![Chave de API](media/Visitly-provisioning-tutorial/token.png)
 
 
-## <a name="add-visitly-from-the-gallery"></a>Adicionar visiteda galeria
+## <a name="add-visitly-from-the-gallery"></a>Adicionar o visitado da Galeria
 
-Para configurar o Visitly para provisionamento automático do usuário com o Azure AD, adicione o Visitly da galeria de aplicativos Azure AD à sua lista de aplicativos SaaS gerenciados.
+Para configurar o visitado para o provisionamento automático de usuário com o Azure AD, adicione o visitado da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-Para adicionar Visitly da galeria de aplicativos Azure AD, siga estas etapas.
+Para adicionar o visitado da Galeria de aplicativos do Azure AD, siga estas etapas.
 
-1. No [portal Azure](https://portal.azure.com), no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos Enterprise**e selecione Todos **os aplicativos**.
+2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite Visitly**, selecione **Visitly** no painel de resultados e, em seguida, **selecione Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **visitado**, selecione **visitar** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar o aplicativo.
 
     ![Visitly na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-automatic-user-provisioning-to-visitly"></a>Configure o provisionamento automático do usuário para o Visitly 
+## <a name="configure-automatic-user-provisioning-to-visitly"></a>Configurar o provisionamento automático de usuário para visitar 
 
-Esta seção orienta você através das etapas para configurar o serviço de provisionamento Azure AD para criar, atualizar e desativar usuários ou grupos no Visitly com base em atribuições de usuário ou grupo no Azure AD.
+Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários ou grupos em visita com base em atribuições de usuário ou de grupo no Azure AD.
 
 > [!TIP]
-> Para habilitar o login único baseado em SAML para visitly, siga as instruções no [tutorial de login único do Visitly](Visitly-tutorial.md). O login único pode ser configurado independentemente do provisionamento automático do usuário, embora esses dois recursos se complementem.
+> Para habilitar o logon único baseado em SAML para o acessado, siga as instruções no [tutorial de logon único do acesse](Visitly-tutorial.md). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
-### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Configure o provisionamento automático do usuário para visitly no Azure AD
+### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Configurar o provisionamento automático de usuário para visitar o Azure AD
 
-1. Faça login no [portal Azure](https://portal.azure.com). Selecione **aplicativos corporativos** > **Todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos** > empresariais**todos os aplicativos**.
 
     ![Todos os aplicativos](common/enterprise-applications.png)
 
@@ -110,56 +110,56 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Guia provisionamento](common/provisioning.png)
 
 4. Defina o **modo de provisionamento** como **automático**.
 
-    ![Modo de provisionamento definido como Automático](common/provisioning-automatic.png)
+    ![Modo de provisionamento definido como automático](common/provisioning-automatic.png)
 
-5. Na seção Credenciais de Admin, `https://api.visitly.io/v1/usersync/SCIM` insira os valores de chave e **API** recuperados anteriormente em URL de **inquilino** e **Token Secreto,** respectivamente. Selecione **Conexão de teste** para garantir que o Azure AD possa se conectar ao Visitly. Se a conexão falhar, certifique-se de que sua conta visitativamente tenha permissões de administração e tente novamente.
+5. Na seção credenciais de administrador, insira os `https://api.visitly.io/v1/usersync/SCIM` valores de **chave de API** e recuperados anteriormente na URL do **locatário** e no **token secreto**, respectivamente. Selecione **testar conexão** para garantir que o Azure ad possa se conectar ao visite. Se a conexão falhar, verifique se sua conta visitada tem permissões de administrador e tente novamente.
 
-    ![URL do inquilino + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Na caixa **De e-mail de notificação,** digite o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento. Selecione **enviar uma notificação de e-mail quando ocorrer uma falha** na caixa de seleção.
+6. Na caixa **email de notificação** , insira o endereço de email de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento. Marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha** .
 
     ![Notificação por email](common/provisioning-notification-email.png)
 
 7. Selecione **Salvar**.
 
-8. Na seção **Mapeamentos,** selecione **Sincronizar usuários do diretório ativo do Azure para visitativamente**.
+8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para visitarem**.
 
-    ![Mapeamentos de usuários visitando](media/visitly-provisioning-tutorial/usermapping.png)
+    ![Mapeamentos de usuário visitados](media/visitly-provisioning-tutorial/usermapping.png)
 
-9. Revise os atributos do usuário sincronizados do Azure AD para visitativamente na seção Mapeamentos de **atributos.** Os atributos selecionados como **propriedades de correspondência** são usados para corresponder às contas de usuário no Visitly para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
+9. Examine os atributos de usuário que são sincronizados do Azure AD para visitar a seção **mapeamentos de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário em visitado para operações de atualização. Para confirmar eventuais alterações, selecione **Salvar**.
 
-    ![Atributos de usuário visitantes](media/visitly-provisioning-tutorial/userattribute.png)
+    ![Atributos de usuário visitados](media/visitly-provisioning-tutorial/userattribute.png)
 
-10. Para configurar filtros de escopo, siga as instruções no [tutorial do filtro Scoping](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de escopo, siga as instruções no [tutorial filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar o serviço de provisionamento Azure AD para Visitly, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações.**
+11. Para habilitar o serviço de provisionamento do Azure AD para visitar, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
-    ![Status de provisionamento alternado](common/provisioning-toggle-on.png)
+    ![Status de provisionamento alternado em](common/provisioning-toggle-on.png)
 
-12. Defina os usuários ou grupos que você deseja prover para Visitly escolhendo os valores desejados no **Escopo** na seção **Configurações.**
+12. Defina os usuários ou grupos que você deseja provisionar para visitar o visitado escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para provisionar, **selecione Salvar**.
+13. Quando estiver pronto para provisionar, selecione **salvar**.
 
-    ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
+    ![Salvando configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Esta operação inicia a sincronização inicial de todos os usuários ou grupos definidos no **Escopo** na seção **Configurações.** A sincronização inicial leva mais tempo para ser realizado do que as sincronizações subseqüentes. Para obter mais informações sobre quanto tempo leva para os usuários ou grupos proverem, consulte [quanto tempo levará para provisionar os usuários?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Essa operação inicia a sincronização inicial de todos os usuários ou grupos definidos no **escopo** na seção **configurações** . A sincronização inicial demora mais para ser executada do que as sincronizações subsequentes. Para obter mais informações sobre quanto tempo leva para o provisionamento de usuários ou grupos, consulte [quanto tempo levará para provisionar os usuários?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Você pode usar a seção **Status atual** para monitorar o progresso e seguir links para o seu relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento Azure AD no Visitly. Para obter mais informações, consulte [Verifique o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+Você pode usar a seção **status atual** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD em visitado. Para obter mais informações, consulte [verificar o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Para ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de conta de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-A visita não suporta exclusões duras. Tudo é apenas soft delete.
+Visitado não dá suporte a exclusões rígidas. Tudo é somente exclusão reversível.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciar o provisionamento de contas de usuário para aplicativos corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciar o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

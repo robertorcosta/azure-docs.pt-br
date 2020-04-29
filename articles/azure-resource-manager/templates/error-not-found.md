@@ -1,13 +1,13 @@
 ---
-title: Recurso não encontrado erros
-description: Descreve como resolver erros quando um recurso não pode ser encontrado ao ser implantado com um modelo do Azure Resource Manager.
+title: Erros de recurso não encontrado
+description: Descreve como resolver erros quando um recurso não pode ser encontrado ao implantar com um modelo de Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773255"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Solucione erros que ocorrem quando recursos do Azure não são encontrados
@@ -89,13 +89,13 @@ Procure por uma expressão que inclui a função [reference](template-functions-
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
 
-## <a name="solution-4---get-managed-identity-from-resource"></a>Solução 4 - obter identidade gerenciada a partir de recursos
+## <a name="solution-4---get-managed-identity-from-resource"></a>Solução 4 – obter a identidade gerenciada do recurso
 
-Se você estiver implantando um recurso que cria implicitamente uma [identidade gerenciada,](../../active-directory/managed-identities-azure-resources/overview.md)você deve esperar até que esse recurso seja implantado antes de recuperar valores na identidade gerenciada. Se você passar o nome de identidade gerenciado para a função [de referência,](template-functions-resource.md#reference) o Gerenciador de recursos tentará resolver a referência antes que o recurso e a identidade sejam implantados. Em vez disso, passe o nome do recurso ao que a identidade é aplicada. Essa abordagem garante que o recurso e a identidade gerenciada sejam implantados antes que o Gerenciador de recursos resolva a função de referência.
+Se você estiver implantando um recurso que cria implicitamente uma [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md), deverá aguardar até que esse recurso seja implantado antes de recuperar os valores na identidade gerenciada. Se você passar o nome da identidade gerenciada para a função de [referência](template-functions-resource.md#reference) , o Gerenciador de recursos tentará resolver a referência antes que o recurso e a identidade sejam implantados. Em vez disso, passe o nome do recurso ao qual a identidade é aplicada. Essa abordagem garante que o recurso e a identidade gerenciada sejam implantados antes que o Resource Manager resolva a função de referência.
 
-Na função de `Full` referência, use para obter todas as propriedades, incluindo a identidade gerenciada.
+Na função de referência, use `Full` para obter todas as propriedades, incluindo a identidade gerenciada.
 
-Por exemplo, para obter o ID do inquilino para uma identidade gerenciada que é aplicada a um conjunto de escala de máquina virtual, use:
+Por exemplo, para obter a ID de locatário para uma identidade gerenciada que é aplicada a um conjunto de dimensionamento de máquinas virtuais, use:
 
 ```json
 "tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"

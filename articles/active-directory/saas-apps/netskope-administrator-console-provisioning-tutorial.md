@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure o console administrador da Netskope para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Console administrador da Netskope.
+title: 'Tutorial: configurar o Netskope Console do Administrador para o provisionamento automático de usuário com Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o Netskope Console do Administrador.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: eaee8e3305572d696e52c3879be2e2b9924bc93f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77061211"
 ---
-# <a name="tutorial-configure-netskope-administrator-console-for-automatic-user-provisioning"></a>Tutorial: Configure o console administrador da Netskope para provisionamento automático do usuário
+# <a name="tutorial-configure-netskope-administrator-console-for-automatic-user-provisioning"></a>Tutorial: configurar o Netskope Console do Administrador para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no Console Administrador da Netskope e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para o Console administrador da Netskope.
+O objetivo deste tutorial é demonstrar as etapas a serem executadas no Netskope Console do Administrador e no Azure Active Directory (AD do Azure) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos no Netskope Console do Administrador.
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -36,95 +36,95 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Console 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um inquilino do Console administrador de Netskope](https://www.netskope.com/)
-* Uma conta de usuário no Console administrador da Netskope com permissões de administração.
+* [Um locatário do Netskope Console do Administrador](https://www.netskope.com/)
+* Uma conta de usuário no Netskope Console do Administrador com permissões de administrador.
 
-## <a name="assigning-users-to-netskope-administrator-console"></a>Atribuindo usuários ao console administrador da Netskope
+## <a name="assigning-users-to-netskope-administrator-console"></a>Atribuindo usuários ao Netskope Console do Administrador
 
-O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso a aplicativos selecionados. No contexto do provisionamento automático do usuário, apenas os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático do usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam acessar o Console administrador da Netskope. Uma vez decidido, você pode atribuir esses usuários e/ou grupos ao Console administrador da Netskope seguindo as instruções aqui:
+Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao Netskope Console do Administrador. Depois de decidir, você pode atribuir esses usuários e/ou grupos ao Netskope Console do Administrador seguindo as instruções aqui:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-netskope-administrator-console"></a>Dicas importantes para atribuir usuários ao console administrador da Netskope
+## <a name="important-tips-for-assigning-users-to-netskope-administrator-console"></a>Dicas importantes para atribuir usuários ao Netskope Console do Administrador
 
-* Recomenda-se que um único usuário Azure AD seja designado ao Console administrador da Netskope para testar a configuração automática de provisionamento do usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* É recomendável que um único usuário do Azure AD seja atribuído ao Netskope Console do Administrador para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Console administrador da Netskope, você deve selecionar qualquer função específica de aplicativo (se disponível) na caixa de diálogo de atribuição. Os usuários com a **função Default Access** são excluídos do provisionamento.
+* Ao atribuir um usuário ao Netskope Console do Administrador, você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
 
-## <a name="set-up-netskope-administrator-console-for-provisioning"></a>Configurar o console administrador da Netskope para provisionamento
+## <a name="set-up-netskope-administrator-console-for-provisioning"></a>Configurar Console do Administrador Netskope para provisionamento
 
-1. Faça login no console [administrador do console netskope](https://netskope.goskope.com/). Navegue até **configurações de > doméstica .**
+1. Entre no console do [administrador do Netskope console do administrador](https://netskope.goskope.com/). Navegue até **página inicial > configurações**.
 
-    ![Console administrador de Netskope Console Console Console](media/netskope-administrator-console-provisioning-tutorial/admin.png)
+    ![Console de administração do Netskope Console do Administrador](media/netskope-administrator-console-provisioning-tutorial/admin.png)
 
-2.  Navegue até **ferramentas**. No menu **Ferramentas,** navegue até **ferramentas de diretório > integração SCIM**.
+2.  Navegue até **ferramentas**. No menu **ferramentas** , navegue até **ferramentas de diretório > integração scim**.
 
-    ![Ferramentas do console do administrador da Netskope](media/netskope-administrator-console-provisioning-tutorial/tools.png)
+    ![Ferramentas de Console do Administrador de Netskope](media/netskope-administrator-console-provisioning-tutorial/tools.png)
 
-    ![Console administrador de Netskope adicionar SCIM](media/netskope-administrator-console-provisioning-tutorial/directory.png)
+    ![Netskope Console do Administrador adicionar SCIM](media/netskope-administrator-console-provisioning-tutorial/directory.png)
 
-3. Role para baixo e clique no botão **Adicionar token.** Na caixa de diálogo **Adicionar nome do cliente OAuth,** forneça um NOME DO **CLIENTE** e clique no botão **Salvar.**
+3. Role para baixo e clique no botão **Adicionar token** . Na caixa de diálogo **adicionar nome do cliente OAuth** , forneça um **nome de cliente** e clique no botão **salvar** .
 
-    ![Console administrador de Netskope adicionar token](media/netskope-administrator-console-provisioning-tutorial/add.png)
+    ![Netskope Console do Administrador adicionar token](media/netskope-administrator-console-provisioning-tutorial/add.png)
 
-    ![Nome client do console do administrador de Netskope](media/netskope-administrator-console-provisioning-tutorial/clientname.png)
+    ![Netskope Console do Administrador nome do cliente](media/netskope-administrator-console-provisioning-tutorial/clientname.png)
 
-3.  Copie a **URL do servidor SCIM** e o **TOKEN**. Esses valores serão inseridos nos campos URL do inquilino e token secreto, respectivamente, na guia Provisionamento do aplicativo Console administrador da Netskope no portal Azure.
+3.  Copie a **URL do servidor scim** e o **token**. Esses valores serão inseridos nos campos URL do locatário e token secreto, respectivamente, na guia provisionamento do aplicativo Netskope Console do Administrador no portal do Azure.
 
-    ![Console administrador da Netskope criar token](media/netskope-administrator-console-provisioning-tutorial/token.png)
+    ![Netskope Console do Administrador criar token](media/netskope-administrator-console-provisioning-tutorial/token.png)
 
-## <a name="add-netskope-administrator-console-from-the-gallery"></a>Adicionar console administrador netskope da galeria
+## <a name="add-netskope-administrator-console-from-the-gallery"></a>Adicionar o Netskope Console do Administrador da Galeria
 
-Antes de configurar o Console administrador da Netskope para provisionamento automático do usuário com o Azure AD, você precisa adicionar o Console administrador do Netskope da galeria de aplicativos Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o Netskope Console do Administrador para o provisionamento automático de usuário com o Azure AD, você precisará adicionar o Netskope Console do Administrador da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Console administrador da Netskope na galeria de aplicativos Azure AD, execute as seguintes etapas:**
+**Para adicionar o Netskope Console do Administrador da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos Enterprise**e selecione Todos **os aplicativos**.
+2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **digite o console administrador da Netskope,** selecione **o console administrador da Netskope** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **Netskope console do administrador**, selecione **Netskope console do administrador** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Console administrador de Netskope na lista de resultados](common/search-new-app.png)
+    ![Netskope Console do Administrador na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-netskope-administrator-console"></a>Configuração do provisionamento automático do usuário para o console administrador da Netskope 
+## <a name="configuring-automatic-user-provisioning-to-netskope-administrator-console"></a>Configurando o provisionamento automático de usuário para o Netskope Console do Administrador 
 
-Esta seção orienta você através das etapas para configurar o serviço de provisionamento Azure AD para criar, atualizar e desativar usuários e/ou grupos no Console administrador da Netskope com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no Netskope Console do Administrador com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por ativar o login único baseado em SAML para o Console administrador da Netskope, seguindo as instruções fornecidas no tutorial de login único do [administrador da Netskope](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial). O login único pode ser configurado independentemente do provisionamento automático do usuário, embora esses dois recursos se complementem.
+> Você também pode optar por habilitar o logon único baseado em SAML para o Netskope Console do Administrador seguindo as instruções fornecidas no tutorial de [logon único do Netskope console do administrador](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
 > [!NOTE]
-> Para saber mais sobre o ponto final SCIM do Console administrador da Netskope, consulte [este](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon).
+> Para saber mais sobre o ponto de extremidade SCIM do Netskope Console do Administrador, confira [isso](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon).
 
-### <a name="to-configure-automatic-user-provisioning-for-netskope-administrator-console-in-azure-ad"></a>Para configurar o provisionamento automático do usuário para o Console administrador da Netskope no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-netskope-administrator-console-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para Netskope Console do Administrador no Azure AD:
 
-1. Faça login no [portal Azure](https://portal.azure.com). Selecione **Aplicativos Corporativos**e selecione **Todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicativos, selecione **Netskope Administrator Console**.
 
-    ![O link do console administrador da Netskope na lista de aplicativos](common/all-applications.png)
+    ![O link de Console do Administrador Netskope na lista de aplicativos](common/all-applications.png)
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Guia provisionamento](common/provisioning.png)
 
 4. Defina o **modo de provisionamento** como **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção Credenciais de **Admin,** o valor de **URL do Servidor SCIM** de entrada recuperado anteriormente na **URL do inquilino**. Insira o valor **TOKEN** recuperado anteriormente no **Secret Token**. Clique **em Conexão de teste** para garantir que o Azure AD possa se conectar ao console administrador da Netskope. Se a conexão falhar, certifique-se de que a conta do console administrador da Netskope tenha permissões de administração e tente novamente.
+5. Na seção **credenciais de administrador** , insira o valor da **URL do servidor scim** recuperado anteriormente na **URL do locatário**. Insira o valor do **token** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Netskope console do administrador. Se a conexão falhar, verifique se sua conta de Console do Administrador Netskope tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -134,29 +134,29 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
 7. Clique em **Salvar**.
 
-8. Na seção **Mapeamentos,** selecione **Sincronizar usuários do diretório ativo do Azure para o console administrador do Netskope**.
+8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Netskope console do administrador**.
 
-    ![Mapeamentos de usuários do console do administrador da Netskope](media/netskope-administrator-console-provisioning-tutorial/usermappings.png)
+    ![Mapeamentos de usuário do Netskope Console do Administrador](media/netskope-administrator-console-provisioning-tutorial/usermappings.png)
 
-9. Revise os atributos do usuário sincronizados do Azure AD para o Console administrador do Netskope na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades correspondentes** são usados para corresponder às contas de usuário no Console administrador do Netskope para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que são sincronizados do Azure AD para o Netskope Console do Administrador na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Netskope console do administrador para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos do usuário do console do administrador da Netskope](media/netskope-administrator-console-provisioning-tutorial/userattributes.png)
+    ![Netskope Console do Administrador atributos de usuário](media/netskope-administrator-console-provisioning-tutorial/userattributes.png)
 
-10. Na seção **Mapeamentos,** selecione **Sincronizar Grupos de diretórios ativos do Azure para o Console administrador do Netskope**.
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para Netskope console do administrador**.
 
-    ![Mapeamentos do grupo de consoles do administrador da Netskope](media/netskope-administrator-console-provisioning-tutorial/groupmappings.png)
+    ![Mapeamentos de grupo de Console do Administrador de Netskope](media/netskope-administrator-console-provisioning-tutorial/groupmappings.png)
 
-11. Revise os atributos de grupo sincronizados do Azure AD para o Console administrador do Netskope na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades correspondentes** são usados para corresponder aos grupos no Console administrador do Netskope para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de grupo que são sincronizados do Azure AD para o Netskope Console do Administrador na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos em Netskope console do administrador para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos do grupo de console sumido do administrador da Netskope](media/netskope-administrator-console-provisioning-tutorial/groupattributes.png)
+    ![Netskope atributos de grupo de Console do Administrador](media/netskope-administrator-console-provisioning-tutorial/groupattributes.png)
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento Azure AD para o Console administrador da Netskope, altere o **Status de Provisionamento** para **Ativado** na seção **Configurações.**
+13. Para habilitar o serviço de provisionamento do Azure AD para Netskope Console do Administrador, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos que você gostaria de provisionar para o Console administrador da Netskope, escolhendo os valores desejados no **Escopo** na seção **Configurações.**
+14. Defina os usuários e/ou grupos que você deseja provisionar para Netskope Console do Administrador escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -164,14 +164,14 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **Detalhes de Sincronização** para monitorar o progresso e seguir links para o relatório de atividadede provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento Azure AD no Console administrador da Netskope.
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Netskope console do administrador.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

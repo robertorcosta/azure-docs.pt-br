@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI- nó sfctl
-description: Saiba mais sobre a sfctl, a interface de linha de comando Azure Service Fabric. Inclui uma lista de comandos para gerenciar os nós de cluster.
+title: CLI do Azure Service Fabric-nó sfctl
+description: Saiba mais sobre o sfctl, a interface de linha de comando Service Fabric do Azure. Inclui uma lista de comandos para gerenciar nós de cluster.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76905885"
 ---
 # <a name="sfctl-node"></a>Nó sfctl
@@ -19,34 +19,34 @@ Gerenciar os nós que formam um cluster.
 
 |Comando|Descrição|
 | --- | --- |
-| complemento-configuração-parâmetro-substituições | Adiciona a lista de substituições de configuração no nó especificado. |
+| Adicionar parâmetro-configuração-substituições | Adiciona a lista de substituições de configuração no nó especificado. |
 | disable | Desativa um nó de cluster do Service Fabric com a intenção de desativação especificada. |
 | enable | Ativar um nó de cluster do Service Fabric que está desativado no momento. |
-| get-configuration-overrides | Obtém a lista de substituições de configuração no nó especificado. |
+| obter substituições de configuração | Obtém a lista de substituições de configuração no nó especificado. |
 | integridade | Obtém a integridade de um nó do Service Fabric. |
 | informações | Obtém as informações sobre um nó específico no cluster do Service Fabric. |
 | list | Obtém a lista de nós no cluster do Service Fabric. |
 | load | Obtém as informações de carregamento de um nó do Service Fabric. |
-| remove-configuração-substituições | Remove substituições de configuração no nó especificado. |
+| Remove-Configuration-substituições | Remove as substituições de configuração no nó especificado. |
 | remove-state | Notifica o Service Fabric que o estado persistente em um nó foi permanentemente removido ou perdido. |
 | report-health | Envia um relatório de integridade sobre o nó do Service Fabric. |
 | restart | Reinicia um nó de cluster do Service Fabric. |
-| transition | Inicia ou interrompe um nó de cluster. |
+| transição | Inicia ou interrompe um nó de cluster. |
 | transition-status | Obtém o progresso de uma operação iniciada usando StartNodeTransition. |
 
-## <a name="sfctl-node-add-configuration-parameter-overrides"></a>sfctl nó add-configuration-parameter-overrides
+## <a name="sfctl-node-add-configuration-parameter-overrides"></a>sfctl nó Add-Configuration-substituições de parâmetro
 Adiciona a lista de substituições de configuração no nó especificado.
 
-Esta api permite adicionar todas as substituições de configuração existentes no nó especificado.
+Essa API permite adicionar todas as substituições de configuração existentes no nó especificado.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --config-parameter-override-list [Obrigatório] | Descrição para adicionar lista de substituições de configuração. |
-| --nome de nó [Obrigatório] | O nome do nó. |
-| -Force | Forçar a adição de substituições de configuração em nós especificados. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --config-parâmetro-override-list [obrigatório] | Descrição para adicionar a lista de substituições de configuração. |
+| --node-Name [obrigatório] | O nome do nó. |
+| -Force | Forçar adição de substituições de configuração em nós especificados. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -69,7 +69,7 @@ Desativa um nó de cluster do Service Fabric com a intenção de desativação e
 | --- | --- |
 | --node-name [Obrigatório] | O nome do nó. |
 | --deactivation-intent | Descreve a intenção ou o motivo da desativação do nó. Os valores possíveis são os seguintes. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -91,7 +91,7 @@ Ativa um nó de cluster do Service Fabric que está desativado no momento. Quand
 |Argumento|Descrição|
 | --- | --- |
 | --node-name [Obrigatório] | O nome do nó. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -103,17 +103,17 @@ Ativa um nó de cluster do Service Fabric que está desativado no momento. Quand
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-node-get-configuration-overrides"></a>sfctl nó get-configuration-overrides
+## <a name="sfctl-node-get-configuration-overrides"></a>Get-Configuration do nó sfctl-substituições
 Obtém a lista de substituições de configuração no nó especificado.
 
-Esta api permite obter todas as substituições de configuração existentes no nó especificado.
+Essa API permite obter todas as substituições de configuração existentes no nó especificado.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --node-name [Obrigatório] | O nome do nó. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -136,7 +136,7 @@ Obtém a integridade de um nó do Service Fabric. Use EventsHealthStateFilter pa
 | --- | --- |
 | --node-name [Obrigatório] | O nome do nó. |
 | --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -158,7 +158,7 @@ A resposta inclui o nome, o status, a ID, a integridade, o tempo de atividade e 
 |Argumento|Descrição|
 | --- | --- |
 | --node-name [Obrigatório] | O nome do nó. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -182,7 +182,7 @@ A resposta inclui o nome, o status, a ID, a integridade, o tempo de atividade e 
 | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. |
 | --max-results | O número máximo de resultados a serem retornados como parte das consultas paginadas. Esse parâmetro define o limite superior no número de resultados retornados. Os resultados retornados podem ser inferiores aos resultados máximos especificados se não couberem na mensagem, de acordo com as restrições de tamanho máximo de mensagem definidas na configuração. Se esse parâmetro for zero, ou não for especificado, a consulta paginada incluirá o máximo de resultados possível na mensagem de retorno. |
 | --node-status-filter | Permite a filtragem de nós de acordo com o NodeStatus. Somente os nós que correspondem ao valor do filtro especificado serão retornados. O valor do filtro pode ser um dos seguintes.  Padrão\: padrão. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -204,7 +204,7 @@ Recupera as informações de carga de um nó do Service Fabric para todas as mé
 |Argumento|Descrição|
 | --- | --- |
 | --node-name [Obrigatório] | O nome do nó. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -216,17 +216,17 @@ Recupera as informações de carga de um nó do Service Fabric para todas as mé
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o detalhamento do log. Use --debug para logs de depuração completos. |
 
-## <a name="sfctl-node-remove-configuration-overrides"></a>sfctl nó remove-configuração-substituições
-Remove substituições de configuração no nó especificado.
+## <a name="sfctl-node-remove-configuration-overrides"></a>sfctl nó remove-Configuration-substituições
+Remove as substituições de configuração no nó especificado.
 
-Esta api permite remover todas as substituições de configuração existentes no nó especificado.
+Essa API permite remover todas as substituições de configuração existentes no nó especificado.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --node-name [Obrigatório] | O nome do nó. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -241,14 +241,14 @@ Esta api permite remover todas as substituições de configuração existentes n
 ## <a name="sfctl-node-remove-state"></a>remover nó sfctl - estado
 Notifica o Service Fabric que o estado persistente em um nó foi permanentemente removido ou perdido.
 
-Isso significa que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se um disco rígido tiver sido limpo ou se um disco rígido falhar. O nó deve ser para baixo para que essa operação seja bem-sucedida. Esta operação permite que o Service Fabric saiba que as réplicas no nó deixarão de existir e esse Service Fabric deve parar de esperar que essas réplicas retornem. Não execute esse cmdlet se o estado no nó foi removido e se o nó pode retornar com seu estado intacto. A partir do Service Fabric 6.5, a fim de usar esta API para nós de sementes, por favor, mude os nós de sementes para nós regulares (sem sementes) e, em seguida, invoque esta API para remover o estado do nó. Se o cluster estiver sendo executado no Azure, depois que o nó de semente sumir, o Service Fabric tentará alterá-lo automaticamente para um nó não-semente. Para que isso aconteça, certifique-se de que o número de nódulos não-sementes no tipo de nó primário não seja menor do que o número de nódulos de sementes Down. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso. Para cluster autônomo, se não se espera que o nó de sementes Down volte a ter seu\:estado intacto, remova o nó do cluster, consulte https //docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
+Isso significa que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se um disco rígido tiver sido limpo ou se um disco rígido falhar. O nó deve ser para baixo para que essa operação seja bem-sucedida. Esta operação permite que o Service Fabric saiba que as réplicas no nó deixarão de existir e esse Service Fabric deve parar de esperar que essas réplicas retornem. Não execute esse cmdlet se o estado no nó foi removido e se o nó pode retornar com seu estado intacto. A partir do Service Fabric 6,5, para usar esta API para nós de semente, altere os nós de semente para nós regulares (não semente) e, em seguida, invoque essa API para remover o estado do nó. Se o cluster estiver em execução no Azure, depois que o nó semente ficar inativo, Service Fabric tentará alterá-lo para um nó não semente automaticamente. Para fazer isso acontecer, verifique se o número de nós não semente no tipo de nó primário não é menor que o número de nós de semente inativos. Se necessário, adicione mais nós ao tipo de nó primário para conseguir isso. Para o cluster autônomo, se o nó semente inoperante não se espera retornar com seu estado intacto, remova o nó do cluster, consulte https\://docs.Microsoft.com/en-US/Azure/Service-Fabric/Service-Fabric-cluster-Windows-Server-Add-Remove-Nodes.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
 | --node-name [Obrigatório] | O nome do nó. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -302,7 +302,7 @@ Reinicia um nó de cluster do Service Fabric que já foi iniciado.
 | --node-name [Obrigatório] | O nome do nó. |
 | --create-fabric-dump | Especifique True para criar um despejo do processo do nó de malha. Diferencia maiúsculas de minúsculas.  Padrão\: falso. |
 | --node-instance-id | A ID da instância do nó de destino. Se a ID da instância for especificada, o nó será reiniciado somente se corresponder à instância atual do nó. Um valor padrão de "0" corresponderia à ID de qualquer instância. A ID da instância pode ser obtida usando a consulta get node.  Padrão\: 0. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -328,7 +328,7 @@ Inicia ou interrompe um nó de cluster.  Um nó de cluster é um processo, não 
 | --node-transition-type     [Obrigatório] | Indica o tipo de transição a ser executado.  NodeTransitionType.Start iniciará um nó parado. NodeTransitionType.Stop interromperá um nó ativo. |
 | --operation-id             [Obrigatório] | Um GUID que identifica uma chamada dessa API.  Isso é passado para a API GetProgress correspondente. |
 | --stop-duration-in-seconds [Obrigatório] | A duração, em segundos, para manter o nó interrompido.  O valor mínimo é 600, o máximo é 14400.  Depois que esse tempo expirar, o nó automaticamente voltará a funcionar. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -351,7 +351,7 @@ Obtém o andamento de uma operação iniciada com StartNodeTransition usando a I
 | --- | --- |
 | --node-name                [Obrigatório] | O nome do nó. |
 | --id da operação [requerido] | Um GUID que identifica uma chamada dessa API.  Isso é passado para a API GetProgress correspondente. |
-| --timeout -t | O tempo de intervalo do servidor para realizar a operação em segundos. Este tempo estipula a duração de tempo que o cliente está disposto a esperar para que a operação solicitada seja concluída. O valor padrão deste parâmetro é de 60 segundos.  Padrão\: 60. |
+| --timeout -t | O tempo limite do servidor para executar a operação em segundos. Esse tempo limite especifica a duração de tempo que o cliente está disposto a aguardar a conclusão da operação solicitada. O valor padrão para esse parâmetro é 60 segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 

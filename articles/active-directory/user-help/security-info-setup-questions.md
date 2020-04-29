@@ -1,6 +1,6 @@
 ---
-title: Configure perguntas de segurança como seu método de verificação - Azure AD
-description: Como configurar sua página de informações de segurança (visualização) para verificar sua identidade usando perguntas de segurança pré-definidas como seu método de verificação.
+title: Configurar perguntas de segurança como seu método de verificação – Azure AD
+description: Como configurar sua página de informações de segurança (versão prévia) para verificar sua identidade usando perguntas de segurança predefinidas como seu método de verificação.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 236f1e4e41488b926d9fc2e5e717e68090a0ed7b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77063961"
 ---
-# <a name="set-up-security-questions-as-your-verification-method"></a>Configure perguntas de segurança como seu método de verificação
+# <a name="set-up-security-questions-as-your-verification-method"></a>Configurar perguntas de segurança como seu método de verificação
 
 Você pode seguir estas etapas para adicionar seu método de redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se você não ver a opção de perguntas de segurança, é possível que sua organização não permita que você use essa opção para o seu método de redefinição de senha. Neste caso, você precisará escolher outro método ou entrar em contato com o help desk da sua organização para obter mais ajuda.
+>Se você não vir a opção de perguntas de segurança, é possível que sua organização não permita que você use essa opção para o método de redefinição de senha. Nesse caso, você precisará escolher outro método ou entrar em contato com o suporte técnico da sua organização para obter mais ajuda.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Autenticação por redefinição de senha versus verificação de segurança
 
@@ -51,7 +51,7 @@ Se você usar perguntas de segurança, é recomendável usá-las em conjunto com
 >
 > Se você não vir a opção de perguntas de segurança, é possível que sua organização não permita que você use questões de segurança para verificação. Se esse for o caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
 >
-> As contas do administrador não podem usar perguntas de segurança como um método de redefinição de senha. Se você estiver logado como uma conta de nível de administração, você não verá essas opções.
+> As contas de administrador não têm permissão para usar perguntas de segurança como um método de redefinição de senha. Se você estiver conectado como uma conta de nível de administrador, essas opções não serão exibidas.
 
 ### <a name="to-set-up-your-security-questions"></a>Para configurar suas perguntas de segurança
 
@@ -98,9 +98,9 @@ Você tem opções adicionais de como sua organização entra em contato com voc
 
 - **Chamada de telefone do dispositivo móvel ou trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
 
-- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a juntamente com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como verificar sua identidade com uma chave de segurança, consulte [Configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
 
-- **Endereço de e-mail.** Digite seu endereço de e-mail do trabalho ou da escola para receber um e-mail para redefinir a senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar seu e-mail, consulte [Configurar informações de segurança para usar o e-mail](security-info-setup-email.md).
+- **Endereço de email.** Digite seu endereço de e-mail do trabalho ou da escola para receber um e-mail para redefinir a senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar seu e-mail, consulte [Configurar informações de segurança para usar o e-mail](security-info-setup-email.md).
 
     >[!Note]
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.

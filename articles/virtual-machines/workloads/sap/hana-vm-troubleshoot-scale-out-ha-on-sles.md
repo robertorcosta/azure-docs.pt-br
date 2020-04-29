@@ -1,5 +1,5 @@
 ---
-title: SAP HANA scale-out HSR-Pacemaker com SLES em VMs Azure solução de problemas| Microsoft Docs
+title: SAP HANA escalar horizontalmente HSR-pacemaker com SLES em solução de problemas de VMs do Azure | Microsoft Docs
 description: Guia para verificar e solucionar problemas de uma configuração de expansão de alta disponibilidade do SAP HANA com base no SAP HANA System Replication (HSR) e no Pacemaker no SLES 12 SP3 em execução nas máquinas virtuais do Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: e93b3412785817050ac53030be9ff2172a678c06
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617131"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
@@ -168,7 +168,7 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 ## <a name="corosync"></a>Corosync
 
 
-O arquivo de config **corosync** deve estar correto em todos os nós do cluster, incluindo o nó do fabricante majoritário. Se a junção do cluster de um nó não funcionar como esperado, crie ou copie **/etc/corosync/corosync.conf** manualmente em todos os nós e reinicie o serviço. 
+O arquivo de configuração **corosync** deve estar correto em todos os nós do cluster, incluindo o nó do criador de maioria. Se a junção do cluster de um nó não funcionar como esperado, crie ou copie **/etc/corosync/corosync.conf** manualmente em todos os nós e reinicie o serviço. 
 
 O conteúdo do **corosync.conf** do sistema de teste é um exemplo.
 
@@ -202,7 +202,7 @@ totem {
 }
 </code></pre>
 
-A segunda seção, **logging**, não foi alterada em relação aos padrões dados:
+A segunda seção, **Logging**, não foi alterada dos padrões fornecidos:
 
 <pre><code>
 logging {
@@ -255,7 +255,7 @@ nodelist {
 }
 </code></pre>
 
-Na última seção, **quórum,** é importante definir o valor para **expected_votes** corretamente. Deve ser o número de nós, incluindo o nó do criador da maioria. E o valor para **two_node** deve ser **0**. Não remova a entrada completamente. Basta definir o valor como **0**.
+Na última seção, **Quorum**, é importante definir o valor para **expected_votes** corretamente. Deve ser o número de nós, incluindo o nó do criador da maioria. E o valor para **two_node** deve ser **0**. Não remova a entrada completamente. Basta definir o valor como **0**.
 
 <pre><code>
 quorum {
@@ -389,7 +389,7 @@ A saída deve mostrar **limpo** para cada nó no cluster:
 </code></pre>
 
 
-Outra verificação SBD é a opção de **despejo** do comando **sbd.** Neste exemplo de comando e saída do nó fabricante majoritário, o nome do dispositivo era **sdd**, não **sdm**:
+Outra verificação de SBD é a opção de **despejo** do comando **SBD** . Neste exemplo de comando e saída do nó fabricante majoritário, o nome do dispositivo era **sdd**, não **sdm**:
 
 <pre><code>
 sbd -d /dev/sdd dump
@@ -452,12 +452,12 @@ Durante os testes e verificações, após o reinício de uma VM, o dispositivo S
 
 1. Inicie o YaST2.
 2. Selecione **Serviços de Rede** no lado esquerdo.
-3. Role para baixo no lado direito para **iSCSI Initiator** e selecione-o.
+3. Role para baixo do lado direito para o **iniciador iSCSI** e selecione-o.
 4. Na próxima tela, na guia **Serviço**, você verá o nome do iniciador exclusivo para o nó.
 5. Acima do nome do iniciador, verifique se o valor **Service Start** está definido como **Ao inicializar**.
 6. Se não estiver, defina-o como **inicializar quando** em vez de **manualmente**.
-7. Em seguida, mude a guia superior para **Alvos conectados**.
-8. Na tela **Alvos Conectados,** você deve ver uma entrada para o dispositivo SBD como esta amostra: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+7. Em seguida, alterne a guia superior para **destinos conectados**.
+8. Na tela **destinos conectados** , você deve ver uma entrada para o dispositivo SBD, como este exemplo: **10.0.0.19:3260 iqn. 2006-04. dbhso. local: dbhso**.
 9. Verifique se o valor **Start-Up** está definido como **na inicialização**.
 10. Se não, escolha **editar** e alterá-lo.
 11. Salve as alterações e sair do YaST2.
@@ -472,7 +472,7 @@ Depois que tudo estiver configurado corretamente, você poderá executar o segui
 systemctl status pacemaker
 </code></pre>
 
-A parte superior da saída deve se parecer com a amostra a seguir. É importante que o status após **Ativo** seja mostrado como **carregado** e **ativo (em execução)**. O status após **loaded** deve ser mostrado como **ativado**.
+A parte superior da saída deve se parecer com a amostra a seguir. É importante que o status após **Ativo** seja mostrado como **carregado** e **ativo (em execução)**. O status após o **carregamento** deve ser mostrado como **habilitado**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -682,7 +682,7 @@ Também ajuda a observar o status da paisagem do SAP HANA proveniente de um scri
 
 Há algumas tentativas para evitar failovers desnecessários. O cluster reage apenas se o status for alterado de **Ok**, retornar valor **4**, para **erro**, retornar valor **1**. Para que ela esteja correta se a saída do **SAPHanaSR showAttr** mostra uma VM com o estado **offline**. Mas ainda não há atividade para alternar entre primário e secundário. Nenhuma atividade do cluster é disparada enquanto o SAP HANA não retornar um erro.
 
-Você pode monitorar o status de saúde da paisagem SAP HANA como ** \<adm DO\>USUÁRIO HANA** chamando o script SAP Python da seguinte forma. Talvez seja necessário adaptar o caminho:
+Você pode monitorar o status de integridade do SAP Hana paisagem como ** \<ADM\>do Sid** do usuário ao chamar o script Python do SAP da seguinte maneira. Talvez seja necessário adaptar o caminho:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -822,7 +822,7 @@ No final do trabalho de manutenção, você interrompe o modo de manutenção do
 
 ## <a name="hb_report-to-collect-log-files"></a>hb_report para coletar arquivos de log
 
-Para analisar os problemas do cluster Pacemaker, é útil e também solicitado pelo suporte suse para executar o **utilitário hb_report.** Coleta todos os arquivos de log importantes que você precisa para analisar o que aconteceu. Essa chamada de amostra usa um horário de início e término em que ocorreu um incidente específico. Veja também [Notas importantes](#important-notes):
+Para analisar problemas de cluster pacemaker, ele é útil e também solicitado pelo suporte do SUSE para executar o utilitário de **hb_report** . Coleta todos os arquivos de log importantes que você precisa para analisar o que aconteceu. Essa chamada de amostra usa um horário de início e término em que ocorreu um incidente específico. Veja também [Notas importantes](#important-notes):
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
@@ -945,7 +945,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>HAWK
 
 A solução de cluster fornece uma interface de navegador que oferece uma GUI para usuários que preferem menus e gráficos para ter todos os comandos no nível do shell.
-Para usar a interface ** \<\> ** do navegador, substitua o nó por um nó SAP HANA real na URL a seguir. Em seguida, insira as credenciais do cluster (cluster **do usuário**):
+Para usar a interface do navegador, ** \<substitua\> o nó** por um nó de SAP Hana real na URL a seguir. Em seguida, insira as credenciais do cluster (cluster **do usuário**):
 
 <pre><code>
 https://&ltnode&gt:7630

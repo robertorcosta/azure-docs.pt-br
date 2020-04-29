@@ -1,6 +1,6 @@
 ---
-title: Solução Azure VMware por Gateways CloudSimple - VPN
-description: Conheça os conceitos de VPN e VPN ponto a ponto do Cloud-to-Site
+title: Solução do Azure VMware por gateways de CloudSimple-VPN
+description: Saiba mais sobre os conceitos de VPN site a site e de VPN de ponto a site do CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,69 +9,69 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77024850"
 ---
-# <a name="vpn-gateways-overview"></a>Visão geral dos gateways VPN
+# <a name="vpn-gateways-overview"></a>Visão geral de gateways de VPN
 
-Um gateway VPN é usado para enviar tráfego criptografado entre uma rede de região CloudSimple em um local local ou um computador pela internet pública.  Cada região pode ter um gateway VPN, que pode suportar várias conexões. Quando você cria várias conexões com o mesmo gateway de VPN, todos os túneis de VPN compartilham a largura de banda de gateway disponível.
+Um gateway de VPN é usado para enviar tráfego criptografado entre uma rede de região CloudSimple em um local ou um computador pela Internet pública.  Cada região pode ter um gateway de VPN, que pode dar suporte a várias conexões. Quando você cria várias conexões com o mesmo gateway de VPN, todos os túneis de VPN compartilham a largura de banda de gateway disponível.
 
-O CloudSimple fornece dois tipos de gateways VPN:
+O CloudSimple fornece dois tipos de gateways de VPN:
 
-* Gateway VPN site-to-site
-* Gateway VPN ponto a ponto
+* Gateway de VPN site a site
+* Gateway de VPN ponto a site
 
-## <a name="site-to-site-vpn-gateway"></a>Gateway VPN site-to-site
+## <a name="site-to-site-vpn-gateway"></a>Gateway de VPN site a site
 
-Um gateway VPN site-to-site é usado para enviar tráfego criptografado entre uma rede de região CloudSimple e um datacenter local. Use essa conexão para definir o intervalo de sub-redes/CIDR, para tráfego de rede entre sua rede local e a rede de região CloudSimple.
+Um gateway de VPN site a site é usado para enviar tráfego criptografado entre uma rede de região CloudSimple e um datacenter local. Use essa conexão para definir o intervalo de sub-redes/CIDR, para o tráfego de rede entre a rede local e a rede de região CloudSimple.
 
-O gateway VPN permite que você consuma serviços a partir de locais em sua Nuvem Privada e serviços em sua Nuvem Privada a partir da rede local.  O CloudSimple fornece um servidor VPN baseado em políticas para estabelecer a conexão a partir de sua rede local.
+O gateway de VPN permite que você consuma serviços do local em sua nuvem privada e serviços em sua nuvem privada a partir da rede local.  O CloudSimple fornece um servidor VPN baseado em políticas para estabelecer a conexão de sua rede local.
 
-Use casos para VPN site-to-site:
+Casos de uso para VPN site a site:
 
-* Acessibilidade do seu VCenter de Nuvem Privada a partir de qualquer estação de trabalho em sua rede local.
-* Use seu Active Directory no local como fonte de identidade do vCenter.
-* Transferência conveniente de modelos de VM, ISOs e outros arquivos de seus recursos no local para o seu vCenter privado em nuvem.
-* Acessibilidade de cargas de trabalho em execução em sua Nuvem Privada a partir de sua rede local.
+* Acessibilidade de sua nuvem privada vCenter de qualquer estação de trabalho em sua rede local.
+* Uso de seu Active Directory local como uma fonte de identidade do vCenter.
+* Transferência conveniente de modelos de VM, ISOs e outros arquivos de seus recursos locais para seu vCenter de nuvem privada.
+* Acessibilidade de cargas de trabalho em execução em sua nuvem privada da sua rede local.
 
-![Topologia de conexão VPN site-to-site](media/cloudsimple-site-to-site-vpn-connection.png)
+![Topologia de conexão VPN site a site](media/cloudsimple-site-to-site-vpn-connection.png)
 
 ### <a name="cryptographic-parameters"></a>Parâmetros criptográficos
 
-Uma conexão VPN site-to-site usa os seguintes parâmetros criptográficos padrão para estabelecer uma conexão segura.  Quando você criar uma conexão a partir do seu dispositivo VPN no local, use qualquer um dos seguintes parâmetros que são suportados pelo seu gateway VPN no local.
+Uma conexão VPN site a site usa os seguintes parâmetros criptográficos padrão para estabelecer uma conexão segura.  Ao criar uma conexão do dispositivo VPN local, use qualquer um dos parâmetros a seguir com suporte no gateway de VPN local.
 
-#### <a name="phase-1-proposals"></a>Propostas da Fase 1
+#### <a name="phase-1-proposals"></a>Propostas da fase 1
 
 | Parâmetro | Proposta 1 | Proposta 2 | Proposta 3 |
 |-----------|------------|------------|------------|
 | Versão IKE | IKEv1 | IKEv1 | IKEv1 |
 | Criptografia | AES 128 | AES 256 | AES 256 |
 | Algoritmo de hash| SHA 256 | SHA 256 | SHA 1 |
-| Grupo Diffie Hellman (Grupo DH) | 2 | 2 | 2 |
+| Grupo Diffie Hellman (grupo DH) | 2 | 2 | 2 |
 | Tempo de vida | 28.800 segundos | 28.800 segundos | 28.800 segundos |
 | Tamanho dos dados | 4 GB | 4 GB | 4 GB |
 
-#### <a name="phase-2-proposals"></a>Propostas da Fase 2
+#### <a name="phase-2-proposals"></a>Propostas da fase 2
 
 | Parâmetro | Proposta 1 | Proposta 2 | Proposta 3 |
 |-----------|------------|------------|------------|
 | Criptografia | AES 128 | AES 256 | AES 256 |
 | Algoritmo de hash| SHA 256 | SHA 256 | SHA 1 |
-| Grupo de Sigilo Avançado Perfeito (Grupo PFS) | Nenhum | Nenhum | Nenhum |
+| Grupo de sigilo contínuo (grupo PFS) | Nenhum | Nenhum | Nenhum |
 | Tempo de vida | 1.800 segundos | 1.800 segundos | 1.800 segundos |
 | Tamanho dos dados | 4 GB | 4 GB | 4 GB |
 
 
 > [!IMPORTANT]
-> Defina o Grampo TCP MSS em 1200 no seu dispositivo VPN. Ou se seus dispositivos VPN não suportam a fixação mSS, você pode, alternativamente, definir o MTU na interface do túnel para 1240 bytes.
+> Defina TCP MSS fixação MSS às 1200 em seu dispositivo VPN. Ou, se os dispositivos VPN não oferecerem suporte a MSS fixação MSS, você poderá definir, como alternativa, o MTU na interface de túnel como 1240 bytes.
 
-## <a name="point-to-site-vpn-gateway"></a>Gateway VPN ponto a ponto
+## <a name="point-to-site-vpn-gateway"></a>Gateway de VPN ponto a site
 
-Uma VPN ponto a ponto é usada para enviar tráfego criptografado entre uma rede de região CloudSimple e um computador cliente.  O Point-to-Site VPN é a maneira mais fácil de acessar sua rede private cloud, incluindo seu vCenter privado em nuvem e VMs de carga de trabalho.  Use conectividade VPN ponto a ponto se estiver se conectando à Nuvem Privada remotamente.
+Uma VPN ponto a site é usada para enviar tráfego criptografado entre uma rede de região CloudSimple e um computador cliente.  A VPN ponto a site é a maneira mais fácil de acessar sua rede de nuvem privada, incluindo suas VMs de nuvem privada e de carga de trabalho.  Use a conectividade VPN ponto a site se você estiver se conectando à nuvem privada remotamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar o gateway VPN](vpn-gateway.md)
+* [Configurar gateway de VPN](vpn-gateway.md)

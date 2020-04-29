@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76931004"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidade do usuário e autenticação de passagem do Azure Active Directory
@@ -73,7 +73,7 @@ Para exibir logs relacionados ao Agente de Autenticação de Passagem, abra o ap
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Excluir arquivos de log de rastreamento do Agente de Autenticação
 
-Você deve verificar regularmente o conteúdo do **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace** e excluir o conteúdo desta pasta a cada 48 horas. 
+Você deve verificar regularmente o conteúdo do **%ProgramData%\MICROSOFT\AZURE ad Connect Authentication Agent\Trace** e excluir o conteúdo dessa pasta a cada 48 horas. 
 
 >[!IMPORTANT]
 >Se o Serviço de Autenticação do Agente estiver em execução, não será possível excluir o arquivo de log atual na pasta. Pare o serviço antes de tentar novamente. Para evitar falhas de entrada do usuário, é necessário ter configurado a Autenticação de Passagem para [alta disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
@@ -92,14 +92,14 @@ Para agendar esse script para ser executado a cada 48 horas, siga estas etapas:
 
 1.  Salve o script em um arquivo com a extensão ".PS1".
 2.  Abra o **Painel de Controle** e clique em **Sistema e Segurança**.
-3.  No título **Ferramentas Administrativas,** clique em "**Agendar tarefas**".
+3.  No título **Ferramentas administrativas** , clique em "**agendar tarefas**".
 4.  Em **Agendador de Tarefas**, clique com o botão direito do mouse em “**Biblioteca de Agendamento de Tarefas**” e clique em “**Criar tarefa básica…**”.
 5.  Insira o nome para a nova tarefa e clique em **Avançar**.
 6.  Selecione “**Diariamente**” para o **Disparador de Tarefa** e clique em **Avançar**.
 7.  Defina a recorrência para dois dias e clique em **Avançar**.
 8.  Selecione “**Iniciar um programa**” como a ação e clique em **Avançar**.
-9.  Digite "**PowerShell**" na caixa para o Programa/script, e na caixa rotulada "**Adicionar argumentos (opcional)**", digite o caminho completo para o script que você criou anteriormente e clique em **Next**.
-10. A próxima tela mostra um resumo da tarefa que você está prestes a criar. Verifique os valores e clique **em Concluir** para criar a tarefa:
+9.  Digite "**PowerShell**" na caixa do programa/script e, na caixa rotulada "**adicionar argumentos (opcional)**", insira o caminho completo para o script que você criou anteriormente e clique em **Avançar**.
+10. A próxima tela mostra um resumo da tarefa que você está prestes a criar. Verifique os valores e clique em **concluir** para criar a tarefa:
  
 ### <a name="note-about-domain-controller-logs"></a>Observação sobre os logs do Controlador de Domínio
 
@@ -107,4 +107,4 @@ Se o log de auditoria estiver habilitado, esse produto poderá gerar logs de seg
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Revise a Política de Privacidade da Microsoft na Central de Confiabilidade](https://www.microsoft.com/trustcenter)
-* [**Solução de problemas**](tshoot-connect-pass-through-authentication.md) - Aprenda a resolver problemas comuns com o recurso.
+* [**Solução de problemas**](tshoot-connect-pass-through-authentication.md) -saiba como resolver problemas comuns com o recurso.

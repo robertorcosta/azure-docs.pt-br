@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
 ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667220"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Azure Monitor
@@ -35,18 +35,18 @@ Após a adição da solução e a conclusão da verificação, as informações 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A solução Active Directory Health Check requer uma versão suportada do .NET Framework 4.6.2 ou superior instalado em cada computador que tenha o agente Log Analytics para Windows (também referido como o Microsoft Monitoring Agent (MMA)) instalado.  O agente é utilizado pelo System Center 2016 - Gerente de Operações, Gerente de Operações 2012 R2 e Monitor Azure.
+* A solução de verificação de integridade Active Directory requer uma versão com suporte do .NET Framework 4.6.2 ou superior instalada em cada computador que tenha o agente de Log Analytics para Windows (também conhecido como Microsoft Monitoring Agent (MMA)) instalado.  O agente é usado pelo System Center 2016-Operations Manager, Operations Manager 2012 R2 e Azure Monitor.
 * A solução oferece suporte a controladores de domínio que executam o Windows Server 2008 e 2008 R2, o Windows Server 2012 e 2012 R2 e o Windows Server 2016.
-* Um espaço de trabalho do Log Analytics para adicionar a solução de Verificação de Integridade do Active Directory no Azure marketplace, no Portal do Azure. Não é necessária uma configuração adicional.
+* Um espaço de trabalho do Log Analytics para adicionar a solução de Verificação de Integridade do Active Directory no Azure marketplace, no Portal do Azure. Não há nenhuma configuração adicional necessária.
 
   > [!NOTE]
   > Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e, em seguida, enviados para o Azure Monitor na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
   >
   >
 
-Para realizar a verificação de saúde contra seus controladores de domínio que são membros do domínio a ser avaliado, cada controlador de domínio nesse domínio requer um agente e conectividade com o Azure Monitor usando um dos seguintes métodos suportados:
+Para executar a verificação de integridade em seus controladores de domínio que são membros do domínio a ser avaliado, cada controlador de domínio nesse domínio requer um agente e conectividade para Azure Monitor usando um dos seguintes métodos com suporte:
 
-1. Instale o [agente log analytics para Windows](../../azure-monitor/platform/agent-windows.md) se o controlador de domínio ainda não estiver monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+1. Instale o [agente do log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) se o controlador de domínio ainda não estiver monitorado pelo System Center 2016-Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou com o Operations Manager 2012 R2 e o grupo de gerenciamento não for integrado com o Azure Monitor, o controlador de domínio poderá ter hospedagem múltipla com o Azure Monitor para coletar dados, encaminhar para o serviço e ainda ser monitorado pelo Operations Manager.  
 3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de habilitar a solução em seu workspace.  
 
@@ -134,7 +134,7 @@ Use a consulta a seguir para listar as recomendações que falharam para os comp
 ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
 ```
 
-Aqui está uma captura de tela mostrando a consulta de log:<
+Aqui está uma captura de tela mostrando a consulta de log: <
 
 ![recomendações com falha](media/ad-assessment/ad-failed-recommendations.png)
 
@@ -166,7 +166,7 @@ Após a execução da próxima verificação de integridade agendada, por padrã
 
 ## <a name="ad-health-check-solutions-faq"></a>Perguntas frequentes sobre a solução de Verificação da Integridade do AD
 
-*Quais verificações são realizadas pela solução de Avaliação de Anúncios?*
+*Quais verificações são executadas pela solução de Avaliação do AD?*
 
 * A consulta a seguir mostra uma descrição de todas as verificações executadas no momento:
 
@@ -197,11 +197,11 @@ Os resultados podem então ser exportados para o Excel para análise adicional.
 
 * AdvisorAssessment.exe
 
-*Quanto tempo leva para que os dados sejam coletados?*
+*Quanto tempo leva para os dados serem coletados?*
 
 * A coleta de dados real no servidor leva aproximadamente 1 hora. Pode levar mais tempo em servidores que têm um grande número de servidores do Active Directory.
 
-*Existe uma maneira de configurar quando os dados são coletados?*
+*Há uma maneira de configurar quando os dados são coletados?*
 
 * Não no momento.
 

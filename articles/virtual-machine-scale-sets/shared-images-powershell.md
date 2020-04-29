@@ -1,5 +1,5 @@
 ---
-title: Use imagens vm compartilhadas para criar um conjunto de escalas no Azure
+title: Usar imagens de VM compartilhadas para criar um conjunto de dimensionamento no Azure
 description: Saiba como usar o Azure PowerShell para criar imagens de VM compartilhadas a usar para implantar Conjuntos de Dimensionamento de Máquinas Virtuais no Azure.
 author: axayjo
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 5f4eca88614a98f0caf87d04847029328042edd8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368728"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Criar e usar imagens personalizadas para Conjuntos de Dimensionamento de Máquinas Virtuais com o Azure PowerShell
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 As etapas abaixo detalham como pegar uma VM existente e transformá-la em uma imagem personalizada reutilizável que você pode usar para criar novas instâncias de VM.
 
-Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente. Você pode seguir [tutorial: crie e use uma imagem personalizada para conjuntos de escala de máquinas virtuais com o Azure PowerShell](tutorial-use-custom-image-powershell.md) para criar um, se necessário. Se a imagem gerenciada contiver um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
+Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente. Você pode seguir [o tutorial: criar e usar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com Azure PowerShell](tutorial-use-custom-image-powershell.md) para criar um, se necessário. Se a imagem gerenciada contiver um disco de dados, o tamanho do disco de dados não poderá ser superior a 1 TB.
 
 Ao trabalhar com o artigo, substitua o grupo de recursos e os nomes de VM quando for necessário.
 
@@ -49,7 +49,7 @@ Ao trabalhar com o artigo, substitua o grupo de recursos e os nomes de VM quando
 
 ## <a name="create-a-scale-set-from-the-shared-image-version"></a>Criar um conjunto de dimensionamento da versão de imagem compartilhada
 
-Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). O exemplo a seguir cria um conjunto de escalas a partir da nova versão de imagem no datacenter *do Centro-Sul dos EUA.* Quando solicitado, defina suas próprias credenciais administrativas para as instâncias de VM no conjunto de dimensionamento:
+Crie um conjunto de dimensionamento de máquinas virtuais com [New-AzVmss](/powershell/module/az.compute/new-azvmss). O exemplo a seguir cria um conjunto de dimensionamento da nova versão da imagem no centro de *EUA Central do Sul* . Quando solicitado, defina suas próprias credenciais administrativas para as instâncias de VM no conjunto de dimensionamento:
 
 
 ```azurepowershell-interactive

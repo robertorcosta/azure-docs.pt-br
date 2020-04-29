@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configure Zscaler Private Access (ZPA) para provisionamento automático do usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para Zscaler Private Access (ZPA).
+title: 'Tutorial: configurar o ZPA (Zscaler Private Access) para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o ZPA (Zscaler Private Access).
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
 ms.openlocfilehash: 609d2726eaaaeb49210e19f000bcc2faef1de5d7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77064131"
 ---
-# <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: Configure Zscaler Private Access (ZPA) para provisionamento automático do usuário
+# <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: configurar o ZPA (Zscaler Private Access) para o provisionamento automático de usuário
 
-O objetivo deste tutorial é demonstrar as etapas a serem executadas no Zscaler Private Access (ZPA) e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para Zscaler Private Access (ZPA).
+O objetivo deste tutorial é demonstrar as etapas a serem executadas no ZPA (Zscaler Private Access) e no Azure Active Directory (Azure AD) para configurar o Azure AD para provisionar e desprovisionar automaticamente usuários e/ou grupos para ZPA (Zscaler Private Access).
 
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -36,96 +36,96 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Zscaler 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
 * Um locatário do Azure AD
-* [Um inquilino Zscaler Private Access (ZPA)](https://www.zscaler.com/pricing-and-plans#contact-us)
-* Uma conta de usuário no Zscaler Private Access (ZPA) com permissões de administração.
+* [Um locatário ZPA (Zscaler Private Access)](https://www.zscaler.com/pricing-and-plans#contact-us)
+* Uma conta de usuário no ZPA (Zscaler Private Access) com permissões de administrador.
 
-## <a name="assigning-users-to-zscaler-private-access-zpa"></a>Atribuindo usuários ao Zscaler Private Access (ZPA)
+## <a name="assigning-users-to-zscaler-private-access-zpa"></a>Atribuindo usuários ao ZPA (Zscaler Private Access)
 
-O Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso a aplicativos selecionados. No contexto do provisionamento automático do usuário, apenas os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
+Azure Active Directory usa um conceito chamado *atribuições* para determinar quais usuários devem receber acesso aos aplicativos selecionados. No contexto do provisionamento automático de usuário, somente os usuários e/ou grupos que foram atribuídos a um aplicativo no Azure AD são sincronizados.
 
-Antes de configurar e habilitar o provisionamento automático do usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam acessar o Zscaler Private Access (ZPA). Uma vez decidido, você pode atribuir esses usuários e/ou grupos ao Zscaler Private Access (ZPA) seguindo as instruções aqui:
+Antes de configurar e habilitar o provisionamento automático de usuário, você deve decidir quais usuários e/ou grupos no Azure AD precisam de acesso ao ZPA (Zscaler Private Access). Depois de decidir, você pode atribuir esses usuários e/ou grupos ao ZPA (Zscaler Private Access) seguindo as instruções aqui:
 * [Atribuir um usuário ou um grupo a um aplicativo empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-zscaler-private-access-zpa"></a>Dicas importantes para atribuir usuários ao Zscaler Private Access (ZPA)
+## <a name="important-tips-for-assigning-users-to-zscaler-private-access-zpa"></a>Dicas importantes para atribuir usuários ao ZPA (Zscaler Private Access)
 
-* Recomenda-se que um único usuário azure AD seja atribuído ao Zscaler Private Access (ZPA) para testar a configuração automática de provisionamento do usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+* É recomendável que um único usuário do Azure AD seja atribuído ao ZPA (Zscaler Private Access) para testar a configuração automática de provisionamento de usuário. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-* Ao atribuir um usuário ao Zscaler Private Access (ZPA), você deve selecionar qualquer função específica de aplicativo (se disponível) na caixa de diálogo de atribuição. Os usuários com a **função Default Access** são excluídos do provisionamento.
+* Ao atribuir um usuário ao ZPA (Zscaler Private Access), você deve selecionar qualquer função específica do aplicativo válida (se disponível) na caixa de diálogo de atribuição. Os usuários com a função de **acesso padrão** são excluídos do provisionamento.
 
-## <a name="set-up-zscaler-private-access-zpa-for-provisioning"></a>Configurar zscaler private access (ZPA) para provisionamento
+## <a name="set-up-zscaler-private-access-zpa-for-provisioning"></a>Configurar o ZPA (Zscaler Private Access) para provisionamento
 
-1. Faça login no seu console de [admin Zscaler Private Access (ZPA).](https://admin.private.zscaler.com/) Navegue até a **configuração de IdP de administração >**.
+1. Entre no seu [console de administração do ZPA (Zscaler Private Access)](https://admin.private.zscaler.com/). Navegue até **administração > configuração do IDP**.
 
-    ![Zscaler Private Access (ZPA) Admin Console](media/zscaler-private-access-provisioning-tutorial/idpconfig.png)
+    ![Console de administração do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/idpconfig.png)
 
-2.  Verifique se um IdP para **a adesão única** está configurado. Se nenhum IdP estiver configurado, adicione um clicando no ícone de adição no canto superior direito da tela.
+2.  Verifique se um IdP para **logon único** está configurado. Se nenhum IdP for configurado, adicione um clicando no ícone de adição no canto superior direito da tela.
 
-    ![Zscaler Private Access (ZPA) Adicionar SCIM](media/zscaler-private-access-provisioning-tutorial/plusicon.png)
+    ![ZPA (Zscaler Private Access)-adicionar SCIM](media/zscaler-private-access-provisioning-tutorial/plusicon.png)
 
-3. Siga o **assistente de configuração Add IdP** para adicionar um IdP. Deixe o **campo de sinalização único** definido para o **Usuário**. Forneça um **nome** e selecione os **Domínios** na lista de desímparadas. Clique em **Next** para navegar até a próxima janela.
+3. Siga o assistente para **Adicionar configuração de IDP** para adicionar um IDP. Deixe o campo **logon único** definido como **usuário**. Forneça um **nome** e selecione os **domínios** na lista suspensa. Clique em **Avançar** para navegar até a próxima janela.
 
-    ![Zscaler Private Access (ZPA) Adicionar IdP](media/zscaler-private-access-provisioning-tutorial/addidp.png)
+    ![ZPA (Zscaler Private Access) adicionar IdP](media/zscaler-private-access-provisioning-tutorial/addidp.png)
 
-4. Baixe o **Certificado do Provedor de Serviços**. Clique em **Next** para navegar até a próxima janela.
+4. Baixe o **certificado do provedor de serviços**. Clique em **Avançar** para navegar até a próxima janela.
 
-    ![Certificado zscaler private access (ZPA) SP](media/zscaler-private-access-provisioning-tutorial/spcertificate.png)
+    ![Certificado SP do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/spcertificate.png)
 
-5. Na janela seguinte, faça upload do **Certificado do Provedor de Serviços** baixado anteriormente.
+5. Na próxima janela, carregue o **certificado do provedor de serviços** baixado anteriormente.
 
-    ![Certificado de upload zscaler private access (ZPA)](media/zscaler-private-access-provisioning-tutorial/uploadfile.png)
+    ![Certificado de upload do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/uploadfile.png)
 
-6.  Role para baixo para fornecer a **URL de login único** e o **ID ID da entidade de IdP**.
+6.  Role para baixo para fornecer a **URL de logon único** e a **ID da entidade IDP**.
 
-    ![IdD de acesso privado zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/idpid.png)
+    ![ID IdP do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/idpid.png)
 
-7.  Role para baixo para **ativar o SCIM Sync**. Clique em Gerar novo botão **de token.** Copie o **Token do Portador**. Esse valor será inserido no campo Token Secreto na guia Provisionamento do aplicativo Zscaler Private Access (ZPA) no portal Azure.
+7.  Role para baixo para **habilitar a sincronização do scim**. Clique no botão **gerar novo token** . Copie o **token de portador**. Esse valor será inserido no campo token secreto na guia provisionamento do seu aplicativo ZPA (Zscaler Private Access) no portal do Azure.
 
-    ![Zscaler Private Access (ZPA) Criar Token](media/zscaler-private-access-provisioning-tutorial/token.png)
+    ![Token de criação do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/token.png)
 
-8.  Para localizar a URL do **inquilino,** navegue até a **configuração de IdP de administração >**. Clique no nome da configuração de IdP recém-adicionada listada na página.
+8.  Para localizar a **URL do locatário** , navegue até **Administração > configuração do IDP**. Clique no nome da configuração IdP recém-adicionada listada na página.
 
-    ![Nome de Idp de acesso privado zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/idpname.png)
+    ![Nome de IDP do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/idpname.png)
 
-9.  Role para baixo para ver o **ponto final do provedor de serviços SCIM** no final da página. Copie o **ponto final do provedor de serviços SCIM**. Esse valor será inserido no campo URL do Inquilino na guia Provisionamento do aplicativo Zscaler Private Access (ZPA) no portal Azure.
+9.  Role para baixo para exibir o **ponto de extremidade do provedor de serviços scim** no final da página. Copie o **ponto de extremidade do provedor de serviços scim**. Esse valor será inserido no campo URL do locatário na guia provisionamento do seu aplicativo ZPA (Zscaler Private Access) no portal do Azure.
 
-    ![Url SCIM de acesso privado zscaler (ZPA)](media/zscaler-private-access-provisioning-tutorial/tenanturl.png)
+    ![URL SCIM do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/tenanturl.png)
 
 
-## <a name="add-zscaler-private-access-zpa-from-the-gallery"></a>Adicionar Zscaler Private Access (ZPA) na galeria
+## <a name="add-zscaler-private-access-zpa-from-the-gallery"></a>Adicionar ZPA (Zscaler Private Access) da Galeria
 
-Antes de configurar o Zscaler Private Access (ZPA) para provisionamento automático do usuário com o Azure AD, você precisa adicionar zscaler Private Access (ZPA) da galeria de aplicativos Azure AD à sua lista de aplicativos SaaS gerenciados.
+Antes de configurar o ZPA (Zscaler Private Access) para o provisionamento automático de usuário com o Azure AD, você precisa adicionar o ZPA (Zscaler Private Access) da Galeria de aplicativos do Azure AD à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar Zscaler Private Access (ZPA) na galeria de aplicativos Azure AD, execute as seguintes etapas:**
+**Para adicionar o ZPA (Zscaler Private Access) da Galeria de aplicativos do Azure AD, execute as seguintes etapas:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
+1. No **[portal do Azure](https://portal.azure.com)**, no painel de navegação à esquerda, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
-2. Vá para **aplicativos Enterprise**e selecione Todos **os aplicativos**.
+2. Vá para **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior do painel.
+3. Para adicionar um novo aplicativo, selecione o botão **novo aplicativo** na parte superior do painel.
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Zscaler Private Access (ZPA)**, selecione **Zscaler Private Access (ZPA)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, insira **ZPA (Zscaler Private Access)**, selecione **ZPA (Zscaler Private Access)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![ZPA (Zscaler Private Access) na lista de resultados](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-zscaler-private-access-zpa"></a>Configuração do provisionamento automático do usuário para Zscaler Private Access (ZPA) 
+## <a name="configuring-automatic-user-provisioning-to-zscaler-private-access-zpa"></a>Configurando o provisionamento automático de usuário para o ZPA (Zscaler Private Access) 
 
-Esta seção orienta você através das etapas para configurar o serviço de provisionamento Azure AD para criar, atualizar e desativar usuários e/ou grupos no Zscaler Private Access (ZPA) com base em atribuições de usuário e/ou grupo no Azure AD.
+Esta seção orienta você pelas etapas para configurar o serviço de provisionamento do Azure AD para criar, atualizar e desabilitar usuários e/ou grupos no ZPA (Zscaler Private Access) com base em atribuições de usuário e/ou grupo no Azure AD.
 
 > [!TIP]
-> Você também pode optar por ativar o logon único baseado em SAML para Zscaler Private Access (ZPA) seguindo as instruções fornecidas no [tutorial de logon único do Zscaler Private Access (ZPA).](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial) O login único pode ser configurado independentemente do provisionamento automático do usuário, embora esses dois recursos se complementem.
+> Você também pode optar por habilitar o logon único baseado em SAML para o ZPA (Zscaler Private Access) seguindo as instruções fornecidas no tutorial de [logon único do ZPA (Zscaler Private Access)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial). O logon único pode ser configurado independentemente do provisionamento automático de usuário, embora esses dois recursos se complementem.
 
 > [!NOTE]
-> Para saber mais sobre o ponto final scim do Zscaler Private Access, consulte [isso](https://www.zscaler.com/partners/microsoft).
+> Para saber mais sobre o ponto de extremidade SCIM do Zscaler Private Access, confira [isso](https://www.zscaler.com/partners/microsoft).
 
-### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Para configurar o provisionamento automático do usuário para Zscaler Private Access (ZPA) no Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o ZPA (Zscaler Private Access) no Azure AD:
 
-1. Faça login no [portal Azure](https://portal.azure.com). Selecione **Aplicativos Corporativos**e selecione **Todos os aplicativos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -135,13 +135,13 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia de provisionamento](common/provisioning.png)
+    ![Guia provisionamento](common/provisioning.png)
 
 4. Defina o **modo de provisionamento** como **automático**.
 
-    ![Guia de provisionamento](common/provisioning-automatic.png)
+    ![Guia provisionamento](common/provisioning-automatic.png)
 
-5. Na seção **Credenciais de Admin,** insira o valor **de ponto final do provedor de serviços SCIM** recuperado anteriormente na URL do **inquilino**. Insira o valor **do Token do Portador** recuperado anteriormente em Secret **Token**. Clique **em Conexão de teste** para garantir que o Azure AD possa se conectar ao Zscaler Private Access (ZPA). Se a conexão falhar, certifique-se de que sua conta Zscaler Private Access (ZPA) tenha permissões de administração e tente novamente.
+5. Na seção **credenciais de administrador** , insira o valor de **ponto de extremidade do provedor de serviço scim** recuperado anteriormente na **URL do locatário**. Insira o valor do **token de portador** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao ZPA (Zscaler Private Access). Se a conexão falhar, verifique se sua conta do ZPA (Zscaler Private Access) tem permissões de administrador e tente novamente.
 
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -151,29 +151,29 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
 7. Clique em **Salvar**.
 
-8. Na seção **Mapeamentos,** selecione **Sincronizar usuários do Diretório Ativo do Azure para Zscaler Private Access (ZPA)**.
+8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o ZPA (Zscaler Private Access)**.
 
-    ![Zscaler Private Access (ZPA) Mapeamentos de usuários](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
+    ![Mapeamentos de usuário do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/usermappings.png)
 
-9. Revise os atributos do usuário sincronizados do Azure AD para o Zscaler Private Access (ZPA) na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades de correspondência** são usados para corresponder às contas de usuário no Zscaler Private Access (ZPA) para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+9. Examine os atributos de usuário que são sincronizados do Azure AD para o ZPA (Zscaler Private Access) na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no ZPA (Zscaler Private Access) para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de usuário zscaler private access (ZPA)](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
+    ![Atributos de usuário do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/userattributes.png)
 
-10. Na seção **Mapeamentos,** selecione **Sincronizar Grupos de Diretórios Ativos do Azure para Zscaler Private Access (ZPA)**.
+10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o ZPA (Zscaler Private Access)**.
 
-    ![Zscaler Private Access (ZPA) Mapeamentos de grupos](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
+    ![Mapeamentos de grupos do ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/groupmappings.png)
 
-11. Revise os atributos de grupo sincronizados do Azure AD para o Zscaler Private Access (ZPA) na seção **Mapeamento de atributos.** Os atributos selecionados como **propriedades de correspondência** são usados para corresponder aos grupos no Zscaler Private Access (ZPA) para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
+11. Examine os atributos de grupo que são sincronizados do Azure AD para o ZPA (Zscaler Private Access) na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no ZPA (Zscaler Private Access) para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos do grupo Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
+    ![Atributos de grupo ZPA (Zscaler Private Access)](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar o serviço de provisionamento Azure AD para Zscaler Private Access (ZPA), altere o **Status de Provisionamento** para **Ativado** na seção **Configurações.**
+13. Para habilitar o serviço de provisionamento do Azure AD para o ZPA (Zscaler Private Access), altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
     ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
-14. Defina os usuários e/ou grupos que você gostaria de provisionar ao Zscaler Private Access (ZPA) escolhendo os valores desejados no **Escopo** na seção **Configurações.**
+14. Defina os usuários e/ou grupos que você gostaria de provisionar para o ZPA (Zscaler Private Access) escolhendo os valores desejados no **escopo** na seção **configurações** .
 
     ![Escopo de provisionamento](common/provisioning-scope.png)
 
@@ -181,14 +181,14 @@ Esta seção orienta você através das etapas para configurar o serviço de pro
 
     ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
-Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **Detalhes de Sincronização** para monitorar o progresso e seguir links para o relatório de atividadede provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento Azure AD no Zscaler Private Access (ZPA).
+Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no ZPA (Zscaler Private Access).
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

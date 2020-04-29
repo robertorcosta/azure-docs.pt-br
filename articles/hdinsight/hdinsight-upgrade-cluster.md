@@ -1,7 +1,7 @@
 ---
 title: Migrar cluster para uma versão mais recente
 titleSuffix: Azure HDInsight
-description: Aprenda as diretrizes para migrar seu cluster Azure HDInsight para uma versão mais recente.
+description: Aprenda as diretrizes para migrar seu cluster do Azure HDInsight para uma versão mais recente.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
 ms.openlocfilehash: f7198aeff5e9ef6d37e29c2336dc38e4eec0dda1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77023966"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrar o cluster HDInsight para uma versão mais recente
 
-Para aproveitar os recursos mais recentes do HDInsight, recomendamos que os clusters HDInsight sejam regularmente migrados para a versão mais recente. O HDInsight não suporta upgrades no local onde um cluster existente é atualizado para uma versão de componente mais recente. Você deve criar um novo cluster com o componente e a versão da plataforma desejados e, em seguida, migrar seus aplicativos para usar o novo cluster. Siga as diretrizes abaixo para migrar suas versões de cluster HDInsight.
+Para aproveitar os recursos mais recentes do HDInsight, recomendamos que os clusters HDInsight sejam migrados regularmente para a versão mais recente. O HDInsight não oferece suporte a atualizações in-loco em que um cluster existente é atualizado para uma versão de componente mais recente. Você deve criar um novo cluster com o componente e a versão de plataforma desejados e, em seguida, migrar seus aplicativos para usar o novo cluster. Siga as diretrizes abaixo para migrar as versões do cluster HDInsight.
 
 > [!NOTE]  
 > Para obter mais informações sobre versões com suporte do HDInsight, consulte [Versões de componente do HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
@@ -26,7 +26,7 @@ Para aproveitar os recursos mais recentes do HDInsight, recomendamos que os clus
 ## <a name="migration-tasks"></a>Tarefas de migração
 
 O fluxo de trabalho para atualizar o cluster HDInsight serão apresentadas a seguir.
-![Diagrama de fluxo de trabalho de upgrade do HDInsight](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
+![Diagrama de fluxo de trabalho de atualização do HDInsight](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. Leia cada seção deste documento para entender as alterações que podem ser necessárias ao atualizar o cluster HDInsight.
 2. Crie um cluster como um ambiente de teste/garantia de qualidade. Para saber mais sobre como criar um cluster, consulte [Saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
@@ -41,17 +41,17 @@ Depois de verificar se tudo está funcionando conforme o esperado, agende o temp
 1. Importe o backup de todos os dados transitórios.
 1. Inicie os trabalhos/continue processando usando o novo cluster.
 
-## <a name="workload-specific-guidance"></a>Orientação específica da carga de trabalho
+## <a name="workload-specific-guidance"></a>Diretrizes específicas da carga de trabalho
 
-Os documentos a seguir fornecem orientações sobre como migrar cargas de trabalho específicas:
+Os documentos a seguir fornecem orientação sobre como migrar cargas de trabalho específicas:
 
 * [Migrar HBase](./hbase/apache-hbase-migrate-new-version.md)
 * [Migrar Kafka](./kafka/migrate-versions.md)
-* [Migrar Colmeia/Consulta Interativa](./interactive-query/apache-hive-migrate-workloads.md)
+* [Migrar Hive/consulta interativa](./interactive-query/apache-hive-migrate-workloads.md)
 
 ## <a name="backup-and-restore"></a>Backup e restauração
 
-Para obter mais informações sobre backup e restauração de banco de dados, consulte [Recuperar um banco de dados SQL do Azure usando backups automatizados de banco de dados](../sql-database/sql-database-recovery-using-backups.md).
+Para obter mais informações sobre backup e restauração de banco de dados, consulte [recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados](../sql-database/sql-database-recovery-using-backups.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

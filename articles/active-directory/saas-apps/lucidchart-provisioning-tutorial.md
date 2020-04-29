@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Provisionamento do usuário para LucidChart - Azure AD'
+title: 'Tutorial: provisionamento de usuário para LucidChart-Azure AD'
 description: Saiba como configurar o Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o LucidChart.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5d946c6e257c7676178f9bc3c234f66ba6fe622
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77057321"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configurar o LucidChart para provisionamento automático do usuário
@@ -57,7 +57,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 ### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Configurar o provisionamento automático de conta de usuário para o LucidChart no Azure AD
 
-1. No [portal Azure,](https://portal.azure.com)navegue até a seção **Azure Active Directory > Enterprise Apps > All.**
+1. Na [portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > aplicativos empresariais > todos os aplicativos** .
 
 2. Se você já tiver configurado o LucidChart para logon único, pesquise a instância do LucidChart usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **LucidChart** na galeria de aplicativos. Selecione o LucidChart nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
@@ -91,8 +91,8 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerenciamento do provisionamento de contas de usuário para Aplicativos Corporativos](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [O que é acesso ao aplicativo e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

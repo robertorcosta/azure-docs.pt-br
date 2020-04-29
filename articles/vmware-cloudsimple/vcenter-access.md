@@ -1,6 +1,6 @@
 ---
-title: Solução Azure VMware por CloudSimple - Cliente access vSphere
-description: Descreve como acessar o vCenter da sua Nuvem Privada.
+title: Solução do Azure VMware por cliente do vSphere CloudSimple-Access
+description: Descreve como acessar o vCenter de sua nuvem privada.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/30/2019
@@ -9,62 +9,62 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 18d9463bc512257034860e1188372879524924f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77022657"
 ---
-# <a name="access-your-private-cloud-vcenter-portal"></a>Acesse seu portal private cloud vCenter
+# <a name="access-your-private-cloud-vcenter-portal"></a>Acessar seu portal particular do vCenter na nuvem
 
-Você pode lançar seu portal Private Cloud vCenter a partir do portal Azure ou do portal CloudSimple.  O portal vCenter permite gerenciar a infra-estrutura VMware em sua Nuvem Privada.
+Você pode iniciar seu portal de vCenter de nuvem privada no portal do Azure ou no portal CloudSimple.  o portal do vCenter permite que você gerencie a infraestrutura do VMware em sua nuvem privada.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A conexão de rede deve ser estabelecida e a resolução do nome DNS deve ser ativada para acessar o portal vCenter.  Você pode estabelecer conexão de rede com sua Nuvem Privada usando qualquer uma das opções abaixo.
+A conexão de rede deve ser estabelecida e a resolução de nomes DNS deve ser habilitada para acessar o portal do vCenter.  Você pode estabelecer a conexão de rede com sua nuvem privada usando qualquer uma das opções a seguir.
 
-* [Conecte-se de on-premises ao CloudSimple usando expressroute](on-premises-connection.md)
-* [Configure uma conexão VPN com sua Nuvem Privada Cloud Simple](set-up-vpn.md)
+* [Conectar de local para CloudSimple usando o ExpressRoute](on-premises-connection.md)
+* [Configurar uma conexão VPN para sua nuvem privada do CloudSimple](set-up-vpn.md)
 
-Para configurar a resolução de nomes DNS de seus componentes de infra-estrutura Private Cloud VMware, consulte [Configurar dNS para resolução de nomes para acesso ao Private Cloud vCenter a partir de estações de trabalho no local](on-premises-dns-setup.md)
+Para configurar a resolução de nomes DNS de seus componentes de infraestrutura privada do VMware Infrastructure, consulte [Configurar o DNS para resolução de nomes para acesso de vCenter de nuvem privada de estações de trabalho locais](on-premises-dns-setup.md)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-vcenter-from-azure-portal"></a>Acesse o portal vCenter do Azure
+## <a name="access-vcenter-from-azure-portal"></a>Acesse o vCenter de portal do Azure
 
-Você pode lançar o portal vCenter do seu Private Cloud a partir do portal Azure.
+Você pode iniciar o portal do vCenter de sua nuvem privada de portal do Azure.
 
 1. Selecione **Todos os serviços**.
 
-2. Procure por **Serviços CloudSimple**.
+2. Procure **Serviços CloudSimples**.
 
-3. Selecione o serviço CloudSimple da sua Nuvem Privada ao qual deseja se conectar.
+3. Selecione o serviço CloudSimple da sua nuvem privada à qual você deseja se conectar.
 
-4. Na **página Visão geral,** clique **em Exibir nuvens privadas vMware**
+4. Na página **visão geral** , clique em **Exibir nuvens privadas do VMware**
 
     ![Visão geral do serviço CloudSimple](media/cloudsimple-service-overview.png)
 
-5. Selecione a Nuvem Privada na lista de Nuvens Privadas e clique em **Iniciar o cliente vSphere**.
+5. Selecione a nuvem privada na lista de nuvens privadas e clique em **Iniciar vSphere cliente**.
 
-    ![Inicie o cliente vSphere](media/cloudsimple-service-launch-vsphere-client.png)
+    ![Iniciar cliente do vSphere](media/cloudsimple-service-launch-vsphere-client.png)
 
-## <a name="access-vcenter-from-cloudsimple-portal"></a>Acesse o vCenter do portal CloudSimple
+## <a name="access-vcenter-from-cloudsimple-portal"></a>Acesse o vCenter no portal do CloudSimple
 
-Você pode lançar o portal vCenter do seu Private Cloud a partir do portal CloudSimple.
+Você pode iniciar o portal do vCenter de sua nuvem privada no portal do CloudSimple.
 
-1. Acesse seu [portal CloudSimple](access-cloudsimple-portal.md).
+1. Acesse seu [portal do CloudSimple](access-cloudsimple-portal.md).
 
-2. A partir dos **Recursos** selecione a Nuvem Privada, que você deseja acessar e clique em **Launch vSphere Client**.
+2. Nos **recursos** , selecione a nuvem privada que você deseja acessar e clique em **Iniciar cliente do vSphere**.
 
-    ![Iniciar vSphere Client - Recursos](media/cloudsimple-portal-resources-launch-vcenter.png)
+    ![Iniciar vSphere cliente-recursos](media/cloudsimple-portal-resources-launch-vcenter.png)
 
-3. Você também pode iniciar o portal vCenter a partir da tela de resumo da sua Nuvem Privada.
+3. Você também pode iniciar o portal do vCenter na tela de Resumo de sua nuvem privada.
 
-    ![Iniciar cliente vSphere - Resumo](media/cloudsimple-resources-summary-launch-vcenter.png)
+    ![Iniciar vSphere cliente-Resumo](media/cloudsimple-resources-summary-launch-vcenter.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Crie e gerencie VLANs/sub-redes para suas nuvens privadas](create-vlan-subnet.md)
-* [Modelo de permissão cloud simple private cloud do VMware vCenter](learn-private-cloud-permissions.md)
+* [Criar e gerenciar VLANs/sub-redes para suas nuvens privadas](create-vlan-subnet.md)
+* [Modelo de permissão de nuvem privada do CloudSimple do VMware vCenter](learn-private-cloud-permissions.md)
