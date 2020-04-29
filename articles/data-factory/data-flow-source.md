@@ -1,6 +1,6 @@
 ---
-title: Transformação de origem no mapeamento do fluxo de dados
-description: Saiba como configurar uma transformação de origem no mapeamento do fluxo de dados.
+title: Transformação de origem no fluxo de dados de mapeamento
+description: Saiba como configurar uma transformação de origem no fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
 manager: anandsub
@@ -9,100 +9,100 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
 ms.openlocfilehash: b2f533e8bd9199025260aaca9cff587b13adce64
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606315"
 ---
-# <a name="source-transformation-in-mapping-data-flow"></a>Transformação de origem no mapeamento do fluxo de dados 
+# <a name="source-transformation-in-mapping-data-flow"></a>Transformação de origem no fluxo de dados de mapeamento 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Uma transformação de origem configura sua fonte de dados para o fluxo de dados. Ao projetar fluxos de dados, seu primeiro passo será sempre configurar uma transformação de origem. Para adicionar uma fonte, clique na caixa **Adicionar origem** na tela de fluxo de dados.
+Uma transformação de origem configura sua fonte de dados para o fluxo de dados. Ao criar fluxos de dados, sua primeira etapa sempre estará configurando uma transformação de origem. Para adicionar uma origem, clique na caixa **Adicionar origem** na tela fluxo de dados.
 
-Todo fluxo de dados requer pelo menos uma transformação de fonte, mas você pode adicionar quantas fontes forem necessárias para concluir suas transformações de dados. Você pode juntar essas fontes com uma união, uma olhada ou uma transformação sindical.
+Cada fluxo de dados requer pelo menos uma transformação de origem, mas você pode adicionar quantas fontes forem necessárias para concluir as transformações de dados. Você pode unir essas fontes junto com uma transformação junção, pesquisa ou União.
 
-Cada transformação de origem está associada a exatamente um conjunto de dados da Fábrica de Dados. O conjunto de dados define a forma e a localização dos dados para os quais você deseja escrever ou ler. Se usar um conjunto de dados baseado em arquivos, você pode usar curingas e listas de arquivos na sua fonte para trabalhar com mais de um arquivo por vez.
+Cada transformação de origem é associada a exatamente um conjunto de Data Factory. O DataSet define a forma e o local dos dados que você deseja gravar ou ler. Se estiver usando um conjunto de informações baseado em arquivo, você poderá usar curingas e listas de arquivos em sua fonte para trabalhar com mais de um arquivo por vez.
 
-## <a name="supported-source-connectors-in-mapping-data-flow"></a>Conectores de origem suportados no mapeamento do fluxo de dados
+## <a name="supported-source-connectors-in-mapping-data-flow"></a>Conectores de origem com suporte no fluxo de dados de mapeamento
 
-O Mapeamento do Fluxo de Dados segue uma abordagem de extrato, carga, transformação (ELT) e trabalha com conjuntos de dados *de preparação* que estão todos no Azure. Atualmente, os seguintes conjuntos de dados podem ser usados em uma transformação de origem:
+O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, transformação (ELT) e funciona com conjuntos de dados de *preparo* que estão todos no Azure. Atualmente, os seguintes conjuntos de valores podem ser usados em uma transformação de origem:
     
-* [Armazenamento Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Texto, Parquet)
-* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parquet)
+* [Armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
+* [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
+* [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, texto, parquet)
 * [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
 * [Banco de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
+* [CosmosDB do Azure](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-As configurações específicas desses conectores estão localizadas na guia **Opções de Origem.** 
+As configurações específicas para esses conectores estão localizadas na guia **Opções de origem** . as informações sobre essas configurações estão localizadas na documentação do conector. 
 
-A Fábrica de Dados Azure tem acesso a mais de [90 conectores nativos](connector-overview.md). Para incluir os dados dessas outras fontes no seu fluxo de dados, use a Atividade de Cópia para carregar esses dados em uma das áreas de preparação suportadas.
+Azure Data Factory tem acesso a mais de [90 conectores nativos](connector-overview.md). Para incluir dados dessas outras fontes em seu fluxo de dados, use a atividade de cópia para carregar esses dados em uma das áreas de preparo com suporte.
 
 ## <a name="source-settings"></a>Configurações de origem
 
-Depois de adicionar uma fonte, configure através da guia **Configurações de** origem. Aqui você pode escolher ou criar o conjunto de dados em que seus pontos de origem. Você também pode selecionar opções de esquema e amostragem para seus dados.
+Depois de adicionar uma fonte, configure por meio da guia **configurações de origem** . Aqui, você pode escolher ou criar o conjunto de os pontos de origem em. Você também pode selecionar opções de esquema e amostragem para seus dados.
 
-![Guia configurações de origem](media/data-flow/source1.png "Guia configurações de origem")
+![Guia Configurações de origem](media/data-flow/source1.png "Guia Configurações de origem")
 
-**Conexão de teste:** Teste se o serviço de faísca do fluxo de dados pode ou não se conectar com sucesso ao serviço vinculado usado no conjunto de dados de origem. O modo de depuração deve estar ativado para que este recurso seja ativado.
+**Testar conexão:** Teste se o serviço Spark do fluxo de dados pode ou não se conectar com êxito ao serviço vinculado usado no conjunto de dados de origem. O modo de depuração deve estar ativado para que este recurso seja habilitado.
 
-**Deriva de esquema:** [Schema Drift](concepts-data-flow-schema-drift.md) é a capacidade da fábrica de dados de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem precisar definir explicitamente as alterações da coluna.
+**Descompasso de esquema:** a [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade do data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações na coluna.
 
-* Verifique a caixa **de deriva do esquema Permitir** se as colunas de origem mudarem com freqüência. Esta configuração permite que todos os campos de origem de entrada fluam através das transformações para a pia.
+* Marque a caixa **permitir descompasso de esquema** se as colunas de origem forem alteradas com frequência. Essa configuração permite que todos os campos de origem de entrada fluam por meio das transformações para o coletor.
 
-* A escolha **de tipos de colunas derivadas infer** instruirá a fábrica de dados para detectar e definir tipos de dados para cada nova coluna descoberta. Com este recurso desligado, todas as colunas à deriva serão de cadeia de tipo.
+* Escolher **inferir tipos de coluna descompassos** instruirá data Factory a detectar e definir tipos de dados para cada nova coluna descoberta. Com esse recurso desativado, todas as colunas descompassos serão do tipo cadeia de caracteres.
 
-**Validar o esquema:** Se o esquema de validação for selecionado, o fluxo de dados falhará se os dados de origem de entrada não corresponderem ao esquema definido do conjunto de dados.
+**Validar esquema:** Se a validação de esquema for selecionada, o fluxo de dados não será executado se os dados de origem de entrada não corresponderem ao esquema definido do DataSet.
 
-**Contagem de linhas de sumidria:** O campo de contagem de linhas de salto especifica quantas linhas devem ser ignoradas no início do conjunto de dados.
+**Ignorar contagem de linhas:** O campo ignorar contagem de linhas especifica quantas linhas ignorar no início do conjunto de um.
 
-**Amostragem:** Habilite a amostragem para limitar o número de linhas da sua fonte. Use esta configuração quando testar ou amostrar dados da sua fonte para fins de depuração.
+**Amostragem:** Habilite a amostragem para limitar o número de linhas de sua origem. Use essa configuração quando você testar ou criar amostras de dados de sua fonte para fins de depuração.
 
-**Linhas multilinhas:** Selecione linhas multilinhas se o arquivo de texto de origem contiver valores de seqüência que abrangem várias linhas, ou seja, novas linhas dentro de um valor. Esta configuração só está disponível em conjuntos de dados DelimitedText.
+**Linhas multilinha:** Selecione linhas multilinha se o arquivo de texto de origem contiver valores de cadeia de caracteres que abranjam várias linhas, ou seja, linhas novas dentro de um valor. Essa configuração só está disponível em conjuntos de DelimitedText.
 
-Para validar sua fonte está configurado corretamente, ative o modo de depuração e busque uma visualização de dados. Para obter mais informações, consulte [o modo Debug](concepts-data-flow-debug-mode.md).
+Para validar se a fonte está configurada corretamente, ative o modo de depuração e busque uma visualização de dados. Para obter mais informações, consulte [modo de depuração](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]
-> Quando o modo de depuração estiver ligado, a configuração de limite de linha nas configurações de depuração substituirá a configuração de amostragem na fonte durante a visualização de dados.
+> Quando o modo de depuração estiver ativado, a configuração de limite de linha nas configurações de depuração substituirá a configuração de amostragem na origem durante a visualização de dados.
 
 ## <a name="projection"></a>Projeção
 
-Como esquemas em conjuntos de dados, a projeção em uma fonte define as colunas, tipos e formatos de dados a partir dos dados de origem. Para a maioria dos tipos de conjunto de dados, como SQL e Parquet, a projeção em uma fonte é fixada para refletir o esquema definido em um conjunto de dados. Quando seus arquivos de origem não são fortemente digitados (por exemplo, arquivos csv planos em vez de arquivos Parquet), você pode definir os tipos de dados para cada campo na transformação de origem.
+Como os esquemas em conjuntos de dados, a projeção em uma fonte define as colunas, os tipos e os formatos dos dados de origem. Para a maioria dos tipos de conjunto de conjuntos, como SQL e parquet, a projeção em uma fonte é fixada para refletir o esquema definido em um conjunto de um DataSet. Quando os arquivos de origem não são fortemente tipados (por exemplo, arquivos CSV simples em vez de arquivos parquet), você pode definir os tipos de dados para cada campo na transformação de origem.
 
-![Configurações na guia Projeção](media/data-flow/source3.png "Projeção")
+![Configurações na guia projeção](media/data-flow/source3.png "Projeção")
 
-Se o seu arquivo de texto não tiver um esquema definido, selecione **Detectar o tipo** de dados para que a Fábrica de Dados apareça e infera os tipos de dados. Selecione **Definir formato padrão** para detectar automaticamente os formatos de dados padrão.
+Se o arquivo de texto não tiver um esquema definido, selecione **detectar tipo de dados** para que data Factory obterá amostras e inferirá os tipos de dados. Selecione **definir formato padrão** para detectar automaticamente os formatos de dados padrão.
 
-**O esquema de redefinição** redefine a projeção para o que é definido no conjunto de dados referenciado.
+**Redefinir esquema** redefine a projeção para o que é definido no conjunto de valores referenciado.
 
-Você pode modificar os tipos de dados da coluna em uma transformação de coluna derivada no fluxo para baixo. Use uma transformação selecionada para modificar os nomes das colunas.
+Você pode modificar os tipos de dados de coluna em uma transformação de coluna derivada de fluxo inferior. Use uma transformação selecionar para modificar os nomes de coluna.
 
-### <a name="import-schema"></a>Esquema de importação
+### <a name="import-schema"></a>Importar esquema
 
-O botão **Esquema de importação** na guia **Projeção** permite que você use um cluster de depuração ativa para criar uma projeção de esquema. Disponível em todos os tipos de origem, a importação do esquema aqui irá substituir a projeção definida no conjunto de dados. O objeto do conjunto de dados não será alterado.
+O botão **importar esquema** na guia **projeção** permite que você use um cluster de depuração ativo para criar uma projeção de esquema. Disponível em cada tipo de fonte, a importação do esquema aqui substituirá a projeção definida no conjunto de um. O objeto DataSet não será alterado.
 
-Isso é útil em conjuntos de dados como Avro e CosmosDB que suportam estruturas de dados complexas que não exigem definições de esquema para existir no conjunto de dados.
+Isso é útil em conjuntos de dados, como Avro e CosmosDB, que dão suporte a estruturas de dado complexas não exigem que definições de esquema existam no DataSet.
 
 ## <a name="optimize-the-source-transformation"></a>Otimizar a transformação de origem
 
-Na guia **Otimizar** para a transformação de origem, você pode ver um tipo de partição **de Origem.** Esta opção só está disponível quando sua fonte é o Banco de Dados SQL do Azure. Isso porque a Fábrica de Dados tenta fazer conexões paralelas para executar grandes consultas contra a fonte do Banco de Dados SQL.
+Na guia **otimizar** da transformação origem, você poderá ver um tipo de partição de **origem** . Essa opção só está disponível quando sua origem é o banco de dados SQL do Azure. Isso ocorre porque Data Factory tenta fazer conexões paralelas para executar consultas grandes em sua origem do banco de dados SQL.
 
 ![Configurações de partição de origem](media/data-flow/sourcepart3.png "particionamento")
 
-Você não precisa particionar dados na fonte do banco de dados SQL, mas partições são úteis para grandes consultas. Você pode basear sua partição em uma coluna ou em uma consulta.
+Você não precisa Particionar dados em sua origem do banco do dados SQL, mas as partições são úteis para consultas grandes. Você pode basear sua partição em uma coluna ou em uma consulta.
 
-### <a name="use-a-column-to-partition-data"></a>Use uma coluna para particionar dados
+### <a name="use-a-column-to-partition-data"></a>Usar uma coluna para particionar dados
 
-Na sua tabela de origem, selecione uma coluna para partição. Também defina o número de partições.
+Na tabela de origem, selecione uma coluna na qual particionar. Defina também o número de partições.
 
-### <a name="use-a-query-to-partition-data"></a>Use uma consulta para particionar dados
+### <a name="use-a-query-to-partition-data"></a>Usar uma consulta para particionar dados
 
-Você pode optar por particionar as conexões com base em uma consulta. Digite o conteúdo de um predicado WHERE. Por exemplo, entrar no ano > 1980.
+Você pode optar por particionar as conexões com base em uma consulta. Insira o conteúdo de um predicado WHERE. Por exemplo, digite year > 1980.
 
-Para obter mais informações sobre otimização no fluxo de dados de mapeamento, consulte a [guia Otimizar](concepts-data-flow-overview.md#optimize).
+Para obter mais informações sobre a otimização no fluxo de dados de mapeamento, consulte a [guia otimizar](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Comece a construir uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação seleto.](data-flow-select.md)
+Comece a criar uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação selecionar](data-flow-select.md).

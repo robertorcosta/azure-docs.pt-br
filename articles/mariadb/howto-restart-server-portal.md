@@ -1,5 +1,5 @@
 ---
-title: Servidor de reinicialização - Portal Azure - Banco de Dados Azure para MariaDB
+title: Reinicie o servidor-portal do Azure-banco de dados do Azure para MariaDB
 description: Este artigo descreve como restaurar um servidor no Banco de Dados do Azure para MariaDB usando o Portal do Azure.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: ed95304807a1a03880cc824c1a58f010203d418d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534704"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Reiniciar um Banco de Dados do Azure para MariaDB usando o portal do Azure
@@ -22,7 +22,7 @@ O tempo necessário para concluir uma reinicialização depende do processo de r
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de instruções, você precisa:
-- Um [banco de dados Azure para servidor MariaDB](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- Um [banco de dados do Azure para servidor MariaDB](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>Realizar a reinicialização do servidor
 
@@ -48,4 +48,4 @@ As etapas a seguir reiniciam o servidor MariaDB:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Quickstart: Crie o Banco de Dados Azure para o servidor MariaDB usando o portal Azure](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+[Início rápido: criar banco de dados do Azure para o servidor MariaDB usando portal do Azure](./quickstart-create-mariadb-server-database-using-azure-portal.md)
