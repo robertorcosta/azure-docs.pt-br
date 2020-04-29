@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548599"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Como registrar um tíquete de suporte de evento de segurança
@@ -28,11 +28,11 @@ ms.locfileid: "80548599"
 
     ![Tipo de evento e definição](./media/event-support-ticket/chart.png)
 
-3. Depois de selecionar o Tipo de problema e a categoria, clique no botão **'Iniciar solicitação**'. Forneça as informações a seguir para nos ajudar a entender melhor o problema.
+3. Depois de selecionar o tipo e a categoria do problema, clique no botão '**Iniciar solicitação**'. Forneça as informações a seguir para nos ajudar a entender melhor o problema.
 
     i. Qual é o problema e/ou vulnerabilidade?
 
-    ii. Para vulnerabilidades, forneça a cve (mitre.org) ou a calculadora CVSS3 v3 preenchida (https://www.first.org/cvss/calculator/3.0).
+    ii. Para vulnerabilidades, forneça a CVE (mitre.org) ou a calculadora de CVSS3 v3 preenchida (https://www.first.org/cvss/calculator/3.0).
 
     III. Há uma resolução ou mitigação? Se sim, forneça as etapas de correção.
 

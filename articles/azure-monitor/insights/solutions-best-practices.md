@@ -1,16 +1,16 @@
 ---
-title: Solução de gestão nas melhores práticas do Azure
-description: Neste artigo, aprenda dicas para criar um arquivo de solução de gerenciamento. Veja como trabalhar com fontes de dados, runbooks, visualizações e alertas.
+title: Solução de gerenciamento em práticas recomendadas do Azure
+description: Neste artigo, aprenda dicas para criar um arquivo de solução de gerenciamento. Veja como trabalhar com fontes de dados, runbooks, exibições e alertas.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
 ms.openlocfilehash: 7cb300297336edcce4294b800520ad570b12bcde
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548157"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Práticas recomendadas para a criação de soluções de gerenciamento no Azure (versão prévia)

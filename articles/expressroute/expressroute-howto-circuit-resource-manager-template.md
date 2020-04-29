@@ -1,6 +1,6 @@
 ---
-title: 'Modelo azure ExpressRoute: Crie um circuito ExpressRoute'
-description: Crie, provisão, exclua e deprovisione um circuito ExpressRoute.
+title: 'Modelo do Azure ExpressRoute: criar um circuito do ExpressRoute'
+description: Criar, provisionar, excluir e desprovisionar um circuito do ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: charwen
 ms.openlocfilehash: ac2fb2f884feb0fbe6fbb1731ebe7c8bdad5114b
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80616524"
 ---
-# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Crie um circuito ExpressRoute usando o modelo do Azure Resource Manager
+# <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Criar um circuito do ExpressRoute usando Azure Resource Manager modelo
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
 > * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
@@ -25,7 +25,7 @@ ms.locfileid: "80616524"
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
 
-Aprenda a criar um circuito ExpressRoute implantando um modelo do Azure Resource Manager usando o Azure PowerShell. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.network/expressroutecircuits).
+Saiba como criar um circuito do ExpressRoute implantando um modelo de Azure Resource Manager usando Azure PowerShell. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -35,13 +35,13 @@ Aprenda a criar um circuito ExpressRoute implantando um modelo do Azure Resource
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a><a name="create"></a>Criar e provisionar um circuito do ExpressRoute
 
-[Os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/) têm uma boa coleção de modelos de Gerenciador de Recursos. Você usa um dos [modelos existentes](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) para criar um circuito ExpressRoute.
+Os [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/) têm uma boa coleção do modelo do Resource Manager. Você usa um dos [modelos existentes](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) para criar um circuito do ExpressRoute.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/101-expressroute-circuit-create/azuredeploy.json)]
 
 Para ver mais modelos relacionados, selecione [aqui](https://azure.microsoft.com/resources/templates/?term=expressroute).
 
-Para criar um Circuito ExpressRoute, implantando um modelo:
+Para criar um circuito de ExpressRoute implantando um modelo:
 
 1. Selecione **Testar** no seguinte bloco de código e, em seguida, siga as instruções para entrar no Azure Cloud Shell.
 
@@ -63,35 +63,35 @@ Para criar um Circuito ExpressRoute, implantando um modelo:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **O nível SKU** determina se um circuito ExpressRoute é [Local,](expressroute-faqs.md#expressroute-local)Standard ou [Premium.](expressroute-faqs.md#expressroute-premium) Você pode especificar *Local*, *Padrão ou *Premium*.
-   * **A família SKU** determina o tipo de faturamento. Você pode especificar *dados medidos* para um plano de dados medido e *dados ilimitados* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é apenas *ilimitado.*
+   * A **camada de SKU** determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, * Standard ou *Premium*.
+   * A **família de SKUs** determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é apenas *Unlimiteddata* .
    * **Local de Emparelhamento** é o local físico em que você está realizando o emparelhamento com a Microsoft.
 
      > [!IMPORTANT]
      > O Local de Emparelhamento indica o [local físico](expressroute-locations.md) em que você está realizando o emparelhamento com a Microsoft. Isso **não** tem vínculo à propriedade "Local", que se refere à posição geográfica na qual o Provedor de Recursos de Rede do Azure está localizado. Embora eles não estejam relacionados, é uma boa prática escolher um provedor de recursos de rede geograficamente próximo do Local de Emparelhamento do circuito.
 
-    O nome do grupo de recursos é o nome do namespace do ponto de ônibus de serviço com **rg** anexado.
+    O nome do grupo de recursos é o nome do namespace do barramento de serviço com **RG** anexado.
 
 2. Selecione **Copiar** para copiar o script do PowerShell.
 3. Clique com o botão direito do mouse no console do Shell e selecione **Colar**.
 
 Pode demorar alguns minutos para criar um hub de eventos.
 
-O Azure PowerShell é usado para implantar o modelo neste tutorial. Para outros métodos de implantação de modelos, consulte:
+Azure PowerShell é usado para implantar o modelo neste tutorial. Para outros métodos de implantação de modelo, consulte:
 
-* [Usando o portal Azure.](../azure-resource-manager/templates/deploy-portal.md)
-* [Usando o Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+* [Usando o portal do Azure](../azure-resource-manager/templates/deploy-portal.md).
+* [Usando CLI do Azure](../azure-resource-manager/templates/deploy-cli.md).
 * [Usando a API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
 
-Você pode excluir o circuito ExpressRoute selecionando o ícone **de exclusão.** Observe as seguintes informações:
+Você pode excluir o circuito do ExpressRoute selecionando o ícone **excluir** . Observe as seguintes informações:
 
 * Você deve desvincular todas as redes virtuais do circuito do ExpressRoute. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
-* Se o provedor de serviços de circuito ExpressRoute for **provisionamento** ou **provisionado,** você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito ao seu lado. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
-* Se o provedor de serviço tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços está definido como **Não provisionado),** você pode excluir o circuito. Isso interrompe a cobrança pelo circuito.
+* Se o estado de provisionamento do provedor de serviço de circuito do **ExpressRoute for Provisionando** ou **provisionado** , você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado deles. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **não provisionado**), você poderá excluir o circuito. Isso interrompe a cobrança pelo circuito.
 
-Você pode excluir o circuito ExpressRoute executando o seguinte comando PowerShell:
+Você pode excluir o circuito do ExpressRoute executando o seguinte comando do PowerShell:
 
 ```azurepowershell-interactive
 $circuitName = Read-Host -Prompt "Enter the same circuit name that you used earlier"

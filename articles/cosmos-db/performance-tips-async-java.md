@@ -1,6 +1,6 @@
 ---
 title: Dicas de desempenho do Azure Cosmos DB para Java Async
-description: Conheça as opções de configuração do cliente para melhorar o desempenho do banco de dados do Azure Cosmos
+description: Aprenda as opções de configuração do cliente para melhorar o desempenho do banco de dados Cosmos do Azure
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.openlocfilehash: b892b1f4ff73679ab425d0e97f5361e0f3712252
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549181"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java Assíncrono
@@ -28,17 +28,17 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 ## <a name="networking"></a>Rede
 
-* **Modo de conexão: Use o modo direto**
+* **Modo de conexão: usar o modo direto**
 <a id="direct-connection"></a>
     
-    A forma como um cliente se conecta ao Azure Cosmos DB tem implicações importantes no desempenho, especialmente em termos de latência do lado do cliente. O *ConnectionMode* é uma configuração de chave disponível para configurar a *Diretiva de Conexão*do cliente . Para o Async Java SDK, os dois Modos de Conexão disponíveis são:  
+    Como um cliente se conecta a Azure Cosmos DB tem implicações importantes no desempenho, especialmente em termos de latência do lado do cliente. *ConnectionMode* é uma configuração de chave de configuração disponível para configurar o cliente *ConnectionPolicy*. Para o SDK Java assíncrono, os dois ConnectionModes disponíveis são:  
       
     * [Gateway (padrão)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
     * [Direto](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
 
-    O modo Gateway é suportado em todas as plataformas SDK e é a opção configurada por padrão. Se seus aplicativos forem executados em uma rede corporativa com restrições rigorosas de firewall, o modo Gateway é a melhor escolha, pois usa a porta HTTPS padrão e um único ponto final. Porém, a compensação do desempenho é que o Modo gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Azure Cosmos DB. Por causa disso, o modo Direct oferece melhor desempenho devido a menos saltos de rede.
+    O modo de gateway tem suporte em todas as plataformas SDK e é a opção configurada por padrão. Se seus aplicativos são executados em uma rede corporativa com restrições de firewall estritas, o modo de gateway é a melhor opção, pois ele usa a porta HTTPS padrão e um único ponto de extremidade. Porém, a compensação do desempenho é que o Modo gateway envolve um salto de rede adicional sempre que os dados são lidos ou gravados no Azure Cosmos DB. Por isso, o modo direto oferece melhor desempenho devido a menos saltos de rede.
 
-    O *Modo de conexão* é configurado durante a construção da instância *DocumentClient* com o parâmetro *'Diretiva de conexão'.*
+    O *ConnectionMode* é configurado durante a construção da instância *DocumentClient* com o parâmetro *ConnectionPolicy* .
     
     ```java
         public ConnectionPolicy getConnectionPolicy() {
@@ -52,9 +52,9 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
         DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
     ```
 
-* **Clientes collocate na mesma região do Azure para desempenho**<a id="same-region"></a>
+* Colocar **clientes na mesma região do Azure para desempenho**<a id="same-region"></a>
 
-    Quando possível, coloque quaisquer aplicativos chamando o Azure Cosmos DB na mesma região que o banco de dados Do Azure Cosmos. Para obter uma comparação aproximada, as chamadas para o Azure Cosmos DB na mesma região são concluídas de 1 a 2 ms, mas a latência entre a Costa Leste e a Oeste dos EUA é maior que 50 ms. Provavelmente, essa latência pode variar entre as solicitações dependendo da rota seguida pela solicitação conforme ela passa do cliente para o limite de datacenter do Azure. A menor latência possível é alcançada garantindo que o aplicativo de chamada está localizado na mesma região do Azure do ponto de extremidade do Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [Regiões Azure](https://azure.microsoft.com/regions/#services).
+    Quando possível, coloque todos os aplicativos que chamam Azure Cosmos DB na mesma região que o banco de dados Cosmos do Azure. Para obter uma comparação aproximada, as chamadas para o Azure Cosmos DB na mesma região são concluídas de 1 a 2 ms, mas a latência entre a Costa Leste e a Oeste dos EUA é maior que 50 ms. Provavelmente, essa latência pode variar entre as solicitações dependendo da rota seguida pela solicitação conforme ela passa do cliente para o limite de datacenter do Azure. A menor latência possível é alcançada garantindo que o aplicativo de chamada está localizado na mesma região do Azure do ponto de extremidade do Azure Cosmos DB provisionado. Para obter uma lista de regiões disponíveis, consulte [regiões do Azure](https://azure.microsoft.com/regions/#services).
 
     ![Ilustração da política de conexão do Azure Cosmos DB](./media/performance-tips/same-region.png)
 
@@ -63,7 +63,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Os SDKs do Azure Cosmos DB estão constantemente sendo aprimorados para fornecer o melhor desempenho. Consulte as páginas do [SDK do Azure Cosmos DB](sql-api-sdk-async-java.md) para determinar o SDK mais recente e examinar as melhorias.
 
-* **Use um cliente Singleton Azure Cosmos DB para a vida útil do seu aplicativo**
+* **Usar um cliente Azure Cosmos DB singleton durante o tempo de vida do seu aplicativo**
 
     Cada instância do AsyncDocumentClient tem um thread-safe e realiza um gerenciamento de conexão eficiente e o cache de endereço. Para permitir o gerenciamento de conexão eficiente e o melhor desempenho por AsyncDocumentClient, é recomendável usar uma única instância de AsyncDocumentClient por AppDomain durante a vida útil do aplicativo.
 
@@ -71,67 +71,67 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
 * **Ajustar ConnectionPolicy**
 
-    Por padrão, as solicitações do Modo Direto Cosmos DB são feitas através do TCP ao usar o SDK Java Async. Internamente, o SDK usa uma arquitetura especial de modo Direct para gerenciar dinamicamente os recursos da rede e obter o melhor desempenho.
+    Por padrão, as solicitações de Cosmos DB de modo direto são feitas por TCP ao usar o SDK Java assíncrono. Internamente, o SDK usa uma arquitetura especial de modo direto para gerenciar dinamicamente os recursos de rede e obter o melhor desempenho.
 
-    No Async Java SDK, o modo Direct é a melhor escolha para melhorar o desempenho do banco de dados com a maioria das cargas de trabalho. 
+    No SDK do Java assíncrono, o modo direto é a melhor opção para melhorar o desempenho do banco de dados com a maioria das cargas de trabalho. 
 
-    * ***Visão geral do modo Direct***
+    * ***Visão geral do modo direto***
 
-        ![Ilustração da arquitetura do modo Direto](./media/performance-tips-async-java/rntbdtransportclient.png)
+        ![Ilustração da arquitetura do modo direto](./media/performance-tips-async-java/rntbdtransportclient.png)
 
-        A arquitetura do lado do cliente empregada no modo Direct permite a utilização previsível da rede e acesso multiplexado às réplicas do Azure Cosmos DB. O diagrama acima mostra como o modo Direct encaminha as solicitações do cliente para réplicas no backend do Cosmos DB. A arquitetura do modo Direct aloca até 10 **canais** no lado do cliente por réplica DB. Um Canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações profundas. Os canais pertencentes a uma réplica são alocados dinamicamente conforme necessário pelo **Ponto Final**de Serviço da réplica . Quando o usuário emite uma solicitação no modo Direct, o **TransportClient** encaminha a solicitação para o ponto final de serviço adequado com base na chave de partição. Os buffers **de fila de solicitação** são solicitados antes do ponto final do serviço.
+        A arquitetura do lado do cliente empregada no modo direto permite a utilização de rede previsível e o acesso multiplexado a réplicas de Azure Cosmos DB. O diagrama acima mostra como o modo direto roteia solicitações de cliente para réplicas no back-end de Cosmos DB. A arquitetura do modo direto aloca até 10 **canais** no lado do cliente por réplica de BD. Um canal é uma conexão TCP precedida por um buffer de solicitação, que é de 30 solicitações de profundidade. Os canais que pertencem a uma réplica são alocados dinamicamente conforme necessário pelo **ponto de extremidade de serviço**da réplica. Quando o usuário emite uma solicitação no modo direto, o **TransportClient** roteia a solicitação para o ponto de extremidade de serviço apropriado com base na chave de partição. Os buffers de **fila de solicitação** solicitam antes do ponto de extremidade de serviço.
 
-    * ***Opções de configuração de diretiva de conexão para o modo direto***
+    * ***Opções de configuração do ConnectionPolicy para o modo direto***
 
-        Como primeiro passo, use as seguintes configurações recomendadas abaixo. Entre em contato com a [equipe do Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) se você encontrar problemas sobre este tópico em particular.
+        Como uma primeira etapa, use as seguintes definições de configuração recomendadas abaixo. Entre em contato com a [equipe de Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) se você encontrar problemas neste tópico específico.
 
-        Se você estiver usando o Azure Cosmos DB como um banco de dados de referência (ou seja, o banco de dados é usado para muitas operações de leitura de ponto e poucas operações de gravação), pode ser aceitável definir *oloEndpointTimeout* para 0 (ou seja, sem tempo.
+        Se você estiver usando Azure Cosmos DB como um banco de dados de referência (ou seja, o banco de dados é usado para muitas operações de leitura de ponto e poucas operações de gravação), pode ser aceitável definir *idleEndpointTimeout* como 0 (ou seja, sem tempo limite).
 
 
         | Opções de configuração       | Padrão    |
         | :------------------:       | :-----:    |
         | bufferPageSize             | 8192       |
-        | Connectiontimeout          | "PT1M"     |
-        | idleChannelTimeout         | "PT0S"     |
+        | connectionTimeout          | "PT1M"     |
+        | idleChannelTimeout         | PT0S     |
         | idleEndpointTimeout        | "PT1M10S"  |
-        | maxBufferCapacidade          | 8388608    |
+        | maxBufferCapacity          | 8388608    |
         | maxChannelsPerEndpoint     | 10         |
         | maxRequestsPerChannel      | 30         |
         | receiveHangDetectionTime   | "PT1M5S"   |
-        | requestExpiryInterval      | "PT5S"     |
+        | requestExpiryInterval      | PT5S     |
         | requestTimeout             | "PT1M"     |
-        | requestTimerResolução     | "PT0.5S"   |
+        | requestTimerResolution     | "PT de 0,5 S"   |
         | sendHangDetectionTime      | "PT10S"    |
-        | Shutdowntimeout            | "PT15S"    |
+        | shutdownTimeout            | PT15S    |
 
-    * ***Dicas de programação para o modo Direto***
+    * ***Dicas de programação para o modo direto***
 
-        Revise o artigo Azure Cosmos DB [Async Java SDK Solução de problemas](troubleshoot-java-async-sdk.md) como uma linha de base para resolver quaisquer problemas de SDK Do Async Java.
+        Examine o artigo Azure Cosmos DB [solução de problemas do SDK Java assíncrono](troubleshoot-java-async-sdk.md) como uma linha de base para resolver quaisquer problemas do SDK do Java assíncrono.
 
-        Algumas dicas importantes de programação ao usar o modo Direct:
+        Algumas dicas de programação importantes ao usar o modo direto:
 
-        + **Use multithreading em seu aplicativo para transferência de dados TCP eficiente** - Após fazer uma solicitação, seu aplicativo deve se inscrever para receber dados em outro segmento. Não fazê-lo força uma operação "semi-duplex" não intencional e as solicitações subseqüentes são bloqueadas à espera da resposta da solicitação anterior.
+        + **Usar multithreading em seu aplicativo para transferência de dados TCP eficiente** -depois de fazer uma solicitação, seu aplicativo deve assinar para receber dados em outro thread. Não fazer isso força a operação "Half-duplex" indesejada e as solicitações subsequentes são bloqueadas aguardando a resposta da solicitação anterior.
 
-        + **Realize cargas de trabalho intensivas em computação em um segmento dedicado** - Por razões semelhantes à ponta anterior, operações como o processamento de dados complexos são melhor colocadas em um segmento separado. Uma solicitação que extrai dados de outro armazenamento de dados (por exemplo, se o segmento utiliza os armazenamentos de dados Azure Cosmos DB e Spark simultaneamente) pode sofrer aumento de latência e é recomendado gerar um segmento adicional que aguarda uma resposta do outro armazenamento de dados.
+        + **Execute cargas de trabalho com uso intensivo de computação em um thread dedicado** -por motivos semelhantes à dica anterior, operações como processamento de dados complexo são melhor colocadas em um thread separado. Uma solicitação que efetua pull de dados de outro armazenamento de dados (por exemplo, se o thread utiliza Azure Cosmos DB e armazenamentos de dados do Spark simultaneamente) pode enfrentar maior latência e é recomendável gerar um thread adicional que aguarda uma resposta do outro armazenamento de dados.
 
-            + O IO de rede subjacente no Async Java SDK é gerenciado pela Netty, veja essas [dicas para evitar padrões de codificação que bloqueiam os segmentos Netty IO](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
+            + A e/s de rede subjacente no SDK do Java assíncrono é gerenciada por sub-rede, consulte estas [dicas para evitar padrões de codificação que bloqueiam threads de e/s de](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread)rede.
 
-        + **Modelagem de dados** - O Azure Cosmos DB SLA assume que o tamanho do documento é inferior a 1KB. Otimizar seu modelo de dados e programação para favorecer o tamanho menor do documento geralmente levará à diminuição da latência. Se você vai precisar de armazenamento e recuperação de documentos maiores que 1KB, a abordagem recomendada é que os documentos se vinculem a dados no Azure Blob Storage.
+        + **Modelagem de dados** – o SLA de Azure Cosmos DB pressupõe que o tamanho do documento seja menor que 1 KB. Otimizar seu modelo de dados e programar para favorecer o tamanho do documento menor geralmente resultará em latência reduzida. Se você for precisar de armazenamento e recuperação de documentos maiores que 1 KB, a abordagem recomendada é para documentos a serem vinculados a dados no armazenamento de BLOBs do Azure.
 
 
 * **Ajustar consultas paralelas para coleções particionadas**
 
     Azure Cosmos DB SQL Async Java SDK dá suporte a consultas paralelas, que permitem a consulta uma coleção particionada em paralelo. Para obter mais informações, consulte [exemplos de código](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) relacionados ao trabalho com os SDKs. Consultas paralelas são projetadas para melhorar a latência da consulta e a produtividade em relação à contraparte serial.
 
-    * ***Ajuste conjuntoMaxDegreeOfParallelism\:***
+    * ***Ajustando setMaxDegreeOfParallelism\:***
     
-        Consultas paralelas funcionam consultando várias partições em paralelo. No entanto, os dados de uma coleção particionada individual são buscados em série com relação à consulta. Por isso, use setMaxDegreeOfParallelism para definir o número de partições que representa o máximo de chance de conseguir uma consulta com o melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá usar setMaxDegreeOfParallelism para definir um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau máximo de paralelismo.
+        As consultas paralelas funcionam consultando várias partições em paralelo. No entanto, os dados de uma coleção particionada individual são buscados em série com relação à consulta. Por isso, use setMaxDegreeOfParallelism para definir o número de partições que representa o máximo de chance de conseguir uma consulta com o melhor desempenho, desde que todas as outras condições do sistema permaneçam as mesmas. Se você não souber o número de partições, poderá usar setMaxDegreeOfParallelism para definir um número alto, e o sistema escolherá o mínimo (número de partições, entrada fornecida pelo usuário) como o grau máximo de paralelismo.
 
         É importante observar que as consultas paralelas produzirão os melhores benefícios se os dados forem distribuídos uniformemente em todas as partições com relação à consulta. Se a coleção particionada for particionada de uma forma que todos ou a maioria dos dados retornados por uma consulta ficarem concentrados em algumas partições (uma partição, na pior das hipóteses), o desempenho da consulta seria um gargalo dessas partições.
 
-    * ***Ajuste conjuntoMaxBufferedItemCount\:***
+    * ***Ajustando setMaxBufferedItemCount\:***
     
-        A consulta paralela foi projetada para pré-buscar resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-buscados. Definir setMaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
+        A consulta paralela foi projetada para buscar antecipadamente resultados enquanto o lote atual de resultados está sendo processado pelo cliente. A busca prévia ajuda a melhorar a latência geral de uma consulta. setMaxBufferedItemCount limita o número de resultados pré-buscados. Definir setMaxBufferedItemCount para o número esperado de resultados retornados (ou um número mais alto) permite que a consulta receba o benefício máximo da busca prévia.
 
         A busca prévia funciona da mesma forma independentemente do MaxDegreeOfParallelism, e há um único buffer para os dados de todas as partições.
 
@@ -196,21 +196,21 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
       });
     ```
 
-    Com base no tipo de seu trabalho, você deve usar o Agendador RxJava existente apropriado para seu trabalho. Leia [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html)aqui .
+    Com base no tipo de seu trabalho, você deve usar o Agendador RxJava existente apropriado para seu trabalho. Leia aqui [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
     Para obter mais informações, consulte a [página do Github](https://github.com/Azure/azure-cosmosdb-java) para SDK do Java Assíncrono.
 
-* **Desativar o registro da netty**
+* **Desabilitar o registro em log da sub-rede**
 
-    O registro da biblioteca netty é tagarela e precisa ser desligado (o sinal de supressão na configuração pode não ser suficiente) para evitar custos adicionais da CPU. Se você não estiver no modo de depuração, desabilite o registro em log do netty completamente. Portanto, se estiver usando log4j para remover os custos adicionais de CPU devidos por ``org.apache.log4j.Category.callAppenders()`` do netty, adicione a seguinte linha à sua base de código:
+    O log da biblioteca de uma sub-rede é informal e precisa ser desativado (suprimir o logon na configuração pode não ser suficiente) para evitar custos adicionais de CPU. Se você não estiver no modo de depuração, desabilite o registro em log do netty completamente. Portanto, se estiver usando log4j para remover os custos adicionais de CPU devidos por ``org.apache.log4j.Category.callAppenders()`` do netty, adicione a seguinte linha à sua base de código:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
- * **Sistema operacional abrir arquivos Limite de recursos**
+ * **Limite de recursos de arquivos abertos do so**
  
-    Alguns sistemas Linux (como o Red Hat) têm um limite superior no número de arquivos abertos e, portanto, no número total de conexões. Execute o seguinte para exibir os limites atuais:
+    Alguns sistemas Linux (como o Red Hat) têm um limite superior do número de arquivos abertos e, portanto, o número total de conexões. Execute o seguinte para exibir os limites atuais:
 
     ```bash
     ulimit -a
@@ -230,9 +230,9 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     * - nofile 100000
     ```
 
-* **Use a implementação nativa TLS/SSL para rede**
+* **Usar implementação TLS/SSL nativa para a sub-rede**
 
-    Netty pode usar o OpenSSL diretamente para a pilha de implementação TLS para obter um melhor desempenho. Na ausência desta configuração netty retornará à implementação Padrão TLS do Java.
+    A sub-rede pode usar o OpenSSL diretamente para a pilha de implementação de TLS para obter um melhor desempenho. Na ausência dessa configuração de sub-rede, a implementação de TLS padrão do Java será revertida.
 
     no Ubuntu:
     ```bash
@@ -254,9 +254,9 @@ Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte estas instruçõ
 
 ## <a name="indexing-policy"></a>Política de indexação
  
-* **Exclua caminhos não utilizados da indexação para gravações mais rápidas**
+* **Excluir caminhos não utilizados da indexação para gravações mais rápidas**
 
-    A política de indexação do Azure Cosmos DB permite que você especifique quais caminhos de documento serão incluídos ou excluídos da indexação, aproveitando os Caminhos de Indexação (setIncludedPaths e setExcludedPaths). O uso dos caminhos de indexação pode oferecer um melhor desempenho de gravação e menor armazenamento de índices para os cenários nos quais os padrões da consulta são conhecidos com antecedência, pois os custos da indexação estão correlacionados diretamente com o número de caminhos exclusivos indexados. Por exemplo, o código a seguir mostra como excluir uma seção inteira dos documentos (também conhecida como subárvore) da indexação usando o curinga "*".
+    A política de indexação do Azure Cosmos DB permite que você especifique quais caminhos de documento serão incluídos ou excluídos da indexação, aproveitando os Caminhos de Indexação (setIncludedPaths e setExcludedPaths). O uso dos caminhos de indexação pode oferecer um melhor desempenho de gravação e menor armazenamento de índices para os cenários nos quais os padrões da consulta são conhecidos com antecedência, pois os custos da indexação estão correlacionados diretamente com o número de caminhos exclusivos indexados. Por exemplo, o código a seguir mostra como excluir uma seção inteira dos documentos (também conhecido como subárvore) da indexação usando o curinga "*".
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -281,7 +281,7 @@ Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte estas instruçõ
 
     A complexidade de uma consulta afeta a quantidade de unidades de solicitação consumida para uma operação. O número de predicados, natureza dos predicados, número de UDFs e tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
 
-    Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), examine o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir o número de unidades de solicitação consumidas por essas operações. Você também pode olhar para a propriedade\<requestcharge equivalente\<em ResourceResponse T> ou FeedResponse T>.
+    Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), examine o cabeçalho [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir o número de unidades de solicitação consumidas por essas operações. Você também pode examinar a propriedade RequestCharge equivalente em ResourceResponse\<t> ou FeedResponse\<t>.
 
     ```Java
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
@@ -294,7 +294,7 @@ Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte estas instruçõ
 <a id="429"></a>
 * **Lidar com uma limitação da taxa/taxa de solicitação muito grande**
 
-    Quando um cliente tentar exceder a taxa de transferência reservada para uma conta, não haverá nenhuma degradação de desempenho no servidor e nenhum uso da capacidade da taxa além do nível reservado. O servidor encerrará preventivamente a solicitação com RequestRateTooLarge (código de status HTTP 429) e retornará o cabeçalho [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) indicando a quantidade de tempo, em milissegundos, que o usuário deve esperar antes de tentar novamente a solicitação.
+    Quando um cliente tentar exceder a taxa de transferência reservada para uma conta, não haverá nenhuma degradação de desempenho no servidor e nenhum uso da capacidade da taxa além do nível reservado. O servidor encerrará de forma preventiva a solicitação com RequestRateTooLarge (código de status HTTP 429) e retornará o cabeçalho [x-MS-Retry-After-MS](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) , indicando o tempo, em milissegundos, que o usuário deve aguardar antes de tentar novamente a solicitação.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

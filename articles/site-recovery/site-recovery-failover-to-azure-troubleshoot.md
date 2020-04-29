@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
 ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478945"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
@@ -76,10 +76,10 @@ Para alterar manualmente o tipo de inicialização de drivers para o **sistema o
 
 Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você não estiver conectado ao Azure por meio de uma conexão VPN Site a Site ou do Express Route,
 
-1. Vá para **Rede de máquina** > **virtual,** clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Vá para > **rede**de **máquinas virtuais**, clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navegue até **Configurações de Ip** e clique no campo de nome da configuração de IP necessária. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Para habilitar o endereço IP público, clique em **Habilitar**. ![Habilitar 3D](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Clique em **Configurar configurações necessárias** > **Criar novas**. ![Criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Clique em **definir configurações** > necessárias**criar novo**. ![Criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Insira o nome do endereço público, escolha as opções padrão para **SKU** e **atribuição** e clique em **OK**.
 6. Agora, para salvar as alterações feitas, clique em **Salvar**.
 7. Feche os painéis e navegue até a seção **Visão geral** de máquina virtual para conectar-se/RDP.
@@ -106,15 +106,15 @@ Se o botão **Conectar** da VM com failover no Azure estiver disponível (não e
 >[!Note]
 >Habilitar qualquer configuração diferente do Diagnóstico de Inicialização exigiria um Agente de VM do Azure instalado na máquina virtual antes do failover
 
-## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>Não é possível abrir console serial após failover de uma máquina baseada em UEFI no Azure
+## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>Não é possível abrir o console serial após o failover de um computador baseado em UEFI no Azure
 
-Se você for capaz de se conectar à máquina usando RDP, mas não puder abrir o console serial, siga as etapas abaixo:
+Se você conseguir se conectar ao computador usando o RDP, mas não puder abrir o console serial, siga as etapas abaixo:
 
-* Se a máquina SO for Red Hat ou Oracle Linux 7.*/8.0, execute o seguinte comando no failover Azure VM com permissões raiz. Reinicie a VM após o comando.
+* Se o sistema operacional do computador for Red Hat ou Oracle Linux 7. */8.0, execute o seguinte comando na VM do Azure de failover com permissões de raiz. Reinicialize a VM após o comando.
 
         grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
 
-* Se o sistema operacional da máquina for CentOS 7.*, execute o seguinte comando no failover Azure VM com permissões raiz. Reinicie a VM após o comando.
+* Se o sistema operacional do computador for CentOS 7. *, execute o comando a seguir na VM do Azure de failover com permissões de raiz. Reinicialize a VM após o comando.
 
         grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
@@ -122,27 +122,27 @@ Se você for capaz de se conectar à máquina usando RDP, mas não puder abrir o
 
 Ao inicializar uma VM do Windows após o failover, se você receber uma mensagem de desligamento inesperada na VM recuperada, ela indicará que um estado de desligamento da VM não foi capturado no ponto de recuperação usado para failover. Isso acontece quando você recupera para um ponto em que a VM não havia sido completamente desligada.
 
-Normalmente, isso não é motivo de preocupação e geralmente pode ser ignorado para failovers não planejados. Se o failover estiver planejado, certifique-se de que a VM seja desligada adequadamente antes do failover e forneça tempo suficiente para que os dados de replicação pendentes no local sejam enviados ao Azure. Em seguida, use a opção **Mais recente** na [Tela de failover](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure sejam processados em um ponto de recuperação, que é usado para failover da VM.
+Normalmente, isso não é motivo de preocupação e geralmente pode ser ignorado para failovers não planejados. Se o failover for planejado, verifique se a VM está desligada corretamente antes do failover e forneça tempo suficiente para os dados de replicação pendentes locais a serem enviados ao Azure. Em seguida, use a opção **Mais recente** na [Tela de failover](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure sejam processados em um ponto de recuperação, que é usado para failover da VM.
 
-## <a name="unable-to-select-the-datastore"></a>Não é possível selecionar o Datastore
+## <a name="unable-to-select-the-datastore"></a>Não é possível selecionar o repositório de armazenamento
 
-Esse problema é indicado quando você não consegue ver o datastore no Azure do portal ao tentar reproteger a máquina virtual que sofreu um failover. Isso ocorre porque o destino Master não é reconhecido como uma máquina virtual em vCenters adicionados ao Azure Site Recovery.
+Esse problema é indicado quando você não consegue ver o repositório de armazenamento no portal do Azure ao tentar proteger novamente a máquina virtual que sofreu um failover. Isso ocorre porque o destino mestre não é reconhecido como uma máquina virtual em vCenters adicionado a Azure Site Recovery.
 
-Para obter mais informações sobre como reproteger uma máquina virtual, consulte [Reprotect e fail back machines para um site no local após failover para o Azure](vmware-azure-reprotect.md).
+Para obter mais informações sobre como proteger novamente uma máquina virtual, consulte [proteger novamente e executar failback de computadores em um site local após o failover para o Azure](vmware-azure-reprotect.md).
 
 Como resolver o problema:
 
-Crie manualmente o destino Master no vCenter que gerencia sua máquina de origem. O datastore estará disponível após as próximas operações de detecção e atualização de malha do vCenter.
+Crie manualmente o destino mestre no vCenter que gerencia o computador de origem. O repositório de armazenamento estará disponível após as próximas operações do vCenter Discovery e do Refresh Fabric.
 
 > [!Note]
 > 
-> As operações de descoberta e atualização de tecido podem levar até 30 minutos para serem concluídas. 
+> As operações de descoberta e de malha de atualização podem levar até 30 minutos para serem concluídas. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>O registro do Linux Master Target com CS falha com um erro TLS 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-a-tls-error-35"></a>O registro de destino mestre do Linux com o CS falha com um erro de TLS 35 
 
-O registro de destino mestre de recuperação do site do Azure com o servidor de configuração falha devido à ativação do Proxy Autenticado no Destino Mestre. 
+O registro de destino mestre Azure Site Recovery com o servidor de configuração falha devido à habilitação do proxy autenticado no destino mestre. 
  
-Este erro é indicado pelas seguintes strings no registro de instalação: 
+Esse erro é indicado pelas seguintes cadeias de caracteres no log de instalação: 
 
 ```
 RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
@@ -150,27 +150,27 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 Como resolver o problema:
  
-1. Na VM do servidor de configuração, abra uma solicitação de comando e verifique as configurações do proxy usando os seguintes comandos:
+1. Na VM do servidor de configuração, abra um prompt de comando e verifique as configurações de proxy usando os seguintes comandos:
 
-    gato /etc/ambiente eco $http_proxy eco $https_proxy 
+    cat/etc/environment Echo $http _proxy Echo $https _proxy 
 
-2. Se a saída dos comandos anteriores mostrar que as configurações http_proxy ou https_proxy são definidas, use um dos seguintes métodos para desbloquear as comunicações De destino mestre com o servidor de configuração:
+2. Se a saída dos comandos anteriores mostrar que as configurações http_proxy ou https_proxy estão definidas, use um dos seguintes métodos para desbloquear as comunicações de destino mestre com o servidor de configuração:
    
    - Baixe a [ferramenta PsExec](https://aka.ms/PsExec).
-   - Use a ferramenta para acessar o contexto do usuário do sistema e determinar se o endereço proxy está configurado. 
+   - Use a ferramenta para acessar o contexto de usuário do sistema e determinar se o endereço do proxy está configurado. 
    - Se o proxy estiver configurado, abra o IE em um contexto de usuário do sistema usando a ferramenta PsExec.
   
-     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+     **PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"**
 
    - Para garantir que o servidor de destino mestre possa se comunicar com o servidor de configuração:
   
-     - Modifique as configurações de proxy no Internet Explorer para contornar o endereço IP do servidor de destino mestre através do proxy.   
+     - Modifique as configurações de proxy no Internet Explorer para ignorar o endereço IP do servidor de destino mestre por meio do proxy.   
      Ou
-     - Desative o proxy no servidor Alvo Mestre. 
+     - Desabilite o proxy no servidor de destino mestre. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Solucionar [problemas conexão RDP ao Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Solucionaproblemas [conexão SSH ao Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Solucionar problemas [de conexão RDP com a VM do Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
+- Solucionar problemas [de conexão SSH para VM Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
 Se precisar de mais ajuda, poste sua consulta no [fórum do Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) ou deixe um comentário ao final deste documento. Temos uma comunidade ativa que deve conseguir ajudá-lo.

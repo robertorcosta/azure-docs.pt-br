@@ -1,6 +1,6 @@
 ---
-title: Começando com o controle de mapas do Android | Mapas do Microsoft Azure
-description: Neste artigo você aprenderá, como começar com o controle de mapa do Android usando o Microsoft Azure Maps Android SDK.
+title: Introdução ao controle de mapeamento do Android | Mapas do Microsoft Azure
+description: Neste artigo, você aprenderá a começar a usar o controle de mapeamento do Android usando o SDK do Android de mapas de Microsoft Azure.
 author: philmea
 ms.author: philmea
 ms.date: 04/26/2019
@@ -10,52 +10,52 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548549"
 ---
-# <a name="getting-started-with-azure-maps-android-sdk"></a>Começando com O Azure Maps Android SDK
+# <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao Azure Maps SDK do Android
 
-O Azure Maps Android SDK é uma biblioteca de mapas vetoriais para Android. Este artigo guia você através dos processos de instalação do Azure Maps Android SDK e carregamento de um mapa.
+O Azure Maps SDK do Android é uma biblioteca de mapas de vetor para Android. Este artigo orienta você pelos processos de instalação do Azure Maps SDK do Android e carregamento de um mapa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="create-an-azure-maps-account"></a>Criar uma conta dos Mapas do Azure
 
-Para concluir os procedimentos deste artigo, primeiro você precisa [criar uma conta do Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps) no nível de preços S1 e obter a chave [principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para sua conta.
+Para concluir os procedimentos deste artigo, primeiro você precisa [criar uma conta do Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps) no tipo de preço S1 e [obter a chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account) da sua conta.
 
 Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
 
 ### <a name="download-android-studio"></a>Baixar Android Studio
 
-Baixe o Android Studio e crie um projeto com uma atividade vazia antes de instalar o Azure Maps Android SDK. Você pode [baixar o Android Studio](https://developer.android.com/studio/) gratuitamente no Google. 
+Baixe Android Studio e crie um projeto com uma atividade vazia antes de instalar o Azure Maps SDK do Android. Você pode [baixar Android Studio](https://developer.android.com/studio/) gratuitamente do Google. 
 
 ## <a name="create-a-project-in-android-studio"></a>Criar um projeto no Android Studio
 
-Primeiro, crie um novo projeto com uma atividade vazia. Complete essas etapas para criar um projeto do Android Studio:
+Primeiro, crie um novo projeto com uma atividade vazia. Conclua estas etapas para criar um projeto de Android Studio:
 
-1. Em **Escolha seu projeto,** selecione **Telefone e Tablet**. Sua aplicação será executada neste fator de formulário.
-2. Na guia **Telefone e Tablet,** selecione **Atividade vazia**e selecione **Next**.
-3. Em **Configurar seu projeto**, selecione `API 21: Android 5.0.0 (Lollipop)` como o SDK mínimo. Esta é a versão mais antiga suportada pelo Azure Maps Android SDK.
-4. Aceite o `Activity Name` `Layout Name` padrão e selecione **Terminar**.
+1. Em **escolher seu projeto**, selecione **telefone e Tablet**. Seu aplicativo será executado neste fator forma.
+2. Na guia **telefone e Tablet** , selecione **atividade vazia**e, em seguida, selecione **Avançar**.
+3. Em **Configurar seu projeto**, selecione `API 21: Android 5.0.0 (Lollipop)` como o SDK mínimo. Esta é a versão mais antiga com suporte do Azure Maps SDK do Android.
+4. Aceite o padrão `Activity Name` e `Layout Name` selecione **concluir**.
 
-Consulte a [documentação](https://developer.android.com/studio/intro/) do Android Studio para obter mais ajuda com a instalação do Android Studio e a criação de um novo projeto.
+Consulte a [documentação do Android Studio](https://developer.android.com/studio/intro/) para obter mais ajuda sobre como instalar Android Studio e criar um novo projeto.
 
-![Crie um projeto em estúdio Android ](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Criar um projeto no Android Studio ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>Configurar um dispositivo virtual
 
-O Android Studio permite configurar um dispositivo Android virtual no computador. Fazer isso pode ajudá-lo a testar sua aplicação durante o desenvolvimento. Para configurar um dispositivo virtual, selecione o ícone do Gerenciador de Dispositivos Virtuais (AVD) do Android no canto superior direito da tela do projeto e selecione **Criar dispositivo virtual**. Você também pode chegar ao AVD Manager selecionando **ferramentas** > **Android** > **AVD Manager** na barra de ferramentas. Na categoria **Telefones,** selecione **Nexus 5X**e selecione **Next**.
+O Android Studio permite configurar um dispositivo Android virtual no computador. Isso pode ajudá-lo a testar seu aplicativo durante o desenvolvimento. Para configurar um dispositivo virtual, selecione o ícone do Gerenciador de dispositivo virtual Android (AVD) no canto superior direito da tela do projeto e, em seguida, selecione **criar dispositivo virtual**. Você também pode acessar o AVD Manager selecionando **ferramentas** > **Android** > **AVD Manager** na barra de ferramentas. Na categoria **telefones** , selecione **Nexus 5x**e, em seguida, selecione **Avançar**.
 
-Você pode aprender mais sobre como configurar um AVD na [documentação](https://developer.android.com/studio/run/managing-avds)do Android Studio .
+Você pode saber mais sobre como configurar um AVD na [documentação do Android Studio](https://developer.android.com/studio/run/managing-avds).
 
 ![Android Emulator](./media/how-to-use-android-map-control-library/android-emulator.png)
 
-## <a name="install-the-azure-maps-android-sdk"></a>Instale o Azure Maps Android SDK
+## <a name="install-the-azure-maps-android-sdk"></a>Instalar o SDK do Android do Azure Maps
 
-O próximo passo na construção do seu aplicativo é instalar o Azure Maps Android SDK. Complete estas etapas para instalar o SDK:
+A próxima etapa na criação do aplicativo é instalar o SDK do Android do Azure Maps. Conclua estas etapas para instalar o SDK:
 
 1. Abra o arquivo de nível superior **build.gradle** e adicione o código a seguir à seção do bloco **todos os projetos**, **repositórios**:
 
@@ -107,19 +107,19 @@ O próximo passo na construção do seu aplicativo é instalar o Azure Maps Andr
     
     * adicionar importações para o SDK do Azure Mapas
     * definir as informações de autenticação do Azure Mapas
-    * obter a instância de controle do mapa no método **onCreate**
+    * obter a instância de controle de mapa no método **OnCreate**
 
     Definir as informações de autenticação globalmente na classe `AzureMaps` usando os métodos `setSubscriptionKey` ou `setAadProperties` faz com que você não precise adicionar suas informações de autenticação a cada exibição. 
 
-    O controle de mapa contém os próprios métodos de ciclo de vida para gerenciar o ciclo de vida do OpenGL do Android. Esses métodos de ciclo de vida devem ser chamados diretamente da Atividade que contém. Para que seu aplicativo chame corretamente os métodos do ciclo de vida do controle do mapa, você deve substituir os seguintes métodos de ciclo de vida na Atividade que contém o controle do mapa. E, você deve chamar o respectivo método de controle de mapa. 
+    O controle de mapa contém os próprios métodos de ciclo de vida para gerenciar o ciclo de vida do OpenGL do Android. Esses métodos de ciclo de vida devem ser chamados diretamente da atividade que a contém. Para que seu aplicativo chame corretamente os métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa. E, você deve chamar o respectivo método de controle de mapa. 
 
-    * onCreate (Pacote) 
-    * onStart() 
-    * onResume() 
-    * onPause() 
-    * onStop() 
-    * onDestroy() 
-    * onSaveInstanceState (Pacote) 
+    * onCreate (pacote) 
+    * OnStart () 
+    * OnContinue () 
+    * OnPause () 
+    * onStop () 
+    * OnDestroy () 
+    * onSaveInstanceState (pacote) 
     * onLowMemory() 
 
     Edite o arquivo **MainActivity.java** da seguinte maneira:
@@ -203,27 +203,27 @@ O próximo passo na construção do seu aplicativo é instalar o Azure Maps Andr
     }
     ```
 
-## <a name="import-classes"></a>Classes de importação
+## <a name="import-classes"></a>Importar classes
 
-Depois de completar as etapas anteriores, você provavelmente receberá avisos do Android Studio sobre alguns dos códigos. Para resolver esses avisos, importe `MainActivity.java`as classes referenciadas em .
+Depois de concluir as etapas anteriores, você provavelmente receberá avisos de Android Studio sobre parte do código. Para resolver esses avisos, importe as classes referenciadas `MainActivity.java`no.
 
-Você pode importar automaticamente essas classes selecionando Alt+Enter (Option+Return on a Mac).
+Você pode importar automaticamente essas classes selecionando Alt + Enter (opção + retornar em um Mac).
 
-Selecione o botão executar, conforme mostrado no gráfico a seguir (ou pressione Control+R em um Mac), para construir seu aplicativo.
+Selecione o botão Executar, conforme mostrado no gráfico a seguir (ou pressione Control + R em um Mac) para compilar seu aplicativo.
 
 ![Clique em Executar](./media/how-to-use-android-map-control-library/run-app.png)
 
-O Android Studio levará alguns segundos para construir o aplicativo. Depois que a compilação estiver concluída, você pode testar seu aplicativo no dispositivo Android emulado. Você deveria ver um mapa como este:
+Android Studio levará alguns segundos para criar o aplicativo. Depois que a compilação for concluída, você poderá testar seu aplicativo no dispositivo Android emulado. Você deverá ver um mapa como este:
 
 <center>
 
-![Mapas do Azure no aplicativo para Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
+![Mapas do Azure no aplicativo Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## <a name="localizing-the-map"></a>Como localizar o mapa
 
-O Azure Maps Android SDK fornece três maneiras diferentes de definir o idioma e a visão regional do mapa. O código a seguir mostra como definir o idioma para francês ("fr-FR") e a visão regional para "auto". 
+O Azure Maps SDK do Android fornece três maneiras diferentes de definir o idioma e a exibição regional do mapa. O código a seguir mostra como definir o idioma como francês ("fr-FR") e a exibição regional como "auto". 
 
-A primeira opção é passar o idioma `AzureMaps` e visualizar `setLanguage` informações `setView` regionais para a classe usando a estática e os métodos globalmente. Isso definirá o idioma padrão e a exibição regional em todos os controles do Azure Maps carregados em seu aplicativo.
+A primeira opção é passar o idioma e exibir informações regionais na `AzureMaps` classe usando os métodos estáticos `setLanguage` e `setView` globalmente. Isso definirá o idioma padrão e a exibição regional em todos os controles do Azure Maps carregados em seu aplicativo.
 
 ```Java
 static {
@@ -259,35 +259,35 @@ mapControl.onReady(map -> {
 });
 ```
 
-Aqui está um exemplo de Mapas Azure com o idioma definido como "fr-FR" e exibição regional definida como "auto".
+Aqui está um exemplo de mapas do Azure com a linguagem definida como "fr-FR" e exibição regional definida como "auto".
 
 <center>
 
-![Mapas do Azure, imagem do mapa mostrando rótulos em francês](./media/how-to-use-android-map-control-library/android-localization.png)
+![Mapas do Azure, imagem de mapa mostrando rótulos em francês](./media/how-to-use-android-map-control-library/android-localization.png)
 </center>
 
 Uma lista completa de idiomas e exibições regionais compatíveis está documentada [aqui](supported-languages.md).
 
-## <a name="navigating-the-map"></a>Navegando pelo mapa
+## <a name="navigating-the-map"></a>Navegando no mapa
 
-Existem várias maneiras diferentes em que o mapa pode ser ampliado, garimpado, girado e arremessado. O seguinte detalha todas as diferentes maneiras de navegar pelo mapa.
+Há várias maneiras diferentes pelas quais o mapa pode ser ampliado, panorâmico, girado e com densidade. Os detalhes a seguir são todas as diferentes maneiras de navegar no mapa.
 
-**Zoom no mapa**
+**Aplicar zoom ao mapa**
 
-- Toque no mapa com dois dedos e aperte juntos para diminuir o zoom ou espalhar os dedos para ampliar.
-- Toque duas vezes no mapa para ampliar em um nível.
-- Toque duas vezes com dois dedos para ampliar o mapa em um nível.
-- Toque duas vezes; no segundo toque, segure o dedo no mapa e arraste para cima para ampliar, ou para baixo para diminuir o zoom.
+- Toque o mapa com dois dedos e aperte-o para reduzir ou espalhar os dedos para ampliar.
+- Toque duas vezes no mapa para aplicar zoom em um nível.
+- Toque duas vezes com dois dedos para ampliar o mapa um nível.
+- Toque duas vezes; no segundo toque, mantenha seu dedo no mapa e arraste para cima para ampliar ou reduzir para reduzir.
 
-**Pan o mapa**
+**Deslocar o mapa**
 
 - Toque no mapa e arraste em qualquer direção.
 
-**Gire o mapa**
+**Girar o mapa**
 
-- Toque no mapa com dois dedos e gire.
+- Toque no mapa com dois dedos e girar.
 
-**Lance o mapa**
+**Pitch do mapa**
 
 - Toque no mapa com dois dedos e arraste-os para cima ou para baixo juntos.
 
@@ -296,10 +296,10 @@ Existem várias maneiras diferentes em que o mapa pode ser ampliado, garimpado, 
 Saiba como adicionar dados de sobreposição no mapa:
 
 > [!div class="nextstepaction"]
-> [Adicione uma camada de símbolo a um mapa Android](how-to-add-symbol-to-android-map.md)
+> [Adicionar uma camada de símbolo a um mapa do Android](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Adicionar formas a um mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Adicionar formas a um mapa do Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
 > [!div class="nextstepaction"]
-> [Alterar os estilos do mapa em mapas android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Alterar estilos de mapa em mapas do Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

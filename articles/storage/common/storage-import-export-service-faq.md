@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80519478"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação do Microsoft Azure: perguntas frequentes
@@ -70,11 +70,11 @@ Você pode exibir o status dos trabalhos concluídos por até 90 dias. Os trabal
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Se eu quiser importar ou exportar mais de 10 unidades, o que devo fazer?
 
 Um trabalho de importação ou exportação pode referenciar apenas 10 unidades em um único trabalho. Para enviar mais de 10 unidades, você deve criar vários trabalhos. As unidades associadas ao mesmo trabalho devem ser enviadas juntas no mesmo pacote.
-Para obter mais informações e orientações quando a capacidade de dados abrange vários trabalhos de importação de disco, entre em contato com o Suporte da Microsoft.
+Para obter mais informações e diretrizes quando a capacidade de dados abrange vários trabalhos de importação de disco, entre em contato com Suporte da Microsoft.
 
 ### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>O blob carregado mostra o status como "Concessão expirada". O que devo fazer?
 
-Você pode ignorar o campo "Contrato expirado". A Importação/Exportação assume a concessão do blob durante o upload para garantir que nenhum outro processo possa atualizar o blob em paralelo. A Concessão Expirada indica que a Importação/Exportação não está mais carregando nele e o blob está disponível para uso.
+Você pode ignorar o campo "concessão expirada". A Importação/Exportação assume a concessão do blob durante o upload para garantir que nenhum outro processo possa atualizar o blob em paralelo. A Concessão Expirada indica que a Importação/Exportação não está mais carregando nele e o blob está disponível para uso.
 
 ## <a name="shipping-disks"></a>Discos de envio
 
@@ -97,20 +97,20 @@ Envie apenas os discos rígidos no pacote de remessa. Não inclua itens como cab
 - Um número de conta DHL nas regiões da Ásia e Austrália.
 
 > [!NOTE]
-> Os data centers na Índia exigem uma carta de declaração em seu papel timbrado (entrega challan) para devolver as unidades. Para organizar o passe de entrada necessário, você também deve reservar a retirada com sua operadora selecionada e compartilhar os detalhes com o datacenter.
+> Os data centers na Índia exigem uma letra de declaração em seu papel timbrado (Delivery Challan) para retornar as unidades. Para organizar a passagem de entrada necessária, você também deve marcar a seleção com a transportadora selecionada e compartilhar os detalhes com o datacenter.
 
-### <a name="are-there-any-restrictions-with-shipping-and-returning-my-drive-internationally"></a>Há alguma restrição com o transporte e o retorno da minha unidade internacionalmente?
+### <a name="are-there-any-restrictions-with-shipping-and-returning-my-drive-internationally"></a>Há alguma restrição com o envio e o retorno da minha unidade internacionalmente?
 
 Observe que a mídia física que está enviando talvez precise cruzar fronteiras internacionais. Você é responsável por garantir que seus dados e mídia física sejam importados e/ou exportados de acordo com as leis aplicáveis. Antes de enviar a mídia física, verifique com seus consultores se a mídia e os dados podem ser enviados legalmente ao data center identificado. Isso ajudará a garantir que eles cheguem à Microsoft pontualmente.
 
-Depois que o upload é concluído, o processo de retorno da unidade para um endereço internacional pode levar mais tempo do que os 2-3 dias típicos necessários para o transporte local. Durante a etapa listada no portal Azure como Embalagem, a equipe da Data Box está garantindo que a documentação correta seja fornecida para garantir que o embarque esteja em conformidade com os diversos requisitos internacionais de importação e exportação.
+Depois que o upload for concluído, o processo para retornar as unidades para um endereço internacional pode levar mais tempo do que os 2-3 dias necessários para envio local. Durante o estágio listado na portal do Azure como empacotamento, a equipe de Data Box está garantindo que a documentação correta seja fornecida para garantir que a remessa esteja em conformidade com os vários requisitos internacionais de importação e exportação.
 
-### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Existem requisitos especiais para entregar meus discos em um data center?
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Há algum requisito especial para entregar meus discos a um datacenter?
 
 Os requisitos dependem das restrições específicas do datacenter do Azure.
 
-- Existem alguns sites, como Austrália, Alemanha e Reino Unido do Sul, que exigem que um número de ID de entrada do data center da Microsoft seja escrito na parcela por razões de segurança. Antes de enviar suas unidades ou discos para o data center, entre em contato com o Azure DataBox Operations ()adbops@microsoft.compara obter esse número. Sem esse número, o pacote será rejeitado.
-- Os data centers na Índia exigem os dados pessoais do motorista, como o Cartão de Identificação do Governo ou a Prova Nº. (por exemplo, PAN, AADHAR, DL), nome, contato e o número da placa do carro para obter um passe de entrada do portão. Para evitar atrasos na entrega, informe sua operadora sobre esses requisitos.
+- Há alguns sites, como Austrália, Alemanha e Sul do Reino Unido, que exigem que um número de ID de entrada do datacenter da Microsoft seja gravado na remessa por motivos de segurança. Antes de enviar suas unidades ou discos para o datacenter, entre em contato com oadbops@microsoft.comAzure data Box Operations () para obter esse número. Sem esse número, o pacote será rejeitado.
+- Os data centers na Índia exigem os detalhes pessoais do driver, como o cartão de ID do governo ou prova de não. (por exemplo, PAN, AADHAR, DL), nome, contato e número da chapa do carro para obter uma passagem de entrada de portão. Para evitar atrasos de entrega, informe a sua operadora sobre esses requisitos.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Ao criar um trabalho, o endereço para entrega é um local diferente do local da minha conta de armazenamento. O que devo fazer?
 
@@ -132,7 +132,7 @@ Não. Todas as unidades são criptografadas com o BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Como posso acessar dados importados por este serviço?
 
-Use o portal Azure ou [o Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) para acessar os dados em sua conta de armazenamento Do Zure.  
+Use o portal do Azure ou [Gerenciador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) para acessar os dados em sua conta de armazenamento do Azure.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>Depois que a importação for concluída, como ficam meus dados na conta de armazenamento? Minha hierarquia do diretório é preservada?
 
@@ -149,11 +149,11 @@ Não. A ferramenta WAImportExport só é compatível com o sistema de operaciona
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Qual é o Blob de Blocos máximo e o Tamanho do Blob de Páginas com suporte pela Importação/Exportação do Microsoft Azure?
 
 - O tamanho máximo de Blob de Blocos é de aproximadamente 4,768 TB ou 5.000.000 MB.
-- O tamanho do Max Page Blob é de 8 TB.
+- O tamanho máximo de blob de páginas é 8 TB.
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>A Importação/Exportação do Microsoft Azure tem suporte para criptografia AES-256?
 
-Não. O serviço Azure Import/Export usa criptografia AES-128 BitLocker.
+Não. O serviço de importação/exportação do Azure usa a criptografia BitLocker AES-128.
 
 ## <a name="next-steps"></a>Próximas etapas
 

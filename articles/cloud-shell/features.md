@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
 ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80521006"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
@@ -44,7 +44,7 @@ Os arquivos fora de `$HOME` e do estado da máquina não são mantidos entre ses
 
 ### <a name="azure-drive-azure"></a>Unidade do Azure (Azure:)
 
-O PowerShell na Cloud Shell fornece`Azure:`a unidade Azure ( ). Você pode mudar para a `cd Azure:` unidade Azure com `cd  ~`e voltar para o seu diretório doméstico com .
+O PowerShell no Cloud Shell fornece a unidade do`Azure:`Azure (). Você pode alternar para a unidade do Azure `cd Azure:` com e de volta para o diretório `cd  ~`base com.
 A unidade do Azure permite a fácil detecção e navegação de recursos do Azure, como computação, rede, armazenamento e etc. de forma semelhante à navegação de sistema de arquivos.
 Você pode continuar usando os [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure) comuns para gerenciar esses recursos, independentemente da unidade em que estiver.
 Todas as alterações feitas nos recursos do Azure, diretamente no portal do Azure ou por meio de cmdlets do Azure PowerShell, são refletidas na unidade do Azure.  Você pode executar `dir -Force` para atualizar seus recursos.
@@ -53,13 +53,13 @@ Todas as alterações feitas nos recursos do Azure, diretamente no portal do Azu
 
 ### <a name="manage-exchange-online"></a>Gerenciar o Exchange Online
 
-O PowerShell na Cloud Shell contém uma compilação privada do módulo Exchange Online.  Corra `Connect-EXOPSSession` para obter seus cmdlets exchange.
+O PowerShell no Cloud Shell contém uma compilação particular do módulo do Exchange Online.  Execute `Connect-EXOPSSession` para obter seus cmdlets do Exchange.
 
 ![](media/features-powershell/exchangeonline.png)
 
  Execute `Get-Command -Module tmp_*`
 > [!NOTE]
-> O nome do `tmp_`módulo deve começar com , se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão abordados. 
+> O nome do módulo deve começar `tmp_`com, se você tiver instalado módulos com o mesmo prefixo, seus cmdlets também serão exibidos. 
 
 ![](media/features-powershell/exchangeonlinecmdlets.png)
 
@@ -69,20 +69,20 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 
 ## <a name="tools"></a>Ferramentas
 
-|Categoria   |Nome   |
+|Categoria   |Name   |
 |---|---|
 |Ferramentas do Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Ferramentas do Azure            |[CLI do Azure](https://github.com/Azure/azure-cli) e [CLI clássica do Azure](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [CLI do Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [CLI do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Shipyard de lote](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Editores de texto           |código (editor do Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Controle do código-fonte         |git                    |
 |Ferramentas de build            |make<br> maven<br> npm<br> pip         |
-|Contêineres             |[Computador do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Leme](https://github.com/kubernetes/helm)<br> [CLI do DC/OS](https://github.com/dcos/dcos-cli)         |
+|Contêineres             |[Computador do Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI do DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bancos de dados              |Cliente do MySQL<br> Cliente do PostgreSql<br> [Utilitário sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Parafuso fantoche](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
+|Outros                  |Cliente do iPython<br> [CLI do Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Pack](https://www.packer.io/)|
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-|Idioma   |Versão   |
+|Linguagem   |Versão   |
 |---|---|
 |.NET Core  |2.2.402       |
 |Go         |1.9        |
@@ -92,7 +92,7 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 |Python     |2.7 e 3.5 (padrão)|
 
 ## <a name="next-steps"></a>Próximas etapas
-[Bash em Cloud Shell Quickstart](quickstart.md) <br>
-[PowerShell em Cloud Shell Quickstart](quickstart-powershell.md) <br>
+[Bash no guia de início rápido Cloud Shell](quickstart.md) <br>
+[PowerShell no guia de início rápido Cloud Shell](quickstart-powershell.md) <br>
 [Saiba mais sobre a CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

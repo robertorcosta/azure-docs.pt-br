@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/01/2020
 ms.openlocfilehash: 265179909c8ae4a6fa630b835bc9993f042d6460
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80585706"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Diferenças na linguagem de consulta de log do Azure Monitor
@@ -24,35 +24,35 @@ As seções a seguir descrevem os elementos da linguagem de consulta Kusto não 
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Instruções não compatíveis com o Azure Monitor
 
-* [Alias](/azure/kusto/query/aliasstatement)
+* [Receber](/azure/kusto/query/aliasstatement)
 * [Parâmetros de consulta](/azure/kusto/query/queryparametersstatement)
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funções não compatíveis com o Azure Monitor
 
-* [cluster()](/azure/kusto/query/clusterfunction)
+* [cluster ()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [banco de dados()](/azure/kusto/query/databasefunction)
+* [banco de dados ()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
 ### <a name="operators-not-supported-in-azure-monitor"></a>Operadores não compatíveis com o Azure Monitor
 
-* [Juntar-se em cluster sino](/azure/kusto/query/joincrosscluster)
+* [Junção entre clusters](/azure/kusto/query/joincrosscluster)
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Plug-ins não compatíveis com o Azure Monitor
 
-* [Plugin Python](/azure/kusto/query/pythonplugin)
+* [Plug-in do Python](/azure/kusto/query/pythonplugin)
 * [Plug-in do sql_request](/azure/kusto/query/sqlrequestplugin)
 
 
 ## <a name="additional-operators-in-azure-monitor"></a>Operadores adicionais no Azure Monitor
 Os seguintes operadores dão suporte a recursos específicos do Azure Monitor e não estão disponíveis fora do Azure Monitor.
 
-* [aplicativo()](app-expression.md)
-* [espaço de trabalho()](workspace-expression.md)
+* [aplicativo ()](app-expression.md)
+* [espaço de trabalho ()](workspace-expression.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

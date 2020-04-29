@@ -1,6 +1,6 @@
 ---
-title: Habilite a conexão do navegador em máquinas virtuais Azure DevTest Labs | Microsoft Docs
-description: O DevTest Labs agora se integra ao Azure Bastion, como proprietário do laboratório, você pode habilitar o acesso a todas as máquinas virtuais de laboratório através de um navegador.
+title: Habilitar conexão do navegador em máquinas virtuais Azure DevTest Labs | Microsoft Docs
+description: O DevTest Labs agora se integra à bastiões do Azure, como proprietário do laboratório, você pode habilitar o acesso a todas as máquinas virtuais do laboratório por meio de um navegador.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: tanmayeekamath
@@ -14,65 +14,65 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: takamath
 ms.openlocfilehash: 074d512767769fe434cd4a6d4f4e8e6a88f7ed2a
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80549112"
 ---
-# <a name="enable-browser-connection-on-lab-virtual-machines"></a>Habilite a conexão do navegador em máquinas virtuais de laboratório 
-O DevTest Labs [integra-se ao Azure Bastion](https://docs.microsoft.com/azure/bastion/), que permite que você se conecte às suas máquinas virtuais através de um navegador. Primeiro você precisa ativar a conexão do navegador em máquinas virtuais de laboratório.
+# <a name="enable-browser-connection-on-lab-virtual-machines"></a>Habilitar conexão do navegador em máquinas virtuais do laboratório 
+O DevTest Labs integra-se à [bastiões do Azure](https://docs.microsoft.com/azure/bastion/), que permite que você se conecte às suas máquinas virtuais por meio de um navegador. Primeiro, você precisa habilitar a conexão do navegador em máquinas virtuais do laboratório.
 
-Como proprietário de um laboratório, você pode habilitar o acesso a todas as máquinas virtuais de laboratório através de um navegador. Não é preciso um cliente, agente ou software adicional. O Azure Bastion fornece conectividade RDP/SSH segura e perfeita para suas máquinas virtuais diretamente no portal Azure via TLS. Quando você se conecta via Azure Bastion, suas máquinas virtuais não precisam de um endereço IP público. Para obter mais informações, veja [o que é O Bastião do Azure?](../bastion/bastion-overview.md)
+Como proprietário de um laboratório, você pode habilitar o acesso a todas as máquinas virtuais do laboratório por meio de um navegador. Não é preciso um cliente, agente ou software adicional. A bastiões do Azure fornece conectividade RDP/SSH segura e direta para suas máquinas virtuais diretamente no portal do Azure sobre TLS. Quando você se conecta por meio de bastiões do Azure, suas máquinas virtuais não precisam de um endereço IP público. Para obter mais informações, consulte [o que é a bastiões do Azure?](../bastion/bastion-overview.md)
 
 
-Este artigo mostra como ativar a conexão do navegador em máquinas virtuais de laboratório.
+Este artigo mostra como habilitar a conexão do navegador em máquinas virtuais do laboratório.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
-Ou implante um host Bastion na rede virtual **(OR)** do seu laboratório existente conecte seu laboratório com uma rede virtual configurada pelo Bastion. 
+Implante um host bastião na rede virtual do laboratório existente **(ou)** Conecte seu laboratório com uma rede virtual configurada para bastiões. 
 
-Para saber como implantar um host Bastion em uma rede virtual, consulte [Criar um host Azure Bastion](../bastion/bastion-create-host-portal.md). Ao criar o host Bastion, selecione a rede virtual do laboratório. 
+Para saber como implantar um host de bastiões em uma rede virtual, consulte [criar um host de bastiões do Azure](../bastion/bastion-create-host-portal.md). Ao criar o host de bastiões, selecione a rede virtual do laboratório. 
 
-Primeiro, você precisa criar uma segunda sub-rede na rede virtual Bastion porque o AzureBastionSubnet não permite a criação de recursos não-Bastion nela. 
+Primeiro, você precisa criar uma segunda sub-rede na rede virtual de bastiões porque o AzureBastionSubnet não permite a criação de recursos de não-bastiões nele. 
 
-## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Criar uma segunda sub-rede na rede virtual Bastion
-Você não pode criar VMs de laboratório em uma sub-rede do Azure Bastion. Crie outra sub-rede dentro da rede virtual Bastion, conforme mostrado na imagem a seguir:
+## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Criar uma segunda sub rede na rede virtual de bastiões
+Não é possível criar VMs de laboratório em uma sub-rede de bastiões do Azure. Crie outra sub-rede dentro da rede virtual de bastiões, conforme mostrado na imagem a seguir:
 
-![Segunda sub-rede na rede virtual Azure Bastion](./media/connect-virtual-machine-through-browser/second-subnet.png)
+![Segunda sub-rede na rede virtual de bastiões do Azure](./media/connect-virtual-machine-through-browser/second-subnet.png)
 
-## <a name="enable-vm-creation-in-the-subnet"></a>Habilite a criação de VM na sub-rede
+## <a name="enable-vm-creation-in-the-subnet"></a>Habilitar a criação de VM na sub-rede
 Agora, habilite a criação de VMs nesta sub-rede seguindo estas etapas: 
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione **Todos os serviços** no menu de navegação à esquerda. 
-1. Selecione **DevTest Labs** da lista. 
-1. Na lista de laboratórios, selecione *seu laboratório.* 
+1. Selecione **todos os serviços** no menu de navegação à esquerda. 
+1. Selecione **DevTest Labs** na lista. 
+1. Na lista de laboratórios, selecione *seu laboratório*. 
 
     > [!NOTE]
-    > O Azure Bastion está agora disponível nas seguintes regiões: Oeste dos EUA, Leste dos EUA, Europa Ocidental, Centro-Sul dos EUA, Austrália Oriental e Japão Leste. Então, crie um laboratório em uma dessas regiões se seu laboratório não estiver em uma delas. 
+    > A bastiões do Azure agora está disponível para o público em geral nas seguintes regiões: oeste dos EUA, leste dos EUA, Europa Ocidental, Sul EUA Central, leste da Austrália e leste do Japão. Portanto, crie um laboratório em uma dessas regiões se o seu laboratório não estiver em um deles. 
     
-1. Selecione **Configuração e políticas** na seção **Configurações** no menu esquerdo. 
+1. Selecione **configuração e políticas** na seção **configurações** no menu à esquerda. 
 1. Selecione **redes virtuais**.
 1. Selecione **Adicionar** na barra de ferramentas. 
-1. Selecione a **rede virtual** que tem o host Bastion implantado. 
-1. Selecione a sub-rede para VMs, não **a AzureBastionSubnet**, a outra que você criou anteriormente. Feche a página e reabra-a se você não ver a sub-rede na lista na parte inferior. 
+1. Selecione a **rede virtual** que tem o host de bastiões implantado. 
+1. Selecione a sub-rede para VMs, não o **AzureBastionSubnet**, o outro que você criou anteriormente. Feche a página e reabra-a se você não vir a sub-rede na lista na parte inferior. 
 
-    ![Habilite a criação de VM na sub-rede](./media/connect-virtual-machine-through-browser/enable-vm-creation-subnet.png)
-1. Selecione Usar na opção **de criação de máquinas virtuais.** 
+    ![Habilitar a criação de VM na sub-rede](./media/connect-virtual-machine-through-browser/enable-vm-creation-subnet.png)
+1. Selecione **usar na opção de criação de máquina virtual** . 
 1. Selecione **Salvar** na barra de ferramentas. 
-1. Se você tem uma rede virtual antiga para o laboratório, remova-a selecionando **...*  e **Remover**. 
+1. Se você tiver uma rede virtual antiga para o laboratório, remova-a selecionando **..* .  e **remova**. 
 
-## <a name="enable-browser-connection"></a>Habilite a conexão do navegador 
+## <a name="enable-browser-connection"></a>Habilitar conexão do navegador 
 
-Uma vez que você tenha uma rede virtual configurada bastião dentro do laboratório, como proprietário de laboratório, você pode habilitar a conexão do navegador em máquinas virtuais de laboratório.
+Depois de ter uma rede virtual configurada para bastiões dentro do laboratório, como um proprietário de laboratório, você pode habilitar o browser Connect em máquinas virtuais de laboratório.
 
-Para permitir que o navegador se conecte em máquinas virtuais de laboratório, siga estas etapas:
+Para habilitar o browser Connect em máquinas virtuais do laboratório, siga estas etapas:
 
-1. No portal Azure, navegue até *seu laboratório.*
+1. No portal do Azure, navegue até *o laboratório*.
 1. Selecione **Configuração e políticas**.
-1. Em **Configurações,** selecione **Conexão do navegador**. Se você não ver essa opção, feche a página **De configuração de políticas** e reabra-a. 
+1. Em **configurações**, selecione **navegador conectar**. Se você não vir essa opção, feche a página **políticas de configuração** e abra-a novamente. 
 
-    ![Habilite a conexão do navegador](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
+    ![Habilitar conexão do navegador](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja o artigo a seguir para saber como se conectar às suas VMs usando um navegador: [Conecte-se às suas máquinas virtuais através de um navegador](connect-virtual-machine-through-browser.md)
+Consulte o artigo a seguir para saber como se conectar às suas VMs usando um navegador: [conectar-se às suas máquinas virtuais por meio de um navegador](connect-virtual-machine-through-browser.md)

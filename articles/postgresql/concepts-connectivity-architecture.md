@@ -1,35 +1,35 @@
 ---
-title: Arquitetura de conectividade - Banco de dados Azure para PostgreSQL - Servidor Único
-description: Descreve a arquitetura de conectividade do seu banco de dados Azure para PostgreSQL - Single Server.
+title: Arquitetura de conectividade-banco de dados do Azure para PostgreSQL-servidor único
+description: Descreve a arquitetura de conectividade do banco de dados do Azure para PostgreSQL-servidor único.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.openlocfilehash: d23a59e97ee3fc935a0d0954bc70b547b727fddc
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546607"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados Azure para PostgreSQL
-Este artigo explica o Banco de Dados Azure para arquitetura de conectividade PostgreSQL, bem como como o tráfego é direcionado para o banco de dados Do Zure para a instância do banco de dados PostgreSQL de clientes dentro e fora do Azure.
+# <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
+Este artigo explica a arquitetura de conectividade do banco de dados do Azure para PostgreSQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para PostgreSQL de clientes dentro e fora do Azure.
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
-A conexão com o banco de dados Do Azure para PostgreSQL é estabelecida através de um gateway que é responsável pelo roteamento de conexões recebidas para a localização física do seu servidor em nossos clusters. O diagrama a seguir ilustra o fluxo de tráfego.
+A conexão com o banco de dados do Azure para PostgreSQL é estabelecida por meio de um gateway que é responsável por rotear conexões de entrada para o local físico do servidor em nossos clusters. O diagrama a seguir ilustra o fluxo de tráfego.
 
 ![Visão geral da arquitetura de conectividade](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-À medida que o cliente se conecta ao banco de dados, ele recebe uma seqüência de conexão que se conecta ao gateway. Este gateway tem um endereço IP público que ouve a porta 5432. Dentro do cluster de banco de dados, o tráfego de cluster é encaminhado para o Banco de Dados Azure apropriado para PostgreSQL. Portanto, para se conectar ao seu servidor, como a partir de redes corporativas, é necessário abrir o firewall lateral do cliente para permitir que o tráfego de saída seja capaz de alcançar nossos gateways. Abaixo você pode encontrar uma lista completa dos endereços IP usados pelos nossos gateways por região.
+Como o cliente se conecta ao banco de dados, ele obtém uma cadeia de conexão que se conecta ao gateway. Esse gateway tem um endereço IP público que escuta a porta 5432. Dentro do cluster de banco de dados, o tráfego é encaminhado para o banco de dados do Azure apropriado para PostgreSQL. Portanto, para se conectar ao servidor, como de redes corporativas, é necessário abrir o Firewall do lado do cliente para permitir que o tráfego de saída seja capaz de alcançar nossos gateways. Abaixo, você pode encontrar uma lista completa dos endereços IP usados por nossos gateways por região.
 
-## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>Banco de dados Azure para endereços IP do gateway PostgreSQL
-A tabela a seguir lista os IPs primários e secundários do Banco de Dados Azure para gateway PostgreSQL para todas as regiões de dados. O endereço IP principal é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP failover em caso de falha do principal. Como mencionado, os clientes devem permitir a saída para ambos os endereços IP. O segundo endereço IP não escuta nenhum serviço até que seja ativado pelo Banco de Dados Azure para que o PostgreSQL aceite conexões.
+## <a name="azure-database-for-postgresql-gateway-ip-addresses"></a>Banco de dados do Azure para os endereços IP do gateway PostgreSQL
+A tabela a seguir lista os IPs primários e secundários do gateway do banco de dados do Azure para PostgreSQL para todas as regiões de data. O endereço IP primário é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de failover em caso de falha do primário. Conforme mencionado, os clientes devem permitir a saída para os dois endereços IP. O segundo endereço IP não escuta em nenhum serviço até que seja ativado pelo banco de dados do Azure para PostgreSQL para aceitar conexões.
 
-| **Nome da região** | **Endereços IP do Gateway** |
+| **Nome da região** | **Endereços IP do gateway** |
 |:----------------|:-------------|
 | Austrália Central| 20.36.105.0     |
-| Austrália Central2     | 20.36.113.0   |
+| Central2 da Austrália     | 20.36.113.0   |
 | Leste da Austrália | 13.75.149.87, 40.79.161.1     |
 | Sudeste da Austrália |191.239.192.109, 13.73.109.251   |
 | Sul do Brasil | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
@@ -56,7 +56,7 @@ A tabela a seguir lista os IPs primários e secundários do Banco de Dados Azure
 | Centro-Norte dos EUA | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Norte da Europa | 40.113.93.91, 191.235.193.75, 52.138.224.6, 52.138.224.7    |
 | Norte da África do Sul  | 102.133.152.0    |
-| África do Sul Ocidental | 102.133.24.0   |
+| Oeste da África do Sul | 102.133.24.0   |
 | Centro-Sul dos Estados Unidos |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Sudeste da Ásia | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | EAU Central | 20.37.72.64  |

@@ -1,5 +1,5 @@
 ---
-title: Gerencie o servidor de configuração para servidores físicos no Azure Site Recovery
+title: Gerenciar o servidor de configuração para servidores físicos no Azure Site Recovery
 description: Este artigo descreve como gerenciar o servidor de configuração do Azure Site Recovery para recuperação de desastres do servidor físico no Azure.
 services: site-recovery
 author: mayurigupta13
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: eb7e891c031be5ac01295905d5c3304dc6818737
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80478971"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
@@ -24,7 +24,7 @@ Você configura um servidor de configuração local quando você usa o serviço 
 
 A tabela resume os pré-requisitos para implantação do computador do servidor de configuração local.
 
-| **Componente** | **Exigência** |
+| **Componente** | **Requisito** |
 | --- |---|
 | Núcleos de CPU| 8 |
 | RAM | 16 GB|
@@ -36,7 +36,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 | Versão do VMware vSphere PowerCLI | Não obrigatório|
 | Funções do Windows Server | Não habilite essas funções: <br> - Active Directory Domain Services <br>- Serviços de Informações da Internet <br> - Hyper-V |
 | Políticas de grupo| Não habilite estas políticas de grupo: <br> - Impedir o acesso ao prompt de comando <br> - Impedir o acesso às ferramentas de edição do registro <br> - Lógica de confiança para anexos de arquivo <br> - Ativar a execução do script <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-| IIS | – Nenhum site da Web padrão já existente <br> - Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
+| IIS | – Nenhum site da Web padrão já existente <br> -Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar configuração [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> – Nenhum aplicativo/site da Web pré-existente escutando na porta 443<br>|
 | Tipo de NIC | VMXNET3 (quando implantado como uma VM VMware) |
 | Tipo de endereço IP | Estático |
 | Acesso à Internet | O servidor precisa de acesso a estas URLs: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - `https://management.azure.com` <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (não obrigatório para servidores de processo de expansão) <br> - time.nist.gov <br> - time.windows.com |
@@ -47,7 +47,7 @@ A tabela resume os pré-requisitos para implantação do computador do servidor 
 A versão mais recente do arquivo de instalação do servidor de configuração está disponível no portal do Site Recovery. Além disso, o agente pode ser baixado diretamente do [Centro de Download da Microsoft](https://aka.ms/unifiedsetup).
 
 1. Faça logon no Portal do Azure e navegue até seu Cofre dos Serviços de Recuperação.
-2. Navegue pelos servidores de**configuração** **de infra-estrutura** > de recuperação do site (em Para VMware & Máquinas Físicas).
+2. Navegue até **site Recovery** > **servidores de configuração** de infraestrutura (em para VMware & computadores físicos).
 3. Clique no botão **+Servidores**.
 4. Na página **Adicionar Servidor**, clique no botão Baixar para baixar a chave de Registro. Você precisa dessa chave durante a instalação do servidor de configuração para registrá-lo no serviço Azure Site Recovery.
 5. Clique no link **Baixar a instalação do Microsoft Azure Site Recovery Unified** para baixar a versão mais recente do Servidor de Configuração.
@@ -58,7 +58,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
 ## <a name="install-and-register-the-server"></a>Instalar e registrar o servidor
 
 1. Execute o arquivo de instalação de Configuração Unificada.
-2. Em **Antes de começar,** **selecione Instalar o servidor de configuração e o servidor de processo**.
+2. Em **antes de começar**, selecione **instalar o servidor de configuração e o servidor de processo**.
 
     ![Antes de começar](./media/physical-manage-configuration-server/combined-wiz1.png)
 
@@ -69,7 +69,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
     - Se quiser que o Provedor se conecte diretamente, selecione **Conectar diretamente o Azure Site Recovery sem um servidor proxy**.
     - Se o proxy existente exigir autenticação ou se você quiser usar um proxy personalizado para a conexão do provedor, selecione **Conectar-se com as configurações de proxy personalizadas** e especifique o endereço, a porta e as credenciais.
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
-6. Em **Verificação de pré-requisitos,** a configuração executa uma verificação para garantir que a instalação possa ser executada. Se aparecer um aviso sobre a **verificação global de sincronização de tempo,** verifique se a hora no relógio do sistema (configurações**de data e hora)** é a mesma do fuso horário.
+6. Em **verificação de pré-requisitos**, a instalação executa uma verificação para garantir que a instalação possa ser executada. Se aparecer um aviso sobre a **verificação de sincronização de tempo global**, verifique se o horário no relógio do sistema (configurações de**data e hora** ) é o mesmo que o fuso horário.
 
     ![Pré-requisitos](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Em **Configuração do MySQL**, crie credenciais para fazer logon na instância do servidor MySQL instalada.
@@ -87,7 +87,7 @@ A versão mais recente do arquivo de instalação do servidor de configuração 
 11. Em **Resumo**, examine as informações e clique em **Instalar**. Após a conclusão da instalação, uma frase secreta é gerada. Você precisará dela quando habilitar a replicação, portanto copie-a e guarde-a em um local seguro.
 
 
-Após o término do registro, o servidor é exibido na lâmina **Configurações** > **servidores** no cofre.
+Após a conclusão do registro, o servidor é exibido na folha de **configurações** > **servidores** no cofre.
 
 
 ## <a name="install-from-the-command-line"></a>Instalar usando a linha de comando
@@ -106,7 +106,7 @@ Execute o arquivo de instalação da seguinte maneira:
   ```
 
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 |Nome do Parâmetro| Type | Descrição| Valores|
 |-|-|-|-|
@@ -158,7 +158,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Forneça os detalhes do novo proxy e clique no botão **Registrar**.
 6. Abra uma janela de comando do PowerShell do Administrador.
-7. Execute o comando a seguir:
+7. Execute o seguinte comando:
 
    ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -217,7 +217,7 @@ Você pode modificar as configurações de proxy para o computador do servidor d
 
 ## <a name="upgrade-a-configuration-server"></a>Atualizar um servidor de configuração
 
-Você executa pacotes cumulativos de atualização para atualizar o servidor de configuração. As atualizações podem ser aplicadas até versões N-4. Por exemplo: 
+Você executa pacotes cumulativos de atualização para atualizar o servidor de configuração. As atualizações podem ser aplicadas até versões N-4. Por exemplo:
 
 - Se estiver executando 9.7, 9.8, 9.9 ou 9.10, você poderá atualizar diretamente para 9.11.
 - Se você estiver executando 9.6 ou anterior e você quiser atualizar para 9.11, você deverá primeiramente atualizar para a versão 9.7. antes de 9.11.
@@ -236,13 +236,13 @@ Atualize o servidor da seguinte maneira:
 
 > [!WARNING]
 > Verifique o seguinte antes de iniciar, encerrar o servidor de configuração.
-> 1. [Desative a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as máquinas virtuais sob este Servidor de Configuração.
-> 2. [Desassociar](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [excluir](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de replicação do Servidor de configuração.
-> 3. [Exclua](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os servidores vCenters/hosts vSphere associados ao Servidor de configuração.
+> 1. [Desabilite a proteção](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) para todas as máquinas virtuais neste servidor de configuração.
+> 2. [Desassocie](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) e [exclua](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) todas as políticas de replicação do servidor de configuração.
+> 3. [Exclua](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) todos os servidores vCenters/hosts vSphere associados ao servidor de configuração.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Excluir o servidor de configuração do portal do Azure
-1. No portal Azure, navegue pelos servidores de**configuração** de **infra-estrutura** > de recuperação do site no menu Vault.
+1. Em portal do Azure, navegue até **site Recovery** > **servidores de configuração** de infraestrutura no menu do cofre.
 2. Clique no servidor de configuração que você deseja encerrar.
 3. Na página de detalhes de configuração do servidor, clique no botão **Excluir**.
 4. Clique em **Sim** para confirmar a exclusão do servidor.
@@ -288,10 +288,10 @@ Atualize o servidor da seguinte maneira:
     `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> A opção **-Force** no Remove-AzSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
+> A opção **-Force** em Remove-AzSiteRecoveryFabric pode ser usada para forçar a remoção/exclusão do servidor de configuração.
 
 ## <a name="renew-tlsssl-certificates"></a>Renovar certificados TLS/SSL
-O servidor de configuração tem uma servidor de Web embutido, que coordena as atividades dos serviços móveis, servidores de processo e servidores de destino conectados a ele. O servidor web usa um certificado TLS/SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
+O servidor de configuração tem uma servidor de Web embutido, que coordena as atividades dos serviços móveis, servidores de processo e servidores de destino conectados a ele. O servidor Web usa um certificado TLS/SSL para autenticar clientes. O certificado expira depois de três anos e pode ser renovado a qualquer momento.
 
 ### <a name="check-expiry"></a>Verificar expiração
 
@@ -303,8 +303,8 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 
 ### <a name="renew-the-certificate"></a>Renovar o certificado
 
-1. No cofre, abra o **Servidor de Configuração de Configuração de Recuperação** > **do Site**e clique no servidor de configuração necessário.
-2. A data de validade aparece na **saúde do Servidor de Configuração**
+1. No cofre, abra **site Recovery** > **servidor de configuração**de infraestrutura e clique no servidor de configuração necessário.
+2. A data de expiração aparece em **integridade do servidor de configuração**
 3. Clique em **Renovar certificados**. 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Gateway mergulho profundo e práticas recomendadas para colmeia apache no Azure HDInsight
-description: Saiba como navegar pelas práticas recomendadas para executar consultas da Colmeia no gateway Azure HDInsight
+title: Aprofundamento e práticas recomendadas do gateway para Apache Hive no Azure HDInsight
+description: Saiba como navegar pelas práticas recomendadas para executar consultas de Hive no gateway do Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,79 +8,79 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80586971"
 ---
-# <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Gateway mergulho profundo e práticas recomendadas para colmeia apache no Azure HDInsight
+# <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Aprofundamento e práticas recomendadas do gateway para Apache Hive no Azure HDInsight
 
-O gateway Azure HDInsight (Gateway) é o frontend HTTPS para clusters HDInsight. O Gateway é responsável por: autenticação, resolução do host, descoberta de serviços e outros recursos úteis necessários para um sistema distribuído moderno. Os recursos fornecidos pelo Gateway resultam em algumas despesas gerais para as quais este documento descreverá as práticas recomendadas para navegar. Técnicas de solução de problemas do Gateway também são discutidas.
+O gateway do Azure HDInsight (gateway) é o front-end HTTPS para clusters HDInsight. O gateway é responsável por: autenticação, resolução de host, descoberta de serviço e outros recursos úteis necessários para um sistema distribuído moderno. Os recursos fornecidos pelo gateway resultam em alguma sobrecarga para a qual este documento descreverá as práticas recomendadas para navegar. Técnicas de solução de problemas de gateway também são discutidas.
 
-## <a name="the-hdinsight-gateway"></a>O gateway HDInsight
+## <a name="the-hdinsight-gateway"></a>O gateway do HDInsight
 
-O gateway HDInsight é a única parte de um cluster HDInsight que é acessível publicamente pela internet. O serviço Gateway pode ser acessado sem passar `clustername-int.azurehdinsight.net` pela internet pública usando o ponto final do gateway interno. O ponto final do gateway interno permite que as conexões sejam estabelecidas no serviço de gateway sem sair da rede virtual do cluster. O Gateway lida com todas as solicitações enviadas para o cluster e encaminha essas solicitações para os componentes corretos e hosts de cluster.
+O gateway do HDInsight é a única parte de um cluster HDInsight que pode ser acessado publicamente pela Internet. O serviço de gateway pode ser acessado sem passar pela Internet pública usando `clustername-int.azurehdinsight.net` o ponto de extremidade do gateway interno. O ponto de extremidade do gateway interno permite que as conexões sejam estabelecidas com o serviço de gateway sem sair da rede virtual do cluster. O gateway trata todas as solicitações enviadas ao cluster e encaminha essas solicitações para os componentes e hosts de cluster corretos.
 
-O diagrama a seguir fornece uma ilustração aproximada de como o Gateway fornece uma abstração na frente de todas as diferentes possibilidades de resolução do host dentro do HDInsight.
+O diagrama a seguir fornece uma ilustração aproximada de como o Gateway fornece uma abstração na frente de todas as diferentes possibilidades de resolução do host no HDInsight.
 
 ![Diagrama de resolução do host](./media/gateway-best-practices/host-resolution-diagram.png "Diagrama de resolução do host")
 
 ## <a name="motivation"></a>Motivação
 
-A motivação para colocar um gateway na frente dos clusters HDInsight é fornecer uma interface para a descoberta de serviços e autenticação do usuário. Os mecanismos de autenticação fornecidos pelo gateway são especialmente relevantes para clusters habilitados para ESP.
+A motivação para colocar um gateway na frente dos clusters HDInsight é fornecer uma interface para descoberta de serviço e autenticação de usuário. Os mecanismos de autenticação fornecidos pelo gateway são especialmente relevantes para clusters habilitados para ESP.
 
-Para a descoberta de serviços, a vantagem do gateway é que cada componente dentro `clustername.azurehdinsight.net/hive2`do cluster pode `host:port` ser acessado como ponto final diferente sob o site do Gateway ( ), em oposição a uma infinidade de pares.
+Para a descoberta de serviço, a vantagem do gateway é que cada componente dentro do cluster pode ser acessado como ponto de extremidade diferente `clustername.azurehdinsight.net/hive2`no site do gateway (), em `host:port` oposição a uma infinidade de emparelhamentos.
 
-Para autenticação, o Gateway permite que `username:password` os usuários se autentiquem usando um par de credenciais. Para clusters habilitados para ESP, essa credencial seria o nome de usuário e senha do usuário. A autenticação em clusters HDInsight através do Gateway não exige que o cliente adquira um bilhete kerberos. Uma vez que `username:password` o Gateway aceita credenciais e adquire o bilhete Kerberos do usuário em nome do usuário, conexões seguras podem ser feitas ao Gateway de qualquer host cliente, incluindo clientes unidos a diferentes domínios AA-DDS do que o cluster (ESP).
+Para autenticação, o Gateway permite que os usuários se autentiquem usando um par de `username:password` credenciais. Para clusters habilitados para ESP, essa credencial seria o nome de usuário e a senha do domínio A autenticação para clusters HDInsight por meio do gateway não exige que o cliente adquira um tíquete Kerberos. Como o gateway aceita `username:password` credenciais e adquire o tíquete Kerberos do usuário em nome do usuário, as conexões seguras podem ser feitas no gateway a partir de qualquer host do cliente, incluindo clientes ingressados em diferentes domínios AA-DDS do que o (ESP).
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-O Gateway é um único serviço (carga equilibrada em dois hosts) responsável pela solicitação de encaminhamento e autenticação. O Gateway pode se tornar um gargalo de throughput para consultas de Colmeia que excedam um determinado tamanho. A degradação do desempenho da consulta pode ser observada quando consultas **SELECT** muito grandes são executadas no Gateway via ODBC ou JDBC. "Muito grande" significa consultas que compõem mais de 5 GB de dados em linhas ou colunas. Esta consulta pode incluir uma longa lista de linhas e, ou uma ampla contagem de colunas.
+O gateway é um único serviço (com balanceamento de carga entre dois hosts) responsável pelo encaminhamento e autenticação de solicitações. O gateway pode se tornar um afunilamento de taxa de transferência para consultas de Hive que excedem um determinado tamanho. A degradação do desempenho da consulta pode ser observada quando consultas **Select** muito grandes são executadas no gateway via ODBC ou JDBC. "Muito grande" significa consultas que compõem mais de 5 GB de dados em linhas ou colunas. Essa consulta pode incluir uma longa lista de linhas e, ou uma contagem de colunas larga.
 
-A degradação de desempenho do Gateway em torno de consultas de grande porte é porque os dados devem ser transferidos do armazenamento de dados subjacente (ADLS Gen2) para: o HDInsight Hive Server, o Gateway e, finalmente, através dos drivers JDBC ou ODBC para o host cliente.
+A degradação do desempenho do gateway em relação a consultas de um grande tamanho é porque os dados devem ser transferidos do armazenamento de dados subjacente (ADLS Gen2) para: o servidor hive do HDInsight, o gateway e, por fim, por meio dos drivers JDBC ou ODBC para o host do cliente.
 
 O diagrama a seguir ilustra as etapas envolvidas em uma consulta SELECT.
 
 ![Diagrama de resultados](./media/gateway-best-practices/result-retrieval-diagram.png "Diagrama de resultados")
 
-Apache Hive é uma abstração relacional em cima de um sistema de arquivos compatível com HDFS. Esta abstração significa instruções **SELECT** na Colmeia correspondem às operações **READ** no sistema de arquivos. As operações **READ** são traduzidas no esquema apropriado antes de relatadoao usuário. A latência desse processo aumenta com o tamanho dos dados e o total de saltos necessários para chegar ao usuário final.
+Apache Hive é uma abstração relacional sobre um sistema de arquivos compatível com HDFS. Essa abstração significa que as instruções **Select** no hive correspondem às operações de **leitura** no sistema de arquivos. As operações de **leitura** são convertidas no esquema apropriado antes de serem relatadas ao usuário. A latência desse processo aumenta com o tamanho dos dados e o total de saltos necessários para alcançar o usuário final.
 
-Comportamentos semelhantes podem ocorrer ao executar instruções **CREATE** ou **INSERT** de dados grandes, pois esses comandos corresponderão às operações **WRITE** no sistema de arquivos subjacente. Considere escrever dados, como orc bruto, para o sistema de arquivos/datalake em vez de carregá-los usando **INSERT** ou **LOAD**.
+Um comportamento semelhante pode ocorrer ao executar instruções **Create** ou **Insert** de dados grandes, pois esses comandos corresponderão às operações de **gravação** no sistema de arquivos subjacente. Considere gravar dados, como ORC brutos, no sistema de arquivos/datalake, em vez de carregá-los usando **Insert** ou **Load**.
 
-Em clusters habilitados para Enterprise Security Pack, políticas apache ranger suficientemente complexas podem causar uma desaceleração no tempo de compilação de consultas, o que pode levar a um tempo de intervalo de gateway. Se um tempo de intervalo de gateway for notado em um cluster ESP, considere reduzir ou combinar o número de políticas de ranger.
+Em clusters habilitados para o Enterprise Security Pack, as políticas do Apache Ranger suficientemente complexas podem causar uma lentidão no tempo de compilação da consulta, o que pode levar a um tempo limite de gateway. Se um tempo limite de gateway for notado em um cluster ESP, considere a possibilidade de reduzir ou combinar o número de políticas de Ranger.
 
 ## <a name="troubleshooting-techniques"></a>Técnicas de solução de problemas
 
-Existem vários locais para mitigar e entender questões de desempenho atendidas como parte do comportamento acima. Use a seguinte lista de verificação ao experimentar a degradação do desempenho da consulta no gateway HDInsight:
+Há vários locais para mitigar e entender os problemas de desempenho atendidos como parte do comportamento acima. Use a seguinte lista de verificação ao experimentar a degradação do desempenho de consulta no gateway do HDInsight:
 
-* Use a cláusula **LIMITE** ao executar grandes consultas **SELECT.** A cláusula **LIMITE** reduzirá o total de linhas relatadas ao host cliente. A cláusula **LIMITE** afeta apenas a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **LIMITE** ao plano `hive.limit.optimize.enable`de consulta, use a configuração . **Limit** pode ser combinado com um deslocamento usando o formulário de argumento **LIMITE x,y**.
+* Use a cláusula **Limit** ao executar consultas de **seleção** grande. A cláusula **Limit** reduzirá o total de linhas relatadas para o host cliente. A cláusula **Limit** afeta apenas a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **Limit** ao plano de consulta, use a configuração `hive.limit.optimize.enable`. O **limite** pode ser combinado com um deslocamento usando o limite de formulário de argumento **x, y**.
 
-* Nomeie suas colunas de interesse ao executar consultas **SELECT** em vez de usar **SELECT \* **. Selecionar menos colunas diminuirá a quantidade de dados lidos.
+* Nomeie suas colunas de interesse ao executar consultas **Select** em vez de **usar \*Select **. Selecionar menos colunas reduzirá a quantidade de dados lidos.
 
-* Tente executar a consulta de interesse através de Beeline Apache. Se a recuperação de resultados via Apache Beeline levar um longo período de tempo, espere atrasos ao recuperar os mesmos resultados através de ferramentas externas.
+* Tente executar a consulta de interesse por meio do Apache beeline. Se a recuperação de resultado via Apache beeline levar um longo período de tempo, espere atrasos ao recuperar os mesmos resultados por meio de ferramentas externas.
 
-* Teste uma consulta básica da Colmeia para garantir que uma conexão com o HDInsight Gateway possa ser estabelecida. Tente executar uma consulta básica de duas ou mais ferramentas externas para se certificar de que nenhuma ferramenta individual está tendo problemas.
+* Teste uma consulta de Hive básica para garantir que uma conexão com o gateway do HDInsight possa ser estabelecida. Tente executar uma consulta básica de duas ou mais ferramentas externas para garantir que nenhuma ferramenta individual esteja sendo executada em problemas.
 
-* Revise quaisquer alertas Apache Ambari para garantir que os serviços HDInsight sejam saudáveis. Os Alertas Ambari podem ser integrados ao Azure Monitor para relatórios e análises.
+* Examine todos os alertas do Apache Ambari para garantir que os serviços do HDInsight estejam íntegros. Os alertas do Ambari podem ser integrados com Azure Monitor para relatório e análise.
 
-* Se você estiver usando uma Metastore de Colmeia externa, verifique se o DTU do Azure SQL DB para o Metastore da Colmeia não atingiu seu limite. Se o DTU estiver se aproximando do seu limite, você precisará aumentar o tamanho do banco de dados.
+* Se você estiver usando um metastore do hive externo, verifique se o DTU do BD SQL do Azure para o metastore do hive não atingiu seu limite. Se o DTU estiver se aproximando de seu limite, você precisará aumentar o tamanho do banco de dados.
 
-* Certifique-se de que quaisquer ferramentas de terceiros, como PBI ou Tableau, estejam usando paginação para visualizar tabelas ou bancos de dados. Consulte seus parceiros de suporte para obter essas ferramentas para assistência na paginação. A principal ferramenta utilizada para paginação `fetchSize` é o parâmetro JDBC. Um pequeno tamanho de busca pode resultar em desempenho de gateway degradado, mas um tamanho de busca muito grande pode resultar em um tempo limite de gateway. A sintonia do tamanho da busca deve ser feita em uma base de carga de trabalho.
+* Certifique-se de que qualquer ferramenta de terceiros, como PBI ou tableau, esteja usando paginação para exibir tabelas ou bancos de dados. Consulte seus parceiros de suporte para essas ferramentas para obter assistência na paginação. A ferramenta principal usada para paginação é `fetchSize` o parâmetro JDBC. Um tamanho de busca pequeno pode resultar em degradação do desempenho do gateway, mas um tamanho de busca muito grande pode resultar em um tempo limite de gateway. O ajuste do tamanho de busca deve ser feito de acordo com a carga de trabalho.
 
-* Se o seu pipeline de dados envolve a leitura de uma grande quantidade de dados do armazenamento subjacente do cluster HDInsight, considere usar uma ferramenta que interfacediretamente com o Azure Storage, como o Azure Data Factory
+* Se o pipeline de dados envolver a leitura de uma grande quantidade de dados do armazenamento subjacente do cluster HDInsight, considere usar uma ferramenta que faça interface diretamente com o armazenamento do Azure, como Azure Data Factory
 
-* Considere usar o Apache Hive LLAP ao executar cargas de trabalho interativas, pois o LLAP pode fornecer uma experiência mais suave para o retorno rápido dos resultados da consulta
+* Considere o uso de Apache Hive LLAP ao executar cargas de trabalho interativas, uma vez que o LLAP pode fornecer uma experiência mais suave para retornar rapidamente os resultados da consulta
 
-* Considere aumentar o número de threads disponíveis para `hive.server2.thrift.max.worker.threads`o serviço Hive Metastore usando . Esta configuração é especialmente relevante quando um alto número de usuários simultâneos estão enviando consultas para o cluster
+* Considere aumentar o número de threads disponíveis para o serviço de metastore `hive.server2.thrift.max.worker.threads`do hive usando. Essa configuração é especialmente relevante quando um grande número de usuários simultâneos está enviando consultas para o cluster
 
-* Reduza o número de repetições usadas para alcançar o Gateway a partir de quaisquer ferramentas externas. Se várias tentativas forem usadas, considere seguir uma política de retentativa exponencial
+* Reduza o número de repetições usadas para acessar o gateway de qualquer ferramenta externa. Se várias repetições forem usadas, considere seguir uma política de repetição de retirada exponencial
 
-* Considere ativar a colmeia de `hive.exec.compress.output` compressão usando as configurações e `hive.exec.compress.intermediate`.
+* Considere habilitar o hive de compactação `hive.exec.compress.output` usando `hive.exec.compress.intermediate`as configurações e.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Beeline Apache no HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
-* [Etapas de solução de problemas do hdinsight gateway](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
-* [Redes Virtuais para HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-* [HDInsight com Rota Expressa](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
+* [Apache beeline no HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
+* [Etapas de solução de problemas de tempo limite do gateway HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
+* [Redes virtuais para HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
+* [HDInsight com rota expressa](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)

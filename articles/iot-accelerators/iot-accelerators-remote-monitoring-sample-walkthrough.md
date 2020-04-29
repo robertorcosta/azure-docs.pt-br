@@ -1,6 +1,6 @@
 ---
 title: Visão geral do acelerador de solução de monitoramento remoto | Microsoft Docs
-description: Este artigo fornece uma visão geral de alguns dos elementos-chave da solução de Monitoramento Remoto para permitir que você entenda como ele funciona.
+description: Este artigo fornece uma visão geral de alguns dos principais elementos da solução de monitoramento remoto para permitir que você entenda como ele funciona.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546305"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Visão geral do acelerador de solução de Monitoramento Remoto
@@ -32,7 +32,7 @@ O código do acelerador de solução de monitoramento remoto está disponível n
 
 ## <a name="logical-architecture"></a>Arquitetura lógica
 
-O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitoramento remoto sobreposto na [arquitetura IoT:](../iot-fundamentals/iot-introduction.md)
+O diagrama a seguir descreve os componentes lógicos do acelerador de solução de monitoramento remoto sobreposto na [arquitetura de IOT](../iot-fundamentals/iot-introduction.md):
 
 ![Arquitetura lógica](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -167,4 +167,4 @@ Se você quiser explorar a documentação do desenvolvedor e do código-fonte, i
 Diagramas detalhados de arquitetura de solução:
 * [ Acelerador de solução para arquitetura de monitoramento remoto ](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Para obter informações mais conceituais sobre o acelerador de soluções de monitoramento remoto, consulte [Personalizar o acelerador de soluções](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Para obter mais informações conceituais sobre o acelerador de solução de monitoramento remoto, consulte [Personalizar o Solution Accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

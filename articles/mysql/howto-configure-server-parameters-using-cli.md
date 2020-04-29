@@ -1,5 +1,5 @@
 ---
-title: Configurar parâmetros de servidor - Azure CLI - Banco de dados Azure para MySQL
+title: Configurar parâmetros do servidor-CLI do Azure-banco de dados do Azure para MySQL
 description: Este artigo descreve como configurar os parâmetros de serviço no Banco de Dados do Azure para MySQL usando o utilitário da linha de comando da CLI do Azure.
 author: ajlam
 ms.author: andrela
@@ -8,18 +8,18 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 4/1/2020
 ms.openlocfilehash: ca5f80e57f90e4dd26ac2e4a175998ff3de2c102
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546430"
 ---
-# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalize os parâmetros do servidor usando o Azure CLI
+# <a name="customize-server-parameters-by-using-azure-cli"></a>Personalizar parâmetros de servidor usando CLI do Azure
 É possível listar, exibir e atualizar os parâmetros de configuração de um servidor de Banco de Dados do Azure para MySQL usando o utilitário da linha de comando da CLI do Azure. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
-- [Um banco de dados Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Um banco de dados do Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - Utilitário de linha de comando do [Azure CLI](/cli/azure/install-azure-cli) ou use o Azure Cloud Shell no navegador.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Listar os parâmetros de configuração de servidor para o Banco de Dados do Azure para MySQL
@@ -32,7 +32,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 Para obter a definição de cada um dos parâmetros listados, consulte a seção de referência do MySQL em [Variáveis do Sistema do Servidor](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## <a name="show-server-configuration-parameter-details"></a>Mostrar detalhes do parâmetro de configuração do servidor
-Para mostrar detalhes sobre um parâmetro de configuração específico para um servidor, execute o comando [az mysql server configuration show.](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show)
+Para mostrar detalhes sobre um parâmetro de configuração específico para um servidor, execute o comando [AZ MySQL Server Configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) .
 
 Este exemplo mostra detalhes do parâmetro de configuração de servidor **slow\_query\_log** para o servidor **mydemoserver.mysql.database.azure.com** no grupo de recursos **myresourcegroup.**
 ```azurecli-interactive
@@ -65,7 +65,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário estejam preenchidas corretamente. Para reiniciar o servidor, use o [portal Azure](howto-restart-server-portal.md) ou [CLI](howto-restart-server-cli.md).
+> Você deve reiniciar o servidor para garantir que as tabelas de fuso horário sejam populadas corretamente. Para reiniciar o servidor, use o [portal do Azure](howto-restart-server-portal.md) ou a [CLI](howto-restart-server-cli.md).
 
 Para exibir os valores de fuso horário disponíveis, execute o comando a seguir:
 

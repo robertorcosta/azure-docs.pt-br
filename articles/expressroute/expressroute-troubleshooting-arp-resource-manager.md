@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: tabelas ARP - Solução de problemas'
+title: 'Azure ExpressRoute: tabelas ARP – solução de problemas'
 description: Esta página fornece instruções sobre como obter tabelas ARP para um circuito de ExpressRoute
 services: expressroute
 author: charwen
@@ -9,10 +9,10 @@ ms.date: 01/30/2017
 ms.author: charwen
 ms.custom: seodec18
 ms.openlocfilehash: b31e9eb852c69d5f02eb855e319d2a4901942994
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618530"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtenção de tabelas ARP no modelo de implantação do Resource Manager
@@ -61,7 +61,7 @@ Verifique se você tem o seguinte antes de prosseguir
 * Você deve ter o módulo mais recente do PowerShell do Azure (versão 1.50 ou mais recente).
 
 > [!NOTE]
-> Se a camada 3 for fornecida pelo provedor de serviços e as tabelas ARP estiverem em branco no portal/saída abaixo, atualize a configuração do Circuito usando o botão de atualização no portal. Essa operação aplicará a configuração de roteamento correta em seu circuito. 
+> Se a camada 3 for fornecida pelo provedor de serviços e as tabelas ARP estiverem em branco no portal/saída abaixo, atualize a configuração de circuito usando o botão Atualizar no Portal. Essa operação aplicará a configuração de roteamento correta em seu circuito. 
 >
 >
 
@@ -148,7 +148,7 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>Tabela de ARP quando o lado do provedor de conectividade/local tiver problemas
-Se houver problemas com o provedor de conectividade ou local, você poderá ver que apenas uma entrada aparecerá na tabela ARP ou o endereço MAC no local será exibido incompleto. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
+Se houver problemas com o provedor local ou de conectividade, você poderá ver que apenas uma entrada aparecerá na tabela ARP ou o endereço MAC local será mostrado incompleto. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

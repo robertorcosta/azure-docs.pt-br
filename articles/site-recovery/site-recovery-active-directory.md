@@ -1,5 +1,5 @@
 ---
-title: Configurar a recuperação de desastres do Active Directory/DNS com a recuperação do site do Azure
+title: Configurar a recuperação de desastre do DNS/Active Directory com Azure Site Recovery
 description: Este artigo descreve como implementar uma solução de recuperação de desastre para o Active Directory e DNS usando o Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 2cf4f22be2a4407d73fcc7bb340fad647c8aa145
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80546510"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres para Active Directory e DNS
 
-Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Active Directory e de uma infraestrutura de DNS para funcionar corretamente. Quando você configura a recuperação de desastres para aplicativos, muitas vezes você precisa recuperar o DNS (Active Directory and Domain Name System, sistema de nome de domínio) antes de recuperar outros componentes do aplicativo, para garantir a funcionalidade correta do aplicativo.
+Aplicativos empresariais como o SharePoint, o Dynamics AX e o SAP dependem do Active Directory e de uma infraestrutura de DNS para funcionar corretamente. Quando você configura a recuperação de desastre para aplicativos, geralmente precisa recuperar Active Directory e o DNS (sistema de nomes de domínio) antes de recuperar outros componentes de aplicativo, para garantir a funcionalidade correta do aplicativo.
 
 É possível usar o [Site Recovery](site-recovery-overview.md) para criar um plano de recuperação de desastre para o Active Directory. Quando ocorrer uma interrupção, você poderá iniciar um failover. Você pode ter o Active Directory em funcionamento em alguns minutos. Se tiver implantado o Active Directory para vários aplicativos no site primário, por exemplo, para o SharePoint e o SAP, você provavelmente desejará o failover do site completo. Você pode fazer failover primeiramente do Active Directory usando o Site Recovery. Em seguida, faça failover dos outros aplicativos usando planos de recuperação específicos do aplicativo.
 
@@ -25,14 +25,14 @@ Este artigo explica como criar uma solução de recuperação de desastre para o
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você estiver replicando para o Azure, [prepare os recursos do Azure](tutorial-prepare-azure.md), incluindo uma assinatura, uma Rede Virtual do Microsoft Azure, uma conta de armazenamento e um cofre dos Serviços de Recuperação.
-- Revise os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) para todos os componentes.
+- Examine os [requisitos de suporte](site-recovery-support-matrix-to-azure.md) para todos os componentes.
 
 ## <a name="replicate-the-domain-controller"></a>Replicar o controlador de domínio
 
-- Você deve configurar a replicação do Site Recovery, em pelo menos uma máquina virtual (VM) que hospeda um controlador de domínio ou DNS.
+- Você deve configurar a replicação do Site Recovery, em pelo menos uma VM (máquina virtual) que hospede um controlador de domínio ou DNS.
 - Se tiver vários controladores de domínio no ambiente, você também deverá configurar um controlador de domínio adicional no site de destino. O controlador de domínio adicional pode estar no Azure, ou em um datacenter secundário local.
-- Se tiver apenas alguns aplicativos e um controlador de domínio, você provavelmente desejará fazer failover de todo o site junto. Neste caso, recomendamos o uso do Site Recovery para replicar o controlador de domínio no local de destino, seja no Azure ou em um datacenter secundário no local. É possível usar o mesmo controlador de domínio replicado ou a máquina virtual DNS para [failover de teste](#test-failover-considerations).
-- Se você tiver muitos aplicativos e mais de um controlador de domínio no ambiente, ou se pretender fazer failover de alguns aplicativos por vez, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, será recomendável configurar um controlador de domínio adicional no site de destino (no Azure ou em um datacenter local secundário). Para [failover de teste,](#test-failover-considerations)você pode usar um controlador de domínio replicado pela Recuperação do Site. Para failover, você pode usar o controlador de domínio adicional no site de destino.
+- Se tiver apenas alguns aplicativos e um controlador de domínio, você provavelmente desejará fazer failover de todo o site junto. Nesse caso, é recomendável usar Site Recovery para replicar o controlador de domínio para o site de destino, seja no Azure ou em um datacenter local secundário. É possível usar o mesmo controlador de domínio replicado ou a máquina virtual DNS para [failover de teste](#test-failover-considerations).
+- Se você tiver muitos aplicativos e mais de um controlador de domínio no ambiente, ou se pretender fazer failover de alguns aplicativos por vez, além de replicar a máquina virtual do controlador de domínio com o Site Recovery, será recomendável configurar um controlador de domínio adicional no site de destino (no Azure ou em um datacenter local secundário). Para o [failover de teste](#test-failover-considerations), você pode usar um controlador de domínio que é replicado pelo site Recovery. Para failover, você pode usar o controlador de domínio adicional no site de destino.
 
 ## <a name="enable-protection-with-site-recovery"></a>Habilitar a proteção com o Site Recovery
 
@@ -43,7 +43,7 @@ Você pode usar o Site Recovery para proteger a máquina virtual que hospeda o c
 O controlador de domínio replicado usando o Site Recovery é usado para [failover de teste](#test-failover-considerations). Verifique se ele atende aos seguintes requisitos:
 
 1. O controlador de domínio é um servidor de catálogo global.
-1. O controlador de domínio deve ser o proprietário da função FSMO (Flexible Single Master Operations, operações de mestre único flexível) para funções necessárias durante um failover de teste. Do contrário, essas funções precisarão ser [dimensionadas](https://support.microsoft.com/help/255504/using-ntdsutil-exe-to-transfer-or-seize-fsmo-roles-to-a-domain-control) depois do failover.
+1. O controlador de domínio deve ser o proprietário da função FSMO (operações de mestre único) flexível para funções que são necessárias durante um failover de teste. Do contrário, essas funções precisarão ser [dimensionadas](https://support.microsoft.com/help/255504/using-ntdsutil-exe-to-transfer-or-seize-fsmo-roles-to-a-domain-control) depois do failover.
 
 ### <a name="configure-vm-network-settings"></a>Definir configurações de rede de VMs
 
@@ -53,7 +53,7 @@ Para a máquina virtual que hospeda o controlador de domínio ou o DNS, no Site 
 
 ### <a name="site-to-site-protection"></a>Proteção site a site
 
-Crie um controlador de domínio no site secundário. Quando você promover o servidor para uma função controladora de domínio, especifique o nome do mesmo domínio que está sendo usado no site principal. Você pode usar o snap-in dos **Sites e Serviços do Active Directory** para definir as configurações no objeto de link de site ao qual os sites serão adicionados. Ao definir as configurações em um link de site, você pode controlar quando a replicação ocorre entre dois ou mais sites e com que frequência isso ocorre. Para obter mais informações, consulte [Programação de replicação entre sites](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731862(v=ws.11)).
+Crie um controlador de domínio no site secundário. Ao promover o servidor a uma função de controlador de domínio, especifique o nome do mesmo domínio que está sendo usado no site primário. Você pode usar o snap-in dos **Sites e Serviços do Active Directory** para definir as configurações no objeto de link de site ao qual os sites serão adicionados. Ao definir as configurações em um link de site, você pode controlar quando a replicação ocorre entre dois ou mais sites e com que frequência isso ocorre. Para obter mais informações, consulte [agendando a replicação entre sites](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731862(v=ws.11)).
 
 ### <a name="site-to-azure-protection"></a>Proteção Site ao Azure
 
@@ -71,7 +71,7 @@ Depois disso, reconfigure o servidor DNS para a rede virtual para usar o servido
 
 ## <a name="test-failover-considerations"></a>considerações sobre failover de teste
 
-Para evitar impacto nas cargas de trabalho de produção, o failover do teste ocorre em uma rede isolada da rede de produção.
+Para evitar o impacto nas cargas de trabalho de produção, o failover de teste ocorre em uma rede isolada da rede de produção.
 
 A maioria dos aplicativos exige a presença de um controlador de domínio ou de um servidor DNS. Portanto, antes do failover do aplicativo, você deve criar um controlador de domínio na rede isolada para ser usado para failover de teste. A maneira mais fácil de fazer isso é usar o Site Recovery para replicar uma máquina virtual que hospede um controlador de domínio ou um DNS. Em seguida, execute um failover de teste da máquina virtual do controlador de domínio antes de executar um failover de teste do plano de recuperação para o aplicativo.
 
@@ -102,13 +102,13 @@ Ao iniciar um failover de teste, não inclua todos os controladores de domínio 
 > [!IMPORTANT]
 > Algumas das configurações descritas nesta seção não são as configurações padrão do controlador de domínio. Se não quiser fazer essas alterações em um controlador de domínio de produção, você poderá criar um controlador de domínio dedicado para o Site Recovery usar no failover de teste. Faça essas alterações somente nesse controlador de domínio.
 
-Começando com o Windows Server 2012, [defesas adicionais foram inseridas no Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Essas salvaguardas ajudam a proteger os controladores de domínio virtualizados contra reversões do número de seqüência de atualização (USN) se a plataforma de hipervisor subjacente suportar **o VM-GenerationID**. O Azure dá suporte a **VM-GenerationID**. Por isso, os controladores de domínio que executam o Windows Server 2012 ou posterior nas máquinas virtuais do Azure têm essas proteções adicionais.
+Começando com o Windows Server 2012, [defesas adicionais foram inseridas no Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). Essas proteções ajudam a proteger controladores de domínio virtualizados contra reversões de número de sequência de atualização (USN) se a plataforma de hipervisor subjacente der suporte a **VM-generationid**. O Azure dá suporte a **VM-GenerationID**. Por isso, os controladores de domínio que executam o Windows Server 2012 ou posterior nas máquinas virtuais do Azure têm essas proteções adicionais.
 
-Quando **VM-GenerationID** é redefinido, o valor **InvocationID** do banco de dados AD DS também é redefinido. Além disso, o pool de ID relativo `SYSVOL` (RID) é descartado, e a pasta é marcada como não-autoritária. Para obter mais informações, consulte [Introdução à virtualização de serviços de domínio de diretório ativo](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [virtualização segura da replicação do sistema de arquivos distribuídos (DFSR).](https://techcommunity.microsoft.com/t5/storage-at-microsoft/safely-virtualizing-dfsr/ba-p/424671)
+Quando **VM-GenerationID** é redefinido, o valor **InvocationID** do banco de dados AD DS também é redefinido. Além disso, o pool de ID relativa (RID) é Descartado e `SYSVOL` a pasta é marcada como não autoritativa. Para obter mais informações, consulte [introdução à virtualização de Active Directory Domain Services](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) e [virtualizar com segurança sistema de arquivos distribuído a replicação (DFSR)](https://techcommunity.microsoft.com/t5/storage-at-microsoft/safely-virtualizing-dfsr/ba-p/424671).
 
-O failover do Azure pode causar a redefinição de **VM-GenerationID**. A redefinição de **VM-GenerationID** dispara garantias adicionais quando a máquina virtual do controlador de domínio é iniciada no Azure. Isso pode resultar em um atraso significativo em ser capaz de fazer login na máquina virtual do controlador de domínio.
+O failover do Azure pode causar a redefinição de **VM-GenerationID**. A redefinição de **VM-GenerationID** dispara garantias adicionais quando a máquina virtual do controlador de domínio é iniciada no Azure. Isso pode resultar em um atraso significativo na capacidade de entrar na máquina virtual do controlador de domínio.
 
-Como esse controlador de domínio é usado apenas um failover de teste, as defesas da virtualização não são necessárias. Para garantir que o valor **VM-GenerationID** para a máquina virtual do controlador `DWORD` de domínio não mude, você pode alterar o valor de seguir para **4** no controlador de domínio on-premises:
+Como esse controlador de domínio é usado apenas um failover de teste, as defesas da virtualização não são necessárias. Para garantir que o valor de **generationid de VM** para a máquina virtual do controlador de domínio não seja alterado, você pode alterar `DWORD` o valor de seguinte para **4** no controlador de domínio local:
 
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start`
 
@@ -116,19 +116,19 @@ Como esse controlador de domínio é usado apenas um failover de teste, as defes
 
 Se as defesas da virtualização forem disparadas após um failover de teste, você poderá ver um ou mais dos seguintes sintomas:
 
-- O valor **do GenerationID** muda:
+- O valor de **generationid** muda:
 
   :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Alteração da ID de Geração":::
 
-- O valor **invocaçãoID** muda:
+- O valor de **inrevocationid** é alterado:
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Mudança de ID de invocação":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Alteração de ID de invocação":::
 
-- `SYSVOL`pasta `NETLOGON` e ações não estão disponíveis.
+- `SYSVOL`a pasta `NETLOGON` e os compartilhamentos não estão disponíveis.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Compartilhamento de pastas SYSVOL":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Compartilhamento de pasta SYSVOL":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Pasta NtFrs SYSVOL":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Pasta do SYSVOL do NtFrs":::
 
 - Os bancos de dados DFSR são excluídos.
 
@@ -139,7 +139,7 @@ Se as defesas da virtualização forem disparadas após um failover de teste, vo
 > [!IMPORTANT]
 > Algumas das configurações descritas nesta seção não são as configurações padrão do controlador de domínio. Se não quiser fazer essas alterações em um controlador de domínio de produção, você poderá criar um controlador de domínio dedicado para o failover de teste do Site Recovery. Faça essas alterações somente nesse controlador de domínio dedicado.
 
-1. No prompt de comando, execute o `SYSVOL` seguinte `NETLOGON` comando para verificar se pasta e pasta estão compartilhadas:
+1. No prompt de comando, execute o seguinte comando para verificar se `SYSVOL` a pasta `NETLOGON` e a pasta são compartilhadas:
 
     `NET SHARE`
 
@@ -157,31 +157,31 @@ Se as condições anteriores forem atendidas, é provável que o controlador de 
 
 1. Faça uma restauração autoritativa do controlador de domínio. Lembre-se das informações a seguir:
 
-    - Embora não recomendamos a replicação usando o [FRS (File Replication Service, serviço de replicação de arquivos),](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-end-is-nigh-for-frs-8211-updated-for-ws2016/ba-p/425379)se você usar a replicação FRS, siga as etapas para uma restauração autoritária. O processo é descrito em [Como usar a chave do Registro BurFlags para reinicializar o serviço de replicação de arquivos](https://support.microsoft.com/kb/290762).
+    - Embora não recomendemos a replicação usando o [FRS (serviço de replicação de arquivo)](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-end-is-nigh-for-frs-8211-updated-for-ws2016/ba-p/425379), se você usar a replicação do FRS, siga as etapas para uma restauração autoritativa. O processo é descrito em [Como usar a chave do Registro BurFlags para reinicializar o serviço de replicação de arquivos](https://support.microsoft.com/kb/290762).
 
       Para obter mais informações sobre BurFlags, consulte a postagem no blog [D2 e D4: para que servem?](/archive/blogs/janelewis/d2-and-d4-what-is-it-for).
 
-    - Se você usar a replicação DFSR, conclua as etapas de uma restauração autoritativa. O processo é descrito na [Força como uma sincronia autoritária e não autorizada para a pasta SYSVOL replicada pelo DFSR (como "D4/D2" para FRS)](https://support.microsoft.com/kb/2218556).
+    - Se você usar a replicação DFSR, conclua as etapas de uma restauração autoritativa. O processo é descrito em [forçar uma sincronização autoritativa e não autoritativa para a pasta SYSVOL replicada pelo DFSR (como "D4/D2" para o FRS)](https://support.microsoft.com/kb/2218556).
 
       Você também pode usar as funções do PowerShell. Para obter mais informações, consulte [Funções do PowerShell de restauração autoritativa/não autoritativa de DFSR-SYSVOL](/archive/blogs/thbouche/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions).
 
-1. Ignore o requisito de sincronização inicial definindo a chave do Registro a seguir como **0** no controlador de domínio local. Se `DWORD` o não existir, você pode criá-lo sob o nó **Parâmetros.**
+1. Ignore o requisito de sincronização inicial definindo a chave do Registro a seguir como **0** no controlador de domínio local. Se o `DWORD` não existir, você poderá criá-lo no nó **parâmetros** .
 
    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
    Para obter mais informações, consulte [Solucionar problemas da ID do evento 4013 do DNS: O servidor DNS não conseguiu carregar zonas DNS integradas ao AD](https://support.microsoft.com/kb/2001093).
 
-1. Desabilite o requisito de ter um servidor de catálogo global disponível para validar o logon do usuário. Para isso, no controlador de domínio local, defina a seguinte chave do Registro como **1**. Se `DWORD` o não existe, você pode criá-lo sob o nó **Lsa.**
+1. Desabilite o requisito de ter um servidor de catálogo global disponível para validar o logon do usuário. Para isso, no controlador de domínio local, defina a seguinte chave do Registro como **1**. Se o `DWORD` não existir, você poderá criá-lo no nó **LSA** .
 
    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-   Para obter mais informações, consulte [Como funciona o Catálogo Global](/previous-versions/windows/it-pro/windows-server-2003/cc737410(v=ws.10)).
+   Para obter mais informações, consulte [como o catálogo global funciona](/previous-versions/windows/it-pro/windows-server-2003/cc737410(v=ws.10)).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS e controlador de domínio em computadores diferentes
 
 Se você estiver executando o controlador de domínio e os DNs na mesma VM, poderá ignorar este procedimento.
 
-Se o DNS não estiver na mesma VM que o controlador de domínio, você precisará criar uma VM DNS para o failover de teste. Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. Por exemplo, se o domínio `contoso.com`active directory for, você `contoso.com`poderá criar uma região De DNS com o nome . As entradas correspondentes ao Active Directory devem ser atualizadas no DNS da seguinte maneira:
+Se o DNS não estiver na mesma VM que o controlador de domínio, você precisará criar uma VM DNS para o failover de teste. Você pode usar um servidor DNS atualizado e criar todas as zonas necessárias. Por exemplo, se seu domínio de Active Directory `contoso.com`for, você poderá criar uma zona DNS com o `contoso.com`nome. As entradas correspondentes ao Active Directory devem ser atualizadas no DNS da seguinte maneira:
 
 1. Assegure-se de que essas configurações estejam definidas antes que outra máquina virtual no plano de recuperação seja iniciada:
 

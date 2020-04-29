@@ -1,6 +1,6 @@
 ---
-title: Crie um conjunto de escalas que usa VMs do Azure Spot
-description: Aprenda a criar conjuntos de escala de máquinas virtuais do Azure que usam VMs spot para economizar custos.
+title: Criar um conjunto de dimensionamento que usa VMs de ponto do Azure
+description: Saiba como criar conjuntos de dimensionamento de máquinas virtuais do Azure que usam VMs pontuais para economizar em custos.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -8,53 +8,53 @@ ms.topic: article
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80545930"
 ---
-# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs do Azure Spot para conjuntos de escala de máquinas virtuais 
+# <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs pontuais do Azure para conjuntos de dimensionamento de máquinas virtuais 
 
-O uso do Azure Spot em conjuntos de escala permite que você aproveite nossa capacidade não utilizada com uma economia significativa de custos. A qualquer momento em que o Azure precisar da capacidade de volta, a infra-estrutura do Azure despejará instâncias do Spot. Portanto, as instâncias spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lote, ambientes de dev/teste, grandes cargas de trabalho computacionais e muito mais.
+O uso do Azure Spot em conjuntos de dimensionamento permite que você aproveite a capacidade não utilizada a uma economia de custos significativa. Em qualquer momento em que o Azure precise da capacidade de volta, a infraestrutura do Azure removerá instâncias especiais. Portanto, as instâncias Spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
 
-A quantidade de capacidade disponível pode variar de acordo com o tamanho, região, hora do dia e muito mais. Ao implantar instâncias spot em conjuntos de escala, o Azure alocará a instância somente se houver capacidade disponível, mas não há SLA para esses casos. Um conjunto de escala spot é implantado em um único domínio de falha e não oferece garantias de alta disponibilidade.
+A quantidade de capacidade disponível pode variar com base no tamanho, região, hora do dia e muito mais. Ao implantar instâncias Spot em conjuntos de dimensionamento, o Azure alocará a instância somente se houver capacidade disponível, mas não há SLA para essas instâncias. Um conjunto de escala de spot é implantado em um único domínio de falha e não oferece nenhuma garantia de alta disponibilidade.
 
 
 ## <a name="pricing"></a>Preços
 
-Os preços para instâncias spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte preços para [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
+O preço para instâncias especiais é variável, com base na região e SKU. Para obter mais informações, consulte preços para [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, `0.98765`o valor seria um preço máximo de US$ 0,98765 por hora. Se você definir o `-1`preço máximo para ser , a instância não será despejada com base no preço. O preço, por exemplo, será o preço atual para spot ou o preço para uma instância padrão, que nunca é menor, desde que haja capacidade e cota disponíveis.
+Com o preço variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como `-1`, a instância não será removida com base no preço. O preço da instância será o preço atual para o ponto ou o preço de uma instância padrão, o que nunca é menor, desde que haja capacidade e cota disponível.
 
-## <a name="eviction-policy"></a>Política de despejo
+## <a name="eviction-policy"></a>Política de remoção
 
-Ao criar conjuntos de escala spot, você pode definir a política de despejo para *Delocar (padrão)* ou *Excluir*. 
+Ao criar conjuntos de escala de spot, você pode definir a política de remoção como *desalocar* (padrão) ou *excluir*. 
 
-A política *Deallocate* move suas instâncias despejadas para o estado desalocado parado, permitindo que você reimplante instâncias despejadas. No entanto, não há nenhuma garantia de que a alocação terá êxito. As VMs deslocadas afetarão sua cota de instância do conjunto de dimensionamento e você será cobrado pelos discos subjacentes. 
+A política de *desalocação* move suas instâncias removidas para o estado parado-desalocado, permitindo que você reimplante instâncias removidas. No entanto, não há nenhuma garantia de que a alocação terá êxito. As VMs deslocadas afetarão sua cota de instância do conjunto de dimensionamento e você será cobrado pelos discos subjacentes. 
 
-Se você quiser que suas instâncias na escala Spot sejam excluídas quando elas forem despejadas, você pode definir a política de despejo para *excluir*. Com a política de remoção definida para excluir, você pode criar novas VMs, aumentando a propriedade de contagem de instância do conjunto de dimensionamento. As VMs removidas são excluídas junto com seus discos subjacentes e, portanto, você não será cobrado pelo armazenamento. Você também pode usar o recurso de dimensionamento automático dos conjuntos de dimensionamento para tentar e compensar automaticamente as VMs removidas, mas não há nenhuma garantia de que a alocação terá êxito. Recomenda-se que você use apenas o recurso de escala automática em conjuntos de escala spot quando você definir a política de despejo para excluir para evitar o custo de seus discos e atingir os limites de cotas. 
+Se você quiser que suas instâncias em seu conjunto de escala especial sejam excluídas quando forem removidas, você poderá definir a *política de remoção*a ser excluída. Com a política de remoção definida para excluir, você pode criar novas VMs, aumentando a propriedade de contagem de instância do conjunto de dimensionamento. As VMs removidas são excluídas junto com seus discos subjacentes e, portanto, você não será cobrado pelo armazenamento. Você também pode usar o recurso de dimensionamento automático dos conjuntos de dimensionamento para tentar e compensar automaticamente as VMs removidas, mas não há nenhuma garantia de que a alocação terá êxito. É recomendável que você use apenas o recurso de dimensionamento automático em conjuntos de escala de spot ao definir a política de remoção a ser excluída para evitar o custo de seus discos e atingir os limites de cota. 
 
-Os usuários podem optar por receber notificações in-VM através [do Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). Isso irá notificá-lo se suas VMs estão sendo despejadas e você terá 30 segundos para terminar qualquer trabalho e executar tarefas de desligamento antes do despejo. 
+Os usuários podem optar por receber notificações na VM por meio [do Azure eventos agendados](../virtual-machines/linux/scheduled-events.md). Isso notificará você se suas VMs estiverem sendo removidas e você terá 30 segundos para concluir todos os trabalhos e realizar tarefas de desligamento antes da remoção. 
 
 
-## <a name="deploying-spot-vms-in-scale-sets"></a>Implantação de VMs spot em conjuntos de escala
+## <a name="deploying-spot-vms-in-scale-sets"></a>Implantando VMs Spot em conjuntos de dimensionamento
 
-Para implantar VMs spot em conjuntos de escala, você pode definir a nova bandeira *Priority* como *Spot*. Todas as VMs do seu conjunto de escalas serão definidas como Spot. Para criar um conjunto de escalas com VMs spot, use um dos seguintes métodos:
-- [Portal do Azure](#portal)
+Para implantar VMs pontuais em conjuntos de dimensionamento, você pode definir o novo sinalizador de *prioridade* para *identificar*. Todas as VMs em seu conjunto de dimensionamento serão definidas como spot. Para criar um conjunto de dimensionamento com VMs Spot, use um dos seguintes métodos:
+- [Azure portal](#portal)
 - [CLI do Azure](#azure-cli)
-- [Azure PowerShell](#powershell)
+- [PowerShell do Azure](#powershell)
 - [Modelos do Azure Resource Manager](#resource-manager-templates)
 
 ## <a name="portal"></a>Portal
 
-O processo para criar um conjunto de escalas que usa VMs Spot é o mesmo que detalhado no [artigo de início](quick-create-portal.md). Quando você está implantando um conjunto de escalas, você pode ![optar por definir a bandeira Spot e a política de despejo: Criar um conjunto de escalas com VMs spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+O processo para criar um conjunto de dimensionamento que usa VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-portal.md). Ao implantar um conjunto de dimensionamento, você pode optar por definir o sinalizador de spot e a política de remoção: ![criar um conjunto de dimensionamento com VMs Spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O processo para criar um conjunto de escalas com VMs Spot é o mesmo que detalhado no [artigo de início](quick-create-cli.md). Basta adicionar o '-Ponto de `--max-price`Prioridade', e adicionar . Neste exemplo, usamos `-1` `--max-price` para que a instância não seja despejada com base no preço.
+O processo para criar um conjunto de dimensionamento com VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Basta adicionar o '--priority spot ' e adicionar `--max-price`. Neste exemplo, usamos `-1` para `--max-price` que a instância não seja removida com base no preço.
 
 ```azurecli
 az vmss create \
@@ -70,8 +70,8 @@ az vmss create \
 
 ## <a name="powershell"></a>PowerShell
 
-O processo para criar um conjunto de escalas com VMs Spot é o mesmo que detalhado no [artigo de início](quick-create-powershell.md).
-Basta adicionar '-Ponto de Prioridade', e fornecer a `-max-price` ao [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+O processo para criar um conjunto de dimensionamento com VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-powershell.md).
+Basta adicionar '-priority spot ' e fornecer `-max-price` a a [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -85,9 +85,9 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
 
-O processo para criar um conjunto de escalas que usa VMs Spot é o mesmo que detalhado no artigo de início para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). 
+O processo para criar um conjunto de dimensionamento que usa VMs pontuais é o mesmo detalhado no artigo de introdução para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). 
 
-Para implantações de`"apiVersion": "2019-03-01"` modelo spot, use ou posteriormente. Adicione `priority`as `evictionPolicy` `billingProfile` propriedades e `"virtualMachineProfile":` propriedades à seção em seu modelo: 
+Para implantações de modelo Spot`"apiVersion": "2019-03-01"` , use ou posterior. Adicione as `priority`propriedades `evictionPolicy` e `billingProfile` à `"virtualMachineProfile":` seção em seu modelo: 
 
 ```json
                 "priority": "Spot",
@@ -97,74 +97,74 @@ Para implantações de`"apiVersion": "2019-03-01"` modelo spot, use ou posterior
                 }
 ```
 
-Para excluir a instância depois de despejada, altere o `evictionPolicy` parâmetro para `Delete`.
+Para excluir a instância depois que ela tiver sido removida, altere `evictionPolicy` o parâmetro `Delete`para.
 
 ## <a name="faq"></a>Perguntas frequentes
 
-**Q:** Uma vez criado, uma instância spot é a mesma que a instância padrão?
+**P:** Uma vez criada, é uma instância Spot igual à instância padrão?
 
-**A:** Sim, exceto que não há SLA para VMs spot e eles podem ser despejados a qualquer momento.
-
-
-**Q:** O que fazer quando for despejado, mas ainda precisa de capacidade?
-
-**A:** Recomendamos que você use VMs padrão em vez de VMs Spot se você precisar de capacidade imediatamente.
+**R:** Sim, exceto que não há SLA para VMs pontuais e elas podem ser removidas a qualquer momento.
 
 
-**Q:** Como a cota é gerenciada para o Spot?
+**P:** O que fazer ao ser removido, mas ainda precisa de capacidade?
 
-**A:** As instâncias spot e as instâncias padrão terão pools de cotas separados. A cota spot será compartilhada entre VMs e instâncias definidas em escala. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-
-
-**Q:** Posso solicitar uma cota adicional para spot?
-
-**A:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs Spot através do [processo padrão de solicitação de cotas.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)
+**R:** Recomendamos que você use VMs padrão em vez de VMs pontuais se precisar de capacidade imediatamente.
 
 
-**Q:** Posso converter conjuntos de escala existentes em conjuntos de escala spot?
+**P:** Como a cota é gerenciada para o ponto?
 
-**A:** Não, a `Spot` configuração da bandeira só é suportada no momento da criação.
-
-
-**Q:** Se eu `low` estava usando para conjuntos de escala `Spot` de baixa prioridade, eu preciso começar a usar em vez disso?
-
-**A:** Por enquanto, ambos `low` e `Spot` funcionarão, mas `Spot`você deve começar a transição para usar .
+**R:** Instâncias especiais e instâncias padrão terão pools de cotas separados. A cota de spot será compartilhada entre as VMs e as instâncias do conjunto de dimensionamento. Para saber mais, confira [Assinatura e limites de serviço, cotas e restrições do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
-**Q:** Posso criar um conjunto de escalas com VMs regulares e VMs spot?
+**P:** Posso solicitar uma cota adicional para o ponto?
 
-**A:** Não, um conjunto de escalas não pode suportar mais de um tipo de prioridade.
-
-
-**Q:**  Posso usar escala automática com conjuntos de escala Spot?
-
-**A:** Sim, você pode definir regras de autodimensionamento no conjunto de escala seleíope. Se suas VMs forem despejadas, a escala automática pode tentar criar novas VMs spot. Lembre-se de que essa capacidade não é garantida. 
+**R:** Sim, você poderá enviar a solicitação para aumentar sua cota de VMs pontuais por meio do [processo de solicitação de cota padrão](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
 
-**Q:**  A escala automática funciona com ambas as políticas de despejo (desalocar e excluir)?
+**P:** Posso converter conjuntos de dimensionamento existentes para identificar conjuntos de dimensionamento?
 
-**A:** Recomenda-se que você defina sua política de despejo para excluir ao usar escala automática. Isso ocorre porque instâncias desalocadas são contadas em relação a sua capacidade de contagem no conjunto de dimensionamento. Ao usar o dimensionamento automático, você provavelmente atingirá sua contagem de instâncias de destino rapidamente devido a instâncias desalocadas, removidas. 
+**R:** Não, a definição `Spot` do sinalizador só tem suporte no momento da criação.
 
 
-**Q:** Quais canais suportam VMs spot?
+**P:** Se eu estava usando `low` para conjuntos de dimensionamento de baixa prioridade, preciso começar a usar `Spot` em vez disso?
 
-**A:** Veja a tabela abaixo para disponibilidade spot VM.
+**R:** Por enquanto, o `low` e `Spot` o funcionarão, mas você deve começar a fazer a `Spot`transição para o usando o.
+
+
+**P:** Posso criar um conjunto de dimensionamento com VMs regulares e detectar VMs?
+
+**R:** Não, um conjunto de dimensionamento não pode dar suporte a mais de um tipo de prioridade.
+
+
+**P:**  Posso usar o dimensionamento automático com conjuntos de escala de spot?
+
+**R:** Sim, você pode definir regras de dimensionamento automático em seu conjunto de escala de spot. Se suas VMs forem removidas, o dimensionamento automático poderá tentar criar novas VMs pontuais. Lembre-se de que essa capacidade não é garantida. 
+
+
+**P:**  O dimensionamento automático funciona com ambas as políticas de remoção (desalocação e exclusão)?
+
+**R:** É recomendável que você defina sua política de remoção para excluir ao usar o dimensionamento automático. Isso ocorre porque instâncias desalocadas são contadas em relação a sua capacidade de contagem no conjunto de dimensionamento. Ao usar o dimensionamento automático, você provavelmente atingirá sua contagem de instâncias de destino rapidamente devido a instâncias desalocadas, removidas. 
+
+
+**P:** Quais canais dão suporte a VMs pontuais?
+
+**R:** Consulte a tabela abaixo para encontrar a disponibilidade da VM.
 
 <a name="channel"></a>
 
-| Canais Azure               | Disponibilidade de VMs do Azure Spot       |
+| Canais do Azure               | Disponibilidade de VMs de ponto do Azure       |
 |------------------------------|-----------------------------------|
 | Contrato Enterprise         | Sim                               |
 | Pago Conforme o Uso                | Sim                               |
 | Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Benefícios                     | Não disponível                     |
+| Vantagens                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |
 | Avaliação gratuita                   | Não disponível                     |
 
 
-**Q:** Onde posso postar perguntas?
+**P:** Onde posso postar perguntas?
 
-**A:** Você pode postar e `azure-spot` marcar sua pergunta com [em Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**R:** Você pode postar e marcar sua pergunta com `azure-spot` o [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

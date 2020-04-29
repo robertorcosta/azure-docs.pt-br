@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: ed8e5eaa0ff9b58f80473b052aacfb9f01d45055
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529217"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conectar-se ao Banco de Dados SQL usando C e C++
@@ -27,11 +27,11 @@ Esta postagem é destinada a desenvolvedores de C e C++ que tentam se conectar a
 Verifique se você tem o seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma, você poderá se inscrever em uma [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* [Estúdio Visual](https://www.visualstudio.com/downloads/). Você deve instalar os componentes de linguagem C++ para compilar e executar esse exemplo.
+* [Visual Studio](https://www.visualstudio.com/downloads/). Você deve instalar os componentes de linguagem C++ para compilar e executar esse exemplo.
 * [Desenvolvimento no Linux para Visual Studio](https://docs.microsoft.com/cpp/linux/?view=vs-2019). Se você estiver desenvolvendo no Linux, também deverá instalar a extensão do Linux do Visual Studio.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Banco de dados SQL do Azure e SQL Server em máquinas virtuais
-O Azure SQL baseia-se no Microsoft SQL Server e foi projetado para fornecer uma alta disponibilidade, desempenho e serviço escalonável. Há muitos benefícios em usar o SQL Azure em vez do seu banco de dados proprietário em execução no local. Com o SQL Azure você não precisa instalar, configurar, manter ou gerenciar seu banco de dados, mas apenas o conteúdo e a estrutura do seu banco de dados. Causas de preocupação típicas de bancos de dados como redundância e tolerância a falhas estão incluídos.
+O Azure SQL baseia-se no Microsoft SQL Server e foi projetado para fornecer uma alta disponibilidade, desempenho e serviço escalonável. Há muitos benefícios em usar o SQL Azure em vez do seu banco de dados proprietário em execução no local. Com SQL Azure você não precisa instalar, configurar, manter ou gerenciar seu banco de dados, mas apenas o conteúdo e a estrutura do banco de dados. Causas de preocupação típicas de bancos de dados como redundância e tolerância a falhas estão incluídos.
 
 O Azure atualmente tem duas opções para hospedar cargas de trabalho do SQL Server: Banco de Dados SQL do Azure, banco de dados como um serviço e o SQL Server em Máquinas Virtuais (VM). Não entraremos em detalhes sobre as diferenças entre esses dois, exceto que o Banco de Dados SQL do Azure é a melhor opção para novos aplicativos baseados em nuvem aproveitarem a economia de custo e otimização de desempenho que os serviços de nuvem fornecem. Se você estiver pretendendo migrar ou estender seus aplicativos locais para a nuvem, o SQL Server na máquina virtual do Azure pode funcionar melhor para você. Para manter as coisas simples neste artigo, vamos criar um Banco de Dados SQL do Azure.
 
@@ -77,7 +77,7 @@ Como alternativa, você poderia criar um arquivo DSN usando o assistente que é 
 Parabéns! Agora você se conectou com êxito ao SQL Azure usando o C++ e ODBC no Windows. Você pode continuar lendo para fazer o mesmo para a plataforma Linux.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>Etapa 5: Conectando de um aplicativo Linux C/C++
-Caso você ainda não tenha ouvido a notícia, o Visual Studio agora permite que você desenvolva o aplicativo C++ Linux também. Você pode ler sobre esse novo cenário no blog [Desenvolvimento em Visual C++ para Linux](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/). Para compilar para Linux, você precisa de um computador remoto onde sua distribuição do Linux está sendo executada. Se você não tiver um disponível, você pode configurar um rapidamente usando [máquinas Linux Azure Virtual](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Caso você ainda não tenha ouvido as notícias, o Visual Studio agora também permite que você desenvolva o aplicativo C++ Linux. Você pode ler sobre esse novo cenário no blog [Desenvolvimento em Visual C++ para Linux](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/). Para compilar para Linux, você precisa de um computador remoto onde sua distribuição do Linux está sendo executada. Se você não tiver um disponível, poderá configurar um rapidamente usando [máquinas virtuais do Azure do Linux](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para este tutorial, vamos supor que você tenha uma distribuição do Ubuntu 16.04 Linux configurada. As etapas aqui também devem aplicar ao Ubuntu 15.10, Red Hat 6 e Red Hat 7.
 
@@ -128,10 +128,10 @@ Você pode encontrar a solução de Introdução que contém todos os exemplos n
 * [Exemplo de ODBC C++ Linux](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29), baixe o exemplo do Linux C++ ODBC para se conectar ao Azure SQL
 
 ## <a name="next-steps"></a>Próximas etapas
-* Revise a visão geral do [desenvolvimento do banco de dados SQL](sql-database-develop-overview.md)
+* Examine a [visão geral do desenvolvimento do banco de dados SQL](sql-database-develop-overview.md)
 * Mais informações na [Referência da API ODBC](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Padrões de design para aplicativos SaaS de vários locatários com banco de dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Explorar todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
+* [Padrões de design para aplicativos SaaS multilocatário com o banco de dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore todos os [recursos do banco de dados SQL](https://azure.microsoft.com/services/sql-database/)
 

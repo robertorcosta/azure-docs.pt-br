@@ -1,6 +1,6 @@
 ---
 title: Configurações de porta da Retransmissão do Azure | Microsoft Docs
-description: Este artigo inclui uma tabela que descreve a configuração necessária para valores de porta para o Azure Relay.
+description: Este artigo inclui uma tabela que descreve a configuração necessária para valores de porta para a retransmissão do Azure.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 532e3c297c42ea16b1f462a01699fc2fd71c6cce
-ms.sourcegitcommit: c5661c5cab5f6f13b19ce5203ac2159883b30c0e
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80529120"
 ---
 # <a name="azure-relay-port-settings"></a>Configurações de porta de Retransmissão do Azure
@@ -27,7 +27,7 @@ A tabela a seguir descreve a configuração necessária dos valores de porta par
 
 ## <a name="hybrid-connections"></a>Conexões Híbridas
 
-As Conexões Híbridas usam WebSockets na porta 443 com O TLS como mecanismo de transporte subjacente, que usa apenas **HTTPS.** 
+Conexões Híbridas usa WebSockets na porta 443 com TLS como o mecanismo de transporte subjacente, que usa somente **https** . 
 
 ## <a name="wcf-relays"></a>Retransmissões de WCF
   

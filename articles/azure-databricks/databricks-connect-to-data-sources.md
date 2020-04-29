@@ -1,6 +1,6 @@
 ---
 title: 'Conectar-se a diferentes fontes de dados do Azure Databricks '
-description: Saiba como se conectar ao Banco de Dados Azure SQL, Azure Data Lake Store, blob storage, Cosmos DB, Event Hubs e Azure SQL Data Warehouse da Azure Databricks.
+description: Saiba como se conectar ao banco de dados SQL do Azure, Azure Data Lake Store, armazenamento de BLOBs, Cosmos DB, hubs de eventos e SQL Data Warehouse do Azure do Azure Databricks.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
 ms.openlocfilehash: 79a821a4c8fe4cb2d048f0dcb0a6e091462a1779
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80548802"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Conectar a fontes de dados do Azure Databricks
@@ -28,14 +28,14 @@ Este artigo fornece links para todas as diferentes fontes de dados no Azure que 
 
 A lista a seguir fornece as fontes de dados no Azure que podem ser utilizadas com Azure Databricks. Para obter uma lista completa de fontes de dados que podem ser utilizadas com Azure Databricks, consulte [Fontes de dados para Azure Databricks](/azure/databricks/data/data-sources/index).
 
-- [Banco de dados Azure SQL](/azure/databricks/data/data-sources/sql-databases)
+- [Banco de dados SQL do Azure](/azure/databricks/data/data-sources/sql-databases)
 
     Esse link fornece a API de DataFrame para conexão com bancos de dados SQL usando JDBC e como controlar o paralelismo de leituras por meio da interface JDBC. Este tópico fornece exemplos detalhados usando a API do Scala, com exemplos abreviados de Python e Spark SQL no final.
 - [Armazenamento do Azure Data Lake](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)
 
-    Este link fornece exemplos de como usar o principal do serviço de diretório ativo do Azure para autenticar com o Azure Data Lake Storage. Ele também fornece instruções sobre como acessar os dados no Azure Data Lake Storage do Azure Databricks.
+    Este link fornece exemplos de como usar a entidade de serviço Azure Active Directory para autenticar com Azure Data Lake Storage. Ele também fornece instruções sobre como acessar os dados em Azure Data Lake Storage de Azure Databricks.
 
-- [Armazenamento azure Blob](/azure/databricks/data/data-sources/azure/azure-storage)
+- [Armazenamento de Blobs do Azure](/azure/databricks/data/data-sources/azure/azure-storage)
 
     Esse link fornece exemplos de como acessar diretamente o Armazenamento de Blobs a partir do Azure Databricks usando a chave de acesso ou a SAS para um determinado contêiner. O link também fornece informações sobre como acessar o Armazenamento de Blobs a partir do Azure Databricks usando a API de RDD.
 

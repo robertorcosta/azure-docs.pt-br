@@ -18,7 +18,7 @@ ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fa241a261b8dcb21dd39b5dacacac9aa4889304
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80519659"

@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: tabelas ARP - Solução de problemas: clássico'
+title: 'Azure ExpressRoute: tabelas ARP – solução de problemas: clássico'
 description: Esta página fornece instruções para obter tabelas ARP para um circuito do ExpressRoute - modelo clássico de implantação.
 services: expressroute
 author: charwen
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: charwen
 ms.openlocfilehash: a7a24fc6674adca21e01d2502263c9767510469e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80618632"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obter tabelas ARP no modelo de implantação clássico
@@ -53,7 +53,7 @@ A seção a seguir fornece informações sobre como exibir as tabelas de ARP vis
 Verifique se você tem o seguinte antes de continuar:
 
 * Um circuito de ExpressRoute válido configurado com pelo menos um emparelhamento. O circuito deve ser totalmente configurado pelo provedor de conectividade. Você (ou seu provedor de conectividade) deve configurar pelo menos um dos emparelhamentos (particular do Azure, público do Azure ou Microsoft) neste circuito.
-* Os intervalos de endereços IP usados para configurar os emparelhamentos (particular do Azure, público do Azure e Microsoft). Revise os exemplos de atribuição de endereçoIP na página de [requisitos de roteamento expressRoute](expressroute-routing.md) para entender como os endereços IP são mapeados para interfaces do seu lado e do lado do ExpressRoute. Saiba mais sobre a configuração de emparelhamento conferindo a [página de configuração de emparelhamento do ExpressRoute](expressroute-howto-routing-classic.md).
+* Os intervalos de endereços IP usados para configurar os emparelhamentos (particular do Azure, público do Azure e Microsoft). Examine os exemplos de atribuição de endereço IP na [página de requisitos de roteamento do expressroute](expressroute-routing.md) para entender como os endereços IP são mapeados para interfaces no seu lado e no lado do ExpressRoute. Saiba mais sobre a configuração de emparelhamento conferindo a [página de configuração de emparelhamento do ExpressRoute](expressroute-howto-routing-classic.md).
 * Informações de sua equipe de rede ou provedor de conectividade sobre os endereços MAC de interfaces usadas com esses endereços IP.
 * O módulo mais recente do Windows PowerShell para Azure (versão 1.50 ou mais recente).
 
