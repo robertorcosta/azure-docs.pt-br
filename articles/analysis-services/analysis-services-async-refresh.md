@@ -1,6 +1,6 @@
 ---
 title: Atualização assíncrona para modelos do Azure Analysis Services | Microsoft Docs
-description: Descreve como usar a API Rest do Azure Analysis Services para codificar a atualização assíncrona dos dados do modelo.
+description: Descreve como usar a API REST do Azure Analysis Services para codificar a atualização assíncrona de dados de modelo.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,17 +8,17 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: c5f6cec8b7fd1169a4f04649fcaf7bb7ada33833
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81406281"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
-Usando qualquer linguagem de programação que suporte chamadas REST, você pode executar operações assíncronas de atualização de dados em seus modelos tabulares do Azure Analysis Services. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
+Usando qualquer linguagem de programação que dê suporte a chamadas REST, você pode executar operações assíncronas de atualização de dados em seus Azure Analysis Services modelos de tabela. Isso inclui a sincronização de réplicas somente leitura para expansão de consulta. 
 
-As operações de atualização de dados podem levar algum tempo, dependendo de uma série de fatores, incluindo volume de dados, nível de otimização usando partições, etc. Essas operações têm sido tradicionalmente invocadas com métodos existentes, como o uso de [TOM](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (Tabular Object Model), [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) cmdlets ou [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (Tabular Model Scripting Language). No entanto, esses métodos geralmente exigem conexões HTTP não confiáveis de execução longa.
+As operações de atualização de dados podem levar algum tempo, dependendo de vários fatores, incluindo o volume de dados, o nível de otimização usando partições, etc. Essas operações têm sido tradicionalmente invocadas com métodos existentes, como o uso de [Tom](https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (modelo de objeto de tabela), cmdlets do [PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [TMSL](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (linguagem de script de modelo de tabela). No entanto, esses métodos geralmente exigem conexões HTTP não confiáveis de execução longa.
 
 A API REST do Azure Analysis Services permite que as operações de atualização de dados sejam realizadas de forma assíncrona. Ao usar a API REST, as conexões HTTP de execução longa de aplicativos cliente não são necessárias. Também há outros recursos internos para a confiabilidade, como repetições automáticas e confirmações em lote.
 
@@ -30,7 +30,7 @@ A URL base segue este formato:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Por exemplo, considere um modelo chamado `myserver`AdventureWorks em um servidor chamado , localizado na região do West US Azure. O nome do servidor é:
+Por exemplo, considere um modelo chamado AdventureWorks em um servidor chamado `myserver`, localizado na região oeste dos EUA do Azure. O nome do servidor é:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -114,16 +114,16 @@ O CommitMode é igual ao partialBatch. Ele é usado ao fazer uma carga inicial d
 
 |Valor de status  |Descrição  |
 |---------|---------|
-|`notStarted`    |   A operação ainda não começou.      |
+|`notStarted`    |   Operação ainda não iniciada.      |
 |`inProgress`     |   Operação em andamento.      |
-|`timedOut`     |    A operação foi cronometrada com base no tempo de saída especificado pelo usuário.     |
-|`cancelled`     |   Operação cancelada pelo usuário ou sistema.      |
+|`timedOut`     |    A operação atingiu o tempo limite com base no tempo limite especificado pelo usuário.     |
+|`cancelled`     |   Operação cancelada pelo usuário ou pelo sistema.      |
 |`failed`     |   Falha na operação.      |
-|`succeeded`      |   A operação foi bem sucedida.      |
+|`succeeded`      |   Operação bem-sucedida.      |
 
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-Para verificar o status de uma operação de atualização, use o verbo GET na ID da atualização. Aqui está um exemplo do corpo da resposta. Se a operação estiver `inProgress` em andamento, é devolvida em estado.
+Para verificar o status de uma operação de atualização, use o verbo GET na ID da atualização. Aqui está um exemplo do corpo da resposta. Se a operação estiver em andamento, `inProgress` será retornada no status.
 
 ```
 {
@@ -177,7 +177,7 @@ Para cancelar uma operação de atualização em andamento, use o verbo DELETE n
 
 ## <a name="post-sync"></a>POST /sync
 
-Tendo realizado operações de atualização, pode ser necessário sincronizar os novos dados com réplicas para a escala de consulta. Para executar uma operação de sincronização para um modelo, use o verbo POST na função /sync. O cabeçalho Location na resposta inclui a ID da operação de sincronização.
+Após realizar operações de atualização, pode ser necessário sincronizar os novos dados com réplicas para expansão de consulta. Para executar uma operação de sincronização para um modelo, use o verbo POST na função/Sync. O cabeçalho Location na resposta inclui a ID da operação de sincronização.
 
 ## <a name="get-sync-status"></a>GET /sync status
 
@@ -211,13 +211,13 @@ Aqui está um exemplo de código em C# para você começar, [RestApiSample on Gi
 1.    Clone ou baixe o repositório. Abra a solução RestApiSample.
 2.    Localize a linha **client.BaseAddress = …** e forneça sua [URL base](#base-url).
 
-A amostra de código usa autenticação [principal do serviço.](#service-principal)
+O exemplo de código usa a autenticação de [entidade de serviço](#service-principal) .
 
 ### <a name="service-principal"></a>Entidade de serviço
 
 Consulte [Criar entidade de serviço - portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Adicionar uma entidade de serviço à função de administrador de servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar uma entidade de serviço e atribuir as permissões necessárias no Azure AS. Ao concluir as etapas, execute as seguintes etapas adicionais:
 
-1.    Na amostra de código, encontre **a autoridade da corda = ...**, substitua-a **comum** pelo ID do inquilino da sua organização.
+1.    No exemplo de código, Find **String Authority =...**, substitua **Common** pela ID de locatário da sua organização.
 2.    Comente/remova a marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto de credencial. Verifique se os valores \<App ID> e \<App Key> podem ser acessados de forma segura ou use autenticação baseada em certificado para as entidades de serviço.
 3.    Execute o exemplo.
 

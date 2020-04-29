@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 7ce193c2c2f5e10a27550da68a4c2d2fdcd1db7f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399875"
 ---
 :::row:::
     :::column span="3":::
-        Ao desenvolver para iOS, existem dois SDKs de fala disponíveis. O Objective-C Speech SDK está disponível nativamente como um pacote de Cacau iOS. Alternativamente, o .NET Speech SDK pode ser usado com Xamarin.iOS à medida que implementa o .NET Standard 2.0.
+        Ao desenvolver para iOS, há dois SDKs de fala disponíveis. O SDK de fala do Objective-C está disponível nativamente como um pacote iOS CocoaPod. Como alternativa, o SDK de fala do .NET pode ser usado com o Xamarin. iOS, pois ele implementa .NET Standard 2,0.
     :::column-end:::
     :::column:::
         <br>
@@ -24,18 +24,18 @@ ms.locfileid: "81399875"
 :::row-end:::
 
 > [!TIP]
-> Para obter detalhes usando o Objective-C Speech SDK with Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C em Swift <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+> Para obter detalhes sobre como usar o SDK de fala do Objective-C com Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">importando Objective-c para Swift <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
 ### <a name="system-requirements"></a>Requisitos do sistema
 
-- Uma versão macOS 10.3 ou posterior
-- Alvo iOS 9.3 ou posterior
+- Um macOS versão 10,3 ou posterior
+- Destino iOS 9,3 ou posterior
 
 # <a name="xcode"></a>[Xcode](#tab/ios-xcode)
 
 :::row:::
     :::column span="3":::
-        O pacote iOS CocoaPod está disponível para download e uso com o <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (ou posterior) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> ambiente de desenvolvimento integrado (IDE). Primeiro, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">baixe o CacauBin <span class="docon docon-navigate-external x-hidden-focus"> </span>binário </a>. Extrair o pod no mesmo diretório para seu uso pretendido, `pod` criar `target`um *Arquivo Pod* e listar o como um .
+        O pacote Ios CocoaPod está disponível para download e uso com o ambiente de desenvolvimento integrado (IDE) do <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (ou posterior) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Primeiro, <a href="https://aka.ms/csspeech/iosbinary" target="_blank">Baixe o CocoaPod <span class="docon docon-navigate-external x-hidden-focus"> </span>binário </a>. Extraia o pod no mesmo diretório para seu uso pretendido, crie um *Podfile* e liste o `pod` como um `target`.
     :::column-end:::
     :::column:::
         <br>
@@ -58,13 +58,13 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS expõe o SDK de iOS completo para desenvolvedores de .NET. Compile aplicativos iOS totalmente nativos usando C# ou F# no Visual Studio. Para obter mais informações, consulte <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+        Xamarin.iOS expõe o SDK de iOS completo para desenvolvedores de .NET. Compile aplicativos iOS totalmente nativos usando C# ou F# no Visual Studio. Para obter mais informações, consulte <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin. <span class="docon docon-navigate-external x-hidden-focus"> </span>Ios </a>.
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
             <img alt="Xamarin" src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" width="60px">
-            &nbsp;❤️. &nbsp;        <img alt="iOS" src="https://docs.microsoft.com/media/logos/logo_ios.svg" width="60px">
+            &nbsp;❤️ &nbsp;        <img alt="iOS" src="https://docs.microsoft.com/media/logos/logo_ios.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::
@@ -75,5 +75,5 @@ end
 
 #### <a name="additional-resources"></a>Recursos adicionais
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">Código-fonte do IOS Speech SDK quickstart Objective-C<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">código fonte do iOS Speech SDK quickstart Swift<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">Objetivo do início rápido do SDK de fala do iOS-código-fonte C<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">código-fonte do início rápido do SDK de fala do iOS<span class="docon docon-navigate-external x-hidden-focus"></span></a>

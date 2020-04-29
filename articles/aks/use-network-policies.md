@@ -1,91 +1,91 @@
 ---
-title: Tráfego de pod seguro com a política de rede
+title: Proteger o tráfego Pod com a política de rede
 titleSuffix: Azure Kubernetes Service
-description: Saiba como proteger o tráfego que flui dentro e fora dos pods usando as políticas de rede kubernetes no Azure Kubernetes Service (AKS)
+description: Saiba como proteger o tráfego que flui para dentro e fora do pods usando as políticas de rede kubernetes no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392604"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
-Ao executar aplicativos modernos baseados em microsserviços no Kubernetes, muitas vezes você deseja controlar quais componentes podem se comunicar uns com os outros. O princípio do menor privilégio deve ser aplicado à forma como o tráfego pode fluir entre pods em um cluster Azure Kubernetes Service (AKS). Digamos que você provavelmente queira bloquear o tráfego diretamente para aplicativos back-end. O recurso *Política de rede* no Kubernetes permite definir regras para o tráfego de ingestão e saída entre pods em um cluster.
+Ao executar aplicativos modernos baseados em microsserviços no Kubernetes, muitas vezes você deseja controlar quais componentes podem se comunicar uns com os outros. O princípio de privilégios mínimos deve ser aplicado a como o tráfego pode fluir entre os pods em um cluster AKS (serviço de kubernetes do Azure). Digamos que você provavelmente desejará bloquear o tráfego diretamente para aplicativos de back-end. O recurso de *política de rede* no kubernetes permite que você defina regras para tráfego de entrada e saída entre pods em um cluster.
 
-Este artigo mostra como instalar o mecanismo de política de rede e criar políticas de rede Kubernetes para controlar o fluxo de tráfego entre pods em AKS. A política de rede só deve ser usada para nós e pods baseados em Linux em AKS.
+Este artigo mostra como instalar o mecanismo de política de rede e criar políticas de rede kubernetes para controlar o fluxo de tráfego entre pods em AKS. A política de rede deve ser usada somente para nós baseados em Linux e pods em AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa da versão 2.0.61 do Azure CLI ou posteriormente instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisa do CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
 > [!TIP]
-> Se você usou o recurso de diretiva de rede durante a visualização, recomendamos que você [crie um novo cluster](#create-an-aks-cluster-and-enable-network-policy).
+> Se você usou o recurso de política de rede durante a visualização, recomendamos que você [crie um novo cluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
-> Se você deseja continuar usando clusters de teste existentes que usaram a política de rede durante a visualização, atualize seu cluster para uma nova versão do Kubernetes para a versão ga mais recente e, em seguida, implante o manifesto YAML a seguir para corrigir o servidor de métricas de falha e o painel Kubernetes. Esta correção só é necessária para clusters que usaram o mecanismo de diretiva de rede Calico.
+> Se você quiser continuar usando os clusters de teste existentes que usaram a política de rede durante a visualização, atualize o cluster para uma nova versão do kubernetes para o lançamento de GA mais recente e, em seguida, implante o seguinte manifesto do YAML para corrigir o servidor de métricas com falha e o painel do kubernetes. Essa correção só é necessária para clusters que usavam o mecanismo de política de rede Calico.
 >
-> Como uma prática recomendada de segurança, [revise o conteúdo deste manifesto YAML][calico-aks-cleanup] para entender o que é implantado no cluster AKS.
+> Como prática recomendada de segurança, [examine o conteúdo desse manifesto do YAML][calico-aks-cleanup] para entender o que é implantado no cluster AKs.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Visão geral da política de rede
 
-Todos os pods em um cluster AKS podem enviar e receber tráfego sem limitações, por padrão. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Os aplicativos back-end são frequentemente expostos apenas a serviços front-end obrigatórios, por exemplo. Ou, os componentes do banco de dados são acessíveis apenas aos níveis de aplicativos que se conectam a eles.
+Todos os pods em um cluster AKS podem enviar e receber tráfego sem limitações, por padrão. Para melhorar a segurança, você pode definir regras que controlam o fluxo de tráfego. Os aplicativos de back-end geralmente são expostos apenas aos serviços front-end necessários, por exemplo. Ou, os componentes de banco de dados só são acessíveis para as camadas de aplicativo que se conectam a eles.
 
-A Diretiva de Rede é uma especificação kubernetes que define políticas de acesso para comunicação entre Pods. Usando políticas de rede, você define um conjunto ordenado de regras para enviar e receber tráfego e aplicá-las a uma coleção de pods que correspondem a um ou mais seletores de rótulos.
+A política de rede é uma especificação kubernetes que define políticas de acesso para comunicação entre pods. Usando as políticas de rede, você define um conjunto ordenado de regras para enviar e receber tráfego e aplicá-las a uma coleção de pods que correspondem a um ou mais seletores de rótulo.
 
-Essas regras de diretiva de rede são definidas como manifestações YAML. As políticas de rede podem ser incluídas como parte de um manifesto mais amplo que também cria uma implantação ou serviço.
+Essas regras de política de rede são definidas como manifestos YAML. As políticas de rede podem ser incluídas como parte de um manifesto mais amplo que também cria uma implantação ou um serviço.
 
-### <a name="network-policy-options-in-aks"></a>Opções de diretiva de rede em AKS
+### <a name="network-policy-options-in-aks"></a>Opções de política de rede no AKS
 
-O Azure fornece duas maneiras de implementar a política de rede. Você escolhe uma opção de diretiva de rede ao criar um cluster AKS. A opção de diretiva não pode ser alterada após a criação do cluster:
+O Azure fornece duas maneiras de implementar a diretiva de rede. Você escolhe uma opção de política de rede ao criar um cluster AKS. A opção de política não pode ser alterada após a criação do cluster:
 
-* A própria implementação do Azure, chamada *Azure Network Policies*.
-* *Calico Network Policies*, uma solução de segurança de rede e rede de código aberto fundada pela [Tigera][tigera].
+* Implementação do Azure, chamada de *políticas de rede do Azure*.
+* *Calico políticas de rede*, uma solução de segurança de rede e rede de software livre fundada por [tigera][tigera].
 
-Ambas as implementações usam *IPTables Linux* para aplicar as políticas especificadas. As políticas são traduzidas em conjuntos de pares IP permitidos e proibidos. Esses pares são então programados como regras de filtro IPTable.
+Ambas as implementações usam *iptables* do Linux para impor as políticas especificadas. As políticas são convertidas em conjuntos de pares de IP permitidos e não permitidos. Esses pares são programados como regras de filtro IPTable.
 
-### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e da Calico e suas capacidades
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e do Calico e seus recursos
 
-| Recurso                               | Azure                      | Chita                      |
+| Funcionalidade                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| Plataformas compatíveis                      | Linux                      | Linux                       |
-| Opções de rede suportadas             | Azure CNI                  | Azure CNI e kubenet       |
-| Conformidade com a especificação kubernetes | Todos os tipos de políticas suportadas |  Todos os tipos de políticas suportadas |
-| Recursos adicionais                      | Nenhum                       | Modelo de política estendida composto por Política de Rede Global, Conjunto de Rede Global e Ponto Final do Host. Para obter mais `calicoctl` informações sobre o uso da CLI para gerenciar esses recursos estendidos, consulte [a referência do usuário calicoctl][calicoctl]. |
-| Suporte                                  | Apoiado pela equipe de suporte e Engenharia do Azure | Apoio da comunidade de Calico. Para obter mais informações sobre suporte pago adicional, consulte [as opções de suporte do Project Calico][calico-support]. |
-| Registro em log                                  | As regras adicionadas / excluídas no IPTables são registradas em cada host em */var/log/azure-npm.log* | Para obter mais informações, consulte [os registros de componentes da Calico][calico-logs] |
+| Plataformas com Suporte                      | Linux                      | Linux                       |
+| Opções de rede com suporte             | CNI do Azure                  | CNI e kubenet do Azure       |
+| Conformidade com a especificação kubernetes | Todos os tipos de política com suporte |  Todos os tipos de política com suporte |
+| Recursos adicionais                      | Nenhum                       | Modelo de política estendida que consiste em política de rede global, conjunto de rede global e ponto de extremidade do host. Para obter mais informações sobre como `calicoctl` usar a CLI para gerenciar esses recursos estendidos, consulte [calicoctl User Reference][calicoctl]. |
+| Suporte                                  | Suporte da equipe de suporte e engenharia do Azure | Suporte da Comunidade Calico. Para obter mais informações sobre suporte pago adicional, consulte [Opções de suporte do Project Calico][calico-support]. |
+| Registrando em log                                  | As regras adicionadas/excluídas no IPTables são registradas em todos os hosts em */var/log/Azure-NPM.log* | Para obter mais informações, consulte [Calico Component logs][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Cria um cluster do AKS e habilita a política de rede
 
-Para ver as políticas de rede em ação, vamos criar e expandir em uma política que define o fluxo de tráfego:
+Para ver as políticas de rede em ação, vamos criar e, em seguida, expandir uma política que define o fluxo de tráfego:
 
 * Nega todo o tráfego ao pod.
 * Permite o tráfego com base nos rótulos do pod.
 * Permite o tráfego com base no namespace.
 
-Primeiro, vamos criar um cluster AKS que suporte a política de rede. 
+Primeiro, vamos criar um cluster AKS que dê suporte à política de rede. 
 
 > [!IMPORTANT]
 >
-> O recurso de diretiva de rede só pode ser ativado quando o cluster é criado. Não é possível habilitar a política de rede em um cluster AKS existente.
+> O recurso de política de rede só pode ser habilitado quando o cluster é criado. Não é possível habilitar a política de rede em um cluster AKS existente.
 
-Para usar a Política de Rede do Azure, você deve usar o [plug-in do Azure CNI][azure-cni] e definir sua própria rede virtual e sub-redes. Para saber mais sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking]. A Política de Rede Calico poderia ser usada com este mesmo plug-in da CNI azure ou com o plug-in da Kubenet CNI.
+Para usar a política de rede do Azure, você deve usar o [plug-in do CNI do Azure][azure-cni] e definir sua própria rede virtual e sub-redes. Para saber mais sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking]. A política de rede Calico pode ser usada com esse mesmo plug-in do Azure CNI ou com o plug-in Kubenet CNI.
 
 O exemplo de script a seguir:
 
 * Cria uma rede virtual e uma sub-rede.
-* Cria um diretor de serviço do Azure Active Directory (Azure AD) para uso com o cluster AKS.
+* Cria uma entidade de serviço Azure Active Directory (AD do Azure) para uso com o cluster AKS.
 * Atribui permissões de *Colaborador* para a entidade de serviço do cluster do AKS em uma rede virtual.
 * Cria um cluster AKS na rede virtual definida e habilita a política de rede.
-    * A opção de diretiva de rede *azure* é usada. Para usar o Calico como opção `--network-policy calico` de política de rede, use o parâmetro. Nota: Calico pode `--network-plugin azure` ser `--network-plugin kubenet`usado com qualquer um ou .
+    * A opção de política de rede *do Azure* é usada. Para usar o Calico como a opção de política de rede, `--network-policy calico` use o parâmetro. Observação: Calico pode ser usado com um `--network-plugin azure` ou `--network-plugin kubenet`.
 
-Observe que, em vez de usar um diretor de serviço, você pode usar uma identidade gerenciada para permissões. Para obter mais informações, consulte [Usar identidades gerenciadas](use-managed-identity.md).
+Observe que, em vez de usar uma entidade de serviço, você pode usar uma identidade gerenciada para permissões. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md).
 
-Forneça sua própria *SP_PASSWORD* segura. Você pode substituir as variáveis *RESOURCE_GROUP_NAME* e *CLUSTER_NAME:*
+Forneça sua própria *SP_PASSWORD* segura. Você pode substituir as variáveis *RESOURCE_GROUP_NAME* e *CLUSTER_NAME* :
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup-NP
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-São necessários alguns minutos para criar o cluster. Quando o cluster estiver `kubectl` pronto, configure-se para conectar-se ao cluster Kubernetes usando o comando [az aks get-credentials.][az-aks-get-credentials] Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las:
+São necessários alguns minutos para criar o cluster. Quando o cluster estiver pronto, configure `kubectl` o para se conectar ao cluster do kubernetes usando o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -146,34 +146,34 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Negar todo o tráfego de entrada para um pod
 
-Antes de definir as regras para permitir o tráfego de rede específico, primeiro crie uma política para negar todo o tráfego de rede. Esta política lhe dá um ponto de partida para começar a listar apenas o tráfego desejado. Você também pode ver claramente que o tráfego é removido quando a política de rede é aplicada.
+Antes de definir as regras para permitir o tráfego de rede específico, primeiro crie uma política para negar todo o tráfego de rede. Essa política oferece um ponto de partida para começar a listar somente o tráfego desejado. Você também pode ver claramente que o tráfego é removido quando a política de rede é aplicada.
 
-Para o ambiente de aplicativos de exemplo e as regras de tráfego, vamos primeiro criar um namespace chamado *desenvolvimento* para executar os pods de exemplo:
+Para o ambiente de aplicativo de exemplo e as regras de tráfego, vamos primeiro criar um namespace chamado *Development* para executar o pods de exemplo:
 
 ```console
 kubectl create namespace development
 kubectl label namespace/development purpose=development
 ```
 
-Crie um exemplo de back-end pod que executa o NGINX. Este pod back-end pode ser usado para simular um aplicativo baseado na Web de back-end de amostra. Crie este pod no namespace *development* e abra a porta *80* para servir o tráfego da Web. Rotule o pod com *app=webapp,role=backend* para que possamos alcançá-lo com uma política de rede na próxima seção:
+Crie um pod de back-end de exemplo que execute NGINX. Esse pod de back-end pode ser usado para simular um aplicativo de back-end baseado na Web de exemplo. Crie este pod no namespace *development* e abra a porta *80* para servir o tráfego da Web. Rotule o pod com *app=webapp,role=backend* para que possamos alcançá-lo com uma política de rede na próxima seção:
 
 ```console
 kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
 ```
 
-Crie outro pod e anexe uma sessão de terminal para testar que você pode alcançar com sucesso a página padrão do NGINX:
+Crie outro pod e anexe uma sessão de terminal para testar que você pode acessar com êxito a página da Web NGINX padrão:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-No prompt shell, `wget` use para confirmar se você pode acessar a página web padrão do NGINX:
+No prompt do Shell, use `wget` para confirmar que você pode acessar a página da Web padrão do Nginx:
 
 ```console
 wget -qO- http://backend
 ```
 
-A seguinte saída de amostra mostra que a página padrão do NGINX retornou:
+A seguinte saída de exemplo mostra que a página da Web NGINX padrão retornou:
 
 ```output
 <!DOCTYPE html>
@@ -183,7 +183,7 @@ A seguinte saída de amostra mostra que a página padrão do NGINX retornou:
 [...]
 ```
 
-Saia da sessão de terminal anexada. A cápsula de teste é automaticamente excluída.
+Saia da sessão de terminal anexada. O pod de teste é excluído automaticamente.
 
 ```console
 exit
@@ -191,7 +191,7 @@ exit
 
 ### <a name="create-and-apply-a-network-policy"></a>Criar e aplicar uma política de rede
 
-Agora que você confirmou, você pode usar a página básica do NGINX no pod back-end da amostra, crie uma diretiva de rede para negar todo o tráfego. Crie um arquivo chamado `backend-policy.yaml` e cole o manifesto YAML a seguir. Este manifesto usa um *podSelector* para anexar a diretiva a pods que têm o *aplicativo:webapp,role:backend* label, como o pod NGINX de exemplo. Nenhuma regra é definida em *ingress*, portanto, todo o tráfego de entrada para o pod é negado:
+Agora que você confirmou que pode usar a página da Web NGINX básica no pod de back-end de exemplo, crie uma política de rede para negar todo o tráfego. Crie um arquivo chamado `backend-policy.yaml` e cole o manifesto YAML a seguir. Este manifesto usa um *podSelector* para anexar a política a pods que têm o rótulo *App: WebApp, role: backend* , como seu pod de Nginx de exemplo. Nenhuma regra é definida em *ingress*, portanto, todo o tráfego de entrada para o pod é negado:
 
 ```yaml
 kind: NetworkPolicy
@@ -207,9 +207,9 @@ spec:
   ingress: []
 ```
 
-Vá [https://shell.azure.com](https://shell.azure.com) abrir o Azure Cloud Shell em seu navegador.
+Vá para [https://shell.azure.com](https://shell.azure.com) para abrir Azure cloud Shell em seu navegador.
 
-Aplique a diretiva de rede usando o comando [kubectl apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
+Aplique a política de rede usando o comando [kubectl Apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl apply -f backend-policy.yaml
@@ -217,13 +217,13 @@ kubectl apply -f backend-policy.yaml
 
 ### <a name="test-the-network-policy"></a>Testar a política de rede
 
-Vamos ver se você pode usar a página da web NGINX no pod back-end novamente. Crie outro pod de teste e anexe uma sessão de terminal:
+Vamos ver se você pode usar a página da Web NGINX no pod de back-end novamente. Crie outro pod de teste e anexe uma sessão de terminal:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-No prompt shell, `wget` use para ver se você pode acessar a página padrão nginx. Desta vez, defina um valor de tempo limite em *2* segundos. A diretiva de rede bloqueia agora todo o tráfego de entrada, de modo que a página não pode ser carregada, como mostrado no exemplo a seguir:
+No prompt do Shell, use `wget` para ver se você pode acessar a página da Web padrão do nginx. Desta vez, defina um valor de tempo limite em *2* segundos. A política de rede agora bloqueia todo o tráfego de entrada, portanto, a página não pode ser carregada, conforme mostrado no exemplo a seguir:
 
 ```console
 wget -qO- --timeout=2 http://backend
@@ -233,7 +233,7 @@ wget -qO- --timeout=2 http://backend
 wget: download timed out
 ```
 
-Saia da sessão de terminal anexada. A cápsula de teste é automaticamente excluída.
+Saia da sessão de terminal anexada. O pod de teste é excluído automaticamente.
 
 ```console
 exit
@@ -241,9 +241,9 @@ exit
 
 ## <a name="allow-inbound-traffic-based-on-a-pod-label"></a>Permitir tráfego de entrada com base em um rótulo de pod
 
-Na seção anterior, um pod NGINX back-end foi programado, e uma política de rede foi criada para negar todo o tráfego. Vamos criar um pod front-end e atualizar a diretiva de rede para permitir o tráfego a partir de pods front-end.
+Na seção anterior, um pod de NGINX de back-end foi agendado e uma política de rede foi criada para negar todo o tráfego. Vamos criar um pod de front-end e atualizar a política de rede para permitir o tráfego de pods de front-end.
 
-Atualize a política de rede para permitir o tráfego dos pods com os rótulos *app:webapp,role:frontend* e em qualquer namespace. Edite o arquivo *anterior backend-policy.yaml* e adicione as regras de entrada *de matchLabels* para que seu manifesto pareça o seguinte exemplo:
+Atualize a política de rede para permitir o tráfego dos pods com os rótulos *app:webapp,role:frontend* e em qualquer namespace. Edite o arquivo *. YAML de política de back-end* anterior e adicione regras de entrada do *matchLabels* para que o manifesto seja semelhante ao exemplo a seguir:
 
 ```yaml
 kind: NetworkPolicy
@@ -266,27 +266,27 @@ spec:
 ```
 
 > [!NOTE]
-> Esta política de rede usa *namespaceSelector* e um elemento *podSelector* para a regra de entrada. A sintaxe YAML é importante para que as regras de ingestão sejam aditivas. Neste exemplo, os dois elementos devem corresponder à regra de entrada a ser aplicada. As versões do Kubernetes anteriores ao *1.12* podem não interpretar esses elementos corretamente e restringir o tráfego de rede como você espera. Para obter mais informações sobre esse comportamento, consulte [Comportamento de e para os seletores][policy-rules].
+> Esta política de rede usa *namespaceSelector* e um elemento *podSelector* para a regra de entrada. A sintaxe YAML é importante para que as regras de entrada sejam aditivas. Neste exemplo, os dois elementos devem corresponder à regra de entrada a ser aplicada. As versões do kubernetes anteriores ao *1,12* podem não interpretar esses elementos corretamente e restringir o tráfego de rede conforme o esperado. Para obter mais informações sobre esse comportamento, consulte [comportamento de para e de seletores][policy-rules].
 
-Aplique a diretiva de rede atualizada usando o comando [kubectl apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
+Aplique a política de rede atualizada usando o comando [kubectl Apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl apply -f backend-policy.yaml
 ```
 
-Agende um pod que é rotulado como *app=webapp,role=frontend* e anexe uma sessão de terminal:
+Agende um pod que seja rotulado como *app = webapp, role = frontend* e anexe uma sessão de terminal:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-No prompt shell, `wget` use para ver se você pode acessar a página web padrão nginx:
+No prompt do Shell, use `wget` para ver se você pode acessar a página da Web padrão do Nginx:
 
 ```console
 wget -qO- http://backend
 ```
 
-Como a regra de entrada permite o tráfego com pods que possuem o aplicativo de *etiquetas: webapp,role: frontend*, o tráfego do pod front-end é permitido. A saída de exemplo a seguir mostra a página padrão da WEB NGINX retornada:
+Como a regra de entrada permite o tráfego com pods que têm o *aplicativo rótulos: WebApp, role: frontend*, o tráfego do pod de front-end é permitido. A saída de exemplo a seguir mostra a página da Web NGINX padrão retornada:
 
 ```output
 <!DOCTYPE html>
@@ -296,7 +296,7 @@ Como a regra de entrada permite o tráfego com pods que possuem o aplicativo de 
 [...]
 ```
 
-Saia da sessão de terminal anexada. O pod é automaticamente excluído.
+Saia da sessão de terminal anexada. O pod é excluído automaticamente.
 
 ```console
 exit
@@ -304,13 +304,13 @@ exit
 
 ### <a name="test-a-pod-without-a-matching-label"></a>Testar um pod sem um rótulo correspondente
 
-A política de rede permite o tráfego dos pods rotulados com *app:webapp,role:frontend*, mas deve negar todos os outros tráfegos. Vamos testar para ver se outro pod sem essas etiquetas pode acessar o pod NGINX back-end. Crie outro pod de teste e anexe uma sessão de terminal:
+A política de rede permite o tráfego dos pods rotulados com *app:webapp,role:frontend*, mas deve negar todos os outros tráfegos. Vamos testar para ver se outro Pod sem esses rótulos pode acessar o Pod NGINX de back-end. Crie outro pod de teste e anexe uma sessão de terminal:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-No prompt shell, `wget` use para ver se você pode acessar a página padrão nginx. A diretiva de rede bloqueia o tráfego de entrada, de modo que a página não pode ser carregada, como mostrado no exemplo a seguir:
+No prompt do Shell, use `wget` para ver se você pode acessar a página da Web padrão do nginx. A política de rede bloqueia o tráfego de entrada, portanto, a página não pode ser carregada, conforme mostrado no exemplo a seguir:
 
 ```console
 wget -qO- --timeout=2 http://backend
@@ -320,7 +320,7 @@ wget -qO- --timeout=2 http://backend
 wget: download timed out
 ```
 
-Saia da sessão de terminal anexada. A cápsula de teste é automaticamente excluída.
+Saia da sessão de terminal anexada. O pod de teste é excluído automaticamente.
 
 ```console
 exit
@@ -328,7 +328,7 @@ exit
 
 ## <a name="allow-traffic-only-from-within-a-defined-namespace"></a>Permitir o tráfego somente dentro de um namespace definido
 
-Nos exemplos anteriores, você criou uma diretiva de rede que negou todo o tráfego e, em seguida, atualizou a diretiva para permitir o tráfego de pods com um rótulo específico. Outra necessidade comum é limitar o tráfego apenas dentro de um determinado namespace. Se os exemplos anteriores foram para o tráfego em um namespace *de desenvolvimento,* crie uma política de rede que impeça o tráfego de outro namespace, como *a produção,* de chegar aos pods.
+Nos exemplos anteriores, você criou uma política de rede que negou todo o tráfego e, em seguida, atualizou a política para permitir o tráfego de pods com um rótulo específico. Outra necessidade comum é limitar o tráfego somente dentro de um namespace específico. Se os exemplos anteriores eram para o tráfego em um namespace de *desenvolvimento* , crie uma política de rede que impeça o tráfego de outro namespace, como a *produção*, de alcançar o pods.
 
 Primeiro crie um novo namespace para simular um namespace de produção:
 
@@ -343,13 +343,13 @@ Agende um pod de teste no namespace *production* que esteja rotulado como *app=w
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-No prompt shell, `wget` use para confirmar se você pode acessar a página web padrão do NGINX:
+No prompt do Shell, use `wget` para confirmar que você pode acessar a página da Web padrão do Nginx:
 
 ```console
 wget -qO- http://backend.development
 ```
 
-Como os rótulos do pod correspondem ao que é permitido atualmente na política de rede, o tráfego é permitido. A política de rede não examina os namespaces, somente os rótulos de pod. A saída de exemplo a seguir mostra a página padrão da WEB NGINX retornada:
+Como os rótulos para o Pod correspondem ao que atualmente é permitido na política de rede, o tráfego é permitido. A política de rede não examina os namespaces, somente os rótulos de pod. A saída de exemplo a seguir mostra a página da Web NGINX padrão retornada:
 
 ```output
 <!DOCTYPE html>
@@ -359,7 +359,7 @@ Como os rótulos do pod correspondem ao que é permitido atualmente na política
 [...]
 ```
 
-Saia da sessão de terminal anexada. A cápsula de teste é automaticamente excluída.
+Saia da sessão de terminal anexada. O pod de teste é excluído automaticamente.
 
 ```console
 exit
@@ -367,7 +367,7 @@ exit
 
 ### <a name="update-the-network-policy"></a>Atualizar a política de rede
 
-Vamos atualizar a regra de ingestão *namespaceSelector* seção para permitir apenas o tráfego dentro do namespace de *desenvolvimento.* Edite o arquivo de manifesto *backend-policy.yaml*, como mostrado no exemplo a seguir:
+Vamos atualizar a seção *namespaceSelector* da regra de entrada para permitir somente o tráfego de dentro do namespace de *desenvolvimento* . Edite o arquivo de manifesto *backend-policy.yaml*, como mostrado no exemplo a seguir:
 
 ```yaml
 kind: NetworkPolicy
@@ -393,7 +393,7 @@ spec:
 
 Em exemplos mais complexos, você pode definir várias regras de entrada, como um *namespaceSelector* e, em seguida, um *podSelector*.
 
-Aplique a diretiva de rede atualizada usando o comando [kubectl apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
+Aplique a política de rede atualizada usando o comando [kubectl Apply][kubectl-apply] e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl apply -f backend-policy.yaml
@@ -407,7 +407,7 @@ Agende outro pod no namespace de *produção* e anexe uma sessão de terminal:
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-No prompt shell, `wget` use para ver se a política de rede agora nega o tráfego:
+No prompt do Shell, use `wget` para ver que a política de rede agora nega o tráfego:
 
 ```console
 wget -qO- --timeout=2 http://backend.development
@@ -423,19 +423,19 @@ Saia do pod de teste:
 exit
 ```
 
-Com o tráfego negado no espaço de nome da *produção,* agende um pod de teste de volta no namespace de *desenvolvimento* e anexe uma sessão de terminal:
+Com o tráfego negado do namespace de *produção* , agende um pod de teste de volta no namespace de *desenvolvimento* e anexe uma sessão de terminal:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-No prompt shell, `wget` use para ver se a diretiva de rede permite o tráfego:
+No prompt do Shell, use `wget` para ver que a política de rede permite o tráfego:
 
 ```console
 wget -qO- http://backend
 ```
 
-O tráfego é permitido porque o pod está programado no namespace que corresponde ao permitido na diretiva de rede. A seguinte saída de amostra mostra que a página padrão do NGINX retornou:
+O tráfego é permitido porque o Pod está agendado no namespace que corresponde ao que é permitido na política de rede. A seguinte saída de exemplo mostra a página da Web NGINX padrão retornada:
 
 ```output
 <!DOCTYPE html>
@@ -445,7 +445,7 @@ O tráfego é permitido porque o pod está programado no namespace que correspon
 [...]
 ```
 
-Saia da sessão de terminal anexada. A cápsula de teste é automaticamente excluída.
+Saia da sessão de terminal anexada. O pod de teste é excluído automaticamente.
 
 ```console
 exit
@@ -453,7 +453,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Neste artigo, criamos dois namespaces e aplicamos uma política de rede. Para limpar esses recursos, use o comando [kubectl delete][kubectl-delete] e especifique os nomes dos recursos:
+Neste artigo, criamos dois namespaces e aplicamos uma diretiva de rede. Para limpar esses recursos, use o comando [kubectl Delete][kubectl-delete] e especifique os nomes dos recursos:
 
 ```console
 kubectl delete namespace production
@@ -462,9 +462,9 @@ kubectl delete namespace development
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre recursos de rede, consulte [conceitos de rede para aplicações no Azure Kubernetes Service (AKS)][concepts-network].
+Para obter mais informações sobre os recursos de rede, consulte [conceitos de rede para aplicativos no serviço de kubernetes do Azure (AKs)][concepts-network].
 
-Para saber mais sobre políticas, consulte [as políticas de rede da Kubernetes.][kubernetes-network-policies]
+Para saber mais sobre políticas, consulte [kubernetes Network Policies][kubernetes-network-policies].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

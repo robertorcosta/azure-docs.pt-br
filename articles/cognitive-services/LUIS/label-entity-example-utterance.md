@@ -4,10 +4,10 @@ description: Saiba como rotular uma entidade de aprendizado de máquina com subc
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382413"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Rotular uma entidade de aprendizado de máquina em um enunciado de exemplo
@@ -81,9 +81,9 @@ As funções de entidade são rotuladas usando a paleta da entidades.
 1. Mova para o **Inspetor de entidade** e, em seguida, selecione uma função existente ou crie uma função.
 1. No texto do enunciado de exemplo, rotule o texto com a função de entidade.
 
-## <a name="labeling-for-punctuation"></a>Rotulagem para pontuação
+## <a name="labeling-for-punctuation"></a>Rotulagem para Pontuação
 
-Você não precisa rotular para pontuação. Use [as configurações do aplicativo](luis-reference-application-settings.md) para controlar se a pontuação impactar as previsões de enunciados.
+Não é necessário rotular para pontuação. Use [as configurações do aplicativo](luis-reference-application-settings.md) para controlar se a pontuação afeta as previsões expressão.
 
 ## <a name="unlabel-entities"></a>Remover o rótulo de entidades
 

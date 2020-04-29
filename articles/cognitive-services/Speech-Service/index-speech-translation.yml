@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentação da tradução de fala
-summary: A tradução de fala do serviço Speech permite a tradução em tempo real, em várias línguas, de fonoaudiologia para discurso e de transmissão de áudio em texto
+summary: A tradução de fala do serviço de fala permite a tradução de fala em tempo real, de voz a fala e de fala a texto de fluxos de áudio
 metadata:
-  title: Documentação de tradução de fala - Tutoriais, Referência de API - Azure Cognitive Services | Microsoft Docs
+  title: Documentação de tradução de fala-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 04/13/2020
   ms.author: trbye
   ms.openlocfilehash: 5d5c1cdae695b68f45d55b51b76d88c2f93c50d1
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401431"
 landingContent:
-- title: Sobre tradução de fala
+- title: Sobre a tradução de fala
   linkLists:
   - linkListType: overview
     links:
@@ -38,7 +38,7 @@ landingContent:
   linkLists:
   - linkListType: learn
     links:
-    - text: Traduzir discurso em tempo real
+    - text: Traduza a fala em tempo real
       url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:

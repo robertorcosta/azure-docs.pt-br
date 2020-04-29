@@ -1,5 +1,5 @@
 ---
-title: Crie um teste personalizado usando o PowerShell - Gateway de aplicativo Azure
+title: Criar uma investigação personalizada usando o PowerShell-Aplicativo Azure gateway
 description: Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no modelo de implantação clássico
 services: application-gateway
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 0ba3e9ae7b5075d1f5457cb2960423ad1c737e94
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312547"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Criar uma investigação personalizada para o Gateway de Aplicativo (clássico) pelo uso do PowerShell
@@ -24,7 +24,7 @@ ms.locfileid: "81312547"
 Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente com o PowerShell. As investigações personalizadas são úteis para aplicativos que tenham uma página de verificação de integridade específica ou para aplicativos que não forneçam uma resposta bem-sucedida no aplicativo Web padrão.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e Classic](../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.  Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de recursos e clássico](../azure-resource-manager/management/deployment-models.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.  Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -144,9 +144,9 @@ Os parâmetros de configuração são:
 |---|---|
 |**Nome** |Nome de referência da investigação personalizada. |
 | **Protocolo** | Protocolo usado (os valores possíveis são HTTP ou HTTPS).|
-| **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver\/um site http: /contoso.com/, então o\/teste personalizado pode ser configurado para "http: /contoso.com/path/custompath.htm" para que as verificações de teste tenham uma resposta HTTP bem-sucedida.|
+| **Host** e **Path** | Caminho de URL completo que é invocado pelo Gateway de Aplicativo para determinar a integridade da instância. Por exemplo, se você tiver um site http:\//contoso.com/, a investigação personalizada poderá ser configurada para "http\/:/contoso.com/Path/custompath.htm" para que as verificações de investigação tenham uma resposta http bem-sucedida.|
 | **Intervalo** | Configura as verificações de intervalo de investigação em segundos.|
-| **Timeout** | Define o tempo limite da investigação para uma verificação de resposta HTTP.|
+| **Tempo Limite** | Define o tempo limite da investigação para uma verificação de resposta HTTP.|
 | **UnhealthyThreshold** | O número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.|
 
 O nome da investigação é referenciado na configuração \<BackendHttpSettings\> para atribuir qual pool de back-end usa as configurações da investigação personalizada.
@@ -200,7 +200,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser configurar o TLS (Transport Layer Security, segurança da camada de transporte), anteriormente conhecido como descarregamento de Camada de Soquetes Seguros (SSL), consulte [Configure um gateway de aplicativo para descarregamento TLS](application-gateway-ssl.md).
+Se você quiser configurar o protocolo TLS, anteriormente conhecido como descarregamento protocolo SSL (SSL), consulte [configurar um gateway de aplicativo para descarregamento de TLS](application-gateway-ssl.md).
 
 Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 

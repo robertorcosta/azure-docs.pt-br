@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 138a9ef9d483ca0d460bab7185d646669650f83e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399974"
 ---
 :::row:::
     :::column span="3":::
-        O Speech SDK suporta versões windows 10 e Windows Server 2016, ou versões posteriores. Versões anteriores **não** são suportadas oficialmente. É possível usar partes do Speech SDK com versões anteriores do Windows, embora não seja aconselhável.
+        O SDK de fala dá suporte ao Windows 10 e ao Windows Server 2016 ou versões posteriores. **Não** há suporte oficialmente para versões anteriores. É possível usar partes do SDK de fala com versões anteriores do Windows, embora não seja recomendável.
     :::column-end:::
     :::column:::
         <br>
@@ -25,7 +25,7 @@ ms.locfileid: "81399974"
 
 ### <a name="system-requirements"></a>Requisitos do sistema
 
-O Speech SDK no Windows requer o <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ <span class="docon docon-navigate-external x-hidden-focus"></span> Redistributable para o Visual Studio 2019</a> no sistema.
+O SDK do Speech no Windows requer o <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ redistribuível para o <span class="docon docon-navigate-external x-hidden-focus"></span> Visual Studio 2019</a> no sistema.
 
 - <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Instalar para x86<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Instalar para x64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
@@ -37,7 +37,7 @@ O Speech SDK no Windows requer o <a href="https://support.microsoft.com/help/297
 
 Para a entrada do microfone, as bibliotecas do Media Foundation precisam ser instaladas. Essas bibliotecas fazem parte do Windows 10 e do Windows Server 2016. É possível usar o SDK de Fala sem essas bibliotecas, contanto que o microfone não seja usado como o dispositivo de entrada de áudio.
 
-Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretório do seu aplicativo. Dessa forma, seu aplicativo pode acessar diretamente as bibliotecas. Certifique-se de selecionar a versão correta (x86/x64) que corresponde à sua aplicação.
+Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretório do seu aplicativo. Dessa forma, seu aplicativo pode acessar diretamente as bibliotecas. Verifique se você selecionou a versão correta (x86/x64) que corresponde ao seu aplicativo.
 
 | Nome                                            | Função                                             |
 |-------------------------------------------------|------------------------------------------------------|
@@ -45,10 +45,10 @@ Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretóri
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necessário para implantação gerenciada                      |
 
 > [!NOTE]
-> A começar pela versão 1.3.0 o arquivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (enviado em versões anteriores) não é mais necessário. A funcionalidade agora está integrada no SDK principal.
+> A partir da versão 1.3.0, o `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` arquivo (fornecido em versões anteriores) não é mais necessário. A funcionalidade agora está integrada no SDK principal.
 
 > [!IMPORTANT]
-> Para o projeto C# do Aplicativo de formulários do Windows (.NET Framework), certifique-se de que as bibliotecas estão incluídas nas configurações de implantação do projeto. Você pode verificar `Properties -> Publish Section`isso em . Clique `Application Files` no botão e encontre bibliotecas correspondentes na lista de rolagem para baixo. Certifique-se de que `Included`o valor está definido como . O Visual Studio incluirá o arquivo quando o projeto for publicado/implantado.
+> Para o projeto do Windows Forms app (.NET Framework) C#, verifique se as bibliotecas estão incluídas nas configurações de implantação do seu projeto. Você pode verificar isso em `Properties -> Publish Section`. Clique no `Application Files` botão e localize as bibliotecas correspondentes na lista rolar para baixo. Verifique se o valor está definido como `Included`. O Visual Studio incluirá o arquivo quando o projeto for publicado/implantado.
 
 ### <a name="c"></a>C++
 

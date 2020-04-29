@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentação de conversão de texto em fala
-summary: O serviço Text-to-speech do serviço Speech permite que seus aplicativos, ferramentas ou dispositivos convertam texto em discurso sintetizado por humanos.
+summary: A conversão de texto em fala do serviço de fala permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada por meio do tipo humano.
 metadata:
-  title: Documentação text-to-speech - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
+  title: Documentação de conversão de texto em fala-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,13 +12,13 @@ metadata:
   ms.date: 03/10/2020
   ms.author: trbye
   ms.openlocfilehash: 83bf5f9e623d1d777834e5efdd26fa4cdbc42819
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401444"
 landingContent:
-- title: Sobre texto-para-fala
+- title: Sobre conversão de texto em fala
   linkLists:
   - linkListType: overview
     links:
@@ -34,7 +34,7 @@ landingContent:
       url: quickstarts/text-to-speech-audio-file.md
     - text: Sintetizar uma fala com áudio de formato longo
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-- title: Desenvolver com texto-para-fala
+- title: Desenvolver com conversão de texto em fala
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -62,5 +62,5 @@ landingContent:
       url: language-support.md#neural-voices
     - text: Conjuntos fonéticos de SSML
       url: speech-ssml-phonetic-sets.md
-    - text: Preços de texto para fala
+    - text: Preço de conversão de texto em fala
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

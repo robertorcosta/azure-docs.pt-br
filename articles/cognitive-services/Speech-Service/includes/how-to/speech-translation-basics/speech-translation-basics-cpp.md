@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.author: trbye
 ms.openlocfilehash: 09f08e314a634de13a683440ad9fead97ad8a260
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399669"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -17,11 +17,11 @@ Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serv
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
-Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependendo da sua plataforma, siga as instruções na seção <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span> </a> do artigo Speech SDK.
+Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependendo de sua plataforma, siga as instruções na seção <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">obter o SDK <span class="docon docon-navigate-external x-hidden-focus"></span> de fala</a> do artigo do SDK de fala.
 
 ## <a name="import-dependencies"></a>Importar dependências
 
-Para executar os exemplos deste artigo, `#include` `using` inclua as seguintes e instruções na parte superior do arquivo de código C++.
+Para executar os exemplos neste artigo, inclua as instruções e `#include` `using` a seguir na parte superior do arquivo de código C++.
 
 ```cpp
 #include <iostream> // cin, cout
@@ -37,16 +37,16 @@ using namespace Microsoft::CognitiveServices::Speech::Audio;
 using namespace Microsoft::CognitiveServices::Speech::Translation;
 ```
 
-## <a name="sensitive-data-and-environment-variables"></a>Dados sensíveis e variáveis de ambiente
+## <a name="sensitive-data-and-environment-variables"></a>Variáveis de ambiente e dados confidenciais
 
-O exemplo de código-fonte neste artigo depende de variáveis de ambiente para armazenar dados confidenciais, como a chave de assinatura de recursos speech e região. O arquivo de código C++ contém dois valores de seqüência que são atribuídos a partir das variáveis do ambiente das máquinas host, ou seja, `SPEECH__SUBSCRIPTION__KEY` e `SPEECH__SERVICE__REGION`. Ambos os campos estão no escopo da classe, tornando-os acessíveis dentro dos corpos de método da classe. Para obter mais informações sobre variáveis de ambiente, consulte [variáveis de ambiente e configuração do aplicativo](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+O código-fonte de exemplo neste artigo depende de variáveis de ambiente para armazenar dados confidenciais, como a chave de assinatura do recurso de fala e a região. O arquivo de código C++ contém dois valores de cadeia de caracteres que são atribuídos das variáveis de ambiente `SPEECH__SUBSCRIPTION__KEY` de `SPEECH__SERVICE__REGION`máquinas host, ou seja, e. Esses dois campos estão no escopo de classe, tornando-os acessíveis dentro dos corpos de método da classe. Para obter mais informações sobre variáveis de ambiente, consulte [variáveis de ambiente e configuração de aplicativo](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
 
 ```cpp
 auto SPEECH__SUBSCRIPTION__KEY = getenv("SPEECH__SUBSCRIPTION__KEY");
 auto SPEECH__SERVICE__REGION = getenv("SPEECH__SERVICE__REGION");
 ```
 
-## <a name="create-a-speech-translation-configuration"></a>Crie uma configuração de tradução de fala
+## <a name="create-a-speech-translation-configuration"></a>Criar uma configuração de tradução de fala
 
 Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechTranslationConfig`][config]. Essa classe inclui informações sobre sua assinatura, como sua chave e região, ponto de extremidade, host ou token de autorização associados.
 
@@ -80,7 +80,7 @@ int main(int argc, char** argv) {
 
 ## <a name="change-source-language"></a>Alterar idioma de origem
 
-Uma tarefa comum de tradução de fala é especificar o idioma de entrada (ou fonte). Veja como você alteraria o idioma de entrada para italiano. Em seu código, [`SpeechTranslationConfig`][config] interaja `SetSpeechRecognitionLanguage` com a instância, chamando o método.
+Uma tarefa comum de tradução de fala é especificar o idioma de entrada (ou origem). Veja como você alteraria o idioma de entrada para italiano. Em seu código, interaja com a [`SpeechTranslationConfig`][config] instância, chamando o `SetSpeechRecognitionLanguage` método.
 
 ```cpp
 void translateSpeech() {
@@ -94,9 +94,9 @@ void translateSpeech() {
 
 A propriedade [`SpeechRecognitionLanguage`][recognitionlang] espera uma cadeia de caracteres em formato idioma-localidade. Defina qualquer valor na coluna **Localidade** na lista de [localidades/idiomas](../../../language-support.md) com suporte.
 
-## <a name="add-translation-language"></a>Adicionar linguagem de tradução
+## <a name="add-translation-language"></a>Adicionar idioma de tradução
 
-Outra tarefa comum de tradução de fala é especificar idiomas de tradução de destino, pelo menos um é necessário, mas múltiplos são suportados. No seguinte trecho de código, tanto francês quanto alemão como alvos da língua de tradução.
+Outra tarefa comum de tradução de fala é especificar os idiomas de tradução de destino, pelo menos um é necessário, mas há suporte para múltiplos. No trecho de código a seguir, o francês e o alemão como destinos da linguagem de tradução.
 
 ```cpp
 void translateSpeech() {
@@ -111,9 +111,9 @@ void translateSpeech() {
 }
 ```
 
-A cada [`AddTargetLanguage`][addlang]chamada, um novo idioma de tradução de destino é especificado. Em outras palavras, quando a fala é reconhecida a partir do idioma de origem, cada tradução-alvo está disponível como parte da operação de tradução resultante.
+Com cada chamada para [`AddTargetLanguage`][addlang], um novo idioma de tradução de destino é especificado. Em outras palavras, quando a fala é reconhecida a partir do idioma de origem, cada tradução de destino está disponível como parte da operação de tradução resultante.
 
-## <a name="initialize-a-translation-recognizer"></a>Inicialize um reconhecimento de tradução
+## <a name="initialize-a-translation-recognizer"></a>Inicializar um reconhecedor de tradução
 
 Depois de criar um [`SpeechTranslationConfig`][config], a próxima etapa é inicializar um [`TranslationRecognizer`][recognizer]. Ao inicializar um [`TranslationRecognizer`][recognizer], você precisará passar `translationConfig` para ele. O objeto de configuração fornece as credenciais que o serviço de fala requer para validar sua solicitação.
 
@@ -140,7 +140,7 @@ Se você quiser especificar o dispositivo de entrada de áudio, precisará criar
 > [!TIP]
 > [Saiba como obter a identificação do dispositivo de entrada de áudio](../../../how-to-select-audio-input-devices.md).
 
-Primeiro, você fará `AudioConfig` referência ao objeto da seguinte forma:
+Primeiro, você fará referência ao `AudioConfig` objeto da seguinte maneira:
 
 ```cpp
 void translateSpeech() {
@@ -180,7 +180,7 @@ void translateSpeech() {
 
 ## <a name="translate-speech"></a>Traduzir fala
 
-Para traduzir a fala, o Speech SDK conta com um microfone ou uma entrada de arquivo de áudio. O reconhecimento da fala ocorre antes da tradução da fala. Depois de todos os objetos terem sido inicializados, chame a função de reconhecimento e obtenha o resultado.
+Para traduzir a fala, o SDK de fala depende de um microfone ou de uma entrada de arquivo de áudio. O reconhecimento de fala ocorre antes da tradução de fala. Depois que todos os objetos tiverem sido inicializados, chame a função Recognize-Once e obtenha o resultado.
 
 ```cpp
 void translateSpeech() {
@@ -211,18 +211,18 @@ void translateSpeech() {
 }
 ```
 
-Para obter mais informações sobre o discurso-para-texto, consulte [os fundamentos do reconhecimento da fala](../../../speech-to-text-basics.md).
+Para obter mais informações sobre conversão de fala em texto, consulte [noções básicas do reconhecimento de fala](../../../speech-to-text-basics.md).
 
-## <a name="synthesize-translations"></a>Sintetisque traduções
+## <a name="synthesize-translations"></a>Sintetizar traduções
 
-Após um reconhecimento de fala bem-sucedido e tradução, o resultado contém todas as traduções em um dicionário. A [`Translations`][translations] chave do dicionário é o idioma de tradução de destino e o valor é o texto traduzido. A fala reconhecida pode ser traduzida e sintetizada em uma língua diferente (fala-a-fala).
+Após um reconhecimento de fala e uma tradução bem-sucedidos, o resultado contém todas as traduções em um dicionário. A [`Translations`][translations] chave de dicionário é o idioma de tradução de destino e o valor é o texto traduzido. A fala reconhecida pode ser traduzida e, em seguida, sintetizada em um idioma diferente (fala a fala).
 
-### <a name="event-based-synthesis"></a>Síntese baseada em eventos
+### <a name="event-based-synthesis"></a>Síntese baseada em evento
 
-O `TranslationRecognizer` objeto expõe `Synthesizing` um evento. O evento é acionado várias vezes e fornece um mecanismo para recuperar o áudio sintetizado do resultado de reconhecimento de tradução. Se você estiver traduzindo para vários idiomas, consulte [a síntese manual](#manual-synthesis). Especifique a voz [`SetVoiceName`][voicename] de síntese atribuindo `Synthesizing` um e forneça um manipulador de eventos para o evento, obtenha o áudio. O exemplo a seguir salva o áudio traduzido como um arquivo *.wav.*
+O `TranslationRecognizer` objeto expõe um `Synthesizing` evento. O evento é acionado várias vezes e fornece um mecanismo para recuperar o áudio sintetizado do resultado do reconhecimento de tradução. Se você estiver traduzindo para vários idiomas, consulte [síntese manual](#manual-synthesis). Especifique a voz de síntese atribuindo um [`SetVoiceName`][voicename] e fornecendo um manipulador de eventos para o `Synthesizing` evento, obtenha o áudio. O exemplo a seguir salva o áudio traduzido como um arquivo *. wav* .
 
 > [!IMPORTANT]
-> A síntese baseada em eventos só funciona com uma única tradução, **não** adicione vários idiomas de tradução de destino. Além disso, [`SetVoiceName`][voicename] deve ser a mesma língua que a linguagem de tradução alvo, por exemplo; `"de"` poderia mapear `"de-DE-Hedda"`para .
+> A síntese baseada em evento funciona apenas com uma única tradução, não adicione vários **idiomas de tradução** de destino. Além disso, [`SetVoiceName`][voicename] o deve ser o mesmo idioma que o idioma de tradução de destino, por exemplo; `"de"` pode mapear `"de-DE-Hedda"`para.
 
 ```cpp
 void translateSpeech() {
@@ -270,7 +270,7 @@ void translateSpeech() {
 
 ### <a name="manual-synthesis"></a>Síntese manual
 
-O [`Translations`][translations] dicionário pode ser usado para sintetizar áudio a partir do texto de tradução. Iterar através de cada tradução, e sintetizar a tradução. Ao criar `SpeechSynthesizer` uma `SpeechConfig` instância, o [`SetSpeechSynthesisVoiceName`][speechsynthesisvoicename] objeto precisa ter sua propriedade definida para a voz desejada. O exemplo a seguir se traduz em cinco idiomas, e cada tradução é então sintetizada para um arquivo de áudio na linguagem neural correspondente.
+O [`Translations`][translations] dicionário pode ser usado para sintetizar o áudio do texto de tradução. Iterar em cada tradução e sintetizar a tradução. Ao criar uma `SpeechSynthesizer` instância, o `SpeechConfig` objeto precisa ter sua [`SetSpeechSynthesisVoiceName`][speechsynthesisvoicename] propriedade definida como a voz desejada. O exemplo a seguir é convertido em cinco idiomas, e cada tradução é sintetizada em um arquivo de áudio no idioma neural correspondente.
 
 ```cpp
 void translateSpeech() {
@@ -319,7 +319,7 @@ void translateSpeech() {
 }
 ```
 
-Para obter mais informações sobre a síntese da fala, consulte [os fundamentos da síntese da fala](../../../text-to-speech-basics.md).
+Para obter mais informações sobre a síntese de fala, consulte [noções básicas sobre a síntese de fala](../../../text-to-speech-basics.md).
 
 [config]: https://docs.microsoft.com/cpp/cognitive-services/speech/translation-speechtranslationconfig
 [audioconfig]: https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig

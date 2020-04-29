@@ -1,13 +1,13 @@
 ---
-title: Diretrizes para Coleções Confiáveis
-description: Diretrizes e recomendações para o uso de coleções confiáveis de malha de serviço em um aplicativo de malha de serviço do Azure.
+title: Diretrizes para coleções confiáveis
+description: Diretrizes e recomendações para usar Service Fabric coleções confiáveis em um aplicativo de Service Fabric do Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: db37067069b2a9eb08009eb6bb373f6fce1cafa9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398535"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
@@ -20,8 +20,8 @@ As diretrizes são organizadas como recomendações simples prefixadas com *uma 
 * Não use `TimeSpan.MaxValue` para tempos limites. Tempos limite devem ser usados para detectar deadlocks.
 * Não use uma transação depois que ela tiver sido confirmada, anulada ou descartada.
 * Não use uma enumeração fora do escopo da transação que em foi criado.
-* Não crie uma transação dentro `using` da declaração de outra transação porque ela pode causar impasses.
-* Não crie estado `IReliableStateManager.GetOrAddAsync` confiável com e use o estado confiável na mesma transação. Isso resulta em uma Operação Operacional InválidaExcede.
+* Não crie uma transação dentro da instrução de `using` outra transação porque ela pode causar deadlocks.
+* Não crie um estado confiável com `IReliableStateManager.GetOrAddAsync` e use o estado confiável na mesma transação. Isso resulta em uma InvalidOperationException.
 * Certifique-se de que a implementação de `IComparable<TKey>` esteja correta. O sistema depende de `IComparable<TKey>` para mesclar os pontos de verificação.
 * Use bloqueio de atualização durante a leitura de um item com uma intenção de atualizá-lo para impedir determinada classe de deadlocks.
 * Considere manter o número de Coleções Confiáveis por partição inferior a 1000. Prefira Coleções Confiáveis com mais itens em vez de mais Coleções Confiáveis com menos itens.
@@ -46,18 +46,18 @@ Ao decidir usar coleções confiáveis voláteis, considere o seguinte:
 
 * ```ReliableDictionary```tem suporte volátil
 * ```ReliableQueue```tem suporte volátil
-* ```ReliableConcurrentQueue```não tem suporte volátil
-* Serviços persistidos NÃO PODEM ser voláteis. Mudar ```HasPersistedState``` a ```false``` bandeira para requer a recriação de todo o serviço do zero
-* Serviços voláteis NÃO PODEM ser feitos persistindo. Mudar ```HasPersistedState``` a ```true``` bandeira para requer a recriação de todo o serviço do zero
-* ```HasPersistedState```é uma configuração de nível de serviço. Isso significa que **todas as** coleções serão perpersistidas ou voláteis. Você não pode misturar coleções voláteis e persistentes
-* A perda de quórum de uma partição volátil resulta em perda completa de dados
-* Backup e restauração NÃO estão disponíveis para serviços voláteis
+* ```ReliableConcurrentQueue```Não tem suporte a volátil
+* Os serviços persistentes não podem se tornar voláteis. Alterar o ```HasPersistedState``` sinalizador para ```false``` requer a recriação de todo o serviço do zero
+* Os serviços voláteis não podem ser mantidos. Alterar o ```HasPersistedState``` sinalizador para ```true``` requer a recriação de todo o serviço do zero
+* ```HasPersistedState```é uma configuração de nível de serviço. Isso significa que **todas as** coleções serão persistentes ou voláteis. Você não pode misturar coleções voláteis e persistentes
+* A perda de quorum de uma partição volátil resulta em uma perda de dados completa
+* O backup e a restauração não estão disponíveis para serviços voláteis
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)
-* [Transações e Bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
+* [Transações e bloqueios](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * Gerenciando dados
-  * [Backup e Restauração](service-fabric-reliable-services-backup-restore.md)
+  * [Backup e restauração](service-fabric-reliable-services-backup-restore.md)
   * [Notificações](service-fabric-reliable-services-notifications.md)
   * [Serialização e atualização](service-fabric-application-upgrade-data-serialization.md)
   * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)

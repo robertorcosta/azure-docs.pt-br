@@ -1,72 +1,72 @@
 ---
-title: Referência de sintaxe padrão - LUIS
-description: Crie entidades para extrair dados-chave de expressões de usuários em aplicativos de Compreensão de Idiomas (LUIS). Os dados extraídos são usados pelo aplicativo cliente.
+title: Referência de sintaxe de padrão-LUIS
+description: Crie entidades para extrair dados de chave de declarações de usuário em aplicativos de Reconhecimento vocal (LUIS). Os dados extraídos são usados pelo aplicativo cliente.
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
 ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81382158"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrões
 
-Sintaxe de padrão é um modelo para uma expressão. O modelo deve conter palavras e entidades que você deseja combinar, bem como palavras e [pontuação](luis-reference-application-settings.md#punctuation-normalization) que você deseja ignorar. **Não** é uma expressão regular.
+Sintaxe de padrão é um modelo para uma expressão. O modelo deve conter palavras e entidades que você deseja corresponder, bem como palavras e [pontuações](luis-reference-application-settings.md#punctuation-normalization) que você deseja ignorar. **Não** é uma expressão regular.
 
 > [!CAUTION]
-> Os padrões incluem apenas pais de entidades aprendidas por máquina, não subcomponentes.
+> Os padrões incluem apenas pais de entidade aprendidas por computador, não subcomponentes.
 
-As entidades em padrões estão entre chaves, `{}`. Os padrões podem incluir entidades e entidades com funções. [Pattern.any](luis-concept-entity-types.md#patternany-entity) é uma entidade usada apenas em padrões.
+As entidades em padrões estão entre chaves, `{}`. Os padrões podem incluir entidades e entidades com funções. [Padrão. any](luis-concept-entity-types.md#patternany-entity) é uma entidade usada apenas em padrões.
 
-A sintaxe padrão suporta a seguinte sintaxe:
+A sintaxe de padrão oferece suporte à seguinte sintaxe:
 
 |Função|Sintaxe|Nível de aninhamento|Exemplo|
 |--|--|--|--|
-|entidade| {}- suportes encaracolados|2|Onde está o formulário {entity-name}?|
-|opcional|[] - colchetes quadrados<BR><BR>Há um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamento |2|O ponto de interrogação é opcional [?]|
-|agrupamento|() - parênteses|2|é (a \| b)|
-|ou| \|- barra vertical (tubo)<br><br>Há um limite de 2 nas barras verticais (Or) em um grupo |-|Onde está o formulário ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})|
-|início e/ou fim da expressão|^ - caret|-|^começar a expressão<br>a expressão é feita^<br>^correspondência literal estrita de enunciado inteiro com {número} entidade^|
+|entidade| {}-chaves|2|Onde é o formato {Entity-Name}?|
+|opcionais|[]-colchetes<BR><BR>Há um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamento |2|O ponto de interrogação é opcional [?]|
+|agrupamento|()-parênteses|2|é (a \| b)|
+|ou| \|-barra vertical (pipe)<br><br>Há um limite de 2 nas barras verticais (ou) em um grupo |-|Onde é formulário ({Form-Name-Short} &#x7c; {formulário-nome-longo} &#x7c; {formulário-número})|
+|início e/ou fim de expressão|^-cursor|-|^ iniciar o expressão<br>o expressão é concluído ^<br>^ correspondência literal estrita de expressão inteira com {Number} entidade ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Sintaxe de aninhamento em padrões
 
-A sintaxe **opcional,** com suportes quadrados, pode ser aninhada em dois níveis. Por exemplo: `[[this]is] a new form`. Este exemplo permite as seguintes expressões:
+A sintaxe **opcional** , com colchetes, pode ser aninhada em dois níveis. Por exemplo: `[[this]is] a new form`. Este exemplo permite o seguinte declarações:
 
-|Exemplo de expressão opcional aninhada|Explicação|
+|Exemplo de expressão aninhado opcional|Explicação|
 |--|--|
-|esta é uma nova forma|corresponde a todas as palavras em padrão|
-|é uma nova forma|corresponde a palavra opcional externa e palavras não opcionais no padrão|
-|uma nova forma|corresponde apenas palavras necessárias|
+|Este é um novo formulário|corresponde a todas as palavras no padrão|
+|é um novo formulário|corresponde à palavra opcional externa e às palavras não opcionais no padrão|
+|um novo formulário|corresponde apenas às palavras necessárias|
 
-A sintaxe **de agrupamento,** com parênteses, pode ser aninhada em dois níveis. Por exemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Este recurso permite que qualquer uma das três entidades seja combinada.
+A sintaxe de **agrupamento** , com parênteses, pode ser aninhada em dois níveis. Por exemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Esse recurso permite que qualquer uma das três entidades seja correspondida.
 
-Se entity1 é um Local com funções como origem (Seattle) e destino (Cairo) e Entidade 2 é um nome de construção conhecido de uma entidade de lista (RedWest-C), as seguintes expressões seriam mapeadas para este padrão:
+Se Entity1 for um local com funções como Origin (Seattle) e Destination (Cairo) e a entidade 2 for um nome de compilação conhecido de uma entidade de lista (RedWest-C), o seguinte declarações mapearia para esse padrão:
 
-|Exemplo de enunciado de agrupamento aninhado|Explicação|
+|Exemplo de expressão de agrupamento aninhado|Explicação|
 |--|--|
-|RedWest-C|corresponde entidade de agrupamento externo|
-|Seattle|corresponde a uma das entidades de agrupamento interior|
-|Cairo|corresponde a uma das entidades de agrupamento interior|
+|RedWest-C|corresponde à entidade de agrupamento externo|
+|Seattle|corresponde a uma das entidades de agrupamento internas|
+|Cairo|corresponde a uma das entidades de agrupamento internas|
 
-## <a name="nesting-limits-for-groups-with-optional-syntax"></a>Limites de aninhamento para grupos com sintaxe opcional
+## <a name="nesting-limits-for-groups-with-optional-syntax"></a>Limites de aninhamento de grupos com sintaxe opcional
 
 Uma combinação de **agrupamento** com sintaxe **opcional** tem um limite de 3 níveis de aninhamento.
 
 |Permitido|Exemplo|
 |--|--|
-|Sim|( ( ( ( ( test1 &#x7c; test2 ) ] &#x7c; teste3 )|
-|Não|( ( ( ( [ [ teste1 ] &#x7c; test2 ) ] &#x7c; teste3 )|
+|Sim|([(Test1 &#x7c; test2)] &#x7c; test3)|
+|Não|([([Test1] &#x7c; test2)] &#x7c; test3)|
 
-## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limites de aninhamento para grupos com sintaxe ou ing
+## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limites de aninhamento para grupos com sintaxe or-ing
 
-Uma combinação de **agrupamento** com sintaxe **ou ing** tem um limite de 2 barras verticais.
+Uma combinação de **agrupamento** com a sintaxe **ou-ing** tem um limite de duas barras verticais.
 
 |Permitido|Exemplo|
 |--|--|
-|Sim|( teste1 teste &#x7c;2 &#x7c; (teste3 teste &#x7c;4 ) )|
-|Não|( teste1 teste &#x7c;2 &#x7c; teste3 &#x7c; (teste4 &#x7c; test5 ) |
+|Sim|(Test1 &#x7c; test2 &#x7c; (test3 &#x7c; TEST4))|
+|Não|(Test1 &#x7c; test2 &#x7c; test3 &#x7c; (TEST4 &#x7c; TEST5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade em um modelo de padrão
 Para adicionar uma entidade no modelo de padrão, coloque o nome de entidade entre chaves, como `Who does {Employee} manage?`.
@@ -97,14 +97,14 @@ Para adicionar uma entidade **Pattern.any** no modelo padrão, coloque a entidad
 |Quanto custa **perguntar** e em que formato está disponível?|
 |Quanto custa **O curioso incidente do cachorro no tempo de noite** e em que formato está disponível?|
 
-As palavras do título do livro não são confusas para LUIS porque LUIS sabe onde termina o título do livro, baseado no Padrão.qualquer entidade.
+As palavras do título do livro não são confusas para LUIS porque o LUIS sabe onde o título do livro termina, com base no padrão. qualquer entidade.
 
 ## <a name="explicit-lists"></a>Listas explícitas
 
-criar uma [Lista Explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) através da API de autoria para permitir a exceção quando:
+Crie uma [lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) por meio da API de criação para permitir a exceção quando:
 
-* Seu padrão contém um [Padrão.qualquer](luis-concept-entity-types.md#patternany-entity)
-* E essa sintaxe padrão permite a possibilidade de uma extração de entidade incorreta com base no enunciado.
+* Seu padrão contém um [padrão. any](luis-concept-entity-types.md#patternany-entity)
+* E essa sintaxe de padrão permite a possibilidade de uma extração de entidade incorreta com base no expressão.
 
 Por exemplo, supondo que você tem um padrão que com sintaxe opcional, `[]`, e sintaxe de entidade, `{}`, combinadas de uma forma para extrair dados incorretamente.
 
@@ -117,7 +117,7 @@ Nas expressões a seguir, as entidades **assunto** e **pessoa** são extraídas 
 |email sobre cachorros de Chris|assunto=cachorros<br>pessoa=Chris|✔|
 |email sobre o homem de La Mancha|assunto=o homem<br>pessoa=La Mancha|X|
 
-Na tabela anterior, o `the man from La Mancha` assunto deve ser (um título do livro), mas como o assunto inclui a palavra `from`opcional, o título é predito incorretamente.
+Na tabela anterior, o assunto deve ser `the man from La Mancha` (um título de livro), mas como o assunto inclui a palavra `from`opcional, o título é previsto incorretamente.
 
 Para corrigir esta expressão no padrão, adicione `the man from la mancha` como uma correspondência de lista explícita para a entidade {assunto} usando a [API de criação para lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -127,16 +127,16 @@ Marque texto opcional na expressão usando a sintaxe colchete de expressão regu
 |Padrão com texto opcional|Significado|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find`e `from {person}` são opcionais|
-|"Você pode me ajudar[?]|A marca de pontuação é opcional|
+|' Você pode me ajudar a [?]|A marca de pontuação é opcional|
 
-As marcas de`?`pontuação `!` `.`( , ) devem ser ignoradas e você precisa ignorá-las usando a sintaxe de suporte quadrado em padrões.
+As marcas de`?`Pontuação `!`( `.`,,) devem ser ignoradas e você precisa ignorá-las usando a sintaxe de colchetes em padrões.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre padrões:
 
 * [Como adicionar padrões](luis-how-to-model-intent-pattern.md)
-* [Como adicionar padrão.qualquer entidade](luis-how-to-add-entities.md#add-a-patternany-entity)
+* [Como adicionar um padrão. qualquer entidade](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Conceitos de padrões](luis-concept-patterns.md)
 
-Entenda como o [sentimento](luis-reference-prebuilt-sentiment.md) é retornado na resposta .json.
+Entenda como [a](luis-reference-prebuilt-sentiment.md) opinião é retornada na resposta. JSON.

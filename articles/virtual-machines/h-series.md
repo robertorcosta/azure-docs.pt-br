@@ -1,5 +1,5 @@
 ---
-title: Série H - Azure Virtual Machines
+title: Série H-máquinas virtuais do Azure
 description: Especificações para as VMs da série H.
 services: virtual-machines
 author: jonbeck7
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 03/10/2020
 ms.author: lahugh
 ms.openlocfilehash: 6e0257f8a32d05f49dd67195f22d387319358ef2
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314140"
 ---
 # <a name="h-series"></a>Série H
 
-As VMs da série H são otimizadas para aplicativos impulsionados por altas frequências de CPU ou grandes requisitos de memória por núcleo. As VMs da série H possuem 8 ou 16 núcleos de processador Intel Xeon E5 2667 v3, até 14 GB de RAM por núcleo de CPU e sem hiperthreading. A série H possui 56 Gb/seg Mellanox FDR InfiniBand em uma configuração de árvore de gordura sem bloqueio para um desempenho RDMA consistente. As VMs da série H suportam Intel MPI 5.x e MS-MPI.
+As VMs da série H são otimizadas para aplicativos orientados por altas frequências de CPU ou grandes requisitos de memória por núcleo. As VMs da série H apresentam 8 ou 16 núcleos de processador Intel Xeon E5 2667 v3, até 14 GB de RAM por núcleo de CPU e sem hyperthreading. A série H apresenta 56 GB/s Mellanox FDR InfiniBand em uma configuração de árvore de Fat sem bloqueio para desempenho consistente de RDMA. As VMs da série H dão suporte ao Intel MPI 5. x e ao MS-MPI.
 
 ACU: 290-300
 
@@ -24,36 +24,36 @@ Armazenamento Premium: sem suporte
 
 Cache de Armazenamento Premium: sem suporte
 
-Migração ao vivo: não suportado
+Migração ao Vivo: sem suporte
 
-Atualizações de preservação de memória: não suportadas
+Atualizações de preservação de memória: sem suporte
 
-| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Freqüência da CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho RDMA (Gb/s) | Suporte ao MPI | Armazenamento temporário (GB) | Discos de dados máximos | Taxa de transferência máxima do disco: IOPS | Max Ethernet NICs |
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GB) | Discos de dados máximos | Taxa de transferência máxima do disco: IOPS | Máximo de NICs Ethernet |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8   | 8  | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 1000 | 32 | 32 x 500 | 2 |
-| Standard_H16  | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |
-| Standard_H8m  | 8  | Intel Xeon E5 2667 v3 | 112 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 1000 | 32 | 32 x 500 | 2 |
-| Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | - | Intel 5.x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |
-| Standard_H16r <sup>1</sup>  | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |
-| Standard_H16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |
+| Standard_H8   | 8  | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5. x, MS-MPI | 1000 | 32 | 32 x 500 | 2 |
+| Standard_H16  | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | - | Intel 5. x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |
+| Standard_H8m  | 8  | Intel Xeon E5 2667 v3 | 112 | 40 | 3.2 | 3.3 | 3.6 | - | Intel 5. x, MS-MPI | 1000 | 32 | 32 x 500 | 2 |
+| Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | - | Intel 5. x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |
+| Standard_H16r <sup>1</sup>  | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5. x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |
+| Standard_H16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5. x, MS-MPI | 2000 | 64 | 64 x 500 | 4 |
 
-<sup>1</sup> Para aplicativos MPI, a rede de backend RDMA dedicada é habilitada pela rede FDR InfiniBand.
+<sup>1</sup> para aplicativos MPI, a rede de back-end RDMA dedicada é habilitada pela rede InfiniBand FDR.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 
-## <a name="supported-os-images-linux"></a>Imagens de Sistema Operacional suportadas (Linux)
+## <a name="supported-os-images-linux"></a>Imagens de so com suporte (Linux)
  
-O Azure Marketplace tem muitas distribuições Linux que suportam a conectividade RDMA:
+O Azure Marketplace tem muitas distribuições do Linux que dão suporte à conectividade RDMA:
   
-* **HPC baseado em CentOS** - Para VMs não-SR-IOV habilitados, a versão 6.5 HPC baseada no CentOS ou uma versão posterior, até 7.5 são adequadas. Para VMs da série H, as versões 7.1 a 7.5 são recomendadas. OS drivers RDMA e o Intel MPI 5.1 são instalados na VM.
-  Para VMs SR-IOV, o CentOS-HPC 7.6 vem otimizado e pré-carregado com os drivers RDMA e vários pacotes MPI instalados.
-  Para outras imagens RHEL/CentOS VM, adicione a extensão InfiniBandLinux para ativar o InfiniBand. Esta extensão Linux VM instala drivers Mellanox OFED (em VMs SR-IOV) para conectividade RDMA. O cmdlet powershell a seguir instala a versão mais recente (versão 1.0) da extensão InfiniBandDriverLinux em um VM compatível com RDMA existente. O VM capaz de RDMA é chamado *de myVM* e é implantado no grupo de recursos chamado *myResourceGroup* na região *oeste dos EUA* da seguinte forma:
+* **HPC baseado em CentOS** – para VMs não habilitadas para Sr-IOV, versão 6,5 do HPC baseada em CentOS ou uma versão posterior, até 7,5 são adequadas. Para VMs da série H, as versões 7,1 a 7,5 são recomendadas. OS drivers RDMA e o Intel MPI 5.1 são instalados na VM.
+  Para VMs SR-IOV, o CentOS-HPC 7,6 vem otimizado e pré-carregado com os drivers RDMA e vários pacotes MPI instalados.
+  Para outras imagens de VM RHEL/CentOS, adicione a extensão InfiniBandLinux para habilitar a InfiniBand. Esta extensão de VM do Linux instala drivers Mellanox OFED (em VMs SR-IOV) para conectividade RDMA. O cmdlet do PowerShell a seguir instala a versão mais recente (versão 1,0) da extensão InfiniBandDriverLinux em uma VM compatível com RDMA existente. A VM compatível com RDMA é denominada *myVM* e é implantada no grupo de recursos chamado *MyResource* Group na região *oeste dos EUA* da seguinte maneira:
 
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
   ```
-  Alternativamente, as extensões VM podem ser incluídas nos modelos do Azure Resource Manager para facilitar a implantação com o seguinte elemento JSON:
+  Como alternativa, as extensões de VM podem ser incluídas em modelos de Azure Resource Manager para facilitar a implantação com o seguinte elemento JSON:
   ```json
   "properties":{
   "publisher": "Microsoft.HpcCompute",
@@ -62,7 +62,7 @@ O Azure Marketplace tem muitas distribuições Linux que suportam a conectividad
   } 
   ```
   
-  O comando a seguir instala a última versão 1.0 InfiniBandDriverLinux em todas as VMs com capacidade para RDMA em um conjunto de escala de máquina virtual existente chamado *myVMSS* implantado no grupo de recursos chamado *myResourceGroup*:
+  O comando a seguir instala a extensão mais recente da versão 1,0 do InfiniBandDriverLinux em todas as VMs compatíveis com RDMA em um conjunto de dimensionamento de máquinas virtuais existente chamado *myVMSS* implantado no grupo de recursos chamado *MyResource*Group:
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
   Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
@@ -71,27 +71,27 @@ O Azure Marketplace tem muitas distribuições Linux que suportam a conectividad
   ```
   
   > [!NOTE]
-  > Nas imagens do HPC baseado em CentOS, as atualizações de kernel estão desabilitadas no arquivo de configuração **yum** . Isso ocorre porque os drivers RDMA do Linux são distribuídos como um pacote RPM, e as atualizações do driver podem não funcionar se o kernel for atualizado.
+  > Nas imagens do HPC baseado em CentOS, as atualizações de kernel estão desabilitadas no arquivo de configuração **yum** . Isso ocorre porque os drivers RDMA do Linux são distribuídos como um pacote RPM, e as atualizações de driver podem não funcionar se o kernel for atualizado.
   >
   
 
-* **SUSE Linux Enterprise Server** - SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium), SLES 12 SP4 e SLES 15. Os drivers RDMA são instalados e os pacotes do Intel MPI são distribuídos na VM. Instale o MPI executando o seguinte comando:
+* **SuSE Linux Enterprise Server** -SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium), SLES 12 SP4 e SLES 15. Os drivers RDMA são instalados e os pacotes do Intel MPI são distribuídos na VM. Instale o MPI executando o seguinte comando:
 
   ```bash
   sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
   ```
   
-* **Ubuntu** - Servidor Ubuntu 16.04 LTS, 18.04 LTS. Configure os drivers RDMA na VM e registre-se na Intel para baixar o Intel MPI:
+* **Ubuntu** -ubuntu Server 16, 4 LTS, 18, 4 LTS. Configure os drivers RDMA na VM e registre-se na Intel para baixar o Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  Para obter mais detalhes sobre como ativar o InfiniBand, configurar o MPI, consulte [Ativar InfiniBand](./workloads/hpc/enable-infiniband.md).
+  Para obter mais detalhes sobre como habilitar o InfiniBand, configurando o MPI, consulte [habilitar InfiniBand](./workloads/hpc/enable-infiniband.md).
 
 ## <a name="other-sizes"></a>Outros tamanhos
 
 - [Propósito geral](sizes-general.md)
-- [Otimizado para memória](sizes-memory.md)
-- [Otimizado para armazenamento](sizes-storage.md)
+- [Memória otimizada](sizes-memory.md)
+- [Armazenamento otimizado](sizes-storage.md)
 - [GPU otimizada](sizes-gpu.md)
 - [Computação de alto desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)

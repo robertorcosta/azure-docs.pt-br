@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes da solução Connected Factory – Azure | Microsoft Docs
-description: Este artigo responde às perguntas freqüentes para o acelerador de soluções Connected Factory. Inclui links para o repositório gitHub.
+description: Este artigo responde às perguntas frequentes sobre o Solution Accelerator da fábrica conectada. Ele inclui links para o repositório GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313596"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução Connected Factory
@@ -148,7 +148,7 @@ Quando você implanta usando o `build.ps1`script no repositório do Connected Fa
 
 Você também pode adicionar uma chave de conta de mapas do Azure para o Acelerador de solução após a implantação. Navegue até o portal do Azure e acesse o recurso de serviço de aplicativo em sua implantação Connected Factory. Navegue até **configurações do aplicativo**, onde você pode encontrar uma seção **configurações do aplicativo**. Defina as **MapApiQueryKey** para o [chave da sua conta do Azure mapas](../azure-maps/how-to-manage-account-keys.md). Salvar as configurações e, em seguida, navegue até **Visão geral** e reinicie o serviço de aplicativo.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Como criar uma conta do Azure Maps?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Como fazer criar uma conta do Azure Maps?
 
 Veja, [Como gerenciar sua conta e chaves do Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 

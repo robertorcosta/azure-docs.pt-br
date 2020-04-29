@@ -1,6 +1,6 @@
 ---
-title: Firewall de aplicativos web do Azure - Perguntas frequentes
-description: Este artigo fornece respostas para perguntas frequentes sobre o Web Application Firewall no Azure Front Door
+title: Firewall do aplicativo Web do Azure-perguntas frequentes
+description: Este artigo fornece respostas para perguntas frequentes sobre o Firewall do aplicativo Web na porta frontal do Azure
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,72 +9,72 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: victorh
 ms.openlocfilehash: fefbb038cec0c061f1fd191a77164880372555a0
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81314313"
 ---
-# <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes para o Firewall de aplicativos web do Azure no Serviço de Porta Frontal do Azure
+# <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes sobre o Firewall do aplicativo Web do Azure no serviço de porta frontal do Azure
 
-Este artigo responde a perguntas comuns sobre os recursos e funcionalidades do WAF (Web Application Firewall, firewall de aplicativos web) do Azure. 
+Este artigo responde a perguntas comuns sobre recursos e funcionalidades do WAF (firewall do aplicativo Web) do Azure. 
 
 ## <a name="what-is-azure-waf"></a>O que é o Azure WAF?
 
-O Azure WAF é um firewall de aplicativos da Web que ajuda a proteger seus aplicativos da Web contra ameaças comuns, como injeção de SQL, scripts entre sites e outras explorações da Web. Você pode definir uma política WAF que consiste em uma combinação de regras personalizadas e gerenciadas para controlar o acesso aos seus aplicativos web.
+O Azure WAF é um firewall do aplicativo Web que ajuda a proteger seus aplicativos Web contra ameaças comuns, como injeção de SQL, scripts entre sites e outras explorações da Web. Você pode definir uma política de WAF que consiste em uma combinação de regras personalizadas e gerenciadas para controlar o acesso aos seus aplicativos Web.
 
-Uma política waf do Azure pode ser aplicada a aplicativos da Web hospedados no Application Gateway ou no Azure Front Doors.
+Uma política do Azure WAF pode ser aplicada a aplicativos Web hospedados no gateway de aplicativo ou nas portas de front-end do Azure.
 
-## <a name="what-is-waf-on-azure-front-door"></a>O que é WAF na porta da frente do Azure? 
+## <a name="what-is-waf-on-azure-front-door"></a>O que é o WAF na porta frontal do Azure? 
 
-O Azure Front Door é uma rede de entrega de conteúdo e aplicativos altamente escalável e distribuída globalmente. O Azure WAF, quando integrado ao Front Door, interrompe a negação de serviço e ataca aplicativos direcionados na borda da rede Azure, perto de fontes de ataque antes de entrar em sua rede virtual, oferece proteção sem sacrificar o desempenho.
+O Azure front door é uma rede de distribuição de conteúdo e aplicativo altamente escalonável e distribuída globalmente. O Azure WAF, quando integrado com a porta frontal, interrompe os ataques de negação de serviço e de aplicativo direcionados na borda da rede do Azure, perto de atacar fontes antes de entrar em sua rede virtual, oferece proteção sem sacrificar o desempenho.
 
-## <a name="does-azure-waf-support-https"></a>O Azure WAF suporta HTTPS?
+## <a name="does-azure-waf-support-https"></a>O Azure WAF dá suporte a HTTPS?
 
-Front Door oferece descarregamento TLS. O WAF é integrado nativamente com a Porta da Frente e pode inspecionar uma solicitação depois de decodificada.
+A porta frontal oferece descarregamento de TLS. O WAF é nativamente integrado à porta frontal e pode inspecionar uma solicitação depois que ela é descriptografada.
 
-## <a name="does-azure-waf-support-ipv6"></a>O Azure WAF suporta o IPv6?
+## <a name="does-azure-waf-support-ipv6"></a>O Azure WAF dá suporte a IPv6?
 
-Sim. Você pode configurar a restrição ip para IPv4 e IPv6.
+Sim. Você pode configurar a restrição de IP para IPv4 e IPv6.
 
-## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Quão atualizados são os conjuntos de regras gerenciados?
+## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Qual é o grau de atualização dos conjuntos de regras gerenciadas?
 
-Nós fazemos o nosso melhor para acompanhar a mudança do cenário de ameaças. Uma vez que uma nova regra é atualizada, ela é adicionada ao Conjunto de Regras Padrão com um novo número de versão.
+Fazemos o melhor para acompanhar a alteração do cenário de ameaças. Depois que uma nova regra for atualizada, ela será adicionada ao conjunto de regras padrão com um novo número de versão.
 
-## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Qual é o tempo de propagação se eu fizer uma mudança na minha política do WAF?
+## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Qual é o tempo de propagação se eu fizer uma alteração na minha política do WAF?
 
-A implantação de uma política WAF globalmente leva cerca de 5 minutos e muitas vezes é concluída mais cedo.
+Implantar uma política WAF globalmente geralmente leva cerca de 5 minutos e geralmente é concluído mais cedo.
 
-## <a name="can-waf-policies-be-different-for-different-regions"></a>As políticas do WAF podem ser diferentes para diferentes regiões?
+## <a name="can-waf-policies-be-different-for-different-regions"></a>As políticas de WAF podem ser diferentes para regiões diferentes?
 
-Quando integrado com o Front Door, o WAF é um recurso global. A mesma configuração se aplica em todos os locais da Porta da Frente.
+Quando integrado com a porta frontal, o WAF é um recurso global. A mesma configuração se aplica em todos os locais de porta frontal.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Como limitar o acesso ao meu back-end para ser apenas da Porta da Frente?
+## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Como fazer limitar o acesso ao meu back-end para ser somente da porta frontal?
 
-Você pode configurar a Lista de Controle de Acesso IP no back-end para permitir apenas os intervalos de endereços IP de saída da Porta da Frente e negar qualquer acesso direto da Internet. As tags de serviço são suportadas para você usar em sua rede virtual. Além disso, você pode verificar se o campo de cabeçalho HTTP do Host X-Forwarded-Host é válido para o seu aplicativo web.
+Você pode configurar a lista de controle de acesso IP em seu back-end para permitir apenas os intervalos de endereços IP de saída da porta frontal e negar qualquer acesso direto da Internet. As marcas de serviço têm suporte para você usar em sua rede virtual. Além disso, você pode verificar se o campo de cabeçalho HTTP do host X encaminhado é válido para seu aplicativo Web.
 
 ## <a name="which-azure-waf-options-should-i-choose"></a>Quais opções do Azure WAF devo escolher?
 
-Existem duas opções ao aplicar políticas WAF no Azure. O WAF com o Azure Front Door é uma solução de segurança de borda distribuída globalmente. O WAF com o Application Gateway é uma solução regional e dedicada. Recomendamos que você escolha uma solução com base em seus requisitos gerais de desempenho e segurança. Para obter mais informações, consulte [O balanceamento de carga com o conjunto de entrega de aplicativos do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+Há duas opções ao aplicar políticas de WAF no Azure. O WAF com o Azure front door é uma solução de segurança de borda distribuída globalmente. O WAF com o gateway de aplicativo é uma solução regional e dedicada. Recomendamos que você escolha uma solução com base em seus requisitos gerais de desempenho e segurança. Para obter mais informações, consulte [balanceamento de carga com o pacote de entrega de aplicativos do Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
 
 
-## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Você suporta os mesmos recursos do WAF em todas as plataformas integradas?
+## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Há suporte para os mesmos recursos do WAF em todas as plataformas integradas?
 
-Atualmente, as regras ModSec CRS 2.2.9, CRS 3.0 e CRS 3.1 só são suportadas com WAF no Application Gateway. As regras de conjunto de regras padrão, limitantes de taxas e a definição de regras padrão gerenciadas pelo Azure são suportadas apenas com WAF no Azure Front Door.
+Atualmente, as regras ModSec CRS 2.2.9, CRS 3,0 e CRS 3,1 têm suporte apenas com WAF no gateway de aplicativo. As regras de limitação de taxa, filtragem geográfica e conjunto de regras padrão gerenciadas pelo Azure têm suporte apenas com WAF na porta frontal do Azure.
 
-## <a name="is-ddos-protection-integrated-with-front-door"></a>A proteção DDoS é integrada à Porta da Frente? 
+## <a name="is-ddos-protection-integrated-with-front-door"></a>A proteção contra DDoS está integrada à porta frontal? 
 
-Distribuída globalmente nas bordas da rede Azure, a Porta Frontal do Azure pode absorver e isolar geograficamente grandes ataques de grande volume. Você pode criar uma política WAF personalizada para bloquear e classificar automaticamente ataques http(s) de limite de taxas que tenham assinaturas conhecidas. Além disso, você pode ativar o DDoS Protection Standard no VNet onde seus back-ends são implantados. Os clientes do Azure DDoS Protection Standard recebem benefícios adicionais, incluindo proteção de custos, garantia de SLA e acesso a especialistas da Equipe de Resposta Rápida do DDoS para ajuda imediata durante um ataque.
+Distribuído globalmente nas bordas de rede do Azure, a porta frontal do Azure pode absorver e isolar geograficamente ataques de volume grande. Você pode criar uma política de WAF personalizada para bloquear e classificar automaticamente os ataques http (s) que têm assinaturas conhecidas. Além disso, você pode habilitar a proteção contra DDoS Standard na VNet em que os back-ends são implantados. Os clientes padrão da proteção contra DDoS do Azure recebem benefícios adicionais, incluindo proteção de custo, garantia de SLA e acesso a especialistas da equipe de resposta rápida de DDoS para obter ajuda imediata durante um ataque.
 
-## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Por que solicitações adicionais acima do limite configurado para a minha regra de limite de taxa são passadas para o meu servidor backend?
+## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Por que as solicitações adicionais acima do limite configurado para minha regra de limite de taxa são passadas para o meu servidor back-end?
 
-Uma regra de limite de taxa pode limitar o tráfego anormalmente alto de qualquer endereço IP do cliente. Você pode configurar um limite no número de solicitações da Web permitidas a partir de um endereço IP do cliente durante uma duração de um minuto ou cinco minutos. Para o controle de taxa granular, a limitação da taxa pode ser combinada com condições adicionais de correspondência, como correspondência de parâmetros HTTP(S). 
+Uma regra de limite de taxa pode limitar o tráfego anormalmente alto de qualquer endereço IP do cliente. Você pode configurar um limite no número de solicitações da Web permitidas de um endereço IP do cliente durante uma duração de um minuto ou de cinco minutos. Para controle de taxa granular, a limitação de taxa pode ser combinada com condições de correspondência adicionais, como correspondência de parâmetro HTTP (S). 
 
-As solicitações do mesmo cliente geralmente chegam ao mesmo servidor front door. Nesse caso, você verá solicitações adicionais acima do limite ser bloqueadas imediatamente. 
+Solicitações do mesmo cliente geralmente chegam no mesmo servidor de porta frontal. Nesse caso, você verá solicitações adicionais acima do limite serem bloqueadas imediatamente. 
 
-No entanto, é possível que as solicitações do mesmo cliente possam chegar a um servidor front door diferente que ainda não atualizou o contador de limite de taxa. Por exemplo, o cliente pode abrir uma nova conexão para cada solicitação e o limite é baixo. Neste caso, a primeira solicitação ao novo servidor front door passaria a verificação do limite de tarifa. Um limite de limite de taxa geralmente é definido para se defender contra ataques de negação de serviço de qualquer endereço IP do cliente. Para um limite muito baixo, você pode ver solicitações adicionais acima do limite passar.
+No entanto, é possível que as solicitações do mesmo cliente possam chegar em um servidor de porta frontal diferente que ainda não tenha atualizado o contador de limite de taxa. Por exemplo, o cliente pode abrir uma nova conexão para cada solicitação e o limite é baixo. Nesse caso, a primeira solicitação para o novo servidor de porta frontal passaria a verificação de limite de taxa. Um limite de taxa é geralmente definido como se proteger contra ataques de negação de serviço de qualquer endereço IP do cliente. Para um limite muito baixo, você poderá ver solicitações adicionais acima do limite obtido.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [o Firewall de aplicativos Web do Azure](../overview.md).
-- Saiba mais sobre [a Porta da Frente do Azure](../../frontdoor/front-door-overview.md).
+- Saiba mais sobre o [Firewall do aplicativo Web do Azure](../overview.md).
+- Saiba mais sobre a [porta frontal do Azure](../../frontdoor/front-door-overview.md).

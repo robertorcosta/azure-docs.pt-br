@@ -1,7 +1,7 @@
 ---
-title: Habilidade personalizada do Reconhecimento de Formulário (C#)
+title: Habilidade personalizada do reconhecedor de formulário (C#)
 titleSuffix: Azure Cognitive Search
-description: Aprenda a criar uma habilidade personalizada do Form Recognizer usando C# e Visual Studio.
+description: Saiba como criar uma habilidade personalizada do reconhecedor de formulário usando C# e Visual Studio.
 manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
 ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81274569"
 ---
-# <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: Crie uma habilidade personalizada do Reconhecimento de Formulário
+# <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: criar uma habilidade personalizada do reconhecedor de formulário
 
-Neste exemplo de habilidades de pesquisa cognitiva do Azure, você aprenderá a criar uma habilidade personalizada do Reconhecimento de Formulário usando C# e Visual Studio. O Form Recognizer analisa documentos e extrai pares de chaves/valores e dados de tabela. Ao envolver o Form Recognizer na [interface de habilidades personalizadas,](cognitive-search-custom-skill-interface.md)você pode adicionar esse recurso como um passo em um pipeline de enriquecimento de ponta a ponta. O pipeline pode então carregar os documentos e fazer outras transformações.
+Neste exemplo do Azure Pesquisa Cognitiva tipo de habilidade, você aprenderá a criar uma habilidade personalizada do reconhecedor de formulário usando C# e Visual Studio. O reconhecedor de formulário analisa documentos e extrai pares de chave/valor e dados de tabela. Ao encapsular o reconhecedor de formulário na [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md), você pode adicionar esse recurso como uma etapa em um pipeline de enriquecimento de ponta a ponta. O pipeline pode, então, carregar os documentos e fazer outras transformações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (qualquer edição).
-- Pelo menos cinco formas do mesmo tipo. Você pode usar os dados de amostra fornecidos com este guia.
+- Pelo menos cinco formas do mesmo tipo. Você pode usar dados de exemplo fornecidos com este guia.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
@@ -30,30 +30,30 @@ Neste exemplo de habilidades de pesquisa cognitiva do Azure, você aprenderá a 
 
 ## <a name="train-your-model"></a>Treinar seu modelo
 
-Você precisará treinar um modelo de Reconhecimento de Formulário com seus formulários de entrada antes de usar essa habilidade. Siga o [cURL quickstart](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) para aprender a treinar um modelo. Você pode usar os formulários de amostra fornecidos nesse quickstart, ou pode usar seus próprios dados. Uma vez que o modelo é treinado, copie seu valor de ID para um local seguro.
+Você precisará treinar um modelo de reconhecimento de formulário com seus formulários de entrada antes de usar essa habilidade. Siga o guia de [início rápido da ondulação](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) para aprender a treinar um modelo. Você pode usar os formulários de exemplo fornecidos nesse guia de início rápido ou pode usar seus próprios dados. Depois que o modelo for treinado, copie seu valor de ID para um local seguro.
 
-## <a name="set-up-the-custom-skill"></a>Configure a habilidade personalizada
+## <a name="set-up-the-custom-skill"></a>Configurar a habilidade personalizada
 
-Este tutorial usa o projeto [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) no repositório [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub. Clone este repositório para sua máquina local e navegue até **o Vision/AnalyzeForm/** para acessar o projeto. Em seguida, abra _AnalyzeForm.csproj_ no Visual Studio. Este projeto cria um recurso de função Azure que cumpre a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md) e pode ser usado para o enriquecimento do Azure Cognitive Search. Ele toma documentos de formulário como entradas, e ele produz (como texto) os pares de tecla/valor que você especifica.
+Este tutorial usa o projeto [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) no repositório GitHub do [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) . Clone esse repositório em seu computador local e navegue até **Vision/AnalyzeForm/** para acessar o projeto. Em seguida, abra _AnalyzeForm. csproj_ no Visual Studio. Este projeto cria um recurso de função do Azure que atende à [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md) e pode ser usado para o enriquecimento de pesquisa cognitiva do Azure. Ele usa documentos de formulário como entradas e gera (como texto) os pares de chave/valor que você especificar.
 
-Primeiro, adicione variáveis de ambiente em nível de projeto. Localize o projeto **AnalyzeForm** no painel esquerdo, clique com o botão direito do mouse e selecione **Propriedades**. Na janela **Propriedades,** clique na guia **Depuração** e, em seguida, encontre o campo **Variáveis de Ambiente.** Clique **em Adicionar** para adicionar as seguintes variáveis:
-* `FORMS_RECOGNIZER_ENDPOINT_URL`com o valor definido para sua URL de ponto final.
+Primeiro, adicione variáveis de ambiente no nível de projeto. Localize o projeto **AnalyzeForm** no painel esquerdo, clique nele com o botão direito do mouse e selecione **Propriedades**. Na janela **Propriedades** , clique na guia **depurar** e localize o campo **variáveis de ambiente** . Clique em **Adicionar** para adicionar as seguintes variáveis:
+* `FORMS_RECOGNIZER_ENDPOINT_URL`com o valor definido para a URL do ponto de extremidade.
 * `FORMS_RECOGNIZER_API_KEY`com o valor definido para sua chave de assinatura.
-* `FORMS_RECOGNIZER_MODEL_ID`com o valor definido para o ID do modelo que você treinou.
-* `FORMS_RECOGNIZER_RETRY_DELAY`com o valor definido para 1000. Este valor é o tempo em milissegundos que o programa esperará antes de tentar novamente a consulta.
-* `FORMS_RECOGNIZER_MAX_ATTEMPTS`com o valor definido para 100. Esse valor é o número de vezes que o programa consultará o serviço enquanto tenta obter uma resposta bem-sucedida.
+* `FORMS_RECOGNIZER_MODEL_ID`com o valor definido como a ID do modelo que você treinou.
+* `FORMS_RECOGNIZER_RETRY_DELAY`com o valor definido como 1000. Esse valor é o tempo em milissegundos que o programa aguardará antes de repetir a consulta.
+* `FORMS_RECOGNIZER_MAX_ATTEMPTS`com o valor definido como 100. Esse valor é o número de vezes que o programa consultará o serviço ao tentar obter uma resposta bem-sucedida.
 
-Em seguida, abra `fieldMappings` _AnalyzeForm.cs_ e encontre a variável, que faz referência ao arquivo *field-mappings.json.* Este arquivo (e a variável que o faz referência) define a lista de chaves que você deseja extrair de seus formulários e um rótulo personalizado para cada tecla. Por exemplo, um `{ "Address:", "address" }, { "Invoice For:", "recipient" }` valor de meios que o `Address:` script `Invoice For:` só salvará os valores para os campos detectados e, e rotulará esses valores com `"address"` e, `"recipient"`respectivamente.
+Em seguida, abra _AnalyzeForm.cs_ e localize `fieldMappings` a variável, que faz referência ao arquivo de *mapeamentos de campo. JSON* . Esse arquivo (e a variável que faz referência a ele) define a lista de chaves que você deseja extrair de seus formulários e um rótulo personalizado para cada chave. Por exemplo, um valor de `{ "Address:", "address" }, { "Invoice For:", "recipient" }` significa que o script só salvará os valores para os `Address:` campos `Invoice For:` detectados e que rotularão esses valores com `"address"` e `"recipient"`, respectivamente.
 
-Por fim, `contentType` observe a variável. Este script executa o modelo given Form Recognizer em documentos remotos `application/json`que são referenciados por URL, de modo que o tipo de conteúdo é . Se você quiser analisar arquivos locais incluindo seus fluxos de bytes `contentType` nas solicitações HTTP, você precisará alterar o [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) apropriado para o seu arquivo.
+Por fim, observe `contentType` a variável. Esse script executa o modelo de reconhecedor de formulário fornecido em documentos remotos que são referenciados pela URL, `application/json`portanto, o tipo de conteúdo é. Se desejar analisar arquivos locais incluindo seus fluxos de bytes nas solicitações HTTP, você precisará alterar o `contentType` para o [tipo MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) apropriado para o arquivo.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testar a função do Visual Studio
 
-Depois de editar seu projeto, salve-o e defina o projeto **AnalyzeForm** como o projeto de inicialização no Visual Studio (se ele ainda não estiver definido). Em seguida, pressione **F5** para executar a função em seu ambiente local. Use um serviço REST como [Carteiro](https://www.postman.com/) para chamar a função.
+Depois de editar o projeto, salve-o e defina o projeto **AnalyzeForm** como o projeto de inicialização no Visual Studio (se ele ainda não estiver definido). Em seguida, pressione **F5** para executar a função em seu ambiente local. Use um serviço REST como o [postmaster](https://www.postman.com/) para chamar a função.
 
 ### <a name="http-request"></a>Solicitação HTTP
 
-Você fará a seguinte solicitação para chamar a função.
+Você fará a solicitação a seguir para chamar a função.
 
 ```HTTP
 POST https://localhost:7071/api/analyze-form
@@ -61,7 +61,7 @@ POST https://localhost:7071/api/analyze-form
 
 ### <a name="request-body"></a>Corpo da solicitação
 
-Comece com o modelo do corpo de solicitação abaixo.
+Comece com o modelo de corpo da solicitação abaixo.
 
 ```json
 {
@@ -77,15 +77,15 @@ Comece com o modelo do corpo de solicitação abaixo.
 }
 ```
 
-Aqui você precisará fornecer a URL de um formulário que tenha o mesmo tipo que os formulários com os que você treinou. Para fins de teste, você pode usar um de seus formulários de treinamento. Se você seguiu o cURL quickstart, seus formulários estarão localizados em uma conta de armazenamento blob do Azure. Abra o Azure Storage Explorer, localize um arquivo de formulário, clique com o botão direito do mouse e **selecione Obter assinatura de acesso compartilhado**. A próxima janela de diálogo fornecerá um token URL e SAS. Digite essas cordas `"formUrl"` `"formSasToken"` nos campos e campos do seu corpo de solicitação, respectivamente.
+Aqui, você precisará fornecer a URL de um formulário que tenha o mesmo tipo que os formulários com os quais você treinou. Para fins de teste, você pode usar um dos seus formulários de treinamento. Se você seguiu o guia de início rápido da ondulação, seus formulários estarão localizados em uma conta de armazenamento de BLOBs do Azure. Abra Gerenciador de Armazenamento do Azure, localize um arquivo de formulário, clique nele com o botão direito do mouse e selecione **obter assinatura de acesso compartilhado**. A próxima janela de diálogo fornecerá uma URL e um token SAS. Insira essas cadeias de `"formUrl"` caracteres `"formSasToken"` nos campos e do corpo da solicitação, respectivamente.
 
 > [!div class="mx-imgBorder"]
-> ![Explorador de armazenamento Azure; um documento pdf é selecionado](media/cognitive-search-skill-form/form-sas.png)
+> ![Gerenciador de armazenamento do Azure; um documento PDF está selecionado](media/cognitive-search-skill-form/form-sas.png)
 
-Se você quiser analisar um documento remoto que não esteja no armazenamento blob `"formUrl"` do Azure, cole sua URL no campo e deixe o `"formSasToken"` campo em branco.
+Se você quiser analisar um documento remoto que não está no armazenamento de BLOBs do Azure, Cole sua `"formUrl"` URL no campo e `"formSasToken"` deixe o campo em branco.
 
 > [!NOTE]
-> Quando a habilidade é integrada em um skillset, a URL e o token serão fornecidos pela Pesquisa Cognitiva.
+> Quando a habilidade for integrada em um configurador de habilidades, a URL e o token serão fornecidos pelo Pesquisa Cognitiva.
 
 ### <a name="response"></a>Resposta
 
@@ -109,17 +109,17 @@ Você deverá ver uma resposta semelhante ao exemplo a seguir:
 
 ## <a name="publish-the-function-to-azure"></a>Publicar a função no Azure
 
-Quando você está satisfeito com o comportamento da função, você pode publicá-lo.
+Quando estiver satisfeito com o comportamento da função, você poderá publicá-lo.
 
-1. No **Solution Explorer** no Visual Studio, clique com o botão direito do mouse no projeto e selecione **Publicar**. Escolha **Criar nova** > **publicação**.
+1. No **Gerenciador de soluções** no Visual Studio, clique com o botão direito do mouse no projeto e selecione **publicar**. Escolha **criar nova** > **publicação**.
 1. Se você ainda não conectou o Visual Studio à sua conta do Azure, selecione **Adicionar uma conta...**
-1. Siga os prompts na tela. Especifique um nome exclusivo para o serviço do aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que você deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma nova conta de armazenamento se você ainda não tiver isso. Quando terminar, selecione **Criar**.
-1. Depois que a implantação estiver concluída, observe a URL do site. Esta URL é o endereço do seu aplicativo de função no Azure. Guarde-o para um local temporário.
-1. No [portal Azure,](https://portal.azure.com)navegue até o Grupo `AnalyzeForm` de Recursos e procure a Função que você publicou. Na seção **Gerenciar**, você deverá ver as chaves do host. Copie a chave de host *padrão* e salve-a em um local temporário.
+1. Siga os prompts na tela. Especifique um nome exclusivo para o serviço de aplicativo, a assinatura do Azure, o grupo de recursos, o plano de hospedagem e a conta de armazenamento que você deseja usar. Você pode criar um novo grupo de recursos, um novo plano de hospedagem e uma nova conta de armazenamento, se ainda não os tiver. Quando tiver terminado, selecione **criar**.
+1. Após a conclusão da implantação, observe a URL do site. Essa URL é o endereço do seu aplicativo de funções no Azure. Salve-o em um local temporário.
+1. No [portal do Azure](https://portal.azure.com), navegue até o grupo de recursos e procure a `AnalyzeForm` função que você publicou. Na seção **Gerenciar**, você deverá ver as chaves do host. Copie a chave de host *padrão* e salve-a em um local temporário.
 
 ## <a name="connect-to-your-pipeline"></a>Conectar-se ao seu pipeline
 
-Para usar essa habilidade em um pipeline de Pesquisa Cognitiva, você precisará adicionar uma definição de habilidade às suas habilidades. O bloco JSON a seguir é uma definição de habilidade de amostra (você deve atualizar as entradas e saídas para refletir seu cenário particular e ambiente de habilidades). Substitua por `AzureFunctionEndpointUrl` sua URL `AzureFunctionDefaultHostKey` de função e substitua por sua tecla host.
+Para usar essa habilidade em um pipeline Pesquisa Cognitiva, você precisará adicionar uma definição de habilidade ao seu Skill. O bloco JSON a seguir é uma definição de habilidade de exemplo (você deve atualizar as entradas e saídas para refletir seu cenário específico e o ambiente do contratador de habilidades). Substitua `AzureFunctionEndpointUrl` pela URL da função e substitua `AzureFunctionDefaultHostKey` pela sua chave de host.
 
 ```json
 { 
@@ -162,10 +162,10 @@ Para usar essa habilidade em um pipeline de Pesquisa Cognitiva, você precisará
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia, você criou uma habilidade personalizada a partir do serviço Azure Form Recognizer. Para saber mais sobre habilidades personalizadas, consulte os seguintes recursos. 
+Neste guia, você criou uma habilidade personalizada do serviço reconhecedor do Azure Form. Para saber mais sobre habilidades personalizadas, consulte os recursos a seguir. 
 
-* [Azure Search Power Skills: um repositório de habilidades personalizadas](https://github.com/*zure-Samples/azure-search-power-skills)
-* [Adicione uma habilidade personalizada a um pipeline de enriquecimento de IA](cognitive-search-custom-skill-interface.md)
+* [Azure Search habilidades de energia: um repositório de habilidades personalizadas](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
 * [Definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-* [Crie um skillset (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
-* [Mapear campos enriquecidos](cognitive-search-output-field-mapping.md)
+* [Criar um qualificable (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Mapear campos aprimorados](cognitive-search-output-field-mapping.md)

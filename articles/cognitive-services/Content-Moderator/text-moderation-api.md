@@ -1,7 +1,7 @@
 ---
 title: Moderação de texto – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use moderação de texto para possíveis textos indesejados, dados pessoais e listas personalizadas de termos.
+description: Use a moderação de texto para possíveis textos indesejados, dados pessoais e listas personalizadas de termos.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81274003"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
 
-Use a moderação de texto assistida por máquina do Moderador de conteúdo e os recursos de [revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar o conteúdo do texto.
+Use os recursos de moderação de texto assistido por máquina Content Moderator e [revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) para conteúdo de texto moderado.
 
 Você bloqueia, aprova ou analisa o conteúdo com base nas políticas e limites. Use-o para aumentar a moderação humana de ambientes em que parceiros, funcionários e consumidores geram conteúdo de texto. Isso inclui salas de chat, fóruns de discussão, chatbots, catálogos de comércio eletrônico e documentos. 
 
@@ -51,7 +51,7 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text
 
 ## <a name="classification"></a>classificação
 
-O recurso de **classificação** de texto assistido por máquina do Moderador suporta **apenas o inglês**e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para a análise. 
+O recurso de classificação de **texto** auxiliada por máquina do Content moderator dá suporte **apenas ao inglês**e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para a análise. 
 
 A extração a seguir na extração JSON mostra uma saída de exemplo:
 
@@ -81,7 +81,7 @@ A extração a seguir na extração JSON mostra uma saída de exemplo:
 O recurso de dados pessoais detecta a presença potencial dessas informações:
 
 - Endereço de email
-- Endereço de e-mail dos EUA
+- Endereço de correspondência dos EUA
 - Endereço IP
 - Número de telefone dos EUA
 
@@ -125,7 +125,7 @@ O exemplo a seguir mostra uma resposta de exemplo:
 
 ## <a name="auto-correction"></a>Correção automática
 
-Suponha que o texto de entrada seja (o 'lzay' e 'f0x' são intencionais):
+Suponha que o texto de entrada seja (o ' lzay ' e o ' f0x ' são intencionais):
 
     The qu!ck brown f0x jumps over the lzay dog.
 
@@ -155,4 +155,4 @@ O Content Moderator fornece uma [API de Lista de Termos](https://westus.dev.cogn
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Faça test drive do [Console de API de moderação de texto](try-text-api.md) e use os exemplos de código de API REST. Confira também a seção de moderação de texto do [.NET SDK quickstart](dotnet-sdk-quickstart.md) se você estiver familiarizado com visual studio e C#.
+Faça test drive do [Console de API de moderação de texto](try-text-api.md) e use os exemplos de código de API REST. Confira também a seção de moderação de texto do [início rápido do SDK do .net](dotnet-sdk-quickstart.md) se você estiver familiarizado com o Visual Studio e o C#.

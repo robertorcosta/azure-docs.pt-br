@@ -1,5 +1,5 @@
 ---
-title: Agente de sincronização de dados para sincronização de dados SQL
+title: Agente de sincronização de dados para Sincronização de Dados SQL
 description: Saiba como instalar e executar o Agente de Sincronização de Dados para a sincronização de Dados SQL do Azure para sincronizar dados com os bancos de dados do SQL Server local
 services: sql-database
 ms.service: sql-database
@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
 ms.openlocfilehash: 39471ebded6280e7d394ee69c2d732b779c9ea50
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81380906"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente de Sincronização de Dados para a Sincronização de Dados SQL
 
-Sincronizar dados com bancos de dados SQL Server no local, instalando e configurando o Data Sync Agent for Azure SQL Data Sync. Para obter mais informações sobre o SQL Data Sync, consulte [sincronizar dados em vários bancos de dados em nuvem e on-premises com sql data sync](sql-database-sync-data.md).
+Sincronize os dados com bancos de SQL Server locais Instalando e Configurando o agente de sincronização de dados para o Sincronização de Dados SQL do Azure. Para obter mais informações sobre Sincronização de Dados SQL, consulte [sincronizar dados entre vários bancos de dado de nuvem e locais com sincronização de dados SQL](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> O Azure SQL Data Sync **não** suporta a instância gerenciada do banco de dados Azure SQL no momento.
+> O Azure Sincronização de Dados SQL **não oferece suporte a** instância gerenciada do banco de dados SQL do Azure no momento.
 
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -83,7 +83,7 @@ Se você deseja executar o agente local em um computador diferente que está atu
 
 - [Falhas de instalação, desinstalação ou reparo de agente cliente](#agent-install)
 
-- [O agente cliente não funciona depois que eu cancelo a desinstalação](#agent-uninstall)
+- [O agente cliente não funciona depois de cancelar a desinstalação](#agent-uninstall)
 
 - [Meu banco de dados não está listado na lista de agentes](#agent-list)
 
@@ -95,9 +95,9 @@ Se você deseja executar o agente local em um computador diferente que está atu
 
 - [O aplicativo Agente de Sincronização Local não pode se conectar ao serviço de sincronização local](#agent-connect)
 
-### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>Falha na instalação, desinstalação ou reparo do agente cliente
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>A instalação, desinstalação ou reparo do agente cliente falha
 
-- **Porque.** Muitos cenários podem causar a falha. Para determinar a causa específica dessa falha, você precisa examinar os logs.
+- **Causa**. Muitos cenários podem causar a falha. Para determinar a causa específica dessa falha, você precisa examinar os logs.
 
 - **Resolução**. Para encontrar a causa específica para a falha ocorrida, você precisa gerar e examinar os logs do Windows Installer. Ative o log no prompt de comando. Por exemplo, se o arquivo de instalação baixado for `SQLDataSyncAgent-2.0-x86-ENU.msi`, gere e examine os arquivos de log usando as seguintes linhas de comando:
 
@@ -110,7 +110,7 @@ Se você deseja executar o agente local em um computador diferente que está atu
 
 O agente cliente não funciona mesmo após você cancelar a desinstalação.
 
-- **Porque.** Esse problema ocorre porque o agente cliente da Sincronização de Dados SQL não armazena credenciais.
+- **Causa**. Esse problema ocorre porque o agente cliente da Sincronização de Dados SQL não armazena credenciais.
 
 - **Resolução**. Você pode tentar estas duas soluções:
 
@@ -123,26 +123,26 @@ Quando você tenta adicionar um banco de dados existente do SQL Server a um grup
 
 Estes cenários podem causar esse problema:
 
-- **Porque.** O agente cliente e grupo de sincronização estão em diferentes data centers.
+- **Causa**. O agente cliente e grupo de sincronização estão em diferentes data centers.
 
 - **Resolução**. O agente cliente e o grupo de sincronização devem estar no mesmo data center. Para configurar isso, você tem duas opções:
 
     -   Crie um novo agente no data center no qual o grupo de sincronização está localizado. Em seguida, registre o banco de dados nesse agente.
     -   Exclua o grupo de sincronização atual. Em seguida, crie novamente o grupo de sincronização no data center no qual o agente está localizado.
 
-- **Porque.** A lista de bancos de dados do agente cliente não é atual.
+- **Causa**. A lista de bancos de dados do agente cliente não é atual.
 
 - **Resolução**. Pare e, em seguida, reinicie o serviço do agente cliente.
 
     O agente local baixa a lista de bancos de dados associados somente no primeiro envio da chave do agente. Ele não baixa a lista de bancos de dados associados em envios de chave do agente subsequentes. Os bancos de dados registrados durante uma movimentação do agente não aparecem na instância do agente original.
 
-### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a>O agente cliente não inicia (Erro 1069)
+### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a>O agente cliente não é iniciado (erro 1069)
 
 Você descobriu que o agente não está sendo executado em um computador que hospeda o SQL Server. Ao tentar iniciar o agente manualmente, você obtém uma caixa de diálogo de erro com a mensagem de erro “Erro 1069: o serviço não foi iniciado devido a uma falha de logon”.
 
 ![Caixa de diálogo do erro 1069 da Sincronização de Dados](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
-- **Porque.** Uma causa provável desse erro é que a senha no servidor local foi alterada, já que você criou o agente e a senha do agente.
+- **Causa**. Uma causa provável desse erro é que a senha no servidor local foi alterada, já que você criou o agente e a senha do agente.
 
 - **Resolução**. Atualize a senha do agente para a senha atual do servidor:
 
@@ -160,7 +160,7 @@ Você descobriu que o agente não está sendo executado em um computador que hos
   1. Na janela **Serviços**, clique com o botão direito do mouse no serviço **Agente da Sincronização de Dados SQL** e, em seguida, clique em **Iniciar**.
   1. Feche a janela **Serviços**.
 
-### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a>Não posso enviar a chave do agente.
+### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a>Não consigo enviar a chave do agente
 
 Depois de criar ou recriar uma chave para um agente, você tenta enviar essa chave pelo aplicativo SqlAzureDataSyncAgent. O envio não é concluído.
 
@@ -176,7 +176,7 @@ Depois de criar ou recriar uma chave para um agente, você tenta enviar essa cha
 
   - O ip local é adicionado à regra de firewall do servidor ou banco de dados para o banco de dados de metadados de sincronização.
 
-- **Porque.** A chave do agente identifica exclusivamente cada agente local. A chave deve atender às duas condições:
+- **Causa**. A chave do agente identifica exclusivamente cada agente local. A chave deve atender às duas condições:
 
   -   A chave do agente cliente no servidor da Sincronização de Dados SQL e o computador local devem ser idênticos.
   -   A chave do agente cliente pode ser usada apenas uma vez.
@@ -196,18 +196,18 @@ Depois de criar ou recriar uma chave para um agente, você tenta enviar essa cha
   1. Selecione **OK**.
   1. Feche o programa.
 
-### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a>O agente cliente não pode ser excluído do portal se seu banco de dados on-premises associado for inalcançável
+### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a>O agente cliente não poderá ser excluído do portal se seu banco de dados local associado estiver inacessível
 
 Se um ponto de extremidade local (ou seja, um banco de dados) registrado em um agente cliente da Sincronização de Dados SQL ficar inacessível, o agente cliente não poderá ser excluído.
 
-- **Porque.** O agente local não pode ser excluído porque o banco de dados inacessível ainda está registrado no agente. Quando você tenta excluir o agente, o processo de exclusão tenta acessar o banco de dados, o que falha.
+- **Causa**. O agente local não pode ser excluído porque o banco de dados inacessível ainda está registrado no agente. Quando você tenta excluir o agente, o processo de exclusão tenta acessar o banco de dados, o que falha.
 
 - **Resolução**. Use uma “exclusão forçada” para excluir o banco de dados inacessível.
 
 > [!NOTE]
 > Se as tabelas de metadados de sincronização permanecerem após uma "exclusão forçada", use `deprovisioningutil.exe` para limpá-las.
 
-### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>O aplicativo Local Sync Agent não pode se conectar ao serviço local de sincronização
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>O aplicativo do agente de sincronização local não pode se conectar ao serviço de sincronização local
 
 - **Resolução**. Experimente as etapas a seguir:
 
@@ -216,7 +216,7 @@ Se um ponto de extremidade local (ou seja, um banco de dados) registrado em um a
     a. Na caixa de pesquisa da barra de tarefas, digite **services.msc**.  
     b. Clique duas vezes em **Serviços** nos resultados da pesquisa.  
   1. Pare o serviço de **Sincronização de Dados SQL**.
-  1. Reinicie o serviço **SQL Data Sync.**  
+  1. Reinicie o serviço **sincronização de dados SQL** .  
   1. Reabra o aplicativo.
 
 ## <a name="run-the-data-sync-agent-from-the-command-prompt"></a>Execute o Agente de Sincronização de Dados a partir do prompt de comando
@@ -322,7 +322,7 @@ Para saber mais informações sobre a Sincronização de Dados SQL, consulte os 
 -   Configurar sincronização de dados
     - No portal - [Tutorial: configure o SQL Data Sync para sincronizar dados entre o Banco de Dados SQL do Azure e o SQL Server local](sql-database-get-started-sql-data-sync.md)
     - Com o PowerShell
-        -  [Use o PowerShell para sincronizar entre vários bancos de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Usar o PowerShell para sincronizar entre vários bancos de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Práticas recomendadas - [Práticas recomendadas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
 -   Monitor – [monitore a Sincronização de Dados SQL com logs do Azure Monitor](sql-database-sync-monitor-oms.md)

@@ -1,32 +1,32 @@
 ---
-title: Visão geral da definição de exibição
-description: Descreve o conceito de criar definição de exibição para aplicativos gerenciados do Azure.
+title: Visão geral da definição da exibição
+description: Descreve o conceito de criação de definição de exibição para aplicativos gerenciados do Azure.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
 ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81391686"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Exibir artefato de definição em aplicativos gerenciados do Azure
 
-A definição de exibição é um artefato opcional em Aplicativos Gerenciados do Azure. Ele permite personalizar a página de visão geral e adicionar mais visualizações, como métricas e recursos personalizados.
+A definição de exibição é um artefato opcional em aplicativos gerenciados do Azure. Ele permite personalizar a página de visão geral e adicionar mais modos de exibição, como métricas e recursos personalizados.
 
-Este artigo fornece uma visão geral do artefato de definição de exibição e suas capacidades.
+Este artigo fornece uma visão geral do artefato de definição de exibição e seus recursos.
 
 ## <a name="view-definition-artifact"></a>Exibir artefato de definição
 
-O artefato de definição de exibição deve ser nomeado **viewDefinition.json** e colocado no mesmo nível **que createUiDefinition.json** e **mainTemplate.json** no pacote .zip que cria uma definição de aplicativo gerenciada. Para saber como criar o pacote .zip e publicar uma definição de aplicativo gerenciada, consulte [Publicar uma definição de aplicativo gerenciado do Azure](publish-service-catalog-app.md)
+O artefato da definição de exibição deve ser nomeado **viewDefinition. JSON** e colocado no mesmo nível que **createUiDefinition. JSON** e **MainTemplate. JSON** no pacote. zip que cria uma definição de aplicativo gerenciado. Para saber como criar o pacote. zip e publicar uma definição de aplicativo gerenciado, consulte [publicar uma definição de aplicativo gerenciado do Azure](publish-service-catalog-app.md)
 
-## <a name="view-definition-schema"></a>Ver esquema de definição
+## <a name="view-definition-schema"></a>Exibir esquema de definição
 
-O arquivo **viewDefinition.json** tem `views` apenas uma propriedade de nível superior, que é uma matriz de visualizações. Cada exibição é mostrada na interface do usuário do aplicativo gerenciado como um item de menu separado na tabela de conteúdo. Cada visualização `kind` tem uma propriedade que define o tipo de exibição. Deve ser definido como um dos seguintes valores: [Visão geral,](#overview) [Métricas, Recursos Personalizados,](#metrics) [Associações](#associations). [CustomResources](#custom-resources) Para obter mais informações, consulte o [esquema JSON atual para viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
+O arquivo **viewDefinition. JSON** tem apenas uma propriedade de `views` nível superior, que é uma matriz de exibições. Cada exibição é mostrada na interface do usuário do aplicativo gerenciado como um item de menu separado no sumário. Cada exibição tem uma `kind` propriedade que define o tipo da exibição. Ele deve ser definido como um dos seguintes valores: [visão geral](#overview), [métricas](#metrics), [CustomResources](#custom-resources), [associações](#associations). Para obter mais informações, consulte [esquema JSON atual para viewDefinition. JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
 
-Amostra json para definição de exibição:
+Exemplo de JSON para definição de exibição:
 
 ```json
 {
@@ -107,7 +107,7 @@ Amostra json para definição de exibição:
 
 `"kind": "Overview"`
 
-Quando você fornece essa exibição em **viewDefinition.json,** ela substitui a página de visão geral padrão no aplicativo gerenciado.
+Quando você fornece essa exibição em **viewDefinition. JSON**, ela substitui a página de visão geral padrão em seu aplicativo gerenciado.
 
 ```json
 {
@@ -128,8 +128,8 @@ Quando você fornece essa exibição em **viewDefinition.json,** ela substitui a
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |cabeçalho|Não|O cabeçalho da página de visão geral.|
-|descrição|Não|A descrição do seu aplicativo gerenciado.|
-|comandos|Não|O conjunto de botões adicionais da barra de ferramentas da página de visão geral, veja [comandos](#commands).|
+|description|Não|A descrição do seu aplicativo gerenciado.|
+|comandos|Não|A matriz de botões adicionais da barra de ferramentas da página Visão geral, consulte [comandos](#commands).|
 
 ![Visão geral](./media/view-definition/overview.png)
 
@@ -137,7 +137,7 @@ Quando você fornece essa exibição em **viewDefinition.json,** ela substitui a
 
 `"kind": "Metrics"`
 
-A visualização de métricas permite coletar e agregar dados dos recursos gerenciados do aplicativo no [Azure Monitor Metrics](../../azure-monitor/platform/data-platform-metrics.md).
+A exibição de métricas permite coletar e agregar dados de seus recursos de aplicativo gerenciado em [métricas de Azure monitor](../../azure-monitor/platform/data-platform-metrics.md).
 
 ```json
 {
@@ -166,26 +166,26 @@ A visualização de métricas permite coletar e agregar dados dos recursos geren
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Não|O título exibido da vista.|
-|version|Não|A versão da plataforma usada para renderizar a visualização.|
-|gráficos|Sim|O conjunto de gráficos da página métricas.|
+|displayName|Não|O título exibido da exibição.|
+|Versão|Não|A versão da plataforma usada para renderizar a exibição.|
+|gráficos|Sim|A matriz de gráficos da página de métricas.|
 
 ### <a name="chart"></a>Gráfico
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |displayName|Sim|O título exibido do gráfico.|
-|Charttype|Não|A visualização para usar neste gráfico. Por padrão, ele usa um gráfico de linhas. Tipos de gráficos suportados: `Bar, Line, Area, Scatter`.|
-|Métricas|Sim|A matriz de métricas para plotar neste gráfico. Para saber mais sobre métricas suportadas no portal Azure, consulte [métricas suportadas com o Azure Monitor](../../azure-monitor/platform/metrics-supported.md)|
+|tipo de gráfico|Não|A visualização a ser usada para este gráfico. Por padrão, ele usa um gráfico de linhas. Tipos de gráfico com `Bar, Line, Area, Scatter`suporte:.|
+|Métricas|Sim|A matriz de métricas a ser plotada neste gráfico. Para saber mais sobre as métricas com suporte no portal do Azure, consulte [métricas com suporte com Azure monitor](../../azure-monitor/platform/metrics-supported.md)|
 
 ### <a name="metric"></a>Métrica
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |name|Sim|O nome da métrica.|
-|Aggregationtype|Sim|O tipo de agregação a ser usado para esta métrica. Tipos de agregação suportados:`none, sum, min, max, avg, unique, percentile, count`|
-|namespace|Não|Informações adicionais a serem usados ao determinar o provedor de métricas correta.|
-|resourceTagFilter|Não|O array de tags de `or` recursos (será separado com a palavra) para o qual as métricas seriam exibidas. Aplica-se em cima do filtro do tipo de recurso.|
+|aggregationType|Sim|O tipo de agregação a ser usado para essa métrica. Tipos de agregação com suporte:`none, sum, min, max, avg, unique, percentile, count`|
+|namespace|Não|Informações adicionais a serem usadas ao determinar o provedor de métricas correto.|
+|resourceTagFilter|Não|A matriz de marcas de recurso (será separada `or` com o Word) para a qual as métricas seriam exibidas. Aplica-se na parte superior do filtro de tipo de recurso.|
 |resourceType|Sim|O tipo de recurso para o qual as métricas seriam exibidas.|
 
 ![Métricas](./media/view-definition/metrics.png)
@@ -194,9 +194,9 @@ A visualização de métricas permite coletar e agregar dados dos recursos geren
 
 `"kind": "CustomResources"`
 
-Você pode definir vários pontos de vista deste tipo. Cada exibição representa um tipo de recurso personalizado **exclusivo** do provedor personalizado que você definiu no **mainTemplate.json**. Para obter uma introdução aos provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](../custom-providers/overview.md).
+Você pode definir várias exibições deste tipo. Cada exibição representa um tipo de recurso personalizado **exclusivo** do provedor personalizado que você definiu em **MainTemplate. JSON**. Para obter uma introdução aos provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](../custom-providers/overview.md).
 
-Nesta exibição, você pode executar operações GET, PUT, DELETE e POST para o seu tipo de recurso personalizado. As operações POST podem ser ações personalizadas globais ou ações personalizadas em um contexto do seu tipo de recurso personalizado.
+Nesta exibição, você pode executar operações GET, PUT, DELETE e POST para o tipo de recurso personalizado. Operações POST podem ser ações personalizadas globais ou ações personalizadas em um contexto de seu tipo de recurso personalizado.
 
 ```json
 {
@@ -226,19 +226,19 @@ Nesta exibição, você pode executar operações GET, PUT, DELETE e POST para o
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Sim|O título exibido da vista. O título deve ser **único** para cada visualização customResources em seu **viewDefinition.json**.|
-|version|Não|A versão da plataforma usada para renderizar a visualização.|
+|displayName|Sim|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de CustomResources em seu **viewDefinition. JSON**.|
+|Versão|Não|A versão da plataforma usada para renderizar a exibição.|
 |resourceType|Sim|O tipo de recurso personalizado. Deve ser um tipo de recurso personalizado **exclusivo** do seu provedor personalizado.|
-|ícone|Não|O ícone da vista. A lista de ícones de exemplo é definida no [Esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
-|criarUIDefinition|Não|Criar esquema de definição de interface do ui para criar comando de recursos personalizados. Para uma introdução à criação de definições de interface do iur, consulte [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
-|comandos|Não|O conjunto de botões adicionais da barra de ferramentas da exibição CustomResources, consulte [comandos](#commands).|
-|colunas|Não|A matriz de colunas do recurso personalizado. Se não `name` for definida, a coluna será mostrada por padrão. A coluna `"key"` deve `"displayName"`ter e. Para a tecla, forneça a chave da propriedade para exibir em uma exibição. Se aninhada, use o dot como `"key": "name"` delimitador, por exemplo, ou `"key": "properties.property1"`. Para nome de exibição, forneça o nome de exibição da propriedade para exibição em uma exibição. Você também pode `"optional"` fornecer uma propriedade. Quando definido como verdadeiro, a coluna é oculta da exibição por padrão.|
+|ícone|Não|O ícone da exibição. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
+|createUIDefinition|Não|Crie um esquema de definição de interface do usuário para o comando criar recurso personalizado. Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md)|
+|comandos|Não|A matriz de botões adicionais da barra de ferramentas da exibição CustomResources, consulte [comandos](#commands).|
+|colunas|Não|A matriz de colunas do recurso personalizado. Se não estiver definido `name` , a coluna será mostrada por padrão. A coluna deve ter `"key"` e `"displayName"`. Para chave, forneça a chave da propriedade a ser exibida em uma exibição. Se estiver aninhado, use ponto como delimitador `"key": "name"` , `"key": "properties.property1"`por exemplo, ou. Para nome de exibição, forneça o nome de exibição da propriedade a ser exibida em uma exibição. Você também pode fornecer uma `"optional"` propriedade. Quando definido como true, a coluna é ocultada em uma exibição por padrão.|
 
 ![CustomResources](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>Comandos
 
-Comandos é um conjunto de botões adicionais de barra de ferramentas que são exibidos na página. Cada comando representa uma ação POST do seu Provedor Personalizado Azure definido em **mainTemplate.json**. Para obter uma introdução a provedores personalizados, consulte [a visão geral dos provedores personalizados do Azure.](../custom-providers/overview.md)
+Os comandos são uma matriz de botões adicionais da barra de ferramentas que são exibidos na página. Cada comando representa uma ação POST de seu provedor personalizado do Azure definido em **MainTemplate. JSON**. Para obter uma introdução aos provedores personalizados, consulte [visão geral de provedores personalizados do Azure](../custom-providers/overview.md).
 
 ```json
 {
@@ -256,17 +256,17 @@ Comandos é um conjunto de botões adicionais de barra de ferramentas que são e
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
 |displayName|Sim|O nome exibido do botão de comando.|
-|caminho|Sim|O nome de ação do provedor personalizado. A ação deve ser definida em **mainTemplate.json**.|
-|ícone|Não|O ícone do botão de comando. A lista de ícones de exemplo é definida no [Esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
-|criarUIDefinition|Não|Criar esquema de definição de interface do ui para comando. Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).|
+|path|Sim|O nome da ação do provedor personalizado. A ação deve ser definida em **MainTemplate. JSON**.|
+|ícone|Não|O ícone do botão de comando. A lista de ícones de exemplo é definida no [esquema JSON](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
+|createUIDefinition|Não|Crie o esquema de definição da interface do usuário para o comando. Para obter uma introdução à criação de definições de interface do usuário, consulte [Introdução ao CreateUiDefinition](create-uidefinition-overview.md).|
 
 ## <a name="associations"></a>Associações
 
 `"kind": "Associations"`
 
-Você pode definir vários pontos de vista deste tipo. Essa exibição permite vincular os recursos existentes ao aplicativo gerenciado através do provedor personalizado definido no **mainTemplate.json**. Para obter uma introdução aos provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](../custom-providers/overview.md).
+Você pode definir várias exibições deste tipo. Essa exibição permite vincular recursos existentes ao aplicativo gerenciado por meio do provedor personalizado que você definiu em **MainTemplate. JSON**. Para obter uma introdução aos provedores personalizados, confira [Visão geral da Visualização de Provedores Personalizados do Azure](../custom-providers/overview.md).
 
-Nesta visão, você pode estender os recursos `targetResourceType`existentes do Azure com base no . Quando um recurso é selecionado, ele criará uma solicitação de onboarding ao provedor personalizado **público,** que pode aplicar um efeito colateral ao recurso. 
+Nessa exibição, você pode estender os `targetResourceType`recursos existentes do Azure com base no. Quando um recurso é selecionado, ele cria uma solicitação de integração ao provedor personalizado **público** , que pode aplicar um efeito colateral ao recurso. 
 
 ```json
 {
@@ -282,10 +282,10 @@ Nesta visão, você pode estender os recursos `targetResourceType`existentes do 
 
 |Propriedade|Obrigatório|Descrição|
 |---------|---------|---------|
-|displayName|Sim|O título exibido da vista. O título deve ser **único** para cada exibição de Associações em seu **viewDefinition.json**.|
-|version|Não|A versão da plataforma usada para renderizar a visualização.|
-|targetResourceType|Sim|O tipo de recurso de destino. Este é o tipo de recurso que será exibido para o onboarding de recursos.|
-|criarUIDefinition|Não|Criar esquema de definição de interface do ui para criar comando de recursos de associação. Para uma introdução à criação de definições de interface do iur, consulte [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
+|displayName|Sim|O título exibido da exibição. O título deve ser **exclusivo** para cada exibição de associações em seu **viewDefinition. JSON**.|
+|Versão|Não|A versão da plataforma usada para renderizar a exibição.|
+|targetResourceType|Sim|O tipo de recurso de destino. Esse é o tipo de recurso que será exibido para integração de recursos.|
+|createUIDefinition|Não|Criar esquema de definição de interface do usuário para comando criar recurso de associação. Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md)|
 
 ## <a name="looking-for-help"></a>Procurando ajuda
 
@@ -294,5 +294,5 @@ Se você tiver dúvidas sobre os Aplicativos Gerenciados do Azure, tente pergunt
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados do Azure](overview.md).
-- Para obter uma introdução a provedores personalizados, consulte [a visão geral dos provedores personalizados do Azure.](../custom-providers/overview.md)
-- Para criar um aplicativo gerenciado pelo Azure com provedores personalizados do Azure, consulte [Tutorial: Crie aplicativo gerenciado com ações e tipos de recursos personalizados do provedor](tutorial-create-managed-app-with-custom-provider.md)
+- Para obter uma introdução aos provedores personalizados, consulte [visão geral de provedores personalizados do Azure](../custom-providers/overview.md).
+- Para criar um aplicativo gerenciado do Azure com provedores personalizados do Azure, consulte [tutorial: criar aplicativo gerenciado com ações de provedor personalizado e tipos de recursos](tutorial-create-managed-app-with-custom-provider.md)

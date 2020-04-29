@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: e47c8bc4dc814f1d4c5cb115a2da911544dd55f8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399866"
 ---
 :::row:::
     :::column span="3":::
-        O Speech SDK só suporta **ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**e **CentOS 7/8** nas seguintes arquiteturas de destino quando usado com Linux:
+        O SDK de fala só dá suporte ao **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**e **CentOS 7/8** nas seguintes arquiteturas de destino quando usado com o Linux:
         - x64
     :::column-end:::
     :::column:::
@@ -25,17 +25,17 @@ ms.locfileid: "81399866"
 :::row-end:::
 
 > [!IMPORTANT]
-> Ao direcionar o Linux ARM64 e usar o C# - o .NET Core 3.x (pacote dotnet-sdk-3.x) é necessário. Se você estiver mirando ARM32 ou ARM64, o Python não será suportado.
+> Ao direcionar para o Linux ARM64 e usar C#-o pacote do .NET Core 3. x (dotNet-SDK-3. x) é necessário. Se você estiver visando ARM32 ou ARM64, não há suporte para Python.
 
 > [!NOTE]
-> As arquiteturas x86 do Ubuntu 16.04, Ubuntu 18.04 e Debian 9 só suportam o desenvolvimento do C++ com o Speech SDK.
+> As arquiteturas x86 do Ubuntu 16, 4, Ubuntu 18, 4 e Debian 9 dão suporte apenas ao desenvolvimento em C++ com o SDK de fala.
 
 ### <a name="system-requirements"></a>Requisitos do sistema
 
-Para uma aplicação nativa, o Speech `libMicrosoft.CognitiveServices.Speech.core.so`SDK depende de . Certifique-se de que a arquitetura de destino (x86, x64) corresponda ao aplicativo. Dependendo da versão do Linux, podem ser necessárias dependências adicionais.
+Para um aplicativo nativo, o SDK de fala depende do `libMicrosoft.CognitiveServices.Speech.core.so`. Verifique se a arquitetura de destino (x86, x64) corresponde ao aplicativo. Dependendo da versão do Linux, podem ser necessárias dependências adicionais.
 
 - As bibliotecas compartilhadas da biblioteca GNU C (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
-- A biblioteca OpenSSL `libssl.so.1.0.2`(ou`libssl.so.1.0.0` )
+- A biblioteca OpenSSL (`libssl.so.1.0.0` ou `libssl.so.1.0.2`)
 - A biblioteca compartilhada para aplicativos ALSA (`libasound.so.2`)
 
 # <a name="ubuntu-16041804"></a>[Ubuntu 16.04/18.04](#tab/ubuntu)
@@ -60,7 +60,7 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!IMPORTANT]
-> Siga as instruções [sobre como configurar O RHEL/CentOS 7 para O SDK de Fala](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> Siga as instruções sobre [como configurar o RHEL/CentOS 7 para o SDK de fala](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
 
 > [!TIP]
 > No RHEL/CentOS 8, siga as instruções em [como configurar o OpenSSL para Linux](../how-to-configure-openssl-linux.md).

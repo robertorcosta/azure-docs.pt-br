@@ -1,6 +1,6 @@
 ---
-title: Porta da Frente do Azure - Perguntas frequentes
-description: Esta página fornece respostas para perguntas frequentes sobre o Azure Front Door
+title: Porta de frente do Azure-perguntas frequentes
+description: Esta página fornece respostas para perguntas frequentes sobre a porta frontal do Azure
 services: frontdoor
 documentationcenter: ''
 author: sohamnchatterjee
@@ -12,158 +12,158 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
 ms.openlocfilehash: e2785baab27f5bfc996b57607816062195a19b2b
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81313762"
 ---
-# <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para a porta da frente do Azure
+# <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
-Este artigo responde a perguntas comuns sobre os recursos e funcionalidades do Azure Front Door. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
+Este artigo responde a perguntas comuns sobre recursos e funcionalidades de porta frontal do Azure. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
 
 1. A seção de comentários deste artigo.
-2. [Azure Front Door UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
-3. **Suporte da Microsoft:** Para criar uma nova solicitação de suporte, no portal Azure, na guia **Ajuda,** selecione o botão **Ajuda + suporte** e selecione Nova solicitação de **suporte**.
+2. [UserVoice do Azure de porta frontal](https://feedback.azure.com/forums/217313-networking?category_id=345025).
+3. **Suporte da Microsoft:** Para criar uma nova solicitação de suporte, na portal do Azure, na guia **ajuda** , selecione o botão **ajuda + suporte** e, em seguida, selecione **nova solicitação de suporte**.
 
 ## <a name="general"></a>Geral
 
 ### <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 
-O Azure Front Door é uma ADN (Application Delivery Network, rede de entrega de aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Ele fornece aceleração dinâmica do local (DSA) juntamente com o balanceamento global de carga com failover quase em tempo real. É um serviço altamente disponível e escalável, que é totalmente gerenciado pelo Azure.
+A porta frontal do Azure é um Rede de Distribuição de Aplicativos (ADN) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Ele fornece o DSA (aceleração de site dinâmico) junto com o balanceamento de carga global com failover quase em tempo real. É um serviço altamente disponível e escalonável, que é totalmente gerenciado pelo Azure.
 
-### <a name="what-features-does-azure-front-door-support"></a>Quais características o Azure Front Door suporta?
+### <a name="what-features-does-azure-front-door-support"></a>Quais recursos o Azure front door dá suporte?
 
-O Azure Front Door suporta aceleração dinâmica de sites (DSA), descarregamento TLS/SSL e TLS de ponta a ponta, Firewall de aplicativos da Web, afinidade de sessão baseada em cookies, roteamento baseado em caminho de URL, certificados gratuitos e gerenciamento de vários domínios, entre outros. Para obter uma lista completa de recursos suportados, consulte [Visão geral da porta frontal do Azure](front-door-overview.md).
+A porta frontal do Azure dá suporte a Dynamic site Acceleration (DSA), descarregamento de TLS/SSL e TLS de ponta a ponta, firewall de aplicativo Web, afinidade de sessão baseada em cookie, roteamento baseado em caminho de URL, certificados gratuitos e gerenciamento de vários domínios, entre outros. Para obter uma lista completa dos recursos com suporte, consulte [visão geral da porta frontal do Azure](front-door-overview.md).
 
-### <a name="what-is-the-difference-between-azure-front-door-and-azure-application-gateway"></a>Qual é a diferença entre o Azure Front Door e o Azure Application Gateway?
+### <a name="what-is-the-difference-between-azure-front-door-and-azure-application-gateway"></a>Qual é a diferença entre a porta frontal do Azure e o gateway de Aplicativo Azure?
 
-Embora ambos os Gateways de Porta Frontal e gateway de aplicativo sejam balanceadores de carga de camada 7 (HTTP/HTTPS), a principal diferença é que o Front Door é um serviço global, enquanto o Application Gateway é um serviço regional. Enquanto a Porta frontal pode carregar o equilíbrio entre suas diferentes unidades de escala/clusters/unidades de carimbo entre regiões, o Application Gateway permite que você carregue o equilíbrio entre suas VMs/contêineres etc. que está dentro da unidade de escala.
+Embora tanto a porta de frente quanto o gateway de aplicativo sejam balanceadores de carga de camada 7 (HTTP/HTTPS), a principal diferença é que a porta frontal é um serviço global, enquanto o gateway de aplicativo é um serviço regional. Embora a porta frontal possa balancear a carga entre as diferentes unidades de escala/clusters/unidades de carimbo entre regiões, o gateway de aplicativo permite balancear a carga entre suas VMs/contêineres, etc. que está dentro da unidade de escala.
 
-### <a name="when-should-we-deploy-an-application-gateway-behind-front-door"></a>Quando devemos implantar um gateway de aplicativo atrás da porta da frente?
+### <a name="when-should-we-deploy-an-application-gateway-behind-front-door"></a>Quando devemos implantar um gateway de aplicativo por trás da porta frontal?
 
-Os principais cenários por que se deve usar o Gateway de aplicativo atrás da Porta da Frente são:
+Os principais cenários pelos quais um deve usar o gateway de aplicativo por trás da porta frontal são:
 
-- O Front Door pode executar o balanceamento de carga baseado em caminho apenas em nível global, mas se alguém quiser carregar o tráfego de equilíbrio ainda mais dentro de sua rede virtual (VNET), então eles devem usar o Application Gateway.
-- Uma vez que a porta da frente não funciona em um nível de VM/contêiner, então ele não pode fazer a drenagem de conexão. No entanto, o Application Gateway permite que você faça a drenagem de conexão. 
-- Com um Gateway de aplicativo atrás do AFD, pode-se alcançar 100% de descarregamento TLS/SSL e direcionar apenas solicitações HTTP em sua rede virtual (VNET).
-- Porta da frente e gateway de aplicativo ambos suportam afinidade de sessão. Embora o Front Door possa direcionar o tráfego subseqüente de uma sessão de usuário para o mesmo cluster ou backend em uma determinada região, o Application Gateway pode direcionar o tráfego para o mesmo servidor dentro do cluster.  
+- A porta frontal pode executar o balanceamento de carga baseado em caminho apenas no nível global, mas se um quiser balancear a carga do tráfego ainda mais dentro de sua rede virtual (VNET), eles deverão usar o gateway de aplicativo.
+- Como a porta da frente não funciona em nível de VM/contêiner, isso não pode fazer o descarregamento da conexão. No entanto, o gateway de aplicativo permite que você faça o descarregamento de conexão. 
+- Com um gateway de aplicativo por trás de AFD, é possível obter um descarregamento de 100% TLS/SSL e rotear apenas solicitações HTTP em sua VNET (rede virtual).
+- A porta de frente e o gateway de aplicativo dão suporte à afinidade de sessão. Embora a porta frontal possa direcionar o tráfego subsequente de uma sessão de usuário para o mesmo cluster ou back-end em uma determinada região, o gateway de aplicativo pode direcionar relacionar o tráfego para o mesmo servidor dentro do cluster.  
 
-### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Podemos implantar o Azure Load Balancer atrás da porta da frente?
+### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Podemos implantar Azure Load Balancer atrás da porta frontal?
 
-O Azure Front Door precisa de um VIP público ou um nome DNS disponível publicamente para direcionar o tráfego. Implantar um Balanceador de Carga Azure atrás da porta da frente é um caso de uso comum.
+A porta frontal do Azure precisa de um VIP público ou um nome DNS publicamente disponível para rotear o tráfego para o. Implantar um Azure Load Balancer atrás da porta frontal é um caso de uso comum.
 
-### <a name="what-protocols-does-azure-front-door-support"></a>Que protocolos o Azure Front Door suporta?
+### <a name="what-protocols-does-azure-front-door-support"></a>Para quais protocolos o Azure front door dá suporte?
 
-O Azure Front Door suporta HTTP, HTTPS e HTTP/2.
+A porta frontal do Azure dá suporte a HTTP, HTTPS e HTTP/2.
 
-### <a name="how-does-azure-front-door-support-http2"></a>Como o Azure Front Door suporta HTTP/2?
+### <a name="how-does-azure-front-door-support-http2"></a>Como o Azure front door dá suporte a HTTP/2?
 
-O suporte ao protocolo HTTP/2 está disponível apenas para clientes que se conectam ao Azure Front Door. A comunicação para backends no pool de backend é sobre HTTP/1.1. O suporte HTTP/2 é ativado por padrão.
+O suporte a protocolo HTTP/2 está disponível para clientes que se conectam somente à porta frontal do Azure. A comunicação aos back-ends no pool de back-end é por HTTP/1.1. O suporte a HTTP/2 está habilitado por padrão.
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quais recursos têm suporte atualmente como parte do pool de back-end?
 
-Os pools de backend podem ser compostos por armazenamento, web app, instâncias do Kubernetes ou qualquer outro nome de host personalizado que tenha conectividade pública. O Azure Front Door exige que os backends sejam definidos por meio de um IP público ou de um nome de host DNS publicamente solucionável. Os membros de pools de back-end podem estar em regiões, regiões ou até mesmo fora do Azure, desde que tenham conectividade pública.
+Os pools de back-end podem ser compostos de armazenamento, aplicativo Web, instâncias de kubernetes ou qualquer outro nome de host personalizado que tenha conectividade pública. A porta frontal do Azure requer que os back-ends sejam definidos por meio de um IP público ou um nome de host DNS que possa ser resolvido publicamente. Os membros de pools de back-end podem estar entre zonas, regiões ou até mesmo fora do Azure, desde que tenham conectividade pública.
 
 ### <a name="what-regions-is-the-service-available-in"></a>Em quais regiões o serviço está disponível?
 
-O Azure Front Door é um serviço global e não está vinculado a nenhuma região específica do Azure. O único local que você precisa especificar ao criar uma Porta da Frente é o local do grupo de recursos, que está basicamente especificando onde os metadados para o grupo de recursos serão armazenados. O recurso Front Door em si é criado como um recurso global e a configuração é implantada globalmente em todos os POPs (Point of Presence). 
+A porta frontal do Azure é um serviço global e não está vinculada a nenhuma região específica do Azure. O único local que você precisa especificar ao criar uma porta frontal é o local do grupo de recursos, que está basicamente especificando onde os metadados do grupo de recursos serão armazenados. O próprio recurso de porta frontal é criado como um recurso global e a configuração é implantada globalmente em todos os POPs (ponto de presença). 
 
-### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Quais são os locais POP para Azure Front Door?
+### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Quais são os locais POP para a porta frontal do Azure?
 
-O Azure Front Door tem a mesma lista de locais POP (Point of Presence) que o Azure CDN da Microsoft. Para obter a lista completa de nossos POPs, consulte os [locais do Azure CDN POP da Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
+A porta frontal do Azure tem a mesma lista de locais POP (ponto de presença) que a CDN do Azure da Microsoft. Para obter a lista completa de nossos POPs, consulte os [locais pop de CDN do Azure da Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
 
-### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>O Azure Front Door é uma implantação dedicada ao meu aplicativo ou é compartilhado entre os clientes?
+### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>O Azure front door é uma implantação dedicada para o meu aplicativo ou é compartilhado entre clientes?
 
-O Azure Front Door é um serviço multi-inquilino distribuído globalmente. Assim, a infra-estrutura do Front Door é compartilhada entre todos os seus clientes. No entanto, ao criar um perfil da Porta da Frente, você define a configuração específica necessária para o seu aplicativo e nenhuma alteração feita na porta da frente impacta outras configurações da Porta da Frente.
+A porta frontal do Azure é um serviço de vários locatários distribuído globalmente. Portanto, a infraestrutura para a porta frontal é compartilhada entre todos os seus clientes. No entanto, ao criar um perfil de porta frontal, você define a configuração específica necessária para seu aplicativo e nenhuma alteração feita na porta de frente afeta outras configurações de porta frontal.
 
 ### <a name="is-http-https-redirection-supported"></a>O redirecionamento HTTP-> HTTPS é suportado?
 
-Sim. Na verdade, o Azure Front Door suporta o redirecionamento de strings host, path e consulta, bem como parte do redirecionamento de URL. Saiba mais sobre [o redirecionamento de URL](front-door-url-redirect.md). 
+Sim. Na verdade, o Azure front door dá suporte ao host, caminho e redirecionamento de cadeia de caracteres de consulta, bem como parte do redirecionamento de URL. Saiba mais sobre o [redirecionamento de URL](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Em que ordem as regras de roteamento são processadas?
 
-As rotas para a porta da frente não são ordenadas e uma rota específica é selecionada com base na melhor combinação. Saiba mais sobre [como o Front Door corresponde às solicitações de uma regra de roteamento](front-door-route-matching.md).
+As rotas para sua porta frontal não são ordenadas e uma rota específica é selecionada com base na melhor correspondência. Saiba mais sobre [como a porta frontal corresponde às solicitações para uma regra de roteamento](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Como eu tranco o acesso ao meu backend apenas a porta da frente do Azure?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Como fazer bloquear o acesso ao meu back-end para apenas a porta frontal do Azure?
 
-Para bloquear seu aplicativo para aceitar o tráfego apenas a partir de sua porta da frente específica, você precisará configurar ACLs IP para o seu backend e, em seguida, restringir o tráfego em seu backend ao valor específico do cabeçalho 'X-Azure-FDID' enviado pela Porta da Frente. Estas etapas são detalhadas conforme abaixo:
+Para bloquear seu aplicativo para aceitar o tráfego somente de sua porta de frente específica, você precisará configurar ACLs de IP para o back-end e, em seguida, restringir o tráfego no back-end para o valor específico do cabeçalho ' X-Azure-FDID ' enviado pela porta frontal. Essas etapas são detalhadas como a seguir:
 
-- Configure o IP ACLing para que seus backends aceitem o tráfego do espaço de endereço IP backend do Azure Front Door e apenas os serviços de infra-estrutura do Azure. Consulte os detalhes de IP abaixo para acling seu backend:
+- Configure o IP atuação para seus back-ends para aceitar o tráfego do espaço de endereço IP de back-end da porta do Azure e dos serviços de infraestrutura do Azure apenas. Consulte os detalhes de IP abaixo para atuação seu back-end:
  
-    - Consulte a seção *AzureFrontDoor.Backend* em [Faixas IP do Azure e tags de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para o intervalo de endereços IP iPv4 da porta da frente ou você também pode usar a tag de serviço *AzureFrontDoor.Backend* em seus [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de rede ou com [o Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags).
-    - O espaço IP de backend **IPv6** da Porta da Frente, enquanto estiver coberto na tag de serviço, não está listado no arquivo JSON das faixas de IP do Azure. Se você está procurando por um intervalo de endereços IPv6 explícito, ele está atualmente limitado a`2a01:111:2050::/44`
-    - Os serviços básicos de [infra-estrutura](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) do `168.63.129.16` Azure através de endereços IP de host virtualizados: e`169.254.169.254`
+    - Consulte a seção *AzureFrontDoor. backend* em [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para o intervalo de endereços IP de back-end IPv4 da porta frontal ou você também pode usar a marca de serviço *AzureFrontDoor. backend* em seus [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou com o [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags).
+    - O espaço IP de back-end **IPv6** da porta frontal, enquanto coberto na marca de serviço, não está listado no arquivo JSON de intervalos de IP do Azure. Se você estiver procurando um intervalo de endereços IPv6 explícito, ele estará atualmente limitado a`2a01:111:2050::/44`
+    - Serviços de [infraestrutura básica](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) do Azure por meio de endereços IP de `168.63.129.16` host virtualizados: e`169.254.169.254`
 
     > [!WARNING]
-    > O espaço IP backend da Front Door pode mudar mais tarde, no entanto, vamos garantir que antes disso acontecer, que teríamos integrado com [faixas IP do Azure e tags de serviço](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que você assine as [faixas de IP do Azure e as tags de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.
+    > O espaço de IP de back-end da porta frontal pode ser alterado mais tarde. no entanto, garantiremos que, antes disso, isso seria integrado aos [intervalos de IP e às marcas de serviço do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que você assine [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.
 
--    Execute uma operação GET na porta da `2020-01-01` frente com a versão da API ou superior. Na chamada da API, procure por `frontdoorID` campo. Filtrar o cabeçalho de entrada '**X-Azure-FDID**' enviado pela Porta `frontdoorID`da Frente para o seu backend com o valor do campo . 
+-    Execute uma operação GET na sua porta frontal com a versão `2020-01-01` da API ou superior. Na chamada à API, procure o `frontdoorID` campo. Filtre o cabeçalho de entrada '**X-Azure-FDID**' enviado pela porta frontal ao seu back-end com o valor como o do `frontdoorID`campo. 
 
-### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>O IP de qualquer elenco pode mudar ao longo da vida da minha Porta da Frente?
+### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>O IP anycast pode ser alterado durante o tempo de vida da minha porta frontal?
 
-O IP de frontend anycast para a porta da frente normalmente não deve mudar e pode permanecer estático durante toda a vida útil da Porta da Frente. No entanto, não há **garantias** para o mesmo. Por gentileza, não tome nenhuma dependência direta do IP.
+O IP de anycast de front-end para sua porta frontal normalmente não deve ser alterado e pode permanecer estático durante o tempo de vida da porta frontal. No entanto, **não há nenhuma garantia** para o mesmo. Não use nenhuma dependência direta no IP.
 
-### <a name="does-azure-front-door-support-static-or-dedicated-ips"></a>O Azure Front Door suporta IPs estáticos ou dedicados?
+### <a name="does-azure-front-door-support-static-or-dedicated-ips"></a>A Azure front door dá suporte a IPs estáticos ou dedicados?
 
-Não, o Azure Front Door atualmente não suporta IPs de frontend estática ou dedicado. 
+Não, a porta frontal do Azure atualmente não dá suporte a IPs de anycast de frontend estáticos ou dedicados. 
 
-### <a name="does-azure-front-door-support-x-forwarded-for-headers"></a>A Porta Frontal do Azure suporta cabeçalhos x-encaminhados?
+### <a name="does-azure-front-door-support-x-forwarded-for-headers"></a>A porta frontal do Azure dá suporte a cabeçalhos x-Forwarded-for?
 
-Sim, a porta frontal do Azure suporta os cabeçalhos X-Forwarded-For, X-Forwarded-Host e X-Forwarded-Proto. Para X-Forwarded-For se o cabeçalho já estivesse presente, então a Porta da Frente anexa o IP do soquete do cliente a ele. Caso outra coisa, ele adiciona o cabeçalho com o IP do soquete do cliente como o valor. Para X-Forwarded-Host e X-Forwarded-Proto, o valor é substituído.
+Sim, a porta frontal do Azure dá suporte aos cabeçalhos X-Forwardd-for, X-Forwarded-host e de proto. Para X-Forwarded – para se o cabeçalho já estiver presente, a porta frontal acrescentará o IP de soquete do cliente a ele. Caso contrário, ele adiciona o cabeçalho com o IP de soquete do cliente como o valor. Para o X-Forwarded-host e o protocolo X-Forwarded-proto, o valor é substituído.
 
-Saiba mais sobre os [cabeçalhos HTTP suportados pela Porta da Frente.](front-door-http-headers-protocol.md)  
+Saiba mais sobre os [cabeçalhos HTTP com suporte da porta frontal](front-door-http-headers-protocol.md).  
 
-### <a name="how-long-does-it-take-to-deploy-an-azure-front-door-does-my-front-door-still-work-when-being-updated"></a>Quanto tempo leva para implantar uma porta da frente do Azure? Minha porta da frente ainda funciona quando atualizada?
+### <a name="how-long-does-it-take-to-deploy-an-azure-front-door-does-my-front-door-still-work-when-being-updated"></a>Quanto tempo leva para implantar uma porta frontal do Azure? Minha porta frontal ainda funciona quando está sendo atualizada?
 
-Uma nova criação do Front Door ou qualquer atualização para uma porta frontal existente leva cerca de 3 a 5 minutos para a implantação global. Isso significa que em cerca de 3 a 5 minutos, sua configuração de Porta Frontal será implantada em todos os nossos POPs globalmente.
+Uma nova criação de porta de front-end ou qualquer atualização de uma porta de frente existente leva cerca de 3 a 5 minutos para a implantação global. Isso significa que, em cerca de 3 a 5 minutos, sua configuração de porta frontal será implantada em todos os nossos POPs globalmente.
 
-Nota - As atualizações personalizadas do certificado TLS/SSL levam cerca de 30 minutos para serem implantadas globalmente.
+Observação-as atualizações personalizadas do certificado TLS/SSL levam cerca de 30 minutos para serem implantadas globalmente.
 
-Quaisquer atualizações para rotas ou pools de backend, etc. são perfeitas e causarão zero tempo de inatividade (se a nova configuração estiver correta). As atualizações de certificados também são atômicas e não causarão nenhuma paralisação, a menos que mudem de 'AFD Managed' para 'Use seu próprio cert' ou vice-versa.
+Todas as atualizações em rotas ou pools de back-end etc. são diretas e causarão zero tempo de inatividade (se a nova configuração estiver correta). As atualizações de certificado também são atômicas e não causarão nenhuma interrupção, a menos que se alterne de ' AFD gerenciado ' para ' usar seu próprio certificado ' ou vice-versa.
 
 
 ## <a name="configuration"></a>Configuração
 
-### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>O Azure Front Door pode equilibrar ou direcionar o tráfego dentro de uma rede virtual?
+### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>O balanceamento de carga da porta do Azure pode balancear ou rotear o tráfego em uma rede virtual?
 
-O Azure Front Door (AFD) requer um IP público ou um nome DNS publicamente solucionável para direcionar o tráfego. Portanto, a resposta é que nenhum AFD não pode direcionar diretamente dentro de uma rede virtual, mas usar um Gateway de aplicativo ou Balancer de Carga Azure no meio resolverá esse cenário.
+A porta frontal do Azure (AFD) requer um IP público ou um nome DNS que possa ser resolvido publicamente para rotear o tráfego. Portanto, a resposta não é um AFD diretamente não pode ser roteada em uma rede virtual, mas usar um gateway de aplicativo ou Azure Load Balancer no entre resolverá esse cenário.
 
-### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Quais são os vários intervalos e limites para a Porta da Frente do Azure?
+### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Quais são os vários tempos limite e limites para a porta frontal do Azure?
 
-Saiba mais sobre todos os [intervalos e limites documentados para a porta da frente do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+Saiba mais sobre todos os [tempos limite e limites documentados para a porta frontal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## <a name="performance"></a>Desempenho
 
-### <a name="how-does-azure-front-door-support-high-availability-and-scalability"></a>Como o Azure Front Door suporta alta disponibilidade e escalabilidade?
+### <a name="how-does-azure-front-door-support-high-availability-and-scalability"></a>Como o Azure front door dá suporte à alta disponibilidade e escalabilidade?
 
-O Azure Front Door é uma plataforma multi-locatário distribuída globalmente com enormes volumes de capacidade para atender às necessidades de escalabilidade do seu aplicativo. Entregue a partir da borda da rede global da Microsoft, o Front Door oferece um recurso global de balanceamento de carga que permite que você falhe em todo o seu aplicativo ou mesmo microsserviços individuais em regiões ou nuvens diferentes.
+O Azure front door é uma plataforma multilocatário distribuída globalmente com grandes volumes de capacidade para atender às necessidades de escalabilidade do seu aplicativo. Entregue da borda da rede global da Microsoft, a porta da frente fornece o recurso de balanceamento de carga global que permite que você faça failover de todo o seu aplicativo ou mesmo de microserviços individuais entre regiões ou nuvens diferentes.
 
-## <a name="tls-configuration"></a>Configuração TLS
+## <a name="tls-configuration"></a>Configuração de TLS
 
-### <a name="what-tls-versions-are-supported-by-azure-front-door"></a>Quais versões TLS são suportadas pelo Azure Front Door?
+### <a name="what-tls-versions-are-supported-by-azure-front-door"></a>Quais versões do TLS têm suporte na porta frontal do Azure?
 
-Todos os perfis do Front Door criados após setembro de 2019 usam o TLS 1.2 como o mínimo padrão.
+Todos os perfis de porta frontal criados depois de setembro de 2019 usam TLS 1,2 como o mínimo padrão.
 
-Front Door suporta versões TLS 1.0, 1.1 e 1.2. O TLS 1.3 ainda não tem suporte.
+A porta frontal dá suporte às versões de TLS 1,0, 1,1 e 1,2. O TLS 1,3 ainda não tem suporte.
 
-### <a name="what-certificates-are-supported-on-azure-front-door"></a>Quais certificados são suportados na Porta da Frente do Azure?
+### <a name="what-certificates-are-supported-on-azure-front-door"></a>Quais certificados têm suporte na porta frontal do Azure?
 
-Para habilitar o protocolo HTTPS para fornecer conteúdo com segurança em um domínio personalizado da Porta da Frente, você pode optar por usar um certificado gerenciado pelo Azure Front Door ou usar seu próprio certificado.
-A opção de porta da frente gerencia da porta da frente fornece um certificado TLS/SSL padrão via Digicert e armazenado no Cofre chave da porta da frente. Se você optar por usar seu próprio certificado, então você pode embarcar em um certificado de um CA suportado e pode ser um TLS padrão, certificado de validação estendida ou até mesmo um certificado curinga. Os certificados auto-assinados não são suportados. [Saiba como ativar https para um domínio personalizado](https://aka.ms/FrontDoorCustomDomainHTTPS).
+Para habilitar o protocolo HTTPS para fornecer conteúdo com segurança em um domínio personalizado de porta frontal, você pode optar por usar um certificado gerenciado pela porta frontal do Azure ou usar seu próprio certificado.
+A opção gerenciada de porta frontal provisiona um certificado TLS/SSL padrão via DigiCert e armazenada no Key Vault da porta frontal. Se você optar por usar seu próprio certificado, poderá integrar um certificado de uma autoridade de certificação com suporte e pode ser um TLS padrão, certificado de validação estendido ou até mesmo um certificado curinga. Não há suporte para certificados autoassinados. Saiba [como habilitar o HTTPS para um domínio personalizado](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
-### <a name="does-front-door-support-autorotation-of-certificates"></a>A Porta da Frente suporta a rotação automática de certificados?
+### <a name="does-front-door-support-autorotation-of-certificates"></a>A porta frontal dá suporte à rotação autocertificada de certificados?
 
-Para a opção de certificado gerenciado front door, os certificados são auto-girados pela Porta da Frente. Se você estiver usando um certificado gerenciado da Porta da Frente e ver se a data de validade do certificado está a menos de 60 dias de distância, faça um pedido de suporte.
-</br>Para seu próprio certificado TLS/SSL personalizado, a rotação automática não é suportada. Semelhante à forma como ele foi configurado pela primeira vez para um determinado domínio personalizado, você precisará apontar a Porta da Frente para a versão certa do certificado em seu Cofre de Chaves e garantir que o principal de serviço para porta da frente ainda tenha acesso ao Cofre de Chaves. Esta operação de implantação de certificado atualizado pela Porta da Frente é atômica e não causa nenhum impacto na produção, desde que o nome do assunto ou SAN para o certificado não mude.
+Para a opção de certificado gerenciado de porta frontal, os certificados são girados de acordo com a porta frontal. Se você estiver usando um certificado gerenciado de porta de front-end e ver que a data de expiração do certificado está abaixo de 60 dias de folga, arquivo um tíquete de suporte.
+</br>Para seu próprio certificado TLS/SSL personalizado, a rotação não tem suporte. Semelhante ao modo como ele foi configurado na primeira vez para um determinado domínio personalizado, você precisará apontar a porta da frente para a versão correta do certificado no seu Key Vault e garantir que a entidade de serviço para a porta frontal ainda tenha acesso ao Key Vault. Essa operação de distribuição de certificado atualizada pela porta frontal é atômica e não causa nenhum impacto de produção desde que o nome da entidade ou a SAN para o certificado não seja alterada.
 
-### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Quais são as suítes de cifras atuais suportadas pelo Azure Front Door?
+### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door"></a>Quais são os conjuntos de codificação atuais com suporte na porta frontal do Azure?
 
-Para TLS1.2, as seguintes suítes de cifra são suportadas
+Para o TLS 1.2, há suporte para os seguintes conjuntos de codificação
 
 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
-Ao usar domínios personalizados com O TLS1.0/1.1 ativado, os seguintes suítes de cifra são suportados:
+Ao usar domínios personalizados com o TLS 1.0/1.1 habilitado, há suporte para os seguintes conjuntos de codificação:
 
 - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
@@ -186,54 +186,54 @@ Ao usar domínios personalizados com O TLS1.0/1.1 ativado, os seguintes suítes 
 - TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
-### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Posso configurar a política TLS para controlar versões do Protocolo TLS?
+### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Posso configurar a política TLS para controlar as versões do protocolo TLS?
 
-Você pode configurar uma versão TLS mínima no Azure Front Door nas configurações HTTPS de domínio personalizado via portal Azure ou a [API Azure REST](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). Atualmente, você pode escolher entre 1.0 e 1.2.
+Você pode configurar uma versão mínima do TLS na porta frontal do Azure nas configurações de HTTPS do domínio personalizado por meio do portal do Azure ou da [API REST do Azure](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). No momento, você pode escolher entre 1,0 e 1,2.
 
-### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Posso configurar a Porta da Frente para suportar apenas suítes de cifras específicas?
+### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Posso configurar a porta frontal para dar suporte apenas a conjuntos de codificação específicos?
 
-Não, a configuração da Porta da Frente para suítes específicas de cifras não é suportada. No entanto, você pode obter seu próprio certificado TLS/SSL personalizado da sua Autoridade de Certificado (digamos Verisign, Entrust ou Digicert) e ter suítes de cifras específicas marcadas no certificado quando você o tiver gerado. 
+Não, não há suporte para a configuração da porta frontal para conjuntos de codificação específicos. No entanto, você pode obter seu próprio certificado TLS/SSL personalizado de sua autoridade de certificação (digamos, Verisign, Entrust ou DigiCert) e ter conjuntos de codificação específicos marcados no certificado quando você o tiver gerado. 
 
-### <a name="does-front-door-support-ocsp-stapling"></a>A Porta da Frente suporta grampeamento OCSP?
+### <a name="does-front-door-support-ocsp-stapling"></a>A porta frontal dá suporte a grampeamento OCSP?
 
-Sim, o grampeamento OCSP é suportado por padrão pela Porta da Frente e nenhuma configuração é necessária.
+Sim, a associação OCSP é suportada por padrão pela porta frontal e nenhuma configuração é necessária.
 
-### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>O Azure Front Door também suporta a recriptografia do tráfego para o backend?
+### <a name="does-azure-front-door-also-support-re-encryption-of-traffic-to-the-backend"></a>A porta frontal do Azure também dá suporte à recriptografia de tráfego para o back-end?
 
-Sim, o Azure Front Door suporta descarregamento TLS/SSL e tLS de ponta a ponta, que recriptografa o tráfego para o backend. Na verdade, uma vez que as conexões para o backend acontecem sobre seu IP público, é recomendável que você configure sua Porta frontal para usar HTTPS como protocolo de encaminhamento.
+Sim, a porta frontal do Azure dá suporte ao descarregamento de TLS/SSL e ao TLS de ponta a ponta, que criptografa novamente o tráfego para o back-end. Na verdade, como as conexões com o back-end acontecem sobre o IP público, é recomendável que você configure sua porta frontal para usar HTTPS como o protocolo de encaminhamento.
 
-### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>O Front Door suporta certificados auto-assinados no backend para conexão HTTPS?
+### <a name="does-front-door-support-self-signed-certificates-on-the-backend-for-https-connection"></a>A porta frontal dá suporte a certificados autoassinados no back-end para conexão HTTPS?
 
-Não, os certificados auto-assinados não são suportados no Front Door e a restrição se aplica a ambos:
+Não, não há suporte para certificados autoassinados na porta frontal e a restrição se aplica a ambos:
 
-1. **Backends**: Você não pode usar certificados auto-assinados quando estiver encaminhando o tráfego como testes de saúde HTTPS ou HTTPS ou preenchendo o cache da origem para regras de roteamento com o cache ativado.
-2. **Frontend**: Você não pode usar certificados auto-assinados ao usar seu próprio certificado TLS/SSL personalizado para habilitar HTTPS em seu domínio personalizado.
+1. **Back-ends**: não é possível usar certificados autoassinados quando você está encaminhando o tráfego como investigações de integridade HTTPS ou HTTPS ou preenchendo o cache de origem para regras de roteamento com Caching habilitado.
+2. **Frontend**: você não pode usar certificados autoassinados ao usar seu próprio certificado TLS/SSL personalizado para habilitar o HTTPS em seu domínio personalizado.
 
-### <a name="why-is-https-traffic-to-my-backend-failing"></a>Por que o tráfego HTTPS para o meu backend está falhando?
+### <a name="why-is-https-traffic-to-my-backend-failing"></a>Por que o tráfego HTTPS para meu back-end falha?
 
-Para ter conexões HTTPS bem-sucedidas no seu backend, seja para testes de saúde ou para solicitações de encaminhamento, pode haver duas razões pelas quais o tráfego HTTPS pode falhar:
+Para ter conexões HTTPS bem-sucedidas para o back-end se for para investigações de integridade ou solicitações de encaminhamento, pode haver dois motivos pelos quais o tráfego HTTPS pode falhar:
 
-1. **Incompatibilidade de nome do assunto do certificado**: Para conexões HTTPS, o Front Door espera que seu backend apresente certificado de um CA válido com nome de assunto correspondente ao nome de host do backend. Como exemplo, se o nome de `myapp-centralus.contosonews.net` host do backend estiver definido e o certificado `myapp-centralus.contosonews.net` `*myapp-centralus*.contosonews.net` que seu backend apresenta durante o aperto de mão TLS nem tem nem no nome do objeto, a Porta da Frente recusará a conexão e resultará em um erro. 
-    1. **Solução**: Embora não seja recomendado do ponto de vista da conformidade, você pode contornar esse erro desabilitando a verificação do nome do assunto do certificado para a porta da frente. Isso está presente em Configurações no portal Azure e em BackendPoolsSettings na API.
-2. **Certificado de hospedagem backend da CA inválida**: Somente certificados de [CAs válidos](/azure/frontdoor/front-door-troubleshoot-allowed-ca) podem ser usados no backend com front door. Não são permitidos certificados de CAs internos ou certificados auto-assinados.
+1. **Incompatibilidade de nome de entidade do certificado**: para conexões HTTPS, a porta frontal espera que seu back-end apresente o certificado de uma AC válida com nome (s) de entidade correspondente ao nome de host de back-end. Por exemplo, se o nome de host de back- `myapp-centralus.contosonews.net` end for definido como e o certificado que seu back-end apresenta durante `myapp-centralus.contosonews.net` o `*myapp-centralus*.contosonews.net` handshake de TLS que não tem nem no nome da entidade, a porta da frente recusará a conexão e resultará em um erro. 
+    1. **Solução**: embora não seja recomendado em um ponto de vista de conformidade, você pode solucionar esse erro ao desabilitar a verificação do nome da entidade do certificado para sua porta frontal. Isso está presente em configurações em portal do Azure e em BackendPoolsSettings na API.
+2. **Certificado de Hospedagem de back-end de AC inválida**: somente certificados de [CAS válidas](/azure/frontdoor/front-door-troubleshoot-allowed-ca) podem ser usados no back-end com a porta frontal. Certificados de CAs internos ou certificados autoassinados não são permitidos.
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registro em log
 
-### <a name="what-types-of-metrics-and-logs-are-available-with-azure-front-door"></a>Que tipos de métricas e registros estão disponíveis com o Azure Front Door?
+### <a name="what-types-of-metrics-and-logs-are-available-with-azure-front-door"></a>Quais tipos de métricas e logs estão disponíveis com a porta frontal do Azure?
 
-Para obter informações sobre logs e outros recursos de diagnóstico, consulte [métricas de monitoramento e registros para porta da frente](front-door-diagnostics.md).
+Para obter informações sobre logs e outros recursos de diagnóstico, consulte [monitoramento de métricas e logs da porta frontal](front-door-diagnostics.md).
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>O que é a política de retenção nos logs de diagnóstico?
 
-Os logs de diagnóstico fluem para a conta de armazenamento de clientes, e os clientes podem definir a política de retenção com base em suas preferências. Os logs de diagnóstico também podem ser enviados para o Hub de Eventos ou os logs do Azure Monitor. Para obter mais informações, consulte [Azure Front Door Diagnostics](front-door-diagnostics.md).
+Os logs de diagnóstico fluem para a conta de armazenamento de clientes, e os clientes podem definir a política de retenção com base em suas preferências. Os logs de diagnóstico também podem ser enviados para o Hub de Eventos ou os logs do Azure Monitor. Para obter mais informações, consulte [Azure front door Diagnostics](front-door-diagnostics.md).
 
-### <a name="how-do-i-get-audit-logs-for-azure-front-door"></a>Como faço para obter registros de auditoria para a porta da frente do Azure?
+### <a name="how-do-i-get-audit-logs-for-azure-front-door"></a>Como fazer obter os logs de auditoria para a porta frontal do Azure?
 
-Os registros de auditoria estão disponíveis para a Porta da Frente do Azure. No portal, clique em Entrar em **atividade** na lâmina do menu da porta da frente para acessar o registro de auditoria. 
+Os logs de auditoria estão disponíveis para a porta frontal do Azure. No portal, clique em **log de atividades** na folha do menu da sua porta frontal para acessar o log de auditoria. 
 
-### <a name="can-i-set-alerts-with-azure-front-door"></a>Posso colocar alertas com a porta da frente do Azure?
+### <a name="can-i-set-alerts-with-azure-front-door"></a>Posso definir alertas com a porta frontal do Azure?
 
-Sim, a Porta da Frente do Azure suporta alertas. Os alertas são configurados nas métricas. 
+Sim, a porta frontal do Azure dá suporte a alertas. Os alertas são configurados nas métricas. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

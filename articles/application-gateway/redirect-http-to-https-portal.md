@@ -1,5 +1,5 @@
 ---
-title: HTTP para REDirecionamento HTTPS no portal - Gateway de aplicativo Do Azure
+title: Redirecionamento de HTTP para HTTPS no portal-Aplicativo Azure gateway
 description: Saiba como criar um gateway de aplicativo com o tráfego redirecionado de HTTP para HTTPS usando o portal do Azure.
 services: application-gateway
 author: vhorne
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: cd33d23a506bd86b9651af3d4c3bbca01673a7a4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312089"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o portal do Azure
 
-Você pode usar o portal Azure para criar um [gateway de aplicativo](overview.md) com um certificado de rescisão TLS. Uma regra de roteamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no gateway do seu aplicativo. Neste exemplo, você também pode criar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para pool de back-end do gateway do aplicativo que contém duas instâncias de máquina virtual.
+Você pode usar o portal do Azure para criar um [Gateway de aplicativo](overview.md) com um certificado para terminação TLS. Uma regra de roteamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no gateway do seu aplicativo. Neste exemplo, você também pode criar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para pool de back-end do gateway do aplicativo que contém duas instâncias de máquina virtual.
 
 Neste artigo, você aprenderá como:
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este tutorial requer que o módulo Azure PowerShell versão 1.0.0 ou posterior para criar um certificado e instalar o IIS. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste tutorial, você também precisa executar `Login-AzAccount` para criar uma conexão com o Azure.
+Este tutorial requer o módulo Azure PowerShell versão 1.0.0 ou posterior para criar um certificado e instalar o IIS. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Para executar os comandos neste tutorial, você também precisa executar `Login-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
@@ -67,7 +67,7 @@ Export-PfxCertificate `
 
 Uma rede virtual é necessária para a comunicação entre os recursos que você criar. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicativo e a outra para os servidores de back-end. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo.
 
-1. Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Clique em **Criar um recurso** encontrado na parte superior esquerda do portal do Azure.
 3. Selecione **Rede** e depois **Gateway de Aplicativo** na lista em destaque.
 4. Insira esses valores para o gateway de aplicativo:
@@ -118,14 +118,14 @@ Primeiro, adicione o ouvinte denominado *myListener* à porta 80.
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Adicionar uma regra de roteamento com uma configuração de redirecionamento
 
-1. No **myAppGateway,** selecione **Regras** e selecione **a regra de roteamento +Solicitação**.
-2. Para o **nome de regra,** digite *Regra2*.
+1. Em **myAppGateway**, selecione **regras** e, em seguida, selecione **+ regra de roteamento de solicitação**.
+2. Para o **nome da regra**, digite *Rule2*.
 3. Verifique se **MyListener** está selecionado como o ouvinte.
-4. Clique na guia **'Metas do Backend'** e selecione **'Tipo de destino'** como *Redirecionamento*.
+4. Clique na guia **destinos de back-end** e selecione **tipo de destino** como *redirecionamento*.
 5. Em **Tipo de redirecionamento**, selecione **Permanente**.
 6. Em **Destino de redirecionamento**, selecione **Ouvinte**.
 7. Verifique se o **Ouvinte de destino** está definido como **appGatewayHttpListener**.
-8. Para a **seqüência de consulta incluir e** incluir **caminho** selecione *Sim*.
+8. Para a **cadeia de caracteres de consulta include** e **incluir o caminho** , selecione *Sim*.
 9. Selecione **Adicionar**.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Criar um conjunto de dimensionamento de máquinas virtuais
@@ -133,7 +133,7 @@ Primeiro, adicione o ouvinte denominado *myListener* à porta 80.
 Neste exemplo, você criará um conjunto de dimensionamento de máquinas virtuais configurado para fornecer servidores para o pool de back-end no gateway de aplicativo.
 
 1. No canto superior esquerdo do portal, selecione **+ Criar um recurso**.
-2. Selecione **Calcular**.
+2. Selecione **computação**.
 3. Na caixa de pesquisa, digite *conjunto de dimensionamento* e pressione Enter.
 4. Selecione **Conjunto de dimensionamento de máquinas virtuais**e selecione **Criar**.
 5. Em **Nome do conjunto de dimensionamento de máquinas virtuais**, digite *myvmss*.
@@ -157,13 +157,13 @@ A interface do usuário do portal do conjunto de dimensionamento de máquinas vi
 3. Selecione **Pools de back-end**.
 4. Selecione **myAppGatewaymyvmss**.
 5. Selecione **Remover todos os destinos do pool de back-end**.
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 7. Depois que esse processo for concluído, selecione o pool de back-end **myAppGatewaymyvmss**, selecione **Excluir** e **OK** para confirmar.
-8. Selecione **o aplicativoGatewayBackendPool**.
+8. Selecione **appGatewayBackendPool**.
 9. Em **Destinos**, selecione **VMSS**.
 10. Em **VMSS**, selecione **myvmss**.
 11. Em **Configurações do Adaptador de Rede**, selecione **myvmssNic**.
-12. Clique em **Salvar**.
+12. Selecione **Salvar**.
 
 ### <a name="upgrade-the-scale-set"></a>Atualizar o conjunto de dimensionamento
 
@@ -172,7 +172,7 @@ Por fim, você deve atualizar o conjunto de dimensionamento com essas alteraçõ
 1. Selecione o conjunto de dimensionamento **myvmss**.
 2. Em **Configurações**, selecione **Instâncias**.
 3. Selecione ambas as instâncias e selecione **Atualizar**.
-4. Clique em **Sim** para confirmar.
+4. Selecione **Sim** para confirmar.
 5. Depois que isso for concluído, volte para **myAppGateway** e selecione **Pools de back-end**. Agora você deve ver que o **appGatewayBackendPool** tem dois destinos, e **myAppGatewaymyvmss** não tem destinos.
 6. Selecione **myAppGatewaymyvmss**e selecione **Excluir**.
 7. Selecione **OK** para confirmar.
@@ -206,7 +206,7 @@ Depois de alterar as instâncias com o IIS, você deve atualizar novamente o con
 1. Selecione o conjunto de dimensionamento **myvmss**.
 2. Em **Configurações**, selecione **Instâncias**.
 3. Selecione ambas as instâncias e selecione **Atualizar**.
-4. Clique em **Sim** para confirmar.
+4. Selecione **Sim** para confirmar.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
@@ -219,7 +219,7 @@ Você pode obter o endereço IP público do aplicativo na página Visão Geral d
 
    ![Aviso de segurança](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 
-4. Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e depois **Prosseguir para a página da Web**. Seu site de IIS protegido é exibido, como no exemplo a seguir:
+4. Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **detalhes** e **vá para a página da Web**. Seu site de IIS protegido é exibido, como no exemplo a seguir:
 
    ![Testar a URL de base no gateway de aplicativo](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 

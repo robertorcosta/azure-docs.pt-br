@@ -1,7 +1,7 @@
 ---
-title: Como usar a detecção automática de linguagem para a fala para texto
+title: Como usar a detecção automática de idioma para fala em texto
 titleSuffix: Azure Cognitive Services
-description: O Speech SDK suporta detecção automática de linguagem para fala a texto. Ao usar esse recurso, o áudio fornecido é comparado com uma lista fornecida de idiomas, e a correspondência mais provável é determinada. O valor retornado pode então ser usado para selecionar o modelo de idioma usado para fala a texto.
+description: O SDK de fala dá suporte à detecção automática de idioma para fala em texto. Ao usar esse recurso, o áudio fornecido é comparado com uma lista de idiomas fornecida e a correspondência mais provável é determinada. O valor retornado pode então ser usado para selecionar o modelo de idioma usado para a fala de texto.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,29 +12,29 @@ ms.date: 03/16/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: fefbe793fa4a6b90ba9bf8d468d42dcbd315759c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81402198"
 ---
-# <a name="automatic-language-detection-for-speech-to-text"></a>Detecção automática de linguagem para fala a texto
+# <a name="automatic-language-detection-for-speech-to-text"></a>Detecção automática de idioma para fala em texto
 
-A detecção automática de idiomas é usada para determinar a correspondência mais provável para áudio passado para o Speech SDK quando comparada com uma lista de idiomas fornecidos. O valor retornado pela detecção automática de idiomas é então usado para selecionar o modelo de idioma para fala a texto, fornecendo-lhe uma transcrição mais precisa. Para ver quais idiomas estão disponíveis, consulte [suporte ao idioma](language-support.md).
+A detecção automática de idioma é usada para determinar a correspondência mais provável para o áudio passado para o SDK de fala em comparação com uma lista de idiomas fornecidos. O valor retornado pela detecção automática de idioma é usado para selecionar o modelo de linguagem de fala para texto, fornecendo uma transcrição mais precisa. Para ver quais idiomas estão disponíveis, consulte [suporte a idiomas](language-support.md).
 
-Neste artigo, você aprenderá a `AutoDetectSourceLanguageConfig` usar `SpeechRecognizer` para construir um objeto e recuperar a linguagem detectada.
+Neste artigo, você aprenderá a usar `AutoDetectSourceLanguageConfig` o para construir um `SpeechRecognizer` objeto e recuperar o idioma detectado.
 
 > [!IMPORTANT]
-> Este recurso só está disponível para o Speech SDK para C#, C++, Java e Python.
+> Esse recurso só está disponível para o SDK de fala para C#, C++, Java e Python.
 
-## <a name="automatic-language-detection-with-the-speech-sdk"></a>Detecção automática de linguagem com o SDK de fala
+## <a name="automatic-language-detection-with-the-speech-sdk"></a>Detecção automática de idioma com o SDK de fala
 
-Atualmente, a detecção automática de idiomas tem um limite de dois idiomas por detecção. Tenha essa limitação em `AudoDetectSourceLanguageConfig` mente ao construir seu objeto. Nas amostras abaixo, você criará um `AutoDetectSourceLanguageConfig`, em `SpeechRecognizer`seguida, usá-lo para construir um .
+A detecção automática de idioma atualmente tem um limite no lado dos serviços de dois idiomas por detecção. Tenha essa limitação em mente ao construção do `AudoDetectSourceLanguageConfig` objeto. Nos exemplos abaixo, você criará um `AutoDetectSourceLanguageConfig`e o usará para construir um. `SpeechRecognizer`
 
 > [!TIP]
-> Você também pode especificar um modelo personalizado para usar ao executar a fala para o texto. Para obter mais informações, consulte [Use um modelo personalizado para detecção automática de linguagem](#use-a-custom-model-for-automatic-language-detection).
+> Você também pode especificar um modelo personalizado a ser usado ao executar a fala em texto. Para obter mais informações, consulte [usar um modelo personalizado para detecção automática de idioma](#use-a-custom-model-for-automatic-language-detection).
 
-Os seguintes trechos ilustram como usar a detecção automática de linguagem em seus aplicativos:
+Os trechos de código a seguir ilustram como usar a detecção automática de idioma em seus aplicativos:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -118,11 +118,11 @@ detected_language = auto_detect_source_language_result.language
 
 ::: zone-end
 
-## <a name="use-a-custom-model-for-automatic-language-detection"></a>Use um modelo personalizado para detecção automática de linguagem
+## <a name="use-a-custom-model-for-automatic-language-detection"></a>Usar um modelo personalizado para detecção automática de idioma
 
-Além da detecção de linguagem usando modelos de serviço de fala, você pode especificar um modelo personalizado para reconhecimento aprimorado. Se um modelo personalizado não for fornecido, o serviço usará o modelo de idioma padrão.
+Além da detecção de idioma usando modelos de serviço de fala, você pode especificar um modelo personalizado para reconhecimento avançado. Se um modelo personalizado não for fornecido, o serviço usará o modelo de idioma padrão.
 
-Os trechos abaixo ilustram como especificar um modelo personalizado em sua chamada para o serviço Speech. Se a linguagem `en-US`detectada for, o modelo padrão será usado. Se a linguagem `fr-FR`detectada for, então o ponto final para o modelo personalizado será usado:
+Os trechos de código a seguir ilustram como especificar um modelo personalizado em sua chamada para o serviço de fala. Se o idioma detectado for `en-US`, o modelo padrão será usado. Se o idioma detectado for `fr-FR`, o ponto de extremidade para o modelo personalizado será usado:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -184,4 +184,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Documentação de referência do Speech SDK](speech-sdk.md)
+- [Documentação de referência do SDK de fala](speech-sdk.md)

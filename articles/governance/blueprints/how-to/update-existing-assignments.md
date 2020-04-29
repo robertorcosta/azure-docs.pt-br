@@ -1,13 +1,13 @@
 ---
-title: Atualize uma atribuição existente do portal
-description: Conheça o mecanismo para atualizar uma atribuição de projeto existente no portal no Azure Blueprints.
+title: Atualizar uma atribuição existente do portal
+description: Saiba mais sobre o mecanismo de atualização de uma atribuição de Blueprint existente do portal em plantas do Azure.
 ms.date: 04/15/2020
 ms.topic: how-to
 ms.openlocfilehash: a00a8bcc10b37af576777e3816a794225a3832f7
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81381799"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
@@ -24,20 +24,20 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 1. Selecione **Blueprints atribuídos** na página à esquerda.
 
-1. Na lista de planos gráficos, clique em atribuição de planta. Em seguida, clique no botão **Atualizar atribuição** ou clique com o botão direito do mouse na atribuição do projeto e selecione **Atualizar a atribuição**.
+1. Na lista de planos gráficos, clique em atribuição de planta. Em seguida, clique no botão **Atualizar atribuição** ou clique com o botão direito do mouse na atribuição Blueprint e selecione **Atualizar atribuição**.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Atualize uma atribuição de projeto existente" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Atualizar uma atribuição de Blueprint existente" border="false":::
 
-1. A página **atribuir o projeto** será carregada pré-preenchida com todos os valores da atribuição original.
+1. A página **atribuir Blueprint** será carregada previamente preenchida com todos os valores da atribuição original.
    Você pode alterar a **versão de definição do blueprint**, o estado **Bloquear Atribuição** e qualquer um dos parâmetros dinâmicos que existem na definição do blueprint. Clique em **Atribuir** quando terminar de fazer alterações.
 
 1. Na página de detalhes de atribuição atualizada, veja o novo status. Neste exemplo, adicionamos **Bloqueio** à atribuição.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Atualizou uma atribuição de projeto existente - modo de bloqueio alterado" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Atualizou uma atribuição de Blueprint existente – modo de bloqueio alterado" border="false":::
 
-1. Explorar detalhes sobre outras **operações de atribuição** usando o drop-down. A tabela de atualizações de **recursos gerenciados** pela operação de atribuição selecionada.
+1. Explore os detalhes sobre outras **operações de atribuição** usando a lista suspensa. A tabela de atualizações de **recursos gerenciados** por operação de atribuição selecionada.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Operações de atribuição de uma atribuição de projeto" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Operações de atribuição de uma atribuição de Blueprint" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
 
@@ -65,7 +65,7 @@ Não há nenhum limite para o número de vezes que uma atribuição pode ser atu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Conheça o [ciclo de vida](../concepts/lifecycle.md)do projeto .
+- Saiba mais sobre o [ciclo de vida do blueprint](../concepts/lifecycle.md).
 - Saiba como usar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Saiba como personalizar a [ordem de sequenciamento de blueprint](../concepts/sequencing-order.md).
 - Saiba como usar o [bloqueio de recurso de blueprint](../concepts/resource-locking.md).

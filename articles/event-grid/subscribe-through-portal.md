@@ -1,6 +1,6 @@
 ---
 title: Assinaturas da Grade de Eventos do Azure por meio do portal
-description: Este artigo descreve como criar assinaturas do Event Grid para as fontes suportadas, como o Azure Blob Storage, usando o portal Azure.
+description: Este artigo descreve como criar assinaturas de grade de eventos para as fontes com suporte, como o armazenamento de BLOBs do Azure, usando o portal do Azure.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 599f48ed241010d8551bd110c7f778c9ef508eac
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393172"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Assinar os eventos por meio do portal
@@ -28,7 +28,7 @@ Para criar uma assinatura da Grade de Eventos para qualquer uma das [origens do 
 
 1. Pesquise **Assinaturas da Grade de Eventos** e selecione-as nas opções disponíveis.
 
-   ![Search](./media/subscribe-through-portal/search.png)
+   ![Pesquisar](./media/subscribe-through-portal/search.png)
 
 1. Selecione **+ Assinatura de Evento**.
 

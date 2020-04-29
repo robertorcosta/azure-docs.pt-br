@@ -1,7 +1,7 @@
 ---
-title: Terminação TLS usando PowerShell
+title: Término do TLS usando o PowerShell
 titleSuffix: Azure Application Gateway
-description: Saiba como criar um gateway de aplicativo e adicionar um certificado para término tls usando o Azure PowerShell.
+description: Saiba como criar um gateway de aplicativo e adicionar um certificado para terminação TLS usando Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -10,15 +10,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 2bd625982ebd051b92df2f66515fd5b0d0612303
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311929"
 ---
-# <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Crie um gateway de aplicativo com terminação TLS usando o Azure PowerShell
+# <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Criar um gateway de aplicativo com terminação TLS usando Azure PowerShell
 
-Você pode usar o Azure PowerShell para criar um [gateway de aplicativo](overview.md) com um certificado de [terminação TLS/SSL](ssl-overview.md) que usa um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo. 
+Você pode usar Azure PowerShell para criar um [Gateway de aplicativo](overview.md) com um certificado para [terminação TLS/SSL](ssl-overview.md) que usa um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de back-end. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo. 
 
 Neste artigo, você aprenderá como:
 
@@ -32,11 +32,11 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Este artigo requer a versão 1.0.0 do módulo Azure PowerShell ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzAccount` para criar uma conexão com o Azure.
+Este artigo requer o módulo Azure PowerShell versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzAccount` para criar uma conexão com o Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
-Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este artigo, você cria um certificado auto-assinado usando [o New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Você pode usar o [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi retornada para exportar um arquivo pfx do certificado.
+Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este artigo, você cria um certificado autoassinado usando [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Você pode usar o [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi retornada para exportar um arquivo pfx do certificado.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -285,7 +285,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Aviso de segurança](./media/tutorial-ssl-powershell/application-gateway-secure.png)
 
-Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e depois **Prosseguir para a página da Web**. Seu site de IIS protegido é exibido, como no exemplo a seguir:
+Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **detalhes** e **vá para a página da Web**. Seu site de IIS protegido é exibido, como no exemplo a seguir:
 
 ![Testar a URL de base no gateway de aplicativo](./media/tutorial-ssl-powershell/application-gateway-iistest.png)
 

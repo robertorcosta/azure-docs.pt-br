@@ -4,32 +4,32 @@ description: Escreva Processadores de Telemetria e Inicializadores de Telemetria
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.openlocfilehash: 8b81849726ad546a24ce1bb56a139b384eb54c42
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81405374"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
 
-Você pode escrever e configurar plug-ins para o Application Insights SDK para personalizar como a telemetria pode ser enriquecida e processada antes de ser enviada para o serviço Application Insights.
+Você pode gravar e configurar plug-ins para o SDK do Application Insights para personalizar como a telemetria pode ser enriqueceda e processada antes de ser enviada ao serviço de Application Insights.
 
 * [Amostragem](sampling.md) reduz o volume de telemetria sem afetar as estatísticas. Ela mantém juntos os pontos de dados relacionadas para que você possa navegar entre eles para diagnosticar um problema. No portal, as contagens totais são multiplicadas para compensar a amostragem.
-* Filtrar com processadores de telemetria permite filtrar a telemetria no SDK antes de ser enviada para o servidor. Por exemplo, você pode reduzir o volume de telemetria excluindo as solicitações de robôs. Filtragem é uma abordagem mais básica para reduzir o tráfego do que a amostragem. Ela permite um maior controle sobre o que é transmitido, mas você precisa estar ciente de que ela afetará as estatísticas - por exemplo, se você filtrar todas as solicitações bem-sucedidas.
-* [Telemetria Os iniciadores adicionam ou modificam propriedades](#add-properties) a qualquer telemetria enviada do seu aplicativo, incluindo a telemetria dos módulos padrão. Por exemplo, você pode adicionar valores calculados ou números de versão pelos qual os dados serão filtrados no portal.
+* A filtragem com processadores de telemetria permite filtrar a telemetria no SDK antes que ele seja enviado ao servidor. Por exemplo, você pode reduzir o volume de telemetria excluindo as solicitações de robôs. A filtragem é uma abordagem mais básica para reduzir o tráfego do que a amostragem. Ela permite um maior controle sobre o que é transmitido, mas você precisa estar ciente de que ela afetará as estatísticas - por exemplo, se você filtrar todas as solicitações bem-sucedidas.
+* [Inicializadores de telemetria adicionam ou modificam Propriedades](#add-properties) para qualquer telemetria enviada de seu aplicativo, incluindo a telemetria dos módulos padrão. Por exemplo, você pode adicionar valores calculados ou números de versão pelos qual os dados serão filtrados no portal.
 * [A API do SDK](../../azure-monitor/app/api-custom-events-metrics.md) é usada para enviar eventos personalizados e métricas.
 
 Antes de iniciar:
 
-* Instale o SDK apropriado para sua aplicação: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md)ou [JavaScript](javascript.md)
+* Instale o SDK apropriado para seu aplicativo: [ASP.net](asp-net.md), [ASP.NET Core](asp-net-core.md), [não http/Worker para .net/.NET Core](worker-service.md)ou [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
 ## <a name="filtering"></a>Filtragem
 
-Esta técnica lhe dá controle direto sobre o que está incluído ou excluído do fluxo de telemetria. A filtragem pode ser usada para soltar itens de telemetria de serem enviados para o Application Insights. Você pode usá-la em conjunto com a Amostragem, ou separadamente.
+Essa técnica oferece controle direto sobre o que é incluído ou excluído do fluxo de telemetria. A filtragem pode ser usada para descartar itens de telemetria de serem enviados para Application Insights. Você pode usá-la em conjunto com a Amostragem, ou separadamente.
 
-Para filtrar a telemetria, você escreve um processador `TelemetryConfiguration`de telemetria e registra-o com o . Toda a telemetria passa pelo seu processador, e você pode optar por soltá-lo do fluxo ou dá-lo ao próximo processador da cadeia. Isso inclui a telemetria dos módulos padrão, como o coletor de solicitações HTTP e o coletor de dependência, e a telemetria que você mesmo rastreou. Por exemplo, você pode filtrar a telemetria sobre solicitações de robôs ou sobre chamadas de dependência bem-sucedidas.
+Para filtrar a telemetria, você escreve um processador de telemetria e `TelemetryConfiguration`o registra com o. Toda a telemetria passa pelo processador e você pode optar por descartá-la do fluxo ou fornecê-la ao próximo processador na cadeia. Isso inclui a telemetria dos módulos padrão, como o coletor de solicitação HTTP e o coletor de dependências, e a telemetria que você mesmo rastreou. Por exemplo, você pode filtrar a telemetria sobre solicitações de robôs ou sobre chamadas de dependência bem-sucedidas.
 
 > [!WARNING]
 > Filtrar a telemetria enviada do SDK usando processadores pode distorcer as estatísticas que você vê no portal e dificultar o acompanhamento de itens relacionados.
@@ -40,9 +40,9 @@ Para filtrar a telemetria, você escreve um processador `TelemetryConfiguration`
 
 ### <a name="create-a-telemetry-processor-c"></a>Criar um processador de telemetria (C#)
 
-1. Para criar um `ITelemetryProcessor`filtro, implemente .
+1. Para criar um filtro, implemente `ITelemetryProcessor`.
 
-    Observe que os Processadores de Telemetria criam uma cadeia de processamento. Quando você instancia um processador de telemetria, você recebe uma referência ao próximo processador da cadeia. Quando um ponto de dados de telemetria é passado para o método Process, ele faz seu trabalho e, em seguida, chama (ou não chamadas) o próximo processador de telemetria da cadeia.
+    Observe que os Processadores de Telemetria criam uma cadeia de processamento. Ao criar uma instância de um processador de telemetria, você recebe uma referência ao próximo processador na cadeia. Quando um ponto de dados de telemetria é passado para o método Process, ele faz seu trabalho e, em seguida, chama (ou não chamadas) o próximo processador de telemetria na cadeia.
 
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
@@ -79,7 +79,7 @@ Para filtrar a telemetria, você escreve um processador `TelemetryConfiguration`
 
 2. Adicione seu processador.
 
-**aplicativos ASP.NET** Insira este trecho no ApplicationInsights.config:
+**Aplicativos ASP.net** Insira este trecho de código em ApplicationInsights. config:
 
 ```xml
 <TelemetryProcessors>
@@ -96,7 +96,7 @@ Você pode transmitir valores de cadeia de caracteres do arquivo .config fornece
 > Fique atento para que o nome do tipo e todos os nomes de propriedade no arquivo .config correspondam aos nomes de classe e de propriedade no código. Se o arquivo .config fizer referência a um tipo ou propriedade inexistente, o SDK poderá silenciosamente falhar ao enviar qualquer telemetria.
 >
 
-**Como alternativa,** é possível inicializar o filtro no código. Em uma classe de inicialização adequada `Global.asax.cs` - por exemplo, AppStart in - insira seu processador na cadeia:
+**Como alternativa,** é possível inicializar o filtro no código. Em uma classe de inicialização adequada – por exemplo, `Global.asax.cs` AppStart o processador na cadeia:
 
 ```csharp
 var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -110,12 +110,12 @@ builder.Build();
 
 Os TelemetryClients criados depois desse ponto usarão seus processadores.
 
-**ASP.NET aplicativos de Serviço do Núcleo/Trabalhador**
+**Aplicativos de serviço ASP.NET Core/Worker**
 
 > [!NOTE]
-> Adicionar processador `ApplicationInsights.config` usando `TelemetryConfiguration.Active` ou usando não é válido para ASP.NET aplicativos Core ou se você estiver usando microsoft.ApplicationInsights.WorkerService SDK.
+> A adição de `ApplicationInsights.config` processador usando `TelemetryConfiguration.Active` ou usando o não é válida para aplicativos ASP.NET Core ou se você estiver usando o SDK Microsoft. ApplicationInsights. WorkerService.
 
-Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) ou [WorkerService](worker-service.md#adding-telemetry-processors), a adição de um novo `TelemetryProcessor` é feito usando `AddApplicationInsightsTelemetryProcessor` o método de extensão ligado, `IServiceCollection`como mostrado abaixo. Este método é `ConfigureServices` chamado `Startup.cs` no método de sua classe.
+Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) ou [WorkerService](worker-service.md#adding-telemetry-processors), adicionar um novo `TelemetryProcessor` é feito usando `AddApplicationInsightsTelemetryProcessor` o método de extensão `IServiceCollection`em, conforme mostrado abaixo. Esse método é chamado no `ConfigureServices` método de sua `Startup.cs` classe.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -133,7 +133,7 @@ Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetry
 
 #### <a name="synthetic-requests"></a>Solicitações sintéticas
 
-Filtre os bots e os testes Web. Embora o Metrics Explorer lhe dê a opção de filtrar fontes sintéticas, essa opção reduz o tráfego e o tamanho da ingestão, filtrando-as no próprio SDK.
+Filtre os bots e os testes Web. Embora Metrics Explorer ofereça a opção de filtrar fontes sintéticas, essa opção reduz o tráfego e o tamanho de ingestão filtrando-os no próprio SDK.
 
 ```csharp
 public void Process(ITelemetry item)
@@ -194,11 +194,11 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-### <a name="javascript-web-applications"></a>Aplicativos Web JavaScript
+### <a name="javascript-web-applications"></a>Aplicativos Web do JavaScript
 
-**Filtragem usando ITelemettryInitializer**
+**Filtragem usando ITelemetryInitializer**
 
-1. Crie uma função de retorno de chamada inicializador de telemetria. A função de `ITelemetryItem` retorno de chamada toma como parâmetro, que é o evento que está sendo processado. O `false` retorno deste retorno de retorno resulta no item de telemetria a ser filtrado.  
+1. Crie uma função de retorno de chamada do inicializador de telemetria. A função de retorno `ITelemetryItem` de chamada usa como um parâmetro, que é o evento que está sendo processado. Retornar `false` deste retorno de chamada resulta no item de telemetria a ser filtrado.  
 
    ```JS
    var filteringFunction = (envelope) => {
@@ -210,20 +210,20 @@ public void Process(ITelemetry item)
    };
    ```
 
-2. Adicione o retorno do reencontro inicializador de telemetria:
+2. Adicione o retorno de chamada do inicializador de telemetria:
 
    ```JS
    appInsights.addTelemetryInitializer(filteringFunction);
    ```
 
-## <a name="addmodify-properties-itelemetryinitializer"></a>Adicionar/modificar propriedades: ITelemetriaInicializador
+## <a name="addmodify-properties-itelemetryinitializer"></a>Adicionar/modificar propriedades: ITelemetryInitializer
 
 
-Use iniciadores de telemetria para enriquecer a telemetria com informações adicionais e/ou para substituir as propriedades de telemetria definidas pelos módulos padrão de telemetria.
+Use inicializadores de telemetria para enriquecer a telemetria com informações adicionais e/ou para substituir as propriedades de telemetria definidas pelos módulos de telemetria padrão.
 
-Por exemplo, o pacote Application Insights for Web coleta telemetria sobre solicitações HTTP. Por padrão, ele sinaliza como qualquer solicitação com um código de resposta de falha > = 400. Mas se desejar tratar 400 como êxito, você pode fornecer um inicializador de telemetria que define a propriedade Sucess.
+Por exemplo, a Application Insights para o pacote da Web coleta a telemetria sobre solicitações HTTP. Por padrão, ele sinaliza como qualquer solicitação com um código de resposta de falha > = 400. Mas se desejar tratar 400 como êxito, você pode fornecer um inicializador de telemetria que define a propriedade Sucess.
 
-Se você fornecer um inicializador de telemetria, ele é chamado sempre que qualquer um dos métodos Track*() for chamado. Isso inclui `Track()` métodos chamados pelos módulos de telemetria padrão. Por convenção, esses módulos não definem qualquer propriedade que já foi definida por um inicializador. Iniciadores de telemetria são chamados antes de chamar processadores de telemetria. Assim, quaisquer enriquecimentos feitos por iniciadores são visíveis para processadores.
+Se você fornecer um inicializador de telemetria, ele é chamado sempre que qualquer um dos métodos Track*() for chamado. Isso inclui `Track()` métodos chamados pelos módulos de telemetria padrão. Por convenção, esses módulos não definem qualquer propriedade que já foi definida por um inicializador. Inicializadores de telemetria são chamados antes de chamar processadores de telemetria. Portanto, todos os aprimoramentos feitos por inicializadores são visíveis para os processadores.
 
 **Definir seu inicializador**
 
@@ -266,7 +266,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-**ASP.NET aplicativos: Carregue seu inicializador**
+**Aplicativos ASP.NET: carregar seu inicializador**
 
 Em ApplicationInsights.config:
 
@@ -292,12 +292,12 @@ protected void Application_Start()
 
 [Ver mais deste exemplo.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-**ASP.NET aplicativos Core/ Worker Service: Carregue seu inicializador**
+**Aplicativos de serviço ASP.NET Core/Worker: carregar seu inicializador**
 
 > [!NOTE]
-> Adicionar inicializador `ApplicationInsights.config` `TelemetryConfiguration.Active` usando ou usando não é válido para ASP.NET aplicativos Core ou se você estiver usando microsoft.ApplicationInsights.WorkerService SDK.
+> Adicionar inicializador `ApplicationInsights.config` usando ou `TelemetryConfiguration.Active` usando não é válido para aplicativos ASP.NET Core ou se você estiver usando o SDK Microsoft. ApplicationInsights. WorkerService.
 
-Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) ou `TelemetryInitializer` [WorkerService](worker-service.md#adding-telemetryinitializers), a adição de um novo é feito adicionando-o ao recipiente Dependency Injection, como mostrado abaixo. Isso é `Startup.ConfigureServices` feito no método.
+Para aplicativos escritos usando [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) ou [WorkerService](worker-service.md#adding-telemetryinitializers), adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no `Startup.ConfigureServices` método.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -353,14 +353,14 @@ Insira um inicializador de telemetria logo após o código de inicialização qu
 
 Para obter um resumo das propriedades não personalizadas disponíveis em telemetryItem, veja o [Modelo de dados de exportação do Application Insights](../../azure-monitor/app/export-data-model.md).
 
-Você pode adicionar quantos iniciadores quiser, e eles são chamados na ordem em que são adicionados.
+Você pode adicionar quantos inicializadores desejar e eles são chamados na ordem em que são adicionados.
 
-### <a name="opencensus-python-telemetry-processors"></a>Processadores de telemetria OpenCensus Python
+### <a name="opencensus-python-telemetry-processors"></a>Processadores de telemetria do OpenCensus Python
 
-Os processadores de telemetria no OpenCensus Python são simplesmente funções de retorno de chamada chamadas para processar a telemetria antes de serem exportadas. A função de retorno de chamada deve aceitar um tipo de dados [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) como parâmetro. Para filtrar a telemetria de ser exportada, certifique-se de que a função de retorno de chamada retorna `False`. Você pode ver o esquema para os tipos de dados do Azure Monitor nos envelopes [aqui](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+Os processadores de telemetria no Python OpenCensus são simplesmente funções de retorno de chamada chamadas para processar a telemetria antes de serem exportadas. A função de retorno de chamada deve aceitar um tipo de dados de [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) como seu parâmetro. Para filtrar a telemetria de ser exportada, verifique se a `False`função de retorno de chamada retorna. Você pode ver o esquema para Azure Monitor tipos de dados nos envelopes [aqui](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
 > [!NOTE]
-> Você pode `cloud_RoleName` modificar o `ai.cloud.role` alterando `tags` o atributo no campo.
+> Você pode modificar o `cloud_RoleName` alterando o `ai.cloud.role` atributo no `tags` campo.
 
 ```python
 def callback_function(envelope):
@@ -462,13 +462,13 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-Você pode adicionar quantos processadores quiser, e eles são chamados na ordem em que são adicionados. Se um processador deve lançar uma exceção, ele não afeta os seguintes processadores.
+Você pode adicionar quantos processadores desejar e eles serão chamados na ordem em que são adicionados. Se um processador deve lançar uma exceção, ele não afeta os processadores a seguir.
 
-### <a name="example-telemetryinitializers"></a>Exemplo TelemetriaInicializers
+### <a name="example-telemetryinitializers"></a>Exemplo de TelemetryInitializers
 
 #### <a name="add-custom-property"></a>Adicionar propriedade personalizada
 
-O inicializador de amostra a seguir adiciona uma propriedade personalizada a cada telemetria rastreada.
+O inicializador de exemplo a seguir adiciona uma propriedade personalizada a cada telemetria rastreada.
 
 ```csharp
 public void Initialize(ITelemetry item)
@@ -481,9 +481,9 @@ public void Initialize(ITelemetry item)
 }
 ```
 
-#### <a name="add-cloud-role-name"></a>Adicionar nome de função na nuvem
+#### <a name="add-cloud-role-name"></a>Adicionar nome da função de nuvem
 
-O inicializador de amostra a seguir define o nome da função de nuvem para cada telemetria rastreada.
+O inicializador de exemplo a seguir define o nome da função de nuvem para cada telemetria rastreada.
 
 ```csharp
 public void Initialize(ITelemetry telemetry)
@@ -495,9 +495,9 @@ public void Initialize(ITelemetry telemetry)
 }
 ```
 
-#### <a name="add-information-from-httpcontext"></a>Adicionar informações do HttpContext
+#### <a name="add-information-from-httpcontext"></a>Adicionar informações de HttpContext
 
-O inicializador de amostra [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) a seguir lê `RequestTelemetry` dados do e os anexa a uma instância. O `IHttpContextAccessor` é fornecido automaticamente através de injeção de dependência de construtores.
+O inicializador de exemplo a seguir lê [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) dados do e os anexa a `RequestTelemetry` uma instância do. O `IHttpContextAccessor` é fornecido automaticamente por injeção de dependência de construtor.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -527,12 +527,12 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 
 Qual é a diferença entre os processadores de telemetria e inicializadores de telemetria?
 
-* Existem algumas sobreposições no que você pode fazer com eles: ambos podem ser usados para adicionar ou modificar propriedades da telemetria, embora seja recomendável usar iniciadores para esse fim.
+* Há algumas sobreposições no que você pode fazer com elas: ambas podem ser usadas para adicionar ou modificar propriedades de telemetria, embora seja recomendável usar inicializadores para essa finalidade.
 * Sempre execute TelemetryInitializers antes de TelemetryProcessors.
-* TelemetriaInicializante pode ser chamado mais de uma vez. Por convenção, eles não definem nenhuma propriedade que já tenha sido definida.
+* TelemetryInitializers pode ser chamado mais de uma vez. Por convenção, eles não definem nenhuma propriedade que já tenha sido definida.
 * TelemetryProcessors permitem que você substitua ou descarte completamente um item de telemetria.
-* Todos os Telemetrias registradosInicializadores são garantidos para serem chamados para cada item de telemetria. Para processadores de telemetria, o SDK garante chamar o primeiro processador de telemetria. Se o resto dos processadores são chamados ou não, é decidido pelos processadores de telemetria anteriores.
-* Use telemetriaInicializers para enriquecer a telemetria com propriedades adicionais ou substituir as existentes. Use o TelemetriaProcessor para filtrar a telemetria.
+* Todos os TelemetryInitializers registrados têm a garantia de serem chamados para cada item de telemetria. Para processadores de telemetria, o SDK garante a chamada do primeiro processador de telemetria. Se o restante dos processadores são chamados ou não, o é decidido pelos processadores de telemetria anteriores.
+* Use TelemetryInitializers para enriquecer a telemetria com propriedades adicionais ou substituir uma existente. Use TelemetryProcessor para filtrar a telemetria.
 
 ## <a name="troubleshooting-applicationinsightsconfig"></a>Resolução de problemas ApplicationInsights.config
 

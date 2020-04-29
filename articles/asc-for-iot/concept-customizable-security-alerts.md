@@ -1,6 +1,6 @@
 ---
 title: Alertas de segurança personalizáveis
-description: Saiba mais sobre alertas de segurança personalizáveis e remediação recomendada usando o Azure Security Center para recursos e serviços de IoT.
+description: Saiba mais sobre os alertas de segurança personalizáveis e a correção recomendada usando a central de segurança do Azure para recursos e serviços de IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 03/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 3b39d70c60a4c9701d0a8bafde17b241fe01cc46
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311632"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertas de segurança da Central de Segurança do Azure para IoT
 
-O Azure Security Center for IoT analisa continuamente sua solução de IoT usando análises avançadas e inteligência de ameaças para alertá-lo sobre atividades maliciosas.
+A central de segurança do Azure para IoT analisa continuamente sua solução de IoT usando a análise avançada e a inteligência contra ameaças para alertá-lo sobre atividades mal-intencionadas.
 
-Nós encorajamos você a criar alertas personalizados com base no seu conhecimento do comportamento esperado do dispositivo para garantir que os alertas atuem como os indicadores mais eficientes de comprometimento potencial em sua implantação organizacional e paisagem única.
+Incentivamos você a criar alertas personalizados com base em seu conhecimento do comportamento de dispositivo esperado para garantir que os alertas atuem como os indicadores mais eficientes de comprometimento potencial em sua implantação e cenário de organização exclusivos.
 
-A lista a seguir do Azure Security Center para alertas de IoT é definível por você com base no seu esperado Comportamento ioT hub e/ou dispositivo. Para obter mais detalhes sobre como personalizar cada alerta, consulte [criar alertas personalizados](quickstart-create-custom-alerts.md).
+A lista a seguir da central de segurança do Azure para alertas de IoT é definida por você com base no comportamento esperado do Hub IoT e/ou do dispositivo. Para obter mais detalhes sobre como personalizar cada alerta, consulte [criar alertas personalizados](quickstart-create-custom-alerts.md).
 
-## <a name="iot-hub-alerts-available-for-customization"></a>Alertas do IoT Hub disponíveis para personalização
+## <a name="iot-hub-alerts-available-for-customization"></a>Alertas do Hub IoT disponíveis para personalização
 
 | Severity | Nome do alerta | Fonte de dados | Descrição | Correção sugerida|
 |---|---|---|---|---|
@@ -62,7 +62,7 @@ A lista a seguir do Azure Security Center para alertas de IoT é definível por 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [personalizar um alerta](quickstart-create-custom-alerts.md)
-- Azure Security Center para [visão geral](overview.md) do serviço de IoT
+- Saiba como [Personalizar um alerta](quickstart-create-custom-alerts.md)
+- [Visão geral](overview.md) da central de segurança do Azure para serviços de IOT
 - Saiba como [acessar seus dados de segurança](how-to-security-data-access.md)
-- Saiba mais sobre [investigar um dispositivo](how-to-investigate-device.md)
+- Saiba mais sobre [a investigação de um dispositivo](how-to-investigate-device.md)

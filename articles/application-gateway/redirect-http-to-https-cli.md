@@ -1,7 +1,7 @@
 ---
-title: HTTP para redirecionamento HTTPS usando CLI
+title: Redirecionamento de HTTP para HTTPS usando a CLI
 titleSuffix: Azure Application Gateway
-description: Saiba como criar um gateway de aplicativo e adicionar um certificado de término tls usando o Cli do Azure.
+description: Saiba como criar um gateway de aplicativo e adicionar um certificado para terminação TLS usando o CLI do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 6bf8f3b7bfb446db78f0c97a246977fec6cd54cb
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312152"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando a CLI do Azure
 
-Você pode usar o Azure CLI para criar um [gateway de aplicativo](overview.md) com um certificado de rescisão TLS/SSL. Uma regra de roteamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no gateway do seu aplicativo. Neste exemplo, você também pode criar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para pool de back-end do gateway do aplicativo que contém duas instâncias de máquina virtual.
+Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md) com um certificado para terminação TLS/SSL. Uma regra de roteamento é usada para redirecionar o tráfego HTTP para a porta HTTPS no gateway do seu aplicativo. Neste exemplo, você também pode criar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para pool de back-end do gateway do aplicativo que contém duas instâncias de máquina virtual.
 
 Neste artigo, você aprenderá como:
 
@@ -218,7 +218,7 @@ az network public-ip show \
 
 ![Aviso de segurança](./media/redirect-http-to-https-cli/application-gateway-secure.png)
 
-Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e depois **Prosseguir para a página da Web**. Seu site de NGINX protegido é exibido, como no exemplo a seguir:
+Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **detalhes** e **vá para a página da Web**. Seu site de NGINX protegido é exibido, como no exemplo a seguir:
 
 ![Testar a URL de base no gateway de aplicativo](./media/redirect-http-to-https-cli/application-gateway-nginxtest.png)
 

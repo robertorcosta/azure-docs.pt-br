@@ -1,7 +1,7 @@
 ---
-title: Noções básicas de tradução de fala - Serviço de fala
+title: Noções básicas de conversão de fala – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Aprenda a usar o Speech SDK para traduzir a fala. Neste artigo, você aprenderá sobre construção de objetos, formatos de entrada de áudio suportados e opções de configuração para tradução de voz.
+description: Saiba como usar o SDK de fala para traduzir a fala. Neste artigo, você aprenderá sobre a construção de objetos, os formatos de entrada de áudio com suporte e as opções de configuração para a tradução de fala.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -12,18 +12,18 @@ ms.date: 04/13/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81399587"
 ---
-# <a name="learn-the-basics-of-speech-translation"></a>Aprenda o básico da tradução de fala
+# <a name="learn-the-basics-of-speech-translation"></a>Conheça os conceitos básicos da tradução de fala
 
-Uma das principais características do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras línguas. Neste artigo você aprenderá a usar o Speech SDK em seus aplicativos e produtos para realizar a tradução de fala de alta qualidade.
+Um dos principais recursos do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras linguagens. Neste artigo, você aprenderá a usar o SDK de fala em seus aplicativos e produtos para executar a tradução de fala de alta qualidade.
 
 > [!TIP]
-> Se você não teve a chance de completar uma de nossas partidas rápidas, nós encorajamos você a chutar os pneus e tentar a tradução de fala para si mesmo.
+> Se você ainda não teve a oportunidade de concluir um de nossos inícios rápidos, incentivamos você a iniciar os pneus e experimentar a tradução de fala por conta própria.
 > * [Traduzir uma fala em texto](quickstarts/translate-speech-to-text.md)
 > * [Traduzir fala para vários idiomas](quickstarts/translate-speech-to-text-multiple-languages.md)
 > * [Traduzir fala em fala](quickstarts/translate-speech-to-speech.md)
@@ -50,4 +50,4 @@ Uma das principais características do serviço de fala é a capacidade de recon
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Use formatos de áudio compactados de codec](how-to-use-codec-compressed-audio-input-streams.md)
+* [Usar formatos de áudio compactados por codec](how-to-use-codec-compressed-audio-input-streams.md)

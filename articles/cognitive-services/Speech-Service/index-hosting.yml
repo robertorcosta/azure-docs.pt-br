@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentação de hosting
-summary: Os contêineres de serviço de fala estão disponíveis para cenários de fala para texto e texto para voz, abrangendo modelos padrão ou personalizados.
+summary: Os contêineres de serviço de fala estão disponíveis para cenários de conversão de texto em texto e de textos em fala, que abrangem modelos padrão ou personalizados.
 metadata:
-  title: Documentação de hospedagem - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
+  title: Documentação de hospedagem-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,10 +12,10 @@ metadata:
   ms.date: 03/23/2020
   ms.author: trbye
   ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401506"
 landingContent:
 - title: Sobre hospedagem
@@ -32,7 +32,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Crie um recurso de fala do Azure
+    - text: Criar um recurso de fala do Azure
       url: get-started.md#new-resource
     - text: Configurar contêineres de fala
       url: speech-container-configuration.md

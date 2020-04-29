@@ -1,6 +1,6 @@
 ---
-title: Rescisão do TLS usando o CLI - Gateway de aplicativo Azure
-description: Saiba como criar um gateway de aplicativo e adicionar um certificado de término tls usando o Cli do Azure.
+title: Terminação de TLS usando Aplicativo Azure gateway de CLI
+description: Saiba como criar um gateway de aplicativo e adicionar um certificado para terminação TLS usando o CLI do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,15 +9,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 6cd8cca65762de3da6a0e69e93c8d79bbe498dde
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311971"
 ---
-# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Crie um gateway de aplicativo com terminação TLS usando o Azure CLI
+# <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um gateway de aplicativo com terminação TLS usando o CLI do Azure
 
-Você pode usar o Azure CLI para criar um [gateway de aplicativo](overview.md) com um certificado de [rescisão TLS](ssl-overview.md). Para servidores backend, você pode usar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo.
+Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md) com um certificado para [terminação TLS](ssl-overview.md). Para servidores de back-end, você pode usar um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que são adicionadas ao pool de back-end padrão do gateway de aplicativo.
 
 Neste artigo, você aprenderá como:
 
@@ -165,11 +165,11 @@ az network public-ip show \
   --output tsv
 ```
 
-Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Para este exemplo, a **https://52.170.203.149**URL é: .
+Copie o endereço IP público e cole-o na barra de endereços do seu navegador. Para este exemplo, a URL é: **https://52.170.203.149**.
 
 ![Aviso de segurança](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
-Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **Detalhes** e depois **Prosseguir para a página da Web**. Seu site de NGINX protegido é exibido, como no exemplo a seguir:
+Para aceitar o aviso de segurança se você usou um certificado autoassinado, selecione **detalhes** e **vá para a página da Web**. Seu site de NGINX protegido é exibido, como no exemplo a seguir:
 
 ![Testar a URL de base no gateway de aplicativo](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 

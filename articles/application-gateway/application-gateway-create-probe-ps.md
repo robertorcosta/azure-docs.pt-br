@@ -1,5 +1,5 @@
 ---
-title: Crie uma sonda personalizada usando o PowerShell
+title: Criar uma investigação personalizada usando o PowerShell
 titleSuffix: Azure Application Gateway
 description: Saiba como criar uma investigação personalizada para o Gateway de Aplicativo usando o PowerShell no Gerenciador de Recursos
 services: application-gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: f720a94d3467ce15ea5d58a8ece6de2a669f6258
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312579"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Criar uma investigação personalizada para o Gateway de Aplicativo do Azure usando o PowerShell do Azure Resource Manager
@@ -77,7 +77,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Criar um endereço IP público para a configuração de front-end
 
-Crie um recurso público IP **publicIP01** no grupo de recursos **appgw-rg** para a região oeste dos EUA. Este exemplo usa um endereço IP público para o endereço IP front-end do gateway de aplicativo.  Como o gateway de aplicativo exige que o endereço IP público tenha um nome DNS criado dinamicamente, o `-DomainNameLabel` não pode ser especificado durante a criação do endereço IP público.
+Crie um recurso de IP público **publicIP01** no grupo de recursos **appgw-RG** para a região oeste dos EUA. Este exemplo usa um endereço IP público para o endereço IP front-end do gateway de aplicativo.  Como o gateway de aplicativo exige que o endereço IP público tenha um nome DNS criado dinamicamente, o `-DomainNameLabel` não pode ser especificado durante a criação do endereço IP público.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
@@ -90,12 +90,12 @@ Configure todos os itens de configuração antes de criar o gateway de aplicativ
 | **Componente** | **Descrição** |
 |---|---|
 | **Configuração de IP do gateway** | Uma configuração de IP para um gateway de aplicativo.|
-| **Piscina de backend** | Um pool de endereços IP, FQDNs ou NICs que são para os servidores de aplicativos que hospedam o aplicativo Web|
+| **Pool de back-end** | Um pool de endereços IP, FQDNs ou NICs que são para os servidores de aplicativos que hospedam o aplicativo Web|
 | **Investigação de integridade** | Uma investigação personalizada usada para monitorar a integridade dos membros do pool de back-end|
-| **Configurações HTTP** | Uma coleção de configurações, inclusive porta, protocolo, afinidade baseada em cookie, investigação e tempo limite.  Essas configurações determinam como o tráfego é roteado para os membros do pool de back-end|
-| **Porta Frontend** | A porta em que o gateway de aplicativo escuta tráfego|
+| **Configurações de HTTP** | Uma coleção de configurações, inclusive porta, protocolo, afinidade baseada em cookie, investigação e tempo limite.  Essas configurações determinam como o tráfego é roteado para os membros do pool de back-end|
+| **Porta de front-end** | A porta em que o gateway de aplicativo escuta tráfego|
 | **Ouvinte** | Uma combinação de um protocolo, configuração de IP front-end e porta front-end. É o que escuta solicitações de entrada.
-|**Regra**| Roteia o tráfego para o back-end apropriado com base em configurações de HTTP.|
+|**Régua**| Roteia o tráfego para o back-end apropriado com base em configurações de HTTP.|
 
 ```powershell
 # Creates an application gateway Frontend IP configuration named gatewayIP01
@@ -197,5 +197,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda a configurar o descarregamento do TLS visitando: [Configure a descarga TLS](application-gateway-ssl-arm.md)
+Saiba como configurar o descarregamento de TLS visitando: [Configurar o descarregamento de TLS](application-gateway-ssl-arm.md)
 

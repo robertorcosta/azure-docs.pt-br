@@ -7,10 +7,10 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: powershell,  runbook, json, automação do azure
 ms.openlocfilehash: 2a6652c988eb77a1c5c7dbf800586b1c5fb756c4
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81392203"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
@@ -22,16 +22,16 @@ Ao fazer isso, você pode automatizar a implantação de recursos do Azure. Voc�
 Neste artigo, criamos um runbook do PowerShell que usa um modelo do Gerenciador de Recursos armazenado no [Armazenamento do Azure](../storage/common/storage-introduction.md) para implantar uma nova conta de Armazenamento do Azure.
 
 >[!NOTE]
->Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no trabalhador do runbook híbrido, consulte [Instalar o Módulo PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de Automação, você pode atualizar seus módulos para a versão mais recente usando [Como atualizar módulos Azure PowerShell no Azure Automation](automation-update-azure-modules.md).
+>Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará dos seguintes itens:
 
-* Assinatura do Azure. Se você ainda não tiver um, você pode [ativar seus benefícios para assinantes do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou se inscrever em uma conta [gratuita](https://azure.microsoft.com/free/).
+* Assinatura do Azure. Se você ainda não tiver um, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [inscrever-se para uma conta gratuita](https://azure.microsoft.com/free/).
 * [Conta de automação](automation-sec-configure-azure-runas-account.md) para manter o runbook e se autenticar nos recursos do Azure.  Esta conta deve ter permissão para iniciar e parar a máquina virtual.
 * [Conta de Armazenamento do Azure](../storage/common/storage-create-storage-account.md) na qual será armazenado o modelo do Resource Manager
-* Azure PowerShell instalado em uma máquina local. Consulte [Instalar o Módulo PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0) para obter informações sobre como obter o Azure PowerShell.
+* Azure PowerShell instalado em um computador local. Consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0) para obter informações sobre como obter Azure PowerShell.
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Gerenciador de Recursos
 
@@ -91,11 +91,11 @@ Em um editor de texto, copie o seguinte texto:
 }
 ```
 
-Salvar o arquivo localmente como **TemplateTest.json**.
+Salve o arquivo localmente como **TemplateTest. JSON**.
 
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Salve o modelo do Resource Manager no Armazenamento do Azure
 
-Agora usamos o PowerShell para criar um compartilhamento de arquivos do Azure Storage e fazer upload do arquivo **TemplateTest.json.**
+Agora, usamos o PowerShell para criar um compartilhamento de arquivos do armazenamento do Azure e carregar o arquivo **TemplateTest. JSON** .
 Para obter instruções sobre como criar um compartilhamento de arquivos e carregar um arquivo no portal do Azure, consulte [Introdução ao armazenamento de arquivos do Azure no Windows](../storage/files/storage-dotnet-how-to-use-files.md).
 
 Inicie o PowerShell no computador local e execute os seguintes comandos para criar um compartilhamento de arquivos e carregar o modelo do Resource Manager para o compartilhamento de arquivos.
@@ -121,7 +121,7 @@ Set-AzStorageFileContent -ShareName $fileShare.Name -Context $context -Source $t
 
 ## <a name="create-the-powershell-runbook-script"></a>Criar o script de runbook do PowerShell
 
-Agora criamos um script PowerShell que recebe o arquivo **TemplateTest.json** do Azure Storage e implanta o modelo para criar uma nova conta do Azure Storage.
+Agora, criamos um script do PowerShell que obtém o arquivo **TemplateTest. JSON** do armazenamento do Azure e implanta o modelo para criar uma nova conta de armazenamento do Azure.
 
 Em um editor de texto, cole o seguinte texto:
 
@@ -168,13 +168,13 @@ $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
 ``` 
 
-Salvar o arquivo localmente como **DeployTemplate.ps1**.
+Salve o arquivo localmente como **deploytemplate. ps1**.
 
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Importar e publicar o runbook em sua conta de Automação do Azure
 
 Agora podemos usar o PowerShell para importar o runbook para sua conta de Automação do Azure e, em seguida, publicar o runbook. Para obter informações sobre como importar e publicar um runbook no portal do Azure, confira [Gerenciar runbooks na Automação do Azure](manage-runbooks.md).
 
-Para importar **DeployTemplate.ps1** em sua conta de automação como um runbook do PowerShell, execute os seguintes comandos do PowerShell:
+Para importar **deploytemplate. ps1** para sua conta de automação como um runbook do PowerShell, execute os seguintes comandos do PowerShell:
 
 ```powershell
 # MyPath is the path where you saved DeployTemplate.ps1
@@ -199,8 +199,8 @@ Publish-AzAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Iniciar o runbook
 
-Agora começamos o runbook chamando o [cmdlet Start-AzAutomationRunbook.](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0
-) Para obter informações sobre como iniciar um runbook no portal do Azure, consulte [Iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md).
+Agora, iniciamos o runbook chamando o cmdlet [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0
+) . Para obter informações sobre como iniciar um runbook no portal do Azure, consulte [Iniciar um runbook na Automação do Azure](automation-starting-a-runbook.md).
 
 Execute os seguintes comandos no console do PowerShell:
 
@@ -236,13 +236,13 @@ Get-AzStorageAccount
 
 ## <a name="summary"></a>Resumo
 
-É isso! Agora você pode usar o Azure Automation e o Azure Storage com modelos de Gerenciador de Recursos para implantar todos os seus recursos do Azure.
+Pronto! Agora você pode usar a automação do Azure e o armazenamento do Azure com modelos do Resource Manager para implantar todos os recursos do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre os modelos do Gerenciador de recursos, consulte [a visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
+* Para saber mais sobre modelos do Resource Manager, confira [Azure Resource Manager visão geral](../azure-resource-manager/management/overview.md).
 * Para começar a usar o Armazenamento do Azure, consulte [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md).
 * Para localizar outros runbooks úteis de Automação do Azure, consulte [Galerias de runbooks e módulos para Automação do Azure](automation-runbook-gallery.md).
-* Para encontrar outros modelos úteis do Gerenciador de recursos, consulte [Modelos de inicialinicialidade do Azure Quickstart](https://azure.microsoft.com/resources/templates/).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+* Para encontrar outros modelos úteis do Resource Manager, consulte [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/).
+* Para obter uma referência de cmdlet do PowerShell, consulte [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

@@ -1,6 +1,6 @@
 ---
-title: Unidades de Data Warehouse (DWUs) no Azure Synapse Analytics (anteriormente SQL DW)
-description: Recomendações sobre a escolha do número ideal de unidades de data warehouse (DWUs) para otimizar preço e desempenho e como alterar o número de unidades.
+title: DWUs (unidades de data warehouse) no Azure Synapse Analytics (anteriormente conhecido como SQL DW)
+description: Recomendações sobre como escolher o número ideal de unidades de DWUs (Unidades de Data Warehouse) para otimizar o preço e o desempenho e como alterar o número unidades.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -12,31 +12,31 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: db282bae92ec14c1cb4f6a61b61d435814b0f13c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81408058"
 ---
-# <a name="data-warehouse-units-dwus"></a>Unidades de Data Warehouse (DWUs)
+# <a name="data-warehouse-units-dwus"></a>Unidades de data warehouse (DWUs)
 
-Recomendações sobre a escolha do número ideal de unidades de data warehouse (DWUs) para otimizar preço e desempenho e como alterar o número de unidades.
+Recomendações sobre como escolher o número ideal de unidades de DWUs (Unidades de Data Warehouse) para otimizar o preço e o desempenho e como alterar o número unidades.
 
-## <a name="what-are-data-warehouse-units"></a>O que são unidades de data warehouse
+## <a name="what-are-data-warehouse-units"></a>O que são Unidades de Data Warehouse
 
-Um [pool Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão sendo provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO.
+Um [pool SQL Synapse](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) representa uma coleção de recursos analíticos que estão sendo provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e e/s.
 
-Esses três recursos são agrupados em unidades de escala de computação chamadas Unidades de Data Warehouse (DWUs). Uma DWU representa uma medida abstrata normalizada de recursos de computação e desempenho.
+Esses três recursos são agrupados em unidades de escala de computação chamadas DWUs (Unidades de Data Warehouse). Uma DWU representa uma medida abstrata normalizada de recursos de computação e desempenho.
 
-Uma alteração no seu nível de serviço altera o número de DWUs disponíveis para o sistema, que por sua vez ajusta o desempenho e o custo do seu sistema.
+Uma alteração do nível de serviço altera o número de DWUs que ficam disponíveis para o sistema, o que, por sua vez, ajusta o desempenho e o custo do sistema.
 
-Para um desempenho mais alto, você pode aumentar o número de unidades de data warehouse. Para menos desempenho, reduza as unidades de data warehouse. Os custos de armazenamento e computação são cobrados separadamente, para que as mudanças de unidades de data warehouse não afetem os custos de armazenamento.
+Para obter um melhor desempenho, você pode aumentar o número de Unidades de Data Warehouse. Para obter um desempenho menor, reduza as Unidades de Data Warehouse. Os custos de armazenamento e computação são cobrados separadamente, para que as mudanças de unidades de data warehouse não afetem os custos de armazenamento.
 
 O desempenho de unidades de data warehouse baseia-se nestas métricas de carga de trabalho do data warehouse:
 
-- A rapidez com que uma consulta padrão de pool SQL pode escanear um grande número de linhas e, em seguida, executar uma agregação complexa. Essa operação tem uso intensivo de E/S e CPU.
-- Quão rápido o pool SQL pode ingerer dados do Azure Storage Blobs ou do Azure Data Lake. Essa operação tem uso intensivo de rede e CPU.
-- Quão rápido [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) o comando T-SQL pode copiar uma tabela. Essa operação envolve a leitura de dados do armazenamento, distribuindo-os em todos os nós do dispositivo e gravando novamente no armazenamento. Essa operação é de uso intensivo de CPU, rede e E/S.
+- A velocidade com que uma consulta do pool SQL padrão pode verificar um grande número de linhas e, em seguida, executar uma agregação complexa. Essa operação tem uso intensivo de E/S e CPU.
+- Quão rápido o pool SQL pode ingerir dados de blobs de armazenamento do Azure ou Azure Data Lake. Essa operação tem uso intensivo de rede e CPU.
+- A velocidade com a qual o comando T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pode copiar uma tabela. Essa operação envolve a leitura de dados do armazenamento, distribuindo-os em todos os nós do dispositivo e gravando novamente no armazenamento. Essa operação é de uso intensivo de CPU, rede e E/S.
 
 Aumento de DWUs:
 
@@ -48,12 +48,12 @@ Aumento de DWUs:
 
 O Objetivo de nível de serviço (SLO) é a configuração de escalabilidade que determina o nível de custo e desempenho do data warehouse. Os níveis de serviço para Gen2 são medidos em unidades de computação do data warehouse (cDWU), por exemplo DW2000c. O nível de serviço Gen1 é medido em DWUs, por exemplo DW2000.
 
-O SLO (Service Level Objective, objetivo de nível de serviço) é a configuração de escalabilidade que determina o nível de custo e desempenho do seu pool SQL. Os níveis de serviço para o pool Gen2 SQL são medidos em unidades de data warehouse (DWU), por exemplo, DW2000c.
+O objetivo de nível de serviço (SLO) é a configuração de escalabilidade que determina o nível de custo e desempenho do pool do SQL. Os níveis de serviço para o pool de SQL Gen2 são medidos em DWU (Unidades de Data Warehouse), por exemplo, DW2000c.
 
 > [!NOTE]
 > Recentemente o Azure SQL Data Warehouse Gen2 adicionou funcionalidades de dimensionamento adicional para dar suporte a camadas de computação tão baixas como 100 cDWU. Os data warehouses existentes em Gen1 que exigem níveis de computação menores agora fazer upgrade para Gen2 nas regiões que estejam disponíveis no momento sem nenhum custo adicional.  Se ainda não houver suporte para a sua região, você poderá atualizar para uma região com suporte. Para saber mais, confira [Atualizar para Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-No T-SQL, a configuração SERVICE_OBJECTIVE determina o nível de serviço e o nível de desempenho do pool SQL.
+No T-SQL, a configuração SERVICE_OBJECTIVE determina o nível de serviço e o nível de desempenho do pool de SQL.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -78,7 +78,7 @@ Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma cota de [
 
 Cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma cota de [Unidade de Transação de Banco de Dados (DTU)](../../sql-database/sql-database-what-is-a-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite um número específico de unidades de depósito de dados. Para mais informações, consulte o [limites de capacidade de gerenciamento de carga de trabalho](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
-## <a name="how-many-data-warehouse-units-do-i-need"></a>Quantas unidades de data warehouse eu preciso
+## <a name="how-many-data-warehouse-units-do-i-need"></a>De quantas Unidades de Data Warehouse precisarei?
 
 O número ideal de unidades de data warehouse depende muito de sua carga de trabalho e da quantidade de dados carregados no sistema.
 
@@ -86,9 +86,9 @@ Etapas para encontrar a melhor DWU para sua carga de trabalho:
 
 1. Comece selecionando um DWU menor.
 2. Monitore o desempenho do seu aplicativo à medida que testa as cargas de dados no sistema, observando o número de DWUs selecionadas comparado ao desempenho que você observar.
-3. Identifique quaisquer requisitos adicionais para períodos de atividade de pico temporários. Cargas de trabalho que mostram picos e cochos significativos em atividade podem precisar ser dimensionadas com freqüência.
+3. Identifique quaisquer requisitos adicionais para períodos de atividade de pico temporários. As cargas de trabalho que mostram picos significativos e ciclos na atividade podem precisar ser escaladas com frequência.
 
-O pool SQL é um sistema de escala-out que pode prover grandes quantidades de dados de computação e consulta.
+O pool de SQL é um sistema de expansão que pode provisionar várias quantidades de dados dimensionáveis de computação e consulta.
 
 Para ver seus verdadeiros recursos para dimensionamento, especialmente em DWUs maiores, é recomendável dimensionar o conjunto de dados ao dimensionar para garantir que você tenha dados suficientes para alimentar as CPUs. Para testar o dimensionamento, é recomendável usar pelo menos 1 TB.
 
@@ -123,7 +123,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para alterar dwus:
+Para alterar DWUs:
 
 1. Abra o [Portal do Azure](https://portal.azure.com), abra seu banco de dados e clique em **Escala**.
 
@@ -135,7 +135,7 @@ Para alterar dwus:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para alterar os DWUs, use o [cmdlet Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer.
+Para alterar as DWUs, use o cmdlet do PowerShell [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase). O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
@@ -145,12 +145,12 @@ Para obter mais informações, consulte [cmdlets do PowerShell para SQL Data War
 
 ### <a name="t-sql"></a>T-SQL
 
-Com o T-SQL, você pode visualizar as configurações DWU atuais, alterar as configurações e verificar o progresso.
+Com o T-SQL, você pode ver as configurações atuais de DWU, alterar as configurações e verificar o progresso.
 
 Para alterar as DWUs:
 
 1. Conecte-se ao banco de dados mestre associado ao seu servidor lógico do Banco de Dados SQL.
-2. Use a declaração TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). O exemplo a seguir define o objetivo de nível de serviço para DW1000c para o banco de dados MySQLDW.
+2. Use a instrução TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). O exemplo a seguir define o objetivo de nível de serviço como DW1000c para o banco de dados MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -160,7 +160,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 
 ### <a name="rest-apis"></a>APIs REST
 
-Para alterar as DWUs, use a API REST [Criar ou Atualizar Banco de Dados](/rest/api/sql/databases/createorupdate). O exemplo a seguir define o objetivo de nível de serviço para DW1000c para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
+Para alterar as DWUs, use a API REST [Criar ou Atualizar Banco de Dados](/rest/api/sql/databases/createorupdate). O exemplo a seguir define o objetivo de nível de serviço como DW1000c para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -204,14 +204,14 @@ FROM      sys.databases
     ;
     ```
 
-Este Detran retorna informações sobre várias operações de gerenciamento em seu pool SQL, como a operação e o estado da operação, que é IN_PROGRESS ou CONCLUÍDA.
+Esta DMV retorna informações sobre várias operações de gerenciamento no pool de SQL, como a operação e o estado da operação, que será IN_PROGRESS ou COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>O fluxo de trabalho do dimensionamento
 
-Quando você inicia uma operação de escala, o sistema primeiro mata todas as sessões abertas, revertendo quaisquer transações abertas para garantir um estado consistente. Para operações de dimensionamento, o dimensionamento ocorrerá somente após a conclusão dessa reversão de transação.  
+Quando você inicia uma operação de escala, o sistema primeiro encerra todas as sessões abertas, revertendo as transações abertas para garantir um estado consistente. Para operações de dimensionamento, o dimensionamento ocorrerá somente após a conclusão dessa reversão de transação.  
 
-- Para uma operação de escala, o sistema destaca todos os nós de computação, provisiona os nós adicionais de computação e, em seguida, reconecta à camada de armazenamento.
-- Para uma operação de redimensionamento, o sistema destaca todos os nós de computação e, em seguida, reconecta apenas os nós necessários à camada de armazenamento.
+- Para uma operação de escala vertical, o sistema desanexa todos os nós de computação, provisiona os nós de computação adicional e anexa-os novamente à camada de armazenamento.
+- Para uma operação de redução vertical, o sistema desanexa todos os nós de computação e anexa apenas os nós necessários à camada de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

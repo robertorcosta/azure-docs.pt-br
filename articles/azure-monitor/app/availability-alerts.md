@@ -1,5 +1,5 @@
 ---
-title: Configure alertas de disponibilidade com o Azure Application Insights | Microsoft Docs
+title: Configurar alertas de disponibilidade com o Aplicativo Azure insights | Microsoft Docs
 description: Configure testes da web no Application Insights. Obtenha alertas se um site fica indisponível ou responde lentamente.
 ms.topic: conceptual
 author: lgayhardt
@@ -7,19 +7,19 @@ ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81382877"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
-[Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele pode alertá-lo se sua aplicação não está respondendo, ou se ele responde muito lentamente.
+[Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele poderá alertá-lo se seu aplicativo não estiver respondendo ou se responder muito devagar.
 
 ## <a name="enable-alerts"></a>Habilitar alertas
 
-Os alertas agora são ativados automaticamente por padrão, mas para configurar totalmente o alerta, primeiro você precisa criar seu teste de disponibilidade.
+Os alertas agora são automaticamente habilitados por padrão, mas para configurar completamente o alerta, primeiro você precisa criar inicialmente seu teste de disponibilidade.
 
 ![Criar experiência](./media/availability-alerts/create-test.png)
 
@@ -35,7 +35,7 @@ Os alertas agora são ativados automaticamente por padrão, mas para configurar 
    ![Editar depois de salvar](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
-> Os alertas de disponibilidade criados através dessa experiência são baseados no estado. Isso significa que quando os critérios de alerta são atendidos, um único alerta é gerado quando o site é detectado como indisponível. Se o site ainda estiver abaixo na próxima vez que os critérios de alerta forem avaliados, isso não gerará um novo alerta. Então, se o seu site estivesse desligado por uma hora e você tivesse configurado um alerta de e-mail, você só receberia um e-mail quando o site fosse derrubado, e um e-mail subseqüente quando o site voltasse. Você não receberia alertas contínuos lembrando que o site ainda não estava disponível.
+> Os alertas de disponibilidade criados por meio dessa experiência são baseados em estado. Isso significa que quando os critérios de alerta são atendidos, um único alerta é gerado quando o site é detectado como indisponível. Se o site ainda estiver inoperante na próxima vez que os critérios de alerta forem avaliados, isso não gerará um novo alerta. Portanto, se o seu site esteve inativo por uma hora e você tivesse configurado um alerta por email, você só receberia um email quando o site ficou inativo e um email subsequente quando o site estava em backup. Você não receberá alertas contínuos lembrando que o site ainda não estava disponível.
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alertar sobre X fora de locais de Y relatando falhas
 
@@ -57,21 +57,21 @@ Usando os [novos alertas unificadas](https://docs.microsoft.com/azure/monitoring
 
 ### <a name="alert-on-custom-analytics-queries"></a>Alertar sobre consultas de análises personalizadas
 
-Usando [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), você pode alertar sobre [consultas de log personalizado](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Com consultas personalizadas, você pode alertar sobre qualquer critério arbitrário que ajuda você a obter o sinal de mais confiável dos problemas de disponibilidade. Isso também é aplicável, se você estiver enviando resultados de disponibilidade personalizados usando o TrackAvailability SDK.
+Usando [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), você pode alertar sobre [consultas de log personalizado](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Com consultas personalizadas, você pode alertar sobre qualquer critério arbitrário que ajuda você a obter o sinal de mais confiável dos problemas de disponibilidade. Isso também é aplicável se você estiver enviando resultados de disponibilidade personalizados usando o SDK do API trackavailability.
 
 > [!Tip]
 > As métricas sobre dados de disponibilidade incluem resultados disponibilidade personalizado que você pode estar enviando chamando nosso SDK TrackAvailability. Você pode usar os alertas de suporte a métricas para alertar sobre resultados de disponibilidade personalizado.
 >
 
-## <a name="automate-alerts"></a>Automatize alertas
+## <a name="automate-alerts"></a>Automatizar alertas
 
-Para automatizar esse processo com os modelos do Azure Resource Manager, consulte o Criar um alerta métrico com a documentação [do modelo do Resource Manager.](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert)
+Para automatizar esse processo com modelos de Azure Resource Manager, consulte a documentação [criar um alerta de métrica com o modelo do Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert) .
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Artigo dedicado [para solução de problemas](troubleshoot-availability.md).
+[Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Testes na Web com diversas etapas](availability-multistep.md)
-* [Testes web de ping de URL](monitor-web-app-availability.md)
+* [Testes da Web de ping de URL](monitor-web-app-availability.md)

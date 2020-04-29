@@ -5,37 +5,37 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: ccompy
 ms.openlocfilehash: c31a5aaa9866a4ce97cd3cd59a8e363834f70587
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81312825"
 ---
-* Os sistemas multilocatários que suportam toda a gama de planos de preços, exceto isolados.
-* O App Service Environment, que é implantado em seu VNet e suporta aplicativos de plano de preços isolados.
+* Os sistemas multilocatários que oferecem suporte a toda a gama de planos de preços, exceto isolados.
+* O Ambiente do Serviço de Aplicativo, que é implantado em sua VNet e dá suporte a aplicativos de plano de preços isolados.
 
-O recurso VNet Integration é usado em aplicativos multilocatários. Se o aplicativo está no [Ambiente do Serviço de Aplicativo][ASEintro], ele já está em uma rede virtual e não requer o uso do recurso de Integração VNet para acessar recursos na mesma VNet. Para obter mais informações sobre todos os recursos de rede, consulte os recursos de [rede do App Service][Networkingfeatures].
+O recurso de integração VNet é usado em aplicativos multilocatários. Se o aplicativo está no [Ambiente do Serviço de Aplicativo][ASEintro], ele já está em uma rede virtual e não requer o uso do recurso de Integração VNet para acessar recursos na mesma VNet. Para obter mais informações sobre todos os recursos de rede, consulte [recursos de rede do serviço de aplicativo][Networkingfeatures].
 
-O VNet Integration dá ao seu aplicativo acesso aos recursos em seu VNet, mas não concede acesso privado de entrada ao seu aplicativo a partir do VNet. O acesso privado ao site refere-se a tornar um aplicativo acessível apenas a partir de uma rede privada, como dentro de uma rede virtual Do Zure. O VNet Integration é usado apenas para fazer chamadas de saída do seu aplicativo em seu VNet. O recurso De Integração VNet se comporta de forma diferente quando é usado com VNet na mesma região e com VNet em outras regiões. O recurso De Integração VNet tem duas variações:
+A integração VNet dá ao seu aplicativo acesso aos recursos em sua VNet, mas não concede acesso privado de entrada ao seu aplicativo por meio da VNet. Acesso ao site privado refere-se a tornar um aplicativo acessível somente de uma rede privada, como de dentro de uma rede virtual do Azure. A integração VNet é usada apenas para fazer chamadas de saída do seu aplicativo para sua VNet. O recurso de integração VNet se comporta de maneira diferente quando é usado com VNet na mesma região e com VNet em outras regiões. O recurso integração VNet tem duas variações:
 
-* **Integração VNet Regional**: Quando você se conecta às redes virtuais do Azure Resource Manager na mesma região, você deve ter uma sub-rede dedicada na VNet com a que está se integrando.
-* **Integração VNet necessária por gateway**: Quando você se conecta ao VNet em outras regiões ou a uma rede virtual clássica na mesma região, você precisa de um gateway de Rede Virtual Azure provisionado no VNet de destino.
+* **Integração de VNet regional**: quando você se conecta a redes virtuais Azure Resource Manager na mesma região, você deve ter uma sub-rede dedicada na VNet com a qual está se integrando.
+* **Integração de vnet necessária ao gateway**: quando você se conecta à VNet em outras regiões ou a uma rede virtual clássica na mesma região, você precisa de um gateway de rede virtual do Azure provisionado na VNet de destino.
 
-Os recursos da Integração VNet:
+Os recursos de integração VNet:
 
-* Exija um plano de preços Standard, Premium, PremiumV2 ou Elastic Premium.
-* Suporte TCP e UDP.
-* Trabalhe com aplicativos e aplicativos de função do Azure App Service.
+* Exigir um plano de preços Standard, Premium, PremiumV2 ou elástico Premium.
+* Suporte a TCP e UDP.
+* Trabalhe com aplicativos de serviço Azure App e aplicativos de funções.
 
-Há algumas coisas que a VNet Integration não suporta, como:
+Há algumas coisas para as quais a integração VNet não dá suporte, como:
 
 * A montagem de uma unidade.
-* Integração do Active Directory.
-* Netbios.
+* Integração de Active Directory.
+* Output.
 
-A VNet Integration, necessária ao Gateway, fornece acesso a recursos apenas no VNet de destino ou em redes conectadas ao VNet de destino com peering ou VPNs. A Integração VNet exigida pelo Gateway não permite o acesso aos recursos disponíveis nas conexões do Azure ExpressRoute ou funciona com pontos finais de serviço.
+Gateway-a integração VNet necessária fornece acesso a recursos somente na VNet de destino ou em redes conectadas à VNet de destino com emparelhamento ou VPNs. A integração VNet exigida pelo gateway não habilita o acesso aos recursos disponíveis nas conexões do Azure ExpressRoute ou funciona com pontos de extremidade de serviço.
 
-Independentemente da versão usada, o VNet Integration dá ao seu aplicativo acesso a recursos em seu VNet, mas não concede acesso privado de entrada ao seu aplicativo a partir do VNet. O acesso privado ao site refere-se a tornar seu aplicativo acessível apenas a partir de uma rede privada, como de dentro de um Azure VNet. A Integração VNet é apenas para fazer chamadas de saída do seu aplicativo em seu VNet.
+Independentemente da versão usada, a integração VNet dá ao seu aplicativo acesso aos recursos em sua VNet, mas não concede acesso privado de entrada ao seu aplicativo por meio da VNet. Acesso ao site privado refere-se a tornar seu aplicativo acessível somente de uma rede privada, como de dentro de uma VNet do Azure. A integração VNet é apenas para fazer chamadas de saída de seu aplicativo para sua VNet.
 
 <!--Links-->
 [ASEintro]: https://docs.microsoft.com/azure/app-service/environment/intro

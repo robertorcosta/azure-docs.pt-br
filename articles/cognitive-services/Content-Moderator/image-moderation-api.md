@@ -1,7 +1,7 @@
 ---
 title: Imagem de moderação – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use a moderação de imagem assistida por máquina do Moderador de conteúdo e a ferramenta de revisão humana em loop para moderar imagens para conteúdo adulto e picante.
+description: Use a moderação de imagem assistida por computador Content Moderator e a ferramenta de revisão humana no loop para imagens moderadas para conteúdo adulto e erótico.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81404258"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprender os conceitos de moderação de imagem
 
-Use a moderação de imagem assistida por máquina do Moderador de conteúdo e [a ferramenta de revisão humana em loop](Review-Tool-User-Guide/human-in-the-loop.md) para moderar imagens para conteúdo adulto e picante. Examine as imagens quanto a conteúdo de texto, extraia esse texto e detecte faces. Você pode combinar imagens com listas personalizadas e executar mais ações.
+Use a moderação de imagem assistida por computador Content Moderator e a [ferramenta de revisão humana no loop](Review-Tool-User-Guide/human-in-the-loop.md) para imagens moderadas para conteúdo adulto e erótico. Examine as imagens quanto a conteúdo de texto, extraia esse texto e detecte faces. Você pode combinar imagens com listas personalizadas e executar mais ações.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Avaliação de conteúdo adulto e estimulante
 
@@ -66,7 +66,7 @@ Extração de exemplo:
 
 ## <a name="detecting-faces"></a>Detendo faces
 
-A detecção de rostos ajuda a detectar dados pessoais, como rostos nas imagens. Você detecta faces em potencial e o número de faces em potencial em cada imagem.
+A detecção de faces ajuda a detectar dados pessoais, como faces nas imagens. Você detecta faces em potencial e o número de faces em potencial em cada imagem.
 
 Uma resposta inclui estas informações:
 
@@ -141,10 +141,10 @@ Extração de exemplo:
 
 ## <a name="review-tool"></a>Ferramenta de análise
 
-Para casos mais nuances, use a ferramenta Content Moderator [Review](Review-Tool-User-Guide/human-in-the-loop.md) e sua API para emergir os resultados de moderação e conteúdo na revisão para seus moderadores humanos. Eles examinam as marcações atribuídas por máquina e confirmam suas decisões finais.
+Para casos mais sutis, use a [ferramenta de análise](Review-Tool-User-Guide/human-in-the-loop.md) de Content moderator e sua API para trazer os resultados de moderação e o conteúdo na revisão para seus moderadores humanos. Eles examinam as marcações atribuídas por máquina e confirmam suas decisões finais.
 
 ![Revisão de imagem para moderadores humanos](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Faça test drive do [console da API de Moderação de Imagem](try-image-api.md) e use os exemplos de código da API REST. Confira também a seção de moderação de imagem do [.NET SDK quickstart](dotnet-sdk-quickstart.md) se você estiver familiarizado com visual studio e C#.
+Faça test drive do [console da API de Moderação de Imagem](try-image-api.md) e use os exemplos de código da API REST. Confira também a seção de moderação de imagem do [início rápido do SDK do .net](dotnet-sdk-quickstart.md) se você estiver familiarizado com o Visual Studio e o C#.

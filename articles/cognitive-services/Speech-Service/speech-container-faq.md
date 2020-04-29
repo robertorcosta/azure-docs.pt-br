@@ -1,7 +1,7 @@
 ---
-title: Contêineres de serviço de fala frequentemente perguntas (FAQ)
+title: Perguntas frequentes sobre os contêineres do serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Instale e execute recipientes de fala. a fala-para-texto transcreve fluxos de áudio para texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana.
+description: Instale e execute contêineres de fala. a fala a texto transcreve fluxos de áudio para texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,30 +11,30 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: aahi
 ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81383091"
 ---
-# <a name="speech-service-containers-frequently-asked-questions-faq"></a>Contêineres de serviço de fala frequentemente perguntas (FAQ)
+# <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
 
-Ao usar o serviço Speech com contêineres, conte com essa coleção de perguntas frequentes antes de escalar para apoiar. Este artigo captura questões de diferentes graus, do geral ao técnico. Para expandir uma resposta, clique na pergunta.
+Ao usar o serviço de fala com contêineres, conte com esta coleção de perguntas frequentes antes de escalonar para suporte. Este artigo captura as perguntas em grau variável, de geral para técnico. Para expandir uma resposta, clique na pergunta.
 
 ## <a name="general-questions"></a>Perguntas gerais
 
 <details>
 <summary>
-<b>Como funcionam os recipientes de fala e como configurá-los?</b>
+<b>Como funcionam os contêineres de fala e como faço para configurá-los?</b>
 </summary>
 
-**Resposta:** Ao configurar o cluster de produção, há várias coisas a considerar. Primeiro, a configuração de uma única linguagem, vários recipientes, na mesma máquina, não deve ser um grande problema. Se você está enfrentando problemas, pode ser um problema relacionado ao hardware - então primeiro olharíamos para o recurso, ou seja; Especificações de CPU e memória.
+**Resposta:** Ao configurar o cluster de produção, há várias coisas a serem consideradas. Primeiro, a configuração de um único idioma, vários contêineres, no mesmo computador, não deve ser um problema grande. Se você estiver enfrentando problemas, pode ser um problema relacionado ao hardware, então, primeiro vamos examinar o recurso, ou seja; Especificações de CPU e memória.
 
-Considere por um `ja-JP` momento, o recipiente e o modelo mais recente. O modelo acústico é a peça mais exigente em termos de CPU, enquanto o modelo de linguagem exige mais memória. Quando avaliamos o uso, é preciso cerca de 0,6 núcleos de CPU para processar uma única solicitação de fala para texto quando o áudio está fluindo em tempo real (como no microfone). Se você estiver alimentando o áudio mais rápido do que em tempo real (como a partir de um arquivo), esse uso pode dobrar (núcleos de 1,2x). Enquanto isso, a memória listada abaixo é a memória de funcionamento para decodificação da fala. Ele *não* leva em conta o tamanho real do modelo de idioma, que residirá no cache de arquivos. Pois `ja-JP` isso é um adicional de 2 GB; para `en-US`, pode ser mais (6-7 GB).
+Considere por um momento, o `ja-JP` contêiner e o modelo mais recente. O modelo acústico é a parte mais exigente da CPU, enquanto o modelo de linguagem exige mais memória. Quando avaliamos o uso de benchmark, é necessário cerca de 0,6 núcleos de CPU para processar uma única solicitação de conversão de fala em texto quando o áudio está fluindo em tempo real (como no microfone). Se você estiver alimentando áudio mais rápido que o tempo real (como de um arquivo), esse uso pode dobrar (1,2 x núcleos). Enquanto isso, a memória listada abaixo é a memória operacional para a decodificação de fala. Ele *não* leva em conta o tamanho total real do modelo de linguagem, que residirá no cache de arquivos. Para `ja-JP` esse é um adicional de 2 GB; para `en-US`o, pode ser mais (6-7 GB).
 
-Se você tem uma máquina onde a memória é escassa, e você está tentando implantar vários idiomas nela, é possível que o cache de arquivos esteja cheio, e o SISTEMA OPERACIONAL é forçado a página de modelos dentro e fora. Para uma transcrição em execução, isso pode ser desastroso, e pode levar a desacelerações e outras implicações de desempenho.
+Se você tiver um computador onde a memória é escassa e estiver tentando implantar vários idiomas nele, é possível que o cache de arquivos esteja cheio e o sistema operacional seja forçado a entrar e sair dos modelos de página. Para uma transcrição em execução, isso pode ser desastroso e causar lentidão e outras implicações de desempenho.
 
-Além disso, pré-embalamos executáveis para máquinas com o conjunto de instruções [de extensão vetorial avançada (AVX2).](speech-container-howto.md#advanced-vector-extension-support) Uma máquina com o conjunto de instruções AVX512 exigirá geração de código para esse destino, e a partir de 10 contêineres para 10 idiomas pode esgotar temporariamente a CPU. Uma mensagem como esta aparecerá nos registros do docker:
+Além disso, nós pré-empacotamos executáveis para computadores com o conjunto de instruções [AVX2 (extensão de vetor avançado)](speech-container-howto.md#advanced-vector-extension-support) . Um computador com o conjunto de instruções AVX512 exigirá a geração de código para esse destino e a inicialização de 10 contêineres para 10 idiomas pode esgotar temporariamente a CPU. Uma mensagem como esta aparecerá nos logs do Docker:
 
 ```console
 2020-01-16 16:46:54.981118943 
@@ -42,60 +42,60 @@ Além disso, pré-embalamos executáveis para máquinas com o conjunto de instru
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Finalmente, você pode definir o número de decodificadores `DECODER MAX_COUNT` que deseja dentro de um *único* recipiente usando variável. Então, basicamente, devemos começar com o seu SKU (CPU/memória), e podemos sugerir como tirar o melhor dele. Um ótimo ponto de partida está se referindo às especificações recomendadas de recursos da máquina host.
+Por fim, você pode definir o número de decodificadores que deseja dentro *single* de um único `DECODER MAX_COUNT` contêiner usando variável. Portanto, basicamente, devemos começar com sua SKU (CPU/memória) e podemos sugerir como tirar o melhor proveito dela. Um ótimo ponto de partida é fazer referência às especificações de recursos de máquina host recomendadas.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Você poderia ajudar no planejamento de capacidade e na estimativa de custos dos contêineres on-prem Speech?</b>
+<b>Você pode ajudar com planejamento de capacidade e estimativa de custo de contêineres de fala locais?</b>
 </summary>
 
-**Resposta:** Para a capacidade do contêiner no modo de processamento em lote, cada decodificador poderia lidar com 2-3x em tempo real, com dois núcleos de CPU, para um único reconhecimento. Não recomendamos manter mais de dois reconhecimentos simultâneos por instância de contêiner, mas recomendamos executar mais instâncias de contêineres por razões de confiabilidade/disponibilidade, atrás de um balanceador de carga.
+**Resposta:** Para capacidade de contêiner no modo de processamento em lotes, cada decodificador pode lidar com 2 a 3 vezes em tempo real, com dois núcleos de CPU, para um único reconhecimento. Não recomendamos manter mais de dois reconhecimentos simultâneos por instância de contêiner, mas recomendamos a execução de mais instâncias de contêineres por motivos de confiabilidade/disponibilidade, atrás de um balanceador de carga.
 
-Embora pudéssemos ter cada instância de contêiner sendo executado com mais decodificadores. Por exemplo, podemos ser capazes de configurar 7 decodificadores por instância de contêiner em uma máquina de oito núcleos (em mais de 2x cada), produzindo throughput de 15x. Há um param `DECODER_MAX_COUNT` para estar ciente. Para o caso extremo, surgem problemas de confiabilidade e latência, com o aumento da capacidade de utilização significativamente. Para um microfone, será em 1x em tempo real. O uso geral deve ser de cerca de um núcleo para um único reconhecimento.
+Embora possamos ter cada instância de contêiner em execução com mais decodificadores. Por exemplo, podemos configurar 7 decodificadores por instância de contêiner em uma máquina de oito núcleos (em mais de 2x cada), produzindo uma taxa de transferência 15x. Há um parâmetro `DECODER_MAX_COUNT` a ser considerado. Para o caso extremo, problemas de confiabilidade e latência surgem de forma significativa, com a taxa de transferência aumentada. Para um microfone, ele estará em 1x real time. O uso geral deve ser em um núcleo para um único reconhecimento.
 
-Para o cenário de processamento de 1 K horas/dia no modo de processamento em lote, em um caso extremo, 3 VMs poderiam lidar com isso dentro de 24 horas, mas não garantidos. Para lidar com dias de pico, failover, atualização e para fornecer backup mínimo/BCP, recomendamos 4-5 máquinas em vez de 3 por cluster, e com mais de 2 clusters.
+Para o cenário de processamento de 1 K horas/dia no modo de processamento em lotes, em um caso extremo, 3 VMs poderiam tratá-lo dentro de 24 horas, mas não garantido. Para lidar com dias de pico, failover, atualização e para fornecer backup/BCP mínimos, recomendamos 4-5 computadores em vez de 3 por cluster e com mais de 2 clusters.
 
-Para hardware, usamos o VM `DS13_v2` padrão do Azure como referência (cada núcleo deve ser de 2,6 GHz ou melhor, com conjunto de instruções AVX2 ativado).
+Para hardware, usamos a VM `DS13_v2` do Azure padrão como uma referência (cada núcleo deve ser de 2,6 GHz ou melhor, com o conjunto de instruções AVX2 habilitado).
 
-| Instância  | vCPU(s) | RAM    | Armazenamento temporário | Pague como você com a AHB | Reserva de 1 ano com AHB (% Poupança) | 3 anos reservados com AHB (% Poupança) |
+| Instância  | vCPU (s) | RAM    | Armazenamento temporário | Pré-pago com o AHB | Reserva de 1 ano com AHB (% de economia) | 3 anos reservados com AHB (% de economia) |
 |-----------|---------|--------|--------------|------------------------|-------------------------------------|--------------------------------------|
-| `DS13 v2` | 8       | 56 GiB | 112 GiB      | $0.598/hora            | $0,3528/hora (~41%)                 | $0,2333/hora (~61%)                  |
+| `DS13 v2` | 8       | 56 GiB | 112 GiB      | US $0.598/hora            | US $0.3528/hora (~ 41%)                 | US $0.2333/hora (~ 61%)                  |
 
-Com base na referência de design (dois clusters de 5 VMs para lidar com o processamento de 1 K horas/dia de áudio), o custo de hardware de 1 ano será:
+Com base na referência de design (dois clusters de 5 VMs para manipular o processamento em lotes de áudio de 1 K horas/dia), o custo de hardware de 1 ano será:
 
-> 2 (clusters) * 5 (VMs por cluster) * $0,3528/hora * 365 (dias) * 24 (horas) = $31K / ano
+> 2 (clusters) * 5 (VMs por cluster) * $0.3528/hora * 365 (dias) * 24 (horas) = $31K/ano
 
-Ao mapear para a máquina física, uma estimativa geral é de 1 vCPU = 1 Núcleo de CPU Físico. Na realidade, 1vCPU é mais poderoso do que um único núcleo.
+Ao mapear para o computador físico, uma estimativa geral é 1 vCPU = 1 núcleo de CPU física. Na realidade, o 1vCPU é mais potente do que um único núcleo.
 
-Para on-prem, todos esses fatores adicionais entram em jogo:
+Para o local, todos esses fatores adicionais entram em cena:
 
-- Em que tipo a CPU física é e quantos núcleos nela
-- Quantas CPUs funcionando juntas na mesma caixa/máquina
+- Em que tipo a CPU física é e quantos núcleos ela
+- Quantas CPUs são executadas juntas na mesma caixa/computador
 - Como as VMs são configuradas
-- Como o hiper-threading / multi-threading é usado
+- Como o Hyper-Threading/multithreading é usado
 - Como a memória é compartilhada
-- O Sistema Operacional, etc.
+- O sistema operacional, etc.
 
-Normalmente não é tão bem sintonizado quanto o Azure o ambiente. Considerando outras despesas gerais, eu diria que uma estimativa segura é de 10 núcleos de CPU físicos = 8 Azure vCPU. Embora as CPUs populares tenham apenas oito núcleos. Com a implantação on-prem, o custo será maior do que o uso de VMs do Azure. Além disso, considere a taxa de depreciação.
+Normalmente, ele não é tão bem ajustado como o ambiente do Azure. Considerando outra sobrecarga, eu diria que uma estimativa segura é de 10 núcleos de CPU física = 8 vCPU do Azure. Embora as CPUs populares tenham apenas oito núcleos. Com a implantação local, o custo será maior do que usar VMs do Azure. Além disso, considere a taxa de depreciação.
 
-O custo do serviço é o mesmo do serviço online: $1/hora para o discurso-para-texto. O custo do serviço de fala é:
+O custo do serviço é o mesmo que o serviço online: US $1/hora para a conversão de fala em texto. O custo do serviço de fala é:
 
-> $1 * 1000 * 365 = $365.000
+> $1 * 1000 * 365 = $365K
 
-O custo de manutenção pago à Microsoft depende do nível de serviço e do conteúdo do serviço. Ele é vários de US $ 29,99 /mês para o nível básico para centenas de milhares se o serviço no local envolvido. Um número bruto é de $300/hora para serviço/manutenção. O custo das pessoas não está incluído. Outros custos de infra-estrutura (como armazenamento, redes e balanceadores de carga) não estão incluídos.
+O custo de manutenção pago à Microsoft depende do nível de serviço e do conteúdo do serviço. Ele varia de $29.99/mês para o nível básico a centenas de milhares, se o serviço no local estiver envolvido. Um número aproximado é de $300/hora para o serviço/manutenção. O custo das pessoas não está incluído. Outros custos de infraestrutura (como armazenamento, redes e balanceadores de carga) não são incluídos.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Por que falta pontuação na transcrição?</b>
+<b>Por que a pontuação está faltando na transcrição?</b>
 </summary>
 
-**Resposta:** O `speech_recognition_language=<YOUR_LANGUAGE>` deve ser explicitamente configurado na solicitação se eles estiverem usando o cliente Carbon.
+**Resposta:** O `speech_recognition_language=<YOUR_LANGUAGE>` deve ser explicitamente configurado na solicitação se estiver usando o cliente de carbono.
 
 Por exemplo:
 
@@ -127,19 +127,19 @@ RECOGNIZED: SpeechRecognitionResult(
 
 <details>
 <summary>
-<b>Posso usar um modelo acústico personalizado e um modelo de linguagem com recipiente de fala?</b>
+<b>Posso usar um modelo acústico personalizado e um modelo de linguagem com o contêiner de fala?</b>
 </summary>
 
-Atualmente, só podemos passar um ID de modelo, seja modelo de linguagem personalizado ou modelo acústico personalizado.
+No momento, estamos capazes de passar apenas uma ID de modelo, o modelo de linguagem personalizado ou o modelo acústico personalizado.
 
-**Resposta:** A decisão *de não* apoiar modelos acústicos e linguísticos simultaneamente foi tomada. Isso permanecerá em vigor, até que um identificador unificado seja criado para reduzir as quebras de API. Então, infelizmente, isso não é suportado agora.
+**Resposta:** A decisão de *não* dar suporte a modelos acústicos e de linguagem simultaneamente foi feita. Isso permanecerá em vigor, até que um identificador unificado seja criado para reduzir as interrupções de API. Por isso, infelizmente isso não tem suporte no momento.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Você poderia explicar esses erros do recipiente de fala para texto personalizado?</b>
+<b>Você poderia explicar esses erros do contêiner personalizado de fala em texto?</b>
 </summary>
 
 **Erro 1:**
@@ -152,11 +152,11 @@ Failed to fetch manifest: Status: 400 Bad Request Body:
 }
 ```
 
-**Resposta 1:** Se você está treinando com o modelo personalizado mais recente, nós atualmente não suportamos isso. Se você treinar com uma versão mais antiga, deve ser possível usar. Ainda estamos trabalhando no suporte às versões mais recentes.
+**Resposta 1:** Se você estiver treinando o modelo personalizado mais recente, atualmente não damos suporte a isso. Se você treinar com uma versão mais antiga, deve ser possível usar. Ainda estamos trabalhando para dar suporte às versões mais recentes.
 
-Essencialmente, os recipientes personalizados não suportam modelos acústicos baseados em Halide ou ONNX (que é o padrão no portal de treinamento personalizado). Isso se deve ao não criptografado de modelos personalizados e não queremos expor os modelos ONNX, no entanto; modelos de linguagem são bons. O cliente precisará selecionar explicitamente um modelo não-ONNX mais antigo para treinamento personalizado. A precisão não será afetada. O tamanho do modelo pode ser maior (por 100 MB).
+Essencialmente, os contêineres personalizados não dão suporte a modelos acústicos baseados em Halide ou ONNX (que é o padrão no portal de treinamento personalizado). Isso ocorre porque os modelos personalizados não estão sendo criptografados e não queremos expor modelos de ONNX; no entanto; os modelos de linguagem são bem. O cliente precisará selecionar explicitamente um modelo não ONNX mais antigo para treinamento personalizado. A precisão não será afetada. O tamanho do modelo pode ser maior (por 100 MB).
 
-> Modelo de suporte > 20190220 (v4.5 Unificado)
+> Modelo de suporte > 20190220 (v 4.5 unificado)
 
 **Erro 2:**
 
@@ -168,7 +168,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Resposta 2:** Você precisa fornecer o nome de voz correto na solicitação, que é sensível a maiúsculas e minúsculas. Consulte o mapeamento completo do nome do serviço. Você tem `en-US-JessaRUS`que `en-US-JessaNeural` usar, como não está disponível agora na versão container do texto-para-fala.
+**Resposta 2:** Você precisa fornecer o nome de voz correto na solicitação, que diferencia maiúsculas de minúsculas. Consulte o mapeamento de nome de serviço completo. Você precisa usar `en-US-JessaRUS`o, como `en-US-JessaNeural` não está disponível no momento na versão de contêiner de conversão de texto em fala.
 
 **Erro 3:**
 
@@ -179,7 +179,7 @@ Details: Voice does not match.
 }
 ```
 
-**Resposta 3:** Você se prepara para criar um recurso de fala, não um recurso de Serviços Cognitivos.
+**Resposta 3:** Você Reed criar um recurso de fala, não um recurso de serviços cognitivas.
 
 
 <br>
@@ -187,37 +187,37 @@ Details: Voice does not match.
 
 <details>
 <summary>
-<b>Quais protocolos de API são suportados, REST ou WS?</b>
+<b>Quais protocolos de API têm suporte, REST ou WS?</b>
 </summary>
 
-**Resposta:** Para contêineres de voz a texto e de voz personalizada, atualmente, apenas suportamos o protocolo baseado em websocket. O SDK só suporta chamar em WS, mas não REST. Há um plano para adicionar suporte ao REST, mas não ETA no momento. Consulte sempre a documentação oficial, consulte [pontos finais de previsão de consulta](speech-container-howto.md#query-the-containers-prediction-endpoint).
+**Resposta:** Para os contêineres de fala-para-texto e personalizado de fala para texto, atualmente só damos suporte ao protocolo baseado em WebSocket. O SDK só dá suporte à chamada em WS, mas não a REST. Há um plano para adicionar suporte REST, mas não há ETA para o momento. Consulte sempre a documentação oficial, consulte [pontos de extremidade de previsão de consulta](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>O CentOS é suportado para contêineres de Speech?</b>
+<b>O CentOS tem suporte para contêineres de fala?</b>
 </summary>
 
-**Resposta:** O CentOS 7 ainda não é suportado pelo Python SDK, o Ubuntu 19.04 também não é suportado.
+**Resposta:** O CentOS 7 ainda não é suportado pelo SDK do Python, mas também não há suporte para o Ubuntu 19, 4.
 
 O pacote do SDK de Fala do Python está disponível para estes sistemas operacionais:
-- **Windows** - x64 e x86
-- **Mac** - macOS X versão 10.12 ou posterior
-- **Linux** - Ubuntu 16.04, Ubuntu 18.04, Debian 9 em x64
+- **Windows** -x64 e x86
+- **Mac** -MacOS X versão 10,12 ou posterior
+- **Linux** -Ubuntu 16, 4, Ubuntu 18, 4, Debian 9 em x64
 
-Para obter mais informações sobre a configuração do ambiente, consulte [configuração da plataforma Python](quickstarts/setup-platform.md?pivots=programming-language-python). Por enquanto, o Ubuntu 18.04 é a versão recomendada.
+Para obter mais informações sobre a configuração do ambiente, consulte [instalação da plataforma Python](quickstarts/setup-platform.md?pivots=programming-language-python). Por enquanto, o Ubuntu 18, 4 é a versão recomendada.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Por que estou cometendo erros ao tentar chamar os pontos finais da previsão do LUIS?</b>
+<b>Por que estou recebendo erros ao tentar chamar pontos de extremidade de previsão de LUIS?</b>
 </summary>
 
-Estou usando o contêiner LUIS em uma implantação de IoT Edge e estou tentando chamar o ponto final de previsão do LUIS de outro contêiner. O contêiner LUIS está ouvindo na porta 5001, e a URL que estou usando é a seguinte:
+Estou usando o contêiner LUIS em uma implantação IoT Edge e estou tentando chamar o ponto de extremidade de previsão LUIS de outro contêiner. O contêiner LUIS está escutando na porta 5001 e a URL que estou usando é esta:
 
 ```csharp
 var luisEndpoint =
@@ -231,29 +231,29 @@ O erro que estou recebendo é:
 WebSocket Upgrade failed with HTTP status code: 404 SessionId: 3cfe2509ef4e49919e594abf639ccfeb
 ```
 
-Vejo a solicitação nos registros de contêineres luis e a mensagem diz:
+Vejo a solicitação nos logs de contêiner LUIS e a mensagem diz:
 
 ```cmd
 The request path /luis//predict" does not match a supported file type.
 ```
 
-O que isso significa? O que estou perdendo? Eu estava seguindo o exemplo para o Speech SDK, [daqui.](https://github.com/Azure-Samples/cognitive-services-speech-sdk) O cenário é que estamos detectando o áudio diretamente do microfone do PC e tentando determinar a intenção, com base no aplicativo LUIS que treinamos. O exemplo que eu vinculei faz exatamente isso. E funciona bem com o serviço baseado em nuvem LUIS. O uso do Speech SDK parecia nos salvar de ter que fazer uma chamada explícita separada para a API de discurso para texto e, em seguida, uma segunda chamada para LUIS.
+O que isso significa? O que estou perdendo? Eu estava seguindo o exemplo para o SDK de fala, [daqui.](https://github.com/Azure-Samples/cognitive-services-speech-sdk) O cenário é que estamos detectando o áudio diretamente do microfone do PC e tentando determinar a intenção, com base no aplicativo LUIS que treinamos. O exemplo com o qual vinculei faz exatamente isso. E funciona bem com o serviço baseado em nuvem LUIS. Usar o SDK de fala pareceu nos poupar de ter que fazer uma chamada explícita separada para a API de conversão de fala em texto e, em seguida, uma segunda chamada para LUIS.
 
-Então, tudo o que estou tentando fazer é mudar do cenário de usar LUIS na nuvem para usar o contêiner LUIS. Eu não posso imaginar se o Speech SDK funciona para um, não vai funcionar para o outro.
+Portanto, tudo o que estou tentando fazer é mudar do cenário de uso do LUIS na nuvem para usar o contêiner LUIS. Não posso imaginar se o SDK de fala funciona para um, ele não funcionará para o outro.
 
-**Resposta:** O Speech SDK não deve ser usado contra um recipiente LUIS. Para o uso do recipiente LUIS, deve-se utilizar a API LUIS SDK ou LUIS REST. O Speech SDK deve ser usado contra um recipiente de fala.
+**Resposta:** O SDK de fala não deve ser usado em um contêiner LUIS. Para usar o contêiner LUIS, o SDK do LUIS ou a API REST do LUIS devem ser usados. O SDK de fala deve ser usado em um contêiner de fala.
 
-Uma nuvem é diferente de um recipiente. Uma nuvem pode ser composta de vários recipientes agregados (às vezes chamados de micro serviços). Então há um contêiner LUIS e depois há um recipiente Speech - Dois recipientes separados. O recipiente do Discurso só fala. O contêiner LUIS só faz LUIS. Na nuvem, porque ambos os contêineres são conhecidos por serem implantados, e é um desempenho ruim para um cliente remoto ir para a nuvem, fazer a fala, voltar, depois ir para a nuvem novamente e fazer LUIS, nós fornecemos um recurso que permite que o cliente vá para o Speech, fique na nuvem, vá para LUIS e depois volte para o cliente. Assim, mesmo neste cenário o Speech SDK vai para o contêiner de nuvem Speech com áudio, e então o contêiner de nuvem Speech fala com o contêiner de nuvem LUIS com texto. O contêiner LUIS não tem nenhum conceito de aceitar áudio (não faria sentido para o contêiner LUIS aceitar streaming de áudio - LUIS é um serviço baseado em texto). Com o on-prem, não temos certeza de que nosso cliente implantou ambos os contêineres, não temos a pretensão de orquestrar entre contêineres nas instalações de nossos clientes, e se ambos os contêineres forem implantados no prem, dado que eles são mais locais para o cliente, não é um fardo ir primeiro ao SR, voltar para o cliente, e ter o cliente então pegar esse texto e ir para LUIS.
+Uma nuvem é diferente de um contêiner. Uma nuvem pode ser composta por vários contêineres agregados (às vezes chamados de micro Services). Portanto, há um contêiner LUIS e, em seguida, há um contêiner de fala-dois contêineres separados. O contêiner de fala faz apenas a fala. O contêiner LUIS apenas LUIS. Na nuvem, como ambos os contêineres devem ser implantados e o desempenho é inadequado para que um cliente remoto vá para a nuvem, faça a fala, volte e vá para a nuvem novamente e faça LUIS, fornecemos um recurso que permite que o cliente acesse a fala, permaneça na nuvem, acesse LUIS e, em seguida, volte para o cliente. Portanto, mesmo nesse cenário, o SDK de fala vai para a fala do contêiner de nuvem com áudio e, em seguida, fala o contêiner de nuvem se comunica com o contêiner de nuvem LUIS com texto. O contêiner LUIS não tem nenhum conceito de aceitação de áudio (não faz sentido para o contêiner LUIS aceitar áudio de streaming-LUIS é um serviço baseado em texto). Com o local, não temos certeza de que nosso cliente implantou os dois contêineres, não presumimos orquestrar os contêineres nos locais dos nossos clientes e, se ambos os contêineres fossem implantados localmente, Considerando que eles são mais locais para o cliente, não é uma tarefa de fazer o Sr primeiro, voltar ao cliente e fazer com que o cliente pegue esse texto e
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Por que estamos cometendo erros com macOS, recipiente de fala e o Python SDK?</b>
+<b>Por que estamos recebendo erros com o macOS, o contêiner de fala e o SDK do Python?</b>
 </summary>
 
-Quando enviamos um arquivo *.wav* para ser transcrito, o resultado volta com:
+Quando enviamos um arquivo *. wav* para ser transcrita, o resultado é retornado com:
 
 ```cmd
 recognition is running....
@@ -272,11 +272,11 @@ WebSocket
 }
 ```
 
-Sabemos que o websocket está configurado corretamente.
+Sabemos que o WebSocket está configurado corretamente.
 
-**Resposta:** Se esse for o caso, então veja [este problema do GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310). Temos um trabalho em volta, [proposto aqui.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722)
+**Resposta:** Se esse for o caso, consulte [esse problema do GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310). Temos uma solução alternativa, [proposta aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722).
 
-O carbono fixou isso na versão 1.8.
+O carbono corrigiu isso na versão 1,8.
 
 
 <br>
@@ -284,34 +284,34 @@ O carbono fixou isso na versão 1.8.
 
 <details>
 <summary>
-<b>Quais são as diferenças nos pontos finais do recipiente Speech?</b>
+<b>Quais são as diferenças nos pontos de extremidade do contêiner de fala?</b>
 </summary>
 
-Você poderia ajudar a preencher as seguintes métricas de teste, incluindo quais funções testar e como testar as APIs SDK e REST? Especialmente, diferenças em "interativo" e "conversa", que eu não vi do doc/amostra existente.
+Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais funções testar e como testar o SDK e as APIs REST? Especialmente, as diferenças em "interativo" e "conversa", que não vi do documento/exemplo existente.
 
 | Ponto de extremidade                                                | Teste funcional                                                   | . | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Texto sintetizado (texto-para-fala)                                  |     | Sim      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivos no ditado prem v1 websocket endpoint        | Sim | Não       |
-| `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto final do websocket interativo v1 dos Serviços Cognitivos  |     |          |
-| `/speech/recognition/conversation/cognitiveservices/v1` | Os serviços cognitivos on-prem conversa v1 websocket endpoint |     |          |
+| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Sim      |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivas ponto de extremidade do WebSocket v1 do ditado        | Sim | Não       |
+| `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto de extremidade do WebSocket interativo de serviços cognitivas local v1  |     |          |
+| `/speech/recognition/conversation/cognitiveservices/v1` | O ponto de extremidade do WebSocket v1 da conversa local de serviços cognitivas |     |          |
 
 **Resposta:** Esta é uma fusão de:
-- Pessoas tentando o ponto final do ditado para contêineres, (não sei como conseguiram essa URL)
-- O<sup>1º</sup> ponto final da festa é o de um contêiner.
-- O ponto final de 1<sup>parte</sup> retornando speech.fragmenta mensagens em vez das `speech.hypothesis` mensagens os pontos finais da<sup>3ª</sup> parte retornam para o ponto final do ditado.
-- O Carbono inicia `RecognizeOnce` rapidamente todo o uso (modo interativo)
-- Carbono tendo uma `speech.fragment` afirmação de que para mensagens que requerem eles não são devolvidos no modo interativo.
-- Carbono tendo o fogo afirma em construções de liberação (matando o processo).
+- Pessoas experimentando o ponto de extremidade do ditado para contêineres, (não tenho certeza de como eles receberam essa URL)
+- O ponto de extremidade<sup>de parte 1</sup> é aquele em um contêiner.
+- O ponto de extremidade<sup>de parte 1</sup> é retornar mensagens de fala. `speech.hypothesis` fragmento em vez das mensagens que os 3 pontos de extremidade de parte da<sup>área de trabalho</sup> retornam para o ponto final do ditado.
+- Todos os meus guias de início `RecognizeOnce` rápido usam (modo interativo)
+- Carbono tendo uma asserção de que `speech.fragment` as mensagens que exigem que elas não sejam retornadas no modo interativo.
+- Carbono com as declarações acionadas em builds de versão (eliminando o processo).
 
-A solução de solução é mudar para usar o reconhecimento contínuo em seu código, ou (mais rápido) conectar-se aos pontos finais interativos ou contínuos no contêiner.
-Para seu código, defina o ponto final para <host:port>/speech/recognition/interactive/cognitiveservices/v1
+A solução alternativa é alternar para o uso do reconhecimento contínuo em seu código ou (mais rápido) conectar-se aos pontos de extremidade interativos ou contínuos no contêiner.
+Para seu código, defina o ponto de extremidade para <host: porta>/Speech/Recognition/Interactive/cognitiveservices/v1
 
-Para os vários modos, consulte modos de fala - veja abaixo:
+Para os vários modos, consulte modos de fala-Veja abaixo:
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
-A correção adequada está vindo com o SDK 1.8, que tem suporte on-prem (escolherá o ponto final certo, então não seremos piores do que o serviço online). Enquanto isso, há uma amostra para reconhecimento contínuo, por que não apontamos para ela?
+A correção correta está disponível com o SDK 1,8, que tem suporte local (escolherá o ponto de extremidade correto, portanto, não será pior que o serviço online). Enquanto isso, há um exemplo de reconhecimento contínuo, por que não apontamos para ele?
 
 https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d9e95c9137fe129bc5d81e35f6309/samples/python/console/speech_sample.py#L196
 
@@ -323,37 +323,24 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 <b>Qual modo devo usar para vários arquivos de áudio?</b>
 </summary>
 
-**Resposta:** Aqui está um [começo rápido usando Python](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-python). Você pode encontrar os outros idiomas vinculados no site do docs.
+**Resposta:** Aqui está um guia de [início rápido usando o Python](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-python). Você pode encontrar os outros idiomas vinculados ao site docs.
 
-Apenas para esclarecer para o interativo, conversa e ditado; esta é uma maneira avançada de especificar a maneira particular em que nosso serviço lidará com a solicitação de fala. Infelizmente, para os contêineres on-prem temos que especificar o URI completo (uma vez que inclui máquina local), de modo que essas informações vazaram da abstração. Estamos trabalhando com a equipe sdk para tornar isso mais utilizável no futuro.
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>Como podemos fazer benchmark de uma medida aproximada de transações/segundo/núcleo?</b>
-</summary>
-
-**Resposta:** Aqui estão alguns dos números brutos a esperar do modelo existente (mudará para melhor no que vamos enviar em GA):
-
-- Para arquivos, o estrangulamento será no sdk de fala, em 2x. Os primeiros cinco segundos de áudio não são estrangulados. Decodificador é capaz de fazer cerca de 3x em tempo real. Para isso, o uso geral da CPU será próximo de 2 núcleos para um único reconhecimento.
-- Para microfone, será em 1x em tempo real. O uso geral deve ser de cerca de 1 núcleo para um único reconhecimento.
-
-Isso tudo pode ser verificado a partir dos registros docker. Na verdade, despejamos a linha com estatísticas de sessão e frase/enunciado, e isso inclui os números RTF.
-
+Apenas para esclarecer o assunto interativo, a conversa e o ditado; Essa é uma maneira avançada de especificar a maneira específica em que nosso serviço tratará a solicitação de fala. Infelizmente, para os contêineres locais, precisamos especificar o URI completo (já que ele inclui o computador local), portanto, essas informações vazaram da abstração. Estamos trabalhando com a equipe do SDK para tornar isso mais utilizável no futuro.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>É comum dividir arquivos de áudio em mandris para uso de recipientes speech?</b>
+<b>Como é possível avaliar uma medida aproximada de transações/segundo/núcleo?</b>
 </summary>
 
-Meu plano atual é pegar um arquivo de áudio existente e dividi-lo em pedaços de 10 segundos e enviá-los através do contêiner. É um cenário aceitável?  Existe uma maneira melhor de processar arquivos de áudio maiores com o contêiner?
+**Resposta:** Aqui estão alguns dos números aproximados que devem ser esperados do modelo existente (mudará para o melhor em um que enviaremos em GA):
 
-**Resposta:** Basta usar o sdk de fala e dar-lhe o arquivo, ele vai fazer a coisa certa. Por que você precisa repassar o arquivo?
+- Para arquivos, a limitação estará no SDK de fala, em 2x. Os primeiros cinco segundos de áudio não são limitados. O decodificador é capaz de fazer cerca de 3x em tempo real. Para isso, o uso geral da CPU será próximo a dois núcleos para um único reconhecimento.
+- Para o MIC, ele estará em 1x real time. O uso geral deve ser de cerca de 1 núcleo para um único reconhecimento.
+
+Isso pode ser verificado nos logs do Docker. Na verdade, despejamos a linha com estatísticas de sessão e frase/expressão e que inclui os números RTF.
 
 
 <br>
@@ -361,12 +348,25 @@ Meu plano atual é pegar um arquivo de áudio existente e dividi-lo em pedaços 
 
 <details>
 <summary>
-<b>Como faço para fazer vários contêineres funcionarem no mesmo host?</b>
+<b>É comum dividir arquivos de áudio em Chucks para uso de contêiner de fala?</b>
 </summary>
 
-O médico diz para expor um porto diferente, o que eu faço, mas o contêiner LUIS ainda está ouvindo no porto 5000?
+Meu plano atual é pegar um arquivo de áudio existente e dividi-lo em partes de 10 segundos e enviá-los por meio do contêiner. É um cenário aceitável?  Há uma maneira melhor de processar arquivos de áudio maiores com o contêiner?
 
-**Resposta:** Tente. `-p <outside_unique_port>:5000` Por exemplo, `-p 5001:5000`.
+**Resposta:** Basta usar o SDK de fala e dar a ele o arquivo, ele fará a coisa certa. Por que você precisa dividir o arquivo?
+
+
+<br>
+</details>
+
+<details>
+<summary>
+<b>Como fazer fazer com que vários contêineres sejam executados no mesmo host?</b>
+</summary>
+
+O documento diz para expor uma porta diferente, que eu faço, mas o contêiner LUIS ainda está ouvindo na porta 5000?
+
+**Resposta:** Tente `-p <outside_unique_port>:5000`. Por exemplo, `-p 5001:5000`.
 
 
 <br>
@@ -376,10 +376,10 @@ O médico diz para expor um porto diferente, o que eu faço, mas o contêiner LU
 
 <details>
 <summary>
-<b>Como posso obter APIs não-lotes &lt;para lidar com áudio com 15 segundos de duração?</b>
+<b>Como posso obter APIs que não sejam do lote para lidar &lt;com o áudio de 15 segundos de duração?</b>
 </summary>
 
-**Resposta:** `RecognizeOnce()` no modo interativo apenas processa até 15 segundos de áudio, já que o modo é destinado ao Comando de Fala onde as declarações são esperadas para serem curtas. Se você `StartContinuousRecognition()` usar para ditado ou conversa, não há limite de 15 segundos.
+**Resposta:** `RecognizeOnce()` no modo interativo, o só processa até 15 segundos de áudio, pois o modo destina-se a comandos de fala em que espera-se que declarações sejam curtos. Se você usar `StartContinuousRecognition()` para ditado ou conversa, não haverá um limite de 15 segundos.
 
 
 <br>
@@ -387,59 +387,59 @@ O médico diz para expor um porto diferente, o que eu faço, mas o contêiner LU
 
 <details>
 <summary>
-<b>Quais são os recursos recomendados, CPU e RAM; para 50 pedidos simultâneos?</b>
+<b>Quais são os recursos recomendados, CPU e RAM; para 50 solicitações simultâneas?</b>
 </summary>
 
-Quantas solicitações simultâneas uma alça de 4 núcleos e 4 GB de RAM? Se tivermos que atender, por exemplo, 50 solicitações simultâneas, quantas Core e RAM são recomendadas?
+Quantas solicitações simultâneas serão um identificador de 4 núcleos e 4 GB de RAM? Se precisarmos servir por exemplo, 50 solicitações simultâneas, quantos núcleos e RAM são recomendados?
 
-**Resposta:** Em tempo real, 8 `en-US`com o nosso mais recente , por isso recomendamos usar mais contêineres docker além de 6 pedidos simultâneos. Ele fica mais louco além de 16 núcleos, e torna-se sensível ao nó de acesso à memória não uniforme (NUMA). A tabela a seguir descreve a alocação mínima e recomendada de recursos para cada recipiente de Fala.
+**Resposta:** Em tempo real, 8 com nossos mais `en-US`recentes, portanto, é recomendável usar mais contêineres do Docker além de seis solicitações simultâneas. Ele obtém Crazier além de 16 núcleos e se torna sensível ao nó NUMA (acesso não uniforme à memória). A tabela a seguir descreve a alocação mínima e recomendada de recursos para cada contêiner de fala.
 
 # <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
 | Contêiner      | Mínimo             | Recomendadas         |
 |----------------|---------------------|---------------------|
-| Conversão de fala em texto | 2 núcleos, memória de 2 GB | 4 núcleos, memória de 4 GB |
+| Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
-# <a name="custom-speech-to-text"></a>[Discurso personalizado para texto](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
 
 | Contêiner             | Mínimo             | Recomendadas         |
 |-----------------------|---------------------|---------------------|
-| Discurso personalizado para texto | 2 núcleos, memória de 2 GB | 4 núcleos, memória de 4 GB |
+| Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
 | Contêiner      | Mínimo             | Recomendadas         |
 |----------------|---------------------|---------------------|
-| Conversão de texto em fala | 1 núcleo, memória de 2 GB | 2 núcleos, memória de 3 GB |
+| Conversão de texto em fala | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
-# <a name="custom-text-to-speech"></a>[Texto-para-fala personalizado](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
 | Contêiner             | Mínimo             | Recomendadas         |
 |-----------------------|---------------------|---------------------|
-| Texto-para-fala personalizado | 1 núcleo, memória de 2 GB | 2 núcleos, memória de 3 GB |
+| Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
 ***
 
 - Cada núcleo deve ter pelo menos 2,6 GHz ou mais rápido.
-- Para arquivos, o estrangulamento será no Speech SDK, em 2x (os primeiros 5 segundos de áudio não são estrangulados).
-- O decodificador é capaz de fazer cerca de 2-3x em tempo real. Para isso, o uso geral da CPU será próximo de dois núcleos para um único reconhecimento. É por isso que não recomendamos manter mais de duas conexões ativas, por instância de contêiner. O lado extremo seria colocar cerca de 10 decodificadores em 2x `DS13_V2`em tempo real em uma máquina de oito núcleos como . Para a versão de contêiner 1.3 e posterior, há `DECODER_MAX_COUNT=20`um param que você pode tentar definir .
-- Para microfone, será em 1x em tempo real. O uso geral deve ser de cerca de um núcleo para um único reconhecimento.
+- Para arquivos, a limitação estará no SDK de fala, a 2x (os primeiros 5 segundos de áudio não são limitados).
+- O decodificador é capaz de fazer cerca de 2 a 3 vezes em tempo real. Para isso, o uso geral da CPU será próximo de dois núcleos para um único reconhecimento. É por isso que não recomendamos manter mais de duas conexões ativas, por instância de contêiner. O lado extremo seria colocar cerca de 10 decodificadores em um dobro de tempo real em uma máquina de oito `DS13_V2`núcleos, como. Para o contêiner versão 1,3 e posterior, há um param que você pode tentar configurar `DECODER_MAX_COUNT=20`.
+- Para o microfone, ele estará em 1x real time. O uso geral deve ser em um núcleo para um único reconhecimento.
 
-Considere o número total de horas de áudio que você tem. Se o número for grande, para melhorar a confiabilidade/disponibilidade, sugerimos executar mais instâncias de contêineres, seja em uma única caixa ou em várias caixas, atrás de um balanceador de carga. A orquestração poderia ser feita usando Kubernetes (K8S) e Helm, ou com Docker compondo.
+Considere o número total de horas de áudio que você tem. Se o número for grande, para melhorar a confiabilidade/disponibilidade, sugerimos a execução de mais instâncias de contêineres, seja em uma única caixa ou em várias caixas, atrás de um balanceador de carga. A orquestração pode ser feita usando kubernetes (K8S) e Helm, ou com o Docker Compose.
 
-Como exemplo, para lidar com 1000 horas/24 horas, tentamos configurar 3-4 VMs, com 10 instâncias/decodificadores por VM.
+Por exemplo, para lidar com 1000 horas/24 horas, tentamos configurar as VMs de 3-4, com 10 instâncias/decodificadores por VM.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>O recipiente de fala suporta pontuação?</b>
+<b>O contêiner de fala dá suporte à Pontuação?</b>
 </summary>
 
-**Resposta:** Temos capitalização (ITN) disponível no contêiner on-prem. A pontuação é dependente da língua, e não é suportada para algumas línguas, incluindo chinês e japonês.
+**Resposta:** Temos em (maiúsculas e minúsculas) disponíveis no contêiner local. A pontuação é dependente de idioma e não tem suporte para algumas linguagens, incluindo chinês e japonês.
 
-Temos *do* suporte implícito e básico de pontuação para os contêineres `off` existentes, mas é por padrão. O que isso significa é `.` que você pode obter `。` o personagem em seu exemplo, mas não o personagem. Para habilitar essa lógica implícita, aqui está um exemplo de como fazê-lo em Python usando nosso Speech SDK (seria semelhante em outras línguas):
+Temos *suporte* de Pontuação implícito e básico para os contêineres existentes, mas ele é `off` por padrão. Isso significa que você pode obter o `.` caractere no seu exemplo, mas não o `。` caractere. Para habilitar essa lógica implícita, aqui está um exemplo de como fazer isso no Python usando nosso SDK de fala (ele seria semelhante em outras linguagens):
 
 ```python
 speech_config.set_service_property(
@@ -454,10 +454,10 @@ speech_config.set_service_property(
 
 <details>
 <summary>
-<b>Por que estou recebendo 404 erros ao tentar postar dados no contêiner de fala para texto?</b>
+<b>Por que estou recebendo erros 404 ao tentar postar dados no contêiner de fala em texto?</b>
 </summary>
 
-Aqui está um exemplo HTTP POST:
+Aqui está um exemplo de HTTP POST:
 
 ```http
 POST /speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -477,14 +477,14 @@ Server: Kestrel
 Content-Length: 0
 ```
 
-**Resposta:** Não suportamos a API REST em nenhum contêiner de fala para texto, apenas suportamos WebSockets através do Speech SDK. Consulte sempre a documentação oficial, consulte [pontos finais de previsão de consulta](speech-container-howto.md#query-the-containers-prediction-endpoint).
+**Resposta:** Não há suporte para a API REST no contêiner de conversão de fala em texto, só damos suporte a WebSockets por meio do SDK de fala. Consulte sempre a documentação oficial, consulte [pontos de extremidade de previsão de consulta](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Ao usar o serviço de fala para texto, por que estou recebendo esse erro?</b>
+<b>Ao usar o serviço de fala em texto, por que estou recebendo esse erro?</b>
 </summary>
 
 ```cmd
@@ -495,17 +495,17 @@ Error in STT call for file 9136835610040002161_413008000252496:
 }
 ```
 
-**Resposta:** Isso normalmente acontece quando você alimenta o áudio mais rápido do que o recipiente de reconhecimento de fala pode levá-lo. Buffers de clientes preenchidos, e o cancelamento é acionado. Você precisa controlar a concorrência e o RTF no qual você envia o áudio.
+**Resposta:** Isso normalmente acontece quando você alimenta o áudio mais rápido do que o contêiner de reconhecimento de fala pode levá-lo. Os buffers de cliente são preenchidos e o cancelamento é disparado. Você precisa controlar a simultaneidade e o RTF no qual você envia o áudio.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Você poderia explicar esses erros de contêiner texto-para-fala a partir dos exemplos C++?</b>
+<b>Você poderia explicar esses erros de contêiner de conversão de texto em fala dos exemplos do C++?</b>
 </summary>
 
-**Resposta:** Se a versão do contêiner for maior que 1.3, este código deve ser usado:
+**Resposta:** Se a versão do contêiner for mais antiga que 1,3, esse código deverá ser usado:
 
 ```cpp
 const auto endpoint = "http://localhost:5000/speech/synthesize/cognitiveservices/v1";
@@ -514,7 +514,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
 
-Os contêineres mais antigos não têm o ponto `FromHost` final necessário para o Carbono trabalhar com a API. Se os recipientes usados para a versão 1.3, este código deve ser usado:
+Os contêineres mais antigos não têm o ponto de extremidade necessário para `FromHost` que o carbono funcione com a API. Se os contêineres usados para a versão 1,3, esse código deverá ser usado:
 
 ```cpp
 const auto host = "http://localhost:5000";
@@ -525,7 +525,7 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
 ```
 
-Abaixo está um exemplo `FromEndpoint` de uso da API:
+Veja abaixo um exemplo de como usar `FromEndpoint` a API:
 
 ```cpp
 const auto endpoint = "http://localhost:5000/cognitiveservices/v1";
@@ -536,30 +536,30 @@ auto synthesizer = SpeechSynthesizer::FromConfig(config);
 auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 ```
 
- A `SetSpeechSynthesisVoiceName` função é chamada porque os recipientes com um mecanismo de texto para voz atualizado exigem o nome da voz.
+ A `SetSpeechSynthesisVoiceName` função é chamada porque os contêineres com um mecanismo atualizado de conversão de texto em fala exigem o nome da voz.
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Como posso usar o v1.7 do Speech SDK com um recipiente de fala?</b>
+<b>Como posso usar a v 1.7 do SDK de fala com um contêiner de fala?</b>
 </summary>
 
-**Resposta:** Existem três pontos finais no recipiente Speech para diferentes usos, eles são definidos como modos de fala - veja abaixo:
+**Resposta:** Há três pontos de extremidade no contêiner de fala para usos diferentes, eles são definidos como modos de fala – Veja abaixo:
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
-Eles são para propósitos diferentes e são usados de forma diferente.
+Eles são para finalidades diferentes e são usados de forma diferente.
 
-[Amostras de Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py):
-- Para reconhecimento único (modo interativo) com um ponto final personalizado (ou seja; `SpeechConfig` com um parâmetro de `speech_recognize_once_from_file_with_custom_endpoint_parameters()`ponto final), ver .
-- Para reconhecimento contínuo (modo de conversação) e basta modificar `speech_recognize_continuous_from_file()`para usar um ponto final personalizado como acima, consulte .
-- Para habilitar o ditado em amostras como acima (apenas se `speech_config`você `speech_config.enable_dictation()`realmente precisar), logo após você criar , adicionar código .
+[Exemplos](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py)do Python:
+- Para o reconhecimento único (modo interativo) com um ponto de extremidade personalizado (ou seja; `SpeechConfig` com um parâmetro de ponto de extremidade `speech_recognize_once_from_file_with_custom_endpoint_parameters()`), consulte.
+- Para reconhecimento contínuo (modo de conversa) e apenas modificar para usar um ponto de extremidade personalizado como acima `speech_recognize_continuous_from_file()`, consulte.
+- Para habilitar o ditado em exemplos como acima (somente se você realmente precisar dele), logo após `speech_config`criar, adicione `speech_config.enable_dictation()`o código.
 
-Em C# para habilitar o `SpeechConfig.EnableDictation()` ditado, invoque a função.
+Em C# para habilitar o ditado, `SpeechConfig.EnableDictation()` invoque a função.
 
-### <a name="fromendpoint-apis"></a>`FromEndpoint`Apis
+### <a name="fromendpoint-apis"></a>`FromEndpoint`API
 | Linguagem | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -567,19 +567,19 @@ Em C# para habilitar o `SpeechConfig.EnableDictation()` ditado, invoque a funç�
 | Java | <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-java-stable" target="_blank">`SpeechConfig.fromendpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Objective-C | <a href="https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithendpoint" target="_blank">`SPXSpeechConfiguration:initWithEndpoint;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | Python | <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python" target="_blank">`SpeechConfig;` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
-| JavaScript | Não é atualmente suportado, nem é planejado. |
+| JavaScript | Atualmente não tem suporte, nem está planejado. |
 
 <br>
 </details>
 
 <details>
 <summary>
-<b>Como posso usar o v1.8 do Speech SDK com um recipiente de fala?</b>
+<b>Como posso usar v 1.8 do SDK de fala com um contêiner de fala?</b>
 </summary>
 
-**Resposta:** Há uma nova `FromHost` API. Isso não substitui ou modifica quaisquer APIs existentes. Ele apenas adiciona uma maneira alternativa de criar uma configuração de voz usando um host personalizado.
+**Resposta:** Há uma nova `FromHost` API. Isso não substitui nem modifica nenhuma API existente. Ele apenas adiciona uma maneira alternativa de criar uma configuração de fala usando um host personalizado.
 
-### <a name="fromhost-apis"></a>`FromHost`Apis
+### <a name="fromhost-apis"></a>`FromHost`API
 
 | Linguagem | Detalhes da API |
 |--|:-|
@@ -592,15 +592,15 @@ Em C# para habilitar o `SpeechConfig.EnableDictation()` ditado, invoque a funç�
 
 > Parâmetros: host (obrigatório), chave de assinatura (opcional, se você puder usar o serviço sem ele).
 
-Formato para `protocol://hostname:port` host `:port` é onde é opcional (veja abaixo):
-- Se o contêiner estiver sendo executado `localhost`localmente, o nome de hospedagem será .
-- Se o contêiner estiver sendo executado em um servidor remoto, use o nome host ou o endereço IPv4 desse servidor.
+O formato para host `protocol://hostname:port` é `:port` o que é opcional (veja abaixo):
+- Se o contêiner estiver sendo executado localmente, o nome `localhost`do host será.
+- Se o contêiner estiver em execução em um servidor remoto, use o nome do host ou o endereço IPv4 desse servidor.
 
-Exemplos de parâmetros de host para fala-a-texto:
-- `ws://localhost:5000`- conexão não segura a um contêiner local usando a porta 5000
-- `ws://some.host.com:5000`- conexão não segura a um contêiner em execução em um servidor remoto
+Exemplos de parâmetro de host para conversão de fala em texto:
+- `ws://localhost:5000`-conexão não segura para um contêiner local usando a porta 5000
+- `ws://some.host.com:5000`-conexão não segura a um contêiner em execução em um servidor remoto
 
-Amostras python de cima, mas `host` `endpoint`use parâmetro em vez de:
+Exemplos de Python acima, mas use `host` o parâmetro em `endpoint`vez de:
 
 ```python
 speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
@@ -612,4 +612,4 @@ speech_config = speechsdk.SpeechConfig(host="ws://localhost:5000")
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Contêineres de Serviços Cognitivos](speech-container-howto.md)
+> [Contêineres de serviços cognitivas](speech-container-howto.md)

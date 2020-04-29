@@ -1,6 +1,6 @@
 ---
 title: Usar a Grade de Eventos do Azure com eventos no esquema CloudEvents
-description: Descreve como usar o esquema CloudEvents para eventos no Azure Event Grid. O serviço suporta eventos na implementação json de Eventos em Nuvem.
+description: Descreve como usar o esquema CloudEvents para eventos na grade de eventos do Azure. O serviço oferece suporte a eventos na implementação JSON de eventos de nuvem.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 127095bef2c67a93097bf90bea54ca1b44b16c58
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81394378"
 ---
-# <a name="cloudevents-v10-schema-with-event-grid"></a>CloudEvents v1.0 esquema com Grade de Eventos
+# <a name="cloudevents-v10-schema-with-event-grid"></a>Esquema do CloudEvents v 1.0 com a grade de eventos
 
-Além do seu [esquema de eventos padrão,](event-schema.md)o Azure Event Grid suporta nativamente eventos na [implementação jSON do cloudevents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [da vinculação](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)do protocolo HTTP . [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
+Além de seu [esquema de evento padrão](event-schema.md), a grade de eventos do Azure oferece suporte nativo a eventos na [implementação JSON do CloudEvents v 1.0 e da Associação de](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) [protocolo http](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
 
 O CloudEvents simplifica a interoperabilidade, fornecendo um esquema comum do evento para publicar e consumir eventos com base em nuvem. Esse esquema permite ferramentas uniforme, formas padrão de roteamento e manipulação de eventos e maneiras universais de desserializar o esquema de evento externo. Com um esquema comum, você pode integrar facilmente mais trabalho entre plataformas.
 
-O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Computing Foundation](https://www.cncf.io/). Está atualmente disponível como versão 1.0.
+O CloudEvents está sendo criado por vários [colaboradores](https://github.com/cloudevents/spec/blob/master/community/contributors.md), incluindo a Microsoft, por meio da [Cloud Native Computing Foundation](https://www.cncf.io/). Ele está disponível atualmente como a versão 1,0.
 
-Este artigo descreve o esquema CloudEvents com event grid.
+Este artigo descreve o esquema CloudEvents com a grade de eventos.
 
-## <a name="sample-event-using-cloudevents-schema"></a>Evento de amostra usando esquema CloudEvents
+## <a name="sample-event-using-cloudevents-schema"></a>Exemplo de evento usando o esquema CloudEvents
 
 Aqui está um exemplo de um evento de Armazenamento de Blob do Azure no formato CloudEvents:
 
@@ -54,11 +54,11 @@ Aqui está um exemplo de um evento de Armazenamento de Blob do Azure no formato 
 }
 ```
 
-Uma descrição detalhada dos campos disponíveis, seus tipos e definições em CloudEvents v1.0 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Uma descrição detalhada dos campos disponíveis, seus tipos e definições no CloudEvents v 1.0 está [disponível aqui](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 Os valores dos cabeçalhos para eventos entregues no esquema CloudEvents e no esquema da Grade de Eventos são os mesmos, exceto para `content-type`. Para o esquema CloudEvents, esse valor de cabeçalho é `"content-type":"application/cloudevents+json; charset=utf-8"`. Para o esquema Grade de Eventos, esse valor de cabeçalho é `"content-type":"application/json; charset=utf-8"`.
 
-## <a name="event-grid-for-cloudevents"></a>Grade de eventos para Eventos em Nuvem
+## <a name="event-grid-for-cloudevents"></a>Grade de eventos para CloudEvents
 
 Você pode usar a Grade de Eventos para entrada e saída de eventos no esquema CloudEvents. Você pode usar o CloudEvents para eventos do sistema, como eventos do Armazenamento de Blob e eventos do Hub IoT e eventos personalizados. Também pode transformar esses eventos durante a transmissão para trás e para frente.
 
@@ -72,4 +72,4 @@ Você pode usar a Grade de Eventos para entrada e saída de eventos no esquema C
 Para todos os esquemas de evento, a Grade de Eventos requer validação ao publicar em um tópico de grade de eventos e ao criar uma inscrição de evento. Para saber mais, confira [Event Grid security and authentication](security-authentication.md) (Segurança e autenticação da Grade de Eventos).
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja [como usar o esquema CloudEvents v1.0 com Event Grid](cloudevents-schema.md).  
+Consulte [como usar o esquema do CloudEvents v 1.0 com a grade de eventos](cloudevents-schema.md).  

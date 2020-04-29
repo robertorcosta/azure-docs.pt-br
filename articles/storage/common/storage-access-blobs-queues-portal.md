@@ -1,7 +1,7 @@
 ---
-title: Use o portal Azure para acessar dados de blob ou fila
+title: Usar o portal do Azure para acessar dados de BLOB ou de fila
 titleSuffix: Azure Storage
-description: Quando você acessa dados de blob ou fila usando o portal Azure, o portal faz solicitações ao Azure Storage sob as capas. Essas solicitações ao Azure Storage podem ser autenticadas e autorizadas usando sua conta Azure AD ou a chave de acesso da conta de armazenamento.
+description: Quando você acessa dados de BLOB ou de fila usando o portal do Azure, o portal faz solicitações para o armazenamento do Azure nos bastidores. Essas solicitações para o armazenamento do Azure podem ser autenticadas e autorizadas usando sua conta do Azure AD ou a chave de acesso da conta de armazenamento.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,111 +11,111 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: e556e21238db5de7dddce13ea912dae30723fe8c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383664"
 ---
-# <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Use o portal Azure para acessar dados de blob ou fila
+# <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar o portal do Azure para acessar dados de BLOB ou de fila
 
-Quando você acessa dados de blob ou fila usando o [portal Azure,](https://portal.azure.com)o portal faz solicitações ao Azure Storage sob as capas. Uma solicitação ao Azure Storage pode ser autorizada usando sua conta Azure AD ou a chave de acesso da conta de armazenamento. O portal indica qual método você está usando e permite que você alterne entre os dois se você tiver as permissões apropriadas.  
+Quando você acessa dados de BLOB ou de fila usando o [portal do Azure](https://portal.azure.com), o portal faz solicitações para o armazenamento do Azure nos bastidores. Uma solicitação para o armazenamento do Azure pode ser autorizada usando sua conta do Azure AD ou a chave de acesso da conta de armazenamento. O portal indica qual método você está usando e permite que você alterne entre os dois se tiver as permissões apropriadas.  
 
-Você também pode especificar como autorizar uma operação de upload individual no portal Azure. Por padrão, o portal usa qualquer método que você já esteja usando para autorizar uma operação de upload de blob, mas você tem a opção de alterar essa configuração quando você carrega uma bolha.
+Você também pode especificar como autorizar uma operação de upload de blob individual no portal do Azure. Por padrão, o portal usa qualquer método que você já esteja usando para autorizar uma operação de upload de BLOB, mas você tem a opção de alterar essa configuração ao carregar um blob.
 
-## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Permissões necessárias para acessar dados de blob ou fila
+## <a name="permissions-needed-to-access-blob-or-queue-data"></a>Permissões necessárias para acessar dados de BLOB ou fila
 
-Dependendo de como você deseja autorizar o acesso a dados de blob ou fila no portal Azure, você precisará de permissões específicas. Na maioria dos casos, essas permissões são fornecidas via RBAC (Role-Based Access Control). Para obter mais informações sobre o RBAC, consulte [O que é o controle de acesso baseado em função (RBAC)?](../../role-based-access-control/overview.md).
+Dependendo de como você deseja autorizar o acesso a dados de BLOB ou de fila no portal do Azure, você precisará de permissões específicas. Na maioria dos casos, essas permissões são fornecidas por meio do RBAC (controle de acesso baseado em função). Para obter mais informações sobre o RBAC, consulte [o que é o RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md).
 
-### <a name="use-the-account-access-key"></a>Use a chave de acesso da conta
+### <a name="use-the-account-access-key"></a>Usar a chave de acesso da conta
 
-Para acessar dados blob e fila com a chave de acesso à conta, você deve ter uma função RBAC atribuída a você que inclua a ação RBAC **Microsoft.Storage/storageAccounts/listkeys/action**. Esta função RBAC pode ser uma função incorporada ou personalizada. Funções incorporadas que suportam **microsoft.storage/storageContas/listkeys/action** incluem:
+Para acessar dados de BLOB e de fila com a chave de acesso da conta, você deve ter uma função RBAC atribuída a você que inclui a ação RBAC **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa função de RBAC pode ser uma função interna ou personalizada. Funções internas que dão suporte a **Microsoft. Storage/storageAccounts/listkeys/Action** incluem:
 
-- A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) do azure resource manager
-- A função de [contribuinte](../../role-based-access-control/built-in-roles.md#contributor) do gerente de recursos do Azure
-- A função [contribuinte da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+- A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
+- A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
+- A função de [colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Quando você tenta acessar dados de blob ou fila no portal Dozure, o portal primeiro verifica se você foi atribuído uma função com **microsoft.Armazenamento/armazenamentoContas/listas/ações**. Se você foi designado para uma função com essa ação, então o portal usa a chave da conta para acessar dados de blob e fila. Se você não tiver sido designado para um papel com essa ação, então o portal tentará acessar dados usando sua conta Azure AD.
+Quando você tenta acessar dados de BLOB ou de fila no portal do Azure, o portal verifica primeiro se você recebeu uma função com **Microsoft. Storage/storageAccounts/listkeys/Action**. Se você tiver recebido uma função com essa ação, o portal usará a chave de conta para acessar dados de BLOB e de fila. Se você não tiver recebido uma função com essa ação, o portal tentará acessar os dados usando sua conta do Azure AD.
 
 > [!NOTE]
-> As funções clássicas de administrador de assinatura Administrador e Co-Administrador incluem o equivalente à função de proprietário do [gerenciador](../../role-based-access-control/built-in-roles.md#owner) de recursos do Azure. A função **Proprietário** inclui todas as ações, incluindo o **Microsoft.Storage/storageAccounts/listkeys/action,** para que um usuário com uma dessas funções administrativas também possa acessar dados de blob e fila com a chave da conta. Para saber mais, confira [Funções clássicas de administrador da assinatura, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> O administrador de serviço de funções de administrador de assinatura clássica e o coadministrador incluem o equivalente da função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. A função de **proprietário** inclui todas as ações, incluindo a **ação Microsoft. Storage/storageAccounts/listkeys/**, para que um usuário com uma dessas funções administrativas também possa acessar dados de BLOB e de fila com a chave de conta. Para saber mais, confira [Funções clássicas de administrador da assinatura, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
-### <a name="use-your-azure-ad-account"></a>Use sua conta Ad do Azure
+### <a name="use-your-azure-ad-account"></a>Usar sua conta do Azure AD
 
-Para acessar os dados do blob ou da fila do portal Azure usando sua conta Azure AD, ambas as seguintes declarações devem ser verdadeiras para você:
+Para acessar dados de BLOB ou de fila do portal do Azure usando sua conta do Azure AD, as duas instruções a seguir devem ser verdadeiras para você:
 
-- Você foi designado para a função Azure Resource Manager [Reader,](../../role-based-access-control/built-in-roles.md#reader) no mínimo, escopo para o nível da conta de armazenamento ou superior. A função **Reader** concede as permissões mais restritas, mas outra função de Gerenciador de Recursos do Azure que concede acesso aos recursos de gerenciamento de contas de armazenamento também é aceitável.
-- Você foi designado para uma função incorporada ou personalizada que fornece acesso a dados de blob ou fila.
+- Você recebeu a função [leitor](../../role-based-access-control/built-in-roles.md#reader) de Azure Resource Manager, no mínimo, no escopo do nível da conta de armazenamento ou superior. A função **leitor** concede as permissões mais restritas, mas outra função de Azure Resource Manager que concede acesso aos recursos de gerenciamento da conta de armazenamento também é aceitável.
+- Você foi atribuído a uma função interna ou personalizada que fornece acesso aos dados de BLOB ou de fila.
 
-A atribuição de função **Reader** ou outra atribuição de função do Azure Resource Manager é necessária para que o usuário possa visualizar e navegar os recursos de gerenciamento de contas de armazenamento no portal Dozure. As funções RBAC que concedem acesso a dados de blob ou fila não concedem acesso aos recursos de gerenciamento de contas de armazenamento. Para acessar dados de blob ou fila no portal, o usuário precisa de permissões para navegar nos recursos da conta de armazenamento. Para obter mais informações sobre esse requisito, consulte [Atribuir a função Leitor para acesso ao portal](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
+A atribuição de função de **leitor** ou outra atribuição de função de Azure Resource Manager é necessária para que o usuário possa exibir e navegar pelos recursos de gerenciamento de conta de armazenamento no portal do Azure. As funções RBAC que concedem acesso a dados de BLOB ou de fila não concedem acesso aos recursos de gerenciamento da conta de armazenamento. Para acessar dados de BLOB ou de fila no portal, o usuário precisa de permissões para navegar pelos recursos da conta de armazenamento. Para obter mais informações sobre esse requisito, consulte [atribuir a função leitor para acesso ao portal](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
-As funções incorporadas que suportam o acesso aos seus dados de blob ou fila incluem:
+As funções internas que dão suporte ao acesso ao BLOB ou aos dados da fila incluem:
 
-- [Armazenamento Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Para controle de acesso POSIX para Azure Data Lake Storage Gen2.
-- [Armazenamento Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Read/write/delete permissões para blobs.
-- [Leitor de dados Blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Permissões somente de leitura para bolhas.
-- [Contribuinte de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Permissões de leitura/gravação/exclusão para filas.
-- [Leitor de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): permissões somente de leitura para filas.
+- [Proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): para o controle de acesso POSIX para Azure data Lake Storage Gen2.
+- [Colaborador de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): permissões de leitura/gravação/exclusão para BLOBs.
+- [Leitor de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): permissões somente leitura para BLOBs.
+- [Colaborador de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): permissões de leitura/gravação/exclusão para filas.
+- [Leitor de dados da fila de armazenamento](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): permissões somente leitura para filas.
 
-As funções personalizadas podem suportar diferentes combinações das mesmas permissões fornecidas pelas funções incorporadas. Para obter mais informações sobre a criação de funções RBAC personalizadas, consulte [Funções personalizadas para os recursos do Azure](../../role-based-access-control/custom-roles.md) e [entenda as definições de função para os recursos do Azure](../../role-based-access-control/role-definitions.md).
+As funções personalizadas podem dar suporte a diferentes combinações das mesmas permissões fornecidas pelas funções internas. Para obter mais informações sobre como criar funções RBAC personalizadas, consulte [funções personalizadas para recursos do Azure](../../role-based-access-control/custom-roles.md) e [noções básicas sobre definições de função para recursos do Azure](../../role-based-access-control/role-definitions.md).
 
-As filas de listagem com uma função clássica de administrador de assinatura não são suportadas. Para listar filas, um usuário deve ter atribuído a eles a função Azure Resource Manager **Reader,** a função **Leitor de dados da fila de armazenamento** ou a função Contribuinte de dados da fila de **armazenamento.**
+Não há suporte para a listagem de filas com uma função de administrador de assinatura clássica. Para listar filas, um usuário deve ter atribuído a eles a função **leitor** de Azure Resource Manager, a função de **leitor de dados fila de armazenamento** ou a função **colaborador de dados da fila de armazenamento** .
 
 > [!IMPORTANT]
-> A versão de visualização do Storage Explorer no portal Azure não suporta o uso de credenciais Azure AD para visualizar e modificar dados de blob ou fila. O Storage Explorer no portal Azure sempre usa as chaves da conta para acessar dados. Para usar o Storage Explorer no portal Azure, você deve ser atribuído a uma função que inclua **Microsoft.Storage/storageAccounts/listkeys/action**.
+> A versão de visualização do Gerenciador de Armazenamento no portal do Azure não oferece suporte ao uso de credenciais do Azure AD para exibir e modificar dados de BLOB ou de fila. Gerenciador de Armazenamento no portal do Azure sempre usa as chaves de conta para acessar dados. Para usar Gerenciador de Armazenamento no portal do Azure, você deve ser atribuído a uma função que inclui **Microsoft. Storage/storageAccounts/listkeys/Action**.
 
-## <a name="navigate-to-blobs-or-queues-in-the-portal"></a>Navegue até blobs ou filas no portal
+## <a name="navigate-to-blobs-or-queues-in-the-portal"></a>Navegar até BLOBs ou filas no portal
 
-Para visualizar dados de blob ou fila no portal, navegue até a **visão geral da** sua conta de armazenamento e clique nos links para **Blobs** ou **Filas**. Alternativamente, você pode navegar para as seções **de serviço Blob** e **Fila** no menu. 
+Para exibir dados de BLOB ou de fila no portal, navegue até a **visão geral** da sua conta de armazenamento e clique nos links para **BLOBs** ou **filas**. Como alternativa, você pode navegar até o **serviço blob** e **serviço fila** seções no menu. 
 
-![Navegue para blob ou dados de fila no portal Azure](media/storage-access-blobs-queues-portal/blob-queue-access.png)
+![Navegue até dados de BLOB ou de fila no portal do Azure](media/storage-access-blobs-queues-portal/blob-queue-access.png)
 
-## <a name="determine-the-current-authentication-method"></a>Determine o método de autenticação atual
+## <a name="determine-the-current-authentication-method"></a>Determinar o método de autenticação atual
 
-Quando você navega para um contêiner ou uma fila, o portal Azure indica se você está usando a chave de acesso da conta ou sua conta Azure AD para autenticar.
+Quando você navega para um contêiner ou uma fila, o portal do Azure indica se você está usando a chave de acesso da conta ou sua conta do Azure AD para autenticação.
 
-Os exemplos nesta seção mostram acessar um contêiner e suas bolhas, mas o portal exibe a mesma mensagem quando você está acessando uma fila e suas mensagens, ou listando filas.
+Os exemplos nesta seção mostram o acesso a um contêiner e a seus BLOBs, mas o portal exibe a mesma mensagem quando você está acessando uma fila e suas mensagens, ou listando filas.
 
 ### <a name="authenticate-with-the-account-access-key"></a>Autenticar com a chave de acesso da conta
 
-Se você estiver autenticando usando a chave de acesso da conta, você verá **a Chave** de Acesso especificada como o método de autenticação no portal:
+Se você estiver autenticando usando a chave de acesso da conta, verá a **chave de acesso** especificada como o método de autenticação no Portal:
 
-![Atualmente acessando dados de contêiner com a chave da conta](media/storage-access-blobs-queues-portal/auth-method-access-key.png)
+![Atualmente acessando dados de contêiner com a chave de conta](media/storage-access-blobs-queues-portal/auth-method-access-key.png)
 
-Para mudar para usar a conta Azure AD, clique no link destacado na imagem. Se você tiver as permissões apropriadas através das funções RBAC que são atribuídas a você, você poderá prosseguir. No entanto, se você não tiver as permissões certas, você verá uma mensagem de erro como a seguinte:
+Para alternar para o usando a conta do Azure AD, clique no link realçado na imagem. Se você tiver as permissões apropriadas por meio das funções de RBAC atribuídas a você, poderá continuar. No entanto, se você não tem as permissões corretas, verá uma mensagem de erro semelhante à seguinte:
 
-![Erro mostrado se a conta Azure AD não suportar acesso](media/storage-access-blobs-queues-portal/auth-error-azure-ad.png)
+![Erro mostrado se a conta do Azure AD não dá suporte ao acesso](media/storage-access-blobs-queues-portal/auth-error-azure-ad.png)
 
-Observe que nenhuma bolha aparecerá na lista se sua conta Azure AD não tiver permissões para visualizá-las. Clique no Switch para acessar o **link-chave** para usar a chave de acesso para autenticação novamente.
+Observe que nenhum blob aparece na lista se sua conta do Azure AD não tem permissões para exibi-los. Clique no link **alternar para a chave de acesso** para usar a tecla de acesso para autenticação novamente.
 
-### <a name="authenticate-with-your-azure-ad-account"></a>Autenticar com sua conta Azure AD
+### <a name="authenticate-with-your-azure-ad-account"></a>Autenticar com sua conta do Azure AD
 
-Se você estiver autenticando usando sua conta Azure AD, você verá **a Conta de Usuário Azure AD** especificada como o método de autenticação no portal:
+Se você estiver autenticando usando sua conta do Azure AD, verá a **conta de usuário do Azure ad** especificada como o método de autenticação no Portal:
 
-![Atualmente acessando dados de contêiner com a conta Azure AD](media/storage-access-blobs-queues-portal/auth-method-azure-ad.png)
+![Atualmente acessando dados de contêiner com a conta do Azure AD](media/storage-access-blobs-queues-portal/auth-method-azure-ad.png)
 
-Para mudar para usar a tecla de acesso da conta, clique no link destacado na imagem. Se você tiver acesso à chave da conta, então você poderá prosseguir. No entanto, se você não tiver acesso à chave da conta, você verá uma mensagem de erro como a seguinte:
+Para alternar para o usando a chave de acesso da conta, clique no link realçado na imagem. Se você tiver acesso à chave de conta, poderá continuar. No entanto, se você não tem acesso à chave de conta, verá uma mensagem de erro semelhante à seguinte:
 
-![Erro mostrado se você não tiver acesso à chave da conta](media/storage-access-blobs-queues-portal/auth-error-access-key.png)
+![Erro mostrado se você não tiver acesso à chave de conta](media/storage-access-blobs-queues-portal/auth-error-access-key.png)
 
-Observe que não aparecerão bolhas na lista se você não tiver acesso às chaves da conta. Clique no link **'Switch to Azure AD User Account'** para usar sua conta Azure AD para autenticação novamente.
+Observe que nenhum blob aparecerá na lista se você não tiver acesso às chaves da conta. Clique no link **alternar para a conta de usuário do Azure ad** para usar sua conta do Azure ad para autenticação novamente.
 
-## <a name="specify-how-to-authorize-a-blob-upload-operation"></a>Especificar como autorizar uma operação de upload de blob
+## <a name="specify-how-to-authorize-a-blob-upload-operation"></a>Especificar como autorizar uma operação de upload de BLOB
 
-Ao carregar uma bolha do portal Azure, você pode especificar se deve autenticar e autorizar essa operação com a chave de acesso da conta ou com suas credenciais azure AD. Por padrão, o portal usa o método de autenticação atual, conforme mostrado em [Determine the current authentication method](#determine-the-current-authentication-method).
+Ao carregar um blob do portal do Azure, você pode especificar se deseja autenticar e autorizar essa operação com a chave de acesso da conta ou com suas credenciais do Azure AD. Por padrão, o portal usa o método de autenticação atual, conforme mostrado em [determinar o método de autenticação atual](#determine-the-current-authentication-method).
 
-Para especificar como autorizar uma operação de upload de bolhas, siga estas etapas:
+Para especificar como autorizar uma operação de upload de BLOB, siga estas etapas:
 
-1. No portal Azure, navegue até o contêiner onde deseja carregar uma bolha.
+1. Na portal do Azure, navegue até o contêiner no qual você deseja carregar um blob.
 1. Selecione o botão **Carregar**.
-1. Expanda a seção **Avançado** para exibir as propriedades avançadas para a bolha.
-1. No campo **Tipo de autenticação,** indique se deseja autorizar a operação de upload usando sua conta Azure AD ou com a chave de acesso da conta, conforme mostrado na imagem a seguir:
+1. Expanda a seção **avançado** para exibir as propriedades avançadas para o blob.
+1. No campo **tipo de autenticação** , indique se você deseja autorizar a operação de upload usando sua conta do Azure ad ou com a chave de acesso da conta, conforme mostrado na imagem a seguir:
 
-    :::image type="content" source="media/storage-access-blobs-queues-portal/auth-blob-upload.png" alt-text="Captura de tela mostrando como alterar o método de autorização no upload de blob":::
+    :::image type="content" source="media/storage-access-blobs-queues-portal/auth-blob-upload.png" alt-text="Captura de tela mostrando como alterar o método de autorização no carregamento de BLOB":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Autenticar o acesso a bolhas e filas do Azure usando o Azure Active Directory](storage-auth-aad.md)
-- [Conceda acesso a contêineres e filas do Azure com RBAC no portal Azure](storage-auth-aad-rbac-portal.md)
+- [Autenticar o acesso a BLOBs e filas do Azure usando o Azure Active Directory](storage-auth-aad.md)
+- [Conceder acesso a contêineres e filas do Azure com RBAC no portal do Azure](storage-auth-aad-rbac-portal.md)
 - [Conceder acesso a dados de blob e fila do Azure com o RBAC usando a CLI do Azure](storage-auth-aad-rbac-cli.md)
 - [Conceder acesso a dados de blob e fila do Azure com RBAC usando PowerShell](storage-auth-aad-rbac-powershell.md)

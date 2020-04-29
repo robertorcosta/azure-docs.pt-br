@@ -1,6 +1,6 @@
 ---
-title: Registro de contêineres do Azure como fonte da Grade de Eventos
-description: Descreve as propriedades fornecidas para eventos de registro de contêineres com o Azure Event Grid
+title: Registro de contêiner do Azure como origem da grade de eventos
+description: Descreve as propriedades que são fornecidas para eventos de registro de contêiner com a grade de eventos do Azure
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
 ms.openlocfilehash: 7e33feb04edf42f1e2a32b9b8c8e2fd214692f31
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393357"
 ---
-# <a name="azure-container-registry-as-an-event-grid-source"></a>Registro de contêineres do Azure como fonte de grade de eventos
+# <a name="azure-container-registry-as-an-event-grid-source"></a>Registro de contêiner do Azure como uma fonte de grade de eventos
 
 Este artigo apresenta as propriedades e o esquema para eventos de Registro de Contêiner.Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
@@ -23,14 +23,14 @@ Este artigo apresenta as propriedades e o esquema para eventos de Registro de Co
 
 ### <a name="available-event-types"></a>Tipos de evento disponíveis
 
-O Registro de Contêineres do Azure emite os seguintes tipos de eventos:
+O registro de contêiner do Azure emite os seguintes tipos de evento:
 
 | Tipo de evento | Descrição |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Gerado quando é efetuado o push de uma imagem. |
 | Microsoft.ContainerRegistry.ImageDeleted | Gerado quando uma imagem é excluída. |
-| Microsoft.ContainerRegistry.ChartPushed | Levantado quando um gráfico de Helm é empurrado. |
-| Microsoft.ContainerRegistry.ChartExcluído | Levantado quando um gráfico helm é excluído. |
+| Microsoft. ContainerRegistry. ChartPushed | Gerado quando um gráfico de Helm é enviado por push. |
+| Microsoft. ContainerRegistry. ChartDeleted | Gerado quando um gráfico de Helm é excluído. |
 
 ### <a name="example-event"></a>Exemplo de evento
 
@@ -97,7 +97,7 @@ O esquema para um evento de exclusão de imagem é semelhante:
 }]
 ```
 
-O esquema para um evento empurrado por gráfico é semelhante ao esquema para um evento com imagem empurrada, mas não inclui um objeto de solicitação:
+O esquema para um evento de gráfico enviado é semelhante ao esquema para um evento enviado por push de imagem, mas não inclui um objeto de solicitação:
 
 ```json
 [{
@@ -125,7 +125,7 @@ O esquema para um evento empurrado por gráfico é semelhante ao esquema para um
 }]
 ```
 
-O esquema para um evento excluído de gráfico é semelhante ao esquema para um evento excluído com imagens, mas não inclui um objeto de solicitação:
+O esquema para um evento de gráfico excluído é semelhante ao esquema para um evento excluído por imagem, mas não inclui um objeto de solicitação:
 
 ```json
 [{
@@ -159,22 +159,22 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
+| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | cadeia de caracteres | Identificador exclusivo do evento. |
 | data | objeto | Dados de eventos do armazenamento de blob. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| id | string | A ID do evento. |
-| timestamp | string | A hora em que o evento ocorreu. |
-| ação | string | A ação que abrange o evento fornecido. |
+| id | cadeia de caracteres | A ID do evento. |
+| timestamp | cadeia de caracteres | A hora em que o evento ocorreu. |
+| ação | cadeia de caracteres | A ação que abrange o evento fornecido. |
 | destino | objeto | O destino do evento. |
 | solicitação | objeto | A solicitação que gerou o evento. |
 
@@ -182,26 +182,26 @@ O objeto de destino tem as seguintes propriedades:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| mediaType | string | O tipo MIME do objeto referenciado. |
+| mediaType | cadeia de caracteres | O tipo MIME do objeto referenciado. |
 | tamanho | inteiro | O número de bytes do conteúdo. Mesmo que o campo de Comprimento. |
-| digest | string | O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2. |
+| digest | cadeia de caracteres | O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2. |
 | comprimento | inteiro | O número de bytes do conteúdo. O mesmo que o campo Tamanho. |
-| repository | string | Nome do repositório. |
-| marca | string | O nome da marca. |
-| name | string | O nome do gráfico. |
-| version | string | A versão do gráfico. |
+| repository | cadeia de caracteres | Nome do repositório. |
+| marca | cadeia de caracteres | O nome da marca. |
+| name | cadeia de caracteres | O nome do gráfico. |
+| Versão | cadeia de caracteres | A versão do gráfico. |
 
 O objeto solicitado tem as seguintes propriedades:
 
 | Propriedade | Type | Descrição |
 | -------- | ---- | ----------- |
-| id | string | A ID da solicitação que iniciou o evento. |
-| addr | string | O IP ou nome de host e, possivelmente, a porta da conexão do cliente que iniciou o evento. Esse valor é o RemoteAddr da solicitação http padrão. |
-| host | string | O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host http em solicitações de entrada. |
-| method | string | O método de solicitação que gerou o evento. |
-| useragent | string | O cabeçalho do agente de usuário da solicitação. |
+| id | cadeia de caracteres | A ID da solicitação que iniciou o evento. |
+| addr | cadeia de caracteres | O IP ou nome de host e, possivelmente, a porta da conexão do cliente que iniciou o evento. Esse valor é o RemoteAddr da solicitação http padrão. |
+| host | cadeia de caracteres | O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host http em solicitações de entrada. |
+| method | cadeia de caracteres | O método de solicitação que gerou o evento. |
+| useragent | cadeia de caracteres | O cabeçalho do agente de usuário da solicitação. |
 
-## <a name="tutorials-and-how-tos"></a>Tutoriais e como fazer
+## <a name="tutorials-and-how-tos"></a>Tutoriais e instruções
 |Title |Descrição  |
 |---------|---------|
 | [Início Rápido: enviar eventos de registro de contêiner](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como usar a CLI do Azure para enviar eventos de Registro de Contêiner. |

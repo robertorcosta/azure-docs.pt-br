@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: Documentação do reconhecimento de intenção
-summary: O reconhecimento de intenções com os serviços de Compreensão de Fala e Linguagem (LUIS), permite a transcrição em tempo real de fluxos de áudio em texto, ao mesmo tempo em que identifica intenções e entidades.
+summary: O reconhecimento de intenções com os serviços de fala e Reconhecimento vocal (LUIS) permite a transcrição em tempo real de fluxos de áudio em texto, ao mesmo tempo que identifica a intenção e as entidades.
 metadata:
-  title: Documentação de reconhecimento de intenções - Tutoriais, Referência de API - Serviços Cognitivos Azure | Microsoft Docs
+  title: Documentação do reconhecimento de intenção-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -12,19 +12,19 @@ metadata:
   ms.date: 03/10/2020
   ms.author: trbye
   ms.openlocfilehash: 65b3f2322c4683eedef8cdfbc328664d4597df58
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 04/16/2020
+  ms.lasthandoff: 04/29/2020
   ms.locfileid: "81401497"
 landingContent:
-- title: Sobre o reconhecimento de intenções
+- title: Sobre o reconhecimento de intenção
   linkLists:
   - linkListType: quickstart
     links:
     - text: Reconhecer uma fala, intenções e entidades
       url: quickstarts/intent-recognition.md
-- title: Desenvolver com reconhecimento de intenções
+- title: Desenvolver com reconhecimento de intenção
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -40,5 +40,5 @@ landingContent:
       url: ../luis/developer-reference-resource.md
     - text: Suporte ao idioma
       url: ../luis/luis-language-support.md#languages-supported
-    - text: Preços de reconhecimento de intenção
+    - text: Preço do reconhecimento de intenção
       url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services

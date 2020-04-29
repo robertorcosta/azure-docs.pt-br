@@ -1,6 +1,6 @@
 ---
-title: Tópicos personalizados na Grade de Eventos do Azure
-description: Descreve tópicos personalizados no Azure Event Grid.
+title: Tópicos personalizados na grade de eventos do Azure
+description: Descreve os tópicos personalizados na grade de eventos do Azure.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 166a48d74d32c8b0a3a59310e693ea96ada29116
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81394352"
 ---
-# <a name="custom-topics-in-azure-event-grid"></a>Tópicos personalizados na Grade de Eventos do Azure
-Um tópico da grade de eventos fornece um ponto final onde a fonte envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
+# <a name="custom-topics-in-azure-event-grid"></a>Tópicos personalizados na grade de eventos do Azure
+Um tópico da grade de eventos fornece um ponto de extremidade onde a origem envia eventos. O editor cria o tópico de grade de eventos e decide se uma origem do evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para reagir a determinados tipos de evento, os assinantes decidem quais tópicos assinar.
 
-**Tópicos personalizados** são tópicos de aplicação e de terceiros. Quando criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado na assinatura. 
+Os **Tópicos personalizados** são aplicativos e tópicos de terceiros. Quando criar ou receber acesso a um tópico personalizado, você verá o tópico personalizado na assinatura. 
 
-Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções de grande porte, crie um **tópico personalizado** para cada categoria de **eventos relacionados.** Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
+Ao projetar o seu aplicativo, você terá flexibilidade ao decidir sobre quantos tópicos criar. Para soluções grandes, crie um **tópico personalizado** para **cada categoria de eventos relacionados**. Por exemplo, considere um aplicativo que envia eventos relacionados à modificação de contas de usuários e ordens de processamento. É improvável que qualquer manipulador de eventos queira ambas as categorias de eventos. Crie dois tópicos personalizados e permita que os manipuladores de eventos assinem o que for interessante para eles. Para soluções pequenas, você pode preferir enviar todos os eventos para um único tópico. Assinantes de evento podem filtrar par os tipos de evento que desejam.
 
 ## <a name="event-schema"></a>Esquema do evento
-Para obter uma visão geral detalhada do esquema de eventos, consulte o esquema de [eventos da Azure Event Grid](event-schema.md). Para tópicos personalizados, o editor do evento determina o objeto **de dados.** Os dados de nível superior devem ter os mesmos campos do que os eventos definidos pelo recurso padrão.
+Para obter uma visão geral detalhada do esquema de evento, consulte [esquema de evento da grade de eventos do Azure](event-schema.md). Para tópicos personalizados, o editor de eventos determina o objeto de **dados** . Os dados de nível superior devem ter os mesmos campos do que os eventos definidos pelo recurso padrão.
 
 ```json
 [
@@ -41,10 +41,10 @@ Para obter uma visão geral detalhada do esquema de eventos, consulte o esquema 
 ]
 ```
 
-As seções a seguir fornecem links para tutoriais para criar tópicos personalizados usando modelos de portal Azure, CLI, PowerShell e Arm (Azure Resource Manager). 
+As seções a seguir fornecem links para tutoriais para criar tópicos personalizados usando os modelos portal do Azure, CLI, PowerShell e Azure Resource Manager (ARM). 
 
 
-## <a name="azure-portal-tutorials"></a>Tutoriais do portal Azure
+## <a name="azure-portal-tutorials"></a>Tutoriais de portal do Azure
 |Title  |Descrição  |
 |---------|---------|
 | [Início Rápido: como criar e encaminhar eventos personalizados com o portal do Azure](custom-event-quickstart-portal.md) | Mostra como usar o portal para enviar eventos personalizados. |
@@ -52,21 +52,21 @@ As seções a seguir fornecem links para tutoriais para criar tópicos personali
 | [Como publicar para tópico personalizado](post-to-custom-topic.md) | Mostra como publicar um evento para um tópico personalizado. |
 
 
-## <a name="azure-cli-tutorials"></a>Tutoriais do Azure CLI
+## <a name="azure-cli-tutorials"></a>Tutoriais de CLI do Azure
 |Title  |Descrição  |
 |---------|---------|
 | [Início Rápido: como criar e encaminhar eventos personalizados com a CLI do Azure](custom-event-quickstart.md) | Mostra como usar a CLI do Azure para enviar eventos personalizados. |
 | [CLI do Azure: criar um tópico personalizado da Grade de Eventos](./scripts/event-grid-cli-create-custom-topic.md)|Script de exemplo que cria um tópico personalizado. O script recupera o ponto de extremidade e uma chave.|
 | [CLI do Azure: assinar eventos para um tópico personalizado](./scripts/event-grid-cli-subscribe-custom-topic.md)|Script de exemplo que cria uma assinatura para um tópico personalizado. Envia eventos para um WebHook.|
 
-## <a name="azure-powershell-tutorials"></a>Tutoriais do Azure PowerShell
+## <a name="azure-powershell-tutorials"></a>Tutoriais de Azure PowerShell
 |Title  |Descrição  |
 |---------|---------|
 | [Início Rápido: como criar e encaminhar eventos personalizados com o Azure PowerShell](custom-event-quickstart-powershell.md) | Mostra como usar o Azure PowerShell para enviar eventos personalizados. |
 | [PowerShell: criar um tópico de Grade de Eventos personalizado](./scripts/event-grid-powershell-create-custom-topic.md)|Script de exemplo que cria um tópico personalizado. O script recupera o ponto de extremidade e uma chave.|
 | [PowerShell: assinar eventos para um tópico personalizado](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Script de exemplo que cria uma assinatura para um tópico personalizado. Envia eventos para um WebHook.|
 
-## <a name="arm-template-tutorials"></a>Tutoriais de modelo ARM
+## <a name="arm-template-tutorials"></a>Tutoriais do modelo ARM
 |Title  |Descrição  |
 |---------|---------|
 | [Modelo do Gerenciador de Recursos: tópico personalizado e ponto de extremidade de WebHook](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | Um modelo do Gerenciador de Recursos que cria um tópico personalizado e uma assinatura para esse tópico personalizado. Envia eventos para um WebHook. |

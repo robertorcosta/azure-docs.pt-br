@@ -1,7 +1,7 @@
 ---
-title: Criar cliente para modelo implantado como serviço web
+title: Criar cliente para modelo implantado como serviço Web
 titleSuffix: Azure Machine Learning
-description: Aprenda a chamar um ponto final de serviço web que foi gerado quando um modelo foi implantado a partir do Azure Machine Learning. O ponto final expõe uma API REST, que você pode chamar para realizar inferência com o modelo. Crie clientes para essa API usando a linguagem de programação de sua escolha.
+description: Saiba como chamar um ponto de extremidade de serviço Web que foi gerado quando um modelo foi implantado de Azure Machine Learning. O ponto de extremidade expõe uma API REST, que você pode chamar para executar a inferência com o modelo. Crie clientes para essa API usando a linguagem de programação de sua escolha.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,18 +12,18 @@ ms.reviewer: larryfr
 ms.date: 04/14/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81383385"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-A implantação de um modelo de Aprendizado de Máquina do Azure como serviço web cria um ponto final da API REST. Você pode enviar dados para este ponto final e receber a previsão devolvida pelo modelo. Neste documento, saiba como criar clientes para o serviço da Web usando C#, Go, Java e Python.
+Implantar um modelo de Azure Machine Learning como um serviço Web cria um ponto de extremidade de API REST. Você pode enviar dados para esse ponto de extremidade e receber a previsão retornada pelo modelo. Neste documento, saiba como criar clientes para o serviço da Web usando C#, Go, Java e Python.
 
-Você cria um serviço web quando implanta um modelo no ambiente local, instâncias de contêiner do Azure, serviço Azure Kubernetes ou matrizes de portão programáveis em campo (FPGA). Você recupera o URI usado para acessar o serviço web usando o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver ativada, você também poderá usar o SDK para obter as chaves de autenticação ou tokens.
+Você cria um serviço Web ao implantar um modelo em seu ambiente local, instâncias de contêiner do Azure, serviço kubernetes do Azure ou FPGA (matrizes de portão programável por campo). Você recupera o URI usado para acessar o serviço Web usando o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver habilitada, você também poderá usar o SDK para obter as chaves de autenticação ou os tokens.
 
 O fluxo de trabalho geral para a criação de um cliente que usa um serviço web machine learning é:
 
@@ -32,7 +32,7 @@ O fluxo de trabalho geral para a criação de um cliente que usa um serviço web
 1. Crie um aplicativo que chame o serviço da web.
 
 > [!TIP]
-> Os exemplos neste documento são criados manualmente sem o uso de especificações OpenAPI (Swagger). Se você habilitou uma especificação OpenAPI para sua implantação, você pode usar ferramentas como [swagger-codegen](https://github.com/swagger-api/swagger-codegen) para criar bibliotecas de clientes para o seu serviço.
+> Os exemplos neste documento são criados manualmente sem o uso de especificações de OpenAPI (Swagger). Se você habilitou uma especificação OpenAPI para sua implantação, poderá usar ferramentas como o [Swagger-CodeGen](https://github.com/swagger-api/swagger-codegen) para criar bibliotecas de cliente para seu serviço.
 
 ## <a name="connection-information"></a>informações de conexão
 
@@ -41,10 +41,10 @@ O fluxo de trabalho geral para a criação de um cliente que usa um serviço web
 
 A classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornece as informações necessárias para criar um cliente. As seguintes propriedades `Webservice` que são úteis para criar um aplicativo cliente:
 
-* `auth_enabled`- Se a autenticação `True`da chave estiver habilitada; caso contrário, `False`.
-* `token_auth_enabled`- Se a autenticação do `True`token estiver habilitada; caso contrário, `False`.
+* `auth_enabled`-Se a autenticação de chave estiver `True`habilitada,; caso contrário `False`,.
+* `token_auth_enabled`-Se a autenticação de token estiver `True`habilitada,; caso contrário `False`,.
 * `scoring_uri` -O endereço da API REST.
-* `swagger_uri`- O endereço da especificação OpenAPI. Este URI está disponível se você habilitou a geração automática de esquemas. Para obter mais informações, consulte [Implantar modelos com O Azure Machine Learning](how-to-deploy-and-where.md).
+* `swagger_uri`-O endereço da especificação OpenAPI. Esse URI estará disponível se você tiver habilitado a geração de esquema automática. Para obter mais informações, consulte [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 Existem três maneiras de recuperar essas informações para serviços da Web implementados:
 
@@ -73,25 +73,25 @@ Existem três maneiras de recuperar essas informações para serviços da Web im
     print(service.swagger_uri)
     ```
 
-### <a name="secured-web-service"></a>Serviço web protegido
+### <a name="secured-web-service"></a>Serviço Web protegido
 
-Se você garantiu o serviço web implantado usando um certificado TLS/SSL, você pode usar [HTTPS](https://en.wikipedia.org/wiki/HTTPS) para se conectar ao serviço usando o URI de pontuação ou swagger. O HTTPS ajuda a proteger as comunicações entre um cliente e um serviço web, criptografando as comunicações entre os dois. A criptografia usa [TLS (Transport Layer Security, segurança de camada de transporte)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS às vezes ainda é referido como *Secure Sockets Layer* (SSL), que foi o antecessor do TLS.
+Se você protegeu o serviço Web implantado usando um certificado TLS/SSL, você pode usar [https](https://en.wikipedia.org/wiki/HTTPS) para se conectar ao serviço usando a pontuação ou o URI do Swagger. O HTTPS ajuda a proteger as comunicações entre um cliente e um serviço Web criptografando as comunicações entre os dois. A criptografia usa [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Às vezes, o TLS ainda é referido como *protocolo SSL* (SSL), que era o PREDECESSOR do TLS.
 
 > [!IMPORTANT]
-> Os serviços web implantados pelo Azure Machine Learning só suportam a versão 1.2 do TLS. Ao criar um aplicativo cliente, certifique-se de que ele suporta essa versão.
+> Os serviços Web implantados pelo Azure Machine Learning só oferecem suporte a TLS versão 1,2. Ao criar um aplicativo cliente, verifique se ele dá suporte a essa versão.
 
-Para obter mais informações, consulte [Usar TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md).
+Para obter mais informações, consulte [usar o TLS para proteger um serviço Web por meio de Azure Machine Learning](how-to-secure-web-service.md).
 
 ### <a name="authentication-for-services"></a>Autenticação para serviços
 
-O Azure Machine Learning fornece duas maneiras de controlar o acesso aos seus serviços web.
+O Azure Machine Learning fornece duas maneiras de controlar o acesso aos serviços Web.
 
-|Método de autenticação|Aci|AKS|
+|Método de autenticação|ACI|AKS|
 |---|---|---|
 |Chave|Desabilitado por padrão| Habilitado por padrão|
 |Token| Não disponível| Desabilitado por padrão |
 
-Ao enviar uma solicitação a um serviço que é protegido com uma chave ou token, use o cabeçalho __autorização__ para passar a chave ou o token. A chave ou o token `Bearer <key-or-token>`devem `<key-or-token>` ser formatados como , onde está sua chave ou valor de token.
+Ao enviar uma solicitação para um serviço protegido com uma chave ou token, use o cabeçalho de __autorização__ para passar a chave ou o token. A chave ou o token devem ser formatados `Bearer <key-or-token>`como `<key-or-token>` , em que é o valor da chave ou do token.
 
 #### <a name="authentication-with-keys"></a>Autenticação com chaves
 
@@ -110,18 +110,18 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se você precisar regenerar uma [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)chave, use .
+> Se você precisar regenerar uma chave, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
 
 #### <a name="authentication-with-tokens"></a>Autenticação com tokens
 
-Quando você habilita a autenticação de token para um serviço web, um usuário deve fornecer um token JWT de aprendizado de máquina do Azure para o serviço web para acessá-lo. 
+Quando você habilita a autenticação de token para um serviço Web, um usuário deve fornecer um Azure Machine Learning token JWT para o serviço Web para acessá-lo. 
 
-* A autenticação do token é desativada por padrão quando você está implantando no Azure Kubernetes Service.
-* A autenticação do token não é suportada quando você está implantando no Azure Container Instances.
+* A autenticação de token é desabilitada por padrão quando você está implantando no serviço kubernetes do Azure.
+* Não há suporte para autenticação de token quando você está implantando em instâncias de contêiner do Azure.
 
-Para controlar a autenticação `token_auth_enabled` do token, use o parâmetro quando estiver criando ou atualizando uma implantação.
+Para controlar a autenticação de token, `token_auth_enabled` use o parâmetro ao criar ou atualizar uma implantação.
 
-Se a autenticação do token estiver `get_token` ativada, você poderá usar o método para recuperar um token do portador e esse tempo de expiração dos tokens:
+Se a autenticação de token estiver habilitada, você `get_token` poderá usar o método para recuperar um token de portador e o tempo de expiração dos tokens:
 
 ```python
 token, refresh_by = service.get_token()
@@ -129,7 +129,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Você precisará solicitar um novo token após `refresh_by` o tempo do token. 
+> Será necessário solicitar um novo token após a hora do `refresh_by` token. 
 
 ## <a name="request-data"></a>Dados de solicitação
 
@@ -173,10 +173,10 @@ O serviço da web pode aceitar vários conjuntos de dados em uma solicitação. 
 
 ### <a name="binary-data"></a>Dados binários
 
-Para obter informações sobre como habilitar o suporte a dados binários em seu serviço, consulte [dados binários](how-to-deploy-and-where.md#binary).
+Para obter informações sobre como habilitar o suporte para dados binários em seu serviço, consulte [dados binários](how-to-deploy-and-where.md#binary).
 
 > [!TIP]
-> A ativação do suporte para dados binários acontece no arquivo score.py usado pelo modelo implantado. A partir do cliente, use a funcionalidade HTTP da sua linguagem de programação. Por exemplo, o seguinte trecho envia o conteúdo de um arquivo JPG para um serviço web:
+> A habilitação do suporte para dados binários ocorre no arquivo score.py usado pelo modelo implantado. No cliente, use a funcionalidade HTTP da sua linguagem de programação. Por exemplo, o trecho a seguir envia o conteúdo de um arquivo JPG para um serviço Web:
 >
 > ```python
 > import requests
@@ -186,9 +186,9 @@ Para obter informações sobre como habilitar o suporte a dados binários em seu
 > res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
 > ```
 
-### <a name="cross-origin-resource-sharing-cors"></a>Compartilhamento de recursos de origem cruzada (CORS)
+### <a name="cross-origin-resource-sharing-cors"></a>CORS (compartilhamento de recursos entre origens)
 
-Para obter informações sobre como habilitar o suporte ao CORS em seu serviço, consulte [Compartilhamento de recursos de origem cruzada](how-to-deploy-and-where.md#cors).
+Para obter informações sobre como habilitar o suporte a CORS em seu serviço, consulte [compartilhamento de recursos entre origens](how-to-deploy-and-where.md#cors).
 
 ## <a name="call-the-service-c"></a>Chamar o serviço (C#)
 
@@ -513,12 +513,12 @@ Os resultados retornados são semelhantes ao seguinte documento JSON:
 
 ## <a name="consume-the-service-from-power-bi"></a>Consumir o serviço usando o Power BI
 
-O Power BI suporta o consumo de serviços web de Machine Learning do Azure para enriquecer os dados no Power BI com previsões. 
+O Power BI dá suporte ao consumo de serviços Web Azure Machine Learning para enriquecer os dados em Power BI com previsões. 
 
-Para gerar um serviço web suportado para consumo em Power BI, o esquema deve suportar o formato exigido pelo Power BI. [Aprenda a criar um esquema suportado pelo Power BI](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
+Para gerar um serviço Web com suporte para consumo no Power BI, o esquema deve dar suporte ao formato exigido pelo Power BI. [Saiba como criar um esquema com suporte a Power bi](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
 
-Uma vez que o serviço web é implantado, ele é consumível a partir de fluxos de dados do Power BI. [Aprenda a consumir um serviço web de Machine Learning do Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Depois que o serviço Web for implantado, ele será consumível de Power BI fluxos de os. [Saiba como consumir um serviço web Azure Machine Learning do Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver uma arquitetura de referência para pontuação em tempo real de Python e modelos de aprendizagem profunda, vá para o [centro de arquitetura Azure](/azure/architecture/reference-architectures/ai/realtime-scoring-python).
+Para exibir uma arquitetura de referência para a pontuação em tempo real dos modelos de aprendizado profundo e Python, vá para o [centro de arquitetura do Azure](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

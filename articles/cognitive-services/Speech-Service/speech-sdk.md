@@ -1,7 +1,7 @@
 ---
-title: Sobre o Speech SDK - Serviço de fala
+title: Sobre o SDK de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O Kit de desenvolvimento de software Speech (SDK) expõe muitos dos recursos de serviço de fala, facilitando o desenvolvimento de aplicativos habilitados para fala.
+description: O SDK (Software Development Kit de fala) expõe muitos dos recursos do serviço de fala, facilitando o desenvolvimento de aplicativos habilitados para fala.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,81 +11,81 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: f663c9af8c352d0170c633fe76b3fbc5268aad1e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81400000"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
-O Kit de desenvolvimento de software Speech (SDK) expõe muitos dos recursos de serviço de fala, para capacitá-lo a desenvolver aplicativos habilitados para fala. O Speech SDK está disponível em muitas linguagens de programação e em todas as plataformas.
+O SDK (Software Development Kit de fala) expõe muitos dos recursos do serviço de fala, para capacitar o desenvolvimento de aplicativos habilitados para fala. O SDK de fala está disponível em muitas linguagens de programação e em todas as plataformas.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## <a name="scenario-capabilities"></a>Recursos de cenário
 
-O Speech SDK expõe muitos recursos do serviço Speech, mas não todos eles. As capacidades do Speech SDK são frequentemente associadas a cenários. O Speech SDK é ideal para cenários em tempo real e não em tempo real, usando dispositivos locais, arquivos, armazenamento de blob do Azure e até mesmo fluxos de entrada e saída. Quando um cenário não for alcançável com o Speech SDK, procure uma alternativa de API REST.
+O SDK de fala expõe muitos recursos do serviço de fala, mas não todos eles. Os recursos do SDK de fala geralmente são associados a cenários. O SDK de fala é ideal para cenários em tempo real e não em tempo real, usando dispositivos locais, arquivos, armazenamento de BLOBs do Azure e até mesmo fluxos de entrada e saída. Quando um cenário não é atingível com o SDK de fala, procure uma alternativa de API REST.
 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 
-[O speech-to-text](speech-to-text.md) (também conhecido como reconhecimento de *fala)* transcreve fluxos de áudio para textos que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](../luis/index.yml) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. Use [a Tradução de Fala](speech-translation.md) para traduzir a entrada de fala para um idioma diferente com uma única chamada. Para obter mais informações, consulte [os fundamentos de fala para texto](speech-to-text-basics.md).
+A [conversão de fala em texto](speech-to-text.md) (também conhecida como reconhecimento de *fala*) transcreve fluxos de áudio para o texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](../luis/index.yml) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. Use a [tradução de fala](speech-translation.md) para traduzir a entrada de fala para um idioma diferente com uma única chamada. Para obter mais informações, consulte [noções básicas de conversão de fala em texto](speech-to-text-basics.md).
 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 
-[Texto-para-fala](text-to-speech.md) (também conhecido como *síntese da fala)* converte texto em discurso sintetizado como humano. O texto de entrada é literalde string ou usando o [SSML (Speech Synthesis Markup Language, linguagem](speech-synthesis-markup.md)de marcação de síntese de fala). Para obter mais informações sobre vozes padrão ou neurais, consulte [linguagem text-to-speech e suporte de voz](language-support.md#text-to-speech).
+Conversão de [texto em fala](text-to-speech.md) (também conhecida como *síntese de fala*) converte o texto em fala sintetizada semelhante à humana. O texto de entrada é um literal de cadeia de caracteres ou o uso da [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). Para obter mais informações sobre vozes padrão ou neural, consulte [linguagem de conversão de texto em fala e suporte de voz](language-support.md#text-to-speech).
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
-Assistentes de voz que usam o Speech SDK permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço de assistente de voz oferece interação rápida e confiável entre um dispositivo e um assistente. A implementação usa o canal Direct Line Speech do Bot Framework ou o serviço integrado De comandos personalizados (Preview) para conclusão da tarefa. Além disso, assistentes de voz podem ser criados usando o [Portal de Voz Personalizado](https://aka.ms/customvoice) para criar uma experiência de voz única.
+Os assistentes de voz que usam o SDK de fala permitem que os desenvolvedores criem interfaces de conversação naturais e humanas para seus aplicativos e experiências. O serviço assistente de voz fornece uma interação rápida e confiável entre um dispositivo e um assistente. A implementação usa o canal de fala de linha direta da estrutura de bot ou o serviço de comandos personalizados integrados (versão prévia) para a conclusão da tarefa. Além disso, os assistentes de voz podem ser criados usando o [portal de voz personalizado](https://aka.ms/customvoice) para criar uma experiência de voz exclusiva.
 
-#### <a name="keyword-spotting"></a>Localização de palavras-chave
+#### <a name="keyword-spotting"></a>Palavra-chave parando
 
-O conceito de localização de [palavras-chave](speech-devices-sdk-create-kws.md) é suportado no Speech SDK. A palavra-chave é o ato de identificar uma palavra-chave na fala, seguida de uma ação ao ouvir a palavra-chave. Por exemplo, "Hey Cortana" ativaria a assistente Cortana.
+O conceito de decepções de [palavra-chave](speech-devices-sdk-create-kws.md) tem suporte no SDK de fala. A palavra-chave que está sendo demarcada é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
 
 ### <a name="meeting-scenarios"></a>Cenários de reunião
 
-O Speech SDK é perfeito para transcrever cenários de reunião, seja a partir de um único dispositivo ou conversa multi-dispositivo.
+O SDK de fala é perfeito para transcrever cenários de reunião, seja de um único dispositivo ou de uma conversa de vários dispositivos.
 
 #### <a name="conversation-transcription"></a>Transcrição de conversa
 
-[A transcrição da conversa](conversation-transcription.md) permite o reconhecimento de fala em tempo real (e assíncrono), a identificação do orador e a atribuição de sentenças a cada orador (também conhecido como *diarização).* É perfeito para transcrição de reuniões presenciais com a capacidade de distinguir os locutores.
+A [transcrição de conversa](conversation-transcription.md) habilita o reconhecimento de fala em tempo real (e assíncrono), a identificação do orador e a atribuição de frase para cada palestrante (também conhecido como *diarization*). É perfeito para transcrição de reuniões presenciais com a capacidade de distinguir os locutores.
 
 #### <a name="multi-device-conversation"></a>Conversa em vários dispositivos
 
-Com [conversação multidispositivos,](multi-device-conversation.md)conecte vários dispositivos ou clientes em uma conversa para enviar mensagens baseadas em voz ou texto, com suporte fácil para transcrição e tradução.
+Com a [conversa com vários dispositivos](multi-device-conversation.md), conecte vários dispositivos ou clientes em uma conversa para enviar mensagens baseadas em fala ou em texto, com suporte fácil para transcrição e tradução.
 
-### <a name="custom--agent-scenarios"></a>Cenários personalizados/agentes
+### <a name="custom--agent-scenarios"></a>Cenários de agente/personalizado
 
-O Speech SDK pode ser usado para transcrever cenários de call center, onde dados de telefonia são gerados.
+O SDK de fala pode ser usado para transcrever cenários de Call Center, onde os dados de telefonia são gerados.
 
 #### <a name="call-center-transcription"></a>Transcrição de call center
 
-[A transcrição do call center](call-center-transcription.md) é um cenário comum para o discurso-texto para transcrever grandes volumes de dados de telefonia que podem vir de vários sistemas, como o Interactive Voice Response (IVR). Os modelos mais recentes de reconhecimento de fala do serviço de fala se destacam em transcrever esses dados de telefonia, mesmo nos casos em que os dados são difíceis de entender por um humano.
+A [transcrição do Call Center](call-center-transcription.md) é um cenário comum de conversão de fala em texto para transcrever grandes volumes de dados de telefonia que podem vir de vários sistemas, como o IVR (resposta interativa de voz). Os modelos de reconhecimento de fala mais recentes do serviço de fala do Excel na transcreveção desses dados de telefonia, mesmo em casos em que os dados são difíceis de entender.
 
-### <a name="codec-compressed-audio-input"></a>Entrada de áudio compactada codec
+### <a name="codec-compressed-audio-input"></a>Entrada de áudio compactada por codec
 
-Várias das linguagens de programação do Speech SDK suportam fluxos de entrada de áudio compactados codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar <span class="docon docon-navigate-external x-hidden-focus"> </span>formatos de entrada de áudio compactados </a>.
+Várias das linguagens de programação SDK de fala dão suporte a fluxos de entrada de áudio compactados por codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar formatos <span class="docon docon-navigate-external x-hidden-focus"> </span>de entrada de áudio compactados </a>.
 
 ## <a name="rest-api"></a>API REST
 
-Enquanto o Speech SDK cobre muitos recursos de recursos do Serviço de Fala, para alguns cenários você pode querer usar a API REST.
+Embora o SDK de fala cubra muitos recursos de recurso do serviço de fala, em alguns cenários, talvez você queira usar a API REST.
 
 ### <a name="batch-transcription"></a>Transcrição de lote
 
-[A transcrição em lote](batch-transcription.md) permite a transcrição assíncrona de fala para texto de grandes volumes de dados. A transcrição em lote só é possível a partir da API REST. Além de converter o áudio da fala em texto, o grupo de fala em texto também permite a diarização e a análise de sentimentos.
+A [transcrição em lote](batch-transcription.md) permite a transcrição de fala em texto assíncrona de grandes volumes de dados. A transcrição do lote só é possível da API REST. Além de converter áudio de fala em texto, a conversão de texto em lote também permite a análise de diarization e de sentimentos.
 
 ## <a name="customization"></a>Personalização
 
-O Serviço de Fala oferece uma grande funcionalidade com seus modelos padrão entre o discurso-para-texto, texto-para-fala e tradução de fala. Às vezes, você pode querer aumentar o desempenho da linha de base para funcionar ainda melhor com o seu caso de uso exclusivo. O Serviço de Fala tem uma variedade de ferramentas de personalização sem código que facilitam e permitem que você crie uma vantagem competitiva com modelos personalizados com base em seus próprios dados. Esses modelos só estarão disponíveis para você e sua organização.
+O serviço de fala oferece excelente funcionalidade com seus modelos padrão entre conversão de fala em texto, texto em fala e tradução de fala. Às vezes, talvez você queira aumentar o desempenho da linha de base para funcionar ainda melhor com seu caso de uso exclusivo. O serviço de fala tem uma variedade de ferramentas de personalização sem código que facilitam e permitem que você crie uma vantagem competitiva com modelos personalizados com base em seus próprios dados. Esses modelos só estarão disponíveis para você e para sua organização.
 
-### <a name="custom-speech-to-text"></a>Discurso personalizado para texto
+### <a name="custom-speech-to-text"></a>Fala Personalizada para texto
 
-Ao usar o discurso-para-texto para reconhecimento e transcrição em um ambiente único, você pode criar e treinar modelos personalizados de acústica, linguagem e pronúncia para abordar o ruído ambiente ou o vocabulário específico da indústria. A criação e o gerenciamento de modelos de fala personalizada sem código estão disponíveis através do [Portal de Fala Personalizada](https://aka.ms/customspeech). Uma vez que o modelo de Fala Personalizada é publicado, ele pode ser consumido pelo Speech SDK.
+Ao usar a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você pode criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados para resolver o ruído de ambiente ou vocabulário específico do setor. A criação e o gerenciamento de modelos de Fala Personalizada sem código estão disponíveis por meio do [portal de fala personalizada](https://aka.ms/customspeech). Depois que o modelo de Fala Personalizada for publicado, ele poderá ser consumido pelo SDK de fala.
 
-### <a name="custom-text-to-speech"></a>Texto-para-fala personalizado
+### <a name="custom-text-to-speech"></a>Conversão de texto em fala personalizada
 
-O text-to-speech personalizado, também conhecido como Custom Voice é um conjunto de ferramentas on-line que permitem criar uma voz reconhecível e única para sua marca. A criação e o gerenciamento de modelos de voz personalizada sem código estão disponíveis através do [Portal de Voz Personalizado](https://aka.ms/customvoice). Uma vez que o modelo de Voz Personalizada é publicado, ele pode ser consumido pelo Speech SDK.
+Conversão de texto em fala personalizada, também conhecida como voz personalizada, é um conjunto de ferramentas online que permitem que você crie uma voz de um tipo reconhecível para sua marca. A criação e o gerenciamento de modelos de voz personalizados sem código estão disponíveis por meio do [portal de voz personalizado](https://aka.ms/customvoice). Depois que o modelo de voz personalizado for publicado, ele poderá ser consumido pelo SDK de fala.
 
 ## <a name="get-the-speech-sdk"></a>Obter o SDK de Fala
 

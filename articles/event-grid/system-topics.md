@@ -1,6 +1,6 @@
 ---
-title: Tópicos do sistema na Grade de Eventos do Azure
-description: Descreve os tópicos do sistema no Azure Event Grid.
+title: Tópicos do sistema na grade de eventos do Azure
+description: Descreve os tópicos do sistema na grade de eventos do Azure.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 46bceeb31fa38068c6c4f9f3a86ed556ad39effb
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81393161"
 ---
-# <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na Grade de Eventos do Azure
-O serviço Azure Event Grid cria tópicos do sistema quando você cria uma assinatura de primeiro evento para uma fonte de evento do Azure. Atualmente, a Event Grid não cria tópicos do sistema para fontes de tópicos que foram criados antes de 15 de março de 2020. Para todas as fontes de tópico susceadas nesta data ou após essa data, event grid cria automaticamente tópicos do sistema. Este artigo descreve **tópicos do sistema** no Azure Event Grid.
+# <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na grade de eventos do Azure
+O serviço de grade de eventos do Azure cria tópicos do sistema ao criar uma primeira assinatura de evento para uma origem de evento do Azure. Atualmente, a grade de eventos não cria tópicos do sistema para fontes de tópico que foram criadas antes de mar, 15, 2020. Para todas as fontes de tópico criadas nesta data ou depois dela, a grade de eventos cria automaticamente tópicos do sistema. Este artigo descreve os **Tópicos do sistema** na grade de eventos do Azure.
 
 > [!NOTE]
-> Este recurso atualmente não está habilitado para a nuvem do Governo Do Azure. 
+> Este recurso não está habilitado no momento para a nuvem do Azure governamental. 
 
 ## <a name="overview"></a>Visão geral
-Quando você cria a assinatura do primeiro evento para uma fonte de evento do Azure, como a conta Azure Storage, o processo de provisionamento da assinatura cria um recurso adicional do tipo **Microsoft.EventGrid/systemTopics**. Quando a última assinatura de evento para a fonte de evento do Azure é excluída, o tópico do sistema é automaticamente excluído.
+Quando você cria a primeira assinatura de evento para uma fonte de eventos do Azure, como a conta de armazenamento do Azure, o processo de provisionamento para a assinatura cria um recurso adicional do tipo **Microsoft. EventGrid/systemTopics**. Quando a última assinatura de evento para a origem do evento do Azure é excluída, o tópico do sistema é excluído automaticamente.
 
-O tópico do sistema não se aplica a cenários de tópicos personalizados, ou seja, tópicos da Grade de Eventos e domínios da Grade de Eventos. 
+O tópico do sistema não é aplicável a cenários de tópico personalizados, ou seja, tópicos de grade de eventos e domínios de grade de eventos. 
 
-## <a name="location"></a>Location
-Para fontes de eventos do Azure que estão em uma região/local específica, o tópico do sistema é criado no mesmo local que a fonte do evento Azure. Por exemplo, se você criar uma assinatura de evento para um armazenamento de blob do Azure no leste dos EUA, o tópico do sistema será criado no Leste dos EUA. Para fontes globais de eventos do Azure, como assinaturas do Azure, grupos de recursos ou Mapas Do Azure, o Event Grid cria o tópico do sistema em localização **global.** 
+## <a name="location"></a>Local
+Para as fontes de eventos do Azure que estão em uma região/local específica, o tópico do sistema é criado no mesmo local que a origem do evento do Azure. Por exemplo, se você criar uma assinatura de evento para um armazenamento de BLOBs do Azure no leste dos EUA, o tópico do sistema será criado no leste dos EUA. Para fontes de eventos globais do Azure, como assinaturas do Azure, grupos de recursos ou mapas do Azure, a grade de eventos cria o tópico do sistema no local **global** . 
 
 ## <a name="resource-group"></a>Resource group 
-Em geral, o tópico do sistema é criado no mesmo grupo de recursos em que a fonte de evento do Azure está. Para assinaturas de eventos criadas no escopo de assinatura do Azure, o tópico do sistema é criado sob o grupo de recursos **Default-EventGrid**. Se o grupo de recursos não existir, o Azure Event Grid o criará antes de criar o tópico do sistema. 
+Em geral, o tópico do sistema é criado no mesmo grupo de recursos em que a origem do evento do Azure está. Para assinaturas de evento criadas no escopo de assinatura do Azure, o tópico do sistema é criado sob o grupo de recursos **Default-EventGrid**. Se o grupo de recursos não existir, a grade de eventos do Azure o criará antes de criar o tópico do sistema. 
 
-Quando você tenta excluir o grupo de recursos com a conta de armazenamento, você verá o tópico do sistema na lista de recursos afetados.  
+Ao tentar excluir o grupo de recursos com a conta de armazenamento, você verá o tópico sistema na lista de recursos afetados.  
 
 ![Excluir grupo de recursos](./media/system-topics/delete-resource-group.png)
 
