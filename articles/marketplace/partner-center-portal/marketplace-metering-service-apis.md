@@ -1,6 +1,6 @@
 ---
-title: APIs do serviço de medição de marketplace | Mercado Azure
-description: Evento de uso para ofertas SaaS no Azure Marketplace.
+title: APIs do serviço de medição do Marketplace | Azure Marketplace
+description: Evento de uso para ofertas de SaaS no Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,19 +8,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275740"
 ---
 # <a name="marketplace-metering-service-apis"></a>APIs de serviço de medição do Marketplace
 
-A API do evento de uso permite que você emita eventos de uso para uma entidade comprada específica. A solicitação de evento de uso faz referência à dimensão dos serviços de medição definida pelo editor ao publicar a oferta.
+A API de evento de uso permite que você emita eventos de uso para uma entidade comprada específica. A solicitação de evento de uso faz referência à dimensão de serviços de medição definida pelo publicador ao publicar a oferta.
 
 ## <a name="usage-event"></a>Evento de uso
 
-**POST**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**Post**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -28,15 +28,15 @@ A API do evento de uso permite que você emita eventos de uso para uma entidade 
 | ---------- | ---------------------- |
 | `ApiVersion` | A versão da operação a ser usada para esta solicitação. A versão mais recente da API é 2018-08-31. |
 
-*Solicitar cabeçalhos:*
+*Cabeçalhos de solicitação:*
 
 | Content-type       | `application/json`    |
 | ------------------ | ---------------------------- |
-| `x-ms-requestid`     | Valor de seqüência exclusivo para acompanhar a solicitação do cliente, de preferência um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `x-ms-correlationid` | Valor de cadeia exclusivo para operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `authorization`   | [Obtenha o token do portador do token web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: Ao fazer a `Bearer` solicitação HTTP, prefixo para o token obtido no link referenciado. |
+| `x-ms-requestid`     | Valor de cadeia de caracteres exclusiva para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| `x-ms-correlationid` | Valor de cadeia de caracteres exclusiva para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| `authorization`   | [Obter token de portador JWT (token Web JSON).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Observação: ao fazer a solicitação HTTP, coloque `Bearer` o prefixo para o token obtido do link referenciado. |
 
-*Solicitação:*
+*Quest*
 
 ```json
 {
@@ -67,7 +67,7 @@ OK
 ```
 
 Código: 400 <br>
-Má solicitação, dados ausentes ou inválidos fornecidos ou expirados
+Solicitação inválida, dados ausentes ou inválidos fornecidos ou expirados
 
 ```json
 {
@@ -85,7 +85,7 @@ Má solicitação, dados ausentes ou inválidos fornecidos ou expirados
 ```
 
 Código: 403<br>
-Má solicitação, dados ausentes ou inválidos fornecidos ou expirados
+Solicitação inválida, dados ausentes ou inválidos fornecidos ou expirados
 
 ```json
 {
@@ -95,7 +95,7 @@ Má solicitação, dados ausentes ou inválidos fornecidos ou expirados
 ```
 
 Código: 409<br>
-Conflito, quando recebemos a chamada de uso para o ID de recurso de uso, e uso efetivo, que já existe. A resposta `additionalInfo` conterá campo que contém informações sobre a mensagem aceita.
+Conflito, quando recebemos a chamada de uso para a ID de recurso de uso e o uso efetivo, que já existe. A resposta conterá `additionalInfo` o campo que contém informações sobre a mensagem aceita.
 
 ```json
 {
@@ -113,14 +113,14 @@ Conflito, quando recebemos a chamada de uso para o ID de recurso de uso, e uso e
 }
 ```
 
-## <a name="batch-usage-event"></a>Evento de uso em lote
+## <a name="batch-usage-event"></a>Evento de uso do lote
 
-A API de evento de uso em lote permite que você emita eventos de uso para mais de uma entidade comprada de uma só vez. A solicitação de evento de uso em lote faz referência à dimensão dos serviços de medição definida pelo editor ao publicar a oferta.
+A API de evento de uso do lote permite que você emita eventos de uso para mais de uma entidade comprada de uma só vez. A solicitação de evento de uso do lote faz referência à dimensão de serviços de medição definida pelo publicador ao publicar a oferta.
 
 >[!Note]
->Você pode registrar várias ofertas SaaS no mercado comercial da Microsoft. Cada oferta saas registrada tem um aplicativo Azure AD exclusivo que está registrado para fins de autenticação e autorização. Os eventos emitidos em lote devem pertencer a ofertas com o mesmo aplicativo Azure AD no momento do registro da oferta.
+>Você pode registrar várias ofertas de SaaS no Marketplace comercial da Microsoft. Cada oferta de SaaS registrada tem um aplicativo exclusivo do Azure AD que é registrado para fins de autenticação e autorização. Os eventos emitidos no lote devem pertencer a ofertas com o mesmo aplicativo do Azure AD no momento do registro da oferta.
 
-**POST:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**Post:**`https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -128,15 +128,15 @@ A API de evento de uso em lote permite que você emita eventos de uso para mais 
 | ---------- | -------------------- |
 | `ApiVersion` | A versão da operação a ser usada para esta solicitação. A versão mais recente da API é 2018-08-31. |
 
-*Solicitar cabeçalhos:*
+*Cabeçalhos de solicitação:*
 
 | Content-type       | `application/json`       |
 | ------------------ | ------ |
-| `x-ms-requestid`     | Valor de seqüência exclusivo para acompanhar a solicitação do cliente, de preferência um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `x-ms-correlationid` | Valor de cadeia exclusivo para operação no cliente. Este parâmetro correlaciona todos os eventos da operação do cliente com eventos do lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| `authorization`      | [Obtenha o token do portador do token web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Nota: Ao fazer a `Bearer` solicitação HTTP, prefixo para o token obtido no link referenciado.  |
+| `x-ms-requestid`     | Valor de cadeia de caracteres exclusiva para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| `x-ms-correlationid` | Valor de cadeia de caracteres exclusiva para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| `authorization`      | [Obter token de portador JWT (token Web JSON).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Observação: ao fazer a solicitação HTTP, coloque `Bearer` o prefixo para o token obtido do link referenciado.  |
 
-*Solicitação:*
+*Quest*
 ```json
 {
   "request": [
@@ -192,7 +192,7 @@ OK
 }
 ```
 
-Descrição do código de `BatchUsageEvent` status referenciado na resposta à API:
+Descrição do código de status referenciado na resposta da `BatchUsageEvent` API:
 
 | Código de status  | Descrição |
 | ---------- | -------------------- |
@@ -204,10 +204,10 @@ Descrição do código de `BatchUsageEvent` status referenciado na resposta à A
 | `ResourceNotAuthorized` | Você não está autorizado a fornecer uso para este recurso. |
 | `InvalidDimension` | A dimensão para a qual o uso é passado é inválida para esta oferta/plano. |
 | `InvalidQuantity` | A quantidade passada é < 0. |
-| `BadArgument` | A entrada está faltando ou malformada. |
+| `BadArgument` | A entrada está ausente ou malformada. |
 
 Código: 400<br>
-Má solicitação, dados ausentes ou inválidos fornecidos ou expirados
+Solicitação inválida, dados ausentes ou inválidos fornecidos ou expirados
 
 ```json
 {
@@ -235,4 +235,4 @@ O usuário não está autorizado a fazer esta chamada
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [o faturamento medido do SaaS](./saas-metered-billing.md).
+Para obter mais informações, consulte [cobrança limitada de SaaS](./saas-metered-billing.md).

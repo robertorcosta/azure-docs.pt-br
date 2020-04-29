@@ -15,25 +15,25 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: eaa3844bfbbef8cb71dbe8691cab894c921ce00a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80154501"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure AD (Active Directory)
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-A concessão implícita OAuth2 é famosa por ser a concessão com a lista mais longa de questões de segurança na especificação OAuth2. Apesar disso, é a abordagem implementada pelo ADAL JS e a que recomendamos ao se escrever aplicativos SPA. O que acontece? É tudo uma questão de tradeoffs: e como se vê, a concessão implícita é a melhor abordagem que você pode buscar para aplicativos que consomem uma API web via JavaScript a partir de um navegador.
+A concessão implícita OAuth2 é famosa por ser a concessão com a lista mais longa de questões de segurança na especificação OAuth2. Apesar disso, é a abordagem implementada pelo ADAL JS e a que recomendamos ao se escrever aplicativos SPA. O que acontece? É uma questão de compensações: e como acontece, a concessão implícita é a melhor abordagem que você pode buscar para aplicativos que consomem uma API Web via JavaScript de um navegador.
 
 ## <a name="what-is-the-oauth2-implicit-grant"></a>O que é a concessão implícita OAuth2?
 
 A [concessão de código de autorização OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) por excelência é a concessão de autorização que usa dois pontos de extremidade separados. O ponto de extremidade de autorização é usado para a fase de interação do usuário, que resulta em um código de autorização. O ponto de extremidade de token é usado pelo cliente para trocar o código para um token de acesso e, com frequência, um token de atualização também. Os aplicativos Web devem apresentar suas próprias credenciais de aplicativo ao ponto de extremidade de token, para que o servidor de autorização possa autenticar o cliente.
 
-A [concessão implícita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) é uma variante de outras concessões de autorização. Ele permite que um cliente obtenha um token de acesso (e id_token ao usar [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) diretamente do ponto de extremidade de autorização, sem entrar em contato com o ponto de extremidade de token ou autenticar o cliente. Essa variante foi projetada para aplicativos baseados em JavaScript em execução em um navegador da Web: na especificação original OAuth2, os tokens são retornados em um fragmento de URI. Isso torna os bits de token disponíveis para o código JavaScript no cliente, mas garante que eles não serão incluídos em redirecionamentos para o servidor. Na concessão implícita OAuth2, o ponto final de autorização emite tokens de acesso diretamente ao cliente usando um URI de redirecionamento que foi fornecido anteriormente. Também tem a vantagem de eliminar requisitos para chamadas entre origens, que são necessárias se o aplicativo JavaScript precisa entrar em contato com o ponto de extremidade de token.
+A [concessão implícita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) é uma variante de outras concessões de autorização. Ele permite que um cliente obtenha um token de acesso (e id_token ao usar [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) diretamente do ponto de extremidade de autorização, sem entrar em contato com o ponto de extremidade de token ou autenticar o cliente. Essa variante foi projetada para aplicativos baseados em JavaScript em execução em um navegador da Web: na especificação original OAuth2, os tokens são retornados em um fragmento de URI. Isso torna os bits de token disponíveis para o código JavaScript no cliente, mas garante que eles não serão incluídos em redirecionamentos para o servidor. Na concessão implícita OAuth2, o ponto de extremidade de autorização emite tokens de acesso diretamente ao cliente usando um URI de redirecionamento fornecido anteriormente. Também tem a vantagem de eliminar requisitos para chamadas entre origens, que são necessárias se o aplicativo JavaScript precisa entrar em contato com o ponto de extremidade de token.
 
-Uma característica importante da concessão implícita OAuth2 é o fato de que esses fluxos nunca retornam tokens de atualização ao cliente. A próxima seção mostra como isso não é necessário e seria de fato um problema de segurança.
+Uma característica importante da concessão implícita OAuth2 é o fato de que esses fluxos nunca retornam tokens de atualização ao cliente. A próxima seção mostra como isso não é necessário e, na verdade, seria um problema de segurança.
 
 ## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Cenários adequados para a concessão implícita OAuth2
 
@@ -48,9 +48,9 @@ Atualmente, o método preferencial para proteger chamadas para uma API Web é us
 * Os tokens podem ser obtidos de forma confiável sem a necessidade de chamadas entre origens; o registro obrigatório do URI de redirecionamento ao qual os tokens são retornados garante que os tokens não sejam substituídos
 * Aplicativos JavaScript podem obter tantos tokens de acesso quantos forem necessários, para todas as APIs Web que direcionam, sem restrição quanto aos domínios
 * Recursos de HTML5, como armazenamento local ou por sessão, concedem controle total sobre o cache de tokens e o gerenciamento de tempo de vida, enquanto o gerenciamento de cookies é opaco para o aplicativo
-* Os tokens de acesso não são suscetíveis a ataques de falsificação de solicitação entre sites (CSRF)
+* Tokens de acesso não são suscetíveis a ataques CSRF (solicitação entre sites forjada)
 
-O fluxo de concessão implícita não emite tokens de atualização, principalmente por motivos de segurança. Um token de atualização não é tão restrito quanto os tokens de acesso, concedendo muito mais energia, infligindo muito mais dano no caso de vazar. No fluxo implícito, os tokens são entregues na URL, portanto, o risco de interceptação é maior do que na concessão do código de autorização.
+O fluxo de concessão implícita não emite tokens de atualização, principalmente por motivos de segurança. Um token de atualização não tem um escopo restrito como tokens de acesso, concedendo muito mais energia, provocando muito mais danos caso ele seja vazado. No fluxo implícito, os tokens são entregues na URL, portanto, o risco de interceptação é maior do que na concessão de código de autorização.
 
 No entanto, um aplicativo JavaScript tem outro mecanismo à sua disposição para renovar tokens de acesso sem solicitar repetidamente as credenciais ao usuário. O aplicativo pode usar um iframe oculto para executar novas solicitações de token em relação ao ponto de extremidade de autorização do Azure AD: enquanto o navegador ainda tiver uma sessão ativa (ou seja, tiver um cookie de sessão) em relação ao domínio do Azure AD, a solicitação de autenticação poderá ocorrer com êxito sem necessidade de interação do usuário.
 
@@ -60,9 +60,9 @@ Esse modelo concede ao aplicativo JavaScript a capacidade de renovar independent
 
 A concessão implícita apresenta mais riscos do que outras concessões e as áreas que você precisa prestar atenção estão bem documentadas (por exemplo, [Token de Acesso para Representar o Proprietário do Recurso em Fluxo Implícito][OAuth2-Spec-Implicit-Misuse]e [Modelo de Ameaça do OAuth 2.0 e Considerações de Segurança][OAuth2-Threat-Model-And-Security-Implications]). No entanto, o perfil de risco mais alto é amplamente devido ao fato de que seu objetivo é habilitar aplicativos que executam código ativo, fornecido por um recurso remoto a um navegador. Se você estiver planejando uma arquitetura SPA, não tem um componente de back-end ou pretende invocar uma API Web por meio de JavaScript, é recomendável usar o fluxo implícito para aquisição de token.
 
-Se sua aplicação é um cliente nativo, o fluxo implícito não é um grande ajuste. A ausência do cookie de sessão do Azure AD no contexto de um cliente nativo priva o aplicativo dos meios de manter uma sessão com vida útil longa. Isso significa que o aplicativo se dirigirá repetidamente ao usuário ao obter tokens de acesso para novos recursos.
+Se seu aplicativo for um cliente nativo, o fluxo implícito não será uma ótima opção. A ausência do cookie de sessão do Azure AD no contexto de um cliente nativo priva o aplicativo dos meios de manter uma sessão com vida útil longa. Isso significa que o aplicativo se dirigirá repetidamente ao usuário ao obter tokens de acesso para novos recursos.
 
-Se você está desenvolvendo um aplicativo Web que inclui um back-end e que consome uma API de seu código de back-end, o fluxo implícito também não é uma boa opção. Outras concessões oferecem capacidade muito maior. Por exemplo, a concessão de credenciais de cliente OAuth2 fornece a capacidade de obter tokens que refletem as permissões atribuídas ao próprio aplicativo, em vez de delegações de usuário. Isso significa que o cliente tem a capacidade de manter o acesso programático a recursos mesmo quando um usuário não está ativamente envolvido em uma sessão e assim por diante. Não apenas isso, mas essas concessões dão garantias de segurança mais alta. Por exemplo, os tokens de acesso nunca transitam pelo navegador do usuário, eles não correm o risco de serem salvos no histórico do navegador, e assim por diante. O aplicativo cliente também pode executar a autenticação forte ao solicitar um token.
+Se você está desenvolvendo um aplicativo Web que inclui um back-end e que consome uma API de seu código de back-end, o fluxo implícito também não é uma boa opção. Outras concessões oferecem capacidade muito maior. Por exemplo, a concessão de credenciais de cliente OAuth2 fornece a capacidade de obter tokens que refletem as permissões atribuídas ao próprio aplicativo, em vez de delegações de usuário. Isso significa que o cliente tem a capacidade de manter o acesso programático a recursos mesmo quando um usuário não está ativamente envolvido em uma sessão e assim por diante. Não apenas isso, mas essas concessões dão garantias de segurança mais alta. Por exemplo, os tokens de acesso nunca passam pelo navegador do usuário, eles não têm o risco de serem salvos no histórico do navegador e assim por diante. O aplicativo cliente também pode executar a autenticação forte ao solicitar um token.
 
 ## <a name="next-steps"></a>Próximas etapas
 

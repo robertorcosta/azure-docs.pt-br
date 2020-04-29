@@ -1,7 +1,7 @@
 ---
-title: Como mover seu recurso de serviço em todas as regiões
+title: Como mover o recurso de serviço entre regiões
 titleSuffix: Azure Cognitive Search
-description: Este artigo mostrará como mover seus recursos de Pesquisa Cognitiva do Azure de uma região para outra na nuvem do Azure.
+description: Este artigo mostrará como mover seus recursos do Azure Pesquisa Cognitiva de uma região para outra na nuvem do Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,48 +10,48 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 03/24/2020
 ms.openlocfilehash: 00f16d11f7a9cd276772eda5e91d6e117ada8c9f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80246294"
 ---
-# <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mova seu serviço de busca cognitiva do Azure para outra região do Azure
+# <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mover o serviço de Pesquisa Cognitiva do Azure para outra região do Azure
 
-Ocasionalmente, os clientes perguntam sobre a mudança de um serviço de busca para outra região. Atualmente, não há mecanismo embutido ou ferramenta para ajudar nessa tarefa, mas este artigo pode ajudá-lo a entender as etapas manuais para alcançar o mesmo resultado.
+Ocasionalmente, os clientes perguntam sobre como mover um serviço de pesquisa para outra região. Atualmente, não há nenhum mecanismo ou ferramenta interna para ajudar nessa tarefa, mas este artigo pode ajudá-lo a entender as etapas manuais para atingir o mesmo resultado.
 
 > [!NOTE]
-> No portal Azure, todos os serviços têm um comando **modelo de exportação.** No caso do Azure Cognitive Search, este comando produz uma definição básica de um serviço (nome, localização, camada, réplica e contagem de partições), mas não reconhece o conteúdo do seu serviço, nem carrega chaves, funções ou logs. Embora o comando exista, não recomendamos usá-lo para mover um serviço de busca.
+> Na portal do Azure, todos os serviços têm um comando **Exportar modelo** . No caso do Azure Pesquisa Cognitiva, esse comando produz uma definição básica de um serviço (nome, local, camada, réplica e contagem de partições), mas não reconhece o conteúdo do serviço nem carrega chaves, funções ou logs. Embora o comando exista, não é recomendável usá-lo para mover um serviço de pesquisa.
 
-## <a name="guidance-for-moving-a-service"></a>Orientação para a movimentação de um serviço
+## <a name="guidance-for-moving-a-service"></a>Diretrizes para mover um serviço
 
-1. Identifique dependências e serviços relacionados para entender o impacto total da realocação de um serviço, caso você precise mover mais do que apenas a Pesquisa Cognitiva Do Azure.
+1. Identifique dependências e serviços relacionados para entender o impacto total da realocação de um serviço, caso você precise mover mais do que apenas o Azure Pesquisa Cognitiva.
 
-   O Azure Storage é usado para registrar, criar um armazenamento de conhecimento e é uma fonte de dados externocomumente usada para enriquecimento e indexação de IA. Serviços Cognitivos é uma dependência do enriquecimento da IA. Tanto os Serviços Cognitivos quanto seu serviço de pesquisa são obrigados a estar na mesma região se você estiver usando o enriquecimento de IA.
+   O armazenamento do Azure é usado para registro em log, criação de uma loja de conhecimento e é uma fonte de dados externa comumente usada para a enriquecimento e a indexação de ia. Os serviços cognitivas são uma dependência no enriquecimento do ia. Os serviços cognitivas e o serviço de pesquisa devem estar na mesma região se você estiver usando o enriquecimento de ia.
 
-1. Crie um inventário de todos os objetos no serviço para que você saiba o que mover: índices, mapas de sinônimos, indexadores, fontes de dados, skillsets. Se você habilitou o registro, criar e arquivar quaisquer relatórios, você pode precisar de um registro histórico.
+1. Crie um inventário de todos os objetos no serviço para que você saiba o que mover: índices, mapas de sinônimos, indexadores, fontes de dados, habilidades. Se você habilitou o registro em log, crie e arquive os relatórios que talvez precisem para um registro histórico.
 
-1. Verifique os preços e a disponibilidade na nova região para garantir a disponibilidade da Pesquisa Cognitiva do Azure, além de quaisquer serviços relacionados na nova região. A maioria dos recursos está disponível em todas as regiões, mas alguns recursos de visualização têm disponibilidade restrita.
+1. Verifique os preços e a disponibilidade na nova região para garantir a disponibilidade do Azure Pesquisa Cognitiva mais todos os serviços relacionados na nova região. A maioria dos recursos está disponível em todas as regiões, mas alguns recursos de visualização têm a disponibilidade restrita.
 
-1. Crie um serviço na nova região e republique a partir do código-fonte quaisquer índices existentes, mapas de sinônimos, indexadores, fontes de dados e skillsets. Lembre-se de que os nomes de serviço devem ser únicos para que você não possa reutilizar o nome existente. Verifique cada skillset para ver se as conexões aos Serviços Cognitivos ainda são válidas em termos do requisito da mesma região. Além disso, se as lojas de conhecimento forem criadas, verifique as strings de conexão para armazenamento do Azure se você estiver usando um serviço diferente.
+1. Crie um serviço na nova região e Republique-o do código-fonte quaisquer índices existentes, mapas de sinônimos, indexadores, fontes de dados e habilidades. Lembre-se de que os nomes de serviço devem ser exclusivos para que você não possa reutilizar o nome existente. Verifique cada habilidade para ver se as conexões com serviços cognitivas ainda são válidas em termos de requisito de mesma região. Além disso, se as lojas de conhecimento forem criadas, verifique as cadeias de conexão para o armazenamento do Azure se você estiver usando um serviço diferente.
 
-1. Recarregue índices e lojas de conhecimento, se for o caso. Você usará o código do aplicativo para empurrar os dados JSON para um índice ou reexecutar indexadores para retirar documentos de fontes externas. 
+1. Recarregue os índices e as lojas de conhecimento, se aplicável. Você usará o código do aplicativo para enviar dados JSON por push para um índice ou executar novamente indexadores para efetuar pull de documentos de fontes externas. 
 
-1. Habilite o registro e, se estiver usando-os, recrie funções de segurança.
+1. Habilite o registro em log e, se estiver usando-os, recrie as funções de segurança.
 
-1. Atualize aplicativos clientes e conjuntos de teste para usar o novo nome de serviço e as chaves de API e teste todos os aplicativos.
+1. Atualize os aplicativos cliente e os conjuntos de testes para usar o novo nome de serviço e as chaves de API e testar todos os aplicativos.
 
-1. Exclua o serviço antigo assim que o novo serviço estiver totalmente testado e operacional.
+1. Exclua o serviço antigo depois que o novo serviço for totalmente testado e operacional.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir podem ajudá-lo a localizar mais informações ao completar as etapas descritas acima.
+Os links a seguir podem ajudá-lo a localizar mais informações ao concluir as etapas descritas acima.
 
-+ [Preços e regiões da Pesquisa Cognitiva do Azure](https://azure.microsoft.com/pricing/details/search/)
++ [Preços e regiões do Azure Pesquisa Cognitiva](https://azure.microsoft.com/pricing/details/search/)
 + [Escolha uma faixa](search-sku-tier.md)
-+ [Crie um serviço de pesquisa](search-create-service-portal.md)
-+ [Documentos de pesquisa de carga](search-what-is-data-import.md)
-+ [Habilitar o registro em log](search-monitor-logs.md)
++ [Criar um serviço de pesquisa](search-create-service-portal.md)
++ [Carregar documentos de pesquisa](search-what-is-data-import.md)
++ [Habilitar registro em log](search-monitor-logs.md)
 
 
 <!-- To move your Azure Cognitive Service account from one region to another, you will create an export template to move your subscription(s). After moving your subscription, you will need to move your data and recreate your service.

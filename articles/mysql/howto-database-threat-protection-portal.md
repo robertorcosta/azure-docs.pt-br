@@ -1,16 +1,16 @@
 ---
-title: Proteção avançada contra ameaças - Portal Azure - Banco de dados Azure para MySQL
-description: Saiba como configurar o Advanced Threat Protection para detectar atividades anômalas de banco de dados que indiquem possíveis ameaças à segurança no banco de dados.
+title: Proteção avançada contra ameaças-portal do Azure-banco de dados do Azure para MySQL
+description: Saiba como configurar a proteção avançada contra ameaças para detectar atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 8eec40006a280b69387e14a5841360da65616ca5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80062350"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Proteção Avançada contra Ameaças para o Banco de Dados do Azure para MySQL
@@ -27,7 +27,7 @@ A Proteção Avançada contra Ameaças faz parte da oferta de Segurança Avança
 > Esse recurso está disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para MySQL é implantado para servidores de Uso Geral e Otimizado por Memória.
 
 ## <a name="set-up-threat-detection"></a>Configurar detecção de ameaças
-1. Inicie o portal Azure em [https://portal.azure.com](https://portal.azure.com).
+1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Navegue até a página de configuração do servidor do Banco de Dados do Azure para MySQL que deseja proteger. Nas configurações de segurança, selecione **Proteção Avançada contra Ameaças (versão prévia)**.
 3. Na página de configuração de **Proteção Avançada contra Ameaças (versão prévia)**:
 
@@ -54,7 +54,7 @@ Você receberá uma notificação por email na detecção das atividades anormai
 
 ## <a name="explore-threat-detection-alerts"></a>Explorar os alertas de detecção de ameaças
 
-A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/). Um bloco de detecção de ameaças SQL ao vivo rastreia o status de ameaças ativas no banco de dados e páginas sql ATP no portal Azure.
+A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/services/security-center/). Um bloco de detecção de ameaças ao vivo do SQL controla o status de ameaças ativas no banco de dados e nas páginas do SQL ATP no portal do Azure.
 
 Clique em **Alerta de detecção de ameaças** para iniciar a página de alertas da Central de Segurança do Azure e ter uma visão geral das ameaças SQL ativas detectadas no banco de dados.
 

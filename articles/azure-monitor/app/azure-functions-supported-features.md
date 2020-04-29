@@ -1,5 +1,5 @@
 ---
-title: Insights do aplicativo Azure - Recursos suportados por funções do Azure
+title: Insights de Aplicativo Azure-Azure Functions recursos com suporte
 description: Recursos suportados do Application Insights para funções do Azure
 ms.topic: reference
 author: TimothyMothra
@@ -7,19 +7,19 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655643"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Recursos suportados do Application Insights para o Azure Functions
 
 O Azure Functions oferece [integração interna](../../azure-functions/functions-monitoring.md) com o Application Insights, que está disponível por meio da Interface do ILogger. Abaixo está a lista de recursos atualmente suportados. Examine o guia do Azure Functions para [Introdução ao](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
 
-Para obter mais informações sobre as versões em tempo de execução functions, consulte [aqui](../../azure-functions/functions-versions.md).
+Para obter mais informações sobre as versões de tempo de execução do functions, consulte [aqui](../../azure-functions/functions-versions.md).
 
-Para obter mais informações sobre versões compatíveis do Application Insights, consulte [Dependências](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
+Para obter mais informações sobre versões compatíveis do Application Insights, consulte [dependências](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
 ## <a name="supported-features"></a>Recursos compatíveis
 
@@ -36,13 +36,13 @@ Para obter mais informações sobre versões compatíveis do Application Insight
 | &nbsp;&nbsp;&nbsp;&mdash; hub de eventos  |                 | Sim               | 
 | &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
 | | | | 
-| **Recursos suportados**                |                   |                   |               
+| **Recursos com suporte**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
 | &nbsp;&nbsp;&nbsp;&mdash; Canal de controle seguro|                 | Sim               | 
 | &bull; Amostragem                     | Sim             | Sim               | 
 | &bull; Pulsações                   |                 | Sim               | 
 | | | | 
-| **Correlação**                       |                   |                   |               
+| **Correlation**                       |                   |                   |               
 | &bull; Barramento de serviço                     |                   | Sim               | 
 | &bull; hub de eventos                       |                   | Sim               | 
 | | | | 
@@ -63,9 +63,9 @@ Os critérios de filtro personalizados especificados são enviados para o compon
 
 As funções do Azure ativam a amostragem por padrão em suas configurações. Para obter mais informações, consulte [configurar amostragem](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
 
-Se o seu projeto se basear no Application Insights SDK para fazer o rastreamento manual da telemetria, você poderá experimentar um comportamento estranho se a configuração de amostragem for diferente da configuração de amostragem das Funções. 
+Se o seu projeto usar uma dependência no SDK do Application Insights para fazer o acompanhamento manual de telemetria, você poderá enfrentar um comportamento estranho se a configuração de amostragem for diferente da configuração de amostragem das funções. 
 
-Recomendamos usar a mesma configuração que Funções. Com **funções v2,** você pode obter a mesma configuração usando injeção de dependência em seu construtor:
+É recomendável usar a mesma configuração que as funções. Com o **Functions v2**, você pode obter a mesma configuração usando a injeção de dependência em seu construtor:
 
 ```csharp
 using Microsoft.ApplicationInsights;

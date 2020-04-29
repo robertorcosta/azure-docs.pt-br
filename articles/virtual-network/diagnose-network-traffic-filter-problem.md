@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 6939ea2497a9f12321e1a6dfb9bf9fbb353bc7db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80240772"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquina virtual
@@ -79,9 +79,9 @@ Embora as regras de segurança eficazes tenham sido visualizadas na VM, também 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell a partir do seu computador, você precisa do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, você também precisa correr `Connect-AzAccount` para entrar no Azure com uma conta que tenha as [permissões necessárias].](virtual-network-network-interface.md#permissions)
+É possível executar os comandos a seguir no [Azure Cloud Shell](https://shell.azure.com/powershell) ou executando o PowerShell no computador. O Azure Cloud Shell é um shell interativo gratuito. Ele tem ferramentas do Azure instaladas e configuradas para usar com sua conta. Se você executar o PowerShell do seu computador, precisará do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no computador para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions)].
 
-Obtenha as regras de segurança eficazes para uma interface de rede com [get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). O exemplo a seguir obtém as regras de segurança efetivas para uma interface de rede denominada * myVMVMNic *, que está em um grupo de recursos denominado * myResourceGroup *:
+Obtenha as regras de segurança efetivas para uma interface de rede com [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). O exemplo a seguir obtém as regras de segurança efetivas para uma interface de rede denominada * myVMVMNic *, que está em um grupo de recursos denominado * myResourceGroup *:
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -113,9 +113,9 @@ Na saída anterior, o nome do adaptador de rede é *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnosticar usando a CLI do Azure
 
-Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este artigo requer a CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisar instalar ou atualizar, consulte [Install Azure CLI](/cli/azure/install-azure-cli). Se você estiver executando a CLI do Azure localmente, também precisará executar `az login` e fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+Se usar os comandos da CLI (interface de linha de comando) do Azure para concluir as tarefas neste artigo, execute os comandos no [Azure Cloud Shell](https://shell.azure.com/bash) ou então executando a CLI do computador. Este artigo requer a CLI do Azure versão 2.0.32 ou posterior. Execute `az --version` para localizar a versão instalada. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se você estiver executando a CLI do Azure localmente, também precisará executar `az login` e fazer logon no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
-Obtenha as regras de segurança efetivas para uma interface de rede com [ az network nic list-effective-nsg ](/cli/azure/network/nic#az-network-nic-list-effective-nsg). O exemplo a seguir obtém as regras de segurança eficazes para uma interface de rede chamada *myVMVMNic* que está em um grupo de recursos chamado *myResourceGroup*:
+Obtenha as regras de segurança efetivas para uma interface de rede com [ az network nic list-effective-nsg ](/cli/azure/network/nic#az-network-nic-list-effective-nsg). O exemplo a seguir obtém as regras de segurança em vigor para uma interface de rede chamada *myVMVMNic* que está em um grupo de recursos chamado *MyResource*Group:
 
 ```azurecli-interactive
 az network nic list-effective-nsg \
@@ -177,7 +177,7 @@ Se você usar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diag
 | Protocolo                | TCP                                                                                |
 | Ação                  | Allow                                                                              |
 | Prioridade                | 100                                                                                |
-| Nome                    | Permitir-HTTP-All                                                                     |
+| Name                    | Permitir-HTTP-All                                                                     |
 
 Depois de criar a regra, a porta 80 é permitida de entrada da internet, como a prioridade da regra é maior do que a regra de segurança padrão chamada *DenyAllInBound*, que impede que o tráfego. Saiba como [ criar uma regra de segurança ](manage-network-security-group.md#create-a-security-rule). Se os NSGs diferentes estão associados a interface de rede e a sub-rede, você deve criar a mesma regra em ambos os NSGs.
 

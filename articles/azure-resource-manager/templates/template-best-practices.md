@@ -4,23 +4,23 @@ description: Descreve as abordagens recomendadas para a criação de modelos do 
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156405"
 ---
 # <a name="arm-template-best-practices"></a>Práticas recomendadas do modelo ARM
 
-Este artigo fornece recomendações sobre como construir seu modelo ARM (Azure Resource Manager). Essas recomendações ajudam você a evitar problemas comuns ao usar um modelo ARM para implantar uma solução.
+Este artigo fornece recomendações sobre como construir seu modelo de Azure Resource Manager (ARM). Essas recomendações ajudam a evitar problemas comuns ao usar um modelo ARM para implantar uma solução.
 
-Para obter recomendações sobre como governar suas assinaturas do Azure, consulte [andaime corporativo do Azure: Governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Para obter recomendações sobre como controlar suas assinaturas do Azure, consulte [Azure Enterprise Scaffold: governança de assinatura prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [Desenvolver modelos do Azure Resource Manager para manter a consistência nuvem](templates-cloud-consistency.md).
 
 ## <a name="template-limits"></a>Limites de modelo
 
-Limite o tamanho do seu modelo a 4 MB, e cada arquivo de parâmetro susta a 64 KB. O limite de 4 MB aplica-se ao estado final do modelo depois de ter sido expandido com definições de recursos iterativos e valores para variáveis e parâmetros. 
+Limite o tamanho do modelo para 4 MB e cada arquivo de parâmetro para 64 KB. O limite de 4 MB se aplica ao estado final do modelo depois que ele é expandido com definições de recursos iterativos e valores para variáveis e parâmetros. 
 
 Você também está limitado a:
 
@@ -34,7 +34,7 @@ Você pode exceder alguns limites de modelo usando um modelo aninhado. Para sabe
 
 ## <a name="resource-group"></a>Resource group
 
-Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados na localização do grupo de recursos.
+Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 
 Se a região do grupo de recursos está temporariamente indisponível, você não pode atualizar os recursos no grupo de recursos porque os metadados não estão disponíveis. Os recursos em outras regiões ainda funcionarão conforme o esperado, mas não será possível atualizá-los. Para minimizar o risco, localize seu grupo de recursos e recursos na mesma região.
 
@@ -93,7 +93,7 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
 
 * Não use um parâmetro para a versão de API de um tipo de recurso. Os valores e propriedades do recurso podem variar de acordo com o número de versão. O IntelliSense em um editor de código não pode determinar o esquema correto quando a versão da API é definida como um parâmetro. Em vez disso, codifique a versão da API no modelo.
 
-* Use `allowedValues` com moderação. Usá-lo somente quando você deve verificar se alguns valores não estão incluídos nas opções permitidas. Se você `allowedValues` usar muito amplamente, você pode bloquear implantações válidas não mantendo sua lista atualizada.
+* Use `allowedValues` com moderação. Usá-lo somente quando você deve verificar se alguns valores não estão incluídos nas opções permitidas. Se você usar `allowedValues` muito amplamente, poderá bloquear implantações válidas não mantendo sua lista atualizada.
 
 * Quando um nome de parâmetro em seu modelo corresponde a um parâmetro no comando de implantação do PowerShell, o Resource Manager resolve esse conflito de nomeação adicionando o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se você incluir um parâmetro nomeado **ResourceGroupName** no modelo, ele entrará em conflito com o parâmetro **ResourceGroupName** no cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Durante a implantação, você recebe uma solicitação para fornecer um valor para **ResourceGroupNameFromTemplate**.
 
@@ -144,7 +144,7 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
 
 As seguintes informações podem ser úteis quando você trabalha com [variáveis](template-variables.md):
 
-* Use o caso do camelo para nomes de variáveis.
+* Use o camel case para nomes de variáveis.
 
 * Use variáveis para valores que você precisa usar mais de uma vez em um modelo. Se um valor for usado apenas uma vez, um valor embutido em código facilita a leitura do modelo.
 
@@ -162,7 +162,7 @@ As seguintes informações podem ser úteis quando você trabalha com [variávei
 
 ## <a name="resource-dependencies"></a>Dependências de recursos
 
-Ao decidir quais dependências definir, use as [seguintes](define-resource-dependency.md) diretrizes:
+Ao decidir quais [dependências](define-resource-dependency.md) definir, use as seguintes diretrizes:
 
 * Use a função **reference** e transmita o nome de recurso para definir dependências implícita entre os recursos que precisam compartilhar uma propriedade. Não adicione elemento `dependsOn` explícito quando você já tiver definido uma dependência implícita. Essa abordagem reduz o risco de ter dependências desnecessárias.
 
@@ -204,7 +204,7 @@ As seguintes informações podem ser úteis quando você trabalha com [recursos]
    }
    ```
    
-   Se a conta de armazenamento for implantada no mesmo modelo que você está criando e o nome da conta de armazenamento não for compartilhado com outro recurso no modelo, você não precisará especificar o namespace do provedor ou o apiVersion ao fazer referência ao recurso. O exemplo a seguir mostra a sintaxe simplificada:
+   Se a conta de armazenamento for implantada no mesmo modelo que você está criando e o nome da conta de armazenamento não for compartilhado com outro recurso no modelo, você não precisará especificar o namespace do provedor ou o apiVersion quando fizer referência ao recurso. O exemplo a seguir mostra a sintaxe simplificada:
    
    ```json
    "diagnosticsProfile": {
@@ -279,5 +279,5 @@ As seguintes informações podem ser úteis quando você trabalha com [recursos]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter informações sobre a estrutura do arquivo de modelo, consulte [Entender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
-* Para obter recomendações sobre como construir modelos que funcionem em todos os ambientes de nuvem do Azure, consulte [Desenvolver modelos ARM para consistência de nuvem](templates-cloud-consistency.md).
+* Para obter informações sobre a estrutura do arquivo de modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de nuvem do Azure, consulte [desenvolver modelos de ARM para consistência de nuvem](templates-cloud-consistency.md).

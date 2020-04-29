@@ -1,72 +1,72 @@
 ---
-title: Como funciona o roteamento com o Azure Dev Spaces
+title: Como funciona o roteamento com Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 03/24/2020
 ms.topic: conceptual
-description: Descreve os processos que alimentam os espaços de dev do Azure e como funciona o roteamento
-keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contêineres
+description: Descreve os processos que o Power Azure Dev Spaces e como funciona o roteamento
+keywords: Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
 ms.openlocfilehash: e9bc1875c053335da6a8e2603406bcdb34a6dd04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241381"
 ---
-# <a name="how-routing-works-with-azure-dev-spaces"></a>Como funciona o roteamento com o Azure Dev Spaces
+# <a name="how-routing-works-with-azure-dev-spaces"></a>Como funciona o roteamento com Azure Dev Spaces
 
-O Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente os aplicativos kubernetes e colaborar com sua equipe em um cluster Azure Kubernetes Service (AKS). Uma vez que seu projeto esteja sendo executado em um espaço de desenvolvimento, o Azure Dev Spaces fornece recursos adicionais de rede e roteamento para o seu projeto.
+Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente aplicativos kubernetes e colaborar com sua equipe em um cluster do AKS (serviço kubernetes do Azure). Depois que o projeto estiver sendo executado em um espaço de desenvolvimento, Azure Dev Spaces fornecerá recursos adicionais de roteamento e rede para seu projeto.
 
-Este artigo descreve como o roteamento funciona com o Dev Spaces.
+Este artigo descreve como o roteamento funciona com espaços de desenvolvimento.
 
 ## <a name="how-routing-works"></a>Como funciona o roteamento
 
-Um espaço de v é construído em cima do AKS e usa os [mesmos conceitos de rede](../aks/concepts-network.md). O Azure Dev Spaces também possui um serviço centralizado de gerente de *ingresse* e implanta seu próprio Controlador de Ingress para o cluster AKS. O serviço *de ingressmanager* monitora clusters AKS com espaços de desenvolvimento e aumenta o Azure Dev Spaces Ingress Controller no cluster com objetos Ingress para roteamento para pods de aplicativos. O contêiner proxy devspaces em `azds-route-as` cada pod adiciona um cabeçalho HTTP para tráfego HTTP a um espaço de dev com base na URL. Por exemplo, uma solicitação *http://azureuser.s.default.serviceA.fedcba09...azds.io* à URL obteria um cabeçalho HTTP com `azds-route-as: azureuser`. O contêiner devspaces-proxy não `azds-route-as` adicionará um cabeçalho se um já estiver presente.
+Um espaço de desenvolvimento é criado sobre o AKS e usa os mesmos [conceitos de rede](../aks/concepts-network.md). Azure Dev Spaces também tem um serviço de *ingressmanager* centralizado e implanta seu próprio controlador de entrada no cluster AKs. O serviço *ingressmanager* monitora clusters AKs com espaços de desenvolvimento e aumenta o controlador de entrada Azure dev Spaces no cluster com objetos de entrada para roteamento para pods de aplicativo. O contêiner devspaces-proxy em cada pod adiciona um `azds-route-as` cabeçalho HTTP para o tráfego HTTP para um espaço de desenvolvimento com base na URL. Por exemplo, uma solicitação para a URL *http://azureuser.s.default.serviceA.fedcba09...azds.io* obteria um cabeçalho HTTP com `azds-route-as: azureuser`. O contêiner devspaces-proxy não adicionará um `azds-route-as` cabeçalho se já houver um.
 
-Quando uma solicitação HTTP é feita a um serviço de fora do cluster, a solicitação vai para o controlador Ingress. O controlador ingress encaminha a solicitação diretamente para o pod apropriado com base em seus objetos e regras de Ingress. O contêiner proxy devspaces no pod recebe `azds-route-as` a solicitação, adiciona o cabeçalho com base na URL e, em seguida, encaminha a solicitação para o contêiner de aplicativo.
+Quando uma solicitação HTTP é feita a um serviço de fora do cluster, a solicitação vai para o controlador de entrada. O controlador de entrada roteia a solicitação diretamente para o Pod apropriado com base em seus objetos de entrada e regras. O contêiner devspaces-proxy no pod recebe a solicitação, adiciona o `azds-route-as` cabeçalho com base na URL e, em seguida, roteia a solicitação para o contêiner do aplicativo.
 
-Quando uma solicitação HTTP é feita a um serviço de outro serviço dentro do cluster, a solicitação passa primeiro pelo contêiner devspaces-proxy do serviço de chamada. O contêiner devspaces-proxy analisa a solicitação `azds-route-as` HTTP e verifica o cabeçalho. Com base no cabeçalho, o contêiner devspaces-proxy procurará o endereço IP do serviço associado ao valor do cabeçalho. Se um endereço IP for encontrado, o contêiner devspaces-proxy redireciona a solicitação para esse endereço IP. Se um endereço IP não for encontrado, o contêiner devspaces-proxy encaminha a solicitação para o contêiner de aplicativo pai.
+Quando uma solicitação HTTP é feita a um serviço de outro serviço dentro do cluster, a solicitação primeiro passa pelo contêiner devspaces-proxy do serviço de chamada. O contêiner devspaces-proxy examina a solicitação HTTP e verifica o `azds-route-as` cabeçalho. Com base no cabeçalho, o contêiner devspaces-proxy pesquisará o endereço IP do serviço associado ao valor do cabeçalho. Se um endereço IP for encontrado, o contêiner devspaces-proxy redirecionará a solicitação para esse endereço IP. Se um endereço IP não for encontrado, o contêiner devspaces-proxy roteará a solicitação para o contêiner do aplicativo pai.
 
-Por exemplo, o serviço de *aplicativosA* e *serviceB* são implantados em um espaço de desenvolvimento pai chamado *default*. *serviceA* conta com *serviceB* e faz chamadas HTTP para ele. O Azure User cria um espaço de desenvolvimento infantil com base no espaço *padrão* chamado *azureuser*. O Azure User também implanta sua própria versão de *serviçoA* em seu espaço infantil. Quando uma solicitação *http://azureuser.s.default.serviceA.fedcba09...azds.io*é feita para:
+Por exemplo, os aplicativos *servicea* e *serviceB* são implantados em um espaço de desenvolvimento pai chamado *padrão*. o *servicea* se baseia em *serviceB* e faz chamadas http para ele. O usuário do Azure cria um espaço de desenvolvimento filho com base no espaço *padrão* chamado *azureuser*. O usuário do Azure também implanta sua própria versão do *servicea* em seu espaço filho. Quando uma solicitação é feita para *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
 
-![Roteamento de espaços azure dev](media/how-dev-spaces-works/routing.svg)
+![Roteamento de Azure Dev Spaces](media/how-dev-spaces-works/routing.svg)
 
-1. O controlador Ingress procura o IP para o pod associado à URL, que é *serviceA.azureuser*.
-1. O controlador Ingress encontra o IP para o pod no espaço de dev do Usuário Do zure e encaminha a solicitação para o pod *serviceA.azureuser.*
-1. O contêiner devspaces-proxy no *pod serviceA.azureuser* `azds-route-as: azureuser` recebe a solicitação e adiciona como um cabeçalho HTTP.
-1. O contêiner devspaces-proxy no *pod serviceA.azureuser* encaminha a solicitação para o contêiner de aplicativo *serviceA* no pod *serviceA.azureuser.*
-1. O aplicativo *serviceA* no *pod serviceA.azureuser* faz uma chamada para *serviceB*. O aplicativo *serviceA* também contém código `azds-route-as` para preservar o `azds-route-as: azureuser`cabeçalho existente, que neste caso é .
-1. O contêiner devspaces-proxy no *pod serviceA.azureuser* recebe a solicitação e procura o `azds-route-as` IP do *serviceB* com base no valor do cabeçalho.
-1. O contêiner devspaces-proxy no *pod serviceA.azureuser* não encontra um IP para *serviceB.azureuser*.
-1. O contêiner proxy devspaces no *pod serviceA.azureuser* procura o IP para *serviceB* no espaço pai, que é *serviceB.default*.
-1. O contêiner proxy devspaces no *pod serviceA.azureuser* encontra o IP para *serviceB.default* e encaminha a solicitação para o pod *serviceB.default.*
-1. O contêiner proxy devspaces no pod *serviceB.default* recebe a solicitação e encaminha a solicitação para o contêiner de aplicativo *serviceB* no pod *serviceB.default.*
-1. O aplicativo *serviceB* no *pod serviceB.default* retorna uma resposta ao *pod serviceA.azureuser.*
-1. O contêiner devspaces-proxy no *pod serviceA.azureuser* recebe a resposta e encaminha a resposta ao contêiner de aplicativo *serviceA* no pod *serviceA.azureuser.*
-1. O aplicativo *serviceA* recebe a resposta e, em seguida, retorna sua própria resposta.
-1. O contêiner devspaces-proxy no *pod serviceA.azureuser* recebe a resposta do contêiner de aplicativo *serviceA* e encaminha a resposta ao chamador original fora do cluster.
+1. O controlador de entrada procura o IP para o Pod associado à URL, que é *servicea. azureuser*.
+1. O controlador de entrada localiza o IP para o pod no espaço de desenvolvimento do usuário do Azure e roteia a solicitação para o Pod *servicea. azureuser* .
+1. O contêiner devspaces-proxy no pod *servicea. azureuser* recebe a solicitação e adiciona `azds-route-as: azureuser` como um cabeçalho http.
+1. O contêiner devspaces-proxy no pod *servicea. azureuser* roteia a solicitação para o contêiner do aplicativo *servicea* no pod *servicea. azureuser* .
+1. O aplicativo *servicea* no pod *servicea. azureuser* faz uma chamada para *serviceB*. O aplicativo *servicea* também contém código para preservar o cabeçalho `azds-route-as` existente, que nesse caso é `azds-route-as: azureuser`.
+1. O contêiner devspaces-proxy no pod *servicea. azureuser* recebe a solicitação e pesquisa o IP de *serviceB* com base no valor do `azds-route-as` cabeçalho.
+1. O contêiner devspaces-proxy no pod *servicea. azureuser* não encontra um IP para *serviceB. azureuser*.
+1. O contêiner devspaces-proxy no pod *servicea. azureuser* procura o IP para *serviceB* no espaço pai, que é *serviceB. Default*.
+1. O contêiner devspaces-proxy no pod *servicea. azureuser* localiza o IP de *serviceB. Default* e roteia a solicitação para o Pod *serviceB. Default* .
+1. O contêiner devspaces-proxy no *serviceB.* o Pod padrão recebe a solicitação e roteia a solicitação para o contêiner do aplicativo *ServiceB* no pod *serviceB. Default* .
+1. O aplicativo *serviceB* no *serviceB. Pod padrão* retorna uma resposta para o Pod *servicea. azureuser* .
+1. O contêiner devspaces-proxy no pod *servicea. azureuser* recebe a resposta e roteia a resposta para o contêiner do aplicativo *servicea* no pod *servicea. azureuser* .
+1. O aplicativo *servicea* recebe a resposta e, em seguida, retorna sua própria resposta.
+1. O contêiner devspaces-proxy no pod *servicea. azureuser* recebe a resposta do contêiner de aplicativos *servicea* e roteia a resposta para o chamador original fora do cluster.
 
-Todos os outros tráfegos TCP que não são HTTP passam pelo controlador Ingress e contêineres proxy devspaces não modificados.
+Todos os outros tráfegos TCP que não são HTTP passam pelo controlador de entrada e contêineres devspaces-proxy não modificados.
 
-## <a name="sharing-a-dev-space"></a>Compartilhando um espaço de vév
+## <a name="sharing-a-dev-space"></a>Compartilhando um espaço de desenvolvimento
 
-Ao trabalhar com uma equipe, você pode [compartilhar um espaço de v em toda uma equipe](how-to/share-dev-spaces.md) e criar espaços derivados de v. Um espaço de desenvolvimento pode ser usado por qualquer pessoa com acesso contribuinte ao grupo de recursos do espaço de desenvolvimento.
+Ao trabalhar com uma equipe, você pode [compartilhar um espaço de desenvolvimento em toda a equipe](how-to/share-dev-spaces.md) e criar espaços de desenvolvimento derivados. Um espaço de desenvolvimento pode ser usado por qualquer pessoa com acesso de colaborador ao grupo de recursos do espaço de desenvolvimento.
 
-Você também pode criar um novo espaço de vév que é derivado de outro espaço de v. Quando você cria um espaço de v derivado, o *rótulo azds.io/parent-space=PARENT-SPACE-NAME* é adicionado ao espaço de nome do espaço derivado. Além disso, todas as aplicações do espaço de desenvolvimento pai são compartilhadas com o espaço derivado de v. Se você implantar uma versão atualizada de um aplicativo para o espaço de v derivado, ele só existirá no espaço de desenvolvimento derivado e o espaço de desenvolvimento pai permanecerá inalterado. Você pode ter um máximo de três níveis de espaços de v derivados ou espaços *de avós.*
+Você também pode criar um novo espaço de desenvolvimento que é derivado de outro espaço de desenvolvimento. Quando você cria um espaço de desenvolvimento derivado, o rótulo *azds.Io/Parent-Space=Parent-Space-Name* é adicionado ao namespace do espaço de desenvolvimento derivado. Além disso, todos os aplicativos do espaço de desenvolvimento pai são compartilhados com o espaço de desenvolvimento derivado. Se você implantar uma versão atualizada de um aplicativo no espaço de desenvolvimento derivado, ele só existirá no espaço de desenvolvimento derivado e o espaço de desenvolvimento pai permanecerá inalterado. Você pode ter um máximo de três níveis de espaços de desenvolvimento derivados ou espaços *avôs* .
 
-O espaço de v v derivado também direcionará de forma inteligente as solicitações entre seus próprios aplicativos e os aplicativos compartilhados de seu pai. O roteamento funciona tentando encaminhar a solicitação para um aplicativo no espaço de desenvolvimento derivado e voltando para o aplicativo compartilhado do espaço de desenvolvimento pai. O roteamento retornará ao aplicativo compartilhado no espaço dos avós se o aplicativo não estiver no espaço dos pais.
+O espaço de desenvolvimento derivado também roteará de forma inteligente as solicitações entre seus próprios aplicativos e os aplicativos compartilhados de seu pai. O roteamento funciona ao tentar rotear a solicitação para um aplicativo no espaço de desenvolvimento derivado e retornar ao aplicativo compartilhado do espaço de desenvolvimento pai. O roteamento fará o fallback para o aplicativo compartilhado no espaço do avô se o aplicativo não estiver no espaço pai.
 
-Por exemplo: 
-* O *padrão* de espaço de desenvolvimento tem *aplicativos serviceA* e *serviceB*.
-* O espaço dev *azureuser* é derivado do *padrão*.
-* Uma versão atualizada do *serviçoA* é implantada *no azureuser*.
+Por exemplo:
+* O *padrão* de espaço de desenvolvimento tem os aplicativos *servicea* e *serviceB*.
+* O *azureuser* de espaço de desenvolvimento é derivado do *padrão*.
+* Uma versão atualizada do *servicea* é implantada no *azureuser*.
 
-Ao usar *o azureuser*, todas as solicitações para *serviceA* serão encaminhadas para a versão atualizada no *azureuser*. Uma solicitação de *serviceB* tentará primeiro ser encaminhada para a versão *azureuser* do *serviceB*. Como ele não existe, ele será encaminhado para a versão *padrão* do *serviceB*. Se a versão *azureuser* do *serviçoA* for removida, todas as solicitações ao *serviceA* voltarão a usar a versão *padrão* do *serviçoA*.
+Ao usar *azureuser*, todas as solicitações para *servicea* serão roteadas para a versão atualizada em *azureuser*. Uma solicitação para *serviceB* primeiro tentará ser roteada para a versão *azureuser* do *serviceB*. Como ele não existe, ele será roteado para a versão *padrão* do *serviceB*. Se a versão *azureuser* do *servicea* for removida, todas as solicitações para *servicea* voltarão a usar a versão *padrão* do *servicea*.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para ver alguns exemplos de como o Azure Dev Spaces usa roteamento para fornecer iteração e desenvolvimento rápidos, consulte [Como conectar sua máquina de desenvolvimento ao seu espaço de desenvolvimento funciona,][how-it-works-connect]como funciona a [depuração remota do seu código com o Azure Dev Spaces][how-it-works-remote-debugging]e o [GitHub Actions & O Azure Kubernetes Service][pr-flow].
+Para ver alguns exemplos de como Azure Dev Spaces usa o roteamento para fornecer iteração e desenvolvimento rápidos, consulte [como a conexão do seu computador de desenvolvimento ao seu espaço][how-it-works-connect]para desenvolvimento funciona, [como a depuração remota de seu código com o Azure dev Spaces funciona][how-it-works-remote-debugging]e as [ações do GitHub & serviço kubernetes do Azure][pr-flow].
 
-Para começar a usar o roteamento com o Azure Dev Spaces para o desenvolvimento da equipe, consulte o desenvolvimento da [equipe no Azure Dev Spaces][quickstart-team] quickstart.
+Para começar a usar o roteamento com o Azure Dev Spaces para desenvolvimento em equipe, consulte o [desenvolvimento de equipe no][quickstart-team] guia de início rápido Azure dev Spaces.
 
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
 [how-it-works-connect]: how-dev-spaces-works-connect.md

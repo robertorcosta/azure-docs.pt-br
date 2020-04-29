@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell Quickstart - Bash
-description: Aprenda a usar a linha de comando Bash no seu navegador com o Azure Cloud Shell.
+title: Guia de início rápido Azure Cloud Shell-bash
+description: Saiba como usar a linha de comando do bash em seu navegador com Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
 ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79458062"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guia de início rápido para o Back no Azure Cloud Shell
@@ -25,7 +25,7 @@ Este documento fornece detalhes sobre como usar o Bash no Azure Cloud Shell no [
 > Um Guia de início rápido do [PowerShell no Azure Cloud Shell](quickstart-powershell.md) também está disponível.
 
 ## <a name="start-cloud-shell"></a>Iniciar o Cloud Shell
-1. Inicie **o Cloud Shell** a partir da navegação superior do portal Azure. <br>
+1. Inicie o **Cloud Shell** na navegação superior do portal do Azure. <br>
 ![](media/quickstart/shell-icon.png)
 
 2. Selecione uma assinatura para criar uma conta de armazenamento e um compartilhamento de Arquivos do Microsoft Azure.

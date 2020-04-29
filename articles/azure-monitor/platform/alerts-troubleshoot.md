@@ -1,246 +1,246 @@
 ---
-title: Solução de problemas Alertas e notificações do Azure Monitor
-description: Problemas comuns com alertas do Azure Monitor e possíveis soluções.
+title: Solucionando problemas Azure Monitor alertas e notificações
+description: Problemas comuns com alertas de Azure Monitor e soluções possíveis.
 author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
 ms.openlocfilehash: beb47f961c6f24453bd49aa5807c9d801fc199a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80132339"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Problemas de solução de problemas nos alertas do Monitor Do Azure 
+# <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solucionando problemas em alertas de Azure Monitor 
 
-Este artigo discute problemas comuns no Alerta do Azure Monitor.
+Este artigo aborda problemas comuns no Azure Monitor alertas.
 
-Os alertas do Azure Monitor notificam-no proativamente quando condições importantes são encontradas em seus dados de monitoramento. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam. Para obter mais informações sobre alertas, consulte [Visão geral dos alertas no Microsoft Azure](alerts-overview.md).
+Azure Monitor Alertas proativamente notificam você quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam. Para obter mais informações sobre alertas, consulte [visão geral de alertas no Microsoft Azure](alerts-overview.md).
 
-## <a name="action-or-notification-on-my-alert-did-not-work-as-expected"></a>Ação ou notificação no meu alerta não funcionou como esperado
+## <a name="action-or-notification-on-my-alert-did-not-work-as-expected"></a>A ação ou notificação em meu alerta não funcionou conforme o esperado
 
-Se você pode ver um alerta de disparo no portal do Azure, mas tiver um problema com algumas de suas ações ou notificações, consulte as seguintes seções.
+Se você puder ver um alerta acionado no portal do Azure, mas tiver um problema com algumas de suas ações ou notificações, consulte as seções a seguir.
 
-## <a name="did-not-receive-expected-email"></a>Não recebeu o e-mail esperado
+## <a name="did-not-receive-expected-email"></a>Não recebeu o email esperado
 
-Se você pode ver um alerta de disparo no portal Azure, mas não recebeu o e-mail que você configurou sobre ele, siga estas etapas: 
+Se você puder ver um alerta acionado no portal do Azure, mas não recebeu o email que você configurou sobre ele, siga estas etapas: 
 
-1. **O e-mail foi suprimido por uma regra de [ação?](alerts-action-rules.md)** 
+1. **O email foi suprimido por uma [regra de ação](alerts-action-rules.md)**? 
 
-    Verifique clicando no alerta de disparo no portal e veja a guia histórico para grupos de [ação](action-groups.md)suprimidos : 
+    Marque clicando no alerta acionado no portal e examine a guia histórico para [grupos de ações](action-groups.md)suprimidos: 
 
-    ![Histórico de supressão de regras de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
+    ![Histórico de supressão da regra de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
 
-1. **O tipo de ação é "Papel de gerente de recursos do Mail Azure"?**
+1. **É o tipo de ação "email Azure Resource Manager função"?**
 
-    Essa ação só analisa as atribuições de função do Azure Resource Manager que estão no escopo da assinatura e do *usuário*do tipo .  Certifique-se de que você atribuiu a função no nível de assinatura, e não no nível de recurso ou nível de grupo de recursos.
+    Essa ação só examina Azure Resource Manager atribuições de função que estão no escopo da assinatura e do tipo *usuário*.  Certifique-se de que você atribuiu a função no nível de assinatura e não no nível de recurso ou grupo de recursos.
 
-1. **Seu servidor de e-mail e caixa de correio estão aceitando e-mails externos?**
+1. **Seu servidor de email e caixa de correio aceitam emails externos?**
 
-    Verifique se os e-mails desses três endereços não estão bloqueados:
+    Verifique se os emails desses três endereços não estão bloqueados:
       - azure-noreply@microsoft.com  
       - azureemail-noreply@microsoft.com
       - alerts-noreply@mail.windowsazure.com
 
-    É comum que listas internas de discussão ou listas de distribuição bloqueiem e-mails de endereços de e-mail externos. Você precisa listar os endereços de e-mail acima.  
-    Para testar, adicione um endereço de e-mail de trabalho regular (não uma lista de discussão) ao grupo de ação e veja se os alertas chegam a esse e-mail. 
+    É comum que listas de endereçamento internas ou listas de distribuição bloqueiem emails de endereços de email externos. Você precisará colocar os endereços de email acima na lista de permissões.  
+    Para testar, adicione um endereço de email de trabalho regular (não uma lista de endereçamento) ao grupo de ações e veja se os alertas chegam a esse email. 
 
-1. **O e-mail foi processado por regras de caixa de entrada ou um filtro de spam?** 
+1. **O email foi processado pelas regras de caixa de entrada ou por um filtro de spam?** 
 
-    Verifique se não há regras de caixa de entrada que excluam esses e-mails ou os movam para uma pasta lateral. Por exemplo, as regras da caixa de entrada podem pegar remetentes específicos ou palavras específicas no assunto.
+    Verifique se não há nenhuma regra de caixa de entrada que exclua esses emails ou mova-os para uma pasta lateral. Por exemplo, as regras de caixa de entrada podem capturar remetentes específicos ou palavras específicas no assunto.
 
     Além disso, verifique:
     
-      - as configurações de spam do seu cliente de e-mail (como Outlook, Gmail)
-      - os limites do remetente / configurações de spam / configurações de quarentena do seu servidor de e-mail (como Exchange, Office 365, G-suite)
-      - as configurações do seu aparelho de segurança de e-mail, se houver (como Barracuda, Cisco). 
+      - as configurações de spam do seu cliente de email (como o Outlook, Gmail)
+      - as configurações limites de remetente/spam/quarentena do seu servidor de email (como Exchange, Office 365, G-Suite)
+      - as configurações de seu dispositivo de segurança de email, se houver (como Barracuda, Cisco). 
 
-1. **Você acidentalmente cancelou a assinatura do grupo de ação?** 
+1. **Você cancelou acidentalmente a assinatura do grupo de ações?** 
 
-    Os e-mails de alerta fornecem um link para cancelar a assinatura do grupo de ação. Para verificar se você acidentalmente cancelou a assinatura deste grupo de ação, também:
+    Os emails de alerta fornecem um link para cancelar a assinatura do grupo de ações. Para verificar se você cancelou acidentalmente a assinatura desse grupo de ações, seja:
 
-    1. Abra o grupo de ação no portal e verifique a coluna Status:
+    1. Abra o grupo de ações no portal e verifique a coluna status:
 
-    ![coluna de status do grupo de ação](media/alerts-troubleshoot/action-group-status.png)
+    ![coluna de status do grupo de ações](media/alerts-troubleshoot/action-group-status.png)
 
-    2. Pesquise seu e-mail para obter a confirmação de cancelamento da inscrição:
+    2. Pesquise seu email para obter a confirmação de cancelamento da assinatura:
 
-    ![unsubscribed do grupo de ação de alerta](media/alerts-troubleshoot/unsubscribe-action-group.png)
+    ![cancelamento da assinatura do grupo de ações de alerta](media/alerts-troubleshoot/unsubscribe-action-group.png)
 
-    Para se inscrever novamente – use o link no e-mail de confirmação de cancelamento de inscrição que você recebeu ou remova o endereço de e-mail do grupo de ação e, em seguida, adicione-o novamente. 
+    Para assinar novamente – use o link no email de confirmação de cancelamento de assinatura que você recebeu ou remova o endereço de email do grupo de ações e, em seguida, adicione-o novamente. 
  
-1. **Você foi avaliado como limitado devido a muitos e-mails indo para um único endereço de e-mail?** 
+1. **Você foi classificado como limitado devido a muitos emails indo para um único endereço de email?** 
 
-    O e-mail [é limitado](alerts-rate-limiting.md) a não mais de 100 e-mails a cada hora para cada endereço de e-mail. Se você passar por esse limite, notificações adicionais de e-mail serão retiradas.  Verifique se você recebeu uma mensagem indicando que seu endereço de e-mail foi temporariamente limitado: 
+    O email é uma [taxa limitada](alerts-rate-limiting.md) a no máximo 100 emails a cada hora para cada endereço de email. Se você passar esse limite, as notificações de email adicionais serão descartadas.  Verifique se você recebeu uma mensagem indicando que seu endereço de email foi limitado com taxa temporária: 
  
-   ![Taxa de e-mail limitada](media/alerts-troubleshoot/email-paused.png)
+   ![Taxa de email limitada](media/alerts-troubleshoot/email-paused.png)
 
-   Se você quiser receber alto volume de notificações sem limitação de taxas, considere usar uma ação diferente, como webhook, app lógico, função Azure ou runbooks de automação, nenhum dos quais são limitados à taxa. 
+   Se você quiser receber alto volume de notificações sem limitação de taxa, considere usar uma ação diferente, como webhook, aplicativo lógico, Azure Function ou runbooks de automação, nenhum dos quais são limitados por taxa. 
 
-## <a name="did-not-receive-expected-sms-voice-call-or-push-notification"></a>Não recebeu SMS esperado, chamada de voz ou notificação push
+## <a name="did-not-receive-expected-sms-voice-call-or-push-notification"></a>Não recebeu notificações de SMS, chamada de voz ou notificação por push esperadas
 
-Se você pode ver um alerta de disparo no portal, mas não recebeu o SMS, chamada de voz ou notificação push que você configurou sobre ele, siga estas etapas: 
+Se você puder ver um alerta acionado no portal, mas não recebeu o SMS, a chamada de voz ou a notificação por push que você configurou sobre ele, siga estas etapas: 
 
-1. **A ação foi suprimida por uma regra de [ação?](alerts-action-rules.md)** 
+1. **A ação foi suprimida por uma [regra de ação](alerts-action-rules.md)?** 
 
-    Verifique clicando no alerta de disparo no portal e veja a guia histórico para grupos de [ação](action-groups.md)suprimidos : 
+    Marque clicando no alerta acionado no portal e examine a guia histórico para [grupos de ações](action-groups.md)suprimidos: 
 
-    ![Histórico de supressão de regras de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
+    ![Histórico de supressão da regra de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
 
-   Se isso não foi intencional, você pode modificar, desativar ou excluir a regra de ação.
+   Se isso não for intencional, você poderá modificar, desabilitar ou excluir a regra de ação.
  
-1. **SMS / voz: Seu número de telefone está correto?**
+1. **SMS/Voice: seu número de telefone está correto?**
 
-   Verifique a ação de SMS para erros de digitação no código do país ou número de telefone. 
+   Verifique a ação SMS para erros de digitação no código do país ou número de telefone. 
  
-1. **SMS / voz: você tem taxa limitada?** 
+1. **SMS/Voice: você recebeu a tarifa limitada?** 
 
-    SMS e chamadas de voz são limitados a não mais do que uma notificação a cada cinco minutos por número de telefone. Se você passar por esse limite, as notificações serão retiradas. 
+    Chamadas de voz e SMS são limitadas a não mais de uma notificação a cada cinco minutos por número de telefone. Se você passar esse limite, as notificações serão descartadas. 
 
-      - Chamada de voz – verifique seu histórico de chamadas e veja se você teve uma chamada diferente do Azure nos cinco minutos anteriores. 
-      - SMS - verifique o histórico de SMS para obter uma mensagem indicando que seu número de telefone foi limitado. 
+      - Chamada de voz – Verifique seu histórico de chamadas e veja se você teve uma chamada diferente do Azure nos cinco minutos anteriores. 
+      - SMS – Verifique seu histórico de SMS em busca de uma mensagem indicando que seu número de telefone tem taxa limitada. 
 
-    Se você quiser receber alto volume de notificações sem limitação de taxas, considere usar uma ação diferente, como webhook, app lógico, função Azure ou runbooks de automação, nenhum dos quais são limitados à taxa. 
+    Se você quiser receber alto volume de notificações sem limitação de taxa, considere usar uma ação diferente, como webhook, aplicativo lógico, Azure Function ou runbooks de automação, nenhum dos quais são limitados por taxa. 
  
-1. **SMS: Você acidentalmente cancelou a assinatura do grupo de ação?**
+1. **SMS: você cancelou acidentalmente a assinatura do grupo de ações?**
 
-    Abra seu histórico de SMS e verifique se você optou por não entregar SMS a partir deste grupo de ação específico (usando a resposta de action_group_short_name DISABLE) ou de todos os grupos de ação (usando a resposta STOP). Para assinar novamente, envie o comando SMS relevante (ENABLE action_group_short_name ou START) ou remova a ação SMS do grupo de ação e, em seguida, adicione-a novamente.  Para obter mais informações, consulte [o comportamento de alerta de SMS em grupos de ação](alerts-sms-behavior.md).
+    Abra seu histórico de SMS e verifique se você aceitou a entrega de SMS desse grupo de ação específico (usando a resposta desabilitar action_group_short_name) ou de todos os grupos de ação (usando a resposta de parada). Para assinar novamente, envie o comando do SMS relevante (HABILITe action_group_short_name ou inicie) ou remova a ação SMS do grupo de ação e adicione-a novamente.  Para obter mais informações, consulte [comportamento de alerta do SMS em grupos de ações](alerts-sms-behavior.md).
 
-1. **Você bloqueou acidentalmente as notificações no seu telefone?**
+1. **Você bloqueou acidentalmente as notificações em seu telefone?**
 
-   A maioria dos telefones celulares permite bloquear chamadas ou SMS de números de telefone específicos ou códigos curtos, ou bloquear notificações push de aplicativos específicos (como o aplicativo móvel Azure). Para verificar se você bloqueou acidentalmente as notificações em seu telefone, pesquise a documentação específica para o sistema operacional e modelo do telefone ou teste com um número de telefone e telefone diferente. 
+   A maioria dos telefones celulares permite que você bloqueie chamadas ou SMS de números de telefone específicos ou códigos curtos ou bloqueie notificações por push de aplicativos específicos (como o aplicativo móvel do Azure). Para verificar se você bloqueou acidentalmente as notificações em seu telefone, pesquise a documentação específica do sistema operacional e do modelo do seu telefone, ou teste com um telefone e número de telefone diferentes. 
 
-## <a name="expected-another-type-of-action-to-trigger-but-it-did-not"></a>Esperava outro tipo de ação para desencadear, mas não 
+## <a name="expected-another-type-of-action-to-trigger-but-it-did-not"></a>Era esperado outro tipo de ação a ser disparada, mas ele não 
 
-Se você pode ver um alerta de disparo no portal, mas sua ação configurada não foi acionada, siga estas etapas: 
+Se você puder ver um alerta acionado no portal, mas sua ação configurada não tiver sido disparada, siga estas etapas: 
 
 1. **A ação foi suprimida por uma regra de ação?** 
 
-    Verifique clicando no alerta de disparo no portal e veja a guia histórico para grupos de [ação](action-groups.md)suprimidos : 
+    Marque clicando no alerta acionado no portal e examine a guia histórico para [grupos de ações](action-groups.md)suprimidos: 
 
-    ![Histórico de supressão de regras de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
+    ![Histórico de supressão da regra de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
  
-    Se isso não foi intencional, você pode modificar, desativar ou excluir a regra de ação. 
+    Se isso não for intencional, você poderá modificar, desabilitar ou excluir a regra de ação. 
 
-1. **Um gancho não disparou?**
+1. **Um webhook não foi disparado?**
 
     1. **Os endereços IP de origem foram bloqueados?**
     
-       Whitelist os [endereços IP](action-groups.md#action-specific-information) dos endereços de que o webhook é chamado.
+       Lista de permissões os [endereços IP](action-groups.md#action-specific-information) dos quais o webhook é chamado.
 
-    1. **Seu ponto final do webhook funciona corretamente?**
+    1. **O ponto de extremidade do webhook funciona corretamente?**
 
-       Verifique se o ponto final do webhook configurado está correto e o ponto final está funcionando corretamente. Verifique seus logs de webhook ou seu código de instrumentos para que você possa investigar (por exemplo, registre a carga de entrada). 
+       Verifique se o ponto de extremidade do webhook que você configurou está correto e se o ponto de extremidade está funcionando corretamente. Verifique seus logs de webhook ou Instrumente seu código para que você possa investigar (por exemplo, registrar a carga de entrada). 
 
-    1. **Você está ligando para o Slack ou para o Microsoft Teams?**  
-    Cada um desses pontos finais espera um formato JSON específico. Siga [estas instruções](action-groups-logic-app.md) para configurar uma ação lógica do aplicativo.
+    1. **Você está chamando a margem de atraso ou as equipes da Microsoft?**  
+    Cada um desses pontos de extremidade espera um formato JSON específico. Siga [estas instruções](action-groups-logic-app.md) para configurar uma ação de aplicativo lógico em vez disso.
 
-    1. **Seu webhook ficou sem resposta ou retornou erros?** 
+    1. **O webhook ficou sem resposta ou retornou erros?** 
 
-        Nosso período de tempo para uma resposta de webhook é de 10 segundos. A chamada webhook será repetida novamente até duas vezes adicionais quando os seguintes códigos de status HTTP forem devolvidos: 408, 429, 503, 504 ou quando o ponto final HTTP não responder. A primeira nova tentativa ocorre após 10 segundos. A segunda e última tentativa acontece após 100 segundos. Se a segunda tentativa falhar, o ponto de extremidade não será chamado novamente por 30 minutos para nenhum grupo de ações.
+        Nosso período de tempo limite para uma resposta de webhook é de 10 segundos. A chamada de webhook será repetida até dois momentos adicionais quando os seguintes códigos de status HTTP forem retornados: 408, 429, 503, 504 ou quando o ponto de extremidade HTTP não responder. A primeira nova tentativa ocorre após 10 segundos. A segunda e última repetição ocorre após 100 segundos. Se a segunda tentativa falhar, o ponto de extremidade não será chamado novamente por 30 minutos para nenhum grupo de ações.
 
-## <a name="action-or-notification-happened-more-than-once"></a>Ação ou notificação aconteceu mais de uma vez 
+## <a name="action-or-notification-happened-more-than-once"></a>A ação ou a notificação ocorreu mais de uma vez 
 
-Se você recebeu uma notificação para um alerta (como um e-mail ou um SMS) mais de uma vez, ou a ação do alerta (como webhook ou função Azure) foi acionada várias vezes, siga estas etapas: 
+Se você tiver recebido uma notificação para um alerta (como um email ou um SMS) mais de uma vez ou se a ação do alerta (como webhook ou Azure Function) tiver sido disparada várias vezes, siga estas etapas: 
 
 1. **É realmente o mesmo alerta?** 
 
-    Em alguns casos, vários alertas semelhantes são disparados ao mesmo tempo. Então, pode parecer que o mesmo alerta desencadeou suas ações várias vezes. Por exemplo, uma regra de alerta de log de atividade pode ser configurada para disparar tanto quando um evento foi iniciado, quanto quando tiver terminado (bem sucedido ou falhado), não filtrando no campo de status do evento. 
+    Em alguns casos, vários alertas semelhantes são acionados ao mesmo tempo. Portanto, pode parecer que o mesmo alerta disparou suas ações várias vezes. Por exemplo, uma regra de alerta do log de atividades pode ser configurada para ser acionada quando um evento for iniciado e quando tiver terminado (êxito ou falha), não filtrando o campo status do evento. 
 
-    Para verificar se essas ações ou notificações vieram de diferentes alertas, examine os detalhes do alerta, como seu carimbo de data e hora ou o id de alerta ou seu id de correlação. Alternativamente, confira a lista de alertas de disparo no portal. Se esse for o caso, você precisará adaptar a lógica da regra de alerta ou configurar a fonte de alerta. 
+    Para verificar se essas ações ou notificações vieram de alertas diferentes, examine os detalhes do alerta, como seu carimbo de data/hora e a ID do alerta ou sua ID de correlação. Como alternativa, verifique a lista de alertas acionados no Portal. Se esse for o caso, você precisaria adaptar a lógica da regra de alerta ou configurar a origem do alerta. 
 
-1. **A ação se repete em vários grupos de ação?** 
+1. **A ação é repetida em vários grupos de ação?** 
 
-    Quando um alerta é disparado, cada um de seus grupos de ação é processado de forma independente. Assim, se uma ação (como um endereço de e-mail) aparecer em vários grupos de ação acionados, ela será chamada uma vez por grupo de ação. 
+    Quando um alerta é acionado, cada um de seus grupos de ação é processado de forma independente. Portanto, se uma ação (como um endereço de email) aparecer em vários grupos de ações disparadas, ela será chamada uma vez por grupo de ação. 
 
-    Para verificar quais grupos de ação foram acionados, verifique a guia histórico de alerta. Você veria que ambos os grupos de ação definidos na regra de alerta e grupos de ação adicionados ao alerta pelas regras de ação: 
+    Para verificar quais grupos de ação foram disparados, verifique a guia histórico de alertas. Você veria os dois grupos de ações definidos na regra de alerta e os grupos de ações adicionados ao alerta por regras de ação: 
 
-    ![Ação repetida em múltiplos grupos de ação](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
+    ![Ação repetida em vários grupos de ação](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
-## <a name="action-or-notification-has-an-unexpected-content"></a>Ação ou notificação tem um conteúdo inesperado
+## <a name="action-or-notification-has-an-unexpected-content"></a>A ação ou notificação tem um conteúdo inesperado
 
-Se você recebeu o alerta, mas acredita que alguns de seus campos estão faltando ou incorretos, siga estas etapas: 
+Se você tiver recebido o alerta, mas acreditar que alguns de seus campos estão ausentes ou incorretos, siga estas etapas: 
 
-1. **Você escolheu o formato correto para a ação?** 
+1. **Você selecionou o formato correto para a ação?** 
 
-    Cada tipo de ação (e-mail, webhook, etc.) tem dois formatos – o padrão, o formato legado e o [formato de esquema comum mais recente](alerts-common-schema.md). Quando você cria um grupo de ação, você especifica o formato que deseja por ação – diferentes ações nos grupos de ação podem ter formatos diferentes. 
+    Cada tipo de ação (email, webhook, etc.) tem dois formatos: o padrão, o formato herdado e o [formato de esquema comum mais recente](alerts-common-schema.md). Ao criar um grupo de ações, você especifica o formato desejado por ação – ações diferentes nos grupos de ações podem ter formatos diferentes. 
 
     Por exemplo, para ação de webhook: 
 
-    ![opção de esquema de ação webhook](media/alerts-troubleshoot/webhook.png)
+    ![opção de esquema de ação de webhook](media/alerts-troubleshoot/webhook.png)
 
-    Verifique se o formato especificado no nível de ação é o que você espera. Por exemplo, você pode ter desenvolvido um código que responde a alertas (webhook, função, aplicativo lógico, etc.), esperando um formato, mas mais tarde na ação você ou outra pessoa especificou um formato diferente.  
+    Verifique se o formato especificado no nível de ação é o que você espera. Por exemplo, você pode ter desenvolvido código que responde a alertas (webhook, função, aplicativo lógico, etc.), esperando um formato, mas posteriormente na ação, você ou outra pessoa especificou um formato diferente.  
 
-    Além disso, verifique o formato de carga (JSON) para [alertas de registro de atividade,](activity-log-alerts-webhook.md)para [alertas](alerts-log-webhook.md) de pesquisa de log (tanto Insights de aplicativo quanto análise de log), para [alertas métricos,](alerts-metric-near-real-time.md#payload-schema)para o [esquema de alerta comum](alerts-common-schema-definitions.md)e para os [alertas métricos clássicos](alerts-webhooks.md)depreciados.
+    Além disso, verifique o formato de carga (JSON) para [alertas do log de atividades](activity-log-alerts-webhook.md), para alertas de pesquisa de [logs](alerts-log-webhook.md) (Application insights e log Analytics), para [alertas de métricas](alerts-metric-near-real-time.md#payload-schema), para o [esquema de alerta comum](alerts-common-schema-definitions.md)e para os [alertas de métrica clássica](alerts-webhooks.md)preteridos.
 
  
-1. **Alertas de registro de atividades: As informações estão disponíveis no registro de atividades?** 
+1. **Alertas do log de atividades: as informações estão disponíveis no log de atividades?** 
 
-    [Os alertas de registro de atividades](activity-log-alerts.md) são alertas baseados em eventos escritos no Azure Activity Log, como eventos sobre criação, atualização ou exclusão de recursos do Azure, eventos de saúde e saúde de serviços ou descobertas do Azure Advisor e da Azure Policy. Se você recebeu um alerta com base no registro de atividades, mas alguns campos que você precisa estão faltando ou incorretos, primeiro verifique os eventos no próprio registro de atividades. Se o recurso Azure não tiver escrito os campos que você está procurando em seu evento de registro de atividades, esses campos não serão incluídos no alerta correspondente. 
+    [Alertas do log de atividades](activity-log-alerts.md) são alertas baseados em eventos gravados no log de atividades do Azure, como eventos sobre como criar, atualizar ou excluir recursos do Azure, eventos de integridade do serviço e integridade do recurso ou conclusões do Azure Advisor e Azure Policy. Se você tiver recebido um alerta com base no log de atividades, mas alguns campos necessários estiverem ausentes ou incorretos, primeiro verifique os eventos no próprio log de atividades. Se o recurso do Azure não gravar os campos que você está procurando em seu evento do log de atividades, esses campos não serão incluídos no alerta correspondente. 
 
-## <a name="action-rule-is-not-working-as-expected"></a>A regra de ação não está funcionando como esperado 
+## <a name="action-rule-is-not-working-as-expected"></a>A regra de ação não está funcionando conforme o esperado 
 
-Se você pode ver um alerta de disparo no portal, mas uma regra de ação relacionada não funcionou como esperado, siga estas etapas: 
+Se você puder ver um alerta acionado no portal, mas uma regra de ação relacionada não funcionou conforme o esperado, siga estas etapas: 
 
-1. **A regra de ação está ativada?** 
+1. **A regra de ação está habilitada?** 
 
-    Verifique a coluna de status da regra de ação para verificar se a função de ação relacionada está ativada. 
+    Verifique a coluna status da regra de ação para verificar se a função de ação relacionada está habilitada. 
 
     ![gráfico](media/alerts-troubleshoot/action-rule-status.png) 
 
-    Se ele não estiver habilitado, você pode habilitar a regra de ação selecionando-a e clicando em Ativar. 
+    Se não estiver habilitado, você poderá habilitar a regra de ação selecionando-a e clicando em habilitar. 
 
-1. **É um alerta de saúde do serviço?** 
+1. **É um alerta de integridade do serviço?** 
 
-    Os alertas de saúde dos serviços (serviço de monitoramento = "Saúde do Serviço") não são afetados pelas regras de ação. 
+    Os alertas de integridade do serviço (monitor Service = "integridade do serviço") não são afetados pelas regras de ação. 
 
-1. **A regra de ação agiu em seu alerta?** 
+1. **A regra de ação atua em seu alerta?** 
 
-    Verifique se a regra de ação processou seu alerta clicando no alerta de disparo no portal e veja a guia histórico.
+    Verifique se a regra de ação processou o alerta clicando no alerta acionado no portal e examine a guia histórico.
 
-    Aqui está um exemplo de regra de ação que suprime todos os grupos de ação: 
+    Aqui está um exemplo de regra de ação suprimindo todos os grupos de ação: 
  
-     ![Histórico de supressão de regras de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
+     ![Histórico de supressão da regra de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
 
-    Aqui está um exemplo de uma regra de ação adicionando outro grupo de ação:
+    Aqui está um exemplo de uma regra de ação que adiciona outro grupo de ações:
 
-    ![Ação repetida em múltiplos grupos de ação](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
+    ![Ação repetida em vários grupos de ação](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
-1. **O escopo e o filtro da regra de ação correspondem ao alerta de disparo?** 
+1. **O escopo e o filtro da regra de ação correspondem ao alerta acionado?** 
 
-    Se você acha que a regra de ação deveria ter disparado, mas não disparou, ou que não deveria ter disparado, mas disparou, examine cuidadosamente o escopo da regra de ação e as condições de filtro versus as propriedades do alerta disparado. 
+    Se você considerar que a regra de ação deveria ter sido disparada, mas não tenha sido disparada, mas sim, Examine cuidadosamente as condições de filtro e de escopo da regra de ação em comparação com as propriedades do alerta acionado. 
 
 
-## <a name="how-to-find-the-alert-id-of-a-fired-alert"></a>Como encontrar a id de alerta de um alerta de disparo
+## <a name="how-to-find-the-alert-id-of-a-fired-alert"></a>Como localizar a ID de alerta de um alerta acionado
 
-Ao abrir um caso sobre um alerta específico de disparo (como – se você não recebeu sua notificação por e-mail), você precisará fornecer o id de alerta. 
+Ao abrir um caso sobre um alerta acionado específico (como – se você não recebeu sua notificação por email), será necessário fornecer a ID do alerta. 
 
 Para localizá-lo, siga estas etapas:
 
-1. No portal Azure, navegue até a lista de alertas de disparo e encontre esse alerta específico. Você pode usar os filtros para ajudá-lo a localizá-lo. 
+1. Na portal do Azure, navegue até a lista de alertas acionados e encontre esse alerta específico. Você pode usar os filtros para ajudá-lo a localizá-lo. 
 
 1. Clique no alerta para abrir os detalhes do alerta. 
 
-1. Role para baixo nos campos de alerta da primeira guia (a guia resumo) até localizá-la e copie-a. Esse campo também inclui um botão auxiliar "Copiar para prancheta" que você pode usar.  
+1. Role para baixo nos campos de alerta da primeira guia (a guia Resumo) até localizá-lo e copie-o. Esse campo também inclui um botão auxiliar "copiar para a área de transferência" que você pode usar.  
 
-    ![encontrar id alerta](media/alerts-troubleshoot/get-alert-id.png)
+    ![Localizar ID do alerta](media/alerts-troubleshoot/get-alert-id.png)
 
-## <a name="problem-creating-updating-or-deleting-action-rules-in-the-azure-portal"></a>Problemas na criação, atualização ou exclusão de regras de ação no portal Azure
+## <a name="problem-creating-updating-or-deleting-action-rules-in-the-azure-portal"></a>Problema ao criar, atualizar ou excluir regras de ação no portal do Azure
 
-Se você recebeu um erro ao tentar criar, atualizar ou excluir uma [regra de ação,](alerts-action-rules.md)siga estas etapas: 
+Se você recebeu um erro ao tentar criar, atualizar ou excluir uma [regra de ação](alerts-action-rules.md), siga estas etapas: 
 
 1. **Você recebeu um erro de permissão?**  
 
-    Você deve ter a [função de contribuinte de monitoramento embutida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)ou as permissões específicas relacionadas às regras de ação e alertas.
+    Você deve ter a [função interna de colaborador de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)ou as permissões específicas relacionadas a regras de ação e alertas.
 
 1. **Você verificou os parâmetros da regra de ação?**  
 
-    Verifique a [documentação](alerts-action-rules.md)da regra de ação ou a [regra de ação powerShell set-AzActionRule.](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) 
+    Verifique a [documentação da regra de ação](alerts-action-rules.md)ou o comando [set-AzActionRule do PowerShell da regra de ação](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0) . 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Se estiver usando um alerta de log, consulte também [alertas de log de solução de problemas](alert-log-troubleshoot.md).
-- Volte ao [portal Azure](https://portal.azure.com) para verificar se você resolveu seu problema com orientação acima 
+- Se estiver usando um alerta de log, consulte também [Solucionando problemas de alertas de log](alert-log-troubleshoot.md).
+- Volte para a [portal do Azure](https://portal.azure.com) para verificar se você resolveu seu problema com as diretrizes acima 

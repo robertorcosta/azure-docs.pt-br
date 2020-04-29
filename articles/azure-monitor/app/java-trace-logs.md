@@ -1,26 +1,26 @@
 ---
-title: Explore os registros de rastreamento java no Azure Application Insights
+title: Explorar os logs de rastreamento do Java no Aplicativo Azure insights
 description: Pesquisar rastreamentos Log4J ou Logback no Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.openlocfilehash: da1b76d52ab93f4d1be7196d6eb7286579481119
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77657207"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
 Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
 
 > [!TIP]
-> Você só precisa definir sua chave de instrumentação de insights de aplicativo uma vez para o seu aplicativo. Se você estiver usando uma estrutura como Java Spring, você pode já ter registrado a chave em outro lugar na configuração do seu aplicativo.
+> Você só precisa definir sua chave de instrumentação Application Insights uma vez para seu aplicativo. Se você estiver usando uma estrutura como o Java Spring, talvez já tenha registrado a chave em outro lugar na configuração do aplicativo.
 
-## <a name="using-the-application-insights-java-agent"></a>Usando o agente Java do Application Insights
+## <a name="using-the-application-insights-java-agent"></a>Usando o agente Java Application Insights
 
-Por padrão, o agente Application Insights Java `WARN` captura automaticamente o registro realizado em nível e acima.
+Por padrão, o Application Insights agente Java captura automaticamente o log executado no `WARN` nível e acima.
 
-Você pode alterar o limiar de registro `AI-Agent.xml` capturado usando o arquivo:
+Você pode alterar o limite de log que é capturado usando o `AI-Agent.xml` arquivo:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -33,7 +33,7 @@ Você pode alterar o limiar de registro `AI-Agent.xml` capturado usando o arquiv
 </ApplicationInsightsAgent>
 ```
 
-Você pode desativar a captura de registro `AI-Agent.xml` do agente Java usando o arquivo:
+Você pode desabilitar a captura de log do agente Java usando `AI-Agent.xml` o arquivo:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,7 +46,7 @@ Você pode desativar a captura de registro `AI-Agent.xml` do agente Java usando 
 </ApplicationInsightsAgent>
 ```
 
-## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Alternativamente (em vez de usar o agente Java), você pode seguir as instruções abaixo
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>Como alternativa (em oposição ao uso do agente Java), você pode seguir as instruções abaixo
 
 ### <a name="install-the-java-sdk"></a>Instalar o SDK do Java
 

@@ -1,26 +1,26 @@
 ---
 title: Implantar várias instâncias de recursos
-description: Use a operação de cópia e os arrays em um modelo do Azure Resource Manager para implantar o tipo de recurso muitas vezes.
+description: Use a operação de cópia e matrizes em um modelo de Azure Resource Manager para implantar o tipo de recurso muitas vezes.
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153311"
 ---
-# <a name="resource-iteration-in-arm-templates"></a>Iteração de recursos em modelos ARM
+# <a name="resource-iteration-in-arm-templates"></a>Iteração de recurso em modelos ARM
 
-Este artigo mostra como criar mais de uma instância de um recurso no modelo ARM (Azure Resource Manager, gerenciador de recursos do Azure). Ao adicionar o elemento **de cópia** à seção de recursos do seu modelo, você pode definir dinamicamente o número de recursos a serem implantados. Você também evita ter que repetir a sintaxe do modelo.
+Este artigo mostra como criar mais de uma instância de um recurso em seu modelo de Azure Resource Manager (ARM). Ao adicionar o elemento **copiar** à seção recursos do modelo, você pode definir dinamicamente o número de recursos a serem implantados. Você também evita a repetição da sintaxe do modelo.
 
-Você também pode usar cópia com [propriedades,](copy-properties.md) [variáveis](copy-variables.md) e [saídas.](copy-outputs.md)
+Você também pode usar copiar com [Propriedades](copy-properties.md), [variáveis](copy-variables.md) e [saídas](copy-outputs.md).
 
 Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](conditional-resource-deployment.md).
 
 ## <a name="resource-iteration"></a>Iteração de recurso
 
-O elemento de cópia tem o seguinte formato geral:
+O elemento Copy tem o seguinte formato geral:
 
 ```json
 "copy": {
@@ -31,11 +31,11 @@ O elemento de cópia tem o seguinte formato geral:
 }
 ```
 
-A propriedade **nome** é qualquer valor que identifique o loop. A propriedade **count** especifica o número de iterações desejadas para o tipo de recurso.
+A propriedade **Name** é qualquer valor que identifique o loop. A propriedade **Count** especifica o número de iterações que você deseja para o tipo de recurso.
 
-Use as propriedades **mode** e **batchSize** para especificar se os recursos estão implantados em paralelo ou em seqüência. Essas propriedades são descritas em [Serial ou Parallel](#serial-or-parallel).
+Use as propriedades **Mode** e **BatchSize** para especificar se os recursos são implantados em paralelo ou em sequência. Essas propriedades são descritas em [serial ou paralela](#serial-or-parallel).
 
-O exemplo a seguir cria o número de contas de armazenamento especificadas no parâmetro **storageCount.**
+O exemplo a seguir cria o número de contas de armazenamento especificadas no parâmetro **storageCount** .
 
 ```json
 {
@@ -80,7 +80,7 @@ Cria estes nomes:
 * storage1
 * storage2.
 
-Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). O número de iterações ainda é especificado no elemento cópia, mas o valor do copyIndex é compensado pelo valor especificado. Assim, o seguinte exemplo:
+Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). O número de iterações ainda é especificado no elemento Copy, mas o valor de copyIndex é offset pelo valor especificado. Assim, o seguinte exemplo:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -131,11 +131,11 @@ O exemplo a seguir cria uma conta de armazenamento para cada nome fornecido no p
 }
 ```
 
-Se você quiser devolver valores dos recursos implantados, você pode usar [cópia na seção saídas](copy-outputs.md).
+Se você quiser retornar valores dos recursos implantados, poderá usar [Copiar na seção de saídas](copy-outputs.md).
 
-## <a name="serial-or-parallel"></a>Serial ou Paralelo
+## <a name="serial-or-parallel"></a>Serial ou paralela
 
-Por padrão, o Gerenciador de Recursos cria os recursos em paralelo. Não aplica limite ao número de recursos implantados em paralelo, além do limite total de 800 recursos no modelo. A ordem em que eles são criados não é garantida.
+Por padrão, o Gerenciador de Recursos cria os recursos em paralelo. Ele não aplica nenhum limite ao número de recursos implantados em paralelo, além do limite total de 800 recursos no modelo. A ordem em que eles são criados não é garantida.
 
 No entanto, convém especificar que os recursos são implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, convém balancear as atualizações para que apenas um determinado número seja atualizado por vez. Para implantar em série mais de uma instância de um recurso, defina `mode` para **serial** e `batchSize` para o número de instâncias a serem implantadas de cada vez. Com o modo serial, o Resource Manager cria uma dependência em instâncias anteriores no loop de modo que não inicie um lote até que o lote anterior esteja concluído.
 
@@ -172,7 +172,7 @@ A propriedade de modo também aceita **paralelo**, que é o valor padrão.
 
 ## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em um loop
 
-Você especifica que um recurso é implantado após outro recurso usando o elemento `dependsOn`. Para implantar um recurso que depende da coleção de recursos em um loop, forneça o nome do loop de cópia no elemento dependsOn. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Observe que o elemento de `storagecopy` cópia tem nome definido e o elemento `storagecopy`dependsOn para a máquina virtual também está definido como .
+Você especifica que um recurso é implantado após outro recurso usando o elemento `dependsOn`. Para implantar um recurso que depende da coleção de recursos em um loop, forneça o nome do loop de cópia no elemento dependsOn. O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. A definição completa da máquina virtual não é mostrada. Observe que o elemento Copy tem o nome definido `storagecopy` como e o elemento dependy da máquina virtual também é definido como `storagecopy`.
 
 ```json
 {
@@ -262,9 +262,9 @@ O exemplo a seguir mostra a implementação:
 
 A contagem não pode exceder 800.
 
-A contagem não pode ser um número negativo. Se você implantar um modelo com o Azure PowerShell 2.6 ou posterior, O Azure CLI 2.0.74 ou posterior, ou a versão rest API **2019-05-10** ou posterior, você pode definir a contagem para zero. Versões anteriores do PowerShell, CLI e a API REST não suportam zero para contagem.
+A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, CLI do Azure 2.0.74 ou posterior, ou a API REST versão **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
 
-Tenha cuidado com a [implantação completa do modo](deployment-modes.md) com cópia. Se você reimplantar com o modo completo para um grupo de recursos, todos os recursos que não forem especificados no modelo após a resolução do loop de cópia serão excluídos.
+Tenha cuidado ao usar a [implantação do modo completo](deployment-modes.md) com a cópia. Se você reimplantar com o modo completo em um grupo de recursos, todos os recursos que não forem especificados no modelo após a resolução do loop de cópia serão excluídos.
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
@@ -280,12 +280,12 @@ Os exemplos a seguir mostram cenários comuns para criar mais de uma instância 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para passar por um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
-* Para outros usos do elemento de cópia, consulte:
+* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para outros usos do elemento copiar, consulte:
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração variável em modelos ARM](copy-variables.md)
   * [Iteração de saída em modelos ARM](copy-outputs.md)
-* Para obter informações sobre como usar cópia com modelos aninhados, consulte [Usando cópia](linked-templates.md#using-copy).
-* Se você quiser aprender sobre as seções de um modelo, consulte [Modelos DE AUTORIA DO ARM](template-syntax.md).
-* Para saber como implantar seu modelo, consulte [Implantar um aplicativo com o modelo ARM](deploy-powershell.md).
+* Para obter informações sobre como usar a cópia com modelos aninhados, consulte [usando copiar](linked-templates.md#using-copy).
+* Se você quiser saber mais sobre as seções de um modelo, consulte [criação de modelos de ARM](template-syntax.md).
+* Para saber como implantar seu modelo, consulte [implantar um aplicativo com o modelo ARM](deploy-powershell.md).
 

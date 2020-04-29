@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
 ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655422"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights para aplicativos do console .NET
@@ -18,12 +18,12 @@ O [Application Insights](../../azure-monitor/app/app-insights-overview.md) permi
 Você precisa de uma assinatura do [Microsoft Azure](https://azure.com). Entre com uma conta da Microsoft, que você pode ter para o Windows, Xbox Live ou outros serviços de nuvem da Microsoft. Sua equipe pode ter uma assinatura organizacional do Azure: peça ao proprietário que adicione você a ela usando sua conta da Microsoft.
 
 > [!NOTE]
-> Há um novo Application Insights SDK chamado [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) que pode ser usado para habilitar insights de aplicativos para quaisquer aplicativos de console. Recomenda-se usar este pacote e instruções associadas [daqui.](../../azure-monitor/app/worker-service.md) Este pacote [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)tem como alvo , e, portanto, pode ser usado em .NET Core 2.0 ou superior, e .NET Framework 4.7.2 ou superior.
+> Há um novo SDK Application Insights chamado [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , que pode ser usado para habilitar Application insights para qualquer aplicativo de console. É recomendável usar este pacote e as instruções associadas [aqui](../../azure-monitor/app/worker-service.md). Esse pacote é [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)direcionado e, portanto, pode ser usado no .net Core 2,0 ou superior e .NET Framework 4.7.2 ou superior.
 
 ## <a name="getting-started"></a>Introdução
 
 * No [portal do Azure](https://portal.azure.com), [crie um recurso Application Insights](../../azure-monitor/app/create-new-resource.md). Para o tipo de aplicativo, escolha **Geral**.
-* Faça uma cópia da chave de instrumentação. Encontre a chave na queda do **Essentials** do novo recurso que você criou.
+* Faça uma cópia da chave de instrumentação. Localize a chave na lista suspensa **Essentials** do novo recurso que você criou.
 * Instale o pacote [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) mais recente.
 * Defina a chave de instrumentação em seu código antes de acompanhar qualquer telemetria (ou defina a variável de ambiente APPINSIGHTS_INSTRUMENTATIONKEY). Depois disso, você deve ser capaz de acompanhar a telemetria manualmente e vê-la no portal do Azure
 
@@ -36,7 +36,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> A telemetria não é enviada instantaneamente. Os itens de telemetria são em lote e enviados pelo ApplicationInsights SDK. Nos aplicativos console, que sai `Track()` logo após os métodos de `Flush()` chamada, a telemetria pode não ser enviada a menos que seja `Sleep` feita antes que o aplicativo saia, como mostrado em exemplo [completo](#full-example) mais tarde neste artigo.
+> A telemetria não é enviada instantaneamente. Os itens de telemetria são agrupados e enviados pelo SDK do ApplicationInsights. Em aplicativos de console, que são encerrados logo `Track()` após a chamada de métodos, a telemetria não pode ser enviada, a menos que `Flush()` e `Sleep` seja feito antes de o aplicativo sair, conforme mostrado no [exemplo completo](#full-example) posteriormente neste artigo.
 
 
 * Instale a versão mais recente do pacote [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) - ele acompanha automaticamente HTTP, SQL ou outras chamadas de dependência externas.
@@ -96,7 +96,7 @@ Você pode obter um exemplo completo do arquivo de configuração ao instalar a 
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Configurando a coleta de telemetria do código
 > [!NOTE]
-> O arquivo de configuração de leitura não é suportado no .NET Core. Você pode considerar o uso [do Application Insights SDK para ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+> Não há suporte para a leitura do arquivo de configuração no .NET Core. Você pode considerar o uso [do SDK do Application insights para ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 
 * Durante a inicialização do aplicativo, crie e configure a instância `DependencyTrackingTelemetryModule` - ela deve ser singleton e deve ser preservada durante o tempo de vida do aplicativo.
 
@@ -125,13 +125,13 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Se você criou a `TelemetryConfiguration()` configuração com o construtor simples, você precisa ativar o suporte à correlação adicionalmente. **Não é necessário** se você ler `TelemetryConfiguration.CreateDefault()` a `TelemetryConfiguration.Active`configuração do arquivo, usado ou .
+Se você criou a configuração com `TelemetryConfiguration()` o Construtor simples, também precisará habilitar o suporte de correlação. **Ele não será necessário** se você ler a configuração do arquivo, `TelemetryConfiguration.CreateDefault()` usado `TelemetryConfiguration.Active`ou.
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* Você também pode querer instalar e inicializar o módulo coletor de contador de desempenho, conforme descrito [aqui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Talvez você também queira instalar e inicializar o módulo coletor de contador de desempenho conforme descrito [aqui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 
 #### <a name="full-example"></a>Exemplo completo

@@ -5,17 +5,17 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.openlocfilehash: a5015a018f905b4353afd6bf25a48a2d942b3b97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153345"
 ---
-# <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Crie e implante modelos ARM usando o Idea IntelliJ
+# <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implantar modelos de ARM usando a ideia IntelliJ
 
-Saiba como implantar um modelo ARM (Azure Resource Manager) no Azure usando o Idea da IntelliJ e o processo de edição e atualização do modelo diretamente do IDE. Os modelos ARM são arquivos JSON que definem os recursos que você precisa implantar para sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, confira a [visão geral da implantação de modelo](overview.md).
+Saiba como implantar um modelo de Azure Resource Manager (ARM) no Azure usando a ideia IntelliJ e o processo de edição e atualização do modelo diretamente do IDE. Os modelos de ARM são arquivos JSON que definem os recursos que você precisa implantar para sua solução. Para entender os conceitos associados à implantação e ao gerenciamento de soluções do Azure, confira a [visão geral da implantação de modelo](overview.md).
 
-![Diagrama do portal do gerenciador de recursos](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
+![Diagrama do portal de modelos do Resource Manager](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Depois de concluir o tutorial, você implantará uma conta do Armazenamento do Azure. O mesmo processo pode ser usado para implantar outros recursos do Azure.
 
@@ -31,9 +31,9 @@ Para concluir este artigo, você precisa do seguinte:
 
 ## <a name="deploy-a-quickstart-template"></a>Implantar um modelo de Início Rápido
 
-Em vez de criar um modelo do zero, você pode abrir um modelo de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). O Azure Quickstart Templates é um repositório para modelos ARM. O modelo usado neste artigo é chamado [Criar uma conta de armazenamento padrão](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Ele define um recurso da conta de Armazenamento do Azure.
+Em vez de criar um modelo do zero, você pode abrir um modelo de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/). Modelos de Início Rápido do Azure é um repositório de modelos do ARM. O modelo usado neste artigo é chamado de [criar uma conta de armazenamento padrão](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). Ele define um recurso da conta de Armazenamento do Azure.
 
-1. Clique com o [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) botão [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) direito do mouse e salve o e para o seu computador local.
+1. Clique com o botão direito do [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) mouse [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) e salve o e em seu computador local.
 
 1. Se o Azure Toolkit está instalado e conectado corretamente, você deve ver o Azure Explorer na barra lateral do IntelliJ IDEA. Clique com o botão direito do mouse no **Gerenciamento de Recursos** e selecione **Criar Implantação**.
 
@@ -69,7 +69,7 @@ Em vez de criar um modelo do zero, você pode abrir um modelo de [Modelos de In�
 
 1. Após a conclusão da implantação da atualização, você pode verificar no portal que a conta de armazenamento criada foi alterada para `Standard_GRS`.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos. Você pode fazer isso no portal do Azure ou na CLI do Azure. No Azure Explorer, do IntelliJ IDEA, clique com o botão direito do mouse no **grupo de recursos** criado e selecione excluir.
 
@@ -80,10 +80,10 @@ Em vez de criar um modelo do zero, você pode abrir um modelo de [Modelos de In�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O foco principal deste artigo é usar o IntelliJ IDEA para implantar um modelo existente a partir de modelos Azure Quickstart. Você também aprendeu como exibir e atualizar uma implantação existente no Azure. Os modelos do Início Rápido do Azure podem não oferecer tudo o que você precisa. Para saber mais sobre o desenvolvimento de modelos, confira nossa nova série de tutoriais para iniciantes:
+O foco principal deste artigo é usar o IntelliJ IDEA para implantar um modelo existente de modelos de início rápido do Azure. Você também aprendeu como exibir e atualizar uma implantação existente no Azure. Os modelos do Início Rápido do Azure podem não oferecer tudo o que você precisa. Para saber mais sobre o desenvolvimento de modelos, confira nossa nova série de tutoriais para iniciantes:
 
 > [!div class="nextstepaction"]
-> [Tutoriais para iniciantes](./template-tutorial-create-first-template.md)
+> [Tutoriais para iniciante](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Visite o Java no Centro de Desenvolvimento do Azure](https://docs.microsoft.com/azure/java)

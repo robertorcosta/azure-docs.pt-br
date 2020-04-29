@@ -1,20 +1,20 @@
 ---
-title: Fazer backup de uma fazenda SharePoint para Azure com DPM
+title: Fazer backup de um farm do SharePoint no Azure com o DPM
 description: Este artigo fornece uma visão geral da proteção do servidor do DPM/Backup do Azure de um farm do SharePoint no Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: 0199495e3b0eb002e58c096ed9abf05d46f43f97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80054123"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de uma fazenda SharePoint para Azure com DPM
+# <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de um farm do SharePoint no Azure com o DPM
 
 Faça backup de um farm do SharePoint para o Microsoft Azure usando o DPM (System Center Data Protection Manager) da mesma maneira que o backup de outras fontes de dados. O Backup do Azure fornece flexibilidade no agendamento de backup para criar pontos de backup diariamente, semanalmente, mensalmente ou anualmente e fornece opções de política de retenção para diversos pontos de backup. O DPM fornece a capacidade de armazenar cópias de disco locais para obter RTOs (Objetivos de Tempo de Recuperação) rápidos e armazenar cópias no Azure para uma retenção econômica e de longo prazo.
 
-Fazer backup do SharePoint para o Azure com o DPM é um processo muito semelhante ao backup do SharePoint para dpm localmente. Considerações particulares para o Azure serão anotadas neste artigo.
+Fazer backup do SharePoint no Azure com o DPM é um processo muito semelhante para fazer backup do SharePoint no DPM localmente. Considerações específicas para o Azure serão observadas neste artigo.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versões do SharePoint com suporte e cenários de proteção relacionados
 
@@ -28,7 +28,7 @@ Há alguns elementos que você precisa confirmar antes de fazer o backup de um f
 
 Antes de prosseguir, verifique se você atende a todos os [pré-requisitos para usar o Backup do Microsoft Azure](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para proteger as cargas de trabalho. Algumas tarefas para os pré-requisitos incluem: criar um cofre de backup, baixar as credenciais do cofre, instalar o Agente de Backup do Azure e registrar o DPM/Servidor de Backup do Azure com o cofre.
 
-Pré-requisitos e limitações adicionais podem ser encontrados no Backup do SharePoint com o artigo [do DPM.](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations)
+Os pré-requisitos e as limitações adicionais podem ser encontrados no artigo [fazer backup do SharePoint com o DPM](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations) .
 
 ## <a name="configure-backup"></a>Configurar o backup
 
@@ -36,11 +36,11 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
 ## <a name="monitoring"></a>Monitoramento
 
-Para monitorar o trabalho de backup, siga as instruções no [backup do DPM de monitoramento](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
+Para monitorar o trabalho de backup, siga as instruções em [monitoramento backup do DPM](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#monitoring)
 
 ## <a name="restore-sharepoint-data"></a>Restaurar dados do SharePoint
 
-Para saber como restaurar um item do SharePoint em um disco com DPM, consulte [Restaurar dados do SharePoint](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
+Para saber como restaurar um item do SharePoint de um disco com o DPM, consulte [restaurar dados do SharePoint](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#restore-sharepoint-data).
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Restaurar um banco de dados do SharePoint do Azure usando o DPM
 
@@ -71,9 +71,9 @@ Para saber como restaurar um item do SharePoint em um disco com DPM, consulte [R
 
 ## <a name="switching-the-front-end-web-server"></a>Alternar o servidor Web de front-end
 
-Se você tiver mais de um servidor web front-end e quiser alternar o servidor que o DPM usa para proteger a fazenda, siga as instruções em [Comutação do Servidor Web Front-End](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
+Se você tiver mais de um servidor Web front-end e quiser alternar o servidor que o DPM usa para proteger o farm, siga as instruções em [alternando o servidor Web front-end](https://docs.microsoft.com/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#switching-the-front-end-web-server).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Servidor de backup do Azure e DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
+* [Servidor de Backup do Azure e o DPM-perguntas frequentes](backup-azure-dpm-azure-server-faq.md)
 * [Solucionar Problemas do System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md)

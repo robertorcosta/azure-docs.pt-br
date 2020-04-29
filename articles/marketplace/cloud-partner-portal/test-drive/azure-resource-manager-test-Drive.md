@@ -1,5 +1,5 @@
 ---
-title: Test Drive de teste do Azure Resource Manager | Mercado Azure
+title: Azure Resource Manager Test Drive | Azure Marketplace
 description: Criar um test drive do Marketplace usando o Azure Resource Manager
 author: dsindona
 ms.service: marketplace
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 6125aa010d8676518b84f866343b01f95246160f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275927"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Test Drive do Azure Resource Manager
 
 Este artigo é para publicadores que têm oferta no Azure Marketplace, ou que estão no AppSource, mas desejam compilar o Test Drive apenas com os recursos do Azure.
 
-Um modelo do Azure Resource Manager (Resource Manager) é um contêiner codificado de recursos do Azure que você projeta para representar melhor sua solução. Se você não estiver familiarizado com o que é um modelo do Gerenciador de recursos, leia sobre [como entender modelos do Gerenciador de Recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) e criar [modelos do Gerenciador de Recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para garantir que você saiba como construir e testar seus próprios modelos.
+Um modelo de Azure Resource Manager (Gerenciador de recursos) é um contêiner codificado de recursos do Azure que você cria para representar melhor sua solução. Se você não estiver familiarizado com o que é um modelo do Resource Manager, leia sobre [noções básicas sobre modelos do Resource](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) Manager e criação de modelos do [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para garantir que você saiba como criar e testar seus próprios modelos.
 
 O Test Drive faz o seguinte: pega o modelo do Resource Manager e faz uma implantação de todos os recursos necessários desse modelo do Resource Manager em um grupo de recursos.
 
@@ -30,25 +30,25 @@ Se decidir compilar um Test Drive do Azure Resource Manager, os requisitos serã
 
 ## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Como compilar um Test Drive do Azure Resource Manager
 
-Aqui está o processo para a construção de um Test Drive do Azure Resource Manager:
+Este é o processo para criar um Azure Resource Manager unidade de teste:
 
-1. Projete o que você quer que seus clientes façam em um diagrama de fluxo.
-1. Defina quais experiências você gostaria que seus clientes construíssem.
-1. Com base nas definições acima, decida quais peças e recursos são necessários para que os clientes realizem tal experiência: por exemplo, a instância D365 ou um site com um banco de dados.
-1. Construa o design localmente e teste a experiência.
+1. Projete o que você deseja que os clientes façam em um diagrama de fluxo.
+1. Defina quais experiências você gostaria que seus clientes criassem.
+1. Com base nas definições acima, decida quais partes e recursos são necessários para os clientes realizarem essa experiência: por exemplo, instância de D365 ou um site com um banco de dados.
+1. Crie o design localmente e teste a experiência.
 1. Empacote a experiência em uma implantação de modelo ARM e a partir daí:
-    1. Definir quais partes dos recursos são parâmetros de entrada;
+    1. Defina quais partes dos recursos são parâmetros de entrada;
     1. Quais são as variáveis;
     1. Quais saídas são dadas à experiência do cliente.
-1. Publique, teste e vá ao vivo.
+1. Publique, teste e entre em tempo real.
 
 A parte mais importante na hora de compilar um Test Drive do Azure Resource Manager é definir quais cenários você deseja que seus clientes experimentem. Tem um produto de firewall e deseja demonstrar como lida com ataques de injeção de script? Tem um produto de armazenamento e deseja demonstrar como sua solução compacta arquivos de modo rápido e fácil?
 
-Certifique-se de gastar um tempo suficiente avaliando quais são as melhores maneiras de mostrar seu produto. Especificamente em torno de todos os recursos necessários que você precisaria, pois torna a embalagem do modelo do Gerenciador de Recursos suficientemente mais fácil.
+Certifique-se de gastar um tempo suficiente avaliando quais são as melhores maneiras de mostrar seu produto. Especificamente, em todos os recursos necessários, você precisaria, pois torna o empacotamento do modelo do Resource Manager suficientemente mais fácil.
 
 Para continuar com nosso exemplo de firewall, a arquitetura talvez exija uma URL de IP público para seu serviço e outra URL de IP público para o site que seu firewall está protegendo. Cada IP é implantado em uma Máquina Virtual e conectado com um grupo de segurança de rede + adaptador de rede.
 
-Uma vez que você tenha projetado o pacote de recursos desejado, agora vem a escrita e a construção do modelo Test Drive Resource Manager.
+Depois de criar o pacote de recursos desejado, agora vem a escrita e a criação do modelo test drive do Resource Manager.
 
 ## <a name="writing-test-drive-resource-manager-templates"></a>Escrevendo modelos do Resource Manager para Test Drive
 
@@ -77,16 +77,16 @@ Você pode usar qualquer nome válido para seus parâmetros; o Test Drive reconh
 }
 ```
 
-Também é importante notar que **todos os parâmetros são opcionais,** por isso, se você não\'quiser usar nenhum, você não\'precisa.
+Também é importante observar que **todos os parâmetros são opcionais**, portanto, se você\'não quiser usar nenhum, você\'não precisará.
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipos de metadados de parâmetros aceitos
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor de exemplo    |
 |---|---|---|---|
-| **baseuri**     | string          | URI base do seu pacote de implantação| \//\<https:\.. \>\<Blob.core.windows.net/.\.\> |
-| **Username**    | string          | Novo nome de usuário aleatório.| admin68876      |
-| **senha**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
-| **id sessão**   | string          | ID da sessão exclusiva do Test Drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **baseuri**     | cadeia de caracteres          | URI base do seu pacote de implantação| https:\//\<.\. \>. blob.Core.Windows.NET/\<\..\> |
+| **usu**    | cadeia de caracteres          | Novo nome de usuário aleatório.| admin68876      |
+| **password**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
+| **ID da sessão**   | cadeia de caracteres          | ID da sessão exclusiva do Test Drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri
 
@@ -115,7 +115,7 @@ Dentro do seu modelo, é possível usar esse parâmetro para construir um URI de
 }
 ```
 
-#### <a name="username"></a>Nome de Usuário
+#### <a name="username"></a>username
 
 O Test Drive inicializa esse parâmetro com um novo nome de usuário aleatório:
 
@@ -191,7 +191,7 @@ Você poderá usar esse parâmetro para identificar exclusivamente a sessão de 
 
 Alguns recursos do Azure, como contas de armazenamento ou nomes DNS, requerem nomes globalmente exclusivos.
 
-Isso significa que toda vez que o Test Drive implanta o modelo do Gerenciador de recursos, ele cria um **novo grupo de recursos com um nome único** para todos os seus\' recursos. Portanto, é necessário usar a função [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) concatenada com seus nomes variáveis nos IDs do grupo de recursos para gerar valores exclusivos aleatórios:
+Isso significa que todas as vezes que o Test Drive implanta o modelo do Resource Manager, ele cria um **novo grupo de recursos com um nome exclusivo** para todos os seus\' recursos. Portanto, é necessário usar a função [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) concatenada com seus nomes variáveis nos IDs do grupo de recursos para gerar valores exclusivos aleatórios:
 
 ```json
 "variables": {
@@ -299,9 +299,9 @@ Durante a certificação de publicação, o Test Drive descompacta o pacote de i
 
 | package.zip                       | Contêiner de blob do Test Drive         |
 |---|---|
-| main-template.json                | \//\<https:\... \>blob.core.windows.net/.\<\. \>/main-template.json  |
-| templates/solution.json           | \//\<https:\... \>blob.core.windows.net/.\<\. \>/templates/solution.json |
-| scripts/warmup.ps1                | \//\<https:\... \>blob.core.windows.net/.\<\. \>/scripts/warmup.ps1  |
+| main-template.json                | \//\<https:\... \>. blob.Core.Windows.NET/\<\... \>/Main-template.JSON  |
+| templates/solution.json           | \//\<https:\... \>. blob.Core.Windows.NET/\<\... \>/templates/Solution.JSON |
+| scripts/warmup.ps1                | \//\<https:\... \>. blob.Core.Windows.NET/\<\... \>/scripts/warmup.ps1  |
 
 
 Chamamos um URI desse contêiner de blob de URI base. Cada revisão do seu laboratório tem o próprio contêiner de blob. Portanto, cada revisão do laboratório tem seu próprio URI base. O Test Drive pode passar um URI base do seu pacote de implantação descompactado para seu modelo por meio de parâmetros do modelo.
@@ -316,7 +316,7 @@ Agora que o seu Test Drive foi criado, esta seção explicará cada um dos campo
 
 ![Habilitando o Test Drive na interface do usuário](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-O primeiro campo (e o mais importante) é decidir se quer o Test Drive habilitado para sua oferta ou não. Quando você selecionar **Sim,** o resto do formulário com todos os campos necessários são apresentados para você preencher. Quando você seleciona **Não,** o formulário fica desativado e se você republicar com a Unidade de Teste desativada, sua Unidade de Teste será removida da produção.
+O primeiro campo (e o mais importante) é decidir se quer o Test Drive habilitado para sua oferta ou não. Quando você seleciona **Sim,** o restante do formulário com todos os campos obrigatórios são apresentados para você preencher. Quando você seleciona **não,** o formulário fica desabilitado e, se você republicar com a unidade de teste desabilitada, sua unidade de teste será removida da produção.
 
 Observação: se houver Test Drives ativamente usados por usuários, eles continuarão sendo executados até a sessão expirar.
 
@@ -381,7 +381,7 @@ Caso contrário, crie um novo Locatário no Azure Active Directory.
 
 ![Lista de locatários do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Defina a organização, o domínio e o país/região para o inquilino Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definir a organização, o domínio e o país/região para o locatário do Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirmar a seleção](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -402,10 +402,10 @@ Clique em Salvar. O último passo é pegar o ID do aplicativo para esse aplicati
 Como estamos usando o aplicativo para implantar a assinatura, precisamos adicionar o aplicativo como colaborador na assinatura. Estas são as instruções:
 
 1. Navegue até a folha Assinaturas e selecione a assinatura adequada que você usa apenas para o Test Drive.
-1. Clique **em Acessar controle (IAM)**.
-1. Clique na guia **'Atribuições de** função'.  ![Adicione um novo diretor de controle de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique em **controle de acesso (iam)**.
+1. Clique na guia **atribuições de função** .  ![Adicionar uma nova entidade de controle de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Clique em **Adicionar atribuição de função**.
-1. Defina o papel como **Contribuinte**.
+1. Defina a função como **colaborador**.
 1. Digite o nome do aplicativo do Azure AD e selecione o aplicativo para atribuir a função.
     ![Adicione as permissões](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. Clique em **Salvar**.
@@ -422,6 +422,6 @@ Agora que preencheu todos os campos do Test Drive, prossiga e **Republique** sua
 
 É importante cuidar para não excluir nenhuma instância do Test Drive conforme elas são provisionadas para seus clientes. Assim, o serviço do Test Drive removerá automaticamente esses Grupos de Recursos depois que um cliente tiver encerrado.
 
-Uma vez que você se sinta confortável com sua oferta de Preview, agora é hora **de ir ao ar**! Há um processo de revisão final da Microsoft depois que a oferta é publicada para nova verificação da experiência inteira, de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação ao contato de engenharia da sua oferta, explicando o que precisará ser corrigido.
+Depois de se sentir confortável com sua oferta de visualização, agora é hora de **entrar em funcionamento**! Há um processo de revisão final da Microsoft depois que a oferta é publicada para nova verificação da experiência inteira, de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação ao contato de engenharia da sua oferta, explicando o que precisará ser corrigido.
 
 Se você tiver mais dúvidas, estiver procurando ajuda para a solução de problemas ou quiser um test drive de maior sucesso, acesse [FAQ, Troubleshooting, & Best Practices](./marketing-and-best-practices.md) (Perguntas frequentes, solução de problemas e práticas recomendadas).

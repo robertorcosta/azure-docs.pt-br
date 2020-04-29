@@ -1,6 +1,6 @@
 ---
-title: Gerencie suas preferências pessoais na IoT Central | Microsoft Docs
-description: Como gerenciar suas preferências de aplicativos pessoais, como mudar o idioma e o tema em seu aplicativo IoT Central.
+title: Gerencie suas preferências pessoais em IoT Central | Microsoft Docs
+description: Como gerenciar suas preferências pessoais de aplicativo, como alterar a linguagem e o tema em seu aplicativo IoT Central.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 07/10/2019
@@ -9,13 +9,13 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: e2b0dbe8b7738a8c4c551eccca72897bbf1594b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80157884"
 ---
-# <a name="manage-your-personal-application-preferences"></a>Gerencie suas preferências de aplicativos pessoais
+# <a name="manage-your-personal-application-preferences"></a>Gerenciar suas preferências de aplicativo pessoal
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
@@ -23,11 +23,11 @@ O IoT Central fornece a flexibilidade para personalizar seus aplicativos de acor
 
 ## <a name="changing-language"></a>Alterar idioma
 
-IoT Central é suportado em vários idiomas. Você pode alternar seu idioma preferido usando o **seletor de idiomas** no ícone de configurações na barra de navegação superior. Depois de mudar seu idioma, o IoT Central lembra sua seleção e a aplica em todas as suas aplicações. Personalização dentro do aplicativo, essas imagens do painel não são localizadas.
+Há suporte para IoT Central em vários idiomas. Você pode alternar o idioma preferencial usando o **seletor de idioma** no ícone de configurações na barra de navegação superior. Depois de alterar seu idioma, IoT Central lembra sua seleção e a aplica em todos os seus aplicativos. A personalização dentro do aplicativo, tais imagens do painel, não estão localizadas.
 
 ## <a name="changing-theme"></a>Alterando o tema
 
-Temos suporte para o tema escuro e o tema claro. Embora o tema de luz seja o padrão, você pode alterar o tema selecionando o ícone de configurações na barra de navegação superior.
+Temos suporte para o tema escuro e o tema claro. Embora o tema claro seja o padrão, você pode alterar o tema selecionando o ícone de configurações na barra de navegação superior.
 
 ![Seletor de tema do IoT Central](media/howto-manage-preferences/settings.png)
 

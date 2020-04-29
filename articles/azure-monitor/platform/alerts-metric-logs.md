@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.subservice: alerts
 ms.openlocfilehash: 6b21f228858954292e7a3bc5561d5e86fcfaaf41
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055173"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar Alertas de métrica para Logs no Azure Monitor
@@ -21,7 +21,7 @@ ms.locfileid: "80055173"
 
 O Azure Monitor presta suporte a um [tipo de alerta de métrica](../../azure-monitor/platform/alerts-metric-near-real-time.md) que tem vantagens sobre os [alertas clássicos](../../azure-monitor/platform/alerts-classic-portal.md). As métricas estão disponíveis para uma [ampla lista de serviços do Azure](../../azure-monitor/platform/metrics-supported.md). Este artigo explica o uso de um subconjunto para o recurso - `Microsoft.OperationalInsights/workspaces`.
 
-Você pode usar alertas métricos em logs populares do Log Analytics extraídos como métricas como parte de métricas de logs, incluindo recursos no Azure ou no local. As soluções do Log Analytics com suporte estão listadas abaixo:
+Você pode usar alertas de métrica em logs populares de Log Analytics extraídos como métricas como parte das métricas de logs, incluindo recursos no Azure ou localmente. As soluções do Log Analytics com suporte estão listadas abaixo:
 
 - [Contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md) para computadores Windows e Linux
 - [Registros de pulsação para Integridade do Agente](../../azure-monitor/insights/solution-agenthealth.md)
@@ -42,7 +42,7 @@ Há muitos benefícios de se usar os **Alertas de métrica para logs** em vez do
  Os alertas de métrica são compatíveis com a emissão de alertas para métricas que usam dimensões. É possível usar dimensões para filtrar sua métrica para o nível certo. A lista completa de métricas com suporte para Logs dos [workspaces do Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) está indicada entre as soluções com suporte.
 
 > [!NOTE]
-> Para visualizar uma métrica suportada extraída de um espaço de trabalho do Log Analytics via [Azure Monitor - Metrics](../../azure-monitor/platform/metrics-charts.md), um alerta métrico para log deve ser criado nessa métrica específica. As dimensões escolhidas no alerta métrico para logs - só aparecerão para exploração via Azure Monitor - Metrics.
+> Para exibir uma métrica com suporte extraída de um espaço de trabalho Log Analytics por meio de [métricas Azure monitor](../../azure-monitor/platform/metrics-charts.md), um alerta de métrica para o log deve ser criado nessa métrica específica. As dimensões escolhidas no alerta de métrica para logs – só aparecerão para exploração por meio de métricas de Azure Monitor.
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>Como criar um alerta de métrica para o Log Analytics
 
@@ -54,8 +54,8 @@ Os meios para se criar um alerta de métrica para os logs estão listados abaixo
 Para que as Métricas para logs coletadas de dados do Log Analytics funcionem, o seguinte deve ser configurado e disponibilizado:
 
 1. **Espaço de trabalho do Log Analytics ativo**: é necessário ter um espaço de trabalho do Log Analytics ativo e válido. Para obter mais informações, confira [Criar um espaço de trabalho do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
-2. **O agente está configurado para o Espaço de Trabalho do Log Analytics**: O agente precisa ser configurado para VMs (e/ou) VMs no local para enviar dados para o Espaço de Trabalho do Log Analytics usado em etapaanterior. Para saber mais, confira [Log Analytics - Visão geral do agente](../../azure-monitor/platform/agents-overview.md).
-3. **Suporte a Soluções log analytics suportadas é instalado**: a solução Log Analytics deve ser configurada e o envio de dados para o espaço de trabalho log analytics - soluções suportadas são contadores de desempenho para Windows & Linux, registros de [batimentos cardíacos](../../azure-monitor/platform/data-sources-performance-counters.md) [para agent health,](../../azure-monitor/insights/solution-agenthealth.md)gerenciamento de [atualização](../../automation/automation-update-management.md)e dados de [eventos](../../azure-monitor/platform/data-sources-windows-events.md).
+2. **Agente está configurado para log Analytics espaço de trabalho**: o agente precisa ser configurado para VMs do Azure (e/ou) VMS locais para enviar dados para o espaço de trabalho log Analytics usado na etapa anterior. Para saber mais, confira [Log Analytics - Visão geral do agente](../../azure-monitor/platform/agents-overview.md).
+3. As **soluções log Analytics com suporte estão instaladas**: a solução de log Analytics deve ser configurada e enviar dados para log Analytics soluções com suporte do espaço de trabalho são [contadores de desempenho para Windows & Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [registros de pulsação para integridade do agente](../../azure-monitor/insights/solution-agenthealth.md), [Gerenciamento de atualizações](../../automation/automation-update-management.md)e [dados de eventos](../../azure-monitor/platform/data-sources-windows-events.md).
 4. **As soluções do Log Analytics configuradas para enviar logs**: A solução Log Analytics deve ter os logs / dados correspondentes a [métricas compatíveis com espaços de trabalho do Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) ativados. Por exemplo, para *% de memória disponível*, o contador deve ser configurado na solução [Contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md) primeiro.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Como configurar o Alerta de métrica para logs
@@ -71,7 +71,7 @@ Para obter detalhes passo a passo e exemplos, confira [como criar e gerenciar al
 - Se **não** estiver usando o portal do Azure para criar alertas de métrica para o *espaço de trabalho do Log Analytics* escolhido, o usuário deverá primeiro criar uma regra explícita manualmente para converter dados de log em uma métrica usando o [Azure Monitor – Regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
-> Ao criar um alerta métrico para o espaço de trabalho do Log Analytics via portal Azure - regra correspondente para converter dados de log em métrica via [Monitor Azure - As regras de consulta programada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) saem automaticamente em segundo plano, *sem a necessidade de qualquer intervenção ou ação do usuário.* Para o alerta de métricas na criação de logs usando outros meios além do portal do Azure, confira a seção [Modelo de recurso para Alertas de métrica para logs](#resource-template-for-metric-alerts-for-logs) para ver formas de se criar um log baseado em ScheduledQueryRule para a regra de conversão de métrica antes da criação do alerta de métrica. Caso contrário, não haverá dados para alertas de métrica nos logs criados.
+> Ao criar um alerta de métrica para Log Analytics espaço de trabalho por meio de portal do Azure regra correspondente para converter dados de log em métrica por meio de [regras de consulta de Azure monitor,](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) é automaticamente criada em segundo plano, *sem a necessidade de intervenção ou ação do usuário*. Para o alerta de métricas na criação de logs usando outros meios além do portal do Azure, confira a seção [Modelo de recurso para Alertas de métrica para logs](#resource-template-for-metric-alerts-for-logs) para ver formas de se criar um log baseado em ScheduledQueryRule para a regra de conversão de métrica antes da criação do alerta de métrica. Caso contrário, não haverá dados para alertas de métrica nos logs criados.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Modelo de recurso para os Alertas de métrica para logs
 

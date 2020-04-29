@@ -1,5 +1,5 @@
 ---
-title: Logic App Test Drive | Mercado Azure
+title: Unidade de teste do aplicativo lógico | Azure Marketplace
 description: Explica como criar o Test Drive que se conecta com uma instância do Dynamics AX/CRM ou com qualquer outro recurso fora do Azure.
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 766f893d71ca0830fe8b69c50145603c6544cc3f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278375"
 ---
 <a name="logic-app-test-drive"></a>Test Drive de Aplicativo Lógico
@@ -22,7 +22,7 @@ Este artigo é voltado a editores que têm sua oferta no AppSource e que desejam
 <a name="how-to-build-a-logic-app-test-drive"></a>Como criar um Test Drive de Aplicativo Lógico
 -----------------------------------
 
-A documentação do Test Drive para logic app test drives ainda está no GitHub para [operações](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [engajamento do cliente,](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app)vá lá para ler mais.
+A documentação do Test Drive para unidades de teste de aplicativo lógico atualmente ainda está no GitHub para [operações](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e envolvimento com o [cliente](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), vá lá para ler mais.
 
 <a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
 ---------------------------
@@ -31,7 +31,7 @@ Agora que o seu Test Drive foi criado, esta seção explicará cada um dos campo
 
 ![Habilitar o recurso de Test Drive](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-O primeiro e mais importante campo é alternar se você quer testar o formulário com todos os campos necessários são apresentados para você preencher. Quando você seleciona **Não,** o formulário fica desativado e se você republicar com a Unidade de Teste desativada, sua Unidade de Teste será removida da produção.
+O primeiro campo e mais importante é alternar se você deseja que o teste do formulário com todos os campos obrigatórios seja apresentado para você preencher. Quando você seleciona **não,** o formulário fica desabilitado e, se você republicar com a unidade de teste desabilitada, sua unidade de teste será removida da produção.
 
 *Observação*: se houver Test Drives ativamente usados por usuários, eles continuarão sendo executados até a sessão expirar.
 
@@ -61,11 +61,11 @@ A próxima seção a ser preenchida é onde você pode configurar o Aplicativo L
 
 ![Configuração de técnicas de Test Drive](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Região** - *[Campo obrigatório]* A região selecionada é onde você escolhe onde os recursos do aplicativo Test Drive Logic estão implantados.
+- **Region** - *[campo obrigatório]* a região selecionada é onde você escolhe onde os recursos do aplicativo lógico da unidade de teste são implantados.
 
     *Observação:* se o Aplicativo Lógico tiver recursos personalizados armazenados em uma região, verifique se essa região está selecionada aqui. A melhor maneira de fazer isso é **implantar de forma integral o Aplicativo Lógico localmente em sua assinatura do Azure no portal e verificar se ele funciona** antes de gravá-lo aqui.
 
-- **Drives de teste simultâneos** - *máximos [campo obrigatório]* Número de instâncias de test drive que já estão implantadas e aguardam acesso por região selecionada. Os clientes podem acessar esses Test Drives instantaneamente em vez de ter que esperar por uma implantação.
+- **Máximo de unidades** - de teste simultâneas *[campo obrigatório]* número de instâncias de unidade de teste que já estão implantadas e aguardando acesso por região selecionada. Os clientes podem acessar esses Test Drives instantaneamente em vez de ter que esperar por uma implantação.
 
     *Observação:* se você estiver executando um webinar/aula em que deseje que todos os seus N alunos façam um Test Drive, será recomendável publicar com um número N de instâncias de acesso frequente e, quando a aula terminar, republicar de volta para o número normal de instâncias de acesso frequente.
 
@@ -119,10 +119,10 @@ Clique em Salvar. O último passo é pegar o ID do aplicativo para esse aplicati
 Como estamos usando o aplicativo para implantar a assinatura, precisamos adicionar o aplicativo como colaborador na assinatura. Estas são as instruções:
 
 1. Navegue até a folha Assinaturas e selecione a assinatura adequada que você usa apenas para o Test Drive.
-1. Clique **em Acessar controle (IAM)**.
-1. Clique na guia **'Atribuições de** função'.  ![Diretório ativo do Azure, adicionando um novo principal de controle de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique em **controle de acesso (iam)**.
+1. Clique na guia **atribuições de função** .  ![Azure Active Directory, adicionando uma nova entidade de controle de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Clique em **Adicionar atribuição de função**.
-1. Defina o papel como **Contribuinte**.
+1. Defina a função como **colaborador**.
 1. Digite o nome do aplicativo do Azure AD e selecione o aplicativo para atribuir a função.
     ![Permissões do Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. Clique em **Salvar**.
@@ -132,7 +132,7 @@ Como estamos usando o aplicativo para implantar a assinatura, precisamos adicion
 ![Seção de Chaves do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 > [!CAUTION]
-> Não é possível usar a visualização de registro do aplicativo Azure porque não gera atualmente uma chave codificada base64.
+> Não é possível usar a visualização de registro Azure App porque ela não gera uma chave codificada em base64 no momento.
 
 
 <a name="next-steps"></a>Próximas etapas
@@ -142,6 +142,6 @@ Agora que preencheu todos os campos do Test Drive, prossiga e **Republique** sua
 
 É importante cuidar para não excluir nenhuma parte do Test Drive conforme elas são provisionadas para seus clientes. Assim, o serviço do Test Drive removerá automaticamente esses Grupos de Recursos depois que um cliente tiver encerrado.
 
-Uma vez que você se sinta confortável com sua oferta de Preview, agora é hora **de ir ao ar**! Há um processo de revisão final da Microsoft depois que a oferta é publicada para nova verificação da experiência inteira, de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação ao contato de engenharia da sua oferta, explicando o que precisará ser corrigido.
+Depois de se sentir confortável com sua oferta de visualização, agora é hora de **entrar em funcionamento**! Há um processo de revisão final da Microsoft depois que a oferta é publicada para nova verificação da experiência inteira, de ponta a ponta. Se, por algum motivo, a oferta for rejeitada, enviaremos uma notificação ao contato de engenharia da sua oferta, explicando o que precisará ser corrigido.
 
 Se você tiver mais dúvidas, estiver procurando ajuda para solução de problemas ou quiser um test drive de maior sucesso, acesse [Perguntas frequentes, solução de problemas e práticas recomendadas](./marketing-and-best-practices.md).

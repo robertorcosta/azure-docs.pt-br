@@ -1,51 +1,51 @@
 ---
-title: Como funciona a preparação de um projeto para o Azure Dev Spaces
+title: Como a preparação de um projeto para Azure Dev Spaces funciona
 services: azure-dev-spaces
 ms.date: 03/24/2020
 ms.topic: conceptual
-description: Descreve como funciona a preparação do seu projeto com o Azure Dev Spaces
-keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contêineres
+description: Descreve como preparar seu projeto com o Azure Dev Spaces funciona
+keywords: azds. YAML, Azure Dev Spaces, espaços de desenvolvimento, Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres
 ms.openlocfilehash: 24a54fffdc8e94493d2a4a9aeb1c5f02dcd192b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80241628"
 ---
-# <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Como funciona a preparação de um projeto para o Azure Dev Spaces
+# <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Como a preparação de um projeto para Azure Dev Spaces funciona
 
-O Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente os aplicativos kubernetes e colaborar com sua equipe em um cluster Azure Kubernetes Service (AKS). O Dev Spaces pode gerar gráficos Dockerfiles e Helm para o seu projeto. O Dev Spaces também cria e usa um arquivo de configuração para implantar, executar e depurar seus aplicativos Kubernetes em AKS. Todos esses arquivos residem com o código do seu aplicativo e podem ser adicionados ao seu sistema de controle de versão.
+Azure Dev Spaces fornece várias maneiras de iterar e depurar rapidamente aplicativos kubernetes e colaborar com sua equipe em um cluster do AKS (serviço kubernetes do Azure). Os espaços de desenvolvimento podem gerar gráficos Dockerfiles e Helm para seu projeto. Os espaços de desenvolvimento também criam e usam um arquivo de configuração para implantar, executar e depurar seus aplicativos kubernetes no AKS. Todos esses arquivos residem com o código do aplicativo e podem ser adicionados ao seu sistema de controle de versão.
 
-Este artigo descreve o que acontece você prepara seu projeto para ser executado em AKS com Dev Spaces.
+Este artigo descreve o que acontece quando você prepara seu projeto para ser executado no AKS com espaços de desenvolvimento.
 
-## <a name="prepare-your-code"></a>Prepare seu código
+## <a name="prepare-your-code"></a>Preparar seu código
 
-Para executar sua aplicação em um espaço de desenvolvimento, ele precisa ser contêiner, e você precisa definir como ele deve ser implantado no Kubernetes. Para contêiner sua aplicação, você precisa de um arquivo Docker. Para definir como sua aplicação é implantada no Kubernetes, você precisa de um [gráfico Helm](https://docs.helm.sh/). Para ajudar a criar o gráfico Dockerfile e Helm para sua `prep` aplicação, as ferramentas do lado do cliente fornecem o comando:
+Para executar seu aplicativo em um espaço de desenvolvimento, ele precisa estar em contêiner e você precisa definir como ele deve ser implantado no kubernetes. Para colocar seu aplicativo em contêiner, você precisa de um Dockerfile. Para definir como seu aplicativo é implantado no kubernetes, você precisa de um [gráfico do Helm](https://docs.helm.sh/). Para auxiliar na criação do gráfico Dockerfile e Helm para seu aplicativo, as ferramentas do lado do cliente fornecem o `prep` comando:
 
 ```cmd
 azds prep --enable-ingress
 ```
 
-O `prep` comando analisará os arquivos do seu projeto e tentará criar o gráfico Dockerfile e Helm para executar seu aplicativo em Kubernetes. Atualmente, `prep` o comando gerará um gráfico Dockerfile e Helm com os seguintes idiomas:
+O `prep` comando examinará os arquivos em seu projeto e tentará criar o gráfico Dockerfile e Helm para executar seu aplicativo no kubernetes. Atualmente, o `prep` comando irá gerar um gráfico Dockerfile e Helm com os seguintes idiomas:
 
 * Java
 * Node.js
 * .NET Core
 
-Você *deve* `prep` executar o comando de um diretório que contenha código fonte. A `prep` execução do comando a partir do diretório correto permite que a ferramenta do lado do cliente identifique o idioma e crie um arquivo Docker apropriado para contêiner seu aplicativo. Você também pode `prep` executar o comando a partir de um diretório que contém um arquivo *pom.xml* para projetos Java.
+Você *deve* executar o `prep` comando de um diretório que contém o código-fonte. A execução `prep` do comando no diretório correto permite que as ferramentas do lado do cliente identifiquem o idioma e criem um Dockerfile apropriado para colocar seu aplicativo em contêiner. Você também pode executar o `prep` comando de um diretório que contém um arquivo *pom. xml* para projetos Java.
 
-Se você `prep` executar o comando do diretório que não contém código-fonte, a ferramenta do lado do cliente não gerará um arquivo Docker. Ele também exibirá um erro dizendo: *O Arquivo Docker não pôde ser gerado devido a uma linguagem não suportada*. Esse erro também ocorre se a ferramenta do lado do cliente não reconhecer o tipo de projeto.
+Se você executar o `prep` comando do diretório que não contém o código-fonte, as ferramentas do lado do cliente não gerarão um Dockerfile. Ele também exibirá um erro dizendo: *Dockerfile não pôde ser gerado devido a um idioma sem suporte*. Esse erro também ocorrerá se as ferramentas do lado do cliente não reconhecerem o tipo de projeto.
 
-Quando você `prep` executa o comando, você `--enable-ingress` tem a opção de especificar a bandeira. Este sinalizador diz ao controlador para criar um ponto final acessível à Internet para este serviço. Se você não especificar este sinalizador, o serviço só será acessível dentro do cluster ou usando o túnel localhost criado pela ferramenta do lado do cliente. Você pode ativar ou desativar esse `prep` comportamento depois de executar o comando atualizando o gráfico Helm gerado.
+Ao executar o `prep` comando, você tem a opção de especificar o `--enable-ingress` sinalizador. Esse sinalizador informa o controlador para criar um ponto de extremidade acessível pela Internet para esse serviço. Se você não especificar esse sinalizador, o serviço só poderá ser acessado de dentro do cluster ou usando o túnel localhost criado pelas ferramentas do lado do cliente. Você pode habilitar ou desabilitar esse comportamento depois de executar `prep` o comando atualizando o gráfico Helm gerado.
 
-O `prep` comando não substituirá nenhum dockerfiles ou gráficos Helm existentes que você tenha em seu projeto. Se um gráfico Dockerfile ou Helm existente usar a mesma `prep` convenção `prep` de nomeação que os arquivos gerados pelo comando, o comando pulará a geração desses arquivos. Caso contrário, `prep` o comando gerará seu próprio gráfico Dockerfile ou Helm junto com os arquivos existentes.
+O `prep` comando não substituirá nenhum gráfico Dockerfiles ou Helm existente que você tenha em seu projeto. Se um gráfico Dockerfile ou Helm existente usar a mesma convenção de nomenclatura que os arquivos gerados pelo `prep` comando, o `prep` comando ignorará a geração desses arquivos. Caso contrário, `prep` o comando irá gerar seu próprio gráfico Dockerfile ou Helm ao lado dos arquivos existentes.
 
 > [!IMPORTANT]
-> O Azure Dev Spaces usa o gráfico Dockerfile e Helm para que seu projeto construa e execute seu código, mas você pode modificar esses arquivos se quiser alterar a forma como o projeto é construído e executado.
+> Azure Dev Spaces usa o gráfico Dockerfile e Helm para que seu projeto crie e execute seu código, mas você pode modificar esses arquivos se quiser alterar a forma como o projeto é compilado e executado.
 
-O `prep` comando também `azds.yaml` gerará um arquivo na raiz do seu projeto. O Azure Dev Spaces usa esse arquivo para construir, instalar, configurar e executar seu aplicativo. Este arquivo de configuração lista a localização do gráfico Dockerfile e Helm e também fornece configuração adicional em cima desses artefatos.
+O `prep` comando também irá gerar um `azds.yaml` arquivo na raiz do seu projeto. Azure Dev Spaces usa esse arquivo para compilar, instalar, configurar e executar seu aplicativo. Esse arquivo de configuração lista o local do seu gráfico Dockerfile e Helm e também fornece configuração adicional sobre esses artefatos.
 
-Aqui está um exemplo de arquivo azds.yaml criado usando [o aplicativo de amostra .NET Core](https://github.com/Azure/dev-spaces/tree/master/samples/dotnetcore/getting-started/webfrontend):
+Aqui está um exemplo de arquivo azds. YAML criado usando o [aplicativo de exemplo .NET Core](https://github.com/Azure/dev-spaces/tree/master/samples/dotnetcore/getting-started/webfrontend):
 
 ```yaml
 kind: helm-release
@@ -92,19 +92,19 @@ configurations:
         - [dotnet, build, --no-restore, -c, "${BUILD_CONFIGURATION:-Debug}"]
 ```
 
-O `azds.yaml` arquivo gerado `prep` pelo comando destina-se a trabalhar para um cenário simples e único de desenvolvimento de projetos. Se o seu projeto específico tiver aumentado a complexidade, `prep` talvez seja necessário atualizar este arquivo depois de executar o comando. Por exemplo, seu projeto pode exigir algumas alterações no seu processo de construção ou lançamento com base nas suas necessidades de desenvolvimento ou depuração. Você também pode ter vários aplicativos em seu projeto, que requerem vários processos de compilação ou um conteúdo de compilação diferente.
+O `azds.yaml` arquivo gerado pelo `prep` comando destina-se a funcionar para um cenário simples de desenvolvimento de projeto único. Se o seu projeto específico tiver aumentado a complexidade, talvez seja necessário atualizar esse arquivo depois de `prep` executar o comando. Por exemplo, seu projeto pode exigir algumas alterações em seu processo de compilação ou inicialização com base nas suas necessidades de desenvolvimento ou de depuração. Você também pode ter vários aplicativos em seu projeto, que exigem vários processos de compilação ou um conteúdo de compilação diferente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como executar seu código em seu espaço de dev, consulte [Como funciona a execução do seu código com o Azure Dev Spaces][how-it-works-up].
+Para saber mais sobre como executar seu código em seu espaço de desenvolvimento, confira [como executar seu código com Azure dev Spaces funciona][how-it-works-up].
 
-Para começar a usar o Azure Dev Spaces para preparar seu projeto para o Azure Dev Space, consulte as seguintes partidas rápidas:
+Para começar a usar o Azure Dev Spaces para preparar seu projeto para o espaço de desenvolvimento do Azure, consulte os seguintes guias de início rápido:
 
-* [Rapidamente iterado e depurado com Visual Studio Code e Java][quickstart-java]
-* [Iterar rapidamente e depurar com Visual Studio Code e .NET][quickstart-netcore]
-* [Rapidamente iterado e depurado com Visual Studio Code e Node.js][quickstart-node]
-* [Iterar rapidamente e depurar com Visual Studio e .NET Core][quickstart-vs]
-* [Usando a CLI para desenvolver um aplicativo no Kubernetes][quickstart-cli]
+* [Iterar e depurar rapidamente com Visual Studio Code e Java][quickstart-java]
+* [Iterar e depurar rapidamente com o Visual Studio Code e o .NET][quickstart-netcore]
+* [Iterar e depurar rapidamente com Visual Studio Code e node. js][quickstart-node]
+* [Iterar e depurar rapidamente com o Visual Studio e o .NET Core][quickstart-vs]
+* [Usando a CLI para desenvolver um aplicativo no kubernetes][quickstart-cli]
 
 [how-it-works-up]: how-dev-spaces-works-up.md
 [quickstart-cli]: quickstart-cli.md

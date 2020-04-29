@@ -7,10 +7,10 @@ author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
 ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77654385"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de Desempenho de Rede do Azure
@@ -20,7 +20,7 @@ Ouvimos seus comentários e introduzimos recentemente uma [nova experiência de 
 O Monitor de Desempenho de Rede consiste em três componentes:
 * [Monitor de desempenho](https://docs.microsoft.com/azure/networking/network-monitoring-overview#performance-monitor)
 * [Monitor de Ponto de Extremidade de Serviço](https://docs.microsoft.com/azure/networking/network-monitoring-overview)
-* [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
+* [Monitor do ExpressRoute](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
 As seções a seguir explicam as alterações de preços para os componentes do NPM.
 
@@ -29,12 +29,12 @@ As seções a seguir explicam as alterações de preços para os componentes do 
 **Como o uso do Monitor de Desempenho era cobrado no modelo antigo?**
 
 A cobrança do NPM era baseada no uso e consumo de dois componentes:
-* **Nós**: Todas as transações sintéticas se originam e terminam nos nós. Os nós também são conhecidos como agentes ou Microsoft Monitoring Agents.
-* **Dados**: Os resultados dos vários testes de rede são armazenados no espaço de trabalho do Log Analytics.
+* **Nós**: todas as transações sintéticas se originam e terminam nos nós. Os nós também são conhecidos como agentes ou Microsoft Monitoring Agents.
+* **Dados**: os resultados dos vários testes de rede são armazenados no espaço de trabalho log Analytics.
 
 No modelo antigo, a cobrança era calculada com base no número de nós e no volume de dados gerados. 
 
-**Como o uso do Monitor de Desempenho é cobrado o novo modelo?**
+**Como o uso do monitor de desempenho é cobrado no novo modelo?**
 
 O recurso de Monitor de Desempenho no NPM agora é cobrado com base em uma combinação de: 
 
@@ -45,7 +45,7 @@ O recurso de Monitor de Desempenho no NPM agora é cobrado com base em uma combi
 
 O Monitor de Desempenho monitora a conectividade entre dois ou mais locais na rede. A conexão entre um grupo de nós ou agentes em uma sub-rede e um grupo de nós em outra sub-rede é chamado de link de sub-rede.
 
-**Tenho duas sub-redes (A e B), e tenho vários agentes em cada sub-rede. O Monitor de Desempenho monitora a conectividade de todos os agentes na sub-rede A para todos os agentes na sub-rede B. Serei cobrado com base no número de conexões entre sub-redes?**
+**Tenho duas sub-redes (A e B) e tenho vários agentes em cada sub-rede. O monitor de desempenho monitora a conectividade de todos os agentes na sub-rede A para todos os agentes na sub-rede B. Serei cobrado com base no número de conexões entre sub-redes?**
 
 Não. Para fins de cobrança, todas as conexões da sub-rede A para a sub-rede B são agrupadas em um link de sub-rede. Você será cobrado por uma única conexão. O Monitor de Desempenho continua monitorando a conectividade entre vários agentes em cada sub-rede.
 
@@ -55,7 +55,7 @@ Para o custo de monitoramento de um link de sub-rede único para o mês inteiro,
 
 **Quais são as cobranças para os dados que o Monitor de Desempenho gera?**
 
-A taxa de ingestão (upload de dados para o espaço de trabalho do Log Analytics no Azure Monitor, processamento e indexação) está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para Log Analytics, na seção Desintoxicação de Dados. A cobrança por retenção de dados (ou seja, os dados retidos por opção do cliente, além do primeiro mês) também está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/), na seção Retenção de Dados.
+A cobrança por ingestão (carregamento de dados para Log Analytics espaço de trabalho em Azure Monitor, processamento e indexação) está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) para log Analytics, na seção ingestão de dados. A cobrança por retenção de dados (ou seja, os dados retidos por opção do cliente, além do primeiro mês) também está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/), na seção Retenção de Dados.
 
 
 ## <a name="expressroute-monitor"></a>ExpressRoute Monitor
@@ -64,7 +64,7 @@ A taxa de ingestão (upload de dados para o espaço de trabalho do Log Analytics
 
 As cobranças pelo ExpressRoute Monitor são feitas com base no volume de dados gerados durante o monitoramento. Para mais informações, consulte “Quais são as cobranças para os dados que o Monitor de Desempenho gera?”
 
-**Uso o ExpressRoute Monitor para monitorar vários circuitos expressroute. Sou cobrado com base no número de circuitos sendo monitorados?**
+**Uso o monitor do ExpressRoute para monitorar vários circuitos do ExpressRoute. Sou cobrado com base no número de circuitos que estão sendo monitorados?**
 
 Você não será cobrado com base no número de circuitos ou no tipo de emparelhamento (por exemplo, emparelhamento privado, emparelhamento da Microsoft). Você é cobrado com base no volume de dados, conforme explicado anteriormente.
 
@@ -107,7 +107,7 @@ Uma conexão é um teste de acessibilidade para um ponto de extremidade (serviç
 
 **Quais são os custos para o Monitor de Ponto de Extremidade de Serviço?**
 
-Consulte a seção [Monitoramento de Conexão](https://azure.microsoft.com/pricing/details/network-watcher/) para obter o custo de monitoramento de um ponto final durante todo o mês. A cobrança dos dados está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics, na seção Ingestão de Dados.
+Consulte a seção [monitoramento de conexão](https://azure.microsoft.com/pricing/details/network-watcher/) para obter o custo de monitoramento de um ponto de extremidade para o mês inteiro. A cobrança dos dados está disponível na [página de preços](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics, na seção Ingestão de Dados.
 
 ## <a name="references"></a>Referências
 

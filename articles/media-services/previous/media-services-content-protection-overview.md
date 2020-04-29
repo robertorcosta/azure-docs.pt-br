@@ -1,6 +1,6 @@
 ---
 title: Proteger seu conteúdo com os Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral da proteção de conteúdo com o Azure Media Services v2.
+description: Este artigo fornece uma visão geral da proteção de conteúdo com os serviços de mídia do Azure v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 88e0e1c18722fd86e79fc1fa7722b59b3cb8966a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79460952"
 ---
 # <a name="content-protection-overview"></a>Visão geral de proteção do conteúdo 
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [as orientações de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [serviços de mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 É possível usar os Serviços de Mídia do Azure para proteger sua mídia desde o momento que ela sai do seu computador até o armazenamento, processamento e entrega. Com os Serviços de Mídia, é possível entregar o conteúdo ao vivo e sob demanda criptografado dinamicamente com a criptografia AES (AES-128) ou qualquer um dos três principais sistemas DRM (Gerenciamento de Direitos Digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
 
@@ -36,7 +36,7 @@ Este artigo explica conceitos e terminologia relevantes para a compreensão da p
 
 ## <a name="dynamic-encryption"></a>Criptografia dinâmica
 
-É possível usar os Serviços de Mídia para entregar conteúdo criptografado dinamicamente com chave não criptografada AES ou criptografia DRM usando o PlayReady, o Widevine ou o FairPlay. Se o conteúdo for criptografado com uma chave clara AES e for enviado por HTTPS, ele não será claro até que chegue ao cliente. 
+É possível usar os Serviços de Mídia para entregar conteúdo criptografado dinamicamente com chave não criptografada AES ou criptografia DRM usando o PlayReady, o Widevine ou o FairPlay. Se o conteúdo for criptografado com uma chave não criptografada AES e for enviado por HTTPS, ele não estará em claro até alcançar o cliente. 
 
 Cada método de criptografia fornece suporte aos seguintes protocolos de streaming:
  
@@ -53,7 +53,7 @@ Você também precisa configurar a política de entrega do ativo. Se deseja faze
 
 Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a chave não criptografada AES ou a criptografia DRM. Para descriptografar o streaming, o player solicita a chave do serviço de entrega de chaves dos Serviços de Mídia. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-## <a name="aes-128-clear-key-vs-drm"></a>Tecla clara AES-128 vs. DRM
+## <a name="aes-128-clear-key-vs-drm"></a>Chave de limpeza AES-128 vs. DRM
 Geralmente, os clientes se perguntam se devem utilizar criptografia AES ou um sistema DRM. A principal diferença entre os dois sistemas é que, com a criptografia AES, a chave de conteúdo é transmitida ao cliente em um formato não criptografado. Como resultado, a chave usada para criptografar o conteúdo pode ser exibida em um rastreamento de rede no cliente em texto sem formatação. A criptografia de chave AES-128 não criptografada é adequada para casos de uso em que o visualizador é uma parte confiável (por exemplo, criptografar vídeos corporativos distribuídos em uma empresa para serem visualizados pelos funcionários).
 
 PlayReady, Widevine e FairPlay fornecem um maior nível de criptografia em comparação com a criptografia de chave não criptografada AES-128. A chave de conteúdo é transmitida em um formato criptografado. Além disso, a descriptografia é identificada em um ambiente seguro no nível do sistema operacional, no qual é mais difícil para um usuário mal-intencionado atacar. O DRM é recomendado para casos de uso em que o visualizador pode não ser uma parte confiável e você exige o mais alto nível de segurança.
@@ -80,18 +80,18 @@ Com uma política de autorização restrita por token, a chave de conteúdo some
 
 Ao configurar a política restrita do token, você deve especificar os parâmetros de chave de verificação primária, emissor e público. A chave de verificação primária contém a chave com a qual o token foi assinado. O emissor é o serviço de token seguro que emite o token. O público, às vezes chamado de escopo, descreve a intenção do token ou do recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
-### <a name="token-replay-prevention"></a>Prevenção de replay de token
+### <a name="token-replay-prevention"></a>Prevenção de reprodução de token
 
-O recurso *Token Replay Prevention* permite que os clientes do Media Services definam um limite de quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. O cliente pode adicionar `urn:microsoft:azure:mediaservices:maxuses` uma reivindicação de tipo no token, onde o valor é o número de vezes que o token pode ser usado para adquirir uma licença ou chave. Todas as solicitações subseqüentes com o mesmo token para entrega de chaves retornarão uma resposta não autorizada. Veja como adicionar a reivindicação na [amostra DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+O recurso de *prevenção de reprodução de token* permite que os clientes dos serviços de mídia definam um limite de quantas vezes o mesmo token pode ser usado para solicitar uma chave ou uma licença. O cliente pode adicionar uma declaração do tipo `urn:microsoft:azure:mediaservices:maxuses` no token, em que o valor é o número de vezes que o token pode ser usado para adquirir uma licença ou chave. Todas as solicitações subsequentes com o mesmo token para a distribuição de chaves retornarão uma resposta não autorizada. Consulte Como adicionar a declaração no exemplo de [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
 #### <a name="considerations"></a>Considerações
 
-* Os clientes devem ter controle sobre a geração de tokens. A reivindicação precisa ser colocada no próprio token.
-* Ao usar esse recurso, solicitações com tokens cujo tempo de validade é de mais de uma hora do momento em que a solicitação é recebida são rejeitadas com uma resposta não autorizada.
-* Os tokens são identificados exclusivamente por sua assinatura. Qualquer alteração na carga útil (por exemplo, atualizar para o tempo de validade ou a reclamação) altera a assinatura do token e contará como um novo token que o Key Delivery não encontrou antes.
-* A reprodução falha se o `maxuses` token tiver excedido o valor definido pelo cliente.
-* Esse recurso pode ser usado para todos os conteúdos protegidos existentes (apenas o token emitido precisa ser alterado).
-* Este recurso funciona tanto com JWT quanto com SWT.
+* Os clientes devem ter controle sobre a geração de tokens. A declaração precisa ser colocada no próprio token.
+* Ao usar esse recurso, as solicitações com tokens cuja hora de expiração é mais de uma hora longe da hora em que a solicitação é recebida são rejeitadas com uma resposta não autorizada.
+* Os tokens são identificados exclusivamente por sua assinatura. Qualquer alteração na carga (por exemplo, atualizar para a hora de expiração ou a declaração) altera a assinatura do token e ela conta como um novo token que a distribuição de chaves não chegou antes.
+* A reprodução falhará se o token exceder `maxuses` o valor definido pelo cliente.
+* Esse recurso pode ser usado para todo o conteúdo protegido existente (somente o token emitido precisa ser alterado).
+* Esse recurso funciona com o JWT e o SWT.
 
 ## <a name="streaming-urls"></a>URLs de streaming
 Se o ativo foi criptografado com mais de um DRM, use uma marcação de criptografia na URL de streaming: (formato='m3u8-aapl' criptografia='xxx').

@@ -1,21 +1,21 @@
 ---
-title: Query Performance Insight - Banco de dados Azure para MariaDB
-description: Este artigo descreve o recurso Query Performance Insight no Azure Database for MariaDB
+title: Análise de Desempenho de Consultas-banco de dados do Azure para MariaDB
+description: Este artigo descreve o recurso Análise de Desempenho de Consultas no banco de dados do Azure para MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 88777ee44551ed6abdb7a6c7c909d6bf55db48c0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79527837"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Análise de Desempenho de Consultas no Banco de Dados do Azure para MariaDB
 
-**Aplica-se a:** Banco de dados Azure para MariaDB 10.2
+**Aplica-se a:** Banco de dados do Azure para MariaDB 10,2
 
 A Análise de Desempenho de Consultas ajuda você a identificar rapidamente quais são suas consultas de execução mais longa, como elas mudam ao longo do tempo e quais esperas as estão afetando.
 
@@ -28,8 +28,8 @@ A Análise de Desempenho de Consultas ajuda você a identificar rapidamente quai
  
 ### <a name="wait-statistics"></a>Estatísticas de espera
 
-- Entender a natureza de espera para uma consulta
-- Entendendo tendências de espera de recursos e onde existe contenção de recursos
+- Entendendo a natureza de espera de uma consulta
+- Noções básicas sobre tendências de espera de recursos e onde existe contenção de recursos
 
 ## <a name="permissions"></a>Permissões
 
@@ -43,29 +43,29 @@ Para a Análise de Desempenho de Consultas funcionar, os dados precisam existir 
 
 A visualização da [Análise de Desempenho de Consultas](concepts-query-performance-insight.md) no portal do Azure será superficial visualizações em informações do Repositório de Consultas.
 
-Na página do portal do seu banco de dados Azure para servidor MariaDB, selecione **Query Performance Insight** na seção **Desempenho Inteligente** da barra de menu.
+Na página do portal do seu banco de dados do Azure para MariaDB Server, selecione **análise de desempenho de consultas** na seção **desempenho inteligente** da barra de menus.
 
 ### <a name="long-running-queries"></a>Consultas de execução prolongada
 
-A **guia De consultas em execução** longa mostra as 5 principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Você pode exibir mais consultas selecionando a **retirada do Número de Consultas.** As cores do gráfico pode ser alteradas para uma ID de consulta específica ao fazer isso.
+A guia **consultas de longa execução** mostra as 5 principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Você pode exibir mais consultas selecionando na lista suspensa **número de consultas** . As cores do gráfico pode ser alteradas para uma ID de consulta específica ao fazer isso.
 
-Você pode clicar e arrastar no gráfico para restringi-lo a uma janela de tempo específico. Alternativamente, use os ícones de zoom in e out para visualizar um período de tempo menor ou maior, respectivamente.
+Você pode clicar e arrastar no gráfico para restringi-lo a uma janela de tempo específico. Como alternativa, use os ícones ampliar e reduzir para exibir um período de tempo menor ou maior, respectivamente.
 
 ![Consultas de execução longa da Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
 ### <a name="wait-statistics"></a>Estatísticas de espera 
 
 > [!NOTE]
-> As estatísticas de espera destinam-se a solucionar problemas de desempenho de consultas. Recomenda-se que seja ligado apenas para fins de solução de problemas. <br>Se você receber a mensagem de erro no portal Azure "*O problema encontrado para 'Microsoft.DBforMariaDB'; não pode atender ao pedido. Se esse problema continuar ou for inesperado, entre em contato com essas informações.*" enquanto visualiza as estatísticas de espera, use um período de tempo menor.
+> Estatísticas de espera são destinadas a solucionar problemas de desempenho de consulta. É recomendável que seja ativado apenas para fins de solução de problemas. <br>Se você receber a mensagem de erro no portal do Azure "*o problema encontrado para ' Microsoft. DBforMariaDB '; Não é possível atender à solicitação. Se esse problema continuar ou for inesperado, entre em contato com o suporte com essas informações.*" ao exibir estatísticas de espera, use um período de tempo menor.
 
-As estatísticas de wait fornecem uma visão dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de eventos de espera na documentação do [mecanismo MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
+Estatísticas de espera fornece uma exibição dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de evento de espera na [documentação do mecanismo MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
 Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
 
-As consultas exibidas na exibição de estatísticas de espera são agrupadas pelas consultas que exibem as maiores esperas durante o intervalo de tempo especificado.
+As consultas exibidas na exibição Estatísticas de espera são agrupadas pelas consultas que exibem as maiores esperas durante o intervalo de tempo especificado.
 
-![Query Performance Insight aguarda estatísticas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Estatísticas de esperas de Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [monitoramento e sintonia](concepts-monitoring.md) no Banco de Dados Azure para MariaDB.
+- Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no banco de dados do Azure para MariaDB.

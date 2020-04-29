@@ -1,27 +1,27 @@
 ---
-title: Compatibilidade com drivers e ferramentas - Banco de dados Azure para MariaDB
-description: Este artigo descreve os drivers mariadb e ferramentas de gestão compatíveis com o Banco de Dados Azure para MariaDB.
+title: Compatibilidade de drivers e ferramentas – banco de dados do Azure para MariaDB
+description: Este artigo descreve os drivers MariaDB e as ferramentas de gerenciamento que são compatíveis com o banco de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: a0cee198f028fd90e04dac15e98d7cd33aee9201
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79532341"
 ---
-# <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Drivers mariaDB e ferramentas de gestão compatíveis com o Banco de Dados Azure para MariaDB
+# <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Drivers MariaDB e ferramentas de gerenciamento compatíveis com o banco de dados do Azure para MariaDB
 
-Este artigo descreve os drivers e ferramentas de gerenciamento compatíveis com o Banco de Dados Azure para MariaDB.
+Este artigo descreve os drivers e as ferramentas de gerenciamento que são compatíveis com o banco de dados do Azure para MariaDB.
 
-## <a name="mariadb-drivers"></a>Motoristas MariaDB
+## <a name="mariadb-drivers"></a>Drivers MariaDB
 
-O Banco de Dados Azure para MariaDB usa a edição comunitária do servidor MariaDB. Portanto, ele é compatível com uma ampla variedade de drivers e linguagens de programação. A API e o protocolo da MariaDB são compatíveis com os utilizados pelo MySQL. Isso significa que os conectores que trabalham com o MySQL também devem trabalhar com o MariaDB.
+O banco de dados do Azure para MariaDB usa a Community Edition do MariaDB Server. Portanto, ele é compatível com uma ampla variedade de drivers e linguagens de programação. A API e o protocolo do MariaDB são compatíveis com os usados pelo MySQL. Isso significa que os conectores que funcionam com o MySQL também devem funcionar com o MariaDB.
 
-O objetivo é apoiar as três versões mais recentes dos drivers MariaDB, e os esforços com autores da comunidade de código aberto para melhorar constantemente a funcionalidade e a usabilidade dos motoristas do MariaDB continuam. Uma lista de drivers que foram testados e considerados compatíveis com o Banco de Dados Azure para MariaDB 10.2 é fornecida na tabela a seguir:
+O objetivo é dar suporte às três versões mais recentes do MariaDB drivers e esforços com autores da comunidade de software livre para melhorar constantemente a funcionalidade e a usabilidade dos drivers do MariaDB continuar. Uma lista de drivers que foram testados e considerados compatíveis com o banco de dados do Azure para MariaDB 10,2 é fornecida na tabela a seguir:
 
 **Driver** | **Links** | **Versões compatíveis** | **Versões incompatíveis** | **Observações**
 ---|---|---|---|---
@@ -29,13 +29,13 @@ PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5,3 | Para a conex�
 .NET | [MySqlConnector no GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Pacote de instalação do Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 e posterior | 0.26.5 e anterior |
 Conector MySQL/NET | [Conector MySQL/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | Um bug de codificação pode causar falha em alguns sistemas não - UTF8 Windows nas conexões.
 Node.js |  [MySQLjs no GitHub](https://github.com/mysqljs/mysql/) <br> Pacote de instalação do NPM:<br> Executar `npm install mysql` do NPM | 2.15 | 2.14.1 e anterior
-GO | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 e anterior | Use `allowNativePasswords=true` na seqüência de conexões para a versão 1.3. A versão 1.4 `allowNativePasswords=true` contém uma correção e não é mais necessária.
+GO | https://github.com/go-sql-driver/mysql/releases | 1,3, 1,4 | 1.2 e anterior | Use `allowNativePasswords=true` na cadeia de conexão para a versão 1,3. A versão 1,4 contém uma correção `allowNativePasswords=true` e não é mais necessária.
 Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 e anterior |
 Java | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 e anterior |
 
 ## <a name="management-tools"></a>Ferramentas de gerenciamento
 
-A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de banco de dados também. Suas ferramentas existentes devem continuar a trabalhar com o Banco de Dados Azure para O MariaDB, desde que a manipulação do banco de dados opere dentro dos limites das permissões do usuário. Três ferramentas comuns de gerenciamento de banco de dados que foram testadas e consideradas compatíveis com o Banco de Dados Azure para MariaDB 10.2 estão listadas na tabela a seguir:
+A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de banco de dados também. Suas ferramentas existentes devem continuar a trabalhar com o banco de dados do Azure para MariaDB, desde que a manipulação do banco de dados opere dentro dos limites de permissões de usuário. Três ferramentas comuns de gerenciamento de banco de dados que foram testadas e encontradas para serem compatíveis com o banco de dados do Azure para MariaDB 10,2 estão listadas na tabela a seguir:
 
 | | **MySQL Workbench 6.x e superior** | **Navicat 12** | **PHPMyAdmin 4.x e superior**
 ---|---|---|---

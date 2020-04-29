@@ -4,10 +4,10 @@ description: Use as APIs REST do Azure para obter os eventos de integridade para
 ms.topic: conceptual
 ms.date: 06/06/2017
 ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77653994"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obter Resource Health usando a API REST 
@@ -24,20 +24,20 @@ Use esta solicitação HTTP `GET` para listar os eventos de integridade para sua
 https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&%24filter=eventTimestamp%20ge%20'2018-05-16T04%3A36%3A37.6407898Z'%20and%20eventTimestamp%20le%20'2018-06-20T04%3A36%3A37.6407898Z'
 ```
 
-### <a name="request-headers"></a>Cabeçalhos da solicitação
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Os cabeçalhos a seguir são necessários: 
 
 |Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Tipo de conteúdo:*|Obrigatórios. Defina como `application/json`.|  
+|*Tipo de Conteúdo:*|Obrigatórios. Defina como `application/json`.|  
 |*Autorização:*|Obrigatórios. Defina como um  [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)`Bearer` válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros de URI
 
-| Nome | Descrição |
+| Name | Descrição |
 | :--- | :---------- |
-| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | A versão da API a ser usada para a solicitação.<br /><br /> Este documento abrange a versão da API `2015-04-01`, incluída na URL acima.  |
 | $filter | A opção de filtragem para reduzir o conjunto de resultados devolvidos. Os padrões permitidos para esse parâmetro estão disponíveis [na referência para a operação de Logs de atividades](/rest/api/monitor/activitylogs/list#uri-parameters). O exemplo mostrado captura todos os eventos em um intervalo de tempo entre 2018-05-16 e 2018-06-20 |
 | &nbsp; | &nbsp; |

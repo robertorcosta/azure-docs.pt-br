@@ -1,6 +1,6 @@
 ---
-title: Guardrails de implantação do Service Fabric Azure Resource Manager
-description: Este artigo fornece uma visão geral dos erros comuns cometidos ao implantar um cluster de malha de serviço através do Azure Resource Manager e como evitá-los.
+title: Guardrails Azure Resource Manager de implantação do Service Fabric
+description: Este artigo fornece uma visão geral dos erros comuns feitos ao implantar um cluster de Service Fabric por meio de Azure Resource Manager e como evitá-los.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
 ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77368571"
 ---
-# <a name="service-fabric-guardrails"></a>Guardrails de malha de serviço 
-Ao implantar um cluster de malha de serviço, os guardrails são colocados no lugar, o que falhará com uma implantação do Azure Resource Manager no caso de uma configuração de cluster inválida. As seções a seguir fornecem uma visão geral dos problemas comuns de configuração de cluster e das etapas necessárias para mitigar esses problemas. 
+# <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
+Ao implantar um cluster de Service Fabric, os guardrails são colocados em vigor, o que falhará em uma implantação de Azure Resource Manager no caso de uma configuração de cluster inválida. As seções a seguir fornecem uma visão geral dos problemas comuns de configuração de cluster e as etapas necessárias para mitigar esses problemas. 
 
 ## <a name="durability-mismatch"></a>Incompatibilidade de durabilidade
 ### <a name="overview"></a>Visão geral
-O valor de durabilidade para um tipo de nó de malha de serviço é definido em duas seções diferentes de um modelo do Azure Resource Manager. A seção de extensão 'Definir escala de máquina virtual' do recurso Virtual Machine Scale Set' e a seção Tipo de nó do recurso de cluster 'Malha de malha de serviço'. É um requisito que o valor de durabilidade nessas seções corresponda, caso contrário, a implantação de recursos falhará.
+O valor de durabilidade para um Service Fabric tipo de nó é definido em duas seções diferentes de um modelo de Azure Resource Manager. A seção extensão do conjunto de dimensionamento de máquinas virtuais do recurso de conjunto de dimensionamento de máquinas virtuais e a seção tipo de nó do recurso de Cluster Service Fabric. É um requisito que o valor de durabilidade nessas seções corresponde, caso contrário, a implantação de recursos falhará.
 
-A seção a seguir contém um exemplo de uma incompatibilidade de durabilidade entre a configuração de durabilidade do conjunto de escala de máquina virtual e a configuração de durabilidade do tipo de nó de malha de malha de serviço:  
+A seção a seguir contém um exemplo de incompatibilidade de durabilidade entre a configuração de durabilidade da extensão do conjunto de dimensionamento de máquinas virtuais e a configuração de durabilidade do tipo de nó Service Fabric  
 
-**Configuração de durabilidade do conjunto de escala da máquina virtual**
+**Configuração de durabilidade do conjunto de dimensionamento de máquinas virtuais**
 ```json 
 {
   "extensions": [
@@ -41,7 +41,7 @@ A seção a seguir contém um exemplo de uma incompatibilidade de durabilidade e
 }
 ```
 
-**Configuração de durabilidade do tipo nó de malha de serviço** 
+**Configuração de durabilidade do tipo de nó Service Fabric** 
 ```json
 {
   "nodeTypes": [
@@ -56,32 +56,32 @@ A seção a seguir contém um exemplo de uma incompatibilidade de durabilidade e
 ```
 
 ### <a name="error-messages"></a>Mensagens de erro
-* A incompatibilidade de durabilidade do conjunto de escala da máquina virtual não corresponde ao nível de durabilidade atual do tipo de nó de malha de malha de serviço
-* A durabilidade do conjunto de escala de máquina virtual não corresponde ao nível de durabilidade do tipo de nó de malha de serviço de destino
-* A durabilidade do conjunto de escala de máquina virtual corresponde ao nível de durabilidade atual do fabric de serviço ou ao nível de durabilidade do tipo de nó de malha de serviço de destino 
+* A incompatibilidade de durabilidade do conjunto de dimensionamento de máquinas virtuais não corresponde ao nível de durabilidade Service Fabric atual do tipo de nó
+* A durabilidade do conjunto de dimensionamento de máquinas virtuais não corresponde ao nível de durabilidade do tipo de nó de Service Fabric
+* A durabilidade do conjunto de dimensionamento de máquinas virtuais corresponde ao nível de durabilidade atual Service Fabric ou ao nível de durabilidade do tipo de nó de Service Fabric 
 
 ### <a name="mitigation"></a>Atenuação
 Para corrigir uma incompatibilidade de durabilidade, que é indicada por qualquer uma das mensagens de erro acima:
-1. Atualize o nível de durabilidade na extensão Virtual Machine Scale Set ou na seção Tipo de nó de malha de serviço do modelo Azure Resource Manager para garantir que os valores correspondam.
-2. Reimplante o modelo do Azure Resource Manager com os valores atualizados.
+1. Atualize o nível de durabilidade na seção extensão do conjunto de dimensionamento de máquinas virtuais ou Service Fabric tipo de nó do modelo de Azure Resource Manager para garantir que os valores correspondam.
+2. Reimplante o modelo de Azure Resource Manager com os valores atualizados.
 
 
-## <a name="seed-node-deletion"></a>Exclusão de nó de sementes 
+## <a name="seed-node-deletion"></a>Exclusão do nó de semente 
 ### <a name="overview"></a>Visão geral
-Um cluster Service Fabric tem uma propriedade [de nível](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) de confiabilidade que é usada para determinar o número de réplicas de serviços do sistema que são executados no tipo de nó principal do cluster. O número de réplicas necessárias determinará o número mínimo de nós que devem ser mantidos no tipo de nó primário do cluster. Se o número de nódulos no tipo de nó primário ficar abaixo do mínimo necessário para o nível de confiabilidade, o cluster se tornará instável.  
+Um Cluster Service Fabric tem uma propriedade de [camada de confiabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) que é usada para determinar o número de réplicas dos serviços do sistema que são executados no tipo de nó primário do cluster. O número de réplicas necessárias determinará o número mínimo de nós que devem ser mantidos no tipo de nó primário do cluster. Se o número de nós no tipo de nó primário ficar abaixo do mínimo necessário para a camada de confiabilidade, o cluster ficará instável.  
 
 ### <a name="error-messages"></a>Mensagens de erro 
-A operação de remoção de nó de sementes foi detectada e será rejeitada. 
-* Esta operação resultaria {0} em apenas potenciais nós de sementes {1} para permanecer no cluster, enquanto são necessários como mínimo.
-* A {0} remoção de nódulos {1} de sementes resultaria na queda do cluster devido à perda do quórum do nó de sementes. O número máximo de nódulos de sementes {2}que podem ser removidos por vez é .
+A operação de remoção do nó de semente foi detectada e será rejeitada. 
+* Essa operação resultaria apenas {0} em possíveis nós de semente permanecerem no cluster, enquanto {1} são necessários no mínimo.
+* Remover {0} nós de semente para {1} fora do resultaria no desligamento do cluster devido à perda do quorum do nó de semente. O número máximo de nós de semente que podem ser removidos por vez {2}é.
  
 ### <a name="mitigation"></a>Atenuação 
-Certifique-se de que seu tipo de nó principal tenha máquinas virtuais suficientes para a confiabilidade especificada em seu cluster. Você não será capaz de remover uma Máquina Virtual se ela trouxer o Conjunto de Escala de Máquina Virtual abaixo do número mínimo de nós para o nível de confiabilidade dado.
-* Se o nível de confiabilidade estiver corretamente especificado, certifique-se de que você tenha nódulos suficientes no tipo de nó principal necessáriopara o nível de confiabilidade. 
-* Se o nível de confiabilidade estiver incorreto, inicie uma alteração no recurso Service Fabric para diminuir o nível de confiabilidade primeiro antes de iniciar qualquer operação do Conjunto de Escala de Máquina Virtual e aguarde que ele seja concluído.
-* Se o nível de confiabilidade for Bronze, siga [estas etapas](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para reduzir graciosamente o cluster.
+Verifique se o tipo de nó primário tem máquinas virtuais suficientes para a confiabilidade especificada no cluster. Você não poderá remover uma máquina virtual se ela for colocar o conjunto de dimensionamento de máquinas virtuais abaixo do número mínimo de nós para a camada de confiabilidade fornecida.
+* Se a camada de confiabilidade for especificada corretamente, verifique se você tem nós suficientes no tipo de nó primário conforme necessário para a camada de confiabilidade. 
+* Se a camada de confiabilidade estiver incorreta, inicie uma alteração no recurso de Service Fabric para reduzir o nível de confiabilidade primeiro antes de iniciar qualquer operação do conjunto de dimensionamento de máquinas virtuais e aguarde a conclusão.
+* Se a camada de confiabilidade for bronze, siga estas [etapas](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para reduzir o cluster de forma apropriada.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Crie um cluster em VMs ou em computadores que estejam executando o Windows Server: [Criação de um cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 * Criar um cluster em VMs ou em computadores que estejam executando o Linux: [Criar um cluster do Linux](service-fabric-cluster-creation-via-portal.md)
-* Solucionar problemas tecido de serviço: [guias de solução de problemas](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+* Solucionar problemas Service Fabric: [guias de solução de problemas](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)

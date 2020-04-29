@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 5f7611fd9df207df51fa0e51218d8a234583b1f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529776"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES 
@@ -30,7 +30,7 @@ Este tópico mostra como personalizar as predefinições do Media Encoder Standa
 Se você estiver usando uma predefinição XML, lembre-se de preservar a ordem dos elementos, conforme mostrado nas amostras de XML abaixo (por exemplo, KeyFrameInterval deve preceder SceneChangeDetection).
 
 > [!NOTE] 
-> Muitos dos recursos avançados do Media Services v2 do Media Encoder Standard não estão disponíveis no v3. Para obter mais informações, consulte [as lacunas de recursos](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
+> Muitos dos recursos do Advanced Media Services v2 do Media Encoder Standard não estão disponíveis atualmente na v3. Para obter mais informações, consulte [lacunas de recursos](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Suporte para tamanhos relativos
 
@@ -57,7 +57,7 @@ Para obter informações sobre o esquema, consulte [este](media-services-mes-sch
 
 Certifique-se de examinar a seção [Considerações](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>Pré-definido json
+### <a name="json-preset"></a><a id="json"></a>Predefinição JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -157,7 +157,7 @@ Certifique-se de examinar a seção [Considerações](#considerations) .
     }
 
 
-### <a name="xml-preset"></a><a id="xml"></a>Predefinido XML
+### <a name="xml-preset"></a><a id="xml"></a>Predefinição XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -243,7 +243,7 @@ As seguintes considerações se aplicam:
 
     Você pode combinar as notações como desejar.
 
-    Além disso, o Start também suporta uma Macro especial:{Best}, que tenta determinar o primeiro quadro "interessante" do conteúdo NOTA: (Passo e intervalo são ignorados quando o Start é definido como {Best})
+    Além disso, o início também oferece suporte a uma macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da nota de conteúdo: (a etapa e o intervalo são ignorados quando o início é definido como {Best})
   * Padrões: Start:{Best}
 * O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponde JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
@@ -252,7 +252,7 @@ Essa seção fala sobre como modificar as predefinições do codificador para re
 
 Para cortar seus vídeos, use qualquer uma das predefinições de MES documentadas [nesta](media-services-mes-presets-overview.md) seção e modifique o elemento **Fontes** (como mostrado abaixo). O valor da StartTime precisa corresponder aos carimbos de hora absolutos do vídeo de entrada. Por exemplo, se o primeiro quadro do vídeo de entrada tem um carimbo de data/hora de 12:00:10.000, então, a StartTime deve ser pelo menos 12:00:10.000 e mais. No exemplo abaixo, estamos supondo que o vídeo de entrada tenha um carimbo de data/hora inicial igual a zero. **Fontes** deve ser colocado no início da predefinição.
 
-### <a name="json-preset"></a><a id="json"></a>Pré-definido json
+### <a name="json-preset"></a><a id="json"></a>Predefinição JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -720,7 +720,7 @@ Você pode usar qualquer uma das predefinições de MES documentadas [nesta](med
     </AACAudio>
 
 ## <a name="disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
-Os clientes não precisam fazer nada se quiserem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
+Os clientes não precisam fazer nada se desejarem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
 
 Você pode desativar o desentrelaçamento automático. Essa opção não é recomendada.
 
@@ -917,7 +917,7 @@ Por padrão, se você enviar uma entrada para o codificador que contenha apenas 
 
 ### <a name="inserting-video-at-only-the-lowest-bitrate"></a>Inserindo vídeo somente com a taxa de bits mais baixa
 
-Suponha que você esteja usando uma preconfiguração de codificação de vários bits, como ["H264 Multiple Bitrate 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) para codificar todo o seu catálogo de entrada para streaming, que contém uma mistura de arquivos de vídeo e arquivos somente de áudio. Nesse cenário, quando a entrada não tiver vídeo, é recomendável que você force o codificador a inserir uma faixa de vídeo monocromático somente na menor taxa de bits, em vez de inserir vídeo em cada taxa de bits de saída. Para fazer isso, você precisa usar o sinalizador **InsertBlackIfNoVideoBottomLayerOnly**.
+Suponha que você esteja usando uma predefinição de codificação de taxa de bits múltipla como ["H264 taxas de bits múltiplas 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) para codificar todo o catálogo de entrada para streaming, que contém uma mistura de arquivos de vídeo e arquivos somente de áudio. Nesse cenário, quando a entrada não tiver vídeo, é recomendável que você force o codificador a inserir uma faixa de vídeo monocromático somente na menor taxa de bits, em vez de inserir vídeo em cada taxa de bits de saída. Para fazer isso, você precisa usar o sinalizador **InsertBlackIfNoVideoBottomLayerOnly**.
 
 Você pode usar qualquer uma das predefinições de MES documentadas [nesta](media-services-mes-presets-overview.md) seção e fazer a seguinte modificação:
 
@@ -1034,8 +1034,8 @@ Você pode usar o valor "0" para indicar para o codificador ignorar os metadados
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="provide-feedback"></a>Envie comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)

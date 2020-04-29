@@ -1,6 +1,6 @@
 ---
-title: Navegação do Portal de Parceiros em Nuvem para o Azure Marketplace
-description: Explicação da navegação dentro do Portal de Parceiros em Nuvem para o Azure Marketplace.
+title: Navegação Portal do Cloud Partner para o Azure Marketplace
+description: Explicação da navegação dentro do Portal do Cloud Partner para o Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dsindona
 ms.openlocfilehash: 2c1d0eafe96d6e1533bb980ae0e4fd3c43f0e56b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278409"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Navegação do Portal do Microsoft Cloud Partner
@@ -77,7 +77,7 @@ Um painel de navegação recolhível ocupa o lado esquerdo do portal.  Ele cont�
 | ![Item de todos os publicadores](./media/left-navbar4.png) | A página [Todos os editores](./cpp-all-publishers-page.md) lista todos os editores atuais de parceiros na nuvem registrados. |
 | ![Item de usuários](./media/left-navbar5.png) | A página [Usuários](./cpp-users-page.md) lista todas as contas de usuário atuais associadas aos parceiros da nuvem registrados. |
 | ![Item do histórico](./media/left-navbar6.png) | A página [Histórico ](./cpp-history-page.md) lista os eventos de publicação e modificação de ofertas para todos os editores. |
-| ![Item de Insights](./media/left-navbar7.png) | a página [insights](./cpp-insights-page.md) contém os vários dashboards que compõem o recurso *Seller Insights* deste portal. |
+| ![Item de Insights](./media/left-navbar7.png) | a página de [informações](./cpp-insights-page.md) contém os vários dashboards que compõem o recurso de *informações do vendedor* deste portal. |
 | ![Item de Documentação](./media/left-navbar8.png) | Inicia uma nova guia na página inicial da documentação do Portal do Microsoft Cloud Partner (duplica a entrada no menu **Ajuda**). |
 | ![Item de Fórum](./media/left-navbar9.png)  | Inicia uma nova guia na página inicial da documentação da Comunidade de parceiros para os Mercados AppSource e Azure (entrada de duplicatas no menu **Ajuda**). |
 |  |  |

@@ -1,5 +1,5 @@
 ---
-title: Veja o status das ofertas de marketplace | Mercado Azure
+title: Exibir o status das ofertas do Marketplace | Azure Marketplace
 description: Exibir o status das ofertas nos Marketplaces do Azure e do AppSource usando o Portal do Cloud Partner
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: dsindona
 ms.openlocfilehash: 0cbe6a45ba205f32a764bdadb021dc0dcf5bf0cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80275961"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Exibir o status de publicação de ofertas do Azure Marketplace e do AppSource
@@ -22,7 +22,7 @@ Depois de criar uma oferta e especialmente durante o processo de publicação, v
 |            ------              |   -----------                                                           |
 | **-**                          | A oferta foi criada mas o processo de publicação não foi iniciado.            |
 | **Publicação em andamento**        | A oferta está passando pelas etapas do processo de publicação.   |
-| **Publicar falhou**             | Um problema crítico foi descoberto durante a validação ou análise pela Microsoft. |
+| **Falha na publicação**             | Um problema crítico foi descoberto durante a validação ou análise pela Microsoft. |
 | **Publicação cancelada**           | O publicador cancelou a processo de publicação da oferta.  Esse estado não retira uma oferta existente da lista no Marketplace. | 
 | **Aguardando saída do publicador** | A oferta foi revisada pela Microsoft e agora aguarda uma verificação final pelo publicador. |
 | **Removida da lista**                   | Uma oferta publicada anteriormente no marketplace foi removida.      | 
@@ -39,7 +39,7 @@ O exemplo a seguir mostra a guia **Status** para um serviço de consultoria, mos
 
 ![Guia de Status para consultar o erro de exibição do serviço](./media/consulting-service-error.png)
 
-O status final de exemplo de um aplicativo do Azure mostra um problema crítico de revisão da Microsoft.  Ele contém um link quente para o item Azure DevOps que contém informações detalhadas sobre este problema de revisão.  Para obter mais informações, confira [Publicar oferta de aplicativo do Azure](cpp-publish-offer.md).
+O status final de exemplo de um aplicativo do Azure mostra um problema crítico de revisão da Microsoft.  Ele contém um link ativo para o item DevOps do Azure que contém informações detalhadas sobre esse problema de revisão.  Para obter mais informações, confira [Publicar oferta de aplicativo do Azure](cpp-publish-offer.md).
 
 ![Guia de Status para um aplicativo do Azure mostrando o problema de revisão](../azure-applications/media/status-tab-ms-review.png)
 

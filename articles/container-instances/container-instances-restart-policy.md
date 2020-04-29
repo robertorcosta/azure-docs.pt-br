@@ -1,13 +1,13 @@
 ---
-title: Reinicie a política para tarefas em execução
+title: Reinicie a política para tarefas de execução única
 description: Saiba como usar as Instâncias de Contêiner do Azure para executar tarefas que são executadas até a conclusão, como na compilação, teste ou trabalhos de renderização de imagem.
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 8ef4ef228038242f53abc8041470f7f596ab1157
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80131506"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contêineres com políticas de reinício
@@ -42,7 +42,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Executar o exemplo de conclusão
 
-Para ver a diretiva de reinicialização em ação, crie uma instância de contêiner a partir da imagem [de contagem de palavras da][aci-wordcount-image] Microsoft e especifique a `OnFailure` política de reinicialização. Este contêiner de exemplo executa um script de Python que, por padrão, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), grava as 10 palavras mais comuns em STDOUT e, em seguida, sai.
+Para ver a política de reinicialização em ação, crie uma instância de contêiner da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a política de `OnFailure` reinicialização. Este contêiner de exemplo executa um script de Python que, por padrão, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), grava as 10 palavras mais comuns em STDOUT e, em seguida, sai.
 
 Execute o contêiner de exemplo com o seguinte comando [az container create][az-container-create]:
 
@@ -94,7 +94,7 @@ Este exemplo mostra a saída que o script envia para STDOUT. As tarefas em cont�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Cenários baseados em tarefas, como o processamento em lote de um grande conjunto de dados com vários contêineres, podem tirar proveito de variáveis de [ambiente personalizadas](container-instances-environment-variables.md) ou linhas de [comando](container-instances-start-command.md) em tempo de execução.
+Cenários baseados em tarefas, como processamento em lote de um grande conjunto de grandes com vários contêineres, podem tirar proveito de [variáveis de ambiente](container-instances-environment-variables.md) personalizadas ou [linhas de comando](container-instances-start-command.md) em tempo de execução.
 
 Para obter detalhes sobre como persistir a saída de seus contêineres que são executados até a conclusão, consulte [Montar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure](container-instances-mounting-azure-files-volume.md).
 

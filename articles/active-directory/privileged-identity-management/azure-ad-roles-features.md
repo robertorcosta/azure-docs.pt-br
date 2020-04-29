@@ -1,6 +1,6 @@
 ---
-title: Gerenciando funções do Azure AD no Privilegiado de Identidade (PIM) | Microsoft Docs
-description: Como gerenciar funções azure AD para atribuição de controle de identidade privilegiada (PIM)
+title: Gerenciando funções do Azure AD no Privileged Identity Management (PIM) | Microsoft Docs
+description: Como gerenciar funções do Azure AD para Privileged Identity Management de atribuição (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -17,52 +17,52 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5d63577cbdbdf18cb17618bdb5c9e3b5de0e44a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245974"
 ---
-# <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Recursos de gerenciamento para funções azure AD em gerenciamento de identidade privilegiado
+# <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Recursos de gerenciamento para funções do Azure AD no Privileged Identity Management
 
-A experiência de gerenciamento das funções do Azure AD no Gerenciamento de Identidade Privilegiada foi atualizada para unificar como as funções de Ad do Azure e os recursos do Azure são gerenciados. Anteriormente, o Privileged Identity Management para funções de recursos do Azure teve alguns recursos-chave que não estavam disponíveis para as funções do Azure AD.
+A experiência de gerenciamento das funções do Azure AD no Privileged Identity Management foi atualizada para unificar a forma como as funções do Azure AD e as funções de recurso do Azure são gerenciadas. Anteriormente, Privileged Identity Management para as funções de recursos do Azure tinham alguns recursos principais que não estavam disponíveis para as funções do Azure AD.
 
-Com a atualização sendo lançada no momento, estamos mesclando os dois em uma única experiência de gerenciamento, e nele você obtenha a mesma funcionalidade para as funções do Azure AD como para as funções de recurso do Azure. Este artigo informa sobre os recursos atualizados e quaisquer requisitos.
+Com a atualização sendo distribuída no momento, estamos mesclando as duas em uma única experiência de gerenciamento e, nela, você obtém a mesma funcionalidade para as funções do Azure AD como as funções de recursos do Azure. Este artigo informa sobre os recursos atualizados e quaisquer requisitos.
 
 
-## <a name="time-bound-assignments"></a>Atribuições com limite de tempo
+## <a name="time-bound-assignments"></a>Atribuições de limite de tempo
 
-Anteriormente em Gerenciamento de Identidade Privilegiada para funções AD do Azure, você estava familiarizado com atribuições de funções com dois estados possíveis – *elegíveis* e *permanentes*. Agora você pode definir um horário de início e fim para cada tipo de tarefa. Esta adição lhe dá quatro estados possíveis em que você pode colocar uma atribuição:
+Anteriormente, em Privileged Identity Management para as funções do Azure AD, você estava familiarizado com as atribuições de função com dois Estados possíveis – *elegíveis* e *permanentes*. Agora você pode definir uma hora de início e de término para cada tipo de atribuição. Essa adição fornece quatro possíveis Estados nos quais você pode fazer uma atribuição:
 
-- Elegível permanentemente
+- Qualificado permanentemente
 - Ativo permanentemente
-- Elegível, com datas de início/término especificadas para atribuição
+- Qualificado, com datas de início/término especificadas para atribuição
 - Ativo, com datas de início/término especificadas para atribuição
 
-Em muitos casos, mesmo que você não queira que os usuários tenham atribuição elegível e ative funções todas as vezes, você ainda pode proteger sua organização Azure AD definindo um tempo de validade para atribuições. Por exemplo, se você tiver alguns usuários temporários que são elegíveis, considere definir uma expiração para removê-los automaticamente da atribuição da função quando seu trabalho estiver concluído.
+Em muitos casos, mesmo que você não queira que os usuários tenham funções qualificadas de atribuição e ativação todas as vezes, você ainda pode proteger sua organização do Azure AD definindo um tempo de expiração para atribuições. Por exemplo, se você tiver alguns usuários temporários qualificados, considere definir uma expiração para removê-los automaticamente da atribuição de função quando seu trabalho for concluído.
 
 ## <a name="new-role-settings"></a>Novas configurações de função
 
-Também estamos adicionando novas configurações para funções Azure AD. Anteriormente, você só podia configurar configurações de ativação por função. Ou seja, as configurações de ativação, como requisitos de autenticação de vários fatores e requisitos de ticket incidente/solicitação foram aplicadas a todos os usuários elegíveis para uma função especificada. Agora, você pode configurar se um usuário individual precisa executar a autenticação multifatorial antes que ele possa ativar uma função. Além disso, você pode ter controle avançado sobre seus e-mails de Gerenciamento de Identidade Privilegiado relacionado a funções específicas.
+Também estamos adicionando novas configurações para as funções do Azure AD. Anteriormente, você podia definir apenas as configurações de ativação por função. Ou seja, as configurações de ativação, como requisitos de autenticação multifator e requisitos de incidente/solicitação de tíquete, foram aplicadas a todos os usuários qualificados para uma função especificada. Agora, você pode configurar se um usuário individual precisa executar a autenticação multifator antes de poder ativar uma função. Além disso, você pode ter controle avançado sobre seus emails de Privileged Identity Management relacionados a funções específicas.
 
 ## <a name="extend-and-renew-assignments"></a>Estender e renovar atribuições
 
-Assim que você descobrir a atribuição de tempo limite, a primeira pergunta que você pode fazer é o que acontece se um papel expirar? Nesta nova versão, oferecemos duas opções para este cenário:
+Assim que você descobrir a atribuição de tempo limite, a primeira pergunta que você pode fazer é o que acontece se uma função tiver expirado? Nesta nova versão, fornecemos duas opções para este cenário:
 
-- Estender – Quando uma atribuição de função se aproxima de seu vencimento, o usuário pode usar o Gerenciamento de Identidade Privilegiada para solicitar uma extensão para essa atribuição de função
-- Renovar – Quando uma atribuição de função expirar, o usuário pode usar o Gerenciamento de Identidade Privilegiada para solicitar uma renovação para essa atribuição de função
+- Estender – quando uma atribuição de função se aproxima de sua expiração, o usuário pode usar Privileged Identity Management para solicitar uma extensão para essa atribuição de função
+- Renovar – quando uma atribuição de função tiver expirado, o usuário poderá usar Privileged Identity Management para solicitar uma renovação para essa atribuição de função
 
-Ambas as ações iniciadas pelo usuário exigem a aprovação de um administrador global ou administrador de funções privilegiadas. Os administradores não precisarão mais estar no negócio de gerenciar essas expirações. Eles só precisam esperar pela prorrogação ou pedidos de renovação e aprová-los se a solicitação for válida.
+As duas ações iniciadas pelo usuário exigem uma aprovação de um administrador global ou de um administrador de função com privilégios. Os administradores não precisarão mais estar no negócio de gerenciar essas expirações. Eles só precisam aguardar as solicitações de extensão ou renovação e aprová-las se a solicitação for válida.
 
 ## <a name="api-changes"></a>Alterações de API
 
-Quando os clientes tiverem a versão atualizada distribuída para sua organização Azure AD, a API de gráfico existente deixará de funcionar. Você deve fazer a transição para usar a [API do Gráfico para funções de recurso do Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Para gerenciar as funções azure AD usando essa API, troque `/azureResources` com `/aadroles` a assinatura e use o ID do Diretório para o `resourceId`.
+Quando os clientes tiverem a versão atualizada distribuída para sua organização do Azure AD, a API do Graph existente deixará de funcionar. Você deve fazer a transição para usar o [API do Graph para funções de recurso do Azure](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Para gerenciar funções do Azure AD usando essa API, `/azureResources` troque `/aadroles` com na assinatura e use a ID de diretório para `resourceId`o.
 
-Nós tentamos o nosso melhor para chegar a todos os clientes que estão usando a API anterior para que eles saibam sobre essa mudança antes do tempo. Se a sua organização Azure AD foi transferida para a nova versão e você pim_preview@microsoft.comainda depende da Antiga API, entre em contato com a equipe em .
+Nós experimentamos o nosso melhor para entrar em contato com todos os clientes que estão usando a API anterior para que eles saibam sobre essa alteração antes do tempo. Se a sua organização do Azure AD foi movida para a nova versão e você ainda depende da API antiga, entre em contato com a equipe pim_preview@microsoft.comem.
 
-## <a name="powershell-change"></a>Mudança de PowerShell
+## <a name="powershell-change"></a>Alteração do PowerShell
 
-Para clientes que estão usando o módulo PowerShell de gerenciamento de identidade privilegiado para funções Ad do Azure, o PowerShell deixará de trabalhar com a atualização. No lugar dos cmdlets anteriores, você deve usar os cmdlets privileged Identity Management dentro do módulo PowerShell de visualização Ad Azure. Instale o módulo Azure AD PowerShell na [Galeria PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Agora você pode [ler a documentação e amostras para operações pim neste módulo PowerShell](powershell-for-azure-ad-roles.md).
+Para clientes que estão usando o módulo Privileged Identity Management PowerShell para funções do Azure AD, o PowerShell deixará de funcionar com a atualização. No lugar dos cmdlets anteriores, você deve usar os cmdlets Privileged Identity Management dentro do módulo PowerShell de visualização do Azure AD. Instale o módulo do PowerShell do Azure AD do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Agora você pode [ler a documentação e os exemplos de operações do PIM neste módulo do PowerShell](powershell-for-azure-ad-roles.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

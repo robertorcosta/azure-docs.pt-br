@@ -1,31 +1,31 @@
 ---
-title: Localização do recurso de modelo
-description: Descreve como definir a localização dos recursos em um modelo do Azure Resource Manager.
+title: Local do recurso de modelo
+description: Descreve como definir o local do recurso em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.openlocfilehash: a8324dac1232eecd5624e5f1dc0e6656295c0a10
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156422"
 ---
-# <a name="set-resource-location-in-arm-template"></a>Definir a localização do recurso no modelo ARM
+# <a name="set-resource-location-in-arm-template"></a>Definir local do recurso no modelo ARM
 
-Ao implantar um modelo ARM (Azure Resource Manager, gerenciador de recursos do Azure), você deve fornecer um local para cada recurso. O local não precisa ser o mesmo local que a localização do grupo de recursos.
+Ao implantar um modelo de Azure Resource Manager (ARM), você deve fornecer um local para cada recurso. O local não precisa ser o mesmo local que o local do grupo de recursos.
 
-## <a name="get-available-locations"></a>Obtenha locais disponíveis
+## <a name="get-available-locations"></a>Obter locais disponíveis
 
-Tipos de recursos diferentes têm suporte em locais diferentes. Para obter os locais suportados para um tipo de recurso, use o Azure PowerShell ou o Azure CLI.
+Tipos de recursos diferentes têm suporte em locais diferentes. Para obter os locais com suporte para um tipo de recurso, use Azure PowerShell ou CLI do Azure.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes `
   | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli-interactive
 az provider show \
@@ -36,9 +36,9 @@ az provider show \
 
 ---
 
-## <a name="use-location-parameter"></a>Usar parâmetro de localização
+## <a name="use-location-parameter"></a>Usar parâmetro de local
 
-Para permitir flexibilidade ao implantar seu modelo, use um parâmetro para especificar o local para recursos. Defina o valor padrão `resourceGroup().location`do parâmetro como .
+Para permitir a flexibilidade ao implantar seu modelo, use um parâmetro para especificar o local dos recursos. Defina o valor padrão do parâmetro como `resourceGroup().location`.
 
 O exemplo a seguir mostra uma conta de armazenamento implantada a um local especificado como um parâmetro:
 
@@ -96,4 +96,4 @@ O exemplo a seguir mostra uma conta de armazenamento implantada a um local espec
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter a lista completa das funções de modelo, veja [Funções de modelo do Gerenciador de Recursos do Azure](template-functions.md).
-* Para obter mais informações sobre arquivos de modelo, consulte [Entenda a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
+* Para obter mais informações sobre arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).

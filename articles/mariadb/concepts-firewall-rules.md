@@ -1,16 +1,16 @@
 ---
-title: Regras de firewall - Banco de dados Azure para MariaDB
-description: Aprenda a usar regras de firewall para permitir conexões ao seu banco de dados Azure para servidor MariaDB.
+title: Regras de firewall-banco de dados do Azure para MariaDB
+description: Saiba mais sobre como usar regras de firewall para habilitar conexões com o banco de dados do Azure para o servidor MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 743e3f50d747993250399493d97fc2becab19319
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79532035"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Regras de firewall de servidor do Banco de Dados do Azure para MariaDB
@@ -35,25 +35,25 @@ Se o endereço IP da solicitação estiver dentro de um dos intervalos especific
 Se o endereço IP da solicitação não estiver dentro dos intervalos especificados em uma das regras de firewall no nível de banco de dados ou de servidor, a solicitação de conexão falhará.
 
 ## <a name="connecting-from-azure"></a>Conexão pelo Azure
-Recomenda-se que você encontre o endereço IP de saída de qualquer aplicativo ou serviço e permita explicitamente o acesso a esses endereços OU intervalos IP individuais. Por exemplo, você pode encontrar o endereço IP de saída de um Serviço de Aplicativo Do Azure ou usar um IP público vinculado a uma máquina virtual ou outro recurso (veja abaixo informações sobre como se conectar com o IP privado de uma máquina virtual sobre os pontos finais de serviço). 
+É recomendável que você localize o endereço IP de saída de qualquer aplicativo ou serviço e permita explicitamente o acesso a esses endereços IP ou intervalos individuais. Por exemplo, você pode encontrar o endereço IP de saída de um serviço de Azure App ou usar um IP público vinculado a uma máquina virtual ou outro recurso (consulte abaixo para obter informações sobre como se conectar com o IP privado de uma máquina virtual nos pontos de extremidade de serviço). 
 
-Se um endereço IP de saída fixa não estiver disponível para o serviço Do Azure, você poderá considerar a habilitação de conexões de todos os endereços IP do data center do Azure. Essa configuração pode ser ativada a partir do portal Azure, definindo a opção **Permitir acesso aos serviços do Azure** para **ON** a partir do painel de **segurança Conexão** e bater **em Salvar**. A partir do Azure CLI, uma configuração de regra de firewall com endereço de partida e final igual a 0.0.0.0 faz o equivalente. Se a tentativa de conexão não for permitida, a solicitação não alcançará o servidor de Banco de Dados do Azure para MariaDB.
+Se um endereço IP de saída fixo não estiver disponível para seu serviço do Azure, você poderá considerar a possibilidade de habilitar conexões de todos os endereços IP do datacenter do Azure. Essa configuração pode ser habilitada no portal do Azure definindo a opção **permitir acesso aos serviços do Azure** como **ativado** no painel **segurança de conexão** e ao pressionar **salvar**. No CLI do Azure, uma configuração de regra de firewall com endereço inicial e final igual a 0.0.0.0 faz o equivalente. Se a tentativa de conexão não for permitida, a solicitação não alcançará o servidor de Banco de Dados do Azure para MariaDB.
 
 > [!IMPORTANT]
-> A opção **Permitir acesso aos serviços do Azure** configura o firewall para permitir todas as conexões do Azure, incluindo conexões das assinaturas de outros clientes. Ao selecionar essa opção, verifique se as permissões de logon e de usuário limitam o acesso somente a usuários autorizados.
+> A opção **permitir acesso aos serviços do Azure** configura o firewall para permitir todas as conexões do Azure, incluindo conexões das assinaturas de outros clientes. Ao selecionar essa opção, verifique se as permissões de logon e de usuário limitam o acesso somente a usuários autorizados.
 > 
 
 ![Configurar Permitir o acesso aos serviços do Azure](./media/concepts-firewall-rules/allow-azure-services.png)
 
-### <a name="connecting-from-a-vnet"></a>Conectando-se a partir de um VNet
-Para se conectar com segurança ao seu banco de dados Azure para servidor MariaDB a partir de um VNet, considere usar [os pontos finais do serviço VNet](./concepts-data-access-security-vnet.md). 
+### <a name="connecting-from-a-vnet"></a>Conectando de uma VNet
+Para se conectar com segurança ao banco de dados do Azure para MariaDB Server de uma VNet, considere o uso de [pontos de extremidade de serviço de VNet](./concepts-data-access-security-vnet.md). 
 
 ## <a name="programmatically-managing-firewall-rules"></a>Gerenciando programaticamente as regras de firewall
 Além do Portal do Azure, as regras de firewall podem ser gerenciadas por meio de programação usando a CLI do Azure. 
 
-Consulte também [Criar e gerenciar o Banco de Dados Azure para regras de firewall Do MariaDB usando o Azure CLI](./howto-manage-firewall-cli.md).
+Consulte também [criar e gerenciar as regras de firewall do banco de dados do Azure para MariaDB usando CLI do Azure](./howto-manage-firewall-cli.md).
 
-## <a name="troubleshooting-firewall-issues"></a>Problemas de firewall para solução de problemas
+## <a name="troubleshooting-firewall-issues"></a>Solucionando problemas de firewall
 Considere os seguintes pontos quando o acesso ao serviço do servidor de Banco de Dados do Microsoft Azure para MariaDB não se comportar conforme o esperado:
 
 * **As alterações à lista de permissões ainda não entraram em vigor:** pode ocorrer um atraso de cinco minutos para que as alterações na configuração do firewall do servidor de Banco de Dados do Azure para MariaDB entrem em vigor.
@@ -66,9 +66,9 @@ Considere os seguintes pontos quando o acesso ao serviço do servidor de Banco d
 
    * Obtenha o endereçamento IP estático para os computadores cliente e, em seguida, adicione os endereços IP como regras de firewall.
 
-* **O IP do servidor parece ser público:** As conexões com o banco de dados Azure para servidor MariaDB são roteadas através de um gateway Azure acessível ao público. No entanto, o IP do servidor real é protegido pelo firewall. Para obter mais informações, visite o [artigo de arquitetura de conectividade](concepts-connectivity-architecture.md). 
+* O **IP do servidor parece ser público:** As conexões com o banco de dados do Azure para o servidor MariaDB são roteadas por meio de um gateway do Azure acessível publicamente. No entanto, o IP do servidor real é protegido pelo firewall. Para obter mais informações, visite o [artigo arquitetura de conectividade](concepts-connectivity-architecture.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MariaDB usando o portal do Azure](./howto-manage-firewall-portal.md)
 - [Criar e gerenciar regras de firewall do Banco de Dados do Azure para MariaDB usando a CLI do Azure](./howto-manage-firewall-cli.md)
-- [Pontos finais de serviço da VNet no Banco de Dados Azure para MariaDB](./concepts-data-access-security-vnet.md)
+- [Pontos de extremidade de serviço de VNet no banco de dados do Azure para MariaDB](./concepts-data-access-security-vnet.md)

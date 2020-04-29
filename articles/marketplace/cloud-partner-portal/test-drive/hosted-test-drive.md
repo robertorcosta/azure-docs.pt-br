@@ -1,5 +1,5 @@
 ---
-title: Test Drive hospedado | Mercado Azure
+title: Unidade de teste hospedada | Azure Marketplace
 description: Como configurar um manter um test drive hospedado do Marketplace
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: 6d054064e236e121e02bf58a0eb73b5a62f24a09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278256"
 ---
 # <a name="hosted-test-drive"></a>Test drive hospedado
@@ -41,12 +41,12 @@ Forneça os seguintes campos na seção \'Configurações Técnicas\':
 - **Tipo de test drive**: escolha a opção \'Hospedado pela Microsoft (exemplo do Dynamics 365 for Customer Engagement)'. Isso indica que a Microsoft hospedará e manterá o serviço que executa o provisionamento e o desprovisionamento de usuários do test drive.
 - **Máximo de test drives simultâneos**: defina esse campo como o número de usuários simultâneos que podem ter um test drive ativo em qualquer determinado momento. Cada usuário consumirá uma licença do Dynamics enquanto seu test drive estiver ativo, portanto, verifique se você tem pelo menos esse número de licenças do Dynamics disponíveis para usuários do test drive. O valor recomendado é de 3 a 5.
 - **Duração do test drive (horas)**: defina esse campo como o número de horas em que o test drive dos usuários ficará ativo. Depois desse número de horas, o usuário será desprovisionado do locatário. O valor recomendado é de 2 a 24 horas, dependendo da complexidade do aplicativo. O usuário sempre poderá solicitar outro test drive quando atingir o tempo limite e desejar acessar o test drive novamente.
-- **URL da instância**: forneça uma URL para a qual o usuário do test drive navegará inicialmente quando os usuários iniciarem o test drive. Normalmente, essa é a URL da instância do Dynamics 365 que contém o aplicativo e os dados de exemplo instalados. Valor do exemplo: https:\//testdrive.crm.dynamics.com
+- **URL da instância**: forneça uma URL para a qual o usuário do test drive navegará inicialmente quando os usuários iniciarem o test drive. Normalmente, essa é a URL da instância do Dynamics 365 que contém o aplicativo e os dados de exemplo instalados. Valor de exemplo: https\/:/testdrive.CRM.Dynamics.com
 - **ID do locatário do Azure AD**: forneça a ID do locatário do Azure para sua instância do Dynamics 365. Para recuperar esse valor, faça logon no portal do Azure e navegue até o \'Azure Active Directory\' -\> Selecione Propriedades na folha de menu −\> Copiar a ID do Diretório. Valor de exemplo: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **ID do Azure AD**: ID do Aplicativo Azure AD criado na etapa 7.\ Valor de exemplo: 53852862-a2ae-4e43-9461-faa49650a096
 - **Chave do Aplicativo Azure AD**: segredo da Chave do Aplicativo Azure AD criado na etapa 7.\ Valor de exemplo: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Nome do Locatário do Azure AD**: forneça o nome do locatário do Azure para sua instância do Dynamics 365. Use o formato \<tenantname.\>onmicrosoft.com. Valor de exemplo: testdrive.onmicrosoft.com
-- **URL da API Web da instância**: forneça a URL da API Web da sua instância do Dynamics 365. Você pode recuperar esse valor ao fazer logon na instância do Microsoft Dynamics 365 e navegar para Configuração –\> Personalização –\> Recursos para Desenvolvedores –\> API Web da Instância (copie esta URL). Exemplo de valor: https:\//testdrive.crm.dynamics.com/api/data/v9.0
+- **URL da API Web da instância**: forneça a URL da API Web da sua instância do Dynamics 365. Você pode recuperar esse valor ao fazer logon na instância do Microsoft Dynamics 365 e navegar para Configuração –\> Personalização –\> Recursos para Desenvolvedores –\> API Web da Instância (copie esta URL). Valor de exemplo: https\/:/testdrive.CRM.Dynamics.com/API/data/v9.0
 - **Nome da função**: forneça o nome da função de segurança do Dynamics 365 personalizado criado para o test drive. Essa é a função que será atribuída aos usuários durante o test drive. Valor de exemplo: testdriverole
 
 ## <a name="next-steps"></a>Próximas etapas

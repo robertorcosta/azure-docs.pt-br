@@ -1,6 +1,6 @@
 ---
-title: Criar e gerenciar atribuições de função - Azure Digital Twins | Microsoft Docs
-description: Aprenda a criar e gerenciar tarefas de função dentro do Azure Digital Twins.
+title: Criar e gerenciar atribuições de função – gêmeos digital do Azure | Microsoft Docs
+description: Saiba mais sobre como criar e gerenciar atribuições de função no Azure digital gêmeos.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1c83ca0abfd17db873bec62f0a0d052703862a45
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77110414"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função nos Gêmeos Digitais do Azure
@@ -36,13 +36,13 @@ Cada atribuição de função está em conformidade com a seguinte definição:
 
 A tabela abaixo descreve cada atributo:
 
-| Atributo | Nome | Obrigatório | Type | Descrição |
+| Atributo | Name | Obrigatório | Type | Descrição |
 | --- | --- | --- | --- | --- |
 | roleId | Identificador de definição de função | Sim | String | A ID exclusiva da atribuição de função desejada. Encontre definições de funções e seus identificadores consultando a API do Sistema ou examinando a tabela abaixo. |
 | objectId | Identificador de objeto | Sim | String | Uma ID do Azure Active Directory, ID de objeto de entidade de serviço ou nome de domínio. Para o que atribuições de função é atribuída. A atribuição de função precisa ser formatada de acordo com seu tipo associado. Para o ObjectIdType `DomainName`, ObjectId precisa começar com o caractere `“@”`. |
 | objectIdType | Tipo de identificador de objeto | Sim | String | O tipo de identificador de Objeto usado. Consulte **ObjectIdTypes com suporte** abaixo. |
-| caminho | Caminho de espaço | Sim | String | O caminho de acesso completo para o objeto `Space`. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para todo o gráfico, especifique `"/"`. Esse caractere designa a raiz, mas seu uso é desencorajado. Sempre siga o princípio de privilégios mínimos. |
-| tenantId | Identificador de locatário | Varia | String | Na maioria dos casos, uma ID de locatário do Azure Active Directory. Não permitido para ObjectIdTypes `DeviceId` e `TenantId`. Obrigatório para ObjectIdTypes `UserId` e `ServicePrincipalId`. Opcional para o ObjectIdType DomainName. |
+| path | Caminho de espaço | Sim | String | O caminho de acesso completo para o objeto `Space`. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para todo o gráfico, especifique `"/"`. Esse caractere designa a raiz, mas seu uso é desencorajado. Sempre siga o princípio de privilégios mínimos. |
+| tenantId | Identificador de locatário | Varia | Cadeia de caracteres | Na maioria dos casos, uma ID de locatário do Azure Active Directory. Não permitido para ObjectIdTypes `DeviceId` e `TenantId`. Obrigatório para ObjectIdTypes `UserId` e `ServicePrincipalId`. Opcional para o ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores de definição de função com suporte
 
@@ -72,20 +72,20 @@ A documentação de referência do Swagger fornecida contém informações adici
 
 Conceder permissões à entidade de serviço geralmente é uma das primeiras etapas que você usará ao trabalhar com os Gêmeos Digitais do Azure. Isso envolve:
 
-1. Faça login na sua instância do Azure através [do Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou [PowerShell](https://docs.microsoft.com/powershell/azure/).
+1. Fazer logon em sua instância do Azure por meio do [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou do [PowerShell](https://docs.microsoft.com/powershell/azure/).
 1. Adquirir informações da sua entidade de serviço.
 1. Atribuir a função desejada para sua entidade de serviço.
 
 Sua ID de aplicativo é fornecida no Azure Active Directory. Para saber mais informações sobre como configurar e provisionar um Gêmeos Digitais do Azure no Active Directory, leia o [Início Rápido](./quickstart-view-occupancy-dotnet.md).
 
-Depois de ter o ID do aplicativo, execute um dos seguintes comandos. Na CLI do Azure:
+Depois de ter a ID do aplicativo, execute um dos comandos a seguir. Em CLI do Azure:
 
 ```azurecli
 az login
 az ad sp show --id <ApplicationId>
 ```
 
-No Powershell:
+No PowerShell:
 
 ```powershell
 Login-AzAccount
@@ -161,12 +161,12 @@ Para verificar uma atribuição de função específica, faça uma solicitação
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **Valor do parâmetro** | **Obrigatório** |  **Tipo** |  **Descrição** |
+| **Valor do parâmetro** | **Necessária** |  **Tipo** |  **Descrição** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | String |   A objectId para o UserId objectIdType. |
-| YOUR_PATH | True | String |   O caminho escolhido para verificar o acesso. |
-| YOUR_ACCESS_TYPE |  True | String |   *Ler,* *Criar,* *Atualizar*ou *Excluir* |
-| YOUR_RESOURCE_TYPE | True | String |  *Dispositivo*, *DispositivoBlobMetadados,* *DispositivoExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore*, *Matcher*, *Ontology*, *Relatório*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*, * UerDefinedFunction*, *User,* *UserBlobMetadata*ou *UserExtendedProperty* |
+| YOUR_USER_ID |  verdadeiro | Cadeia de caracteres |   A objectId para o UserId objectIdType. |
+| YOUR_PATH | verdadeiro | Cadeia de caracteres |   O caminho escolhido para verificar o acesso. |
+| YOUR_ACCESS_TYPE |  verdadeiro | Cadeia de caracteres |   *Ler*, *criar*, *Atualizar*ou *excluir* |
+| YOUR_RESOURCE_TYPE | verdadeiro | Cadeia de caracteres |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *extendetype*, *ponto de extremidade*, *keystore*, *correspondência*, *ontologia*, *relatório*, *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema*, *UerDefinedFunction*, *usuário*, *UserBlobMetadata*ou *userestendiproperty* |
 
 Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho especificado e o recurso determinado.
 
@@ -240,7 +240,7 @@ Uma solicitação com êxito retornará um status de resposta 201 juntamente com
 
 Os exemplos a seguir demonstram como configurar o corpo JSON em vários cenários de atribuição de função comumente encontrados.
 
-* **Exemplo**: Um usuário precisa de acesso administrativo a um piso de um espaço inquilino.
+* **Exemplo**: um usuário precisa de acesso administrativo a um andar de um espaço de locatário.
 
    ```JSON
    {
@@ -252,7 +252,7 @@ Os exemplos a seguir demonstram como configurar o corpo JSON em vários cenário
    }
    ```
 
-* **Exemplo**: Um aplicativo executa cenários de teste zombando de dispositivos e sensores.
+* **Exemplo**: um aplicativo executa dispositivos de simulação de cenários de teste e sensores.
 
    ```JSON
    {
@@ -264,7 +264,7 @@ Os exemplos a seguir demonstram como configurar o corpo JSON em vários cenário
    }
     ```
 
-* **Exemplo**: Todos os usuários que fazem parte de um domínio recebem acesso de leitura para espaços, sensores e usuários. Esse acesso inclui seus objetos relacionados correspondentes.
+* **Exemplo**: todos os usuários que fazem parte de um domínio recebem acesso de leitura para espaços, sensores e usuários. Esse acesso inclui seus objetos relacionados correspondentes.
 
    ```JSON
    {

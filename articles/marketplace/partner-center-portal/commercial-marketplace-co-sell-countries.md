@@ -1,6 +1,6 @@
 ---
-title: Co-venda de códigos de país e região | Mercado Azure
-description: Use esses códigos de duas letras de país/região ao fornecer informações de contato na página de co-venda da sua oferta.
+title: Co-vender códigos de país e região | Azure Marketplace
+description: Use esses códigos de país/região de duas letras ao fornecer informações de contato na página de venda de sua oferta.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,33 +8,33 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80277049"
 ---
-# <a name="co-sell-country-and-region-codes"></a>Co-venda códigos de país e região
+# <a name="co-sell-country-and-region-codes"></a>Co-vender códigos de país e região
 
-Use esses códigos de duas letras de país/região ao fornecer informações de [contato na página de co-venda da sua oferta](commercial-marketplace-co-sell.md).
+Use esses códigos de país/região de duas letras ao [fornecer informações de contato na página de venda de sua oferta](commercial-marketplace-co-sell.md).
 
-Se o contato cobrir todos os Países/Regiões, use o código de três letras "OOO".
+Se o contato abranger todos os países/regiões, use o código de três letras "OOO".
 
-Se um contato cobrir mais de um país/região, digite cada um dos dois códigos de letra separados por uma comma (por exemplo, digite "US, CA, FR" sem aspas).
+Se um contato abranger mais de um país/região, insira cada um dos dois códigos de letra separados por uma vírgula (por exemplo, digite "US, CA, FR" sem aspas).
 
-## <a name="countryregion-table"></a>Tabela país/região
+## <a name="countryregion-table"></a>Tabela de país/região
 
-|   Nome país/região               |   ISO-2   |
+|   Nome do país/região               |   ISO-2   |
 |-------------------------------------|-----------|
-| Contatos globais                     | Ooo       |
+| Contatos globais                     | OOO       |
 | Afeganistão                         | AF        |
-| Ilhas Aland                       | Machado        |
+| Ilhas Aland                       | AX        |
 | Albânia                             | AL        |
 | Argélia                             | DZ        |
 | Samoa Americana                      | AS        |
 | Andorra                             | AD        |
 | Angola                              | AO        |
-| Antártica                          | AQ        |
+| Antártida                          | AQ        |
 | Antígua e Barbuda                 | AG        |
 | Argentina                           | AR        |
 | Armênia                             | AM        |
@@ -53,7 +53,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Bermudas                             | BM        |
 | Butão                              | BT        |
 | Bolívia                             | BO        |
-| Bonaire                             | Bq        |
+| Bonaire                             | BQ        |
 | Bósnia e Herzegovina              | BA        |
 | Botsuana                            | BW        |
 | Ilha Bouvet                       | BV        |
@@ -62,7 +62,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Ilhas Virgens Britânicas              | VG        |
 | Brunei                              | BN        |
 | Bulgária                            | BG        |
-| Burkina Faso                        | BF        |
+| Burquina Faso                        | BF        |
 | Burundi                             | BI        |
 | Cabo Verde                          | CV        |
 | Camboja                            | KH        |
@@ -70,7 +70,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Canada                              | CA        |
 | Ilhas Cayman                      | KY        |
 | República Centro-Africana            | CF        |
-| Chad                                | TD        |
+| Chade                                | TD        |
 | Tchéquia                             | CZ        |
 | Chile                               | CL        |
 | China                               | CN        |
@@ -79,13 +79,13 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Colômbia                            | CO        |
 | Ilhas Comores                             | KM        |
 | Congo                               | CG        |
-| Congo (RDC)                         | CD        |
+| Congo (República Democrática)                         | CD        |
 | Ilhas Cook                        | CK        |
 | Costa Rica                          | CR        |
 | Côte d’Ivoire                       | CI        |
 | Croácia                             | HR        |
 | Cuba                                | CU        |
-| Curaçao                             | Cw        |
+| Curaçao                             | PESO        |
 | Chipre                              | CY        |
 | Dinamarca                             | DK        |
 | Djibuti                            | DJ        |
@@ -105,7 +105,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | França                              | FR        |
 | Guiana Francesa                       | GF        |
 | Polinésia Francesa                    | PF        |
-| Territórios Franceses do Sul         | TF        |
+| Territórios Austrais Franceses         | TF        |
 | Gabão                               | GA        |
 | Gâmbia                              | GM        |
 | Geórgia                             | GE        |
@@ -118,7 +118,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Guadalupe                          | GP        |
 | Guam                                | GU        |
 | Guatemala                           | GT        |
-| Guernesey                            | GG        |
+| Guernsey                            | GG        |
 | Guiné                              | GN        |
 | Guiné-Bissau                       | GW        |
 | Guiana                              | GY        |
@@ -135,7 +135,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Irlanda                             | IE        |
 | Ilha de Man                         | IM        |
 | Israel                              | IL        |
-| Itália                               | IT        |
+| Itália                               | TI        |
 | Jamaica                             | JM        |
 | Japão                               | JP        |
 | Jersey                              | JE        |
@@ -143,7 +143,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Cazaquistão                          | KZ        |
 | Quênia                               | KE        |
 | Kiribati                            | KI        |
-| Coreia do Sul                       | KR        |
+| Coreia (Sul)                       | KR        |
 | Kuwait                              | KW        |
 | Quirguistão                          | KG        |
 | Laos                                | LA        |
@@ -160,7 +160,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Malaui                              | MW        |
 | Malásia                            | MY        |
 | Maldivas                            | MV        |
-| Mali                                | ML        |
+| Máli                                | ML        |
 | Malta                               | MT        |
 | Ilhas Marshall                    | MH        |
 | Martinica                          | MQ        |
@@ -197,11 +197,11 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Palau                               | PW        |
 | Autoridade Palestina               | PS        |
 | Panamá                              | PA        |
-| Papua-Nova Guiné                    | PG        |
+| Papua Nova-Guiné                    | PG        |
 | Paraguai                            | PY        |
 | Peru                                | PE        |
 | Filipinas                         | PH        |
-| Ilhas Pitcairn                    | Pn        |
+| Ilhas Pitcairn                    | NP        |
 | Polônia                              | PL        |
 | Portugal                            | PT        |
 | Porto Rico                         | PR        |
@@ -213,29 +213,29 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | São Bartolomeu                    | BL        |
 | São Cristóvão e Névis               | KN        |
 | Santa Lúcia                         | LC        |
-| Saint Martin                        | Mf        |
-| São Pierre e Miquelon           | PM        |
-| São Vincent e Granadinas    | VC        |
+| Saint Martin                        | MF        |
+| São Pedro e Miquelon           | PM        |
+| São Vicente e Granadinas    | VC        |
 | Samoa                               | WS        |
 | San Marino                          | SM        |
-| São Tomé e Príncipe               | ST        |
+| São Tomé and Príncipe               | ST        |
 | Arábia Saudita                        | SA        |
 | Senegal                             | SN        |
 | Sérvia                              | RS        |
-| Seychelles                          | SC        |
+| Seicheles                          | SC        |
 | Serra Leoa                        | SL        |
 | Singapura                           | SG        |
-| Sint Maarten                        | Sx        |
+| Sint Maarten                        | SX        |
 | Eslováquia                            | SK        |
 | Eslovênia                            | SI        |
 | Ilhas Salomão                     | SB        |
 | Somália                             | SO        |
 | África do Sul                        | ZA        |
-| Ilhas sanduíche da Geórgia do Sul e do Sul | GS    |
+| Ilhas Geórgia do Sul e Sandwich do Sul | GS    |
 | Sudão do Sul                         | SS        |
 | Espanha                               | ES        |
 | Sri Lanka                           | LK        |
-| Santa Helena, Ascensão, Tristão da Cunha | SH     |
+| Santa Helena, Ascensão e Tristão da Cunha | SH     |
 | Sudão                               | SD        |
 | Suriname                            | SR        |
 | Svalbard                            | SJ        |
@@ -249,7 +249,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | Timor-Leste                         | TL        |
 | Togo                                | TG        |
 | Tokelau                             | TK        |
-| Tonganês                               | TO        |
+| Tonga                               | TO        |
 | Trinidad e Tobago                 | TT        |
 | Tunísia                             | TN        |
 | Turquia                              | TR        |
@@ -262,7 +262,7 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 | United Kingdom                      | GB        |
 | Estados Unidos                       | EUA        |
 | Uruguai                             | UY        |
-| Ilhas Periféricas dos EUA               | UM        |
+| Territórios Insulares Ilhas Menores Distantes dos EUA               | UM        |
 | Ilhas Virgens dos Estados Unidos                 | VI        |
 | Uzbequistão                          | UZ        |
 | Vanuatu                             | VU        |
@@ -277,4 +277,4 @@ Se um contato cobrir mais de um país/região, digite cada um dos dois códigos 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Conheça a [opção de co-venda no Partner Center](./commercial-marketplace-co-sell.md).
+- Saiba mais sobre a [opção de venda conjunta no Partner Center](./commercial-marketplace-co-sell.md).

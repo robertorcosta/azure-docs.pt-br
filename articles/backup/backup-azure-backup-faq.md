@@ -4,10 +4,10 @@ description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80156048"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
@@ -22,7 +22,7 @@ Sim. Crie até 500 cofres dos Serviços de Recuperação por região com suporte
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Há limites para o número de servidores/computadores que podem ser registrados em cada cofre?
 
-Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se você estiver usando o Microsoft Azure Backup Agent, você pode registrar até 50 agentes MARS por cofre. E você pode registrar 50 servidores MABS/Servidores DPM em um cofre.
+Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se você estiver usando o agente de Backup do Microsoft Azure, poderá registrar até 50 agentes MARS por cofre. E você pode registrar 50 servidores MABS/servidores DPM em um cofre.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quantos itens/fontes de dados podem ser protegidos em um cofre?
 
@@ -75,14 +75,14 @@ Sim.
 
 O Backup do Azure dá suporte a esses sistemas operacionais para backup de arquivos e pastas, além de aplicativos protegidos usando o Servidor de Backup do Azure e o DPM.
 
-**OS** | **Sku** | **Detalhes**
+**SISTEMAS** | **SKU** | **Detalhes**
 --- | --- | ---
-Estação de trabalho | |
+Estação de Trabalho | |
 Windows 10 de 64 bits | Enterprise, Pro, Home | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 8.1 de 64 bits | Enterprise, Pro | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 8 de 64 bits | Enterprise, Pro | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
-Servidor | |
+Server (Servidor) | |
 Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
@@ -123,7 +123,7 @@ Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Há um limite na quantidade de dados de backup em um cofre dos Serviços de Recuperação?
 
-Não há limite para a quantidade total de dados que você pode fazer backup usando um cofre dos Serviços de Recuperação. As fontes de dados individuais (além das VMs do Azure), podem ter um tamanho máximo de 54.400 GB. Para obter mais informações sobre limites, consulte a [seção limites](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support)do cofre na matriz de suporte .
+Não há nenhum limite na quantidade total de dados que você pode fazer backup usando um cofre dos serviços de recuperação. As fontes de dados individuais (que não sejam as VMs do Azure) podem ter no máximo 54.400 GB de tamanho. Para obter mais informações sobre limites, consulte a [seção limites de cofre na matriz de suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados selecionados para backup?
 

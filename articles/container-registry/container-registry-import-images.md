@@ -4,10 +4,10 @@ description: Importe imagens de contêiner para um registro de contêiner do Azu
 ms.topic: article
 ms.date: 03/16/2020
 ms.openlocfilehash: caf7a47ac8f7ff0e72d2e049a7013542d274a225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80051915"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contêiner para um registro de contêiner
@@ -24,19 +24,19 @@ O Registro de Contêiner do Azure lida com inúmeros cenários comuns para copia
 
 A importação de imagem para um registro de contêiner do Azure tem os seguintes benefícios em relação ao uso de comandos da CLI do Docker:
 
-* Como o ambiente do cliente não precisa de uma instalação local do Docker, importe qualquer imagem do contêiner, independentemente do tipo de Sistema Operacional suportado.
+* Como seu ambiente de cliente não precisa de uma instalação local do Docker, importe qualquer imagem de contêiner, independentemente do tipo de sistema operacional com suporte.
 
 * Quando você importa imagens de várias arquiteturas (como imagens oficiais do Docker), são copiadas as imagens de todas as arquiteturas e plataformas especificadas na lista de manifesto.
 
-Para importar imagens de contêiner, este artigo requer que você execute a CLI do Azure no Azure Cloud Shell ou localmente (versão 2.0.55 ou posterior recomendada). Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [Install Azure CLI][azure-cli].
+Para importar imagens de contêiner, este artigo requer que você execute a CLI do Azure no Azure Cloud Shell ou localmente (versão 2.0.55 ou posterior recomendada). Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli].
 
 > [!NOTE]
-> Se for necessário distribuir imagens de contêiner idênticas em várias regiões do Azure, o Registro de Contêiner do Azure também suporta a [replicação geográfica](container-registry-geo-replication.md). Ao replicar geo-replicação de um registro (nível de serviço Premium necessário), você pode servir várias regiões com nomes idênticos de imagem e marcação a partir de um único registro.
+> Se for necessário distribuir imagens de contêiner idênticas em várias regiões do Azure, o Registro de Contêiner do Azure também suporta a [replicação geográfica](container-registry-geo-replication.md). Ao replicar geograficamente um registro (camada de serviço Premium necessária), você pode atender a várias regiões com nomes de imagem e marca idênticos de um único registro.
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não tiver um registro de contêiner do Azure, crie um. Para etapas, consulte [Quickstart: Crie um registro de contêiner privado usando o Azure CLI](container-registry-get-started-azure-cli.md).
+Se você ainda não tiver um registro de contêiner do Azure, crie um. Para obter as etapas, consulte [início rápido: criar um registro de contêiner privado usando o CLI do Azure](container-registry-get-started-azure-cli.md).
 
 Para importar uma imagem para um registro de contêiner do Azure, sua identidade deve ter permissões de gravação no registro de destino (no mínimo a função de Colaborador). Confira [Funções e permissões do Registro de Contêiner do Azure](container-registry-roles.md). 
 
@@ -110,7 +110,7 @@ az acr import \
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>Importar um registro de uma assinatura diferente
 
-No exemplo a seguir, *mysourceregistry* está em uma assinatura diferente de *myregistry* no mesmo locatário do Active Directory. Forneça a ID de recurso do registro de fonte com o parâmetro `--registry`. Observe que `--source` o parâmetro especifica apenas o repositório de origem e a tag, não o nome do servidor de login do registro.
+No exemplo a seguir, *mysourceregistry* está em uma assinatura diferente de *myregistry* no mesmo locatário do Active Directory. Forneça a ID de recurso do registro de fonte com o parâmetro `--registry`. Observe que o `--source` parâmetro especifica apenas o repositório de origem e a marca, não o nome do servidor de logon do registro.
 
 ```azurecli
 az acr import \

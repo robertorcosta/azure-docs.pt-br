@@ -1,6 +1,6 @@
 ---
-title: 'Inquilino do Azure AD para conexões VPN do usuário: autenticação Azure AD'
-description: Você pode usar o Azure Virtual WAN User VPN (ponto a ponto) para se conectar à sua VNet usando a autenticação Azure AD
+title: 'Locatário do Azure AD para conexões VPN de usuário: autenticação do Azure AD'
+description: Você pode usar a VPN do usuário da WAN virtual do Azure (ponto a site) para se conectar à sua VNet usando a autenticação do Azure AD
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: anzaman
@@ -9,51 +9,51 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: alzam
 ms.openlocfilehash: 74347ce969b6a5ffd57f5ca8396517e78590f3f2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80059451"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Crie um inquilino do Azure Active Directory para conexões de protocolo Do usuário VPN OpenVPN
+# <a name="create-an-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Criar um locatário Azure Active Directory para conexões de protocolo VPN do usuário OpenVPN
 
-Ao se conectar ao seu VNet, você pode usar autenticação baseada em certificados ou autenticação RADIUS. No entanto, quando você usa o protocolo Open VPN, você também pode usar a autenticação do Azure Active Directory. Este artigo ajuda você a configurar um inquilino Azure AD para autenticação VPN aberta do usuário WAN Virtual (ponto a ponto).
+Ao conectar-se à sua VNet, você pode usar a autenticação baseada em certificado ou a autenticação RADIUS. No entanto, ao usar o protocolo VPN aberto, você também pode usar a autenticação Azure Active Directory. Este artigo ajuda você a configurar um locatário do Azure AD para autenticação VPN de VPN de usuário de WAN virtual (ponto a site).
 
 > [!NOTE]
-> A autenticação Azure AD é&reg; suportada apenas para conexões de protocolo OpenVPN.
+> A autenticação do Azure AD tem suporte apenas&reg; para conexões de protocolo OpenVPN.
 >
 
-## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Crie o inquilino Azure AD
+## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. criar o locatário do Azure AD
 
-Criar um inquilino Azure AD usando as etapas do Criar um novo artigo [de inquilino:](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+Crie um locatário do Azure AD usando as etapas no artigo [criar um novo locatário](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
 * Nome organizacional
 * Nome de domínio inicial
 
 Exemplo:
 
-   ![Novo inquilino azure AD](./media/openvpn-create-azure-ad-tenant/newtenant.png)
+   ![Novo locatário do Azure AD](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
-## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. Crie usuários inquilinos do Azure AD
+## <a name="2-create-azure-ad-tenant-users"></a><a name="users"></a>2. criar usuários de locatário do Azure AD
 
-Em seguida, crie duas contas de usuário. Crie uma conta de administração global e uma conta de usuário mestre. A conta de usuário mestre é usada como sua conta de incorporação mestre (conta de serviço). Quando você cria uma conta de usuário de inquilino Azure AD, você ajusta a função Diretório para o tipo de usuário que deseja criar.
+Em seguida, crie duas contas de usuário. Crie uma conta de administrador global e uma conta de usuário mestre. A conta de usuário mestre é usada como sua conta de incorporação mestre (conta de serviço). Ao criar uma conta de usuário de locatário do Azure AD, você ajusta a função de diretório para o tipo de usuário que deseja criar.
 
-Use as etapas [deste artigo](../active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois usuários para o seu inquilino Azure AD. Certifique-se de alterar a **função diretório** para criar os tipos de conta:
+Use as etapas neste [artigo](../active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois usuários para seu locatário do Azure AD. Certifique-se de alterar a **função de diretório** para criar os tipos de conta:
 
 * Administrador global
 * Usuário
 
-## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. Habilite a autenticação do Azure AD no gateway VPN
+## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. habilitar a autenticação do Azure AD no gateway de VPN
 
-1. Localize o ID do diretório do diretório que você deseja usar para autenticação. Ele está listado na seção propriedades da página Active Directory.
+1. Localize a ID de diretório do diretório que você deseja usar para autenticação. Ele é listado na seção Propriedades da página Active Directory.
 
     ![ID do Diretório](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Copie a ID de diretório.
 
-3. Faça login no portal Azure como um usuário que é atribuído à função **de administrador** Global.
+3. Entre no portal do Azure como um usuário que é atribuído à função de **administrador global** .
 
-4. Em seguida, dê o consentimento do governo. Copie e cole a URL que pertence à sua localização de implantação na barra de endereços do seu navegador:
+4. Em seguida, dê consentimento ao administrador. Copie e cole a URL que pertence ao seu local de implantação na barra de endereços do seu navegador:
 
     Público
 
@@ -79,20 +79,20 @@ Use as etapas [deste artigo](../active-directory/fundamentals/add-users-azure-ac
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
-5. Selecione a conta **do Global Admin** se solicitado.
+5. Selecione a conta de **administrador global** , se solicitado.
 
     ![ID do Diretório](./media/openvpn-create-azure-ad-tenant/pick.png)
 
-6. Selecione **Aceitar** quando solicitado.
+6. Selecione **aceitar** quando solicitado.
 
     ![Aceitar](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
-7. Em seu Azure AD, em **aplicativos Corporativos,** você verá **o Azure VPN** listado.
+7. Em seu Azure AD, em **aplicativos empresariais**, você vê a **VPN do Azure** listada.
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![VPN do Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 
-8. Configure a autenticação Azure AD para VPN do usuário e atribua-a a um Hub Virtual seguindo as etapas de [autenticação Configure Azure AD para conexão Point-to-Site ao Azure](virtual-wan-point-to-site-azure-ad.md)
+8. Configure a autenticação do Azure AD para VPN de usuário e atribua-a a um hub virtual seguindo as etapas em [Configurar a autenticação do Azure ad para conexão ponto a site com o Azure](virtual-wan-point-to-site-azure-ad.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para se conectar à sua rede virtual, você deve criar e configurar um perfil de cliente VPN e associá-lo a um Hub Virtual. Consulte [Configurar a autenticação Azure AD para conexão point-to-site com o Azure](virtual-wan-point-to-site-azure-ad.md).
+Para se conectar à sua rede virtual, você deve criar e configurar um perfil de cliente VPN e associá-lo a um hub virtual. Consulte [Configurar a autenticação do Azure ad para a conexão ponto a site com o Azure](virtual-wan-point-to-site-azure-ad.md).

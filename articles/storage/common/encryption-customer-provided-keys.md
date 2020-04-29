@@ -1,7 +1,7 @@
 ---
-title: Forneça uma chave de criptografia em uma solicitação de armazenamento Blob
+title: Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs
 titleSuffix: Azure Storage
-description: Os clientes que fazem solicitações contra o armazenamento Azure Blob têm a opção de fornecer uma chave de criptografia por solicitação (visualização). A inclusão da chave de criptografia na solicitação fornece controle granular sobre as configurações de criptografia para operações de armazenamento Blob.
+description: Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia por solicitação (versão prévia). Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,50 +11,50 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: c8a5555c5c33255fdc5902a115e7e9103a4e936f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79410058"
 ---
-# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Forneça uma chave de criptografia em uma solicitação de armazenamento Blob (visualização)
+# <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs (visualização)
 
-Os clientes que fazem solicitações contra o armazenamento Azure Blob têm a opção de fornecer uma chave de criptografia por solicitação (visualização). A inclusão da chave de criptografia na solicitação fornece controle granular sobre as configurações de criptografia para operações de armazenamento Blob. As chaves fornecidas pelo cliente podem ser armazenadas no Azure Key Vault ou em outra loja-chave.
+Os clientes que fazem solicitações no armazenamento de BLOBs do Azure têm a opção de fornecer uma chave de criptografia por solicitação (versão prévia). Incluir a chave de criptografia na solicitação fornece controle granular das configurações de criptografia para operações de armazenamento de BLOBs. As chaves fornecidas pelo cliente podem ser armazenadas em Azure Key Vault ou em outro repositório de chaves.
 
 ## <a name="encrypting-read-and-write-operations"></a>Criptografando operações de leitura e gravação
 
-Quando um aplicativo cliente fornece uma chave de criptografia na solicitação, o Azure Storage executa criptografia e descriptografia de forma transparente durante a leitura e escrita de dados blob. O Azure Storage grava um hash SHA-256 da chave de criptografia ao lado do conteúdo da bolha. O hash é usado para verificar se todas as operações subseqüentes contra a bolha usam a mesma chave de criptografia.
+Quando um aplicativo cliente fornece uma chave de criptografia na solicitação, o armazenamento do Azure executa criptografia e descriptografia de forma transparente ao ler e gravar dados de BLOB. O armazenamento do Azure grava um hash SHA-256 da chave de criptografia ao lado do conteúdo do blob. O hash é usado para verificar se todas as operações subsequentes no blob usam a mesma chave de criptografia.
 
-O Azure Storage não armazena ou gerencia a chave de criptografia que o cliente envia com a solicitação. A chave é descartada com segurança assim que o processo de criptografia ou descriptografia estiver concluído.
+O armazenamento do Azure não armazena ou gerencia a chave de criptografia que o cliente envia com a solicitação. A chave é descartada com segurança assim que o processo de criptografia ou descriptografia estiver concluído.
 
-Quando um cliente cria ou atualiza uma bolha usando uma chave fornecida pelo cliente na solicitação, as solicitações subsequentes de leitura e gravação para essa bolha também devem fornecer a chave. Se a chave não for fornecida em uma solicitação de uma bolha que já tenha sido criptografada com uma chave fornecida pelo cliente, a solicitação falhará com o código de erro 409 (Conflito).
+Quando um cliente cria ou atualiza um BLOB usando uma chave fornecida pelo cliente na solicitação, as solicitações de leitura e gravação subsequentes para esse blob também devem fornecer a chave. Se a chave não for fornecida em uma solicitação para um blob que já foi criptografado com uma chave fornecida pelo cliente, a solicitação falhará com o código de erro 409 (conflito).
 
-Se o aplicativo cliente enviar uma chave de criptografia na solicitação e a conta de armazenamento também for criptografada usando uma chave gerenciada pela Microsoft ou uma chave gerenciada pelo cliente, o Azure Storage usará a chave fornecida na solicitação de criptografia e descriptografia.
+Se o aplicativo cliente enviar uma chave de criptografia na solicitação e a conta de armazenamento também for criptografada usando uma chave gerenciada pela Microsoft ou uma chave gerenciada pelo cliente, o armazenamento do Azure usará a chave fornecida na solicitação de criptografia e descriptografia.
 
-Para enviar a chave de criptografia como parte da solicitação, um cliente deve estabelecer uma conexão segura ao Armazenamento Azure usando HTTPS.
+Para enviar a chave de criptografia como parte da solicitação, um cliente deve estabelecer uma conexão segura com o armazenamento do Azure usando HTTPS.
 
-Cada instantâneo blob pode ter sua própria chave de criptografia.
+Cada instantâneo de blob pode ter sua própria chave de criptografia.
 
-## <a name="request-headers-for-specifying-customer-provided-keys"></a>Solicitar cabeçalhos para especificar chaves fornecidas pelo cliente
+## <a name="request-headers-for-specifying-customer-provided-keys"></a>Cabeçalhos de solicitação para especificar chaves fornecidas pelo cliente
 
-Para chamadas REST, os clientes podem usar os seguintes cabeçalhos para passar com segurança informações de chave de criptografia em uma solicitação de armazenamento Blob:
+Para chamadas REST, os clientes podem usar os seguintes cabeçalhos para transmitir informações de chave de criptografia com segurança em uma solicitação para o armazenamento de BLOBs:
 
 |Cabeçalho da Solicitação | Descrição |
 |---------------|-------------|
-|`x-ms-encryption-key` |Necessário tanto para escrever como para ler solicitações. Um valor-chave de criptografia AES-256 codificado pela Base64. |
-|`x-ms-encryption-key-sha256`| Necessário tanto para escrever como para ler solicitações. O BASE64-codificado SHA256 da chave de criptografia. |
-|`x-ms-encryption-algorithm` | Necessário para solicitações de gravação, opcional para solicitações de leitura. Especifica o algoritmo a ser usado ao criptografar dados usando a tecla dada. Deve ser AES256. |
+|`x-ms-encryption-key` |Necessário para solicitações de gravação e leitura. Um valor de chave de criptografia AES-256 codificado na base64. |
+|`x-ms-encryption-key-sha256`| Necessário para solicitações de gravação e leitura. A SHA256 codificada em base64 da chave de criptografia. |
+|`x-ms-encryption-algorithm` | Necessário para solicitações de gravação, opcional para solicitações de leitura. Especifica o algoritmo a ser usado ao criptografar dados usando a chave especificada. Deve ser AES256. |
 
-A especificação das chaves de criptografia na solicitação é opcional. No entanto, se você especificar um dos cabeçalhos listados acima para uma operação de gravação, então você deve especificar todos eles.
+A especificação de chaves de criptografia na solicitação é opcional. No entanto, se você especificar um dos cabeçalhos listados acima para uma operação de gravação, deverá especificar todos eles.
 
-## <a name="blob-storage-operations-supporting-customer-provided-keys"></a>Operações de armazenamento Blob que suportam chaves fornecidas pelo cliente
+## <a name="blob-storage-operations-supporting-customer-provided-keys"></a>Operações de armazenamento de BLOBs que dão suporte a chaves fornecidas pelo cliente
 
-As seguintes operações de armazenamento Blob suportam o envio de chaves de criptografia fornecidas pelo cliente por uma solicitação:
+As operações de armazenamento de blob a seguir dão suporte ao envio de chaves de criptografia fornecidas pelo cliente em uma solicitação:
 
 - [Colocar Blob](/rest/api/storageservices/put-blob)
 - [Colocar lista de blocos](/rest/api/storageservices/put-block-list)
 - [Colocar bloco](/rest/api/storageservices/put-block)
-- [Colocar bloquear da URL](/rest/api/storageservices/put-block-from-url)
+- [Colocar bloco da URL](/rest/api/storageservices/put-block-from-url)
 - [Colocar Página](/rest/api/storageservices/put-page)
 - [Colocar página da URL](/rest/api/storageservices/put-page-from-url)
 - [Acrescentar Bloco](/rest/api/storageservices/append-block)
@@ -63,18 +63,18 @@ As seguintes operações de armazenamento Blob suportam o envio de chaves de cri
 - [Get Blob](/rest/api/storageservices/get-blob)
 - [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
-- [Blob instantâneo](/rest/api/storageservices/snapshot-blob)
+- [Blob de instantâneo](/rest/api/storageservices/snapshot-blob)
 
-## <a name="rotate-customer-provided-keys"></a>Gire as chaves fornecidas pelo cliente
+## <a name="rotate-customer-provided-keys"></a>Girar chaves fornecidas pelo cliente
 
-Para girar uma chave de criptografia que foi usada para criptografar uma bolha, baixe a bolha e, em seguida, recarregue-a com a nova chave de criptografia.
+Para girar uma chave de criptografia que foi usada para criptografar um blob, baixe o blob e carregue-o novamente com a nova chave de criptografia.
 
 > [!IMPORTANT]
-> O portal Azure não pode ser usado para ler ou gravar em um contêiner ou bolha que esteja criptografado com uma chave fornecida na solicitação.
+> O portal do Azure não pode ser usado para ler ou gravar em um contêiner ou BLOB que é criptografado com uma chave fornecida na solicitação.
 >
-> Certifique-se de proteger a chave de criptografia que você fornece em uma solicitação de armazenamento Blob em uma loja de chaves segura como o Azure Key Vault. Se você tentar uma operação de gravação em um contêiner ou bolha sem a chave de criptografia, a operação falhará e você perderá o acesso ao objeto.
+> Certifique-se de proteger a chave de criptografia que você fornece em uma solicitação de armazenamento de BLOBs em um repositório de chaves seguro, como Azure Key Vault. Se você tentar uma operação de gravação em um contêiner ou BLOB sem a chave de criptografia, a operação falhará e você perderá o acesso ao objeto.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Especifique uma chave fornecida pelo cliente em uma solicitação de armazenamento Blob com .NET](../blobs/storage-blob-customer-provided-key.md)
+- [Especifique uma chave fornecida pelo cliente em uma solicitação para o armazenamento de BLOBs com o .NET](../blobs/storage-blob-customer-provided-key.md)
 - [Criptografia de armazenamento do Azure para dados em repouso](storage-service-encryption.md)

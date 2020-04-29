@@ -1,7 +1,7 @@
 ---
-title: 'Problemas conhecidos: Migrações on-line para o Banco de Dados Azure para MySQL'
+title: 'Problemas conhecidos: migrações online para o banco de dados do Azure para MySQL'
 titleSuffix: Azure Database Migration Service
-description: Saiba mais sobre problemas conhecidos e limitações de migração com migrações on-line para o Azure Database for MySQL ao usar o Serviço de Migração de Banco de Dados do Azure.
+description: Saiba mais sobre problemas conhecidos e limitações de migração com migrações online para o banco de dados do Azure para MySQL ao usar o serviço de migração de banco de dados do Azure.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -15,13 +15,13 @@ ms.custom:
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80235288"
 ---
-# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemas de migração on-line & limitações ao Azure DB para MySQL com o Azure Database Migration Service
+# <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemas de migração online & limitações do Azure DB para MySQL com o serviço de migração de banco de dados do Azure
 
 Os problemas conhecidos e as limitações associados às migrações online do MySQL para o Banco de Dados do Azure para MySQL são descritos nas seções a seguir.
 
@@ -35,7 +35,7 @@ Os problemas conhecidos e as limitações associados às migrações online do M
 - Migração de mesma versão. Não há suporte para a migração do MySQL 5.6 para o Banco de Dados do Azure para MySQL 5.7.
 - Habilite o log binário em my.ini (Windows) ou em my.cnf (Unix)
   - Defina Server_id para qualquer número maior ou igual a 1, por exemplo, Server_id=1 (somente para o MySQL 5.6)
-  - Definir log-bin \<=> de caminho (apenas para MySQL 5.6)
+  - Definir log-bin = \<Path> (somente para MySQL 5,6)
   - Defina binlog_format = row
   - Expire_logs_days = 5 (recomendado, apenas para o MySQL 5.6)
 - O usuário precisa ter a função ReplicationAdmin.
@@ -76,7 +76,7 @@ Os problemas conhecidos e as limitações associados às migrações online do M
 
 ## <a name="lob-limitations"></a>Limitações de LOB
 
-As colunas de LOB (Objeto Grande) são aquelas cujo tamanho pode aumentar muito. Para MySQL, Texto médio, Longtext, Blob, Mediumblob, Longblob, etc., são alguns dos tipos de dados do LOB.
+As colunas de LOB (Objeto Grande) são aquelas cujo tamanho pode aumentar muito. Para MySQL, texto médio, longtext, BLOB, mediumblob, longblob, etc., são alguns dos tipos de texto de LOB.
 
 - **Limitação**: se tipos de dados de LOB forem usados como chaves primárias, a migração falhará.
 
@@ -87,38 +87,38 @@ As colunas de LOB (Objeto Grande) são aquelas cujo tamanho pode aumentar muito.
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solução de solução**: Se você tiver um objeto LOB maior que 32 KB, entre em contato com a equipe de engenharia da [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solução alternativa**: se você tiver um objeto LOB maior que 32 KB, contate a equipe de engenharia em [solicitar migrações de banco de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitações ao migrar on-line do AWS RDS MySQL
+## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitações ao migrar online do AWS RDS MySQL
 
-Quando você tenta executar uma migração on-line do AWS RDS MySQL para o Azure Database for MySQL, você pode se deparar com os seguintes erros.
+Ao tentar executar uma migração online do AWS RDS MySQL para o banco de dados do Azure para MySQL, você pode vir os erros a seguir.
 
-- **Erro:** O{0}banco de dados tem tecla estrangeira no alvo. Corrija o destino e inicie uma nova atividade de migração de dados. Execute abaixo o script no alvo para listar as teclas estrangeiras
+- **Erro:** O banco{0}de dados ' ' tem chave (s) estrangeira (ões) no destino. Corrija o destino e inicie uma nova atividade de migração de dados. Execute o script abaixo no destino para listar as chaves estrangeiras
 
-  **Limitação**: Se você tiver chaves estrangeiras no seu esquema, a carga inicial e a sincronização contínua da migração falharão.
-  **Solução de solução**: Execute o seguinte script na bancada mySQL para extrair o script de chave estrangeira e adicionar script de chave estrangeiro:
+  **Limitação**: se você tiver chaves estrangeiras em seu esquema, a carga inicial e a sincronização contínua da migração falharão.
+  **Solução alternativa**: execute o seguinte script no MySQL Workbench para extrair o script de remoção de chave estrangeira e adicionar script de chave estrangeira:
 
   ```
   SET group_concat_max_len = 8192; SELECT SchemaName, GROUP_CONCAT(DropQuery SEPARATOR ';\n') as DropQuery, GROUP_CONCAT(AddQuery SEPARATOR ';\n') as AddQuery FROM (SELECT KCU.REFERENCED_TABLE_SCHEMA as SchemaName, KCU.TABLE_NAME, KCU.COLUMN_NAME, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' DROP FOREIGN KEY ', KCU.CONSTRAINT_NAME) AS DropQuery, CONCAT('ALTER TABLE ', KCU.TABLE_NAME, ' ADD CONSTRAINT ', KCU.CONSTRAINT_NAME, ' FOREIGN KEY (`', KCU.COLUMN_NAME, '`) REFERENCES `', KCU.REFERENCED_TABLE_NAME, '` (`', KCU.REFERENCED_COLUMN_NAME, '`) ON UPDATE ',RC.UPDATE_RULE, ' ON DELETE ',RC.DELETE_RULE) AS AddQuery FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE KCU, information_schema.REFERENTIAL_CONSTRAINTS RC WHERE KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries GROUP BY SchemaName;
   ```
 
-- **Erro:** O{0}banco de dados ' ' não existe no servidor. O servidor de origem do MySQL fornecido diferencia maiúsculas de minúsculas. Verifique o nome do banco de dados.
+- **Erro:** O banco{0}de dados ' ' não existe no servidor. O servidor de origem do MySQL fornecido diferencia maiúsculas de minúsculas. Verifique o nome do banco de dados.
 
-  **Limitação**: Ao migrar um banco de dados MySQL para o Azure usando a Interface de Linha de Comando (CLI), os usuários podem acertar esse erro. O serviço não conseguiu localizar o banco de dados no servidor de origem, o que pode ser porque você pode ter fornecido o nome do banco de dados incorreto ou o banco de dados não existe no servidor listado. Nota que os nomes do banco de dados são sensíveis a maiúsculas e minúsculas.
+  **Limitação**: ao migrar um banco de dados MySQL para o Azure usando a CLI (interface de linha de comando), os usuários poderão atingir esse erro. O serviço não pôde localizar o banco de dados no servidor de origem, o que pode ser porque você pode ter fornecido um nome de banco de dados incorreto ou o banco de dados não existe no servidor listado. Observação os nomes de banco de dados diferenciam maiúsculas de minúsculas.
 
-  **Solução :** Forneça o nome exato do banco de dados e tente novamente.
+  **Solução alternativa**: forneça o nome exato do banco de dados e tente novamente.
 
-- **Erro:** Existem tabelas com o mesmo nome no banco de dados '{banco de dados}'. O Banco de Dados do Azure para MySQL não oferece suporte a diferenciação de maiúsculas de minúsculas para tabelas.
+- **Erro:** Há tabelas com o mesmo nome no banco de dados ' {database} '. O Banco de Dados do Azure para MySQL não oferece suporte a diferenciação de maiúsculas de minúsculas para tabelas.
 
-  **Limitação**: Este erro acontece quando você tem duas tabelas com o mesmo nome no banco de dados de origem. O Banco de Dados Azure para MySQL não suporta tabelas sensíveis a maiúsculas e minúsculas.
+  **Limitação**: esse erro ocorre quando você tem duas tabelas com o mesmo nome no banco de dados de origem. O banco de dados do Azure para MySQL não dá suporte a tabelas com diferenciação de maiúsculas
 
-  **Solução de solução**: Atualize os nomes da tabela para serem únicos e tente novamente.
+  **Solução alternativa**: atualize os nomes de tabela para serem exclusivos e tente novamente.
 
-- **Erro:** O banco de dados de destino {banco de dados} está vazio. Migre o esquema.
+- **Erro:** O banco de dados de destino {Database} está vazio. Migre o esquema.
 
-  **Limitação**: Esse erro ocorre quando o banco de dados Azure de destino para o banco de dados MySQL não tem o esquema necessário. A migração de esquemas é necessária para permitir a migração de dados para o seu destino.
+  **Limitação**: esse erro ocorre quando o banco de dados de destino do banco de dados do Azure para MySQL não tem o esquema necessário. A migração de esquema é necessária para habilitar a migração de dados para o destino.
 
-  **Solução :** [Migre o esquema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) do banco de dados de origem para o banco de dados de destino.
+  **Solução alternativa**: [migre o esquema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) do banco de dados de origem para o banco de dados de destino.
 
 ## <a name="other-limitations"></a>Outras limitações
 
@@ -134,10 +134,10 @@ Quando você tenta executar uma migração on-line do AWS RDS MySQL para o Azure
     CREATE INDEX partial_name ON customer (name(10));
     ```
 
-- No Azure Database Migration Service, o limite de bancos de dados para migrar em uma única atividade de migração é de quatro.
+- No Azure Database Migration Service, o limite de bancos de dados a serem migrados em uma única atividade de migração é de quatro.
 
-- **Erro:** Tamanho da linha muito grande (> 8126). Alterar algumas colunas para Texto ou BLOB pode ajudar. No formato de linha atual, o prefixo BLOB de 0 bytes é armazenado em linha.
+- **Erro:** Tamanho de linha muito grande (> 8126). A alteração de algumas colunas para texto ou BLOB pode ajudar. No formato de linha atual, o prefixo de BLOB de 0 bytes é armazenado embutido.
 
-  **Limitação**: Este erro acontece quando você está migrando para o Banco de Dados Azure para MySQL usando o mecanismo de armazenamento InnoDB e qualquer tamanho de linha de tabela é muito grande (>8126 bytes).
+  **Limitação**: esse erro ocorre quando você está migrando para o banco de dados do Azure para MySQL usando o mecanismo de armazenamento InnoDB e qualquer tamanho de linha de tabela é muito grande (>8126 bytes).
 
-  **Solução de solução**: Atualize o esquema da tabela que tem um tamanho de linha maior que 8126 bytes. Não recomendamos mudar o modo estrito porque os dados serão truncados. Mudar a page_size não é suportado.
+  **Solução alternativa**: Atualize o esquema da tabela que tem um tamanho de linha maior que 8126 bytes. Não é recomendável alterar o modo estrito porque os dados serão truncados. Não há suporte para a alteração do page_size.

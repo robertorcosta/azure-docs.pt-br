@@ -1,83 +1,83 @@
 ---
-title: Gerenciar servidor - Portal Azure - Banco de Dados Azure para MariaDB
-description: Saiba como gerenciar um banco de dados Azure para servidor MariaDB no portal Azure.
+title: Gerenciar servidor-portal do Azure-banco de dados do Azure para MariaDB
+description: Saiba como gerenciar um banco de dados do Azure para MariaDB Server do portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 43004f8c52bbec17f78ed4be024cf75224dbd179
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530233"
 ---
-# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerenciar um banco de dados Azure para servidor MariaDB usando o portal Azure
-Este artigo mostra como gerenciar seu banco de dados Azure para servidores MariaDB. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e visualização de detalhes do servidor.
+# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gerenciar um banco de dados do Azure para o MariaDB Server usando o portal do Azure
+Este artigo mostra como gerenciar o banco de dados do Azure para servidores MariaDB. As tarefas de gerenciamento incluem dimensionamento de computação e armazenamento, redefinição de senha de administrador e detalhes do servidor de exibição.
 
 ## <a name="sign-in"></a>Entrar
-Faça login no [portal Azure](https://portal.azure.com).
+Entre no [portal do Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Criar um servidor
-Visite o [quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md) para aprender como criar e começar com um banco de dados Azure para servidor MariaDB.
+Visite o guia de [início rápido](quickstart-create-mariadb-server-database-using-azure-portal.md) para saber como criar e começar a usar um banco de dados do Azure para o MariaDB Server.
 
-## <a name="scale-compute-and-storage"></a>Dimensionar computação e armazenamento
+## <a name="scale-compute-and-storage"></a>Dimensionar a computação e o armazenamento
 
-Após a criação do servidor, você pode dimensionar entre os níveis De propósito geral e otimizado de memória à medida que suas necessidades mudam. Você também pode dimensionar a computação e a memória aumentando ou diminuindo os vCores. O armazenamento pode ser ampliado (no entanto, você não pode reduzir o armazenamento).
+Após a criação do servidor, você pode dimensionar entre as camadas de Uso Geral e com otimização de memória à medida que suas necessidades mudam. Você também pode dimensionar a computação e a memória aumentando ou diminuindo o vCores. O armazenamento pode ser dimensionado verticalmente (no entanto, você não pode dimensionar o armazenamento verticalmente).
 
-### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Dimensione entre os níveis de propósito geral e otimizado de memória
+### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Dimensionar entre as camadas de Uso Geral e com otimização de memória
 
-Você pode escalar de Propósito Geral para Memória Otimizada e vice-versa. A alteração de e para o nível Básico após a criação do servidor não é suportada. 
+Você pode dimensionar de Uso Geral para a memória otimizada e vice-versa. Não há suporte para a alteração de e para a camada básica após a criação do servidor. 
 
-1. Selecione seu servidor no portal Azure. Selecione **o nível de preços,** localizado na seção **Configurações.**
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
 
-2. Selecione **Propósito Geral** ou **Memória Otimizada,** dependendo do que você está dimensionando. 
+2. Selecione **uso geral** ou **memória otimizada**, dependendo do que você está dimensionando. 
 
-    ![nível de preços de mudança](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![alterar-camada de preços](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
-    > A alteração de níveis faz com que o servidor seja reiniciado.
+    > A alteração de camadas causa uma reinicialização do servidor.
 
-4. Selecione **OK** para salvar alterações.
+4. Selecione **OK** para salvar as alterações.
 
 
-### <a name="scale-vcores-up-or-down"></a>Escala vCores para cima ou para baixo
+### <a name="scale-vcores-up-or-down"></a>Dimensionar vCores para cima ou para baixo
 
-1. Selecione seu servidor no portal Azure. Selecione **o nível de preços,** localizado na seção **Configurações.**
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
 
 2. Altere a configuração **vCore**, movendo o controle deslizante para o valor desejado.
 
     ![scale-compute](./media/howto-create-manage-server-portal/scaling-compute.png)
 
     > [!NOTE]
-    > O dimensionamento de vCores faz com que o servidor seja reiniciado.
+    > O dimensionamento de vCores causa uma reinicialização do servidor.
 
-3. Selecione **OK** para salvar alterações.
+3. Selecione **OK** para salvar as alterações.
 
 
-### <a name="scale-storage-up"></a>Dimensionar o armazenamento
+### <a name="scale-storage-up"></a>Escalar o armazenamento verticalmente
 
-1. Selecione seu servidor no portal Azure. Selecione **o nível de preços,** localizado na seção **Configurações.**
+1. Selecione o servidor na portal do Azure. Selecione **tipo de preço**, localizado na seção **configurações** .
 
-2. Altere a configuração **de armazenamento** movendo o controle deslizante para o valor desejado.
+2. Altere a configuração de **armazenamento** movendo o controle deslizante para cima até o valor desejado.
 
     ![scale-storage](./media/howto-create-manage-server-portal/scaling-storage.png)
 
     > [!NOTE]
-    > O armazenamento não pode ser reduzido.
+    > O armazenamento não pode ser reduzido verticalmente.
 
-3. Selecione **OK** para salvar alterações.
+3. Selecione **OK** para salvar as alterações.
 
 
-## <a name="update-admin-password"></a>Atualizar a senha do admin
-Você pode alterar a senha da função administrador a usar o portal Azure.
+## <a name="update-admin-password"></a>Atualizar senha do administrador
+Você pode alterar a senha da função de administrador usando o portal do Azure.
 
-1. Selecione seu servidor no portal Azure. Na **janela Visão geral,** selecione **Redefinir senha**.
+1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **Redefinir senha**.
 
    ![visão geral](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
-2. Insira uma nova senha e confirme-a. A caixa de texto irá indissioná-lo sobre os requisitos de complexidade de senha.
+2. Insira uma nova senha e confirme-a. A caixa de texto solicitará os requisitos de complexidade de senha.
 
    ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
@@ -86,22 +86,22 @@ Você pode alterar a senha da função administrador a usar o portal Azure.
 
 ## <a name="delete-a-server"></a>Excluir um servidor
 
-Você pode excluir seu servidor se não precisar mais dele. 
+Você pode excluir o servidor se não precisar mais dele. 
 
-1. Selecione seu servidor no portal Azure. Na **janela Visão geral,** **selecione Excluir**.
+1. Selecione o servidor na portal do Azure. Na janela **visão geral** , selecione **excluir**.
 
     ![excluir](./media/howto-create-manage-server-portal/overview-delete.png)
 
-2. Digite o nome do servidor na caixa de entrada para confirmar se este é o servidor que você deseja excluir.
+2. Digite o nome do servidor na caixa de entrada para confirmar que este é o servidor que você deseja excluir.
 
     ![confirm-delete](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
-    > Excluir um servidor é irreversível.
+    > A exclusão de um servidor é irreversível.
 
 3. Selecione **Excluir**.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [backups e restauração de servidores](howto-restore-server-portal.md)
-- Conheça as [opções de ajuste e monitoramento no Banco de Dados Azure para MariaDB](concepts-monitoring.md)
+- Saiba mais sobre [backups e restauração do servidor](howto-restore-server-portal.md)
+- Saiba mais sobre [as opções de ajuste e monitoramento no banco de dados do Azure para MariaDB](concepts-monitoring.md)

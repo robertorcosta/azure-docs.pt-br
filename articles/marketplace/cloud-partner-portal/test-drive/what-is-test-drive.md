@@ -1,5 +1,5 @@
 ---
-title: O que é test drive? | Mercado Azure
+title: O que é test drive? | Azure Marketplace
 description: Explicação do recurso de test drive do Marketplace
 author: dsindona
 ms.service: marketplace
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: dsindona
 ms.openlocfilehash: bdfadf359195464c4024b28c5e597c571305481a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278222"
 ---
 <a name="what-is-test-drive"></a>O que é test drive?
@@ -63,7 +63,7 @@ Isso ocorre porque, depois que você define as configurações do test drive, ca
 
 Agora que você sabe do que se trata um test drive, acesse o tipo de test drive específico que você quer publicar para saber tudo sobre os campos obrigatórios necessários.
 
-- **[Gerente de Recursos do Azure](./azure-resource-manager-test-drive.md)**
-- **[App lógico](./logic-app-test-drive.md)**
+- **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**
+- **[Aplicativo lógico](./logic-app-test-drive.md)**
 
 Se você tiver mais dúvidas, estiver procurando ajuda para a solução de problemas ou quiser um test drive de maior sucesso, acesse [FAQ, Troubleshooting, & Best Practices](./marketing-and-best-practices.md) (Perguntas frequentes, solução de problemas e práticas recomendadas).

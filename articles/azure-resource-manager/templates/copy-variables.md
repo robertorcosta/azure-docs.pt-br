@@ -1,24 +1,24 @@
 ---
-title: Definir múltiplas instâncias de uma variável
-description: Use a operação de cópia em um modelo do Azure Resource Manager para iterar várias vezes ao criar uma variável.
+title: Definir várias instâncias de uma variável
+description: Use a operação de cópia em um modelo de Azure Resource Manager para iterar várias vezes ao criar uma variável.
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80153294"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteração variável em modelos ARM
 
-Este artigo mostra como criar mais de um valor para uma variável no modelo ARM (Azure Resource Manager). Adicionando o elemento **de cópia** à seção variáveis do seu modelo, você pode definir dinamicamente o número de itens para uma variável durante a implantação. Você também evita ter que repetir a sintaxe do modelo.
+Este artigo mostra como criar mais de um valor para uma variável em seu modelo de Azure Resource Manager (ARM). Ao adicionar o elemento **copiar** à seção variáveis do modelo, você pode definir dinamicamente o número de itens para uma variável durante a implantação. Você também evita a repetição da sintaxe do modelo.
 
-Você também pode usar cópia com [recursos,](copy-resources.md) [propriedades em um recurso](copy-properties.md)e [saídas.](copy-outputs.md)
+Você também pode usar copiar com [recursos](copy-resources.md), [Propriedades em um recurso](copy-properties.md)e [saídas](copy-outputs.md).
 
 ## <a name="variable-iteration"></a>Iteração de variável
 
-O elemento de cópia tem o seguinte formato geral:
+O elemento Copy tem o seguinte formato geral:
 
 ```json
 "copy": [
@@ -30,11 +30,11 @@ O elemento de cópia tem o seguinte formato geral:
 ]
 ```
 
-A propriedade **nome** é qualquer valor que identifique o loop. A propriedade **count** especifica o número de iterações desejadas para a variável.
+A propriedade **Name** é qualquer valor que identifique o loop. A propriedade **Count** especifica o número de iterações que você deseja para a variável.
 
-A propriedade **de entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos a partir do valor na propriedade **de entrada.** Pode ser uma única propriedade (como uma string), ou um objeto com várias propriedades.
+A propriedade de **entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos com base no valor na propriedade de **entrada** . Pode ser uma única propriedade (como uma cadeia de caracteres) ou um objeto com várias propriedades.
 
-O exemplo a seguir mostra como criar uma matriz de valores de seqüência:
+O exemplo a seguir mostra como criar uma matriz de valores de cadeia de caracteres:
 
 ```json
 {
@@ -77,7 +77,7 @@ O modelo anterior retorna uma matriz com os seguintes valores:
 ]
 ```
 
-O próximo exemplo mostra como criar uma matriz de objetos com três propriedades - nome, diskSizeGB e diskIndex.
+O exemplo a seguir mostra como criar uma matriz de objetos com três propriedades-Name, diskSizeGB e diskIndex.
 
 ```json
 {
@@ -145,10 +145,10 @@ O exemplo anterior retorna uma matriz com os seguintes valores:
 ```
 
 > [!NOTE]
-> A iteração variável suporta um argumento de deslocamento. A compensação deve vir após o nome da iteração, como copyIndex ('diskNames', 1). Se você não fornecer um valor de deslocamento, ele é padrão para 0 para a primeira instância.
+> A iteração variável dá suporte a um argumento offset. O deslocamento deve vir após o nome da iteração, como copyIndex (' disknames ', 1). Se você não fornecer um valor de deslocamento, o padrão será 0 para a primeira instância.
 >
 
-Você também pode usar o elemento de cópia dentro de uma variável. O exemplo a seguir cria um objeto que tem uma matriz como um de seus valores.
+Você também pode usar o elemento Copy dentro de uma variável. O exemplo a seguir cria um objeto que tem uma matriz como um de seus valores.
 
 ```json
 {
@@ -221,7 +221,7 @@ O exemplo anterior retorna um objeto com os seguintes valores:
 }
 ```
 
-O próximo exemplo mostra as diferentes maneiras de usar a cópia com variáveis.
+O exemplo a seguir mostra as diferentes maneiras que você pode usar copiar com variáveis.
 
 ```json
 {
@@ -299,11 +299,11 @@ O próximo exemplo mostra as diferentes maneiras de usar a cópia com variáveis
 
 A contagem não pode exceder 800.
 
-A contagem não pode ser um número negativo. Se você implantar um modelo com o Azure PowerShell 2.6 ou posterior, O Azure CLI 2.0.74 ou posterior, ou a versão rest API **2019-05-10** ou posterior, você pode definir a contagem para zero. Versões anteriores do PowerShell, CLI e a API REST não suportam zero para contagem.
+A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, CLI do Azure 2.0.74 ou posterior, ou a API REST versão **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Os exemplos a seguir mostram cenários comuns para criar mais de um valor para uma variável.
+Os exemplos a seguir mostram cenários comuns para a criação de mais de um valor para uma variável.
 
 |Modelo  |Descrição  |
 |---------|---------|
@@ -312,11 +312,11 @@ Os exemplos a seguir mostram cenários comuns para criar mais de um valor para u
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para passar por um tutorial, consulte [Tutorial: crie várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
-* Para outros usos do elemento de cópia, consulte:
-  * [Iteração de recursos em modelos ARM](copy-resources.md)
+* Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recursos usando modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para outros usos do elemento copiar, consulte:
+  * [Iteração de recurso em modelos ARM](copy-resources.md)
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração de saída em modelos ARM](copy-outputs.md)
-* Se você quiser aprender sobre as seções de um modelo, consulte [Modelos DE AUTORIA DO ARM](template-syntax.md).
-* Para saber como implantar seu modelo, consulte [Implantar um aplicativo com o modelo ARM](deploy-powershell.md).
+* Se você quiser saber mais sobre as seções de um modelo, consulte [criação de modelos de ARM](template-syntax.md).
+* Para saber como implantar seu modelo, consulte [implantar um aplicativo com o modelo ARM](deploy-powershell.md).
 

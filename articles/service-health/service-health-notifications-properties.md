@@ -4,10 +4,10 @@ description: As notificações de integridade do serviço permitem exibir mensag
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77653961"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Exibir as notificações de integridade do serviço usando o Portal do Azure
@@ -43,29 +43,29 @@ category | Esta propriedade é sempre **ServiceHealth**.
 resourceId | ID do recurso afetado.
 Properties.title | O título localizado dessa comunicação. Inglês é o padrão.
 Properties.communication | Os detalhes localizados da comunicação com marcação HTML. Inglês é o padrão.
-Properties.incidentType | Um dos seguintes valores: **ActionRequired**, **Informational**, **Incident,** **Maintenance,** or **Security**.
+Properties.incidentType | Um dos seguintes valores: **ActionRequired**, **informativo**, **incidente**, **manutenção**ou **segurança**.
 Properties.trackingId | O incidente ao qual esse evento está associado. Use-a para correlacionar os eventos relacionados a um incidente.
 Properties.impactedServices | Um blob JSON com escape que descreve as regiões e os serviços afetados pelo incidente. Uma lista de Services, que, individualmente, tem um **ServiceName** e uma lista de ImpactedRegions, que têm um **RegionName**.
 Properties.defaultLanguageTitle | A comunicação em inglês.
 Properties.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto sem formatação.
-Properties.stage | Os valores possíveis para **Incidente** e **Segurança** são **Ativo,** **Resolvido** ou **RCA**. Para **ActionRequired** ou **Informational**, o único valor é **Ativo**. Para **manutenção** são: **Ativo,** **Planejado,** **InProgress,** **Cancelado,** **Reagendado,** **Resolvido**ou **Completo**.
+Properties.stage | Os valores possíveis para **Incidente** e **Segurança** são **Ativo,** **Resolvido** ou **RCA**. Para **ActionRequired** ou **Informational**, o único valor é **Ativo**. Para **manutenção** , eles são: **ativo**, **planejado**, em **andamento**, **cancelado**, **reagendado**, **resolvido**ou **concluído**.
 Properties.communicationId | A comunicação à qual esse evento está associado.
 
 ### <a name="details-on-service-health-level-information"></a>Detalhes sobre informações de nível de integridade de serviço
 
 **Ação Necessária** (properties.incidentType == ActionRequired)
-- Informativo - A ação do administrador é necessária para evitar impacto nos serviços existentes.
+- Informativo-a ação do administrador é necessária para evitar o impacto nos serviços existentes.
     
 **Manutenção** (properties.incidentType == Maintenance)
-- Aviso - Manutenção de emergência
-- Informativo - Manutenção planejada padrão
+- Aviso-manutenção de emergência
+- Informativo-manutenção planejada padrão
 
 **Informações** (properties.incidentType == Information)
-- Informativo - O administrador pode ser necessário para evitar impactos nos serviços existentes.
+- Informativo-o administrador pode ser solicitado a evitar o impacto nos serviços existentes.
 
 **Segurança** (properties.incidentType == Security)
-- Aviso - Assessoria de segurança que afeta os serviços existentes e pode exigir ação do administrador.
-- Informativo - Assessoria de segurança que afeta os serviços existentes.
+- Aviso-consultoria de segurança que afeta os serviços existentes e pode exigir ação do administrador.
+- Informativo-consultoria de segurança que afeta os serviços existentes.
 
 **Problemas de Serviço** (properties.incidentType == Incident)
 - Erro – problemas amplamente difundidos ao acessar vários serviços em várias regiões estão impactando um amplo conjunto de clientes.

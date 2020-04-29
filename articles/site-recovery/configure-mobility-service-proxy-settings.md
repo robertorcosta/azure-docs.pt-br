@@ -1,5 +1,5 @@
 ---
-title: Configure as configurações do proxy do serviço de mobilidade para a recuperação de desastres do Azure para o Azure | Microsoft Docs
+title: Definir configurações de proxy do serviço de mobilidade para a recuperação de desastre do Azure para o Azure | Microsoft Docs
 description: Fornece detalhes sobre como configurar o serviço de mobilidade quando os clientes usam um proxy em seu ambiente de origem.
 services: site-recovery
 author: sideeksh
@@ -9,50 +9,50 @@ ms.topic: article
 ms.date: 03/18/2020
 ms.author: sideeksh
 ms.openlocfilehash: 3d33b5a89a718a41e5c547551f6e7eb4f7033a63
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79503121"
 ---
-# <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Configure as configurações do proxy do serviço de mobilidade para a recuperação de desastres do Azure para o Azure
+# <a name="configure-mobility-service-proxy-settings-for-azure-to-azure-disaster-recovery"></a>Definir configurações de proxy do serviço de mobilidade para a recuperação de desastre do Azure para o Azure
 
-Este artigo fornece orientações sobre a personalização das configurações de rede na máquina virtual (VM) alvo quando você está replicando e recuperando VMs do Azure de uma região para outra, usando [o Azure Site Recovery](site-recovery-overview.md).
+Este artigo fornece orientação sobre como personalizar as configurações de rede na VM (máquina virtual) do Azure de destino quando você estiver replicando e recuperando VMs do Azure de uma região para outra, usando [Azure site Recovery](site-recovery-overview.md).
 
-O objetivo deste documento é fornecer etapas para configurar configurações proxy para o Azure Site Recovery Mobility Service no cenário de recuperação de desastres do Azure para o Azure. 
+A finalidade deste documento é fornecer etapas para definir as configurações de proxy para Azure Site Recovery serviço de mobilidade no cenário de recuperação de desastre do Azure para o Azure. 
 
-Proxies são gateways de rede que permitem/desautorizar conexões de rede a pontos finais. Normalmente, um proxy é uma máquina fora da máquina cliente que tenta acessar pontos finais de rede. Uma lista de bypass permite que o cliente faça conexões diretamente para os pontos finais sem passar pelo proxy. Um nome de usuário e senha podem ser definidos opcionalmente para um proxy por admins de rede para que apenas clientes autenticados possam usar proxy. 
+Os proxies são gateways de rede que permitem/proíbem conexões de rede a pontos de extremidade. Normalmente, um proxy é um computador fora do computador cliente que tenta acessar os pontos de extremidade de rede. Uma lista de bypass permite que o cliente faça conexões diretamente com os pontos de extremidade sem passar pelo proxy. Um nome de usuário e senha podem ser definidos opcionalmente para um proxy por administradores de rede para que somente clientes autenticados possam usar o proxy. 
 
 ## <a name="before-you-start"></a>Antes de começar
 
 Saiba como o Site Recovery fornece recuperação de desastre para [esse cenário](azure-to-azure-architecture.md).
-Entenda a [orientação de rede](azure-to-azure-about-networking.md) quando estiver replicando e recuperando VMs do Azure de uma região para outra, usando [o Azure Site Recovery](site-recovery-overview.md).
-Certifique-se de que seu proxy seja configurado adequadamente com base nas necessidades de sua organização.
+Entenda as [diretrizes de rede](azure-to-azure-about-networking.md) quando estiver replicando e recuperando VMs do Azure de uma região para outra, usando [Azure site Recovery](site-recovery-overview.md).
+Verifique se o seu proxy está configurado adequadamente com base nas necessidades da sua organização.
 
-## <a name="configure-the-mobility-service"></a>Configure o Serviço de Mobilidade
+## <a name="configure-the-mobility-service"></a>Configurar o serviço de mobilidade
 
-O Serviço de Mobilidade suporta apenas proxies não autenticados. Ele fornece duas maneiras de inserir detalhes proxy para comunicação com pontos finais de recuperação de site. 
+O serviço de mobilidade dá suporte apenas a proxies não autenticados. Ele fornece duas maneiras de inserir detalhes de proxy para comunicação com pontos de extremidade de Site Recovery. 
 
-### <a name="method-1-auto-detection"></a>Método 1: Detecção automática
+### <a name="method-1-auto-detection"></a>Método 1: detecção automática
 
-O Mobility Service detecta automaticamente as configurações de proxy das configurações do ambiente ou das configurações do IE (Somente windows) durante a replicação ativada. 
+O serviço de mobilidade detecta automaticamente as configurações de proxy das configurações do ambiente ou das configurações do IE (somente Windows) durante habilitar a replicação. 
 
-- Windows OS: Durante a replicação de habilitação, o Mobility Service detecta as configurações de proxy configuradas no Internet Explorer para usuário do sistema local. Para configurar o proxy para conta do Sistema Local, um administrador pode usar psexec para iniciar um prompt de comando e, em seguida, o Internet Explorer. 
-- Sistema operacional Windows: As configurações de proxy são configuradas como variáveis de ambiente http_proxy e no_proxy. 
-- Sistema operacional Linux: As configurações de proxy são configuradas em /etc/perfil ou /etc/ambiente como variáveis de ambiente http_proxy, no_proxy. 
-- As configurações de proxy detectadas automaticamente são salvas no arquivo proxy do Mobility Service ProxyInfo.conf 
-- Localização padrão do ProxyInfo.conf 
-    - Windows: C:\ProgramData\Microsoft Azure Site Recovery\Config\ProxyInfo.conf 
-    - Linux: /usr/local/InMage/config/ProxyInfo.conf
+- Sistema operacional Windows: durante a habilitação da replicação, o serviço de mobilidade detecta as configurações de proxy conforme configurado no Internet Explorer para usuário do sistema local. Para configurar o proxy para a conta sistema local, um administrador pode usar o PsExec para iniciar um prompt de comando e, em seguida, o Internet Explorer. 
+- Sistema operacional Windows: as configurações de proxy são definidas como variáveis de ambiente http_proxy e no_proxy. 
+- SO Linux: as configurações de proxy são definidas em/etc/profile ou/etc/environment como variáveis de ambiente http_proxy no_proxy. 
+- As configurações de proxy detectadas automaticamente são salvas no arquivo de configuração de proxy do serviço de mobilidade ProxyInfo. conf 
+- Local padrão de ProxyInfo. conf 
+    - Windows: C:\ProgramData\Microsoft Azure site Recovery\Config\ProxyInfo.conf 
+    - Linux:/usr/local/InMage/config/ProxyInfo.conf
 
 
-### <a name="method-2-provide-custom-application-proxy-settings"></a>Método 2: Forneça configurações personalizadas de proxy de aplicativos
+### <a name="method-2-provide-custom-application-proxy-settings"></a>Método 2: fornecer configurações personalizadas de proxy de aplicativo
 
-Neste caso, o cliente fornece configurações personalizadas de proxy de aplicativos no arquivo de configuração do Serviço de Mobilidade ProxyInfo.conf. Esse método permite que os clientes forneçam proxy apenas para o Mobility Service ou um proxy diferente para o Azure Site Recovery Mobility Service do que um proxy (ou nenhum proxy) para o resto dos aplicativos na máquina.
+Nesse caso, o cliente fornece configurações de proxy de aplicativo personalizadas no arquivo de configuração do serviço de mobilidade ProxyInfo. conf. Esse método permite que os clientes forneçam proxy somente para o serviço de mobilidade ou um proxy diferente para Azure Site Recovery serviço de mobilidade do que um proxy (ou nenhum proxy) para o restante dos aplicativos no computador.
 
-## <a name="proxy-template"></a>Modelo proxy
-ProxyInfo.conf contém o seguinte modelohttp://1.2.3.4 [proxy] Endereço= Port=5678 BypassList=hypervrecoverymanager.windowsazure.com,login.microsoftonline.com,blob.core.windows.net. O BypassList não suporta curingas como '*.windows.net', mas dar windows.net é bom o suficiente para contornar. 
+## <a name="proxy-template"></a>Modelo de proxy
+ProxyInfo. conf contém o seguinte modelo [proxy] address =http://1.2.3.4 Port = 5678 BypassList = hypervrecoverymanager. WindowsAzure. com, login. microsoftonline. com, BLOB. Core. Windows. net. O BypassList não dá suporte a curingas como ' *. windows.net ', mas o windows.net é bom o suficiente para ignorar. 
 
 ## <a name="next-steps"></a>Próximas etapas:
-- Leia [as orientações de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs do Azure.
+- Leia as [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para replicar VMs do Azure.
 - Implante a recuperação de desastres [replicando as VMs do Azure](site-recovery-azure-to-azure.md).

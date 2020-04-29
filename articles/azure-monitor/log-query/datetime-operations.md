@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: ea7c98a1b5b4059c5fea0cf1e8ea2ff5ef08d9d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77655371"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Trabalhar com valores de data e hora em consultas de log do Azure Monitor
@@ -84,7 +84,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-A `timeAgo` coluna contém valores como: "00:09:31.5118992", o que significa que eles são formatados como hh:mm:ss.fffffff. Se você deseja formatar esses valores para o `numver` de minutos transcorridos desde a hora de início, divida esse valor por "1 minuto":
+A `timeAgo` coluna contém valores como: "00:09:31.5118992", o que significa que eles são formatados como hh: mm: SS. fffffff. Se você deseja formatar esses valores para o `numver` de minutos transcorridos desde a hora de início, divida esse valor por "1 minuto":
 
 ```Kusto
 Event
@@ -127,7 +127,7 @@ Event
 
 Essa consulta produz os seguintes resultados:
 
-| timestamp|count_|
+|timestamp|count_|
 |--|--|
 |2018-07-28T00:00:00.000|7.136|
 |2018-07-29T00:00:00.000|12.315|
@@ -149,7 +149,7 @@ Event
 | Categoria | Função |
 |:---|:---|
 | Converter tipos de dados | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
-| Valor arredondado para o tamanho do compartimento | [Bin](/azure/kusto/query/binfunction) |
+| Valor arredondado para o tamanho do compartimento | [compartimento](/azure/kusto/query/binfunction) |
 | Obter uma data ou hora específica | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
 | Obter parte do valor | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
 | Obter um valor de data relativo  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
