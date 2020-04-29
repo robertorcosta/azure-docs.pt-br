@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256374"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL do Azure ou fazer failover para um secundário
 
 O Banco de Dados SQL do Azure oferece os seguintes recursos para a recuperação de uma paralisação:
 
-- [Geo-replicação ativa](sql-database-active-geo-replication.md)
+- [Replicação geográfica ativa](sql-database-active-geo-replication.md)
 - [Grupos de failover automático](sql-database-auto-failover-group.md)
-- [Geo-restauração](sql-database-recovery-using-backups.md#point-in-time-restore)
+- [Restauração geográfica](sql-database-recovery-using-backups.md#point-in-time-restore)
 - [Bancos de dados com redundância de zona](sql-database-high-availability.md)
 
 Para saber mais sobre os cenários de continuidade dos negócios e os recursos com suporte para esses cenários, confira [Continuidade dos negócios](sql-database-business-continuity.md).
@@ -33,11 +33,11 @@ Para saber mais sobre os cenários de continuidade dos negócios e os recursos c
 > Se você estiver usando pools ou banco de dados Comercialmente Crítico ou Premium com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica.
 
 > [!NOTE]
-> Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é fortemente recomendado que o banco de dados secundário seja criado com o mesmo tamanho de computação (DTUs ou vCores) como o principal. Para obter mais informações, consulte [Atualizar ou rebaixar como banco de dados principal](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
+> Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho de computação (DTUs ou vCores) que o primário. Para obter mais informações, consulte [atualizando ou fazendo downgrade como banco de dados primário](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
-> Use um ou vários grupos failover para gerenciar failover de vários bancos de dados.
-> Se você adicionar uma relação de replicação geográfica existente ao grupo de failover, certifique-se de que o geograficamente secundário esteja configurado com o mesmo nível de serviço e tamanho da computação do primário. Para obter mais informações, consulte [Usar grupos de failover automático para permitir failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md).
+> Use um ou vários grupos de failover para gerenciar o failover de vários bancos de dados.
+> Se você adicionar uma relação de replicação geográfica existente ao grupo de failover, certifique-se de que o geograficamente secundário esteja configurado com o mesmo nível de serviço e tamanho da computação do primário. Para obter mais informações, consulte [usar grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Prepare-se para o caso de uma interrupção
 
@@ -49,7 +49,7 @@ Para ter êxito com a recuperação para outra região de dados usando a replica
 - Identificar e, como alternativa, criar os logons que devem estar presentes no banco de dados mestre no novo servidor primário e verificar se esses logons têm permissões apropriadas no banco de dados mestre, se houver. Para obter mais informações, confira [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md)
 - Identificar as regras de alerta que precisarão ser atualizadas para mapear para o novo banco de dados primário.
 - Documentar a configuração de auditoria no banco de dados primário atual
-- Realize uma [broca de recuperação de desastres](sql-database-disaster-recovery-drills.md). Para simular uma interrupção para a restauração geográfica, você pode excluir ou renomear o banco de dados de origem para causar a falha de conectividade do aplicativo. Para simular uma interrupção usando grupos de failover, você pode desabilitar o aplicativo Web ou a máquina virtual conectada ao banco de dados ou fazer failover no banco de dados para causar falhas de conectividade no aplicativo.
+- Execute uma [análise de recuperação de desastre](sql-database-disaster-recovery-drills.md). Para simular uma interrupção para a restauração geográfica, você pode excluir ou renomear o banco de dados de origem para causar a falha de conectividade do aplicativo. Para simular uma interrupção usando grupos de failover, você pode desabilitar o aplicativo Web ou a máquina virtual conectada ao banco de dados ou fazer failover no banco de dados para causar falhas de conectividade no aplicativo.
 
 ## <a name="when-to-initiate-recovery"></a>Quando iniciar a recuperação
 
@@ -79,7 +79,7 @@ Use um dos guias a seguir para fazer failover para um banco de dados secundário
 
 - [Fazer failover para um servidor secundário replicado geograficamente usando o portal do Azure](sql-database-geo-replication-portal.md)
 - [Failover para o servidor secundário usando o PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [Falha em um servidor secundário usando Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Fazer failover para um servidor secundário usando Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Recuperação usando a restauração geográfica
 
@@ -101,7 +101,7 @@ Você precisa certificar-se de que as regras de firewall configuradas no servido
 
 ### <a name="configure-logins-and-database-users"></a>Configurar logons e usuários do banco de dados
 
-Você deve verificar se todos os logons usados pelo aplicativo existem no servidor que está hospedando o banco de dados recuperado. Para obter mais informações, consulte [Configuração de segurança para replicação geográfica](sql-database-geo-replication-security-config.md).
+Você deve verificar se todos os logons usados pelo aplicativo existem no servidor que está hospedando o banco de dados recuperado. Para obter mais informações, consulte [configuração de segurança para replicação geográfica](sql-database-geo-replication-security-config.md).
 
 > [!NOTE]
 > Você deve configurar e testar suas regras de firewall de servidor e logons (e suas permissões) durante uma análise de recuperação de desastre. Esses objetos no nível de servidor e sua configuração podem não estar disponíveis durante a interrupção.
@@ -118,6 +118,6 @@ Se a auditoria for necessária para acessar o banco de dados, você precisará h
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre backups automatizados do Azure SQL Database, consulte [backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
+- Para saber mais sobre os backups automatizados do banco de dados SQL do Azure, confira [backups automatizados](sql-database-automated-backups.md)
 - Para saber mais sobre cenários de design e recuperação de continuidade dos negócios, confira [Cenários de continuidade](sql-database-business-continuity.md)
 - Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)

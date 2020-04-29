@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247482"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
@@ -24,7 +24,7 @@ Quando o serviço de nuvem estiver em execução no Azure, você poderá reconfi
 * Já sei sobre isso, dê-me [alguns exemplos](#next-steps) sobre o que posso configurar.
 * Quero criar o [ServicePackage.cspkg](#cspkg).
 * Estou usando o Visual Studio e desejo...
-  * [Crie um serviço em nuvem][vs_create]
+  * [Criar um serviço de nuvem][vs_create]
   * [Reconfigurar um serviço de nuvem existente][vs_reconfigure]
   * [Implantar um projeto do serviço de nuvem][vs_deploy]
   * [Área de trabalho remota em uma instância de serviço de nuvem][remotedesktop]
@@ -83,7 +83,7 @@ O arquivo **ServiceDefinition.csdef** especifica as configurações que são usa
 </ServiceDefinition>
 ```
 
-Você pode consultar o Esquema de Definição de [Serviço](/previous-versions/azure/reference/ee758711(v=azure.100)) para uma melhor compreensão do esquema XML usado aqui, no entanto, aqui está uma rápida explicação de alguns dos elementos:
+Você pode consultar o [esquema de definição de serviço](/previous-versions/azure/reference/ee758711(v=azure.100)) para ter uma melhor compreensão do esquema XML usado aqui. no entanto, aqui está uma explicação rápida de alguns dos elementos:
 
 **Sites**  
  contêm as definições para sites da Web ou aplicativos Web hospedados no IIS7.
@@ -94,7 +94,7 @@ Você pode consultar o Esquema de Definição de [Serviço](/previous-versions/a
 **InternalEndpoints**  
  contém as definições para pontos de extremidade que são usados por instâncias de função para se comunicar entre si.
 
-**Configurationsettings**  
+**ConfigurationSettings**  
  contém as definições de configuração para recursos de uma função específica.
 
 **Certificados**  
@@ -103,7 +103,7 @@ Você pode consultar o Esquema de Definição de [Serviço](/previous-versions/a
 **LocalResources**  
  contém as definições para recursos de armazenamento local. Um recurso de armazenamento local é um diretório reservado no sistema de arquivos da máquina virtual no qual uma instância de uma função está em execução.
 
-**Imports**  
+**Importar**  
  contém as definições para módulos importados. O exemplo de código anterior mostra os módulos para conexão de área de trabalho remota e Azure Connect.
 
 **Inicialização**  
@@ -136,10 +136,10 @@ O arquivo de configuração de serviço não é fornecido com o aplicativo, mas 
 
 Você pode consultar o [esquema de configuração de serviço](/previous-versions/azure/reference/ee758710(v=azure.100)) para entender melhor o esquema XML usado aqui, no entanto, eis uma breve explicação dos elementos:
 
-**Instâncias**  
+**Ocasiões**  
  configura o número de instâncias em execução para a função. Para impedir que seu serviço de nuvem fique potencialmente indisponível durante atualizações, é recomendável implantar mais de uma instância das suas funções da Web. Ao implantar mais de uma instância, você estará aderindo às diretrizes do [Contrato de nível de serviço de computação do Azure (SLA)](https://azure.microsoft.com/support/legal/sla/), que garante 99,95% de conectividade externa para funções de Internet quando duas ou mais instâncias de função são implantadas para um serviço.
 
-**Configurationsettings**  
+**ConfigurationSettings**  
  define as configurações para as instâncias em execução para uma função. O nome dos `<Setting>` elementos deve corresponder às definições no arquivo de definição de serviço.
 
 **Certificados**  
@@ -217,7 +217,7 @@ A [Biblioteca de Tempo de Execução do Azure](/previous-versions/azure/referenc
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
 > [!NOTE]
-> O tamanho máximo do pacote que pode ser implantado é de 600MB
+> O tamanho máximo do pacote que pode ser implantado é 600MB
 
 Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](https://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
 
@@ -281,7 +281,7 @@ Estou criando um pacote de serviço de nuvem e desejo...
 
 Estou usando o Visual Studio e desejo...
 
-* [Crie um novo serviço em nuvem][vs_create]
+* [Criar um novo serviço de nuvem][vs_create]
 * [Reconfigurar um serviço de nuvem existente][vs_reconfigure]
 * [Implantar um projeto do serviço de nuvem][vs_deploy]
 * [Configurar área de trabalho remota para uma instância de serviço de nuvem][vs_remote]

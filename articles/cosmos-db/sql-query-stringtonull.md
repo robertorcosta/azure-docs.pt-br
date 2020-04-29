@@ -1,5 +1,5 @@
 ---
-title: StringToNull no azure Cosmos DB linguagem de consulta
+title: StringToNull na linguagem de consulta Azure Cosmos DB
 description: Saiba mais sobre a função do sistema SQL StringToNull no Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7e17547f88465103b61eabec04978ea806ffa2c9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78296432"
 ---
 # <a name="stringtonull-azure-cosmos-db"></a>StringToNull (Azure Cosmos DB)
- Retorna expressão traduzida para nulo. Se a expressão não puder ser traduzida, retorna indefinida.  
+ Retorna a expressão convertida em NULL. Se a expressão não puder ser convertida, retornará indefinido.  
   
 ## <a name="syntax"></a>Sintaxe
   
@@ -26,19 +26,19 @@ StringToNull(<str_expr>)
 ## <a name="arguments"></a>Argumentos
   
 *str_expr*  
-   É uma expressão de corda a ser analisado como uma expressão nula.
+   É uma expressão de cadeia de caracteres a ser analisada como uma expressão nula.
   
 ## <a name="return-types"></a>Tipos de retorno
   
-  Retorna uma expressão nula ou indefinida.  
+  Retorna uma expressão nula ou indefinido.  
   
 ## <a name="examples"></a>Exemplos
   
-  O exemplo a `StringToNull` seguir mostra como se comporta entre diferentes tipos. 
+  O exemplo a seguir mostra `StringToNull` como o se comporta entre diferentes tipos. 
 
-A seguir, exemplos com entrada válida.
+Veja a seguir exemplos de entrada válida.
 
- O espaço em branco só é permitido antes ou depois de "nulo".
+ O espaço em branco é permitido somente antes ou depois de "NULL".
 
 ```sql
 SELECT 
@@ -53,9 +53,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
-A seguir, exemplos com entrada inválida.
+Veja a seguir exemplos de entrada inválida.
 
-Nulo é sensível ao caso e deve ser escrito com todos os caracteres minúsculos, ou seja, "nulo".
+NULL diferencia maiúsculas de minúsculas e deve ser escrito com todos os caracteres minúsculos, ou seja, "NULL".
 
 ```sql
 SELECT    
@@ -69,7 +69,7 @@ SELECT
 [{}]
 ```  
 
-A expressão aprovada será analisado como uma expressão nula; essas entradas não avaliam para digitar nulo e, portanto, retornam indefinidos.
+A expressão passada será analisada como uma expressão nula; essas entradas não são avaliadas como tipo NULL e, portanto, retornam indefinidamente.
 
 ```sql
 SELECT    
@@ -87,10 +87,10 @@ SELECT
 
 ## <a name="remarks"></a>Comentários
 
-Esta função do sistema não utilizará o índice.
+Essa função do sistema não usará o índice.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções de string Azure Cosmos DB](sql-query-string-functions.md)
-- [Funcionamento do sistema Azure Cosmos DB](sql-query-system-functions.md)
+- [Funções de cadeia de caracteres Azure Cosmos DB](sql-query-string-functions.md)
+- [Funções do sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

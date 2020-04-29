@@ -1,5 +1,5 @@
 ---
-title: Exemplo de aplicativo multilocatário - Wingtip SaaS
+title: Exemplo de aplicativo multilocatário – Wingtip SaaS
 description: Aprenda usando um aplicativo de multilocatário de exemplo que usa o Banco de Dados SQL do Azure, o exemplo do Wingtip SaaS
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 46cdcd5f768278dbc729f48e450c68a63be604be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256491"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução a um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o Banco de Dados SQL
@@ -45,10 +45,10 @@ Depois de implantar o aplicativo, explore a seguinte coleção de tutoriais que 
 |[Implantar e explorar o aplicativo SaaS Wingtip](saas-dbpertenant-get-started-deploy.md)|  Implantar e explorar o aplicativo SaaS Wingtip com sua assinatura do Azure. |
 |[Provisionar e catalogar locatários](saas-dbpertenant-provision-and-catalog.md)| Saiba como o aplicativo se conecta aos locatários usando um banco de dados do catálogo, e como o catálogo mapeia locatários para seus dados. |
 |[Monitorar e gerenciar o desempenho](saas-dbpertenant-performance-monitoring.md)| Saiba como usar os recursos de monitoramento do Banco de Dados SQL e definir alertas quando os limites de desempenho são excedidos. |
-|[Monitorar com os logs do Azure Monitor](saas-dbpertenant-log-analytics.md) | Aprenda a usar os [registros do Azure Monitor](../log-analytics/log-analytics-overview.md) para monitorar grandes quantidades de recursos em vários pools. |
+|[Monitorar com os logs do Azure Monitor](saas-dbpertenant-log-analytics.md) | Saiba como usar [os logs de Azure monitor](../log-analytics/log-analytics-overview.md) para monitorar grandes quantidades de recursos em vários pools. |
 |[Restaurar um único locatário](saas-dbpertenant-restore-single-tenant.md)| Saiba como restaurar um banco de dados de locatário em um ponto anterior no tempo. Também saiba como restaurar um banco de dados paralelo, o que deixa o banco de dados existente do locatário online. |
 |[Gerenciar o esquema de banco de dados do locatário](saas-tenancy-schema-management.md)| Saiba como atualizar o esquema e atualizar dados de referência, em todos os bancos de dados de locatários. |
-|[Executar consultas distribuídas entre locatários](saas-tenancy-cross-tenant-reporting.md) | Crie um banco de dados de análise ad hoc e execute consultas distribuídas em tempo real em todos os inquilinos.  |
+|[Executar consultas distribuídas entre locatários](saas-tenancy-cross-tenant-reporting.md) | Crie um banco de dados de análise ad hoc e execute consultas distribuídas em tempo real em todos os locatários.  |
 |[Executar análise em dados extraídos de locatário](saas-tenancy-tenant-analytics.md) | Extraia dados de locatário em um análise banco de dados ou data warehouse para consultas analíticas offline. |
 
 

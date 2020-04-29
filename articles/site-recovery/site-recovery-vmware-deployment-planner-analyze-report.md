@@ -1,6 +1,6 @@
 ---
-title: Analise o relatório do Planejador de Implantação para recuperação de desastres vMware com a recuperação do site do Azure
-description: Este artigo descreve como analisar o relatório gerado pelo Recovery Deployment Planner for VMware disaster recovery to Azure, usando o Azure Site Recovery.
+title: Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware com Azure Site Recovery
+description: Este artigo descreve como analisar o relatório gerado pelo Planejador de Implantações de recuperação para a recuperação de desastres do VMware no Azure, usando Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
 ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257505"
 ---
-# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analise o relatório do Planejador de Implantação para recuperação de desastres vMware para o Azure
+# <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analisar o relatório de Planejador de Implantações para a recuperação de desastres do VMware para o Azure
 
 O relatório gerado do Microsoft Excel contém as seguintes planilhas:
 ## <a name="on-premises-summary"></a>Resumo local
@@ -53,7 +53,7 @@ A planilha de recomendações do relatório do VMware para o Azure apresenta os 
 
 **Nome do Servidor**: o nome ou o endereço IP do host VMware vCenter ou ESXi sobre cujas VMss é gerado o relatório.
 
-**RPO Desejado**: o objetivo de ponto de recuperação para sua implantação. Por padrão, a largura de banda de rede necessária é calculada para valores de RPO de 15, 30 e 60 minutos. Com base na seleção, os valores afetados são atualizados na planilha. Se você tiver usado o parâmetro *DesiredRPOinMin* ao gerar o relatório, esse valor será mostrado no resultado RPO desejado.
+**RPO Desejado**: o objetivo de ponto de recuperação para sua implantação. Por padrão, a largura de banda de rede necessária é calculada para valores de RPO de 15, 30 e 60 minutos. Com base na seleção, os valores afetados são atualizados na planilha. Se você tiver usado o parâmetro *DesiredRPOinMin* ao gerar o relatório, esse valor será mostrado no resultado de RPO desejado.
 
 ### <a name="profiling-overview"></a>Visão geral da criação de perfil
 
@@ -92,7 +92,7 @@ Se você estiver executando a ferramenta em um servidor de configuração ou de 
 Para todas as implantações do Site Recovery corporativo, é recomendável usar o [ExpressRoute](https://aka.ms/expressroute).
 
 ### <a name="required-storage-accounts"></a>Contas de armazenamento necessárias
-O gráfico a seguir mostra o número total de contas de armazenamento (standard e premium) que são necessárias para proteger todas as VMs compatíveis. Para saber qual conta de armazenamento deve ser usada para cada VM, confira a seção "Posicionamento de VM-storage". Se você estiver usando v2.5 do Deployment Planner, esta recomendação só mostrará o número de contas padrão de armazenamento de cache necessárias para a replicação, uma vez que os dados estão sendo diretamente gravados em Discos Gerenciados.
+O gráfico a seguir mostra o número total de contas de armazenamento (standard e premium) que são necessárias para proteger todas as VMs compatíveis. Para saber qual conta de armazenamento deve ser usada para cada VM, confira a seção "Posicionamento de VM-storage". Se você estiver usando a v 2.5 de Planejador de Implantações, essa recomendação mostrará apenas o número de contas de armazenamento de cache padrão que são necessárias para a replicação, uma vez que os dados estão sendo gravados diretamente no Managed Disks.
 
 ![Contas de armazenamento necessárias no planejador de implantação](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -157,19 +157,19 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 ## <a name="vm-storage-placement"></a>Posicionamento de VM-Storage
 
 >[!Note]
->O Deployment Planner v2.5 recomenda a colocação de armazenamento para máquinas que se replicarão diretamente em discos gerenciados.
+>O Planejador de Implantações v 2.5 em diante recomenda o posicionamento de armazenamento para computadores que serão replicados diretamente em discos gerenciados.
 
 ![Posicionamento de VM-Storage](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Tipo de armazenamento de replicação**: Um disco gerenciado padrão ou premium, que é usado para replicar todas as VMs correspondentes mencionadas na coluna **VMs to Place.**
+**Tipo de armazenamento de replicação**: um disco gerenciado Standard ou Premium, que é usado para replicar todas as VMs correspondentes mencionadas na coluna **VMs para o local** .
 
-**Log Storage Account Type**: Todos os registros de replicação são armazenados em uma conta de armazenamento padrão.
+**Tipo de conta de armazenamento de log**: todos os logs de replicação são armazenados em uma conta de armazenamento padrão.
 
-**Prefixo sugerido para conta de armazenamento**: O prefixo sugerido de três caracteres que pode ser usado para nomear a conta de armazenamento de cache. Você pode usar seu próprio prefixo, mas sugestão da ferramenta segue a [convenção de nomenclatura de partição para contas de armazenamento](https://aka.ms/storage-performance-checklist).
+**Prefixo sugerido para a conta de armazenamento**: o prefixo de três caracteres sugerido que pode ser usado para nomear a conta de armazenamento em cache. Você pode usar seu próprio prefixo, mas sugestão da ferramenta segue a [convenção de nomenclatura de partição para contas de armazenamento](https://aka.ms/storage-performance-checklist).
 
-**Nome sugerido da conta log**: O nome da conta de armazenamento depois de incluir o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
+**Nome da conta de log sugerido**: o nome da conta de armazenamento depois que você inclui o prefixo sugerido. Substitua o nome entre colchetes angulares (< e >) por sua entrada personalizada.
 
-**Resumo da colocação**: Um resumo dos discos necessários para as VMs protegidas por tipo de armazenamento. Ele inclui o número total de VMs, o tamanho total provisionado em todos os discos e o número total de discos.
+**Resumo de posicionamento**: um resumo dos discos necessários para VMs protegidas por tipo de armazenamento. Ele inclui o número total de VMs, o tamanho total provisionado em todos os discos e o número total de discos.
 
 **Máquinas Virtuais para Posicionar**: uma lista de todas as VMs que devem ser posicionadas na conta de armazenamento específica para obter o melhor desempenho e uso.
 
@@ -178,7 +178,7 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 
 **Nome da VM**: o nome da VM ou o endereço IP que é usado em VMListFile quando um relatório é gerado. Essa coluna também lista os discos (VMDKs) que estão anexados às VMs. Para diferenciar VMs vCenter com nomes ou endereços IP duplicados, os nomes incluem o nome do host ESXi. O host ESXi listado é aquele em que a VM foi colocada quando a ferramenta realizou a descoberta durante o período de criação de perfil.
 
-**Compatibilidade de VM**: os valores são **Sim** e **Sim\***. **Sim** \* é para casos em que a VM é adequada para [SSDs premium](../virtual-machines/windows/disks-types.md). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo: 
+**Compatibilidade de VM**: os valores são **Sim** e **Sim\***. **Sim** \* é para instâncias nas quais a VM é uma opção para [SSDs Premium](../virtual-machines/windows/disks-types.md). Aqui, a alta variação da criação de perfil ou o disco IOPS se encaixam na categoria P20 ou P30, mas o tamanho do disco faz com que ele seja mapeado para P10 ou P20. A conta de armazenamento decide para qual tipo de disco de armazenamento premium um disco deve ser mapeado, com base em seu tamanho. Por exemplo:
 * <128 GB é P10.
 * 128 GB até 256 GB é um P15
 * 256 GB a 512 GB é um P20.
@@ -186,11 +186,11 @@ Pode haver uma situação em que você saiba que não é possível definir uma l
 * 1025 GB a 2048 GB é P40.
 * 2049 GB a 4095 GB é P50.
 
-Por exemplo, se as características de carga de trabalho de um disco colocá-lo na categoria P20 ou P30, mas o tamanho mapeá-lo para um tipo de disco de armazenamento premium mais baixo, a ferramenta marca que vm como **Sim**\*. A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
+Por exemplo, se as características de carga de trabalho de um disco o colocarem na categoria P20 ou p30, mas o tamanho o mapear para um tipo de disco de armazenamento Premium inferior, a ferramenta marcará essa VM como **Sim**\*. A ferramenta também recomenda que você altere o tamanho do disco de origem para se ajustar ao tipo de disco de armazenamento premium recomendado ou altere o tipo de disco de destino após o failover.
 
 **Tipo de armazenamento**: standard ou premium.
 
-**Asrseeddisk (Disco Gerenciado) criado para replicação**: O nome do disco que é criado quando você habilita a replicação. Ele armazena os dados e seus instantâneos no Azure.
+**Asrseeddisk (disco gerenciado) criado para replicação**: o nome do disco que é criado quando você habilita a replicação. Ele armazena os dados e seus instantâneos no Azure.
 
 **IOPS de L/G de Pico (com Fator de Crescimento)**: o IOPS de leitura/gravação de carga de trabalho de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que o IOPS total de leitura/gravação de uma VM nem sempre é a soma de IOPS de leitura/gravação dos discos individuais da VM, pois o IOPS de leitura/gravação de pico da VM é o pico da soma do IOPS de leitura/gravação dos discos individuais durante cada minuto do período de criação de perfil.
 
@@ -221,14 +221,14 @@ Por exemplo, se as características de carga de trabalho de um disco colocá-lo 
 
 **Compatibilidade de VM**: indica por que a VM específica é incompatível com o Site Recovery. Os motivos são descritos para cada disco incompatível da VM e, com base nos [limites de armazenamento](https://aka.ms/azure-storage-scalbility-performance) publicados, podem ser qualquer um dos seguintes:
 
-* Tamanho errado do disco de dados ou tamanho errado do disco do SISTEMA OPERACIONAL. [Revise](vmware-physical-azure-support-matrix.md#azure-vm-requirements) os limites de suporte. 
+* Tamanho incorreto do disco de dados ou tamanho de disco do so incorreto. [Examine](vmware-physical-azure-support-matrix.md#azure-vm-requirements) os limites de suporte. 
 * O tamanho total da VM (replicação + TFO) excede o limite de tamanho de conta de armazenamento com suporte (35 TB). Essa incompatibilidade normalmente ocorre quando um único disco na VM tem uma característica de desempenho que excede os limites máximo com suporte do Azure ou do Site Recovery para o armazenamento standard. Essa instância coloca a VM na zona de armazenamento premium. No entanto, o tamanho máximo com suporte de uma conta de armazenamento premium é de 35 TB, e uma única VM protegida não pode ser protegida em várias contas de armazenamento. Além disso, observe que quando um failover de teste é executado em uma VM protegida, ele é executado na mesma conta de armazenamento em que a replicação está em andamento. Nessa instância, configure duas vezes o tamanho do disco para que a replicação progrida e o failover de teste tenha êxito em paralelo.
 
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 7500 por disco.
 
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 80.000 por VM.
 
-* O churn médio de dados excede o limite de rotatividade de dados de recuperação de site suportado de 20 MB/s para o tamanho médio de I/O para o disco.
+* A rotatividade média de dados excede o limite de variação de dados Site Recovery com suporte de 20 MB/s para o tamanho médio de e/s para o disco.
 
 * A variação de dados de pico em todos os discos na VM excede o limite máximo de variação de dados de pico com suporte do Site Recovery de 54 MB!s por VM.
 
@@ -255,12 +255,12 @@ Por exemplo, se as características de carga de trabalho de um disco colocá-lo 
 
 **Tipo de inicialização**: tipo de inicialização da VM. Pode ser o BIOS ou EFI.  Atualmente, o Azure Site Recovery dá suporte às VMs do Windows Server EFI (Windows Server 2012, 2012 R2 e 2016) desde que o número de partições no disco de inicialização seja menor do que 4 e o tamanho do setor de inicialização seja de 512 bytes. Para proteger as VMs do EFI, a versão do serviço de mobilidade do Azure Site Recovery deverá ser a 9.13 ou superior. Somente o failover tem suporte para as VMs do EFI. Não há suporte para failback.
 
-**Tipo de SISTEMA**OPERACIONAL : É o tipo de SO da VM. Pode ser Windows ou Linux ou outro com base no modelo do VMware vSphere escolhido durante a criação da máquina virtual.
+**Tipo de so**: é o tipo de so da VM. Pode ser Windows ou Linux ou outro com base no modelo do VMware vSphere escolhido durante a criação da máquina virtual.
 
 ## <a name="azure-site-recovery-limits"></a>Limites da Azure Site Recovery
 A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites são baseados em nossos testes, mas eles não podem abranger todas as combinações possíveis de E/S de aplicativos. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo. Para obter os melhores resultados, mesmo após planejar a implantação, é sempre recomendável executar amplos testes de aplicativos usando um failover de teste para obter a visão real do desempenho do aplicativo.
 
-**Alvo de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de dados de disco de origem churn por dia**
+**Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de rotatividade de dados do disco de origem por dia**
 ---|---|---|---
 Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
@@ -269,7 +269,7 @@ Disco Premium P10 ou P15 | 32 KB ou maior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior | 20 MB/s | 1684 GB por disco
 
-**Variação de dados de origem** | **Limite Máximo**
+**Variação de dados de origem** | **Limite máximo**
 ---|---
 Variação de dados de pico entre todos os discos em uma VM | 54 MB/s
 Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 TB

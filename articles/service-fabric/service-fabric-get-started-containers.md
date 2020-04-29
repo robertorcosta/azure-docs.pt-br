@@ -1,13 +1,13 @@
 ---
-title: Crie um aplicativo de contêiner de malha de serviço do Azure
-description: Crie seu primeiro aplicativo de contêiner do Windows no Azure Service Fabric. Construa uma imagem Docker com um aplicativo Python, empurre a imagem para um registro de contêiner e, em seguida, construa e implante o contêiner no Azure Service Fabric.
+title: Criar um aplicativo de contêiner de Service Fabric do Azure
+description: Crie seu primeiro aplicativo de contêiner do Windows no Azure Service Fabric. Crie uma imagem do Docker com um aplicativo Python, envie a imagem por push para um registro de contêiner e, em seguida, compile e implante o contêiner no Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258467"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
@@ -16,7 +16,7 @@ ms.locfileid: "79258467"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este artigo orienta você a criar uma imagem Docker contendo um aplicativo web Python [Flask](http://flask.pocoo.org/) e implantá-lo em um cluster de malha de serviço Do Azure. Você também compartilhará seu aplicativo em contêineres pelo [Registro de Contêiner do Azure](/azure/container-registry/). Este artigo pressupõe uma compreensão básica sobre o Docker. Saiba mais sobre o Docker lendo a [Visão geral de Docker](https://docs.docker.com/engine/understanding-docker/).
+Executar um aplicativo existente em um contêiner do Windows em um cluster do Service Fabric não requer alterações no seu aplicativo. Este artigo orienta você pela criação de uma imagem do Docker que contém um aplicativo Web Python [Flask](http://flask.pocoo.org/) e sua implantação em um Cluster Service Fabric do Azure. Você também compartilhará seu aplicativo em contêineres pelo [Registro de Contêiner do Azure](/azure/container-registry/). Este artigo pressupõe uma compreensão básica sobre o Docker. Saiba mais sobre o Docker lendo a [Visão geral de Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > Este artigo se aplica a um ambiente de desenvolvimento do Windows.  O runtime do cluster do Service Fabric e o runtime do Docker devem estar em execução no mesmo sistema operacional.  Você não pode executar contêineres do Windows em um cluster do Linux.
@@ -28,7 +28,7 @@ Executar um aplicativo existente em um contêiner do Windows em um cluster do Se
 
 * Um computador de desenvolvimento executando:
   * Visual Studio 2015 ou Visual Studio 2019.
-  * [SDK de tecido](service-fabric-get-started.md)de serviço e ferramentas .
+  * [SDK e ferramentas do Service Fabric](service-fabric-get-started.md).
   *  Docker para Windows. [Obter Docker CE para o Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique no ícone de bandeja e selecione **Alternar para contêineres do Windows**. Essa etapa é necessária para executar imagens do Docker com base no Windows.
 
 * Um cluster do Windows com três ou mais nós em execução no Windows Server com contêineres. 
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o comando a seguir:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o seguinte comando:
 
 ```
 docker build -t helloworldapp .
@@ -142,12 +142,12 @@ Depois que o contêiner iniciar, localize seu endereço IP para que você pode s
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Se esse comando não retornar nada, execute o seguinte comando e inspecione o elemento **Redes de Configurações**->**de** rede para o endereço IP:
+Se esse comando não retornar nada, execute o comando a seguir e inspecione o elemento **NetworkSettings**->**Networks** para o endereço IP:
 ```
 docker inspect my-web-site
 ```
 
-Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço\/IP retornado, por exemplo "http: /172.31.194.61". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo, "\/http:/172.31.194.61". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 Para interromper o contêiner, execute:
 
@@ -166,9 +166,9 @@ docker rm my-web-site
 
 Depois de verificar que o contêiner é executado na máquina de desenvolvimento, envie a imagem para seu registro no Registro de Contêiner do Azure.
 
-Execute ``docker login`` para entrar no seu registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
+Execute ``docker login`` para entrar no registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando seu nome de usuário e senha do registro.
+O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando o nome de usuário e a senha do registro.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -189,7 +189,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>Crie o serviço em contêineres no Visual Studio
 As ferramentas e o SDK do Service Fabric oferecem um modelo de serviço para ajudar você a criar um aplicativo em contêineres.
 
-1. Inicie o Visual Studio. Selecione **Arquivo** > **Novo** > **Projeto**.
+1. Inicie o Visual Studio. Selecione **arquivo** > **novo** > **projeto**.
 2. Selecione **Aplicativo do Service Fabric**, nomeie-o como "MyFirstContainer" e clique em **OK**.
 3. Selecione **Contêiner** na lista de **modelos de serviço**.
 4. Em **Nome da imagem** insira "myregistry.azurecr.io/samples/helloworldapp", a imagem é enviada para o seu repositório de contêiner.
@@ -256,7 +256,7 @@ Configure uma porta de host usada para se comunicar com o contêiner. A associa�
 
 ## <a name="configure-container-repository-authentication"></a>Configurar a autenticação do repositório de contêiner
 
-Consulte [Autenticação de repositório de contêineres](configure-container-repository-credentials.md)para aprender como configurar diferentes tipos de autenticação para download de imagens de contêiner.
+Consulte [autenticação de repositório de contêiner](configure-container-repository-credentials.md)para saber como configurar diferentes tipos de autenticação para download de imagem de contêiner.
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
 O Windows dá suporte a dois modos de isolamento para contêineres: processo e Hyper-V. Com o modo de isolamento de processo, todos os contêineres em execução no mesmo computador host compartilham o kernel com o host. Com o modo de isolamento do Hyper-V, os kernels são isolados entre cada contêiner do Hyper-V e o host do contêiner. O modo de isolamento é especificado no elemento `ContainerHostPolicies` no arquivo de manifesto do aplicativo. Os modos de isolamento que podem ser especificados são `process`, `hyperv` e `default`. O padrão é o modo de isolamento de processo nos hosts do Windows Server. Em hosts do Windows 10, somente o modo de isolamento do Hyper-V tem suporte, assim o contêiner é executado no modo de isolamento do Hyper-V, independentemente de sua configuração de modo de isolamento. O snippet a seguir mostra como o modo de isolamento é especificado no arquivo de manifesto do aplicativo.
@@ -285,7 +285,7 @@ A [governança de recursos](service-fabric-resource-governance.md) restringe os 
 
 Iniciando a versão 6.1, o Service Fabric integra automaticamente os eventos do [HEALTHCHECK do Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) em seu relatório de integridade do sistema. Isso significa que, se o contêiner tiver o **HEALTHCHECK** habilitado, o Service Fabric relatará a integridade sempre que o status de integridade do contêiner for alterado conforme relatado pelo Docker. Um relatório de integridade **OK** será exibido no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando o *health_status* for *íntegro* e um **AVISO** aparecerá quando o *health_status* for *não íntegro*. 
 
-Começando com a última versão de atualização do v6.4, você tem a opção de especificar que as avaliações do DOCKER HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de saúde **OK** aparecerá quando *health_status* estiver *saudável* e **o ERRO** aparecerá quando *health_status* estiver *insalubre*.
+A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro*.
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
@@ -309,11 +309,11 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
     </Policies>
 </ServiceManifestImport>
 ```
-Por *padrão, IncludeDockerHealthStatusInSystemHealthReport* é definido como **verdadeiro,** *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **falso**e *TreatContainerUnhealthyStatusAsError* é definido como **falso**. 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
 
 Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
-Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de saúde **ERROR** aparecerão quando a *health_status* do recipiente estiver *insalubre*.
+Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro*.
 
 Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluster do Service Fabric, precisará definir o [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **false**.
 
@@ -343,15 +343,15 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 ## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilidade do sistema operacional do contêiner e do sistema operacional do host do Windows Server
 
-Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Por exemplo: 
+Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional do host. Por exemplo:
  
 - Os contêineres do Windows Server criados usando o Windows Server versão 1709 não funcionam em um host executando o Windows Server versão 2016. 
-- Os contêineres do Windows Server construídos usando o Windows Server 2016 funcionam no modo de isolamento Hyper-V apenas em um host executando a versão 1709 do Windows Server. 
+- Os contêineres do Windows Server criados usando o Windows Server 2016 funcionam no modo de isolamento do Hyper-V somente em um host que executa o Windows Server versão 1709. 
 - Com contêineres do Windows Server criados usando o Windows Server 2016, pode ser necessário garantir que a revisão do sistema operacional do contêiner e sistema operacional do host são as mesmas durante a execução no modo de isolamento do processo em um host executando o Windows Server 2016.
  
 Para obter mais informações, consulte [Compatibilidade de versão de contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considere a compatibilidade do sistema operacional do host e do sistema operacional do contêiner ao compilar e implantar contêineres para o cluster do Service Fabric. Por exemplo: 
+Considere a compatibilidade do sistema operacional do host e do sistema operacional do contêiner ao compilar e implantar contêineres para o cluster do Service Fabric. Por exemplo:
 
 - Verifique se que você implanta os contêineres com um sistema operacional compatível com o sistema operacional nos nós do cluster.
 - Certifique-se de que o modo de isolamento especificado para o aplicativo de contêiner é consistente com o suporte para o sistema operacional do contêiner no nó onde ele está sendo implantado.
@@ -496,7 +496,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurar o intervalo de tempo antes do contêiner ser forçado a terminar
 
-Você pode configurar um intervalo de tempo para a execução aguardar antes do contêiner ser removido após a exclusão do serviço (ou um movimento para outro nó) ter iniciado. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contêiner.  Para obter mais detalhes, consulte [parar docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na seção `Hosting`. A `Hosting` seção pode ser adicionada na criação de cluster ou mais tarde em uma atualização de configuração. O snippet de manifesto do cluster a seguir mostra como definir o intervalo de espera:
+Você pode configurar um intervalo de tempo para a execução aguardar antes do contêiner ser removido após a exclusão do serviço (ou um movimento para outro nó) ter iniciado. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contêiner.  Para obter mais detalhes, consulte [parar docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na seção `Hosting`. A `Hosting` seção pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. O snippet de manifesto do cluster a seguir mostra como definir o intervalo de espera:
 
 ```json
 "fabricSettings": [

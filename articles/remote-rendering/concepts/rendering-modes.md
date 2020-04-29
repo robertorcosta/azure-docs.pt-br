@@ -1,56 +1,56 @@
 ---
-title: Modos de renderização
+title: Renderização de modos
 description: Descreve os diferentes modos de renderização do lado do servidor
 author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7f2b1031659864ae338bb0aa320c048ea23c21f3
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681695"
 ---
-# <a name="rendering-modes"></a>Modos de renderização
+# <a name="rendering-modes"></a>Renderização de modos
 
-A renderização remota oferece dois modos principais de operação, o modo **TileBasedComposition** e o modo **DepthBasedComposition.** Esses modos determinam como a carga de trabalho é distribuída em várias GPUs no servidor. O modo deve ser especificado no momento da conexão e não pode ser alterado durante o tempo de execução.
+A renderização remota oferece dois modos principais de operação, modo **TileBasedComposition** e modo **DepthBasedComposition** . Esses modos determinam como a carga de trabalho é distribuída entre várias GPUs no servidor. O modo deve ser especificado no momento da conexão e não pode ser alterado durante o tempo de execução.
 
-Ambos os modos vêm com vantagens, mas também com limitações inerentes aos recursos, então escolher o modo mais adequado é usar caso específico.
+Ambos os modos vêm com vantagens, mas também com limitações de recursos inerentes, portanto, escolher o modo mais adequado é o uso específico do caso.
 
 ## <a name="modes"></a>Modos
 
-Os dois modos são agora discutidos com mais detalhes.
+Os dois modos agora são discutidos mais detalhadamente.
 
-### <a name="tilebasedcomposition-mode"></a>Modo 'TileBasedComposition'
+### <a name="tilebasedcomposition-mode"></a>Modo ' TileBasedComposition '
 
-No modo **TileBasedComposition,** cada GPU envolvida renderiza subretângulos (ladrilhos) específicos na tela. A GPU principal compõe a imagem final das telhas antes de ser enviada como um quadro de vídeo para o cliente. Assim, todas as GPUs precisam ter o mesmo conjunto de recursos para renderização, de modo que os ativos carregados precisam se encaixar na memória de uma única GPU.
+No modo **TileBasedComposition** , cada GPU envolvida renderiza subretângulos específicos (blocos) na tela. A GPU principal compõe a imagem final dos blocos antes de ser enviada como um quadro de vídeo para o cliente. Da mesma forma, todas as GPUs precisam ter o mesmo conjunto de recursos para renderização, de modo que os ativos carregados precisam se ajustar à memória de uma única GPU.
 
-A qualidade de renderização neste modo é ligeiramente melhor do que no modo **DepthBasedComposition,** já que o MSAA pode trabalhar no conjunto completo de geometria para cada GPU. A captura de tela a seguir mostra que a antialiasing funciona corretamente para ambas as bordas da mesma forma:
+A qualidade de renderização nesse modo é um pouco melhor do que no modo **DepthBasedComposition** , uma vez que o MSAA pode funcionar no conjunto completo de geometria para cada GPU. A captura de tela a seguir mostra que a suavização funciona corretamente para ambas as bordas da mesma forma:
 
-![MSAA em Composição baseada em ladrilhos](./media/service-render-mode-quality.png)
+![MSAA em TileBasedComposition](./media/service-render-mode-quality.png)
 
-Além disso, neste modo cada peça pode ser comutada para um material transparente ou comutada para o modo **transparente** através do [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md)
+Além disso, nesse modo, cada parte pode ser alternada para um material transparente ou alternado para o modo de **Visualização** por meio do [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md)
 
-### <a name="depthbasedcomposition-mode"></a>Modo 'ProfundidadeBaseadaComposição'
+### <a name="depthbasedcomposition-mode"></a>Modo ' DepthBasedComposition '
 
-No modo **DepthBasedComposition,** cada GPU envolvida renderiza em resolução de tela cheia, mas apenas um subconjunto de linhas. A composição final da imagem na GPU principal toma cuidado para que as peças sejam adequadamente mescladas de acordo com suas informações de profundidade. Naturalmente, a carga de memória é distribuída através das GPUs, permitindo assim a renderização de modelos que não caberiam na memória de uma única GPU.
+No modo **DepthBasedComposition** , cada GPU envolvida é renderizada na resolução de tela inteira, mas apenas um subconjunto de malhas. A composição final da imagem na GPU principal cuida de que as partes são mescladas corretamente de acordo com suas informações de profundidade. Naturalmente, a carga de memória é distribuída entre as GPUs, permitindo, portanto, que os modelos de renderização que não caibam na memória de uma única GPU.
 
-Cada GPU usa o MSAA para antialias conteúdo local. No entanto, pode haver aliasing inerente entre bordas de GPUs distintas. Esse efeito é mitigado pós-processamento da imagem final, mas a qualidade do MSAA ainda é pior do que no modo **TileBasedComposition.**
+Cada GPU única usa MSAA para suavizar o conteúdo local. No entanto, pode haver um alias inerente entre as bordas de GPUs distintas. Esse efeito é mitigado pelo pré-processamento da imagem final, mas a qualidade de MSAA ainda é pior do que no modo **TileBasedComposition** .
 
-Os artefatos MSAA são ilustrados ![na seguinte imagem: MSAA em DepthBasedComposition](./media/service-render-mode-balanced.png)
+Os artefatos MSAA são ilustrados na imagem ![a seguir: MSAA em DepthBasedComposition](./media/service-render-mode-balanced.png)
 
-O antialiasing funciona corretamente entre a escultura e a cortina, porque ambas as partes são renderizadas na mesma GPU. Por outro lado, a borda entre cortina e parede mostra alguns aliasing porque essas duas partes são compostas de GPUs distintas.
+A anti-aliasing funciona corretamente entre o sculpture e o Curtain, porque ambas as partes são renderizadas na mesma GPU. Por outro lado, a borda entre Curtain e Wall mostra alguns aliases, pois essas duas partes são compostas de GPUs distintas.
 
-A maior limitação deste modo é que as peças de geometria não podem ser comutadas para materiais transparentes dinamicamente nem o modo **transparente** funciona para o [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). Outras características de substituição de estado (contorno, color tint, ...) funcionam, no entanto. Também materiais que foram marcados como transparentes no tempo de conversão funcionam corretamente neste modo.
+A maior limitação desse modo é que as partes de geometria não podem ser alternadas dinamicamente para materiais transparentes, nem o modo de **Visualização** funciona para o [HierarchicalStateOverrideComponent](../overview/features/override-hierarchical-state.md). No entanto, outros recursos de substituição de estado (estrutura de tópicos, tonalidade de cores,...) funcionam. Além disso, os materiais que foram marcados como transparentes no momento da conversão funcionam corretamente nesse modo.
 
 ### <a name="performance"></a>Desempenho
 
-As características de desempenho para ambos os modos variam de acordo com o caso de uso, e é difícil raciocinar ou fornecer recomendações gerais. Se você não estiver constrangido pelas limitações mencionadas acima (memória ou transparência/see-through), recomenda-se experimentar ambos os modos e monitorar o desempenho usando várias posições da câmera.
+As características de desempenho para ambos os modos variam de acordo com o caso de uso e são difíceis de usar ou fornecer recomendações gerais. Se você não estiver restrito pelas limitações mencionadas acima (memória ou transparência/ver-pelo), é recomendável testar ambos os modos e monitorar o desempenho usando várias posições de câmera.
 
-## <a name="setting-the-render-mode"></a>Configuração do modo render
+## <a name="setting-the-render-mode"></a>Definindo o modo de renderização
 
-O modo de renderização usado em uma `AzureSession.ConnectToRuntime` VM de renderização remota é especificado durante o `ConnectToRuntimeParams`.
+O modo de renderização usado em uma VM de renderização remota é `AzureSession.ConnectToRuntime` especificado durante `ConnectToRuntimeParams`por meio do.
 
 ```cs
 async void ExampleConnect(AzureSession session)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254736"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar componentes e status de hardware
@@ -79,7 +79,7 @@ Execute as etapas a seguir para exibir o status de hardware de um componente de 
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista de componentes para o compartimento primário do dispositivo StorSimple
 A tabela a seguir descreve os componentes físicos e lógicos contidos no compartimento primário (presente nos modelos 8100 e 8600) do seu dispositivo StorSimple local.
 
-| Componente | Módulo | Type | Location | Unidade renovável (FRU)? | Descrição |
+| Componente | Módulo | Type | Local | Unidade renovável (FRU)? | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Unidade no slot [0-11] |Unidades de disco |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das unidades SSD ou HDD no compartimento primário. |
 | Sensor de temperatura ambiente |Compartimento |Físico |Compartilhado |Não |Mede a temperatura dentro do chassi. |
@@ -120,7 +120,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista de componentes para o compartimento EBOD do dispositivo StorSimple
 A tabela a seguir descreve os componentes físicos e lógicos contidos no compartimento EBOD (apenas presente no modelo 8600) do seu dispositivo StorSimple local.
 
-| Componente | Módulo | Type | Location | FRU? | Descrição |
+| Componente | Módulo | Type | Local | FRU? | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Unidade no slot [0-11] |Unidades de disco |Físico |Compartilhado |Sim |É apresentada uma linha para cada uma das unidades HDD na frente do compartimento EBOD. |
 | Sensor de temperatura ambiente |Compartimento |Físico |Compartilhado |Não |Mede a temperatura dentro do chassi. |

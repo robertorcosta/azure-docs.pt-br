@@ -1,5 +1,5 @@
 ---
-title: Instale o dispositivo Microsoft Azure StorSimple 8600
+title: Instalar Microsoft Azure StorSimple dispositivo 8600
 description: Descreve como desembalar, montar em rack e cabear do dispositivo do StorSimple 8600 antes de implantar e configurar o software.
 author: alkohli
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79254749"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
@@ -42,7 +42,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
    
     **Exibição do dispositivo de armazenamento desempacotado**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |   1 |Embalagem |
    |   2 |Cabos SAS (na bandeja de acessórios e cabos) |
@@ -106,7 +106,7 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
    
     **Fixando corrediças do trilho às laterais do compartimento**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |  1 |Parafusos de cabeça abaulada M 3x4 |
    |  2 |Corrediças dos chassis |
@@ -119,7 +119,7 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
    
     **Fixando os conjuntos de trilhos ao rack**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |   1 |Parafuso de travamento |
    |   2 |Parafuso da coluna do rack frontal para orifício quadrado |
@@ -145,7 +145,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    
     **Instalando as tampas do flange**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -198,7 +198,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
     **Parte de trás do dispositivo mostrando as portas de dados**
    
-   | Rótulo | Descrição |
+   | Rotular | Descrição |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede de 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -209,7 +209,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
 **Cabeamento de rede para o dispositivo**
 
-| Rótulo | Descrição |
+| Rotular | Descrição |
 | --- | --- |
 | Um |LAN com acesso à Internet |
 | B |Controlador 0 |
@@ -256,7 +256,7 @@ Execute as etapas a seguir para cabear a porta serial.
 6. Verifique se a conexão está funcionando pressionando Enter no console. Um menu de console serial deve aparecer.
 
 > [!NOTE]
-> **Gerenciamento de luzes:** Quando o dispositivo estiver instalado em um datacenter remoto ou em uma sala de computador com acesso limitado, certifique-se de que as conexões seriais para ambos os controladores estejam sempre conectadas a um interruptor de console serial ou a equipamentos similares. Isso permite operações de suporte e controle remoto fora de banda em caso de interrupção na rede ou falhas inesperadas.
+> **Gerenciamento de luzes:** Quando o dispositivo for instalado em um datacenter remoto ou em uma sala de computadores com acesso limitado, verifique se as conexões de série para ambos os controladores estão sempre conectadas a um comutador de console serial ou equipamento semelhante. Isso permite operações de suporte e controle remoto fora de banda em caso de interrupção na rede ou falhas inesperadas.
 > 
 > 
 

@@ -1,13 +1,13 @@
 ---
-title: Empacote um aplicativo de malha de serviço do Azure
-description: Saiba como empacotar um aplicativo de malha de serviço do Azure e como se preparar para a implantação em um cluster.
+title: Empacotar um aplicativo de Service Fabric do Azure
+description: Saiba mais sobre como empacotar um aplicativo de Service Fabric do Azure e como se preparar para a implantação em um cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258337"
 ---
 # <a name="package-an-application"></a>Preparar um aplicativo
@@ -43,12 +43,12 @@ As pastas são nomeadas para corresponder a atributos **Name** de cada elemento 
 
 ## <a name="use-setupentrypoint"></a>Use o SetupEntryPoint
 
-Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar um executável antes do início do serviço ou você precisa executar uma operação com privilégios elevados. Por exemplo: 
+Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar um executável antes do início do serviço ou você precisa executar uma operação com privilégios elevados. Por exemplo:
 
 * Configurar e inicializar as variáveis de ambiente que o serviço executável precisa. Isso não é limitado apenas a executáveis gravados por meio de modelos de programação do Service Fabric. Por exemplo, npm.exe precisa de algumas variáveis de ambiente configurados para implantar um aplicativo node.js.
 * Configurando o controle de acesso, instalando certificados de segurança.
 
-Para obter mais informações sobre como configurar o **SetupEntryPoint,** consulte [Configurar a diretiva para um ponto de entrada de configuração de serviço](service-fabric-application-runas-security.md)
+Para obter mais informações sobre como configurar o **SetupEntryPoint**, consulte [Configurar a política para um ponto de entrada de instalação de serviço](service-fabric-application-runas-security.md)
 
 <a id="Package-App"></a>
 
@@ -56,9 +56,9 @@ Para obter mais informações sobre como configurar o **SetupEntryPoint,** consu
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Compilar um pacote usando o Visual Studio
 
-Se você usou o Visual Studio para criar seu aplicativo, você pode usar o comando *Pacote* para criar automaticamente um pacote que corresponda ao layout descrito acima.
+Se você usou o Visual Studio para criar seu aplicativo, poderá usar o comando *Package* para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
-Para criar um pacote, clique com o botão direito do mouse no projeto do aplicativo no *Solution Explorer* e escolha o comando **Pacote:**
+Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo em *Gerenciador de soluções* e escolha o comando **pacote** :
 
 ![Empacotando um aplicativo no Visual Studio][vs-package-command]
 

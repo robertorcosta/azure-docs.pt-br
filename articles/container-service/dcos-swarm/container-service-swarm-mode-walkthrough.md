@@ -8,27 +8,27 @@ ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
 ms.openlocfilehash: d4bbd5560681aa73709019e87c6c22470a64ad78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481731"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(PRETERIDO) Implantar um cluster do Docker CE
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Neste quickstart, um cluster Docker CE é implantado usando o Cli do Azure. Em seguida, um aplicativo com vários contêineres, composto por um front-end na Web e uma instância Redis, é executado no cluster. Depois de concluído, o aplicativo pode ser acessado pela internet.
+Neste guia de início rápido, um cluster do Docker CE é implantado usando o CLI do Azure. Em seguida, um aplicativo com vários contêineres, composto por um front-end na Web e uma instância Redis, é executado no cluster. Depois de concluído, o aplicativo pode ser acessado pela internet.
 
 O Docker CE no Serviço de Contêiner do Azure está na versão prévia e **não deve ser usado para cargas de trabalho de produção**.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Caso precise instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create.](/cli/azure/group#az-group-create) Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados.
 
 O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *westus2*.
 
@@ -53,7 +53,7 @@ Saída:
 
 ## <a name="create-docker-swarm-cluster"></a>Criar um cluster do Docker Swarm
 
-Crie um cluster do Docker CE no Serviço de Contêiner do Azure com o comando [az acs create](/cli/azure/acs#az-acs-create). Para obter informações sobre a disponibilidade da região do Docker CE, consulte [regiões ACS para Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Crie um cluster do Docker CE no Serviço de Contêiner do Azure com o comando [az acs create](/cli/azure/acs#az-acs-create). Para obter informações sobre a disponibilidade de região do Docker CE, consulte [regiões do ACS para Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 O exemplo a seguir cria um cluster chamado *mySwarmCluster* com um nó mestre do Linux e três nós de agente do Linux.
 
@@ -67,7 +67,7 @@ Após alguns minutos, o comando é concluído e retorna informações formatadas
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
 
-Durante este início rápido, você precisa do FQDN do mestre Docker Swarm e do pool de agentes Docker. Execute o seguinte comando para retornar os FQDNs do mestre e dos agentes.
+Em todo este guia de início rápido, você precisa do FQDN do mestre do Docker Swarm e do pool do agente do Docker. Execute o seguinte comando para retornar os FQDNs do mestre e dos agentes.
 
 ```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
@@ -159,13 +159,13 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="get-the-code"></a>Obter o código
 
-Neste quickstart, imagens de contêiner pré-criadas foram usadas para criar um serviço Docker. O código do aplicativo relacionado, o Dockerfile e o arquivo Compose estão disponíveis no GitHub.
+Neste guia de início rápido, as imagens de contêiner criadas previamente foram usadas para criar um serviço do Docker. O código do aplicativo relacionado, o Dockerfile e o arquivo Compose estão disponíveis no GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste quickstart, você implantou um cluster Docker Swarm e implantou um aplicativo de vários contêineres para ele.
+Neste guia de início rápido, você implantou um cluster do Docker Swarm e implantou um aplicativo de vários contêineres nele.
 
 Para saber mais sobre como integrar o Docker Swarm ao Azure DevOps, continue na CI/CD com o Docker Swarm e o Azure DevOps.
 

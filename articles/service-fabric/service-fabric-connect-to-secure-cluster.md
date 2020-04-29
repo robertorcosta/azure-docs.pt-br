@@ -1,13 +1,13 @@
 ---
-title: Conecte-se com segurança a um cluster de malha de serviço Azure
+title: Conectar-se com segurança a um cluster de Service Fabric do Azure
 description: Descreve como autenticar o acesso do cliente a um cluster do Service Fabric e como proteger a comunicação entre clientes e um cluster.
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: a1f4abbabe428a09492efefca4a8da9801b9f68d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258571"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
@@ -30,7 +30,7 @@ openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pas
 
 Se o arquivo .pfx não for protegido por senha, use -passin pass: para o último parâmetro.
 
-Para especificar o certificado do cliente como um arquivo pem, especifique o caminho do arquivo no argumento `--pem`. Por exemplo: 
+Para especificar o certificado do cliente como um arquivo pem, especifique o caminho do arquivo no argumento `--pem`. Por exemplo:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -44,7 +44,7 @@ Para especificar um certificado, o par de chaves usa os argumentos `--cert` e `-
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Às vezes, os certificados usados para proteger clusters de teste ou de desenvolvimento falham na validação do certificado. Para ignorar a verificação do certificado, especifique a opção `--no-verify`. Por exemplo: 
+Às vezes, os certificados usados para proteger clusters de teste ou de desenvolvimento falham na validação do certificado. Para ignorar a verificação do certificado, especifique a opção `--no-verify`. Por exemplo:
 
 > [!WARNING]
 > Não use a opção `no-verify` ao se conectar aos clusters de produção do Service Fabric.
@@ -53,7 +53,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./cli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Além disso, você pode especificar caminhos para diretórios de certificados de CA confiáveis ou certificados individuais. Para especificar esses caminhos, use o argumento `--ca`. Por exemplo: 
+Além disso, você pode especificar caminhos para diretórios de certificados de CA confiáveis ou certificados individuais. Para especificar esses caminhos, use o argumento `--ca`. Por exemplo:
 
 ```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
@@ -344,7 +344,7 @@ Para se conectar a um cluster protegido com o AAD, aponte seu navegador para:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Você é automaticamente solicitado a fazer login com a AAD.
+Você será automaticamente solicitado a entrar com o AAD.
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Conectar-se a um cluster seguro usando um certificado de cliente
 
@@ -381,7 +381,7 @@ Pelo menos dois certificados devem ser usados para proteger o cluster, um para o
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Processo de atualização de Cluster de Malha do Serviço e as suas expectativas](service-fabric-cluster-upgrade.md)
-* [Gerenciando seus aplicativos de malha de serviço no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+* [Gerenciando seus aplicativos Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Introdução ao modelo de Integridade da Malha de Serviço](service-fabric-health-introduction.md)
 * [Segurança do aplicativo e RunAs](service-fabric-application-runas-security.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)

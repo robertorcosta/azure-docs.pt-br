@@ -8,15 +8,15 @@ ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6bb59db4c1b31033b1e116742dedc94621b1c60d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80117106"
 ---
 Definições de configuração para [Funções Duráveis](../articles/azure-functions/durable-functions-overview.md).
 
-### <a name="durable-functions-1x"></a>Funções duráveis 1.x
+### <a name="durable-functions-1x"></a>Durable Functions 1. x
 
 ```json
 {
@@ -43,7 +43,7 @@ Definições de configuração para [Funções Duráveis](../articles/azure-func
 }
 ```
 
-### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Funções duráveis 2.x
+### <a name="durable-functions-2x"></a><a name="durable-functions-2-0-host-json"></a>Durable Functions 2. x
 
 ```json
 {
@@ -95,24 +95,24 @@ Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos some
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|Nomes alternativos para [hub de tarefas](../articles/azure-functions/durable-functions-task-hubs.md) podem ser usados para isolar vários aplicativos de Funções Duráveis uns dos outros, mesmo se eles estiverem usando o mesmo back-end de armazenamento.|
-|controleQueueBatchSize|32|O número de mensagens para efetuar pull da fila de controle por vez.|
-|controleQueueBufferThreshold|256|O número de mensagens de fila de controle que podem ser tamponadas na memória por um momento, momento em que o despachante aguardará antes de enfileirar quaisquer mensagens adicionais.|
+|controlQueueBatchSize|32|O número de mensagens para efetuar pull da fila de controle por vez.|
+|controlQueueBufferThreshold|256|O número de mensagens de fila de controle que podem ser armazenadas em buffer na memória por vez; nesse ponto, o Dispatcher aguardará antes de retirar a fila de qualquer mensagem adicional.|
 |partitionCount |4|A contagem de partição para a fila de controle. Pode ser um número inteiro positivo entre 1 e 16.|
-|controleQueueVisibilityTimeout |5 minutos|O limite de tempo de visibilidade das mensagens de remoção da fila de controle.|
+|controlQueueVisibilityTimeout |5 minutos|O limite de tempo de visibilidade das mensagens de remoção da fila de controle.|
 |workItemQueueVisibilityTimeout |5 minutos|O limite de tempo de visibilidade das mensagens de remoção da fila de item de trabalho.|
-|maxConcurrentActivityFuns |10 vezes o número de processadores no computador atual|O número máximo de funções de atividade que podem ser processadas simultaneamente em uma única instância de host.|
-|maxConcurrentOrchestratorFunções |10 vezes o número de processadores no computador atual|O número máximo de funções do orquestrador que podem ser processadas simultaneamente em uma única instância do host.|
-|maxQueuePollingInterval|30 segundos|O intervalo máximo de votação de controle e fila de trabalho no formato *hh:mm:ss.* Valores mais altos podem resultar em latências de processamento de mensagens mais altas. Valores mais baixos podem resultar em custos de armazenamento mais altos devido ao aumento das transações de armazenamento.|
-|azureArmazenamentoConexãoSeqütoNome |AzureWebJobsStorage|O nome da configuração de aplicativo que tem a cadeia de conexão do Armazenamento do Azure usada para gerenciar os recursos subjacentes do Armazenamento do Azure.|
-|rastreamentoStoreConexão-seqüênciaNome||O nome de uma seqüência de conexões a ser usada nas tabelas Histórico e Instâncias. Se não for `azureStorageConnectionStringName` especificado, a conexão é usada.|
-|trackingStoreNamePrefix||O prefixo a ser usado `trackingStoreConnectionStringName` nas tabelas Histórico e Instâncias quando for especificado. Se não for definido, o `DurableTask`valor de prefixo padrão será . Se `trackingStoreConnectionStringName` não for especificado, as tabelas `hubName` Histórico e Instâncias usarão `trackingStoreNamePrefix` o valor como seu prefixo e qualquer configuração será ignorada.|
-|traceInputsAndOutputs |false|Um valor que indica se as entradas e saídas de chamadas de função sertão rastreadas. O comportamento padrão durante o rastreamento de eventos de execução de função é incluir o número de bytes nas entradas e saídas serializadas para chamadas de função. Esse comportamento fornece informações mínimas sobre como são as entradas e saídas sem inchar os registros ou expor inadvertidamente informações confidenciais. A definição dessa propriedade como true faz com que o log de função padrão registre todo o conteúdo de entradas e saídas da função.|
-|logReplayEventos|false|Um valor que indica se é necessário gravar eventos de reprodução de orquestração para o Application Insights.|
-|eventGridTopicEndpoint ||A URL de um ponto de extremidade de tópico personalizado da Grade de Eventos do Azure. Quando esta propriedade é definida, eventos de notificação do ciclo de vida da orquestração são publicados neste ponto final. Esta propriedade dá suporte à resolução de Configurações do Aplicativo.|
-|eventGridKeySettingNome ||O nome da configuração de aplicativo que contém a chave usada para autenticar com o tópico personalizado da Grade de Eventos do Azure em `EventGridTopicEndpoint`.|
+|maxConcurrentActivityFunctions |10 vezes o número de processadores no computador atual|O número máximo de funções de atividade que podem ser processadas simultaneamente em uma única instância de host.|
+|maxConcurrentOrchestratorFunctions |10 vezes o número de processadores no computador atual|O número máximo de funções do orquestrador que podem ser processadas simultaneamente em uma única instância do host.|
+|maxQueuePollingInterval|30 segundos|O intervalo de sondagem de fila de item de trabalho e de controle máximo no formato *hh: mm: SS* . Valores mais altos podem resultar em latências de processamento de mensagens mais altas. Valores mais baixos podem resultar em custos de armazenamento maiores devido a maiores transações de armazenamento.|
+|azureStorageConnectionStringName |AzureWebJobsStorage|O nome da configuração de aplicativo que tem a cadeia de conexão do Armazenamento do Azure usada para gerenciar os recursos subjacentes do Armazenamento do Azure.|
+|trackingStoreConnectionStringName||O nome de uma cadeia de conexão a ser usada para as tabelas de histórico e instâncias. Se não for especificado, `azureStorageConnectionStringName` a conexão será usada.|
+|trackingStoreNamePrefix||O prefixo a ser usado para as tabelas de histórico e `trackingStoreConnectionStringName` instâncias quando é especificado. Se não for definido, o valor de prefixo padrão `DurableTask`será. Se `trackingStoreConnectionStringName` não for especificado, as tabelas de histórico e instâncias usarão o `hubName` valor como seu prefixo e qualquer configuração para `trackingStoreNamePrefix` será ignorada.|
+|traceInputsAndOutputs |false|Um valor que indica se as entradas e saídas de chamadas de função sertão rastreadas. O comportamento padrão durante o rastreamento de eventos de execução de função é incluir o número de bytes nas entradas e saídas serializadas para chamadas de função. Esse comportamento fornece informações mínimas sobre o que as entradas e saídas parecem sem inflar os logs ou expor inadvertidamente informações confidenciais. A definição dessa propriedade como true faz com que o log de função padrão registre todo o conteúdo de entradas e saídas da função.|
+|logReplayEvents|false|Um valor que indica se é necessário gravar eventos de reprodução de orquestração para o Application Insights.|
+|eventGridTopicEndpoint ||A URL de um ponto de extremidade de tópico personalizado da Grade de Eventos do Azure. Quando essa propriedade é definida, os eventos de notificação do ciclo de vida da orquestração são publicados nesse ponto de extremidade. Esta propriedade dá suporte à resolução de Configurações do Aplicativo.|
+|eventGridKeySettingName ||O nome da configuração de aplicativo que contém a chave usada para autenticar com o tópico personalizado da Grade de Eventos do Azure em `EventGridTopicEndpoint`.|
 |eventGridPublishRetryCount|0|O número de novas tentativas se a publicação no Tópico de Grade de Eventos falha.|
 |eventGridPublishRetryInterval|5 minutos|A Grade de Eventos publica o intervalo de repetição no formato *hh:mm:ss*.|
-|eventGridPublishTipos de eventos||Uma lista de tipos de eventos para publicar no Event Grid. Se não for especificado, todos os tipos de eventos serão publicados. Os valores `Completed` `Failed`permitidos incluem, `Terminated` `Started`, , .|
-|useGracefulShutdown|false|(Visualização) Habilitar o desligamento graciosamente para reduzir a chance de desligamentos de host falhando em execuções de função no processo.|
+|eventGridPublishEventTypes||Uma lista de tipos de eventos a serem publicados na grade de eventos. Se não for especificado, todos os tipos de evento serão publicados. Os valores permitidos `Started`incluem `Completed`, `Failed`, `Terminated`,.|
+|useGracefulShutdown|false|Apresentação Habilite o desligamento normal para reduzir a chance de desligamentos de host falharem em execuções de função em processo.|
 
 Muitas dessas configurações são para otimizar o desempenho. Para obter mais informações, consulte [Desempenho e escala](../articles/azure-functions/durable-functions-perf-and-scale.md).

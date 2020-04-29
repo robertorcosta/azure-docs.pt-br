@@ -1,5 +1,5 @@
 ---
-title: Formatos e codecs padrão de codificador - Azure
+title: Codecs e formatos de codificador padrão-Azure
 description: Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com StandardEncoderPreset.
 services: media-services
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.date: 02/10/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: f1d4d4f4006702ebe0d057e56cf24a022e73b83e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79251356"
 ---
-# <a name="standard-encoder-formats-and-codecs"></a>Formatos e codecs padrão do Codificador
+# <a name="standard-encoder-formats-and-codecs"></a>Codecs e formatos de codificador padrão
 
 Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas usando **StandardEncoderPreset**, veja [Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md).
 
@@ -43,7 +43,7 @@ Este artigo contém uma lista dos formatos de arquivo de importação e exporta�
 
 ### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em contêineres de entrada
 
-O Codificador Padrão suporta os seguintes formatos de áudio em recipientes de entrada:
+O codificador padrão dá suporte à manutenção dos seguintes formatos de áudio em contêineres de entrada:
 
 * Arquivos do MXF, GXF e QuickTime que têm faixas de áudio com exemplos em estéreo intercalado ou de 5.1
 
@@ -82,7 +82,7 @@ ou
 | MP3 (MPEG-1 Audio Layer 3) |Sim |
 | Áudio do Windows Media |Sim |
 | WAV/PCM |Sim |
-| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
+| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
 | AMR (multitaxa adaptável) |Sim |

@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79214174"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
@@ -28,8 +28,8 @@ Para exibir e aplicar as recomendações de desempenho, você precisa das permis
 
 Use as etapas a seguir para localizar as recomendações de desempenho no Portal do Azure:
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
-2. Vá para **todos os serviços** > **de bancos de dados SQL**e selecione seu banco de dados.
+1. Entre no [portal do Azure](https://portal.azure.com/).
+2. Vá para **todos os serviços** > **bancos**de dados SQL e selecione seu banco de dados.
 3. Navegue até **Recomendação de desempenho** para exibir as recomendações disponíveis para o banco de dados selecionado.
 
 As recomendações de desempenho são exibidas na tabela semelhante à exibida na figura a seguir:
@@ -109,11 +109,11 @@ Você pode definir o Banco de Dados SQL do Azure para implementar as recomendaç
 
 Depois de selecionar a configuração desejada, clique em Aplicar.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar manualmente recomendações através do T-SQL
+### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar recomendações manualmente por meio do T-SQL
 
 Selecione qualquer recomendação e clique em **Exibir script**. Execute este script em seu banco de dados para aplicar manualmente a recomendação.
 
-*Os índices que são executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustá-los ou excluí-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [CRIAR ÍNDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Além disso, as recomendações aplicadas manualmente permanecerão ativas e mostradas na lista de recomendações de 24 a 48 horas. antes que o sistema os retire automaticamente. Se você quiser remover uma recomendação mais cedo, você pode descartá-la manualmente.
+*Os índices que são executados manualmente não são monitorados e validados quanto ao impacto no desempenho pelo serviço* , portanto, é recomendável que você monitore esses índices após a criação para verificar se eles fornecem ganhos de desempenho e ajustá-los ou excluí-los, se necessário. Para obter detalhes sobre a criação de índices, consulte [CRIAR ÍNDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Além disso, as recomendações aplicadas manualmente permanecerão ativas e exibidas na lista de recomendações de 24-48 horas. antes que o sistema as retire automaticamente. Se você quiser remover uma recomendação mais cedo, poderá descartá-la manualmente.
 
 ### <a name="canceling-recommendations"></a>Cancelando recomendações
 
@@ -128,11 +128,11 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 
 | Status | Descrição |
 |:--- |:--- |
-| Pendente |O comando Aplicar recomendação foi recebido e está programado para execução. |
+| Pending (Pendente) |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |
 | Validando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
-| Sucesso |A recomendação foi aplicada com êxito e benefícios foram calculados. |
-| Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
+| Êxito |A recomendação foi aplicada com êxito e benefícios foram calculados. |
+| Erro do |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |
 | Revertida |A recomendação foi revertida. |
 
@@ -170,5 +170,5 @@ Monitore suas recomendações e continue a aplicá-las para refinar o desempenho
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [CRIAR ÍNDICE](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controle de acesso baseado em função](../role-based-access-control/overview.md)

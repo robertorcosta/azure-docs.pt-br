@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250303"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Localizar imagens de VM do Linux no Azure Marketplace com a CLI do Azure
@@ -300,7 +300,7 @@ Saída:
 }
 ```
 
-Executar um comando semelhante para a imagem de RabbitMQ Certified by Bitnami mostra as seguintes `plan` propriedades: `name`, `product` e `publisher`. (Algumas imagens `promotion code` também têm uma propriedade.) Para implantar essa imagem, consulte as seguintes seções para aceitar os termos e habilitar a implantação programática.
+Executar um comando semelhante para a imagem de RabbitMQ Certified by Bitnami mostra as seguintes `plan` propriedades: `name`, `product` e `publisher`. (Algumas imagens também têm uma `promotion code` propriedade.) Para implantar essa imagem, consulte as seções a seguir para aceitar os termos e habilitar a implantação programática.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
@@ -327,7 +327,7 @@ Saída:
 
 ### <a name="accept-the-terms"></a>Aceitar os termos
 
-Para exibir e aceitar os termos de licença, use o comando [az vm image accept-terms](/cli/azure/vm/image?). Quando aceita os termos, você habilita a implantação programática na sua assinatura. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Por exemplo: 
+Para exibir e aceitar os termos de licença, use o comando [az vm image accept-terms](/cli/azure/vm/image?). Quando aceita os termos, você habilita a implantação programática na sua assinatura. Você só precisa aceitar os termos uma vez por assinatura para a imagem. Por exemplo:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fef1829e008b58f50546e9e6e7ad2ccee037224
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 7ddcc5165f5588ff9015d7fafbc2b822268ffea7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245259"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "80337157"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -33,14 +33,14 @@ ms.locfileid: "79245259"
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
-[1409604]: https://launchpad.support.sap.com/#/notes/1409604
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
 [1558958]:https://launchpad.support.sap.com/#/notes/1558958
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
-[1619720]: https://launchpad.support.sap.com/#/notes/1619720
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
 [1619967]:https://launchpad.support.sap.com/#/notes/1619967
 [1750510]:https://launchpad.support.sap.com/#/notes/1750510
@@ -52,24 +52,24 @@ ms.locfileid: "79245259"
 [1772688]:https://launchpad.support.sap.com/#/notes/1772688
 [1814258]:https://launchpad.support.sap.com/#/notes/1814258
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
-[1909114]: https://launchpad.support.sap.com/#/notes/1909114
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
 [2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -331,7 +331,7 @@ O documento se concentra em dois aspectos principais:
 * A primeira parte descreve dois padrões de implantação com suporte para aplicativos baseados no SAP NetWeaver no Azure. Ele também descreve a manipulação geral do Azure com implantações do SAP em mente.
 * A segunda parte detalha a implementação dos diferentes cenários descritos na primeira parte.
 
-Para obter recursos adicionais, consulte os [recursos][planning-guide-1.2] do capítulo neste documento.
+Para obter recursos adicionais, confira o capítulo [Recursos][planning-guide-1.2] neste documento.
 
 ### <a name="definitions-upfront"></a>Definições prévias
 No decorrer do documento, usamos os termos a seguir:
@@ -343,7 +343,7 @@ No decorrer do documento, usamos os termos a seguir:
 * Ambiente SAP: um ou mais componentes SAP agrupados logicamente para executar uma função de negócios, como Desenvolvimento, QAS, Treinamento, DR ou Produção.
 * Estrutura da SAP: Este termo refere-se à totalidade dos ativos SAP na estrutura de TI de um cliente. A estrutura da SAP inclui todos os ambientes de produção e de não produção.
 * Sistema SAP: a combinação de camada de DBMS e camada de aplicativo de, por exemplo, um sistema de desenvolvimento SAP ERP, SAP BW sistema de teste, sistema de produção SAP CRM, etc. Em implantações do Azure, não há suporte para dividir essas duas camadas entre o local e o Azure. Isso significa que um sistema SAP é implantado localmente ou no Azure. No entanto, você pode implantar os diferentes sistemas de uma estrutura da SAP no Azure ou localmente. Por exemplo, você poderia implantar os sistemas de desenvolvimento e teste SAP CRM no Azure, mas o sistema de produção CRM SAP localmente.
-* Entre locais ou híbridos: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure que tem conectividade site a site, multissite ou ExpressRoute entre os datacenters locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários híbridos ou entre instalações. O motivo para a conexão é estender domínios locais, Active Directory/OpenLDAP local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com esta extensão, as VMs podem ser parte do domínio local. Usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e resolução de nomes entre máquinas virtuais implantadas localmente e VMs implantadas no Azure são possíveis. Esse é o caso mais comum e quase exclusivo de implantação de ativos SAP no Azure. Para obter mais informações, consulte [este][vpn-gateway-cross-premises-options] artigo e [isso][vpn-gateway-site-to-site-create].
+* Entre locais ou híbridos: descreve um cenário em que as VMs são implantadas em uma assinatura do Azure que tem conectividade site a site, multissite ou ExpressRoute entre os datacenters locais e o Azure. Na documentação comum do Azure, esses tipos de implantações também são descritas como cenários híbridos ou entre instalações. O motivo para a conexão é estender domínios locais, Active Directory/OpenLDAP local e DNS local para o Azure. A estrutura local é estendida para os ativos do Azure da assinatura. Com esta extensão, as VMs podem ser parte do domínio local. Usuários de domínio do domínio local podem acessar os servidores e podem executar serviços nessas VMs (como serviços DBMS). A comunicação e resolução de nomes entre máquinas virtuais implantadas localmente e VMs implantadas no Azure são possíveis. Esse é o caso mais comum e quase exclusivo de implantação de ativos SAP no Azure. Para obter mais informações, veja [este][vpn-gateway-cross-premises-options] artigo e [este][vpn-gateway-site-to-site-create].
 * Extensão de monitoramento do Azure, monitoramento avançado e extensão do Azure para SAP: descrever um e o mesmo item. Ele descreve uma extensão de VM que precisa ser implantada por você para fornecer alguns dados básicos sobre a infraestrutura do Azure para o agente de host do SAP. SAP no SAP Notes pode referir-se a ele como extensão de monitoramento ou monitoramento avançado. No Azure, estamos nos referindo a ele como a **extensão do Azure para SAP**.
 
 > [!NOTE]
@@ -370,7 +370,7 @@ O ponto de entrada para a carga de trabalho SAP na documentação do Azure é en
 
 As seguintes Notas do SAP estão relacionadas com o tópico do SAP no Azure:
 
-| Número da observação | Title |
+| Número da observação | Título |
 | --- | --- |
 | [1928533] |Aplicativos SAP no Azure: dimensionamento e produtos com suporte |
 | [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
@@ -386,12 +386,12 @@ As seguintes Notas do SAP estão relacionadas com o tópico do SAP no Azure:
 
 Leia também a [Wiki de SCN](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes), que contém todas as Notas SAP para Linux.
 
-As limitações gerais padrão e as limitações máximas das assinaturas do Azure podem ser encontradas neste [artigo][azure-resource-manager/management/azure-subscription-service-limits-subscription].
+As limitações gerais padrão e as limitações máximas das assinaturas do Azure podem ser encontradas [neste artigo][azure-resource-manager/management/azure-subscription-service-limits-subscription].
 
 ## <a name="possible-scenarios"></a>Cenários possíveis
 SAP é normalmente visto como um dos aplicativos mais essenciais nas empresas. A arquitetura e as operações desses aplicativos geralmente são complexas, e é importante que você atenda aos requisitos de disponibilidade e desempenho.
 
-Portanto, as empresas precisam pensar cuidadosamente em qual provedor de nuvem escolher para executar processos comerciais críticos de negócios. O Azure é a plataforma de nuvem pública ideal para aplicativos SAP e processos de negócios críticos para os negócios. Considerando a ampla variedade de infraestrutura do Azure, quase todos os sistemas SAP NetWeaver existentes e S/4HANA podem ser hospedados no Azure hoje. O Azure fornece VMs com muitos terabytes de memória e mais de 200 CPUs. Além disso, o Azure oferece o [Hana em instâncias grandes](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), que permitem implantações do Hana em escala horizontal de até 24TB e implantações de expansão do Hana de até 120 TB. É possível declarar hoje que quase todos os cenários SAP locais também podem ser executados no Azure. 
+Portanto, as empresas precisam pensar cuidadosamente em qual provedor de nuvem escolher para executar processos comerciais críticos de negócios. O Azure é a plataforma de nuvem pública ideal para aplicativos SAP e processos de negócios críticos para os negócios. Considerando a ampla variedade de infraestrutura do Azure, quase todos os sistemas SAP NetWeaver existentes e S/4HANA podem ser hospedados no Azure hoje. O Azure fornece VMs com muitos terabytes de memória e mais de 200 CPUs. Além disso, o Azure oferece o [Hana em instâncias grandes](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), que permitem implantações de escala vertical do Hana de até 24TB e SAP Hana implantações em expansão de até 120 TB. É possível declarar hoje que quase todos os cenários SAP locais também podem ser executados no Azure. 
 
 Para obter uma descrição aproximada dos cenários e alguns cenários sem suporte, consulte o documento [carga de trabalho SAP em cenários de máquina virtual do Azure com suporte](./sap-planning-supported-configurations.md).
 
@@ -403,7 +403,7 @@ Em geral, o padrão de implantação mais comum é um cenário entre instalaçõ
 
 O motivo para muitos clientes aplicarem um padrão de implantação entre instalações é que ele é mais transparente para que todos os aplicativos se estendam localmente no Azure usando o Azure ExpressRoute e tratem o Azure como um datacenter virtual. À medida que mais e mais ativos estiverem sendo movidos para o Azure, a infraestrutura de rede e a infraestrutura implantada do Azure aumentarão e os ativos locais serão reduzidos de acordo. Tudo transparente para usuários e aplicativos.
 
-Para implantar sistemas SAP no Azure IaaS ou IaaS em geral, é importante entender as diferenças significativas entre as ofertas de terceirizados tradicionais ou hosters e as ofertas de IaaS. Enquanto o hoster ou o terceirizado tradicional adapta a infraestrutura (tipo de servidor, rede e armazenamento) à carga de trabalho que um cliente deseja hospedar, é responsabilidade do cliente ou do parceiro caracterizar a carga de trabalho e escolher o Azure correto componentes de VMs, armazenamento e rede para implantações de IaaS.
+Para implantar sistemas SAP no Azure IaaS ou IaaS em geral, é importante entender as diferenças significativas entre as ofertas de terceirizados tradicionais ou hosters e as ofertas de IaaS. Enquanto o hoster ou o terceirizado tradicional adapta a infraestrutura (tipo de servidor, rede e armazenamento) à carga de trabalho que um cliente deseja hospedar, é responsabilidade do cliente ou do parceiro caracterizar a carga de trabalho e escolher os componentes corretos do Azure de VMs, armazenamento e rede para implantações de IaaS.
 
 Para coletar dados para o planejamento de sua implantação no Azure, é importante:
 
@@ -430,10 +430,10 @@ O princípio de Zonas de Disponibilidade não se aplica ao serviço específico 
 ### <a name="fault-domains"></a><a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Domínios com falhas
 Domínios de falha representam uma unidade física de falha, relacionada fortemente à infraestrutura física contida nos data centers e, embora uma folha ou rack físico possa ser considerado um domínio de falha, não há nenhum mapeamento direto um-para-um entre os dois.
 
-Ao implantar várias máquinas virtuais como parte de um sistema SAP em Microsoft Azure serviços de máquina virtual, você pode influenciar o controlador de malha do Azure para implantar seu aplicativo em diferentes domínios de falha, atendendo, assim, a requisitos mais altos de SLAs de disponibilidade. No entanto, a distribuição dos domínios de falha em uma unidade de escala do Azure (coleção de centenas de nós de computação ou nós de armazenamento e rede) ou a atribuição de VMs a um domínio de falha específico é algo sobre o que você não tem controle direto. Para direcionar o controlador de malha do Azure para implantar um conjunto de VMs em diferentes domínios de falha, você precisa atribuir um conjunto de disponibilidade do Azure às VMs no momento da implantação. Para obter mais informações sobre os conjuntos de disponibilidade do Azure, consulte o capítulo [conjuntos de disponibilidade do Azure][planning-guide-3.2.3] neste documento.
+Ao implantar várias máquinas virtuais como parte de um sistema SAP em Microsoft Azure serviços de máquina virtual, você pode influenciar o controlador de malha do Azure para implantar seu aplicativo em diferentes domínios de falha, atendendo assim a requisitos mais altos de SLAs de disponibilidade. No entanto, a distribuição dos domínios de falha em uma unidade de escala do Azure (coleção de centenas de nós de computação ou nós de armazenamento e rede) ou a atribuição de VMs a um domínio de falha específico é algo sobre o que você não tem controle direto. Para direcionar o controlador de malha do Azure para implantar um conjunto de VMs em diferentes domínios de falha, você precisa atribuir um conjunto de disponibilidade do Azure às VMs no momento da implantação. Para obter mais informações sobre os conjuntos de disponibilidade do Azure, consulte o capítulo [conjuntos de disponibilidade do Azure][planning-guide-3.2.3] neste documento.
 
 
-### <a name="upgrade-domains"></a><a name="fc1ac8b2-e54a-487c-8581-d3cc6625e560"></a>Domínios de Atualização
+### <a name="upgrade-domains"></a><a name="fc1ac8b2-e54a-487c-8581-d3cc6625e560"></a>Domínios de atualização
 Domínios de Atualização representam uma unidade lógica que ajudam a determinar como uma máquina virtual em um sistema SAP, que consiste em instâncias SAP em execução em várias VMs, é atualizada. Quando ocorre uma atualização, o Microsoft Azure percorre o processo de atualizar esses domínios de atualização individualmente. Ao distribuir as VMs no momento da implantação em diferentes domínios de atualização, você pode proteger seu sistema SAP parcialmente contra um potencial tempo de inatividade. Para forçar o Azure para implantar as VMs de um sistema SAP espalhados em diferentes domínios de atualização, você precisa definir um atributo específico no momento da implantação de cada VM. Semelhante aos domínios de falha, uma unidade de escala do Azure é dividida em vários domínios de atualização. Para comandar o controlador de malha do Azure a implantar um conjunto de VMs em diferentes domínios de atualização, é necessário atribuir um conjunto de disponibilidade do Azure para as VMs no momento da implantação. Para obter mais informações sobre os conjuntos de disponibilidade do Azure, consulte o capítulo [conjuntos de disponibilidade do Azure][planning-guide-3.2.3] abaixo.
 
 
@@ -487,9 +487,9 @@ Como modelo de preços, você tem várias opções de preços diferentes que lis
 
 O preço de cada uma das diferentes ofertas com ofertas de serviço diferentes em relação a sistemas operacionais e regiões diferentes está disponível no site [máquinas virtuais do Linux preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [preços de máquinas virtuais do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter detalhes e flexibilidade de instâncias reservadas de um ano e de três anos, consulte estes artigos:
 
-- [O que são Reservas do Azure?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [O que são as reservas do Azure?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Flexibilidade de tamanho de máquina virtual com instâncias de VM reservadas](https://docs.microsoft.com/azure/virtual-machines/windows/reserved-vm-instance-size-flexibility)
-- [Como o desconto de reserva do Azure é aplicado às máquinas virtuais](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-vm-reservation-charges) 
+- [Como o desconto de reserva do Azure é aplicado a máquinas virtuais](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-vm-reservation-charges) 
 
 Para obter mais informações sobre preços spot, leia o artigo [máquinas virtuais do Azure Spot](https://azure.microsoft.com/pricing/spot/). Os preços do mesmo tipo de VM também podem ser diferentes entre regiões diferentes do Azure. Para alguns clientes, vale a pena implantar em uma região do Azure menos dispendiosa.
 
@@ -569,15 +569,15 @@ Você também pode criar discos no Armazenamento Premium que não estão sendo m
 
 A maioria das famílias de VM do Azure certificadas com SAP é capaz de trabalhar com o armazenamento Premium e/ou uma combinação entre o Armazenamento Premium e Standard do Azure.
 
-Se você estiver verificando a parte das VMs da série DS neste [artigo (Linux)][virtual-machines-sizes-linux] e [neste artigo (Windows)][virtual-machines-sizes-windows], perceberá que há limitações de volume de dados para discos de armazenamento Premium na GRANULARIDADE do nível da VM. VMs diferentes da série DS ou da série GS também têm limitações diferentes no número de discos de dados que podem ser montados. Esses limites também são documentados no artigo mencionado acima. Mas, essencialmente, isso significa que, se você montar, por exemplo, 32 x P30 discos para uma única VM DS14, você NÃO poderá obter 32 vezes a taxa de transferência máxima de um disco P30. Em vez disso, a taxa de transferência máxima no nível da VM, conforme documentada no artigo, limita a taxa de transferência de dados.
+Se estiver verificando a parte das VMs da série DS [neste artigo (Linux)][virtual-machines-sizes-linux] e [neste artigo (Windows)][virtual-machines-sizes-windows], você pode perceber também que há limitações de volume de dados para discos do Armazenamento Premium na granularidade do nível da VM. VMs diferentes da série DS ou da série GS também têm limitações diferentes no número de discos de dados que podem ser montados. Esses limites também são documentados no artigo mencionado acima. Mas, essencialmente, isso significa que, se você montar, por exemplo, 32 x P30 discos para uma única VM DS14, você NÃO poderá obter 32 vezes a taxa de transferência máxima de um disco P30. Em vez disso, a taxa de transferência máxima no nível da VM, conforme documentada no artigo, limita a taxa de transferência de dados.
 
 Encontre mais informações sobre o Armazenamento Premium aqui: <https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
 #### <a name="azure-storage-accounts"></a>Contas de Armazenamento do Azure
 
-Ao implantar serviços ou VMs no Azure, a implantação de VHDs e Imagens de VM pode ser organizada em unidades chamadas Contas de Armazenamento do Azure. Ao planejar uma implantação do Azure, você precisa considerar cuidadosamente as restrições do Azure. De um lado, há um número limitado de Contas de Armazenamento por assinatura do Azure. Embora cada Conta de Armazenamento do Azure possa conter um grande número de arquivos VHD, há um limite fixo para o total de IOPS por Conta de Armazenamento. Ao implantar centenas de VMs SAP com sistemas DBMS criando chamadas de E/S significativas, é recomendado distribuir as VMs de DBMS com IOPS elevado entre várias Contas de Armazenamento do Azure. Deve-se ter cuidado para não exceder o limite atual de Contas de Armazenamento do Azure por assinatura. Como o armazenamento é uma parte vital da implantação de banco de dados para um sistema SAP, esse conceito é discutido em mais detalhes no [Guia de implantação do DBMS][dbms-guide]já referenciado.
+Ao implantar serviços ou VMs no Azure, a implantação de VHDs e Imagens de VM pode ser organizada em unidades chamadas Contas de Armazenamento do Azure. Ao planejar uma implantação do Azure, você precisa considerar cuidadosamente as restrições do Azure. De um lado, há um número limitado de Contas de Armazenamento por assinatura do Azure. Embora cada Conta de Armazenamento do Azure possa conter um grande número de arquivos VHD, há um limite fixo para o total de IOPS por Conta de Armazenamento. Ao implantar centenas de VMs SAP com sistemas DBMS criando chamadas de E/S significativas, é recomendado distribuir as VMs de DBMS com IOPS elevado entre várias Contas de Armazenamento do Azure. Deve-se ter cuidado para não exceder o limite atual de Contas de Armazenamento do Azure por assinatura. Já que o armazenamento é uma parte essencial da implantação de banco de dados para um sistema do SAP, esse conceito é abordado em mais detalhes no já mencionado [Guia de implantação de DBMS][dbms-guide].
 
-Mais informações sobre as contas de armazenamento do Azure podem ser encontradas em [metas de escalabilidade para contas de armazenamento Standard](../../../storage/common/scalability-targets-standard-account.md) e [metas de escalabilidade para contas de armazenamento de blobs de páginas Premium](../../../storage/blobs/scalability-targets-premium-page-blobs.md). Ao ler esses artigos, você percebe que há diferenças nas limitações entre contas de armazenamento standard do Azure e contas de armazenamento Premium. As principais diferenças referem-se ao volume de dados que pode ser armazenado em uma dessas Contas de Armazenamento. No armazenamento Standard, o volume é uma magnitude maior do que com o armazenamento Premium. Por outro lado, a Conta de Armazenamento Standard é bastante limitada em IOPS (consulte a coluna **Taxa de Solicitação Total**), enquanto a Conta de Armazenamento Premium do Azure não tem nenhuma limitação desse tipo. Discutiremos detalhes e os resultados dessas diferenças ao discutir as implantações de sistemas SAP, especialmente os servidores DBMS.
+Mais informações sobre as contas de armazenamento do Azure podem ser encontradas em [metas de escalabilidade para contas de armazenamento Standard](../../../storage/common/scalability-targets-standard-account.md) e [metas de escalabilidade para contas de armazenamento de blobs de páginas Premium](../../../storage/blobs/scalability-targets-premium-page-blobs.md). Ao ler esses artigos, você percebe que há diferenças nas limitações entre contas de armazenamento standard do Azure e contas de armazenamento Premium. As principais diferenças referem-se ao volume de dados que pode ser armazenado em uma dessas Contas de Armazenamento. No armazenamento Standard, o volume é uma magnitude maior do que com o armazenamento Premium. Por outro lado, a conta de armazenamento Standard é severamente limitada em IOPS (consulte a **taxa de solicitação total**de coluna), enquanto a conta de armazenamento Premium do Azure não tem essa limitação. Discutiremos detalhes e os resultados dessas diferenças ao discutir as implantações de sistemas SAP, especialmente os servidores DBMS.
 
 Em uma Conta de Armazenamento, você tem a possibilidade de criar diferentes contêineres para organizar e categorizar diferentes VHDs. Esses contêineres são usados para, por exemplo, separar os VHDs de VMs diferentes. Não há nenhuma implicação de desempenho em usar apenas um contêiner ou vários contêineres sob uma única Conta de Armazenamento do Azure.
 
@@ -620,11 +620,11 @@ O Microsoft Azure fornece uma infraestrutura de rede que permite o mapeamento de
 
 Encontre mais informações aqui: <https://azure.microsoft.com/documentation/services/virtual-network/>
 
-Há muitas possibilidades diferentes para configurar a resolução de nomes e IPs no Azure. Também há um serviço DNS do Azure que pode ser usado, em vez de configurar seu próprio servidor DNS. Mais informações podem ser encontradas neste [artigo][virtual-networks-manage-dns-in-vnet] e nesta [página](https://azure.microsoft.com/services/dns/).
+Há muitas possibilidades diferentes para configurar a resolução de nomes e IPs no Azure. Também há um serviço DNS do Azure que pode ser usado, em vez de configurar seu próprio servidor DNS. Encontre mais informações [neste artigo][virtual-networks-manage-dns-in-vnet] e [nesta página](https://azure.microsoft.com/services/dns/).
 
 Para cenários entre instalações ou híbridos, contamos com o fato de que o OpenLDAP/AD/DNS local foi estendido por meio de VPN ou conexão privada ao Azure. Para determinados cenários, conforme documentado aqui, é necessário ter uma réplica do AD/OpenLDAP instalada no Azure.
 
-Como a resolução de nomes e de rede é uma parte vital da implantação de banco de dados para um sistema SAP, esse conceito é discutido em mais detalhes no [Guia de implantação do DBMS][dbms-guide].
+Já que a resolução de rede e de nomes é uma parte essencial da implantação de banco de dados para um sistema do SAP, esse conceito é abordado em mais detalhes no [Guia de implantação de DBMS][dbms-guide].
 
 ##### <a name="azure-virtual-networks"></a>Redes Virtuais do Azure
 
@@ -632,7 +632,7 @@ Ao criar uma Rede Virtual do Azure, você pode definir o intervalo de endereços
 
 Cada máquina Virtual no Azure precisa ser conectado a uma Rede Virtual.
 
-Mais detalhes podem ser encontrados neste [artigo][resource-groups-networking] e nesta [página](https://azure.microsoft.com/documentation/services/virtual-network/).
+Mais detalhes podem ser encontrados [neste artigo][resource-groups-networking] e [nesta página](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 
 > [!NOTE]
@@ -654,21 +654,21 @@ O endereço MAC da placa de rede virtual pode mudar, por exemplo, depois de redi
 
 Você pode definir várias vNICs (placas de interface de rede virtual) para uma Máquina Virtual do Azure. Com a capacidade de ter várias vNICs, você pode começar a configurar o tráfego de rede no qual, por exemplo, o tráfego do cliente é roteado por meio de uma vNIC e o tráfego de back-end é roteado por meio de uma segunda vNIC. Dependendo do tipo de VM, há diferentes limitações para o número de vNICs que uma VM pode ter atribuído. Restrições, funcionalidades e detalhes exatos podem ser encontradas nesses artigos:
 
-* [Criar uma VM do Windows com várias NICs][virtual-networks-multiple-nics-windows]
-* [Criar uma VM do Linux com várias NICs][virtual-networks-multiple-nics-linux]
-* [Implantar VMs com várias NICs usando um modelo][virtual-network-deploy-multinic-arm-template]
-* [Implantar VMs com várias NICs usando o PowerShell][virtual-network-deploy-multinic-arm-ps]
-* [Implantar VMs com várias NICs usando o CLI do Azure][virtual-network-deploy-multinic-arm-cli]
+* [Criar uma VM Windows com várias NICs][virtual-networks-multiple-nics-windows]
+* [Criar uma VM Linux com várias NICs][virtual-networks-multiple-nics-linux]
+* [Implantar VMs com diversas NICs usando um modelo][virtual-network-deploy-multinic-arm-template]
+* [Implantar VMs com diversas NICs usando o PowerShell][virtual-network-deploy-multinic-arm-ps]
+* [Implantar VMs com diversas NICs usando a CLI do Azure][virtual-network-deploy-multinic-arm-cli]
 
 #### <a name="site-to-site-connectivity"></a>Conectividade site a site
 
-Entre instalações refere-se a VMs do Azure e locais vinculadas por uma conexão VPN permanente e transparente. Espera-se que esse se torne o padrão de implantação SAP mais comum no Azure. Pressupõe-se que os procedimentos operacionais e processos com instâncias SAP no Azure funcionem de modo transparente. Isso significa que você deve ser capaz de imprimir a partir desses sistemas, bem como usar o TMS (sistema de gerenciamento de transporte) SAP para transportar alterações de um sistema de desenvolvimento no Azure para um sistema de teste que é implantado localmente. Mais documentação sobre o site a site pode ser encontrada neste [artigo][vpn-gateway-create-site-to-site-rm-powershell]
+Entre instalações refere-se a VMs do Azure e locais vinculadas por uma conexão VPN permanente e transparente. Espera-se que esse se torne o padrão de implantação SAP mais comum no Azure. Pressupõe-se que os procedimentos operacionais e processos com instâncias SAP no Azure funcionem de modo transparente. Isso significa que você deve ser capaz de imprimir a partir desses sistemas, bem como usar o TMS (sistema de gerenciamento de transporte) SAP para transportar alterações de um sistema de desenvolvimento no Azure para um sistema de teste que é implantado localmente. Encontre mais documentações relacionadas ao site a site [neste artigo][vpn-gateway-create-site-to-site-rm-powershell]
 
 ##### <a name="vpn-tunnel-device"></a>Dispositivo de túnel VPN
 
 Para criar uma conexão site a site (data center local para data center do Azure), você precisa obter e configurar um dispositivo VPN ou usar o RRAS (Serviço de Roteamento e Acesso Remoto), que foi introduzido como um componente de software com o Windows Server 2012.
 
-* [Criar uma rede virtual com uma conexão VPN site a site usando o PowerShell][vpn-gateway-create-site-to-site-rm-powershell]
+* [Criar uma rede virtual com uma conexão VPN site a site usando PowerShell][vpn-gateway-create-site-to-site-rm-powershell]
 * [Sobre dispositivos VPN para conexões de Gateway de VPN Site a Site][vpn-gateway-about-vpn-devices]
 * [Perguntas frequentes de gateway de VPN][vpn-gateway-vpn-faq]
 
@@ -681,14 +681,14 @@ A Figura acima mostra que duas assinaturas do Azure têm subintervalos de endere
 VPN ponto a site requer que cada computador cliente conecte-se com seu próprio VPN ao Azure. Para os cenários SAP que estamos vendo, a conectividade ponto a site não é prática. Portanto, não é feita nenhuma referência posterior à conectividade VPN ponto a site.
 
 Mais informações podem ser encontradas aqui
-* [Configurar uma conexão Ponto a Site com uma rede virtual usando o Portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
-* [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
+* [Configurar uma conexão ponto a site com uma VNet usando o portal do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
+* [Configurar uma conexão Ponto a Site com uma rede virtual usando PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
 #### <a name="multi-site-vpn"></a>VPN de múltiplos sites
 
 Hoje em dia, o Azure também oferece a possibilidade de criar a conectividade VPN de múltiplos sites para uma assinatura do Azure. Antes, uma única assinatura era limitada a uma ligação VPN site a site. Essa limitação desapareceu com ligações VPN de múltiplos sites para uma única assinatura. Isso torna possível aproveitar mais de uma Região do Azure para uma assinatura específica por meio de configurações entre instalações.
 
-Para obter mais documentação, consulte [Este artigo][vpn-gateway-create-site-to-site-rm-powershell]
+Para obter mais documentação, veja [este artigo][vpn-gateway-create-site-to-site-rm-powershell]
 
 #### <a name="vnet-to-vnet-connection"></a>Conexão VNet a VNet
 
@@ -733,7 +733,7 @@ Precisamos ser claros sobre o fato de que a infraestrutura de rede e de armazena
 >
 >
 
-Ao planejar e dimensionar soluções SAP no Azure, as cotas para cada tamanho de máquina virtual devem ser consideradas. As cotas de VM são descritas [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows].
+Ao planejar e dimensionar soluções SAP no Azure, as cotas para cada tamanho de máquina virtual devem ser consideradas. As cotas VM são descritas [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows].
 
 As cotas descritas representam os valores máximos teóricos.  O limite de IOPS por disco pode ser obtido com o E/Ss pequenas (8 kb), mas é possível que não possa ser obtido com o E/Ss grandes (1 Mb).  O limite de IOPS é aplicado na granularidade de discos individuais.
 
@@ -749,7 +749,7 @@ Visite também este blog e consulte o documento anexado para obter o dimensionam
 
 **Etapa 3**: compare o requisito de SAPS do servidor DBMS com os SAPS que os diferentes tipos de VM do Azure podem fornecer. As informações sobre os SAPS dos diferentes tipos de VM do Azure estão documentadas na Nota do SAP [1928533]. O foco deve ser primeiro na VM de DBMS, já que a camada de banco de dados é a camada em um sistema SAP NetWeaver que não é escalado horizontalmente na maioria das implantações. Por outro lado, a camada de aplicativo SAP pode ser expandida. Se nenhum dos tipos de VM do Azure com suporte do SAP puder fornecer os SAPS necessários, a carga de trabalho do sistema SAP planejado não poderá ser executada no Azure. Você precisará implantar o sistema localmente ou precisará alterar o volume de carga de trabalho para o sistema.
 
-**Etapa 4**: conforme documentado [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows], o Azure impõe uma cota de IOPS por disco independente, independentemente de você usar o armazenamento Standard ou o armazenamento Premium. Dependo do tipo de VM, o número de discos que pode ser montado varia. Como resultado, você pode calcular um número de IOPS máximo que pode ser alcançado com cada um dos diferentes tipos de VM. Dependendo do layout do arquivo de banco de dados, você pode distribuir discos para que se tornem um volume no SO convidado. No entanto, se o volume de IOPS atual de um sistema SAP implantado exceder os limites calculados do maior tipo de VM do Azure e se não houver nenhuma chance de compensar com mais memória, a carga de trabalho do sistema SAP poderá ser gravemente afetada. Nesses casos, você pode atingir um ponto em que você não deve implantar o sistema no Azure.
+**Etapa 4**: conforme documentado [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows], o Azure impõe uma cota de IOPS por disco independentemente de você usar o Armazenamento Standard ou o Armazenamento Premium. Dependo do tipo de VM, o número de discos que pode ser montado varia. Como resultado, você pode calcular um número de IOPS máximo que pode ser alcançado com cada um dos diferentes tipos de VM. Dependendo do layout do arquivo de banco de dados, você pode distribuir discos para que se tornem um volume no SO convidado. No entanto, se o volume de IOPS atual de um sistema SAP implantado exceder os limites calculados do maior tipo de VM do Azure e se não houver nenhuma chance de compensar com mais memória, a carga de trabalho do sistema SAP poderá ser gravemente afetada. Nesses casos, você pode atingir um ponto em que você não deve implantar o sistema no Azure.
 
 **Etapa 5**: Especialmente em sistemas do SAP implantados localmente em configurações de duas camadas, as chances são de que o sistema talvez precise ser configurado no Azure em uma configuração de três camadas. Nesta etapa, você precisa verificar se há um componente na camada do aplicativo SAP que não pode ser escalado horizontalmente e que não se ajusta aos recursos de CPU e memória oferecidos pelos diferentes tipos de VM do Azure. Se realmente existir tal componente, o sistema SAP e a carga de trabalho não poderão ser implantados no Azure. No entanto, se for possível escalar horizontalmente os componentes do aplicativo SAP em várias VMs do Azure, o sistema poderá ser implantado no Azure.
 
@@ -782,7 +782,7 @@ O Portal do Azure oferece as funcionalidades básicas para implantar e configura
 
 O Windows PowerShell é uma estrutura poderosa e extensível que foi amplamente adotada por clientes implantando grandes quantidades de sistemas no Azure. Após a instalação dos cmdlets do PowerShell em um desktop, laptop ou estação de gerenciamento dedicada, os cmdlets do PowerShell podem ser executados remotamente.
 
-O processo para habilitar um desktop/laptop local para o uso de Azure PowerShell cmdlets e como configurá-los para o uso com as assinaturas do Azure é descrito neste [artigo][powershell-install-configure].
+O processo para habilitar um laptop/computador desktop local para usar cmdlets do Azure PowerShell e como configurá-los para uso com as assinaturas do Azure é descrito [neste artigo][powershell-install-configure].
 
 Etapas mais detalhadas sobre como instalar, atualizar e configurar os cmdlets de Azure PowerShell também podem ser encontradas neste [capítulo do guia de implantação][deployment-guide-4.1].
 
@@ -806,7 +806,7 @@ Para obter informações sobre instalação, configuração e como usar os coman
 
 * [Instalar a CLI clássica do Azure][xplat-cli]
 * [Implantar e gerenciar máquinas virtuais usando modelos do Azure Resource Manager e a CLI do Azure][../../linux/create-ssh-secured-vm-from-template.md]
-* [Use a CLI clássica do Azure para Mac, Linux e Windows com Azure Resource Manager][xplat-cli-azure-resource-manager]
+* [Usar a CLI clássica do Azure para Mac, Linux e Windows com o Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Leia também o capítulo [CLI do Azure para VMs do Linux][deployment-guide-4.5.2] no [Guia de implantação][planning-guide] sobre como usar CLI do Azure para implantar a extensão do Azure para SAP.
 
@@ -831,7 +831,7 @@ O Microsoft Azure oferece várias maneiras de implantar VMs e discos associados.
 
 #### <a name="moving-a-vm-from-on-premises-to-azure-with-a-non-generalized-disk"></a><a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>Movendo uma VM do local para o Azure com um disco não generalizado
 
-Você planeja mover um sistema SAP específico do local para o Azure. Isso pode ser feito carregando, no Azure, o VHD que contém os binários do sistema operacional, os binários da SAP e os binários do DBMS, além dos VHDs com os arquivos de dados e arquivos de log do DBMS. Em contraste com o [cenário #2 abaixo][planning-guide-5.1.2], você mantém o nome do host, o SID do SAP e as contas de usuário SAP na VM do Azure, pois eles foram configurados no ambiente local. Portanto, não é necessário generalizar a imagem. Confira os capítulos [preparação para mover uma VM do local para o Azure com um disco não generalizado][planning-guide-5.2.1] deste documento para obter as etapas de preparação local e o carregamento de VMs ou VHDs não generalizados para o Azure. Leia [o capítulo cenário 3: movendo uma VM do local usando um VHD do Azure não generalizado com o SAP][deployment-guide-3.4] no [Guia de implantação][deployment-guide] para obter etapas detalhadas de implantação de uma imagem desse tipo no Azure.
+Você planeja mover um sistema SAP específico do local para o Azure. Isso pode ser feito carregando, no Azure, o VHD que contém os binários do sistema operacional, os binários da SAP e os binários do DBMS, além dos VHDs com os arquivos de dados e arquivos de log do DBMS. Em contraste com o [cenário #2 abaixo][planning-guide-5.1.2], você mantém o nome do host, o SID do SAP e as contas de usuário SAP na VM do Azure, pois eles foram configurados no ambiente local. Portanto, não é necessário generalizar a imagem. Consulte os capítulos [Preparação para mover uma VM do local para o Azure com um disco não generalizado][planning-guide-5.2.1] deste documento para obter as etapas de preparação local e de carregamento de VMs ou VHDs não generalizados para o Azure. Leia o capítulo [Cenário 3: Movendo uma VM do local usando um VHD do Azure não generalizado com SAP][deployment-guide-3.4] no [Guia de implantação][deployment-guide] para obter etapas detalhadas de implantação de uma imagem desse tipo no Azure.
 
 #### <a name="deploying-a-vm-with-a-customer-specific-image"></a><a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Implantando uma VM com uma imagem específica do cliente
 
@@ -845,16 +845,16 @@ Devido a requisitos de patch específicos da sua versão do SO ou DBMS, as image
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Siga as etapas descritas nestes artigos para [SuSE][virtual-machines-linux-create-upload-vhd-suse], [Red Hat][virtual-machines-linux-redhat-create-upload-vhd]ou [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle], para preparar um VHD a ser carregado no Azure.
+> Siga as etapas descritas nestes artigos para [SUSE][virtual-machines-linux-create-upload-vhd-suse] ou [Red Hat][virtual-machines-linux-redhat-create-upload-vhd] ou [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle] para preparar um VHD para ser carregado no Azure.
 >
 >
 
 ---
-Se já tiver instalado o conteúdo do SAP na VM local (especialmente para sistemas de duas camadas), você poderá adaptar as configurações do sistema SAP após a implantação da VM do Azure por meio do procedimento de renomeação da instância ao qual o Software Provisioning Manager SAP dá suporte (Nota do SAP [1619720]). Confira os capítulos [preparação para implantar uma VM com uma imagem específica do cliente para SAP][planning-guide-5.2.2] e [carregando um VHD do local para o Azure][planning-guide-5.3.2] deste documento para obter as etapas de preparação local e o carregamento de uma VM generalizada para o Azure. Leia [o capítulo cenário 2: Implantando uma VM com uma imagem personalizada para SAP][deployment-guide-3.3] no [Guia de implantação][deployment-guide] para obter etapas detalhadas de implantação desse tipo de imagem no Azure.
+Se já tiver instalado o conteúdo do SAP na VM local (especialmente para sistemas de duas camadas), você poderá adaptar as configurações do sistema SAP após a implantação da VM do Azure por meio do procedimento de renomeação da instância ao qual o Software Provisioning Manager SAP dá suporte (Nota do SAP [1619720]). Confira os capítulos [Preparação para implantar uma VM com uma imagem específica do cliente para SAP][planning-guide-5.2.2] e [Carregando um VHD do local no Azure][planning-guide-5.3.2] deste documento para obter etapas de preparação local e de carregamento de uma VM generalizada para o Azure. Leia o capítulo [Cenário 2: Implantação de uma VM com uma imagem personalizada para SAP][deployment-guide-3.3] no [Guia de implantação][deployment-guide] para obter etapas detalhadas de implantação de uma imagem desse tipo no Azure.
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Implantando uma VM com origem no Azure Marketplace
 
-Você gostaria de usar uma imagem de VM fornecida pela Microsoft ou por terceiros, partindo do Azure Marketplace, para implantar a VM. Depois de implantar a VM no Azure, siga as mesmas diretrizes e ferramentas para instalar o software SAP e/ou DBMS na VM, como você faria em um ambiente local. Para obter uma descrição de implantação mais detalhada, consulte [o capítulo cenário 1: Implantando uma VM do Azure Marketplace para SAP][deployment-guide-3.2] no [Guia de implantação][deployment-guide].
+Você gostaria de usar uma imagem de VM fornecida pela Microsoft ou por terceiros, partindo do Azure Marketplace, para implantar a VM. Depois de implantar a VM no Azure, siga as mesmas diretrizes e ferramentas para instalar o software SAP e/ou DBMS na VM, como você faria em um ambiente local. Para obter a descrição de implantação mais detalhada, confira o capítulo [Cenário 1: Implantando uma VM com origem no Azure Marketplace para SAP][deployment-guide-3.2] no [Guia de implantação][deployment-guide].
 
 ### <a name="preparing-vms-with-sap-for-azure"></a><a name="6ffb9f41-a292-40bf-9e70-8204448559e7"></a>Preparando VMs com SAP para o Azure
 
@@ -868,7 +868,7 @@ Os requisitos ao preparar seu próprio Disco de VM do Azure são:
 
 * Originalmente, o VHD contendo o sistema operacional podia ter um tamanho máximo de somente 127 GB. Essa limitação foi eliminada no final de março de 2015. Agora o VHD que contém o sistema operacional pode ser até 1 TB de tamanho, assim como também é o caso de qualquer outro VHD hospedado no Armazenamento do Azure.
 * Ele precisa estar no formato de VHD fixo. VHDs dinâmicos ou VHDs no formato VHDx ainda não têm suporte no Azure. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
-* VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. Leia [este artigo (Linux)](../../linux/managed-disks-overview.md) e [este artigo (Windows)](../../windows/managed-disks-overview.md) para conhecer os limites de tamanho dos discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
+* VHDs que são montados na VM e devem ser montados novamente no Azure para a VM precisam estar em um formato de VHD fixo. Leia [Este artigo (Linux)](../../linux/managed-disks-overview.md) e [Este artigo (Windows)](../../windows/managed-disks-overview.md)) para obter os limites de tamanho dos discos de dados. VHDs dinâmicos serão convertidos em VHDs estáticos quando você carregar o VHD com a CLI ou cmdlets do PowerShell
 * Adicione outra conta local com privilégios de administrador que possa ser usada pelo suporte da Microsoft ou que possa ser atribuída como contexto no qual serviços e aplicativos sejam executados até que a VM seja implantada e mais usuários apropriados possam ser usados.
 * Adicione outras contas locais, já que elas podem ser necessárias para o cenário de implantação específico.
 
@@ -877,7 +877,7 @@ Os requisitos ao preparar seu próprio Disco de VM do Azure são:
 >
 > Nesse cenário, nenhuma generalização (sysprep) da VM é necessária para carregar e implantar a VM no Azure.
 > Verifique se a unidade D:\ não é usada.
-> Defina a montagem automática de disco para discos anexados, conforme descrito no capítulo [Configurando a montagem automática para discos anexados][planning-guide-5.5.3] neste documento.
+> Defina a montagem automática de disco para discos anexados conforme descrito no capítulo [Definindo a montagem automática para os discos anexados][planning-guide-5.5.3] deste documento.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -889,7 +889,7 @@ Os requisitos ao preparar seu próprio Disco de VM do Azure são:
 ---
 #### <a name="preparation-for-deploying-a-vm-with-a-customer-specific-image-for-sap"></a><a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>Preparação para implantar uma VM com uma imagem específica do cliente para SAP
 
-Os arquivos VHD que contêm um SO generalizado também são armazenados em contêineres nas Contas de Armazenamento do Azure ou como imagens do Managed Disk. Você pode implantar uma nova VM a partir de uma imagem desse tipo referenciando o VHD ou a imagem do disco gerenciado como uma fonte em seus arquivos de modelo de implantação, conforme descrito no capítulo [cenário 2: Implantando uma VM com uma imagem personalizada para SAP][deployment-guide-3.3] do [Guia de implantação][deployment-guide].
+Os arquivos VHD que contêm um SO generalizado também são armazenados em contêineres nas Contas de Armazenamento do Azure ou como imagens do Managed Disk. Você pode implantar uma nova VM de uma imagem desse tipo referenciando o VHD ou a imagem do Managed Disk como uma origem em seus arquivos de modelo de implantação, conforme descrito no capítulo [Cenário 2: Implantando uma VM com uma imagem personalizada para SAP][deployment-guide-3.3] do [Guia de Implantação][deployment-guide].
 
 Os requisitos ao preparar sua própria Imagem de VM do Azure são:
 
@@ -902,7 +902,7 @@ Os requisitos ao preparar sua própria Imagem de VM do Azure são:
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> Verifique se a unidade D:\ Não é usado definir montagem automática de disco para discos anexados, conforme descrito no capítulo [Configurando a montagem automática para discos anexados][planning-guide-5.5.3] neste documento.
+> Verifique se a unidade D:\ não é usada. Defina a montagem automática de disco para discos anexados conforme descrito no capítulo [Definindo a montagem automática para os discos anexados][planning-guide-5.5.3] deste documento.
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -921,7 +921,7 @@ Se a VM estiver suficientemente preparada para ser genérica e eventualmente ind
 > ![Windows][Logo_Windows] Windows
 >
 > A última etapa é entrar em uma VM com uma conta de administrador. Abra uma janela de comando do Windows como *administrador*. Vá para %windir%\windows\system32\sysprep e execute sysprep.exe.
-> Uma janela pequena será exibida. É importante marcar a opção **Generalizar** (o padrão é desmarcado) e alterar a Opção de Desligamento do seu padrão de 'Reinicializar' para 'Desligar'. Este procedimento pressupõe que o processo sysprep seja executado localmente no SO convidado de uma VM.
+> Uma janela pequena será exibida. É importante verificar a opção **generalizar** (o padrão está desmarcado) e alterar a opção de desligamento do padrão de ' reinicializar ' para ' desligar '. Este procedimento pressupõe que o processo sysprep seja executado localmente no SO convidado de uma VM.
 > Se desejar executar o procedimento com uma VM já em execução no Azure, siga as etapas descritas [neste artigo](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
@@ -932,12 +932,12 @@ Se a VM estiver suficientemente preparada para ser genérica e eventualmente ind
 
 ---
 ### <a name="transferring-vms-and-vhds-between-on-premises-to-azure"></a>Transferindo VMs e VHDs do local para o Azure
-Já que carregar discos e imagens de VM para o Azure não é possível por meio do Portal do Azure, você precisa usar a CLI ou cmdlets do Azure PowerShell. Outra possibilidade é o uso da ferramenta 'AzCopy'. Essa ferramenta pode copiar VHDs entre o local e o Azure (em ambas as direções). Ela também pode copiar VHDs entre Regiões do Azure. Consulte [esta documentação][storage-use-azcopy] para obter o download e o uso do AzCopy.
+Já que carregar discos e imagens de VM para o Azure não é possível por meio do Portal do Azure, você precisa usar a CLI ou cmdlets do Azure PowerShell. Outra possibilidade é o uso da ferramenta 'AzCopy'. Essa ferramenta pode copiar VHDs entre o local e o Azure (em ambas as direções). Ela também pode copiar VHDs entre Regiões do Azure. Consulte [esta documentação][storage-use-azcopy] para download e uso do AzCopy.
 
 Uma terceira alternativa seria usar várias ferramentas de terceiros orientadas por GUI. No entanto, verifique se essas ferramentas dão suporte a Blobs de Páginas do Azure. Para nossos objetivos, precisamos usar o armazenamento de Blob de Páginas do Azure (as diferenças são descritas aqui: <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>). Além disso, as ferramentas fornecidas pelo Azure são eficientes ao compactar as VMs e VHDs que precisam ser carregados. Isso é importante, porque essa eficiência na compactação reduz o tempo de upload (que varia mesmo assim, dependendo do link de upload do recurso local para a Internet e da região de implantação do Azure de destino). Faz sentido supor que carregar uma VM ou um VHD de um local europeu para os EUA com base em data centers do Azure levará mais tempo do que carregar os mesmos VHDs/VMs para data centers europeus do Azure.
 
 #### <a name="uploading-a-vhd-from-on-premises-to-azure"></a><a name="a43e40e6-1acc-4633-9816-8f095d5a7b6a"></a>Carregando um VHD do local no Azure
-Para carregar uma VM ou um VHD existente da rede local, essa VM ou um VHD precisa atender aos requisitos, conforme listado no capítulo [preparação para mover uma VM do local para o Azure com um disco não generalizado][planning-guide-5.2.1] deste documento.
+Para carregar uma VM ou um VHD existente da rede local, a VM ou o VHD precisa atender aos requisitos listados no capítulo [Preparação para mover uma VM do local para o Azure com um disco não generalizado][planning-guide-5.2.1] deste documento.
 
 Essa VM NÃO precisa ser generalizada e pode ser carregada no estado e forma que tem após o desligamento no lado local. O mesmo é verdadeiro para VHDs adicionais que não contêm nenhum sistema operacional.
 
@@ -947,18 +947,18 @@ Nesse caso, desejamos carregar um VHD, com ou sem um SO, e montá-lo em uma VM c
 **PowerShell**
 
 * Entre em sua assinatura com *Connect-AzAccount*
-* Defina a assinatura do contexto com *set-AzContext* e o parâmetro SubscriptionId ou subscriptionname-consulte <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Carregue o VHD com *Add-AzVhd* em uma conta de armazenamento do Azure-consulte <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* Adicional Crie um disco gerenciado a partir do VHD com *New-AzDisk* -consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
-* Defina o disco do sistema operacional de uma nova configuração de VM para o VHD ou disco gerenciado com *set-AzVMOSDisk* -consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-* Crie uma nova VM da configuração da VM com *New-AzVM* -consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
-* Adicionar um disco de dados a uma nova VM com *Add-AzVMDataDisk* -consulte <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
+* Defina a assinatura do contexto com *set-AzContext* e o parâmetro SubscriptionId ou subscriptionname-consulte<https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* Carregue o VHD com *Add-AzVhd* em uma conta de armazenamento do Azure-consulte<https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* Adicional Criar um disco gerenciado a partir do VHD com *New-AzDisk* -consulte<https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
+* Defina o disco do sistema operacional de uma nova configuração de VM para o VHD ou disco gerenciado com *set-AzVMOSDisk* -consulte<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+* Crie uma nova VM da configuração da VM com *New-AzVM* -consulte<https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+* Adicionar um disco de dados a uma nova VM com *Add-AzVMDataDisk* -consulte<https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
 
 **CLI do Azure**
 
 * Entre na sua assinatura com *az login*
-* Selecione a assinatura com o *az account set --subscription `<subscription name or id`>*
-* Carregar o VHD com *AZ Storage blob upload* -consulte [usando o CLI do Azure com o armazenamento do Azure][storage-azure-cli]
+* Selecione sua assinatura com *AZ Account Set--Subscription `<subscription name or id` *
+* Carregar o VHD com o *az storage blob upload* - consulte [Usando a CLI do Azure com o Armazenamento do Azure][storage-azure-cli]
 * (Opcional) Crie um Disco Gerenciado a partir do VHD com *az disk create* - consulte https://docs.microsoft.com/cli/azure/disk
 * Criar uma nova VM especificando o VHD ou Managed Disk como disco de SO com *az vm create* e o parâmetro *--attach-os-disk*
 * Adicionar um disco de dados a uma nova VM com *az vm disk attach* e o parâmetro *--new*
@@ -972,28 +972,28 @@ Nesse caso, desejamos carregar um VHD, com ou sem um SO, e montá-lo em uma VM c
 #### <a name="deployment-of-a-vm-image"></a>Implantação de uma imagem de VM
 Para carregar uma VM ou um VHD existente da rede local, para usá-la como uma imagem de VM do Azure, tal VM ou VHD precisa atender aos requisitos listados na [preparação do capítulo para implantar uma VM com uma imagem específica do cliente para SAP][planning-guide-5.2.2] deste documento.
 
-* Use o *Sysprep* no Windows ou *waagent-deprovision* no Linux para generalizar sua VM-consulte [referência técnica do Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar uma máquina virtual Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
+* Use *sysprep* no Windows ou *waagent -deprovision* no Linux para generalizar a VM – veja [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) (Referência técnica do Sysprep) para Windows ou [Como capturar uma máquina virtual do Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
 * Entre em sua assinatura com *Connect-AzAccount*
-* Defina a assinatura do contexto com *set-AzContext* e o parâmetro SubscriptionId ou subscriptionname-consulte <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Carregue o VHD com *Add-AzVhd* em uma conta de armazenamento do Azure-consulte <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* Adicional Crie uma imagem de disco gerenciado do VHD com *New-AzImage* -consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
+* Defina a assinatura do contexto com *set-AzContext* e o parâmetro SubscriptionId ou subscriptionname-consulte<https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* Carregue o VHD com *Add-AzVhd* em uma conta de armazenamento do Azure-consulte<https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* Adicional Criar uma imagem de disco gerenciado do VHD com *New-AzImage* -consulte<https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
 * Definir o disco do sistema operacional de uma nova configuração VM para o
-  * VHD com *set-AzVMOSDisk-SourceImageUri-Createoption fromImage* -consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-  * Conjunto de imagens do disco gerenciado *-AzVMSourceImage* -consulte <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
-* Crie uma nova VM da configuração da VM com *New-AzVM* -consulte <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+  * VHD com *set-AzVMOSDisk-SourceImageUri-Createoption fromImage* -consulte<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+  * Conjunto de imagens do disco gerenciado *-AzVMSourceImage* -consulte<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
+* Crie uma nova VM da configuração da VM com *New-AzVM* -consulte<https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
 
 **CLI do Azure**
 
-* Use o *Sysprep* no Windows ou *waagent-deprovision* no Linux para generalizar sua VM-consulte [referência técnica do Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar uma máquina virtual Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
+* Use *sysprep* no Windows ou *waagent -deprovision* no Linux para generalizar a VM – veja [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) (Referência técnica do Sysprep) para Windows ou [Como capturar uma máquina virtual do Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
 * Entre na sua assinatura com *az login*
-* Selecione a assinatura com o *az account set --subscription `<subscription name or id`>*
-* Carregar o VHD com *AZ Storage blob upload* -consulte [usando o CLI do Azure com o armazenamento do Azure][storage-azure-cli]
+* Selecione sua assinatura com *AZ Account Set--Subscription `<subscription name or id` *
+* Carregar o VHD com o *az storage blob upload* - consulte [Usando a CLI do Azure com o Armazenamento do Azure][storage-azure-cli]
 * (Opcional) Crie uma Imagem de Disco Gerenciado a partir do VHD com *az image create* - consulte https://docs.microsoft.com/cli/azure/image
 * Criar uma nova VM especificando o VHD ou a Imagem do Managed Disk carregados como disco de SO com *az vm create* e o parâmetro *--image*
 
 **Modelo**
 
-* Use o *Sysprep* no Windows ou *waagent-deprovision* no Linux para generalizar sua VM-consulte [referência técnica do Sysprep](https://technet.microsoft.com/library/cc766049.aspx) para Windows ou [como capturar uma máquina virtual Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
+* Use *sysprep* no Windows ou *waagent -deprovision* no Linux para generalizar a VM – veja [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) (Referência técnica do Sysprep) para Windows ou [Como capturar uma máquina virtual do Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
 * Carregar o VHD com o PowerShell ou CLI do Azure
 * Adicional Criar uma imagem de disco gerenciado do VHD com o PowerShell, CLI do Azure ou o portal do Azure
 * Implantar a VM com um modelo JSON referenciando o VHD da imagem conforme mostrado [neste modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) ou usando Managed Disks conforme mostrado [neste modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
@@ -1001,7 +1001,7 @@ Para carregar uma VM ou um VHD existente da rede local, para usá-la como uma im
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Baixando VHDs ou Managed Disks no local
 A infraestrutura como serviço do Azure não é uma rua de mão única, em que você pode apenas carregar VHDs e sistemas SAP. Você também pode mover sistemas SAP do Azure de volta para o universo local.
 
-Durante o tempo de download, os VHDs ou Managed Disks não podem estar ativos. Mesmo ao baixar discos montados em VMs, a VM precisa ser desligada e desalocada. Se você quiser apenas baixar o conteúdo do banco de dados, que deve ser usado para configurar um novo sistema local e se for aceitável que, durante o horário do download, e a configuração do novo sistema que o sistema no Azure ainda possa estar operacional , você pode evitar um tempo de inatividade longo executando um backup de banco de dados compactado em um disco e apenas baixar esse disco em vez de também baixar a VM de base do sistema operacional.
+Durante o tempo de download, os VHDs ou Managed Disks não podem estar ativos. Mesmo ao baixar discos montados em VMs, a VM precisa ser desligada e desalocada. Se você quiser apenas baixar o conteúdo do banco de dados, que, em seguida, deve ser usado para configurar um novo sistema local e, se for aceitável que, durante o tempo do download e a configuração do novo sistema que o sistema no Azure ainda possa estar operacional, você poderá evitar um tempo de inatividade longo executando um backup de banco de dados compactado em um disco e apenas baixar esse disco em vez de baixar a VM de base do so.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -1029,12 +1029,13 @@ Durante o tempo de download, os VHDs ou Managed Disks não podem estar ativos. M
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Para obter mais detalhes sobre o cmdlet Save-AzVhd, marque aqui <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>.
+  Para obter mais detalhes sobre o cmdlet Save-AzVhd, verifique <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd>aqui.
 
 #### <a name="azure-cli"></a>CLI do Azure
 * Baixando um Managed Disk  
   Primeiro, você precisa obter acesso ao blob subjacente do Managed Disk. Em seguida, você pode copiar o blob de base para uma nova conta de armazenamento e baixar o blob da conta de armazenamento.
-  ```
+
+  ```azurecli
   az disk grant-access --ids "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" --duration-in-seconds 3600
   az storage blob download --sas-token "<sas token>" --account-name <account name> --container-name <container name> --name <blob name> --file <local file>
   az disk revoke-access --ids "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>"
@@ -1045,7 +1046,7 @@ Durante o tempo de download, os VHDs ou Managed Disks não podem estar ativos. M
 
   Em seguida, você pode aproveitar o comando definindo os parâmetros blob e contêiner do VHD a baixar e o destino como a localização física de destino do VHD (incluindo seu nome). O comando seria semelhante ao seguinte:
 
-  ```
+  ```azurecli
   az storage blob download --name <name of the VHD to download> --container-name <container of the VHD to download> --account-name <storage account name of the VHD to download> --account-key <storage account key> --file <destination of the VHD to download>
   ```
 
@@ -1065,7 +1066,7 @@ Discos de dados também podem ser Managed Disks. Nesse caso, o Managed Disk é u
 
 ##### <a name="powershell"></a>PowerShell
 
-Você pode usar Azure PowerShell cmdlets para copiar um VHD, conforme mostrado neste [artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo disco gerenciado, use New-AzDiskConfig e New-AzDisk, conforme mostrado no exemplo a seguir.
+Você pode usar os cmdlets do Azure PowerShell para copiar um VHD, conforme mostrado [neste artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo disco gerenciado, use New-AzDiskConfig e New-AzDisk, conforme mostrado no exemplo a seguir.
 
 ```powershell
 $config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
@@ -1076,7 +1077,7 @@ New-AzDisk -ResourceGroupName <resource group name> -DiskName <disk name> -Disk 
 
 Você pode usar CLI do Azure para copiar um VHD. Para criar um novo Managed Disk, use *az disk create* conforme mostrado no exemplo a seguir.
 
-```
+```azurecli
 az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" --name <disk name> --resource-group <resource group name> --location <location>
 ```
 
@@ -1116,9 +1117,10 @@ $disk = New-AzDisk -DiskName <disk name> -Disk $diskConfig -ResourceGroupName <r
 $vm = Add-AzVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for example 0> -CreateOption attach -ManagedDiskId $disk.Id
 $vm | Update-AzVM
 ```
+
 ##### <a name="azure-cli"></a>CLI do Azure
 
-```
+```azurecli
 
 # attach a vhd to a vm
 az vm unmanaged-disk attach --resource-group <resource group name> --vm-name <vm name> --vhd-uri <path to vhd>
@@ -1134,7 +1136,7 @@ az disk create --name <new disk name> --resource-group <resource group name> --l
 az vm disk attach --disk <new disk name or managed disk id> --resource-group <resource group name> --vm-name <vm name> --caching <caching option> --lun <lun, for example 0>
 ```
 
-#### <a name="copying-disks-between-azure-storage-accounts"></a><a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copiando discos entre Contas de Armazenamento do Azure
+#### <a name="copying-disks-between-azure-storage-accounts"></a><a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copiando discos entre contas de armazenamento do Azure
 Esta tarefa não pode ser realizada no Portal do Azure. Você pode usar cmdlets do Azure PowerShell, a CLI do Azure ou um navegador de armazenamento de terceiros. Os comandos CLI ou cmdlets do PowerShell podem criar e gerenciar blobs, os quais incluem a capacidade de copiar blobs em regiões entre contas de armazenamento de forma assíncrona na assinatura do Azure.
 
 ##### <a name="powershell"></a>PowerShell
@@ -1142,8 +1144,8 @@ Você também pode copiar VHDs entre assinaturas. Para obter mais informações,
 
 O fluxo básico da lógica de cmdlet do PS tem esta aparência:
 
-* Crie um contexto de conta de armazenamento para a conta de armazenamento de **origem** com *New-AzStorageContext* -consulte <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
-* Crie um contexto de conta de armazenamento para a conta de armazenamento de **destino** com *New-AzStorageContext* -consulte <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Criar um contexto de conta de armazenamento para a conta de armazenamento de **origem** com *New-AzStorageContext* -consulte<https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Criar um contexto de conta de armazenamento para a conta de armazenamento de **destino** com *New-AzStorageContext* -consulte<https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * Iniciar a cópia com
 
 ```powershell
@@ -1163,13 +1165,13 @@ Para obter exemplos, consulte [Este artigo][storage-powershell-guide-full-copy-v
 ##### <a name="azure-cli"></a>CLI do Azure
 * Iniciar a cópia com
 
-```
+```azurecli
 az storage blob copy start --source-blob <source blob name> --source-container <source container name> --source-account-name <source storage account name> --source-account-key <source storage account key> --destination-container <target container name> --destination-blob <target blob name> --account-name <target storage account name> --account-key <target storage account name>
 ```
 
 * Verificar o status da cópia ainda está em um loop com
 
-```
+```azurecli
 az storage blob show --name <target blob name> --container <target container name> --account-name <target storage account name> --account-key <target storage account name>
 ```
 
@@ -1197,25 +1199,25 @@ Idealmente, a administração da estrutura de uma VM e os discos associados deve
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Coloque o arquivo de permuta do Linux em/mnt/mnt/Resource no Linux, conforme descrito neste [artigo][virtual-machines-linux-agent-user-guide]. O arquivo de troca pode ser configurado no arquivo de configuração do Agente do Linux /etc/waagent.conf. Adicione ou remova as seguintes configurações:
+> Coloque o arquivo de troca do Linux em /mnt /mnt/resource no Linux, conforme descrito [neste artigo][virtual-machines-linux-agent-user-guide]. O arquivo de troca pode ser configurado no arquivo de configuração do Agente do Linux /etc/waagent.conf. Adicione ou remova as seguintes configurações:
 >
 >
 
-```
+```console
 ResourceDisk.EnableSwap=y
 ResourceDisk.SwapSizeMB=30720
 ```
 
 Para ativar as alterações, é necessário reiniciar o Agente do Linux com
 
-```
+```console
 sudo service waagent restart
 ```
 
 Leia a Nota do SAP [1597355] para obter mais detalhes sobre o tamanho do arquivo recomendado
 
 ---
-O número de discos usados para os arquivos de dados do DBMS e o tipo de armazenamento do Azure esses discos são hospedados em deve ser determinado pelos requisitos de IOPS e pela latência necessária. As cotas exatas são descritas neste [artigo (Linux)][virtual-machines-sizes-linux] e [neste artigo (Windows)][virtual-machines-sizes-windows].
+O número de discos usados para os arquivos de dados do DBMS e o tipo de armazenamento do Azure esses discos são hospedados em deve ser determinado pelos requisitos de IOPS e pela latência necessária. Exatas cotas são descritas na [neste artigo (Linux)][virtual-machines-sizes-linux] e [neste artigo (Windows)][virtual-machines-sizes-windows].
 
 Experiência de implantações do SAP nos últimos dois anos nos ensinou algumas lições que podem ser resumidas como:
 
@@ -1224,11 +1226,11 @@ Experiência de implantações do SAP nos últimos dois anos nos ensinou algumas
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> * [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure][virtual-machines-sql-server-performance-best-practices]
+> * [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure][virtual-machines-sql-server-performance-best-practices]
 >
 > ![Linux][Logo_Linux] Linux
 >
-> * [Configurar RAID de software no Linux][virtual-machines-linux-configure-raid]
+> * [Configurar o RAID de software no Linux][virtual-machines-linux-configure-raid]
 > * [Configurar o LVM em uma VM Linux no Azure][virtual-machines-linux-configure-lvm]
 > * [Segredos do Armazenamento do Azure e otimizações de E/S do Linux](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 >
@@ -1239,11 +1241,11 @@ Experiência de implantações do SAP nos últimos dois anos nos ensinou algumas
 
 Tenha em mente que o disco que contém o SO, e conforme recomendamos, os binários da SAP e o banco de dados (VM base), não está mais limitado a 127 GB. Agora ele pode ter até 1 TB de tamanho. Isso deve ser espaço suficiente para manter todos os arquivos necessários, incluindo, por exemplo, logs de trabalho em lotes SAP.
 
-Para obter mais sugestões e mais detalhes, especificamente para VMs do DBMS, consulte o [Guia de implantação do DBMS][dbms-guide]
+Para obter mais sugestões e detalhes, especificamente para VMs de DBMS, confira o [Guia de implantação de DBMS][dbms-guide]
 
 #### <a name="disk-handling"></a>Administração de discos
 
-Na maioria dos cenários, você precisa criar discos adicionais para implantar o banco de dados SAP na VM. Falamos sobre as considerações sobre o número de discos na [estrutura de VM/disco do capítulo para implantações do SAP][planning-guide-5.5.1] deste documento. O Portal do Azure permite anexar e desanexar discos depois que uma VM base é implantada. Os discos podem ser anexados/desanexados quando a VM está instalada e em execução, bem como quando ela é interrompida. Ao anexar um disco, o portal do Azure oferece a possibilidade de anexar um disco vazio ou um disco existente que nesse momento não está anexado a outra VM.
+Na maioria dos cenários, você precisa criar discos adicionais para implantar o banco de dados SAP na VM. Falamos sobre as considerações de número de discos no capítulo [Estrutura de VM/disco para implantações SAP][planning-guide-5.5.1] deste documento. O Portal do Azure permite anexar e desanexar discos depois que uma VM base é implantada. Os discos podem ser anexados/desanexados quando a VM está instalada e em execução, bem como quando ela é interrompida. Ao anexar um disco, o portal do Azure oferece a possibilidade de anexar um disco vazio ou um disco existente que nesse momento não está anexado a outra VM.
 
 **Observação**: Discos só podem ser anexados a uma única VM em um determinado momento.
 
@@ -1258,26 +1260,26 @@ Você precisa decidir se deseja criar um disco novo e vazio ou se você deseja s
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> [Como anexar um disco de dados no portal do Azure][virtual-machines-linux-attach-disk-portal]
+> [Como anexar um disco de dados no Portal do Azure][virtual-machines-linux-attach-disk-portal]
 >
 > Se discos forem anexados, você precisará entrar na VM para abrir o Gerenciador de Disco do Windows. Se a montagem automática não estiver habilitada como recomendado no capítulo [Configurando a montagem automática para discos anexados][planning-guide-5.5.3], o volume recentemente anexado precisará ser colocado online e inicializado.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Se discos estiverem anexados, você precisará entrar na VM e inicializar os discos, conforme descrito neste [artigo][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
+> Se discos forem anexados, você precisará entrar na VM e inicializá-los, conforme descrito [neste artigo][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
 >
 >
 
 ---
 Se o novo disco for um disco vazio, também será necessário formatar o disco. Para formatação, especialmente para arquivos de dados e de log do DBMS, aplicam-se as mesmas recomendações existentes para implantações bare-metal do DBMS.
 
-Uma conta de armazenamento do Azure não fornece recursos infinitos em termos de volume de e/s, IOPS e volume de dados. Geralmente as VMs de DBMS são mais afetadas por isso. Talvez seja melhor usar uma conta de armazenamento separada para cada VM se você tiver algumas VMs com volumes altos de E/S para implantar, para permanecer dentro do limite de volume da Conta de Armazenamento do Azure. Caso contrário, você precisa ver como pode equilibrar essas VMs entre diferentes Contas de Armazenamento sem atingir o limite de cada Conta de Armazenamento individual. Mais detalhes são discutidos no [Guia de implantação do DBMS][dbms-guide]. Você também deve ter essas limitações em mente para VMs de servidor de aplicativos SAP puro ou outras VMs que eventualmente possam exigir VHDs adicionais. Essas restrições não se aplicam se você usar o Managed Disk. Se você planeja usar o Armazenamento Premium, é recomendável usar Managed Disks.
+Uma conta de armazenamento do Azure não fornece recursos infinitos em termos de volume de e/s, IOPS e volume de dados. Geralmente as VMs de DBMS são mais afetadas por isso. Talvez seja melhor usar uma conta de armazenamento separada para cada VM se você tiver algumas VMs com volumes altos de E/S para implantar, para permanecer dentro do limite de volume da Conta de Armazenamento do Azure. Caso contrário, você precisa ver como pode equilibrar essas VMs entre diferentes Contas de Armazenamento sem atingir o limite de cada Conta de Armazenamento individual. Mais detalhes são discutidos no [Guia de implantação de DBMS][dbms-guide]. Você também deve ter essas limitações em mente para VMs de servidor de aplicativos SAP puro ou outras VMs que eventualmente possam exigir VHDs adicionais. Essas restrições não se aplicam se você usar o Managed Disk. Se você planeja usar o Armazenamento Premium, é recomendável usar Managed Disks.
 
 Outro tópico relevante para as Contas de Armazenamento é se os VHDs em uma Conta de Armazenamento estão sendo replicados geograficamente. A replicação geográfica é habilitada ou desabilitada no nível da Conta de Armazenamento e não no nível da VM. Se a replicação geográfica estiver habilitada, os VHDs na Conta de Armazenamento serão replicados para outro data center do Azure na mesma região. Antes de decidir sobre isso, você deve considerar a seguinte restrição:
 
 A replicação geográfica do Azure funciona localmente em cada VHD em uma VM e não replica as E/Ss em ordem cronológica entre vários VHDs em uma VM. Portanto, o VHD que representa a VM base, bem como VHDs adicionais vinculados à VM, são replicados de modo independente uns dos outros. Isso significa que não há nenhuma sincronização entre as alterações nos diferentes VHDs. O fato de que as E/Ss são replicadas de modo independente da ordem em que são gravadas significa que a replicação geográfica não tem valor para servidores de banco de dados com bancos de dados distribuídos entre vários VHDs. Além do DBMS, também pode haver outros aplicativos em que os processos gravam ou manipulam dados em diferentes VHDs e nos quais é importante manter a ordem das alterações. Se isso for um requisito, a replicação geográfica no Azure não deverá ser habilitada. Dependendo de você precisar/querer ou não a replicação geográfica para um conjunto de VMs, mas não para outro conjunto, você já pode categorizar VMs e os VHDs relacionados a elas em diferentes Contas de Armazenamento com replicação geográfica habilitada ou desabilitada.
 
-#### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Definindo a montagem automática para os discos anexados
+#### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Configurando a montagem automática para discos anexados
 ---
 > ![Windows][Logo_Windows] Windows
 >
@@ -1291,11 +1293,11 @@ A replicação geográfica do Azure funciona localmente em cada VHD em uma VM e 
 >
 > A janela de linha de comando do Windows deve ser aberta como administrador.
 >
-> Se discos forem anexados, você precisará entrar na VM para abrir o Gerenciador de Disco do Windows. Se a montagem automática não estiver habilitada como recomendado no capítulo [Configurando a montagem automática para discos anexados][planning-guide-5.5.3], o volume recentemente anexado > precisará ser colocado online e inicializado.
+> Se discos forem anexados, você precisará entrar na VM para abrir o Gerenciador de Disco do Windows. Se a montagem automática não estiver habilitada conforme recomendado no capítulo [Definindo a montagem automática para os discos anexados][planning-guide-5.5.3], o volume recém-vinculado precisará ser colocado online e inicializado.
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Você precisa inicializar um disco vazio anexado recentemente, conforme descrito neste [artigo][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
+> Você deve inicializar um disco vazio anexado recentemente, conforme descrito [neste artigo][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
 > Você também precisa adicionar novos discos a /etc/fstab.
 >
 >
@@ -1315,10 +1317,10 @@ Posteriormente neste documento, discutiremos o cenário principal, conectar-se a
 
 Com o Azure Resource Manager, não há mais pontos de extremidade padrão como havia no antigo modelo clássico. Todas as portas de uma VM do Azure Resource Manager estão abertas, desde que:
 
-1. Nenhum grupo de segurança de rede seja definido para a sub-rede ou a interface de rede. O tráfego de rede para VMs do Azure possa ser protegido por meio dos chamados "Grupos de Segurança de Rede". Para obter mais informações, consulte [O que é um NSG (Grupo de Segurança de Rede)?][virtual-networks-nsg]
+1. Nenhum grupo de segurança de rede seja definido para a sub-rede ou a interface de rede. O tráfego de rede para VMs do Azure possa ser protegido por meio dos chamados "Grupos de Segurança de Rede". Para obter mais informações, consulte [o que é um NSG (grupo de segurança de rede)?][virtual-networks-nsg]
 2. Nenhum Azure Load Balancer seja definido para a interface de rede   
 
-Consulte a diferença de arquitetura entre o modelo clássico e o ARM, conforme descrito neste [artigo][virtual-machines-azure-resource-manager-architecture].
+Veja a diferença de arquitetura entre o modelo clássico e o ARM, conforme descrito [neste artigo][virtual-machines-azure-resource-manager-architecture].
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Configuração de conectividade do Sistema SAP e da GUI da SAP pela Internet
 
@@ -1334,13 +1336,13 @@ Pode ser necessário configurar o firewall em suas máquinas virtuais para permi
 > Por padrão, o Firewall do Windows em uma VM implantada no Azure é ativado. Agora você precisa permitir que a porta SAP seja aberta, caso contrário a GUI da SAP não poderá se conectar.
 > Para fazer isso:
 >
-> * Abra Painel de Controle\Sistema e Segurança \Firewall do Windows em **Configurações Avançadas**.
-> * Agora, clique com o botão direito do mouse em Regras de Entrada e escolha **Nova Regra**.
-> * No Assistente que aparece a seguir, escolha criar uma nova regra de **Porta**.
+> * Abra Control Controle\sistema e segurança \firewall firewall to **Advanced Settings**.
+> * Agora, clique com o botão direito do mouse em regras de entrada e escolha **nova regra**.
+> * No assistente a seguir, escolha criar uma nova regra de **porta** .
 > * Na próxima etapa do assistente, deixe a configuração como TCP e digite o número da porta que deseja abrir. Como a ID da nossa instância SAP é 00, usamos 3200. Se a instância tiver um número de instância diferente, a porta que você definiu anteriormente com base no número da instância deverá ser aberta.
-> * Na próxima parte do assistente, você deve deixar o item **Permitir Conexão** marcado.
+> * Na próxima parte do assistente, você precisa deixar o item **permitir a conexão** marcada.
 > * Na próxima etapa do assistente, você deve definir se a regra se aplica à rede de Domínio, Privada e Público. Ajuste essa configuração se necessário, conforme suas necessidades. Entretanto, ao conectar-se com a GUI da SAP do exterior pela rede pública, é necessário ter a regra aplicada à rede pública.
-> * Na última etapa do assistente, nomeie a regra e pressione **Concluir** para salvar.
+> * Na última etapa do assistente, nomeie a regra e salve pressionando **concluir**.
 >
 > A regra entrará em vigor imediatamente.
 >
@@ -1364,13 +1366,13 @@ A GUI da SAP não se conecta imediatamente a nenhuma das instâncias da SAP (por
 conforme documentado em [configurações de segurança para o servidor de mensagens SAP](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)
 
 
-### <a name="single-vm-with-sap-netweaver-demotraining-scenario"></a><a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Cenário de treinamento/demonstração de VM única com SAP NetWeaver
+### <a name="single-vm-with-sap-netweaver-demotraining-scenario"></a><a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>Cenário de treinamento/demonstração de VM individual com o SAP NetWeaver
 
 ![Executando sistemas de demonstração SAP em VMs únicas com os mesmos nomes de VM, isoladas em serviços de nuvem do Azure][planning-guide-figure-1700]
 
 Neste cenário, estamos implementando um cenário de sistema de treinamento/demonstração típico em que o cenário de treinamento/demonstração completo está contido em uma única VM. Vamos supor que a implantação é feita por meio de modelos de imagem de VM. Também pressupomos que várias dessas VMs de demonstração/treinamento precisam ser implantadas com as VMs tendo o mesmo nome. Os sistemas de treinamento completos não têm conectividade com seus ativos locais e são um oposto a uma implantação híbrida.
 
-A suposição é que você criou uma imagem de VM, conforme descrito em algumas seções do capítulo [preparando VMs com o SAP para Azure][planning-guide-5.2] neste documento.
+Pressupõe-se que você criou uma imagem de VM, conforme descrito em algumas seções do capítulo [Preparando VMs com SAP para o Azure][planning-guide-5.2] deste documento.
 
 A sequência de eventos para implementar o cenário tem esta aparência:
 
@@ -1382,6 +1384,7 @@ A sequência de eventos para implementar o cenário tem esta aparência:
 $rgName = "SAPERPDemo1"
 New-AzResourceGroup -Name $rgName -Location "North Europe"
 ```
+
 * Criar uma nova conta de armazenamento se você não quiser usar Managed Disks
 
 ```powershell
@@ -1495,7 +1498,7 @@ O código de exemplo a seguir pode ser usado no Linux. Para Windows, use o Power
 
 * Criar um novo grupo de recursos para cada estrutura de treinamento/demonstração
 
-```
+```azurecli
 rgName=SAPERPDemo1
 rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
@@ -1503,13 +1506,13 @@ az group create --name $rgName --location "North Europe"
 
 * Criar uma nova conta de armazenamento
 
-```
+```azurecli
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
 ```
 
 * Crie uma nova rede virtual para cada estrutura de treinamento/demonstração para habilitar o uso do mesmo nome do host e endereços IP. A rede virtual é protegida por um Grupo de Segurança de Rede que permite apenas o tráfego para a porta 3389 para habilitar o acesso de Área de Trabalho Remota e porta 22 para SSH.
 
-```
+```azurecli
 az network nsg create --resource-group $rgName --location "North Europe" --name SAPERPDemoNSG
 az network nsg rule create --resource-group $rgName --nsg-name SAPERPDemoNSG --name SAPERPDemoNSGRDP --protocol \* --source-address-prefix \* --source-port-range \* --destination-address-prefix \* --destination-port-range 3389 --access Allow --priority 100 --direction Inbound
 az network nsg rule create --resource-group $rgName --nsg-name SAPERPDemoNSG --name SAPERPDemoNSGSSH --protocol \* --source-address-prefix \* --source-port-range \* --destination-address-prefix \* --destination-port-range 22 --access Allow --priority 101 --direction Inbound
@@ -1520,19 +1523,19 @@ az network vnet subnet create --resource-group $rgName --vnet-name SAPERPDemoVNe
 
 * Criar um novo endereço IP público que pode ser usado para acessar a máquina virtual da Internet
 
-```
+```azurecli
 az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --location "North Europe" --dns-name $rgNameLower --allocation-method Dynamic
 ```
 
 * Criar uma nova interface de rede para a máquina virtual
 
-```
+```azurecli
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
 * Crie uma máquina virtual. Para este cenário, todas as VMs terão o mesmo nome. A SID das instâncias do SAP NetWeaver nessas VMs também será a mesma. No Grupo de Recursos do Azure, o nome da VM deve ser exclusivo, mas em diferentes Grupos de Recursos do Azure, você pode executar VMs com o mesmo nome. A conta padrão de “Administrador” do Windows ou “raiz” para Linux não são válidas. Portanto, um novo nome de usuário do administrador deve ser definido, junto com uma senha. O tamanho da VM também deve ser definido.
 
-```
+```azurecli
 #####
 # Create virtual machines using storage accounts
 #####
@@ -1550,7 +1553,7 @@ az vm create --resource-group $rgName --location "North Europe" --name SAPERPDem
 #az vm create --resource-group $rgName --location "North Europe" --name SAPERPDemo --nics SAPERPDemoNIC --image "Oracle:Oracle-Linux:7.2:latest" --admin-username <username> --admin-password <password> --size Standard_DS11_v2 --os-disk-name os --authentication-type password
 ```
 
-```
+```azurecli
 #####
 # Create a new virtual machine with a VHD that contains the private image that you want to use
 #####
@@ -1566,7 +1569,7 @@ az vm create --resource-group $rgName --location "North Europe" --name SAPERPDem
 
 * Opcionalmente, adicione discos adicionais e restaure o conteúdo necessário. Todos os nomes de blob (URLs para os blobs) devem ser exclusivos no Azure.
 
-```
+```azurecli
 # Optional: Attach additional VHD data disks
 az vm unmanaged-disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 --vhd-uri https://$rgNameLower.blob.core.windows.net/vhds/data.vhd  --new
 
@@ -1586,7 +1589,7 @@ Você pode usar os modelos de exemplo no repositório Azure-QuickStart-templates
 
 Esse cenário não híbrido é um cenário típico para fins de treinamento e demonstração, no qual o software que representa o cenário de demonstração/treinamento é distribuído entre várias VMs. Os diferentes componentes instalados em diferentes VMs precisam se comunicar uns com os outros. Novamente, nesse cenário, nenhuma comunicação de rede local ou cenário entre instalações é necessária.
 
-Esse cenário é uma extensão da instalação descrita no capítulo [única VM com o cenário de demonstração/treinamento do SAP NetWeaver][planning-guide-7.1] deste documento. Nesse caso, mais máquinas virtuais serão adicionadas a um grupo de recursos existente. No exemplo a seguir, a estrutura de treinamento consiste em uma VM SAP ASCS/SCS, uma VM executando um DBMS e uma VM de instância de servidor de aplicativos SAP.
+Esse cenário é uma extensão da instalação descrita no capítulo [Cenário de treinamento/demonstração de VM única com SAP NetWeaver][planning-guide-7.1] deste documento. Nesse caso, mais máquinas virtuais serão adicionadas a um grupo de recursos existente. No exemplo a seguir, a estrutura de treinamento consiste em uma VM SAP ASCS/SCS, uma VM executando um DBMS e uma VM de instância de servidor de aplicativos SAP.
 
 Antes de criar esse cenário, você precisa pensar sobre configurações básicas, conforme já praticado no cenário anterior.
 
@@ -1607,7 +1610,7 @@ Os motivos para separar estruturas de treinamento ou demonstração por redes vi
 * A estrutura da SAP, como foi configurada, precisa de sua própria AD/OpenLDAP, e um servidor de domínio precisa fazer parte de cada uma das estruturas.  
 * A estrutura da SAP, como foi configurada, tem componentes que precisam trabalhar com endereços IP fixos.
 
-Mais detalhes sobre as redes virtuais do Azure e como defini-las podem ser encontradas neste [artigo][virtual-networks-create-vnet-arm-pportal].
+Mais detalhes sobre Redes Virtuais do Azure e como defini-las podem ser encontrados [neste artigo][virtual-networks-create-vnet-arm-pportal].
 
 ## <a name="deploying-sap-vms-with-corporate-network-connectivity-cross-premises"></a>Implantar VMs SAP com conectividade de rede corporativa (entre instalações)
 
@@ -1641,7 +1644,7 @@ As portas de comunicação SAP típicas estão listadas na tabela a seguir. Basi
 Encontre informações mais detalhadas sobre as portas necessárias para os diferentes produtos ou serviços de produtos SAP aqui: <https://scn.sap.com/docs/DOC-17124>.
 Com este documento, você deve ser capaz de abrir portas dedicadas no dispositivo VPN necessárias para cenários e produtos específicos da SAP.
 
-Outras medidas de segurança ao implantar VMs em um cenário como esse poderiam ser criar um [grupo de segurança de rede][virtual-networks-nsg] para definir as regras de acesso.
+Outras medidas de segurança ao implantar VMs em um cenário como esse poderiam ser criar um [Grupo de Segurança de Rede][virtual-networks-nsg] para definir as regras de acesso.
 
 
 
@@ -1770,7 +1773,7 @@ Supomos que no cenário entre instalações, as VMs executando sistemas SAP que 
 
 As instâncias SAP localizadas no Azure precisam acessar compartilhamentos de arquivos que estão nas instalações corporativas. Além disso, as instâncias SAP locais precisam acessar compartilhamentos de arquivos que estão localizados no Azure. Para habilitar os compartilhamentos de arquivos, você deve configurar as permissões e opções de compartilhamento no sistema local. Certifique-se de abrir as portas na conexão VPN ou ExpressRoute entre o Azure e seu datacenter.
 
-## <a name="supportability"></a>Suporte
+## <a name="supportability"></a>Capacidade de suporte
 
 ### <a name="azure-extension-for-sap"></a><a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>Extensão do Azure para SAP
 
@@ -1796,7 +1799,7 @@ A arquitetura geral da extensão do Azure para SAP é semelhante a:
 
 ![Extensão do Azure para SAP ][planning-guide-figure-2500]
 
-**Para obter instruções exatas e etapas detalhadas sobre como usar esses cmdlets do PowerShell ou o comando da CLI durante as implantações, siga as orientações fornecidas no [Guia de implantação][deployment-guide].**
+**Para obter instruções exatas e etapas detalhadas de como usar esses cmdlets do PowerShell ou o comando da CLI durante as implantações, siga as instruções fornecidas no [Guia de implantação][deployment-guide].**
 
 ### <a name="integration-of-azure-located-sap-instance-into-saprouter"></a>Integração de instância SAP localizada no Azure ao SAProuter
 
@@ -1819,7 +1822,7 @@ A configuração de um Portal SAP em uma Máquina Virtual do Azure não será di
 
 Um cenário de implantação especial por alguns clientes é a exposição direta do SAP Enterprise Portal à Internet enquanto o host de máquina virtual está conectado à rede da empresa por meio de túnel VPN site a site ou ExpressRoute. Para esse cenário, você precisa certificar-se de que portas específicas estejam abertas e não estejam bloqueadas por um grupo de segurança de rede ou firewall. 
 
-O URI inicial do portal é http (s):`<Portalserver`>: 5XX00/irj, em que a porta é formada como documentada pela SAP no <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+O URI inicial do portal é http (s)`<Portalserver` :>:5XX00/irj, em que a porta é formada como <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>documentada pelo SAP no.
 
 ![Configuração de ponto de extremidade][planning-guide-figure-2800]
 
@@ -1832,7 +1835,7 @@ Se você quiser personalizar a URL e/ou as portas do seu SAP Enterprise Portal, 
 
 ### <a name="definition-of-terminologies"></a>Definição de terminologias
 
-O Termo **alta disponibilidade (HA)** geralmente está relacionado a um conjunto de tecnologias que minimiza as interrupções da TI, proporcionando a continuidade dos negócios dos serviços de TI por meio de componentes redundantes e tolerantes a falhas ou protegidos contra failover no **mesmo** data center. Em nosso caso, dentro de uma Região do Azure.
+O termo **alta disponibilidade (ha)** geralmente está relacionado a um conjunto de tecnologias que minimiza as interrupções de ti, fornecendo continuidade de negócios dos serviços de ti por meio de componentes redundantes, tolerantes a falhas ou protegidos por failover dentro do **mesmo** Data Center. Em nosso caso, dentro de uma Região do Azure.
 
 **A DR (recuperação de desastre)** também está voltada para minimizar as interrupções dos serviços de TI e a recuperação de dados, mas em **diferentes** data centers, que estão normalmente localizados a centenas de quilômetros de distância. Em nosso caso, geralmente entre diferentes Regiões do Azure na mesma região geopolítica ou como estabelecidos por você, como cliente.
 
@@ -1906,16 +1909,16 @@ Para componentes críticos da SAP, conseguimos o seguinte até agora:
 
 * Alta disponibilidade de servidores de aplicativos (SA) SAP
 
-  As instâncias do servidor de aplicativos SAP são componentes redundantes. Cada instância do SAP AS é implantada em sua própria VM, que está sendo executada em um domínio de atualização e de falha do Azure diferente (consulte os capítulos [domínios de falha][planning-guide-3.2.1] e [domínios de atualização][planning-guide-3.2.2]). Isso é garantido com o uso de conjuntos de disponibilidade do Azure (Confira o capítulo [conjuntos de disponibilidade do Azure][planning-guide-3.2.3]). Potencial indisponibilidade planejada ou não planejada de um domínio de falha ou atualização do Azure causará indisponibilidade de um número restrito de VMs com suas instâncias SAP.
+  As instâncias do servidor de aplicativos SAP são componentes redundantes. Cada instância de SA SAP está implantada em sua própria VM, que está em execução em um domínio de falha e de atualização diferente do Azure (confira os capítulos [Domínios de falha][planning-guide-3.2.1] e [Domínios de atualização][planning-guide-3.2.2]). Isso é garantido com o uso de conjuntos de disponibilidade do Azure (Confira o capítulo [conjuntos de disponibilidade do Azure][planning-guide-3.2.3]). Potencial indisponibilidade planejada ou não planejada de um domínio de falha ou atualização do Azure causará indisponibilidade de um número restrito de VMs com suas instâncias SAP.
 
-  Cada instância de SA SAP será colocada em sua própria conta de Armazenamento do Azure – a indisponibilidade potencial de uma Conta de Armazenamento do Azure causará indisponibilidade de apenas uma VM com a instância de SA SAP. No entanto, lembre-se de que há um limite de Contas de Armazenamento do Azure dentro de uma assinatura do Azure. Para garantir o início automático da instância do (A) SCS após a reinicialização da VM, certifique-se de definir o parâmetro inicialização automática no perfil de início da instância do (A) SCS descrito no capítulo [usando a inicialização automática para instâncias SAP][planning-guide-11.5].
-  Leia também o capítulo [alta disponibilidade para servidores de aplicativos SAP][planning-guide-11.4.1] para obter mais detalhes.
+  Cada instância de SA SAP será colocada em sua própria conta de Armazenamento do Azure – a indisponibilidade potencial de uma Conta de Armazenamento do Azure causará indisponibilidade de apenas uma VM com a instância de SA SAP. No entanto, lembre-se de que há um limite de Contas de Armazenamento do Azure dentro de uma assinatura do Azure. Para assegurar o início automático da instância do (A)SCS após a reinicialização da VM, não se esqueça de definir o parâmetro de Inicialização automática no perfil de início de instância do (A)SCS descrito no capítulo [Usando a Inicialização automática para instâncias SAP][planning-guide-11.5].
+  Leia também o capítulo [Alta disponibilidade para servidores de aplicativos SAP][planning-guide-11.4.1] para obter mais detalhes.
 
   Mesmo que você use Managed Disks, esses discos também são armazenados em uma Conta de Armazenamento do Azure e podem não estar disponíveis no caso de uma interrupção de armazenamento.
 
 * *Maior* disponibilidade de instância do (A)SCS SAP
 
-  Aqui, utilizamos a Reinicialização de VM do Azure para proteger a VM com instância do (A)SCS SAP instalada. No caso de tempo de inatividade planejado ou não planejado de servidores do Azure, as VMs serão reiniciadas em outro servidor disponível. Como mencionado anteriormente, a Reinicialização de VM do Azure protege principalmente as VMs e NÃO os aplicativos, neste caso, a instância do (A)SCS. Por meio da Reinicialização de VM, alcançaremos indiretamente maior disponibilidade da instância do SAP (A)SCS. Para garantir o início automático da instância do (A) SCS após a reinicialização da VM, certifique-se de definir o parâmetro de inicialização automática no perfil de início da instância do (A) SCS descrito no capítulo [usando a inicialização automática para instâncias SAP][planning-guide-11.5]. Isso significa que a instância do (A)SCS como um SPOF (ponto único de falha) em execução em uma única VM será o fator determinante para a disponibilidade de toda a estrutura da SAP.
+  Aqui, utilizamos a Reinicialização de VM do Azure para proteger a VM com instância do (A)SCS SAP instalada. No caso de tempo de inatividade planejado ou não planejado de servidores do Azure, as VMs serão reiniciadas em outro servidor disponível. Como mencionado anteriormente, a Reinicialização de VM do Azure protege principalmente as VMs e NÃO os aplicativos, neste caso, a instância do (A)SCS. Por meio da Reinicialização de VM, alcançaremos indiretamente maior disponibilidade da instância do SAP (A)SCS. Para assegurar o início automático da instância do (A)SCS após a reinicialização da VM, não se esqueça de definir o parâmetro de Inicialização automática no perfil de início de instância do (A)SCS descrito no capítulo [Usando a inicialização automática para instâncias SAP][planning-guide-11.5]. Isso significa que a instância do (A)SCS como um SPOF (ponto único de falha) em execução em uma única VM será o fator determinante para a disponibilidade de toda a estrutura da SAP.
 
 * *Maior* disponibilidade de servidor DBMS
 
@@ -1928,7 +1931,7 @@ Para obter alta disponibilidade completa do sistema SAP, precisamos proteger tod
 
 #### <a name="high-availability-for-sap-application-servers"></a><a name="5d9d36f9-9058-435d-8367-5ad05f00de77"></a>Alta disponibilidade para servidores de aplicativos SAP
 
-Para as instâncias de caixa de diálogo/servidores de aplicativos SAP, não é necessário pensar em uma solução de alta disponibilidade específica. A alta disponibilidade é obtida pela redundância e, portanto, pela existência de um número suficiente deles em máquinas virtuais diferentes. Todos eles devem ser colocados no mesmo conjunto de disponibilidade do Azure para evitar que as VMs possam ser atualizadas ao mesmo tempo durante o período de inatividade da manutenção planejada. A funcionalidade básica, que se baseia em diferentes domínios de falha e atualização dentro de uma unidade de escala do Azure, já foi introduzida no capítulo [domínios de atualização][planning-guide-3.2.2]. Os conjuntos de disponibilidade do Azure foram apresentados no capítulo [conjuntos de disponibilidade do Azure][planning-guide-3.2.3] deste documento.
+Para as instâncias de caixa de diálogo/servidores de aplicativos SAP, não é necessário pensar em uma solução de alta disponibilidade específica. A alta disponibilidade é obtida pela redundância e, portanto, pela existência de um número suficiente deles em máquinas virtuais diferentes. Todos eles devem ser colocados no mesmo conjunto de disponibilidade do Azure para evitar que as VMs possam ser atualizadas ao mesmo tempo durante o período de inatividade da manutenção planejada. A funcionalidade básica baseada nos domínios de falha e de atualização diferentes em uma Unidade de Escala do Azure já foi introduzida no capítulo [Domínios de atualização][planning-guide-3.2.2]. Os conjuntos de disponibilidade do Azure foram apresentados no capítulo [conjuntos de disponibilidade do Azure][planning-guide-3.2.3] deste documento.
 
 Não há número infinito de domínios de falha e de atualização que podem ser usados por um conjunto de disponibilidade do Azure em uma unidade de escala do Azure. Isso significa que colocar um número de VMs em um conjunto de disponibilidade, mais cedo ou mais tarde, mais de uma VM termina no mesmo domínio de falha ou de atualização.
 
@@ -1946,7 +1949,7 @@ Para a arquitetura de alta disponibilidade do SAP Central Services no Azure, con
 
 A configuração típica de alta disponibilidade de DMBS SAP é baseada nas duas VMs DBMS nas quais a funcionalidade de alta disponibilidade de DBMS é usada para replicar dados da instância de DBMS ativa para a segunda VM em uma instância de DBMS passiva.
 
-A funcionalidade de alta disponibilidade e recuperação de desastres para DBMS em geral, bem como DBMS específico, são descritas no [Guia de implantação do DBMS][dbms-guide].
+As funcionalidades de Recuperação de Desastre e Alta Disponibilidade para DBMS em geral, assim como um DBMS específico, são descritos no [Guia de implantação de DBMS][dbms-guide].
 
 #### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>Alta disponibilidade de ponta a ponta para o sistema SAP completo
 
@@ -1955,7 +1958,7 @@ Aqui estão dois exemplos de uma arquitetura de alta disponibilidade SAP NetWeav
 Somente discos não gerenciados: Os conceitos, conforme explicado abaixo, talvez precisem ser um pouco comprometidos quando você implantar muitos sistemas SAP e o número de VMs implantadas estiver excedendo o limite máximo de contas de armazenamento por assinatura. Nesses casos, os VHDs de VMs devem ser combinados em uma conta de armazenamento. Normalmente você faria isso pela combinação de VHDs de VMs das camadas de aplicativo SAP de sistemas SAP diferentes.  Também combinamos diferentes VHDs de diferentes VMs DBMS de sistemas SAP diferentes em uma conta de armazenamento do Azure. Portanto, mantendo os limites de IOPS das Contas de Armazenamento do Azure em mente (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
 
 
-##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] no Windows
+##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows]  no Windows
 
 ![Arquitetura de alta disponibilidade de aplicativos SAP NetWeaver com o SQL Server no Azure IaaS][planning-guide-figure-3200]
 
@@ -1977,7 +1980,7 @@ A figura a seguir ilustra o mesmo cenário usando Managed Disks.
 
 ![Arquitetura de alta disponibilidade de aplicativos SAP NetWeaver com o SQL Server no Azure IaaS][planning-guide-figure-3201]
 
-##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] no Linux
+##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux]  no Linux
 
 A arquitetura para alta disponibilidade da SAP em Linux no Azure é basicamente a mesma que aquela para Windows, conforme descrito acima. Veja a Nota SAP [1928533] para obter uma lista de soluções de alta disponibilidade compatíveis.
 
@@ -1997,7 +2000,7 @@ No perfil de início da instância de SAP ABAP e/ou instância de Java.
 Consulte informações adicionais sobre a inicialização automática para instâncias SAP aqui:
 
 * [Iniciar/parar SAP ao iniciar/parar seu servidor Unix](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
-* [Iniciando e parando agentes de gerenciamento do SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
+* [Iniciando e parando os agentes de gerenciamento do SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
 * [Como habilitar automaticamente a inicialização automática do banco de dados HANA](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### <a name="larger-3-tier-sap-systems"></a>Sistemas SAP maiores de 3 camadas
@@ -2006,22 +2009,22 @@ Aspectos de alta disponibilidade de configurações SAP de 3 camadas já foram d
 #### <a name="location-of-3-tier-sap-configurations"></a>Localização de configurações SAP de 3 camadas
 Não há suporte para dividir a camada de aplicativo em si ou o aplicativo e a camada DBMS entre o local e o Azure. Um sistema SAP é completamente implantado localmente OU no Azure. Também não há suporte para executar alguns dos servidores de aplicativos localmente e outros no Azure. Esse é o ponto de partida da discussão. Também não damos suporte à implantação dos componentes do DBMS de um sistema SAP e da camada de servidor de aplicativos SAP em duas Regiões do Azure diferentes. Por exemplo, o DBMS no Oeste dos EUA e camada de aplicativo SAP nos EUA Central. O motivo para não dar suporte a essas configurações é a sensibilidade de latência da arquitetura do SAP NetWeaver.
 
-No entanto, ao longo do ano passado, parceiros de data center desenvolveram colocalizações para Regiões do Azure. Essas colocalizações geralmente são próximas dos data centers físicos em uma Região do Azure. A curta distância e a conexão de ativos no local por meio de ExpressRoute no Azure podem resultar em uma latência menor que 2 ms. Nesses casos, é possível localizar a camada de DBMS (incluindo o armazenamento SAN/NAS) em uma dessas colocalizações e a camada de aplicativo SAP no Azure. [HANA em Instâncias Grandes](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
+No entanto, ao longo do ano passado, parceiros de data center desenvolveram colocalizações para Regiões do Azure. Essas colocalizações geralmente são próximas dos data centers físicos em uma Região do Azure. A curta distância e a conexão de ativos no local por meio de ExpressRoute no Azure podem resultar em uma latência menor que 2 ms. Nesses casos, é possível localizar a camada de DBMS (incluindo o armazenamento SAN/NAS) em uma dessas colocalizações e a camada de aplicativo SAP no Azure. [Instâncias grandes do Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
 
 ### <a name="offline-backup-of-sap-systems"></a>Backup offline de sistemas SAP
-Dependendo da configuração SAP escolhida (2 ou 3 camadas), pode haver necessidade de backup. O conteúdo da própria VM, além de ter um backup do banco de dados. Os backups relacionados ao DBMS devem ser feitos com métodos de banco de dados. Uma descrição detalhada para os diferentes bancos de dados pode ser encontrada no [Guia do DBMS][dbms-guide]. Por outro lado, os dados da SAP podem fazer backup de maneira offline (incluindo o conteúdo do banco de dados) conforme descrito nesta seção, ou online, conforme descrito na próxima seção.
+Dependendo da configuração SAP escolhida (2 ou 3 camadas), pode haver necessidade de backup. O conteúdo da própria VM, além de ter um backup do banco de dados. Os backups relacionados ao DBMS devem ser feitos com métodos de banco de dados. Uma descrição detalhada dos diferentes bancos de dados pode ser encontrada no [Guia de DBMS][dbms-guide]. Por outro lado, os dados da SAP podem fazer backup de maneira offline (incluindo o conteúdo do banco de dados) conforme descrito nesta seção, ou online, conforme descrito na próxima seção.
 
-O backup offline basicamente exigiria um desligamento da VM por meio do Portal do Azure e uma cópia do disco da VM base, além de todos os discos anexados à VM. Isso preservaria uma imagem da VM e seus discos associados em um ponto no tempo. É recomendável copiar os backups para outra Conta de Armazenamento do Azure. Portanto, o procedimento descrito no capítulo [copiando discos entre as contas de armazenamento do Azure][planning-guide-5.4.2] deste documento será aplicável.
+O backup offline basicamente exigiria um desligamento da VM por meio do Portal do Azure e uma cópia do disco da VM base, além de todos os discos anexados à VM. Isso preservaria uma imagem da VM e seus discos associados em um ponto no tempo. É recomendável copiar os backups para outra Conta de Armazenamento do Azure. Portanto, o procedimento descrito no capítulo [Copiando discos entre Contas de Armazenamento do Azure][planning-guide-5.4.2] deste documento seria aplicável.
 Além do desligamento com o uso do portal do Azure, também é possível fazer isso por meio do PowerShell ou da CLI, conforme descrito aqui: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 Uma restauração de estado consiste em excluir a VM base, bem como os discos originais da VM base e os discos montados, copiando os discos salvos de volta à Conta de Armazenamento original ou grupo de recursos para managed disks e, em seguida, reimplantando o sistema.
-Este artigo mostra um exemplo de como gerar um script desse processo no PowerShell: <http://www.westerndevs.com/azure-snapshots/>
+Este artigo mostra um exemplo de como gerar um script desse processo no PowerShell:<http://www.westerndevs.com/azure-snapshots/>
 
 Certifique-se de instalar uma nova licença SAP, já que restaurar um backup de VM, conforme descrito acima, cria uma nova chave de hardware.
 
 ### <a name="online-backup-of-an-sap-system"></a>Backup online de um sistema SAP
 
-O backup do DBMS é executado com métodos específicos do DBMS, conforme descrito no [Guia do DBMS][dbms-guide].
+O backup do DBMS é executado com métodos específicos de DBMS, conforme descrito no [Guia de DBMS][dbms-guide].
 
 O backup de outras VMs no sistema SAP pode ser feito usando a funcionalidade de Backup de máquinas virtuais do Azure. O Backup de Máquina Virtual do Azure é um método padrão para fazer backup de uma VM completa no Azure. O Backup do Azure armazena os backups no Azure e permite uma restauração de uma VM novamente.
 
@@ -2054,13 +2057,13 @@ Um blog que fornece detalhes de como implantar essa solução é documentado aqu
 Os pontos principais de alta disponibilidade para sistemas SAP no Azure são:
 
 * Neste momento, o único ponto de falha da SAP não pode ser protegido exatamente da mesma maneira como pode ser feito em implantações locais. O motivo é que os clusters desse disco compartilhado ainda não podem ser criados no Azure sem o uso de software de terceiros.
-* Para a camada de DBMS, você precisa usar a funcionalidade DBMS que não depende da tecnologia de cluster de disco compartilhado. Os detalhes estão documentados no [Guia do DBMS][dbms-guide].
+* Para a camada de DBMS, você precisa usar a funcionalidade DBMS que não depende da tecnologia de cluster de disco compartilhado. Os detalhes estão documentados no [Guia de DBMS][dbms-guide].
 * Para minimizar o impacto dos problemas nos domínios de falha na infraestrutura do Azure ou na manutenção do host, você deve usar os conjuntos de disponibilidade do Azure:
   * É recomendável ter um conjunto de disponibilidade para a camada de aplicativo SAP.
   * É recomendável ter um conjunto de disponibilidade separado para a camada do DBMS do SAP.
   * Não é recomendável aplicar o mesmo conjunto de disponibilidade para VMs de diferentes sistemas SAP.
   * É recomendável usar Managed Disks Premium.
-* Para fins de backup da camada do DBMS do SAP, verifique o [Guia do DBMS][dbms-guide].
+* Para fins de Backup da camada do SAP DBMS, confira o [Guia do DBMS][dbms-guide].
 * Fazer backup de instâncias de caixas de diálogo SAP não faz muito sentido, já que é normalmente mais rápido reimplantar instâncias de caixa de diálogo simples.
 * Fazer backup da VM, que contém o diretório global do sistema SAP e com ele todos os perfis das diferentes instâncias, faz sentido e deve ser executado com o backup do Windows ou, por exemplo, tar no Linux. Como há diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2) que facilitam o backup usando versões mais recentes do Windows Server, é recomendável executar o Windows Server 2012 (R2) como sistema operacional convidado Windows.
 

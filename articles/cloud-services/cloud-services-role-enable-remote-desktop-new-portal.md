@@ -1,5 +1,5 @@
 ---
-title: Use o portal para habilitar a área de trabalho remota para uma função
+title: Usar o portal para habilitar Área de Trabalho Remota para uma função
 titleSuffix: Azure Cloud Services
 description: Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota
 services: cloud-services
@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
 ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79247456"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Habilitar a conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure
 
 > [!div class="op_single_selector"]
-> * [Portal Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Powershell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 A área de trabalho remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar a conexão da área de trabalho remota para solucionar e diagnosticar problemas com seu aplicativo durante a execução.

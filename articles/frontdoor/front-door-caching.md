@@ -1,6 +1,6 @@
 ---
-title: Porta da Frente do Azure - cache | Microsoft Docs
-description: Este artigo ajuda você a entender como o Azure Front Door monitora a saúde de seus backends
+title: Cache de porta frontal do Azure | Microsoft Docs
+description: Este artigo ajuda você a entender como a porta frontal do Azure monitora a integridade dos back-ends
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471737"
 ---
-# <a name="caching-with-azure-front-door"></a>Caching com porta da frente do Azure
-O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado. Front Door é uma moderna CDN (Content Delivery Network, rede de entrega de conteúdo) e, portanto, juntamente com aceleração dinâmica do site e balanceamento de carga, também suporta comportamentos de cache como qualquer outro CDN.
+# <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
+O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado. A porta frontal é uma CDN (rede de distribuição de conteúdo) moderna e, assim, com a aceleração de site dinâmica e o balanceamento de carga, ele também dá suporte a comportamentos de cache, assim como qualquer outra CDN.
 
 ## <a name="delivery-of-large-files"></a>Entrega de arquivos grandes
-O Azure Front Door oferece arquivos grandes sem uma tampa no tamanho do arquivo. O Front Door usa uma técnica chamada agrupamento de objeto. Quando um arquivo grande é solicitado, o Front Door recupera partes menores do arquivo a partir do back-end. Após receber uma solicitação de arquivo completo ou de intervalo de bytes, um ambiente do Front Door solicitará o arquivo do back-end em partes de 8 MB.
+A porta frontal do Azure fornece arquivos grandes sem limite de tamanho de arquivo. O Front Door usa uma técnica chamada agrupamento de objeto. Quando um arquivo grande é solicitado, o Front Door recupera partes menores do arquivo a partir do back-end. Após receber uma solicitação de arquivo completo ou de intervalo de bytes, um ambiente do Front Door solicitará o arquivo do back-end em partes de 8 MB.
 
 </br>Depois que a parte chega no ambiente do Front Door, ela é armazenada em cache e imediatamente distribuída para o usuário. Em seguida, o Front Door efetua a pré-busca da próxima parte em paralelo. Essa pré-busca garante que o conteúdo permaneça uma parte à frente do usuário, o que reduz a latência. Esse processo continua até que todo o arquivo é baixado (se solicitado), todos os intervalos de bytes estão disponíveis (se solicitado) ou o cliente encerra a conexão.
 
@@ -75,7 +75,7 @@ O Front Door pode compactar dinamicamente conteúdo na borda, resultando em uma 
 Além disso, o arquivo também deve ter entre 1 KB e 8 MB de tamanho, inclusive.
 
 Esses perfis dão suporte às seguintes codificações de compactação:
-- [Gzip (zíper GNU)](https://en.wikipedia.org/wiki/Gzip)
+- [Gzip (GNU zip)](https://en.wikipedia.org/wiki/Gzip)
 - [Brotli](https://en.wikipedia.org/wiki/Brotli)
 
 Se uma solicitação com suporte para gzip e compactação Brotli, a compactação Brotli terá precedência.</br>
@@ -92,21 +92,21 @@ O Front Door armazenará em cache os ativos até a TTL (vida útil) do ativo exp
 </br>A prática recomendada para garantir que os usuários sempre obtenham a cópia mais recente de seus ativos é verter os ativos para cada atualização e publicá-los como novas URLs. O Front Door recuperará imediatamente os novos ativos para as próximas solicitações do cliente. Às vezes, convém limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados. Isso pode ocorrer devido a atualizações do aplicativo Web ou para atualizar rapidamente ativos que contenham informações incorretas.
 
 </br>Selecione os ativos que você deseja limpar dos nós de borda. Para limpar todos os ativos, clique na caixa de seleção Limpar todos. Caso contrário, digite o caminho de cada ativo que você quer limpar na caixa de texto Caminho. Veja abaixo os formatos com suporte no caminho.
-1. **Expurgo de caminho único**: Expurgo de ativos individuais especificando o caminho completo do ativo (sem o protocolo e o domínio), com a extensão de arquivo, por exemplo, /pictures/strasbourg.png;
-2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Expurgar todas as pastas, subpastas e\* arquivos em um ponto final com / no caminho ou purgar\*todas as subpastas e arquivos em uma pasta específica, especificando a pasta seguida por / , por exemplo, /imagens/\*.
+1. **Limpeza de caminho único**: Limpe ativos individuais especificando o caminho completo do ativo (sem o protocolo e o domínio), com a extensão de arquivo, por exemplo,/Pictures/Strasbourg.png;
+2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todas as pastas, subpastas e arquivos em um ponto de extremidade\* com/no caminho ou limpe todas as subpastas e arquivos em uma pasta específica, especificando a pasta seguida\*por/, por exemplo\*,/Pictures/.
 3. **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
 
 As limpezas de cache do Front Door diferenciam maiúsculas de minúsculas. Além disso, as limpezas são independentes da cadeia de caracteres de consulta, significando que a limpeza de uma URL apagará todas as variações da cadeia de caracteres de consulta dessa URL. 
 
 ## <a name="cache-expiration"></a>Expiração do cache
 A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um item será armazenado em nosso cache:</br>
-1. Cache-Control: s-maxage=\<segundos>
-2. Cache-Control: idade máxima=\<segundos>
-3. Expira: \<> de data http
+1. Cache-Control: s-maxage =\<segundos>
+2. Cache-Control: Max-age =\<segundos>
+3. Expira em: \<http-Date>
 
-Cabeçalhos de resposta do Cache-Control que indicam que a resposta não será armazenada em cache, como Cache-Control: private, Cache-Control: no-cache e Cache-Control: a no-store é honrada. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta. Se não houver controle de cache, o comportamento padrão é que o AFD armazenará o recurso para x quantidade de tempo onde X é escolhido aleatoriamente entre 1 e 3 dias.
+Cabeçalhos de resposta de controle de cache que indicam que a resposta não será armazenada em cache, como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: no-Store são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta. Se nenhum controle de cache estiver presente, o comportamento padrão é que AFD armazenará em cache o recurso por X quantidade de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
 
-## <a name="request-headers"></a>Cabeçalhos da solicitação
+## <a name="request-headers"></a>Cabeçalhos de solicitação
 
 Os seguintes cabeçalhos de solicitação não serão encaminhados para um back-end ao usar o cache.
 - Content-Length

@@ -1,5 +1,5 @@
 ---
-title: Criar & consulta Azure Data Lake Analytics - Azure CLI
+title: Criar & Azure Data Lake Analytics de consulta-CLI do Azure
 description: Aprenda a usar a Interface de linha de comando do Azure para criar uma conta do Azure Data Lake Analytics e enviar uma tarefa do U-SQL.
 ms.service: data-lake-analytics
 author: saveenr
@@ -8,10 +8,10 @@ ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: d9fc9bee98391f7272a417324b9c3a540b6adbe6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79474502"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introdução ao Azure Data Lake Analytics usando a CLI do Azure
@@ -22,14 +22,14 @@ Este artigo descreve como usar a interface de linha de comando da CLI do Azure p
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você precisa dos seguintes itens:
 
-* **Uma assinatura do Azure.** Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior. Se você precisar instalar ou atualizar, consulte [Install Azure CLI]( /cli/azure/install-azure-cli). 
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Este artigo exige que você esteja executando a CLI do Azure versão 2.0 ou posterior. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Para fazer login na sua assinatura do Azure:
+Para entrar em sua assinatura do Azure:
 
 ```azurecli
 az login
@@ -48,7 +48,7 @@ az account set --subscription <subscription id>
 ## <a name="create-data-lake-analytics-account"></a>Criar conta da Análise Data Lake
 Você precisa ter uma conta do Data Lake Analytics antes de executar trabalhos. Para criar uma conta do Data Lake Analytics, você deve especificar os seguintes itens:
 
-* **Grupo de recursos Azure**. É necessário criar uma conta do Data Lake Analytics em um grupo de Recursos do Azure. [O Azure Resource Manager](../azure-resource-manager/management/overview.md) permite que você trabalhe com os recursos em sua aplicação em grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
+* **Grupo de recursos do Azure**. É necessário criar uma conta do Data Lake Analytics em um grupo de Recursos do Azure. [Azure Resource Manager](../azure-resource-manager/management/overview.md) permite que você trabalhe com os recursos em seu aplicativo como um grupo. Você pode implantar, atualizar ou excluir todos os recursos para seu aplicativo em uma única operação coordenada.  
 
 Para listar os grupos de recursos existentes em sua assinatura:
 
@@ -62,7 +62,7 @@ Para criar um novo grupo de recursos:
 az group create --name "<Resource Group Name>" --location "<Azure Location>"
 ```
 
-* **Nome da conta do Data Lake Analytics**. Cada conta do Data Lake Analytics tem um nome.
+* **Nome da conta de data Lake Analytics**. Cada conta do Data Lake Analytics tem um nome.
 * **Localização**. Use um dos datacenters do Azure que dá suporte ao Data Lake Analytics.
 * **Conta padrão do Data Lake Store**: cada conta do Data Lake Analytics tem uma conta padrão do Data Lake Store.
 
@@ -129,7 +129,7 @@ Este script U-SQL lê o arquivo de dados de origem usando **Extractors.Tsv()**, 
 
 Não modifique os dois caminhos, a menos que você copie o arquivo de origem para um local diferente.  O Data Lake Analytics criará a pasta de saída se ela não existir.
 
-É mais simples usar caminhos relativos para arquivos armazenados em contas padrão do Data Lake Store. Você também pode usar caminhos absolutos.  Por exemplo: 
+É mais simples usar caminhos relativos para arquivos armazenados em contas padrão do Data Lake Store. Você também pode usar caminhos absolutos.  Por exemplo:
 
 ```
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
@@ -154,7 +154,7 @@ Use a sintaxe a seguir para enviar um trabalho.
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```azurecli
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
@@ -184,7 +184,7 @@ az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/Sea
 az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```azurecli
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"

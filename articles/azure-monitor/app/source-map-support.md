@@ -1,86 +1,86 @@
 ---
-title: Suporte ao mapa de origem para aplicativos JavaScript - Azure Monitor Application Insights
-description: Saiba como carregar mapas de origem para sua própria conta de armazenamento Contêiner Blob usando Insights de aplicativo.
+title: Suporte ao mapa de origem para aplicativos JavaScript-Azure Monitor Application Insights
+description: Saiba como carregar mapas de origem em seu próprio contêiner de blob de conta de armazenamento usando Application Insights.
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 03/04/2020
 ms.openlocfilehash: 4b452b31338760a8f53eed54420319101836bc00
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79474876"
 ---
-# <a name="source-map-support-for-javascript-applications"></a>Suporte ao mapa de origem para aplicativos JavaScript
+# <a name="source-map-support-for-javascript-applications"></a>Suporte do mapa de origem para aplicativos JavaScript
 
-O Application Insights suporta o upload de mapas de origem para o seu próprio contêiner blob da conta de armazenamento.
-Os mapas de origem podem ser usados para desminificar pilhas de chamadas encontradas na página de detalhes finais da transação. Qualquer exceção enviada pelo [JavaScript SDK][ApplicationInsights-JS] ou pelo [Node.js SDK][ApplicationInsights-Node.js] pode ser desminibitada com mapas de origem.
+Application Insights dá suporte ao carregamento de mapas de origem para seu próprio contêiner de BLOB da conta de armazenamento.
+Os mapas de origem podem ser usados para unminify pilhas de chamadas encontradas na página de detalhes de transação de ponta a ponta. Qualquer exceção enviada pelo [SDK do JavaScript][ApplicationInsights-JS] ou pelo [SDK do node. js][ApplicationInsights-Node.js] pode ser unminified com mapas de origem.
 
-![Desminirinar uma pilha de chamadas vinculando-se a uma conta de armazenamento](./media/source-map-support/details-unminify.gif)
+![Unminify uma pilha de chamadas vinculando-se a uma conta de armazenamento](./media/source-map-support/details-unminify.gif)
 
-## <a name="create-a-new-storage-account-and-blob-container"></a>Crie uma nova conta de armazenamento e um contêiner Blob
+## <a name="create-a-new-storage-account-and-blob-container"></a>Criar uma nova conta de armazenamento e um contêiner de BLOBs
 
-Se você já tem uma conta de armazenamento existente ou um recipiente blob, você pode pular essa etapa.
+Se você já tiver uma conta de armazenamento ou um contêiner de blob existente, poderá ignorar esta etapa.
 
 1. [Criar uma nova conta de armazenamento][create storage account]
-2. [Crie um recipiente blob][create blob container] dentro de sua conta de armazenamento. Certifique-se de definir o "nível de acesso público" para `Private`garantir que seus mapas de origem não sejam acessíveis publicamente.
+2. [Crie um contêiner de BLOBs][create blob container] dentro de sua conta de armazenamento. Certifique-se de definir o "nível de acesso público `Private`" como, para garantir que os mapas de origem não sejam acessíveis publicamente.
 
 > [!div class="mx-imgBorder"]
->![O nível de acesso ao contêiner deve ser definido como Privado](./media/source-map-support/container-access-level.png)
+>![O nível de acesso do contêiner deve ser definido como privado](./media/source-map-support/container-access-level.png)
 
-## <a name="push-your-source-maps-to-your-blob-container"></a>Empurre seus mapas de origem para o recipiente Blob
+## <a name="push-your-source-maps-to-your-blob-container"></a>Enviar por push seus mapas de origem para o contêiner de BLOB
 
-Você deve integrar seu pipeline de implantação contínua com sua conta de armazenamento, configurando-o para carregar automaticamente seus mapas de origem para o contêiner Blob configurado. Você não deve carregar seus mapas de origem para uma subpasta no contêiner Blob; atualmente, o mapa de origem só será obtido a partir da pasta raiz.
+Você deve integrar seu pipeline de implantação contínua à sua conta de armazenamento Configurando-a para carregar automaticamente os mapas de origem para o contêiner de blob configurado. Você não deve carregar seus mapas de origem para uma subpasta no contêiner de BLOBs; no momento, o mapa de origem só será obtido da pasta raiz.
 
-### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Enviar mapas de origem via Azure Pipelines (recomendado)
+### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Carregar mapas de origem por meio de Azure Pipelines (recomendado)
 
-Se você estiver usando o Azure Pipelines para construir e implantar continuamente seu aplicativo, adicione uma tarefa [azure File Copy][azure file copy] ao seu pipeline para carregar automaticamente seus mapas de origem.
+Se você estiver usando Azure Pipelines para criar e implantar o aplicativo continuamente, adicione uma tarefa [cópia de arquivo do Azure][azure file copy] ao seu pipeline para carregar automaticamente os mapas de origem.
 
 > [!div class="mx-imgBorder"]
-> ![Adicione uma tarefa de cópia de arquivos do Azure ao seu Pipeline para carregar seus mapas de origem no Armazenamento Azure Blob](./media/source-map-support/azure-file-copy.png)
+> ![Adicionar uma tarefa de cópia de arquivo do Azure ao seu pipeline para carregar os mapas de origem para o armazenamento de BLOBs do Azure](./media/source-map-support/azure-file-copy.png)
 
-## <a name="configure-your-application-insights-resource-with-a-source-map-storage-account"></a>Configure seu recurso Application Insights com uma conta de armazenamento do Source Map
+## <a name="configure-your-application-insights-resource-with-a-source-map-storage-account"></a>Configurar o recurso de Application Insights com uma conta de armazenamento de mapa de origem
 
-### <a name="from-the-end-to-end-transaction-details-page"></a>A partir da página de detalhes de transação de ponta a ponta
+### <a name="from-the-end-to-end-transaction-details-page"></a>Na página detalhes da transação de ponta a ponta
 
-Na guia de detalhes de transação de ponta a ponta, você pode clicar em *'Desminividar'* e exibirá um prompt para configurar se seu recurso estiver desconfigurado.
+Na guia detalhes da transação de ponta a ponta, você pode clicar em *Unminify* e ele exibirá um prompt para configurar se o recurso não estiver configurado.
 
-1. No Portal, veja os detalhes de uma exceção que é minificada.
+1. No portal, exiba os detalhes de uma exceção que é reduzidos.
 2. Clique em *Unminify*
 3. Se o recurso não tiver sido configurado, uma mensagem será exibida, solicitando que você configure.
 
-### <a name="from-the-properties-page"></a>A partir da página propriedades
+### <a name="from-the-properties-page"></a>Na página Propriedades
 
-Se você quiser configurar ou alterar a conta de armazenamento ou o contêiner Blob vinculado ao recurso Do aplicativo Insights, você pode fazê-lo visualizando a guia *Propriedades* do recurso Application Insights.
+Se você quiser configurar ou alterar a conta de armazenamento ou o contêiner de BLOB que está vinculado ao recurso Application Insights, poderá fazer isso exibindo a guia *Propriedades* do recurso Application insights.
 
-1. Navegue até a guia *Propriedades* do recurso Application Insights.
-2. Clique em *Alterar recipiente de bolha do mapa de origem*.
-3. Selecione um recipiente Blob diferente como seu contêiner de mapas de origem.
+1. Navegue até a guia *Propriedades* do recurso de Application insights.
+2. Clique em *alterar contêiner de blob do mapa de origem*.
+3. Selecione um contêiner de BLOBs diferente como seu contêiner de mapas de origem.
 4. Clique em `Apply`.
 
 > [!div class="mx-imgBorder"]
-> ![Reconfigure o contêiner Azure Blob selecionado navegando até a lâmina de propriedades](./media/source-map-support/reconfigure.png)
+> ![Reconfigure o contêiner de BLOBs do Azure selecionado navegando até a folha Propriedades](./media/source-map-support/reconfigure.png)
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Configurações necessárias de controle de acesso baseado em função (RBAC) no contêiner Blob
+### <a name="required-role-based-access-control-rbac-settings-on-your-blob-container"></a>Configurações de RBAC (controle de acesso baseado em função) necessárias em seu contêiner de BLOB
 
-Qualquer usuário no Portal que use esse recurso deve ser atribuído pelo menos como um leitor de [dados blob de armazenamento][storage blob data reader] ao seu contêiner Blob. Você deve atribuir essa função a qualquer outra pessoa que esteja usando os mapas de origem através deste recurso.
+Qualquer usuário no portal que usa esse recurso deve ser pelo menos atribuído como um [leitor de dados de blob de armazenamento][storage blob data reader] para seu contêiner de BLOB. Você deve atribuir essa função a qualquer outra pessoa que usará os mapas de origem por meio desse recurso.
 
 > [!NOTE]
-> Dependendo de como o contêiner foi criado, isso pode não ter sido automaticamente atribuído a você ou à sua equipe.
+> Dependendo de como o contêiner foi criado, isso pode não ter sido atribuído automaticamente a você ou à sua equipe.
 
 ### <a name="source-map-not-found"></a>Mapa de origem não encontrado
 
-1. Verifique se o mapa de origem correspondente está carregado no recipiente de bolha correto
-2. Verifique se o arquivo do mapa de origem tem o nome `.map`do arquivo JavaScript para o quais ele mapeia, sufixado com .
-    - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` vai procurar a bolha chamada`main.4e2ca5fa.chunk.js.map`
-3. Verifique o console do seu navegador para ver se algum erro está sendo registrado. Inclua isso em qualquer bilhete de suporte.
+1. Verifique se o mapa de origem correspondente é carregado para o contêiner de blob correto
+2. Verifique se o arquivo do mapa de origem é nomeado após o arquivo JavaScript para o qual ele é `.map`mapeado, com sufixo.
+    - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` procurará o blob chamado`main.4e2ca5fa.chunk.js.map`
+3. Verifique o console do navegador para ver se algum erro está sendo registrado. Inclua isso em qualquer tíquete de suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Tarefa de cópia de arquivos do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
+* [Tarefa de cópia de arquivo do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)
 
 
 <!-- Remote URLs -->

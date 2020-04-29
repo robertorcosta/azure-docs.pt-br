@@ -4,10 +4,10 @@ description: Proprietários, colaboradores e leitores de percepções de sua org
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473125"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controle de acesso no Application Insights
@@ -26,7 +26,7 @@ Primeiro, algumas definições:
 
 * **Recurso** ‒ uma instância de um serviço do Microsoft Azure. O recurso do Application Insights coleta, analisa e exibe os dados de telemetria enviados de seu aplicativo.  Outros tipos de recursos do Azure incluem aplicativos Web, bancos de dados e VMs.
   
-    Para ver seus recursos, abra o [portal Azure,][portal]faça login e clique em Todos os Recursos. Para encontrar um recurso, digite uma parte de seu nome no campo de filtro.
+    Para ver seus recursos, abra o [portal do Azure][portal], entre e clique em todos os recursos. Para encontrar um recurso, digite uma parte de seu nome no campo de filtro.
   
     ![Lista de recursos do Azure](./media/resources-roles-access-control/10-browse.png)
 
@@ -39,7 +39,7 @@ Primeiro, algumas definições:
 
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a> Controlar o acesso no grupo de recursos
 
-É importante entender que, além do recurso criado para seu aplicativo, também há recursos ocultos separados para alertas e testes na Web. Eles são anexados ao mesmo [grupo de recursos](#resource-group) que seu recurso Application Insights. Você também pode colocar outros serviços do Azure nele, como sites ou armazenamento.
+É importante entender que, além do recurso criado para seu aplicativo, também há recursos ocultos separados para alertas e testes na Web. Eles são anexados ao mesmo [grupo de recursos](#resource-group) que o recurso de Application insights. Você também pode colocar outros serviços do Azure nele, como sites ou armazenamento.
 
 Portanto, para controlar o acesso a esses recursos, é recomendável:
 
@@ -76,7 +76,7 @@ Quando aplicável, vincular a documentação de referência oficial associada.
 | --- | --- |
 | [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Pode alterar qualquer item, incluindo o acesso do usuário. |
 | [Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Pode editar qualquer coisa, incluindo todos os recursos. |
-| [Contribuinte do componente de insights do aplicativo](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Pode editar recursos do Application Insights. |
+| [Colaborador de componente Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Pode editar Application Insights recursos. |
 | [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Pode exibir, mas não alterar nada. |
 | [Depurador de Instantâneos do Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Concede ao usuário permissão para usar os recursos do Depurador de Captura Instantânea do Application Insights. Observe que essa função não está incluída nas funções Owner e Contributor. |
 | Colaborador do Gerenciamento de Liberação do Azure Service Deploy | Função de contribuição para a implantação de serviços por meio do Azure Service Deploy. |

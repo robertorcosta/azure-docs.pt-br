@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250004"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de inicialização do BitLocker em uma VM do Azure
@@ -47,7 +47,7 @@ Para resolver esse problema, pare e desaloque a VM e, em seguida, reinicie-a. Es
 Se esse método não resolver o problema, siga estas etapas para restaurar o arquivo BEK manualmente:
 
 1. Tire um instantâneo do disco do sistema da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md). Para executar o comando [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) na etapa 7, o recurso **De criptografia da unidade BitLocker** deve ser habilitado na VM de recuperação.
+2. [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md). Para executar o comando [Manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) na etapa 7, o recurso **criptografia de unidade de disco BitLocker** deve ser habilitado na VM de recuperação.
 
     Ao anexar um disco gerenciado, você poderá receber uma mensagem de erro "contém configurações de criptografia e, portanto, não pode ser usado como um disco de dados". Nessa situação, execute o script a seguir para tentar anexar novamente o disco:
 
@@ -119,25 +119,25 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  Para desbloquear o disco anexado usando o arquivo BEK, execute o seguinte comando.
+7.  Para desbloquear o disco anexado usando o arquivo BEK, execute o comando a seguir.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     Neste exemplo, o disco do SO anexado é a unidade F. Certifique-se de usar a letra da unidade correta. 
 
-8. Depois que o disco foi desbloqueado com sucesso usando a tecla BEK, desconecte o disco da VM de recuperação e, em seguida, recrie a VM usando este novo disco do SISTEMA OPERACIONAL.
+8. Depois que o disco for desbloqueado com êxito usando a chave BEK, desanexe o disco da VM de recuperação e recrie a VM usando esse novo disco do sistema operacional.
 
     > [!NOTE]
-    > A troca de disco do SISTEMA OPERACIONAL não é suportada para VMs usando criptografia de disco.
+    > Não há suporte para alternar o disco do sistema operacional para VMs que usam criptografia de disco.
 
-9. Se a nova VM ainda não puder inicializar normalmente, tente uma das seguintes etapas após desbloquear a unidade:
+9. Se a nova VM ainda não puder ser inicializada normalmente, tente uma das etapas a seguir depois de desbloquear a unidade:
 
-    - Suspender a proteção para desligar temporariamente o BitLocker, executando o seguinte:
+    - Suspenda a proteção para desativar temporariamente o BitLocker executando o seguinte:
 
                     manage-bde -protectors -disable F: -rc 0
            
-    - Decodificar totalmente a unidade. Para fazer isso, execute o seguinte comando:
+    - Descriptografar completamente a unidade. Para fazer isso, execute o seguinte comando:
 
                     manage-bde -off F:
 
@@ -146,7 +146,7 @@ Se esse método não resolver o problema, siga estas etapas para restaurar o arq
 Para um cenário de Chave de Criptografia de Chave, siga estas etapas:
 
 1. Certifique-se de que a conta do usuário que efetuou logon exija a permissão "decodificado" nas políticas de Acesso ao Cofre de Chaves **USUÁRIO|Permissões de chaves|Operações de Criptografia|Decodificar Chave**.
-2. Salve o seguinte script para um . Arquivo PS1:
+2. Salve o script a seguir em um. Arquivo PS1:
 
     ```powershell
     #Set the Parameters for the script
@@ -232,7 +232,7 @@ Para um cenário de Chave de Criptografia de Chave, siga estas etapas:
     $bekFileBytes = [System.Convert]::FromBase64String($base64Bek);
     [System.IO.File]::WriteAllBytes($bekFilePath,$bekFileBytes)
     ```
-3. Defina os parâmetros. O script processará o segredo KEK para criar a chave BEK e, em seguida, salvará em uma pasta local na VM de recuperação. Se você receber erros ao executar o script, consulte a seção [solução de problemas de script.](#script-troubleshooting)
+3. Defina os parâmetros. O script processará o segredo KEK para criar a chave BEK e, em seguida, salvará em uma pasta local na VM de recuperação. Se você receber erros ao executar o script, consulte a seção [solução de problemas de script](#script-troubleshooting) .
 
 4. Quando o script começar, você verá a seguinte saída:
 
@@ -255,38 +255,38 @@ Para um cenário de Chave de Criptografia de Chave, siga estas etapas:
     ```
     Neste exemplo, o disco do SO anexado é a unidade F. Certifique-se de usar a letra da unidade correta. 
 
-6. Depois que o disco foi desbloqueado com sucesso usando a tecla BEK, desconecte o disco da VM de recuperação e, em seguida, recrie a VM usando este novo disco do SISTEMA OPERACIONAL. 
+6. Depois que o disco for desbloqueado com êxito usando a chave BEK, desanexe o disco da VM de recuperação e recrie a VM usando esse novo disco do sistema operacional. 
 
     > [!NOTE]
-    > A troca de disco do SISTEMA OPERACIONAL não é suportada para VMs usando criptografia de disco.
+    > Não há suporte para alternar o disco do sistema operacional para VMs que usam criptografia de disco.
 
-7. Se a nova VM ainda não puder inicializar normalmente, tente uma das seguintes etapas após desbloquear a unidade:
+7. Se a nova VM ainda não puder ser inicializada normalmente, tente uma das etapas a seguir depois de desbloquear a unidade:
 
-    - Suspender a proteção para desligar temporariamente o BitLocker, executando o seguinte comando:
+    - Suspenda a proteção para desativar temporariamente o BitLocker executando o seguinte comando:
 
              manage-bde -protectors -disable F: -rc 0
            
-    - Decodificar totalmente a unidade. Para fazer isso, execute o seguinte comando:
+    - Descriptografar completamente a unidade. Para fazer isso, execute o seguinte comando:
 
                     manage-bde -off F:
 ## <a name="script-troubleshooting"></a>Solução de problemas de script
 
-**Erro: Não foi possível carregar arquivo ou montagem**
+**Erro: não foi possível carregar o arquivo ou o assembly**
 
-Esse erro ocorre porque os caminhos das Assembléias ADAL estão errados. Se o módulo AZ estiver instalado apenas para o usuário atual, `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`os Conjuntos ADAL estarão localizados em .
+Esse erro ocorre porque os caminhos dos assemblies da ADAL estão errados. Se o módulo AZ for instalado apenas para o usuário atual, os assemblies de ADAL estarão localizados em `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
 
-Você também pode `Az.Accounts` procurar pasta para encontrar o caminho correto.
+Você também pode procurar `Az.Accounts` pasta para localizar o caminho correto.
 
 **Erro: Get-AzKeyVaultSecret ou Get-AzKeyVaultSecret não é reconhecido como o nome de um cmdlet**
 
-Se você estiver usando o antigo módulo AZ PowerShell, `Get-AzureKeyVaultSecret` `Get-AzureKeyVaultSecret`você deve alterar os dois comandos para e .
+Se você estiver usando o módulo atual AZ PowerShell, deverá alterar os dois comandos para `Get-AzureKeyVaultSecret` e. `Get-AzureKeyVaultSecret`
 
-**Amostras de parâmetros**
+**Exemplos de parâmetros**
 
-| Parâmetros  | Amostra de valor  |Comentários   |
+| Parâmetros  | Exemplo de valor  |Comentários   |
 |---|---|---|
-|  $keyVaultName | myKeyVault2112852926  | O nome do cofre chave que armazena a chave |
-|$kekName   |Mykey   | O nome da chave que é usada para criptografar a VM|
-|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | O nome do segredo da chave VM|
-|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. Bek |O caminho para escrever arquivo BEK.|
-|$adTenant  |contoso.onmicrosoft.com   | FQDN ou GUID do seu Diretório Ativo do Azure que hospeda o cofre-chave |
+|  $keyVaultName | myKeyVault2112852926  | O nome do cofre de chaves que armazena a chave |
+|$kekName   |MyKey   | O nome da chave usada para criptografar a VM|
+|$secretName   |7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D  | O nome do segredo da chave da VM|
+|$bekFilePath   |c:\bek\7EB4F531-5FBA-4970-8E2D-C11FD6B0C69D. BEK |O caminho para gravar o arquivo BEK.|
+|$adTenant  |contoso.onmicrosoft.com   | FQDN ou GUID do seu Azure Active Directory que hospeda o cofre de chaves |

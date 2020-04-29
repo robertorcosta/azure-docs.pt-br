@@ -1,33 +1,33 @@
 ---
-title: Criar funções de definição de Interface do IA
+title: Criar funções de definição de interface do usuário
 description: Descreve as funções para uso na criação de definições de interface do usuário para aplicativos gerenciados do Azure
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248444"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
 Esta seção contém as assinaturas para todas as funções com suporte de uma CreateUiDefinition.
 
-Para usar uma função, coloque a declaração entre colchetes. Por exemplo: 
+Para usar uma função, coloque a declaração entre colchetes. Por exemplo:
 
 ```json
 "[function()]"
 ```
 
-Cadeias de caracteres e outras funções podem ser referenciadas como parâmetros de uma função, mas as cadeias de caracteres devem estar entre aspas simples. Por exemplo: 
+Cadeias de caracteres e outras funções podem ser referenciadas como parâmetros de uma função, mas as cadeias de caracteres devem estar entre aspas simples. Por exemplo:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Quando aplicável, referencie propriedades da saída de uma função usando o operador de ponto. Por exemplo: 
+Quando aplicável, referencie propriedades da saída de uma função usando o operador de ponto. Por exemplo:
 
 ```json
 "[func().prop1]"
@@ -189,7 +189,7 @@ O exemplo a seguir retorna `2`:
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>empty
+### <a name="empty"></a>vazio
 Retorna `true` se a cadeia de caracteres, matriz ou objeto é nulo ou vazio.
 
 #### <a name="example-1-string"></a>Exemplo 1: cadeia de caracteres
@@ -518,7 +518,7 @@ O exemplo a seguir retorna `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>string
+### <a name="string"></a>cadeia de caracteres
 Converte o parâmetro em uma cadeia de caracteres. Essa função dá suporte a parâmetros de todos os tipos de dados JSON.
 
 O exemplo a seguir retorna `"1"`:

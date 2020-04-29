@@ -1,5 +1,5 @@
 ---
-title: Modo de acesso, energia e conectividade do azure Data Box Gateway
+title: Gateway do Azure Data Box o acesso ao dispositivo, a energia e o modo de conectividade
 description: Descreve como gerenciar o acesso, a potência e o modo de conectividade para o dispositivo de Azure Data Box Gateway que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: e4d85bd460c39964c9f42ac946e3522f5f129c1c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79474434"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerencie o modo de acesso, energia e conectividade para o gateway da caixa de dados do Azure
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerenciar o acesso, a energia e o modo de conectividade para seu Gateway do Azure Data Box
 
 Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para o Azure Data Box Gateway. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
 
@@ -28,11 +28,11 @@ Neste artigo, você aprenderá como:
 
 ## <a name="manage-device-access"></a>Gerenciar o acesso de dispositivo
 
-O acesso ao seu dispositivo Data Box Gateway é controlado pelo uso de uma senha do dispositivo. Você pode alterar a senha através da ui local. Você também pode redefinir a senha do dispositivo no portal Azure.
+O acesso ao seu dispositivo de Gateway do Data Box é controlado pelo uso de uma senha de dispositivo. Você pode alterar a senha por meio da interface do usuário da Web local. Você também pode redefinir a senha do dispositivo no portal do Azure.
 
 ### <a name="change-device-password"></a>Alterar a senha de dispositivo
 
-Siga estas etapas na ui local para alterar a senha do dispositivo.
+Siga estas etapas na interface do usuário local para alterar a senha do dispositivo.
 
 1. Na interface do usuário de web local, vá para **manutenção > alteração de senha**.
 2. Digite a senha atual e, em seguida, a nova senha. A senha fornecida deve ter entre 8 e 16 caracteres. A senha deve ter 3 dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais. Confirme a nova senha.
@@ -41,7 +41,7 @@ Siga estas etapas na ui local para alterar a senha do dispositivo.
 
 3. Clique em **Alterar senha**.
  
-### <a name="reset-device-password"></a>Redefinir a senha do dispositivo
+### <a name="reset-device-password"></a>Redefinir senha do dispositivo
 
 O fluxo de trabalho de redefinição não exige que o usuário recupere a senha antiga e é útil quando a senha é perdida. Esse fluxo de trabalho é executado no portal do Azure.
 
@@ -56,30 +56,30 @@ O fluxo de trabalho de redefinição não exige que o usuário recupere a senha 
 
 ## <a name="manage-resource-access"></a>Gerenciar o acesso de recursos
 
-Para criar o recurso Data Box Edge/Data Box Gateway, IoT Hub e Azure Storage, você precisa de permissões como contribuinte ou superior em um nível de grupo de recursos. Você também precisa que os provedores de recursos correspondentes sejam registrados. Para quaisquer operações que envolvam chave de ativação e credenciais, também são necessárias permissões para a API do Azure Active Directory Graph. Estes são descritos nas seções a seguir.
+Para criar seu Data Box Edge/Gateway do Data Box, o Hub IoT e o recurso de armazenamento do Azure, você precisa de permissões como um colaborador ou superior em um nível de grupo de recursos. Você também precisa que os provedores de recursos correspondentes sejam registrados. Para quaisquer operações que envolvam credenciais e chave de ativação, as permissões para Azure Active Directory API do Graph também são necessárias. Elas são descritas nas seções a seguir.
 
-### <a name="manage-microsoft-graph-api-permissions"></a>Gerencie as permissões de API do Microsoft Graph
+### <a name="manage-microsoft-graph-api-permissions"></a>Gerenciar permissões de API de Microsoft Graph
 
-Ao gerar a chave de ativação para o dispositivo Data Box Edge ou realizar quaisquer operações que exijam credenciais, você precisa de permissões para a API do Microsoft Graph. As operações que precisam de credenciais podem ser:
+Ao gerar a chave de ativação para o dispositivo Data Box Edge ou executar qualquer operação que exija credenciais, você precisa de permissões para Microsoft Graph API. As operações que precisam de credenciais podem ser:
 
--  Criando uma parte com uma conta de armazenamento associada.
--  Criando um usuário que possa acessar as ações no dispositivo.
+-  Criando um compartilhamento com uma conta de armazenamento associada.
+-  Criar um usuário que pode acessar os compartilhamentos no dispositivo.
 
-Você deve `User` ter um acesso no inquilino do Active `Read all directory objects`Directory como você precisa para ser capaz de . Você não pode ser um usuário convidado, pois `Read all directory objects`eles não têm permissões para . Se você for um convidado, as operações como geração de uma chave de ativação, criação de um compartilhamento em seu dispositivo do Data Box Edge, a criação de um usuário falhará.
+Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de `Read all directory objects`fazer isso. Você não pode ser um usuário convidado, pois não tem permissões `Read all directory objects`para. Se você for um convidado, as operações como geração de uma chave de ativação, criação de um compartilhamento em seu dispositivo do Data Box Edge, a criação de um usuário falhará.
 
-Para obter mais informações sobre como fornecer acesso aos usuários à API do Microsoft Graph, consulte a [referência de permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
-### <a name="register-resource-providers"></a>Registre provedores de recursos
+### <a name="register-resource-providers"></a>Registrar provedores de recursos
 
-Para prover um recurso no Azure (no modelo Azure Resource Manager), você precisa de um provedor de recursos que suporte a criação desse recurso. Por exemplo, para provisionar uma máquina virtual, você deve ter um provedor de recursos 'Microsoft.Compute' disponível na assinatura.
+Para provisionar um recurso no Azure (no modelo de Azure Resource Manager), você precisa de um provedor de recursos que ofereça suporte à criação desse recurso. Por exemplo, para provisionar uma máquina virtual, você deve ter um provedor de recursos ' Microsoft. Compute ' disponível na assinatura.
  
-Provedores de recursos são registrados no nível da assinatura. Por padrão, qualquer nova assinatura do Azure é previamente registrada com uma lista de provedores de recursos comumente usados. O provedor de recursos do 'Microsoft.DataBoxEdge' não está incluído nesta lista.
+Provedores de recursos são registrados no nível da assinatura. Por padrão, qualquer nova assinatura do Azure é previamente registrada com uma lista de provedores de recursos comumente usados. O provedor de recursos para ' Microsoft. DataBoxEdge ' não está incluído nesta lista.
 
-Você não precisa conceder permissões de acesso ao nível de assinatura para que os usuários possam criar recursos como 'Microsoft.DataBoxEdge' em seus grupos de recursos que eles têm direitos de proprietário, desde que os provedores de recursos para esses recursos já estejam Registrado.
+Você não precisa conceder permissões de acesso ao nível de assinatura para que os usuários possam criar recursos como ' Microsoft. DataBoxEdge ' dentro de seus grupos de recursos aos quais eles têm direitos de proprietário, desde que os provedores de recursos desses recursos já estejam registrados.
 
-Antes de tentar criar qualquer recurso, certifique-se de que o provedor de recursos esteja registrado na assinatura. Se o provedor de recursos não estiver registrado, você precisará ter certeza de que o usuário que cria o novo recurso tem direitos suficientes para registrar o provedor de recursos necessário no nível de assinatura. Se você não fez isso também, então você verá o seguinte erro:
+Antes de tentar criar qualquer recurso, verifique se o provedor de recursos está registrado na assinatura. Se o provedor de recursos não estiver registrado, você precisará certificar-se de que o usuário que está criando o novo recurso tenha direitos suficientes para registrar o provedor de recursos necessário no nível de assinatura. Se você ainda não fez isso, verá o seguinte erro:
 
-*O \<nome de assinatura de assinatura> não tem permissões para registrar o provedor de recursos: Microsoft.DataBoxEdge.*
+*O nome \<da assinatura de assinatura> não tem permissões para registrar o (s) provedor (es) de recursos: Microsoft. DataBoxEdge.*
 
 
 Para obter uma lista de provedores de recursos registrados na assinatura atual, execute o seguinte comando:
@@ -88,13 +88,13 @@ Para obter uma lista de provedores de recursos registrados na assinatura atual, 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para o dispositivo `Microsoft.DataBoxEdge` Data Box Edge, deve ser registrado. Para `Microsoft.DataBoxEdge`registrar, o admin de assinatura deve executar o seguinte comando:
+Para Data Box Edge dispositivo, `Microsoft.DataBoxEdge` deve ser registrado. Para se `Microsoft.DataBoxEdge`registrar, o administrador de assinatura deve executar o seguinte comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Para obter mais informações sobre como registrar um provedor de recursos, consulte [Resolver erros para registro de provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Para obter mais informações sobre como registrar um provedor de recursos, consulte [resolver erros de registro do provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="manage-connectivity-mode"></a>Gerenciar o modo de conectividade
 

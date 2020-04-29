@@ -1,5 +1,5 @@
 ---
-title: Extensões e recursos do Azure VM para Linux
+title: Recursos e extensões de VM do Azure para Linux
 description: Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79250511"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
@@ -45,7 +45,7 @@ Para lidar com a extensão na VM, é necessário ter o Agente Linux do Microsoft
 
 O agente de VM do Azure gerencia a interação entre uma VM do Azure e o controlador de malha do Azure. O agente de VM é responsável por muitos aspectos funcionais de implantação e gerenciamento de VMs do Azure, incluindo a execução de extensões da VM. O agente de VM do Azure é pré-instalado em imagens do Microsoft Azure Marketplace e pode ser instalado manualmente em sistemas operacionais com suporte. O Agente de VM do Azure para Linux é conhecido como o agente para Linux.
 
-Para obter informações sobre sistemas operacionais suportados e instruções de instalação, consulte [o agente de máquina virtual Azure](agent-linux.md).
+Para obter informações sobre sistemas operacionais e instruções de instalação com suporte, consulte [agente de máquina virtual do Azure](agent-linux.md).
 
 #### <a name="supported-agent-versions"></a>Versões do agente com suporte
 
@@ -71,7 +71,7 @@ Para redirecionar as solicitações de tráfego do agente, o Agente para Linux t
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
-Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para consultar uma lista completa, use [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo a seguir lista todas as extensões disponíveis na localização do *westus:*
+Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Para consultar uma lista completa, use [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list). O exemplo a seguir lista todas as extensões disponíveis no local *westus* :
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -85,7 +85,7 @@ Os métodos a seguir podem ser usados para executar uma extensão em uma VM exis
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-As extensões da VM do Azure podem executar em uma VM existente com o comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). O exemplo a seguir executa a extensão Script personalizado contra uma VM chamada *myVM* em um grupo de recursos chamado *myResourceGroup*. Substitua o nome do grupo de recursos exemplo,\/nome vm e script a ser executado (https: /raw.githubusercontent.com/me/project/hello.sh) por suas próprias informações. 
+As extensões da VM do Azure podem executar em uma VM existente com o comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). O exemplo a seguir executa a extensão de script personalizado em uma VM chamada *myVM* em um grupo de recursos chamado *MyResource*Group. Substitua o nome do grupo de recursos de exemplo, o nome da VM e o\/script a ser executado (https:/RAW.githubusercontent.com/me/Project/Hello.sh) com suas próprias informações. 
 
 ```azurecli
 az vm extension set `
@@ -117,7 +117,7 @@ A imagem a seguir mostra a instalação da extensão Script Personalizado do Lin
 
 É possível adicionar extensões de VM a um modelo do Azure Resource Manager e executá-las com a implantação do modelo. Ao implantar uma extensão com um modelo, você pode criar implantações do Azure totalmente configuradas. Por exemplo, o JSON a seguir é obtido de um modelo do Resource Manager que implanta um conjunto de VMs com balanceamento de carga e um banco de dados SQL do Azure e, em seguida, instala um aplicativo .NET Core em cada VM. A extensão da VM se encarrega da instalação do software.
 
-Para obter mais informações, consulte o modelo completo [do Gerenciador de Recursos](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Para obter mais informações, consulte o [modelo completo do Resource Manager](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ```json
 {
@@ -336,7 +336,7 @@ As seguintes etapas de solução de problemas aplicam-se a todas as extensões d
 
 1. Para verificar o Log do agente do Linux, observe a atividade em que a extensão estava sendo provisionada em */var/log/waagent.log*
 
-2. Verifique os registros de extensão reais para obter mais detalhes em */var/log/azure/extensionName\<>*
+2. Verifique os logs de extensão reais para obter mais detalhes em */var/log/Azure/\<ExtensionName>*
 
 3. Verifique as seções de solução de problemas da documentação específica da extensão para códigos de erro, problemas conhecidos etc.
 
@@ -407,7 +407,7 @@ Você também pode remover uma extensão no portal do Azure da seguinte maneira:
 | --- | --- | --- |
 | Extensão de Script Personalizado para Linux |Executar scripts em uma máquina virtual do Azure |[Extensão de Script Personalizado para Linux](custom-script-linux.md) |
 | Extensão de acesso à VM |Restabelecer o acesso a uma máquina virtual do Azure |[Extensão de acesso à VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
-| Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão do Azure Diagnostics](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Extensão de Diagnóstico do Azure |Gerenciar Diagnóstico do Azure |[Extensão de Diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Extensão de Acesso à VM do Azure |Gerenciar usuários e credenciais |[Extensão de Acesso à VM para Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Próximas etapas

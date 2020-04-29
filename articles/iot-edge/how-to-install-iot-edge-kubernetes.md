@@ -1,6 +1,6 @@
 ---
-title: Como instalar o IoT Edge no Kubernetes | Microsoft Docs
-description: Saiba como instalar o IoT Edge no Kubernetes usando um ambiente de cluster de desenvolvimento local
+title: Como instalar o IoT Edge no kubernetes | Microsoft Docs
+description: Saiba como instalar o IoT Edge no kubernetes usando um ambiente de cluster de desenvolvimento local
 author: kgremban
 manager: philmea
 ms.author: veyalla
@@ -9,35 +9,35 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4b2068c3944f9e7616b0666c7bafcafc68ee0cd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79471278"
 ---
-# <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Como instalar o IoT Edge no Kubernetes (Visualização)
+# <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Como instalar o IoT Edge no kubernetes (versão prévia)
 
-O IoT Edge pode se integrar com o Kubernetes usando-o como uma camada de infra-estrutura resiliente e altamente disponível. Aqui é onde este suporte se encaixa em uma solução de Alto Nível IoT Edge:
+IoT Edge pode integrar com o kubernetes usando-o como uma camada de infraestrutura resiliente e altamente disponível. Aqui está o local em que esse suporte se encaixa em uma solução de IoT Edge de alto nível:
 
-![introdução k8s](./media/how-to-install-iot-edge-kubernetes/kubernetes-model.png)
+![Introdução ao K8S](./media/how-to-install-iot-edge-kubernetes/kubernetes-model.png)
 
 >[!TIP]
->Um bom modelo mental para essa integração é pensar no Kubernetes como outro ambiente operacional que os aplicativos IoT Edge podem ser executados além do Linux e Windows.
+>Um bom modelo mental para essa integração é considerar o kubernetes como outro ambiente operacional IoT Edge aplicativos podem ser executados além do Linux e do Windows.
 
 ## <a name="architecture"></a>Arquitetura 
-No Kubernetes, o IoT Edge fornece *CRD (Custom Resource Definition, definição de recursos* personalizados) para implantações de carga de trabalho de borda. O IoT Edge Agent assume o papel de um controlador de *CRD* que concilia o estado desejado gerenciado pela nuvem com o estado local do cluster.
+No kubernetes, IoT Edge fornece *definição de recurso personalizado* (CRD) para implantações de carga de trabalho de borda. IoT Edge Agent assume a função de um *controlador CRD* que reconcilia o estado desejado gerenciado pela nuvem com o estado do cluster local.
 
-A duração do módulo é gerenciada pelo agendador Kubernetes, que mantém a disponibilidade do módulo e escolhe sua colocação. O IoT Edge gerencia a plataforma de aplicação de borda em execução no topo, conciliando continuamente o estado desejado especificado no IoT Hub com o estado no cluster de borda. O modelo de aplicação ainda é o modelo familiar baseado em módulos e rotas IoT Edge. O controlador ioT Edge Agent executa o modelo de aplicação do IoT Edge de tradução *automática* para os construtos nativos do Kubernetes, como pods, implantações, serviços etc.
+O tempo de vida do módulo é gerenciado pelo Agendador kubernetes, que mantém a disponibilidade do módulo e escolhe seu posicionamento. IoT Edge gerencia a plataforma de aplicativo de borda em execução na parte superior, reconciliando continuamente o estado desejado especificado no Hub IoT com o estado no cluster de borda. O modelo de aplicativo ainda é o conhecido modelo com base em módulos e rotas IoT Edge. O controlador do agente de IoT Edge executa o modelo de aplicativo IoT Edge de tradução *automática* para construções nativas kubernetes como pods, implantações, serviços etc.
 
-Aqui está um diagrama de arquitetura de alto nível:
+Este é um diagrama de arquitetura de alto nível:
 
-![kubernetes arco](./media/how-to-install-iot-edge-kubernetes/publicpreview-refresh-kubernetes.png)
+![arquear para kubernetes](./media/how-to-install-iot-edge-kubernetes/publicpreview-refresh-kubernetes.png)
 
-Cada componente da implantação de borda é escopo de um namespace kubernetes específico para o dispositivo, tornando possível compartilhar os mesmos recursos de cluster entre vários dispositivos de borda e suas implantações.
+Cada componente da implantação de borda tem como escopo um namespace kubernetes específico para o dispositivo, tornando possível compartilhar os mesmos recursos de cluster entre vários dispositivos de borda e suas implantações.
 
 >[!NOTE]
->IoT Edge on Kubernetes está em [pré-visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>IoT Edge em kubernetes está em [Visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="tutorials-and-references"></a>Tutoriais e referências 
 
-Consulte o [mini-site ioT Edge on Kubernetes para](https://aka.ms/edgek8sdoc) obter mais informações, incluindo tutoriais e referências em profundidade.
+Consulte o [IOT Edge no mini-site do kubernetes Preview docs](https://aka.ms/edgek8sdoc) para obter mais informações, incluindo tutoriais e referências detalhadas.

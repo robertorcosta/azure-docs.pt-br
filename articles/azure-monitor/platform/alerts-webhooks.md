@@ -1,5 +1,5 @@
 ---
-title: Chame um webhook com um alerta métrico clássico no Azure Monitor
+title: Chamar um webhook com um alerta de métrica clássico no Azure Monitor
 description: Saiba como redirecionar alertas de métrica do Azure para outros sistemas diferentes do Azure.
 author: harelbr
 ms.author: harelbr
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
 ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79248977"
 ---
-# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chame um webhook com um alerta métrico clássico no Azure Monitor
+# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Chamar um webhook com um alerta de métrica clássico no Azure Monitor
 
 É possível usar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para encaminhá-lo para serviços que enviam mensagens de SMS, para registrar bugs, notificar uma equipe por meio de serviços de chat ou envio de mensagens ou qualquer outra ação. 
 
@@ -68,14 +68,14 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 ```
 
 
-| Campo | Obrigatório | Conjunto fixo de valores | Observações |
+| Campo | Obrigatório | Conjunto fixo de valores | Anotações |
 |:--- |:--- |:--- |:--- |
 | status |S |Activated, Resolved |O status do alerta como base nas condições que você definiu. |
 | contexto |S | |O contexto do alerta. |
-|  timestamp |S | |A hora em que o alerta foi disparado. |
+| timestamp |S | |A hora em que o alerta foi disparado. |
 | id |S | |Cada regra de alerta tem uma ID exclusiva. |
 | name |S | |O nome do alerta. |
-| descrição |S | |Uma descrição do alerta. |
+| description |S | |Uma descrição do alerta. |
 | conditionType |S |Metric, Event |Há suporte para dois tipos de alertas: de métrica e evento. Alertas de métricas são baseados na condição de uma métrica. Alertas de eventos são baseados em um evento no log de atividades. Use esse valor para verificar se o alerta é baseado em uma métrica ou em um evento. |
 | condition |S | |Os campos específicos para verificação com base no valor de **conditionType**. |
 | metricName |Para alertas de métrica | |O nome da métrica define o que a regra monitora. |
@@ -100,7 +100,7 @@ A operação POST contém o seguinte esquema e conteúdo JSON para todos os aler
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre alertas e webhooks do Azure no vídeo [Integrar alertas do Azure com o PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
+* Saiba mais sobre os alertas do Azure e WebHooks no vídeo [integrar alertas do Azure com o PagerDuty](https://go.microsoft.com/fwlink/?LinkId=627080).
 * Saiba como [Executar exemplos de scripts da Automação do Azure (runbooks) em alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem de SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Saiba como [usar um aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
