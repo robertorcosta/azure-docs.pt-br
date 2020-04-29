@@ -1,5 +1,5 @@
 ---
-title: Executar a atividade do pipeline na fábrica de dados do Azure
+title: Atividade de execução de pipeline no Azure Data Factory
 description: Saiba como você pode usar a atividade de execução de pipeline para invocar um pipeline do Data Factory de outro pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415273"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade de execução de pipeline no Azure Data Factory
@@ -70,7 +70,7 @@ name | Nome da atividade de execução de pipeline. | String | Sim
 type | Deve ser definido como: **ExecutePipeline**. | String | Sim
 pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | Sim
 parâmetros | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não
-waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é false. | Boolean | Não
+waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é false. | Booliano | Não
 
 ## <a name="sample"></a>Amostra
 Este cenário tem dois pipelines:

@@ -1,6 +1,6 @@
 ---
 title: Cópia em massa de dados de arquivos para banco de dados
-description: Aprenda a usar um modelo de solução para copiar dados em massa do Azure Data Lake Storage Gen2 para o Azure Synapse Analytics / Azure SQL Database.
+description: Saiba como usar um modelo de solução para copiar dados em massa de Azure Data Lake Storage Gen2 para o Azure Synapse Analytics/banco de dados SQL do Azure.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -9,61 +9,61 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 070b708f204006bc1ba90c4c3676696291fde902
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414865"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>Cópia em massa de dados de arquivos para banco de dados
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve um modelo de solução que você pode usar para copiar dados em massa do Azure Data Lake Storage Gen2 para o Azure Synapse Analytics / Azure SQL Database.
+Este artigo descreve um modelo de solução que você pode usar para copiar dados em massa de Azure Data Lake Storage Gen2 para o Azure Synapse Analytics/banco de dados SQL do Azure.
 
 ## <a name="about-this-solution-template"></a>Sobre o modelo de solução
 
-Este modelo recupera arquivos da fonte Azure Data Lake Storage Gen2. Em seguida, ele itera sobre cada arquivo na fonte e copia o arquivo para o armazenamento de dados de destino. 
+Este modelo recupera arquivos de origem Azure Data Lake Storage Gen2. Em seguida, ele itera em cada arquivo na origem e copia o arquivo para o armazenamento de dados de destino. 
 
-Atualmente, este modelo só suporta copiar dados no formato **DelimitedText.** Arquivos em outros formatos de dados também podem ser recuperados do armazenamento de dados de origem, mas não podem ser copiados para o armazenamento de dados de destino.  
+Atualmente, esse modelo só dá suporte à cópia de dados no formato **DelimitedText** . Os arquivos em outros formatos de dados também podem ser recuperados do armazenamento de dados de origem, mas não podem ser copiados para o armazenamento de dados de destino.  
 
 O modelo contém três atividades:
-- **Obtenha a** atividade Metadados recupera arquivos do Azure Data Lake Storage Gen2 e os passa para atividades subsequentes *do ForEach.*
-- **ForEach** atividade recebe arquivos da atividade *Obter metadados* e itera cada arquivo para a atividade *Copiar.*
-- **A** atividade de cópia reside em *atividade forCada* para copiar cada arquivo do armazenamento de dados de origem para o armazenamento de dados de destino.
+- A atividade **obter metadados** recupera arquivos de Azure data Lake Storage Gen2 e os transmite para a atividade *foreach* subsequente.
+- A atividade **foreach** Obtém os arquivos da atividade *obter metadados* e itera cada arquivo na atividade de *cópia* .
+- A atividade de **cópia** reside na atividade *foreach* para copiar cada arquivo do repositório de dados de origem para o armazenamento de dados de destino.
 
 O modelo define os dois parâmetros a seguir:
-- *SourceContainer* é o caminho do contêiner raiz do qual os dados são copiados no Azure Data Lake Storage Gen2. 
-- *SourceDirectory* é o caminho do diretório sob o recipiente raiz onde os dados são copiados no Azure Data Lake Storage Gen2.
+- *SourceContainer* é o caminho do contêiner raiz para o qual os dados são copiados em seu Azure data Lake Storage Gen2. 
+- *SourceDirectory* é o caminho do diretório no contêiner raiz no qual os dados são copiados no seu Azure data Lake Storage Gen2.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
-1. Vá para o **modelo Cópia em massa de arquivos para banco de dados.** Crie uma **nova** conexão com a loja Gen2 de origem. Esteja ciente de que "GetMetadataDataset" e "SourceDataset" são referências à mesma conexão do seu armazenamento de arquivos de origem.
+1. Vá para o modelo **cópia em massa de arquivos para banco de dados** . Crie uma **nova** conexão com o repositório Gen2 de origem. Lembre-se de que "GetMetadataDataset" e "SourceDataset" são referências à mesma conexão do seu repositório de arquivos de origem.
 
-    ![Crie uma nova conexão com o armazenamento de dados de origem](media/solution-template-bulk-copy-from-files-to-database/source-connection.png)
+    ![Criar uma nova conexão com o armazenamento de dados de origem](media/solution-template-bulk-copy-from-files-to-database/source-connection.png)
 
-2. Crie uma **nova** conexão com o armazenamento de dados da pia para a a que você está copiando dados.
+2. Crie uma **nova** conexão com o armazenamento de dados do coletor para o qual você está copiando dados.
 
-    ![Crie uma nova conexão com o armazenamento de dados da pia](media/solution-template-bulk-copy-from-files-to-database/destination-connection.png)
+    ![Criar uma nova conexão com o armazenamento de dados do coletor](media/solution-template-bulk-copy-from-files-to-database/destination-connection.png)
     
-3. Selecione **Usar este modelo**.
+3. Selecione **usar este modelo**.
 
     ![Usar este modelo](media/solution-template-bulk-copy-from-files-to-database/use-template.png)
     
-4. Você veria um pipeline criado como mostrado no exemplo a seguir:
+4. Você verá um pipeline criado conforme mostrado no exemplo a seguir:
 
     ![Revisar o pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Se você escolheu **o Azure Synapse Analytics (anteriormente SQL DW)** como o destino dos dados na **etapa 2** mencionada acima, você deve inserir uma conexão com o armazenamento Azure Blob para estágio, conforme exigido pelo SQL Data Warehouse Polybase. Como mostra a captura de tela a seguir, o modelo gerará automaticamente um *caminho de armazenamento* para o armazenamento blob. Verifique se o contêiner foi criado após o tráfego do gasoduto.
+    > Se você escolheu o **Azure Synapse Analytics (anteriormente conhecido como SQL DW)** como o destino de dados na **etapa 2** mencionado acima, você deve inserir uma conexão com o armazenamento de BLOBs do Azure para preparo, conforme exigido pelo SQL data warehouse polybase. Como mostra a captura de tela a seguir, o modelo gerará automaticamente um *caminho de armazenamento* para o armazenamento de BLOBs. Verifique se o contêiner foi criado após a execução do pipeline.
         
     ![Configuração do Polybase](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 
-5. Selecione **Depurar,** digite **os Parâmetros**e, em seguida, **selecione Concluir**.
+5. Selecione **depurar**, insira os **parâmetros**e, em seguida, selecione **concluir**.
 
-    ![Clique em **Debug**](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
+    ![Clique em * * Depurar * *](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
 
-6. Quando a execução do pipeline for concluída com sucesso, você verá resultados semelhantes ao seguinte exemplo:
+6. Quando a execução do pipeline for concluída com êxito, você verá resultados semelhantes ao exemplo a seguir:
 
     ![Revisar o resultado](media/solution-template-bulk-copy-from-files-to-database/run-succeeded.png)
 

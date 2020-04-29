@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: f9b743d768aabbd7949094ae4b7366c46eabf4c4
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410079"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Copiar dados do Vertica utilizando o Azure Data Factory 
@@ -25,10 +25,10 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector Vertica é suportado para as seguintes atividades:
+Este conector do Vertica tem suporte para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
-- [Atividade de procurar](control-flow-lookup-activity.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados do Vertica para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -40,7 +40,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Consulte [o tutorial de atividade copiar](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo para criar um pipeline com uma atividade de cópia.
+Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções detalhadas para criar um pipeline com uma atividade de cópia.
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do Vertica.
 
@@ -52,7 +52,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Vertica:
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Vertica** | Sim |
 | connectionString | Uma cadeia de conexão ODBC para conectar-se ao Vertica.<br/>Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `pwd` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
 
@@ -100,16 +100,16 @@ As propriedades a seguir têm suporte para o serviço vinculado do Vertica:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados Vertica.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados Vertica.
 
 Para copiar dados do Vertica, defina a propriedade type do conjunto de dados como **VerticaTable**. Há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade do tipo do conjunto de dados deve ser definida como: **VerticaTable** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **VerticaTable** | Sim |
 | esquema | Nome do esquema. |Não (se "query" na fonte da atividade for especificada)  |
 | tabela | Nome da tabela. |Não (se "query" na fonte da atividade for especificada)  |
-| tableName | Nome da mesa com esquema. Esta propriedade é suportada para compatibilidade retrógrada. Use `schema` `table` e para nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
+| tableName | Nome da tabela com esquema. Essa propriedade tem suporte para compatibilidade com versões anteriores. Use `schema` e `table` para uma nova carga de trabalho. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
 
@@ -134,7 +134,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="vertica-as-source"></a>Vertica como fonte
 
-Para copiar dados do Vertica, defina o tipo de origem na atividade de cópia como **VerticaSource**. As seguintes propriedades são suportadas na seção **de origem da** atividade de cópia:
+Para copiar dados do Vertica, defina o tipo de origem na atividade de cópia como **VerticaSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -173,9 +173,9 @@ Para copiar dados do Vertica, defina o tipo de origem na atividade de cópia com
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: c2c036cc8538fbceb21da7c5166df52b3a04e12e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414991"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiar dados do MariaDB usando o Azure Data Factory
@@ -25,10 +25,10 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector MariaDB é suportado para as seguintes atividades:
+Este conector do MariaDB tem suporte para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
-- [Atividade de procurar](control-flow-lookup-activity.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados do MariaDB para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -54,7 +54,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do MariaDB:
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **MariaDb** | Sim |
 | connectionString | Uma cadeia de conexão ODBC para conectar-se ao MariaDB. <br/>Você também pode colocar uma senha no Azure Key Vault e extrair a configuração `pwd` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção [Pré-requisitos.](#prerequisites) Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Saiba mais na seção de [pré-requisitos](#prerequisites) . Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
 
@@ -102,7 +102,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do MariaDB:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do MariaDB.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do MariaDB.
 
 Para copiar dados do MariaDB, defina a propriedade type do conjunto de dados como **MariaDBTable**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
 
@@ -129,7 +129,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="mariadb-as-source"></a>MariaDB como fonte
 
-Para copiar dados do MariaDB, defina o tipo de fonte na atividade de cópia como **MariaDbSource**. As seguintes propriedades são suportadas na seção **de origem da** atividade de cópia:
+Para copiar dados do MariaDB, defina o tipo de fonte na atividade de cópia como **MariaDbSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -168,9 +168,9 @@ Para copiar dados do MariaDB, defina o tipo de fonte na atividade de cópia como
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

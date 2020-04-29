@@ -1,15 +1,15 @@
 ---
-title: Gerenciar segredos de aplicativos do Azure Service Fabric
+title: Gerenciar segredos do aplicativo Service Fabric do Azure
 description: Saiba como proteger os valores do segredo em um aplicativo do Service Fabric (independente de plataforma).
 author: vturecek
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 4d2138935122b9e08b21963519fce3f72466ab1f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414505"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerenciar segredos criptografados nos aplicativos do Service Fabric
@@ -47,7 +47,7 @@ Especifique uma [variável de ambiente][environment-variables-link] criptografad
 </CodePackage>
 ```
 
-Os segredos também devem ser incluídos no seu aplicativo Service Fabric especificando um certificado no manifesto do aplicativo. Adicione um elemento **SecretsCertificate** ao **ApplicationManifest.xml** e inclua a impressão digital do certificado desejado.
+Os segredos também devem ser incluídos em seu aplicativo Service Fabric especificando um certificado no manifesto do aplicativo. Adicione um elemento **SecretsCertificate** a **ApplicationManifest. xml** e inclua a impressão digital do certificado desejado.
 
 ```xml
 <ApplicationManifest … >
@@ -58,9 +58,9 @@ Os segredos também devem ser incluídos no seu aplicativo Service Fabric especi
 </ApplicationManifest>
 ```
 > [!NOTE]
-> Ao ativar um aplicativo que especifica um SecretsCertificate, a Service Fabric encontrará o certificado correspondente e concederá a identidade que o aplicativo está executando sob permissões completas para a chave privada do certificado. A Service Fabric também monitorará o certificado para alterações e aplicará novamente as permissões em conformidade. Para detectar alterações para certificados declarados por nome comum, o Service Fabric executa uma tarefa periódica que encontra todos os certificados correspondentes e compara-os com uma lista de impressões digitais em cache. Quando uma nova impressão digital é detectada, significa que um certificado por esse assunto foi renovado. A tarefa é executada uma vez por minuto em cada nó do cluster.
+> Ao ativar um aplicativo que especifica um SecretsCertificate, Service Fabric encontrará o certificado de correspondência e concederá a identidade que o aplicativo está executando sob permissões completas para a chave privada do certificado. Service Fabric também monitorará o certificado quanto a alterações e aplicará novamente as permissões de acordo. Para detectar alterações de certificados declarados pelo nome comum, o Service Fabric executa uma tarefa periódica que localiza todos os certificados correspondentes e os compara com uma lista de impressão digital armazenada em cache. Quando uma nova impressão digital é detectada, isso significa que um certificado por esse assunto foi renovado. A tarefa é executada uma vez por minuto em cada nó do cluster.
 >
-> Embora o SecretsCertificate permita declarações baseadas em objetos, observe que as configurações criptografadas estão vinculadas ao par de chaves que foi usado para criptografar a configuração no cliente. Você deve garantir que o certificado de criptografia original (ou um equivalente) corresponda à declaração baseada no assunto e que ele seja instalado, incluindo sua chave privada correspondente, em cada nó do cluster que possa hospedar o aplicativo. Todos os certificados válidos por tempo que correspondem à declaração baseada no assunto e construídos a partir do mesmo par de chaves do certificado de criptografia original são considerados equivalentes.
+> Embora o SecretsCertificate permita declarações baseadas em assunto, observe que as configurações criptografadas estão vinculadas ao par de chaves que foi usado para criptografar a configuração no cliente. Você deve garantir que o certificado de criptografia original (ou um equivalente) corresponda à declaração baseada em assunto e que esteja instalado, incluindo sua chave privada correspondente, em cada nó do cluster que pode hospedar o aplicativo. Sempre que os certificados válidos que correspondem à declaração baseada em assunto e criados a partir do mesmo par de chaves como o certificado de criptografia original são considerados equivalentes.
 >
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Inserir segredos do aplicativo em instâncias do aplicativo
@@ -143,7 +143,7 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Loja de [segredos de tecido de serviço](service-fabric-application-secret-store.md) 
+* [Armazenamento de segredos](service-fabric-application-secret-store.md) Service Fabric 
 * Saiba mais sobre [segurança de aplicativo e serviço](service-fabric-application-and-service-security.md)
 
 <!-- Links -->

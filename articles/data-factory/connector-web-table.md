@@ -1,5 +1,5 @@
 ---
-title: Copiar dados da Web Table usando a Fábrica de Dados do Azure
+title: Copiar dados da tabela da Web usando Azure Data Factory
 description: Saiba mais sobre o conector de tabela da Web do Azure Data Factory permite que você copie dados de uma tabela da Web para os armazenamentos de dados com suporte pelo Data Factory como coletores.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81410207"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiar dados da tabela da Web usando o Azure Data Factory
@@ -29,15 +29,15 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 A diferença entre esse conector de tabela da Web, o [conector REST](connector-rest.md) e o [conector HTTP](connector-http.md) é:
 
 - O **conector da tabela da Web** extrai o conteúdo da tabela de uma página da Web em HTML.
-- **O conector REST** suporta especificamente a cópia de dados de APIs RESTful.
+- O **conector REST** especificamente dá suporte à cópia de dados de APIs RESTful.
 - O **conector HTTP** é genérico para recuperar dados de qualquer ponto de extremidade HTTP, por exemplo, para baixar o arquivo. 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector de tabela web é suportado para as seguintes atividades:
+Este conector de tabela da Web tem suporte para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
-- [Atividade de procurar](control-flow-lookup-activity.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Você pode copiar dados de um banco de dados de tabela da Web para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -45,7 +45,7 @@ Especificamente, esse conector de tabela da Web dá suporte à **extração de c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar este conector de tabela da Web, você precisa configurar um runtime de integração auto-hospedada. Consulte [o artigo 'Executtime de integração'.](create-self-hosted-integration-runtime.md)
+Para usar este conector de tabela da Web, você precisa configurar um runtime de integração auto-hospedada. Confira o artigo de [Integration Runtime auto-hospedado](create-self-hosted-integration-runtime.md) para obter detalhes.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -85,14 +85,14 @@ As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados da tabela da Web.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados da tabela da Web.
 
 Para copiar dados da tabela web, defina a propriedade type do conjunto de dados como **WebTable**. Há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | Sim |
-| caminho |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
+| path |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
 | índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
 
 **Exemplo:**
@@ -183,9 +183,9 @@ Para obter o índice de uma tabela que você precisa configurar em [propriedades
 Se você estiver usando o Excel 2013, use o [Microsoft Power Query para Excel](https://www.microsoft.com/download/details.aspx?id=39379) a fim de obter o índice. Confira o artigo [Conectar-se a uma página da Web](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) para obter detalhes. As etapas são semelhantes se você estiver usando o [Microsoft Power BI para Desktop](https://powerbi.microsoft.com/desktop/).
 
 
-## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

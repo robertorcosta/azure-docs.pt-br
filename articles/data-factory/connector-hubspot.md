@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.openlocfilehash: 2d60a1b03da6fdf4af6b0d0378456c08d927f451
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415216"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copiar dados de HubSpot utilizando o Azure Data Factory (versão prévia)
@@ -28,10 +28,10 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector HubSpot é suportado para as seguintes atividades:
+Este conector do HubSpot tem suporte para as seguintes atividades:
 
-- [Copiar atividade](copy-activity-overview.md) com [matriz de origem/pia suportada](copy-activity-overview.md)
-- [Atividade de procurar](control-flow-lookup-activity.md)
+- [Atividade de cópia](copy-activity-overview.md) com [matriz de coletor/origem com suporte](copy-activity-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 
 Você pode copiar dados de um HubSpot para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -51,13 +51,13 @@ As propriedades a seguir têm suporte para o serviço vinculado de HubSpot:
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **HubSpot** | Sim |
-| clientId | O ID do cliente associado ao seu aplicativo HubSpot. Saiba como criar um aplicativo na HubSpot a partir [daqui](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). | Sim |
+| clientId | A ID do cliente associada ao aplicativo HubSpot. Saiba como criar um aplicativo no HubSpot [aqui](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot). | Sim |
 | clientSecret | O segredo do cliente associado ao seu aplicativo HubSpot. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| accessToken | O token de acesso obtido ao autenticar inicialmente sua integração do OAuth. Saiba como obter o token de acesso com seu id cliente e secreto a partir [daqui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
+| accessToken | O token de acesso obtido ao autenticar inicialmente sua integração do OAuth. Saiba como obter o token de acesso com a ID e o segredo do cliente [aqui](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens). Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | refreshToken | O token de atualização obtido ao autenticar inicialmente sua integração do OAuth. Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é verdadeiro.  | Não |
-| useHostVerification | Especifica se é necessário exigir o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar ao TLS. O valor padrão é verdadeiro.  | Não |
-| usePeerVerification | Especifica se deve verificar a identidade do servidor ao se conectar por TLS. O valor padrão é verdadeiro.  | Não |
+| useHostVerification | Especifica se deve ser necessário o nome do host no certificado do servidor para corresponder ao nome do host do servidor ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
+| usePeerVerification | Especifica se a identidade do servidor deve ser verificada ao se conectar via TLS. O valor padrão é verdadeiro.  | Não |
 
 **Exemplo:**
 
@@ -87,13 +87,13 @@ As propriedades a seguir têm suporte para o serviço vinculado de HubSpot:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa de seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [conjuntos de dados.](concepts-datasets-linked-services.md) Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados de HubSpot.
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de os, consulte o artigo [conjuntos de valores](concepts-datasets-linked-services.md) . Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados de HubSpot.
 
 Para copiar dados de HubSpot, defina a propriedade type do conjunto de dados como **HubspotObject**. Há suporte para as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade do tipo do conjunto de dados deve ser definida como: **HubspotObject** | Sim |
+| type | A propriedade Type do conjunto de conjuntos deve ser definida como: **HubspotObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -119,7 +119,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="hubspotsource-as-source"></a>HubspotSource como fonte
 
-Para copiar dados de HubSpot, defina o tipo de fonte na atividade de cópia como **HubspotSource**. As seguintes propriedades são suportadas na seção **de origem da** atividade de cópia:
+Para copiar dados de HubSpot, defina o tipo de fonte na atividade de cópia como **HubspotSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
@@ -158,9 +158,9 @@ Para copiar dados de HubSpot, defina o tipo de fonte na atividade de cópia como
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriedades de atividade de procurar
+## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 
-Para saber detalhes sobre as propriedades, verifique a [atividade do Lookup](control-flow-lookup-activity.md).
+Para obter detalhes sobre as propriedades, verifique a [atividade de pesquisa](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

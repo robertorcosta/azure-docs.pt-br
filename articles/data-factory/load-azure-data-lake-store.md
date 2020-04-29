@@ -1,5 +1,5 @@
 ---
-title: Carregar dados no Azure Data Lake Storage Gen1
+title: Carregar dados em Azure Data Lake Storage Gen1
 description: Usar o Azure Data Factory para copiar dados no Azure Data Lake Storage Gen1
 services: data-factory
 ms.author: jingwang
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/17/2018
 ms.openlocfilehash: 1b1b19814709451bdbbea97462c459149484e71f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81415856"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Carregar dados no Azure Data Lake Storage Gen1, usando o Azure Data Factory
@@ -29,7 +29,7 @@ O Azure Data Factory é um serviço de integração de dados baseado em nuvem co
 O Azure Data Factory oferece os seguintes benefícios para carregar dados no Data Lake Storage Gen1:
 
 * **Fácil de configurar**: assistente intuitivo de 5 etapas sem nenhum script necessário.
-* **Suporte a armazenamento de dados rico**: Suporte incorporado para um rico conjunto de armazenamentos de dados on-premises e baseados em nuvem. Para obter uma lista detalhada, consulte a tabela de [Suporte para repositórios de dados](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Suporte a armazenamento de dados avançado**: suporte interno para um conjunto avançado de armazenamentos de dados locais e baseados em nuvem. Para obter uma lista detalhada, consulte a tabela de [Suporte para repositórios de dados](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Seguro e compatível**: os dados são transferidos por HTTPS, ou ExpressRoute. A presença do serviço global garante que os dados nunca saiam do limite geográfico.
 * **Alto desempenho**: velocidade de carregamento de dados de até 1 GB/s no Data Lake Storage Gen1. Para obter detalhes, consulte [Desempenho da atividade de cópia](copy-activity-performance.md).
 
@@ -40,13 +40,13 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Assinatura do Azure: se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Conta do Data Lake Storage Gen1: se você não tem uma conta do Data Lake Storage Gen1, confira as instruções em [Criar uma conta do Data Lake Storage Gen1](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
 * Amazon S3: Este artigo mostra como copiar dados do Amazon S3. Você pode usar outros repositórios de dados seguindo as etapas semelhantes.
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. No menu à esquerda, **selecione Criar uma** > fábrica de dados**de análise** > **de**recursos :
+1. No menu à esquerda, selecione **criar um recurso** > **análise** > **Data Factory**:
    
    ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -98,7 +98,7 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
 
     ![Escolha a pasta ou arquivo de entrada](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. Escolha o comportamento de cópia marcando as opções **Copiar arquivos recursivamente** e **Cópia binária** (copiar arquivos como-são). Selecione **A seguir**:
+6. Escolha o comportamento de cópia marcando as opções **Copiar arquivos recursivamente** e **Cópia binária** (copiar arquivos como-são). Selecione **Avançar**:
 
     ![Especifique a pasta de saída](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
     
@@ -129,7 +129,7 @@ Este artigo mostra como usar a ferramenta Copiar Dados do Data Factory para _car
 12. Na **Página Implantação**, selecione **Monitor** para monitorar o pipeline (tarefa):
 
     ![Página Implantação](./media/load-data-into-azure-data-lake-store/deployment-page.png)
-13. Observe que a guia **Monitor** à esquerda é selecionada automaticamente. A coluna **Ações** inclui links para exibir detalhes da execução da atividade e para reexecutar o pipeline:
+13. Observe que a guia **Monitor** à esquerda é selecionada automaticamente. A coluna **ações** inclui links para exibir detalhes da execução da atividade e executar novamente o pipeline:
 
     ![Monitorar execuções de pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 14. Para exibir as execuções de atividade associadas com a execução do pipeline, selecione o link **Exibir as Execuções de Atividade** na coluna **Ações**. Há apenas uma atividade (atividade de cópia) no pipeline. Assim, você vê apenas uma entrada. Para voltar à exibição de execuções de pipeline, selecione o link **Pipelines** na parte superior. Selecione **Atualizar** para atualizar a lista. 
