@@ -4,14 +4,14 @@ description: Adicionar sinalizadores de recursos a aplicativos Spring Boot e ger
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 01/21/2020
+ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: 489bc0234580e8df8dcc85c1d3cc0add547818b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e6dc51250987e0282530209ffa13e52d6e75aa9c
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78944333"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687359"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Início Rápido: Adicionar sinalizadores de recursos a um aplicativo Spring Boot
 
@@ -57,7 +57,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 
 1. Abra o arquivo *pom.xml* em um editor de texto e adicione o seguinte conteúdo à lista de `<dependencies>`:
 
-### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+    **Spring Cloud 1.1.x**
 
     ```xml
     <dependency>
@@ -76,7 +76,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
     </dependency>
     ```
 
-### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+    **Spring Cloud 1.2.x**
 
     ```xml
     <dependency>
@@ -103,7 +103,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
 1. Navegue até o diretório `resources` do seu aplicativo e abra `bootstrap.properties`.  Se o arquivo não existir, crie um. Adicione a seguinte linha ao arquivo.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
 1. No portal da Configuração de Aplicativos do seu repositório de configuração, selecione `Access keys` na barra lateral. Selecione a guia Chaves somente leitura. Copie o valor da cadeia de conexão primária.
@@ -283,7 +283,7 @@ Use o [Spring Initializr](https://start.spring.io/) para criar um novo projeto S
     mvn spring-boot:run
     ```
 
-1. Abra uma janela do navegador e vá para a URL padrão de um aplicativo Web hospedado localmente: `https://localhost:8080`.
+1. Abra uma nova janela do navegador e acesse a URL: `http://localhost:8080/welcome`.
 
     ![Inicialização local do aplicativo do Início Rápido](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 

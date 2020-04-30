@@ -1,5 +1,5 @@
 ---
-title: Baixe perfis globais de WAN virtual do Azure ou vpn baseados em hub | Microsoft Docs
+title: Baixar perfis VPN do Azure virtual WAN global ou baseado em Hub | Microsoft Docs
 description: Saiba mais sobre conectividade de ramificação por ramificação escalonável automatizada de WAN Virtual, regiões disponíveis e parceiros.
 services: virtual-wan
 author: anzaman
@@ -8,46 +8,46 @@ ms.topic: conceptual
 ms.date: 4/20/2020
 ms.author: alzam
 ms.openlocfilehash: b63bb861f4df087f852bb1bf599d32100d063f7e
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733177"
 ---
-# <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Baixe um perfil global ou baseado em hub para clientes DE USUÁRIO VPN
+# <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Baixar um perfil global ou baseado em Hub para clientes VPN de usuário
 
-O Azure Virtual WAN oferece dois tipos de conectividade para usuários remotos: global e baseado em Hub. Use as seguintes seções para aprender e baixar um perfil. 
+A WAN virtual do Azure oferece dois tipos de conectividade para usuários remotos: global e baseado em Hub. Use as seções a seguir para saber mais sobre o e baixar um perfil. 
 
 > [!IMPORTANT]
-> A autenticação RADIUS suporta apenas o perfil baseado no Hub.
+> A autenticação RADIUS dá suporte apenas ao perfil baseado em Hub.
 
 ## <a name="global-profile"></a>Perfil global
 
-O perfil aponta para um balanceador de carga que inclui todos os hubs de VPN do usuário ativo. O usuário é direcionado para o hub mais próximo da localização geográfica do usuário. Esse tipo de conectividade é útil quando os usuários viajam para diferentes locais com frequência. Para baixar o perfil **global:**
+O perfil aponta para um balanceador de carga que inclui todos os hubs de VPN de usuário ativos. O usuário é direcionado para o Hub que está mais próximo do local geográfico do usuário. Esse tipo de conectividade é útil quando os usuários viajam para locais diferentes com frequência. Para baixar o perfil **global** :
 
 1. Navegue até a WAN virtual.
-2. Clique **na configuração user VPN**.
-3. Destaque a configuração para a qual deseja baixar o perfil.
-4. Clique **em Baixar o perfil virtual do usuário WAN VPN**.
+2. Clique em **configuração de VPN de usuário**.
+3. Realce a configuração para a qual você deseja baixar o perfil.
+4. Clique em **baixar perfil VPN de usuário de WAN virtual**.
 
    ![Perfil global](./media/global-hub-profile/global1.png)
 
-## <a name="hub-based-profile"></a>Perfil baseado em hub
+## <a name="hub-based-profile"></a>Perfil baseado em Hub
 
-O perfil aponta para um único hub. O usuário só pode se conectar ao hub específico usando este perfil. Para baixar o perfil **baseado no hub:**
+O perfil aponta para um único Hub. O usuário só pode se conectar ao Hub específico usando esse perfil. Para baixar o perfil **baseado em Hub** :
 
 1. Navegue até a WAN virtual.
-2. Clique em **Hub** na página Visão Geral.
+2. Clique em **Hub** na página Visão geral.
 
-    ![Perfil do hub 1](./media/global-hub-profile/hub1.png)
-3. Clique **em User VPN (Ponto a ponto)**.
-4. Clique **em Baixar o perfil VPN do Usuário do Hub virtual**.
+    ![Perfil de Hub 1](./media/global-hub-profile/hub1.png)
+3. Clique em **VPN do usuário (ponto a site)**.
+4. Clique em **baixar perfil de VPN de usuário do Hub virtual**.
 
-   ![Perfil do hub 2](./media/global-hub-profile/hub2.png)
-5. Verifique **eaptls**.
-6. Clique **em Gerar e baixar o perfil**.
+   ![Perfil do Hub 2](./media/global-hub-profile/hub2.png)
+5. Verifique **EAPTLS**.
+6. Clique em **gerar e baixar perfil**.
 
-   ![Perfil do hub 3](./media/global-hub-profile/download.png)
+   ![Perfil do Hub 3](./media/global-hub-profile/download.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

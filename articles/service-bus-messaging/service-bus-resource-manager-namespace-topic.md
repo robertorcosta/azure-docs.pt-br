@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: c94b670a33f7640d2d6f428287b3ba0fab766bc5
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80384867"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Início Rápido: Criar um namespace do Barramento de Serviço com tópico e assinatura usando um modelo do Azure Resource Manager

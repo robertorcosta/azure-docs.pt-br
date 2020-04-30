@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
 ms.openlocfilehash: d0ffcffd7d4a4f2072b640ace03ec819aa416d47
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133914"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitar o log de recursos no Gerenciador de tráfego do Azure
@@ -24,7 +24,7 @@ Este artigo descreve como habilitar a coleta de logs de recursos de diagnóstico
 
 Os logs de recursos do Gerenciador de tráfego do Azure podem fornecer informações sobre o comportamento do recurso de perfil do Gerenciador de tráfego. Por exemplo, é possível usar os dados do log do perfil para determinar por que as investigações individuais atingiram o tempo limite em um ponto de extremidade.
 
-## <a name="enable-resource-logging"></a>Habilitar log de recursos
+## <a name="enable-resource-logging"></a>Habilitar registro em log de recursos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -72,8 +72,8 @@ A tabela a seguir inclui o esquema de logs específico para o recurso de perfil 
 |||||
 |----|----|---|---|
 |**Nome do campo**|**Tipo de campo**|**Definição**|**Exemplo**|
-|EndpointName|String|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
-|Status|String|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Para cima**|
+|EndpointName|Cadeia de caracteres|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
+|Status|Cadeia de caracteres|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Para cima**|
 |||||
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/13/2020
 ms.author: v-grpr
 ms.openlocfilehash: 526f0ae21ac0c49d8c5fd984b09b7a2252afb606
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129353"
 ---
 # <a name="azure-stack-edge-and-azure-data-box-gateway-1911-release-notes"></a>Notas de versão do Azure Stack Edge e Gateway do Azure Data Box 1911
@@ -29,7 +29,7 @@ Esta versão corresponde às versões de software:
 > [!NOTE]
 > A atualização 1911 pode ser aplicada somente a todos os dispositivos que executam versões de GA (disponibilidade geral) do software ou posterior.
 
-## <a name="whats-new"></a>O que há de novo
+## <a name="whats-new"></a>Novidades
 
 Não há novos recursos na versão 1911, somente correções de bugs.
 

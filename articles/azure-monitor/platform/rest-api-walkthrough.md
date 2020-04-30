@@ -5,10 +5,10 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.openlocfilehash: 6b0e321747e0f84be5a75ab96749311ff0071e8d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687408"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passo a passo da API REST de Monitoramento do Azure
@@ -84,7 +84,7 @@ Após a autenticação, as consultas podem então ser executadas na API REST do 
 2. Recuperar os valores de métrica
 
 > [!NOTE]
-> Para obter informações adicionais sobre autenticação com a API Azure REST, consulte a [API Reference Azure REST](https://docs.microsoft.com/rest/api/azure/).
+> Para obter informações adicionais sobre como autenticar com a API REST do Azure, consulte a [referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure/).
 >
 >
 
@@ -94,7 +94,7 @@ Use a [API REST de definições da Métrica do Azure Monitor](https://docs.micro
 
 **Método**: GET
 
-**Solicitar URI**:\/\/https: management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName} /resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+**URI de solicitação**: https\/\/: Management.Azure.com/subscriptions/*{SubscriptionId}*/resourceGroups/*{resourceGroupName}*/Providers/*{resourceProviderNamespace}*/*{ResourceType}*/*{resourceName}*/Providers/Microsoft.insights/metricDefinitions? API-Version =*{apiVersion}*
 
 Por exemplo, para recuperar as definições de métrica de uma conta do Armazenamento do Azure, a solicitação será exibida da seguinte maneira:
 
@@ -238,7 +238,7 @@ Use o “value” do nome da métrica (não o “localizedValue”) para todas a
 
 **Método**: GET
 
-**Solicitar URI**\:: https //management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&*{apiVersion}* $filter=*{filter}*&&
+**URI da solicitação**:\:https//*Management.Azure.com/subscriptions/{Subscription-ID}*/resourceGroups/*{nome-do-grupo-de-recursos}*/Providers/*{Resource-Provider-namespace}*/*{tipo de recurso}*/*{nome-do-recurso}*/Providers/Microsoft.insights/Metrics de métricas = {*métrica}*&TimeSpan =*{StartTime/EndTime}*&$Filter =*{filtro}*&ResultType *{apiVersion}* = metadados&API-Version
 
 Por exemplo, para recuperar a lista de valores de dimensão que foram emitidos para a 'dimensão nome da API' para a métrica 'Transações', em que a dimensão GeoType = 'Primary' durante o intervalo de tempo especificado, a solicitação seria:
 
@@ -311,7 +311,7 @@ Use o “value” do nome da métrica (não o “localizedValue”) para todas a
 
 **Método**: GET
 
-**Solicitar URI**:\/https: /management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics??nomes métricos=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&intervalo=*{timeGrain}* agregação de&=*{aggreation}*&api-version=*{apiVersion}*
+**URI da solicitação**: https\/:/Management.Azure.com/subscriptions/*{Subscription-ID}*/resourceGroups/*{nome-do-grupo-de-recursos}*/Providers/*{Resource-Provider-namespace}*/*{tipo de recurso}*/*{nome-do-recurso}*/Providers/Microsoft.insights/Metrics? metricnames =*{métrica}*&TimeSpan =*{StartTime/EndTime}*&$Filter =*{filtro}*&intervalo =*{timegranular}*&agregação =*{aggreation}*&API-Version =*{apiVersion}*
 
 Por exemplo, para recuperar as 3 maiores APIs, da maior para a menor, pelo número de 'Transactions' durante um intervalo de 5 minutos, em que o GeotType era 'Primary', a solicitação seria:
 
@@ -390,7 +390,7 @@ Use a [API REST de definições da Métrica do Azure Monitor](https://msdn.micro
 
 **Método**: GET
 
-**Solicitar URI**:\/\/https: management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName} /resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+**URI de solicitação**: https\/\/: Management.Azure.com/subscriptions/*{SubscriptionId}*/resourceGroups/*{resourceGroupName}*/Providers/*{resourceProviderNamespace}*/*{ResourceType}*/*{resourceName}*/Providers/Microsoft.insights/metricDefinitions? API-Version =*{apiVersion}*
 
 Por exemplo, para recuperar as definições de métrica para um Aplicativo Lógico do Azure, a solicitação será exibida da seguinte maneira:
 
@@ -463,7 +463,7 @@ Depois que as definições de métrica disponíveis são conhecidas, é possíve
 
 **Método**: GET
 
-**Solicitar URI**:`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**URI de solicitação**:`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 Por exemplo, para recuperar os pontos de dados da métrica RunsSucceeded para o intervalo de tempo determinado e para um intervalo de agregação de 1 hora, a solicitação seria a seguinte:
 
@@ -653,7 +653,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para recuperar o ID de recurso de uma conta do Azure Storage usando o Azure CLI, execute o `az storage account show` comando, conforme mostrado no exemplo a seguir:
+Para recuperar a ID de recurso para uma conta de armazenamento do Azure usando o CLI do Azure `az storage account show` , execute o comando, conforme mostrado no exemplo a seguir:
 
 ```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

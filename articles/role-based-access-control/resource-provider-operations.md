@@ -14,10 +14,10 @@ ms.date: 04/15/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bfe0c6fcc0d1d22807bfb59b146050fb307892a0
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133152"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
@@ -687,7 +687,7 @@ Serviço do Azure: [Azure Resource Manager](../azure-resource-manager/index.yml)
 > | Ação | Microsoft.Authorization/operations/read | Obtém a lista de operações |
 > |  | **permissões** |  |
 > | Ação | Microsoft.Authorization/permissions/read | Listar todas as permissões que o chamador tem em determinado escopo. |
-> |  | **Policie** |  |
+> |  | **políticas** |  |
 > | Ação | Microsoft. Authorization/Policies/Audit/Action | Ação executada como resultado da avaliação de Azure Policy com o efeito de ' auditoria ' |
 > | Ação | Microsoft. Authorization/Policies/auditIfNotExists/Action | Ação executada como resultado da avaliação de Azure Policy com o efeito ' auditIfNotExists ' |
 > | Ação | Microsoft. Authorization/Policies/Deny/Action | Ação executada como resultado da avaliação de Azure Policy com o efeito ' negar ' |
@@ -1776,7 +1776,7 @@ Serviço do Azure: [Serviços cognitivas](../cognitive-services/index.yml)
 > | Ação | Microsoft.CognitiveServices/register/action | Registrar assinatura para Serviços Cognitivos |
 > | Ação | Microsoft. Cognitivaservices/checkDomainAvailability/Action | Lê os SKUs disponíveis para uma assinatura. |
 > | Ação | Microsoft.CognitiveServices/register/action | Registrar assinatura para Serviços Cognitivos |
-> |  | **as** |  |
+> |  | **contas** |  |
 > | Ação | Microsoft.CognitiveServices/accounts/read | Ler as contas de API. |
 > | Ação | Microsoft.CognitiveServices/accounts/write | Grava as contas de API. |
 > | Ação | Microsoft.CognitiveServices/accounts/delete | Excluir contas de API |
@@ -2852,7 +2852,7 @@ Serviço do Azure: [Azure Databricks](../azure-databricks/index.yml)
 > | Ação | Microsoft. databricks/Locations/operationstatuses/Read | Ler o status da operação do recurso. |
 > |  | **das** |  |
 > | Ação | Microsoft. databricks/operações/leitura | Obtém a lista de operações. |
-> |  | **workspaces** |  |
+> |  | **espaços** |  |
 > | Ação | Microsoft.Databricks/workspaces/read | Recupera uma lista de workspaces do Databricks. |
 > | Ação | Microsoft.Databricks/workspaces/write | Cria um workspace do Databricks. |
 > | Ação | Microsoft.Databricks/workspaces/delete | Remove um workspace do Databricks. |
@@ -3076,7 +3076,7 @@ Serviço do Azure: [Data Lake Analytics](../data-lake-analytics/index.yml)
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.DataLakeAnalytics/register/action | Registrar a assinatura no DataLakeAnalytics. |
-> |  | **as** |  |
+> |  | **contas** |  |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/read | Obter informações sobre uma conta DataLakeAnalytics existente. |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/write | Criar ou atualizar uma conta DataLakeAnalytics. |
 > | Ação | Microsoft.DataLakeAnalytics/accounts/delete | Excluir uma conta DataLakeAnalytics. |
@@ -3126,7 +3126,7 @@ Serviço do Azure: [Azure data Lake Store](../storage/blobs/data-lake-storage-in
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.DataLakeStore/register/action | Registrar assinatura para DataLakeStore. |
-> |  | **as** |  |
+> |  | **contas** |  |
 > | Ação | Microsoft.DataLakeStore/accounts/read | Obter informações sobre uma conta DataLakeStore existente. |
 > | Ação | Microsoft.DataLakeStore/accounts/write | Criar ou atualizar uma conta DataLakeStore. |
 > | Ação | Microsoft.DataLakeStore/accounts/delete | Excluir uma conta DataLakeStore. |
@@ -5402,7 +5402,7 @@ Serviço do Azure: [Azure Lab Services](../lab-services/index.yml)
 > | Ação | Microsoft.LabServices/labAccounts/sharedImages/write | Adiciona ou modifica as imagens compartilhadas. |
 > |  | **locais/operações** |  |
 > | Ação | Microsoft.LabServices/locations/operations/read | Operações de leitura. |
-> |  | **podem** |  |
+> |  | **usuários** |  |
 > | Ação | Microsoft.LabServices/users/Register/action | Registra um usuário em um laboratório gerenciado |
 > | Ação | Microsoft. LabServices/Users/ListAllEnvironments/Action | Listar todos os ambientes do usuário |
 > | Ação | Microsoft.LabServices/users/StartEnvironment/action | Inicia um ambiente iniciando todos os recursos dentro do ambiente. |
@@ -5593,7 +5593,7 @@ Serviço do Azure: [Machine Learning Studio](../machine-learning/studio/index.ym
 > | Ação | Microsoft.MachineLearning/webServices/delete | Excluir um serviço Web do Machine Learning |
 > |  | **WebServices/listkeys** |  |
 > | Ação | Microsoft.MachineLearning/webServices/listkeys/read | Obtém chaves para um Serviço Web do Machine Learning |
-> |  | **Espaços** |  |
+> |  | **Workspaces** |  |
 > | Ação | Microsoft.MachineLearning/Workspaces/read | Ler um Workspace do Machine Learning |
 > | Ação | Microsoft.MachineLearning/Workspaces/write | Criar ou atualizar Workspace do Machine Learning |
 > | Ação | Microsoft.MachineLearning/Workspaces/delete | Criar um Workspace do Machine Learning |
@@ -5620,7 +5620,7 @@ Serviço do Azure: [serviço de Machine Learning](../machine-learning/index.yml)
 > | Ação | Microsoft.MachineLearningServices/locations/vmsizes/read | Obtém os tamanhos de VM compatíveis |
 > |  | **localizações/workspaceOperationsStatus** |  |
 > | Ação | Microsoft.MachineLearningServices/locations/workspaceOperationsStatus/read | Obtém o status de uma operação de workspace específica |
-> |  | **workspaces** |  |
+> |  | **espaços** |  |
 > | Ação | Microsoft.MachineLearningServices/workspaces/read | Obtém os Workspaces dos Serviços de Machine Learning |
 > | Ação | Microsoft.MachineLearningServices/workspaces/write | Cria ou atualiza Workspaces dos Serviços de Machine Learning |
 > | Ação | Microsoft.MachineLearningServices/workspaces/delete | Exclui os Workspaces dos Serviços de Machine Learning |
@@ -5816,7 +5816,7 @@ Serviço do Azure: [mapas do Azure](../azure-maps/index.yml)
 > | Tipo de ação | Operação | Descrição |
 > | --- | --- | --- |
 > | Ação | Microsoft.Maps/register/action | Registrar o provedor |
-> |  | **as** |  |
+> |  | **contas** |  |
 > | Ação | Microsoft.Maps/accounts/write | Cria ou atualiza uma Conta de Mapas. |
 > | Ação | Microsoft.Maps/accounts/read | Obtém uma Conta de Mapas. |
 > | Ação | Microsoft.Maps/accounts/delete | Exclui uma Conta de Mapas. |
@@ -7204,7 +7204,7 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Ação | Microsoft. operationalinsights/Locations/operationStatuses/Read | Obter Log Analytics o status da operação assíncrona do Azure. |
 > |  | **das** |  |
 > | Ação | microsoft.operationalinsights/operations/read | Lista todas as operações da API de Rest OperationalInsights disponíveis. |
-> |  | **workspaces** |  |
+> |  | **espaços** |  |
 > | Ação | Microsoft.OperationalInsights/workspaces/write | Criar um novo workspace ou links para um workspace existente fornecendo a ID do cliente do workspace existente. |
 > | Ação | Microsoft.OperationalInsights/workspaces/read | Obter um workspace existente |
 > | Ação | Microsoft.OperationalInsights/workspaces/delete | Excluir um workspace. Se o workspace foi vinculado a um workspace existente no momento da criação, o workspace a que ele foi vinculado não será excluído. |
@@ -8554,7 +8554,7 @@ Serviço do Azure: [central de segurança](../security-center/index.yml)
 > | Ação | Microsoft.Security/locations/tasks/resolve/action | Resolver uma recomendação de segurança |
 > | Ação | Microsoft.Security/locations/tasks/activate/action | Ativar recomendação de segurança |
 > | Ação | Microsoft.Security/locations/tasks/dismiss/action | Ignorar recomendação de segurança |
-> |  | **Policie** |  |
+> |  | **políticas** |  |
 > | Ação | Microsoft.Security/policies/read | Obter a política de segurança |
 > | Ação | Microsoft.Security/policies/write | Atualizar a política de segurança |
 > |  | **pricings** |  |
