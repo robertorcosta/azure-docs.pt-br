@@ -6,40 +6,40 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5d737b1e85a28661a7491b8d2822e6472538c7a1
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617956"
 ---
 # <a name="models"></a>Modelos
 
-Um *modelo* em Renderização Remota Azure refere-se a uma representação completa de objetos, composta por [entidades](entities.md) e [componentes](components.md). Os modelos são a principal maneira de obter dados personalizados no serviço de renderização remota.
+Um *modelo* na renderização remota do Azure refere-se a uma representação de objeto completa, composta por [entidades](entities.md) e [componentes](components.md). Os modelos são a principal maneira de obter dados personalizados para o serviço de renderização remoto.
 
 ## <a name="model-structure"></a>Estrutura do modelo
 
-Um modelo tem exatamente uma [entidade](entities.md) como seu nó raiz. Abaixo disso, pode ter uma hierarquia arbitrária de entidades infantis. Ao carregar um modelo, uma referência a essa entidade raiz é devolvida.
+Um modelo tem exatamente uma [entidade](entities.md) como seu nó raiz. Abaixo disso, ele pode ter uma hierarquia arbitrária de entidades filho. Ao carregar um modelo, uma referência a essa entidade raiz é retornada.
 
-Cada entidade pode ter [componentes](components.md) anexados. No caso mais comum, as entidades possuem *MeshComponents*, que fazem referência aos [recursos da malha.](meshes.md)
+Cada entidade pode ter [componentes](components.md) anexados. No caso mais comum, as entidades têm *MeshComponents*, que referenciam [recursos de malha](meshes.md).
 
 ## <a name="creating-models"></a>Criando modelos
 
-A criação de modelos para tempo de execução é alcançada [convertendo modelos](../how-tos/conversion/model-conversion.md) de entrada de formatos de arquivo, como FBX e GLTF. O processo de conversão extrai todos os recursos, como texturas, materiais e malhas, e os converte em formatos de tempo de execução otimizados. Ele também extrairá as informações estruturais e converterá-as na estrutura de gráficos de entidade/componente da ARR.
+A criação de modelos para tempo de execução é obtida com a [conversão de modelos de entrada](../how-tos/conversion/model-conversion.md) de formatos de arquivo, como FBX e GLTF. O processo de conversão extrai todos os recursos, como texturas, materiais e malhas, e os converte em formatos de tempo de execução otimizados. Ele também extrairá as informações estruturais e as converterá na estrutura do grafo de entidade/componente do ARR.
 
 > [!IMPORTANT]
 >
-> [A conversão de](../how-tos/conversion/model-conversion.md) modelos é a única maneira de criar [meshes](meshes.md). Embora as malhas possam ser compartilhadas entre entidades em tempo de execução, não há outra maneira de colocar uma malha no tempo de execução, além de carregar um modelo.
+> A [conversão de modelo](../how-tos/conversion/model-conversion.md) é a única maneira de criar [malhas](meshes.md). Embora as malhas possam ser compartilhadas entre entidades em tempo de execução, não há nenhuma outra maneira de obter uma malha no tempo de execução, além de carregar um modelo.
 
-## <a name="loading-models"></a>Modelos de carregamento
+## <a name="loading-models"></a>Carregando modelos
 
-Uma vez que um modelo é convertido, ele pode ser carregado a partir do armazenamento blob do Azure no tempo de execução.
+Depois que um modelo é convertido, ele pode ser carregado do armazenamento de BLOBs do Azure para o tempo de execução.
 
-Existem duas funções de carregamento distintas que diferem pela forma como o ativo é abordado no armazenamento blob:
+Há duas funções de carregamento diferentes que diferem da maneira como o ativo é endereçado no armazenamento de BLOBs:
 
-* O modelo pode ser abordado pelo seu Uri SAS. A função `LoadModelFromSASAsync` de carregamento `LoadModelFromSASParams`relevante é com parâmetro . Use esta variante também ao carregar [modelos embutidos](../samples/sample-model.md).
-* O modelo pode ser abordado diretamente pelos parâmetros de armazenamento blob, caso o [armazenamento blob esteja vinculado à conta.](../how-tos/create-an-account.md#link-storage-accounts) A função de carregamento `LoadModelAsync` relevante `LoadModelParams`neste caso é com parâmetro .
+* O modelo pode ser endereçado por seu URI de SAS. A função de carregamento `LoadModelFromSASAsync` relevante é `LoadModelFromSASParams`com o parâmetro. Use essa variante também ao carregar [modelos internos](../samples/sample-model.md).
+* O modelo pode ser endereçado pelos parâmetros de armazenamento de BLOBs diretamente, caso o [armazenamento de BLOBs esteja vinculado à conta](../how-tos/create-an-account.md#link-storage-accounts). A função de carregamento relevante nesse caso `LoadModelAsync` é com `LoadModelParams`o parâmetro.
 
-Os seguintes trechos de código mostram como carregar modelos com qualquer função. Para carregar um modelo usando o Uri SAS, use o código abaixo:
+Os trechos de código a seguir mostram como carregar modelos com uma das funções. Para carregar um modelo usando o URI de SAS, use um código como o mostrado abaixo:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
@@ -58,7 +58,7 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 }
 ```
 
-Se você quiser carregar um modelo usando diretamente seus parâmetros de armazenamento blob, use um código semelhante ao seguinte trecho:
+Se você quiser carregar um modelo diretamente usando seus parâmetros de armazenamento de BLOBs, use um código semelhante ao trecho a seguir:
 
 ```csharp
 async void LoadModel(AzureSession session, Entity modelParent, string storageAccount, string containerName, string assetFilePath)
@@ -77,10 +77,10 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
 }
 ```
 
-Depois você pode atravessar a hierarquia da entidade e modificar as entidades e componentes. Carregar o mesmo modelo várias vezes cria várias instâncias, cada uma com sua própria cópia da estrutura entidade/componente. Uma vez que malhas, materiais e texturas são [recursos compartilhados,](../concepts/lifetime.md)seus dados não serão carregados novamente, no entanto. Portanto, a instanciação de um modelo mais de uma vez incorre relativamente pouca sobrecarga de memória.
+Posteriormente, você pode percorrer a hierarquia de entidade e modificar as entidades e os componentes. Carregar o mesmo modelo várias vezes cria várias instâncias, cada uma com sua própria cópia da estrutura de entidade/componente. Como as malhas, os materiais e as texturas são [recursos compartilhados](../concepts/lifetime.md), no entanto, seus dados não serão carregados novamente. Portanto, instanciar um modelo mais de uma vez incorre em uma sobrecarga de memória relativamente pequena.
 
 > [!CAUTION]
-> Todas as funções *assíncronas* em arr retornam objetos de operação assíncronos. Você deve armazenar uma referência a esses objetos até que a operação seja concluída. Caso contrário, o coletor de lixo C# pode excluir a operação mais cedo e nunca poderá terminar. No código de amostra acima, o uso do *aguarde* garante que a variável local 'loadOp' mantém uma referência até que o carregamento do modelo seja concluído. No entanto, se você usar o evento *Concluído* em vez disso, você precisará armazenar a operação assíncrona em uma variável de membro.
+> Todas as funções *assíncronas* no Arr retornam objetos de operação assíncrona. Você deve armazenar uma referência a esses objetos até que a operação seja concluída. Caso contrário, o coletor de lixo C# poderá excluir a operação antecipadamente e nunca poderá ser concluído. No código de exemplo acima, o uso de *Await* garante que a variável local ' loadOp ' mantém uma referência até que o carregamento do modelo seja concluído. No entanto, se você usar o evento *Completed* em vez disso, precisaria armazenar a operação assíncrona em uma variável de membro.
 
 ## <a name="next-steps"></a>Próximas etapas
 

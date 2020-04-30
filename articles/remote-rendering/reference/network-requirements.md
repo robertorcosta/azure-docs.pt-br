@@ -1,53 +1,53 @@
 ---
 title: Requisitos de rede
-description: Requisitos de rede e melhores práticas de rede para uma experiência ideal
+description: Requisitos de rede e práticas recomendadas de rede para uma experiência ideal
 author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
 ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617875"
 ---
 # <a name="network-requirements"></a>Requisitos de rede
 
-Uma conexão de rede estável e de baixa latência a um data center do Azure é fundamental para uma boa experiência do usuário na Renderização Remota do Azure. As más condições da rede podem resultar em conexões descartadas, hologramas instáveis, nervosos ou "pulando" e um atraso perceptível ao atualizar o gráfico de cena do lado do servidor.
+Uma conexão de rede estável e de baixa latência com uma data center do Azure é essencial para uma boa experiência do usuário na renderização remota do Azure. Condições de rede insuficientes podem resultar em conexões descartadas, em instabilidade, tremulação ou hologramas de ' salto ' e em um retardo perceptível ao atualizar o grafo de cena do lado do servidor.
 
 ## <a name="guidelines-for-network-connectivity"></a>Diretrizes para conectividade de rede
 
-Os requisitos exatos da rede dependem do seu caso de uso específico, como o número e a frequência de modificações no gráfico de cena remota, bem como a complexidade da visualização renderizada, mas há uma série de diretrizes para garantir que sua experiência seja a melhor possível:
+Os requisitos de rede exatos dependem do seu caso de uso específico, como o número e a frequência de modificações no grafo de cena remota, bem como a complexidade da exibição renderizada, mas há várias diretrizes para garantir que sua experiência seja a mais boa possível:
 
-* Sua conectividade com a internet precisa suportar pelo menos **50 Mbps a jusante** e **10 Mbps a montante** consistentemente para uma única sessão de usuário do Azure Remote Rendering, assumindo que não há tráfego concorrente na rede. Recomendamos taxas mais altas para melhores experiências. Com mais usuários na mesma rede, esses requisitos são dimensionados correspondentemente.
-* O uso da **banda Wi-Fi de 5 GHz** geralmente produzirá melhores resultados do que a banda Wi-Fi de 2,4 GHz, embora ambos deva funcionar.
-* Se houver outras redes Wi-Fi nas proximidades, evite usar canais Wi-Fi em uso por essas outras redes. Você pode usar ferramentas de varredura de rede como [o WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) para verificar se os canais que sua rede Wi-Fi usa, estão livres de tráfego concorrente.
-* Evite estritamente **o uso de repetidores Wi-Fi** ou encaminhamento de linha de entrada sobre potência.
-* **Evite o tráfego intenso de largura de banda concorrente** – como o streaming de vídeo ou de jogos – na mesma rede Wi-Fi.
-* Ter **uma boa força de sinal Wi-Fi** é essencial. Se possível, fique perto do seu ponto de acesso Wi-Fi e evite obstáculos entre o dispositivo cliente e os pontos de acesso.
-* Certifique-se de que você sempre se conecta ao **data center Azure mais próximo** para sua [região](regions.md). Quanto mais perto o data center, menor a latência da rede, o que tem um enorme efeito na estabilidade do holograma.
+* Sua conectividade com a Internet precisa dar suporte a pelo menos **50 Mbps downstream** e **10 Mbps upstream** de forma consistente para uma única sessão de usuário da renderização remota do Azure, supondo que não haja tráfego de concorrência na rede. Recomendamos taxas mais altas para melhores experiências. Com mais usuários na mesma rede, esses requisitos são dimensionados de forma correspondente.
+* Usar a **banda Wi-Fi de 5 GHz** geralmente produzirá resultados melhores do que a banda Wi-fi de 2,4 GHz, embora ambas devam funcionar.
+* Se houver outras redes Wi-Fi próximas, evite usar canais Wi-Fi em uso por essas outras redes. Você pode usar ferramentas de verificação de rede como [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) para verificar se os canais que sua rede Wi-Fi usa, estão livres de tráfego de concorrência.
+* Evite, estritamente, o **uso de repetidores Wi-Fi** ou encaminhamento de LAN over-Powerline.
+* **Evite o tráfego intensivo de largura de banda concorrente** , como vídeo ou streaming de jogos, na mesma rede Wi-Fi.
+* Ter **boa intensidade de sinal de Wi-Fi** é essencial. Se possível, permaneça perto do seu ponto de acesso Wi-Fi e Evite obstáculos entre o dispositivo cliente e os pontos de acesso.
+* Certifique-se de sempre se conectar ao **Data Center do Azure mais próximo** para sua [região](regions.md). Quanto mais próximo a data center, menor a latência de rede, que tem um grande efeito na estabilidade do holograma.
 
 > [!NOTE]
-> A largura de banda a jusante é consumida principalmente pelo fluxo de vídeo, que por sua vez é dividido entre informações de cor e profundidade (ambos 60 Hz, estéreo).
+> A largura de banda downstream é consumida principalmente pelo fluxo de vídeo, que, por sua vez, é dividido entre as informações de cor e de profundidade (60 Hz, estéreo).
 
-## <a name="network-performance-tests"></a>Testes de desempenho em rede
+## <a name="network-performance-tests"></a>Testes de desempenho de rede
 
-Se você quiser obter uma compreensão inicial sobre se a qualidade da sua conectividade de rede é suficiente para executar a renderização remota do Azure, existem ferramentas on-line existentes que você pode usar. Recomendamos fortemente executar essas ferramentas on-line a partir de um laptop razoavelmente poderoso conectado ao mesmo Wi-Fi que o dispositivo que você está planejando executar o seu aplicativo cliente de renderização remota Azure. Os resultados obtidos com a execução dos testes em um telefone celular ou HoloLens2 são geralmente menos úteis, pois eles provaram mostrar variação significativa em dispositivos de ponto final de baixa potência. O local em que você coloca o laptop deve ser aproximadamente no mesmo local em que você espera usar o dispositivo que executa o aplicativo cliente de renderização remota Do Azure.
+Se você quiser ter um entendimento inicial de se a qualidade de sua conectividade de rede é suficiente para executar a renderização remota do Azure, há ferramentas online existentes que você pode usar. É altamente recomendável executar essas ferramentas online de um laptop razoavelmente poderoso conectado ao mesmo Wi-Fi que o dispositivo no qual você está planejando executar seu aplicativo cliente de renderização remota do Azure. Os resultados obtidos da execução dos testes em um celular ou HoloLens2 geralmente são menos úteis, pois eles comprovaram mostrar uma variação significativa em dispositivos de ponto de extremidade de baixa potência. O local no qual você coloca o laptop deve estar aproximadamente no mesmo local em que você espera usar o dispositivo que executa o aplicativo cliente de renderização remota do Azure.
 
-Aqui estão alguns passos simples para um teste rápido da conectividade de sua rede:
+Aqui estão algumas etapas simples para um teste rápido de sua conectividade de rede:
 
-1. **Execute uma ferramenta de teste de rede como www.speedtest.net para obter dados sobre a latência geral e a largura de banda upstream/downstream da sua conexão de rede.**
-Escolha um servidor mais próximo de você e execute o teste. Embora o servidor não seja o data center do Azure ao qual o Azure Remote Rendering se conectará, os dados resultantes ainda são úteis para entender o desempenho da sua conexão com a internet e Wi-Fi.
-   * **Requisito mínimo** para renderização remota Azure: aproximadamente 40 Mbps a jusante e 5 Mbps a montante.
-   * **Recomendado** para renderização remota Azure: aproximadamente 100 Mbps a jusante e 10 Mbps upstream.
-Recomendamos fazer o teste várias vezes e tirar os piores resultados.
-1. **Use uma ferramenta como www.azurespeed.com que mede a latência aos data centers do Azure.** Selecione o data center do Azure suportado pela renderização remota do Azure mais próxima de você (veja [regiões suportadas)](regions.md)e execute um **teste de latência**. Se houver variação nos números que você vê, dê aos resultados algum tempo para estabilizar.
-   * **Requisito mínimo** para renderização remota Azure: A latência deve ser consistentemente inferior a 100 ms.
-   * **Recomendação** para renderização remota Azure: A latência deve ser consistentemente inferior a 70 ms.
+1. **Execute uma ferramenta de teste de rede como www.speedtest.net para obter dados sobre a latência geral e a largura de banda de upstream/downstream de sua conexão de rede.**
+Escolha um servidor mais próximo de você e execute o teste. Embora o servidor não seja o data center do Azure ao qual a renderização remota do Azure se conectará, os dados resultantes ainda serão úteis para entender o desempenho da conexão com a Internet e do Wi-Fi.
+   * **Requisito mínimo** de renderização remota do Azure: aproximadamente 40 Mbps downstream e 5 Mbps upstream.
+   * **Recomendado** para renderização remota do Azure: de aproximadamente 100 Mbps downstream e 10 Mbps upstream.
+É recomendável executar o teste várias vezes e assumir os piores resultados.
+1. **Use uma ferramenta como www.azurespeed.com que mede a latência para os data centers do Azure**. Selecione o data center do Azure com suporte pelo processamento remoto do Azure que está mais próximo de você (consulte [regiões com suporte](regions.md)) e execute um **teste de latência**. Se houver variação nos números que você vê, dê tempo aos resultados para estabilizar.
+   * **Requisito mínimo** para renderização remota do Azure: a latência deve ser de forma consistente menor que 100 ms.
+   * **Recomendado** para renderização remota do Azure: a latência deve ser consistentemente menor que 70 ms.
 
-Embora a baixa latência não seja uma garantia de que a renderização remota do Azure funcionará bem em sua rede, geralmente vimos que ela funciona bem em situações em que esses testes passaram com sucesso.
-Se você estiver encontrando artefatos como hologramas instáveis, nervosos ou saltitantes ao executar renderização remota do Azure, consulte o [guia de solução de problemas](../resources/troubleshoot.md).
+Embora a baixa latência não seja uma garantia de que a renderização remota do Azure funcionará bem em sua rede, normalmente vimos que ela está funcionando corretamente em situações em que esses testes passaram com êxito.
+Se você estiver encontrando artefatos como hologramas instável, de tremulação ou de salto ao executar a renderização remota do Azure, consulte o [Guia de solução de problemas](../resources/troubleshoot.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

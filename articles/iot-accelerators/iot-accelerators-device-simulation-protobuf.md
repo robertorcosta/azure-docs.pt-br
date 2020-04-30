@@ -12,10 +12,10 @@ ms.custom:
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: c49745b30d2c4acc115a72af095f3e941dc4d509
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683999"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serializar a telemetria usando Buffers de Protocolo
@@ -65,7 +65,7 @@ Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://git
 
 No Visual Studio Code, abra a pasta **remote-monitoring-services-dotnet-master\storage-adapter**. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o arquivo **.vscode/launch.json** e atribua sua seqüência de conexão Cosmos DB à variável de ambiente **CONNSTRING DO PCS\_STORAGEADAPTER\_DOCUMENTDB.\_**
+Abra o arquivo **. vscode/Launch. JSON** e atribua sua cadeia de conexão Cosmos DB à variável de ambiente **PCs\_STORAGEADAPTER\_DOCUMENTDB\_connString** .
 
 > [!NOTE]
 > Ao executar o microsserviço localmente em seu computador, ele ainda exige uma instância do Cosmos DB no Azure para funcionar corretamente.
@@ -202,11 +202,11 @@ Abra o arquivo **WebService/Properties/launchSettings.json** e atribua:
 * Sua cadeia de conexão da conta de armazenamento à variável de ambiente **PCS\_AZURE\_STORAGE\_ACCOUNT**.
 * Sua cadeia de conexão do Cosmos DB à variável de ambiente **PCS\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING**.
 
-Abra o **arquivo WebService\appsettings.ini** e modifique as configurações da seguinte forma:
+Abra o arquivo **WebService\appsettings.ini** e modifique as configurações da seguinte maneira:
 
 #### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Configurar a solução para incluir seus novos arquivos de modelo do dispositivo
 
-Por padrão, os novos arquivos JSON e JS do modelo do dispositivo não serão copiados para a solução incorporada. Você precisa incluí-los explicitamente.
+Por padrão, seus novos arquivos JSON e JS de modelo de dispositivo não serão copiados para a solução interna. Você precisa incluí-los explicitamente.
 
 Adicione uma entrada para o arquivo **services\services.csproj** para cada arquivo que você quer incluir. Por exemplo:
 

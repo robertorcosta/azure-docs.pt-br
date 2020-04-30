@@ -1,6 +1,6 @@
 ---
-title: Selecione a transformação no mapeamento do fluxo de dados
-description: Azure Data Factory mapeando fluxo de dados Select Transformation
+title: Selecionar transformação no fluxo de dados de mapeamento
+description: Fluxo de dados de mapeamento de Azure Data Factory selecionar transformação
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,90 +8,90 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/18/2020
 ms.openlocfilehash: a90a2def874c7f081f83a34aea956083eb72879a
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686490"
 ---
-# <a name="select-transformation-in-mapping-data-flow"></a>Selecione a transformação no mapeamento do fluxo de dados
+# <a name="select-transformation-in-mapping-data-flow"></a>Selecionar transformação no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use a transformação selecionada para renomear, soltar ou reordenar colunas. Essa transformação não altera os dados da linha, mas escolhe quais colunas são propagadas a jusante. 
+Use a transformação selecionar para renomear, descartar ou reordenar colunas. Essa transformação não altera os dados da linha, mas escolhe quais colunas são propagadas downstream. 
 
-Em uma transformação selecionada, os usuários podem especificar mapeamentos fixos, usar padrões para fazer mapeamento baseado em regras ou ativar mapeamento automático. Mapeamentos fixos e baseados em regras podem ser usados na mesma transformação selecionada. Se uma coluna não corresponder a um dos mapeamentos definidos, ela será descartada.
+Em uma transformação selecionar, os usuários podem especificar mapeamentos fixos, usar padrões para fazer o mapeamento baseado em regras ou habilitar o mapeamento automático. Os mapeamentos fixos e baseados em regras podem ser usados na mesma transformação SELECT. Se uma coluna não corresponder a um dos mapeamentos definidos, ela será descartada.
 
 ## <a name="fixed-mapping"></a>Mapeamento fixo
 
-Se houver menos de 50 colunas definidas em sua projeção, todas as colunas definidas terão um mapeamento fixo por padrão. Um mapeamento fixo pega uma coluna definida e de entrada e mapeia um nome exato.
+Se houver menos de 50 colunas definidas em sua projeção, todas as colunas definidas terão um mapeamento fixo por padrão. Um mapeamento fixo usa uma coluna de entrada definida e mapeia um nome exato.
 
 ![Mapeamento fixo](media/data-flow/fixedmapping.png "Mapeamento fixo")
 
 > [!NOTE]
-> Você não pode mapear ou renomear uma coluna à deriva usando um mapeamento fixo
+> Não é possível mapear ou renomear uma coluna descompasso usando um mapeamento fixo
 
-### <a name="mapping-hierarchical-columns"></a>Mapeamento de colunas hierárquicas
+### <a name="mapping-hierarchical-columns"></a>Mapeando colunas hierárquicas
 
-Mapeamentos fixos podem ser usados para mapear uma subcoluna de uma coluna hierárquica para uma coluna de nível superior. Se você tiver uma hierarquia definida, use a coluna parada para selecionar uma subcoluna. A transformação selecionada criará uma nova coluna com o valor e o tipo de dados da subcoluna.
+Mapeamentos fixos podem ser usados para mapear uma subcoluna de uma coluna hierárquica para uma coluna de nível superior. Se você tiver uma hierarquia definida, use a lista suspensa coluna para selecionar uma subcoluna. A transformação selecionar criará uma nova coluna com o valor e o tipo de dados da subcoluna.
 
 ![mapeamento hierárquico](media/data-flow/select-hierarchy.png "mapeamento hierárquico")
 
 ## <a name="rule-based-mapping"></a>mapeamento baseado em regras
 
-Se você deseja mapear muitas colunas de uma só vez ou passar colunas à deriva rio abaixo, use mapeamento baseado em regras para definir seus mapeamentos usando padrões de coluna. Coincidir com `name`base `type` `stream`nas `position` colunas e nas colunas. Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padrão para um mapeamento baseado em regras que corresponda a cada coluna e produz o nome inserido. 
+Se você quiser mapear várias colunas de uma vez ou passar as colunas desfeitas, use o mapeamento baseado em regras para definir seus mapeamentos usando padrões de coluna. Corresponder com base nas `name`colunas `type`, `stream`, e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
 
-Para adicionar um mapeamento baseado em regras, clique **em Adicionar mapeamento** e selecione mapeamento baseado em **regras**.
+Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regra**.
 
 ![mapeamento baseado em regras](media/data-flow/rule2.png "mapeamento baseado em regras")
 
-Cada mapeamento baseado em regras requer duas entradas: a condição em que corresponder e qual nomear cada coluna mapeada. Ambos os valores são inseridos através do construtor de [expressão](concepts-data-flow-expression-builder.md). Na caixa de expressão esquerda, insira sua condição de jogo booleano. Na caixa de expressão certa, especifique para o que a coluna combinada será mapeada.
+Cada mapeamento baseado em regras requer duas entradas: a condição na qual corresponder e o nome de cada coluna mapeada. Os dois valores são inseridos por meio do [Construtor de expressões](concepts-data-flow-expression-builder.md). Na caixa expressão à esquerda, insira sua condição de correspondência booliana. Na caixa expressão à direita, especifique a qual a coluna correspondente será mapeada.
 
 ![mapeamento baseado em regras](media/data-flow/rule-based-mapping.png "mapeamento baseado em regras")
 
-Use `$$` sintaxe para referenciar o nome de entrada de uma coluna combinada. Usando a imagem acima como exemplo, digamos que um usuário quer corresponder em todas as colunas de string cujos nomes são menores que seis caracteres. Se uma coluna recebida `test`for `$$ + '_short'` nomeada, a `test_short`expressão renomeará a coluna . Se esse for o único mapeamento que existe, todas as colunas que não atenderem à condição serão retiradas dos dados produzidos.
+Use `$$` a sintaxe para fazer referência ao nome de entrada de uma coluna correspondente. Usando a imagem acima como um exemplo, digamos que um usuário queira corresponder a todas as colunas de cadeia de caracteres cujos nomes tenham menos de seis caracteres. Se uma coluna de entrada tiver `test`sido nomeada, `$$ + '_short'` a expressão renomeará a coluna `test_short`. Se esse for o único mapeamento existente, todas as colunas que não atenderem à condição serão descartadas dos dados de saída.
 
-Os padrões combinam com colunas derivadas e definidas. Para ver quais colunas definidas são mapeadas por uma regra, clique no ícone dos óculos ao lado da regra. Verifique sua saída usando a visualização de dados.
+Padrões correspondem a colunas descompassos e definidas. Para ver quais colunas definidas são mapeadas por uma regra, clique no ícone de óculos ao lado da regra. Verifique a saída usando a visualização de dados.
 
-### <a name="regex-mapping"></a>Mapeamento regex
+### <a name="regex-mapping"></a>Mapeamento de Regex
 
-Se você clicar no ícone chevron para baixo, você pode especificar uma condição de mapeamento regex. Uma condição de mapeamento de regex corresponde a todos os nomes de coluna que correspondem à condição de regex especificada. Isso pode ser usado em combinação com mapeamentos padrão baseados em regras.
+Se você clicar no ícone de divisa inferior, poderá especificar uma condição de mapeamento de Regex. Uma condição de mapeamento Regex corresponde a todos os nomes de coluna que correspondem à condição Regex especificada. Isso pode ser usado em combinação com mapeamentos padrão baseados em regras.
 
 ![mapeamento baseado em regras](media/data-flow/regex-matching.png "mapeamento baseado em regras")
 
-O exemplo acima corresponde `(r)` ao padrão regex ou qualquer nome de coluna que contenha uma caixa inferior r. Semelhante ao mapeamento padrão baseado em regras, todas as colunas `$$` combinadas são alteradas pela condição à direita usando sintaxe.
+O exemplo acima corresponde ao padrão `(r)` Regex ou a qualquer nome de coluna que contenha um r com letras minúsculas. Semelhante ao mapeamento baseado em regra padrão, todas as colunas correspondentes são alteradas pela condição à direita usando `$$` a sintaxe.
 
-Se você tiver várias correspondências de regex no `$n` nome da coluna, você pode se referir a partidas específicas usando onde 'n' refere-se a qual correspondência. Por exemplo, '$2' refere-se à segunda correspondência dentro de um nome de coluna.
+Se você tiver várias correspondências de Regex em seu nome de coluna, poderá consultar correspondências `$n` específicas usando onde ' n' refere-se a qual correspondência. Por exemplo, ' $2 ' refere-se à segunda correspondência dentro de um nome de coluna.
 
 ### <a name="rule-based-hierarchies"></a>Hierarquias baseadas em regras
 
-Se sua projeção definida tiver uma hierarquia, você pode usar o mapeamento baseado em regras para mapear as subcolunas de hierarquias. Especifique uma condição de correspondência e a coluna complexa cujas subcolunas você deseja mapear. Cada subcoluna combinada será descontinuada usando a regra 'Nome as' especificada à direita.
+Se a projeção definida tiver uma hierarquia, você poderá usar o mapeamento baseado em regras para mapear as Subcolunas de hierarquias. Especifique uma condição de correspondência e a coluna complexa cujas Subcolunas você deseja mapear. Todas as Subcolunas correspondentes serão emitidas usando a regra ' nome como ' especificada à direita.
 
 ![mapeamento baseado em regras](media/data-flow/rule-based-hierarchy.png "mapeamento baseado em regras")
 
-O exemplo acima corresponde a todas `a`as subcolunas de coluna complexa . `a`contém duas subcolunas `b` e `c`. O esquema de saída incluirá `b` duas `c` colunas e como `$$`a condição 'Nome as' é .
+O exemplo acima corresponde a todas as Subcolunas de coluna `a`complexa. `a`contém duas Subcolunas `b` e `c`. O esquema de saída incluirá duas `b` colunas `c` e como a condição ' nome como ' `$$`é.
 
 ### <a name="parameterization"></a>Parametrização
 
-Você pode parametrizar nomes de colunas usando mapeamento baseado em regras. Use a ```name``` palavra-chave para combinar nomes de coluna saem com um parâmetro. Por exemplo, se você tiver ```mycolumn```um parâmetro de fluxo de dados, você ```mycolumn```pode criar uma regra que corresponda a qualquer nome de coluna que seja igual a . Você pode renomear a coluna combinada para uma seqüência de string codificada como 'chave de negócios' e referenciar-a explicitamente. Neste exemplo, a condição ```name == $mycolumn``` de correspondência é e a condição do nome é 'chave de negócios'. 
+Você pode parametrizar nomes de coluna usando o mapeamento baseado em regra. Use a palavra ```name``` -chave para corresponder nomes de coluna de entrada em um parâmetro. Por exemplo, se você tiver um parâmetro ```mycolumn```de fluxo de dados, poderá criar uma regra que corresponda a qualquer nome de coluna que ```mycolumn```seja igual a. Você pode renomear a coluna correspondente para uma cadeia de caracteres embutida em código, como ' chave comercial ' e fazer referência a ela explicitamente. Neste exemplo, a condição de correspondência é ```name == $mycolumn``` e a condição de nome é ' chave comercial '. 
 
 ## <a name="auto-mapping"></a>Mapeamento automático
 
-Ao adicionar uma transformação selecionada, **o mapeamento automático** pode ser ativado com utande do controle deslizante de mapeamento automático. Com o mapeamento automático, a transformação selecionada mapeia todas as colunas recebidas, excluindo duplicatas, com o mesmo nome de sua entrada. Isso incluirá colunas à deriva, o que significa que os dados de saída podem conter colunas não definidas em seu esquema. Para obter mais informações sobre colunas à deriva, consulte [o esquema drift](concepts-data-flow-schema-drift.md).
+Ao adicionar uma transformação selecionar, o **mapeamento automático** pode ser habilitado alternando o controle deslizante de mapeamento automático. Com o mapeamento automático, a transformação selecionar mapeia todas as colunas de entrada, excluindo duplicatas, com o mesmo nome de sua entrada. Isso incluirá colunas descompassos, o que significa que os dados de saída podem conter colunas não definidas em seu esquema. Para obter mais informações sobre colunas desativadas, consulte [descompasso de esquemas](concepts-data-flow-schema-drift.md).
 
 ![Mapeamento automático](media/data-flow/automap.png "Mapeamento automático")
 
-Com o mapeamento automático ligado, a transformação selecionada honrará as configurações duplicadas de pular e fornecerá um novo alias para as colunas existentes. O aliasing é útil ao fazer várias participações ou maquinas no mesmo fluxo e em cenários de auto-adesão. 
+Com o mapeamento automático ativado, a transformação selecionar honrará as configurações de ignorar duplicadas e fornecerá um novo alias para as colunas existentes. A criação de alias é útil ao fazer várias junções ou pesquisas no mesmo fluxo e em cenários de autojunção. 
 
-## <a name="duplicate-columns"></a>Colunas duplicadas
+## <a name="duplicate-columns"></a>Duplicar colunas
 
-Por padrão, a transformação selecionada derruba colunas duplicadas tanto na projeção de entrada quanto de saída. Colunas de entrada duplicadas geralmente vêm de transformações de adesão e de aparência onde os nomes das colunas são duplicados em cada lado da parte. Colunas de saída duplicadas podem ocorrer se você mapear duas colunas de entrada diferentes para o mesmo nome. Escolha se deve soltar ou passar em colunas duplicadas, alternando a caixa de seleção.
+Por padrão, a transformação selecionar descarta colunas duplicadas na projeção de entrada e saída. Colunas de entrada duplicadas geralmente são provenientes de transformações de junção e pesquisa, em que os nomes de coluna são duplicados em cada lado da junção. Colunas de saída duplicadas podem ocorrer se você mapear duas colunas de entrada diferentes para o mesmo nome. Escolha se deseja descartar ou passar colunas duplicadas alternando a caixa de seleção.
 
-![Pular duplicatas](media/data-flow/select-skip-dup.png "Pular duplicatas")
+![Ignorar duplicatas](media/data-flow/select-skip-dup.png "Ignorar duplicatas")
 
-## <a name="ordering-of-columns"></a>Encomenda de colunas
+## <a name="ordering-of-columns"></a>Ordenação de colunas
 
-A ordem dos mapeamentos determina a ordem das colunas de saída. Se uma coluna de entrada for mapeada várias vezes, apenas o primeiro mapeamento será honrado. Para qualquer coluna duplicada caindo, a primeira partida será mantida.
+A ordem dos mapeamentos determina a ordem das colunas de saída. Se uma coluna de entrada for mapeada várias vezes, somente o primeiro mapeamento será respeitado. Para qualquer descarte de coluna duplicada, a primeira correspondência será mantida.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
@@ -112,9 +112,9 @@ A ordem dos mapeamentos determina a ordem das colunas de saída. Se uma coluna d
 
 ### <a name="example"></a>Exemplo
 
-Abaixo está um exemplo de um mapeamento selecionado e seu script de fluxo de dados:
+Abaixo está um exemplo de um mapeamento Select e seu script de fluxo de dados:
 
-![Selecione o exemplo do script](media/data-flow/select-script-example.png "Selecione o exemplo do script")
+![Selecionar exemplo de script](media/data-flow/select-script-example.png "Selecionar exemplo de script")
 
 ```
 DerivedColumn1 select(mapColumn(
@@ -130,4 +130,4 @@ DerivedColumn1 select(mapColumn(
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Depois de usar Select para renomear, reordenar e alias colunas, use a [transformação Sink](data-flow-sink.md) para pousar seus dados em um armazenamento de dados.
+* Depois de usar Select para renomear, reordenar e alias de colunas, use a [transformação do coletor](data-flow-sink.md) para colocar seus dados em um repositório de dados.

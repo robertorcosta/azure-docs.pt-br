@@ -1,48 +1,48 @@
 ---
-title: Como atualizar o Monitor Do Azure para o agente de dependência de VMs
-description: Este artigo descreve como atualizar o monitor azure para agente de dependência de VMs usando linha de comando, assistente de configuração e outros métodos.
+title: Como atualizar o Azure Monitor para VMs agente de dependência
+description: Este artigo descreve como atualizar o Azure Monitor para VMs agente de dependência usando a linha de comando, o assistente de configuração e outros métodos.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
 ms.openlocfilehash: 01dd8422658aa0c8982733e48782efd27c1bf5be
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617847"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Como atualizar o Monitor Do Azure para o agente de dependência de VMs
+# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Como atualizar o Azure Monitor para VMs agente de dependência
 
-Após a implantação inicial do azure Monitor para o agente Dependency de VMs, são lançadas atualizações que incluem correções de bugs ou suporte a novos recursos ou funcionalidades.  Este artigo ajuda você a entender os métodos disponíveis e como realizar a atualização manualmente ou através da automação.
+Após a implantação inicial do Azure Monitor para VMs agente de dependência, são lançadas atualizações que incluem correções de bugs ou suporte a novos recursos ou funcionalidades.  Este artigo ajuda você a entender os métodos disponíveis e como executar a atualização manualmente ou por meio da automação.
 
-## <a name="upgrade-options"></a>Opções de upgrade 
+## <a name="upgrade-options"></a>Opções de atualização 
 
-O agente Dependency para Windows e Linux pode ser atualizado para a versão mais recente manualmente ou automaticamente, dependendo do cenário de implantação e ambiente em que a máquina está sendo executado. Os seguintes métodos podem ser usados para atualizar o agente.
+O Dependency Agent para Windows e Linux pode ser atualizado para a versão mais recente manualmente ou automaticamente, dependendo do cenário de implantação e do ambiente no qual o computador está sendo executado. Os métodos a seguir podem ser usados para atualizar o agente.
 
 |Ambiente |Método de instalação |Método de atualização |
 |------------|--------------------|---------------|
-|VM do Azure | Extensão vm do agente de dependência para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | O agente é automaticamente atualizado por padrão, a menos que você configure o modelo do Azure Resource Manager para desativar definindo a propriedade *autoUpgradeMinorVersion* como **falsa**. A atualização para a versão menor onde a atualização automática é desativada, e uma atualização de versão principal seguem o mesmo método - desinstalar e reinstalar a extensão. |
-| Imagens personalizadas do Azure VM | Instalação manual do agente de dependência para Windows/Linux | A atualização das VMs para a versão mais recente do agente precisa ser realizada a partir da linha de comando executando o pacote instalador do Windows ou o pacote de script shell auto-extraindo e instalado do Linux.|
-| VMs não-azure | Instalação manual do agente de dependência para Windows/Linux | A atualização das VMs para a versão mais recente do agente precisa ser realizada a partir da linha de comando executando o pacote instalador do Windows ou o pacote de script shell auto-extraindo e instalado do Linux. |
+|VM do Azure | Extensão de VM do agente de dependência para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | O Agent é atualizado automaticamente por padrão, a menos que você tenha configurado seu modelo de Azure Resource Manager para recusar definindo a propriedade *autoUpgradeMinorVersion* como **false**. A atualização para a versão secundária em que a atualização automática está desabilitada e uma atualização de versão principal segue o mesmo método – desinstale e reinstale a extensão. |
+| Imagens personalizadas de VM do Azure | Instalação manual do agente de dependência para Windows/Linux | A atualização de VMs para a versão mais recente do agente precisa ser executada na linha de comando que executa o pacote do Windows Installer ou o grupo de script de shell instalável e de extração automática do Linux.|
+| VMs não Azure | Instalação manual do agente de dependência para Windows/Linux | A atualização de VMs para a versão mais recente do agente precisa ser executada na linha de comando que executa o pacote do Windows Installer ou o grupo de script de shell instalável e de extração automática do Linux. |
 
-## <a name="upgrade-windows-agent"></a>Atualizar agente do Windows 
+## <a name="upgrade-windows-agent"></a>Atualizar o agente do Windows 
 
-Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão VM do agente dependency, você é executado a partir do Prompt de comando, script ou outra solução de automação, ou usando o Assistente de Configuração InstallDependencyAgent-Windows.exe.  
+Para atualizar o agente em uma VM do Windows para a versão mais recente não instalada usando a extensão de VM do agente de dependência, execute no prompt de comando, script ou outra solução de automação ou usando o assistente de instalação do Installdependencyagent-Windows. exe.  
 
-Você pode baixar a versão mais recente do agente windows [daqui](https://aka.ms/dependencyagentwindows).
+Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka.ms/dependencyagentwindows).
 
-### <a name="using-the-setup-wizard"></a>Usando o assistente de configuração
+### <a name="using-the-setup-wizard"></a>Usando o assistente de instalação
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Execute **InstallDependencyAgent-Windows.exe** para iniciar o Assistente de configuração.
+2. Execute **installdependencyagent-Windows. exe** para iniciar o assistente de instalação.
    
-3. Siga o assistente **de configuração do agente de dependência** para desinstalar a versão anterior do agente de dependência e, em seguida, instale a versão mais recente.
+3. Siga o assistente de **instalação do Dependency Agent** para desinstalar a versão anterior do agente de dependência e, em seguida, instale a versão mais recente.
 
 
-### <a name="from-the-command-line"></a>Da linha de comando
+### <a name="from-the-command-line"></a>Na linha de comando
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
@@ -52,22 +52,22 @@ Você pode baixar a versão mais recente do agente windows [daqui](https://aka.m
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
     ```
 
-    O `/RebootMode=manual` parâmetro impede que a atualização reinicie automaticamente a máquina se alguns processos estiverem usando arquivos da versão anterior e tiver um bloqueio sobre eles. 
+    O `/RebootMode=manual` parâmetro impede que a atualização reinicie automaticamente o computador se alguns processos estiverem usando arquivos da versão anterior e tiverem um bloqueio neles. 
 
-3. Para confirmar se a atualização `install.log` foi bem sucedida, verifique se há informações detalhadas de configuração. O diretório de log é *%Programfiles%\Microsoft Dependency Agent\logs*.
+3. Para confirmar se a atualização foi bem-sucedida, verifique `install.log` as informações de configuração detalhadas. O diretório de log é *%Programfiles%\Microsoft Dependency Agent\logs*.
 
-## <a name="upgrade-linux-agent"></a>Atualizar agente Linux 
+## <a name="upgrade-linux-agent"></a>Atualizar agente do Linux 
 
-A atualização das versões anteriores do agente Dependency no Linux é suportada e realizada seguindo o mesmo comando de uma nova instalação.
+A atualização de versões anteriores do Dependency Agent no Linux é suportada e executada seguindo o mesmo comando que uma nova instalação.
 
-Você pode baixar a versão mais recente do agente Linux [daqui](https://aka.ms/dependencyagentlinux).
+Você pode baixar a versão mais recente do agente do Linux [aqui](https://aka.ms/dependencyagentlinux).
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
-2. Execute o seguinte`sh InstallDependencyAgent-Linux64.bin -s`comando como raiz . 
+2. Execute o comando a seguir como`sh InstallDependencyAgent-Linux64.bin -s`raiz. 
 
-Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Nos agentes Linux, o diretório de log é */var/opt/microsoft/dependency-agent/log*. 
+Se o Agente de Dependência não for iniciado, verifique os logs para obter informações de erro detalhadas. Em agentes do Linux, o diretório de log é */var/opt/Microsoft/Dependency-Agent/log*. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser parar de monitorar suas VMs por um período de tempo ou remover o Monitor Azure para VMs inteiramente, consulte [Desativar o monitoramento de suas VMs no Monitor Azure para VMs](vminsights-optout.md).
+Se você quiser interromper o monitoramento de suas VMs por um período de tempo ou remover totalmente Azure Monitor para VMs, consulte [desabilitar o monitoramento de suas VMs no Azure monitor para VMs](vminsights-optout.md).

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar a identidade gerenciada atribuída pelo usuário - Azure CLI - Azure AD
+title: Gerenciar identidade gerenciada atribuída pelo usuário-CLI do Azure-Azure AD
 description: Instruções passo a passo sobre como criar, listar e excluir uma identidade gerenciada atribuída ao usuário usando a CLI do Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/17/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be5defb85547e8750dea9ceaa481217aa40a004e
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81639772"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Criar, listar ou excluir uma identidade gerenciada atribuída ao usuário usando a CLI do Azure
@@ -40,7 +40,7 @@ Neste artigo, você aprende como criar, listar e excluir uma identidade gerencia
 
 
 > [!NOTE]
-> Para modificar as permissões do usuário ao usar um principal servivce de aplicativo usando CLI, você deve fornecer ao serviço permissões adicionais principais na API Azure AD Graph à medida que partes da CLI realizam solicitações GET contra a API do Graph. Caso contrário, você pode acabar recebendo uma mensagem 'Privilégios insuficientes para completar a operação'. Para fazer isso, você precisará entrar no registro do App no Azure Active Directory, selecionar seu aplicativo, clicar em permissões de API, rolar para baixo e selecionar Azure Active Directory Graph. A partir daí selecione permissões de aplicativo e adicione as permissões apropriadas. 
+> Para modificar as permissões de usuário ao usar um aplicativo servivce principal usando a CLI, você deve fornecer as permissões adicionais da entidade de serviço no Azure AD API do Graph, pois partes da CLI executam solicitações GET em relação ao API do Graph. Caso contrário, você pode acabar recebendo uma mensagem ' privilégios insuficientes para concluir a operação '. Para fazer isso, você precisará entrar no registro do aplicativo em Azure Active Directory, selecionar seu aplicativo, clicar em permissões de API, rolar para baixo e selecionar Azure Active Directory grafo. A partir daí, selecione permissões do aplicativo e, em seguida, adicione as permissões apropriadas. 
 
 
 

@@ -1,7 +1,7 @@
 ---
-title: Converta um peering exchange legado para um recurso do Azure usando o PowerShell
+title: Converter um emparelhamento do Exchange herdado para um recurso do Azure usando o PowerShell
 titleSuffix: Azure
-description: Converta um peering exchange legado para um recurso do Azure usando o PowerShell
+description: Converter um emparelhamento do Exchange herdado para um recurso do Azure usando o PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: eedf87548d62e05d4940911ed3dcd821077acb27
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686784"
 ---
-# <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Converta um peering exchange legado para um recurso do Azure usando o PowerShell
+# <a name="convert-a-legacy-exchange-peering-to-an-azure-resource-by-using-powershell"></a>Converter um emparelhamento do Exchange herdado para um recurso do Azure usando o PowerShell
 
-Este artigo descreve como converter um exchange legado existente em um recurso do Azure usando cmdlets PowerShell.
+Este artigo descreve como converter um emparelhamento do Exchange herdado existente para um recurso do Azure usando cmdlets do PowerShell.
 
-Se preferir, você pode completar este guia usando o [portal](howto-legacy-exchange-portal.md)Azure .
+Se preferir, você pode concluir este guia usando o [portal](howto-legacy-exchange-portal.md)do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Revise os [pré-requisitos](prerequisites.md) e o [passo a passo do Exchange](walkthrough-exchange-all.md) antes de iniciar a configuração.
+* Examine os [pré-requisitos](prerequisites.md) e o [passo a passos de emparelhamento do Exchange](walkthrough-exchange-all.md) antes de começar a configuração.
 
-### <a name="work-with-azure-powershell"></a>Trabalhe com o Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Trabalhar com Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>Converta um peering exchange legado para um recurso do Azure
+## <a name="convert-a-legacy-exchange-peering-to-an-azure-resource"></a>Converter um emparelhamento do Exchange herdado para um recurso do Azure
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Entre na sua conta do Azure e selecione sua assinatura
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Obtenha o peering legacy do Exchange para conversão
-Este exemplo mostra como obter o peering legacy do Exchange no local de peering de Seattle:
+### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Obter o emparelhamento do Exchange herdado para conversão
+Este exemplo mostra como obter o emparelhamento do Exchange herdado no local de emparelhamento de Seattle:
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering -Kind Exchange -PeeringLocation "Seattle"
@@ -57,8 +57,8 @@ A resposta se assemelha à seguinte:
     ConnectionState          : Active
 ```
 
-### <a name="convert-legacy-peering"></a>Converter peering legado
-Este comando pode ser usado para converter o peering legacy do Exchange em um recurso do Azure:
+### <a name="convert-legacy-peering"></a>Converter emparelhamento herdado
+Esse comando pode ser usado para converter o emparelhamento do Exchange herdado para um recurso do Azure:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -69,10 +69,10 @@ $legacyPeering[0] | New-AzPeering `
 
 &nbsp;
 > [!IMPORTANT] 
-> Quando você converte o peering legado para um recurso do Azure, as modificações não são suportadas.
+> Quando você converte o emparelhamento herdado em um recurso do Azure, não há suporte para modificações.
 &nbsp;
 
-Esta resposta de exemplo mostra quando o provisionamento de ponta a ponta foi concluído com sucesso:
+Esta resposta de exemplo mostra quando o provisionamento de ponta a ponta foi concluído com êxito:
 
 ```powershell
     Name                     : SeattleExchangePeering
@@ -97,8 +97,8 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-Para obter mais informações, consulte [perguntas frequentes sobre a Internet](faqs.md).
+Para obter mais informações, consulte [perguntas frequentes sobre emparelhamento da Internet](faqs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar ou modificar um peering exchange usando powershell](howto-exchange-powershell.md)
+* [Criar ou modificar um emparelhamento do Exchange usando o PowerShell](howto-exchange-powershell.md)

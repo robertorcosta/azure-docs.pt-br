@@ -1,7 +1,7 @@
 ---
 title: Idiomas compatíveis – API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
-description: A API de texto tradutor suporta os seguintes idiomas para tradução de texto para texto usando A Tradução de Máquina Neural (NMT).
+description: O API de Tradução de Texto dá suporte aos seguintes idiomas para conversão de texto em texto usando a conversão de máquina neural (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: 0ecde5acb7dc57ed9e5802c1589d5813a9206643
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81684837"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
@@ -28,17 +28,17 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 **API do Tradutor V2**
 
 > [!NOTE]
-> V2 foi preterido em 30 de abril de 2018. Por favor, migre seus aplicativos para V3 para aproveitar as novas funcionalidades disponíveis exclusivamente em V3.
+> O v2 foi preterido em 30 de abril de 2018. Migre seus aplicativos para v3 a fim de aproveitar as novas funcionalidades disponíveis exclusivamente na v3.
 
-* Apenas estatística: Nenhum sistema neural está disponível para esta linguagem.
-* Neural disponível: Um sistema neural está disponível. Use o parâmetro `category=generalnn` para acessar o sistema neural.
-* Padrão neural: Neural é o sistema de tradução padrão. Use o parâmetro `category=smt` para acessar o sistema estatístico para uso com o Hub do Microsoft Translator.
-* Somente neural: Apenas a tradução neural está disponível.
+* Somente estatística: nenhum sistema neural está disponível para este idioma.
+* Neural disponível: um sistema neural está disponível. Use o parâmetro `category=generalnn` para acessar o sistema neural.
+* Padrão neural: neural é o sistema de tradução padrão. Use o parâmetro `category=smt` para acessar o sistema estatístico para uso com o Hub do Microsoft Translator.
+* Somente neural: somente a tradução neural está disponível.
 
 **API do Tradutor V3** a API do Tradutor V3 é neural por padrão e sistemas estatísticos estão disponíveis somente quando não houver nenhum sistema neural.
 
 > [!NOTE]
-> Atualmente, um subconjunto das linguagens neurais estão disponíveis no Custom Translator e estamos gradualmente adicionando outras. [Exibir idiomas atualmente disponíveis no Personal Translator](#customization).
+> Atualmente, um subconjunto dos idiomas neurais está disponível no Tradutor personalizado e estamos adicionando gradualmente outros. [Exiba os idiomas disponíveis no momento no Tradutor personalizado](#customization).
 
 |Linguagem|  Código de idioma|  API V3|
 |:-----|:-----:|:-----|
@@ -116,7 +116,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 |Yucatec Maya|  `yua`   |   Estatística|
 
 > [!NOTE]
-> O `pt` código de `pt-br`idioma será padrão para , Português (Brasil).
+> O código `pt` de `pt-br`idioma padrão será, Português (Brasil).
 
 ## <a name="transliteration"></a>Transliteração
 
@@ -204,7 +204,7 @@ O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos
 
 ## <a name="detect"></a>Detect
 
-A API de texto do tradutor detecta todos os idiomas disponíveis para tradução e transliteração.
+API de Tradução de Texto detecta todos os idiomas disponíveis para tradução e transliteração.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Acessar a lista de idiomas da API de Tradução de Texto de forma programática
@@ -215,7 +215,7 @@ Você pode recuperar uma lista de idiomas com suporte para a API de Tradução d
 
 ## <a name="customization"></a>Personalização
 
-Os seguintes idiomas estão disponíveis para personalização para ou a partir do inglês usando [O Tradutor Personalizado](https://aka.ms/CustomTranslator).
+Os idiomas a seguir estão disponíveis para personalização de ou para o inglês usando o [Tradutor personalizado](https://aka.ms/CustomTranslator).
 
 | Linguagem    | Código de idioma |
 |:----------- |:-------------:|

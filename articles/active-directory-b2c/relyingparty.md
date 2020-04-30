@@ -11,17 +11,17 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 733a33881fe3acc962aeda4b05a1b01be4e148ca
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680355"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **RelyingParty** especifica a jornada do usuário para aplicar para a solicitação atual ao Azure Active Directory B2C (Azure AD B2C). Também especifica a lista de declarações de que o aplicativo de RP (terceira parte confiável) precisa como parte do token emitido. Um aplicativo de RP, como um aplicativo Web, móvel ou da área de trabalho, chama o arquivo de política de RP. O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir senha ou editar perfil. Vários aplicativos podem usar a mesma política RP e um único aplicativo pode usar várias políticas. Todos os aplicativos de RP recebem o mesmo token com declarações e o usuário passa pelo mesmo percurso do usuário.
+O elemento **RelyingParty** especifica o percurso do usuário a ser aplicado à solicitação atual para Azure Active Directory B2C (Azure ad B2C). Também especifica a lista de declarações de que o aplicativo de RP (terceira parte confiável) precisa como parte do token emitido. Um aplicativo de RP, como um aplicativo Web, móvel ou da área de trabalho, chama o arquivo de política de RP. O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir senha ou editar perfil. Vários aplicativos podem usar a mesma política RP e um único aplicativo pode usar várias políticas. Todos os aplicativos de RP recebem o mesmo token com declarações e o usuário passa pelo mesmo percurso do usuário.
 
 A exemplo a seguir mostra um elemento **RelyingParty** no arquivo de política *B2C_1A_signup_signin*:
 
@@ -84,7 +84,7 @@ O elemento **RelyingParty** opcional contém os seguintes elementos:
 
 O elemento `DefaultUserJourney` especifica uma referência ao identificador do percurso do usuário que normalmente é definido na política de Base ou Extensões. Os exemplos a seguir mostram o percurso do usuário de inscrição ou entrada especificado no elemento **RelyingParty**:
 
-*política B2C_1A_signup_signin:*
+Política de *B2C_1A_signup_signin* :
 
 ```XML
 <RelyingParty>
@@ -92,7 +92,7 @@ O elemento `DefaultUserJourney` especifica uma referência ao identificador do p
   ...
 ```
 
-*B2C_1A_TrustFrameWorkBase* ou *B2C_1A_TrustFrameworkExtensionPolicy:*
+*B2C_1A_TrustFrameWorkBase* ou *B2C_1A_TrustFrameworkExtensionPolicy*:
 
 ```XML
 <UserJourneys>
@@ -117,7 +117,7 @@ O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 | SessionExpiryInSeconds | 0:1 | O tempo de vida do cookie da sessão do Azure AD B2C especificado como um inteiro armazenado no navegador do usuário mediante uma autenticação bem-sucedida. |
 | JourneyInsights | 0:1 | A chave de instrumentação do Azure Application Insights a ser usada. |
 | ContentDefinitionParameters | 0:1 | A lista de pares chave-valor a serem acrescentados ao URI da carga de definição de conteúdo. |
-|ScriptExecution| 0:1| Os modos de execução [JavaScript](javascript-samples.md) suportados. Valores `Allow` possíveis: ou `Disallow` (padrão).
+|ScriptExecution| 0:1| Os modos de execução de [JavaScript](javascript-samples.md) com suporte. Valores possíveis: `Allow` ou `Disallow` (padrão).
 
 ### <a name="singlesignon"></a>SingleSignOn
 
@@ -125,9 +125,9 @@ O elemento **SingleSignOn** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Escopo | Sim | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application` ou `Policy`. O `Suppressed` valor indica que o comportamento é suprimido, e o usuário é sempre solicitado para uma seleção de provedor de identidade.  O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por dois percursos de política para um locatário não é solicitado a fazer uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que está fazendo a solicitação. Por exemplo, um usuário navegando por dois percursos de política para um aplicativo não é solicitado a fazer uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário que navega pelas dois percursos de política para uma estrutura de confiança é solicitado a informar uma seleção de provedor de identidade ao alternar entre políticas. |
+| Escopo | Sim | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application` ou `Policy`. O `Suppressed` valor indica que o comportamento é suprimido e o usuário sempre será solicitado a fornecer uma seleção de provedor de identidade.  O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por dois percursos de política para um locatário não é solicitado a fazer uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que está fazendo a solicitação. Por exemplo, um usuário navegando por dois percursos de política para um aplicativo não é solicitado a fazer uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário que navega pelas dois percursos de política para uma estrutura de confiança é solicitado a informar uma seleção de provedor de identidade ao alternar entre políticas. |
 | KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. A definição do valor como 0 desliga a funcionalidade KMSI. Para obter mais informações, confira [Manter-me conectado](custom-policy-keep-me-signed-in.md). |
-|EnforceIdTokenHintOnLogout| Não|  Forçar a passar um token de ID emitido anteriormente para o ponto final de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. Valores possíveis: `false` (padrão) ou `true`. Para obter mais informações, consulte [o login da Web com o OpenID Connect](openid-connect.md).  |
+|EnforceIdTokenHintOnLogout| Não|  Force a passar um token de ID emitido anteriormente para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. Valores possíveis: `false` (padrão) ou `true`. Para obter mais informações, consulte [entrada na Web com o OpenID Connect](openid-connect.md).  |
 
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -143,7 +143,7 @@ O elemento **JourneyInsights** contém os seguintes atributos:
 | ServerEnabled | Sim | Valores possíveis: `true` ou `false`. Se `true`, enviará o JSON UserJourneyRecorder existente como um evento personalizado para o Application Insights. |
 | TelemetryVersion | Sim | O valor deve ser `1.0.0`. |
 
-Para obter mais informações, consulte [Registros de coleta](troubleshoot-with-application-insights.md)
+Para obter mais informações, consulte [coletando logs](troubleshoot-with-application-insights.md)
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
@@ -179,8 +179,8 @@ O **TechnicalProfile** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| DisplayName | 1:1 | A seqüência que contém o nome do perfil técnico. |
-| Descrição | 0:1 | A seqüência que contém a descrição do perfil técnico. |
+| DisplayName | 1:1 | A cadeia de caracteres que contém o nome do perfil técnico. |
+| Descrição | 0:1 | A cadeia de caracteres que contém a descrição do perfil técnico. |
 | Protocolo | 1:1 | O protocolo usado para federação. |
 | Metadados | 0:1 | A coleção de *Item* de pares chave-valor utilizados pelo protocolo de comunicação com o ponto de extremidade no decorrer de uma transação para configurar a interação entre a terceira parte confiável e outros participantes da comunidade. |
 | OutputClaims | 1:1 | Uma lista de tipos de declaração obtidos como saída no perfil técnico. Cada um desses elementos contém referência a um **ClaimType** já definido na seção **ClaimsSchema** ou em uma política da qual este arquivo de política herda. |
@@ -211,7 +211,7 @@ O elemento **OutputClaim** contém os seguintes atributos:
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Com o elemento **SubjectNameingInfo**, você controla o valor da entidade do token:
-- **JWT token** `sub` - a reivindicação. Essa é uma entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Ele pode ser usado para executar verificações de autorização seguras, por exemplo, quando o token é usado para acessar um recurso. Por padrão, a declaração de entidade é preenchida com a ID de objeto do usuário no diretório. Para obter mais informações, confira [Token, sessão e configuração de logon único](session-behavior.md).
+- **Token JWT** -a `sub` declaração. Essa é uma entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Ele pode ser usado para executar verificações de autorização seguras, por exemplo, quando o token é usado para acessar um recurso. Por padrão, a declaração de entidade é preenchida com a ID de objeto do usuário no diretório. Para obter mais informações, confira [Token, sessão e configuração de logon único](session-behavior.md).
 - **Token SAML** – o elemento `<Subject><NameID>` que identifica o elemento de assunto.
 
 O elemento **SubjectNamingInfo** contém o seguinte atributo:
@@ -220,7 +220,7 @@ O elemento **SubjectNamingInfo** contém o seguinte atributo:
 | --------- | -------- | ----------- |
 | ClaimType | Sim | Uma referência a **PartnerClaimType** da declaração de saída. As declarações de saída devem ser definidas na política de terceira parte confiável da coleção **OutputClaims**. |
 
-O exemplo a seguir mostra como definir uma parte de dependência do OpenID Connect. As informações de nome da entidade são configuradas como a `objectId`:
+O exemplo a seguir mostra como definir uma terceira parte confiável do OpenID Connect. As informações de nome da entidade são configuradas como a `objectId`:
 
 ```XML
 <RelyingParty>

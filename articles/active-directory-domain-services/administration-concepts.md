@@ -1,6 +1,6 @@
 ---
-title: Conceitos de gestão para serviços de domínio Azure AD | Microsoft Docs
-description: Saiba como administrar um domínio gerenciado do Azure Active Directory Domain Services e o comportamento de contas de usuário e senhas
+title: Conceitos de gerenciamento para Azure AD Domain Services | Microsoft Docs
+description: Saiba mais sobre como administrar um Azure Active Directory Domain Services domínio gerenciado e o comportamento de contas de usuário e senhas
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,102 +11,102 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
 ms.openlocfilehash: ba281ffb30801e0ae10cab10ceb95c0a3bffde2d
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81640019"
 ---
-# <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gerenciamento de contas de usuário, senhas e administração em Serviços de Domínio do Diretório Ativo do Azure
+# <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceitos de gerenciamento para contas de usuário, senhas e administração no Azure Active Directory Domain Services
 
-Quando você cria e executa um domínio gerenciado aD DS (AD DS) do Azure Active Directory, há algumas diferenças de comportamento em comparação com um ambiente AD DS tradicional no local. Você usa as mesmas ferramentas administrativas no Azure AD DS como um domínio autogerenciado, mas não pode acessar diretamente os controladores de domínio (DC). Há também algumas diferenças de comportamento para políticas de senha e hashes de senha, dependendo da fonte da criação da conta de usuário.
+Quando você cria e executa um domínio gerenciado Azure Active Directory Domain Services (AD DS), há algumas diferenças no comportamento em comparação com um ambiente de AD DS local tradicional. Você usa as mesmas ferramentas administrativas do Azure AD DS como um domínio autogerenciado, mas não pode acessar diretamente os controladores de domínio (DC). Há também algumas diferenças no comportamento de políticas de senha e hashes de senha, dependendo da origem da criação da conta de usuário.
 
-Este artigo conceitual detalha como administrar um domínio gerenciado pelo Azure AD DS e o comportamento diferente das contas de usuário, dependendo da maneira como elas são criadas.
+Este artigo conceitual fornece detalhes sobre como administrar um domínio gerenciado do Azure AD DS e o comportamento diferente de contas de usuário, dependendo da maneira como eles são criados.
 
 ## <a name="domain-management"></a>Gerenciamento de domínios
 
-No Azure AD DS, os controladores de domínio (DCs) que contêm todos os recursos, como usuários e grupos, credenciais e políticas fazem parte do serviço gerenciado. Para redundância, dois DCs são criados como parte de um domínio gerenciado pelo Azure AD DS. Você não pode fazer login nesses DCs para executar tarefas de gerenciamento. Em vez disso, você cria uma VM de gerenciamento que se juntou ao domínio gerenciado pelo Azure AD DS e, em seguida, instala suas ferramentas de gerenciamento DeD AD regulares. Você pode usar os snap-ins do Centro Administrativo do Diretório Ativo ou do Microsoft Management Console (MMC) como objetos DNS ou De Política de Grupo, por exemplo.
+No Azure AD DS, os controladores de domínio (DCs) que contêm todos os recursos, como usuários e grupos, credenciais e políticas, fazem parte do serviço gerenciado. Para redundância, dois DCs são criados como parte de um domínio gerenciado do Azure AD DS. Você não pode entrar nesses DCs para executar tarefas de gerenciamento. Em vez disso, você cria uma VM de gerenciamento que é unida ao domínio gerenciado AD DS do Azure e, em seguida, instala suas ferramentas de gerenciamento de AD DS regulares. Você pode usar o Centro Administrativo do Active Directory ou snap-ins do MMC (console de gerenciamento Microsoft), como o DNS ou objetos Política de Grupo, por exemplo.
 
 ## <a name="user-account-creation"></a>Criação de conta de usuário
 
-As contas de usuário podem ser criadas no Azure AD DS de várias maneiras. A maioria das contas de usuário são sincronizadas a partir do Azure AD, que também pode incluir a conta de usuário sincronizada a partir de um ambiente AD DS no local. Você também pode criar contas manualmente diretamente no Azure AD DS. Alguns recursos, como sincronização inicial de senha ou política de senha, se comportam de forma diferente dependendo de como e onde as contas de usuário são criadas.
+As contas de usuário podem ser criadas no Azure AD DS de várias maneiras. A maioria das contas de usuário é sincronizada no Azure AD, que também pode incluir a conta de usuário sincronizada de um ambiente de AD DS local. Você também pode criar manualmente as contas diretamente no AD DS do Azure. Alguns recursos, como a sincronização de senha inicial ou a política de senha, se comportam de forma diferente dependendo de como e onde as contas de usuário são criadas.
 
-* A conta de usuário pode ser sincronizada a partir do Azure AD. Isso inclui contas de usuário somente na nuvem criadas diretamente no Azure AD e contas de usuários híbridos sincronizadas a partir de um ambiente AD DS local usando o Azure AD Connect.
-    * A maioria das contas de usuário no Azure AD DS são criadas através do processo de sincronização do Azure AD.
-* A conta de usuário pode ser criada manualmente em um domínio gerenciado pelo Azure AD DS e não existe no Azure AD.
-    * Se você precisar criar contas de serviço para aplicativos que só são executados no Azure AD DS, você pode criá-las manualmente no domínio gerenciado. Como a sincronização é uma forma do Azure AD, as contas de usuário criadas no Azure AD DS não são sincronizadas de volta ao Azure AD.
+* A conta de usuário pode ser sincronizada no Azure AD. Isso inclui contas de usuário somente em nuvem criadas diretamente no Azure AD e contas de usuário híbridos sincronizadas de um ambiente de AD DS local usando Azure AD Connect.
+    * A maioria das contas de usuário no Azure AD DS são criadas por meio do processo de sincronização do Azure AD.
+* A conta de usuário pode ser criada manualmente em um domínio gerenciado AD DS do Azure e não existe no Azure AD.
+    * Se você precisar criar contas de serviço para aplicativos que só são executados no Azure AD DS, você pode criá-los manualmente no domínio gerenciado. Como a sincronização é unidirecional do Azure AD, as contas de usuário criadas no Azure AD DS não são sincronizadas de volta para o Azure AD.
 
 ## <a name="password-policy"></a>Política de senha
 
-O Azure AD DS inclui uma política de senha padrão que define configurações para coisas como bloqueio de conta, idade máxima de senha e complexidade de senha. Configurações como política de bloqueio de contas se aplicam a todos os usuários no Azure AD DS, independentemente de como o usuário foi criado como descrito na seção anterior. Algumas configurações, como comprimento mínimo de senha e complexidade de senha, só se aplicam a usuários criados diretamente no Azure AD DS.
+O AD DS do Azure inclui uma política de senha padrão que define as configurações de itens como o bloqueio de conta, a duração máxima da senha e a complexidade da senha. Configurações como política de bloqueio de conta se aplicam a todos os usuários no Azure AD DS, independentemente de como o usuário foi criado, conforme descrito na seção anterior. Algumas configurações, como o comprimento mínimo da senha e a complexidade da senha, só se aplicam a usuários criados diretamente no Azure AD DS.
 
-Você pode criar suas próprias políticas de senha personalizadas para substituir a política padrão no Azure AD DS. Essas políticas personalizadas podem então ser aplicadas a grupos específicos de usuários, conforme necessário.
+Você pode criar suas próprias políticas de senha personalizadas para substituir a política padrão no Azure AD DS. Essas políticas personalizadas podem ser aplicadas a grupos de usuários específicos, conforme necessário.
 
-Para obter mais informações sobre as diferenças na forma como as políticas de senha são aplicadas dependendo da fonte de criação do usuário, consulte políticas de bloqueio de [senha e conta em domínios gerenciados][password-policy].
+Para obter mais informações sobre as diferenças em como as políticas de senha são aplicadas dependendo da origem da criação do usuário, consulte [políticas de bloqueio de senha e conta em domínios gerenciados][password-policy].
 
-## <a name="password-hashes"></a>Hashes senha
+## <a name="password-hashes"></a>Hashes de senha
 
 Para autenticar os usuários no domínio gerenciado, o Azure AD DS precisa de hashes de senha em um formato adequado para a autenticação NTLM (Gerenciador de LAN NT) e Kerberos. O Azure AD não gera nem armazena hashes de senha no formato necessário para a autenticação NTLM ou Kerberos, até que você habilite o Azure AD DS para seu locatário. Por motivos de segurança, o Azure AD também não armazena credenciais de senha no formato de texto não criptografado. Portanto, o Azure AD não pode gerar automaticamente essas hashes de senha NTLM ou Kerberos com base nas credenciais existentes dos usuários.
 
-Para contas de usuário somente de nuvem, os usuários devem alterar suas senhas antes de usar o Azure AD DS. Esse processo de alteração de senhas faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas no Azure AD. A conta não está sincronizada do Azure AD para o Azure AD DS até que a senha seja alterada.
+Para contas de usuário somente de nuvem, os usuários devem alterar suas senhas antes de usar o Azure AD DS. Esse processo de alteração de senhas faz com que as hashes de senha para a autenticação Kerberos e NTLM sejam geradas e armazenadas no Azure AD. A conta não é sincronizada do Azure AD para o Azure AD DS até que a senha seja alterada.
 
-Para usuários sincronizados a partir de um ambiente AD DS no local usando o Azure AD Connect, [habilite a sincronização de hashes de senha][hybrid-phs].
+Para usuários sincronizados de um ambiente de AD DS local usando Azure AD Connect, [habilite a sincronização de hashes de senha][hybrid-phs].
 
 > [!IMPORTANT]
-> O Azure AD Connect só sincroniza hashes de senha legados quando você habilita o Azure AD DS para o seu inquilino Azure AD. Os hashes de senha legados não são usados se você usar apenas o Azure AD Connect para sincronizar um ambiente AD DS no local com o Azure AD.
+> Azure AD Connect sincroniza somente os hashes de senha herdados quando você habilita o Azure AD DS para seu locatário do Azure AD. Os hashes de senha herdados não serão usados se você usar apenas Azure AD Connect para sincronizar um ambiente de AD DS local com o Azure AD.
 >
-> Se seus aplicativos legados não usarem autenticação NTLM ou obrigações simples lDAP, recomendamos que você desative a sincronização de hash de senha NTLM para o Azure AD DS. Para obter mais informações, consulte [Desativar suítes de cifra fraca e sincronização de hash de credencial NTLM][secure-domain].
+> Se seus aplicativos herdados não usam autenticação NTLM ou associações simples LDAP, recomendamos que você desabilite a sincronização de hash de senha NTLM para o Azure AD DS. Para obter mais informações, consulte [desabilitar pacotes de criptografia fracos e sincronização de hash de credencial NTLM][secure-domain].
 
-Uma vez configurado adequadamente, as hashes de senha utilizáveis são armazenadas no domínio gerenciado Azure AD DS. Se você excluir o domínio gerenciado do Azure AD DS, todas as hashes de senha armazenadas nesse ponto também serão excluídas. As informações de credencial sincronizadas no Azure AD não podem ser reutilizadas se você criar posteriormente um domínio gerenciado pelo Azure AD DS - você deve reconfigurar a sincronização hash de senha para armazenar os hashes de senha novamente. As VMs ou os usuários previamente unidos ao domínio não poderão autenticar imediatamente – o Azure AD precisa gerar e armazenar as hashes de senha no novo domínio gerenciado do Azure AD DS. Para obter mais informações, confira [Processo de sincronização de hash de senha para o Azure AD DS e o Azure AD Connect][azure-ad-password-sync].
+Uma vez configurado adequadamente, as hashes de senha utilizáveis são armazenadas no domínio gerenciado Azure AD DS. Se você excluir o domínio gerenciado do Azure AD DS, todas as hashes de senha armazenadas nesse ponto também serão excluídas. As informações de credenciais sincronizadas no Azure AD não poderão ser reutilizadas se você criar posteriormente um domínio gerenciado do Azure AD DS-você deve reconfigurar a sincronização de hash de senha para armazenar os hashes de senha novamente. As VMs ou os usuários previamente unidos ao domínio não poderão autenticar imediatamente – o Azure AD precisa gerar e armazenar as hashes de senha no novo domínio gerenciado do Azure AD DS. Para obter mais informações, confira [Processo de sincronização de hash de senha para o Azure AD DS e o Azure AD Connect][azure-ad-password-sync].
 
 > [!IMPORTANT]
 > O Azure AD Connect só deve ser instalado e configurado para sincronização com ambientes do AD DS locais. Não há suporte para instalar o Azure AD Connect em um domínio gerenciado do Azure AD DS para sincronizar objetos de volta ao Azure AD.
 
 ## <a name="forests-and-trusts"></a>Florestas e relações de confiança
 
-Uma *floresta* é um construto lógico usado pelo Active Directory Domain Services (AD DS) para agrupar um ou mais *domínios*. Os domínios então armazenam objetos para usuários ou grupos e fornecem serviços de autenticação.
+Uma *floresta* é uma construção lógica usada por Active Directory Domain Services (AD DS) para agrupar um ou mais *domínios*. Em seguida, os domínios armazenam objetos para usuários ou grupos e fornecem serviços de autenticação.
 
-No Azure AD DS, a floresta contém apenas um domínio. As florestas AD DS no local geralmente contêm muitos domínios. Em grandes organizações, especialmente após fusões e aquisições, você pode acabar com várias florestas locais que, em seguida, contêm vários domínios.
+No Azure AD DS, a floresta contém apenas um domínio. As florestas AD DS locais geralmente contêm muitos domínios. Em grandes organizações, especialmente depois de fusões e aquisições, você pode acabar com várias florestas locais que contêm vários domínios.
 
-Por padrão, um domínio gerenciado pelo Azure AD DS é criado como uma floresta *de usuários.* Esse tipo de floresta sincroniza todos os objetos do Azure AD, incluindo qualquer conta de usuário criada em um ambiente do AD DS local. As contas de usuário podem autenticar diretamente contra o domínio gerenciado pelo Azure AD DS, como fazer login em uma VM com um domínio. Uma floresta de usuários funciona quando os hashes de senha podem ser sincronizados e os usuários não estão usando métodos exclusivos de login, como autenticação de cartão inteligente.
+Por padrão, um domínio gerenciado do Azure AD DS é criado como uma floresta de *usuário* . Esse tipo de floresta sincroniza todos os objetos do Azure AD, incluindo qualquer conta de usuário criada em um ambiente do AD DS local. As contas de usuário podem se autenticar diretamente no domínio gerenciado AD DS do Azure, como para entrar em uma VM ingressada no domínio. Uma floresta de usuário funciona quando os hashes de senha podem ser sincronizados e os usuários não estão usando métodos de entrada exclusivos, como a autenticação de cartão inteligente.
 
-Em uma floresta de *recursos* Azure AD DS, os usuários autenticam sobre uma *confiança* florestal unidirecional a partir de seus AD DS no local. Com essa abordagem, os objetos do usuário e os hashes de senha não são sincronizados com o Azure AD DS. Os objetos e credenciais do usuário só existem no AD DS no local. Essa abordagem permite que as empresas hospedem recursos e plataformas de aplicativos no Azure que dependem da autenticação clássica, como LDAPS, Kerberos ou NTLM, mas quaisquer problemas ou preocupações de autenticação são removidos. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
+Em uma floresta de *recursos* do Azure AD DS, os usuários se autenticam por meio de uma *relação de confiança* de floresta unidirecional de suas AD DS locais. Com essa abordagem, os objetos de usuário e os hashes de senha não são sincronizados com o Azure AD DS. Os objetos de usuário e as credenciais existem somente no AD DS local. Essa abordagem permite que as empresas hospedem recursos e plataformas de aplicativos no Azure que dependem da autenticação clássica, tais LDAPs, Kerberos ou NTLM, mas quaisquer problemas de autenticação ou preocupações são removidos. No momento, as florestas de recursos do Azure AD DS estão em versão prévia.
 
-Para obter mais informações sobre os tipos de florestas no Azure AD DS, veja quais são as [florestas][concepts-trust] [de recursos?][concepts-forest]
+Para obter mais informações sobre tipos de floresta no Azure AD DS, consulte [o que são florestas de recursos?][concepts-forest] e [como as relações de confiança de floresta funcionam no AD DS do Azure?][concepts-trust]
 
-## <a name="azure-ad-ds-skus"></a>Azure AD DS SKUs
+## <a name="azure-ad-ds-skus"></a>SKUs de AD DS do Azure
 
-No Azure AD DS, o desempenho disponível e os recursos são baseados no SKU. Você seleciona um SKU quando cria o domínio gerenciado e pode alternar SKUs à medida que seus requisitos de negócios mudam após a implantação do domínio gerenciado. A tabela a seguir descreve as SKUs disponíveis e as diferenças entre elas:
+No Azure AD DS, o desempenho e os recursos disponíveis são baseados na SKU. Você seleciona uma SKU ao criar o domínio gerenciado e pode alternar SKUs conforme os requisitos de negócios mudam após o domínio gerenciado ter sido implantado. A tabela a seguir descreve as SKUs disponíveis e as diferenças entre elas:
 
-| Nome do SKU   | Contagem máxima de objetos | Frequência de backup | Número máximo de fundos florestais de saída |
+| Nome do SKU   | Contagem máxima de objetos | Frequência de backup | Número máximo de relações de confiança de floresta de saída |
 |------------|----------------------|------------------|----|
 | Standard   | Ilimitado            | A cada 7 dias     | 0  |
 | Enterprise | Ilimitado            | A cada 3 dias     | 5  |
 | Premium    | Ilimitado            | Diário            | 10 |
 
-Antes dessas SKUs AD AD Azure, um modelo de faturamento baseado no número de objetos (contas de usuário e computador) no domínio gerenciado do Azure AD DS foi usado. Não há mais preços variáveis com base no número de objetos no domínio gerenciado.
+Antes dessas SKUs do Azure AD DS, um modelo de cobrança baseado no número de objetos (contas de usuário e computador) no domínio gerenciado do Azure AD DS foi usado. Não há mais preços variáveis com base no número de objetos no domínio gerenciado.
 
 Para obter mais informações, consulte a [página de preços do Azure AD DS][pricing].
 
-### <a name="managed-domain-performance"></a>Desempenho gerenciado de domínio
+### <a name="managed-domain-performance"></a>Desempenho de domínio gerenciado
 
-O desempenho do domínio varia de acordo com a forma como a autenticação é implementada para um aplicativo. Recursos adicionais de computação podem ajudar a melhorar o tempo de resposta da consulta e reduzir o tempo gasto em operações de sincronização. À medida que o nível de SKU aumenta, os recursos de computação disponíveis para o domínio gerenciado são aumentados. Monitore o desempenho de suas aplicações e planeje os recursos necessários.
+O desempenho do domínio varia de acordo com a forma como a autenticação é implementada para um aplicativo. Recursos de computação adicionais podem ajudar a melhorar o tempo de resposta da consulta e reduzir o tempo gasto em operações de sincronização. À medida que o nível de SKU aumenta, os recursos de computação disponíveis para o domínio gerenciado são aumentados. Monitore o desempenho de seus aplicativos e planeje os recursos necessários.
 
-Se o seu negócio ou aplicativo exigir alterações e você precisar de poder de computação adicional para o seu domínio gerenciado pelo Azure AD DS, você pode mudar para um SKU diferente.
+Se suas demandas de negócios ou aplicativos mudarem e você precisar de poder de computação adicional para seu domínio gerenciado AD DS do Azure, poderá alternar para um SKU diferente.
 
 ### <a name="backup-frequency"></a>Frequência de backup
 
-A freqüência de backup determina com que frequência um instantâneo do domínio gerenciado é tomado. Backups são um processo automatizado gerenciado pela plataforma Azure. No caso de um problema com seu domínio gerenciado, o suporte do Azure pode ajudá-lo a restaurar o backup. Como a sincronização ocorre apenas de uma maneira *a partir do* Azure AD, quaisquer problemas em um domínio gerenciado pelo Azure AD DS não afetarão os ambientes e funcionalidades do Azure AD Ou no local.
+A frequência de backup determina com que frequência um instantâneo do domínio gerenciado é obtido. Os backups são um processo automatizado gerenciado pela plataforma Azure. No caso de um problema com seu domínio gerenciado, o suporte do Azure pode ajudá-lo na restauração a partir do backup. Como a sincronização ocorre apenas de uma maneira *do* Azure AD, quaisquer problemas em um domínio gerenciado AD DS do Azure não afetarão os ambientes e a funcionalidade do Azure ad ou locais AD DS.
 
-À medida que o nível de SKU aumenta, a frequência desses instantâneos de backup aumenta. Revise os requisitos de negócios e o RPO (Recovery Point Objective, objetivo de ponto de recuperação) para determinar a freqüência de backup necessária para o domínio gerenciado. Se os requisitos de sua empresa ou aplicativo mudarem e você precisar de backups mais freqüentes, você pode mudar para um SKU diferente.
+À medida que o nível de SKU aumenta, a frequência desses instantâneos de backup aumenta. Examine os requisitos de negócios e o objetivo de ponto de recuperação (RPO) para determinar a frequência de backup necessária para seu domínio gerenciado. Se seus requisitos de negócios ou aplicativos forem alterados e você precisar de backups mais frequentes, você poderá alternar para um SKU diferente.
 
 ### <a name="outbound-forests"></a>Florestas de saída
 
-A seção anterior detalhava os fundos florestais de saída unidirecional de um domínio gerenciado pelo Azure AD DS para um ambiente AD DS no local (atualmente em visualização). O SKU determina o número máximo de fundos florestais que você pode criar para um domínio gerenciado pelo Azure AD DS. Revise os requisitos de seus negócios e aplicativos para determinar quantas confianças você realmente precisa e escolha o Azure AD SKU apropriado. Novamente, se os requisitos do seu negócio mudarem e você precisar criar fundos florestais adicionais, você pode mudar para um SKU diferente.
+A seção anterior detalha a floresta de saída unidirecional de um domínio gerenciado do Azure AD DS para um ambiente de AD DS local (atualmente em versão prévia). A SKU determina o número máximo de relações de confiança de floresta que você pode criar para um domínio gerenciado AD DS do Azure. Examine os requisitos de negócios e aplicativos para determinar quantas relações de confiança você realmente precisa e escolha o SKU de AD DS do Azure apropriado. Novamente, se os requisitos de negócios mudarem e você precisar criar relações de confiança de floresta adicionais, poderá alternar para um SKU diferente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, [crie um domínio gerenciado pelo Azure AD DS][create-instance].
+Para começar, [crie um domínio gerenciado do Azure AD DS][create-instance].
 
 <!-- INTERNAL LINKS -->
 [password-policy]: password-policy.md

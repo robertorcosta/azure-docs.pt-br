@@ -1,6 +1,6 @@
 ---
-title: Formato JSON na Fábrica de Dados Azure
-description: Este tópico descreve como lidar com o formato JSON na Fábrica de Dados Do Azure.
+title: Formato JSON no Azure Data Factory
+description: Este tópico descreve como lidar com o formato JSON no Azure Data Factory.
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686275"
 ---
-# <a name="json-format-in-azure-data-factory"></a>Formato JSON na Fábrica de Dados Azure
+# <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artigo quando quiser **analisar os arquivos JSON ou escrever os dados no formato JSON**. 
+Siga este artigo quando desejar **analisar os arquivos JSON ou gravar os dados no formato JSON**. 
 
-O formato JSON é suportado para os seguintes conectores: [Amazon S3,](connector-amazon-simple-storage-service.md) [Azure Blob,](connector-azure-blob-storage.md) [Azure Data Lake Storage Gen1,](connector-azure-data-lake-store.md) [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md) [Azure File Storage](connector-azure-file-storage.md), File [System,](connector-file-system.md) [FTP,](connector-ftp.md) [Google Cloud Storage,](connector-google-cloud-storage.md) [HDFS,](connector-hdfs.md) [HTTP](connector-http.md)e [SFTP.](connector-sftp.md)
+O formato JSON tem suporte para os seguintes conectores: [Amazon S3](connector-amazon-simple-storage-service.md), [blob do Azure](connector-azure-blob-storage.md), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md), [armazenamento de arquivos do Azure](connector-azure-file-storage.md), [sistema de arquivos](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)e [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados JSON.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo DataSet JSON.
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | A propriedade do tipo do conjunto de dados deve ser definida como **Json**. | Sim      |
-| local         | Configurações de localização dos arquivos(s). Cada conector baseado em arquivo tem seu próprio `location`tipo de localização e propriedades suportadas em . **Veja detalhes na seção propriedades connector article-> Dataset**. | Sim      |
-| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7" ", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM855", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM863", "IBM864", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", "IBM865", 0", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01144", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR". 8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13". , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
-| compactação | Grupo de propriedades para configurar compactação de arquivos. Configure esta seção quando quiser fazer compressão/descompressão durante a execução da atividade. | Não |
-| type | O codec de compressão usado para ler/gravar arquivos JSON. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate**, **ZipDeflate,** **snappy,** ou **lz4**. para usar ao salvar o arquivo. O padrão não é compactado.<br>**Nota** atualmente A atividade de cópia não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Nota** ao usar a atividade de cópia para descompactar arquivos ZipDeflate e gravar no armazenamento `<path specified in dataset>/<folder named as source zip file>/`de dados do sink baseado em arquivos, os arquivos serão extraídos para a pasta: . | Não.  |
-| level | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos**.<br>- **O mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não esteja compactado de forma ideal.<br>- **Ideal**: A operação de compressão deve ser compactada de forma ideal, mesmo que a operação deva mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
+| type             | A propriedade Type do conjunto de conjuntos deve ser definida como **JSON**. | Sim      |
+| local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com `location`suporte em. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
+| encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
+| compactação | Grupo de propriedades para configurar a compactação de arquivo. Configure esta seção quando desejar fazer compactação/descompactação durante a execução da atividade. | Não |
+| type | O codec de compactação usado para ler/gravar arquivos JSON. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snapshot**ou **lz4**. para usar ao salvar o arquivo. O padrão não é compactado.<br>**Observação** a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4" e o fluxo de dados de mapeamento não dá suporte a "ZipDeflate".<br>**Observação** ao usar a atividade de cópia para descompactar arquivo (s) ZipDeflate e gravar no armazenamento de dados de coletor baseado em arquivo, os arquivos serão `<path specified in dataset>/<folder named as source zip file>/`extraídos para a pasta:. | Não.  |
+| level | A taxa de compactação. <br>Os valores permitidos são **ideal** ou **mais rápido**.<br>- **Mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **Ideal**: a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
-Abaixo está um exemplo do conjunto de dados JSON no Azure Blob Storage:
+Veja abaixo um exemplo de conjunto de um DataSet no armazenamento de BLOBs do Azure:
 
 ```json
 {
@@ -64,42 +64,42 @@ Abaixo está um exemplo do conjunto de dados JSON no Azure Blob Storage:
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista de propriedades suportadas pela fonte e pia JSON.
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela origem e pelo coletor JSON.
 
 ### <a name="json-as-source"></a>JSON como fonte
 
-As seguintes propriedades são suportadas na seção *** \*de origem de\* *** atividade de cópia.
+As propriedades a seguir têm suporte na seção *** \*origem\* *** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **JSONSource**. | Sim      |
-| configurações de armazenamento | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas `storeSettings`próprias configurações de leitura suportadas em . **Veja detalhes na seção propriedades de atividade do conector -> Copiar**propriedades de atividade . | Não       |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **jsonname**. | Sim      |
+| storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com `storeSettings`suporte em. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
-### <a name="json-as-sink"></a>JSON como pia
+### <a name="json-as-sink"></a>JSON como coletor
 
-As seguintes propriedades são suportadas na seção *** \*de dissipação de\* *** atividade de cópia.
+As propriedades a seguir têm suporte na seção *** \*coletor\* *** de atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **JSONSink**. | Sim      |
-| Formatsettings | Um grupo de propriedades. Consulte a tabela **de configurações de gravação JSON** abaixo. | Não       |
-| configurações de armazenamento | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas `storeSettings`próprias configurações de gravação suportadas em . **Veja detalhes na seção propriedades de atividade do conector -> Copiar**propriedades de atividade . | Não       |
+| type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **JSONSink**. | Sim      |
+| formatSettings | Um grupo de propriedades. Consulte a tabela **configurações de gravação JSON** abaixo. | Não       |
+| storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com `storeSettings`suporte em. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
 
-Configurações de **gravação JSON** suportadas em: `formatSettings`
+**Configurações de gravação JSON** com `formatSettings`suporte em:
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | O tipo de formatoConfigurações devem ser definidas como **JsonWriteSettings**. | Sim                                                   |
+| type          | O tipo de formatSettings deve ser definido como **JsonWriteSettings**. | Sim                                                   |
 | filePattern |Indique o padrão de dados armazenados em cada arquivo JSON. Os valores permitidos são: **setOfObjects** e **arrayOfObjects**. O valor **padrão** é **setOfObjects**. Veja a seção [Padrões de arquivo JSON](#json-file-patterns) para obter detalhes sobre esses padrões. |Não |
 
 ### <a name="json-file-patterns"></a>Padrões de arquivo JSON
 
-A atividade de cópia pode detectar e analisar automaticamente os seguintes padrões de arquivos JSON. 
+A atividade de cópia pode detectar e analisar automaticamente os padrões de arquivos JSON a seguir. 
 
 - **Tipo I: setOfObjects**
 
     Cada arquivo contém um único objeto ou vários objetos concatenados/delimitados por linhas. 
-    Quando essa opção é escolhida no dissipador de atividades de cópia, a atividade de cópia produz um único arquivo JSON com cada objeto por linha (delimitado de linha).
+    Quando essa opção é escolhida no coletor da atividade de cópia, a atividade de cópia produz um único arquivo JSON com cada objeto por linha (delimitado por linha).
 
     * **Exemplo de JSON de objeto único**
 
@@ -184,27 +184,27 @@ A atividade de cópia pode detectar e analisar automaticamente os seguintes padr
     ]
     ```
 
-## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
+## <a name="mapping-data-flow-properties"></a>Mapeando Propriedades de fluxo de dados
 
-Os tipos de arquivos JSON podem ser usados tanto como um sink quanto como uma fonte no mapeamento do fluxo de dados.
+Tipos de arquivo JSON podem ser usados como um coletor e uma origem no fluxo de dados de mapeamento.
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>Criando estruturas JSON em uma coluna derivada
 
-Você pode adicionar uma coluna complexa ao seu fluxo de dados através do construtor de expressão de coluna derivada. Na transformação da coluna derivada, adicione uma nova coluna e abra o construtor de expressão clicando na caixa azul. Para tornar uma coluna complexa, você pode inserir a estrutura JSON manualmente ou usar o UX para adicionar subcolunas interativamente.
+Você pode adicionar uma coluna complexa ao fluxo de dados por meio do construtor de expressões de coluna derivada. Na transformação coluna derivada, adicione uma nova coluna e abra o construtor de expressões clicando na caixa azul. Para tornar uma coluna complexa, você pode inserir a estrutura JSON manualmente ou usar a UX para adicionar Subcolunas de forma interativa.
 
-#### <a name="using-the-expression-builder-ux"></a>Usando o construtor de expressão UX
+#### <a name="using-the-expression-builder-ux"></a>Usando a UX do construtor de expressões
 
-No painel lateral do esquema de saída, gire sobre uma coluna e clique no ícone de adição. Selecione **Adicionar subcoluna** para tornar a coluna um tipo complexo.
+No painel do lado do esquema de saída, passe o mouse sobre uma coluna e clique no ícone de adição. Selecione **Adicionar subcoluna** para tornar a coluna um tipo complexo.
 
 ![Adicionar subcoluna](media/data-flow/addsubcolumn.png "Adicionar subcoluna")
 
-Você pode adicionar colunas e subcolunas adicionais da mesma forma. Para cada campo não complexo, uma expressão pode ser adicionada no editor de expressão à direita.
+Você pode adicionar colunas e Subcolunas adicionais da mesma maneira. Para cada campo não complexo, uma expressão pode ser adicionada no editor de expressão à direita.
 
 ![Coluna complexa](media/data-flow/complexcolumn.png "Coluna complexa")
 
 #### <a name="entering-the-json-structure-manually"></a>Inserindo a estrutura JSON manualmente
 
-Para adicionar manualmente uma estrutura JSON, adicione uma nova coluna e digite a expressão no editor. A expressão segue o seguinte formato geral:
+Para adicionar manualmente uma estrutura JSON, adicione uma nova coluna e insira a expressão no editor. A expressão segue o seguinte formato geral:
 
 ```
 @(
@@ -215,7 +215,7 @@ Para adicionar manualmente uma estrutura JSON, adicione uma nova coluna e digite
 )
 ```
 
-Se esta expressão fosse inserida para uma coluna chamada "complexColumn", então ela seria escrita na pia como o seguinte JSON:
+Se essa expressão foi inserida para uma coluna chamada "complexColumn", ela seria gravada no coletor como o JSON a seguir:
 
 ```
 {
@@ -228,7 +228,7 @@ Se esta expressão fosse inserida para uma coluna chamada "complexColumn", entã
 }
 ```
 
-#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Script manual de amostra para definição hierárquica completa
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Exemplo de script manual para a definição hierárquica completa
 ```
 @(
     title=Title,
@@ -256,9 +256,9 @@ Se esta expressão fosse inserida para uma coluna chamada "complexColumn", entã
 
 ### <a name="source-format-options"></a>Opções de formato de origem
 
-O uso de um conjunto de dados JSON como fonte no fluxo de dados permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão **de configurações JSON** na guia **Opções de** origem.  
+O uso de um conjunto de dados JSON como uma origem em seu Flow permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão de **configurações JSON** na guia **Opções de origem** .  
 
-![Configurações json](media/data-flow/json-settings.png "Configurações de JSON")
+![Configurações de JSON](media/data-flow/json-settings.png "Configurações de JSON")
 
 #### <a name="default"></a>Padrão
 
@@ -272,7 +272,7 @@ Por padrão, os dados JSON são lidos no formato a seguir.
 
 #### <a name="single-document"></a>Documento único
 
-Se **o documento único** for selecionado, o mapeamento dos fluxos de dados lerá um documento JSON de cada arquivo. 
+Se **um único documento** estiver selecionado, o mapeamento de fluxos de dados lerá um documento JSON de cada arquivo. 
 
 ``` json
 File1.json
@@ -289,11 +289,11 @@ File3.json
 }
 ```
 > [!NOTE]
-> Se os fluxos de dados lançarem um erro indicando "corrupt_record" ao visualizar seus dados JSON, é provável que seus dados contenham um único documento em seu arquivo JSON. A definição de "documento único" deve limpar esse erro.
+> Se os fluxos de dados lançarem um erro informando "corrupt_record" ao visualizar os dados JSON, é provável que os dados contidos contenham um único documento em seu arquivo JSON. A configuração de "documento único" deve limpar esse erro.
 
-#### <a name="unquoted-column-names"></a>Nomes de colunas não citadas
+#### <a name="unquoted-column-names"></a>Nomes de colunas sem aspas
 
-Se **os nomes das colunas não citados forem** selecionados, os fluxos de dados de mapeamento lerão colunas JSON que não estão cercadas por citações. 
+Se a seleção de **nomes de coluna sem aspas** for selecionada, o mapeamento de fluxos de dados lerá as colunas JSON que não estão entre aspas. 
 
 ```
 { json: "record 1" }
@@ -303,7 +303,7 @@ Se **os nomes das colunas não citados forem** selecionados, os fluxos de dados 
 
 #### <a name="has-comments"></a>Tem comentários
 
-Selecione **Tem comentários** se os dados JSON têm comentários de estilo C ou C++.
+Select **tem comentários** se os dados JSON tiverem comentários de estilo C ou C++.
 
 ``` json
 { "json": /** comment **/ "record 1" }
@@ -311,9 +311,9 @@ Selecione **Tem comentários** se os dados JSON têm comentários de estilo C ou
 { /** comment **/ "json": "record 3" }
 ```
 
-#### <a name="single-quoted"></a>Único citado
+#### <a name="single-quoted"></a>Entre aspas simples
 
-Selecione **Único citado** se os campos e valores JSON usarem aspas simples em vez de aspas duplas.
+Selecione **aspas simples** se os campos e valores JSON usarem aspas simples em vez de aspas duplas.
 
 ```
 { 'json': 'record 1' }
@@ -321,9 +321,9 @@ Selecione **Único citado** se os campos e valores JSON usarem aspas simples em 
 { 'json': 'record 3' }
 ```
 
-#### <a name="backslash-escaped"></a>Barra invertida escapou
+#### <a name="backslash-escaped"></a>Barra invertida
 
-Selecione **Single citado** se os cortes de fundo forem usados para escapar de caracteres nos dados JSON.
+Selecione **aspas simples** se as barras invertidas forem usadas para escapar caracteres nos dados JSON.
 
 ```
 { "json": "record 1" }
@@ -334,6 +334,6 @@ Selecione **Single citado** se os cortes de fundo forem usados para escapar de c
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral da atividade de cópia](copy-activity-overview.md)
-- [Mapeamento do fluxo de dados](concepts-data-flow-overview.md)
-- [Atividade de procurar](control-flow-lookup-activity.md)
+- [Mapeando fluxo de dados](concepts-data-flow-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
 - [Atividade GetMetadata](control-flow-get-metadata-activity.md)

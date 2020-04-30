@@ -9,45 +9,45 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 632490498b8dd13414657edb9518cd543ac07af6
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678856"
 ---
-1. Na **página Criar um peering,** na guia **Configuração,** preencha as caixas como mostrado aqui.
+1. Na página **criar um emparelhamento** , na guia **configuração** , preencha as caixas como mostrado aqui.
 
     > [!div class="mx-imgBorder"]
-    > ![Criar uma guia de configuração de página de peering](../media/setup-direct-conf-tab.png)
+    > ![Criar uma guia de configuração de página de emparelhamento](../media/setup-direct-conf-tab.png)
 
-    * Para o tipo Peering, selecione **'Direto ''''Em** **pares'.**
-    * Para **rede Microsoft,** selecione **AS8075**. Não selecione ASN 8069. É reservado para aplicativos especiais e usado apenas pela [Microsoft peering](mailto:peering@microsoft.com).
-    * Selecione **SKU** como **Basic Free**. Não selecione Premium Free porque ele é reservado para aplicações especiais.
-    * Selecione o local do **Metrô** onde deseja converter o peering para um recurso do Azure. Se você tiver conexões de peering com a Microsoft no local de **Metrô** selecionado que não forem convertidos em um recurso do Azure, essas conexões serão listadas na seção **Conexões peering** como mostrado. Agora você pode converter essas conexões de peering para um recurso do Azure.
+    * Para **tipo de emparelhamento**, selecione **direto**.
+    * Para **Microsoft Network**, selecione **AS8075**. Não selecione ASN 8069. Ele é reservado para aplicativos especiais e usado apenas pelo [emparelhamento da Microsoft](mailto:peering@microsoft.com).
+    * Selecione **SKU** como **básico gratuito**. Não selecione Premium gratuitamente porque ele está reservado para aplicativos especiais.
+    * Selecione o local do **Metro** onde você deseja converter o emparelhamento em um recurso do Azure. Se você tiver conexões de emparelhamento com a Microsoft no local **Metro** selecionado que não são convertidos em um recurso do Azure, essas conexões serão listadas na seção **conexões de emparelhamento** , conforme mostrado. Agora você pode converter essas conexões de emparelhamento em um recurso do Azure.
 
         > [!div class="mx-imgBorder"]
-        > ![Lista de conexões peering](../media/setup-directlegacy-conf-tab.png)
+        > ![Lista de conexões de emparelhamento](../media/setup-directlegacy-conf-tab.png)
 
-1. Se você precisar atualizar a largura de banda, selecione o botão editar para uma linha para modificar as configurações de conexão.
+1. Se você precisar atualizar a largura de banda, selecione o botão Editar para uma linha para modificar as configurações de conexão.
 
     > [!div class="mx-imgBorder"]
     > ![Botão Editar](../media/setup-directlegacy-conf-tab-edit.png)
 
     > [!NOTE]
-    > Se você quiser adicionar conexões adicionais de peering com a Microsoft no local **do Metro** selecionado, selecione **Criar novo**. Para obter mais informações, consulte [Criar ou modificar um peering direto usando o portal](../howto-direct-portal.md).
+    > Se você quiser adicionar conexões de emparelhamento adicionais com a Microsoft no local **Metro** selecionado, selecione **criar novo**. Para obter mais informações, consulte [criar ou modificar um emparelhamento direto usando o portal](../howto-direct-portal.md).
     >
 
-1. Selecione **Examinar + criar**. Observe que o portal executa a validação básica das informações inseridas. Uma fita na parte superior exibe a mensagem *Executando a validação final...*.
+1. Selecione **Examinar + criar**. Observe que o portal executa a validação básica das informações inseridas. Uma faixa na parte superior exibe a mensagem *executando a validação final...*.
 
     > [!div class="mx-imgBorder"]
-    > ![Guia validação de peering](../media/setup-direct-review-tab-validation.png)
+    > ![Guia validação de emparelhamento](../media/setup-direct-review-tab-validation.png)
 
-1. Depois que a mensagem passar para *Validação,* verifique suas informações. Envie a solicitação selecionando **Criar**. Para modificar sua solicitação, selecione **Previous** e repita as etapas.
-
-    > [!div class="mx-imgBorder"]
-    > ![Submissão peering](../media/setup-direct-review-tab-submit.png)
-
-1. Depois de enviar a solicitação, aguarde o término da implantação. Se a implantação falhar, entre em contato com [a Microsoft .](mailto:peering@microsoft.com) Uma implantação bem sucedida aparece como mostrado aqui.
+1. Depois que a mensagem for alterada para *validação aprovada*, verifique suas informações. Envie a solicitação selecionando **criar**. Para modificar sua solicitação, selecione **anterior** e repita as etapas.
 
     > [!div class="mx-imgBorder"]
-    > ![Sucesso peering](../media/setup-direct-success.png)
+    > ![Envio de emparelhamento](../media/setup-direct-review-tab-submit.png)
+
+1. Depois de enviar a solicitação, aguarde a conclusão da implantação. Se a implantação falhar, entre em contato com [o emparelhamento da Microsoft](mailto:peering@microsoft.com). Uma implantação bem-sucedida aparece como mostrado aqui.
+
+    > [!div class="mx-imgBorder"]
+    > ![Êxito no emparelhamento](../media/setup-direct-success.png)
