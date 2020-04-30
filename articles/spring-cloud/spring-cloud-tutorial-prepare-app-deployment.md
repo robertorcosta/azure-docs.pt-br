@@ -1,21 +1,21 @@
 ---
-title: Como fazer - Prepare um aplicativo java spring para implantação no Azure Spring Cloud
-description: Neste tópico, você prepara um aplicativo Java Spring para implantação no Azure Spring Cloud.
+title: Como preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
+description: Neste tópico, você prepara um aplicativo Spring Java para implantação no Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.openlocfilehash: 16cee333d52765755b732c4de4dd8a6e092a130d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731174"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
 
-Este tópico mostra como preparar um aplicativo Java Spring existente para implantação no Azure Spring Cloud. Se configurado corretamente, o Azure Spring Cloud fornecerá serviços robustos para monitorar, dimensionar e atualizar seu aplicativo Java Spring Cloud.
+Este tópico mostra como preparar um aplicativo Spring Java existente para implantação no Azure Spring Cloud. Se configurado corretamente, o Azure Spring Cloud fornecerá serviços robustos para monitorar, dimensionar e atualizar seu aplicativo Java Spring Cloud.
 
 Outros exemplos explicam como implantar um aplicativo no Azure Spring Cloud quando o arquivo POM é configurado. 
 * [Iniciar o aplicativo usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md)
@@ -225,7 +225,7 @@ Inclua as seguintes dependências `spring-cloud-starter-sleuth` e `spring-cloud-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tópico, você aprendeu como configurar seu aplicativo Java Spring para implantação no Azure Spring Cloud. Para saber como configurar uma instância do Config Server, consulte o artigo a seguir.
+Neste tópico, você aprendeu a configurar seu aplicativo Java Spring para implantação no Azure Spring Cloud. Para saber como configurar uma instância de servidor de configuração, consulte o artigo a seguir.
 
 > [!div class="nextstepaction"]
 > [Saiba como configurar uma instância do Servidor de Configuração](spring-cloud-tutorial-config-server.md)

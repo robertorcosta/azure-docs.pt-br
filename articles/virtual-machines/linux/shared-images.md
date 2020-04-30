@@ -1,5 +1,5 @@
 ---
-title: Crie galerias de imagens compartilhadas com o Azure CLI
+title: Criar galerias de imagens compartilhadas com o CLI do Azure
 description: Neste artigo, você aprenderá a usar a CLI do Azure para criar uma imagem compartilhada de uma VM no Azure.
 author: cynthn
 ms.service: virtual-machines
@@ -10,10 +10,10 @@ ms.date: 05/06/2019
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: c75d33f8310cfd143bf201cdac861954d07baf0b
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758413"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>criar uma galeria de imagens compartilhadas com a CLI do Azure
@@ -39,7 +39,7 @@ O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos. Usare
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Crie uma VM a partir da versão de imagem mais recente usando [az vm create](/cli/azure/vm#az-vm-create).
+Crie uma VM com base na versão mais recente da imagem usando [AZ VM Create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
@@ -49,16 +49,16 @@ az vm create\
    --generate-ssh-keys
 ```
 
-Você também pode usar uma versão específica usando `--image` o ID da versão de imagem para o parâmetro. Por exemplo, para usar o tipo de `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`imagem versão *1.0.0:* .
+Você também pode usar uma versão específica usando a ID da versão da imagem para `--image` o parâmetro. Por exemplo, para usar a versão *1.0.0* de imagem 1.0.0 `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`Type:.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-[O Azure Image Builder (preview)](image-builder-overview.md) pode ajudar a automatizar a criação de versões de imagem, você pode até mesmo usá-la para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente](image-builder-gallery-update-image-version.md). 
+O [Construtor de imagens do Azure (visualização)](image-builder-overview.md) pode ajudar a automatizar a criação da versão da imagem, até mesmo usá-la para atualizar e [criar uma nova versão da imagem a partir de uma versão de imagem existente](image-builder-gallery-update-image-version.md). 
 
-Você também pode criar recursos da Galeria de Imagens Compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
+Você também pode criar recursos da Galeria de imagens compartilhadas usando modelos. Há vários Modelos de Início Rápido do Azure disponíveis: 
 
 - [Criar uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Criar uma Definição de Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

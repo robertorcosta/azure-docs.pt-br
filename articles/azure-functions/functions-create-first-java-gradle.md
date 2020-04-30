@@ -1,23 +1,23 @@
 ---
-title: Use Java e Gradle para publicar uma função no Azure
-description: Crie e publique uma função acionada por HTTP para o Azure com Java e Gradle.
+title: Usar Java e gradle para publicar uma função no Azure
+description: Crie e publique uma função disparada por HTTP no Azure com Java e gradle.
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.openlocfilehash: 34aab24bf39e387715cfa5783b801d45ed488750
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732721"
 ---
-# <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Use Java e Gradle para criar e publicar uma função no Azure
+# <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usar Java e gradle para criar e publicar uma função no Azure
 
-Este artigo mostra como construir e publicar um projeto de função Java para funções do Azure com a ferramenta de linha de comando Gradle. Quando você terminar, o código de função será executado no Azure em um [plano de hospedagem sem servidor](functions-scale.md#consumption-plan) e será disparado por uma solicitação HTTP. 
+Este artigo mostra como criar e publicar um projeto de função Java para Azure Functions com a ferramenta de linha de comando gradle. Quando você terminar, o código de função será executado no Azure em um [plano de hospedagem sem servidor](functions-scale.md#consumption-plan) e será disparado por uma solicitação HTTP. 
 
 > [!NOTE]
-> Se gradle não é sua ferramenta de desenvolvimento preferida, confira nossos tutoriais semelhantes para desenvolvedores Java usando [Maven,](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java) [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Se o gradle não for sua ferramenta de desenvolvimento preferida, Confira nossos tutoriais semelhantes para desenvolvedores de Java usando [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -26,23 +26,23 @@ Para desenvolver funções usando Java, você deve ter o seguinte instalado:
 - [Java Developer Kit](https://aka.ms/azure-jdks), versão 8
 - [CLI do Azure]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou posterior
-- [Gradle](https://gradle.org/), versão 4.10 e acima
+- [Gradle](https://gradle.org/), versão 4,10 e posterior
 
 Você também precisará de uma assinatura ativa do Azure. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > A variável de ambiente JAVA_HOME deve ser definida como o local de instalação do JDK para concluir este guia de início rápido.
 
-## <a name="prepare-a-functions-project"></a>Prepare um projeto de Funções
+## <a name="prepare-a-functions-project"></a>Preparar um projeto de funções
 
-Use o seguinte comando para clonar o projeto de amostra:
+Use o seguinte comando para clonar o projeto de exemplo:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-functions-samples-java.git
 cd azure-functions-samples-java/
 ```
 
-Abra `build.gradle` e `appName` altere a seção a seguir para um nome único para evitar o conflito de nomes de domínio ao ser implantado no Azure. 
+Abra `build.gradle` o e altere `appName` o na seção a seguir para um nome exclusivo para evitar conflitos de nome de domínio ao implantar no Azure. 
 
 ```gradle
 azurefunctions {
@@ -64,7 +64,7 @@ Abra o novo arquivo Function.java do caminho *src/main/java* em um editor de tex
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
 
-Execute o seguinte comando para construir e execute o projeto de função:
+Execute o seguinte comando para compilar e executar o projeto de função:
 
 ```bash
 gradle jar --info
@@ -84,7 +84,7 @@ Http Functions:
 ...
 </pre>
 
-Acione a função a partir da linha de comando usando o seguinte comando cURL em uma nova janela de terminal:
+Dispare a função na linha de comando usando o seguinte comando de rotação em uma nova janela de terminal:
 
 ```bash
 curl -w "\n" http://localhost:7071/api/HttpExample --data AzureFunctions
@@ -119,11 +119,11 @@ Use o comando a seguir para implantar o projeto em um novo aplicativo de funçõ
 gradle azureFunctionsDeploy
 ```
 
-Isso cria os seguintes recursos no Azure, com base nos valores do arquivo build.gradle:
+Isso cria os seguintes recursos no Azure, com base nos valores no arquivo Build. gradle:
 
 + Grupo de recursos. Nomeado com o _resourceGroup_ fornecido.
 + Conta de armazenamento. Necessária para o Functions. O nome é gerado aleatoriamente de acordo com os requisitos de nome da conta de armazenamento.
-+ Plano do Serviço de Aplicativo. Plano de consumo sem servidor hospedagem para seu aplicativo de função no _aplicativo especificadoRegião_. O nome é gerado aleatoriamente.
++ Plano do Serviço de Aplicativo. Plano de consumo sem servidor que hospeda para seu aplicativo de funções no _appRegion_especificado. O nome é gerado aleatoriamente.
 + Aplicativo de funções. Um aplicativo de funções é a unidade de implantação e execução para suas funções. O nome é o _appName_, acrescentado a um número gerado aleatoriamente. 
 
 A implantação também empacota os arquivos de projeto e implanta-os no novo aplicativo de funções usando [zip deployment](functions-deployment-technologies.md#zip-deploy), com o modo run-from-package habilitado.

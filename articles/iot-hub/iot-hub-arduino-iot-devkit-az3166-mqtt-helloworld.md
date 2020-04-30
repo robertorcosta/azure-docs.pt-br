@@ -1,6 +1,6 @@
 ---
-title: Envie mensagens para um servidor MQTT usando a biblioteca de clientes Do Azure MQTT
-description: Aprenda a usar a biblioteca do Cliente MQTT para enviar mensagens a um corretor MQTT. Aprenda também como configurar seu mXChip IoT DevKit para ser um cliente MQTT.
+title: Enviar mensagens para um servidor MQTT usando a biblioteca de cliente MQTT do Azure
+description: Saiba como usar a biblioteca de cliente do MQTT para enviar mensagens para um agente do MQTT. Saiba também como configurar seu mXChip IoT DevKit para ser um cliente MQTT.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -11,10 +11,10 @@ ms.date: 04/02/2018
 ms.author: liydu
 ms.custom: mqtt
 ms.openlocfilehash: 600e64ef5bc3329f0116359066bdcdaf42c13e2e
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733483"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: cdf901ca56c150cfed6ba3d462ce493d40bd2488
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757997"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
@@ -24,24 +24,24 @@ Este artigo descreve maneiras de gerar e usar chaves SSH (*secure shell*) em um 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="windows-packages-and-ssh-clients"></a>Pacotes do Windows e clientes SSH
-Você se conecta e gerencia VMs Linux no Azure usando um *cliente SSH*. Computadores que executam o Linux ou macOS geralmente têm um pacote de comandos SSH para gerar e gerenciar chaves SSH e estabelecer conexões SSH. 
+Você se conecta e gerencia VMs do Linux no Azure usando um *cliente SSH*. Computadores que executam o Linux ou macOS geralmente têm um pacote de comandos SSH para gerar e gerenciar chaves SSH e estabelecer conexões SSH. 
 
-Computadores Windows nem sempre têm comandos SSH equivalentes instalados. Versões recentes do Windows 10 fornecem [comandos de cliente OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) para criar e gerenciar chaves SSH e fazer conexões SSH a partir de um prompt de comando. Versões recentes do Windows 10 também incluem o [Windows Subsystem para Linux](https://docs.microsoft.com/windows/wsl/about) para executar e acessar utilitários como um cliente SSH de forma nativa dentro de um shell Bash. 
+Computadores Windows nem sempre têm comandos SSH equivalentes instalados. As versões recentes do Windows 10 fornecem [comandos de cliente OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) para criar e gerenciar chaves SSH e fazer conexões SSH a partir de um prompt de comando. Versões recentes do Windows 10 também incluem o [Windows Subsystem para Linux](https://docs.microsoft.com/windows/wsl/about) para executar e acessar utilitários como um cliente SSH de forma nativa dentro de um shell Bash. 
 
 Outros clientes SSH comuns do Windows que podem ser instalados localmente estão incluídos nos seguintes pacotes:
 
-* [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git para Windows](https://git-for-windows.github.io/)
 * [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 Também é possível usar os utilitários SSH disponíveis no Bash no [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-* Acesse o Cloud Shell [https://shell.azure.com](https://shell.azure.com) em seu navegador web no [portal Azure.](https://portal.azure.com) 
+* Acesse Cloud Shell no navegador da Web [https://shell.azure.com](https://shell.azure.com) em ou no [portal do Azure](https://portal.azure.com). 
 * Acesse o Cloud Shell como um terminal de dentro do Visual Studio Code instalando a [extensão de Conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
-As seguintes seções descrevem duas opções para criar um par de chaves SSH no Windows. É possível usar um comando shell (`ssh-keygen`) ou uma ferramenta de GUI (PuTTYgen). Observe também que, ao usar o Powershell para criar uma chave, carregue a chave pública como formato ssh.com (SECSH). Ao usar cli, converta a chave no formato OpenSSH antes de fazer o upload. 
+As seguintes seções descrevem duas opções para criar um par de chaves SSH no Windows. É possível usar um comando shell (`ssh-keygen`) ou uma ferramenta de GUI (PuTTYgen). Observe também que, ao usar o PowerShell para criar uma chave, carregue a chave pública como o formato SSH. com (SECSH). Ao usar a CLI, converta a chave no formato OpenSSH antes de carregar. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Criar chaves SSH com ssh-keygen
 
@@ -75,7 +75,7 @@ Para criar um par de chaves SSH RSA com o PuttyGen:
 
     ![Salvar o arquivo de chave privada do PuTTY](./media/ssh-from-windows/save-ppk-file.png)
 
-    Se você quiser salvar a chave privada no formato OpenSSH, o formato de chave privada usado por muitos clientes SSH, selecione conversão > **susenha a tecla Conversões Exportar OpenSSH**. **Conversions**
+    Se você quiser salvar a chave privada no formato OpenSSH, o formato de chave privada usado por muitos clientes ssh, selecione **conversões** > **Exportar chave OpenSSH**.
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Fornecer uma chave pública SSH ao implantar uma VM
 
@@ -111,7 +111,7 @@ Se você tiver instalado o [pacote de download do PuTTY](https://www.chiark.gree
 
     ![Abrir nova conexão PuTTY](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Selecione a **categoria Conexão** > **SSH** > **Auth.** Procure e selecione a chave privada do PuTTY (arquivo .ppk):
+3. Selecione a categoria de**autenticação** **SSH** > de **conexão** > . Procure e selecione a chave privada do PuTTY (arquivo .ppk):
 
     ![Selecionar a chave privada do PuTTY para autenticação](./media/ssh-from-windows/putty-auth-dialog.png)
 

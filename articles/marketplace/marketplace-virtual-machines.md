@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
 ms.openlocfilehash: 2fa67d81546db86535c179a9c59d0602c1175cba
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687506"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guia de Publicação da Oferta de Máquina Virtual
@@ -56,15 +56,15 @@ Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual
 | VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux. <ul> <li>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre como criar um VHD Windows, consulte [Criar um VHD compatível com o Azure](./partner-center-portal/azure-vm-create-offer.md).</li> </ul> |  
 
 >[!Note]
->O opt-in do canal parceiro Cloud Solution Providers (CSP) já está disponível.  Consulte [os Provedores de Soluções em Nuvem](./cloud-solution-providers.md) para obter mais informações sobre o marketing de sua oferta através dos canais parceiros microsoft CSP.
+>A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](./cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Caso ainda não tenha feito isso, 
 
-- [Conheça](https://azuremarketplace.microsoft.com/sell) o mercado.
+- [Saiba mais](https://azuremarketplace.microsoft.com/sell) sobre o Marketplace.
 
 Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
 
-- [Faça login no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
-- Veja [criar uma oferta de máquina virtual](./partner-center-portal/azure-vm-create-offer.md) para obter mais informações.
+- [Entre no Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou concluir sua oferta.
+- Consulte [criar uma oferta de máquina virtual](./partner-center-portal/azure-vm-create-offer.md) para obter mais informações.

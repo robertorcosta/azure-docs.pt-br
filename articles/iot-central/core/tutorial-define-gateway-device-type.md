@@ -9,16 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7bb386d39f53331e77bee4d863c431c2e3655f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79298828"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758136"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo de gateway de IoT no aplicativo Azure IoT Central
 
-Este tutorial mostra a você, como construtor, como usar um modelo de dispositivo de gateway para definir um dispositivo de gateway no aplicativo IoT Central. Em seguida, configure vários dispositivos downstream que se conectam ao aplicativo IoT Central por meio do dispositivo de gateway. 
+*Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
+
+Este tutorial mostra a você, como construtor de solução, como usar um modelo de dispositivo de gateway para definir um dispositivo de gateway no aplicativo IoT Central. Em seguida, configure vários dispositivos downstream que se conectam ao aplicativo IoT Central por meio do dispositivo de gateway. 
 
 Neste tutorial, você criará um modelo de dispositivo de gateway de **Compilação Inteligente**. Um dispositivo de gateway de **Compilação inteligente** tem relações com outros dispositivos downstream.
 
@@ -207,7 +209,7 @@ Neste tutorial, você aprendeu a:
 > [!NOTE]
 > Atualmente, a geração de código baseada em VS Code não é uma ação compatível com dispositivos de gateway modelados no IoT Central.
 
-Em seguida, você pode:
+Em seguida, como um desenvolvedor do dispositivo, você pode aprender como:
 
 > [!div class="nextstepaction"]
-> [Conectar um dispositivo](tutorial-connect-device.md)
+> [Adicionar um dispositivo Azure IoT Edge ao aplicativo do Azure IoT Central](tutorial-add-edge-as-leaf-device.md)

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
-ms.openlocfilehash: 075b55b5a798924b55ef9d901e4d2e9ecfc9dc1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 70dbceb51ed030124d1b793d77c6bc287da91065
+ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77597568"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81687636"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introdução à API do Cassandra do Azure Cosmos DB
 
@@ -23,19 +23,23 @@ A API do Cassandra permite interagir com os dados armazenados no Azure Cosmos DB
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Qual é o benefício de usar a API do Apache Cassandra para o Azure Cosmos DB?
 
-**Sem gerenciamento de operações**: como um serviço de nuvem totalmente gerenciado, a API do Cassandra do Azure Cosmos DB remove a sobrecarga de gerenciamento e monitoramento de inúmeras configurações em arquivos do sistema operacional, da JVM e arquivos yaml e suas interações. O Azure Cosmos DB fornece monitoramento de taxa de transferência, latência, armazenamento e disponibilidade, bem como alertas configuráveis.
+**Sem gerenciamento de operações**: Como um serviço de nuvem totalmente gerenciado, a API do Cassandra do Azure Cosmos DB remove a sobrecarga de gerenciamento e monitoramento de inúmeras configurações em arquivos do sistema operacional, da JVM e yaml e suas interações. O Azure Cosmos DB fornece monitoramento de taxa de transferência, latência, armazenamento e disponibilidade, bem como alertas configuráveis.
 
-**Gerenciamento de desempenho**: o Azure Cosmos DB fornece leituras e gravações de baixa latência garantidas por SLAs no 99º percentil. Os usuários não precisam se preocupar com a sobrecarga operacional para garantir alto desempenho e baixa latência em leituras e gravações. Isso significa que os usuários não precisam lidar com o agendamento de compactação, gerenciamento de marcas de exclusão, configuração filtros de gesto de abrir a mão e as réplicas realizados de forma manual. O Azure Cosmos DB remove a sobrecarga para gerenciar esses problemas e permite que você se concentre na lógica do aplicativo.
+**Padrão de software livre**: apesar de ser um serviço totalmente gerenciado, a API do Cassandra ainda dá suporte a uma grande área de superfície do [protocolo de transferência Apache Cassandra](cassandra-support.md) nativo, permitindo que você crie aplicativos em um padrão de software livre amplamente utilizado e independente da nuvem.
 
-**Capacidade de usar o código e as ferramentas existentes**: o Azure Cosmos DB fornece a compatibilidade no nível de protocolo com as ferramentas e os SDKs existentes do Cassandra. Essa compatibilidade garante que você pode usar a base de código existente com a API do Cassandra do Azure Cosmos DB com alterações triviais.
+**Gerenciamento de desempenho**: O Azure Cosmos DB fornece leituras e gravações de baixa latência no 99º percentil, garantidas pelos SLAs. Os usuários não precisam se preocupar com a sobrecarga operacional para garantir alto desempenho e baixa latência em leituras e gravações. Isso significa que os usuários não precisam lidar com o agendamento de compactação, gerenciamento de marcas de exclusão, configuração filtros de gesto de abrir a mão e as réplicas realizados de forma manual. O Azure Cosmos DB remove a sobrecarga para gerenciar esses problemas e permite que você se concentre na lógica do aplicativo.
 
-**Elasticidade de armazenamento e taxa de transferência**: o Azure Cosmos DB fornece taxa de transferência garantida em todas as regiões e pode dimensionar a taxa de transferência provisionada por meio de operações no portal do Azure, no PowerShell ou na CLI. É possível dimensionar elasticamente o armazenamento e a taxa de transferência para suas tabelas conforme o necessário e com desempenho previsível.
+**Capacidade de usar o código e as ferramentas existentes**: O Azure Cosmos DB fornece a compatibilidade no nível de protocolo com as ferramentas e os SDKs existentes do Cassandra. Essa compatibilidade garante que você pode usar a base de código existente com a API do Cassandra do Azure Cosmos DB com alterações triviais.
 
-**Distribuição e disponibilidade global**: o Azure Cosmos DB oferece a capacidade de distribuir dados globalmente em todas as regiões do Azure e fornecê-los localmente, garantindo acesso a dados de baixa latência e alta disponibilidade. O Azure Cosmos DB fornece alta disponibilidade de 99,99% em uma região e disponibilidade de leitura e gravação de 99,999% em várias regiões sem sobrecarga de operações. Saiba mais no artigo [Distribuir dados globalmente](distribute-data-globally.md). 
+**Elasticidade de armazenamento e taxa de transferência**: O Azure Cosmos DB fornece taxa de transferência garantida em todas as regiões e pode dimensionar a taxa de transferência provisionada com operações no portal do Azure, no PowerShell ou na CLI. É possível [dimensionar elasticamente](manage-scale-cassandra.md) o armazenamento e a taxa de transferência para suas tabelas conforme o necessário e com desempenho previsível.
 
-**Opção de consistência**: o Azure Cosmos DB fornece a opção de cinco níveis de consistência bem-definidos para obter a compensação ideal entre consistência e desempenho. Esses níveis de consistência são forte, desatualização limitada, sessão, prefixo consistente e eventual. Esses níveis de consistência bem-definidos, práticos e intuitivos permitem que o desenvolvedor faça compensações precisas entre consistência, disponibilidade e latência. Saiba mais no artigo [Níveis de consistência](consistency-levels.md). 
+**Distribuição e disponibilidade globais**: O Azure Cosmos DB oferece a capacidade de distribuir os dados globalmente em todas as regiões do Azure e fornecê-los localmente, garantindo o acesso a dados de baixa latência e alta disponibilidade. O Azure Cosmos DB fornece alta disponibilidade de 99,99% em uma região e disponibilidade de leitura e gravação de 99,999% em várias regiões sem sobrecarga de operações. Saiba mais no artigo [Distribuir dados globalmente](distribute-data-globally.md). 
 
-**Pequeno porte**: O Azure Cosmos DB oferece [certificações de conformidade](https://www.microsoft.com/trustcenter) para garantir que os usuários possam usar a plataforma de forma segura. O Azure Cosmos DB também fornece criptografia em repouso e em movimento, firewall de IP e logs de auditoria para atividades do plano de controle.
+**Opção de consistência**: O Azure Cosmos DB fornece a opção de cinco níveis de consistência bem-definidos para alcançar a compensação ideal entre consistência e desempenho. Esses níveis de consistência são forte, desatualização limitada, sessão, prefixo consistente e eventual. Esses níveis de consistência bem-definidos, práticos e intuitivos permitem que o desenvolvedor faça compensações precisas entre consistência, disponibilidade e latência. Saiba mais no artigo [Níveis de consistência](consistency-levels.md). 
+
+**Nível empresarial**: O Azure Cosmos DB fornece [certificações de conformidade](https://www.microsoft.com/trustcenter) para garantir que os usuários possam usar a plataforma com segurança. O Azure Cosmos DB também fornece criptografia em repouso e em movimento, firewall de IP e logs de auditoria para atividades do plano de controle.
+
+**Fornecimento de Eventos**: A API do Cassandra fornece acesso a um log de alterações persistente, o [Feed de Alterações](cassandra-change-feed.md), que pode facilitar o fornecimento de eventos diretamente do banco de dados. No Apache Cassandra, o único equivalente é o CDA (captura de dados de alterações), que é meramente um mecanismo para sinalizar tabelas específicas para arquivamento, bem como rejeitar gravações nessas tabelas assim que um tamanho configurável no disco para o log de CDC for atingido (esses recursos são redundantes no Cosmos DB, já que os aspectos relevantes são regidos automaticamente).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -52,4 +56,4 @@ A API do Cassandra permite interagir com os dados armazenados no Azure Cosmos DB
 
 * Para saber mais sobre os recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB, confira o artigo [Suporte do Cassandra](cassandra-support.md).
 
-* Leia as [Perguntas frequentes](faq.md#cassandra).
+* Leia as [Perguntas frequentes](cassandra-faq.md).

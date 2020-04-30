@@ -1,25 +1,25 @@
 ---
-title: Escrevendo plugins para Azure Media Player
-description: Aprenda a escrever um plugin com o Azure Media Player com JavaScript
+title: Gravando plug-ins para Player de Mídia do Azure
+description: Saiba como escrever um plug-in com Player de Mídia do Azure com JavaScript
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727106"
 ---
-# <a name="writing-plugins-for-azure-media-player"></a>Escrevendo plugins para Azure Media Player #
+# <a name="writing-plugins-for-azure-media-player"></a>Gravando plug-ins para Player de Mídia do Azure #
 
-Um plugin é JavaScript escrito para estender ou melhorar o player. Você pode escrever plugins que alteram a aparência do Azure Media Player, sua funcionalidade ou até mesmo tê-lo interface com outros serviços. Você pode fazer isso em dois passos fáceis:
+Um plug-in é escrito por JavaScript para estender ou aprimorar o Player. Você pode gravar plug-ins que alteram a aparência de Player de Mídia do Azure, sua funcionalidade ou até mesmo ter uma interface de ti com outros serviços. Você pode fazer isso em duas etapas simples:
 
 ## <a name="step-1"></a>Etapa 1 ##
 
-Escreva seu JavaScript em uma função como essa:
+Escreva seu JavaScript em uma função como esta:
 
 ```javascript
 
@@ -33,7 +33,7 @@ Escreva seu JavaScript em uma função como essa:
     }).call(this);
 ```
 
-Você pode escrever seu código diretamente `<script>` em sua página HTML dentro de tags ou em um arquivo JavaScript externo. Se você fizer o último, certifique-se de `<head>` incluir o arquivo JavaScript na página de HTML *após* o script AMP.
+Você pode escrever seu código diretamente em sua página HTML dentro `<script>` de marcas ou em um arquivo JavaScript externo. Se você fizer o último, certifique-se de incluir o arquivo JavaScript na `<head>` sua página HTML *após* o script de amp.
 
 Exemplo:
 
@@ -47,7 +47,7 @@ Exemplo:
 ```
 
 ## <a name="step-2"></a>Etapa 2 ##
-Inicialize o plugin com JavaScript de duas maneiras:
+Inicialize o plug-in com JavaScript de uma das duas maneiras:
 
 Método 1:
 
@@ -74,21 +74,21 @@ Método 2:
     video.yourPluginName({[your plugins option]: [example option]});
 ```
 
-As opções de plugin não são necessárias, incluindo elas apenas permite que os desenvolvedores que usam seu plugin configurem seu comportamento sem ter que alterar o código-fonte.
+As opções de plug-in não são necessárias, incluindo-as apenas permite que os desenvolvedores que usam seu plug-in configurem seu comportamento sem precisar alterar o código-fonte.
 
-Para inspiração e mais exemplos sobre a criação de um plugin dê uma olhada em nossa [galeria](azure-media-player-plugin-gallery.md)
+Para inspiração e mais exemplos de como criar um plug-in, dê uma olhada em nossa [Galeria](azure-media-player-plugin-gallery.md)
 
 >[!NOTE]
-> O código de plugin altera dinamicamente itens no DOM durante a vida útil da experiência do jogador, ele nunca faz alterações permanentes no código-fonte do jogador. É aí que a compreensão das ferramentas de desenvolvedor do seu navegador é útil. Por exemplo, se você quiser alterar a aparência de um elemento no jogador, você pode encontrar seu elemento HTML pelo seu nome de classe e, em seguida, adicionar ou alterar atributos a partir daí. Aqui está um grande recurso sobre [a mudança de atributos HTML.](http://www.w3schools.com/js/js_htmldom_html.asp)
+> O código do plug-in altera dinamicamente os itens no DOM durante o tempo de vida da experiência do jogador do visualizador, mas nunca faz alterações permanentes no código-fonte do jogador. É aí que um entendimento das ferramentas de desenvolvedor de seu navegador é útil. Por exemplo, se você quiser alterar a aparência de um elemento no Player, poderá encontrar seu elemento HTML por seu nome de classe e, em seguida, adicionar ou alterar atributos a partir daí. Aqui está um ótimo recurso na [alteração de atributos HTML.](http://www.w3schools.com/js/js_htmldom_html.asp)
 
-### <a name="integrated-plugins"></a>Plugins integrados ###
+### <a name="integrated-plugins"></a>Plug-ins integrados ###
 
- Atualmente, existem dois plugins assados em AMP: a [ponta de tempo](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html) e as [teclas de atalho](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html). Estes plugins foram originalmente desenvolvidos para serem plugins modulares para o jogador, mas agora estão incluídos no código fonte do jogador.
+ Atualmente, há dois plug-ins inclusas em AMP: The [time-Tip](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html) e [teclas](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html)de mouse. Esses plug-ins foram originalmente desenvolvidos para serem plug-ins modulares para o Player, mas agora estão incluídos no código-fonte do Player.
 
-### <a name="plugin-gallery"></a>Galeria Plugin ###
+### <a name="plugin-gallery"></a>Galeria de plug-ins ###
 
-A [galeria plugin](http//:aka.ms/ampplugins) tem vários plugins que a comunidade já contribuiu para recursos como marcadores de linha do tempo, zoom, analytics e muito mais. A página fornece acessos aos plugins e instruções sobre como configurá-lo, bem como uma demonstração que mostra o plugin em ação. Se você criar um plugin legal que você acha que deve ser incluído em nossa galeria, sinta-se livre para enviá-lo para que possamos conferir.
+A [Galeria de plug-](http//:aka.ms/ampplugins) ins tem vários plugins que a Comunidade já contribuiu para recursos como marcadores de linha de tempo, zoom, análise e muito mais. A página fornece acesso aos plug-ins e instruções sobre como configurá-lo, bem como uma demonstração que mostra o plug-in em ação. Se você criar um plug-in interessante que você acha que deve ser incluído em nossa galeria, fique à vontade para enviá-lo para que possamos fazer check-out.
 
 ## <a name="next-steps"></a>Próximas etapas ##
 
-- [Azure Media Player Quickstart](azure-media-player-quickstart.md)
+- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)

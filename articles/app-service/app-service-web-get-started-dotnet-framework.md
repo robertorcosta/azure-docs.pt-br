@@ -3,14 +3,14 @@ title: 'Início Rápido: Criar um aplicativo ASP.NET C#'
 description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure implantando o modelo de aplicativo Web ASP.NET C# padrão por meio do Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 10/21/2019
+ms.date: 04/21/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 4688cc358ec6ff792be58254b0607f5416422a21
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 47a5cf2586b8146a68772962c60dc0dbdbb7e2fe
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047666"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768908"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar um aplicativo Web do ASP.NET Framework no Azure
 
@@ -55,7 +55,7 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **myFirstAzureWebApp** e selecione **Publicar**.
 
-1. Escolha **Serviço de Aplicativo** e, em seguida, altere **Criar perfil** para **Publicar**.
+1. Escolha **Serviço de Aplicativo** e selecione **Criar perfil**.
 
    ![Publicar na página de visão geral do projeto](./media/app-service-web-get-started-dotnet-framework/publish-app-framework-vs2019.png)
 
@@ -82,23 +82,25 @@ Crie um aplicativo Web ASP.NET seguindo estas etapas:
 
    | Configuração | Valor sugerido | Descrição |
    |-|-|-|
-   |Plano do Serviço de Aplicativo| myAppServicePlan | O nome do plano do Serviço de Aplicativo. |
+   | Plano de Hospedagem| myAppServicePlan | O nome do plano do Serviço de Aplicativo. |
    | Location | Europa Ocidental | O datacenter onde o aplicativo Web está hospedado. |
    | Tamanho | Grátis | O [Tipo de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina os recursos de hospedagem. |
 
    ![Criar plano de Serviço de Aplicativo](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
 
-1. Em **Nome**, insira um nome de aplicativo exclusivo que inclua somente os caracteres válidos `a-z`, `A-Z`, `0-9` e `-`. Você pode aceitar o nome exclusivo gerado automaticamente. A URL do aplicativo Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome do aplicativo.
+1. Em **Nome**, insira um nome de aplicativo exclusivo que inclua somente os caracteres válidos `a-z`, `A-Z`, `0-9` e `-`. Você pode aceitar o nome exclusivo gerado automaticamente. A URL do aplicativo Web é `http://<app-name>.azurewebsites.net`, em que `<app-name>` é o nome do aplicativo.
 
 2. Clique em **Criar** para começar a criar os recursos do Azure.
 
    ![Configurar nome do aplicativo](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
 
-Depois que o assistente é concluído, ele publica o aplicativo Web ASP.NET no Azure e, em seguida, inicia o aplicativo no navegador padrão.
+    Quando o assistente for concluído, os recursos do Azure serão criados para você e você estará pronto para publicar.
 
-![Aplicativo Web ASP.NET publicado no Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
+3. Na página **Publicar**, clique em **Publicar**. O Visual Studio compila, empacota e publica o aplicativo no Azure e, em seguida, inicia o aplicativo no navegador padrão.
 
-O nome do aplicativo especificado na página **Criar Novo Serviço de Aplicativo** é usado como o prefixo da URL no formato `http://<app_name>.azurewebsites.net`.
+    ![Aplicativo Web ASP.NET publicado no Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
+
+O nome do aplicativo especificado na página **Criar Novo Serviço de Aplicativo** é usado como o prefixo da URL no formato `http://<app-name>.azurewebsites.net`.
 
 **Parabéns!** Seu aplicativo Web ASP.NET está em execução no Serviço de Aplicativo do Azure.
 
@@ -117,9 +119,9 @@ O nome do aplicativo especificado na página **Criar Novo Serviço de Aplicativo
 
 1. Para implantar novamente no Azure, clique com o botão direito do mouse no projeto **myFirstAzureWebApp**, no **Gerenciador de Soluções** e selecione **Publicar**. Em seguida, selecione **Publicar**.
 
-Quando a publicação está concluída, o Visual Studio inicia um navegador para a URL do aplicativo Web.
+    Quando a publicação está concluída, o Visual Studio inicia um navegador para a URL do aplicativo Web.
 
-![Aplicativo Web ASP.NET atualizado no Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
+    ![Aplicativo Web ASP.NET atualizado no Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
 
 ## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 

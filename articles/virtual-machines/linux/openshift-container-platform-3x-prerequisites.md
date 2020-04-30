@@ -1,6 +1,6 @@
 ---
-title: Plataforma de contêineres OpenShift 3.11 nos pré-requisitos do Azure
-description: Pré-requisitos para implantar a Plataforma de Contêineres OpenShift 3.11 no Azure.
+title: Plataforma de contêiner OpenShift 3,11 em pré-requisitos do Azure
+description: Pré-requisitos para implantar a plataforma de contêiner OpenShift 3,11 no Azure.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -10,31 +10,31 @@ ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
 ms.openlocfilehash: 26b190515819378309c2b0705efdbc349ecccbe2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759514"
 ---
-# <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para implantação da Plataforma de Contêineres OpenShift 3.11 no Azure
+# <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Pré-requisitos comuns para implantar a plataforma de contêiner do OpenShift 3,11 no Azure
 
 Este artigo descreve pré-requisitos comuns para implantar o OpenShift Container Platform ou OKD no Azure.
 
 A instalação do OpenShift é feita por meio de guias estratégicos do Ansible. Ansible usa Secure Shell (SSH) para se conectar a todos os hosts de cluster para concluir as etapas de instalação.
 
-Quando ansible faz a conexão SSH com os hosts remotos, ele não pode digitar uma senha. Por esse motivo, a chave privada não pode ter uma senha (senha) associada a ela ou a implantação falhará.
+Quando o Ansible faz a conexão SSH com os hosts remotos, ele não pode inserir uma senha. Por esse motivo, a chave privada não pode ter uma senha (senha) associada a ela ou a implantação falhará.
 
-Como todas as máquinas virtuais (VMs) são implantadas por meio de modelos do Azure Resource Manager, a mesma Chave pública é usada para acessar todas as VMs. A chave privada correspondente deve estar na VM que executa todos os livros de jogo também. Para executar essa ação com segurança, um cofre de chaves Do Zure é usado para passar a chave privada para a VM.
+Como todas as máquinas virtuais (VMs) são implantadas por meio de modelos do Azure Resource Manager, a mesma Chave pública é usada para acessar todas as VMs. A chave privada correspondente deve estar na VM que executa todos os guias estratégicos também. Para executar essa ação com segurança, um cofre de chaves do Azure é usado para passar a chave privada para a VM.
 
-Se houver uma necessidade de armazenamento persistente para contêineres, então Volumes Persistentes serão necessários. O OpenShift suporta discos rígidos virtuais (VHDs) do Azure para volumes persistentes, mas o Azure deve primeiro ser configurado como provedor de nuvem.
+Se houver uma necessidade de armazenamento persistente para contêineres, então Volumes Persistentes serão necessários. O OpenShift dá suporte a VHDs (discos rígidos virtuais) do Azure para volumes persistentes, mas o Azure deve primeiro ser configurado como o provedor de nuvem.
 
 Nesse modelo, o OpenShift:
 
-- Cria um objeto VHD em uma conta de armazenamento Azure ou em um disco gerenciado.
+- Cria um objeto VHD em uma conta de armazenamento do Azure ou em um disco gerenciado.
 - Monta o VHD em uma VM e formata o volume.
 - Montará o volume no Pod.
 
-Para que isso funcione, o OpenShift precisa de permissões para executar as tarefas no Azure. Um diretor de serviço é usado para este fim. A Entidade de serviço é uma conta de segurança no Azure Active Directory que tem as permissões para recursos.
+Para que isso funcione, o OpenShift precisa de permissões para executar as tarefas no Azure. Uma entidade de serviço é usada para essa finalidade. A Entidade de serviço é uma conta de segurança no Azure Active Directory que tem as permissões para recursos.
 
 A Entidade de serviço deve ter acesso a Contas de armazenamento e máquinas virtuais que compõem o cluster. Se todos os recursos de cluster do OpenShift forem implantados em um único Grupo de recursos, a SP pode receber permissões para esse Grupo de recursos.
 
@@ -55,7 +55,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve usar um grupo de recursos dedicado para hospedar o cofre-chave. Esse grupo é separado do grupo de recursos no qual os recursos de cluster OpenShift implantam.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve usar um grupo de recursos dedicado para hospedar o cofre de chaves. Esse grupo é separado do grupo de recursos no qual os recursos de cluster OpenShift implantam.
 
 O exemplo abaixo cria um grupo de recursos denominado *keyvaultrg* no local *eastus*:
 
@@ -64,7 +64,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chave
-Crie um KeyVault para armazenar as chaves de SSH para o cluster com o comando [az keyvault create](/cli/azure/keyvault). O nome do cofre chave deve ser globalmente único e deve ser habilitado para a implantação do modelo ou a implantação falhará com o erro "KeyVaultParameterReferenceSecretRetrieveFailed".
+Crie um KeyVault para armazenar as chaves de SSH para o cluster com o comando [az keyvault create](/cli/azure/keyvault). O nome do cofre de chaves deve ser globalmente exclusivo e deve ser habilitado para implantação de modelo, ou a implantação falhará com o erro "KeyVaultParameterReferenceSecretRetrieveFailed".
 
 O exemplo abaixo cria um keyvault denominado *keyvault* no grupo de recursos *keyvaultrg*:
 
@@ -94,11 +94,11 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>Criar uma entidade de serviço 
-O OpenShift se comunica com o Azure usando um nome de usuário e a senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o OpenShift. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. É melhor escopo das permissões do diretor do serviço para grupos de recursos específicos em vez de toda a assinatura.
+O OpenShift se comunica com o Azure usando um nome de usuário e a senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o OpenShift. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. É melhor fazer o escopo das permissões da entidade de serviço para grupos de recursos específicos em vez de toda a assinatura.
 
 Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp) e gere as credenciais necessárias para o OpenShift.
 
-O exemplo a seguir cria um principal de serviço e atribui permissões de contribuinte a um grupo de recursos chamado *openshiftrg*.
+O exemplo a seguir cria uma entidade de serviço e atribui permissões de colaborador de ti a um grupo de recursos chamado *openshiftrg*.
 
 Primeiro, crie o grupo de recursos chamado *openshiftrg*:
 
@@ -136,28 +136,28 @@ Anote a propriedade appId e a senha retornada do comando:
 
 Para obter mais informações sobre entidades de serviço, confira [Criar entidade de serviço do Azure com a CLI do Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
-## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis apenas ao modelo de Gerenciador de Recursos
+## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Pré-requisitos aplicáveis somente ao modelo do Resource Manager
 
-Os segredos precisarão ser criados para a chave privada SSH **(sshPrivateKey),** o segredo do cliente Azure AD **(aadClientSecret),** a senha de administrador do OpenShift **(openshiftPassword)** e a senha ou chave de ativação do Red Hat Subscription Manager **(rhsmPasswordOrActivationKey).**  Além disso, se forem usados certificados TLS/SSL personalizados, seis segredos adicionais precisarão ser criados - **roteamento,** **roteamento,** **arquivo de roteamento, arquivo de teclas de roteamento,** **mastercafile,** **mastercertfile**e **masterkeyfile**.  Esses parâmetros serão explicados com mais detalhes.
+Os segredos precisarão ser criados para a chave privada SSH (**sshPrivateKey**), o segredo do cliente do Azure AD (**aadClientSecret**), a senha de administrador do OpenShift (**openshiftPassword**) e a senha ou a chave de ativação do Red Hat Subscription Manager (**rhsmPasswordOrActivationKey**).  Além disso, se forem usados certificados TLS/SSL personalizados, seis segredos adicionais precisarão ser criados- **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**e **masterkeyfile**.  Esses parâmetros serão explicados em mais detalhes.
 
-O modelo faz referência a nomes secretos específicos, então você **deve** usar os nomes em negrito listados acima (sensível ao caso).
+O modelo referencia nomes de segredo específicos, portanto, você **deve** usar os nomes em negrito listados acima (diferencia maiúsculas de minúsculas).
 
 ### <a name="custom-certificates"></a>Certificados personalizados
 
-Por padrão, o modelo implantará um cluster OpenShift usando certificados auto-assinados para o console web OpenShift e o domínio de roteamento. Se você quiser usar certificados TLS/SSL personalizados, defina 'roteamentoCertType' como 'personalizado' e 'masterCertType' como 'personalizado'.  Você precisará dos arquivos CA, Cert e Key no formato .pem para os certificados.  É possível usar certificados personalizados para um, mas não para o outro.
+Por padrão, o modelo implantará um cluster OpenShift usando certificados autoassinados para o console Web do OpenShift e o domínio de roteamento. Se você quiser usar certificados TLS/SSL personalizados, defina ' routingCertType ' como ' Custom ' e ' masterCertType ' como ' Custom '.  Você precisará da autoridade de certificação, do certificado e dos arquivos de chave no formato. pem para os certificados.  É possível usar certificados personalizados para um, mas não para o outro.
 
-Você precisará armazenar esses arquivos em segredos do Key Vault.  Use o mesmo Cofre de Chaves que o usado para a chave privada.  Em vez de exigir 6 entradas adicionais para os nomes secretos, o modelo é codificado para usar nomes secretos específicos para cada um dos arquivos de certificado TLS/SSL.  Armazene os dados do certificado usando as informações da tabela a seguir.
+Você precisará armazenar esses arquivos em Key Vault segredos.  Use o mesmo Key Vault como aquele usado para a chave privada.  Em vez de exigir 6 entradas adicionais para os nomes de segredo, o modelo é embutido em código para usar nomes de segredo específicos para cada um dos arquivos de certificado TLS/SSL.  Armazene os dados do certificado usando as informações da tabela a seguir.
 
-| Nome Secreto      | Arquivo de certificado   |
+| Nome do segredo      | Arquivo de certificado   |
 |------------------|--------------------|
-| mastercafile     | arquivo ca mestre     |
-| mastercertfile   | arquivo cert mestre   |
-| masterkeyfile    | arquivo de chave mestre    |
-| roteamentoarquivo    | arquivo CA de roteamento    |
-| routingcertfile  | roteamento de arquivo CERT  |
+| mastercafile     | arquivo de AC mestre     |
+| mastercertfile   | arquivo de certificado mestre   |
+| masterkeyfile    | arquivo de chave mestra    |
+| routingcafile    | arquivo de AC de roteamento    |
+| routingcertfile  | arquivo de certificado de roteamento  |
 | routingkeyfile   | arquivo de chave de roteamento   |
 
-Crie os segredos usando o Azure CLI. Veja abaixo um exemplo.
+Crie os segredos usando o CLI do Azure. Veja abaixo um exemplo.
 
 ```azurecli
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem
@@ -173,4 +173,4 @@ Este artigo abordou os seguintes tópicos:
 Agora, implante um cluster de OpenShift:
 
 - [Implantar a plataforma de contêiner do OpenShift](./openshift-container-platform-3x.md)
-- [Implantar oferta de marketplace auto-gerenciada da plataforma de contêineres OpenShift](./openshift-container-platform-3x-marketplace-self-managed.md)
+- [Implantar a oferta do Marketplace autogerenciado da plataforma de contêiner do OpenShift](./openshift-container-platform-3x-marketplace-self-managed.md)

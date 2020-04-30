@@ -7,16 +7,19 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: b7aebb5b9c1aa6566cedda869f97f2d1aa20df83
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.custom: mqtt
+ms.openlocfilehash: a8c5d9479585c0a519d0ad05a4d73f3f15b21287
+ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674648"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81758190"
 ---
-# <a name="tutorial-create-and-connect-a-nodejs-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutorial: Criar e conectar um aplicativo cliente Node.js ao seu aplicativo do Azure IoT Central (Node.js)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Tutorial: Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central (Node.js)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
+
+*Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
 
 Este tutorial mostra a você, como desenvolvedor de dispositivos, como conectar um aplicativo cliente Node.js ao seu aplicativo do Azure IoT Central. O aplicativo Node.js simula o comportamento de um dispositivo de sensor ambiental. Use um exemplo de _modelo de funcionalidade do dispositivo_ a fim de criar um _modelo de dispositivo_ no IoT Central. Adicione exibições ao modelo de dispositivo para permitir que um operador interaja com um dispositivo.
 
@@ -245,7 +248,7 @@ As etapas a seguir mostram como criar um aplicativo cliente Node.js que se conec
 
     Os nomes dos comandos (`blink`, `turnon`, `turnoff` e `rundiagnostics`) devem corresponder aos nomes usados no modelo de dispositivo.
 
-    No momento, o IoT Central não usa o esquema de resposta definido no modelo de funcionalidade do dispositivo. Para um comando síncrono, o conteúdo da resposta pode ser qualquer JSON válido. Para um comando assíncrono, o dispositivo deverá retornar uma resposta 202 seguida imediatamente pela atualização da propriedade relatada quando o trabalho for concluído. O formato da atualização da propriedade relatada é:
+    No momento, o IoT Central não usa o esquema de resposta definido no modelo de funcionalidade do dispositivo. Para um comando síncrono, o conteúdo de resposta pode ser qualquer JSON válido. Para um comando assíncrono, o dispositivo deverá retornar uma resposta 202 seguida imediatamente pela atualização da propriedade relatada quando o trabalho for concluído. O formato da atualização da propriedade relatada é:
 
     ```json
     {
@@ -325,7 +328,12 @@ Você pode ver como o dispositivo responde a comandos e a atualizações de prop
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os modelos de funcionalidade do dispositivo e como criar os próprios modelos de dispositivo, prossiga para o guia de instruções:
+Como desenvolvedor de dispositivos, agora que você aprendeu as noções básicas de como criar um dispositivo usando Node.js, algumas próximas etapas sugeridas são:
+
+- Saiba como conectar um dispositivo real a IoT Central no artigo de instruções [Conectar um dispositivo MXChip IoT DevKit ao seu aplicativo do Azure IoT Central](./howto-connect-devkit.md).
+- Leia [Conectar-se ao Azure IoT Central](./concepts-get-connected.md) para saber mais sobre como registrar dispositivos com o IoT Central e como o IoT Central protege as conexões do dispositivo.
+
+Se você preferir continuar com o conjunto de tutoriais do IoT Central e saber mais sobre como criar uma solução de IoT Central, confira:
 
 > [!div class="nextstepaction"]
-> [Definir um novo tipo de dispositivo de IoT](./howto-set-up-template.md)
+> [Criar um modelo de dispositivo de gateway](./tutorial-define-gateway-device-type.md)

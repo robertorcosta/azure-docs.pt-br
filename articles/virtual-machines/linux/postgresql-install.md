@@ -1,5 +1,5 @@
 ---
-title: Configurar postgreSQL em um VM Linux
+title: Configurar o PostgreSQL em uma VM Linux
 description: Saiba como instalar e configurar o PostgreSQL em uma máquina virtual Linux no Azure
 author: cynthn
 ms.service: virtual-machines-linux
@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: d86e42dcc16d108cc82c9d245c7919145cef365f
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759337"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
@@ -58,7 +58,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Se você quiser construir tudo o que pode ser construído, incluindo a`contrib`documentação (HTML e páginas de homem) e módulos adicionais (), execute o seguinte comando em vez disso:
+5. Se você quiser compilar tudo o que pode ser compilado, incluindo a documentação (páginas HTML e Man) e módulos adicionais (`contrib`), execute o seguinte comando em vez disso:
    
         # gmake install-world
    
@@ -124,7 +124,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
 ## <a name="set-up-postgresql"></a>Configurar o PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
-Execute os seguintes comandos:
+Execute os comandos a seguir:
 
     # cd /root/postgresql-9.3.5/contrib/start-scripts
 
@@ -225,7 +225,7 @@ Isso exclui todas as informações na linha "John". A saída é:
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Atualizar dados em uma tabela
-Use o seguinte comando para atualizar dados em uma tabela. Para este, Sandy confirmou que eles estão presentes, então vamos mudar o RSVP de "N" para "Y":
+Use o seguinte comando para atualizar dados em uma tabela. Para isso, arenoso confirmou que eles estão participando, portanto, alteraremos o RSVP de "N" para "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

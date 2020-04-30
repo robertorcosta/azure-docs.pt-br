@@ -16,48 +16,48 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 541deb5cf44ad5440e31641b673ed5da5b5d2b26
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81768549"
 ---
-# <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configure o gerenciamento de grupo de autoatendimento no Azure Active Directory 
+# <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory 
 
-Você pode permitir que os usuários criem e gerenciem seus próprios grupos de segurança ou grupos do Office 365 no Azure Active Directory (Azure AD). O proprietário do grupo pode aprovar ou negar pedidos de associação, e pode delegar o controle da associação do grupo. Os recursos de gerenciamento de grupo de autoatendimento não estão disponíveis para grupos de segurança habilitados por e-mail ou listas de distribuição.
+Você pode permitir que os usuários criem e gerenciem seus próprios grupos de segurança ou grupos do Office 365 no Azure Active Directory (AD do Azure). O proprietário do grupo pode aprovar ou negar solicitações de associação e pode delegar o controle de associação de grupo. Os recursos de gerenciamento de grupo de autoatendimento não estão disponíveis para grupos de segurança ou listas de distribuição habilitadas para email.
 
-## <a name="self-service-group-membership-defaults"></a>Inadimplência de membros do grupo de autoatendimento
+## <a name="self-service-group-membership-defaults"></a>Padrões de associação de grupo de autoatendimento
 
-Quando grupos de segurança são criados no portal Azure ou usando o Azure AD PowerShell, apenas os proprietários do grupo podem atualizar a adesão. Grupos de segurança criados por autoatendimento no [painel Access](https://account.activedirectory.windowsazure.com/r#/joinGroups) e todos os grupos do Office 365 estão disponíveis para participar de todos os usuários, sejam aprovados pelo proprietário ou aprovados automaticamente. No painel Acesso, você pode alterar as opções de associação ao criar o grupo.
+Quando grupos de segurança são criados no portal do Azure ou usando o PowerShell do Azure AD, somente os proprietários do grupo podem atualizar a associação. Grupos de segurança criados pelo autoatendimento no [painel de acesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) e todos os grupos do Office 365 estão disponíveis para ingressar para todos os usuários, seja aprovado pelo proprietário ou aprovado automaticamente. No painel de acesso, você pode alterar as opções de associação ao criar o grupo.
 
-Grupos criados em | Comportamento padrão do grupo de segurança | Comportamento padrão do grupo Office 365
+Grupos criados em | Comportamento padrão do grupo de segurança | Comportamento padrão do grupo do Office 365
 ------------------ | ------------------------------- | ---------------------------------
-[Azure AD PowerShell](groups-settings-cmdlets.md) | Apenas os proprietários podem adicionar membros<br>Visível, mas não disponível para participar do painel Access | Aberto para participar para todos os usuários
-[Azure portal](https://portal.azure.com) | Apenas os proprietários podem adicionar membros<br>Visível, mas não disponível para participar do painel Access<br>O proprietário não é atribuído automaticamente na criação do grupo | Aberto para participar para todos os usuários
-[Painel de acesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Aberto para participar para todos os usuários<br>As opções de adesão podem ser alteradas quando o grupo é criado | Aberto para participar para todos os usuários<br>As opções de adesão podem ser alteradas quando o grupo é criado
+[Azure AD PowerShell](groups-settings-cmdlets.md) | Somente proprietários podem adicionar membros<br>Visível, mas não disponível para junção no painel de acesso | Abrir para ingressar para todos os usuários
+[Azure portal](https://portal.azure.com) | Somente proprietários podem adicionar membros<br>Visível, mas não disponível para junção no painel de acesso<br>O proprietário não é atribuído automaticamente na criação do grupo | Abrir para ingressar para todos os usuários
+[Painel de acesso](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Abrir para ingressar para todos os usuários<br>As opções de associação podem ser alteradas quando o grupo é criado | Abrir para ingressar para todos os usuários<br>As opções de associação podem ser alteradas quando o grupo é criado
 
-## <a name="self-service-group-management-scenarios"></a>Cenários de gerenciamento de grupos de autoatendimento
+## <a name="self-service-group-management-scenarios"></a>Cenários de gerenciamento de grupo de autoatendimento
 
-* **Gestão de grupo delegada** Um exemplo é um administrador que está gerenciando o acesso a um aplicativo SaaS que a empresa está usando. O gerenciamento desses direitos de acesso está se tornando inconveniente, portanto esse administrador solicita ao proprietário de negócios para criar um novo grupo. O administrador atribui acesso ao aplicativo ao novo grupo e adiciona ao grupo todas as pessoas que já acessam o aplicativo. O proprietário da empresa pode então adicionar mais usuários, e os usuários são automaticamente provisionados para o aplicativo. O proprietário da empresa não precisa esperar que o administrador gerencie o acesso para usuários. Se o administrador conceder a mesma permissão a um gerente em um grupo de negócios diferente, essa pessoa também poderá gerenciar o acesso para seus próprios membros do grupo. Nem o dono do negócio nem o gerente podem visualizar ou gerenciar os membros do grupo um do outro. O administrador ainda pode ver todos os usuários que têm acesso ao aplicativo e direitos de acesso de bloco, se necessário.
-* **Gerenciamento de grupos de autoatendimento** Um exemplo desse cenário são dois usuários que possuem sites SharePoint Online que eles configuram de forma independente. Eles querem dar às equipes um do outro acesso aos seus sites. Para isso, eles podem criar um grupo no Azure AD e, no SharePoint Online, cada um seleciona esse grupo para fornecer acesso a seus sites. Quando alguém deseja acesso, solicita do painel de acesso, e depois da aprovação obtêm acesso a ambos os sites do SharePoint Online automaticamente. Posteriormente, um deles decide que todas as pessoas que acessam o site também devem obter acesso a determinado aplicativo SaaS. O administrador do aplicativo SaaS pode adicionar direitos de acesso ao aplicativo para o site do SharePoint Online. Depois, as solicitações que forem aprovadas darão acesso aos dois sites do SharePoint Online e também ao aplicativo SaaS.
+* **Gerenciamento de grupo delegado** Um exemplo é um administrador que está gerenciando o acesso a um aplicativo SaaS que a empresa está usando. O gerenciamento desses direitos de acesso está se tornando inconveniente, portanto esse administrador solicita ao proprietário de negócios para criar um novo grupo. O administrador atribui o acesso para o aplicativo ao novo grupo e adiciona ao grupo todas as pessoas que já acessam o aplicativo. O proprietário da empresa pode então adicionar mais usuários, e os usuários são automaticamente provisionados para o aplicativo. O proprietário da empresa não precisa esperar que o administrador gerencie o acesso para usuários. Se o administrador conceder a mesma permissão a um gerente em um grupo de negócios diferente, essa pessoa também poderá gerenciar o acesso para seus próprios membros do grupo. Nem o proprietário da empresa nem o gerente podem exibir ou gerenciar as associações de grupo uns dos outros. O administrador ainda pode ver todos os usuários que têm acesso ao aplicativo e direitos de acesso de bloco, se necessário.
+* **Gerenciamento de grupo de autoatendimento** Um exemplo desse cenário são dois usuários que têm sites do SharePoint Online que eles configuram de forma independente. Eles desejam dar acesso às equipes uns aos seus sites. Para isso, eles podem criar um grupo no Azure AD e, no SharePoint Online, cada um seleciona esse grupo para fornecer acesso a seus sites. Quando alguém deseja acesso, solicita do painel de acesso, e depois da aprovação obtêm acesso a ambos os sites do SharePoint Online automaticamente. Posteriormente, um deles decide que todas as pessoas que acessam o site também devem obter acesso a determinado aplicativo SaaS. O administrador do aplicativo SaaS pode adicionar direitos de acesso ao aplicativo para o site do SharePoint Online. Depois, as solicitações que forem aprovadas darão acesso aos dois sites do SharePoint Online e também ao aplicativo SaaS.
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Disponibilização de um grupo para autoatendimento do usuário
 
-1. Faça login no centro de administração do [Azure AD](https://aad.portal.azure.com) com uma conta que é um administrador global para o diretório.
-1. Selecione **Grupos**e selecione **Configurações Gerais.**
-1. **Os proprietários de conjuntos podem gerenciar solicitações de membros de grupo no Painel de acesso** a **Sim**.
-1. Definir **restringir o acesso a grupos no painel de acesso** a **não**.
-1. Se você definir **Os usuários podem criar grupos de segurança em portais do Azure** ou os usuários podem criar grupos do Office **365 em portais do Azure** para
+1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador global do diretório.
+1. Selecione **grupos**e, em seguida, selecione configurações **gerais** .
+1. Definir **proprietários pode gerenciar solicitações de associação de grupo no painel de acesso** como **Sim**.
+1. Defina **acesso restrito a grupos no painel de acesso** como **não**.
+1. Se você definir **os usuários podem criar grupos de segurança em portais do Azure** ou **os usuários podem criar grupos do Office 365 nos portais do Azure** para
 
-    - **Sim**: Todos os usuários da sua organização Azure AD podem criar novos grupos de segurança e adicionar membros a esses grupos. Esses novos grupos também aparecem no Painel de Acesso para todos os outros usuários. Se a configuração de diretiva no grupo permitir, outros usuários podem criar solicitações para se juntar a esses grupos
-    - **Não:** Os usuários não podem criar grupos e não podem alterar grupos existentes para os quais são proprietários. No entanto, ainda podem gerenciar as associações desses grupos e aprovar solicitações de outros usuários para ingressar em seus grupos.
+    - **Sim**: todos os usuários em sua organização do Azure ad têm permissão para criar novos grupos de segurança e adicionar membros a esses grupos. Esses novos grupos também aparecem no Painel de Acesso para todos os outros usuários. Se a configuração de política no grupo permitir, outros usuários poderão criar solicitações para unir esses grupos
+    - **Não**: os usuários não podem criar grupos e não podem alterar grupos existentes para os quais eles são proprietários. No entanto, ainda podem gerenciar as associações desses grupos e aprovar solicitações de outros usuários para ingressar em seus grupos.
 
-Você também pode usar **proprietários que podem atribuir membros como proprietários de grupo em portais do Azure** e **Proprietários que podem atribuir membros como proprietários de grupo em portais Azure** para obter mais controle de acesso granular sobre o gerenciamento de grupos de autoatendimento para seus usuários.
+Você também pode usar **proprietários que podem atribuir Membros como proprietários de grupo em portais do Azure** e **proprietários que podem atribuir Membros como proprietários de grupo nos portais do Azure** para obter controle de acesso mais granular sobre o gerenciamento de grupo de autoatendimento para seus usuários.
 
-Quando os usuários podem criar grupos, todos os usuários da sua organização podem criar novos grupos e, em seguida, podem, como proprietário padrão, adicionar membros a esses grupos. Você não pode especificar indivíduos que podem criar seus próprios grupos. Você pode especificar indivíduos apenas para fazer de outro membro do grupo um proprietário de grupo.
+Quando os usuários podem criar grupos, todos os usuários em sua organização têm permissão para criar novos grupos e, em seguida, podem, como o proprietário padrão, adicionar membros a esses grupos. Você não pode especificar indivíduos que podem criar seus próprios grupos. Você pode especificar indivíduos somente para tornar outro membro de grupo um proprietário de grupo.
 
 > [!NOTE]
-> Uma licença Azure Active Directory Premium (P1 ou P2) é necessária para que os usuários solicitem para se juntar a um grupo de segurança ou grupo Office 365 e para que os proprietários aprovem ou neguem solicitações de associação. Sem uma licença Premium do Azure Active Directory, os usuários ainda podem gerenciar seus grupos no Painel de Acesso, mas não podem criar um grupo que exija aprovação do proprietário no Painel de Acesso e não podem solicitar a adesão a um grupo. 
+> Uma licença Azure Active Directory Premium (P1 ou P2) é necessária para que os usuários solicitem ingressar em um grupo de segurança ou grupo do Office 365 e para proprietários para aprovar ou negar solicitações de associação. Sem uma licença de Azure Active Directory Premium, os usuários ainda podem gerenciar seus grupos no painel de acesso, mas não podem criar um grupo que exija aprovação de proprietário no painel de acesso e não podem solicitar a União de um grupo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

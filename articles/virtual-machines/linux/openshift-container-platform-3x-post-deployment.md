@@ -1,6 +1,6 @@
 ---
-title: Plataforma de contêineres OpenShift 3.11 em tarefas pós-implantação do Azure
-description: Tarefas adicionais para depois que um cluster OpenShift Container Platform 3.11 foi implantado.
+title: Plataforma de contêiner OpenShift 3,11 em tarefas de pós-implantação do Azure
+description: Tarefas adicionais para depois que um cluster da plataforma de contêiner OpenShift 3,11 foi implantado.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 8d76588ae9124d34902659cc0149063400b6e766
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759524"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implantação
@@ -21,7 +21,7 @@ ms.locfileid: "81759524"
 Depois de implantar um cluster OpenShift, você pode configurar itens adicionais. Este artigo cobre:
 
 - Como configurar o logon único entre o Active Directory do Azure (Azure AD)
-- Como configurar registros do Monitor do Azure para monitorar o OpenShift
+- Como configurar logs de Azure Monitor para monitorar o OpenShift
 - Como configurar métricas e logs
 - Como instalar o Open Service Broker para o Azure (OSBA)
 
@@ -34,9 +34,9 @@ Para usar o Azure Active Directory para autenticação, primeiro você precisa c
 Essas etapas usam a CLI do Azure para criar o Registro do aplicativo e a GUI (Portal) para definir as permissões. Para criar o Registro do aplicativo, são necessárias cinco informações:
 
 - Nome de exibição: nome de registro do aplicativo (ex: OCPAzureAD)
-- Página inicial: URL do console `https://masterdns343khhde.westus.cloudapp.azure.com/console`OpenShift (por exemplo, )
-- Identificador URI: URL do console `https://masterdns343khhde.westus.cloudapp.azure.com/console`OpenShift (por exemplo, )
-- URL Resposta: Dominar a URL pública e `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`o nome de registro do aplicativo (por exemplo, )
+- Home Page: URL do console do OpenShift (por `https://masterdns343khhde.westus.cloudapp.azure.com/console`exemplo,)
+- URI do identificador: URL do console do OpenShift ( `https://masterdns343khhde.westus.cloudapp.azure.com/console`por exemplo,)
+- URL de resposta: URL pública mestre e o nome de registro do aplicativo ( `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`por exemplo,)
 - Senha: senha de segurança (use uma senha forte)
 
 O exemplo a seguir criará um Registro de aplicativo usando as informações acima:
@@ -69,7 +69,7 @@ Anote a propriedade appId retornada do comando para uma etapa posterior.
 
 No Portal do Azure:
 
-1. Selecione o registro do**aplicativo**do > diretório ativo **do Azure**.
+1. Selecione **Azure Active Directory** > **registro de aplicativo**.
 2. Pesquise o Registro do seu aplicativo (ex: OCPAzureAD).
 3. Nos resultados, clique no Registro do aplicativo.
 4. Em **Configurações**, selecione **Permissões necessárias**.
@@ -152,14 +152,14 @@ sudo /usr/local/bin/master-restart controllers
 
 No Console do OpenShift, agora você verá duas opções para autenticação – htpasswd_auth e [Registro de Aplicativo].
 
-## <a name="monitor-openshift-with-azure-monitor-logs"></a>Monitore openshift com registros do Monitor Azure
+## <a name="monitor-openshift-with-azure-monitor-logs"></a>Monitorar OpenShift com logs de Azure Monitor
 
 Existem três maneiras de adicionar o agente do Log Analytics ao OpenShift.
 - Instale o agente do Log Analytics para Linux diretamente em cada nó do OpenShift
-- Habilite a extensão VM do Monitor Azure em cada nó OpenShift
-- Instale o agente Log Analytics como um conjunto de daemon openShift
+- Habilitar Azure Monitor extensão de VM em cada nó do OpenShift
+- Instalar o agente de Log Analytics como um OpenShift daemon-Set
 
-Leia as [instruções completas](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) para mais detalhes.
+Leia as [instruções](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) completas para obter mais detalhes.
 
 ## <a name="configure-metrics-and-logging"></a>Configurar métricas e logs
 
@@ -199,7 +199,7 @@ O Open Service Broker para Azure, ou OSBA, permite provisionar os Serviços de N
 
 Para instalar o OSBA no OpenShift, siga as instruções localizadas aqui: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
 > [!NOTE]
-> Apenas complete as etapas na seção Modelo de projeto OpenShift e não toda a seção Instalação.
+> Conclua apenas as etapas na seção modelo de projeto OpenShift e não na seção instalação inteira.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 05e668ff5b0ec19c5e380cf6bfee4b6e46900b2f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9c15e4217c5331346c5a95329bae7e2a4f0e0841
+ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371788"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81732053"
 ---
 Use a biblioteca de clientes de runtime do LUIS (Reconhecimento vocal) para Node.js com o objetivo de:
 
@@ -28,6 +28,7 @@ Use a biblioteca de clientes de runtime do LUIS (Reconhecimento vocal) para Node
 
 * Recurso de runtime do Reconhecimento vocal: [Criar um no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
+* Uma ID do aplicativo LUIS – use a ID do aplicativo IoT público de `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. A consulta de usuário usada no código de início rápido é específica para esse aplicativo.
 
 ## <a name="setting-up"></a>Configurando
 
@@ -37,9 +38,9 @@ Obtenha sua [chave de runtime](../luis-how-to-azure-subscription.md) criando um 
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### <a name="create-a-new-javascript-nodejs-file"></a>Criar um arquivo javaScript (Node.js)
+### <a name="create-a-new-javascript-nodejs-file"></a>Criar um arquivo JavaScript (Node.js)
 
-Crie um arquivo javascript em no IDE ou no editor de sua preferência, denominado `luis_prediction.js`.
+Crie um arquivo JavaScript em no IDE ou no editor de sua preferência, denominado `luis_prediction.js`.
 
 ### <a name="install-the-npm-library-for-the-luis-runtime"></a>Instalar a biblioteca do NPM para o runtime do LUIS
 

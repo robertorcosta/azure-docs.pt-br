@@ -1,7 +1,7 @@
 ---
-title: Habilite o serviço de peering do Azure em um peering direto usando o PowerShell
+title: Habilitar o serviço de emparelhamento do Azure em um emparelhamento direto usando o PowerShell
 titleSuffix: Azure
-description: Habilite o serviço de peering do Azure em um peering direto usando o PowerShell
+description: Habilitar o serviço de emparelhamento do Azure em um emparelhamento direto usando o PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,45 +9,45 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: c029b822d00ce545e3623a6212421a55b2d1971f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686991"
 ---
-# <a name="enable-azure-peering-service-on-a-direct-peering-by-using-powershell"></a>Habilite o serviço de peering do Azure em um peering direto usando o PowerShell
+# <a name="enable-azure-peering-service-on-a-direct-peering-by-using-powershell"></a>Habilitar o serviço de emparelhamento do Azure em um emparelhamento direto usando o PowerShell
 
-Este artigo descreve como habilitar o [Azure Peering Service](overview-peering-service.md) em um peering direto usando cmdlets PowerShell e o modelo de implantação do Azure Resource Manager.
+Este artigo descreve como habilitar o [serviço de emparelhamento](overview-peering-service.md) do Azure em um emparelhamento direto usando cmdlets do PowerShell e o modelo de implantação Azure Resource Manager.
 
-Se preferir, você pode completar este guia usando o [portal](howto-peering-service-portal.md)Azure .
+Se preferir, você pode concluir este guia usando o [portal](howto-peering-service-portal.md)do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Revise os [pré-requisitos](prerequisites.md) antes de iniciar a configuração.
-* Escolha um peering direto em sua assinatura para o qual você deseja ativar o Peering Service. Se você não tiver um, converta um peering direct legado ou crie um novo peering direto:
-    * Para converter um peering direct legado, siga as instruções em [Converter um correspondente legado direto a um recurso do Azure usando o PowerShell](howto-legacy-direct-powershell.md).
-    * Para criar um novo peering direto, siga as instruções em [Criar ou modificar um peering direto usando o PowerShell](howto-direct-powershell.md).
+* Examine os [pré-requisitos](prerequisites.md) antes de começar a configuração.
+* Escolha um emparelhamento direto em sua assinatura para o qual você deseja habilitar o serviço de emparelhamento. Se você não tiver uma, converta um emparelhamento direto herdado ou crie um novo emparelhamento direto:
+    * Para converter um emparelhamento direto herdado, siga as instruções em [converter um emparelhamento direto herdado para um recurso do Azure usando o PowerShell](howto-legacy-direct-powershell.md).
+    * Para criar um novo emparelhamento direto, siga as instruções em [criar ou modificar um emparelhamento direto usando o PowerShell](howto-direct-powershell.md).
 
-### <a name="work-with-azure-powershell"></a>Trabalhe com o Azure PowerShell
+### <a name="work-with-azure-powershell"></a>Trabalhar com Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
 ## <a name="enable-peering-service-on-a-direct-peering"></a>Habilitar o Serviço de Emparelhamento em um Emparelhamento direto
 
-### <a name="view-direct-peering"></a><a name= get></a>Ver peering direto
+### <a name="view-direct-peering"></a><a name= get></a>Exibir emparelhamento direto
 [!INCLUDE [peering-direct-get](./includes/direct-powershell-get.md)]
 
-### <a name="enable-the-direct-peering-for-peering-service"></a><a name= get></a>Habilite o peering direto para o serviço de peering
+### <a name="enable-the-direct-peering-for-peering-service"></a><a name= get></a>Habilitar o emparelhamento direto para o serviço de emparelhamento
 
-Depois de obter o peering direto na etapa anterior, habilite-o para serviço de peering.
+Depois de obter o emparelhamento direto na etapa anterior, habilite-o para o serviço de emparelhamento.
 [!INCLUDE [peering-direct-modify](./includes/peering-service-direct-powershell.md)]
 
-## <a name="modify-a-direct-peering-connection"></a>Modifique uma conexão de peering direto
+## <a name="modify-a-direct-peering-connection"></a>Modificar uma conexão de emparelhamento direto
 
-Se você precisar modificar as configurações de conexão, consulte a seção "Modificar um peering direto" em [Criar ou modificar um peering direto usando o PowerShell](howto-direct-powershell.md).
+Se você precisar modificar as configurações de conexão, consulte a seção "modificar um emparelhamento direto" em [criar ou modificar um emparelhamento direto usando o PowerShell](howto-direct-powershell.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar ou modificar o peering do Exchange usando o PowerShell](howto-exchange-powershell.md)
-* [Converta um peering exchange legado para um recurso do Azure usando o PowerShell](howto-legacy-exchange-powershell.md)
+* [Criar ou modificar o emparelhamento do Exchange usando o PowerShell](howto-exchange-powershell.md)
+* [Converter um emparelhamento do Exchange herdado para um recurso do Azure usando o PowerShell](howto-legacy-exchange-powershell.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 Você pode obter descrições detalhadas de todos os parâmetros executando o seguinte comando:
@@ -56,4 +56,4 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 Get-Help Get-AzPeering -detailed
 ```
 
-Para perguntas frequentes, consulte o [FAQ do Serviço de Peering](service-faqs.md).
+Para perguntas frequentes, consulte as [perguntas frequentes sobre o serviço de emparelhamento](service-faqs.md).

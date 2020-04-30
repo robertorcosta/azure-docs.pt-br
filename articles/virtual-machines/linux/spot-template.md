@@ -1,6 +1,6 @@
 ---
-title: Use um modelo para implantar VMs do Azure Spot
-description: Aprenda a usar um modelo para implantar VMs Spot para economizar custos.
+title: Usar um modelo para implantar VMs de ponto do Azure
+description: Saiba como usar um modelo para implantar VMs pontuais para economizar custos.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -9,24 +9,24 @@ ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.openlocfilehash: 2d546e9154352ec90aa1b1a457eb5320979239d2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758357"
 ---
-# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implantar VMs spot usando um modelo de gerenciador de recursos
+# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implantar VMs Spot usando um modelo do Resource Manager
 
-O uso [de VMs Spot](spot-vms.md) permite que você aproveite nossa capacidade não utilizada com uma economia significativa de custos. A qualquer momento em que o Azure precisar da capacidade de volta, a infra-estrutura do Azure despejará VMs spot. Portanto, as VMs spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lote, ambientes de dev/teste, grandes cargas de trabalho de computação e muito mais.
+O uso de [VMs pontuais](spot-vms.md) permite que você tire proveito de nossa capacidade não utilizada a uma economia de custo significativa. A qualquer momento, quando o Azure precisar da capacidade de volta, a infraestrutura do Azure removerá as VMs pontuais. Portanto, as VMs pontuais são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento em lotes, ambientes de desenvolvimento/teste, grandes cargas de trabalho de computação e muito mais.
 
-Os preços das VMs spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços da VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+Os preços para VMs pontuais são variáveis, com base na região e SKU. Para obter mais informações, consulte preços de VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
-Você tem opção de definir um preço máximo que você está disposto a pagar, por hora, para a VM. O preço máximo de um VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, `0.98765`o valor seria um preço máximo de US$ 0,98765 por hora. Se você definir o `-1`preço máximo para ser, a VM não será despejada com base no preço. O preço da VM será o preço atual para spot ou o preço de uma VM padrão, que seja menor, desde que haja capacidade e cota disponíveis. Para obter mais informações sobre como definir o preço máximo, consulte [Spot VMs - Pricing](spot-vms.md#pricing).
+Você tem a opção de definir um preço máximo que está disposto a pagar, por hora, para a VM. O preço máximo de uma VM Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como `-1`, a VM não será removida com base no preço. O preço da VM será o preço atual para o ponto ou o preço de uma VM padrão, o que nunca é menor, desde que haja capacidade e cota disponível. Para obter mais informações sobre como definir o preço máximo, consulte [VMs pontuais – preços](spot-vms.md#pricing).
 
 
 ## <a name="use-a-template"></a>Como usar um modelo
 
-Para implantações de`"apiVersion": "2019-03-01"` modelo spot, use ou posteriormente. Adicione `priority`as `evictionPolicy` `billingProfile` propriedades e propriedades do modelo:
+Para implantações de modelo Spot`"apiVersion": "2019-03-01"` , use ou posterior. Adicione as `priority`propriedades `evictionPolicy` e `billingProfile` ao no seu modelo:
 
 ```json
 "priority": "Spot",
@@ -36,7 +36,7 @@ Para implantações de`"apiVersion": "2019-03-01"` modelo spot, use ou posterior
 }
 ```
 
-Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot. Substitua os nomes dos `<password>` recursos por seus próprios e por uma senha para a conta do administrador local na VM.
+Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot. Substitua os nomes de recursos pelos seus próprios `<password>` e por uma senha para a conta de administrador local na VM.
 
 ```json
 {
@@ -175,6 +175,6 @@ Aqui está um modelo de exemplo com as propriedades adicionadas para uma VM Spot
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você também pode criar uma VM spot usando [o Azure PowerShell](../windows/spot-powershell.md) ou o [Azure CLI](spot-cli.md).
+Você também pode criar uma VM Spot usando [Azure PowerShell](../windows/spot-powershell.md) ou a [CLI do Azure](spot-cli.md).
 
-Se você encontrar um erro, consulte [Códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você encontrar um erro, consulte [códigos de erro](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

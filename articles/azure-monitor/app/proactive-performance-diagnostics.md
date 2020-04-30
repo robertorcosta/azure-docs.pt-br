@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687680"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
@@ -41,7 +41,7 @@ As notificações incluem informações de diagnóstico. Aqui está um exemplo:
 
 1. **Triagem**. A notificação mostra quantos usuários ou quantas operações foram afetadas. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
 2. **Escopo**. O problema está afetando todo o tráfego ou apenas algumas páginas? Ele é restrito a navegadores ou locais específicos? Essas informações podem ser obtidas na notificação.
-3. **Diagnosticar**. Com frequência, as informações de diagnóstico na notificação sugerem a natureza do problema. Por exemplo, se o tempo de resposta fica mais lento quando a taxa de solicitação está alta, o que sugere que seu servidor ou suas dependências estão sobrecarregadas. 
+3. **Diagnostique**. Com frequência, as informações de diagnóstico na notificação sugerem a natureza do problema. Por exemplo, se o tempo de resposta fica mais lento quando a taxa de solicitação está alta, o que sugere que seu servidor ou suas dependências estão sobrecarregadas. 
 
     Caso contrário, abra a folha Desempenho no Application Insights. Nela, você encontrará dados do [Criador de Perfil](profiler.md). Se forem geradas exceções, você também poderá tentar usar o [depurador instantâneo](../../azure-monitor/app/snapshot-debugger.md).
 
@@ -49,7 +49,7 @@ As notificações incluem informações de diagnóstico. Aqui está um exemplo:
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por email
 
-As notificações de Detecção Inteligente são habilitadas por padrão e enviadas para aqueles que têm acesso [ao Leitor de Monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e Monitoramento [contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) à assinatura em que o recurso Application Insights reside. Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
+As notificações de detecção inteligente são habilitadas por padrão e enviadas aos que têm acesso de [monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [monitoramento de colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) para a assinatura na qual reside o recurso de Application insights. Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
   
   ![Configurações de Detecção Inteligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -70,8 +70,8 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 * *Posso criar minhas próprias regras de detecção de anomalias ou personalizar regras existentes?*
 
   * Ainda não, mas você pode:
-    * [Configure alertas](../../azure-monitor/app/alerts.md) que informem quando uma métrica cruza um limiar.
-    * [Exportar telemetria](../../azure-monitor/app/export-telemetry.md) para um [banco de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou para power [bi,](../../azure-monitor/app/export-power-bi.md )onde você mesmo pode analisá-lo.
+    * [Configure alertas](../../azure-monitor/app/alerts.md) que informam quando uma métrica ultrapassa um limite.
+    * [Exportar telemetria](../../azure-monitor/app/export-telemetry.md) para um [banco de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou [para Power bi](../../azure-monitor/app/export-power-bi.md ), onde você mesmo pode analisá-lo.
 * *Com que frequência a análise é executada?*
 
   * Executamos diariamente a análise da telemetria do dia anterior (dia inteiro no fuso-horário UTC).
@@ -125,11 +125,11 @@ A notificação de degradação do tempo de resposta lhe informa:
   * Rastreamentos do Criador de Perfil para ajudá-lo a exibir onde o tempo de operação é gasto (o link fica disponível se exemplos de rastreamento do Criador de Perfil tiverem sido coletados para essa operação durante o período de detecção). 
   * Relatórios de desempenho no Gerenciador de Métricas, nos quais você pode dividir e os filtros/intervalos de tempo para a operação.
   * Pesquise essa chamada para exibir propriedades de chamadas específicas.
-  * Relatórios de falhas - Se a contagem > 1, isso significa que houve falhas nesta operação que podem ter contribuído para a degradação do desempenho.
+  * Relatórios de falha – se a contagem > 1 isso significa que houve falhas nessa operação que podem ter contribuído para degradação do desempenho.
 
 ## <a name="dependency-duration-degradation"></a>Degradação da duração da dependência
 
-Aplicações modernas adotam cada vez mais uma abordagem de design de micro serviços, o que, em muitos casos, leva a uma forte confiabilidade em serviços externos. Por exemplo, se seu aplicativo depender de uma plataforma de dados ou mesmo se você criar seu próprio serviço de bot, provavelmente você usará algum provedor de serviços cognitivos para habilitar seus bots a interagirem de maneiras mais humanas, além de um serviço de armazenamento de dados do qual o bot obterá as respostas.  
+Os aplicativos modernos cada vez mais adotam uma abordagem de design de micro Services, que, em muitos casos, leva a uma grande confiabilidade em serviços externos. Por exemplo, se seu aplicativo depender de uma plataforma de dados ou mesmo se você criar seu próprio serviço de bot, provavelmente você usará algum provedor de serviços cognitivos para habilitar seus bots a interagirem de maneiras mais humanas, além de um serviço de armazenamento de dados do qual o bot obterá as respostas.  
 
 Exemplo de notificação de degradação de dependência:
 
@@ -175,7 +175,7 @@ Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu
 
 * [Criador de perfil](profiler.md) 
 * [Depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md)
-* [Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Análise](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnóstico inteligente do Analytics](../../azure-monitor/app/analytics.md)
 
 As detecções inteligentes são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?

@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 13936a55baed59d5b6257f13f69305a1ce72927a
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730397"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Entender e chamar métodos diretos do Hub IoT
@@ -39,7 +39,7 @@ Os métodos diretos são implementados no dispositivo e podem precisar ou não d
 > Quando você invoca um método direto em um dispositivo, os valores e nomes de propriedade só podem conter caracteres alfanuméricos imprimíveis US-ASCII, exceto pelo seguinte conjunto: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-Os métodos diretos são síncronos e são bem sucedidos ou falham após o período de tempo (padrão: 30 segundos, definido entre 5 e 300 segundos). Os métodos diretos são úteis em cenários interativos em que você deseja que um dispositivo atue somente, e somente se, o dispositivo estiver online e recebendo comandos. Por exemplo, ativar a luz de um telefone. Nesses cenários, você deseja ver uma falha ou êxito imediatamente, para que o serviço de nuvem possa atuar quanto ao resultado o mais rápido possível. O dispositivo pode retornar algum corpo de mensagem como resultado do método, mas não é obrigatório que o método faça isso. Não há nenhuma garantia quanto à ordenação ou semântica de simultaneidade nas chamadas de método.
+Os métodos diretos são síncronos e são bem-sucedidos ou falham após o período de tempo limite (padrão: 30 segundos, configurável entre 5 e 300 segundos). Os métodos diretos são úteis em cenários interativos em que você deseja que um dispositivo atue somente, e somente se, o dispositivo estiver online e recebendo comandos. Por exemplo, ativar a luz de um telefone. Nesses cenários, você deseja ver uma falha ou êxito imediatamente, para que o serviço de nuvem possa atuar quanto ao resultado o mais rápido possível. O dispositivo pode retornar algum corpo de mensagem como resultado do método, mas não é obrigatório que o método faça isso. Não há nenhuma garantia quanto à ordenação ou semântica de simultaneidade nas chamadas de método.
 
 Os métodos diretos servem somente para HTTPS do lado da nuvem, e MQTT ou AMQP do lado do dispositivo.
 
@@ -61,7 +61,7 @@ As invocações de método direto em um dispositivo são chamadas HTTPS, compost
 
 * A *método* POST
 
-* *Cabeçalhos* que contenham a autorização, solicitem ID, tipo de conteúdo e codificação de conteúdo.
+* *Cabeçalhos* que contêm a autorização, a ID da solicitação, o tipo de conteúdo e a codificação de conteúdo.
 
 * Um *corpo* JSON transparente no seguinte formato:
 
@@ -76,9 +76,9 @@ As invocações de método direto em um dispositivo são chamadas HTTPS, compost
     }
     ```
 
-O valor fornecido `responseTimeoutInSeconds` como na solicitação é o tempo que o serviço IoT Hub deve aguardar para a conclusão de uma execução direta do método em um dispositivo. Defina este tempo para ser pelo menos o tempo de execução esperado de um método direto por um dispositivo. Se o tempo não for fornecido, o valor padrão de 30 segundos é usado. Os valores mínimo `responseTimeoutInSeconds` e máximo para são de 5 e 300 segundos, respectivamente.
+O valor fornecido como `responseTimeoutInSeconds` na solicitação é a quantidade de tempo que o serviço do Hub IOT deve aguardar para a conclusão de uma execução de método direto em um dispositivo. Defina esse tempo limite como pelo menos, desde que o tempo de execução esperado de um método direto por um dispositivo. Se timeout não for fornecido, será usado o valor padrão de 30 segundos. Os valores mínimo e máximo para `responseTimeoutInSeconds` são 5 e 300 segundos, respectivamente.
 
-O valor fornecido `connectTimeoutInSeconds` como na solicitação é a quantidade de tempo após a invocação de um método direto que o serviço IoT Hub deve aguardar para que um dispositivo desconectado entre em operação. O valor padrão é 0, o que significa que os dispositivos já devem estar on-line mediante a invocação de um método direto. O valor `connectTimeoutInSeconds` máximo é de 300 segundos.
+O valor fornecido como `connectTimeoutInSeconds` na solicitação é a quantidade de tempo na invocação de um método direto que o serviço do Hub IOT deve aguardar para que um dispositivo desconectado fique online. O valor padrão é 0, o que significa que os dispositivos já devem estar online na invocação de um método direto. O valor máximo de `connectTimeoutInSeconds` é de 300 segundos.
 
 
 #### <a name="example"></a>Exemplo
@@ -104,12 +104,12 @@ curl -X POST \
 
 O aplicativo de back-end recebe uma resposta que é composta pelos itens a seguir:
 
-* *Código de status HTTP*:
-  * 200 indica execução bem sucedida do método direto;
-  * 404 indica que qualquer ID do dispositivo é inválido, ou que o `connectTimeoutInSeconds` dispositivo não estava on-line após a invocação de um método direto e para depois disso (use mensagem de erro acompanhada para entender a causa raiz);
-  * 504 indica o tempo de saída do gateway `responseTimeoutInSeconds`causado pelo dispositivo não responder a uma chamada direta do método dentro .
+* *Código de status http*:
+  * 200 indica a execução bem-sucedida do método direto;
+  * 404 indica que a ID do dispositivo é inválida ou que o dispositivo não estava online após a invocação de um método direto `connectTimeoutInSeconds` e para depois (use a mensagem de erro acompanhada para entender a causa raiz);
+  * 504 indica o tempo limite do gateway causado pelo dispositivo não responder a uma chamada `responseTimeoutInSeconds`de método direta no.
 
-* *Cabeçalhos* que contenham o ETag, solicitem id, tipo de conteúdo e codificação de conteúdo.
+* *Cabeçalhos* que contêm a ETag, a ID da solicitação, o tipo de conteúdo e a codificação de conteúdo.
 
 * Um *corpo* JSON no seguinte formato:
 
@@ -181,9 +181,9 @@ A mensagem do AMQP chega ao link de recebimento que representa a solicitação d
 
 O dispositivo cria um link de envio para retornar a resposta do método no endereço `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`.
 
-A resposta do método é retornada no link de envio e está estruturada da seguinte forma:
+A resposta do método é retornada no link de envio e é estruturada da seguinte maneira:
 
-* A propriedade de ID de correlação, que contém o ID de solicitação passado na mensagem de solicitação do método.
+* A propriedade de ID de correlação, que contém a ID da solicitação passada na mensagem de solicitação do método.
 
 * Uma propriedade de aplicativo chamada `IoThub-status`, que contém o status do método fornecido pelo usuário.
 

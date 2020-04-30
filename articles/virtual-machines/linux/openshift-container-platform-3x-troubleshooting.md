@@ -1,6 +1,6 @@
 ---
-title: Solução de problemas OpenShift Container Platform 3.11 implantação no Azure
-description: Solucionando problemas De plataforma de contêiner OpenShift 3.11 no Azure.
+title: Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure
+description: Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure.
 author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
@@ -11,13 +11,13 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 90fd3680cfdc4ecd1dcb0ce33b63f8d76dd8bfae
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759472"
 ---
-# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solução de problemas OpenShift Container Platform 3.11 implantação no Azure
+# <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solucionar problemas de implantação da plataforma de contêiner do OpenShift 3,11 no Azure
 
 Se o cluster do OpenShift não for implantado com êxito, o portal do Azure fornecerá a saída de erro. A saída pode ser difícil de ler, o que dificulta a identificação do problema. Examine rapidamente essa saída para o código de saída 3, 4 ou 5. A seguir, informações sobre esses três códigos de saída:
 
@@ -37,9 +37,9 @@ SSH para o host ansioso playbook. Para o modelo OLD (versão 3.9 e anterior), us
 
 ## <a name="log-files"></a>Arquivos de log
 
-Os arquivos de log (stderr e stdout) para `/var/lib/waagent/custom-script/download/0` os scripts de preparação do host estão localizados em todos os hosts. Se ocorreu um erro durante a preparação do host, exiba esses arquivos de log para determinar o erro.
+Os arquivos de log (stderr e stdout) para os scripts de preparação do host `/var/lib/waagent/custom-script/download/0` estão localizados em em todos os hosts. Se ocorreu um erro durante a preparação do host, exiba esses arquivos de log para determinar o erro.
 
-Se os scripts de preparação forem `/var/lib/waagent/custom-script/download/1` executados com sucesso, os arquivos de log no diretório do host de playbook ansible precisarão ser examinados. Se o erro ocorreu durante a instalação real do OpenShift, o arquivo stdout exibirá o erro. Use estas informações para entrar em contato com o Suporte para obter mais assistência.
+Se os scripts de preparação forem executados com êxito, os arquivos de log `/var/lib/waagent/custom-script/download/1` no diretório do host do guia estratégico Ansible precisarão ser examinados. Se o erro ocorreu durante a instalação real do OpenShift, o arquivo stdout exibirá o erro. Use estas informações para entrar em contato com o Suporte para obter mais assistência.
 
 Saída de exemplo
 
@@ -88,11 +88,11 @@ Os erros mais comuns durante a instalação são:
 
 ### <a name="private-key-has-a-passphrase"></a>Chave privada tem uma senha
 
-Você verá um erro que a permissão foi negada para ssh. ssh para o host ansible playbook para verificar se há uma senha na chave privada.
+Você verá um erro de que a permissão foi negada para SSH. SSH para o host do manual do Ansible para verificar uma frase secreta na chave privada.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>O segredo do cofre da chave com chave privada não foi criado corretamente
 
-A chave privada é copiada para o host ansible playbook - ~/.ssh/id_rsa. Confirme se este arquivo está correto. Teste abrindo uma sessão SSH em um dos nós do cluster a partir do ansible host do manual.
+A chave privada é copiada para o host do guia estratégico Ansible-~/.ssh/id_rsa. Confirme se este arquivo está correto. Teste abrindo uma sessão SSH em um dos nós do cluster a partir do ansible host do manual.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>As credenciais do principal de serviço foram inseridas incorretamente
 
@@ -114,5 +114,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 Para alguns erros, você também pode usar os seguintes comandos para obter mais informações:
 
-1. > de \<serviço de status do sistemactl
+1. > de \<serviço de status systemctl
 2. journalctl -xe

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge e Azure IoT Central | Microsoft Docs
-description: Entenda como usar o Azure IoT Edge com um aplicativo IoT Central.
+title: Azure IoT Edge e IoT Central do Azure | Microsoft Docs
+description: Entenda como usar Azure IoT Edge com um aplicativo IoT Central.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/12/2019
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759096"
 ---
-# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conecte dispositivos Azure IoT Edge a um aplicativo Central IoT do Azure
+# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conectar dispositivos Azure IoT Edge a um aplicativo de IoT Central do Azure
 
-*Este artigo se aplica a construtores de soluções e desenvolvedores de dispositivos.*
+*Este artigo se aplica a construtores de solução e desenvolvedores de dispositivos.*
 
 O IoT Edge é composto por três componentes:
 
 * Os **módulos do IoT Edge** são contêineres que executam serviços do Azure, serviços do parceiro ou o seu próprio código. Os módulos são implantados em dispositivos do IoT Edge e executados localmente nesses dispositivos.
-* O **tempo de execução do IoT Edge** é executado em cada dispositivo IoT Edge e gerencia os módulos implantados em cada dispositivo.
+* O **tempo de execução do IOT Edge** é executado em cada dispositivo IOT Edge e gerencia os módulos implantados em cada dispositivo.
 * Uma **interface baseada em nuvem** permite monitorar e gerenciar dispositivos do IoT Edge remotamente. O IoT Central é a interface de nuvem.
 
-Um dispositivo **Azure IoT Edge** pode ser um dispositivo de gateway com dispositivos downstream conectados ao dispositivo IoT Edge. Este artigo compartilha mais informações sobre padrões de conectividade de dispositivos a jusante.
+Um dispositivo **Azure IoT Edge** pode ser um dispositivo de gateway com dispositivos downstream conectados ao dispositivo IoT Edge. Este artigo compartilha mais informações sobre os padrões de conectividade do dispositivo downstream.
 
 Um **modelo de dispositivo** define as funcionalidades do seu dispositivo e dos módulos IoT Edge. As funcionalidades incluem telemetria que o módulo envia, as propriedades do módulo e os comandos aos quais um módulo responde.
 
@@ -46,7 +46,7 @@ Por fim, os dispositivos downstream podem se conectar a um dispositivo de gatewa
 
 ![Diagrama de conexão por meio de vários módulos personalizados](./media/concepts-iot-edge/gateway-module2-transparent.png)
 
-## <a name="deployment-manifests-and-device-templates"></a>Manifestos de implantação e modelos de dispositivos
+## <a name="deployment-manifests-and-device-templates"></a>Manifestos de implantação e modelos de dispositivo
 
 No IoT Edge, é possível implantar e gerenciar a lógica de negócios na forma de módulos. Os módulos do IoT Edge são a menor unidade de computação gerenciada pelo IoT Edge e podem conter serviços do Azure (por exemplo, o Azure Stream Analytics) ou o código específico da sua própria solução. Para entender como os módulos são desenvolvidos, implantados e mantidos, confira [Módulos do IoT Edge](../../iot-edge/iot-edge-modules.md).
 
@@ -58,7 +58,7 @@ No Azure IoT Central, você pode importar um manifesto de implantação para cri
 
 ![Fluxograma do ciclo de vida do manifesto de implantação](./media/concepts-iot-edge/dmflow.png)
 
-IoT Plug and Play (preview) modela um dispositivo IoT Edge da seguinte forma:
+Os modelos de Plug and Play IoT (versão prévia) modelam um dispositivo IoT Edge da seguinte maneira:
 
 * Cada modelo de dispositivo IoT Edge tem um modelo de funcionalidade de dispositivo.
 * Para cada módulo personalizado listado no manifesto de implantação, um modelo de funcionalidade do módulo é gerado.
@@ -68,10 +68,10 @@ IoT Plug and Play (preview) modela um dispositivo IoT Edge da seguinte forma:
 
 ![Diagrama de modelagem do IoT Edge](./media/concepts-iot-edge/edgemodelling.png)
 
-## <a name="iot-edge-gateway-devices"></a>Dispositivos gateway IoT Edge
+## <a name="iot-edge-gateway-devices"></a>Dispositivos IoT Edge gateway
 
 Se tiver selecionado o dispositivo IoT Edge como um dispositivo de gateway, poderá adicionar relações de downstream aos modelos de funcionalidade do dispositivo para os dispositivos que você deseja conectar ao dispositivo de gateway.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você é um desenvolvedor de dispositivos, um próximo passo sugerido é aprender sobre [os tipos de dispositivos gateway na IoT Central](./tutorial-define-gateway-device-type.md).
+Se você for um desenvolvedor de dispositivos, uma próxima etapa sugerida será saber mais sobre os [tipos de dispositivo de gateway em IOT central](./tutorial-define-gateway-device-type.md).

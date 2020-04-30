@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: a94b51e49951948974b8f42f6c89cd3c84f95d65
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7a7210915920ed9ab2a5ddc47a27c2587895a57a
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80064287"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81768258"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Componentes e limitações do Load Balancer
 O Azure Load Balancer contém vários componentes importantes para sua operação.  Esses componentes podem ser configurados em sua assinatura por meio do portal do Azure, da CLI do Azure ou do Azure PowerShell.  
@@ -171,6 +171,8 @@ O Load Balancer dá suporte a SKUs Basic e Standard. Há diferenças de SKU na e
 
 A configuração do cenário completo pode ser um pouco diferente dependendo do SKU. A documentação do Load Balancer indica quando um artigo se aplica somente a um SKU específico. Veja a tabela a seguir para comparar e entender as diferenças. Para saber mais, confira [Visão geral do Standard Load Balancer](load-balancer-standard-overview.md).
 
+Para atualizar o Basic Load Balancer para o Standard Load Balancer, confira [Atualizar um Load Balancer Básico](upgrade-basic-standard.md).
+
 >[!NOTE]
 > A Microsoft recomenda o Standard Load Balancer.
 VMs autônomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual podem estar conectados apenas a um SKU, nunca a ambos. Os SKUs do Load Balancer e do endereço IP público devem ser correspondentes quando você usá-los com endereços IP públicos. Os SKUs do Load Balancer e do IP público não são mutáveis.
@@ -207,6 +209,7 @@ Para saber mais, confira [Limites do balanceador de carga](https://docs.microsof
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Confira [Atualizar um Load Balancer Básico](upgrade-basic-standard.md) para atualizar o Basic Load Balancer para o Standard Load Balancer.
 - Confira [Criar um Standard Load Balancer público](quickstart-load-balancer-standard-public-portal.md) para começar a usar um Load Balancer: crie VMs com uma extensão de IIS personalizada instalada e faça o balanceamento de carga do aplicativo Web entre as VMs.
 - Saiba mais sobre o [Azure Load Balancer](load-balancer-overview.md).
 - Saiba mais sobre usar o [Standard Load Balancer e Zonas de Disponibilidade](load-balancer-standard-availability-zones.md).

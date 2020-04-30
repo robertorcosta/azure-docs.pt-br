@@ -1,5 +1,5 @@
 ---
-title: Implantar openshift no Azure Stack
+title: Implantar OpenShift no Azure Stack
 description: Implante o OpenShift no Azure Stack.
 author: haroldwongms
 manager: joraio
@@ -10,17 +10,17 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 51abfd1cbb438d0987554040867625f7fb71630b
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758225"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implantar o OpenShift Container Platform ou OKD no Azure Stack
 
 O OpenShift pser implantado no Azure Stack. Há algumas diferenças importantes entre o Azure e o Azure Stack, portanto a implantação será um pouco diferentes e os recursos também poderão variar.
 
-Atualmente, o Provedor de Nuvem do Azure não funciona no Azure Stack. Por esse motivo, não será possível anexar um disco como armazenamento persistente no Azure Stack. Em vez disso, você pode configurar outras opções de armazenamento, como NFS, iSCSI, GlusterFS, etc. Como alternativa, você pode habilitar o CNS e usar glusterFS para armazenamento persistente. Se o CNS estiver habilitado, serão implantados três nós adicionais com o armazenamento adicional para uso do GlusterFS.
+Atualmente, o Provedor de Nuvem do Azure não funciona no Azure Stack. Por esse motivo, não será possível anexar um disco como armazenamento persistente no Azure Stack. Em vez disso, você pode configurar outras opções de armazenamento, como NFS, iSCSI, GlusterFS, etc. Como alternativa, você pode habilitar o CNS e usar o GlusterFS para armazenamento persistente. Se o CNS estiver habilitado, serão implantados três nós adicionais com o armazenamento adicional para uso do GlusterFS.
 
 Você pode usar um dos vários métodos para implantar o OpenShift Container Platform ou OKD no Azure Stack:
 
