@@ -5,17 +5,17 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b470f9278bdca94d1fe98c64b11b070fb36cb075
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 069d2a153e307ed94032ce1d980f26521969fc56
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80998468"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508303"
 ---
-# <a name="set-up-azure-multi-factor-authentication"></a>Configurar a Autenticação Multifator do Azure
+# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitar a autenticação multifator do Azure para área de trabalho virtual do Windows
 
 O cliente do Windows para área de trabalho virtual do Windows é uma excelente opção para integrar a área de trabalho virtual do Windows com seu computador local. No entanto, quando você configura sua conta da área de trabalho virtual do Windows no cliente do Windows, há certas medidas que você precisará tomar para manter seus usuários seguros.
 
@@ -27,71 +27,34 @@ Embora a memorização de credenciais seja conveniente, ela também pode tornar 
 
 Veja o que você precisará para começar:
 
-- Atribua a todos os usuários uma das seguintes licenças:
-  - Microsoft 365 E3 ou e5
-  - Azure Active Directory Premium P1 ou P2
-  - Enterprise Mobility + Security E3 ou e5
+- Atribua aos usuários uma licença que inclui Azure Active Directory Premium P1 ou P2.
 - Um grupo de Azure Active Directory com os usuários atribuídos como membros do grupo.
 - Habilite o Azure MFA para todos os seus usuários. Para obter mais informações sobre como fazer isso, consulte [como exigir a verificação em duas etapas para um usuário](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
->[!NOTE]
->A configuração a seguir também se aplica ao [cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> [!NOTE]
+> A configuração a seguir também se aplica ao [cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
-## <a name="opt-in-to-the-conditional-access-policy"></a>Aceitar a política de acesso condicional
+## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-1. Abra **Azure Active Directory**.
+Esta seção mostrará como criar uma política de acesso condicional que requer autenticação multifator ao se conectar à área de trabalho virtual do Windows.
 
-2. Vá para a guia **todos os aplicativos** . No menu suspenso "tipo de aplicativo", selecione **aplicativos empresariais**e, em seguida, pesquise **cliente de área de trabalho virtual do Windows**.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
+1. Selecione **nova política**.
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
+1. Em **Atribuições**, selecione **Usuários e Grupos**.
+   1. Em **incluir**, selecione **Selecionar usuários e grupos** > **usuários e grupos** > escolha o grupo criado no estágio pré-requisitos.
+   1. Selecione **Concluído**.
+1. Em **aplicativos de nuvem ou ações** > **incluem**, selecione **selecionar aplicativos**.
+   1. Escolha **área de trabalho virtual** do Windows e **cliente de área de trabalho virtual do Windows**e selecione **selecionar** e **concluído**.
+   ![Uma captura de tela da página de aplicativos ou ações na nuvem. Os aplicativos cliente de área de trabalho virtual do Windows e área de trabalho virtual do Windows são realçados em vermelho.](media/cloud-apps-enterprise-selected.png)
+1. Em **Access controls** > **concessão**de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator**e, em seguida, **selecione**.
+1. Em **Access controls** > **sessão**de controles de acesso, selecione **frequência de entrada**, defina o valor como **1** e a unidade para **horas**e, em seguida, **selecione**.
+1. Confirme suas configurações e defina **habilitar política** como **ativado**.
+1. Selecione **criar** para habilitar sua política.
 
-    ![Uma captura de tela da guia todos os aplicativos. O usuário inseriu "cliente de área de trabalho virtual do Windows" na barra de pesquisa e o aplicativo foi exibido nos resultados da pesquisa.](media/all-applications-search.png)
+## <a name="next-steps"></a>Próximas etapas
 
-3. Selecione **acesso condicional**.
+- [Saiba mais sobre as políticas de acesso condicional](../active-directory/conditional-access/concept-conditional-access-policies.md)
 
-    ![Uma captura de tela mostrando o usuário passando o cursor do mouse sobre a guia acesso condicional.](media/conditional-access-location.png)
-
-4. Selecione **+ nova política**.
-
-   ![Uma captura de tela da página de acesso condicional. O usuário está focalizando o cursor do mouse sobre o botão nova política.](media/new-policy-button.png)
-
-5. Insira um **nome** para a **regra**e, em seguida, **selecione** o * nome do **grupo** que você criou nos pré-requisitos.
-
-6. Selecione **selecionar**e, em seguida, selecione **concluído**.
-
-7. Em seguida, abra **aplicativos de nuvem ou ações**.
-
-8. No painel **selecionar** , selecione o aplicativo **Windows Virtual Desktop** Enterprise.
-
-    ![Uma captura de tela da página de aplicativos ou ações na nuvem. O usuário selecionou o aplicativo de área de trabalho virtual do Windows selecionando a marca de seleção ao lado dele. O aplicativo selecionado é realçado em vermelho.](media/cloud-apps-select.png)
-    
-    >[!NOTE]
-    >Você também deve ver o aplicativo cliente de área de trabalho virtual do Windows selecionado no lado esquerdo da tela, conforme mostrado na imagem a seguir. Você precisa dos aplicativos da área de trabalho virtual do Windows e do cliente empresarial do Windows para que a política funcione.
-    >
-    > ![Uma captura de tela da página de aplicativos ou ações na nuvem. Os aplicativos cliente de área de trabalho virtual do Windows e área de trabalho virtual do Windows são realçados em vermelho.](media/cloud-apps-enterprise-selected.png)
-
-9. Selecione **selecionar**
-
-10. Em seguida, abra **Grant** 
-
-11. Selecione **exigir autenticação multifator**e, em seguida, selecione **exigir um dos controles selecionados**.
-   
-    ![Uma captura de tela da página de concessão. "Exigir autenticação multifator" está selecionado.](media/grant-page.png)
-
-    >[!NOTE]
-    >Se você tiver dispositivos registrados em MDM na sua organização e não quiser que eles mostrem o prompt do MFA, você também poderá selecionar **exigir que o dispositivo seja marcado como em conformidade**.
-
-12. Selecione **sessão**.
-
-13. Defina a **frequência de entrada** como **ativa**e, em seguida, altere seu valor para **1 hora**.
-
-    ![Uma captura de tela da página da sessão. O menu de sessão mostra que os menus suspensos de frequência de entrada foram alterados para "1" e "horas".](media/sign-in-frequency.png)
-   
-    >[!NOTE]
-    >As sessões ativas no ambiente de área de trabalho virtual do Windows continuarão funcionando conforme você alterar a política. No entanto, se você se desconectar ou sair, precisará fornecer suas credenciais novamente após 60 minutos. Conforme você altera as configurações, você pode estender o período de tempo limite tanto quanto desejar (desde que ele se alinhe com a política de segurança da sua organização).
-    >
-    >A configuração padrão é uma janela sem interrupção de 90 dias, o que significa que o cliente solicitará que os usuários entrem novamente quando tentarem acessar um recurso depois de estarem inativos em sua máquina por 90 dias ou mais.
-
-14. Habilite a política.
-
-15. Selecione **criar** para confirmar a política.
-
-Tudo pronto! Fique à vontade para testar a política para garantir que sua lista de permissões funcione conforme o esperado.
+- [Saiba mais sobre a frequência de entrada do usuário](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency)

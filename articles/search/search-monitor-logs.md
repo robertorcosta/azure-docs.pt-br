@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127825"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Coletar e analisar dados de log para o Azure Pesquisa Cognitiva
@@ -23,7 +23,7 @@ A configuração de logs é útil para diagnóstico e preservação do históric
 
 A tabela a seguir enumera as opções para coletar e manter dados.
 
-| Recurso | Usado para |
+| Recurso | Usada para |
 |----------|----------|
 | [Enviar para Log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Os eventos e as métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para retornar informações detalhadas. Para obter uma introdução, consulte Introdução [aos logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Arquivar com armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Os eventos e as métricas são arquivados em um contêiner de BLOB e armazenados em arquivos JSON. Os logs podem ser bastante granulares (por hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Use um editor de JSON para exibir um arquivo de log bruto ou Power BI para agregar e Visualizar dados de log.|
@@ -99,7 +99,7 @@ Para o armazenamento de BLOBs, cada blob tem um objeto raiz chamado **registros*
 
 A tabela a seguir é uma lista parcial de campos comuns ao log de recursos.
 
-| Nome | Tipo | Exemplo | Observações |
+| Nome | Type | Exemplo | Anotações |
 | --- | --- | --- | --- |
 | timeGenerated |DATETIME |"2018-12-07T00:00:43.6872559Z" |Carimbo de data/hora da operação |
 | resourceId |cadeia de caracteres |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
@@ -115,7 +115,7 @@ A tabela a seguir é uma lista parcial de campos comuns ao log de recursos.
 
 As propriedades abaixo são específicas para Pesquisa Cognitiva do Azure.
 
-| Nome | Tipo | Exemplo | Observações |
+| Nome | Type | Exemplo | Anotações |
 | --- | --- | --- | --- |
 | Description_s |cadeia de caracteres |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
 | Documents_d |INT |42 |Número de documentos processados |
@@ -126,7 +126,7 @@ As propriedades abaixo são específicas para Pesquisa Cognitiva do Azure.
 
 As métricas são capturadas para solicitações de consulta e medidas em intervalos de um minuto. Cada métrica expõe valores mínimo, máximo e médios por minuto. Para obter mais informações, consulte [monitorar solicitações de consulta](search-monitor-queries.md).
 
-| Nome | Tipo | Exemplo | Observações |
+| Nome | Type | Exemplo | Anotações |
 | --- | --- | --- | --- |
 | resourceId |cadeia de caracteres |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |sua ID de recurso |
 | metricName |cadeia de caracteres |"Latency" |o nome da métrica |

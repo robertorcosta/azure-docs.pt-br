@@ -11,18 +11,18 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: fc5f4d2c10cac23600025a72fedf7fe2cec5a34e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684062"
 ---
-Para ler dados no armazenamento de arquivo morto, primeiro você deve alterar a camada do blob para quente ou fria. Esse processo é conhecido como reidratação e pode levar horas para ser concluído. Recomendamos grandes tamanhos de bolha para um ótimo desempenho de reidratação. Reidratar vários blobs pequenos simultaneamente pode inserir um tempo adicional. Atualmente, existem duas prioridades de reidratação, High e Standard, que podem ser definidas através da propriedade opcional *x-ms-reidrat-priority* em uma operação [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) ou [Copy Blob.](https://docs.microsoft.com/rest/api/storageservices/copy-blob)
+Para ler dados no armazenamento de arquivo morto, primeiro você deve alterar a camada do blob para quente ou fria. Esse processo é conhecido como reidratação e pode levar horas para ser concluído. Recomendamos tamanhos de blob grandes para o desempenho ideal de reidratação. Reidratar vários blobs pequenos simultaneamente pode inserir um tempo adicional. Atualmente, há duas prioridades de reidratar, alta e padrão, que podem ser definidas por meio da propriedade *x-MS-reidratar-Priority* opcional em uma operação de [camada de blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) ou de [cópia](https://docs.microsoft.com/rest/api/storageservices/copy-blob) de conjunto.
 
-* **Prioridade padrão**: A solicitação de reidratação será processada na ordem recebida e pode levar até 15 horas.
-* **Alta prioridade**: A solicitação de reidratação será priorizada em relação às solicitações padrão e poderá terminar em menos de 1 hora. A alta prioridade pode levar mais de 1 hora, dependendo do tamanho da bolha e da demanda atual. Solicitações de alta prioridade são garantidas para serem priorizadas em relação às solicitações de prioridade padrão.
+* **Prioridade padrão**: a solicitação reidratação será processada na ordem em que foi recebida e pode levar até 15 horas.
+* **Prioridade alta**: a solicitação reidratação será priorizada em relação às solicitações padrão e poderá ser concluída em menos de uma hora. A alta prioridade pode levar mais de 1 hora, dependendo do tamanho do blob e da demanda atual. As solicitações de alta prioridade têm garantia de serem priorizadas em relação às solicitações de prioridade padrão.
 
 > [!NOTE]
-> A prioridade padrão é a opção padrão de reidratação para arquivamento. Alta prioridade é uma opção mais rápida que custará mais do que a reidratação prioritária padrão e geralmente é reservada para uso em situações de restauração de dados de emergência.
+> A prioridade padrão é a opção reidratação padrão para arquivamento. Alta prioridade é uma opção mais rápida que custará mais do que a reidratação de prioridade padrão e geralmente é reservada para uso em situações de restauração de dados de emergência.
 
-Uma vez iniciado um pedido de reidratação, ele não pode ser cancelado. Durante o processo de reidratação, a propriedade *de blob de nível de acesso x-ms* continuará a aparecer como arquivamento até que a reidratação seja concluída em um nível on-line. Para confirmar o estado de reidratação e o progresso, você pode chamar [As Propriedades Get Blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties) para verificar o *estado x-ms-archive-status* e as propriedades de blob *x-ms-reidrata-prioridade.* O status do arquivo pode ler "reidratar-pendente-a-quente" ou "reidratar-pendente-para-esfriar" dependendo do nível de destino reidratado. A prioridade de reidratar indicará a velocidade de "Alto" ou "Padrão". Após a conclusão, o status do arquivo e as propriedades de prioridade de reidratação são removidos, e a propriedade access tier blob será atualizada para refletir o nível quente ou legal selecionado.
+Depois que uma solicitação reidratação é iniciada, ela não pode ser cancelada. Durante o processo de reidratação, a propriedade de blob *x-MS-Access-Tier* continuará a ser mostrada como arquivo morto até que reidratação seja concluído para uma camada online. Para confirmar o status e o progresso do reidratação, você pode chamar [obter propriedades de blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties) para verificar as propriedades de blob *x-MS-Archive-status* e *x-MS-reidratar-Priority* . O status do arquivo pode ler "reidratar-Pending-to-Hot" ou "reidratar-Pending-to-cool", dependendo da camada de destino reidratar. A prioridade reidratar indicará a velocidade de "alta" ou "padrão". Após a conclusão, as propriedades status do arquivo morto e prioridade reidratar são removidas e a propriedade BLOB da camada de acesso será atualizada para refletir a camada quente ou fria selecionada.

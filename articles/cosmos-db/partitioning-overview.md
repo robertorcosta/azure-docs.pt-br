@@ -1,54 +1,83 @@
 ---
 title: Particionamento no BD Cosmos do Azure
-description: Aprenda sobre particionamento no Azure Cosmos DB, práticas recomendadas ao escolher uma chave de partição e como gerenciar partições lógicas
-author: markjbrown
-ms.author: mjbrown
+description: Saiba mais sobre o particionamento em Azure Cosmos DB, práticas recomendadas ao escolher uma chave de partição e como gerenciar partições lógicas
+author: deborahc
+ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.openlocfilehash: 1a760b4cedad5e43a2ef9f186162675aaf6d5ea5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79251863"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234172"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no BD Cosmos do Azure
 
-O Azure Cosmos DB usa particionamento para dimensionar contêineres individuais em um banco de dados para atender às necessidades de desempenho de sua aplicação. Na partição, os itens em um contêiner são divididos em subconjuntos distintos chamados *partições lógicas*. As partições lógicas são formadas com base no valor de uma chave de *partição* que está associada a cada item em um contêiner. Todos os itens em uma partição lógica têm o mesmo valor de chave de partição.
+Azure Cosmos DB usa o particionamento para dimensionar contêineres individuais em um banco de dados para atender às necessidades de desempenho do seu aplicativo. No particionamento, os itens em um contêiner são divididos em subconjuntos distintos chamados *partições lógicas*. As partições lógicas são formadas com base no valor de uma *chave de partição* associada a cada item em um contêiner. Todos os itens em uma partição lógica têm o mesmo valor de chave de partição.
 
-Por exemplo, um contêiner contém itens. Cada item tem um `UserID` valor único para a propriedade. Se `UserID` serve como chave de partição para os itens no contêiner `UserID` e há 1.000 valores únicos, 1.000 partições lógicas são criadas para o contêiner.
+Por exemplo, um contêiner contém itens. Cada item tem um valor exclusivo para a `UserID` propriedade. Se `UserID` serve como a chave de partição para os itens no contêiner e há 1.000 valores exclusivos `UserID` , 1.000 partições lógicas são criadas para o contêiner.
 
-Além de uma chave de partição que determina a partição lógica do item, cada item em um contêiner tem um *ID de item* (único dentro de uma partição lógica). Combinando a chave de partição e o iD do item cria o *índice*do item, que identifica exclusivamente o item.
+Além de uma chave de partição que determina a partição lógica do item, cada item em um contêiner tem uma *ID de item* (exclusiva em uma partição lógica). A combinação da chave de partição e da *ID do item* cria o *índice*do item, que identifica exclusivamente o item.
 
-[Escolher uma chave de partição](partitioning-overview.md#choose-partitionkey) é uma decisão importante que afetará o desempenho do seu aplicativo.
+[Escolher uma chave de partição](partitioning-overview.md#choose-partitionkey) é uma decisão importante que afetará o desempenho do aplicativo.
 
-## <a name="managing-logical-partitions"></a>Gerenciamento de partições lógicas
+## <a name="managing-logical-partitions"></a>Gerenciando partições lógicas
 
-O Azure Cosmos DB gerencia de forma transparente e automática a colocação de partições lógicas em partições físicas para satisfazer eficientemente as necessidades de escalabilidade e desempenho do contêiner. À medida que os requisitos de throughput e armazenamento de um aplicativo aumentam, o Azure Cosmos DB move partições lógicas para espalhar automaticamente a carga em um número maior de servidores. 
+Azure Cosmos DB gerencia de forma transparente e automática o posicionamento de partições lógicas em partições físicas para atender com eficiência às necessidades de escalabilidade e desempenho do contêiner. À medida que os requisitos de taxa de transferência e armazenamento de um aplicativo aumentam, Azure Cosmos DB move partições lógicas para espalhar automaticamente a carga em um número maior de partições físicas. Você pode saber mais sobre [partições físicas](partition-data.md#physical-partitions).
 
-O Azure Cosmos DB usa particionamento baseado em hash para espalhar partições lógicas através de partições físicas. O Azure Cosmos DB hashes o valor chave de partição de um item. O resultado hashed determina a partição física. Em seguida, o Azure Cosmos DB aloca o espaço-chave da chave de partição hashes uniformemente através das partições físicas.
+O Azure Cosmos DB usa o particionamento baseado em hash para distribuir partições lógicas entre partições físicas. Azure Cosmos DB hash do valor de chave de partição de um item. O resultado com hash determina a partição física. Em seguida, Azure Cosmos DB aloca o espaço de chave dos hashes de chave de partição uniformemente entre as partições físicas.
 
-Consultas que acessam dados dentro de uma única partição lógica são mais econômicas do que consultas que acessam várias partições. Transações (em procedimentos ou gatilhos armazenados) são permitidas apenas contra itens em uma única partição lógica.
+As transações (em procedimentos armazenados ou gatilhos) são permitidas somente em itens em uma única partição lógica.
 
-Para saber mais sobre como o Azure Cosmos DB gerencia partições, consulte [Partições lógicas](partition-data.md). (Não é necessário entender os detalhes internos para construir ou executar seus aplicativos, mas adicionado aqui para um leitor curioso.)
+Você pode saber mais sobre [como Azure Cosmos DB gerencia partições](partition-data.md). (Não é necessário entender os detalhes internos para criar ou executar seus aplicativos, mas adicionados aqui para um leitor curioso.)
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Escolhendo uma chave de partição
 
-A seguir, uma boa orientação para escolher uma chave de partição:
+A seleção de sua chave de partição é uma opção de design simples, mas importante no Azure Cosmos DB. Depois de selecionar a chave de partição, não é possível alterá-la in-loco. Se você precisar alterar sua chave de partição, mova seus dados para um novo contêiner com a nova chave de partição desejada.
 
-* Uma única partição lógica tem um limite superior de 20 GB de armazenamento.  
+Para **todos os** contêineres, sua chave de partição deve:
 
-* Os contêineres Azure Cosmos têm um rendimento mínimo de 400 unidades de solicitação por segundo (RU/s). Quando o throughput é provisionado em um banco de dados, o mínimo de RUs por contêiner é de 100 unidades de solicitação por segundo (RU/s). As solicitações para a mesma chave de partição não podem exceder o throughput alocado a uma partição. Se as solicitações excederem o throughput alocado, as solicitações serão limitadas à taxa. Portanto, é importante escolher uma chave de partição que não resulte em "pontos de acesso" em seu aplicativo.
+* Ser uma propriedade que tem um valor que não é alterado. Se uma propriedade for sua chave de partição, você não poderá atualizar o valor dessa propriedade.
+* Ter uma alta cardinalidade. Em outras palavras, a propriedade deve ter uma ampla variedade de valores possíveis.
+* Armazenamento de dados e consumo de RU (unidade de solicitação de espalhamento) uniformemente em todas as partições lógicas. Isso garante o consumo até a RU e a distribuição de armazenamento em suas partições físicas.
 
-* Escolha uma chave de partição que tenha uma ampla gama de valores e padrões de acesso distribuídos uniformemente em partições lógicas. Isso ajuda a espalhar os dados e a atividade em seu contêiner através do conjunto de partições lógicas, para que os recursos para armazenamento e throughput de dados possam ser distribuídos entre as partições lógicas.
+Se você precisar de [Transações ACID com vários itens](database-transactions-optimistic-concurrency.md#multi-item-transactions) no Azure Cosmos DB, será necessário usar [procedimentos armazenados ou gatilhos](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures). Todos os procedimentos armazenados e gatilhos baseados em JavaScript têm como escopo uma única partição lógica.
 
-* Escolha uma chave de partição que espalhe a carga de trabalho uniformemente em todas as partições e uniformemente ao longo do tempo. Sua escolha de chave de partição deve equilibrar a necessidade de consultas e transações de partição eficientes contra o objetivo de distribuir itens em várias partições para alcançar a escalabilidade.
+## <a name="partition-keys-for-read-heavy-containers"></a>Chaves de partição para contêineres de leitura intensa
 
-* Os candidatos às chaves de partição podem incluir propriedades que aparecem frequentemente como um filtro em suas consultas. Consultas podem ser roteadas com eficiência, incluindo a chave de partição no predicado de filtro.
+Para a maioria dos contêineres, os critérios acima são tudo o que você precisa considerar ao escolher uma chave de partição. No entanto, para grandes contêineres pesados de leitura, convém escolher uma chave de partição que aparece com frequência como um filtro em suas consultas. As consultas podem ser [roteadas de forma eficiente para apenas as partições físicas relevantes](how-to-query-container.md#in-partition-query) , incluindo a chave de partição no predicado de filtro.
+
+Se a maioria das solicitações de carga de trabalho for consultas e a maioria das suas consultas tiver um filtro de igualdade na mesma propriedade, essa propriedade poderá ser uma boa opção de chave de partição. Por exemplo, se você executar com frequência uma consulta que filtra `UserID`em e, `UserID` em seguida, selecionar como a chave de partição reduziria o número de [consultas entre partições](how-to-query-container.md#avoiding-cross-partition-queries).
+
+No entanto, se o contêiner for pequeno, provavelmente você não terá partições físicas suficientes para precisar se preocupar com o impacto no desempenho de consultas entre partições. A maioria dos contêineres pequenos no Azure Cosmos DB requer apenas uma ou duas partições físicas.
+
+Se o contêiner puder aumentar para mais de algumas partições físicas, você deverá selecionar uma chave de partição que minimize as consultas entre partições. Seu contêiner exigirá mais do que algumas partições físicas quando qualquer uma das seguintes opções for verdadeira:
+
+* Seu contêiner terá mais de 30.000 RU provisionados
+* O contêiner armazenará mais de 100 GB de dados
+
+## <a name="using-item-id-as-the-partition-key"></a>Usando a ID do item como a chave de partição
+
+Se o contêiner tiver uma propriedade que tenha uma ampla gama de valores possíveis, provavelmente será uma ótima opção de chave de partição. Um exemplo possível de tal propriedade é a *ID do item*. Para contêineres de leitura intensa pequenos ou contêineres de gravação pesada de qualquer tamanho, a *ID do item* é naturalmente uma ótima opção para a chave de partição.
+
+Há garantia de que a *ID do item* de Propriedade do sistema exista em cada item em seu contêiner Cosmos. Você pode ter outras propriedades que representam uma ID lógica do seu item. Em muitos casos, essas também são ótimas opções de chave de partição pelos mesmos motivos da *ID do item*.
+
+A *ID do item* é uma ótima opção de chave de partição pelos seguintes motivos:
+
+* Há uma grande variedade de valores possíveis (uma ID de *Item* exclusiva por item).
+* Como há uma ID de *Item* exclusiva por item, a *ID do item* faz um ótimo trabalho em balanceamento uniforme de consumo e armazenamento de dados em ru.
+* Você pode facilmente fazer leituras de ponto eficientes, pois você sempre saberá a chave de partição de um item se souber sua *ID de item*.
+
+Algumas coisas a serem consideradas ao selecionar a *ID do item* como a chave de partição incluem:
+
+* Se a *ID do item* for a chave de partição, ela se tornará um identificador exclusivo em todo o seu contêiner. Você não poderá ter itens com uma *ID de item*duplicada.
+* Se você tiver um contêiner de leitura intensa que tenha muitas [partições físicas](partition-data.md#physical-partitions), as consultas serão mais eficientes se tiverem um filtro de igualdade com a ID do *Item*.
+* Você não pode executar procedimentos armazenados ou gatilhos em várias partições lógicas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [particionamento e dimensionamento horizontal no Azure Cosmos DB](partition-data.md).
-* Saiba mais sobre [o throughput provisionado no Azure Cosmos DB](request-units.md).
-* Saiba mais sobre [a distribuição global no Azure Cosmos DB](distribute-data-globally.md).
+* Saiba mais sobre [particionamento e dimensionamento horizontal em Azure Cosmos DB](partition-data.md).
+* Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).
+* Saiba mais sobre a [distribuição global no Azure Cosmos DB](distribute-data-globally.md).

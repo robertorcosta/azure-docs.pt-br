@@ -1,7 +1,7 @@
 ---
-title: Referência sdk do leitor imersivo
+title: Referência do SDK do leitor de imersão
 titleSuffix: Azure Cognitive Services
-description: O Immersive Reader SDK contém uma biblioteca JavaScript que permite integrar o Leitor Imersivo ao seu aplicativo.
+description: O SDK do leitor de imersão contém uma biblioteca JavaScript que permite integrar o leitor de imersão ao seu aplicativo.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb88fb24ceed943d4104da6914959e4b79c35571
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76156396"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231910"
 ---
-# <a name="immersive-reader-sdk-reference-guide"></a>Guia de referência do Leitor Imersivo SDK
+# <a name="immersive-reader-sdk-reference-guide"></a>Guia de referência do SDK do leitor de imersão
 
-O Immersive Reader SDK contém uma biblioteca JavaScript que permite integrar o Leitor Imersivo ao seu aplicativo.
+O SDK do leitor de imersão contém uma biblioteca JavaScript que permite integrar o leitor de imersão ao seu aplicativo.
 
 ## <a name="functions"></a>Funções
 
@@ -33,7 +33,7 @@ O SDK expõe as funções:
 
 ## <a name="launchasync"></a>launchAsync
 
-Lança o Leitor Imersivo dentro de um `iframe` aplicativo web.
+Inicia o leitor de imersão dentro `iframe` de um em seu aplicativo Web.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
@@ -43,36 +43,36 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Nome | Type | Descrição |
 | ---- | ---- |------------ |
-| `token` | string | O token de autenticação Azure AD. |
-| `subdomain` | string | O subdomínio personalizado do recurso Immersive Reader no Azure. |
-| `content` | [Conteúdo](#content) | Um objeto contendo o conteúdo a ser mostrado no Leitor Imersivo. |
-| `options` | [Opções](#options) | Opções para configurar certos comportamentos do Leitor Imersivo. Opcional. |
+| `token` | string | O token de autenticação do Azure AD. |
+| `subdomain` | cadeia de caracteres | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. |
+| `content` | [Conteúdo](#content) | Um objeto que contém o conteúdo a ser mostrado no leitor de imersão. |
+| `options` | [Opções](#options) | Opções para configurar determinados comportamentos do leitor de imersão. Opcional. |
 
 ### <a name="returns"></a>Retornos
 
-Retorna `Promise<LaunchResponse>`a , que resolve quando o Leitor Imersivo é carregado. A `Promise` solução para [`LaunchResponse`](#launchresponse) um objeto.
+Retorna um `Promise<LaunchResponse>`, que resolve quando o leitor de imersão é carregado. O `Promise` é resolvido para um [`LaunchResponse`](#launchresponse) objeto.
 
 ### <a name="exceptions"></a>Exceções
 
-O retornado `Promise` será rejeitado [`Error`](#error) com um objeto se o Leitor Imersivo não for carregado. Para obter mais informações, consulte os [códigos de erro](#error-codes).
+O retornado `Promise` será rejeitado com um [`Error`](#error) objeto se o leitor de imersão não for carregado. Para obter mais informações, consulte os [códigos de erro](#error-codes).
 
 ## <a name="close"></a>close
 
-Fecha o Leitor Imersivo.
+Fecha o leitor de imersão.
 
-Um exemplo de caso de uso para esta ```hideExitButton: true``` função é se o botão de saída estiver oculto definindo as [opções](#options). Em seguida, um botão diferente (por exemplo, a ```close``` seta traseira de um cabeçalho móvel) pode chamar essa função quando ela é clicada.
+Um exemplo de caso de uso para essa função é se o botão sair estiver oculto ```hideExitButton: true``` pela configuração em [Opções](#options). Em seguida, um botão diferente (por exemplo, seta para voltar do cabeçalho móvel) pode ```close``` chamar essa função quando ele é clicado.
 
 ```typescript
 close(): void;
 ```
 
-## <a name="renderbuttons"></a>renderBotões
+## <a name="renderbuttons"></a>renderButtons
 
-Esta função estilo e atualiza os elementos do botão Leitor Imersivo do documento. Se ```options.elements``` for fornecido, esta função renderizará ```options.elements```botões dentro . Caso contrário, os botões serão renderizados dentro dos elementos ```immersive-reader-button```do documento que têm a classe .
+Essa função define e atualiza os elementos do botão de leitura imersiva do documento. Se ```options.elements``` for fornecido, essa função renderizará os botões em ```options.elements```. Caso contrário, os botões serão renderizados dentro dos elementos do documento que têm a ```immersive-reader-button```classe.
 
-Esta função é automaticamente chamada pelo SDK quando a janela é carregada.
+Essa função é chamada automaticamente pelo SDK quando a janela é carregada.
 
-Consulte [Atributos Opcionais](#optional-attributes) para obter mais opções de renderização.
+Consulte [atributos opcionais](#optional-attributes) para obter mais opções de renderização.
 
 ```typescript
 renderButtons(options?: RenderButtonsOptions): void;
@@ -82,13 +82,13 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 | Nome | Type | Descrição |
 | ---- | ---- |------------ |
-| `options` | [Opções de renderButtons](#renderbuttonsoptions) | Opções para configurar certos comportamentos da função renderButtons. Opcional. |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opções para configurar determinados comportamentos da função renderButtons. Opcional. |
 
 ## <a name="types"></a>Tipos
 
 ### <a name="content"></a>Conteúdo
 
-Contém o conteúdo a ser mostrado no Leitor Imersivo.
+Contém o conteúdo a ser mostrado no leitor de imersão.
 
 ```typescript
 {
@@ -99,7 +99,7 @@ Contém o conteúdo a ser mostrado no Leitor Imersivo.
 
 ### <a name="chunk"></a>Parte
 
-Um único pedaço de dados, que será passado para o conteúdo do Leitor Imersivo.
+Um único bloco de dados, que será passado para o conteúdo do leitor de imersão.
 
 ```typescript
 {
@@ -109,9 +109,9 @@ Um único pedaço de dados, que será passado para o conteúdo do Leitor Imersiv
 }
 ```
 
-### <a name="launchresponse"></a>Resposta de lançamento
+### <a name="launchresponse"></a>LaunchResponse
 
-Contém a resposta da `ImmersiveReader.launchAsync`chamada para .
+Contém a resposta da chamada para `ImmersiveReader.launchAsync`.
 
 ```typescript
 {
@@ -122,35 +122,34 @@ Contém a resposta da `ImmersiveReader.launchAsync`chamada para .
 
 ### <a name="cookiepolicy-enum"></a>CookiePolicy enum
 
-Um enum usado para definir a política para o uso de cookies do Immersive Reader. Veja [opções](#options).
+Uma enumeração usada para definir a política para o uso do cookie do leitor de imersão. Consulte [Opções](#options).
 
 ```typescript
 enum CookiePolicy { Disable, Enable }
 ```
 
-#### <a name="supported-mime-types"></a>Tipos de MIME suportados
+#### <a name="supported-mime-types"></a>Tipos MIME com suporte
 
 | Tipo MIME | Descrição |
 | --------- | ----------- |
-| texto/sem formatação | Texto simples. |
+| texto/sem formatação | Texto sem formatação. |
 | texto/html | Conteúdo HTML. [Saiba mais](#html-support)|
-| aplicação/mathml+xml | Linguagem de Marcação Matemática (MathML). [Saiba mais](./how-to/display-math.md).
-| aplicativo/vnd.openxmlformats-officedocument.wordprocessingml.document | Documento de formato Microsoft Word .docx.
+| aplicativo/MathML + XML | MathML (matematica Markup Language). [Saiba mais](./how-to/display-math.md).
+| application/vnd. openxmlformats-officeDocument. WordprocessingML. Document | Documento de formato Microsoft Word. docx.
 
-### <a name="html-support"></a>Suporte HTML
+### <a name="html-support"></a>Suporte a HTML
 
-| HTML | Conteúdo suportado |
+| HTML | Conteúdo com suporte |
 | --------- | ----------- |
-| Estilos de fonte | Negrito, Itálico, Sublinhado, Código, Strikethrough, Superscript, Subscrito |
-| Listas não ordenadas | Disco, Círculo, Quadrado |
-| Listas encomendadas | Decimal, Alfa Superior, Baixo-Alfa, Romano-Superior, Baixo-Romano |
-| Hiperlinks | Em breve |
+| Estilos de fonte | Negrito, itálico, sublinhado, código, tachado, sobrescrito, subscrito |
+| Listas não ordenadas | Disco, círculo, quadrado |
+| Listas ordenadas | Decimal, superior-alfa, inferior-alfa, maiúsculo-Romano, minúsculo |
 
-As tags sem suporte serão renderizadas comparativamente. Imagens e tabelas não são suportadas no momento.
+Marcas sem suporte serão renderizadas comparativamente. Não há suporte para imagens e tabelas no momento.
 
 ### <a name="options"></a>Opções
 
-Contém propriedades que configuram certos comportamentos do Leitor Imersivo.
+Contém propriedades que configuram determinados comportamentos do leitor de imersão.
 
 ```typescript
 {
@@ -166,9 +165,9 @@ Contém propriedades que configuram certos comportamentos do Leitor Imersivo.
 }
 ```
 
-### <a name="renderbuttonsoptions"></a>Opções de renderButtons
+### <a name="renderbuttonsoptions"></a>RenderButtonsOptions
 
-Opções para renderizar os botões do Leitor Imersivo.
+Opções para renderizar os botões de leitura imersiva.
 
 ```typescript
 {
@@ -176,7 +175,7 @@ Opções para renderizar os botões do Leitor Imersivo.
 }
 ```
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Erro do
 
 Contém informações sobre o erro.
 
@@ -191,14 +190,14 @@ Contém informações sobre o erro.
 
 | Código | Descrição |
 | ---- | ----------- |
-| BadArgument | O argumento fornecido é `message` inválido, veja os detalhes. |
-| Tempo limite | O Leitor Imersivo não conseguiu carregar dentro do intervalo especificado. |
-| TokenExpired | O token fornecido está expirado. |
-| Acelerado | O limite da taxa de chamada foi excedido. |
+| BadArgument | O argumento fornecido é inválido, `message` consulte para obter detalhes. |
+| Tempo limite | Falha ao carregar o leitor de imersão no tempo limite especificado. |
+| TokenExpired | O token fornecido expirou. |
+| Acelerado | O limite de taxa de chamada foi excedido. |
 
-## <a name="launching-the-immersive-reader"></a>Lançando o Leitor Imersivo
+## <a name="launching-the-immersive-reader"></a>Iniciando o leitor de imersão
 
-O SDK fornece estilo padrão para o botão de inicialização do Leitor Imersivo. Use `immersive-reader-button` o atributo de classe para habilitar esse estilo. Veja [este artigo](./how-to-customize-launch-button.md) para mais detalhes.
+O SDK fornece o estilo padrão para o botão iniciar o leitor de imersão. Use o `immersive-reader-button` atributo Class para habilitar esse estilo. Consulte [Este artigo](./how-to-customize-launch-button.md) para obter mais detalhes.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -206,17 +205,17 @@ O SDK fornece estilo padrão para o botão de inicialização do Leitor Imersivo
 
 ### <a name="optional-attributes"></a>Atributos opcionais
 
-Use os seguintes atributos para configurar a aparência do botão.
+Use os atributos a seguir para configurar a aparência do botão.
 
 | Atributo | Descrição |
 | --------- | ----------- |
-| `data-button-style` | Define o estilo do botão. Pode ser `icon`, `text` ou `iconAndText`. Usa `icon` como padrão. |
-| `data-locale` | Define o local. Por exemplo, `en-US` ou `fr-FR`. Padrão para `en`inglês . |
-| `data-icon-px-size` | Define o tamanho do ícone em pixels. Padrão para 20px. |
+| `data-button-style` | Define o estilo do botão. Pode ser `icon`, `text` ou `iconAndText`. O padrão é `icon`. |
+| `data-locale` | Define a localidade. Por exemplo, `en-US` ou `fr-FR`. O padrão é inglês `en`. |
+| `data-icon-px-size` | Define o tamanho do ícone em pixels. O padrão é 20px. |
 
 ## <a name="browser-support"></a>Suporte ao navegador
 
-Use as versões mais recentes dos seguintes navegadores para obter a melhor experiência com o Immersive Reader.
+Use as versões mais recentes dos seguintes navegadores para obter a melhor experiência com o leitor de imersão.
 
 * Microsoft Edge
 * Internet Explorer 11
@@ -227,4 +226,4 @@ Use as versões mais recentes dos seguintes navegadores para obter a melhor expe
 ## <a name="next-steps"></a>Próximas etapas
 
 * Explorar o [SDK da Leitura Avançada no GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Quickstart: Crie um aplicativo web que lance o Immersive Reader (C#)](./quickstart.md)
+* [Início rápido: criar um aplicativo Web que inicia o leitor de imersão (C#)](./quickstart.md)

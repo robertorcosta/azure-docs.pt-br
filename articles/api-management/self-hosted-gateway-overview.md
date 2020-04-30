@@ -1,30 +1,25 @@
 ---
-title: Visão geral do gateway de gerenciamento de API do Azure auto-hospedado | Microsoft Docs
-description: Saiba como o gateway de gerenciamento de API do Azure auto-hospedado ajuda as organizações a gerenciar APIs nos ambientes híbridos e de nuvem.
+title: Visão geral do gateway auto-hospedado | Microsoft Docs
+description: Saiba como o recurso de gateway auto-hospedado do gerenciamento de API do Azure ajuda as organizações a gerenciar APIs em ambientes híbridos e de nuvem.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
 manager: gwallace
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 415f0e209e607a863d715b1a66a2435603a662f0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73513712"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232965"
 ---
-# <a name="self-hosted-api-management-gateway-overview"></a>Visão geral do gateway de gerenciamento de API auto-hospedado
+# <a name="self-hosted-gateway-overview"></a>Visão geral do gateway auto-hospedado
 
-Este artigo explica como o recurso de gateway auto-hospedado permite o gerenciamento de API híbrida e de várias nuvens, apresenta sua arquitetura de alto nível e destaca seus recursos fundamentais.
-
-> [!NOTE]
-> O recurso de gateway auto-hospedado está em versão prévia. Durante a visualização, o gateway auto-hospedado está disponível apenas nas camadas desenvolvedor e Premium sem custo adicional. A camada de desenvolvedor é limitada a uma única implantação de gateway de hospedagem interna.
+Este artigo explica como o recurso de gateway auto-hospedado do gerenciamento de API do Azure permite o gerenciamento de API híbrida e de várias nuvens, apresenta sua arquitetura de alto nível e realça seus recursos.
 
 ## <a name="hybrid-and-multi-cloud-api-management"></a>Gerenciamento de API híbrida e de várias nuvens
 
@@ -42,20 +37,27 @@ Por padrão, todos esses componentes são implantados no Azure, causando todo o 
 
 ![Fluxo de tráfego de API sem gateways hospedados internamente](media/self-hosted-gateway-overview/without-gateways.png)
 
-Implantar gateways auto-hospedados nos mesmos ambientes que as implementações de API de back-end e adicioná-los ao serviço de gerenciamento de API permite que o tráfego de API flua diretamente para as APIs de back-end, o que melhora a latência, otimiza os custos de transferência de dados e permite a conformidade enquanto mantém os benefícios de ter um único ponto de gerenciamento e descoberta de todas as APIs
+A implantação de gateways de hospedagem interna nos mesmos ambientes em que as implementações de API de back-end são hospedadas permite que o tráfego de API flua diretamente para as APIs de back-end, o que melhora a latência, otimiza os custos de transferência de dados e permite a conformidade, mantendo os benefícios de ter um único ponto de gerenciamento, a observação e a descoberta de todas as APIs na
 
 ![Fluxo de tráfego de API com gateways auto-hospedados](media/self-hosted-gateway-overview/with-gateways.png)
 
 ## <a name="packaging-and-features"></a>Empacotamento e recursos
 
-O gateway auto-hospedado é uma versão em contêiner e funcionalmente equivalente do gateway gerenciado implantado no Azure como parte de cada serviço de gerenciamento de API. O gateway auto-hospedado está disponível como um contêiner do Docker baseado em Linux do registro de contêiner da Microsoft. Ele pode ser implantado no Docker, kubernetes ou qualquer outra solução de orquestração de contêiner em execução em uma área de trabalho, cluster de servidores ou infraestrutura de nuvem.
+O gateway auto-hospedado é uma versão em contêiner e funcionalmente equivalente do gateway gerenciado implantado no Azure como parte de cada serviço de gerenciamento de API. O gateway auto-hospedado está disponível como um [contêiner](https://aka.ms/apim/sputnik/dhub) do Docker baseado em Linux do registro de contêiner da Microsoft. Ele pode ser implantado no Docker, kubernetes ou qualquer outra solução de orquestração de contêiner em execução em um cluster de servidor local, infraestrutura de nuvem ou para fins de avaliação e desenvolvimento em um computador pessoal.
 
-> [!IMPORTANT]
-> Algumas funcionalidades disponíveis no gateway gerenciado ainda não estão disponíveis na versão prévia. Mais notavelmente: log na política do hub de eventos, integração de Service Fabric, downstream HTTP/2. Não há nenhum plano para disponibilizar um cache interno no gateway auto-hospedado.
+A funcionalidade a seguir encontrada nos gateways gerenciados **não está disponível** nos gateways de hospedagem interna:
+
+- Logs do Azure Monitor
+- Gerenciamento de codificação e versão do TLS do upstream (lado de back-end)
+- Validação de certificados de cliente e servidor usando [certificados raiz de CA](api-management-howto-ca-certificates.md) carregados no serviço de gerenciamento de API. Para adicionar suporte para autoridade de certificação personalizada, adicione uma camada à imagem de contêiner de gateway de hospedagem interna que instala o certificado raiz da autoridade de certificação.
+- Integração com o [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
+- Retomada da sessão TLS
+- Renegociação de certificado de cliente. Isso significa que para [autenticação de certificado de cliente](api-management-howto-mutual-certificates-for-clients.md) para clientes de API de trabalho devem apresentar seus certificados como parte do HANDSHAKE de TLS inicial. Para garantir isso, habilite a configuração negociar certificado de cliente ao configurar um nome de host personalizado de gateway auto-hospedado.
+- Cache interno. Consulte este [documento](api-management-howto-cache-external.md) para saber mais sobre como usar o cache externo em gateways de hospedagem interna.
 
 ## <a name="connectivity-to-azure"></a>Conectividade com o Azure
 
-O gateway auto-hospedado requer conectividade TCP/IP de saída para o Azure na porta 443. Cada gateway auto-hospedado deve ser associado a um único serviço de gerenciamento de API e configurado por meio de seu plano de gerenciamento. O gateway auto-hospedado usa a conectividade com o Azure para:
+Gateways auto-hospedados exigem conectividade TCP/IP de saída para o Azure na porta 443. Cada gateway auto-hospedado deve ser associado a um único serviço de gerenciamento de API e configurado por meio de seu plano de gerenciamento. O gateway auto-hospedado usa a conectividade com o Azure para:
 
 -   Relatando seu status enviando mensagens de pulsação a cada minuto
 -   Verificando regularmente (a cada 10 segundos) e aplicando atualizações de configuração sempre que elas estiverem disponíveis
@@ -64,22 +66,22 @@ O gateway auto-hospedado requer conectividade TCP/IP de saída para o Azure na p
 
 Quando a conectividade com o Azure for perdida, o gateway auto-hospedado não poderá receber atualizações de configuração, relatar seu status ou carregar a telemetria.
 
-O gateway auto-hospedado é projetado para "falhar de forma estática" e pode sobreviver à perda temporária de conectividade com o Azure. Ele pode ser implantado com ou sem o backup de configuração local ativado. No primeiro caso, os gateways auto-hospedados salvarão regularmente uma cópia de backup da configuração em um volume persistente anexado ao contêiner ou ao Pod.
+O gateway auto-hospedado é projetado para "falhar de forma estática" e pode sobreviver à perda temporária de conectividade com o Azure. Ele pode ser implantado com ou sem backup de configuração local. No primeiro caso, os gateways auto-hospedados salvarão regularmente uma cópia de backup da última configuração baixada em um volume persistente anexado a seu contêiner ou Pod.
 
 Quando o backup de configuração é desativado e a conectividade com o Azure é interrompida:
 
--   Gateways auto-hospedados que estão em execução continuarão a funcionar usando uma cópia na memória da configuração
+-   A execução de gateways de hospedagem interna continuará a funcionar usando uma cópia na memória da configuração
 -   Os gateways de hospedagem interna interrompida não poderão ser iniciados
 
 Quando o backup de configuração é ativado e a conectividade com o Azure é interrompida:
 
--   Gateways auto-hospedados que estão em execução continuarão a funcionar usando uma cópia na memória da configuração
--   Gateways auto-hospedados interrompidos começarão a usar uma cópia de backup da configuração
+-   A execução de gateways de hospedagem interna continuará a funcionar usando uma cópia na memória da configuração
+-   Os gateways auto-hospedados interrompidos poderão começar a usar uma cópia de backup da configuração
 
 Quando a conectividade for restaurada, cada gateway autohospedado afetado pela interrupção será reconectado automaticamente com seu serviço de gerenciamento de API associado e baixará todas as atualizações de configuração que ocorreram enquanto o gateway estava "offline".
 
 ## <a name="next-steps"></a>Próximas etapas
 
 -   [Leia um White Paper para obter mais informações sobre este tópico](https://aka.ms/hybrid-and-multi-cloud-api-management)
--   [Implantar o gateway auto-hospedado no Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
--   [Implantar o gateway auto-hospedado no kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
+-   [Implantar o gateway auto-hospedado no Docker](how-to-deploy-self-hosted-gateway-docker.md)
+-   [Implantar o gateway auto-hospedado no kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)

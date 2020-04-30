@@ -4,12 +4,12 @@ description: Saiba como usar a API do serviço de lote para manter os dados de s
 ms.topic: article
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5fbbf75defcfe976e59d38ae76341e71feee9f53
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116461"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234274"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 
@@ -26,7 +26,7 @@ O Lote do Azure fornece mais de uma maneira de manter a saída da tarefa. Usar a
 - Você deseja escrever o código para manter a saída da tarefa de dentro de seu aplicativo cliente, sem modificar o aplicativo que sua tarefa está executando.
 - Você deseja manter a saída das tarefas em Lote e as tarefas do gerenciador de trabalho em pools criados com a configuração de máquina virtual.
 - Você deseja manter a saída a um contêiner de Armazenamento do Azure com um nome arbitrário.
-- Você deseja manter a saída a um contêiner de Armazenamento do Azure nomeado de acordo com o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Você deseja manter a saída a um contêiner de Armazenamento do Azure nomeado de acordo com o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
 
 Se seu cenário for diferente daqueles listados acima, poderá ser necessário considerar uma abordagem diferente. Por exemplo, a API de serviço de lote atualmente não suporta saída de transmissão para o armazenamento do Azure durante a execução da tarefa. Para a saída de fluxo, considere usar a biblioteca de Convenções de Arquivo em Lotes, disponível para .NET. Para outros idiomas, você precisará implantar sua própria solução. Para obter mais informações sobre outras opções para manter a saída da tarefa, consulte [Manter saída de trabalho e tarefa no Armazenamento do Azure](batch-task-output.md).
 
@@ -155,7 +155,7 @@ O arquivo `fileuploadout.txt` registra em log o progresso de upload. Você pode 
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Usar a API de serviço de lote com o padrão de convenções de arquivo em lotes
 
-Quando você mantém a saída da tarefa com a API de serviço de lote, você pode nomear o contêiner de destino e os blobs como desejar. Você também pode optar por nomeá-los de acordo com o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). O padrão de Convenções de Arquivo determina os nomes do contêiner de destino e do blob no Armazenamento do Azure para um determinado arquivo de saída com base nos nomes do trabalho e da tarefa. Se você usar o padrão de Convenções de Arquivo para nomear arquivos de saída, os arquivos de saída estarão disponíveis para exibição no [portal do Azure](https://portal.azure.com).
+Quando você mantém a saída da tarefa com a API de serviço de lote, você pode nomear o contêiner de destino e os blobs como desejar. Você também pode optar por nomeá-los de acordo com o [padrão de Convenções de Arquivo em Lotes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). O padrão de Convenções de Arquivo determina os nomes do contêiner de destino e do blob no Armazenamento do Azure para um determinado arquivo de saída com base nos nomes do trabalho e da tarefa. Se você usar o padrão de Convenções de Arquivo para nomear arquivos de saída, os arquivos de saída estarão disponíveis para exibição no [portal do Azure](https://portal.azure.com).
 
 Se você estiver desenvolvendo em C#, poderá usar os métodos incorporados à [biblioteca Convenções de Arquivo em Lote do Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Essa biblioteca cria os contêineres corretamente nomeados e os caminhos de blob para você. Por exemplo, você pode chamar a API para obter o nome correto para o contêiner, com base no nome do trabalho:
 

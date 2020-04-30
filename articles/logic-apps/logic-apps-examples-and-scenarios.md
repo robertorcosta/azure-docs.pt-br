@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: ad5cc696892764ce68d4714ead98b8afd9c37669
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144151"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
@@ -117,7 +117,7 @@ Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual 
 * [Criar e gerenciar contas de integração para integrações corporativas B2B](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 * [Gerenciar o ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure](../logic-apps/ise-manage-integration-service-environment.md)
 
-### <a name="monitor"></a>Monitoramento
+### <a name="monitor"></a>Monitor
 
 * [Monitorar o status de execução, examinar o histórico de gatilho e configurar alertas para aplicativos lógicos do Azure](../logic-apps/monitor-logic-apps.md)
 * [Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure](../logic-apps/monitor-logic-apps-log-analytics.md)

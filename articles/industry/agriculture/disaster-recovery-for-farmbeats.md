@@ -1,43 +1,43 @@
 ---
-title: Recuperação de desastres para FarmBeats
-description: Este artigo descreve como a recuperação de dados protege de perder seus dados.
+title: Recuperação de desastre para FarmBeats
+description: Este artigo descreve como a recuperação de dados protege contra a perda de dados.
 author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
 ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683902"
 ---
-# <a name="disaster-recovery-for-farmbeats"></a>Recuperação de desastres para FarmBeats
+# <a name="disaster-recovery-for-farmbeats"></a>Recuperação de desastre para FarmBeats
 
-A recuperação de dados protege você de perder seus dados em um evento como o colapso da região do Azure. Nesse caso, você pode iniciar o failover e recuperar os dados armazenados na sua implantação do FarmBeats.
+A recuperação de dados protege você contra a perda de dados em um evento como o recolhimento da região do Azure. Nesse caso, você pode iniciar o failover e recuperar os dados armazenados em sua implantação do FarmBeats.
 
-A recuperação de dados não é um recurso padrão no Azure FarmBeats. Você pode configurar esse recurso manualmente configurando os recursos azure necessários que são usados pelo FarmBeats para armazenar dados em uma região emparelhada do Azure. Usar ativo – Abordagem passiva para permitir a recuperação.
+A recuperação de dados não é um recurso padrão no Azure FarmBeats. Você pode configurar esse recurso manualmente Configurando os recursos do Azure necessários que são usados pelo FarmBeats para armazenar dados em uma região emparelhada do Azure. Use a abordagem ativa – passiva para habilitar a recuperação.
 
 As seções a seguir fornecem informações sobre como você pode configurar a recuperação de dados no Azure FarmBeats:
 
-- [Habilite a redundância de dados](#enable-data-redundancy)
-- [Restaurar serviço de backup on-line](#restore-service-from-online-backup)
+- [Habilitar redundância de dados](#enable-data-redundancy)
+- [Restaurar serviço do backup online](#restore-service-from-online-backup)
 
 
-## <a name="enable-data-redundancy"></a>Habilite a redundância de dados
+## <a name="enable-data-redundancy"></a>Habilitar redundância de dados
 
-A FarmBeats armazena dados em três serviços de primeira parte do Azure, que são **o armazenamento Azure,** **cosmos DB** e Time Series **Insights**. Use as seguintes etapas para habilitar a redundância de dados para esses serviços em uma região Azure emparelhada:
+O FarmBeats armazena dados em três serviços de primeira parte do Azure, que são o **armazenamento do Azure**, **Cosmos DB** e **Time Series insights**. Use as etapas a seguir para habilitar a redundância de dados para esses serviços para uma região emparelhada do Azure:
 
-1.  **Armazenamento azure** - Siga esta diretriz para habilitar a redundância de dados para cada conta de armazenamento em sua implantação farmbeats.
-2.  **Azure Cosmos DB** - Siga esta diretriz para habilitar a redundância de dados para a conta Cosmos DB sua implantação farmbeats.
-3.  **Azure Time Series Insights (TSI)** - Atualmente, a TSI não oferece redundância de dados. Para recuperar os dados do Time Series Insights, vá para o seu parceiro de sensores/tempo e empurre os dados novamente para a implantação do FarmBeats.
+1.  **Armazenamento do Azure** -siga esta diretriz para habilitar a redundância de dados para cada conta de armazenamento em sua implantação do FarmBeats.
+2.  **Azure Cosmos DB** -siga essa diretriz para habilitar a redundância de dados para Cosmos DB conta sua implantação do FarmBeats.
+3.  **Azure Time Series insights (TSI)** -o TSI não oferece redundância de dados no momento. Para recuperar dados de Time Series Insights, vá para o parceiro do seu sensor/clima e envie os dados novamente para a implantação do FarmBeats.
 
-## <a name="restore-service-from-online-backup"></a>Restaurar serviço de backup on-line
+## <a name="restore-service-from-online-backup"></a>Restaurar serviço do backup online
 
-Você pode iniciar failover e recuperar dados armazenados para os quais, cada um dos armazenamentos de dados acima mencionados para sua implantação do FarmBeats. Depois de recuperar os dados para armazenamento Azure e Cosmos DB, crie outra implantação do FarmBeats na região emparelhada do Azure e, em seguida, configure a nova implantação para usar dados de armazenamentos de dados restaurados (ou seja, Azure Storage e Cosmos DB) usando as etapas abaixo:
+Você pode iniciar o failover e recuperar os dados armazenados para os quais cada um dos armazenamentos de dados mencionados acima para sua implantação do FarmBeats. Depois de recuperar os dados para o armazenamento do Azure e Cosmos DB, crie outra implantação do FarmBeats na região emparelhada do Azure e, em seguida, configure a nova implantação para usar dados de armazenamentos de dados restaurados (ou seja, armazenamento do Azure e Cosmos DB) usando as etapas abaixo:
 
 1. [Configurar o Cosmos DB](#configure-cosmos-db)
-2. [Configurar a conta de armazenamento](#configure-storage-account)
+2. [Configurar conta de armazenamento](#configure-storage-account)
 
 
 ### <a name="configure-cosmos-db"></a>Configurar o Cosmos DB
@@ -48,19 +48,19 @@ Copie a chave de acesso do Cosmos DB restaurado e atualize o novo FarmBeats Data
   ![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
-> Copie a URL do Cosmos DB restaurado e atualize-a na nova configuração do serviço de aplicativo FarmBeats Datahub. Agora você pode excluir a conta Cosmos DB na nova implantação do FarmBeats.
+> Copie a URL do Cosmos DB restaurado e atualize-o na nova configuração do serviço de aplicativo FarmBeats Datahub. Agora você pode excluir Cosmos DB conta na nova implantação do FarmBeats.
 
   ![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/configuration.png)
 
-### <a name="configure-storage-account"></a>Configurar a conta de armazenamento
+### <a name="configure-storage-account"></a>Configurar conta de armazenamento
 
 Copie a chave de acesso da conta de armazenamento restaurada e atualize-a no novo FarmBeats Datahub Key Vault.
 
 ![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
-> Certifique-se de atualizar o nome da conta de armazenamento no novo arquivo de configuração FarmBeats Batch VM.
+> Certifique-se de atualizar o nome da conta de armazenamento no novo arquivo de configuração de VM do lote FarmBeats.
 
 ![Recuperação de desastre](./media/disaster-recovery-for-farmbeats/batch-prep-files.png)
 
-Da mesma forma, se você habilitou a recuperação de dados para sua conta de armazenamento Do Accelerator, siga o passo 2 para atualizar a chave e o nome da conta de armazenamento do acelerador, na nova instância farmbeats.
+Da mesma forma, se você tiver habilitado a recuperação de dados para sua conta de armazenamento do acelerador, siga a etapa 2 para atualizar a chave de acesso da conta de armazenamento do acelerador e o nome, na nova instância do FarmBeats.

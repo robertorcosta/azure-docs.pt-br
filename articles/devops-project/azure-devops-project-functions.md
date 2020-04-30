@@ -1,26 +1,25 @@
 ---
-title: 'Tutorial: Implantar aplicativos ASP.NET no Azure Functions com o Azure DevOps Projects'
-description: O Azure DevOps Projects facilita o uso inicial do Azure. Com o DevOps Projects, é possível implantar seu aplicativo ASP.NET no Azure Functions com algumas etapas rápidas.
+title: 'Tutorial: implantar aplicativos ASP.NET para Azure Functions com o iniciador DevOps do Azure'
+description: O iniciador DevOps do Azure facilita a introdução ao Azure. Com o DevOps Starter, você pode implantar seu aplicativo ASP.NET para Azure Functions em algumas etapas rápidas.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 03/24/2020
 author: mlearned
-monikerRange: vsts
-ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71971566"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233136"
 ---
-# <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>Implantar continuamente no Azure Functions com DevOps Projects
+# <a name="deploy-to-azure-functions-with-devops-starter"></a>Implantar no Azure Functions com o iniciador DevOps
 
-O Azure DevOps Projects apresenta uma experiência simplificada na qual é possível trazer o seu código e repositório Git existentes ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure.
+O Azure DevOps Starter apresenta uma experiência simplificada em que você pode colocar seu código existente e o repositório git ou escolher um aplicativo de exemplo para criar um pipeline de CI (integração contínua) e CD (entrega contínua) para o Azure.
 
-O DevOps Projects também:
+DevOps iniciador também:
 
 * Cria automaticamente recursos do Azure, como o Azure Functions
 
@@ -29,7 +28,7 @@ O DevOps Projects também:
 Neste tutorial, você irá:
 
 > [!div class="checklist"]
->* Usar o DevOps Projects para implantar um aplicativo ASP.NET em uma Função do Azure
+>* Usar o iniciador DevOps para implantar um aplicativo ASP.NET no Azure function
 >* Configurar o Azure DevOps e uma assinatura do Azure
 >* Examinar a Função do Azure
 >* Examinar o pipeline de CI
@@ -43,17 +42,15 @@ Atualmente, os runtimes com suporte para as funções são **.NET** e **Node.js*
 
 * Uma assinatura do Azure. Você pode obter uma gratuita por meio do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
 
-## <a name="use-devops-projects-to-deploy-an-aspnet-app-to-azure-functions"></a>Usar o DevOps Projects para implantar um aplicativo ASP.NET no Azure Functions
+## <a name="use-devops-starter-to-deploy-an-aspnet-app-to-azure-functions"></a>Usar o DevOps Starter para implantar um aplicativo ASP.NET no Azure Functions
 
-O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como um Hub IoT, na assinatura do Azure de sua escolha.
+O iniciador DevOps cria um pipeline de CI/CD no Azure Pipelines. É possível criar uma nova organização do Azure DevOps ou usar uma existente. O DevOps Projects também cria recursos do Azure, como um Hub IoT, na assinatura do Azure de sua escolha.
 
 1. Entre no [Portal do Azure](https://portal.azure.com)
 
-1. No painel esquerdo, selecione **Criar um recurso**.
+1. Na caixa de pesquisa, digite **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
-1. Na caixa de pesquisa, digite **DevOps Projects** e clique em **Adicionar**.
-
-   ![DevOps Projects](_img/azure-devops-project-functions/devops-project.png)
+    ![O painel inicial do DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 1. Selecione **.NET** e selecione **Avançar**. Em **Escolher uma estrutura do aplicativo**, selecione **ASP.NET** e clique em **Avançar**.
 
@@ -67,23 +64,23 @@ O DevOps Projects cria um pipeline de CI/CD no Azure Pipelines. É possível cri
 
 1. Selecione sua assinatura do Azure.
 
-1. Para exibir configurações adicionais do Azure e identificar o tipo de preço e o local, clique em Configurações adicionais. Este painel exibe várias opções para configurar o tipo de preço e o local dos serviços do Azure.
+1. Para exibir as definições de configuração adicionais do Azure e identificar o tipo de preço e o local, clique em **configurações adicionais**. Este painel exibe várias opções para configurar o tipo de preço e o local dos serviços do Azure.
 
-1. Saia da área de configuração do Azure e selecione Concluído.
+1. Saia da área de configuração do Azure e selecione **Concluído**.
 
-1. Depois de alguns minutos, o processo é concluído. Um exemplo de aplicativo do ASP.NET é configurado em um repositório Git na sua organização do Azure DevOps, um Aplicativo de Funções e o Application Insights são criados, um pipeline de CI/CD é executado e seu aplicativo é implantado no Azure.
+1. Após alguns minutos, o processo é concluído. Um exemplo de aplicativo do ASP.NET é configurado em um repositório Git na sua organização do Azure DevOps, um Aplicativo de Funções e o Application Insights são criados, um pipeline de CI/CD é executado e seu aplicativo é implantado no Azure.
 
-   Depois de tudo isso ter sido concluído, o painel do Azure DevOps Projects é exibido no portal do Azure. Também é possível ir até o painel do DevOps Projects diretamente de **Todos os recursos** no portal do Azure.
+   Depois que tudo isso for concluído, o painel inicial do Azure DevOps será exibido na portal do Azure. Você também pode ir para o painel inicial do DevOps diretamente de **todos os recursos** no portal do Azure.
 
    Esse painel oferece visibilidade de seu repositório de código do Azure DevOps, seu pipeline de CI/CD e sua Função do Azure. Também é possível configurar outras opções de CI/CD no pipeline do Azure DevOps. À direita, selecione **Aplicativo de Funções** para que seja exibido.
 
 ## <a name="examine-the-function-app"></a>Examinar o Aplicativo de Funções
 
-O DevOps Projects configura automaticamente o aplicativo de funções, que pode ser explorado e personalizado. Para conhecer o aplicativo de funções, faça o seguinte:
+O DevOps Starter configura automaticamente o aplicativo de funções, que você pode explorar e personalizar. Para conhecer o aplicativo de funções, faça o seguinte:
 
-1. Vá até o painel do DevOps Projects.
+1. Vá para o painel inicial do DevOps.
 
-    ![Painel do DevOps Projects](_img/azure-devops-project-functions/devops-projects-dashboard.png)
+    ![Painel do DevOps Projects](_img/azure-devops-project-functions/fapp-dashboard.png)
 
 1. À direita, selecione o aplicativo de funções. É aberto um painel para o aplicativo de funções. Nessa exibição, você pode executar várias ações, como monitoramento de operações e pesquisa de logs.
 
@@ -91,9 +88,9 @@ O DevOps Projects configura automaticamente o aplicativo de funções, que pode 
 
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 
-O DevOps Projects configura automaticamente um pipeline de CI/CD em sua organização do Azure DevOps. É possível explorar e personalizar o pipeline. Para se familiarizar com ele, faça o seguinte:
+O DevOps Starter configura automaticamente um pipeline de CI/CD em sua organização do DevOps do Azure. É possível explorar e personalizar o pipeline. Para se familiarizar com ele, faça o seguinte:
 
-1. Vá até o painel do DevOps Projects.
+1. Vá para o painel inicial do DevOps.
 
 1. Clique no hiperlink em **Build**. Uma guia do navegador exibe o pipeline de build do seu novo projeto.
 
@@ -101,7 +98,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD em sua organiza
 
 1. Selecione **Editar**. Nesse painel, é possível examinar as diversas tarefas do pipeline de build. O build realiza várias tarefas, como buscar código-fonte no repositório Git, compilar o aplicativo, executar testes de unidade e publicar as saídas usadas para implantações.
 
-1. Selecione **Gatilhos**. O DevOps Projects cria automaticamente um gatilho de CI, e cada confirmação no repositório inicia um novo build. Como opção, é possível incluir ou excluir os branches do processo de CI.
+1. Selecione **Gatilhos**. O DevOps Starter cria automaticamente um gatilho de CI e cada confirmação para o repositório inicia uma nova compilação. Como opção, é possível incluir ou excluir os branches do processo de CI.
 
 1. Selecione **Retenção**. Dependendo do seu cenário, você pode especificar políticas para manter ou remover um determinado número de compilações.
 
@@ -113,7 +110,7 @@ O DevOps Projects configura automaticamente um pipeline de CI/CD em sua organiza
 
 ## <a name="examine-the-cd-release-pipeline"></a>Examinar o pipeline de lançamento de CD
 
-O DevOps Projects cria e configura automaticamente as etapas necessárias para implantar a organização do Azure DevOps na sua assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de lançamento, o qual fornece a CD para o Azure. Para saber mais sobre um pipeline de lançamento, faça o seguinte:
+O DevOps Starter cria e configura automaticamente as etapas necessárias para implantar de sua organização do Azure DevOps em sua assinatura do Azure. Essas etapas incluem a configuração de uma conexão de serviço do Azure para autenticar o Azure DevOps em sua assinatura do Azure. A automação também cria um pipeline de lançamento, o qual fornece a CD para o Azure. Para saber mais sobre um pipeline de lançamento, faça o seguinte:
 
 1. Navegue até **Pipelines | Versões**.
 
@@ -142,26 +139,26 @@ Agora você está pronto para colaborar com uma equipe em seu aplicativo usando 
 
 1. O repositório já contém código chamado **SampleFunctionApp** baseado na linguagem de aplicativo que você escolheu no processo de criação. Abra o arquivo **Application/SampleFunctionApp/Function1.cs**.
 
-1. Selecione **Editar** e, em seguida, faça uma alteração no **número de linha 31**. Por exemplo, você pode atualizá-lo para **Olá! Bem-vindo ao Azure Functions usando DevOps Projects**
+1. Selecione **Editar** e, em seguida, faça uma alteração no **número de linha 31**. Por exemplo, você pode atualizá-lo para **Olá! Bem-vindo ao Azure Functions usando o iniciador DevOps**
 
 1. No canto superior direito, selecione **Confirmar** e selecione **Confirmar** novamente para efetuar push da alteração.
 
 1. Abra o arquivo **Application/SampleFunctionApp.Test/Function1TestRunner.cs**. 
 
-1. Selecione **Editar** e, em seguida, faça uma alteração no **número de linha 21**. Por exemplo, você pode atualizá-lo para **Olá! Bem-vindo ao Azure Functions usando o Azure DevOps Projects**.
+1. Selecione **Editar** e, em seguida, faça uma alteração no **número de linha 21**. Por exemplo, você pode atualizá-lo para **Olá! Bem-vindo ao Azure Functions usando o iniciador DevOps do Azure**.
 
-     Após alguns instantes, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status do build no painel do DevOps Projects ou no navegador com sua organização do Azure DevOps.
+     Após alguns instantes, um build é iniciado no Azure DevOps e uma versão é executada para implantar as alterações. Monitore o status da compilação no painel inicial do DevOps ou no navegador com sua organização do DevOps do Azure.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Exclua os recursos relacionados que você criou quando não precisar mais deles. Use a funcionalidade **Excluir** no painel do DevOps Projects.
+Exclua os recursos relacionados que você criou quando não precisar mais deles. Use a funcionalidade **excluir** no painel inicial do DevOps.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Como opção, você pode modificar esses pipelines de build e de lançamento para atender às necessidades de sua equipe. Você também pode usar esse padrão de CI/CD como um modelo para outros projetos. Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
-> * Usar o DevOps Projects para implantar um aplicativo ASP.NET Core em uma Função do Azure
+> * Usar o iniciador DevOps para implantar um aplicativo ASP.NET Core no Azure function
 > * Configurar o Azure DevOps e uma assinatura do Azure 
 > * Examinar a Função do Azure
 > * Examinar o pipeline de CI

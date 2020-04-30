@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 51773a46b77cb1e9a89b9c85a5f62c4a6b7af3be
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146067"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicativos no Serviço de Kubernetes do Azure (AKS)
@@ -94,16 +94,16 @@ O kubenet e o Azure CNI fornecem conectividade de rede para seus clusters AKS. N
 
 Existem as seguintes diferenças de comportamento entre kubenet e CNI do Azure:
 
-| Recurso                                                                                   | Kubenet   | CNI do Azure |
+| Funcionalidade                                                                                   | Kubenet   | CNI do Azure |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
-| Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Suportado |
-| Conectividade de pod de Pod                                                                         | Suportado | Suportado |
+| Implantar cluster em uma rede virtual nova ou existente                                            | Com suporte-UDRs aplicado manualmente | Com suporte |
+| Conectividade de pod de Pod                                                                         | Com suporte | Com suporte |
 | Pod-conectividade da VM; VM na mesma rede virtual                                          | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
 | Pod-conectividade da VM; VM na rede virtual emparelhada                                            | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
 | Acesso local usando VPN ou rota expressa                                                | Funciona quando iniciado pelo Pod | Funciona de ambas as maneiras |
-| Acesso a recursos protegidos por pontos de extremidade de serviço                                             | Suportado | Suportado |
-| Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Suportado | Suportado |
-| Zonas privadas e DNS do Azure padrão                                                          | Suportado | Suportado |
+| Acesso a recursos protegidos por pontos de extremidade de serviço                                             | Com suporte | Com suporte |
+| Expor serviços Kubernetess usando um serviço de balanceador de carga, um gateway de aplicativo ou um controlador de entrada | Com suporte | Com suporte |
+| Zonas privadas e DNS do Azure padrão                                                          | Com suporte | Com suporte |
 
 Em relação ao DNS, com o kubenet e o DNS CNI plug-ins do Azure são oferecidos pelo CoreDNS, um daemon definido em execução no AKS. Para obter mais informações sobre o CoreDNS no kubernetes, consulte [Personalizando o serviço DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). O CoreDNS é configurado por padrão para encaminhar domínios desconhecidos para os servidores DNS do nó, em outras palavras, para a funcionalidade DNS da rede virtual do Azure em que o cluster AKS é implantado. Portanto, as zonas DNS e privadas do Azure funcionarão para o pods em execução no AKS.
 

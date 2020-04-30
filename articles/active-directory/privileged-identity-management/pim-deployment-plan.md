@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/04/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51a60d307ca7dac139db0097283fc08e9e41624c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "77025989"
+ms.locfileid: "82233526"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implantar o Azure AD Privileged Identity Management (PIM)
 
@@ -250,9 +250,9 @@ Antes de implementar sua solução de Privileged Identity Management, é uma pr�
 
 | Função | Exigir MFA | Notification | Exigir aprovação | Aprovador | Duração da ativação | Administradores ativos | Expiração ativa | Expiração qualificada |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietário de assinaturas críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da assinatura | 1 hora | Nenhum | n/d | 3 meses |
-| Administrador de Acesso do Usuário de assinaturas menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhum | 1 hora | Nenhum | n/d | 3 meses |
-| Colaborador de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhum | 3 horas | Nenhum | n/d | 6 meses |
+| Proprietário de assinaturas críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da assinatura | 1 hora | Nenhum | N/D | 3 meses |
+| Administrador de Acesso do Usuário de assinaturas menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhum | 1 hora | Nenhum | N/D | 3 meses |
+| Colaborador de Máquina Virtual | :x: | :heavy_check_mark: | :x: | Nenhum | 3 horas | Nenhum | N/D | 6 meses |
 
 A tabela a seguir descreve cada configuração.
 
@@ -325,7 +325,7 @@ Você deve usar este estágio para verificar se todas as configurações configu
 
 ### <a name="communicate-privileged-identity-management-to-affected-stakeholders"></a>Comunicar Privileged Identity Management com os participantes afetados
 
-A implantação de Privileged Identity Management apresentará etapas adicionais para usuários de funções com privilégios. Embora Privileged Identity Management reduza significativamente os problemas de segurança associados a identidades com privilégios, a alteração precisa ser efetivamente comunicada antes da implantação em todo o locatário. Dependendo do número de administradores afetados, as organizações geralmente optam por criar um documento interno, um vídeo ou um email sobre a alteração. Frequentemente incluídos nessas comunicações:
+A implantação de Privileged Identity Management apresentará etapas adicionais para usuários de funções com privilégios. Embora Privileged Identity Management reduza significativamente os problemas de segurança associados a identidades com privilégios, a alteração precisa ser efetivamente comunicada antes da implantação em toda a organização. Dependendo do número de administradores afetados, as organizações geralmente optam por criar um documento interno, um vídeo ou um email sobre a alteração. Frequentemente incluídos nessas comunicações:
 
 - O que é o PIM
 - Qual é o benefício para a organização
@@ -371,7 +371,7 @@ A implantação bem-sucedida de Privileged Identity Management em produção é 
 
 ### <a name="use-privileged-identity-management-alerts-to-safeguard-your-privileged-access"></a>Use Privileged Identity Management alertas para proteger seu acesso privilegiado
 
-Você deve utilizar a funcionalidade interna de alerta do Privileged Identity Management para proteger melhor seu locatário. Para saber mais, confira [Alertas de segurança](pim-how-to-configure-security-alerts.md#security-alerts). Esses alertas incluem: os administradores não estão usando funções privilegiadas, as funções estão sendo atribuídas fora do Privileged Identity Management, as funções estão sendo ativadas com muita frequência e muito mais. Para proteger totalmente sua organização, confira regularmente sua lista de alertas e corrija os problemas. Você pode exibir e corrigir os alertas da seguinte maneira:
+Você deve utilizar a funcionalidade interna de alerta do Privileged Identity Management para proteger melhor sua organização. Para saber mais, confira [Alertas de segurança](pim-how-to-configure-security-alerts.md#security-alerts). Esses alertas incluem: os administradores não estão usando funções privilegiadas, as funções estão sendo atribuídas fora do Privileged Identity Management, as funções estão sendo ativadas com muita frequência e muito mais. Para proteger totalmente sua organização, confira regularmente sua lista de alertas e corrija os problemas. Você pode exibir e corrigir os alertas da seguinte maneira:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Abra **Azure ad Privileged Identity Management**.

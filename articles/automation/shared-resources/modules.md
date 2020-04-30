@@ -8,12 +8,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8d22e63be880c0cef0c4072e99ab85bf3250a1c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d036733c023417af3ef038bb9abc278ec91e665c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114267"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508948"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerenciar módulos na Automação do Azure
 
@@ -21,8 +21,9 @@ A automação do Azure permite que você importe módulos do PowerShell para hab
 
 * [Azure PowerShell AZ. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM. Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
-* Módulo `Orchestrator.AssetManagement.Cmdlets` interno para o agente de log Analytics para Windows
 * Outros módulos do PowerShell
+* Módulo `Orchestrator.AssetManagement.Cmdlets` interno
+* Módulos do Python 2
 * Módulos personalizados que você cria 
 
 Quando você cria uma conta de automação, a automação do Azure importa alguns módulos por padrão. Consulte [módulos padrão](#default-modules).
@@ -33,7 +34,7 @@ Quando a automação do Azure executa trabalhos de compilação de runbook e DSC
 >Certifique-se de importar apenas os módulos de que seus runbooks e configurações DSC realmente precisam. Não é recomendável importar o módulo AZ raiz, pois ele inclui muitos outros módulos que talvez não sejam necessários, o que pode causar problemas de desempenho. Importe módulos individuais, como AZ. Compute, em vez disso.
 
 >[!NOTE]
->Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](../automation-update-azure-modules.md).
+>Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo Az no seu Hybrid Runbook Worker, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de Automação, você pode atualizar seus módulos para a versão mais recente usando [Como atualizar os módulos do Azure PowerShell na Automação do Azure](../automation-update-azure-modules.md).
 
 ## <a name="default-modules"></a>Módulos padrão
 
@@ -96,9 +97,13 @@ Observe que os cmdlets internos diferem na nomenclatura dos cmdlets AZ e AzureRM
 
 Recomendamos que você use os cmdlets AZ ou AzureRM para manipular recursos de automação do Azure fora do contexto de um runbook. 
 
-## <a name="module-supporting-get-automationpscredential"></a>Módulo com suporte para Get-AutomationPSCredential
+## <a name="orchestratorassetmanagementcmdlets-module"></a>Módulo Orchestrator. AssetManagement. cmdlets
 
-O `Get-AutomationPSCredential` cmdlet faz parte do módulo `Orchestrator.AssetManagement.Cmdlets`. Esse cmdlet retorna um `PSCredential` objeto, que é esperado pela maioria dos cmdlets do PowerShell que funcionam com credenciais. Para saber mais sobre o uso de credenciais na automação do Azure, confira [ativos de credencial na automação do Azure](credentials.md).
+A automação do Azure dá `Orchestrator.AssetManagement.Cmdlets` suporte ao módulo interno para o agente de log Analytics para Windows, instalado por padrão. O `Get-AutomationPSCredential` cmdlet neste módulo é comumente usado em runbooks para recuperar um `PSCredential` objeto, que é esperado pela maioria dos cmdlets do PowerShell que funcionam com credenciais. Para saber mais sobre o uso de credenciais na automação do Azure, confira [ativos de credencial na automação do Azure](credentials.md).
+
+## <a name="python-modules"></a>Módulos do Python
+
+Você pode criar runbooks do Python 2 na automação do Azure. Para obter informações sobre o módulo python, consulte [gerenciar pacotes python 2 na automação do Azure](../python-packages.md).
 
 ## <a name="migrating-to-az-modules"></a>Migrar para módulos Az
 
@@ -117,7 +122,7 @@ Importar um módulo AZ para sua conta de automação não importa automaticament
 * Quando um runbook invoca um cmdlet de um módulo
 * Quando um runbook importa o módulo explicitamente com o cmdlet [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7)
 * Quando um runbook importa outro módulo dependente
-    
+
 #### <a name="testing-for-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Teste para seus runbooks e configurações DSC antes da migração de módulo
 
 Certifique-se de testar todos os runbooks e configurações DSC cuidadosamente em uma conta de automação separada antes de migrar para os módulos AZ. 
@@ -334,7 +339,7 @@ Para importar um módulo diretamente do Galeria do PowerShell:
 
 1. Vá para https://www.powershellgallery.com e procure o módulo para importar.
 2. Clique em **implantar na automação do Azure** na guia **automação do Azure** em **Opções de instalação**. Essa ação abre a portal do Azure. 
-3. Na página importar, selecione sua conta de automação e clique em **OK**.
+3. Na página Importar, selecione sua conta de Automação e clique em **OK**.
 
 ![Módulo de importação de Galeria do PowerShell](../media/modules/powershell-gallery.png)
 
