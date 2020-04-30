@@ -4,10 +4,10 @@ description: Referência de evento de tarefa de lote concluída. Esse evento é 
 ms.topic: article
 ms.date: 04/20/2017
 ms.openlocfilehash: 9e11eac04009def2bce4476ba2d77c798f25ca15
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116495"
 ---
 # <a name="task-complete-event"></a>Evento de conclusão de tarefa
@@ -45,9 +45,9 @@ ms.locfileid: "82116495"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`jobId`|String|A ID do trabalho que contém a tarefa.|
-|`id`|String|A ID da tarefa.|
-|`taskType`|String|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos. Esse evento não é emitido para tarefas de preparação, lançamento ou inicialização de trabalho.|
+|`jobId`|Cadeia de caracteres|A ID do trabalho que contém a tarefa.|
+|`id`|Cadeia de caracteres|A ID da tarefa.|
+|`taskType`|Cadeia de caracteres|O tipo de tarefa. Pode ser “JobManager” indicando que é uma tarefa do gerenciador de trabalhos ou “Usuário”, indicando que não é uma tarefa do gerenciador de trabalhos. Esse evento não é emitido para tarefas de preparação, lançamento ou inicialização de trabalho.|
 |`systemTaskVersion`|Int32|Esse é o contador interno de repetição de uma tarefa. Internamente, o serviço em lotes pode repetir uma tarefa para contabilizar problemas transitórios. Esses problemas podem incluir erros internos de agendamento ou tentativa de recuperar nós de computação em estado inválido.|
 |[`nodeInfo`](#nodeInfo)|Tipo complexo|Contém informações sobre o nó de computação em que a tarefa é executada.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Tipo complexo|Especifica que a tarefa é uma tarefa com várias instâncias que precisa de vários nós de computação.  Consulte [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para obter detalhes.|
@@ -58,8 +58,8 @@ ms.locfileid: "82116495"
 
 |Nome do elemento|Type|Observações|
 |------------------|----------|-----------|
-|`poolId`|String|A ID do pool no qual a tarefa foi executada.|
-|`nodeId`|String|A ID do nó no qual a tarefa foi executada.|
+|`poolId`|Cadeia de caracteres|A ID do pool no qual a tarefa foi executada.|
+|`nodeId`|Cadeia de caracteres|A ID do nó no qual a tarefa foi executada.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131004"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Logs de recursos do serviço de Signaler do Azure
@@ -66,9 +66,9 @@ Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cad
 
 As cadeias de caracteres JSON do log de arquivo incluem os elementos listados nas tabelas a seguir:
 
-**Ao**
+**Formato**
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
 time | Hora do evento de log
 level | Nível de evento de log
@@ -81,7 +81,7 @@ properties | Propriedades detalhadas relacionadas a esse evento de log. Para obt
 
 **Tabela de propriedades**
 
-Nome | Descrição
+Name | Descrição
 ------- | -------
 type | Tipo do evento de log. Atualmente, fornecemos informações sobre a conectividade com o serviço de Signaler do Azure. Somente `ConnectivityLogs` o tipo está disponível
 collection | Coleção do evento de log. Os valores permitidos são `Connection`: `Authorization` , e`Throttling`
@@ -128,7 +128,7 @@ Para exibir os logs de recursos, siga estas etapas:
 
 As colunas de log de arquivo incluem os elementos listados na tabela a seguir:
 
-Nome | Descrição
+Name | Descrição
 ------- | ------- 
 TimeGenerated | Hora do evento de log
 Coleção | Coleção do evento de log. Os valores permitidos são `Connection`: `Authorization` , e`Throttling`

@@ -10,13 +10,13 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: cc7c1fd1dff85908c96e2fd7b2276df3d833e37f
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134306"
 ---
-# <a name="monitor-iot-edge-deployments"></a>Monitorar IoT Edge implantações
+# <a name="monitor-iot-edge-deployments"></a>Monitorar implantações do IoT Edge
 
 Azure IoT Edge fornece relatórios que permitem monitorar informações em tempo real sobre os módulos implantados em seus dispositivos IoT Edge. O serviço do Hub IoT recupera o status dos dispositivos e os disponibiliza para o operador. O monitoramento também é importante para [implantações feitas em escala](module-deployment-monitoring.md) que incluem implantações automáticas e implantações em camadas.
 
@@ -24,7 +24,7 @@ Os dispositivos e os módulos têm dados semelhantes, como conectividade, para q
 
 O serviço de Hub IoT coleta dados relatados pelo dispositivo e pelo módulo gêmeos e fornece contagens de vários Estados que os dispositivos podem ter. O serviço do Hub IoT organiza esses dados em quatro grupos de métricas:
 
-| Tipo | Descrição |
+| Type | Descrição |
 | --- | ---|
 | Destino | Mostra os dispositivos IoT Edge que correspondem à condição de destino da implantação. |
 | Aplicada | Mostra os dispositivos de IoT Edge de destino que não são direcionados por outra implantação de prioridade mais alta. |
@@ -45,7 +45,7 @@ Para exibir os detalhes de uma implantação e monitorar os dispositivos que a e
     | Coluna | Descrição |
     | --- | --- |
     | ID | O nome da implantação. |
-    | Tipo | O tipo de implantação, **implantação** ou **implantação em camadas**. |
+    | Type | O tipo de implantação, **implantação** ou **implantação em camadas**. |
     | Condição de destino | A marca usada para definir os dispositivos de destino. |
     | Prioridade | O número de prioridade atribuído à implantação. |
     | Métricas do sistema | O número de dispositivos gêmeos no Hub IoT que correspondem à condição de destino. **Aplicado** especifica o número de dispositivos que tiveram o conteúdo de implantação aplicado ao seu módulo gêmeos no Hub IOT. |

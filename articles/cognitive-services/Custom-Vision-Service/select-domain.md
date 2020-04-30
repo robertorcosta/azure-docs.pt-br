@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
 ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82127766"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selecionar um domínio para um projeto Visão Personalizada
@@ -23,7 +23,7 @@ Na folha configurações do seu projeto Visão Personalizada, você pode selecio
 
 ## <a name="image-classification"></a>Classificação de imagens
 
-|Domínio|Finalidade|
+|Domain|Finalidade|
 |---|---|
 |__Genérico__| Otimizado para uma ampla gama de tarefas de classificação de imagens. Se nenhum dos outros domínios for apropriado ou se você não tiver certeza de qual domínio escolher, selecione o domínio Genérico.|
 |__Alimentos__|Otimizado para fotografias de pratos como você os veria no menu de um restaurante. Caso queira classificar fotografias de frutas ou legumes individuais, use o domínio Alimentos.|
@@ -33,7 +33,7 @@ Na folha configurações do seu projeto Visão Personalizada, você pode selecio
 
 ## <a name="object-detection"></a>Detecção de objetos
 
-|Domínio|Finalidade|
+|Domain|Finalidade|
 |---|---|
 |__Geral__| Otimizado para uma ampla variedade de tarefas de detecção de objetos. Se nenhum dos outros domínios for apropriado ou se você não tiver certeza de qual domínio escolher, selecione o domínio Genérico.|
 |__Logotipo__|Otimizado para localizar logotipos de marcas em imagens.|
@@ -47,7 +47,7 @@ Os modelos gerados por domínios compactos podem ser exportados para serem execu
 > [!NOTE]
 > Esses números não incluem pré-processamento e tempo de pré-processamento.
 
-|Tarefa|Domínio|Tamanho do modelo|Tempo de inferência de CPU|Tempo de inferência de GPU|
+|Tarefa|Domain|Tamanho do modelo|Tempo de inferência de CPU|Tempo de inferência de GPU|
 |---|---|---|---|---|
 |classificação|Geral (compacto)|5 MB|13 ms|5 ms|
 |Detecção de objetos|Geral (compacto)|45 MB|35 MS|5 ms|

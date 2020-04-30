@@ -1,21 +1,18 @@
 ---
 title: Executar scripts do Python por meio do Data Factory – Python do Lote do Azure
 description: Tutorial – saiba como executar scripts do Python como parte de um pipeline por meio do Azure Data Factory usando o Lote do Azure.
-services: batch
 author: mammask
-manager: jeconnoc
-ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
-ms.openlocfilehash: 2995c5da4491f14471d9ed03022a144a02beab5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6761896a6555c11d7957f923a5951641c1541012
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78201633"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117056"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts do Python por meio de Azure Data Factory usando o Lote do Azure
 

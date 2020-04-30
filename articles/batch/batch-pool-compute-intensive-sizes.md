@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
 ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115951"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usar instâncias de GPU ou RDMA em pools do Lote
@@ -34,7 +34,7 @@ Os recursos de GPU ou RDMA de tamanhos de computação intensiva no Lote têm su
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pools do Linux – configuração de máquina virtual
 
-| Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
+| Tamanho | Funcionalidade | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>HPC baseado em CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Drivers de RDMA do Linux | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
 | [Séries NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia de acordo com a série) | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3 ou 7.4<br/>(Azure Marketplace) | Drivers CUDA Toolkit ou NVIDIA CUDA | N/D | 
@@ -44,7 +44,7 @@ Os recursos de GPU ou RDMA de tamanhos de computação intensiva no Lote têm su
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pools do Windows – configuração de máquina virtual
 
-| Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
+| Tamanho | Funcionalidade | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 ou<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Drivers de RDMA do Windows | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
 | [Séries NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia de acordo com a série) | Windows Server 2016 ou <br/>2012 R2 (Azure Marketplace) | Drivers CUDA Toolkit ou NVIDIA CUDA| N/D | 
@@ -58,7 +58,7 @@ Os recursos de GPU ou RDMA de tamanhos de computação intensiva no Lote têm su
 > Não há suporte para tamanhos da série N em pools do Lote com a configuração do serviço de nuvem.
 >
 
-| Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
+| Tamanho | Funcionalidade | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012 ou<br/>2008 R2 (família do SO convidado) | Microsoft MPI 2012 R2 ou posterior, ou<br/>Intel MPI 5<br/><br/>Drivers de RDMA do Windows | Habilitar a comunicação entre nós,<br/> desabilitar a execução de tarefas simultâneas |
 
@@ -106,7 +106,7 @@ Para executar aplicativos CUDA em um pool de nós da NC do Windows, é necessár
 | **SKU** | 2016-Datacenter |
 | **Tamanho do nó** | NC6 Standard |
 | **Referências do pacote de aplicativos** | GPUDriver, versão 411.82 |
-| **Tarefa inicial habilitada** | True<br>**Linha de comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidade de usuário** – Pool autouser, administrador<br/>**Aguardar o êxito** – True
+| **Tarefa inicial habilitada** | verdadeiro<br>**Linha de comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidade de usuário** – Pool autouser, administrador<br/>**Aguardar o êxito** – True
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Exemplo: Drivers NVIDIA GPU em um pool de VMs do Linux NC
 
@@ -143,7 +143,7 @@ Para executar aplicativos Windows MPI em um pool de nós de VM do Azure H16r, é
 | **Imagem personalizada** | *Nome da imagem* |
 | **SKU do agente do nó** | batch.node.windows amd64 |
 | **Tamanho do nó** | H16r Standard |
-| **Comunicação entre nós habilitada** | True |
+| **Comunicação entre nós habilitada** | verdadeiro |
 | **Máx. de tarefas por nó** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exemplo: Intel MPI em um pool de VMs H16r do Linux
@@ -159,7 +159,7 @@ Usando as APIs do Lote ou o portal do Azure, crie um pool usando essa imagem e c
 | **Oferta** | CentOS-HPC |
 | **SKU** | 7.4 |
 | **Tamanho do nó** | H16r Standard |
-| **Comunicação entre nós habilitada** | True |
+| **Comunicação entre nós habilitada** | verdadeiro |
 | **Máx. de tarefas por nó** | 1 |
 
 ## <a name="next-steps"></a>Próximas etapas

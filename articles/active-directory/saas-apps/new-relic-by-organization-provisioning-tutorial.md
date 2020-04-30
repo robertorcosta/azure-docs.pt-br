@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: Zhchia
 ms.openlocfilehash: 3197ac3033c6550b72bdfdf39fd23c55dda20d90
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134228"
 ---
 # <a name="tutorial-configure-new-relic-by-organization-for-automatic-user-provisioning"></a>Tutorial: configurar o novo Relic por organização para o provisionamento automático de usuário
@@ -107,7 +107,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o novo Relic por organização**.
 
@@ -115,13 +115,13 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
    |Atributo|Type|
    |---|---|
-   |userName|String|
-   |externalId|String|
-   |ativo|Boolean|
-   |emails[type eq "work"].value|String|
-   |name.givenName|String|
-   |nome. formatado|String|
-   |timezone|String|
+   |userName|Cadeia de caracteres|
+   |externalId|Cadeia de caracteres|
+   |ativo|Booliano|
+   |emails[type eq "work"].value|Cadeia de caracteres|
+   |name.givenName|Cadeia de caracteres|
+   |nome. formatado|Cadeia de caracteres|
+   |timezone|Cadeia de caracteres|
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o novo Relic por organização**.
 
@@ -129,8 +129,8 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
       |Atributo|Type|
       |---|---|
-      |displayName|String|
-      |externalId|String|
+      |displayName|Cadeia de caracteres|
+      |externalId|Cadeia de caracteres|
       |membros|Referência|
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
