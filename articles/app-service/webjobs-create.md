@@ -1,6 +1,6 @@
 ---
-title: Execute tarefas em segundo plano com webJobs
-description: Aprenda a usar o WebJobs para executar tarefas em segundo plano no Azure App Service. Escolha entre uma variedade de formatos de script e execute-os com expressões CRON.
+title: Executar tarefas em segundo plano com trabalhos Web
+description: Saiba como usar trabalhos Web para executar tarefas em segundo plano no serviço Azure App. Escolha entre uma variedade de formatos de script e execute-os com expressões CRON.
 author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -9,18 +9,18 @@ ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 028551f04b2e44e9456e2f7343159ad9b52fd25f
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085137"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Execute tarefas em segundo plano com webJobs no Azure App Service
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com trabalhos Web no serviço Azure App
 
 Este artigo mostra como implantar o WebJobs usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou um script. Para obter informações sobre como desenvolver e implantar o WebJobs usando o Visual Studio, consulte [Implantar o WebJobs usando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="overview"></a>Visão geral
-WebJobs é um recurso do [Azure App Service](index.yml) que permite executar um programa ou script na mesma instância que um aplicativo web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar Trabalhos Web.
+O webjobs é um recurso do [serviço de Azure app](index.yml) que permite executar um programa ou script na mesma instância que um aplicativo Web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar Trabalhos Web.
 
 > [!IMPORTANT]
 > O WebJobs ainda não é suportado para o Serviço de Aplicativo no Linux.
@@ -44,7 +44,7 @@ A tabela a seguir descreve as diferenças entre WebJobs *contínuos* e *disparad
 
 ## <a name="supported-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Tipos de arquivo com suporte para scripts ou programas
 
-Há suporte para os seguintes tipos de arquivo:
+Há suporte para os tipos de arquivo a seguir:
 
 * .cmd, .bat, .exe (usando o cmd do Windows)
 * .ps1 (usando o PowerShell)
@@ -75,10 +75,10 @@ when making changes in one don't forget the other two.
 
    ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Configuração      | Valor de exemplo   | Descrição  |
+   | Setting      | Valor de exemplo   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de “-” e “_”. |
-   | **Upload de arquivos** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
+   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
    | **Tipo** | Contínuo | Os [tipos do WebJob](#webjob-types) foram descritos anteriormente neste artigo. |
    | **Escala** | Várias instâncias | Disponível somente para WebJobs Contínuos. Determina se o programa ou o script é executado em todas as instâncias ou apenas em uma única instância. A opção de execução em várias instâncias não se aplica aos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito ou Compartilhado. | 
 
@@ -113,10 +113,10 @@ when making changes in one don't forget the other two.
 
    ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Configuração      | Valor de exemplo   | Descrição  |
+   | Setting      | Valor de exemplo   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de “-” e “_”.|
-   | **Upload de arquivos** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
+   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
    | **Tipo** | Disparado | Os [tipos do WebJob](#webjob-types) foram descritos anteriormente neste artigo. |
    | **Gatilhos** | Manual | |
 
@@ -151,10 +151,10 @@ when making changes in one don't forget the other two.
 
    ![Página Adicionar WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Configuração      | Valor de exemplo   | Descrição  |
+   | Setting      | Valor de exemplo   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myScheduledWebJob | Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de “-” e “_”. |
-   | **Upload de arquivos** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
+   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script. Os tipos de executável ou arquivo de script com suporte são listados na seção [Tipos de arquivo com suporte](#acceptablefiles). |
    | **Tipo** | Disparado | Os [tipos do WebJob](#webjob-types) foram descritos anteriormente neste artigo. |
    | **Gatilhos** | Agendado | Para que o agendamento funcione de modo confiável, habilite o recurso AlwaysOn. O AlwaysOn está disponível apenas nos tipos de preço Básico, Standard e Premium.|
    | **Expressão CRON** | 0 0/20 * * * * | As [expressões CRON](#ncrontab-expressions) são descritas na seção a seguir. |
@@ -167,7 +167,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>Expressões NCRONTAB
 
-Você pode inserir uma [expressão NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) `settings.job` no portal ou incluir um arquivo na raiz do seu arquivo WebJob *.zip,* como no exemplo a seguir:
+Você pode inserir uma [expressão NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) no portal ou incluir um `settings.job` arquivo na raiz do seu arquivo WebJob *. zip* , como no exemplo a seguir:
 
 ```json
 {
@@ -175,11 +175,11 @@ Você pode inserir uma [expressão NCRONTAB](../azure-functions/functions-bindin
 }
 ```
 
-Para saber mais, consulte [Agendar um WebJob acionado](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+Para saber mais, consulte [agendando um WebJob disparado](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Veja o histórico de trabalho
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a>Exibir o histórico de trabalhos
 
 1. Selecione o WebJob do qual você deseja ver o histórico e, em seguida, selecione o botão **Logs**.
    
