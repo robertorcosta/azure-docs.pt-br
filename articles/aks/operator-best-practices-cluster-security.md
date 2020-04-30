@@ -1,16 +1,16 @@
 ---
-title: Melhores práticas para segurança de cluster
+title: Práticas recomendadas para segurança de cluster
 titleSuffix: Azure Kubernetes Service
 description: Aprender as práticas recomendadas do operador de cluster sobre como gerenciar as atualizações e a segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 3d4e8577116ba1d78aaa881887f64e71c04af4f2
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.openlocfilehash: 305d4c15aaf72a47549497902e3027064fbfd608
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2020
-ms.locfileid: "80668322"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208084"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para atualizações e segurança de clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -22,11 +22,11 @@ Este artigo se concentra em como proteger seu cluster do AKS. Você aprenderá c
 > * Usar o Azure Active Directory e controles de acesso baseado em função para proteger o acesso ao servidor de API
 > * Proteger o acesso do contêiner a recursos do nó
 > * Atualizar um cluster do AKS para a versão mais recente do Kubernetes
-> * Mantenha os nódulos atualizados e aplique automaticamente patches de segurança
+> * Manter os nós atualizados e aplicar automaticamente os patches de segurança
 
 Você também pode ler as práticas recomendadas para [gerenciamento de imagens de contêiner][best-practices-container-image-management] e para [segurança de pod][best-practices-pod-security].
 
-Você também pode usar [a integração do Azure Kubernetes Services com][security-center-aks] o Security Center para ajudar a detectar ameaças e visualizar recomendações para proteger seus clusters AKS.
+Você também pode usar a [integração dos serviços Kubernetess do Azure com a central de segurança][security-center-aks] para ajudar a detectar ameaças e exibir recomendações para proteger seus clusters do AKS.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Proteger o acesso aos nós de cluster e ao servidor de API
 
@@ -50,7 +50,7 @@ Para obter mais informações sobre RBAC e integração com o Azure AD, confira 
 
 Da mesma forma que você deve conceder aos usuários ou grupos o menor número necessário de privilégios, os contêineres também devem ser limitados a apenas às ações e aos processos de que precisam. Para minimizar o risco de ataque, não configure aplicativos e contêineres que exijam privilégios escalados ou acesso à raiz. Por exemplo, defina `allowPrivilegeEscalation: false` no manifesto do pod. Estes *contextos de segurança do pod* são incorporados ao Kubernetes e permitem que você defina permissões adicionais, tais como o usuário ou o grupo como o qual executar ou quais funcionalidades do Linux expor. Para obter mais práticas recomendadas, confira [Proteger o acesso do pod a recursos][pod-security-contexts].
 
-Para um controle mais granular das ações de contêiner, você também pode usar recursos internos de segurança do Linux, tais como *AppArmor* e *seccomp*. Esses recursos são definidos no nível do nó e, em seguida, são implementados por meio de um manifesto de pod. Os recursos de segurança linux incorporados só estão disponíveis em nós e pods Linux.
+Para um controle mais granular das ações de contêiner, você também pode usar recursos internos de segurança do Linux, tais como *AppArmor* e *seccomp*. Esses recursos são definidos no nível do nó e, em seguida, são implementados por meio de um manifesto de pod. Os recursos de segurança internos do Linux estão disponíveis apenas em nós e pods do Linux.
 
 > [!NOTE]
 > Os ambientes do Kubernetes, no AKS ou em outro lugar, não estão completamente seguros para uso de vários locatários hostis. Recursos de segurança adicionais, como *AppArmor*, *seccomp*, *políticas de segurança Pod* ou RBAC (controles de acesso baseado em função) mais refinado para nós dificultam as explorações. No entanto, para ter uma segurança de verdade ao executar cargas de trabalho de vários locatários hostis, um hipervisor é o único nível de segurança no qual você deve confiar. O domínio de segurança para o Kubernetes se torna o cluster inteiro, não um nó individual. Para esses tipos de cargas de trabalho de vários locatários hostis, você deve usar clusters fisicamente isolados.
@@ -193,13 +193,13 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 Para obter mais informações sobre as atualizações no AKS, confira [Versões compatíveis do Kubernetes no AKS][aks-supported-versions] e [Atualizar um cluster do AKS][aks-upgrade].
 
-## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Processe atualizações e reinicializações do nó Linux usando kured
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Processar atualizações e reinicializações do nó do Linux usando o kured
 
-**Orientação de práticas recomendadas** - AKS baixa e instala automaticamente correções de segurança em cada nó Linux, mas não reinicializa automaticamente se necessário. Use `kured` para ficar atento para reinicializações pendentes e, depois, isole e esvazie o nó com segurança para permitir que ele reinicialize. Aplique as atualizações e faça tudo do modo mais seguro possível com relação ao sistema operacional. Para os números do Windows Server (atualmente em pré-visualização no AKS), execute regularmente uma operação de upgrade aks para drenar e drenar os pods com segurança e implantar álos atualizados.
+**Diretrizes de práticas recomendadas** – o AKs automaticamente baixa e instala correções de segurança em cada nó do Linux, mas não é reinicializado automaticamente, se necessário. Use `kured` para ficar atento para reinicializações pendentes e, depois, isole e esvazie o nó com segurança para permitir que ele reinicialize. Aplique as atualizações e faça tudo do modo mais seguro possível com relação ao sistema operacional. Para nós do Windows Server, execute regularmente uma operação de atualização de AKS para Cordon e dreno de pods com segurança e implante os nós atualizados.
 
-Todas as noites, nós Linux em AKS disponibilizam patches de segurança através de seu canal de atualização distro. Esse comportamento é configurado automaticamente, já que os nós são implantados em um cluster do AKS. Para minimizar a interrupção e o possível impacto da execução de cargas de trabalho, os nós não serão reinicializados automaticamente se um patch de segurança ou atualização de kernel precisar deles.
+Cada um dos nós da noite, do Linux no AKS Obtém os patches de segurança disponíveis por meio do canal de atualização do distribuição. Esse comportamento é configurado automaticamente, já que os nós são implantados em um cluster do AKS. Para minimizar a interrupção e o possível impacto da execução de cargas de trabalho, os nós não serão reinicializados automaticamente se um patch de segurança ou atualização de kernel precisar deles.
 
-O projeto de software livre [kured (daemon de reinicialização do Kubernetes)][kured], da Weaveworks, procura reinicializações de nó pendentes. Quando um nó Linux aplica atualizações que requerem uma reinicialização, o nó é forcado e drenado com segurança para mover e agendar os pods em outros nós no cluster. Depois que o nó é reinicializado, ele é adicionado novamente no cluster e o Kubernetes retoma o agendamento de pods nesse nó. Para minimizar as interrupções, apenas um nó por vez tem permissão para ser reinicializado pelo `kured`.
+O projeto de software livre [kured (daemon de reinicialização do Kubernetes)][kured], da Weaveworks, procura reinicializações de nó pendentes. Quando um nó do Linux aplica atualizações que exigem uma reinicialização, o nó é isolados e esgotado com segurança para mover e agendar os pods em outros nós no cluster. Depois que o nó é reinicializado, ele é adicionado novamente no cluster e o Kubernetes retoma o agendamento de pods nesse nó. Para minimizar as interrupções, apenas um nó por vez tem permissão para ser reinicializado pelo `kured`.
 
 ![O processo de reinicialização do nó do AKS usando kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

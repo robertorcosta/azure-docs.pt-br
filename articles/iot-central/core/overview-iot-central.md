@@ -8,13 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: timlt
-ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82025230"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560960"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -157,11 +156,11 @@ Com qualquer solução de IoT projetada para operar em escala, é importante ter
 
 Os [painéis](./howto-set-up-template.md#generate-default-views) internos fornecem uma interface do usuário personalizável para monitorar a integridade e a telemetria do dispositivo. Comece com um painel predefinido em um [modelo de aplicativo](howto-use-app-templates.md) ou crie os próprios painéis adaptados às necessidades de seus operadores. Você pode compartilhar painéis com todos os usuários em seu aplicativo ou mantê-los particulares.
 
-### <a name="rules-and-actions"></a>Regras e ações 
+### <a name="rules-and-actions"></a>Regras e ações
 
 Crie [regras personalizadas](tutorial-create-telemetry-rules.md) com base no estado e na telemetria do dispositivo para identificar os dispositivos que precisam de atenção. Configure ações para notificar as pessoas certas e garanta que as medidas corretivas sejam executadas em tempo hábil.
 
-### <a name="jobs"></a>Trabalhos 
+### <a name="jobs"></a>Trabalhos
 
 Os [trabalhos](howto-run-a-job.md) permitem que você aplique atualizações individuais ou em massa aos dispositivos definindo propriedades ou chamando comandos. 
 

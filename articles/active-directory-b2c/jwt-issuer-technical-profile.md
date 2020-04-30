@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/06/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c23648d70192607b2a5b977dcdd445931e995154
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 676b54e1d22712ac41534b67206e6d6931bcc9b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671799"
+ms.locfileid: "82229690"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de token JWT em uma política personalizada do Azure Active Directory B2C
 
@@ -35,7 +35,16 @@ O exemplo a seguir mostra um perfil técnico para `JwtIssuer`:
   <DisplayName>JWT Issuer</DisplayName>
   <Protocol Name="None" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
-  ...
+  <Metadata>
+    <Item Key="client_id">{service:te}</Item>
+    <Item Key="issuer_refresh_token_user_identity_claim_type">objectId</Item>
+    <Item Key="SendTokenResponseBodyWithJsonNumbers">true</Item>
+  </Metadata>
+  <CryptographicKeys>
+    <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+    <Key Id="issuer_refresh_token_key" StorageReferenceId="B2C_1A_TokenEncryptionKeyContainer" />
+  </CryptographicKeys>
+  <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
 </TechnicalProfile>
 ```
 
@@ -64,8 +73,12 @@ O elemento CryptographicKeys contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| issuer_secret | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para assinar o token JWT. Essa é a chave `B2C_1A_TokenSigningKeyContainer` configurada em [Introdução às políticas personalizadas](custom-policy-get-started.md). |
+| issuer_secret | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para assinar o token JWT. Essa é a `B2C_1A_TokenSigningKeyContainer` chave que você configura em introdução [às políticas personalizadas](custom-policy-get-started.md). |
 | issuer_refresh_token_key | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para criptografar o token de atualização. Você configurou a chave `B2C_1A_TokenEncryptionKeyContainer` em [Introdução às políticas personalizadas](custom-policy-get-started.md) |
+
+## <a name="session-management"></a>Gerenciamento da sessão
+
+Para configurar as sessões de Azure AD B2C entre Azure AD B2C e um aplicativo de terceira parte confiável, no atributo do `UseTechnicalProfileForSessionManagement` elemento, adicione uma referência à sessão de SSO do [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider) .
 
 
 

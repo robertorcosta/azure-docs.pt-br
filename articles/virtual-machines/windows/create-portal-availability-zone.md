@@ -1,5 +1,5 @@
 ---
-title: Crie uma VM windows zoneada com o portal Azure
+title: Criar uma VM do Windows zoneada com o portal do Azure
 description: Crie uma VM do Windows em uma Região de Disponibilidade com o portal do Azure
 documentationcenter: virtual-machines
 author: cynthn
@@ -9,18 +9,18 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 418d02b1f271efc1112b67e5dd12b6ba67a3fcd9
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: b8a5f6543bc265605361b7875fad5232d428e27e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086174"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208985"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Crie uma máquina virtual do Windows em uma Região de Disponibilidade com o portal do Azure
 
 Este artigo aborda usando o portal do Azure para criar uma máquina virtual em uma região de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona fisicamente separada em uma região do Azure. Use zonas de disponibilidade para proteger seus aplicativos e dados de uma improvável falha ou perda de um datacenter inteiro.
 
-Para usar uma zona de disponibilidade, crie a máquina virtual em uma [região do Azure com suporte](../../availability-zones/az-overview.md#services-support-by-region).
+Para usar uma zona de disponibilidade, crie a máquina virtual em uma [região do Azure com suporte](../../availability-zones/az-region.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure 
 
@@ -28,7 +28,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. Clique **em Criar um recurso** no canto superior esquerdo do portal Azure.
+1. Clique em **criar um recurso** no canto superior esquerdo da portal do Azure.
 
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
 
@@ -40,7 +40,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
     ![Selecione um tamanho de VM](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. Em **Configurações** > **De alta disponibilidade,** selecione uma das zonas numeradas da menu de **disponibilidade** suspensa, mantenha os demais padrões e clique em **OK**.
+5. Em **configurações** > **alta disponibilidade**, selecione uma das zonas numeradas na lista suspensa **zona de disponibilidade** , mantenha os padrões restantes e clique em **OK**.
 
     ![Selecione uma zona de disponibilidade](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 
@@ -68,4 +68,4 @@ Você pode confirmar as configurações de zona para esses recursos no portal.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a criar uma VM em uma zona de disponibilidade. Saiba mais sobre [a disponibilidade](availability.md) para VMs Azure.
+Neste artigo, você aprendeu a criar uma VM em uma zona de disponibilidade. Saiba mais sobre a [disponibilidade](availability.md) de VMs do Azure.

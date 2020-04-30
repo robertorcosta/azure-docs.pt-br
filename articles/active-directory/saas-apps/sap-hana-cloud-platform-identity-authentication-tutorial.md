@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95be73bd125c124409585a478fa9707e7b6a2ac2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
-ms.translationtype: HT
+ms.openlocfilehash: e92cba923bc197d82083973b3fac476ab93117ad
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76289060"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231366"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP Cloud Platform Identity Authentication
 
@@ -176,7 +176,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-sap-cloud-platform-identity-authentication-sso"></a>Configurar o SSO do SAP Cloud Platform Identity Authentication
 
-1. Para configurar o SSO para o seu aplicativo, vá para o Console de administração da Autenticação de Identidade da SAP Cloud Platform. A URL tem o seguinte padrão: `https://<tenant-id>.accounts.ondemand.com/admin`. Em seguida, leia a documentação sobre autenticação de identidade da SAP Cloud Platform em [Integração com o Microsoft Azure AD](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html).
+1. Para configurar o SSO para o seu aplicativo, vá para o Console de administração da Autenticação de Identidade da SAP Cloud Platform. A URL tem o seguinte padrão: `https://<tenant-id>.accounts.ondemand.com/admin`. Em seguida, leia a documentação sobre autenticação de identidade da SAP Cloud Platform em [Integração com o Microsoft Azure AD](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/626b17331b4d4014b8790d3aea70b240.html).
 
 2. No portal do Azure, selecione o botão **Salvar**.
 
@@ -199,7 +199,7 @@ O SAP Cloud Platform Identity Authentication é compatível com a opção de Fed
 
 A opção de Federação de Identidades é desabilitada por padrão. Se a Federação de Identidades estiver habilitada, somente os usuários que são importados na Autenticação de Identidade da SAP Cloud Platform poderão acessar o aplicativo.
 
-Para obter mais informações sobre como habilitar ou desabilitar a Federação de Identidades com o SAP Cloud Platform Identity Authentication, consulte Habilitar a Federação de Identidades com o SAP Cloud Platform Identity Authentication em [Configurar a Federação de Identidades com o repositório de usuários do SAP Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?c029bbbaefbf4350af15115396ba14e2.html).
+Para obter mais informações sobre como habilitar ou desabilitar a Federação de Identidades com o SAP Cloud Platform Identity Authentication, consulte Habilitar a Federação de Identidades com o SAP Cloud Platform Identity Authentication em [Configurar a Federação de Identidades com o repositório de usuários do SAP Cloud Platform Identity Authentication](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/c029bbbaefbf4350af15115396ba14e2.html).
 
 ## <a name="test-sso"></a>Testar o SSO 
 

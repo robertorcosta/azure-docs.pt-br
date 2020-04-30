@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: d8c6b68a38d4b60cf7a3194e6a5ded8804cc416f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ee789d0a9d06dfe6c5f47c02a5ff9c1637b3f976
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77150163"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209461"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Criar um gateway de rede virtual com redundância de zona em Zonas de Disponibilidade do Azure
 
@@ -23,7 +23,7 @@ Você pode implantar gateways VPN e ExpressRoute nas zonas de disponibilidade do
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-## <a name="1-declare-your-variables"></a><a name="variables"></a>1. Declare suas variáveis
+## <a name="1-declare-your-variables"></a><a name="variables"></a>1. declare suas variáveis
 
 Declare as variáveis que você quer usar. Use o exemplo a seguir, substituindo os valores existentes pelos seus quando necessário. Se você fechar sua sessão do PowerShell/Cloud Shell a qualquer momento durante o exercício, basta copiar e colar os valores novamente para redeclarar as variáveis. Ao especificar a localização, verifique se a região especificada é compatível. Consulte mais informações em [Perguntas Frequentes](#faq).
 
@@ -43,7 +43,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="2-create-the-virtual-network"></a><a name="configure"></a>2. Crie a rede virtual
+## <a name="2-create-the-virtual-network"></a><a name="configure"></a>2. criar a rede virtual
 
 Crie um grupos de recursos.
 
@@ -59,7 +59,7 @@ $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPr
 $vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
-## <a name="3-add-the-gateway-subnet"></a><a name="gwsub"></a>3. Adicione a sub-rede gateway
+## <a name="3-add-the-gateway-subnet"></a><a name="gwsub"></a>3. adicionar a sub-rede de gateway
 
 A sub-rede de gateway contém os endereços IP reservados que usam os serviços de gateway de rede virtual. Use os exemplos a seguir para adicionar e configurar uma sub-rede de gateway:
 
@@ -75,7 +75,7 @@ Defina a configuração de sub-rede do gateway para a rede virtual.
 ```azurepowershell-interactive
 $getvnet | Set-AzVirtualNetwork
 ```
-## <a name="4-request-a-public-ip-address"></a><a name="publicip"></a>4. Solicite um endereço IP público
+## <a name="4-request-a-public-ip-address"></a><a name="publicip"></a>4. solicitar um endereço IP público
  
 Nesta etapa, escolha as instruções que se aplicam ao gateway que você deseja criar. A seleção de zonas para implantar os gateways depende das zonas especificadas para o endereço IP público.
 
@@ -102,7 +102,7 @@ Solicite um endereço IP público com a SKU PublicIpaddress **Básica**. Nesse c
 ```azurepowershell-interactive
 $pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="5-create-the-ip-configuration"></a><a name="gwipconfig"></a>5. Crie a configuração IP
+## <a name="5-create-the-ip-configuration"></a><a name="gwipconfig"></a>5. criar a configuração de IP
 
 ```azurepowershell-interactive
 $getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -110,7 +110,7 @@ $subnet = Get-AzVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $get
 $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
-## <a name="6-create-the-gateway"></a><a name="gwconfig"></a>6. Crie o gateway
+## <a name="6-create-the-gateway"></a><a name="gwconfig"></a>6. criar o gateway
 
 Crie o gateway de rede virtual.
 
@@ -138,7 +138,7 @@ Sim, você pode usar o portal do Azure para implantar as novas SKUs. No entanto,
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Quais regiões estão disponíveis para eu usar as novas SKUs?
 
-Consulte [Zonas de Disponibilidade](../availability-zones/az-overview.md#services-support-by-region) para obter a lista mais recente das regiões disponíveis.
+Consulte [zonas de disponibilidade](../availability-zones/az-region.md) para obter a lista mais recente de regiões disponíveis.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Posso alterar/migrar/atualizar meus gateways de rede virtual existentes para gateways com redundância de zona ou em zona?
 

@@ -1,22 +1,22 @@
 ---
-title: Log do serviço Web-Azure Machine Learning Studio (clássico) | Microsoft Docs
+title: Habilitar log de serviço Web
+titleSuffix: ML Studio (classic) - Azure
 description: Saiba como habilitar o registro em log para serviços da Web Machine Learning Studio (clássico). O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs.
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: dc4a2f83f59ab94d1bff8a005b37124f2822c72b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217853"
+ms.locfileid: "82209410"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Habilitar o registro em log para serviços Web Azure Machine Learning Studio (clássico)
 

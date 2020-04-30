@@ -1,6 +1,6 @@
 ---
 title: Configurar a replicação em um banco de dados de instância gerenciada
-description: Aprenda a configurar a replicação transacional entre um editor/distribuidor gerenciado de instâncias gerenciadas do Azure SQL e o assinante de instância gerenciada.
+description: Saiba como configurar a replicação transacional entre um Publicador/distribuidor de instância gerenciada do banco de dados SQL do Azure e um assinante de instância gerenciada.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -10,42 +10,45 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
-ms.date: 02/07/2019
-ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.openlocfilehash: 9ac30b6d502bb0fbdb454d7a3c36cde23a57fb6b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299066"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231621"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure
 
-A replicação transacional permite que você replique dados em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure de um banco de dados do SQL Server ou de outro banco de dados de instância. 
+A replicação transacional permite que você replique dados em um banco de dados de instância gerenciada do Banco de Dados SQL do Azure de um banco de dados do SQL Server ou de outro banco de dados de instância.
 
-Este artigo mostra como configurar a replicação entre um editor/distribuidor de instância gerenciada e um assinante de instância gerenciado. 
+> [!NOTE]
+> Este artigo descreve o uso de [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) no Azure SQL instância gerenciada. Ele não está relacionado à replicação geográfica ativa ou aos [grupos de failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), um recurso de instância gerenciada do SQL do Azure que permite criar réplicas legíveis completas de instâncias individuais.
+
+Este artigo mostra como configurar a replicação entre um Publicador/distribuidor de instância gerenciada e um assinante de instância gerenciada. 
 
 ![Replicar entre duas instâncias gerenciadas](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
 
-Você também pode usar a replicação transacional para empurrar alterações feitas em um banco de dados de instâncias na instância gerenciada do Azure SQL Database para:
+Você também pode usar a replicação transacional para enviar por push as alterações feitas em um banco de dados de instância na instância gerenciada do banco de dados SQL do Azure para:
 
-- Um banco de dados sql server.
-- Um único banco de dados no Banco de Dados SQL do Azure.
-- Um banco de dados agrupado em um grupo elástico do Banco de Dados SQL Do Azure.
+- Um banco de dados SQL Server.
+- Um banco de dados individual no banco de dados SQL do Azure.
+- Um banco de dados em pool em um pool elástico do banco de dados SQL do Azure.
  
-A replicação transacional está em visualização pública na instância gerenciada do [Azure SQL Database](sql-database-managed-instance.md). Uma instância gerenciada pode hospedar bancos de dados publicadores, distribuidores e assinantes. Consulte [as configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para obter configurações disponíveis.
+A replicação transacional está em visualização pública na [instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance.md). Uma instância gerenciada pode hospedar bancos de dados publicadores, distribuidores e assinantes. Consulte [configurações de replicação transacional](sql-database-managed-instance-transactional-replication.md#common-configurations) para configurações disponíveis.
 
   > [!NOTE]
-  > - Este artigo destina-se a orientar um usuário na configuração de replicação com uma instância gerenciada do Azure Database de ponta a ponta, começando pela criação do grupo de recursos. Se você já tiver instâncias gerenciadas implantadas, pule para o [Passo 4](#4---create-a-publisher-database) para criar seu banco de dados de editores ou [etapa 6](#6---configure-distribution) se você já tiver um banco de dados de editores e assinantes e estiver pronto para começar a configurar a replicação.  
-  > - Este artigo configura seu editor e distribuidor na mesma instância gerenciada. Para colocar o distribuidor em uma instância manged separada, consulte o tutorial [Configurar a replicação entre um editor de MI e um distribuidor MI](sql-database-managed-instance-configure-replication-tutorial.md). 
+  > - Este artigo destina-se a orientar um usuário na configuração de replicação com uma instância gerenciada do banco de dados do Azure de ponta a ponta, começando com a criação do grupo de recursos. Se você já tiver instâncias gerenciadas implantadas, pule para a [etapa 4](#4---create-a-publisher-database) para criar o banco de dados do Publicador ou a [etapa 6](#6---configure-distribution) se você já tiver um banco de dados do Publicador e do assinante e estiver pronto para começar a configurar a replicação.  
+  > - Este artigo configura o Publicador e o distribuidor na mesma instância gerenciada. Para posicionar o distribuidor em uma instância gerenciada separada, consulte o tutorial [Configurar a replicação entre um Publicador de mi e um distribuidor de mi](sql-database-managed-instance-configure-replication-tutorial.md). 
 
 ## <a name="requirements"></a>Requisitos
 
-Configurar uma instância gerenciada para funcionar como um editor e/ou um distribuidor requer:
+Configurar uma instância gerenciada para funcionar como um Publicador e/ou um distribuidor requer:
 
-- Que a instância gerenciada pelo editor está na mesma rede virtual que o distribuidor e o assinante, ou [o peering vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) foi estabelecido entre as redes virtuais de todas as três entidades. 
+- Que a instância gerenciada pelo Publicador está na mesma rede virtual que o distribuidor e o Assinante, ou o [emparelhamento vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) foi estabelecido entre as redes virtuais de todas as três entidades. 
 - A conectividade usa Autenticação SQL entre os participantes da replicação.
 - Um compartilhamento da Conta de Armazenamento do Azure para o diretório de trabalho de replicação.
-- A porta 445 (saída tcp) está aberta nas regras de segurança do NSG para que as instâncias gerenciadas acessem o compartilhamento de arquivos do Azure.  Se você encontrar o erro "não se \<conectar ao nome da conta de armazenamento do Azure> com o erro do sistema operacional 53", você precisará adicionar uma regra de saída ao NSG da Sub-rede de instância gerenciada SQL apropriada.
+- A porta 445 (TCP de saída) está aberta nas regras de segurança do NSG para as instâncias gerenciadas para acessar o compartilhamento de arquivos do Azure.  Se você encontrar o erro "falha ao conectar-se ao \<nome da conta de armazenamento do armazenamento do Azure> com o erro 53 do sistema operacional", será necessário adicionar uma regra de saída ao NSG da sub-rede do SQL instância gerenciada apropriada.
 
 
  > [!NOTE]
@@ -57,28 +60,28 @@ Configurar uma instância gerenciada para funcionar como um editor e/ou um distr
 Oferece suporte a:
 
 - Combinação de replicação transacional e de instantâneo das instâncias gerenciadas e locais do SQL Server no Banco de Dados SQL do Azure.
-- Os assinantes podem estar em bancos de dados SQL Server no local, bancos de dados únicos/instâncias gerenciadas no Banco de Dados SQL do Azure ou bancos de dados agrupados em pools elásticos do Banco de Dados Azure SQL.
+- Os assinantes podem estar no local SQL Server bancos de dados, em bancos de dados individuais/instâncias gerenciadas no banco de dados SQL do Azure ou em bancos de dados em pool em pools elásticos do banco de dados SQL do Azure.
 - Replicação unidirecional ou bidirecional.
 
 Não há suporte para os seguintes recursos em uma instância gerenciada no Banco de Dados SQL do Azure:
 
-- [Assinaturas updatable](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
-- [Geo-replicação ativa](sql-database-active-geo-replication.md) com replicação transacional. Em vez de replicação geográfica ativa, use [grupos de failover automático,](sql-database-auto-failover-group.md)mas observe que a publicação deve ser [excluída manualmente](sql-database-managed-instance-transact-sql-information.md#replication) da instância gerenciada primária e recriada na instância gerenciada secundária após failover.  
+- [Assinaturas atualizáveis](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
+- [Replicação geográfica ativa](sql-database-active-geo-replication.md) com replicação transacional. Em vez de replicação geográfica ativa, use [grupos de failover automático](sql-database-auto-failover-group.md), mas observe que a publicação precisa ser [excluída manualmente](sql-database-managed-instance-transact-sql-information.md#replication) da instância gerenciada primária e recriada na instância gerenciada secundária após o failover.  
  
-## <a name="1---create-a-resource-group"></a>1 - Criar um grupo de recursos
+## <a name="1---create-a-resource-group"></a>1-criar um grupo de recursos
 
-Use o [portal Azure](https://portal.azure.com) para criar `SQLMI-Repl`um grupo de recursos com o nome .  
+Use o [portal do Azure](https://portal.azure.com) para criar um grupo de recursos com o `SQLMI-Repl`nome.  
 
-## <a name="2---create-managed-instances"></a>2 - Criar instâncias gerenciadas
+## <a name="2---create-managed-instances"></a>2-criar instâncias gerenciadas
 
-Use o [portal Azure](https://portal.azure.com) para criar duas [instâncias gerenciadas](sql-database-managed-instance-create-tutorial-portal.md) na mesma rede virtual e sub-rede. Por exemplo, nomeie as duas instâncias gerenciadas:
+Use o [portal do Azure](https://portal.azure.com) para criar duas [instâncias gerenciadas](sql-database-managed-instance-create-tutorial-portal.md) na mesma rede virtual e sub-rede. Por exemplo, nomeie as duas instâncias gerenciadas:
 
-- `sql-mi-pub`(juntamente com alguns caracteres para randomização)
-- `sql-mi-sub`(juntamente com alguns caracteres para randomização)
+- `sql-mi-pub`(junto com alguns caracteres para randomização)
+- `sql-mi-sub`(junto com alguns caracteres para randomização)
 
-Você também precisará [configurar uma VM Azure para se conectar](sql-database-managed-instance-configure-vm.md) às instâncias gerenciadas do Banco de Dados SQL do Azure. 
+Você também precisará [Configurar uma VM do Azure para se conectar](sql-database-managed-instance-configure-vm.md) às instâncias gerenciadas do banco de dados SQL do Azure. 
 
-## <a name="3---create-azure-storage-account"></a>3 - Criar conta de armazenamento azure
+## <a name="3---create-azure-storage-account"></a>3-criar conta de armazenamento do Azure
 
 [Crie uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho e, em seguida, crie um [compartilhamento de arquivo](../storage/files/storage-how-to-create-file-share.md) na conta de armazenamento. 
 
@@ -86,15 +89,15 @@ Copie o caminho do compartilhamento de arquivo no formato: `\\storage-account-na
 
 Exemplo: `\\replstorage.file.core.windows.net\replshare`
 
-Copie as teclas de acesso de armazenamento no formato de:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Copie as chaves de acesso de armazenamento no formato:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Exemplo: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
 Para obter mais informações, confira [Gerenciar chaves de acesso da conta de armazenamento](../storage/common/storage-account-keys-manage.md). 
 
-## <a name="4---create-a-publisher-database"></a>4 - Criar um banco de dados de editores
+## <a name="4---create-a-publisher-database"></a>4-criar um banco de dados do Publicador
 
-Conecte-se à instância `sql-mi-pub` gerenciada usando o SQL Server Management Studio e execute o seguinte código Transact-SQL (T-SQL) para criar seu banco de dados de editores:
+Conecte-se `sql-mi-pub` à sua instância gerenciada usando SQL Server Management Studio e execute o seguinte código TRANSACT-SQL (T-SQL) para criar o banco de dados do Publicador:
 
 ```sql
 USE [master]
@@ -126,9 +129,9 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## <a name="5---create-a-subscriber-database"></a>5 - Criar um banco de dados de assinantes
+## <a name="5---create-a-subscriber-database"></a>5-criar um banco de dados do assinante
 
-Conecte-se à sua `sql-mi-sub` instância gerenciada usando o SQL Server Management Studio e execute o seguinte código T-SQL para criar seu banco de dados de assinantes vazio:
+Conecte-se `sql-mi-sub` à sua instância gerenciada usando SQL Server Management Studio e execute o seguinte código T-SQL para criar seu banco de dados de assinante vazio:
 
 ```sql
 USE [master]
@@ -147,9 +150,9 @@ CREATE TABLE ReplTest (
 GO
 ```
 
-## <a name="6---configure-distribution"></a>6 - Configurar distribuição
+## <a name="6---configure-distribution"></a>6-configurar a distribuição
 
-Conecte-se à instância `sql-mi-pub` gerenciada usando o SQL Server Management Studio e execute o seguinte código T-SQL para configurar seu banco de dados de distribuição. 
+Conecte-se `sql-mi-pub` à sua instância gerenciada usando SQL Server Management Studio e execute o código T-SQL a seguir para configurar o banco de dados de distribuição. 
 
 ```sql
 USE [master]
@@ -160,9 +163,9 @@ EXEC sp_adddistributiondb @database = N'distribution';
 GO
 ```
 
-## <a name="7---configure-publisher-to-use-distributor"></a>7 - Configurar editor para usar distribuidor 
+## <a name="7---configure-publisher-to-use-distributor"></a>7-configurar o Publicador para usar o distribuidor 
 
-Na instância `sql-mi-pub`gerenciada pelo editor, altere a execução da consulta para o modo [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) e execute o seguinte código para registrar o novo distribuidor com seu editor. 
+Na instância `sql-mi-pub`gerenciada do Publicador, altere a execução da consulta para o modo [sqlcmd](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) e execute o código a seguir para registrar o novo distribuidor com o seu editor. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -184,13 +187,13 @@ EXEC sp_adddistpublisher
 ```
 
    > [!NOTE]
-   > Certifique-se de usar apenas`\`barras traseiras () para o parâmetro file_storage. O uso de uma barra (`/`) pode causar um erro ao se conectar ao compartilhamento de arquivo. 
+   > Certifique-se de usar apenas barras invertidas (`\`) para o parâmetro file_storage. O uso de uma barra (`/`) pode causar um erro ao se conectar ao compartilhamento de arquivo. 
 
-Esse script configura um editor local na instância gerenciada, adiciona um servidor vinculado e cria um conjunto de trabalhos para o SQL Server Agent. 
+Esse script configura um Publicador local na instância gerenciada, adiciona um servidor vinculado e cria um conjunto de trabalhos para o SQL Server Agent. 
 
-## <a name="8---create-publication-and-subscriber"></a>8 - Criar publicação e assinante
+## <a name="8---create-publication-and-subscriber"></a>8-criar publicação e assinante
 
-Usando o modo [SQLCMD,](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) execute o seguinte script T-SQL para habilitar a replicação do seu banco de dados e configure a replicação entre seu editor, distribuidor e assinante. 
+Usando o modo [sqlcmd](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) , execute o seguinte script T-SQL para habilitar a replicação para seu banco de dados e configure a replicação entre o Publicador, o distribuidor e o Assinante. 
 
 ```sql
 -- Set variables
@@ -267,11 +270,11 @@ EXEC sp_startpublication_snapshot
   @publication = N'$(publication_name)';
 ```
 
-## <a name="9---modify-agent-parameters"></a>9 - Modificar parâmetros do agente
+## <a name="9---modify-agent-parameters"></a>9-modificar parâmetros do agente
 
-A instância gerenciada do Banco de Dados SQL do Azure está atualmente enfrentando alguns problemas de back-end com conectividade com os agentes de replicação. Enquanto este problema está sendo abordado, a solução para aumentar o valor de tempo de login para os agentes de replicação. 
+A instância gerenciada do banco de dados SQL do Azure atualmente está apresentando alguns problemas de back-end com conectividade com os agentes de replicação. Enquanto esse problema está sendo resolvido, a solução alternativa é aumentar o valor de tempo limite de logon para os agentes de replicação. 
 
-Execute o seguinte comando T-SQL no editor para aumentar o tempo limite de login: 
+Execute o seguinte comando T-SQL no Publicador para aumentar o tempo limite do logon: 
 
 ```sql
 -- Increase login timeout to 150s
@@ -279,7 +282,7 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 150'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-Execute novamente o seguinte comando T-SQL para definir o tempo de saída de login de volta ao valor padrão, caso você precise fazê-lo:
+Execute o seguinte comando T-SQL novamente para definir o tempo limite de logon de volta para o valor padrão, caso você precise fazer isso:
 
 ```sql
 -- Increase login timeout to 30
@@ -287,9 +290,9 @@ update msdb..sysjobsteps set command = command + N' -LoginTimeout 30'
 where subsystem in ('Distribution','LogReader','Snapshot') and command not like '%-LoginTimeout %'
 ```
 
-Reinicie os três agentes para aplicar essas alterações. 
+Reinicie todos os três agentes para aplicar essas alterações. 
 
-## <a name="10---test-replication"></a>10 - Replicação de teste
+## <a name="10---test-replication"></a>replicação de 10 testes
 
 Depois que a replicação for configurada, teste-a inserindo novos itens no publicador e observando as alterações se propagarem para o assinante. 
 
@@ -305,9 +308,9 @@ Execute o snippet T-SQL a seguir para inserir linhas adicionais no publicador e,
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para soltar a publicação, execute o seguinte comando T-SQL:
+Para descartar a publicação, execute o seguinte comando T-SQL:
 
 ```sql
 -- Drops the publication
@@ -325,7 +328,7 @@ EXEC sp_removedbreplication
 GO
 ```
 
-Para desativar a publicação e a distribuição, execute o seguinte comando T-SQL:
+Para desabilitar a publicação e a distribuição, execute o seguinte comando T-SQL:
 
 ```sql
 -- Drops the distributor
@@ -334,11 +337,11 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-Você pode limpar seus recursos do Azure [excluindo os recursos de instância gerenciados do grupo de recursos](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e, em seguida, excluindo o grupo `SQLMI-Repl`de recursos . 
+Você pode limpar os recursos do Azure [excluindo os recursos de instância gerenciada do grupo de recursos](../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e, em seguida `SQLMI-Repl`, excluindo o grupo de recursos. 
 
    
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte Também
 
 - [Replicação transacional](sql-database-managed-instance-transactional-replication.md)
-- [Tutorial: Configure a replicação transacional entre um editor de MI e um assinante do SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
+- [Tutorial: configurar a replicação transacional entre um Publicador de MI e um assinante de SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
 - [O que é uma Instância Gerenciada?](sql-database-managed-instance.md)

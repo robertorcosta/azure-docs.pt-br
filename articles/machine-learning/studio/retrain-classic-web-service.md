@@ -1,27 +1,27 @@
 ---
-title: Retreinar um serviço web clássico
+title: Treinar novamente um serviço Web clássico
 titleSuffix: ML Studio (classic) - Azure
-description: Aprenda a retreinar um modelo e atualizar um serviço web clássico para usar o modelo recém-treinado no Azure Machine Learning Studio (clássico).
+description: Saiba como treinar novamente um modelo e atualizar um serviço Web clássico para usar o modelo treinado recentemente no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 8094d64eab1a4b25a76554bf9eb6848c2e4d3493
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0639a525384e751ac4441da5d2c03532618b801a
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204232"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209444"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retreinar e implantar um serviço web clássico do Studio (clássico)
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Readaptação e implantação de um serviço Web clássico do Studio (clássico)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Treinar novamente os modelos de machine learning é uma forma de fazer com que eles permaneçam precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostrará como retreinar um serviço web clássico do Studio (clássico). Para obter um guia sobre como retreinar um novo serviço web studio (clássico), [veja este artigo de como fazer.](retrain-machine-learning-model.md)
+Treinar novamente os modelos de machine learning é uma forma de fazer com que eles permaneçam precisos e baseados nos dados mais relevantes disponíveis. Este artigo mostrará como readaptar um serviço Web clássico do Studio (clássico). Para obter um guia sobre como treinar novamente um novo serviço Web de estúdio (clássico), [Veja este artigo de instruções.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,12 +46,12 @@ Você pode adicionar pontos de extremidade de pontuação usando o código de ex
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Usar o portal dos Serviços Web do Azure para adicionar um ponto de extremidade
 
-1. Em Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em Serviços Web.
-1. Na parte inferior do painel de serviçoweb, clique **em Gerenciar a visualização de pontos finais**.
+1. Em Machine Learning Studio (clássico), na coluna de navegação à esquerda, clique em serviços Web.
+1. Na parte inferior do painel do serviço Web, clique em **gerenciar visualização de pontos de extremidade**.
 1. Clique em **Adicionar**.
-1. Digite um nome e uma descrição para o novo ponto de extremidade. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre login, consulte [Ativar o registro para serviços web de Machine Learning](web-services-logging.md).
+1. Digite um nome e uma descrição para o novo ponto de extremidade. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre registro em log, consulte [habilitar o log para serviços web Machine Learning](web-services-logging.md).
 
-## <a name="update-the-added-endpoints-trained-model"></a>Atualize o modelo treinado do ponto final adicionado
+## <a name="update-the-added-endpoints-trained-model"></a>Atualizar o modelo treinado do ponto de extremidade adicionado
 
 ### <a name="retrieve-patch-url"></a>Recuperar a URL DO PATCH
 
@@ -65,7 +65,7 @@ Siga estas etapas para obter a URL DO PATCH correta usando o portal da Web:
 1. No URL do **Patch**, clique em **Ajuda da API** para abrir a página de ajuda de aplicação de patch.
 
 > [!NOTE]
-> Se você adicionou o ponto final ao Serviço Web de treinamento em vez do Serviço Web Preditivo, você receberá o seguinte erro ao clicar no link **Recurso de atualização:** "Desculpe, mas esse recurso não está suportado ou disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pelo inconveniente e estamos trabalhando para melhorar esse fluxo de trabalho.”
+> Se você adicionou o ponto de extremidade ao serviço Web de treinamento em vez do serviço Web de previsão, receberá o seguinte erro ao clicar no link **Atualizar recurso** : "Desculpe, mas esse recurso não tem suporte ou está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pelo inconveniente e estamos trabalhando para melhorar esse fluxo de trabalho.”
 >
 
 A página de ajuda do PATCH contém a URL do PATCH que você deve usar e fornece o código de exemplo que você pode usar para chamar.
@@ -118,9 +118,9 @@ O código de exemplo a seguir mostra como usar *BaseLocation*, *RelativeLocation
 
 *apiKey* e *endpointUrl* podem ser obtidos do painel do ponto de extremidade para esta chamada.
 
-O valor do parâmetro *Nome* em *Recursos* deve corresponder ao nome de recurso do modelo treinado salvo no experimento preditivo. Para obter o Nome do Recurso:
+O valor do parâmetro *Name* nos *recursos* deve corresponder ao nome do recurso do modelo treinado salvo no experimento de previsão. Para obter o Nome do Recurso:
 
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, clique em **Machine Learning**.
 1. Em Nome, clique em seu workspace e, em seguida, clique em **Serviços Web**.
 1. Em Nome, clique em **Modelo de Censo [exp. preditivo]**.

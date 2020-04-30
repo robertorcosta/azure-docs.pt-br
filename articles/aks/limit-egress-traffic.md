@@ -4,12 +4,12 @@ description: Saiba quais portas e endereços são necessários para controlar o 
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: daf17ee4d6518de63dc642fd64acd6b4c5be7d2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d723f7b1e7331e65d17dca5873b891ec46d76c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183918"
+ms.locfileid: "82207166"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída para nós de cluster no serviço de kubernetes do Azure (AKS)
 
@@ -165,19 +165,15 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS que t
 | *. GK. \<local\>. azmk8s.Io | HTTPS: 443    | Azure Policy complemento que se comunica com o ponto de extremidade de auditoria do gatekeeper em execução no servidor mestre para obter os resultados da auditoria. |
 | dc.services.visualstudio.com | HTTPS: 443 | Azure Policy complemento que envia dados de telemetria para o ponto de extremidade do Application insights. |
 
-## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Exigido por nós baseados no Windows Server (em visualização pública) habilitado
+## <a name="required-by-windows-server-based-nodes-enabled"></a>Exigido por nós baseados no Windows Server habilitado
 
-> [!CAUTION]
-> Alguns dos recursos a seguir estão em versão prévia.  As sugestões neste artigo estão sujeitas a alterações à medida que o recurso é movido para a visualização pública e para os próximos estágios da versão.
-
-As seguintes regras de FQDN/aplicativo são necessárias para clusters AKS baseados no Windows Server:
+As seguintes regras de FQDN/aplicativo são necessárias para usar pools de nós baseados no Windows Server:
 
 | FQDN                                    | Porta      | Uso      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS: 443 | Para instalar binários relacionados ao Windows |
 | mp.microsoft.com, www<span></span>. msftconnecttest.com, ctldl.windowsupdate.com | HTTP: 80 | Para instalar binários relacionados ao Windows |
 | kms.core.windows.net | TCP: 1688 | Para instalar binários relacionados ao Windows |
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

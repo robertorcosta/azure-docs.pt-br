@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d89d123fe757b0502f4c6b3a0d33c185b25224b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 125d89301e9d2cc3fc863bffb9b9e6c41e0c129e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80057305"
+ms.locfileid: "82229928"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Um perfil técnico permite esses tipos de cenários:
 - [OpenID Connect](openid-connect-technical-profile.md) – Federação com qualquer provedor de identidade de protocolo OpenID Connect.
 - [Fator de telefone](phone-factor-technical-profile.md) -suporte para registro e verificação de números de telefone.
 - [Provedor RESTful](restful-technical-profile.md) -chamada para serviços de API REST, como validar entrada do usuário, enriquecer dados do usuário ou integrar com aplicativos de linha de negócios.
-- [SAML2](saml-technical-profile.md) – federação com qualquer provedor de identidade de protocolo SAML.
+- [Provedor de identidade SAML](saml-identity-provider-technical-profile.md) – Federação com qualquer provedor de identidade de protocolo SAML.
 - [Emissor de token SAML](saml-issuer-technical-profile.md) – emite um token SAML que é retornado para o aplicativo de terceira parte confiável.
 - [Self-Asserted](self-asserted-technical-profile.md) – Interagir com o usuário. Por exemplo, colete a credencial do usuário para entrar e renderizar a página de inscrição ou a redefinição de senha.
 - [Gerenciamento de sessão](custom-policy-reference-sso.md) – lida com diferentes tipos de sessões.

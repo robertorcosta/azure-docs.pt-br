@@ -1,6 +1,6 @@
 ---
-title: Isolar aplicativos de ônibus de serviço do Azure contra paralisações e desastres
-description: Esteartigo fornece técnicas para proteger aplicativos contra uma possível paralisação do Ônibus de Serviço Azure.
+title: Isolar aplicativos do barramento de serviço do Azure contra interrupções e desastres
+description: Este artigo fornece técnicas para proteger aplicativos contra uma potencial interrupção do barramento de serviço do Azure.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 07b071b0e8efc5d664dada133a214d778c6531d0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: 29eb0625ceebf4fee75d0c1accef7ae03b5f61b9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80984939"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208373"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -33,10 +33,10 @@ O Barramento de Serviço Premium oferece suporte à recuperação de desastre ge
 
 ### <a name="availability-zones"></a>Zonas de Disponibilidades
 
-O SKU do Barramento de Serviço Premium oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro da mesma região do Azure. Service Bus gerencia três cópias da loja de mensagens (1 primária e 2 secundárias). Service Bus mantém todas as três cópias em sincronia para operações de dados e gerenciamento. Se a cópia principal falhar, uma das cópias secundárias é promovida para primária sem tempo de inatividade percebido. Se os aplicativos verem desconexões transitórias do Service Bus, a lógica de repetição no SDK se reconectará automaticamente ao Service Bus. 
+O SKU do Barramento de Serviço Premium oferece suporte às [Zonas de Disponibilidade](../availability-zones/az-overview.md), fornecendo locais isolados de falhas dentro da mesma região do Azure. O barramento de serviço gerencia três cópias do repositório de mensagens (1 primário e 2 secundários). O barramento de serviço mantém todas as três cópias em sincronia para operações de gerenciamento e dados. Se a cópia primária falhar, uma das cópias secundárias será promovida para primária sem nenhum tempo de inatividade percebido. Se os aplicativos conseguirem desconexões transitórias do barramento de serviço, a lógica de repetição no SDK se reconectará automaticamente ao barramento de serviço. 
 
 > [!NOTE]
-> O suporte a Zonas de Disponibilidade para o Barramento de Serviço Premium do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-overview.md#services-support-by-region) em que existem zonas de disponibilidade.
+> O suporte a Zonas de Disponibilidade para o Barramento de Serviço Premium do Azure só é oferecido nas [regiões do Azure](../availability-zones/az-region.md) em que existem zonas de disponibilidade.
 
 Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usando o portal do Azure. O Barramento de Serviço não dá suporte à migração dos namespaces existentes. Você não pode desabilitar a redundância de zona depois de habilitá-la em seu namespace.
 
@@ -78,7 +78,7 @@ Quando a replicação passiva for usada, as mensagens de cenário a seguir poder
 O exemplo [Replicação geográfica com Barramento de Serviço Standard][Geo-replication with Service Bus Standard Tier] demonstra a replicação passiva de entidades de mensagens.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protegendo pontos de extremidade de retransmissão contra interrupções ou desastres
-A replicação geográfica dos pontos finais do [Azure Relay](../service-bus-relay/relay-what-is-it.md) permite que um serviço que exponha um ponto final de relé seja acessível na presença de paralisações de Ônibus de Serviço. Para obter a replicação geográfica, o serviço deverá criar dois pontos de extremidade de retransmissão em namespaces diferentes. Os namespaces devem residir em datacenters diferentes e os dois pontos de extremidade devem ter nomes diferentes. Por exemplo, um ponto de extremidade primário pode ser acessado em **contosoPrimario.servicebus.windows.net/meuServiçoPrimario**, enquanto o seu equivalente secundário pode ser acessado em **contosoSecundario.servicebus.windows.net/meuServiçoSecundario**.
+A replicação geográfica de pontos de extremidade de [retransmissão do Azure](../service-bus-relay/relay-what-is-it.md) permite que um serviço que expõe um ponto final de retransmissão seja acessível na presença de interrupções do barramento de serviço. Para obter a replicação geográfica, o serviço deverá criar dois pontos de extremidade de retransmissão em namespaces diferentes. Os namespaces devem residir em datacenters diferentes e os dois pontos de extremidade devem ter nomes diferentes. Por exemplo, um ponto de extremidade primário pode ser acessado em **contosoPrimario.servicebus.windows.net/meuServiçoPrimario**, enquanto o seu equivalente secundário pode ser acessado em **contosoSecundario.servicebus.windows.net/meuServiçoSecundario**.
 
 O serviço escuta em ambos os pontos de extremidade e um cliente pode invocar o serviço por meio de um dos pontos de extremidade. Um aplicativo cliente escolhe aleatoriamente uma das retransmissões como o ponto de extremidade primário e envia a sua solicitação ao ponto de extremidade ativo. Se a operação falhar com um código de erro, essa falha indicará que o ponto de extremidade de retransmissão não está disponível. O aplicativo abre um canal para o ponto de extremidade de backup e emite a solicitação novamente. Nesse ponto, os pontos de extremidade ativo e o de backup alternam as funções: o aplicativo cliente considera o ponto de extremidade ativo antigo como o novo ponto de extremidade de backup e o ponto de extremidade de backup antigo como o novo ponto de extremidade ativo. Se ambas as operações de envio falharem, as funções das duas entidades permanecerão inalteradas e um erro será retornado.
 

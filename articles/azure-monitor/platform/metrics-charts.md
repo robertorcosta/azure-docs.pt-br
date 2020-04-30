@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371594"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509815"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Azure Metrics Explorer
 
@@ -47,6 +47,25 @@ Clique em **Adicionar gráfico** e crie outro gráfico com uma métrica diferent
 ### <a name="order-or-delete-multiple-charts"></a>Ordenar ou excluir vários gráficos
 
 Para ordenar ou excluir vários gráficos, clique no símbolo de reticências ( **...** ) para abrir o menu do gráfico e escolha o item de menu apropriado de **mover para cima**, **mover para baixo**ou **excluir**.
+
+## <a name="changing-aggregation"></a>Alterando a agregação
+
+Quando você adiciona uma métrica a um gráfico, o Metrics Explorer seleciona automaticamente sua agregação padrão. O padrão faz sentido nos cenários básicos, mas você pode usar uma agregação diferente para obter informações adicionais sobre a métrica. A exibição de agregações diferentes em um gráfico requer que você entenda como as métricas Explorer as manipula. 
+
+Métricas são a série de medições (ou "valores de métrica") capturados no período de tempo. Quando você plota um gráfico, os valores da métrica selecionada são agregados separadamente no intervalo de *tempo*. Você seleciona o tamanho do intervalo de tempo [usando o Metrics Explorer painel seletor de tempo](metrics-getting-started.md#select-a-time-range). Se você não fizer uma seleção explícita do intervalo de tempo, a granularidade de tempo será selecionada automaticamente com base no período de tempo atualmente selecionado. Depois que o intervalo de tempo é determinado, os valores de métrica que foram capturados durante cada intervalos de refinamento de tempo são agregados e colocados no gráfico-um DataPoint por intervalo de tempo.
+
+Por exemplo, suponha que o gráfico esteja mostrando a métrica de **tempo de resposta do servidor** usando a agregação **média** no período das **últimas 24 horas** :
+
+- Se a granularidade de tempo for definida como 30 minutos, o gráfico será desenhado de pontos de extremidade de 48 agregados (por exemplo, o gráfico de linhas conecta 48 pontos na área de plotagem do gráfico). Ou seja, 24 horas x 2 pontos de extremidade por hora. Cada DataPoint representa a *média* de todos os tempos de resposta capturados para solicitações de servidor ocorridas durante cada um dos períodos de tempo de 30 minutos relevantes.
+- Se você alternar a granularidade de tempo para 15 minutos, obterá 96 pontos de extremidade agregados.  Ou seja, 24 horas x 4 pontos de extremidade por hora.
+
+Há cinco tipos de agregação de estatísticas básicos disponíveis no Metrics Explorer: **soma**, **contagem**, **mín**., **máx**. e **média**. A agregação **sum** às vezes é referida como agregação **total** . Para muitas métricas, Metrics Explorer ocultará as agregações que são totalmente irrelevantes e não podem ser usadas.
+
+- **Sum** – a soma de todos os valores capturados sobre o intervalo de agregação
+- **Contagem** – o número de medições capturadas no intervalo de agregação. Observe que **Count** será igual a **sum** , no caso em que a métrica é sempre capturada com o valor de 1. Isso é comum quando a métrica acompanha a contagem de eventos distintos e cada medida representa um evento (ou seja, o código dispara um registro de métrica sempre que uma nova solicitação chega)
+- **Média** – a média dos valores de métrica capturados no intervalo de agregação
+- **Min** – o menor valor capturado sobre o intervalo de agregação
+- **Max** – o maior valor capturado sobre o intervalo de agregação
 
 ## <a name="apply-filters-to-charts"></a>Aplicar filtros a gráficos
 

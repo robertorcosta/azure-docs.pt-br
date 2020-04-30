@@ -1,17 +1,17 @@
 ---
 title: Gerenciar políticas de indexação no Azure Cosmos DB
-description: Saiba como gerenciar políticas de indexação, incluir ou excluir uma propriedade da indexação, como definir a indexação usando diferentes SDKs Azure Cosmos DB
-author: ThomasWeiss
+description: Saiba como gerenciar políticas de indexação, incluir ou excluir uma propriedade da indexação, como definir a indexação usando diferentes SDKs de Azure Cosmos DB
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: thweiss
-ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: tisande
+ms.openlocfilehash: bdd5d986752e9d80d2967a8f5fd32491154fa236
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252071"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233933"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerenciar políticas de indexação no Azure Cosmos DB
 
@@ -19,7 +19,7 @@ No Azure Cosmos DB, os dados são indexados seguindo [políticas de indexação]
 
 ## <a name="indexing-policy-examples"></a>Exemplos de política de indexação
 
-Aqui estão alguns exemplos de políticas de indexação mostradas em [seu formato JSON](index-policy.md#include-exclude-paths), que é como elas são expostas no portal Azure. Os mesmos parâmetros podem ser definidos por meio da CLI do Azure ou qualquer SDK.
+Aqui estão alguns exemplos de políticas de indexação mostradas em [seu formato JSON](index-policy.md#include-exclude-paths), que é como elas são expostas no portal do Azure. Os mesmos parâmetros podem ser definidos por meio da CLI do Azure ou qualquer SDK.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Política de recusa para excluir seletivamente alguns caminhos de propriedade
 
@@ -42,7 +42,7 @@ Aqui estão alguns exemplos de políticas de indexação mostradas em [seu forma
     }
 ```
 
-Esta política de indexação é equivalente à ```kind``` ```dataType```abaixo ```precision``` da qual define manualmente , e aos seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las inteiramente de sua política de indexação (como mostrado no exemplo acima).
+Essa política de indexação é equivalente à seguinte que define ```kind```manualmente, ```dataType```e ```precision``` com seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las de sua política de indexação totalmente (como mostrado no exemplo acima).
 
 ```json
     {
@@ -96,7 +96,7 @@ Esta política de indexação é equivalente à ```kind``` ```dataType```abaixo 
     }
 ```
 
-Esta política de indexação é equivalente à ```kind``` ```dataType```abaixo ```precision``` da qual define manualmente , e aos seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las inteiramente de sua política de indexação (como mostrado no exemplo acima).
+Essa política de indexação é equivalente à seguinte que define ```kind```manualmente, ```dataType```e ```precision``` com seus valores padrão. Essas propriedades não são mais necessárias para definir explicitamente e você pode omiti-las de sua política de indexação totalmente (como mostrado no exemplo acima).
 
 ```json
     {
@@ -137,7 +137,7 @@ Esta política de indexação é equivalente à ```kind``` ```dataType```abaixo 
     }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Geralmente, é recomendável usar uma política de indexação de **recusa** para permitir que o Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Como usar um índice espacial em apenas um caminho de propriedade específico
@@ -172,7 +172,10 @@ Esta política de indexação é equivalente à ```kind``` ```dataType```abaixo 
 
 ## <a name="composite-indexing-policy-examples"></a>Exemplos de política de indexação composta
 
-Além de incluir ou excluir caminhos para as propriedades individuais, você também pode especificar um índice composto. Se quiser executar uma consulta que tem uma `ORDER BY` cláusula para várias propriedades, será necessário um [índice composto](index-policy.md#composite-indexes) com essas propriedades. Além disso, os índices compostos terão um benefício de desempenho para consultas que possuem um filtro e têm uma cláusula ORDER BY em diferentes propriedades.
+Além de incluir ou excluir caminhos para as propriedades individuais, você também pode especificar um índice composto. Se quiser executar uma consulta que tem uma `ORDER BY` cláusula para várias propriedades, será necessário um [índice composto](index-policy.md#composite-indexes) com essas propriedades. Além disso, os índices compostos terão um benefício de desempenho para consultas que têm um filtro e têm uma cláusula ORDER BY em propriedades diferentes.
+
+> [!NOTE]
+> Os caminhos compostos têm um `/?` implícito, pois apenas o valor escalar nesse caminho é indexado. Não `/*` há suporte para o curinga em caminhos compostos. Você não deve `/?` especificar `/*` ou em um caminho composto.
 
 ### <a name="composite-index-defined-for-name-asc-age-desc"></a>Índice composto definido para (nome asc, idade desc):
 
@@ -201,7 +204,7 @@ Além de incluir ou excluir caminhos para as propriedades individuais, você tam
     }
 ```
 
-O índice composto acima sobre nome e idade é necessário para consulta #1 e consulta #2:
+O índice composto acima em nome e idade é necessário para consulta #1 e #2 de consulta:
 
 Consulta nº 1:
 
@@ -219,9 +222,9 @@ Consulta nº 2:
     ORDER BY c.name DESC, c.age ASC
 ```
 
-Este índice composto beneficiará a consulta #3 e consulta #4 e otimizará os filtros:
+Esse índice composto beneficiará a consulta #3 e #4 de consulta e otimizará os filtros:
 
-Consulta #3:
+#3 de consulta:
 
 ```sql
 SELECT *
@@ -230,7 +233,7 @@ WHERE c.name = "Tim"
 ORDER BY c.name DESC, c.age ASC
 ```
 
-Consultar #4:
+#4 de consulta:
 
 ```sql
 SELECT *
@@ -320,7 +323,7 @@ Essa política pode ser usada em situações em que o [recurso TTL (Time-to-Live
 
 ### <a name="no-indexing"></a>Nenhuma indexação
 
-Esta política desligará a indexação. Se `indexingMode` estiver `none`definido como , não é possível definir um TTL no recipiente.
+Esta política desativará a indexação. Se `indexingMode` é definido como `none`, você não pode definir um TTL no contêiner.
 
 ```json
     {
@@ -328,25 +331,25 @@ Esta política desligará a indexação. Se `indexingMode` estiver `none`definid
     }
 ```
 
-## <a name="updating-indexing-policy"></a>Atualização da política de indexação
+## <a name="updating-indexing-policy"></a>Atualizando política de indexação
 
 No Azure Cosmos DB, a política de indexação pode ser atualizada usando qualquer um dos métodos abaixo:
 
 - do portal do Azure
 - usando a CLI do Azure
-- usando powershell
+- usando o PowerShell
 - usando um dos SDKs
 
 Uma [atualização de política de indexação](index-policy.md#modifying-the-indexing-policy) dispara uma transformação de índice. O andamento dessa transformação também pode ser acompanhado dos SDKs.
 
 > [!NOTE]
-> Ao atualizar a política de indexação, as gravações no Azure Cosmos DB serão ininterruptas. Durante a reindexação, as consultas podem retornar resultados parciais à medida que o índice estiver sendo atualizado.
+> Ao atualizar a política de indexação, as gravações para Azure Cosmos DB não serão interrompidas. Durante a reindexação, as consultas podem retornar resultados parciais à medida que o índice está sendo atualizado.
 
 ## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Contêineres do Azure Cosmos armazenam sua política de indexação como um documento JSON que o portal do Azure lhe permite editar diretamente.
 
-1. Faça login no [portal Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 1. Crie uma nova conta do Cosmos ou selecione uma conta existente.
 
@@ -362,15 +365,15 @@ Contêineres do Azure Cosmos armazenam sua política de indexação como um docu
 
 ## <a name="use-the-azure-cli"></a>Usar a CLI do Azure
 
-Para criar um contêiner com uma política de indexação personalizada veja, [crie um contêiner com uma política de índice personalizada usando cli](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
+Para criar um contêiner com uma política de indexação personalizada, consulte [criar um contêiner com uma política de índice personalizada usando a CLI](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
 
 ## <a name="use-powershell"></a>Usar o PowerShell
 
-Para criar um contêiner com uma política de indexação personalizada veja, [crie um contêiner com uma política de índice personalizada usando o Powershell](manage-with-powershell.md#create-container-custom-index)
+Para criar um contêiner com uma política de indexação personalizada, consulte [criar um contêiner com uma política de índice personalizada usando o PowerShell](manage-with-powershell.md#create-container-custom-index)
 
 ## <a name="use-the-net-sdk-v2"></a>Usar o SDK do .NET V2
 
-O `DocumentCollection` objeto do [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expõe `IndexingPolicy` uma propriedade `IndexingMode` que permite `IncludedPaths` `ExcludedPaths`alterar e adicionar ou remover e .
+O `DocumentCollection` objeto do [SDK do .net v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expõe uma `IndexingPolicy` propriedade que permite alterar `IndexingMode` e adicionar ou remover `IncludedPaths` e. `ExcludedPaths`
 
 ```csharp
 // Retrieve the container's details
@@ -398,9 +401,9 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Use o .NET SDK V3
+## <a name="use-the-net-sdk-v3"></a>Usar o SDK do .NET v3
 
-O `ContainerProperties` objeto do [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (veja [este Quickstart](create-sql-api-dotnet.md) `IndexingPolicy` em relação ao seu `IndexingMode` uso) `IncludedPaths` expõe `ExcludedPaths`uma propriedade que permite alterar o e adicionar ou remover e .
+O `ContainerProperties` objeto do [SDK do .net v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (consulte [este guia de início rápido](create-sql-api-dotnet.md) sobre seu uso `IndexingPolicy` ) expõe uma propriedade que permite `IndexingMode` alterar e adicionar ou `IncludedPaths` remover `ExcludedPaths`e.
 
 ```csharp
 // Retrieve the container's details
@@ -424,7 +427,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-Para acompanhar o progresso da `RequestOptions` transformação `PopulateQuotaInfo` do `true`índice, passe um `x-ms-documentdb-collection-index-transformation-progress` objeto que define a propriedade para , em seguida, recuperar o valor do cabeçalho de resposta.
+Para acompanhar o progresso da transformação do índice, `RequestOptions` passe um objeto que `PopulateQuotaInfo` define a `true`propriedade para e, em seguida, `x-ms-documentdb-collection-index-transformation-progress` recupere o valor do cabeçalho de resposta.
 
 ```csharp
 // retrieve the container's details
@@ -433,7 +436,7 @@ ContainerResponse containerResponse = await client.GetContainer("database", "con
 long indexTransformationProgress = long.Parse(containerResponse.Headers["x-ms-documentdb-collection-index-transformation-progress"]);
 ```
 
-Ao definir uma política de indexação personalizada ao criar um novo contêiner, a API fluente do SDK V3 permite que você escreva essa definição de forma concisa e eficiente:
+Ao definir uma política de indexação personalizada ao criar um novo contêiner, a API Fluent V3's do SDK permite que você escreva essa definição de maneira concisa e eficiente:
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -541,13 +544,13 @@ containerResponse.subscribe(result -> {
 
 A interface `ContainerDefinition` do [SDK do Node.js](https://www.npmjs.com/package/@azure/cosmos) (veja [este Início Rápido](create-sql-api-nodejs.md) quanto ao seu uso) expõe uma propriedade `indexingPolicy` que permite que você altere o `indexingMode` e adicione ou remova `includedPaths` e `excludedPaths`.
 
-Recupere os detalhes do contêiner
+Recuperar os detalhes do contêiner
 
 ```javascript
 const containerResponse = await client.database('database').container('container').read();
 ```
 
-Defina o modo de indexação como consistente
+Definir o modo de indexação como consistente
 
 ```javascript
 containerResponse.body.indexingPolicy.indexingMode = "consistent";
@@ -590,7 +593,7 @@ Adicionar caminho excluído
 containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
 ```
 
-Atualize o contêiner com alterações
+Atualizar o contêiner com alterações
 
 ```javascript
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
@@ -607,24 +610,24 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## <a name="use-the-python-sdk-v3"></a>Use o Python SDK V3
+## <a name="use-the-python-sdk-v3"></a>Usar o SDK V3 do Python
 
-Ao usar o [Python SDK V3](https://pypi.org/project/azure-cosmos/) (veja [este Quickstart](create-sql-api-python.md) em relação ao seu uso), a configuração do contêiner é gerenciada como um dicionário. Desse dicionário, é possível acessar a política de indexação e todos os seus atributos.
+Ao usar o [SDK V3 do Python](https://pypi.org/project/azure-cosmos/) (consulte este guia de [início rápido](create-sql-api-python.md) sobre seu uso), a configuração do contêiner é gerenciada como um dicionário. Desse dicionário, é possível acessar a política de indexação e todos os seus atributos.
 
-Recupere os detalhes do contêiner
+Recuperar os detalhes do contêiner
 
 ```python
 containerPath = 'dbs/database/colls/collection'
 container = client.ReadContainer(containerPath)
 ```
 
-Defina o modo de indexação como consistente
+Definir o modo de indexação como consistente
 
 ```python
 container['indexingPolicy']['indexingMode'] = 'consistent'
 ```
 
-Defina uma política de indexação com um caminho incluído e um índice espacial
+Definir uma política de indexação com um caminho incluído e um índice espacial
 
 ```python
 container["indexingPolicy"] = {
@@ -638,7 +641,7 @@ container["indexingPolicy"] = {
 }
 ```
 
-Defina uma política de indexação com um caminho excluído
+Definir uma política de indexação com um caminho excluído
 
 ```python
 container["indexingPolicy"] = {
@@ -665,17 +668,17 @@ container['indexingPolicy']['compositeIndexes'] = [
                 ]
 ```
 
-Atualize o contêiner com alterações
+Atualizar o contêiner com alterações
 
 ```python
 response = client.ReplaceContainer(containerPath, container)
 ```
 
-## <a name="use-the-python-sdk-v4"></a>Use o Python SDK V4
+## <a name="use-the-python-sdk-v4"></a>Usar o SDK do Python v4
 
-Ao usar o [Python SDK V4,](https://pypi.org/project/azure-cosmos/)a configuração do contêiner é gerenciada como um dicionário. Desse dicionário, é possível acessar a política de indexação e todos os seus atributos.
+Ao usar o [SDK do Python v4](https://pypi.org/project/azure-cosmos/), a configuração do contêiner é gerenciada como um dicionário. Desse dicionário, é possível acessar a política de indexação e todos os seus atributos.
 
-Recupere os detalhes do contêiner
+Recuperar os detalhes do contêiner
 
 ```python
 database_client = cosmos_client.get_database_client('database')
@@ -683,7 +686,7 @@ container_client = database_client.get_container_client('container')
 container = container_client.read()
 ```
 
-Defina o modo de indexação como consistente
+Definir o modo de indexação como consistente
 
 ```python
 indexingPolicy = {
@@ -691,7 +694,7 @@ indexingPolicy = {
 }
 ```
 
-Defina uma política de indexação com um caminho incluído e um índice espacial
+Definir uma política de indexação com um caminho incluído e um índice espacial
 
 ```python
 indexingPolicy = {
@@ -704,7 +707,7 @@ indexingPolicy = {
 }
 ```
 
-Defina uma política de indexação com um caminho excluído
+Definir uma política de indexação com um caminho excluído
 
 ```python
 indexingPolicy = {
@@ -731,7 +734,7 @@ indexingPolicy['compositeIndexes'] = [
 ]
 ```
 
-Atualize o contêiner com alterações
+Atualizar o contêiner com alterações
 
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
@@ -741,5 +744,5 @@ response = database_client.replace_container(container_client, container['partit
 
 Leia mais sobre indexação nos artigos a seguir:
 
-- [Visão geral de indexação](index-overview.md)
+- [Visão geral da indexação](index-overview.md)
 - [Política de indexação](index-policy.md)

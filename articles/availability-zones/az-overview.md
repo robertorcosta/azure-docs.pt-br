@@ -1,28 +1,54 @@
 ---
-title: O que são as Zonas de Disponibilidade do Azure?
-description: Para criar aplicativos altamente disponíveis e resilientes no Azure, as Zonas de Disponibilidade oferecem locais fisicamente separados que você pode usar para executar seus recursos.
+title: Regiões e Zonas de Disponibilidade no Azure
+description: Saiba mais sobre regiões e Zonas de Disponibilidade no Azure para atender aos seus requisitos técnicos e regulatórios.
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: e7ba62a96a6fc76ad63960cfe57f5b1f85589c32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 9014d446b29b9a81a807c002cd7f83a2c3bdaa51
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085035"
+ms.locfileid: "82231332"
 ---
-# <a name="what-are-availability-zones-in-azure"></a>O que são Zonas de Disponibilidade no Azure?
-Zonas de Disponibilidade é uma oferta de alta disponibilidade que protege os aplicativos e dados contra falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
+# <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
+
+Os serviços de Microsoft Azure estão disponíveis globalmente para orientar suas operações de nuvem em um nível ideal. Você pode escolher a melhor região para suas necessidades com base nas considerações técnicas e regulatórias: recursos de serviço, residência de dados, requisitos de conformidade e latência.
+
+## <a name="terminology"></a>Terminologia
+
+Para entender melhor as regiões e Zonas de Disponibilidade no Azure, é útil entender os principais termos ou conceitos.
+
+| Termo ou conceito | Descrição |
+| --- | --- |
+| region | Um conjunto de data centers implantado em um perímetro definido por latência e conectado por meio de uma rede regional de baixa latência. |
+| geografia | Uma área do mundo que contém pelo menos uma região do Azure. As regiões geográficas definem um mercado discreto que preserva os limites de conformidade e residência de dados. As geografias permitem que os clientes com necessidades de conformidade e de residência de dados específicas mantenham seus dados e aplicativos próximos. As geografias são tolerantes a falhas para resistir à falha de região completa por meio de sua conexão à nossa infraestrutura de rede de alta capacidade dedicada. |
+| Zona de disponibilidade | Locais físicos exclusivos em uma região. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. |
+| região recomendada | Uma região que fornece a mais ampla variedade de recursos de serviço e foi projetada para dar suporte a Zonas de Disponibilidade agora ou no futuro. Elas são designadas na portal do Azure conforme **recomendado**. |
+| região alternativa (outra) | Uma região que estende a superfície do Azure dentro de um limite de residência de dados em que também existe uma região recomendada. As regiões alternativas ajudam a otimizar a latência e a fornecer uma segunda região para as necessidades de recuperação de desastre. Eles não são projetados para dar suporte a Zonas de Disponibilidade (embora o Azure realize a avaliação regular dessas regiões para determinar se elas devem se tornar regiões recomendadas). Elas são designadas na portal do Azure como **outras**. |
+| serviço básico | Um serviço principal do Azure que está disponível em todas as regiões quando a região está geralmente disponível. |
+| serviço principal | Um serviço do Azure que está disponível em todas as regiões recomendadas dentro de 12 meses da disponibilidade geral de região/serviço ou da disponibilidade orientada por demanda em regiões alternativas. |
+| serviço especializado | Um serviço do Azure que é a disponibilidade orientada por demanda entre regiões apoiadas por hardware personalizado/especializado. |
+| serviço regional | Um serviço do Azure que é implantado regionalmente e permite que o cliente especifique a região na qual o serviço será implantado. Para obter uma lista completa, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=all). |
+| serviço não regional | Um serviço do Azure para o qual não há nenhuma dependência em uma região específica do Azure. Os serviços não regionais são implantados em duas ou mais regiões e, se houver uma falha regional, a instância do serviço em outra região continuará atendendo aos clientes. Para obter uma lista completa, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=all). |
+
+## <a name="regions"></a>Regiões
+
+Uma região é um conjunto de data centers implantados em um perímetro definido por latência e conectados por meio de uma rede regional de baixa latência. O Azure oferece a você a flexibilidade de implantar aplicativos onde você precisa, incluindo em várias regiões para fornecer resiliência entre regiões. Para obter mais informações, consulte [visão geral do pilar de resiliência](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview).
+
+## <a name="availability-zones"></a>Zonas de Disponibilidades
+
+Uma zona de disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
 
 Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
 Compila alta disponibilidade na arquitetura do aplicativo, colocalizando os recursos de computação, armazenamento, rede e dados em uma zona e replicando em outras zonas. Os serviços do Azure que fornecem suporte a Zonas de Disponibilidade enquadram-se em duas categorias:
 
-- **Serviços zonais** – você fixa o recurso em uma zona específica (por exemplo, máquinas virtuais, discos gerenciados, endereços IP padrão) ou
-- **Serviços com redundância de zona** – a plataforma replica automaticamente entre zonas (por exemplo, armazenamento com redundância de zona, Banco de Dados SQL).
+- **Serviços zonais** – onde um recurso é fixado em uma zona específica (por exemplo, máquinas virtuais, discos gerenciados, endereços IP padrão) ou
+- **Serviços com redundância de zona** – quando a plataforma do Azure é replicada automaticamente entre zonas (por exemplo, armazenamento com redundância de zona, banco de dados SQL).
 
 Para obter uma continuidade de negócios abrangente no Azure, compile a arquitetura do aplicativo usando a combinação de Zonas de Disponibilidade com pares de regiões do Azure. É possível replicar os aplicativos e dados de maneira síncrona usando Zonas de Disponibilidade em uma região do Azure para alta disponibilidade e replicação assíncrona em regiões do Azure para proteção de recuperação de desastre.
  
@@ -31,51 +57,109 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 > [!IMPORTANT]
 > Os identificadores de zona de disponibilidade (os números 1, 2 e 3 na imagem acima) são mapeados logicamente para as zonas físicas reais para cada assinatura de forma independente. Isso significa que a disponibilidade Zona 1 em uma determinada assinatura pode se referir a uma zona física diferente da Zona 1 de disponibilidade em uma assinatura diferente. Como consequência, é recomendável não confiar nas IDs de zona de disponibilidade em assinaturas diferentes para o posicionamento da máquina virtual.
 
-## <a name="services-support-by-region"></a>Suporte a serviços por região
+## <a name="region-and-service-categories"></a>Categorias de região e serviço
 
-As combinações de serviços e regiões do Azure que oferecem suporte a Zonas de Disponibilidade são:
+A abordagem do Azure sobre a disponibilidade de serviços do Azure entre regiões é melhor descrita pela expressa de serviços disponibilizados em regiões recomendadas e regiões alternativas.
 
+- **Região recomendada** -uma região que fornece a mais ampla variedade de recursos de serviço e é projetada para dar suporte a zonas de disponibilidade agora ou no futuro. Elas são designadas na portal do Azure conforme **recomendado**.
+- **Região alternativa (outro)** – uma região que estende a superfície do Azure dentro de um limite de residência de dados em que também existe uma região recomendada. As regiões alternativas ajudam a otimizar a latência e a fornecer uma segunda região para as necessidades de recuperação de desastre. Eles não são projetados para dar suporte a Zonas de Disponibilidade (embora o Azure realize a avaliação regular dessas regiões para determinar se elas devem se tornar regiões recomendadas). Elas são designadas na portal do Azure como **outras**.
 
-|                                 |Américas |              |           |           | Europa |              |          |              | Pacífico Asiático |                 |                |
-|----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |Centro dos EUA|Leste dos EUA|Leste dos EUA 2|Oeste dos EUA 2|França Central|Norte da Europa|Sul do Reino Unido|Europa Ocidental|Leste do Japão|Sudeste Asiático|Leste da Austrália|
-| **Compute**                         |            |              |           |           |                |              |          |             |            |                |                |
-| Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Conjuntos de Dimensionamento de Máquinas Virtuais      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| ILB ambientes de serviço de Azure App | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Serviço de Kubernetes do Azure        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Armazenamento**   |            |              |           |           |                |              |          |             |            |                |                |
-| Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Armazenamento com redundância de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Rede**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Endereço IP padrão        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| Gateway de VPN            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Gateway do ExpressRoute   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Gateway de aplicativo (v2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
-| Firewall do Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| **Bancos de dados**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Azure Data Explorer                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |                |
-| Banco de Dados SQL                    | &#10003;   | &#10003;     | &#10003;  | &#10003; (versão prévia) | &#10003;       | &#10003; (versão prévia)     | &#10003; | &#10003;    | &#10003;       | &#10003;       |&#10003;        |
-| Cache Redis do Azure           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |                |
-| Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; | &#10003; |       |     | &#10003; |  &#10003;   |            | &#10003;       |                |
-| **Análise**                       |            |              |           |           |                |              |          |             |            |                |                |
-| Hubs de Eventos                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |                |
-| **Integração**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Barramento de Serviço (somente Camada Premium) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
-| Grade de Eventos | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
-| **Identidade**                     |            |              |           |           |                |              |          |             |            |                |                |
-| Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
+### <a name="comparing-region-types"></a>Comparando tipos de região
 
-## <a name="services-resiliency"></a>Resiliência de serviços
+Os serviços do Azure são agrupados em três categorias: serviços básicos, básicos e especializados. A política geral do Azure sobre a implantação de serviços em qualquer região específica é controlada principalmente por tipo de região, categorias de serviço e demanda do cliente:
+
+- **Fundamental** – disponível em todas as regiões recomendadas e alternativas quando a região está disponível para o público geral ou dentro de 12 meses de um novo serviço básico ficando disponível para o público geral.
+- **Mainstream** – disponível em todas as regiões recomendadas dentro de 12 meses da disponibilidade geral de região/serviço; orientado por demanda em regiões alternativas (muitas já estão implantadas em um grande subconjunto de regiões alternativas).
+- Ofertas de serviços direcionadas **especializadas** , geralmente focadas no setor ou com suporte por hardware personalizado/especializado. Disponibilidade orientada por demanda entre regiões (muitas já estão implantadas em um grande subconjunto de regiões recomendadas).
+
+Para ver quais serviços são implantados em uma determinada região, bem como o roteiro futuro para visualização ou disponibilidade geral dos serviços em uma região, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=all).
+
+Se uma oferta de serviço não estiver disponível em uma região específica, você poderá compartilhar seu interesse entrando em contato com seu representante de vendas da Microsoft.
+
+| Tipo de região | Não regional | Foundational | Base | Especializada | Zonas de Disponibilidades | Residência de dadosResidência de dados |
+| --- | --- | --- | --- | --- | --- | --- |
+| Recomendadas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | :heavy_check_mark: | :heavy_check_mark: |
+| Alternativo | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | Controlado por demanda | N/D | :heavy_check_mark: |
+
+### <a name="services-by-category"></a>Serviços por categoria
+
+Conforme mencionado anteriormente, o Azure classifica os serviços em três categorias: fundamental, predominante e especializado. As categorias de serviço são atribuídas em disponibilidade geral. Geralmente, os serviços iniciam seu ciclo de vida como um serviço especializado e, à medida que a demanda e a utilização aumentam, podem ser promovidas ao básico ou básico. A tabela a seguir lista a categoria de serviços como básico, principal ou especializado. Você deve observar o seguinte sobre a tabela:
+
+- Alguns serviços não são regionais. Para obter informações e uma lista de serviços não regionais, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/).
+- As máquinas virtuais de geração mais antigas não são listadas. Para obter mais informações, consulte a documentação em [gerações anteriores de tamanhos de máquina virtual](../virtual-machines/sizes-previous-gen.md).
+
+> [!div class="mx-tableFixed"]
+> | Foundational | Base | Especializada |
+> | --- | --- | --- |
+> | Armazenamento de conta | Gerenciamento de API | API do Azure para FHIR |
+> | Gateway de Aplicativo | Configuração de aplicativos | Serviço do Azure Blockchain |
+> | Serviço de Backup do Azure | Serviço de Aplicativo | Azure Blueprints |
+> | Azure Cosmos DB | Automação | Banco de Dados do Azure para MariaDB |
+> | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | HSM Dedicado do Azure |
+> | Azure ExpressRoute | Azure Analysis Services | Espaços de Desenvolvimento do Azure |
+> | Banco de Dados SQL do Azure | Azure Bastion | Gêmeos Digitais do Azure |
+> | Serviços de Nuvem | Cache Redis do Azure | Azure Lab Services |
+> | Serviços de nuvem: série Av2 | Pesquisa Cognitiva do Azure | Azure NetApp Files |
+> | Serviços de nuvem: série Dv2 | Azure Data Explorer | Quantum do Azure |
+> | Serviços de nuvem: série Dv3 | Azure Data Share | Azure Time Series Insights |
+> | Serviços de nuvem: série Ev3 | Banco de Dados do Azure para MySQL | Solução VMware no Azure pela CloudSimple |
+> | Serviços de nuvem: IPs de nível de instância | Banco de Dados do Azure para PostgreSQL | Serviços de nuvem: A8-a11 (computação intensiva) |
+> | Serviços de nuvem: IP Reservado | Serviço de Migração de Banco de Dados do Azure | Serviços de nuvem: série G |
+> | Armazenamento em disco | Azure Databricks | Serviços de nuvem: série H |
+> | Hubs de Eventos | Proteção contra DDoS do Azure | Serviços cognitivas: detector de anomalias |
+> | Key Vault | Azure DevTest Labs | Serviços cognitivas: Visão Personalizada |
+> | Balanceador de carga | Gerenciador de Firewall do Azure | Serviços cognitivas: Reconhecimento do Locutor |
+> | Barramento de Serviço | Firewall do Azure | Data Box Heavy |
+> | Service Fabric | Funções do Azure | Catálogo de Dados |
+> | Conjuntos de Dimensionamento de Máquinas Virtuais | Azure HPC Cache | Data Factory: Data Factory v1 |
+> | Máquinas Virtuais | Hub IoT do Azure | Data Lake Analytics |
+> | Máquinas virtuais: Av2-Series | AKS (Serviço de Kubernetes do Azure) | Machine Learning Studio |
+> | Máquinas virtuais: BS-Series | Azure Machine Learning | Microsoft Genomics |
+> | Máquinas virtuais: DSv2-Series | Link Privado do Azure | Remote Rendering |
+> | Máquinas virtuais: DSv3-Series | Red Hat OpenShift no Azure | Âncoras Espaciais |
+> | Máquinas virtuais: Dv2-Series | Azure Site Recovery | StorSimple |
+> | Máquinas virtuais: Dv3-Series | Serviço de nuvem do Azure Spring | Video Indexer |
+> | Máquinas virtuais: ESv3-Series | Hub de Azure Stack | Máquinas virtuais: A8-a11 (computação intensiva) |
+> | Máquinas virtuais: Ev3-Series | Stream Analytics do Azure | Máquinas virtuais: DASv4-Series |
+> | Máquinas virtuais: série F | Azure Synapse Analytics | Máquinas virtuais: DAv4-Series |
+> | Máquinas virtuais: série FS | Serviço Azure SignalR | Máquinas virtuais: DCsv2-Series |
+> | Máquinas virtuais: IPs de nível de instância | Lote | Máquinas virtuais: EASv4-Series |
+> | Máquinas virtuais: IP Reservado | Serviços de nuvem: série M | Máquinas virtuais: EAv4-Series |
+> | Rede Virtual | Serviços Cognitivos | Máquinas virtuais: série G |
+> | Gateway de VPN | Serviços cognitivas: Pesquisa Visual Computacional | Máquinas virtuais: GS-Series |
+> |  | Serviços cognitivas: Content Moderator | Máquinas virtuais: HBv1-Series |
+> |  | Serviços cognitivas: face | Máquinas virtuais: HBv2-Series |
+> |  | Serviços cognitivas: Reconhecimento vocal | Máquinas virtuais: HCv1-Series |
+> |  | Serviços cognitivas: serviços de fala | Máquinas virtuais: série H |
+> |  | Serviços Cognitivos: QnA Maker | Máquinas virtuais: série LS |
+> |  | Instâncias de Contêiner | Máquinas virtuais: LSv2-Series |
+> |  | Registro de Contêiner | Máquinas virtuais: Mv2-Series |
+> |  | Data Factory | Máquinas virtuais: NC-Series |
+> |  | Grade de Eventos | Máquinas virtuais: NCv2-Series |
+> |  | HDInsight | Máquinas virtuais: NCv3-Series |
+> |  | Aplicativos Lógicos | Máquinas virtuais: NDs-Series |
+> |  | Serviços de mídia | Máquinas virtuais: NDv2-Series |
+> |  | Observador de Rede | Máquinas virtuais: NV-Series |
+> |  | Hubs de Notificação | Máquinas virtuais: NVv3-Series |
+> |  | Power BI Embedded | Máquinas virtuais: NVv4-Series |
+> |  | Armazenamento de blob Premium | Máquinas virtuais: SAP HANA em Instâncias Grandes do Azure |
+> |  | Armazenamento de arquivos Premium | Visual Studio App Center |
+> |  | Armazenamento: Armazenamento de Arquivos |  |
+> |  | Ultra Armazenamento em Disco |  |
+> |  | Máquinas virtuais: Fsv2-Series |  |
+> |  | Máquinas virtuais: série M |  |
+> |  | WAN Virtual |  |
+
+###  <a name="services-resiliency"></a>Resiliência de serviços
+
 Todos os serviços de gerenciamento do Azure são arquitetados para serem resilientes de falhas no nível de região. No espectro de falhas, uma ou mais falhas de zona de disponibilidade em uma região têm um raio de falha menor em comparação a uma falha de região inteira. O Azure pode se recuperar de uma falha no nível de zona dos serviços de gerenciamento dentro da região ou de outra região do Azure. O Azure realiza uma manutenção crítica em uma zona por vez dentro de uma região, para evitar falhas que afetem os recursos do cliente implantados em Zonas de Disponibilidade dentro de uma região.
 
-## <a name="pricing"></a>Preços
+### <a name="pricing-for-vms-in-availability-zones"></a>Preços para VMs no Zonas de Disponibilidade
+
 Não há custo adicional para máquinas virtuais implantadas em uma Zona de Disponibilidade. O SLA de 99,99% de tempo de atividade da VM é oferecido quando duas ou mais VMs são implantadas em duas ou mais Zonas de Disponibilidade dentro de uma região do Azure. Haverá encargos de transferência de dados adicionais de VM para VM entre Zona de Disponibilidade. Para obter mais informações, consulte a página [Preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
+### <a name="get-started-with-availability-zones"></a>Introdução às Zonas de Disponibilidade
 
-## <a name="get-started-with-availability-zones"></a>Introdução às Zonas de Disponibilidade
 - [Criar uma máquina virtual](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Adicionar um Disco Gerenciado usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
@@ -92,4 +176,6 @@ Não há custo adicional para máquinas virtuais implantadas em uma Zona de Disp
 - [Criar um cluster AKS (serviço de kubernetes do Azure) que usa Zonas de Disponibilidade](../aks/availability-zones.md)
 
 ## <a name="next-steps"></a>Próximas etapas
+
+- [Regiões que dão suporte a Zonas de Disponibilidade no Azure](az-region.md)
 - [Modelos de início rápido](https://aka.ms/azqs)

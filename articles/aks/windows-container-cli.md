@@ -1,98 +1,61 @@
 ---
-title: Executar o contêiner do Windows Server no cluster Azure Kubernetes Service
-description: Aprenda a criar rapidamente um cluster Kubernetes, implante um aplicativo em um contêiner do Windows Server no Azure Kubernetes Service (AKS) usando o Azure CLI.
+title: Criar um contêiner do Windows Server em um cluster do AKS (serviço kubernetes do Azure)
+description: Saiba como criar rapidamente um cluster kubernetes, implantar um aplicativo em um contêiner do Windows Server no AKS (serviço kubernetes do Azure) usando o CLI do Azure.
 services: container-service
 ms.topic: article
-ms.date: 01/27/2020
-ms.openlocfilehash: 2aecebcc45cb24c9ab3a594aa4d74b1584c7ffa7
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.date: 04/14/2020
+ms.openlocfilehash: 148ba900839c6eaf031416b0884778edded5735c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392669"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208101"
 ---
-# <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Visualização - Crie um contêiner do Windows Server em um cluster Azure Kubernetes Service (AKS) usando o Azure CLI
+# <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Criar um contêiner do Windows Server em um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
 
-O AKS (Serviço de Kubernetes do Azure) é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Neste artigo, você implanta um cluster AKS usando o Cli do Azure. Você também implanta um aplicativo de amostra de ASP.NET em um contêiner do Windows Server para o cluster.
+O AKS (Serviço de Kubernetes do Azure) é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Neste artigo, você implanta um cluster AKS usando o CLI do Azure. Você também implanta um aplicativo de exemplo ASP.NET em um contêiner do Windows Server para o cluster.
 
-Esse recurso está atualmente na visualização.
+![Imagem de navegação para o aplicativo de exemplo ASP.NET](media/windows-container/asp-net-sample-app.png)
 
-![Imagem de navegação para ASP.NET aplicativo de amostra](media/windows-container/asp-net-sample-app.png)
-
-Este artigo assume uma compreensão básica dos conceitos kubernetes. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
+Este artigo pressupõe uma compreensão básica dos conceitos de kubernetes. Para obter mais informações, confira [Principais conceitos do Kubernetes para o AKS (Serviço de Kubernetes do Azure)][kubernetes-concepts].
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar o CLI localmente, este artigo requer que você esteja executando a versão 2.0.61 do Azure CLI ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
-
-## <a name="before-you-begin"></a>Antes de começar
-
-Você deve adicionar um pool de nó adicional depois de criar seu cluster que pode executar contêineres do Windows Server. A adição de um pool adicional de nó é coberta em uma etapa posterior, mas primeiro você precisa ativar alguns recursos de visualização.
-
-> [!IMPORTANT]
-> Os recursos de visualização do AKS são opt-in de autoatendimento. As visualizações são fornecidas "como está" e "conforme disponível" e são excluídas dos contratos de nível de serviço e garantia limitada. As visualizações aks são parcialmente cobertas pelo suporte ao cliente na melhor base de esforço. Como tal, esses recursos não são destinados ao uso da produção. Para obter uma infromation adicional, consulte os seguintes artigos de suporte:
->
-> * [Políticas de suporte da AKS][aks-support-policies]
-> * [Perguntas frequentes sobre o suporte do Azure.][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
-Para usar os contêineres do Windows Server, você precisa da versão CLI *de visualização aks* versão 0.4.12 ou superior. Instale a extensão *aks-preview* Azure CLI usando o comando [az extension add][az-extension-add] e verifique se há atualizações disponíveis usando o comando [az extension update::][az-extension-update]
+Para usar contêineres do Windows Server, você precisa da extensão da CLI do *AKs* versão 0.4.12 ou superior. Instale a extensão de CLI do Azure *de AKs-Preview* usando o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] ::
 
 ```azurecli-interactive
 # Install the aks-preview extension
 az extension add --name aks-preview
-
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
 
-### <a name="register-windows-preview-feature"></a>Registre o recurso de visualização do Windows
-
-Para criar um cluster AKS que pode usar vários pools de nó e executar contêineres do Windows Server, primeiro habilite os sinalizadores de recurso *do WindowsPreview* em sua assinatura. O recurso *WindowsPreview* também usa clusters de pool de vários nós e conjunto de escala de máquina virtual para gerenciar a implantação e configuração dos ádenos Kubernetes. Registre o sinalizador de recurso *do WindowsPreview* usando o comando [az feature register][az-feature-register] como mostrado no exemplo a seguir:
-
-```azurecli-interactive
-az feature register --name WindowsPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Qualquer cluster AKS que você criar depois de registrar com sucesso o sinalizador de recurso *do WindowsPreview* use essa experiência de cluster de visualização. Para continuar a criar clusters regulares e totalmente suportados, não habilite recursos de visualização em assinaturas de produção. Use uma assinatura separada do Teste ou desenvolvimento do Azure para testar recursos de visualização.
-
-Leva alguns minutos para o registro ser concluído. Verifique o status de registro usando o comando [az feature list:][az-feature-list]
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
-```
-
-Quando o estado `Registered`de registro for, pressione ctrl-C para parar de monitorar o estado.  Em seguida, atualize o registro do provedor de recursos *Microsoft.ContainerService* usando o comando [az provider register:][az-provider-register]
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 ### <a name="limitations"></a>Limitações
 
-As seguintes limitações se aplicam quando você cria e gerencia clusters AKS que suportam vários pools de nó:
+As seguintes limitações se aplicam quando você cria e gerencia clusters AKS que dão suporte a vários pools de nós:
 
-* Você não pode excluir a primeira piscina de nó.
+* Não é possível excluir o primeiro pool de nós.
 
-Enquanto esse recurso estiver em visualização, as seguintes limitações adicionais se aplicam:
+As seguintes limitações adicionais se aplicam aos pools de nós do Windows Server:
 
-* O cluster AKS pode ter um máximo de oito piscinas de nó.
-* O cluster AKS pode ter um máximo de 400 nódulos nessas oito piscinas de nó.
-* O nome do pool do nó do Servidor Windows tem um limite de 6 caracteres.
+* O cluster AKS pode ter um máximo de 10 pools de nós.
+* O cluster AKS pode ter um máximo de 100 nós em cada pool de nós.
+* O nome do pool de nós do Windows Server tem um limite de 6 caracteres.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Ao criar um grupo de recursos, você é solicitado a especificar um local. Essa é a localização na qual os metadados do grupo de recursos são armazenados e na qual os recursos são executados no Azure, caso você não especifique outra região durante a criação de recursos. Crie um grupo de recursos usando o comando [az group create][az-group-create].
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no *local eastus.*
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 > [!NOTE]
-> Este artigo usa a sintaxe Bash para os comandos neste tutorial.
-> Se você estiver usando o Azure Cloud Shell, certifique-se de que a queda no canto superior esquerdo da janela Cloud Shell esteja definida como **Bash**.
+> Este artigo usa a sintaxe bash para os comandos neste tutorial.
+> Se você estiver usando Azure Cloud Shell, verifique se a lista suspensa no canto superior esquerdo da janela Cloud Shell está definida como **bash**.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -116,45 +79,33 @@ A seguinte saída de exemplo mostra o grupo de recursos criado com êxito:
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
-Para executar um cluster AKS que suporta pools de nó para contêineres do Windows Server, seu cluster precisa usar uma política de rede que use o plugin de rede [Azure CNI][azure-cni-about] (avançado). Para obter informações mais detalhadas para ajudar a planejar as faixas de sub-rede e considerações de rede necessárias, consulte [configurar a rede CNI do Azure][use-advanced-networking]. Use o comando [az aks create][az-aks-create] para criar um cluster AKS chamado *myAKSCluster*. Este comando criará os recursos de rede necessários se eles não existirem.
-  * O cluster é configurado com dois nós
-  * Os parâmetros *de nome de usuário* do administrador do Windows e do *windows-admin* definem as credenciais de administrador para quaisquer contêineres do Windows Server criados no cluster.
+Para executar um cluster AKS que dá suporte a pools de nós para contêineres do Windows Server, o cluster precisa usar uma política de rede que usa o plug-in de rede [CNI do Azure][azure-cni-about] (avançado). Para obter informações mais detalhadas para ajudar a planejar os intervalos de sub-rede e as considerações de rede necessários, consulte [Configurar a rede CNI do Azure][use-advanced-networking]. Use o comando [AZ AKs Create][az-aks-create] abaixo para criar um cluster AKs chamado *myAKSCluster*. Esse comando criará os recursos de rede necessários, se eles não existirem.
 
 > [!NOTE]
-> Para garantir que o cluster funcione de forma confiável, você deve executar pelo menos 2 (dois) nódulos no pool de nó padrão.
-
-Forneça sua própria *PASSWORD_WIN* segura (lembre-se de que os comandos deste artigo são inseridos em uma concha BASH):
+> Para garantir que o cluster opere de forma confiável, você deve executar pelo menos 2 (dois) nós no pool de nós padrão.
 
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
-
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.15.7 \
+    --kubernetes-version 1.16.7 \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --enable-vmss \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --network-plugin azure
 ```
 
 > [!Note]
-> Se você tiver um erro de validação de senha, tente criar seu grupo de recursos em outra região.
-> Em seguida, tente criar o cluster com o novo grupo de recursos.
+> Se não for possível criar o cluster AKS porque a versão não tem suporte nesta região, você poderá usar o comando [AZ AKs Get-Versions--Location lesteus] para localizar a lista de versões com suporte para essa região.
 
-> [!Note]
-> Se você não conseguir criar o cluster AKS porque a versão não é suportada nesta região, então você pode usar o comando [az aks get-versions --location eastus] para encontrar a lista de versões suportadas para esta região.
+Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster. Ocasionalmente, o cluster pode levar mais de alguns minutos para ser provisionado. Aguarde até 10 minutos nesses casos.
 
+## <a name="add-a-windows-server-node-pool"></a>Adicionar um pool de nós do Windows Server
 
-Após alguns minutos, o comando será concluído e retornará informações no formato JSON sobre o cluster. Ocasionalmente, o cluster pode levar mais de alguns minutos para provisionar. Aguarde até 10 minutos nesses casos. 
-
-## <a name="add-a-windows-server-node-pool"></a>Adicionar um pool de nó do Servidor Windows
-
-Por padrão, um cluster AKS é criado com um pool de nós que pode executar contêineres Linux. Use `az aks nodepool add` o comando para adicionar um pool de nó adicional que pode executar contêineres do Windows Server.
+Por padrão, um cluster AKS é criado com um pool de nós que pode executar contêineres do Linux. Use `az aks nodepool add` o comando para adicionar um pool de nós adicional que pode executar contêineres do Windows Server juntamente com o pool de nós do Linux.
 
 ```azurecli
 az aks nodepool add \
@@ -163,10 +114,10 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.15.7
+    --kubernetes-version 1.16.7
 ```
 
-O comando acima cria um novo pool de nó chamado *npwin* e o adiciona ao *myAKSCluster*. Ao criar um pool de nó para executar contêineres do Windows Server, o valor padrão para *tamanho de nó-vm* é *Standard_D2s_v3*. Se você optar por definir o parâmetro *tamanho nó-vm,* verifique a lista de [tamanhos de VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é *Standard_D2s_v3*. O comando acima também usa a sub-rede padrão `az aks create`na vnet padrão criada ao ser executado .
+O comando acima cria um novo pool de nós chamado *npwin* e o adiciona ao *myAKSCluster*. Ao criar um pool de nós para executar contêineres do Windows Server, o valor padrão do *nó-VM-size* é *Standard_D2s_v3*. Se você optar por definir o parâmetro *nó-VM-size* , verifique a lista de [tamanhos de VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é *Standard_D2s_v3*. O comando acima também usa a sub-rede padrão na vnet padrão criada durante a execução `az aks create`.
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
 
@@ -188,19 +139,19 @@ Para verificar a conexão com o cluster, use o comando [kubectl get][kubectl-get
 kubectl get nodes
 ```
 
-A saída do exemplo a seguir mostra todos os nós no cluster. Certifique-se de que o status de todos os nós está *pronto:*
+A saída de exemplo a seguir mostra todos os nós no cluster. Verifique se o status de todos os nós está *pronto*:
 
 ```output
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
-aksnpwin987654                      Ready    agent   108s   v1.15.7
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
+aksnpwin987654                      Ready    agent   108s   v1.16.7
 ```
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Um arquivo de manifesto do Kubernetes define um estado desejado para o cluster, como as imagens de contêiner a serem executadas. Neste artigo, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo de amostra ASP.NET em um contêiner do Windows Server. Este manifesto inclui uma [implantação do Kubernetes][kubernetes-deployment] para o aplicativo de amostra de ASP.NET e um serviço externo [kubernetes][kubernetes-service] para acessar o aplicativo a partir da internet.
+Um arquivo de manifesto do Kubernetes define um estado desejado para o cluster, como as imagens de contêiner a serem executadas. Neste artigo, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo de exemplo ASP.NET em um contêiner do Windows Server. Esse manifesto inclui uma [implantação do kubernetes][kubernetes-deployment] para o aplicativo de exemplo ASP.net e um [serviço kubernetes][kubernetes-service] externo para acessar o aplicativo da Internet.
 
-O aplicativo de exemplo ASP.NET é fornecido como parte do [.NET Framework Samples][dotnet-samples] e executado em um contêiner do Windows Server. O AKS exige que os contêineres do Windows Server sejam baseados em imagens do *Windows Server 2019* ou superior. O arquivo manifesto Kubernetes também deve definir um [seletor de nó][node-selector] para dizer ao seu cluster AKS para executar o pod do aplicativo de amostra de ASP.NET em um nó que pode executar contêineres do Windows Server.
+O aplicativo de exemplo ASP.NET é fornecido como parte do [.NET Framework amostras][dotnet-samples] e é executado em um contêiner do Windows Server. O AKS requer que os contêineres do Windows Server sejam baseados em imagens do *Windows Server 2019* ou superior. O arquivo de manifesto kubernetes também deve definir um [seletor de nó][node-selector] para instruir o cluster AKs a executar o Pod do aplicativo de exemplo ASP.net em um nó que possa executar contêineres do Windows Server.
 
 Crie um arquivo chamado `sample.yaml` e copie a definição YAML a seguir. Se você usar o Azure Cloud Shell, esse arquivo poderá ser criado usando `vi` ou `nano`, como se você estivesse trabalhando em um sistema físico ou virtual:
 
@@ -256,7 +207,7 @@ Implante o aplicativo usando o comando [kubectl apply][kubectl-apply] e especifi
 kubectl apply -f sample.yaml
 ```
 
-O exemplo a seguir mostra a implantação e o serviço criados com sucesso:
+A saída de exemplo a seguir mostra a implantação e o serviço criados com êxito:
 
 ```output
 deployment.apps/sample created
@@ -265,7 +216,7 @@ service/sample created
 
 ## <a name="test-the-application"></a>Testar o aplicativo
 
-Quando o aplicativo é executado, um serviço de Kubernetes expõe o front-end do aplicativo à Internet. A conclusão desse processo pode levar alguns minutos. Ocasionalmente, o serviço pode levar mais do que alguns minutos para ser provido. Aguarde até 10 minutos nesses casos.
+Quando o aplicativo é executado, um serviço de Kubernetes expõe o front-end do aplicativo à Internet. A conclusão desse processo pode levar alguns minutos. Ocasionalmente, o serviço pode levar mais de alguns minutos para ser provisionado. Aguarde até 10 minutos nesses casos.
 
 Para monitorar o andamento, use o comando [kubectl get service][kubectl-get] com o argumento `--watch`.
 
@@ -273,7 +224,7 @@ Para monitorar o andamento, use o comando [kubectl get service][kubectl-get] com
 kubectl get service sample --watch
 ```
 
-Inicialmente, o *IP EXTERNO* para o serviço *de amostra* é mostrado como *pendente*.
+Inicialmente, o *IP externo* para o serviço de *exemplo* é mostrado como *pendente*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -288,10 +239,10 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Para ver o aplicativo de exemplo em ação, abra um navegador da Web para o endereço IP externo do seu serviço.
 
-![Imagem de navegação para ASP.NET aplicativo de amostra](media/windows-container/asp-net-sample-app.png)
+![Imagem de navegação para o aplicativo de exemplo ASP.NET](media/windows-container/asp-net-sample-app.png)
 
 > [!Note]
-> Se você receber um tempo de conexão ao tentar carregar a página, você deve verificar se o aplicativo de amostra está pronto com o seguinte comando [kubectl obter pods --watch]. Às vezes, o recipiente do windows não será iniciado quando seu endereço IP externo estiver disponível.
+> Se você receber um tempo limite de conexão ao tentar carregar a página, verifique se o aplicativo de exemplo está pronto com o seguinte comando [kubectl Get pods--Watch]. Às vezes, o contêiner do Windows não será iniciado no momento em que o endereço IP externo estiver disponível.
 
 ## <a name="delete-cluster"></a>Excluir cluster
 
@@ -302,16 +253,16 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Quando você excluir o cluster, a entidade de serviço do Azure Active Directory usada pelo cluster do AKS não será removida. Para obter etapas sobre como remover a entidade de serviço, veja [Considerações sobre a entidade de segurança e a exclusão de serviço AKS][sp-delete]. Se você usou uma identidade gerenciada, a identidade é gerenciada pela plataforma e não requer remoção.
+> Quando você excluir o cluster, a entidade de serviço do Azure Active Directory usada pelo cluster do AKS não será removida. Para obter as etapas para remover a entidade de serviço, confira [Considerações sobre a entidade de serviço do AKS e sua exclusão][sp-delete]. Se você tiver usado uma identidade gerenciada, ela será gerenciada pela plataforma e não exigirá remoção.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você implantou um cluster Kubernetes e implantou um aplicativo de amostra de ASP.NET em um contêiner do Windows Server para ele. [Acesse o painel da Web do Kubernetes][kubernetes-dashboard] para o cluster recém-criado.
+Neste artigo, você implantou um cluster kubernetes e implantou um aplicativo de exemplo ASP.NET em um contêiner do Windows Server para ele. [Acesse o painel da Web do Kubernetes][kubernetes-dashboard] para o cluster recém-criado.
 
 Para saber mais sobre o AKS e percorrer um código completo de exemplo de implantação, prossiga para o tutorial de cluster Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Tutorial aKS][aks-tutorial]
+> [Tutorial do AKS][aks-tutorial]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

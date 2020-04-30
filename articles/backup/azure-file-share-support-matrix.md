@@ -3,12 +3,12 @@ title: Matriz de suporte para backup de compartilhamento de arquivos do Azure
 description: Fornece um resumo das configurações de suporte e limitações ao fazer backup de compartilhamentos de arquivos do Azure.
 ms.topic: conceptual
 ms.date: 1/26/2020
-ms.openlocfilehash: 03190c6b83fceec88442583a57ff46756cfe6221
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3f154f92d8d094654301bc319003adc22299017b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195682"
+ms.locfileid: "82207980"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para backup de compartilhamento de arquivos do Azure
 
@@ -20,13 +20,13 @@ O backup para compartilhamentos de arquivos do Azure está disponível no seguin
 
 | Regiões de GA | Regiões com suporte, mas não GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Sudeste da Austrália (ASE), centro-Canadá (CNC), Oeste EUA Central (WCUS), oeste dos EUA 2 (WUS 2), sul da Índia (INS), norte EUA Central (NCUS), leste do Japão (JPE), sul do Brasil (BRS), Sul Ásia Oriental (SEA)                                                     |Leste da Austrália (AE), leste do Canadá (CE), Ásia Oriental (EA), leste dos EUA (EUS), leste dos EUA 2 (EUS2), oeste do Japão (JPW), Índia central (INC), Coreia central (KRC), sul da Coreia (KRS), Europa Setentrional (NE), Sul EUA Central (SCUS), Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW), Europa Ocidental (nós), oeste dos EUA (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov-Virgínia (UGV), central da Austrália (ACL) , Índia ocidental (INW), norte da África do Sul (SAN), Norte dos EAU (UAN), França central (FRC), Norte da Alemanha (GN), Centro-oeste da Alemanha (GWC), África do Sul Oeste (visto), EAU Central (UAC), leste da Noruega (né), Noruega ocidental (NWW), Norte da Suíça (SZN), EUA Central (CUS)           |
+| Sudeste da Austrália (ASE), Canadá central (CNC), Oeste EUA Central (WCUS), oeste dos EUA 2 (WUS 2), sul da Índia (INS), norte EUA Central (NCUS), leste do Japão (JPE), sul do Brasil (BRS), Sul Ásia Oriental (SEA), Oeste da Suíça (SZW), EAU Central (UAC), leste da Noruega (né), Índia ocidental (INW), Austrália Central                                                  |Leste da Austrália (AE), leste do Canadá (CE), Ásia Oriental (EA), leste dos EUA (EUS), leste dos EUA 2 (EUS2), oeste do Japão (JPW), Índia central (INC), Coreia central (KRC), sul da Coreia (KRS), Europa Setentrional (NE), Sul EUA Central (SCUS), Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW), Europa Ocidental (nós), oeste dos EUA (WUS), US Gov Arizona (UGA), US Gov Texas (UGT), US Gov-Virgínia (UGV), África do Sul (SAN) , Norte dos EAU (UAN), França central (FRC), Norte da Alemanha (GN), Centro-oeste da Alemanha (GWC), África do Sul Oeste (visto), oeste da Noruega (NWW), Norte da Suíça (SZN), EUA Central (CUS)           |
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 
 | Detalhes da conta de armazenamento | Suporte                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo de conta            | O backup do Azure dá suporte a compartilhamentos de arquivos do Azure presentes no uso geral v1, de uso geral V2 e do tipo de compartilhamento de arquivo contas de armazenamento |
+| Tipo de conta            | O backup do Azure dá suporte a compartilhamentos de arquivos do Azure presentes nas contas de armazenamento de tipo v1, com finalidade geral V2 e tipos de armazenamento de arquivos |
 | Desempenho              | O backup do Azure dá suporte a compartilhamentos de arquivos nas contas de armazenamento Standard e Premium |
 | Replicação              | Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento com qualquer tipo de replicação |
 
@@ -41,21 +41,21 @@ O backup para compartilhamentos de arquivos do Azure está disponível no seguin
 
 ## <a name="protection-limits"></a>Limites de proteção
 
-| Configuração                                                      | Limite |
+| Setting                                                      | Limite |
 | ------------------------------------------------------------ | ----- |
 | Número máximo de compartilhamentos de arquivos que podem ser protegidos por dia por cofre | 200   |
 | Número máximo de contas de armazenamento que podem ser registradas por cofre por dia | 50    |
 
 ## <a name="backup-limits"></a>Limites do Backup
 
-| Configuração                                      | Limite |
+| Setting                                      | Limite |
 | -------------------------------------------- | ----- |
 | Número máximo de backups sob demanda por dia | 4     |
 | Número máximo de backups agendados por dia | 1     |
 
 ## <a name="restore-limits"></a>Restaurar limites
 
-| Configuração                                                      | Limite   |
+| Setting                                                      | Limite   |
 | ------------------------------------------------------------ | ------- |
 | Número máximo de restaurações por dia                           | 10      |
 | Número máximo de arquivos por restauração                         | 10      |
@@ -63,7 +63,7 @@ O backup para compartilhamentos de arquivos do Azure está disponível no seguin
 
 ## <a name="retention-limits"></a>Limites de retenção
 
-| Configuração                                                      | Limite    |
+| Setting                                                      | Limite    |
 | ------------------------------------------------------------ | -------- |
 | Total máximo de pontos de recuperação por compartilhamento de arquivos a qualquer momento | 200      |
 | Retenção máxima do ponto de recuperação criado pelo backup sob demanda | 10 anos |

@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2020
-ms.openlocfilehash: 24eacb555704593fe44bc2d949de44de163345bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/29/2020
+ms.openlocfilehash: fba1dcdb8c4e5cfaa8071ae58ad75432b526c887
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677112"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509696"
 ---
 # <a name="manage-azure-sql-database-managed-instance-long-term-backup-retention-powershell"></a>Gerenciar o PowerShell (retenção de backup de longo prazo) da instância gerenciada do banco de dados SQL do Azure
 
 Na instância gerenciada do banco de dados SQL do Azure, você pode configurar uma EPD (política de retenção de backup) de [longo prazo](sql-database-long-term-retention.md#managed-instance-support) como um recurso de visualização pública limitada. Isso permite que você mantenha automaticamente os backups de banco de dados em contêineres separados do armazenamento de BLOBs do Azure por até 10 anos. Em seguida, você pode recuperar um banco de dados usando esses backups com o PowerShell.
 
    > [!IMPORTANT]
-   > A EPD para instâncias gerenciadas está atualmente em visualização limitada e disponível para assinaturas EA e CSP caso a caso. Para solicitar o registro, crie um [tíquete de suporte do Azure](https://azure.microsoft.com/support/create-ticket/) no tópico de suporte **backup, restauração e continuidade de negócios/retenção de backup de longo prazo**. 
-
+   > A EPD para instâncias gerenciadas está atualmente em visualização limitada e disponível para assinaturas EA e CSP caso a caso. Para solicitar o registro, crie um [tíquete de suporte do Azure](https://azure.microsoft.com/support/create-ticket/). Para tipo de problema, selecione problema técnico, para serviço escolha Instância Gerenciada do Banco de Dados SQL e para o tipo de problema, selecione **backup, restauração e continuidade de negócios/retenção de backup de longo prazo**. Em sua solicitação, informe que você gostaria de estar registrado na visualização pública limitada de EPD para a instância gerenciada.
 
 As seções a seguir mostram como usar o PowerShell para configurar a retenção de backup de longo prazo, exibir backups no armazenamento do SQL do Azure e restaurar a partir de um backup no armazenamento do SQL do Azure.
 

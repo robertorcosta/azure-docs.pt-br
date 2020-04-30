@@ -10,19 +10,22 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
-ms.date: 01/25/2019
-ms.openlocfilehash: f28269b067ee98d69a97799911fd2d84a7f91e34
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 04/28/2020
+ms.openlocfilehash: 49be53febc1783edfa16fd019a094a7e80e1cdf7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81381139"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231638"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação para bancos de dados individuais e em pool do Banco de Dados SQL
 
 A replicação do SQL Server pode ser configurada para bancos de dados únicos e em pool em um [servidor do Banco de Dados SQL](sql-database-servers.md) no Banco de Dados SQL do Azure.  
 
-## <a name="supported-configurations"></a>**Configurações com suporte:**
+> [!NOTE]
+> Este artigo descreve o uso da [replicação transacional](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) no banco de dados SQL do Azure. Ele não está relacionado à [replicação geográfica ativa](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication), um recurso de banco de dados SQL do Azure que permite que você crie réplicas legíveis completas de bancos de dados individuais.
+
+## <a name="supported-configurations"></a>Configurações com suporte
   
 - O SQL Server pode ser uma instância do SQL Server em execução local ou uma instância do SQL Server em execução em uma máquina virtual do Azure na nuvem. Para obter mais informações, veja [SQL Server na visão geral de Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
 - O Banco de Dados SQL do Azure deve ser um assinante de push de um distribuidor do SQL Server.  
@@ -32,14 +35,14 @@ A replicação do SQL Server pode ser configurada para bancos de dados únicos e
 
 ## <a name="versions"></a>Versões  
 
-Os editores e distribuidores do SQL Server no local devem usar (pelo menos) uma das seguintes versões:  
+Os Publicadores SQL Server locais e os distribuidores devem estar usando (pelo menos) uma das seguintes versões:  
 
-- SQL Server 2016 e maior
-- SQL Server 2014 [RTM CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) ou [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
+- SQL Server 2016 e superior
+- SQL Server 2014 [RTM cu10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) ou [SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
 - SQL Server 2012 [SP2 CU8 (11.0.5634.1)](https://support.microsoft.com/help/3082561/cumulative-update-8-for-sql-server-2012-sp2) ou [SP3 (11.0.6020.0)](https://www.microsoft.com/download/details.aspx?id=49996)
 
 > [!NOTE]
-> A tentativa de configurar a replicação usando uma versão não suportada pode resultar em número de erro \<MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e MSSQL_REPL40532 (Não é possível abrir o nome do servidor> solicitado pelo login. Houve falha no logon.).  
+> A tentativa de configurar a replicação usando uma versão sem suporte pode resultar em um número de erro MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e MSSQL_REPL40532 \<(não é possível abrir o nome do servidor> solicitado pelo logon. Houve falha no logon.).  
 
 Para usar todos os recursos do Banco de Dados SQL do Azure, você deve estar usando as versões mais recentes do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e do [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 

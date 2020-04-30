@@ -1,47 +1,47 @@
 ---
 title: Portas usadas pelos serviços do Hadoop em execução no Azure HDInsight
-description: Este artigo fornece uma lista de portas usadas pelos serviços Apache Hadoop em execução no Azure HDInsight
+description: Este artigo fornece uma lista de portas usadas por Apache Hadoop serviços em execução no Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/06/2020
-ms.openlocfilehash: fe2cb04f36026740dc54f4668d3c3188592bd8ae
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: c5f01a00d70869882d3d3398607ecfebbfd54417
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754215"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209070"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas usadas pelos serviços do Apache Hadoop em execução no HDInsight
 
-Este documento fornece uma lista das portas usadas pelos serviços Apache Hadoop em execução em clusters HDInsight. Ele também fornece informações sobre portas usadas para se conectar ao cluster usando SSH.
+Este documento fornece uma lista das portas usadas por Apache Hadoop serviços em execução em clusters HDInsight. Ele também fornece informações sobre portas usadas para se conectar ao cluster usando SSH.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Portas públicas versus portas não públicas
 
-Os clusters HDInsight baseados em Linux só expõem três portas publicamente na internet: 22, 23 e 443. Essas portas garantem acesso a cluster usando SSH e serviços expostos através do protocolo HTTPS seguro.
+Os clusters HDInsight baseados em Linux expõem apenas três portas publicamente na Internet: 22, 23 e 443. Essas portas protegem o acesso ao cluster usando SSH e serviços expostos por meio do protocolo HTTPS seguro.
 
-O HDInsight é implementado por várias Máquinas Virtuais Azure (nó de cluster) em execução em uma Rede Virtual Azure. Dentro da rede virtual, você pode acessar portas não expostas pela Internet. Se você se conectar via SSH ao nó principal, poderá acessar diretamente os serviços em execução nos números do cluster.
+O HDInsight é implementado por várias máquinas virtuais do Azure (nós de cluster) em execução em uma rede virtual do Azure. Dentro da rede virtual, você pode acessar portas não expostas pela Internet. Se você se conectar via SSH ao nó principal, poderá acessar diretamente os serviços em execução nos nós do cluster.
 
 > [!IMPORTANT]  
-> Se você não especificar uma Rede Virtual do Azure como uma opção de configuração para o HDInsight, uma será criada automaticamente. No entanto, você não pode juntar outras máquinas (como outras Máquinas Virtuais Do Azure ou sua máquina de desenvolvimento de clientes) a esta rede virtual.
+> Se você não especificar uma Rede Virtual do Azure como uma opção de configuração para o HDInsight, uma será criada automaticamente. No entanto, você não pode unir outros computadores (como outras máquinas virtuais do Azure ou seu computador de desenvolvimento de cliente) a essa rede virtual.
 
-Para ingressar mais computadores na rede virtual, primeiramente é preciso criar a rede virtual e depois especificá-la na criação do cluster HDInsight. Para obter mais informações, consulte [Planejar uma rede virtual para HDInsight](hdinsight-plan-virtual-network-deployment.md).
+Para ingressar mais computadores na rede virtual, primeiramente é preciso criar a rede virtual e depois especificá-la na criação do cluster HDInsight. Para obter mais informações, consulte [planejar uma rede virtual para o HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="public-ports"></a>Portas públicas
 
-Todos os nós em um cluster HDInsight estão localizados em uma rede virtual do Azure. Os nódulos não podem ser acessados diretamente pela internet. Um gateway público fornece acesso à internet para as portas a seguir, que são comuns a todos os tipos de cluster HDInsight.
+Todos os nós em um cluster HDInsight estão localizados em uma rede virtual do Azure. Os nós não podem ser acessados diretamente da Internet. Um gateway público fornece acesso à internet para as portas a seguir, que são comuns a todos os tipos de cluster HDInsight.
 
 | Serviço | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- |
-| sshd |22 |SSH |Conecta os clientes a sshd no nó de cabeçalho primário. Para obter mais informações, consulte [Use SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| sshd |22 |SSH |Conecta clientes ao sshd no nó de borda. Para obter mais informações, consulte [Use SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| sshd |23 |SSH |Conecta os clientes a sshd no nó de cabeçalho secundário. Para obter mais informações, consulte [Use SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |SSH |Conecta os clientes a sshd no nó de cabeçalho primário. Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |22 |SSH |Conecta clientes ao sshd no nó de borda. Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+| sshd |23 |SSH |Conecta os clientes a sshd no nó de cabeçalho secundário. Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Interface de usuário da Web do Ambari. Veja [Gerenciar HDInsight usando a interface do usuário da Web do Apache Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |API REST do Ambari. Veja [Gerenciar HDInsight usando a API REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |API REST do HCatalog. Ver [Mapa de usoReduzir com Enrolar](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |API REST do HCatalog. Consulte [usar o MapReduce com ondulação](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBCODBC |Conecta-se ao Hive usando ODBC. Confira [Connect Excel to HDInsight with the Microsoft ODBC driver (Conectar o Excel ao HDInsight com o driver ODBC da Microsoft)](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Conecta-se ao ApacheHive usando JDBC. Veja [Conectar-se ao Apache Hive no Azure HDInsight usando o driver JDBC do Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
@@ -53,7 +53,7 @@ Veja a seguir os tipos de cluster específicos que estão disponíveis:
 | Livy |443 |HTTPS |Spark |API REST do Spark. Veja [Enviar Apache trabalhos em Spark remotamente usando Livy Apache](spark/apache-spark-livy-rest-interface.md) |
 | Servidor do Spark Thrift |443 |HTTPS |Spark |Servidor do Spark Thrift usado para enviar consultas do Hive. Veja [Usar o Beeline com o Apache Hive no HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Interface de usuário do Storm para Web. Veja [Implantar e gerenciar topologias Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
-| Proxy kafka rest |443 |HTTPS |Kafka |API Kafka REST. Consulte [Interact com clusters Apache Kafka no Azure HDInsight usando um proxy REST](kafka/rest-proxy.md) |
+| Proxy REST do Kafka |443 |HTTPS |Kafka |API REST do Kafka. Confira [interagir com clusters Apache Kafka no Azure HDInsight usando um proxy REST](kafka/rest-proxy.md) |
 
 ### <a name="authentication"></a>Autenticação
 
@@ -89,7 +89,7 @@ Exemplos:
 | --- | --- | --- | --- | --- |
 | Interface de usuário do NameNode na Web |Nós de cabeçalho |30070 |HTTPS |Interface do usuário na Web para exibir status |
 | Serviço de metadados NameNode |Nós de cabeçalho |8020 |IPC |Metadados do sistema de arquivos |
-| DataNode |Todos os nós de trabalho |30075 |HTTPS |UI da Web para exibir status, logs e assim por diante. |
+| DataNode |Todos os nós de trabalho |30075 |HTTPS |Interface do usuário da Web para exibir status, logs e assim por diante. |
 | DataNode |Todos os nós de trabalho |30010 |&nbsp; |Transferência de dados |
 | DataNode |Todos os nós de trabalho |30020 |IPC |Operações de metadados |
 | NameNode secundário |Nós de cabeçalho |50090 |HTTP |Ponto de verificação para metadados do NameNode |
@@ -100,11 +100,11 @@ Exemplos:
 | --- | --- | --- | --- | --- |
 | Interface de usuário na Web do Resource Manager |Nós de cabeçalho |8088 |HTTP |Interface de usuário na Web do Resource Manager |
 | Interface de usuário na Web do Resource Manager |Nós de cabeçalho |8090 |HTTPS |Interface de usuário na Web do Resource Manager |
-| Interface administrativa do Resource Manager |Nós de cabeçalho |8141 |IPC |Para submissões de aplicativos (Hive, Hive server, Pig, e assim por diante.) |
+| Interface administrativa do Resource Manager |Nós de cabeçalho |8141 |IPC |Para envios de aplicativos (Hive, servidor Hive, Pig e assim por diante). |
 | Agendador do Resource Manager |Nós de cabeçalho |8030 |HTTP |Interface administrativa |
 | Interface de aplicativo do Resource Manager |Nós de cabeçalho |8050 |HTTP |Endereço da interface do gerenciador de aplicativos |
 | NodeManager |Todos os nós de trabalho |30050 |&nbsp; |O endereço do gerenciador de contêineres |
-| Interface de usuário na Web do NodeManager |Todos os nós de trabalho |30060 |HTTP |Interface do Gerenciador de Recursos |
+| Interface de usuário na Web do NodeManager |Todos os nós de trabalho |30060 |HTTP |Interface do Gerenciador de recursos |
 | Endereço do Timeline |Nós de cabeçalho |10200 |RPC |O serviço RPC do serviço do Timeline. |
 | Interface de usuário na Web do Timeline |Nós de cabeçalho |8188 |HTTP |Interface de usuário na Web do Timeline |
 
@@ -156,9 +156,9 @@ Exemplos:
 
 | Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
-| Agente |Nós de trabalho |9092 |[Protocolo Kafka Wire](https://kafka.apache.org/protocol.html) |Usado para comunicação do cliente |
+| Agente |Nós de trabalho |9092 |Protocolo Kafka Wire |Usado para comunicação do cliente |
 | &nbsp; |Nós do Zookeeper |2181 |&nbsp; |A porta que os clientes usam para se conectar ao ZooKeeper |
-| Proxy REST | Os nódulos de gestão Kafka |9400 |HTTPS |[Especificação Kafka REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
+| Proxy REST | Nós de gerenciamento do Kafka |9400 |HTTPS |[Especificação REST do Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Portas do Spark
 

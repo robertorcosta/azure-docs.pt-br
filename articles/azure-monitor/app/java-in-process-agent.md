@@ -3,12 +3,12 @@ title: Monitorar aplicativos Java em qualquer ambiente-Azure Monitor Application
 description: Monitoramento do desempenho de aplicativos para aplicativos Java em execução em qualquer ambiente, sem instrumentar o aplicativo. Rastreamento distribuído e mapa de aplicativos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687728"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508064"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights-visualização pública
 
@@ -24,11 +24,11 @@ Você ainda pode enviar telemetria personalizada do seu aplicativo. O agente 3,0
 
 **1. baixar o agente**
 
-Baixar [applicationinsights-Agent-3.0.0-Preview. 3. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
+Baixar [applicationinsights-Agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
 
 **2. aponte a JVM para o agente**
 
-Adicionar `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` aos argumentos JVM de seu aplicativo
+Adicionar `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` aos argumentos JVM de seu aplicativo
 
 Os argumentos de JVM `-Xmx512m` típicos incluem e `-XX:+UseG1GC`. Portanto, se você souber onde adicioná-los, já saberá onde adicioná-los.
 
@@ -44,7 +44,7 @@ Aponte o agente para o recurso de Application Insights, definindo uma variável 
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Ou criando um arquivo de configuração chamado `ApplicationInsights.json`e colocando-o no mesmo diretório que `applicationinsights-agent-3.0.0-PREVIEW.3.jar`o, com o seguinte conteúdo:
+Ou criando um arquivo de configuração chamado `ApplicationInsights.json`e colocando-o no mesmo diretório que `applicationinsights-agent-3.0.0-PREVIEW.4.jar`o, com o seguinte conteúdo:
 
 ```json
 {
@@ -117,7 +117,7 @@ Confira detalhes em [Visualização pública 3,0: opções de configuração](ht
 
 ### <a name="metrics"></a>Métricas
 
-* Micrometer
+* Micrometer (incluindo as métricas do acionador do Spring boot)
 * Métricas JMX
 
 ## <a name="sending-custom-telemetry-from-your-application"></a>Enviando telemetria personalizada do seu aplicativo

@@ -1,7 +1,7 @@
 ---
-title: Resolver reivindicações em políticas personalizadas
+title: Solicitar resolvedores em políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Saiba como usar os resolvers de sinistros em uma política personalizada no Azure Active Directory B2C.
+description: Saiba como usar resolvedores de declarações em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0bdede482b79c82e6e05b1429cb7c17399bc2277
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81756615"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82229639"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
-Resolverções de sinistros no Azure Active Directory As políticas [personalizadas](custom-policy-overview.md) B2C (Azure AD B2C) fornecem informações de contexto sobre uma solicitação de autorização, como o nome da política, iD de solicitação de correlação, linguagem de interface do usuário e muito mais.
+Os resolvedores de declaração em [políticas personalizadas](custom-policy-overview.md) de Azure Active Directory B2C (Azure ad B2C) fornecem informações de contexto sobre uma solicitação de autorização, como o nome da política, ID de correlação de solicitação, idioma da interface do usuário e muito mais.
 
 Para usar um resolvedor de declaração em uma declaração de entrada ou saída, você define uma cadeia de caracteres **ClaimType**, no elemento [ClaimsSchema](claimsschema.md) e, em seguida, define **DefaultValue** como o resolvedor de declaração no elemento de declaração de entrada ou saída. O Azure AD B2C lê o valor do resolvedor de declaração e usa o valor no perfil técnico.
 
@@ -72,12 +72,12 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {OIDC:LoginHint} |  O parâmetro de cadeia de caracteres da consulta `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | O `max_age`. | N/D |
 | {OIDC:Nonce} |O parâmetro de cadeia de caracteres da consulta `Nonce`. | defaultNonce |
-| {OIDC:Senha}| As [credenciais de senha do proprietário do recurso fluem](ropc-custom.md) a senha do usuário.| senha1| 
+| {OIDC: senha}| A senha do usuário do [fluxo de credenciais de senha do proprietário do recurso](ropc-custom.md) .| password1| 
 | {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | login |
-| {OIDC:RedirectUri} |O parâmetro de cadeia de caracteres da consulta `redirect_uri`. | https://jwt.ms |
+| {OIDC: RedirectUri} |O parâmetro de cadeia de caracteres da consulta `redirect_uri`. | https://jwt.ms |
 | {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | N/D |
-| {OIDC:Escopo} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
-| {OIDC:Nome de usuário}| As [credenciais de senha do proprietário do recurso fluem](ropc-custom.md) o nome de usuário do usuário.| emily@contoso.com| 
+| {OIDC: escopo} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
+| {OIDC: username}| O nome de usuário do [fluxo de credenciais de senha do proprietário do recurso](ropc-custom.md) .| emily@contoso.com| 
 
 ### <a name="context"></a>Contexto
 
@@ -88,16 +88,16 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {Context:DateTimeInUtc} |A data e hora em UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |O modo de implantação de política.  | Produção |
 | {Context:IPAddress} | O endereço IP do usuário. | 11.111.111.11 |
-| {Contexto:KMSI} | Indica se [Keep me assinado na](custom-policy-keep-me-signed-in.md) caixa de seleção está selecionado. |  true |
+| {Context: KMSI} | Indica se a caixa [de seleção manter-me conectado](custom-policy-keep-me-signed-in.md) está marcada. |  true |
 
 ### <a name="claims"></a>Declarações 
 
 | Declaração | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {Reivindicação:tipo de reivindicação} | Um identificador de um tipo de reclamação já definido na seção ClaimsSchema no arquivo de diretiva ou arquivo de diretiva pai.  Por exemplo: `{Claim:displayName}` `{Claim:objectId}`, ou . | Um valor do tipo de reivindicação.|
+| {Declaração: tipo de declaração} | Um identificador de um tipo de declaração já definido na seção de ClaimsSchema no arquivo de política ou de política pai.  Por exemplo: `{Claim:displayName}`, ou `{Claim:objectId}`. | Um valor de tipo de declaração.|
 
 
-### <a name="oauth2-key-value-parameters"></a>Parâmetros de valor-chave OAuth2
+### <a name="oauth2-key-value-parameters"></a>Parâmetros de chave-valor de OAuth2
 
 Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OAuth2 pode ser mapeado para uma declaração no percurso do usuário. Por exemplo, a solicitação do aplicativo pode incluir um parâmetro da cadeia de consulta com um nome de `app_session`, `loyalty_number` ou qualquer cadeia de consulta personalizada.
 
@@ -119,41 +119,41 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 
 | Declaração | Descrição | Exemplo |
 | ----- | ----------- | --------|
-| {SAML:AuthnContextClassReferences} | O `AuthnContextClassRef` valor do elemento, a partir da solicitação SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
-| {SAML:NameIdPolicyFormat} | O `Format` atributo, `NameIDPolicy` a partir do elemento da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
-| {SAML:Emissor} |  O valor `Issuer` do elemento SAML da solicitação SAML.| `https://contoso.com` |
-| {SAML:AllowCreate} | O `AllowCreate` valor do `NameIDPolicy` atributo, a partir do elemento da solicitação SAML. | True |
-| {SAML:ForceAuthn} | O `ForceAuthN` valor do `AuthnRequest` atributo, a partir do elemento da solicitação SAML. | True |
-| {SAML:ProviderName} | O `ProviderName` valor do `AuthnRequest` atributo, a partir do elemento da solicitação SAML.| Contoso.com |
-| {SAML:RelayState} | O parâmetro de cadeia de caracteres da consulta `RelayState`.| 
+| {SAML: AuthnContextClassReferences} | O `AuthnContextClassRef` valor do elemento, da solicitação SAML. | urn: Oasis: names: TC: SAML: 2.0: AC: classes: PasswordProtectedTransport |
+| {SAML: NameIdPolicyFormat} | O `Format` atributo, do `NameIDPolicy` elemento da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML: emissor} |  O valor `Issuer` do elemento SAML da solicitação SAML.| `https://contoso.com` |
+| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | verdadeiro |
+| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | verdadeiro |
+| {SAML: ProviderName} | O `ProviderName` valor do atributo, do `AuthnRequest` elemento da solicitação SAML.| Contoso.com |
+| {SAML: Relaystate} | O parâmetro de cadeia de caracteres da consulta `RelayState`.| 
 
-## <a name="using-claim-resolvers"></a>Usando resolver sinistros
+## <a name="using-claim-resolvers"></a>Usando resolvedores de declaração
 
-Você pode usar resolver sinistros com os seguintes elementos:
+Você pode usar resolvedores de declarações com os seguintes elementos:
 
 | Item | Elemento | Configurações |
 | ----- | ----------------------- | --------|
 |Perfil técnico do Application Insights |`InputClaim` | |
-|Perfil técnico [do Diretório Ativo do Azure](active-directory-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
-|Perfil técnico [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
-|Perfil técnico [do OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
-|Perfil técnico [de transformação de sinistros](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
-|Perfil técnico [do provedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
-|Perfil técnico [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
-|Perfil técnico [auto-afirmado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|[Azure Active Directory](active-directory-technical-profile.md) o perfil técnico| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico do [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico do [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico de [transformação de declarações](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Perfil técnico do [provedor RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|Perfil técnico do [provedor de identidade SAML](saml-identity-provider-technical-profile.md)| `OutputClaim`| 1, 2|
+|Perfil técnico [autodeclarado](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
 |[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
-|Perfil técnico [do RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
+|Perfil técnico do [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
 Configurações:
-1. Os `IncludeClaimResolvingInClaimsHandling` metadados devem `true`ser definidos como .
-1. O atributo `AlwaysUseDefaultValue` de entrada ou `true`de reivindicações de saída deve ser definido como .
+1. Os `IncludeClaimResolvingInClaimsHandling` metadados devem ser definidos como `true`.
+1. O atributo `AlwaysUseDefaultValue` de declarações de entrada ou saída deve ser `true`definido como.
 
-## <a name="claim-resolvers-samples"></a>Reivindicação de amostras de resolver
+## <a name="claim-resolvers-samples"></a>Exemplos de resolvedores de declaração
 
 ### <a name="restful-technical-profile"></a>Perfil técnico RESTful
 
-Em um perfil técnico [RESTful](restful-technical-profile.md), você talvez queira enviar o idioma do usuário, o nome da política, o escopo e a ID do cliente. Com base nas alegações, a API REST pode executar a lógica de negócios personalizada e, se necessário, levantar uma mensagem de erro localizada.
+Em um perfil técnico [RESTful](restful-technical-profile.md), você talvez queira enviar o idioma do usuário, o nome da política, o escopo e a ID do cliente. Com base nas declarações, a API REST pode executar a lógica de negócios personalizada e, se necessário, gerar uma mensagem de erro localizada.
 
 O exemplo a seguir mostra um perfil técnico RESTful com este cenário:
 
@@ -183,9 +183,9 @@ Usando resolvedores de declaração, você pode preencher previamente o nome de 
 
 ### <a name="dynamic-ui-customization"></a>Personalização de interface do usuário dinâmica
 
-O Azure AD B2C permite que você passe parâmetros de seqüência de consulta para os pontos finais da definição de conteúdo HTML para renderizar dinamicamente o conteúdo da página. Por exemplo, esse recurso permite modificar a imagem de fundo no acessando o Azure AD B2C ou a página de login com base em um parâmetro personalizado que você passa do seu aplicativo web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
+Azure AD B2C permite passar parâmetros de cadeia de caracteres de consulta para seus pontos de extremidade de definição de conteúdo HTML para renderizar dinamicamente o conteúdo da página. Por exemplo, esse recurso permite a capacidade de modificar a imagem de plano de fundo na página Azure AD B2C inscrição ou entrada com base em um parâmetro personalizado que você passa de seu aplicativo Web ou móvel. Para obter mais informações, confira [Configurar dinamicamente a interface do usuário usando políticas personalizadas no Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Você também pode localizar sua página HTML com base em um parâmetro de idioma, ou pode alterar o conteúdo com base na ID do cliente.
 
-O exemplo a seguir passa no parâmetro de seqüência `Hawaii`de consultas chamado **campaignId** com um valor de , um código de **idioma** de `en-US`, e **aplicativo** representando o ID do cliente:
+O exemplo a seguir passa o parâmetro de cadeia de caracteres de consulta chamado **campaignid** com um `Hawaii`valor de, um código de **idioma** `en-US`, e o **aplicativo** que representa a ID do cliente:
 
 ```XML
 <UserJourneyBehaviors>
@@ -197,7 +197,7 @@ O exemplo a seguir passa no parâmetro de seqüência `Hawaii`de consultas chama
 </UserJourneyBehaviors>
 ```
 
-Como resultado, o Azure AD B2C envia os parâmetros acima para a página de conteúdo HTML:
+Como resultado, Azure AD B2C envia os parâmetros acima para a página de conteúdo HTML:
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
@@ -205,7 +205,7 @@ Como resultado, o Azure AD B2C envia os parâmetros acima para a página de cont
 
 ### <a name="content-definition"></a>Definição de conteúdo
 
-Em uma [ContentDefinition,](contentdefinitions.md) `LoadUri`você pode enviar resolvedores de sinistros para extrair conteúdo de diferentes lugares, com base nos parâmetros utilizados.
+Em um [ContentDefinition](contentdefinitions.md) `LoadUri`, você pode enviar resolvedores de declaração para efetuar pull de conteúdo de locais diferentes, com base nos parâmetros usados.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -232,9 +232,9 @@ Com o Azure Application Insights e resolvedores de declaração, você pode obte
 </TechnicalProfile>
 ```
 
-### <a name="relying-party-policy"></a>Confiando na política partidária
+### <a name="relying-party-policy"></a>Política de terceira parte confiável
 
-Em um perfil técnico de política [partidária de confiar,](relyingparty.md) você pode querer enviar o ID do inquilino ou iD de correlação para a aplicação da parte que depende dentro do JWT.
+Em um perfil técnico de política de terceira parte [confiável](relyingparty.md) , talvez você queira enviar a ID de locatário ou a ID de correlação para o aplicativo de terceira parte confiável dentro do JWT.
 
 ```XML
 <RelyingParty>

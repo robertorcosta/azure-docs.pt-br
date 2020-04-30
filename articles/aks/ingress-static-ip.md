@@ -5,12 +5,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX co
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 27b80b1f0b6728b5ad69edae51f0d42bfac351d0
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: f0a8f1f1e1b724745e69aef30e2e6404ff6a5484
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145494"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207353"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -56,7 +56,7 @@ Você deve passar dois parâmetros adicionais para a versão Helm para que o con
 1. Adicione o `--set controller.service.loadBalancerIP` parâmetro. Especifique seu próprio endereço IP público que foi criado na etapa anterior.
 1. Adicione o `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parâmetro. Especifique um rótulo de nome DNS a ser aplicado ao endereço IP público que foi criado na etapa anterior.
 
-O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server (atualmente em visualização no AKS) não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
+O controlador de entrada também precisa ser agendado em um nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. Um seletor de nó é especificado usando o parâmetro `--set nodeSelector` para instruir o agendador do Kubernetes a executar o controlador de entrada NGINX em um nó baseado em Linux.
 
 > [!TIP]
 > O exemplo a seguir cria um namespace kubernetes para os recursos de entrada chamados *ingress-Basic*. Especifique um namespace para seu próprio ambiente, conforme necessário. Se o cluster AKS não estiver habilitado para RBAC, `--set rbac.create=false` adicione aos comandos Helm.
@@ -285,7 +285,7 @@ certificate.cert-manager.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>Testar a configuração de entrada
 
-Abra um navegador da Web para o FQDN do controlador de entrada do kubernetes, como *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
+Abra um navegador da Web para o FQDN do controlador de entrada do kubernetes, como *`https://demo-aks-ingress.eastus.cloudapp.azure.com`*.
 
 Como esses exemplos usam `letsencrypt-staging`, o certificado TLS/SSL emitido não é confiável pelo navegador. Aceite a mensagem de aviso para continuar a seu aplicativo. As informações de certificado mostram que este certificado *Fake LE Intermediate X1* é emitido pelo Vamos Criptografar. Esse certificado falso indica que `cert-manager` processou a solicitação corretamente e que foi recebida de um certificado do provedor:
 
@@ -299,7 +299,7 @@ O aplicativo de demonstração é mostrado no navegador da web:
 
 ![Exemplo de aplicativo um](media/ingress/app-one.png)
 
-Agora, adicione o caminho */hello-world-two* para o FQDN, como *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. O segundo aplicativo de demonstração com o título personalizado é mostrado:
+Agora, adicione o caminho */hello-world-two* para o FQDN, como *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`*. O segundo aplicativo de demonstração com o título personalizado é mostrado:
 
 ![Exemplo de aplicativo dois](media/ingress/app-two.png)
 

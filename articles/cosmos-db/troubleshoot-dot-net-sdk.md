@@ -8,18 +8,18 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5f92d98630c6fb875babeb907f92732b0c24bb52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e015c1ee335cbdfed7964d63b1f4600bc6a4cb77
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137947"
+ms.locfileid: "82208730"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos DB
 Este artigo aborda problemas comuns, soluções alternativas, etapas de diagnóstico e ferramentas quando você usa o [SDK do .net](sql-api-sdk-dotnet.md) com Azure Cosmos DB contas da API do SQL.
 O SDK do .NET fornece a representação lógica do lado do cliente para acessar a API do SQL do Azure Cosmos DB. Este artigo descreve as ferramentas e as abordagens para ajudá-lo se você tiver algum problema.
 
-## <a name="checklist-for-troubleshooting-issues"></a>Lista de verificação para solucionar problemas:
+## <a name="checklist-for-troubleshooting-issues"></a>Lista de verificação para solucionar problemas
 Considere a seguinte lista de verificação antes de mover seu aplicativo para produção. O uso da lista de verificação impedirá vários problemas comuns que você possa ver. Você também pode diagnosticar rapidamente quando ocorrer um problema:
 
 *    Use o [SDK](sql-api-sdk-dotnet-standard.md)mais recente. Os SDKs de visualização não devem ser usados para produção. Isso evitará o pressionamento de problemas conhecidos que já foram corrigidos.
@@ -101,6 +101,30 @@ As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde
 * Se a consulta de back-end retornar rapidamente e passar um tempo grande no cliente, verifique a carga no computador. É provável que não haja recursos suficientes e o SDK esteja aguardando que os recursos estejam disponíveis para lidar com a resposta.
 * Se a consulta de back-end estiver lenta, tente [otimizar a consulta](optimize-cost-queries.md) e examinar a [política de indexação](index-overview.md) atual 
 
+### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: a assinatura MAC encontrada na solicitação HTTP não é igual à assinatura computada
+Se você recebeu a seguinte mensagem de erro 401: "a assinatura MAC encontrada na solicitação HTTP não é a mesma que a assinatura computada". pode ser causado pelos cenários a seguir.
+
+1. A chave foi girada e não segue as [práticas recomendadas](secure-access-to-data.md#key-rotation). Normalmente, esse é o caso. Cosmos DB a rotação de chaves de conta pode levar de alguns segundos a possivelmente dias, dependendo do tamanho da conta de Cosmos DB.
+   1. 401 a assinatura MAC é vista logo após uma rotação de chave e eventualmente é interrompida sem nenhuma alteração. 
+2. A chave está configurada incorretamente no aplicativo para que a chave não corresponda à conta.
+   1. 401 o problema de assinatura MAC será consistente e acontecerá para todas as chamadas
+3. Há uma condição de corrida com a criação de contêiner. Uma instância do aplicativo está tentando acessar o contêiner antes de a criação do contêiner ser concluída. O cenário mais comum para isso se o aplicativo estiver em execução, e o contêiner será excluído e recriado com o mesmo nome enquanto o aplicativo estiver em execução. O SDK tentará usar o novo contêiner, mas a criação do contêiner ainda está em andamento, portanto, ele não tem as chaves.
+   1. 401 o problema de assinatura MAC é visto logo após uma criação de contêiner e só ocorrerá até que a criação do contêiner seja concluída.
+ 
+ ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Erro de HTTP 400. O tamanho dos cabeçalhos de solicitação é muito longo.
+ O tamanho do cabeçalho cresceu para grande e excede o tamanho máximo permitido. É sempre recomendável usar o SDK mais recente. Certifique-se de usar pelo menos a versão [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) ou [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), que adiciona o rastreamento de tamanho de cabeçalho à mensagem de exceção.
+
+Com
+ 1. O token de sessão ficou muito grande. O token de sessão aumenta conforme o número de partições aumenta no contêiner.
+ 2. O token de continuação cresceu para grande. Consultas diferentes terão tamanhos de token de continuação diferentes.
+ 3. Ela é causada por uma combinação do token de sessão e do token de continuação.
+
+Solução:
+   1. Siga as [dicas de desempenho](performance-tips.md) e converta o aplicativo no modo de conexão direta + TCP. O Direct + TCP não tem a restrição de tamanho de cabeçalho, como HTTP, que evita esse problema.
+   2. Se o token de sessão for a causa, uma mitigação temporária será reiniciar o aplicativo. Reiniciar a instância do aplicativo redefinirá o token de sessão. Se as exceções forem interrompidas após a reinicialização, ela confirmará que o token de sessão é a causa. Eventualmente vai aumentar para o tamanho que causará a exceção.
+   3. Se o aplicativo não puder ser convertido em Direct + TCP e o token de sessão for a causa, a mitigação poderá ser feita alterando o [nível de consistência](consistency-levels.md)do cliente. O token de sessão é usado somente para consistência de sessão, que é o padrão para Cosmos DB. Qualquer outro nível de consistência não usará o token de sessão. 
+   4. Se o aplicativo não puder ser convertido em Direct + TCP e o token de continuação for a causa, tente definir a opção ResponseContinuationTokenLimitInKb. A opção pode ser encontrada no Feedoptions para v2 ou no QueryRequestOptions em v3.
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
@@ -108,5 +132,3 @@ As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
-
-

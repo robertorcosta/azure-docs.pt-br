@@ -3,14 +3,14 @@ title: Solução iniciar/parar VMs fora do horário comercial
 description: Essa solução de gerenciamento de VM inicia e interrompe suas máquinas virtuais do Azure em um agendamento e monitora de forma proativa os logs de Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187323"
+ms.locfileid: "82207591"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução iniciar/parar VMs fora do horário comercial na automação do Azure
 
@@ -19,7 +19,7 @@ A solução **iniciar/parar VMs fora do horário comercial** inicia ou interromp
 Essa solução usa o cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) para iniciar as VMs. Ele usa [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) para parar as VMs.
 
 > [!NOTE]
-> A solução **iniciar/parar VMs fora do horário comercial** foi atualizada para dar suporte às versões mais recentes dos módulos do Azure que estão disponíveis.
+> A solução **iniciar/parar VMs fora do horário comercial** foi atualizada para dar suporte às versões mais recentes dos módulos do Azure que estão disponíveis. A versão atualizada dessa solução, disponível no Marketplace, não dá suporte a módulos AzureRM porque migramos de AzureRM para módulos AZ.
 
 A solução fornece uma opção de automação descentralizada de baixo custo para os usuários que desejam otimizar seus custos de VM. Com essa solução, você pode:
 
@@ -81,11 +81,11 @@ O usuário que está implantando a solução precisa das seguintes funções:
 
 | Permissão |Escopo|
 | --- | --- |
-| Microsoft. Authorization/Operations/Read | Subscription|
-| Microsoft.Authorization/permissions/read |Subscription|
-| Microsoft.Authorization/roleAssignments/read | Subscription |
-| Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription |
+| Microsoft. Authorization/Operations/Read | Assinatura|
+| Microsoft.Authorization/permissions/read |Assinatura|
+| Microsoft.Authorization/roleAssignments/read | Assinatura |
+| Microsoft.Authorization/roleAssignments/write | Assinatura |
+| Microsoft.Authorization/roleAssignments/delete | Assinatura |
 | Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |

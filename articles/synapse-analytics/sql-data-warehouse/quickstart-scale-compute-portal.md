@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 04/17/2018
+ms.date: 04/28/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f92152658b9db83740ffc2de2dc6956003849e06
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
-ms.translationtype: HT
+ms.openlocfilehash: 96c3c05fea912433731dc7a6a8ab705ab76d3058
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80350827"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232216"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Início Rápido: Dimensionar a computação para o pool de SQL do Synapse com o portal do Azure
 
@@ -37,7 +37,7 @@ Você pode escalar um pool de SQL que você já tem ou usar o [Início Rápido: 
 
 ## <a name="scale-compute"></a>Computação de escala
 
-Os recursos de computação do pool de SQL podem ser dimensionados com o aumento ou a diminuição das unidades de data warehouse. O Início Rápido [Criar e conectar – portal] (create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
+Os recursos de computação do pool de SQL podem ser dimensionados com o aumento ou a diminuição das unidades de data warehouse. O [início rápido: Create e Connect-portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
 
 Para alterar unidades de data warehouse:
 

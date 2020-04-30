@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 119265efa7b6504f3faf2e89cb68b9e9bd70bf9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01b2f3baefc2320ec11f9cb7f29392ebb0841289
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617253"
+ms.locfileid: "82207472"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Use a rede do kubenet com seus próprios intervalos de endereços IP no Serviço de Kubernetes do Azure (AKS)
 
@@ -30,7 +30,7 @@ Este artigo mostra como usar a rede *kubenet* para criar e usar uma sub-rede da 
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 > [!WARNING]
-> Para usar pools de nós do Windows Server (atualmente em visualização no AKS), você deve usar o CNI do Azure. O uso de kubenet como o modelo de rede não está disponível para contêineres do Windows Server.
+> Para usar pools de nós do Windows Server, você deve usar o Azure CNI. O uso de kubenet como o modelo de rede não está disponível para contêineres do Windows Server.
 
 ## <a name="before-you-begin"></a>Antes de começar
 

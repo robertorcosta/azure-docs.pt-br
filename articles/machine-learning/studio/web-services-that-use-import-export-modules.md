@@ -1,25 +1,24 @@
 ---
-title: Dados de importação/exportação em serviços web
+title: Importar/exportar dados nos serviços Web
 titleSuffix: ML Studio (classic) - Azure
 description: Saiba como usar os módulos Importar Dados e Exportar Dados para enviar e receber dados de um serviço Web.
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 144a3bc0d9e0499a238e4033d37d5e4d3fa61e05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3275a372e496b79da2c9f31258f557389c5b1ee1
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204045"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209359"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implantar serviços web do Azure Machine Learning Studio (clássico) que usam módulos de importação de dados e exportação de dados
+# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implantar serviços Web Azure Machine Learning Studio (clássico) que usam módulos de importação de dados e exportação de dados
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -61,7 +60,7 @@ Para ler os dados da tabela SQL do Azure:
         [native-country],
         [income]
      from dbo.censusdata;
-8. Na parte inferior da tela do experimento, clique em **Executar**.
+8. Na parte inferior da tela do experimento, clique em **executar**.
 
 ## <a name="create-the-predictive-experiment"></a>Criar o experimento preditivo
 Em seguida, configure o experimento preditivo do qual você implantará o serviço Web.
@@ -77,7 +76,7 @@ Em seguida, configure o experimento preditivo do qual você implantará o servi�
 9. No campo **Nome da tabela de dados**, digite dbo.ScoredLabels. Se a tabela não existir, ela será criado quando o experimento for executado ou o serviço Web for chamado.
 10. No campo **Lista separada por vírgulas de colunas de banco de dados** , digite ScoredLabels.
 
-Quando você escreve um aplicativo que chama o serviço Web final, convém especificar uma consulta de entrada diferente ou a tabela de destino em tempo de execução. Para configurar essas entradas e saídas, use o recurso de Parâmetros de Serviço Web para definir o módulo *Importar Dados*, a propriedade *Fonte de dados* e a propriedade de destino de dados do modo *Exportar Dados*.  Para obter mais informações sobre os Parâmetros de Serviço web, consulte a [entrada do Azure Machine Learning Studio Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) no Blog cortana De Inteligência e Aprendizado de Máquina.
+Quando você escreve um aplicativo que chama o serviço Web final, convém especificar uma consulta de entrada diferente ou a tabela de destino em tempo de execução. Para configurar essas entradas e saídas, use o recurso de Parâmetros de Serviço Web para definir o módulo *Importar Dados*, a propriedade *Fonte de dados* e a propriedade de destino de dados do modo *Exportar Dados*.  Para obter mais informações sobre parâmetros de serviço Web, consulte a [Azure Machine Learning Studio entrada de parâmetros de serviço Web](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) no Cortana Intelligence e Machine Learning blog.
 
 Para configurar os Parâmetros de Serviço Web para a consulta de importação e a tabela de destino:
 
@@ -102,7 +101,7 @@ Para implantar como um serviço Web Clássico e criar um aplicativo para consumi
 2. Após a conclusão da execução, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [Clássico]**.
 3. No painel do serviço Web, localize sua chave de API. Copie e salve-a para uso posterior.
 4. Na tabela **Ponto de Extremidade Padrão**, clique no link **Execução em Lote** para abrir a Página de Ajuda da API.
-5. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
+5. No Visual Studio, crie um aplicativo de console em C#: **novo** > **projeto** > **Visual C#** > **Windows Classic desktop** > **console (.NET Framework)**.
 6. Na Página de Ajuda da API, encontre a seção **Código de Exemplo** na parte inferior da página.
 7. Copie e cole o código de exemplo C# no arquivo Program.cs e remova todas as referências ao armazenamento de blobs.
 8. Atualize o valor da variável *apiKey* com a chave de API que você salvou anteriormente.
@@ -126,12 +125,12 @@ Após a conclusão da execução, uma nova tabela será adicionada ao banco de d
 
 Para implantar como um serviço Web Novo e criar um aplicativo para consumi-lo:
 
-1. Na parte inferior da tela do experimento, clique em **Executar**.
+1. Na parte inferior da tela do experimento, clique em **executar**.
 2. Após a conclusão da execução, clique em **Implantar Serviço Web** e selecione **Implantar Serviço Web [Novo]**.
 3. Na página Implantar Experimento, insira um nome para o serviço Web e selecione um plano de preços, depois clique em **Implantar**.
 4. Na página **Início rápido**, clique em **Consumir**.
 5. Na seção **Código de Exemplo**, clique em **Lote**.
-6. No Visual Studio, crie um aplicativo de console C#: **Novo** > **Projeto** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework)**.
+6. No Visual Studio, crie um aplicativo de console em C#: **novo** > **projeto** > **Visual C#** > **Windows Classic desktop** > **console (.NET Framework)**.
 7. Copie e cole o código de exemplo de C# no arquivo Program.cs.
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na seção **Informações básicas de consumo**.
 9. Localize a declaração *scoreRequest* e atualize os valores dos Parâmetros de Serviço Web que são passados para os módulos *Importar Dados* e *Exportar Dados*. Nesse caso, você usa a consulta original, mas definirá um novo nome de tabela.

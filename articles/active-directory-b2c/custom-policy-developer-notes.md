@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 471c2d45e28e634adde78c2d96d407ec219be68c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80408708"
+ms.locfileid: "82229656"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Active Directory B2C
 
@@ -70,7 +70,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 | [Credenciais de senha do proprietário do recurso OAuth2](ropc-custom.md) |  | X |  |  |
 | [OIDC conectar](openid-connect.md) |  |  | X |  |
 | [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | PÓS e redirecionar associações. |
-| OAuth1 |  |  |  | Sem suporte. |
+| OAuth1 |  |  |  | Não há suporte. |
 | WSFED | X |  |  |  |
 
 ### <a name="identify-providers-federation"></a>Identificar Federação de provedores 
@@ -80,7 +80,7 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Por exemplo, Google +.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Por exemplo, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | Por exemplo, Twitter. |
-| [SAML2](saml-technical-profile.md) |  |   | X | Por exemplo, Salesforce, ADFS. |
+| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | Por exemplo, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
@@ -134,7 +134,8 @@ Recursos personalizados de estrutura de experiência de identidade/política est
 | [Provedor de sessão de SSO padrão](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Provedor de sessão de logon externo](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [Provedor de sessão de SSO do SAML](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
-
+| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
+| [Logout único](session-overview.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>Segurança
 
