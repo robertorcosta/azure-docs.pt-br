@@ -1,31 +1,26 @@
 ---
-title: Usando o SCIM, o Microsoft Graph e o serviço de provisionamento do Azure AD para provisionar usuários e enriquecer seu aplicativo com os dados necessários | Microsoft Docs
+title: Use o SCIM, o Microsoft Graph e o Azure AD para provisionar usuários e enriquecer aplicativos com dados
 description: Usando o SCIM e o Microsoft Graph em conjunto para provisionar usuários e enriquecer seu aplicativo com os dados de que precisa.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/26/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ffe0474fcfeb28b49f5c2504ede86cd38459d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181827"
+ms.locfileid: "82201679"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Usando o SCIM e o Microsoft Graph juntos para provisionar usuários e enriquecer seu aplicativo com os dados de que precisa
 
-**Público-alvo:** Este documento destina-se a desenvolvedores que criam aplicativos a serem integrados ao Azure AD. Para outras pessoas que procuram usar aplicativos já integrados ao Azure AD, como zoom, ServiceNow e DropBox, você pode ignorar isso e examinar os [tutoriais](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) específicos do aplicativo ou examinar [como o serviço de provisionamento funciona](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Público-alvo:** Este artigo destina-se a desenvolvedores que criam aplicativos a serem integrados ao Azure Active Directory (AD do Azure). Se você estiver procurando usar aplicativos já integrados ao Azure AD, como zoom, ServiceNow e DropBox, poderá ignorar este artigo e examinar os [tutoriais](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) específicos do aplicativo ou examinar [como o serviço de provisionamento funciona](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
 
 **Cenários comuns**
 
@@ -46,7 +41,6 @@ Hoje, os administradores de ti provisionam os usuários criando manualmente as c
 **Recomendação**: 
 * Se os seus clientes usam vários IdPs e você não deseja manter um mecanismo de sincronização para integração com cada um, dê suporte a um ponto de extremidade de conformidade com SCIM [/Users](https://aka.ms/scimreferencecode) . Seus clientes poderão usar facilmente esse ponto de extremidade para se integrarem ao serviço de provisionamento do Azure AD e criar automaticamente contas de usuário quando precisarem de acesso. Você pode criar o ponto de extremidade uma vez e ele será compatível com todos os IdPs. Confira a solicitação de exemplo abaixo para saber como um usuário seria criado usando SCIM.
 * Se você precisar de dados de usuário encontrados no objeto de usuário no Azure AD e outros dados de toda a Microsoft, considere criar um ponto de extremidade SCIM para provisionamento de usuário e chamar o Microsoft Graph para obter o restante dos dados. 
-
 
 ```json
 POST /Users

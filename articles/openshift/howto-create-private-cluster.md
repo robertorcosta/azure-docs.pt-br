@@ -1,35 +1,29 @@
 ---
-title: Crie um cluster privado com o Azure Red Hat OpenShift 3.11 | Microsoft Docs
-description: Crie um cluster privado com o Azure Red Hat OpenShift 3.11
+title: Criar um cluster privado com o Azure Red Hat OpenShift 3,11 | Microsoft Docs
+description: Criar um cluster privado com o Azure Red Hat OpenShift 3,11
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
-keywords: aro, openshift, cluster privado, chapéu vermelho
-ms.openlocfilehash: b34b5d622527742447847102526eba9ee6ca220d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+keywords: toa, openshift, cluster privado, Red Hat
+ms.openlocfilehash: f4ce6c79fa9fe6d05fdea4b877a8aa7faf404a9b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399413"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204161"
 ---
-# <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Crie um cluster privado com o Azure Red Hat OpenShift 3.11
-
-> [!IMPORTANT]
-> Azure Red Hat OpenShift (ARO) clusters privados estão atualmente disponíveis apenas em pré-visualização privada no Leste dos EUA 2. A aceitação de pré-visualização privada é apenas por convite. Certifique-se de registrar sua assinatura antes de tentar habilitar esse recurso.
+# <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Criar um cluster privado com o Azure Red Hat OpenShift 3,11
 
 Os clusters privados oferecem os seguintes benefícios:
 
-* Clusters privados não expõem componentes do plano de controle de cluster (como os servidores de API) em um endereço IP público.
-* A rede virtual de um cluster privado é configurável pelos clientes, permitindo que você configure rede para permitir peering com outras redes virtuais, incluindo ambientes ExpressRoute. Você também pode configurar DNS personalizado na rede virtual para se integrar com serviços internos.
+* Os clusters privados não expõem componentes de plano de controle de cluster (como os servidores de API) em um endereço IP público.
+* A rede virtual de um cluster privado é configurável por clientes, permitindo que você configure a rede para permitir o emparelhamento com outras redes virtuais, incluindo ambientes de ExpressRoute. Você também pode configurar o DNS personalizado na rede virtual para integração com os serviços internos.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-> [!NOTE]
-> Este recurso requer a versão 2019-10-27-preview da API ARO HTTP. Ainda não é suportado na CLI azure.
-
-Os campos no seguinte trecho de configuração são novos e devem ser incluídos na configuração do cluster. `managementSubnetCidr`deve estar dentro da rede virtual de cluster e é usado pelo Azure para gerenciar o cluster.
+Os campos no trecho de configuração a seguir são novos e devem ser incluídos na configuração do cluster. `managementSubnetCidr`deve estar dentro da rede virtual de cluster e é usada pelo Azure para gerenciar o cluster.
 
 ```json
 properties:
@@ -40,22 +34,22 @@ properties:
      privateApiServer: true
 ```
 
-Um cluster privado pode ser implantado usando os scripts de amostra fornecidos abaixo. Assim que o cluster `cluster get` for implantado, `properties.FQDN` execute o comando e visualize a propriedade para determinar o endereço IP privado do servidor API Do OpenShift.
+Um cluster privado pode ser implantado usando os scripts de exemplo fornecidos abaixo. Depois que o cluster for implantado `cluster get` , execute o comando `properties.FQDN` e exiba a propriedade para determinar o endereço IP privado do servidor de API OpenShift.
 
-A rede virtual de cluster será criada com permissões para que você possa modificá-la. Em seguida, você pode configurar a rede para acessar a rede virtual (ExpressRoute, VPN, peering de rede virtual) conforme necessário para suas necessidades.
+A rede virtual do cluster terá sido criada com permissões para que você possa modificá-la. Em seguida, você pode configurar a rede para acessar a rede virtual (ExpressRoute, VPN, emparelhamento de rede virtual) conforme necessário para suas necessidades.
 
-Se você alterar os servidores de nomes DNS na rede virtual do cluster, `properties.RefreshCluster` então você `true` precisará emitir uma atualização no cluster com a propriedade definida para que as VMs possam ser reimagemdas. Esta atualização permitirá que eles peguem os novos servidores de nomes.
+Se você alterar os nameservers DNS na rede virtual do cluster, será necessário emitir uma atualização no cluster com a propriedade definida como para `properties.RefreshCluster` `true` que as VMs possam ter a imagem recriada. Essa atualização permitirá que eles escolham os novos nameservers.
 
 ## <a name="sample-configuration-scripts"></a>Scripts de configuração de exemplo
 
-Use os scripts de amostra nesta seção para configurar e implantar seu cluster privado.
+Use os scripts de exemplo nesta seção para configurar e implantar seu cluster privado.
 
 ### <a name="environment"></a>Ambiente
 
-Preencha as variáveis de ambiente abaixo como usando seus próprios valores.
+Preencha as variáveis de ambiente abaixo usando seus próprios valores.
 
 > [!NOTE]
-> O local deve `eastus2` ser definido como este é atualmente o único local suportado para clusters privados.
+> O local deve ser definido `eastus2` como este atualmente é o único local com suporte para clusters particulares.
 
 ``` bash
 export CLUSTER_NAME=
@@ -68,9 +62,9 @@ export CLIENT_ID=
 export SECRET=
 ```
 
-### <a name="private-clusterjson"></a>private-cluster.json
+### <a name="private-clusterjson"></a>Private-cluster. JSON
 
-Usando as variáveis de ambiente definidas acima, aqui está uma configuração de cluster de amostra com cluster privado ativado.
+Usando as variáveis de ambiente definidas acima, aqui está um exemplo de configuração de cluster com cluster privado habilitado.
 
 ```json
 {
@@ -135,7 +129,7 @@ Usando as variáveis de ambiente definidas acima, aqui está uma configuração 
 
 ## <a name="deploy-a-private-cluster"></a>Implantar um cluster privado
 
-Depois de configurar seu cluster privado com os scripts de amostra acima, execute o seguinte comando para implantar seu cluster privado.
+Depois de configurar seu cluster privado com os scripts de exemplo acima, execute o comando a seguir para implantar o cluster privado.
 
 ``` bash
 az group create --name $CLUSTER_NAME --location $LOCATION
@@ -147,4 +141,4 @@ cat private-cluster.json | envsubst | curl -v -X PUT \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como acessar o console OpenShift, consulte [O Passo a Passo do Console da Web](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html).
+Para saber mais sobre como acessar o console do OpenShift, consulte o [Guia do console Web](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html).

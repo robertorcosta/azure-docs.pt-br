@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128466"
+ms.locfileid: "82207237"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
@@ -87,13 +87,19 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
     Se a solicitação tiver erros de entrega, o status da solicitação será sem **entrega** ou **parcialmente entregue**.
 
-    Se houver erros de entrega, no painel de detalhes da solicitação, haverá uma contagem de erros de entrega.
+    Se houver erros de entrega, uma contagem de erros de entrega será exibida no painel de detalhes da solicitação.
 
 1. Clique na contagem para ver todos os erros de entrega da solicitação.
 
 ### <a name="reprocess-a-request"></a>Reprocessar uma solicitação
 
-Se uma solicitação encontrar um erro, você poderá reprocessar a solicitação para tentar novamente. Você só pode reprocessar uma solicitação que tenha um status de **entrega com falha** ou **parcialmente entregue** e uma data de conclusão inferior a uma semana.
+Se um erro for atendido depois de disparar uma solicitação de reprocessamento de pacote de acesso, você deverá aguardar enquanto o sistema reprocessará a solicitação. O sistema tenta várias vezes para reprocessar por várias horas, para que você não possa forçar o reprocessamento durante esse tempo. 
+
+Você só pode reprocessar uma solicitação que tenha um status de **entrega com falha** ou **parcialmente entregue** e uma data de conclusão inferior a uma semana.
+
+- Se o erro for corrigido durante a janela de avaliações, o status da solicitação será alterado para **entrega**. A solicitação será reprocessada sem ações adicionais do usuário.
+
+- Se o erro não foi corrigido durante a janela de avaliações, o status da solicitação pode ser **entrega com falha** ou **parcialmente entregue**. Em seguida, você pode usar o botão **Reprocessar** . Você terá sete dias para reprocessar a solicitação.
 
 **Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
 

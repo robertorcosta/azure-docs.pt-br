@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 878960738830dbe2f94b977e98215a681c4a79d2
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80802545"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201016"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: configurar manualmente dispositivos ingressados no Azure Active Directory híbrido
 
@@ -140,7 +140,7 @@ O script a seguir mostra um exemplo de uso do cmdlet. Nesse script, `$aadAdminCr
 O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * usa o módulo do PowerShell do Active Directory e as ferramentas do Azure AD DS (Azure Active Directory Domain Services). Essas ferramentas dependem de serviços Web do Active Directory em execução em um controlador de domínio. Os Serviços Web do Active Directory têm suporte em controladores de domínio executando o Windows Server 2008 R2 e posterior.
-* Somente há suporte para a versão do módulo 1.1.166.0 do MSOnline PowerShell. Para baixar este módulo, use [este link](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
+* Somente há suporte para a versão do módulo 1.1.166.0 do MSOnline PowerShell. Para baixar este módulo, use [este link](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
 * Se as ferramentas do AD DS não estiverem instaladas, o `Initialize-ADSyncDomainJoinedComputerSync` falhará. Você pode instalar as ferramentas do AD DS por meio do Gerenciador do Servidor em **Recursos** > **Ferramentas de Administração de Servidor Remoto** > **Ferramentas de Administração de Funções**.
 
 Para controladores de domínio que executam o Windows Server 2008 ou versões anteriores, use o script abaixo para criar o ponto de conexão de serviço. Em uma configuração de várias florestas, use o script a seguir para criar o ponto de conexão de serviço em cada floresta em que exista computadores.
@@ -185,7 +185,7 @@ Quando você estiver usando o AD FS, será necessário habilitar os pontos de ex
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> O **adfs/services/trust/2005/windowstransport** e também o **adfs/services/trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e NÃO devem ser expostos como pontos de extremidade voltados a uma extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [Desabilitar pontos de extremidade do Windows do WS-Trust no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Veja quais pontos de extremidade estão habilitados por meio do console de gerenciamento do AD FS em **Serviço** > **Pontos de extremidade**.
+> O **adfs/services/trust/2005/windowstransport** e o **adfs/services/trust/13/windowstransport** devem ser habilitados como pontos de extremidade voltados para a intranet e NÃO devem ser expostos como pontos de extremidade voltados a uma extranet por meio do proxy de aplicativo Web. Para saber mais sobre como desabilitar os pontos de extremidade do Windows do WS-Trust, confira [Desabilitar pontos de extremidade do Windows do WS-Trust no proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Veja quais pontos de extremidade estão habilitados por meio do console de gerenciamento do AD FS em **Serviço** > **Pontos de extremidade**.
 
 > [!NOTE]
 >Se o AD FS não for seu serviço de federação local, siga as instruções do fornecedor para garantir que ele dê suporte aos pontos de extremidade WS-Trust 1.3 ou 2005 e que sejam publicados por meio do MEX (Arquivo de Troca de Metadados).

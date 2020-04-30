@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190309"
+ms.locfileid: "82201614"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
 
@@ -369,7 +369,7 @@ Esta seção fornece as etapas para o provisionamento de conta do usuário do Wo
 
 **Para configurar o Workday para provisionamento do Active Directory:**
 
-1. Ir para <https://portal.azure.com>.
+1. Acesse <https://portal.azure.com>.
 
 2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
@@ -458,11 +458,11 @@ Nesta etapa, estabelecemos a conectividade com o workday e o Active Directory no
 
    * **Senha do workday –** Insira a senha da conta do sistema de integração do workday
 
-   * **URL da API de serviços Web do workday –** Insira a URL para o ponto de extremidade de serviços Web do WORKDAY para seu locatário. Esse valor deve ser semelhante a https://wd3-impl-services1.workday.com/ccx/service/contoso4:, em que *contoso4* é substituído pelo nome do locatário correto e *WD3-impl* é substituído pela cadeia de caracteres de ambiente correta.
+   * **URL da API de serviços Web do workday –** Insira a URL para o ponto de extremidade de serviços Web do WORKDAY para seu locatário. Esse valor deve ser semelhante a `https://wd3-impl-services1.workday.com/ccx/service/contoso4`:, em que *contoso4* é substituído pelo nome do locatário correto e *WD3-impl* é substituído pela cadeia de caracteres de ambiente correta.
 
      > [!NOTE]
      > Por padrão, o aplicativo usa WWS (workday Web Services) v 21.1 se nenhuma informação de versão for especificada na URL. Para usar uma versão específica da API do WWS, use o formato da URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0 <br>
+     > Exemplo: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
      
      > [!NOTE]
      > Se você estiver usando uma API do WWS v 30.0 e superior, antes de ativar o trabalho de provisionamento, atualize as **expressões da API XPath** em **mapeamento de atributo-> opções avançadas-> lista de atributos de edição para o workday** referindo-se à seção [Gerenciando sua configuração](#managing-your-configuration) e [referência de atributo workday](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
@@ -570,7 +570,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 | **Empresa**         | company   |     |  Criar + atualizar |
 | **SupervisoryOrganization**  | department  |     |  Criar + atualizar |
 | **ManagerReference**   | manager  |     |  Criar + atualizar |
-| **BusinessTitle**   |  título     |     |  Criar + atualizar | 
+| **BusinessTitle**   |  title     |     |  Criar + atualizar | 
 | **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
 | **Município**   |   l   |     | Criar + atualizar |
 | **CountryReferenceTwoLetter**      |   co |     |   Criar + atualizar |
@@ -601,7 +601,7 @@ As seções a seguir descrevem as etapas para configurar o provisionamento de us
 
 **Para configurar o provisionamento do Workday to Azure Active Directory para usuários somente na nuvem:**
 
-1. Ir para <https://portal.azure.com>.
+1. Acesse <https://portal.azure.com>.
 
 2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
@@ -621,11 +621,11 @@ As seções a seguir descrevem as etapas para configurar o provisionamento de us
 
    * **Senha do workday –** Insira a senha da conta do sistema de integração do workday
 
-   * **URL da API de serviços Web do workday –** Insira a URL para o ponto de extremidade de serviços Web do WORKDAY para seu locatário. Esse valor deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, onde *contoso4* é substituído pelo nome do locatário correto e *wd3-impl* é substituído pela cadeia de caracteres de ambiente correta. Se essa URL não for conhecida, trabalhe com seu representante de suporte ou parceiro de integração do Workday para determinar a URL correta a ser usada.
+   * **URL da API de serviços Web do workday –** Insira a URL para o ponto de extremidade de serviços Web do WORKDAY para seu locatário. Esse valor deve ser semelhante a: `https://wd3-impl-services1.workday.com/ccx/service/contoso4`, onde *contoso4* é substituído pelo nome do locatário correto e *wd3-impl* é substituído pela cadeia de caracteres de ambiente correta. Se essa URL não for conhecida, trabalhe com seu representante de suporte ou parceiro de integração do Workday para determinar a URL correta a ser usada.
 
      > [!NOTE]
      > Por padrão, o aplicativo usa workday Web Services v 21.1 se nenhuma informação de versão for especificada na URL. Para usar uma versão específica da API de serviços Web do workday, use o formato da URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exemplo: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+     > Exemplo: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
    * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
@@ -703,7 +703,7 @@ Siga estas instruções para configurar o Write-back de endereços de email do u
 
 **Para configurar o conector de Write-back do Workday:**
 
-1. Ir para <https://portal.azure.com>.
+1. Acesse <https://portal.azure.com>.
 
 2. Na portal do Azure, procure e selecione **Azure Active Directory**.
 
@@ -723,7 +723,7 @@ Siga estas instruções para configurar o Write-back de endereços de email do u
 
    * **Senha de administrador –** Insira a senha da conta do sistema de integração do workday
 
-   * **URL do locatário –** Insira a URL para o ponto de extremidade de serviços Web do WORKDAY para seu locatário. Esse valor deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, onde *contoso4* é substituído pelo seu nome de locatário correto e *wd3-impl* é substituído pela cadeia de caracteres de ambiente correta (se necessário).
+   * **URL do locatário –** Insira a URL para o ponto de extremidade de serviços Web do WORKDAY para seu locatário. Esse valor deve ser semelhante a: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`, onde *contoso4* é substituído pelo seu nome de locatário correto e *wd3-impl* é substituído pela cadeia de caracteres de ambiente correta (se necessário).
 
    * **Email de notificação –** Insira seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
 

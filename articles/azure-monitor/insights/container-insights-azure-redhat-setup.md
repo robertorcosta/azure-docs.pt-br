@@ -3,12 +3,12 @@ title: Configurar o Azure Red Hat OpenShift v3. x com Azure Monitor para contêi
 description: Este artigo descreve como configurar o monitoramento de um cluster kubernetes com Azure Monitor hospedado no Azure Red Hat OpenShift versão 3 e superior.
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 98ac5752e047c4f5f6db63d228bec7c47271aa00
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: HT
+ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166286"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204127"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurar o Azure Red Hat OpenShift v3 com Azure Monitor para contêineres
 
@@ -38,7 +38,7 @@ Azure Monitor para contêineres dá suporte ao monitoramento do Azure Red Hat Op
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Habilitar para um novo cluster usando um modelo de Azure Resource Manager
 
-Execute as etapas a seguir para implantar um cluster do Azure Red Hat OpenShift com monitoramento habilitado. Antes de continuar, examine o tutorial [criar um cluster do Azure Red Hat OpenShift](../../openshift/tutorial-create-cluster.md#prerequisites) para entender as dependências que você precisa configurar para que seu ambiente seja configurado corretamente.
+Execute as etapas a seguir para implantar um cluster do Azure Red Hat OpenShift com monitoramento habilitado. Antes de continuar, examine o tutorial [criar um cluster do Azure Red Hat OpenShift](../../openshift/tutorial-create-cluster.md) para entender as dependências que você precisa configurar para que seu ambiente seja configurado corretamente.
 
 Esse método inclui dois modelos JSON. Um modelo especifica a configuração para implantar o cluster com monitoramento habilitado e o outro contém valores de parâmetro que você configura para especificar o seguinte:
 

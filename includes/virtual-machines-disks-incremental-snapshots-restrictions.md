@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8e4c1c05b133f85b7473c3ce97c9f509ac8f7d37
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39a013f5f4b587137366147ade77f0be1b353c4c
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79299135"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204477"
 ---
 - Os instantâneos incrementais atualmente não podem ser movidos entre assinaturas.
-- Atualmente, você só pode gerar URIs SAS de até cinco instantâneos de uma família de instantâneos em particular a qualquer momento.
-- Não é possível criar um instantâneo incremental para um determinado disco fora da assinatura desse disco.
+- No momento, você pode gerar apenas URIs SAS de até cinco instantâneos de uma família de instantâneos específica em um determinado momento.
+- Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco.
 - Até sete instantâneos incrementais por disco podem ser criados a cada cinco minutos.
 - Um total de 200 instantâneos incrementais podem ser criados para um único disco.
+- Você não pode obter as alterações entre os instantâneos feitos antes e depois da alteração no tamanho do disco pai entre 4 TB de limite. Você precisa baixar novamente a cópia completa do instantâneo criado após o redimensionamento. Subsequentemente, você pode obter as alterações entre os instantâneos criados após o redimensionamento entre 4 TB de limite. 

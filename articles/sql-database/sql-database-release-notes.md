@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/28/2020
 ms.author: sstein
-ms.openlocfilehash: 27a62223970b0f697465ce9aa050f3fccbcae464
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106416"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201305"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -49,7 +49,7 @@ Este artigo lista os recursos do banco de dados SQL que estão atualmente em vis
 | <a href="https://aka.ms/managed-instance-aadlogins">Entidades de segurança de nível de instância do Azure AD Server (logons)</a> | Crie logons no nível de servidor usando a instrução <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Create login from external Provider</a> . |
 | [Replicação transacional](sql-database-managed-instance-transactional-replication.md) | Replique as alterações de suas tabelas em outros bancos de dados colocados em instâncias gerenciadas, bancos de dados individuais ou instâncias de SQL Server, ou atualize suas tabelas quando algumas linhas forem alteradas em outras instâncias gerenciadas ou SQL Server instância. Para obter informações, consulte [Configurar replicação em um banco de dados de instância gerenciada do banco de dados SQL do Azure](replication-with-sql-database-managed-instance.md). |
 | Detecção de ameaças |Para obter informações, consulte [Configurar a detecção de ameaças na instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-threat-detection.md).|
-| Retenção de backup de longo prazo | Para obter informações, consulte [Configurar retenção de backup de longo prazo na instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
+| Retenção de backup de longo prazo | Para obter informações, consulte [Configurar retenção de backup de longo prazo na instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-long-term-backup-retention-configure.md), que está atualmente em visualização pública limitada. | 
 
 ---
 
@@ -69,7 +69,7 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
   - Suporte para <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 e SharePoint 2019 </a> e <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Crie instâncias com <a href="https://aka.ms/managed-instance-collation">agrupamento de nível de servidor</a> e <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">zona de tempo</a> de sua escolha.
   - As instâncias gerenciadas agora são protegidas com o <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
-  - Configure as instâncias para usar [pontos de extremidade públicos](sql-database-managed-instance-public-endpoint-configure.md), conexão de [substituição de proxy](sql-database-connectivity-architecture.md#connection-policy) para obter melhor desempenho de rede, <a href="https://aka.ms/four-cores-sql-mi-update">4 VCores na geração de hardware Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurar a retenção de backup de até 35 dias para a</a> restauração pontual. A retenção de backup de longo prazo (até 10 anos) ainda não está habilitada para que você possa usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">backups somente cópia</a> como uma alternativa.
+  - Configure as instâncias para usar [pontos de extremidade públicos](sql-database-managed-instance-public-endpoint-configure.md), conexão de [substituição de proxy](sql-database-connectivity-architecture.md#connection-policy) para obter melhor desempenho de rede, <a href="https://aka.ms/four-cores-sql-mi-update">4 VCores na geração de hardware Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurar a retenção de backup de até 35 dias para a</a> restauração pontual. A [retenção de backup de longo prazo](sql-database-long-term-retention.md#managed-instance-support) (até 10 anos) está atualmente em visualização pública limitada.  
   - As novas funcionalidades permitem que você <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaure geograficamente seu banco de dados para outro Data Center usando o PowerShell</a>, [renomeie o banco de dados](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [exclua o cluster virtual](sql-database-managed-instance-delete-virtual-cluster.md).
   - A nova função de [colaborador de instância](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) interna permite a conformidade de SOD (separação de imposto) com princípios de segurança e conformidade com os padrões corporativos.
   - A instância gerenciada está disponível nas seguintes regiões do Azure governamental para GA (US Gov Texas US Gov Arizona), bem como em Norte da China 2 e Leste da China 2. Ele também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, sul do Brasil, sul da França, EAU Central, Norte dos EAU, norte da África do Sul, oeste da África do Sul.
@@ -81,7 +81,7 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 |[Permissões no grupo de recursos não aplicadas a Instância Gerenciada](#permissions-on-resource-group-not-applied-to-managed-instance)|Fevereiro de 2020|Tem solução alternativa||
 |[Limitação de failover manual por meio do portal para grupos de failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Tem solução alternativa||
 |[As funções do SQL Agent precisam de permissões de execução explícitas para logons não sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Tem solução alternativa||
-|[Os trabalhos do SQL Agent podem ser interrompidos pela reinicialização do processo do agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Sem solução|Mar de 2020|
+|[Os trabalhos do SQL Agent podem ser interrompidos pela reinicialização do processo do agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Resolvido|Mar de 2020|
 |[Não há suporte para logons e usuários do AAD no SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|2019 de novembro|Sem solução||
 |[Os limites de memória OLTP na memória não são aplicados](#in-memory-oltp-memory-limits-are-not-applied)|Outubro de 2019|Tem solução alternativa||
 |[Erro incorreto retornado ao tentar remover um arquivo que não está vazio](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Outubro de 2019|Tem solução alternativa||
@@ -96,7 +96,7 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 |[Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos](#exceeding-storage-space-with-small-database-files)||Tem solução alternativa||
 |[Valores de GUID mostrados em vez de nomes de banco de dados](#guid-values-shown-instead-of-database-names)||Tem solução alternativa||
 |[Os logs de erros não são persistentes](#error-logs-arent-persisted)||Sem solução||
-|[O escopo da transação em dois bancos de dados na mesma instância não tem suporte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Tem solução alternativa|Março de 2020|
+|[O escopo da transação em dois bancos de dados na mesma instância não tem suporte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Tem solução alternativa|Mar de 2020|
 |[Os módulos CLR e os servidores vinculados às vezes não podem fazer referência a um endereço IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Tem solução alternativa||
 |Consistência do banco de dados não verificada usando DBCC CHECKDB após restaurar banco de dados do armazenamento de BLOBs do Azure.||Resolvido|2019 de novembro|
 |A restauração de banco de dados pontual da camada de Comercialmente Crítico para Uso Geral não terá sucesso se o banco de dados de origem contiver objetos OLTP na memória.||Resolvido|Outubro de 2019|
@@ -133,7 +133,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Os trabalhos do SQL Agent podem ser interrompidos pela reinicialização do processo do agente
 
-O SQL Agent cria uma nova sessão toda vez que o trabalho é iniciado, aumentando gradualmente o consumo de memória. Para evitar atingir o limite de memória interna que bloquearia a execução de trabalhos agendados, o processo do agente será reiniciado quando seu consumo de memória atingir o limite. Isso pode resultar na interrupção da execução de trabalhos em execução no momento da reinicialização.
+**(Resolvido em março de 2020)** O SQL Agent cria uma nova sessão toda vez que o trabalho é iniciado, aumentando gradualmente o consumo de memória. Para evitar atingir o limite de memória interna que bloquearia a execução de trabalhos agendados, o processo do agente será reiniciado quando seu consumo de memória atingir o limite. Isso pode resultar na interrupção da execução de trabalhos em execução no momento da reinicialização.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Os limites de memória OLTP na memória não são aplicados
 

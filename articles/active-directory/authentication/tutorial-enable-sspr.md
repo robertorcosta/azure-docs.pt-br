@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b9052f364dfbae205dd324ba69de9578ccc225
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c84aa99608a4fc2ac1842c617cca54e2afc3cdbe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77026309"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201985"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
@@ -104,7 +104,7 @@ Para manter os usuários informados sobre a atividade da conta, você pode confi
 Se os usuários precisarem de ajuda adicional com o processo de SSPR, você poderá personalizar o link para "Entre em contato com seu administrador". Esse link é usado no processo de registro de SSPR e quando um usuário desbloqueia sua conta ou redefine a senha. Para garantir que os usuários obtenham o suporte necessário, é altamente recomendável fornecer um email ou uma URL de assistência técnica personalizados.
 
 1. Na página **Personalização** do menu no lado esquerdo, defina *Personalizar link de assistência técnica* como **Sim**.
-1. No campo **Email ou URL de assistência técnica personalizados**, forneça o endereço de email ou a URL da página da Web em que os usuários possam obter mais ajuda de sua organização, como *https://support.contoso.com/*
+1. No campo **Email ou URL de assistência técnica personalizados**, forneça o endereço de email ou a URL da página da Web em que os usuários possam obter mais ajuda de sua organização, como *`https://support.contoso.com/`*
 1. Para aplicar o link personalizado, selecione **Salvar**.
 
 ## <a name="test-self-service-password-reset"></a>Testar redefinição de senha de autoatendimento

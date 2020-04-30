@@ -8,28 +8,27 @@ manager: erikre
 editor: ''
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f8ca0caedd438c4ce707a044bc7fa7dd035e8983
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70072497"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203226"
 ---
-# <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Usar um Cache do Azure para Redis externo no Gerenciamento de API do Azure
+# <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Usar um cache externo compatível com Redis no gerenciamento de API do Azure
 
-Além de utilizar o cache interno, o Gerenciamento de API do Azure também permite armazenar respostas em cache em um Cache do Azure para Redis externo.
+Além de utilizar o cache interno, o gerenciamento de API do Azure permite armazenar em cache as respostas em um cache externo compatível com Redis, por exemplo, o cache do Azure para Redis.
 
-Usar um cache externo permite superar algumas limitações do cache interno. É especialmente útil se você quiser:
+O uso de um cache externo permite superar algumas limitações do cache interno:
 
 * Evitar que o cache fique periodicamente desmarcado durante as atualizações de Gerenciamento de API
 * Ter mais controle sobre sua configuração de cache
 * Armazenar mais dados do que seu nível de Gerenciamento de API permite
 * Usar o armazenamento em cache com a camada Consumo do Gerenciamento de API
+* Habilitar o Caching nos [gateways de gerenciamento de API auto-hospedados](self-hosted-gateway-overview.md)
 
 Para saber mais sobre o cache, veja [Políticas de armazenamento em cache do Gerenciamento de API](api-management-caching-policies.md) e [Armazenamento em cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 
@@ -53,6 +52,10 @@ Esta seção explica como criar um Cache do Azure para Redis no Azure. Se você 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
+## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Implantar o cache Redis no kubernetes
+
+Para caching, os gateways hospedados internamente dependem exclusivamente de caches externos. Para que o cache seja um gateway de hospedagem interna eficaz e o cache no qual eles dependem devem estar localizados próximos um do outro para minimizar as latências de pesquisa e armazenamento. Implantar um cache Redis no mesmo cluster kubernetes ou em um cluster separado próximo são as melhores opções. Siga este [link](https://github.com/kubernetes/examples/tree/master/guestbook) para aprender a implantar o cache Redis em um cluster kubernetes.
+
 ## <a name="add-an-external-cache"></a><a name="add-external-cache"> </a>Adicionar um cache externo
 
 Siga as etapas abaixo para adicionar um Cache do Azure para Redis externo no Gerenciamento de API do Azure.
@@ -60,7 +63,7 @@ Siga as etapas abaixo para adicionar um Cache do Azure para Redis externo no Ger
 ![Traga seu próprio cache para o APIM](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> A configuração **use from** especifica qual implantação regional de gerenciamento de API se comunicará com o cache configurado no caso de uma configuração de várias regiões do gerenciamento de API. Os caches especificados como **Padrão** serão substituídos por caches com um valor regional.
+> A configuração **use from** especifica uma região do Azure ou um local de gateway de hospedagem interna que usará o cache configurado. Os caches configurados como **padrão** serão substituídos por caches com um valor de local ou região correspondente específico.
 >
 > Por exemplo, se o Gerenciamento de API estiver hospedado nas regiões: Leste dos EUA, Sudeste Asiático e Europa Ocidental, haverá dois caches configurados, um para **Padrão** e um para **Sudeste Asiático**. O Gerenciamento de API que está em **Sudeste Asiático** usará seu próprio cache, enquanto as outras duas regiões usarão a entrada de cache **Padrão**.
 
@@ -81,6 +84,16 @@ Siga as etapas abaixo para adicionar um Cache do Azure para Redis externo no Ger
 4. Escolha **Personalizar** no campo suspenso **Instância de cache**.
 5. Selecione **padrão** ou especifique a região desejada no campo suspenso **usar de** .
 6. Forneça a cadeia de conexão do Cache do Azure para Redis no campo **Cadeia de conexão**.
+7. Clique em **Salvar**.
+
+### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>Adicionar um cache Redis a um gateway auto-hospedado
+
+1. Navegue até sua instância de Gerenciamento de API no portal do Azure.
+2. Escolha a guia **Cache externo** no menu à esquerda.
+3. Clique no botão **+ Adicionar**.
+4. Escolha **Personalizar** no campo suspenso **Instância de cache**.
+5. Especifique o local do gateway de hospedagem interna desejado ou o **padrão** no campo de lista suspensa **usar de** .
+6. Forneça a cadeia de conexão do cache Redis no campo **cadeia de conexão**.
 7. Clique em **Salvar**.
 
 ## <a name="use-the-external-cache"></a>Usar o cache externo

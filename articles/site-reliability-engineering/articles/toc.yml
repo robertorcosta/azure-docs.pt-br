@@ -1,0 +1,7 @@
+- name: Documentação da engenharia de confiabilidade de sites
+  href: ../index.yml
+- name: Perguntas frequentes
+  expanded: true
+  items:
+    - name: SRE e DevOps
+      href: devops.md

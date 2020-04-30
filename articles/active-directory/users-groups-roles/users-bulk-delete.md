@@ -1,11 +1,11 @@
 ---
-title: Exclua em massa os usuários no portal do Azure Active Directory | Microsoft Docs
-description: Excluir usuários em massa no centro de administrador esporão do Azure no Azure Active Directory
+title: Excluir usuários em massa no portal de Azure Active Directory | Microsoft Docs
+description: Excluir usuários em massa no centro de administração do Azure no Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,54 +13,75 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beb8b4f35dc5f02e59cced05a6bcfc235d42f996
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ca30d5b050a34000fa7c6465356aba206aeaa8e4
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532792"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203328"
 ---
-# <a name="bulk-delete-users-in-azure-active-directory"></a>Exclua em massa os usuários no Azure Active Directory
+# <a name="bulk-delete-users-in-azure-active-directory"></a>Excluir usuários em massa no Azure Active Directory
 
-Usando o portal Azure Active Directory (Azure AD), você pode remover um grande número de membros para um grupo usando um arquivo CSV (Comma-Separated Values, valores separados por comuma) para excluir em massa os usuários.
+Usando o portal do Azure Active Directory (AD do Azure), você pode remover um grande número de membros para um grupo usando um arquivo CSV (valores separados por vírgula) para excluir usuários em massa.
 
-## <a name="to-bulk-delete-users"></a>Para excluir em massa os usuários
+## <a name="understand-the-csv-template"></a>Entender o modelo CSV
 
-1. [Faça login na sua organização Azure AD](https://aad.portal.azure.com) com uma conta que é administradora de usuário na organização.
-1. No Azure AD, selecione **'Usuários** > **Em massa excluir**.
-1. Na página **de exclusão em massa do usuário,** selecione **Baixar** para receber um arquivo CSV válido de propriedades do usuário.
+Baixe e preencha o modelo CSV para ajudá-lo a excluir com êxito os usuários do Azure AD em massa. O modelo CSV que você baixa pode ser semelhante a este exemplo:
+
+![Planilha para upload e limites de chamada que explicam a finalidade e os valores de cada linha e coluna](./media/users-bulk-delete/understand-template.png)
+
+### <a name="csv-template-structure"></a>Estrutura do modelo CSV
+
+As linhas em um modelo CSV baixado são as seguintes:
+
+- **Número de versão**: a primeira linha que contém o número de versão deve ser incluída no CSV de carregamento.
+- **Títulos de coluna** &lt;: o formato dos títulos de coluna é o *nome* &gt; do item [PropertyName &lt;] *necessário ou em branco*&gt;. Por exemplo, `User name [userPrincipalName] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações.
+- **Linha de exemplos**: incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Você deve remover a linha de exemplos e substituí-la por suas próprias entradas.
+
+### <a name="additional-guidance"></a>Diretriz adicional
+
+- As duas primeiras linhas do modelo de carregamento não devem ser removidas ou modificadas ou o carregamento não pode ser processado.
+- As colunas necessárias são listadas primeiro.
+- Não recomendamos adicionar novas colunas ao modelo. Todas as colunas adicionais adicionadas são ignoradas e não processadas.
+- Recomendamos que você baixe a versão mais recente do modelo CSV sempre que possível.
+
+## <a name="to-bulk-delete-users"></a>Para excluir usuários em massa
+
+1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador de usuário na organização.
+1. No Azure AD, selecione **usuários** > **excluir em massa**.
+1. Na página **usuário de exclusão em massa** , selecione **baixar** para receber um arquivo CSV válido de propriedades do usuário.
 
    ![Selecione um arquivo CSV local no qual você lista os usuários que deseja excluir](./media/users-bulk-delete/bulk-delete.png)
 
-1. Abra o arquivo CSV e adicione uma linha para cada usuário que você deseja excluir. O único valor necessário é **o nome principal do usuário.** Em seguida, salve o arquivo.
+1. Abra o arquivo CSV e adicione uma linha para cada usuário que você deseja excluir. O único valor necessário é **nome principal do usuário**. Em seguida, salve o arquivo.
 
-   ![O arquivo CSV contém nomes e IDs dos usuários para excluir](./media/users-bulk-delete/delete-csv-file.png)
+   ![O arquivo CSV contém nomes e IDs dos usuários a serem excluídos](./media/users-bulk-delete/delete-csv-file.png)
 
-1. Na **página de exclusão em massa** do usuário, em **Upload seu arquivo csv**, navegue até o arquivo. Quando você seleciona o arquivo e clica em enviar, a validação do arquivo CSV é iniciada.
+1. Na página **usuário de exclusão em massa** , em **carregar o arquivo CSV**, navegue até o arquivo. Quando você seleciona o arquivo e clica em enviar, a validação do arquivo CSV é iniciada.
 1. Quando o conteúdo do arquivo for validado, você verá a mensagem **Arquivo carregado com êxito**. Se houver erros, você precisará corrigi-los antes de enviar o trabalho.
-1. Quando o arquivo passar pela validação, **selecione Enviar** para iniciar a operação em massa do Azure que exclui os usuários.
-1. Quando a operação de exclusão for concluída, você verá uma notificação de que a operação em massa foi bem sucedida.
+1. Quando o arquivo passar na validação, selecione **Enviar** para iniciar a operação em massa do Azure que exclui os usuários.
+1. Quando a operação de exclusão for concluída, você verá uma notificação de que a operação em massa foi bem-sucedida.
 
-Se houver erros, você pode baixar e visualizar o arquivo de resultados na página **de resultados da operação Bulk.** O arquivo contém a razão de cada erro.
+Se houver erros, você poderá baixar e exibir o arquivo de resultados na página **resultados da operação em massa** . O arquivo contém o motivo de cada erro.
 
 ## <a name="check-status"></a>Verificar o status
 
-Você pode ver o status de todas as suas solicitações em massa pendentes na página de resultados da **operação Bulk.**
+Você pode ver o status de todas as suas solicitações em massa pendentes na página **resultados da operação em massa** .
 
    [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
 
-Em seguida, você pode verificar se os usuários que você excluiu existem na organização Azure AD, seja no portal Azure ou usando o PowerShell.
+Em seguida, você pode verificar para ver se os usuários que você excluiu existem na organização do Azure AD na portal do Azure ou usando o PowerShell.
 
-## <a name="verify-deleted-users-in-the-azure-portal"></a>Verifique usuários excluídos no portal Azure
+## <a name="verify-deleted-users-in-the-azure-portal"></a>Verificar usuários excluídos no portal do Azure
 
 1. Entre no portal do Azure com uma conta que seja um Administrador de usuários na organização.
 1. No painel de navegação, selecione **Azure Active Directory**.
 1. Em **Gerenciar**, selecione **Usuários**.
-1. Em **Mostrar,** selecione **Apenas todos os usuários** e verifique se os usuários excluídos não estão mais listados.
+1. Em **Mostrar**, selecione somente **todos os usuários** e verifique se os usuários que você excluiu não estão mais listados.
 
-### <a name="verify-deleted-users-with-powershell"></a>Verifique usuários excluídos com o PowerShell
+### <a name="verify-deleted-users-with-powershell"></a>Verificar usuários excluídos com o PowerShell
 
-Execute o comando a seguir:
+Execute o seguinte comando:
 
 ``` PowerShell
 Get-AzureADUser -Filter "UserType eq 'Member'"
@@ -71,5 +92,5 @@ Verifique se os usuários que você excluiu não estão mais listados.
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Adição de Usuários em Massa](users-bulk-add.md)
-- [Lista de downloads de usuários](users-bulk-download.md)
-- [Usuários de restauração em massa](users-bulk-restore.md)
+- [Baixar lista de usuários](users-bulk-download.md)
+- [Restauração de usuários em massa](users-bulk-restore.md)

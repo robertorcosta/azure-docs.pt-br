@@ -1,5 +1,5 @@
 ---
-title: Gerenciar capturas de pacotes - Portal Azure
+title: Gerenciar capturas de pacote-portal do Azure
 titleSuffix: Azure Network Watcher
 description: Aprenda a gerenciar o recurso de captura de pacote do Observador de Rede usando o portal do Azure.
 services: network-watcher
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d7a61438187534a05a7d3f0307a1a4ded89fc147
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840820"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204076"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -27,12 +27,16 @@ Neste artigo, você aprenderá a iniciar, parar, baixar e excluir uma captura de
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-A captura de pacotes requer a seguinte conectividade:
-* Conectividade de saída para uma conta de armazenamento na porta 443.
-* Conectividade de entrada e saída para 169.254.169.254
-* Conectividade de entrada e saída para 168.63.129.16
+A captura de pacote requer a seguinte conectividade TCP de saída:
+- para a conta de armazenamento escolhida pela porta 443
+- para 169.254.169.254 sobre a porta 80
+- para 168.63.129.16 sobre a porta 8037
 
-Se um grupo de segurança de rede estiver associado ao adaptador de rede ou à sub-rede na qual o adaptador de rede está, verifique se de existem regras que permitem as portas anteriores. Da mesma forma, adicionar rotas de tráfego definidas pelo usuário à sua rede pode impedir a conectividade com os IPs e portas acima mencionados. Por favor, certifique-se de que eles são alcançáveis. 
+> [!NOTE]
+> As portas mencionadas nos últimos dois casos acima são comuns em todos os recursos do observador de rede que envolvem a extensão do observador de rede e podem ocasionalmente ser alteradas.
+
+
+Se um grupo de segurança de rede estiver associado ao adaptador de rede ou à sub-rede na qual o adaptador de rede está, verifique se de existem regras que permitem as portas anteriores. Da mesma forma, adicionar rotas de tráfego definidas pelo usuário à sua rede pode impedir a conectividade com os IPs e as portas mencionados acima. Verifique se eles estão acessíveis. 
 
 ## <a name="start-a-packet-capture"></a>Iniciar uma captura de pacotes
 
@@ -75,7 +79,7 @@ Depois de o limite de tempo definido na captura de pacotes expirar, a captura é
 ## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacotes
 
 1. Na exibição da captura de pacote, selecione **…** no lado direito da captura de pacote, ou clique com o botão direito do mouse em uma captura de pacote existente e selecione **Excluir**.
-2. Você será solicitado a confirmar se deseja excluir a captura de pacotes. Selecione **Sim**.
+2. Você será solicitado a confirmar se deseja excluir a captura de pacotes. Selecione **Sim** na barra superior.
 
 > [!NOTE]
 > Excluir uma captura de pacotes não exclui o arquivo de captura na conta de armazenamento nem na máquina virtual.

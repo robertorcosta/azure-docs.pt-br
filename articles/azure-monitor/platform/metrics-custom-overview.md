@@ -2,21 +2,21 @@
 title: Métricas personalizadas no Azure Monitor
 description: Saiba mais sobre as métricas personalizadas no Azure Monitor e como elas são modeladas.
 author: ancav
+ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: ancav
+ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 099ab150cde763551c2ad10a4e9159909ccff4dd
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 4286910c926cd6bd3b21acfd145e4e69548319ce
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81270699"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204297"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
-Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas [de padrão ou plataforma.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) No entanto, eles são limitados por natureza. Você pode querer coletar alguns indicadores de desempenho personalizados ou métricas específicas de negócios para fornecer insights mais profundos.
+Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas [de Standard ou Platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). No entanto, eles são limitados por natureza. Você pode querer coletar alguns indicadores de desempenho personalizados ou métricas específicas de negócios para fornecer insights mais profundos.
 Essas **métricas personalizadas** podem ser coletadas por meio da telemetria do aplicativo, um agente que é executado nos recursos do Azure ou até mesmo um sistema de monitoramento externo e enviado diretamente ao Monitor do Azure. Depois de publicados no Azure Monitor, você pode procurar, consultar e alertar sobre métricas personalizadas para os recursos e aplicativos do Azure, lado a lado com as métricas padrão emitidas pelo Azure.
 
 ## <a name="methods-to-send-custom-metrics"></a>Métodos para enviar métricas personalizadas
@@ -25,21 +25,21 @@ Métricas personalizadas podem ser enviadas ao Monitor do Azure por vários mét
 - Instrua seu aplicativo usando o SDK do Azure Application Insights e envie a telemetria personalizada ao Monitor do Azure. 
 - Instale a extensão WAD (Windows Azure Diagnostics) em [VM](collect-custom-metrics-guestos-resource-manager-vm.md), [máquina virtual do Azure configurada](collect-custom-metrics-guestos-resource-manager-vmss.md), [VM clássica](collect-custom-metrics-guestos-vm-classic.md) ou [Serviços em nuvem clássicos](collect-custom-metrics-guestos-vm-cloud-service-classic.md) e enviar contadores de desempenho para o Monitor do Azure. 
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) em sua VM do Azure Linux e envie as métricas usando o plug-in de saída do Monitor do Azure.
-- Envie métricas personalizadas [diretamente para a API REST do Monitor Azure.](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`
+- Envie métricas personalizadas [diretamente para a API REST do Azure monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 ## <a name="pricing-model"></a>Modelo de preços
 
-Não há custo para ingerir métricas padrão (métricas de plataforma) na loja de métricas do Azure Monitor. As métricas personalizadas ingeridas na loja de métricas do Azure Monitor serão cobradas por MByte com cada ponto de dados métrico personalizado escrito como 8 bytes de tamanho. Todas as métricas ingeridas são mantidas por 90 dias.
+Não há nenhum custo para ingerir métricas padrão (métricas de plataforma) em Azure Monitor repositório de métricas. As métricas personalizadas ingeridas no repositório de métricas de Azure Monitor serão cobradas por MByte com cada DataPoint de métrica personalizada gravado como 8 bytes de tamanho. Todas as métricas ingeridas são mantidas por 90 dias.
 
-As consultas métricas serão cobradas com base no número de chamadas padrão da API. Uma chamada padrão de API é uma chamada que analisa 1.440 pontos de dados (1.440 é também o número total de pontos de dados que podem ser armazenados por métrica por dia). Se uma chamada de API analisar mais de 1.440 pontos de dados, ela contará como várias chamadas padrão de API. Se uma chamada de API analisar menos de 1.440 pontos de dados, ela contará como menos de uma chamada de API. O número de chamadas padrão de API é calculado todos os dias como o número total de pontos de dados analisados por dia dividido por 1.440.
+As consultas de métrica serão cobradas com base no número de chamadas à API padrão. Uma chamada à API padrão é uma chamada que analisa 1.440 pontos de dados (1.440 também é o número total de pontos de dados que podem ser armazenados por métrica por dia). Se uma chamada de API analisar mais de 1.440 pontos de dados, ela será contada como várias chamadas de API padrão. Se uma chamada à API analisar menos de 1.440 pontos de dados, ela será contada como menos de uma chamada à API. O número de chamadas de API padrão é calculado todos os dias como o número total de pontos de dados analisados por dia dividido por 1.440.
 
-Detalhes de preços específicos para métricas personalizadas e consultas métricas estão disponíveis na página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
-
-> [!NOTE]  
-> As métricas enviadas ao Azure Monitor através do Application Insights SDK serão cobradas como dados de log ingeridos e incorrerão em cobranças adicionais de métricas somente se o recurso Application Insights [Habilitar o alerta sobre dimensões métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) tiver sido selecionado. Saiba mais sobre o modelo de preços e preços do [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) [em sua região.](https://azure.microsoft.com/pricing/details/monitor/)
+Detalhes de preço específicos para métricas personalizadas e consultas de métrica estão disponíveis na [página de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 > [!NOTE]  
-> Verifique a página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes sobre quando o faturamento será ativado para consultas de métricas e métricas personalizadas. 
+> As métricas enviadas para Azure Monitor por meio do SDK do Application Insights serão cobradas como dados de log ingeridos e incorrerão em encargos adicionais de métricas somente se o recurso Application Insights [habilitar alertas em dimensões de métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) tiver sido selecionado. Saiba mais sobre os preços e o [modelo de preços de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) [em sua região](https://azure.microsoft.com/pricing/details/monitor/).
+
+> [!NOTE]  
+> Verifique a [página de preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes sobre quando a cobrança será habilitada para métricas personalizadas e consultas de métricas. 
 
 ## <a name="how-to-send-custom-metrics"></a>Como enviar métricas personalizadas
 
@@ -70,12 +70,12 @@ Essa propriedade captura em que região do Azure o recurso para o qual você est
 >
 
 ### <a name="timestamp"></a>Timestamp
-Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo de data/hora. Esse registro de data e hora captura o DateTime no qual o valor da métrica é medido ou coletado. O Monitor do Azure aceita dados de métricas com registros de data e hora em até 20 minutos no passado e 5 minutos no futuro. O carimbo de data e hora deve estar no formato ISO 8601.
+Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo de data/hora. Esse registro de data e hora captura o DateTime no qual o valor da métrica é medido ou coletado. O Monitor do Azure aceita dados de métricas com registros de data e hora em até 20 minutos no passado e 5 minutos no futuro. O carimbo de data/hora deve estar no formato ISO 8601.
 
 ### <a name="namespace"></a>Namespace
-Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **contosomemorymetrics** que rastreia métricas de uso de memória que perfiliam seu aplicativo. Outro namespace chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de usuário em seu aplicativo.
+Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **contosomemorymetrics** que controla as métricas de uso de memória cujo perfil é seu aplicativo. Outro namespace chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de usuário em seu aplicativo.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 **Nome** é o nome da métrica que está sendo relatada. Normalmente, o nome é descritivo para ajudar a identificar o que está sendo medido. Um exemplo é uma métrica que mede o número de bytes de memória usados em uma determinada VM. Pode ter um nome de métrica como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
@@ -90,7 +90,7 @@ Ao relatar um ponto de dados de métrica, para cada chave de dimensão na métri
 * O valor da dimensão seria ** ContosoApp.exe **.
 
 Ao publicar um valor de métrica, você pode especificar apenas um valor de dimensão por chave de dimensão. Se você coletar a mesma utilização de memória para vários processos na VM, poderá relatar vários valores de métrica para esse registro de data e hora. Cada valor de métrica especificaria um valor de dimensão diferente para a chave de dimensão **Process**.
-As dimensões são opcionais, nem todas as métricas podem ter dimensões. Se um post métrico definir as teclas de dimensão, os valores de dimensão correspondentes serão obrigatórios.
+As dimensões são opcionais, nem todas as métricas podem ter dimensões. Se uma postagem de métrica definir chaves de dimensão, os valores de dimensão correspondentes serão obrigatórios.
 
 ### <a name="metric-values"></a>Valores métricos
 O Azure Monitor armazena todas as métricas em intervalos com granularidade de um minuto. Entendemos que, durante um determinado minuto, uma métrica pode precisar ser amostrada várias vezes. Um exemplo é a utilização da CPU. Ou talvez precise ser medido para muitos eventos distintos. Um exemplo é latências de transações de entrada. Para limitar o número de valores brutos que você precisa emitir e pagar no Azure Monitor, é possível pré-agregar os valores localmente e emiti-los:
@@ -100,7 +100,7 @@ O Azure Monitor armazena todas as métricas em intervalos com granularidade de u
 * **Sum**: A soma de todos os valores observados de todas as amostras e medições durante o minuto.
 * **Contar**: o número de amostras e medições feitas durante o minuto.
 
-Por exemplo, se houver quatro transações de login no seu aplicativo durante um determinado minuto, as latências medidas resultantes para cada um podem ser as seguintes:
+Por exemplo, se houvesse quatro transações de entrada para seu aplicativo durante um determinado minuto, as latências medidas resultantes de cada uma delas podem ser as seguintes:
 
 |Transação 1|Transação 2|Transação 3|Transação 4|
 |---|---|---|---|
@@ -168,18 +168,18 @@ No exemplo a seguir, você cria uma métrica personalizada chamada **Bytes de Me
 Não há necessidade de predefinir uma métrica personalizada no Monitor do Azure antes de ser emitida. Cada ponto de dados de métrica publicado contém informações de espaço de nomes, nome e dimensão. Portanto, na primeira vez em que uma métrica personalizada é emitida para o Azure Monitor, uma definição de métrica é criada automaticamente. Essa definição de métrica é, então, detectável em qualquer recurso em que a métrica é emitida por meio das definições de métrica.
 
 > [!NOTE]  
-> O Azure Monitor ainda não suporta a definição de **unidades** para uma métrica personalizada.
+> Azure Monitor ainda não dá suporte à definição de **unidades** para uma métrica personalizada.
 
 ## <a name="using-custom-metrics"></a>Usando métricas personalizadas
 Depois que as métricas personalizadas são enviadas ao Monitor do Azure, você pode pesquisá-las por meio do portal do Azure e consultá-las por meio das APIs REST do Monitor do Azure. Você também pode criar alertas para notificá-lo quando certas condições forem atendidas.
 
 > [!NOTE]
-> Você precisa ser um leitor ou um papel de contribuinte para visualizar métricas personalizadas.
+> Você precisa ser uma função de leitor ou colaborador para exibir métricas personalizadas.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Procurar suas métricas personalizadas no portal do Azure
 1.    Vá para o [Portal do Azure](https://portal.azure.com).
 2.    Selecione o painel **Monitor**.
-3.    Selecione **Métricas**.
+3.    Selecione **métricas**.
 4.    Selecione um recurso em que você emitiu métricas personalizadas.
 5.    Selecione o namespace de métricas para sua métrica personalizada.
 6.    Selecione a métrica personalizada.
@@ -190,28 +190,33 @@ Durante a pré-visualização pública, a capacidade de publicar métricas perso
 |Região do Azure |Prefixo de ponto de extremidade regional|
 |---|---|
 | **EUA e Canadá** | |
-|Centro-Oeste dos EUA | https:\//westcentralus.monitoring.azure.com/ |
-|Oeste dos EUA 2       | https:\//westus2.monitoring.azure.com/ |
-|Centro-Norte dos EUA | https:\//northcentralus.monitoring.azure.com
-|Centro-Sul dos Estados Unidos| https:\//southcentralus.monitoring.azure.com/ |
-|Centro dos EUA      | https:\//centralus.monitoring.azure.com |
-|Canadá Central | https:\//canadacentral.monitoring.azure.comc
-|Leste dos EUA| https:\//eastus.monitoring.azure.com/ |
+|Centro-Oeste dos EUA | https:\//westcentralus.Monitoring.Azure.com/ |
+|Oeste dos EUA 2       | https:\//westus2.Monitoring.Azure.com/ |
+|Centro-Norte dos EUA | https:\//northcentralus.Monitoring.Azure.com
+|Centro-Sul dos Estados Unidos| https:\//southcentralus.Monitoring.Azure.com/ |
+|Centro dos EUA      | https:\//centralus.Monitoring.Azure.com |
+|Canadá Central | https:\//canadacentral.Monitoring.Azure.comc
+|Leste dos EUA| https:\//eastus.Monitoring.Azure.com/ |
 | **Europa** | |
-|Norte da Europa    | https:\//northeurope.monitoring.azure.com/ |
-|Europa Ocidental     | https:\//westeurope.monitoring.azure.com/ |
-|Sul do Reino Unido | https:\//uksouth.monitoring.azure.com
-|França Central | https:\//francecentral.monitoring.azure.com |
+|Norte da Europa    | https:\//northeurope.Monitoring.Azure.com/ |
+|Europa Ocidental     | https:\//westeurope.Monitoring.Azure.com/ |
+|Sul do Reino Unido | https:\//uksouth.Monitoring.Azure.com
+|França Central | https:\//francecentral.Monitoring.Azure.com |
 | **África** | |
-|Norte da África do Sul | https:\//southafricanorth.monitoring.azure.com
+|Norte da África do Sul | https:\//southafricanorth.Monitoring.Azure.com
 | **Ásia** | |
-|Índia Central | https:\//centralindia.monitoring.azure.com
-|Leste da Austrália | https:\//australiaeast.monitoring.azure.com
-|Leste do Japão | https:\//japaneast.monitoring.azure.com
-|Sudeste Asiático  | https:\//southeastasia.monitoring.azure.com |
-|Leste da Ásia | https:\//eastasia.monitoring.azure.com
-|Coreia Central   | https:\//koreacentral.monitoring.azure.com
+|Índia Central | https:\//centralindia.Monitoring.Azure.com
+|Leste da Austrália | https:\//australiaeast.Monitoring.Azure.com
+|Leste do Japão | https:\//japaneast.Monitoring.Azure.com
+|Sudeste Asiático  | https:\//southeastasia.Monitoring.Azure.com |
+|Leste da Ásia | https:\//eastasia.Monitoring.Azure.com
+|Coreia Central   | https:\//koreacentral.Monitoring.Azure.com
 
+## <a name="latency-and-storage-retention"></a>Latência e retenção de armazenamento
+
+Adicionar uma nova métrica ou uma nova dimensão que está sendo adicionada a uma métrica pode levar até 2 a 3 minutos para aparecer. Uma vez no sistema, os dados devem aparecerão em menos de 30 segundos 99% do tempo. 
+
+Se você excluir uma métrica ou remover uma dimensão, a alteração poderá levar uma semana a um mês para ser excluída do sistema.
 
 ## <a name="quotas-and-limits"></a>Cotas e limites
 O Monitor do Azure impõe os seguintes limites de uso em métricas personalizadas:
@@ -230,6 +235,6 @@ Use métricas personalizadas de diferentes serviços:
  - [Conjunto de escala de máquina virtual](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Máquinas virtuais do Azure (clássico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux Virtual Machine usando o agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Serviços de nuvem clássico](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

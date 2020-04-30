@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 2e84138419986ef1033ab076b3745187812e91b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335895"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203161"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos níveis de gerenciamento de API do Azure
 
 Cada [tipo de preço](https://aka.ms/apimpricing) de Gerenciamento de API oferece um conjunto distinto de recursos e por unidade de [capacidade](api-management-capacity.md). A tabela a seguir resume os principais recursos disponíveis em cada um dos níveis. Alguns recursos podem funcionar de maneira diferente ou ter recursos diferentes dependendo da camada. Em tais casos, as diferenças são mencionadas nos artigos de documentação que descrevem esses recursos individuais.
 
 > [!IMPORTANT]
-> Observe que o nível desenvolvedor é para casos e avaliações de uso não-produzido. Ele não oferece SLA.
+> Observe que a camada de desenvolvedor é para casos de uso e avaliações de não produção. Ele não oferece SLA.
 
 | Recurso                                                                                      | Consumo | Desenvolvedor | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
@@ -45,6 +45,6 @@ Cada [tipo de preço](https://aka.ms/apimpricing) de Gerenciamento de API oferec
 | Métricas e logs do Azure Monitor                                                               | Não          | Sim       | Sim   | Sim      | Sim     |
 | IP Estático                                                                                    | Não          | Sim       | Sim   | Sim      | Sim     |
 
-<sup>1</sup> Permite o uso do Azure AD (e do Azure AD B2C) como provedor de identidade para o login do usuário no portal do desenvolvedor.<br/>
+<sup>1</sup> habilita o uso do Azure AD (e Azure ad B2C) como um provedor de identidade para entrada do usuário no portal do desenvolvedor.<br/>
 <sup>2</sup> Incluindo funcionalidade relacionada, por ex. usuários, grupos, problemas, aplicativos e modelos de email e notificações.<br/>
-<sup>3</sup> Limitado a uma única implantação de gateway auto-hospedado com um único nó de gateway.<br/>
+<sup>3</sup> nos gateways de camada de desenvolvedor auto-hospedados são limitados ao nó de gateway único.<br/>

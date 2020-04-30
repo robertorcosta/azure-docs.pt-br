@@ -136,10 +136,10 @@
         - name: Aprovisionar a taxa de transferência para contêineres e bancos de dados
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Provisionar a taxa de transferência – modo Autopilot
-          href: provision-throughput-autopilot.md
-        - name: Perguntas frequentes sobre o Autopilot
-          href: autopilot-faq.md
+        - name: Provisionar a taxa de transferência – modo de dimensionamento automático
+          href: provision-throughput-autoscale.md
+        - name: Perguntas frequentes sobre dimensionamento automático
+          href: autoscale-faq.md
     - name: consulta SQL
       items:
         - name: Introdução
@@ -518,6 +518,7 @@
         - name: Custo Total de Propriedade (TCO)
           href: total-cost-ownership.md
         - name: Entenda sua fatura
+          displayName: free tier
           href: understand-your-bill.md
         - name: Otimizar o custo da taxa de transferência provisionada
           displayName: 'request units, RUs, RU'
@@ -531,6 +532,7 @@
         - name: Otimizar o custo de várias regiões
           href: optimize-cost-regions.md
         - name: Otimizar o custo de desenvolvimento/teste
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Otimizar o custo com a capacidade reserva
           href: cosmos-db-reserved-capacity.md

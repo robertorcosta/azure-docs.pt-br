@@ -8,29 +8,29 @@ ms.topic: include
 ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7167cbb26e69941cade01ab8c0b8d9dc633f0d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e2a950037aed2a8ded4d4e55920721285cbfc05c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72168375"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204671"
 ---
-Ao trabalhar com políticas iPsec personalizadas, tenha em mente os seguintes requisitos:
+Ao trabalhar com políticas IPsec personalizadas, tenha em mente os seguintes requisitos:
 
-* **IKE** - Para ike, você pode selecionar qualquer parâmetro da Criptografia IKE, além de qualquer parâmetro do IKE Integrity, além de qualquer parâmetro do DH Group.
-* **IPsec** - Para IPsec, você pode selecionar qualquer parâmetro da IPsec Encryption, além de qualquer parâmetro da IPsec Integrity, mais PFS. Se algum dos parâmetros para IPsec Encryption ou IPsec Integrity for GCM, então os parâmetros para ambas as configurações devem ser GCM.
+* **Ike** -para Ike, você pode selecionar qualquer parâmetro da criptografia IKE, além de qualquer parâmetro da integridade Ike, além de qualquer parâmetro do grupo DH.
+* **IPSec** -para IPsec, você pode selecionar qualquer parâmetro da criptografia IPSec, além de qualquer parâmetro da integridade do IPSec, além do PFS. Se qualquer um dos parâmetros para criptografia IPsec ou integridade IPsec for GCM, os parâmetros para ambas as configurações deverão ser GCM.
 
 >[!NOTE]
-> Com as políticas de IPsec personalizadas, não há conceito de respondente e iniciador (ao contrário das políticas de IPsec padrão). Ambos os lados (no local e no gateway Azure VPN) usarão as mesmas configurações para a Fase 1 e a Fase 2 do IKE. Os protocolos IKEv1 e IKEv2 são suportados. Não há suporte para o Azure apenas como um respondente.
+> Com as políticas IPsec personalizadas, não há nenhum conceito de respondente e iniciador (ao contrário das políticas IPsec padrão). Ambos os lados (local e gateway de VPN do Azure) usarão as mesmas configurações para a fase 1 de IKE e a fase 2 da IKE. Há suporte para os protocolos IKEv1 e IKEv2. Não há suporte apenas para o Azure como respondente.
 >
 
 **Configurações e parâmetros disponíveis**
 
-| Configuração | Parâmetros |
+| Setting | Parâmetros |
 |--- |--- |
-| Criptografia IKE | AES256, AES192, AES128 |
-| Integridade ike | SHA384, SHA256, SHA1 |
-| Grupo DH | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2 |
-| Criptografia IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128 |
-| Integridade do IPsec | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1 |
-| Grupo PFS | PFS24, ECP384, ECP256, PFS2048, PFS2 |
+| Criptografia IKE | GCMAES256, GCMAES128, AES256, AES128 |
+| Integridade do IKE | SHA384, SHA256 |
+| Grupo DH | ECP384, ECP256, DHGroup24, DHGroup14 |
+| Criptografia IPsec | GCMAES256, GCMAES128, AES256, AES128, nenhum |
+| Integridade do IPsec | GCMAES256, GCMAES128, SHA256 |
+| Grupo PFS | ECP384, ECP256, PFS24, PFS14, None |

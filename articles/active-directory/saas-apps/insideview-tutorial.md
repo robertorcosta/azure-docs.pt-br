@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2149b8410104b39652b176895a31b42e094265f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4278f00b1026fe4d1b95634540d6d035d43ca5ab
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67100100"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202325"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Azure Active Directory com o InsideView
 
@@ -143,13 +143,13 @@ Para configurar o logon único do Azure AD com o InsideView, siga estas etapas:
 
     1. Abra o certificado Bruto que você baixou do portal do Azure. Copie o conteúdo do certificado para a área de transferência e, em seguida, cole o conteúdo na caixa **STS Certificate** (Certificado STS).
 
-    1. Na caixa **Crm User Id Mapping** (Mapeamento de ID de Usuário do CRM), insira **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+    1. Na caixa **Crm User Id Mapping** (Mapeamento de ID de Usuário do CRM), insira **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
-    1. Na caixa **Crm Email Mapping** (Mapeamento de Email do CRM), insira **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+    1. Na caixa **Crm Email Mapping** (Mapeamento de Email do CRM), insira **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
-    1. Na caixa **Crm First Name Mapping** (Mapeamento de Nome do CRM), insira **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
+    1. Na caixa **Crm First Name Mapping** (Mapeamento de Nome do CRM), insira **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
 
-    1. Na caixa de texto **Crm lastName Mapping** (Mapeamento de Sobrenome do CRM), insira **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .  
+    1. Na caixa de texto **Crm lastName Mapping** (Mapeamento de Sobrenome do CRM), insira **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .  
 
     1. Clique em **Salvar**.
 

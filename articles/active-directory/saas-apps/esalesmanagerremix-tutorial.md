@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "65406967"
+ms.locfileid: "82202389"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -132,7 +132,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
 1. Na seção **Referência rápida**, copie a URL de saída e a URL do serviço de logon único do SAML.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![O botão Salvar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
@@ -158,7 +158,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
     
     b. Na seção **item Colaboração**, na lista suspensa, selecione **email**.
 
-    c. Na caixa do item Colaboração, cole o **valor de declaração** copiado anteriormente do Portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Na caixa do item Colaboração, cole o **valor de declaração** copiado anteriormente do Portal do Azure (ou seja, **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**).
 
     d. Na caixa **Emissor (ID da entidade)**, cole o valor do identificador que você copiou do portal do Azure na seção **Domínio e URLs do E Sales Manager Remix**.
 

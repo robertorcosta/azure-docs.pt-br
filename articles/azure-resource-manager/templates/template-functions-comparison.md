@@ -3,22 +3,98 @@ title: Funções de modelo – comparação
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para comparar valores.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a9b7b32475695e5222b87c8fe75e8982f34ebb21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 15afc4d721c6577de9fe3e78483fdbfae5b493c6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192324"
+ms.locfileid: "82203770"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos do ARM
 
 O Gerenciador de recursos fornece várias funções para fazer comparações em seus modelos de Azure Resource Manager (ARM).
 
+* [COALESCE](#coalesce)
 * [equals](#equals)
 * [grande](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [inferiores](#less)
 * [lessOrEquals](#lessorequals)
+
+## <a name="coalesce"></a>coalesce
+
+`coalesce(arg1, arg2, arg3, ...)`
+
+Retorna o primeiro valor não nulo dos parâmetros. Cadeias de caracteres vazias, matrizes vazias e objetos vazios não são nulos.
+
+### <a name="parameters"></a>Parâmetros
+
+| Parâmetro | Obrigatório | Tipo | Descrição |
+|:--- |:--- |:--- |:--- |
+| arg1 |Sim |int, string, array ou object |O primeiro valor para testar se é nulo. |
+| argumentos adicionais |Não |int, string, array ou object |Valores adicionais para testar se são nulos. |
+
+### <a name="return-value"></a>Valor retornado
+
+O valor dos primeiros parâmetros não nulos, que pode ser uma cadeia de caracteres, inteiro, matriz ou objeto. Null se todos os parâmetros forem nulos.
+
+### <a name="example"></a>Exemplo
+
+O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) a seguir mostra a saída de diferentes usos de coalesce.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "null1": null,
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
+        }
+    }
+}
+```
+
+A saída do exemplo anterior com os valores padrão é:
+
+| Nome | Type | Valor |
+| ---- | ---- | ----- |
+| stringOutput | Cadeia de caracteres | default |
+| intOutput | Int | 1 |
+| objectOutput | Objeto | {"first": "default"} |
+| arrayOutput | Array | [1] |
+| emptyOutput | Bool | verdadeiro |
 
 ## <a name="equals"></a>equals
 
@@ -125,10 +201,10 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | True |
-| checkArrays | Bool | True |
-| checkObjects | Bool | True |
+| checkInts | Bool | verdadeiro |
+| checkStrings | Bool | verdadeiro |
+| checkArrays | Bool | verdadeiro |
+| checkObjects | Bool | verdadeiro |
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) a seguir usa [not](template-functions-logical.md#not) com **equals**.
 
@@ -151,7 +227,7 @@ O resultado do exemplo anterior é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | verdadeiro |
 
 ## <a name="greater"></a>greater
 
@@ -216,7 +292,7 @@ A saída do exemplo anterior com os valores padrão é:
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
-| checkStrings | Bool | True |
+| checkStrings | Bool | verdadeiro |
 
 ## <a name="greaterorequals"></a>greaterOrEquals
 
@@ -281,7 +357,7 @@ A saída do exemplo anterior com os valores padrão é:
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Bool | Falso |
-| checkStrings | Bool | True |
+| checkStrings | Bool | verdadeiro |
 
 ## <a name="less"></a>less
 
@@ -345,7 +421,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
+| checkInts | Bool | verdadeiro |
 | checkStrings | Bool | Falso |
 
 ## <a name="lessorequals"></a>lessOrEquals
@@ -410,7 +486,7 @@ A saída do exemplo anterior com os valores padrão é:
 
 | Nome | Type | Valor |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
+| checkInts | Bool | verdadeiro |
 | checkStrings | Bool | Falso |
 
 ## <a name="next-steps"></a>Próximas etapas

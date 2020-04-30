@@ -4,19 +4,19 @@ description: Saiba como levar sua solução de Azure IoT Edge de desenvolvimento
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/24/2020
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ec196408c047682be527ee21735ce809f5916e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191831"
+ms.locfileid: "82204195"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -174,12 +174,22 @@ Para obter um exemplo de uma convenção de tag, consulte [ Atualizar o runtime 
 
 Você sabe como armazenar suas imagens de contêiner para módulos de código personalizado em seu registro privado do Azure, mas também pode usá-lo para armazenar imagens de contêiner público, como para os módulos de tempo de execução edgeAgent e edgHub. Isso poderá ser necessário se você tiver restrições de firewall muito rígidas, pois esses contêineres de tempo de execução são armazenados no MCR (registro de contêiner da Microsoft).
 
-Obtenha as imagens com o comando Docker pull para colocar no registro. Lembre-se de que será necessário atualizar as imagens com cada nova versão do IoT Edge Runtime.
+Obtenha as imagens com o comando Docker pull para colocar em seu registro privado. Lembre-se de que será necessário atualizar as imagens com cada nova versão do IoT Edge Runtime.
 
 | Contêiner de tempo de execução IoT Edge | Comando de pull do Docker |
 | --- | --- |
 | [Agente de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [HUb de Azure IoT Edge](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Em seguida, certifique-se de atualizar as referências de imagem no arquivo Deployment. Template. JSON para os módulos do sistema edgeAgent e edgeHub. Substitua `mcr.microsoft.com` pelo nome do registro e pelo servidor para ambos os módulos.
+
+* EdgeAgent
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* EdgeHub
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## <a name="networking"></a>Rede
 

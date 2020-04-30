@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b5f19e3e994aa05fa99caf360d0c1be69ec7a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0775e717c0610e122bb31f752beecd2c97599053
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80049782"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201033"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Suporte a Vários Domínios para Federação com o Azure AD
 A documentação a seguir fornece orientação sobre como usar vários domínios e subdomínios de nível superior ao estabelecer uma federação com o Office 365 ou com domínios do Azure AD.
@@ -137,7 +137,7 @@ E o IssuerUri no novo domínio foi sido definido como `https://bmfabrikam.com/ad
 ## <a name="support-for-subdomains"></a>Suporte para subdomínios
 Quando você adiciona um subdomínio, devido à maneira usada pelo Azure AD para tratar domínios, ele herda as configurações do pai.  Por isso, o IssuerUri precisa corresponder aos pais.
 
-Digamos, por exemplo, que eu tenha bmcontoso.com e adicione corp.bmcontoso.com.  O EmissorUri para um usuário de corp.bmcontoso.com precisará ser ** http://bmcontoso.com/adfs/services/trust.**  No entanto, a regra padrão implementada acima para o Azure AD, irá gerar um token com um emissor como ** http://corp.bmcontoso.com/adfs/services/trust.** , que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
+Digamos, por exemplo, que eu tenha bmcontoso.com e adicione corp.bmcontoso.com.  O IssuerUri para um usuário de corp.bmcontoso.com precisará ser **`http://bmcontoso.com/adfs/services/trust`**.  No entanto, a regra padrão implementada acima para o Azure AD irá gerar um token com **`http://corp.bmcontoso.com/adfs/services/trust`** um emissor como. , que não corresponderá ao domínio do valor obrigatório e fará com que a autenticação falhe.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Como habilitar o suporte para subdomínios
 Para solucionar esse comportamento, a relação de confiança de terceira parte confiável do AD FS do Microsoft Online precisa ser atualizada.  Para isso, você precisa configurar a regra de declaração personalizada para que ela ignore os subdomínios do sufixo UPN do usuário ao construir o valor de Issuer personalizado.
@@ -173,4 +173,4 @@ Saiba mais sobre estes recursos, que foram habilitados com a instalação: [Atua
 
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](how-to-connect-sync-feature-scheduler.md).
 
-Saiba mais sobre [a integração de suas identidades no local com o Azure Active Directory](whatis-hybrid-identity.md).
+Saiba mais sobre como [integrar suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
