@@ -1,6 +1,6 @@
 ---
-title: Opções de disponibilidade do Azure para VMs windows
-description: Conheça os recursos de disponibilidade para executar máquinas virtuais do Windows no Azure
+title: Opções de disponibilidade do Azure para VMs do Windows
+description: Saiba mais sobre os recursos de disponibilidade para executar máquinas virtuais do Windows no Azure
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/05/2019
 ms.openlocfilehash: ad776c3c2f311f19d8e4580feab7e634c268a9f7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82084576"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade para máquinas virtuais no Azure

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6a5bc947c3ea414f197df9cfcdd5f233e4654cbc
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79216736"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82085018"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutorial: Usar as referências do Key Vault em um aplicativo Java Spring
 
@@ -140,6 +140,14 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Atualizar o código para usar uma referência do Key Vault
 
+1. Crie uma variável de ambiente chamada **APP_CONFIGURATION_ENDPOINT**. Defina seu valor como o ponto de extremidade para o repositório de Configuração de Aplicativos. Você pode encontrar o ponto de extremidade na folha **Chaves de Acesso** no portal do Azure.
+
+1. Abra *bootstrap.properties* na pasta *recursos*. Atualize esse arquivo para usar o ponto de extremidade de configuração de aplicativos, em vez de uma cadeia de conexão.
+
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
+    ```
+
 1. Abra *MessageProperties.java*. Adicione uma nova variável chamada *keyVaultMessage*:
 
     ```java
@@ -166,7 +174,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 1. Crie um arquivo chamado *AzureCredentials.java* e adicione o código abaixo.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.EnvironmentCredentialBuilder;
@@ -195,7 +203,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 1. Crie um arquivo chamado *AppConfiguration.java*. Além disso, adicione o código abaixo.
 
     ```java
-    package com.example;
+    package com.example.demo;
 
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
@@ -214,7 +222,7 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-    com.example.AppConfiguration
+    com.example.demo.AppConfiguration
     ```
 
 1. Compile o aplicativo Spring Boot com Maven e execute-o, por exemplo:

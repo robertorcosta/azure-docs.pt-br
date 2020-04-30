@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 9de9739efce13fc96bf550759eb0ef68d732af1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 673155706c3b7d44b41562c2dc8ce24a94ac6a58
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77212638"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82083624"
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com Python e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início Rápido: Criar um aplicativo de API de Tabela com Python e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -27,7 +27,7 @@ ms.locfileid: "77212638"
 
 Neste início rápido, você criará e gerenciará uma conta da API de Tabela do Azure Cosmos DB no portal do Azure e no Visual Studio com um aplicativo Python clonado do GitHub. O Azure Cosmos DB é um serviço de banco de dados multimodelo que permite criar e consultar rapidamente bancos de dados de documentos, tabelas, pares chave-valor e grafo com funcionalidades de escala horizontal e distribuição global.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Ou então [experimente o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure. Você também pode usar o [Emulador do Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) com um URI de `https://localhost:8081` e a chave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/), com as cargas de trabalho **desenvolvimento do Azure** e **desenvolvimento do Python** selecionadas durante a instalação. 
@@ -72,6 +72,8 @@ Agora, clonaremos um aplicativo de Tabela do GitHub, definiremos a cadeia de con
     ```
 
 3. Em seguida, abra o arquivo da solução no Visual Studio. 
+
+> ![TIP] Para obter uma explicação mais detalhada do código semelhante, confira o artigo [Exemplo de API de Tabela do Cosmos DB](table-storage-how-to-use-python.md).
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 

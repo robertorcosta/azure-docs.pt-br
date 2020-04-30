@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 07c66b2955f3df1ffae1a0cb0c2b0888bdc790e9
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082876"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerenciar VMs Windows no Azure usando C# #
@@ -32,14 +32,14 @@ São necessários cerca de 20 minutos para a conclusão destas etapas.
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
 1. Se você ainda não fez isso, instale o [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **Desenvolvimento para desktop com o .NET** na página Cargas de trabalho e, em seguida, clique em **Instalar**. No resumo, é possível verificar que as **ferramentas de desenvolvimento do .NET Framework 4 - 4.6** são automaticamente selecionadas. Se o Visual Studio já estiver instalado, você poderá adicionar a carga de trabalho .NET utilizando o Iniciador do Visual Studio.
-2. No Visual Studio, clique **em Arquivo** > **novo** > **projeto**.
-3. Em **Modelos** > **Visuais C#**, selecione Console App **(.NET Framework)**, digite *myDotnetProject* para o nome do projeto, selecione a localização do projeto e clique em **OK**.
+2. No Visual Studio, clique em **arquivo** > **novo** > **projeto**.
+3. Em **modelos** > **Visual C#**, selecione **aplicativo de console (.NET Framework)**, digite *myDotnetProject* para o nome do projeto, selecione o local do projeto e clique em **OK**.
 
 ## <a name="install-the-package"></a>Instalar o pacote
 
 Os pacotes NuGet são a maneira mais fácil de instalar as bibliotecas de que você precisa para concluir estas etapas. Para obter as bibliotecas que você precisa no Visual Studio, siga estas etapas:
 
-1. Clique **em Ferramentas** > **Nuget Package Manager**e clique em Console do **Gerenciador de Pacotes**.
+1. Clique em **ferramentas** > **Gerenciador de pacotes NuGet**e em **console do Gerenciador de pacotes**.
 2. Digite este comando no console:
 
     ```
@@ -52,7 +52,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-authorization-file"></a>Criar o arquivo de autorização
 
-1. No Solution Explorer, clique com o botão direito do mouse *no myDotnetProject* > **Adicionar** > **novo item**e, em seguida, selecione **Arquivo de texto** em itens *Visuais C#*. Nomeie o arquivo *azureauth.properties* e, em seguida, clique em **Adicionar**.
+1. Em Gerenciador de soluções, clique com o botão direito do mouse em *myDotnetProject* > **Adicionar** > **novo item**e, em seguida, selecione **arquivo de texto** em *itens do Visual C#*. Nomeie o arquivo *azureauth.properties* e, em seguida, clique em **Adicionar**.
 2. Adicione estas propriedades de autorização:
 
     ```
@@ -66,7 +66,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
     graphURL=https://graph.microsoft.com/
     ```
 
-    Substitua ** &lt;o&gt; id de assinatura** pelo identificador de assinatura, ** &lt;&gt; ** o id do aplicativo do aplicativo active, a ** &lt;chave&gt; de autenticação** com a chave do aplicativo e ** &lt;&gt; ** o id do inquilino pelo identificador do inquilino.
+    Substitua ** &lt;Subscription-ID&gt; ** pelo seu identificador de assinatura, ** &lt;ID&gt; do aplicativo** com o identificador do aplicativo Active Directory, ** &lt;a&gt; chave de autenticação** com a chave do aplicativo e ** &lt;a&gt; ID do locatário** pelo identificador do locatário.
 
 3. Salve o arquivo azureauth.properties. 
 4. Defina uma variável de ambiente no Windows chamada AZURE_AUTH_LOCATION com o caminho completo para o arquivo de autorização que você criou. Por exemplo, o seguinte comando do PowerShell pode ser usado:
@@ -77,7 +77,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-management-client"></a>Criar o cliente de gerenciamento
 
-1. Abra o arquivo Program.cs para o projeto que você criou. Em seguida, adicione essas instruções usando as instruções existentes na parte superior do arquivo:
+1. Abra o arquivo Program.cs para o projeto que você criou. Em seguida, adicione essas instruções using às instruções existentes na parte superior do arquivo:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -104,7 +104,7 @@ Antes de começar essa etapa, verifique se você tem acesso a uma [entidade de s
 
 ### <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Todos os recursos devem ser contidos em [um grupo de recursos](../../azure-resource-manager/management/overview.md).
+Todos os recursos devem estar contidos em um [grupo de recursos](../../azure-resource-manager/management/overview.md).
 
 Para especificar valores para o aplicativo e criar o grupo de recursos, adicione este código ao método Main:
 
@@ -357,7 +357,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-Para adicionar um disco de dados à máquina virtual, adicione este código ao método Principal. Este exemplo adiciona um disco de dados de 2 GB de tamanho, han um LUN de 0 e um tipo de cache de ReadWrite:
+Para adicionar um disco de dados à máquina virtual, adicione este código ao método Main. Este exemplo adiciona um disco de dados que tem 2 GB de tamanho, Han a LUN 0 e um tipo de cache de ReadWrite:
 
 ```csharp
 Console.WriteLine("Adding data disk to vm...");
