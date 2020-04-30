@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5b9de6c2b8d9f7b11b686e820aab54fdd8e8a02f
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67442851"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81866793"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure ao HR2day by Merces
+# <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Azure Active Directory ao HR2day by Merces
 
 Neste tutorial, você aprenderá a integrar o HR2day by Merces ao Azure AD (Azure Active Directory).
 A integração do HR2day by Merces ao Azure AD oferece os seguintes benefícios:
@@ -34,7 +34,7 @@ A integração do HR2day by Merces ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do AD do Azure ao HR2day by Merces, você precisará dos seguintes itens:
 
@@ -163,7 +163,7 @@ Para configurar o logon único do Azure AD com o HR2day by Merces, execute as se
 Para configurar o logon único no lado do **HR2day by Merces**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do HR2day by Merces](mailto:servicedesk@merces.nl). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!NOTE]
-> Mencione à equipe do Merces que essa integração precisa que a ID da Entidade seja definida com o padrão **https://hr2day.force.com/INSTANCENAME** .
+> Mencione à equipe do Merces que essa integração precisa que a ID da Entidade seja definida com o padrão **https:\//hr2day.force.com/INSTANCENAME**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -235,4 +235,4 @@ Ao clicar no bloco do HR2day by Merces no Painel de Acesso, você deverá ser co
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

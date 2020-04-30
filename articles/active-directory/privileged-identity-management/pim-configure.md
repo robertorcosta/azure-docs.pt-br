@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/21/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: bfb0cc61b61328df86c27498a1007f2372fb9548
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74899977"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81867439"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -50,9 +50,7 @@ Depois de configurar o Privileged Identity Management, você verá as opções *
 
 ## <a name="who-can-do-what"></a>Quem pode fazer o quê?
 
-Se você for a primeira pessoa a usar o Privileged Identity Management, receberá automaticamente as funções [Administrador de segurança](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e [Administrador de funções com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) no diretório.
-
-Para as funções do Azure AD no Privileged Identity Management, somente um usuário que está na função Administrador de funções com privilégios pode gerenciar atribuições para outros administradores. Você pode [permitir acesso a outros administradores para gerenciar o Privileged Identity Management](pim-how-to-give-access-to-pim.md). Os Administradores globais, os Administradores de segurança, os Leitores globais e os Leitores de segurança também podem exibir as atribuições às funções do Azure AD no Privileged Identity Management.
+Para as funções do Azure AD no Privileged Identity Management, somente um usuário que está na função de administrador de funções com privilégios ou administrador global pode gerenciar atribuições para outros administradores. Você pode [permitir acesso a outros administradores para gerenciar o Privileged Identity Management](pim-how-to-give-access-to-pim.md). Os Administradores globais, os Administradores de segurança, os Leitores globais e os Leitores de segurança também podem exibir as atribuições às funções do Azure AD no Privileged Identity Management.
 
 Para as funções de recurso do Azure no Privileged Identity Management, somente um administrador de assinatura, um proprietário de recurso ou um administrador de acesso de usuário de recurso pode gerenciar atribuições para outros administradores. Por padrão, os usuários que são Administradores de funções com privilégios, Administradores da segurança ou Leitores de segurança não têm acesso para exibir as atribuições às funções de recurso do Azure no Privileged Identity Management.
 
@@ -82,7 +80,7 @@ O PIM dá suporte aos seguintes cenários:
 
 Para entender melhor o Privileged Identity Management e a documentação dele, examine os termos a seguir.
 
-| Termo ou conceito | Categoria de atribuição de função | DESCRIÇÃO |
+| Termo ou conceito | Categoria de atribuição de função | Descrição |
 | --- | --- | --- |
 | qualificado | Type | Uma atribuição de função que requer que um usuário execute uma ou mais ações para usá-la. Se um usuário se qualificou para uma função, isso significa que ele poderá ativá-la quando precisar executar tarefas privilegiadas. Não há nenhuma diferença no modo de acesso concedido a uma pessoa com uma atribuição de função permanente em comparação com uma qualificada. A única diferença é que algumas pessoas não precisam desse acesso o tempo todo. |
 | ativo | Type | Uma atribuição de função que não requer que um usuário execute nenhuma ação para usar a função. Usuários atribuídos como ativos têm os privilégios atribuídos à função. |
