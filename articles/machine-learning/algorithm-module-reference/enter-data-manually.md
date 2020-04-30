@@ -1,7 +1,7 @@
 ---
-title: 'Digite dados manualmente: referência do módulo'
+title: 'Inserir dados manualmente: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Enter Data Manualmente no Azure Machine Learning para criar um pequeno conjunto de dados digitando valores. O conjunto de dados pode ter várias colunas.
+description: Saiba como usar o módulo inserir dados manualmente em Azure Machine Learning para criar um pequeno conjunto digitando valores. O conjunto de linhas pode ter várias colunas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,54 +10,54 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79367509"
 ---
-# <a name="enter-data-manually-module"></a>Insira o módulo Dados Manualmente
+# <a name="enter-data-manually-module"></a>Inserir dados manualmente no módulo
 
-Este artigo descreve um módulo no azure Machine Learning designer (visualização).
+Este artigo descreve um módulo no designer de Azure Machine Learning (versão prévia).
 
-Use o módulo **Enter Data Manualmente** para criar um pequeno conjunto de dados digitando valores. O conjunto de dados pode ter várias colunas.
+Use o módulo **inserir dados manualmente** para criar um pequeno DataSet digitando valores. O conjunto de linhas pode ter várias colunas.
   
-Este módulo pode ser útil em cenários como:  
+Esse módulo pode ser útil em cenários como:  
   
-- Gerando um pequeno conjunto de valores para testes.  
-- Criando uma pequena lista de rótulos.  
-- Digitando uma lista de nomes de colunas para inserir em um conjunto de dados.
+- Gerando um pequeno conjunto de valores para teste.  
+- Criando uma lista curta de rótulos.  
+- Digitando uma lista de nomes de coluna para inserir em um DataSet.
 
 ## <a name="create-a-dataset"></a>Criar um conjunto de dados 
   
-1. Adicione o módulo [Enter Data Manualmente](./enter-data-manually.md) ao seu pipeline. Você pode encontrar este módulo na categoria **Entrada e Saída de Dados** no Azure Machine Learning. 
+1. Adicione o módulo [inserir dados manualmente](./enter-data-manually.md) ao seu pipeline. Você pode encontrar esse módulo na categoria **entrada e saída de dados** em Azure Machine Learning. 
   
-1. Em **Formato de Dados,** selecione uma das seguintes opções. Essas opções determinam como os dados fornecidos devem ser analisados. Os requisitos para cada formato diferem muito, por isso não deixe de ler os tópicos relacionados.  
+1. Em **formato de DataFormat**, selecione uma das opções a seguir. Essas opções determinam como os dados que você fornece devem ser analisados. Os requisitos para cada formato diferem muito, portanto, não deixe de ler os tópicos relacionados.  
   
-   - **ARFF**: Formato de arquivo de relação de atributo usado por Weka.   
-   - **CSV**: Formato de valores separados por comma. Para obter mais informações, consulte [Converter para CSV](./convert-to-csv.md).    
-   - **SVMLight**: Formato usado pelo Vowpal Wabbit e outras estruturas de aprendizado de máquina.    
-   - **TSV**: Formato de valores separados por guias.
+   - **ARFF**: atributo-relação de formato de arquivo usado pelo weka.   
+   - **CSV**: formato de valores separados por vírgula. Para obter mais informações, consulte [converter em CSV](./convert-to-csv.md).    
+   - **SVMLight**: formato usado por Vowpal wabbit e outras estruturas de aprendizado de máquina.    
+   - **TSV**: formato de valores separados por tabulação.
 
-   Se você escolher um formato e não fornecer dados que atendam às especificações do formato, um erro de tempo de execução ocorrerá.
+   Se você escolher um formato e não fornecer dados que atendam às especificações de formato, ocorrerá um erro de tempo de execução.
   
-1. Clique dentro da caixa de texto **Dados** para começar a inserir dados. Os seguintes formatos requerem atenção especial:  
+1. Clique dentro da caixa de texto **dados** para começar a inserir dados. Os formatos a seguir exigem atenção especial:  
   
-   - **CSV**: Para criar várias colunas, cole em texto separado por comma ou digite várias colunas usando commas entre campos.
+   - **CSV**: para criar várias colunas, Cole o texto separado por vírgulas ou digite várias colunas usando vírgulas entre os campos.
   
-     Se você selecionar a opção **HasHeader,** poderá usar a primeira linha de valores como o título da coluna.  
+     Se você selecionar a opção **HasHeader** , poderá usar a primeira linha de valores como o título de coluna.  
   
-     Se você desmarcar esta opção, os nomes da coluna (Col1, Col2 e assim por diante) serão usados. Você pode adicionar ou alterar nomes de colunas mais tarde usando [Edit Metadata](./edit-metadata.md).  
+     Se você desmarcar essa opção, os nomes de coluna (Col1, Col2 e assim por diante) serão usados. Você pode adicionar ou alterar nomes de colunas mais tarde usando [Editar metadados](./edit-metadata.md).  
   
-   - **TSV**: Para criar várias colunas, cole em texto separado por guias ou digite várias colunas usando guias entre campos.  
+   - **TSV**: para criar várias colunas, cole em texto separado por tabulações ou digite várias colunas usando guias entre campos.  
   
-     Se você selecionar a opção **HasHeader,** poderá usar a primeira linha de valores como o título da coluna.  
+     Se você selecionar a opção **HasHeader** , poderá usar a primeira linha de valores como o título de coluna.  
   
-     Se você desmarcar esta opção, os nomes da coluna (Col1, Col2 e assim por diante) serão usados. Você pode adicionar ou alterar nomes de colunas mais tarde usando [Edit Metadata](./edit-metadata.md).  
+     Se você desmarcar essa opção, os nomes de coluna (Col1, Col2 e assim por diante) serão usados. Você pode adicionar ou alterar nomes de colunas mais tarde usando [Editar metadados](./edit-metadata.md).  
   
-   - **ARFF**: Cole em um arquivo de formato ARFF existente. Se você estiver digitando valores diretamente, certifique-se de adicionar os campos de cabeçalho opcional e os campos de atributos necessários no início dos dados. 
+   - **ARFF**: colar um arquivo de formato ARFF existente. Se você estiver digitando valores diretamente, certifique-se de adicionar o cabeçalho opcional e os campos de atributo necessários no início dos dados. 
 
-     Por exemplo, as seguintes linhas de cabeçae atributos podem ser adicionadas a uma lista simples. O título da `SampleText`coluna seria . Observe que o tipo String não é suportado.
+     Por exemplo, as linhas de cabeçalho e de atributo a seguir podem ser adicionadas a uma lista simples. O título da coluna seria `SampleText`. Observe que o tipo de cadeia de caracteres não tem suporte.
     
      ```text
      % Title: SampleText.ARFF  
@@ -67,9 +67,9 @@ Este módulo pode ser útil em cenários como:
      \<type first data row here>  
      ```
 
-   - **SVMLight**: Digite ou cole em valores usando o formato SVMLight.  
+   - **SVMLight**: digite ou cole valores usando o formato SVMLight.  
   
-     Por exemplo, a amostra a seguir representa o primeiro par de linhas do conjunto de dados de doação de sangue, no formato SVMLight:  
+     Por exemplo, o exemplo a seguir representa as primeiras linhas do conjunto de uma doação de sangue, no formato SVMLight:  
   
      ```text  
      # features are [Recency], [Frequency], [Monetary], [Time]  
@@ -77,23 +77,23 @@ Este módulo pode ser útil em cenários como:
      1 1:0 2:13 3:3250 4:28   
      ```  
   
-     Quando você executa o módulo [Enter Data Manualmente,](./enter-data-manually.md) essas linhas são convertidas em um conjunto de dados de colunas e valores de índice da seguinte forma:  
+     Quando você executa o módulo [inserir dados manualmente](./enter-data-manually.md) , essas linhas são convertidas em um conjunto de valores de colunas e de índice da seguinte maneira:  
   
      |Col1|Col2|Col3|Col4|Rótulos|  
      |-|-|-|-|-|  
-     |0.00016|0.004|0.999961|0.00784|1|  
-     |0|0.004|0.999955|0.008615|1|  
+     |0, 16|0, 4|0,999961|0, 784|1|  
+     |0|0, 4|0,999955|0, 8615|1|  
   
-1. Selecione a tecla Enter após cada linha para iniciar uma nova linha.      
+1. Selecione a tecla ENTER depois de cada linha para iniciar uma nova linha.      
      
-   Se você selecionar Entrar várias vezes para adicionar várias linhas de arrasto vazias, as linhas vazias serão removidas ou aparadas.  
+   Se você selecionar inserir várias vezes para adicionar várias linhas à direita vazias, as linhas vazias serão removidas ou cortadas.  
   
-   Se você criar linhas com valores ausentes, você sempre pode filtrar-los mais tarde.  
+   Se você criar linhas com valores ausentes, você sempre poderá filtrá-los mais tarde.  
   
 1. Conecte a porta de saída a outros módulos e execute o pipeline.  
   
-   Para visualizar o conjunto de dados, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
+   Para exibir o conjunto de um, clique com o botão direito do mouse no módulo e selecione **Visualizar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

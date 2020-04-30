@@ -1,6 +1,6 @@
 ---
 title: 'Azure ExpressRoute: modelos de conectividade'
-description: Este artigo descreve os diferentes modos de conectividade entre a rede do cliente e os serviços do Microsoft Azure e do Office 365. Os clientes podem usar provedores de MPLS, trocas de nuvem e provedores de Ethernet.
+description: Este artigo descreve os diferentes modos de conectividade entre a rede do cliente e Microsoft Azure e os serviços do Office 365. Os clientes podem usar provedores de MPLS, trocas de nuvem e provedores de Ethernet.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 375d2f9d3b455c0495c69f2b23d62b1ab6522710
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280879"
 ---
 # <a name="expressroute-connectivity-models"></a>Modelos de conectividade do ExpressRoute
@@ -34,7 +34,7 @@ Você pode conectar seus data centers/escritórios locais à nuvem da Microsoft 
 * Saiba mais sobre recursos do ExpressRoute. Veja a [Visão geral técnica do ExpressRoute](expressroute-introduction.md)
 * Encontrar um provedor de serviços. Consulte [Parceiros e locais de emparelhamento do ExpressRoute](expressroute-locations.md).
 * Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
-* Consulte os requisitos para [Roteamento,](expressroute-routing.md) [NAT](expressroute-nat.md)e [QoS](expressroute-qos.md).
+* Consulte os requisitos para [Roteamento](expressroute-routing.md), [NAT](expressroute-nat.md)e [QoS](expressroute-qos.md).
 * Configurar sua conexão do ExpressRoute.
   * [Criar um circuito do ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)
   * [Configurar o roteamento](expressroute-howto-routing-portal-resource-manager.md)

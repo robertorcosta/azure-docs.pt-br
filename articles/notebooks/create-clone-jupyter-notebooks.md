@@ -1,13 +1,13 @@
 ---
-title: Criar e clonar notebooks Jupyter - Azure Notebooks Preview
-description: Os projetos de visualização de notebooks do Azure gerenciam uma coleção de notebooks e arquivos relacionados, que você pode criar novos ou clonados a partir de outra fonte.
+title: Criar e clonar notebooks Jupyter-visualização de Azure Notebooks
+description: Azure Notebooks projetos de visualização gerenciam uma coleção de blocos de anotações e arquivos relacionados, que você pode criar novos ou clonar de outra fonte.
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.openlocfilehash: b29ff336c09a3bbf05a57c8a3a503b1875b76e54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280567"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Criar e clonar projetos no Azure Notebooks Preview
@@ -22,16 +22,16 @@ Um projeto também mantém metadados e outras configurações que afetam o servi
 
 Seu painel **Meus Projetos** em `https://notebooks.azure.com/<userID>/projects` é onde você exibe, gerencia e cria projetos:
 
-[![Painel de meus projetos em notebooks Azure](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Painel meus projetos no Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 O que você pode fazer no painel depende se você estiver conectado com a conta que possui a ID de usuário:
 
 | Comando | Disponível para | Descrição |
 | --- | --- | --- |
-| **Executar** | Proprietário | Inicia o servidor de projeto e abre a pasta do projeto no Jupyter. (mais comumente, você primeiro navegar em uma pasta de projeto e iniciar um notebook a partir daí.) |
+| **Funcionam** | Proprietário | Inicia o servidor de projeto e abre a pasta do projeto no Jupyter. (mais comumente, você primeiro navegar em uma pasta de projeto e iniciar um notebook a partir daí.) |
 | **Download** | Qualquer pessoa | Baixa uma cópia do projeto selecionado como um arquivo ZIP. |
 | **Compartilhar** | Qualquer pessoa | Exibe o pop-up de compartilhamento por meio do qual você pode obter uma URL para um projeto selecionado, compartilhar em mídias sociais, envie um email com a URL e obter código HTML ou Markdown para um crachá "notebook de inicialização" (consulte [obter uma notificação de lançamento](#obtain-a-launch-badge)) com a URL. |
-| **Excluir** | Proprietário | Salva o projeto selecionado. Essa operação não pode ser desfeita. |
+| **Delete (excluir)** | Proprietário | Salva o projeto selecionado. Essa operação não pode ser desfeita. |
 | **Terminal** | Proprietário | Inicia o servidor de projeto e, em seguida, abre uma nova janela com o terminal bash para esse servidor. |
 | **+ Novo Projeto** | Proprietário | Cria um novo projeto. Consulte [Criar um novo projeto](#create-a-new-project). |
 | **Carregar o Repositório do GitHub** | Proprietário | Importa o projeto do GitHub. [Importe um projeto do GitHub](#import-a-project-from-github). |
@@ -59,26 +59,26 @@ Quando você usa o comando **+ Novo projeto**, o Microsoft Azure Notebooks exibe
 
 | Campo | Descrição |
 | --- | --- |
-| Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "Meu Projeto Notebook". |
-| Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Este ID pode usar apenas letras, números e hífens, é limitado a 30 caracteres e não pode ser um [ID de projeto reservado](#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
+| Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "meu projeto de notebook". |
+| Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
 | Público | Se definido, permite que qualquer pessoa com o link acesse o projeto. Ao criar um projeto privado, desmarque essa opção. |
 | Inicializar este projeto com um arquivo LEIAME | Se definido, cria um padrão de arquivo *README.md* no projeto. Um arquivo *README.md* é onde você fornece documentação para seu projeto, se desejado. |
 
-### <a name="reserved-project-ids"></a>IDs de projeto reservados
+### <a name="reserved-project-ids"></a>IDs de projeto reservadas
 
-As seguintes palavras reservadas não podem ser usadas por si mesmas como IDs de projeto. Essas palavras reservadas podem, no entanto, ser usadas como parte de IDs de projeto mais longos.
+As palavras reservadas a seguir não podem ser usadas por si mesmas como IDs de projeto. No entanto, essas palavras reservadas podem ser usadas como parte de IDs de projeto mais longas.
 
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
 | sobre | account | administração | api | blog | sala de aula |
-| content | painel Transações da Web | explorar | Perguntas Freqüentes | ajuda | html |
+| conteúdo | painel Transações da Web | explorar | Perguntas Freqüentes | ajuda | html |
 | inicial | importar | biblioteca | gerenciamento | novo | notebook |
-| notebooks | pdf | preview | preços | Perfil | pequisa |
+| notebooks | pdf | preview | preços | perfil | pequisa |
 | status | suporte | test | | | |
 
-Se você tentar usar uma dessas palavras como um ID de projeto, as popups **Criar novos projetos** e **configurações de projeto** indicam: "O id da biblioteca é um identificador reservado".
+Se você tentar usar uma dessas palavras como uma ID do projeto, os pop-up **criar novo projeto** e **configurações do projeto** indicarão "a ID da biblioteca é um identificador reservado".
 
-Como um ID de projeto também faz parte da URL de um projeto, o software bloqueador de anúncios pode bloquear o uso de certas palavras-chave, como "anúncio". Nesses casos, use uma palavra diferente no ID do projeto.
+Como uma ID de projeto também faz parte da URL de um projeto, o software bloqueador do AD pode bloquear o uso de determinadas palavras-chave, como "anunciar". Nesses casos, use uma palavra diferente na ID do projeto.
 
 ## <a name="import-a-project-from-github"></a>Importa o projeto do GitHub
 
@@ -86,10 +86,10 @@ Você pode importar facilmente um repositório do GitHub público inteiro como u
 
 | Campo | Descrição |
 | --- | --- |
-| Repositório GitHub | O nome do repositório de origem em github.com. Por exemplo, para clonar os notebooks Jupyter [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)para a Azure Cognitive Services em , digite "Microsoft/cognitive-services-notebooks".  |
+| Repositório GitHub | O nome do repositório de origem em github.com. Por exemplo, para clonar os notebooks Jupyter para os serviços cognitivas do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), digite "Microsoft/cognitiva-Services-notebooks".  |
 | Clonar recursivamente | Repositórios do GitHub podem conter vários repositórios filho. Defina essa opção se você deseja clonar o repositório pai e todos os seus filhos. Como é possível que um repositório tenha muitos filhos, deixe essa opção não criptografada, a menos que você saiba que ele precisa. |
 | Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. |
-| Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Este ID pode usar apenas letras, números e hífens, é limitado a 30 caracteres e não pode ser um [ID de projeto reservado](#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
+| Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
 | Público | Se definido, permite que qualquer pessoa com o link acesse o projeto. Ao criar um projeto privado, desmarque essa opção. |
 
 Importar um repositório do GitHub também importa o seu histórico. Você pode usar comandos do Git padrão do terminal para confirmar as novas alterações, receber alterações do GitHub e assim por diante.
@@ -113,9 +113,9 @@ Pra clonar um projeto:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Explorar notebooks de exemplo](azure-notebooks-samples.md)
-- [Como: Configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Instalar pacotes de dentro de um notebook](install-packages-jupyter-notebook.md)
-- [Como: Apresentar uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
-- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Usar o Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: configurar e gerenciar projetos](configure-manage-azure-notebooks-projects.md)
+- [Como instalar pacotes de dentro de um bloco de anotações](install-packages-jupyter-notebook.md)
+- [Como: apresentar uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
+- [Como trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Como: usar Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79278526"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerenciar o Cache do Azure para Redis com o Azure PowerShell
 > [!div class="op_single_selector"]
-> * [Powershell](cache-how-to-manage-redis-cache-powershell.md)
-> * [Azure CLI](cache-manage-cli.md)
+> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
+> * [CLI do Azure](cache-manage-cli.md)
 > 
 > 
 
@@ -119,8 +119,8 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 
 | Parâmetro | Descrição | Padrão |
 | --- | --- | --- |
-| Nome |Nome do cache | |
-| Location |Local do cache | |
+| Name |Nome do cache | |
+| Local |Local do cache | |
 | ResourceGroupName |Nome do grupo de recursos no qual criar o cache | |
 | Tamanho |O tamanho do cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2.5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |O número de fragmentos para criar durante a criação de um cache premium com o cluster ativado. Os valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
@@ -714,7 +714,7 @@ O comando a seguir exporta dados de uma instância de Cache do Azure para Redis 
 Você pode reiniciar a instância de Cache do Azure para Redis usando o cmdlet `Reset-AzRedisCache`.
 
 > [!IMPORTANT]
-> A reinicialização só está disponível para caches [de nível premium.](cache-premium-tier-intro.md) Para saber mais sobre a reinicialização de seu cache, confira [Administração de cache - reinicializar](cache-administration.md#reboot).
+> A reinicialização só está disponível para caches da [camada Premium](cache-premium-tier-intro.md) . Para saber mais sobre a reinicialização de seu cache, confira [Administração de cache - reinicializar](cache-administration.md#reboot).
 > 
 > 
 

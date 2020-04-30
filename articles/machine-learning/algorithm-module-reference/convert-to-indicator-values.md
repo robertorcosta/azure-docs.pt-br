@@ -1,7 +1,7 @@
 ---
 title: Converter em valores de indicador
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Converter para valores indicadores no Azure Machine Learning para converter colunas que contenham valores categóricos em uma série de colunas de indicadores binários.
+description: Saiba como usar o módulo converter para valores de indicador em Azure Machine Learning para converter colunas que contêm valores categóricos em uma série de colunas de indicadores binários.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,40 +10,40 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477656"
 ---
 # <a name="convert-to-indicator-values"></a>Converter em valores de indicador
-Este artigo descreve um módulo do designer de Machine Learning do Azure.
+Este artigo descreve um módulo do designer de Azure Machine Learning.
 
-Use o módulo **Converter para valores indicadores** no designer Azure Machine Learning para converter colunas que contenham valores categóricos em uma série de colunas de indicadores binários.  
+Use o módulo **converter para valores de indicador** no designer de Azure Machine Learning para converter colunas que contêm valores categóricos em uma série de colunas de indicador binário.  
 
-Este módulo também produz uma definição da transformação usada para converter em valores indicadores. Você pode reutilizar essa transformação em outros conjuntos de dados que tenham o mesmo esquema, usando o módulo [Aplicar Transformação.](apply-transformation.md)
+Esse módulo também gera uma definição da transformação usada para converter para valores de indicador. Você pode reutilizar essa transformação em outros conjuntos de valores que têm o mesmo esquema, usando o módulo [aplicar transformação](apply-transformation.md) .
 
-## <a name="how-to-configure-convert-to-indicator-values"></a>Como configurar converter para valores indicadores
+## <a name="how-to-configure-convert-to-indicator-values"></a>Como configurar converter para valores de indicador
 
-1.  Encontre o **Converter para valores indicadores** e arraste-o para o rascunho do pipeline. Você pode encontrar este módulo na categoria **Transformação de Dados.**
+1.  Localize a **conversão para valores de indicador** e arraste-o para o rascunho do seu pipeline. Você pode encontrar esse módulo na categoria **Data Transformation** .
     > [!NOTE]
-    > Você pode usar o módulo [Editar metadados](edit-metadata.md) antes do módulo **Converter para valores do indiciador** para marcar as colunas de destino como categóricas.
+    > Você pode usar o módulo [Editar metadados](edit-metadata.md) antes do módulo **converter para valores Indiciator** para marcar as colunas de destino como categóricas.
 
-1. Conecte o módulo **Converter para valores indicadores** ao conjunto de dados que contém as colunas que deseja converter. 
+1. Conecte o módulo **converter para valores de indicador** ao conjunto de um que contém as colunas que você deseja converter. 
 
 1. Selecione **Editar coluna** para escolher uma ou mais colunas categóricas.
 
-1. Selecione a opção **Substituir colunas categóricas** se quiser produzir **apenas** as novas colunas booleanas. Por padrão, essa opção é desativada.
+1. Selecione a opção **substituir colunas categóricas** se desejar gerar **apenas** as novas colunas booleanas. Por padrão, essa opção é desativada.
     
 
     > [!TIP]
-    >  Se você escolher a opção de substituir, a coluna de origem não será excluída ou modificada. Em vez disso, as novas colunas são geradas e apresentadas no conjunto de dados de saída, e a coluna de origem permanece disponível no espaço de trabalho. Se você precisar ver os dados originais, você pode usar o módulo [Adicionar colunas](add-columns.md) a qualquer momento para adicionar a coluna de origem de volta.
+    >  Se você escolher a opção de substituir, a coluna de origem não será realmente excluída nem modificada. Em vez disso, as novas colunas são geradas e apresentadas no conjunto de resultados de saída, e a coluna de origem permanece disponível no espaço de trabalho. Se você precisar ver os dados originais, poderá usar o módulo [adicionar colunas](add-columns.md) a qualquer momento para adicionar a coluna de origem novamente.
 
-1. Envie o oleoduto.
+1. Envie o pipeline.
 
 ## <a name="results"></a>Resultados
 
-Suponha que você tenha uma coluna com pontuações que indiquem se um servidor tem uma alta, média ou baixa probabilidade de falha.  
+Suponha que você tenha uma coluna com pontuações que indicam se um servidor tem uma probabilidade alta, média ou baixa de falha.  
 
 | ID de servidor | Pontuação de falha |
 | --------- | ------------- |
@@ -51,44 +51,44 @@ Suponha que você tenha uma coluna com pontuações que indiquem se um servidor 
 | 10302     | Médio        |
 | 10303     | Alta          |
 
-Quando você aplica **Converter em Valores indicadores,** o designer converte uma única coluna de rótulos em várias colunas contendo valores booleanos:  
+Quando você aplica **converter a valores de indicador**, o designer converte uma única coluna de rótulos em várias colunas contendo valores Boolianos:  
 
-| ID de servidor | Pontuação de falha - Baixa | Pontuação de falha - Médio | Pontuação de falha - Alta |
+| ID de servidor | Pontuação de falha-baixa | Pontuação de falha-média | Pontuação de falha-alta |
 | --------- | ------------------- | ---------------------- | -------------------- |
 | 10301     | 1                   | 0                      | 0                    |
 | 10302     | 0                   | 1                      | 0                    |
 | 10303     | 0                   | 0                      | 1                    |
 
-Veja como funciona a conversão:  
+Veja como a conversão funciona:  
 
--   Na coluna **'Falha'** que descreve o risco, há apenas três valores possíveis (Alto, Médio e Baixo) e sem valores ausentes. Então, exatamente três novas colunas são criadas.  
+-   Na coluna **Pontuação de falha** que descreve o risco, há apenas três valores possíveis (alto, médio e baixo) e nenhum valor ausente. Portanto, exatamente três novas colunas são criadas.  
 
--   As novas colunas indicadoras são nomeadas com base nos títulos e valores da coluna de coluna, usando este padrão: * \<coluna de origem \<>- valor dos dados>*.  
+-   As novas colunas de indicador são nomeadas com base nos títulos de coluna e valores da coluna de origem, usando esse padrão: * \<a coluna \<de origem> valor de dados>*.  
 
--   Deve haver uma coluna de 1 em exatamente uma coluna indicadora e 0 em todas as outras colunas indicadoras, uma vez que cada servidor pode ter apenas uma classificação de risco.  
+-   Deve haver uma coluna de indicador 1 em exatamente uma e 0 em todas as outras colunas de indicador, já que cada servidor pode ter apenas uma classificação de risco.  
 
-Agora você pode usar as três colunas indicadoras como características em um modelo de aprendizado de máquina.
+Agora você pode usar as três colunas de indicador como recursos em um modelo de aprendizado de máquina.
 
 O módulo retorna duas saídas:
 
-- **Conjunto de dados de resultados**: Um conjunto de dados com colunas de valores indicadores convertidos. Colunas não selecionadas para limpeza também são "passadas".
-- **Transformação de valores indicadores**: Uma transformação de dados usada para converter em valores indicadores, que podem ser salvas em seu espaço de trabalho e aplicadas a novos dados posteriormente.
+- **Conjunto de resultados**: um conjunto de linhas com colunas de valores de indicador convertidos. As colunas não selecionadas para limpeza também são "passadas".
+- **Transformação de valores de indicador**: uma transformação de dados usada para converter para valores de indicador, que pode ser salva em seu espaço de trabalho e aplicada a novos dados posteriormente.
 
-## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Aplique uma operação de valores de indicador salvo a novos dados
+## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Aplicar uma operação de valores de indicadores salvos a novos dados
 
-Se você precisar repetir as operações de valores do indicador com frequência, você pode salvar suas etapas de manipulação de dados como uma *transformação* para reutilizá-lo com o mesmo conjunto de dados. Isso é útil se você deve frequentemente reimportar e, em seguida, limpar dados que têm o mesmo esquema.
+Se você precisar repetir as operações de valores de indicador com frequência, você poderá salvar as etapas de manipulação de dados como uma *transformação* para reutilizá-la com o mesmo conjunto. Isso será útil se você precisar reimportar com frequência e limpar os dados que têm o mesmo esquema.
 
-1. Adicione o módulo [Aplicar transformação](apply-transformation.md) ao seu pipeline.
+1. Adicione o módulo [aplicar transformação](apply-transformation.md) ao seu pipeline.
 
-1. Adicione o conjunto de dados que deseja limpar e conecte o conjunto de dados à porta de entrada à mão direita.
+1. Adicione o DataSet que você deseja limpar e conecte o conjunto de dados à porta de entrada à direita.
 
-1. Expanda o grupo **de Transformação** de Dados no painel esquerdo do designer. Localize a transformação salva e arraste-a para o pipeline.
+1. Expanda o grupo **transformação de dados** no painel esquerdo do designer. Localize a transformação salva e arraste-a para o pipeline.
 
-1. Conecte a transformação salva à porta de entrada esquerda do [Apply Transformation](apply-transformation.md).
+1. Conecte a transformação salva à porta de entrada à esquerda de [aplicar transformação](apply-transformation.md).
 
-   Quando você aplica uma transformação salva, não é possível selecionar quais colunas transformar. Isso porque a transformação foi definida e se aplica automaticamente aos tipos de dados especificados na operação original.
+   Ao aplicar uma transformação salva, você não pode selecionar quais colunas transformar. Isso ocorre porque a transformação foi definida e se aplica automaticamente aos tipos de dados especificados na operação original.
 
-1. Envie o oleoduto.
+1. Envie o pipeline.
  
 ## <a name="technical-notes"></a>Observações técnicas  
 
@@ -98,23 +98,23 @@ Esta seção contém detalhes de implementação, dicas e respostas para pergunt
 
 -   Somente as colunas que são marcadas como categóricas podem ser convertidas em colunas de indicador. Se você vir o erro a seguir, é provável que uma das colunas selecionadas não seja categórica:  
 
-     Erro 0056: Coluna \<com nome da coluna> não está em uma categoria permitida.  
+     Erro 0056: a coluna com \<nome de coluna de nome> não está em uma categoria permitida.  
 
-     Por padrão, a maioria das colunas de string são tratadas como recursos de seqüência, então você deve marcá-las explicitamente como categóricas usando [Edit Metadata](edit-metadata.md).  
+     Por padrão, a maioria das colunas de cadeia de caracteres são tratadas como recursos de cadeia de caracteres, portanto, você deve marcá-las explicitamente como categóricos usando [Editar metadados](edit-metadata.md).  
 
--   Não há limite no número de colunas que você pode converter em colunas indicadoras. No entanto, como cada coluna de valores pode produzir várias colunas indicadoras, você pode querer converter e rever apenas algumas colunas de cada vez.  
+-   Não há limite para o número de colunas que você pode converter em colunas de indicador. No entanto, como cada coluna de valores pode produzir várias colunas de indicador, talvez você queira converter e examinar apenas algumas colunas de cada vez.  
 
--   Se a coluna contiver valores ausentes, uma coluna de indicador separada será criada para a categoria ausente, com este nome: * \<coluna de origem>- Ausente*  
+-   Se a coluna contiver valores ausentes, uma coluna de indicador separada será criada para a categoria ausente, com este nome: * \<coluna de origem>-ausente*  
 
--   Se a coluna que você converter para valores indicadores contiver números, eles devem ser marcados como categóricos como qualquer outra coluna de recurso. Depois disso, os números são tratados como valores discretos. Por exemplo, se você tiver uma coluna numérica com valores de MPG que variam de 25 a 30, uma nova coluna indicadora seria criada para cada valor discreto:  
+-   Se a coluna que você converter em valores de indicador contiver números, elas deverão ser marcadas como categóricas como qualquer outra coluna de recurso. Depois de fazer isso, os números são tratados como valores discretos. Por exemplo, se você tiver uma coluna numérica com valores MPG variando de 25 a 30, uma nova coluna de indicador será criada para cada valor discreto:  
 
-    | Faça       | Rodovia mpg -25 | Rodovia mpg -26 | Rodovia mpg -27 | Rodovia mpg -28 | Rodovia mpg -29 | Rodovia mpg -30 |
+    | Faça       | Rodovia MPG-25 | Rodovia MPG-26 | Rodovia MPG-27 | Rodovia MPG-28 | Rodovia MPG-29 | Rodovia MPG-30 |
     | ---------- | --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
-    | Contoso Carros | 0               | 0               | 0               | 0               | 0               | 1               |
+    | Carros da contoso | 0               | 0               | 0               | 0               | 0               | 1               |
 
-- Para evitar adicionar muitas dimensões ao seu conjunto de dados. Recomendamos que você primeiro verifique o número de valores na coluna e bin ou quantize os dados adequadamente.  
+- Para evitar a adição de muitas dimensões ao conjunto de seus conjuntos de seus. É recomendável primeiro verificar o número de valores na coluna e, em seguida, ou quantificar os dados adequadamente.  
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

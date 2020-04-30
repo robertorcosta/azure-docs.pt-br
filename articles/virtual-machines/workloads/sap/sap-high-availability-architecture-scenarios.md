@@ -1,5 +1,5 @@
 ---
-title: Arquitetura HA do Azure VMs e cenários para SAP NetWeaver | Microsoft Docs
+title: Arquitetura e cenários de HA de VMs do Azure para SAP NetWeaver | Microsoft Docs
 description: Arquitetura e cenários de alta disponibilidade para SAP NetWeaver em Máquinas Virtuais do Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -17,10 +17,10 @@ ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 08f770ced6cb1ec1102159788e1583d481436b08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79279904"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura de alta disponibilidade e cenários para SAP NetWeaver
@@ -239,17 +239,17 @@ ms.locfileid: "79279904"
 ## <a name="overview-of-high-availability"></a>Visão geral de alta disponibilidade
 A alta disponibilidade do SAP no Azure pode ser classificada em três tipos:
 
-* **Infra-estrutura azure de alta disponibilidade:** 
+* **Alta disponibilidade de infraestrutura do Azure**: 
 
     Por exemplo, a alta disponibilidade pode incluir VMs (computação), rede ou armazenamento e seus benefícios para aumentar a disponibilidade de aplicativos SAP.
 
-* **Utilizando a reinicialização da infra-estrutura do Azure VM para obter *maior disponibilidade* de aplicativos SAP**: 
+* **Utilizando a reinicialização de VM de infraestrutura do Azure para obter *maior disponibilidade* de aplicativos SAP**: 
 
     Se você decidir não usar as funcionalidades, como o WSFC (Clustering de Failover do Windows Server) ou o Pacemaker no Linux, a reinicialização de VM do Azure será utilizada. Protege os sistemas SAP contra tempo de inatividade planejado e não planejado da infraestrutura do servidor físico do Azure e de toda a plataforma subjacente do Azure.
 
-* **Aplicação SAP de alta disponibilidade:** 
+* **Alta disponibilidade do aplicativo SAP**: 
 
-    Para obter toda a alta disponibilidade do sistema SAP, você precisa proteger todos os componentes essenciais do sistema SAP. Por exemplo: 
+    Para obter toda a alta disponibilidade do sistema SAP, você precisa proteger todos os componentes essenciais do sistema SAP. Por exemplo:
     * Servidores de aplicativos SAP redundantes.
     * Componentes exclusivos. Um exemplo pode ser um componente SPOF (ponto único de falha), como uma instância SAP ASCS/SCS ou um DBMS (sistema de gerenciamento de banco de dados).
 
@@ -267,7 +267,7 @@ A base para o cálculo é 30 dias por mês, ou 43.200 minutos. Por exemplo, um t
 
 (Serviço de disponibilidade nº 1/100) * (Serviço de disponibilidade nº 2/100) * (Serviço de disponibilidade nº 3/100) \*…
 
-Por exemplo: 
+Por exemplo:
 
 (99,95/100) * (99,9/100) * (99,9/100) = 0,9975 ou uma disponibilidade geral de 99,75%.
 
@@ -297,7 +297,7 @@ Ao usar Zonas de Disponibilidade, há alguns aspectos a serem considerados. A li
 - Não é possível usar o [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) para criar soluções de cluster de failover baseadas em Serviços de Cluster de Failover do Windows ou no Linux Pacemaker. Em vez disso, você precisará usar o [SKU do Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 - As Zonas de Disponibilidade do Azure não fornecem nenhuma garantia de determinada distância entre diferentes zonas em uma região
 - A latência da rede entre diferentes Zonas de Disponibilidade do Azure em diferentes regiões do Azure poderá variar conforme a região do Azure. Haverá casos em que você, como cliente, poderá executar razoavelmente a camada de aplicativo SAP implantada em diferentes zonas, pois a latência da rede de uma zona para a VM ativa do DBMS ainda é aceitável de um impacto do processo empresarial. Em outros casos, haverá cenários de cliente em que a latência entre a VM ativa do DBMS em uma zona e uma instância do aplicativo SAP em uma VM em outra zona poderá ser muito invasiva e não aceitável para os processos empresariais do SAP. Como resultado, as arquiteturas de implantação precisam ser diferentes com uma arquitetura ativa/ativa para o aplicativo ou uma arquitetura ativa/passiva, caso a latência seja muito alta.
-- O uso [de discos gerenciados pelo Azure](https://azure.microsoft.com/services/managed-disks/) é obrigatório para ser implantado nas Zonas de Disponibilidade do Azure 
+- O uso do [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) é obrigatório para a implantação no zonas de disponibilidade do Azure 
 
 
 ### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>Manutenção planejada e não planejada de máquinas virtuais
@@ -315,12 +315,12 @@ Os dados em sua conta de armazenamento sempre são replicados para garantir dura
 
 Como o Armazenamento do Azure mantém três imagens dos dados por padrão, o uso de RAID 5 ou RAID 1 em vários discos do Azure é desnecessário.
 
-Para obter mais informações, consulte [a replicação do Azure Storage][azure-storage-redundancy].
+Para obter mais informações, consulte [replicação do armazenamento do Azure][azure-storage-redundancy].
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
 O Managed Disks é um tipo de recurso do Azure Resource Manager cujo uso é recomendado em relação aos VHDs (discos rígidos virtuais), que são armazenados em contas de armazenamento do Azure. O Managed Disks se alinha automaticamente a um conjunto de disponibilidade do Azure da máquina virtual à qual ele está anexado. Eles aumentam a disponibilidade da máquina virtual e os serviços que estão sendo executados nela.
 
-Para obter mais informações, consulte [a visão geral dos discos gerenciados do Azure][azure-storage-managed-disks-overview].
+Para obter mais informações, consulte [visão geral do Azure Managed disks][azure-storage-managed-disks-overview].
 
 Recomendamos que você use discos gerenciados porque eles simplificam a implantação e o gerenciamento de suas máquinas virtuais.
 
@@ -334,7 +334,7 @@ Para saber mais sobre essa abordagem, confira [Usar reinicialização de VM da i
 
 ## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Alta disponibilidade de aplicativos SAP no Azure IaaS
 
-Para obter toda a alta disponibilidade do sistema SAP, você precisa proteger todos os componentes essenciais do sistema SAP. Por exemplo: 
+Para obter toda a alta disponibilidade do sistema SAP, você precisa proteger todos os componentes essenciais do sistema SAP. Por exemplo:
   * Servidores de aplicativos SAP redundantes.
   * Componentes exclusivos. Um exemplo pode ser um componente SPOF (ponto único de falha), como uma instância SAP ASCS/SCS ou um DBMS (sistema de gerenciamento de banco de dados).
 
@@ -351,7 +351,7 @@ Normalmente, não é necessária uma solução específica de alta disponibilida
 
 ![Figura 1: servidor de aplicativos SAP de alta disponibilidade][sap-ha-guide-figure-2000]
 
-_**Figura 1:** Servidor de aplicativo SAP de alta disponibilidade_
+_**Figura 1:** Servidor de aplicativos SAP de alta disponibilidade_
 
 Você deve colocar todas as máquinas virtuais que hospedam instâncias do servidor de aplicativos SAP no mesmo conjunto de disponibilidade do Azure. Um conjunto de disponibilidade do Azure garante que:
 
@@ -391,13 +391,13 @@ Você pode usar uma solução WSFC para proteger a instância SAP ASCS/SCS. A so
 
 * **Agrupar a instância SAP ASCS/SCS usando compartilhamento de arquivos**: para saber mais sobre essa arquitetura, confira [Agrupar instância do SAP ASCS/SCS em um cluster de failover do Windows usando compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share].
 
-* **Cluster a instância SAP ASCS/SCS usando o compartilhamento DE SMB DA ANF**: Para obter mais informações sobre essa arquitetura, consulte [Cluster uma instância SAP ASCS/SCS em um cluster de failover do Windows usando o compartilhamento de arquivos ANF SMB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+* **Clusterizar a instância do SAP ASCS/SCS usando o compartilhamento SMB do seja**: para obter mais informações sobre essa arquitetura, consulte cluster de clusters de [uma instância do SAP ASCS/SCS em um cluster de failover do Windows usando o compartilhamento de arquivos SMB do seja](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arquitetura de alta disponibilidade para uma instância do SAP ASCS/SCS no Linux
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Para saber mais sobre o clustering da instância do SAP ASCS/SCS usando a estrutura de cluster SLES, confira [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP][sap-suse-ascs-ha]. Para arquitetura HA alternativa no SLES, que não requer NFS altamente disponível, consulte [guia de alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server com arquivos Do Azure NetApp para aplicativos SAP][sap-suse-ascs-ha-anf].
+> Para saber mais sobre o clustering da instância do SAP ASCS/SCS usando a estrutura de cluster SLES, confira [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP][sap-suse-ascs-ha]. Para uma arquitetura de HA alternativa no SLES, que não requer NFS altamente disponível, consulte o [Guia de alta disponibilidade para SAP NetWeaver em SuSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP][sap-suse-ascs-ha-anf].
 
 Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em um cluster usando a estrutura de cluster do Red Hat, confira [Alta disponibilidade das Máquinas Virtuais do Azure para o SAP NetWeaver no Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 
@@ -406,9 +406,9 @@ Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em
 
 > ![Windows][Logo_Windows] Windows
 > 
-> O Multi-SID é suportado com o WSFC, usando compartilhamento de arquivos e disco compartilhado.
+> Há suporte para vários SID com o WSFC, usando o compartilhamento de arquivos e o disco compartilhado.
 > 
-> Para obter mais informações sobre a arquitetura de alta disponibilidade multi-SID no Windows, consulte:
+> Para obter mais informações sobre a arquitetura de alta disponibilidade de vários SIDs no Windows, consulte:
 
 * [Alta disponibilidade multi-SID de instância do SAP ASCS/SCS para clustering de failover do Windows Server e compartilhamento de arquivos][sap-ascs-ha-multi-sid-wsfc-file-share]
 
@@ -416,11 +416,11 @@ Para obter mais informações sobre como agrupar a instância do SAP ASCS/SCS em
 
 > ![Linux][Logo_Linux] Linux
 > 
-> O clustering multi-SID é suportado em clusters Linux Pacemaker para SAP ASCS/ERS, limitado a **cinco** SIDs SAP no mesmo cluster.
-> Para obter mais informações sobre arquitetura multi-SID de alta disponibilidade no Linux, consulte:
+> O clustering de vários SIDs tem suporte em clusters Linux pacemaker para SAP ASCS/ERS, limitado a **cinco** SIDs do SAP no mesmo cluster.
+> Para obter mais informações sobre a arquitetura de alta disponibilidade de vários SIDs no Linux, consulte:
 
-* [HA para SAP NW em VMs Azure em SLES para guia multi-SID de aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-* [HA para SAP NW em VMs Azure em RHEL para aplicativos SAP guia multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [HA para SAP NW em VMs do Azure no SLES para aplicativos SAP guia de vários SIDs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+* [HA para SAP NW em VMs do Azure no RHEL para aplicativos SAP guia de vários SIDs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 
 ### <a name="high-availability-dbms-instance"></a>Instância do DBMS de alta disponibilidade
 

@@ -8,11 +8,11 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimckitt
-ms.openlocfilehash: 66fd656b5175547641150a048e57c978dc06d291
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79476817"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
@@ -80,13 +80,13 @@ Um conjunto de dimensionamento também tem uma "exibição de instância do conj
     Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Cli azure com [az vmss get-instance-view](/cli/azure/vmss):
+- CLI do Azure com [AZ vmss Get-Instance-View](/cli/azure/vmss):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
     ```
 
-- Você também pode usar [resources.azure.com](https://resources.azure.com) ou os [SDKs azure](https://azure.microsoft.com/downloads/) específicos do idioma
+- Você também pode usar o [Resources.Azure.com](https://resources.azure.com) ou os [SDKs do Azure](https://azure.microsoft.com/downloads/) específicos do idioma
 
 A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de exemplo condensada da CLI do Azure:
 
@@ -180,7 +180,7 @@ Semelhante a como um conjunto de dimensionamento tem uma exibição de instânci
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Você também pode usar [resources.azure.com](https://resources.azure.com) ou os [SDKs do Azure](https://azure.microsoft.com/downloads/)
+- Você também pode usar o [Resources.Azure.com](https://resources.azure.com) ou os [SDKs do Azure](https://azure.microsoft.com/downloads/)
 
 A apresentação exata da saída depende das opções que você fornecer para o comando. O exemplo a seguir mostra a saída de exemplo condensada da CLI do Azure:
 
@@ -309,9 +309,9 @@ Para atualizar VMs existentes, você deve fazer uma "atualização manual" de ca
 - Você também pode usar [Azure SDKs](https://azure.microsoft.com/downloads/) específicos do idioma.
 
 >[!NOTE]
-> Os clusters service fabric só podem usar o modo *automático,* mas a atualização é tratada de forma diferente. Para obter mais informações, consulte [upgrades de aplicativos service fabric](../service-fabric/service-fabric-application-upgrade.md).
+> Service Fabric clusters só podem usar o modo *automático* , mas a atualização é tratada de forma diferente. Para obter mais informações, consulte [Service Fabric atualizações de aplicativos](../service-fabric/service-fabric-application-upgrade.md).
 
-Há um tipo de modificação das propriedades globais do conjunto de dimensionamento que não segue a política de atualização. Alterações no sistema operacional de dimensionar e no perfil do disco de dados (como nome de usuário e senha do admin) só podem ser alteradas na versão *aPI 2017-12-01* ou posterior. Essas alterações se aplicam somente a VMs criadas depois da alteração no modelo do conjunto de dimensionamento. Para atualizar VMs existentes, você deve "refazer a imagem" de cada VM existente. Você pode refazer a imagem por meio de:
+Há um tipo de modificação das propriedades globais do conjunto de dimensionamento que não segue a política de atualização. As alterações no sistema operacional do conjunto de dimensionamento e no perfil do disco de dados (como nome de usuário e senha de administrador) só podem ser alteradas na versão de API *2017-12-01* ou posterior. Essas alterações se aplicam somente a VMs criadas depois da alteração no modelo do conjunto de dimensionamento. Para atualizar VMs existentes, você deve "refazer a imagem" de cada VM existente. Você pode refazer a imagem por meio de:
 
 - a API REST com [compute/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) da seguinte maneira:
 
@@ -342,7 +342,6 @@ Algumas propriedades só podem ser definidas ao criar o conjunto de dimensioname
 - Zonas de Disponibilidades
 - Publicador de referência de imagem
 - Oferta de referência de imagem
-- Sku de referência de imagem
 - Tipo de conta de armazenamento em disco de SO gerenciado
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propriedades que só podem ser alteradas com base no valor atual
@@ -364,7 +363,7 @@ Algumas modificações podem ser aplicadas a VMs específicas em vez das proprie
 ## <a name="scenarios"></a>Cenários
 
 ### <a name="application-updates"></a>Atualizações de aplicativos
-Se um aplicativo for implantado em uma conjunto de dimensionamento por meio de extensões, uma atualização da configuração da extensão fará com que o aplicativo atualize de acordo com a política de atualização. Por exemplo, se você tiver uma nova versão de um script para executar em uma extensão de script personalizado, você pode atualizar a propriedade *fileUris* para apontar para o novo script. Em alguns casos, talvez você queira forçar uma atualização mesmo que a configuração da extensão permaneça inalterada (por exemplo, você atualizou o script sem alterar o URI do script). Nesses casos, você pode modificar a *forceUpdateTag* para forçar uma atualização. A plataforma Windows Azure não interpreta essa propriedade. Se você alterar o valor, não há nenhum efeito sobre como a extensão é executada. Uma mudança simplesmente força a extensão para ser executada novamente. Para obter mais informações sobre a *forceUpdateTag,* consulte a documentação da [API REST para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Observe que *forceUpdateTag* pode ser usado com todas as extensões, não apenas com a extensão de script personalizada.
+Se um aplicativo for implantado em uma conjunto de dimensionamento por meio de extensões, uma atualização da configuração da extensão fará com que o aplicativo atualize de acordo com a política de atualização. Por exemplo, se você tiver uma nova versão de um script para ser executada em uma extensão de script personalizado, você poderá atualizar a propriedade *fileuris* para apontar para o novo script. Em alguns casos, talvez você queira forçar uma atualização mesmo que a configuração da extensão permaneça inalterada (por exemplo, você atualizou o script sem alterar o URI do script). Nesses casos, você pode modificar o *forceUpdateTag* para forçar uma atualização. A plataforma Windows Azure não interpreta essa propriedade. Se você alterar o valor, não há nenhum efeito sobre como a extensão é executada. Uma mudança simplesmente força a extensão para ser executada novamente. Para obter mais informações sobre o *forceUpdateTag*, consulte a [documentação da API REST para extensões](/rest/api/compute/virtualmachineextensions/createorupdate). Observe que *forceUpdateTag* pode ser usado com todas as extensões, não apenas com a extensão de script personalizada.
 
 Também é comum que aplicativos sejam implantados por meio de uma imagem personalizada. Esse cenário é abordado na seção a seguir.
 
@@ -447,7 +446,7 @@ Digamos que você tenha um conjunto de dimensionamento com um Azure Load Balance
     ```
 
 >[!NOTE]
-> Esses comandos pressupõem que há apenas um balanceador de carga e uma configuração de IP no conjunto de dimensionamento. Se houver vários, você pode precisar usar um índice de lista diferente de *0*.
+> Esses comandos pressupõem que há apenas um balanceador de carga e uma configuração de IP no conjunto de dimensionamento. Se houver vários, talvez seja necessário usar um índice de lista diferente de *0*.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,20 +1,20 @@
 ---
-title: Funções do Azure vinculam expressões e padrões
-description: Aprenda a criar diferentes funções do Azure que vinculam expressões baseadas em padrões comuns.
+title: Padrões e expressões de associações de Azure Functions
+description: Aprenda a criar diferentes expressões de associação de Azure Functions com base em padrões comuns.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277642"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Funções do Azure vinculam padrões de expressão
+# <a name="azure-functions-binding-expression-patterns"></a>Padrões de expressão de associação de Azure Functions
 
-Uma das características mais poderosas dos [gatilhos e amarras](./functions-triggers-bindings.md) são *as expressões vinculantes.* No arquivo *function.json* e em parâmetros de função e de código, você pode usar expressões que são resolvidas para valores de várias fontes.
+Um dos recursos mais poderosos de [gatilhos e associações](./functions-triggers-bindings.md) é a *Associação de expressões*. No arquivo *function.json* e em parâmetros de função e de código, você pode usar expressões que são resolvidas para valores de várias fontes.
 
 A maioria das expressões são identificadas, encapsulando-as entre chaves. Por exemplo, em uma função de gatilho de fila, `{queueTrigger}` resolve para o texto de mensagem da fila. Se a propriedade `path` para uma associação de saída de blob é `container/{queueTrigger}` e a função é disparada por uma mensagem da fila `HelloWorld`, um blob denominado `HelloWorld` é criado.
 
@@ -131,7 +131,7 @@ public static void Run(
 
 ```
 
-Você também pode criar expressões para partes do nome do arquivo. No exemplo a seguir, a função é acionada apenas em nomes de arquivos que correspondem a um padrão:`anyname-anyfile.csv`
+Você também pode criar expressões para partes do nome do arquivo. No exemplo a seguir, a função é disparada somente em nomes de arquivo que correspondem a um padrão:`anyname-anyfile.csv`
 
 ```json
 {
@@ -319,4 +319,4 @@ No C#, e em outras linguagens .NET, você pode usar um padrão de associação o
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Usando o valor de retorno da função Azure](./functions-bindings-return-value.md)
+> [Usando o valor de retorno da função do Azure](./functions-bindings-return-value.md)

@@ -5,23 +5,23 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277850"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Lidando com erros nas Funções Duráveis (Azure Functions)
 
-As orquestrações de função durável são implementadas em código e podem usar os recursos de manipulação de erros incorporados da linguagem de programação. Não há realmente nenhum novo conceito que você precisa aprender para adicionar manipulação de erros e compensação em suas orquestrações. No entanto, há alguns comportamentos a que você deve estar atento.
+Orquestrações de função duráveis são implementadas no código e podem usar os recursos internos de tratamento de erros da linguagem de programação. Na verdade, não há nenhum novo conceito que você precise aprender para adicionar o tratamento de erros e a compensação às suas orquestrações. No entanto, há alguns comportamentos a que você deve estar atento.
 
 ## <a name="errors-in-activity-functions"></a>Erros em funções de atividade
 
-Qualquer exceção que seja lançada em uma função de atividade é `FunctionFailedException`recolocada de volta à função orquestradora e jogada como um . Você pode escrever o código de compensação e tratamento de erro que atenda às suas necessidades na função de orquestrador.
+Qualquer exceção gerada em uma função de atividade é empacotada de volta para a função de orquestrador e lançada como `FunctionFailedException`um. Você pode escrever o código de compensação e tratamento de erro que atenda às suas necessidades na função de orquestrador.
 
 Por exemplo, considere a seguinte função de orquestrador, que transfere fundos de uma conta para outra:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -60,9 +60,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Os exemplos c# anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
+> Os exemplos anteriores do C# são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez `IDurableOrchestrationContext`de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -100,13 +100,13 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Se a primeira chamada de função **CreditAccount** falhar, a função orquestradora compensa creditando os fundos de volta à conta de origem.
+Se a primeira chamada de função **CreditAccount** falhar, a função de orquestrador compensa creditando os fundos de volta para a conta de origem.
 
 ## <a name="automatic-retry-on-failure"></a>Repetição automática em caso de falha
 
 Quando chama funções de atividade ou funções de suborquestração, você pode especificar uma política de repetição automática. O exemplo a seguir tenta chamar uma função até três vezes e espera cinco segundos entre cada repetição:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -123,9 +123,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Os exemplos c# anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
+> Os exemplos anteriores do C# são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez `IDurableOrchestrationContext`de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -145,20 +145,20 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-A chamada de função de atividade no exemplo anterior toma um parâmetro para configurar uma diretiva de repetição automática. Existem várias opções para personalizar a política de retrição automática:
+A chamada de função de atividade no exemplo anterior usa um parâmetro para configurar uma política de repetição automática. Há várias opções para personalizar a política de repetição automática:
 
 * **Núm. máximo de tentativas**: o número máximo de tentativas de repetição.
 * **Primeiro intervalo de repetição**: o tempo de espera antes de fazer a primeira tentativa.
 * **Coeficiente de retirada**: o coeficiente usado para determinar a taxa de aumento de retirada. O valor padrão é 1.
 * **Intervalo máx. de repetição**: o tempo máximo de espera entre tentativas de repetição.
 * **Tempo limite de repetição**: o tempo máximo a ser dedicado às novas tentativas. O comportamento padrão é repetir indefinidamente.
-* **Handle**: Um retorno de chamada definido pelo usuário pode ser especificado para determinar se uma função deve ser repetida novamente.
+* **Identificador**: um retorno de chamada definido pelo usuário pode ser especificado para determinar se uma função deve ser repetida.
 
 ## <a name="function-timeouts"></a>Tempos limite de função
 
-Você pode querer abandonar uma chamada de função dentro de uma função orquestradora se estiver demorando muito para ser concluída. No momento, o modo adequado de fazer isso é criar um [temporizador durável](durable-functions-timers.md) usando `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript) em conjunto com `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript), conforme mostrado no exemplo a seguir:
+Talvez você queira abandonar uma chamada de função dentro de uma função de orquestrador se estiver demorando muito tempo para ser concluída. No momento, o modo adequado de fazer isso é criar um [temporizador durável](durable-functions-timers.md) usando `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript) em conjunto com `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript), conforme mostrado no exemplo a seguir:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -189,9 +189,9 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> Os exemplos c# anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
+> Os exemplos anteriores do C# são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez `IDurableOrchestrationContext`de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -227,7 +227,7 @@ Se uma função de orquestrador falhar com uma exceção sem tratamento, os deta
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Conheça orquestrações eternas](durable-functions-eternal-orchestrations.md)
+> [Saiba mais sobre orquestrações do eternas](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Saiba como diagnosticar problemas](durable-functions-diagnostics.md)

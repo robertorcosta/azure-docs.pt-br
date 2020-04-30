@@ -1,7 +1,7 @@
 ---
-title: 'Selecionar colunas Transformar: Referência do módulo'
+title: 'Selecionar colunas de transformação: referência de módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Select Columns Transform no Azure Machine Learning para criar uma transformação que selecione o mesmo subconjunto de colunas que no conjunto de dados dado.
+description: Saiba como usar o módulo selecionar colunas de transformação em Azure Machine Learning para criar uma transformação que seleciona o mesmo subconjunto de colunas que no conjunto de dados fornecido.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,49 +10,49 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455903"
 ---
 # <a name="select-columns-transform"></a>Selecionar colunas para transformação
 
-Este artigo descreve como usar o módulo Select Columns Transform no azure Machine Learning designer (visualização). O objetivo do módulo Select Columns Transform é garantir que um conjunto previsível e consistente de colunas seja usado em operações de aprendizado de máquina a jusante.
+Este artigo descreve como usar o módulo selecionar colunas de transformação no designer de Azure Machine Learning (versão prévia). A finalidade do módulo selecionar colunas de transformação é garantir que um conjunto de colunas consistente e previsível seja usado em operações de aprendizado de máquina downstream.
 
-Este módulo é útil para tarefas como pontuação, que requerem colunas específicas. Alterações nas colunas disponíveis podem quebrar o pipeline ou alterar os resultados.
+Esse módulo é útil para tarefas como pontuação, que exigem colunas específicas. As alterações nas colunas disponíveis podem interromper o pipeline ou alterar os resultados.
 
-Você usa Selecionar colunas Transformar para criar e salvar um conjunto de colunas. Em seguida, use o módulo [Aplicar transformação](apply-transformation.md) para aplicar essas seleções a novos dados.
+Use a transformação selecionar colunas para criar e salvar um conjunto de colunas. Em seguida, use o módulo [aplicar transformação](apply-transformation.md) para aplicar essas seleções a novos dados.
 
-## <a name="how-to-use-select-columns-transform"></a>Como usar a Select Columns Transform
+## <a name="how-to-use-select-columns-transform"></a>Como usar a transformação selecionar colunas
 
-Este cenário pressupõe que você deseja usar a seleção de recursos para gerar um conjunto dinâmico de colunas que serão usadas para treinar um modelo. Para garantir que as seleções de colunas sejam as mesmas para o processo de pontuação, você usa o módulo Select Columns Transform para capturar as seleções de colunas e aplicá-las em outros lugares do pipeline.
+Esse cenário pressupõe que você deseja usar a seleção de recursos para gerar um conjunto dinâmico de colunas que serão usadas para treinar um modelo. Para garantir que as seleções de coluna sejam as mesmas para o processo de pontuação, use o módulo selecionar colunas de transformação para capturar as seleções de coluna e aplicá-las em outro lugar no pipeline.
 
 1. Adicione um conjunto de dados de entrada ao seu pipeline no designer.
 
-2. Adicione uma instância de [seleção](filter-based-feature-selection.md)de recursos baseado em filtro .
+2. Adicione uma instância da [seleção de recursos baseada em filtro](filter-based-feature-selection.md).
 
-3. Conecte os módulos e configure o módulo de seleção de recursos para encontrar automaticamente uma série de melhores recursos no conjunto de dados de entrada.
+3. Conecte os módulos e configure o módulo seleção de recursos para localizar automaticamente uma série de melhores recursos no conjunto de dados de entrada.
 
-4. Adicione uma instância do Modelo de [Trem](train-model.md) e use a saída de [Seleção](filter-based-feature-selection.md) de Recursos Baseados em Filtro como entrada para treinamento.
+4. Adicione uma instância do [modelo de treinamento](train-model.md) e use a saída da [seleção de recursos baseada em filtro](filter-based-feature-selection.md) como a entrada para treinamento.
 
     > [!IMPORTANT]
-    > Como a importância do recurso é baseada nos valores da coluna, você não pode saber com antecedência quais colunas podem estar disponíveis para entrada no [Train Model](train-model.md).  
-5. Anexar uma instância do módulo 'Transformar colunas selecionadas'. 
+    > Como a importância do recurso é baseada nos valores na coluna, você não pode saber com antecedência quais colunas podem estar disponíveis para entrada para [treinar o modelo](train-model.md).  
+5. Anexe uma instância do módulo selecionar colunas de transformação. 
 
-    Essa etapa gera uma seleção de colunas como uma transformação que pode ser salva ou aplicada a outros conjuntos de dados. Esta etapa garante que as colunas identificadas na seleção de recursos sejam salvas para outros módulos a serem reutilizados.
+    Esta etapa gera uma seleção de coluna como uma transformação que pode ser salva ou aplicada a outros conjuntos de os. Essa etapa garante que as colunas identificadas na seleção de recursos sejam salvas para que outros módulos reutilizem.
 
-6. Adicione o módulo [Score Model.](score-model.md) 
+6. Adicione o módulo [modelo de Pontuação](score-model.md) . 
 
-   *Não conecte o conjunto de dados de entrada.* Em vez disso, adicione o módulo [Aplicar transformação](apply-transformation.md) e conecte a saída da transformação de seleção de recursos.
+   *Não conecte o conjunto de dados de entrada.* Em vez disso, adicione o módulo [aplicar transformação](apply-transformation.md) e conecte a saída da transformação seleção de recursos.
 
    > [!IMPORTANT]
-   > Você não pode esperar aplicar a [seleção de recursos baseados em filtro seleção](filter-based-feature-selection.md) ao conjunto de dados de pontuação e obter os mesmos resultados. Como a seleção de recursos é baseada em valores, ela pode escolher um conjunto diferente de colunas, o que faria com que a operação de pontuação falhasse.
-7. Envie o oleoduto.
+   > Você não pode esperar a aplicação da [seleção de recursos baseada em filtro](filter-based-feature-selection.md) ao conjunto de texto de Pontuação e obter os mesmos resultados. Como a seleção de recursos se baseia em valores, ela pode escolher um conjunto diferente de colunas, o que causaria uma falha na operação de pontuação.
+7. Envie o pipeline.
 
-Este processo de salvar e, em seguida, aplicar uma seleção de coluna garante que o mesmo esquema de dados esteja disponível para treinamento e pontuação.
+Esse processo de salvar e aplicar uma seleção de coluna garante que o mesmo esquema de dados esteja disponível para treinamento e pontuação.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja o [conjunto de módulos disponíveis](module-reference.md) para o Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

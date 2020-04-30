@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79278188"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico no Durable Functions no Azure
@@ -20,15 +20,15 @@ Há várias opções para diagnosticar problemas com as [Funções Duráveis](du
 
 O [Application Insights](../../azure-monitor/app/app-insights-overview.md) é a maneira recomendada de fazer diagnóstico e monitoramento no Azure Functions. O mesmo se aplica às Funções Duráveis. Para obter uma visão geral de como usar o Application Insights em seu aplicativo de funções, consulte [Monitor o Azure Functions](../functions-monitoring.md).
 
-A Extensão Durável do Azure Functions também emite *eventos de acompanhamento*, que permitem rastrear a execução de uma orquestração de ponta a ponta. Esses eventos de rastreamento podem ser encontrados e consultados usando a ferramenta [Application Insights Analytics](../../azure-monitor/app/analytics.md) no portal Azure.
+A Extensão Durável do Azure Functions também emite *eventos de acompanhamento*, que permitem rastrear a execução de uma orquestração de ponta a ponta. Esses eventos de rastreamento podem ser encontrados e consultados usando a ferramenta de [análise de Application insights](../../azure-monitor/app/analytics.md) no portal do Azure.
 
 ### <a name="tracking-data"></a>Acompanhamento de dados
 
 Cada evento de ciclo de vida de uma instância de orquestração faz com que um evento de acompanhamento seja gravado na coleção de **rastreamentos** no Application Insights. Esse evento tem um conteúdo **customDimensions** com vários campos.  Todos os nomes de campo são prefixados com `prop__`.
 
 * **hubName**: o nome do hub de tarefas no qual suas orquestrações estão em execução.
-* **appName**: o nome do aplicativo de funções. Este campo é útil quando você tem vários aplicativos de função compartilhando a mesma instância do Application Insights.
-* **slotName**: o [slot de implantação](../functions-deployment-slots.md) no qual o aplicativo de funções atual está sendo executado. Este campo é útil quando você aproveita os slots de implantação para versá-los.
+* **appName**: o nome do aplicativo de funções. Esse campo é útil quando você tem vários aplicativos de função compartilhando a mesma instância de Application Insights.
+* **slotName**: o [slot de implantação](../functions-deployment-slots.md) no qual o aplicativo de funções atual está sendo executado. Esse campo é útil quando você aproveita os slots de implantação para a versão de suas orquestrações.
 * **functionName**: o nome da função de orquestrador ou atividade.
 * **functionType**: o tipo da função, como **Orquestrador** ou **Atividade**.
 * **instanceId**: a ID exclusiva da instância de orquestração.
@@ -39,14 +39,14 @@ Cada evento de ciclo de vida de uma instância de orquestração faz com que um 
   * **Listening**: o orquestrador está escutando uma notificação de evento externo.
   * **Completed**: a função foi concluída com êxito.
   * **Failed**: a função falhou com um erro.
-* **reason**: dados adicionais associados ao evento de acompanhamento. Por exemplo, se uma instância estiver aguardando uma notificação de evento externo, esse campo indica o nome do evento que ela está aguardando. Se uma função falhar, este campo conterá os detalhes de erro.
+* **reason**: dados adicionais associados ao evento de acompanhamento. Por exemplo, se uma instância estiver aguardando uma notificação de evento externo, esse campo indica o nome do evento que ela está aguardando. Se uma função tiver falhado, esse campo conterá os detalhes do erro.
 * **isReplay**: valor booliano que indica se o evento de acompanhamento deve ter a execução reproduzida.
-* **extensionVersion**: a versão da extensão da Tarefa Durável. As informações da versão são dados especialmente importantes ao relatar possíveis bugs na extensão. Instâncias de execução longa podem relatar várias versões se uma atualização ocorrer durante sua execução.
+* **extensionVersion**: a versão da extensão da Tarefa Durável. As informações de versão são dados especialmente importantes ao relatar possíveis bugs na extensão. Instâncias de execução longa podem relatar várias versões se uma atualização ocorrer durante sua execução.
 * **sequenceNumber**: número de sequência de execução para um evento. Combinado com o carimbo de data/hora ajuda a ordenar os eventos por tempo de execução. *Observe que esse número será redefinido para zero se o host for reiniciado enquanto a instância estiver em execução, portanto, primeiro é importante sempre classificar pelo carimbo de data/hora e, depois, sequenceNumber.*
 
-A verbosidade do rastreamento de dados emitidos ao `logger` Application Insights pode ser `logging` configurada na seção (Funções 1.x) ou (Funções 2.0) do `host.json` arquivo.
+O detalhamento dos dados de rastreamento emitidos para Application Insights pode ser configurado `logger` na seção (funções 1. x `logging` ) ou (funções 2,0) do `host.json` arquivo.
 
-#### <a name="functions-10"></a>Funções 1.0
+#### <a name="functions-10"></a>Funções 1,0
 
 ```json
 {
@@ -60,7 +60,7 @@ A verbosidade do rastreamento de dados emitidos ao `logger` Application Insights
 }
 ```
 
-#### <a name="functions-20"></a>Funções 2.0
+#### <a name="functions-20"></a>Funções 2,0
 
 ```json
 {
@@ -76,7 +76,7 @@ Por padrão, todos os eventos de acompanhamento de não-replay são emitidos. O 
 
 Para habilitar a emitir os eventos de reprodução de orquestração detalhado, o `LogReplayEvents` pode ser definido como `true` na `host.json` do arquivo sob `durableTask` conforme mostrado:
 
-#### <a name="functions-10"></a>Funções 1.0
+#### <a name="functions-10"></a>Funções 1,0
 
 ```json
 {
@@ -86,7 +86,7 @@ Para habilitar a emitir os eventos de reprodução de orquestração detalhado, 
 }
 ```
 
-#### <a name="functions-20"></a>Funções 2.0
+#### <a name="functions-20"></a>Funções 2,0
 
 ```javascript
 {
@@ -205,7 +205,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-Os dados de log resultantes serão parecidos com a seguinte saída de exemplo:
+Os dados de log resultantes serão parecidos com o seguinte exemplo de saída:
 
 ```txt
 Calling F1.
@@ -276,7 +276,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-A partir de Funções Duráveis 2.0, as funções `ILogger` do orquestrador .NET também têm a opção de criar uma que filtra automaticamente as instruções de log durante o replay. Esta filtragem automática é `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` feita usando a API.
+A partir do Durable Functions 2,0, as funções do .NET Orchestrator também têm a opção `ILogger` de criar um que filtra automaticamente as instruções de log durante a reprodução. Essa filtragem automática é feita usando a `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` API.
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -295,7 +295,7 @@ public static async Task Run(
 }
 ```
 
-Com as alterações mencionadas anteriormente, a saída de log é a seguinte:
+Com as alterações mencionadas anteriormente, a saída do log é a seguinte:
 
 ```txt
 Calling F1.
@@ -305,7 +305,7 @@ Done!
 ```
 
 > [!NOTE]
-> Os exemplos c# anteriores são para Funções Duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
+> Os exemplos anteriores do C# são para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez `IDurableOrchestrationContext`de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 ## <a name="custom-status"></a>Status personalizados
 
@@ -328,7 +328,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 ```
 
 > [!NOTE]
-> O exemplo c# anterior é para Funções Duráveis 2.x. Para funções duráveis 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext`. Para obter mais informações sobre as diferenças entre as versões, consulte o artigo [de funções duráveis.](durable-functions-versions.md)
+> O exemplo anterior de C# é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez `IDurableOrchestrationContext`de. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 ### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
@@ -373,19 +373,19 @@ O clientes terão a seguinte resposta:
 
 O Azure Functions dá suporte à depuração do código de função diretamente e esse mesmo suporte se estende às Funções Duráveis, seja em execução no Azure ou localmente. No entanto, há alguns comportamentos a que você deve estar atento ao depurar:
 
-* **Replay**: As funções do orquestrador [são reproduzem](durable-functions-orchestrations.md#reliability) regularmente quando novas entradas são recebidas. Esse comportamento significa que uma única execução *lógica* de uma função orquestradora pode resultar em atingir o mesmo ponto de ruptura várias vezes, especialmente se for definido no início do código de função.
-* **Aguarde** `await` : Sempre que um é encontrado em uma função orquestradora, ele reproduz o controle de volta ao despachante do Quadro de Tarefas Duráveis. Se é a primeira `await` vez que um particular é encontrado, a tarefa associada *nunca* é retomada. Como a tarefa nunca é retomada, *passar por cima* da espera (F10 no Visual Studio) não é possível. Ignorar só funciona quando uma tarefa está sendo reproduzida.
-* **Tempos de tempo de mensagens**: Funções duráveis usam internamente mensagens de fila para impulsionar a execução de funções orquestradoras, atividades e entidades. Em um ambiente com várias VMs, interromper a depuração por longos períodos pode fazer com que outra VM receba a mensagem, resultando em uma execução duplicada. Esse comportamento também existe para funções de gatilho de fila regulares, mas é importante ressaltar neste contexto, uma vez que as filas são um detalhe de implementação.
-* **Parada e partida**: As mensagens em funções duráveis persistem entre as sessões de depuração. Se você parar de depurar e encerrar o processo de host local enquanto uma função durável estiver sendo executada, essa função poderá ser reexecutada automaticamente em uma futura sessão de depuração. Esse comportamento pode ser confuso quando não se espera. Limpar todas as mensagens das [filas](durable-functions-perf-and-scale.md#internal-queue-triggers) de armazenamento interno entre as sessões de depuração é uma técnica para evitar esse comportamento.
+* **Reprodução**: as funções de orquestrador periodicamente são [reproduzidas](durable-functions-orchestrations.md#reliability) quando novas entradas são recebidas. Esse comportamento significa que uma única execução *lógica* de uma função de orquestrador pode resultar em atingir o mesmo ponto de interrupção várias vezes, especialmente se ele estiver definido no início do código de função.
+* **Await**: sempre que `await` um for encontrado em uma função de orquestrador, ele resultará no controle de volta para o Dispatcher do Framework de tarefa durável. Se for a primeira vez que um determinado `await` for encontrado, a tarefa associada *nunca* será retomada. Como a tarefa nunca é retomada, não é possível *percorrer o Await* (F10 no Visual Studio). Ignorar só funciona quando uma tarefa está sendo reproduzida.
+* **Tempos limite de mensagens**: Durable Functions usa internamente mensagens de fila para acionar a execução de funções de orquestrador, atividade e entidade. Em um ambiente com várias VMs, interromper a depuração por longos períodos pode fazer com que outra VM receba a mensagem, resultando em uma execução duplicada. Esse comportamento também existe para funções de gatilho de fila regulares, mas é importante ressaltar neste contexto, uma vez que as filas são um detalhe de implementação.
+* **Parando e iniciando**: as mensagens nas funções duráveis persistem entre as sessões de depuração. Se você parar a depuração e encerrar o processo de host local enquanto uma função durável estiver em execução, essa função poderá ser executada automaticamente em uma sessão de depuração futura. Esse comportamento pode ser confuso quando não esperado. Limpar todas as mensagens das [filas de armazenamento internas](durable-functions-perf-and-scale.md#internal-queue-triggers) entre sessões de depuração é uma técnica para evitar esse comportamento.
 
 > [!TIP]
-> Ao definir pontos de interrupção em funções orquestradoras, se você quiser apenas quebrar na execução `IsReplaying` `false`não-replay, você pode definir um ponto de interrupção condicional que quebra apenas se for .
+> Ao definir pontos de interrupção em funções de orquestrador, se você quiser interromper apenas a execução sem repetição, poderá definir um ponto de interrupção condicional que só se `IsReplaying` encontra. `false`
 
 ## <a name="storage"></a>Armazenamento
 
-Por padrão, as Funções Duráveis armazenam o estado no Armazenamento do Azure. Esse comportamento significa que você pode inspecionar o estado de suas orquestrações usando ferramentas como [o Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Por padrão, as Funções Duráveis armazenam o estado no Armazenamento do Azure. Esse comportamento significa que você pode inspecionar o estado de suas orquestrações usando ferramentas como [Gerenciador de armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Captura de tela do Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
+![Captura de tela Gerenciador de Armazenamento do Azure](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Isso é útil para a depuração, pois você vê exatamente em qual estado uma orquestração pode estar. Mensagens nas filas também podem ser examinadas para saber qual trabalho está pendente (ou preso, em alguns casos).
 
@@ -395,4 +395,4 @@ Isso é útil para a depuração, pois você vê exatamente em qual estado uma o
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o monitoramento em Funções Azure](../functions-monitoring.md)
+> [Saiba mais sobre monitoramento no Azure Functions](../functions-monitoring.md)

@@ -1,21 +1,21 @@
 ---
-title: Automatize os processos de insights do aplicativo Azure usando aplicativos lógicos
+title: Automatizar processos do insights Aplicativo Azure usando aplicativos lógicos
 description: Saiba como você pode automatizar rapidamente os processos repetíveis adicionando o conector do Application Insights ao aplicativo lógico.
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: 4a0944e661932d86fac75f78c4faf5be751806c5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473159"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize os processos do Application Insights usando os Aplicativos Lógicos
 
-Você está executando repetidamente as mesmas consultas nos dados telemétricos para verificar se o serviço está funcionando adequadamente? Deseja automatizar essas consultas para descobrir tendências e anomalias e então criar seus próprios fluxos de trabalho para elas? O conector Azure Application Insights para Aplicativos Lógicos é a ferramenta certa para este fim.
+Você está executando repetidamente as mesmas consultas nos dados telemétricos para verificar se o serviço está funcionando adequadamente? Deseja automatizar essas consultas para descobrir tendências e anomalias e então criar seus próprios fluxos de trabalho para elas? O conector do insights Aplicativo Azure para aplicativos lógicos é a ferramenta certa para essa finalidade.
 
 > [!NOTE]
-> O conector Azure Application Insights foi substituído pelo [conector Azure Monitor](../platform/logicapp-flow-connector.md) que é integrado ao Azure Active Directory em vez de exigir uma chave de API e também permite que você recupere dados de um espaço de trabalho do Log Analytics.
+> O conector do insights Aplicativo Azure foi substituído pelo [conector de Azure monitor](../platform/logicapp-flow-connector.md) integrado ao Azure Active Directory em vez de exigir uma chave de API e também permite que você recupere dados de um espaço de trabalho log Analytics.
 
 Com essa integração, você pode automatizar diversos processos sem a necessidade de escrever nenhuma linha de código. É possível criar um Aplicativo Lógico com o conector do Application Insights para automatizar rapidamente qualquer processo do Application Insights. 
 
@@ -26,7 +26,7 @@ Adicione também outras ações. O recurso Aplicativos Lógicos do Serviço de A
 Neste tutorial, você aprenderá como criar um aplicativo lógico que utliza o algoritmo de cluster automático do Analytics para agrupar atributos nos dados de um aplicativo Web. O Flow envia automaticamente os resultados por email, apenas um exemplo de como você pode usar os Aplicativos Lógicos e o Application Insights Analytics juntos. 
 
 ### <a name="step-1-create-a-logic-app"></a>Etapa 1: criar um aplicativo lógico
-1. Faça login no [portal Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Clique em **Criar um recurso**, selecione **Web + Celular** e, em seguida, selecione **Aplicativos Lógico**.
 
     ![Janela Novo aplicativo lógico](./media/automate-with-logic-apps/1createlogicapp.png)
@@ -36,16 +36,16 @@ Neste tutorial, você aprenderá como criar um aplicativo lógico que utliza o a
 
     ![Janela Designer de Aplicativo Lógico](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Na caixa **Intervalo,** tipo **1** e depois, caixa**de freqüência,** selecione **Dia**.
+1. Na caixa **intervalo** , digite **1** e, em seguida, caixa**frequência** , selecione **dia**.
 
     ![Janela "Recorrência" do Designer de Aplicativo Lógico](./media/automate-with-logic-apps/3recurrence.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Etapa 3: adicionar uma ação do Application Insights
-1. Clique em **Novo passo**.
+1. Clique em **nova etapa**.
 
 1. Na caixa de pesquisa **Escolher uma ação**, digite **Azure Application Insights**.
 
-1. Em **Ações,** clique **em Azure Application Insights - Consulta Visualize Analytics**.
+1. Em **ações**, clique em **aplicativo Azure insights – Visualizar consulta do Analytics**.
 
     ![Janela "Escolha uma ação" do Designer de Aplicativo Lógico](./media/automate-with-logic-apps/4visualize.png)
 
@@ -85,11 +85,11 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
 
 ### <a name="step-6-configure-the-logic-app-to-send-email"></a>Etapa 6: configurar o aplicativo lógico para enviar email
 
-1. Clique em **Novo passo**.
+1. Clique em **nova etapa**.
 
 1. Na caixa de pesquisa, digite **Office 365 Outlook**.
 
-1. Clique **no Office 365 Outlook - Envie um e-mail**.
+1. Clique em **Office 365 Outlook-enviar um email**.
 
     ![Seleção do Office 365 Outlook](./media/automate-with-logic-apps/9sendemail.png)
 
@@ -101,7 +101,7 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
 
    c. Clique em qualquer lugar na caixa **Corpo** e, no menu de conteúdo dinâmico que se abre à direita, selecione **Corpo**.
     
-   d. Clique em **Adicionar novo parâmetro** a ser derrubado e selecione Anexos e É HTML.
+   d. Clique na lista suspensa **Adicionar novo parâmetro** e selecione anexos e é HTML.
 
       ![Configuração do Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
 

@@ -1,18 +1,18 @@
 ---
-title: Configure e gerencie a visualização de notebooks Azure
-description: Saiba como gerenciar metadados de projetos, arquivos de projeto, ambiente do projeto e etapas de configuração através da UI notebooks Azure e acesso direto ao terminal.
+title: Configurar e gerenciar Azure Notebooks visualização
+description: Saiba como gerenciar metadados de projeto, arquivos de projeto, o ambiente do projeto e as etapas de instalação por meio da interface do usuário do Azure Notebooks e acesso direto ao terminal.
 ms.topic: how-to
 ms.date: 02/28/2020
 ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280593"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gerenciar e configurar projetos no Azure Notebooks Preview
 
-Um projeto no Azure Notebooks Preview é essencialmente uma configuração da máquina virtual Linux subjacente na qual os notebooks Jupyter são executados, juntamente com uma pasta de arquivo e metadados descritivos. 
+Um projeto no Azure Notebooks Preview é essencialmente uma configuração da máquina virtual do Linux subjacente na qual os notebooks Jupyter são executados, juntamente com uma pasta de arquivos e metadados descritivos. 
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
@@ -31,7 +31,7 @@ O Azure Notebooks inicia a máquina virtual subjacente sempre que você executa 
 
 ## <a name="compute-tier"></a>Camada de computação
 
-Por padrão, os projetos são executados no nível **Free Compute,** que é limitado a 4GB de memória e 1GB de dados para evitar abusos. Você pode contornar essas limitações e aumentar o poder de computação usando uma máquina virtual diferente que você provisionou em uma assinatura do Azure. Para obter mais informações, consulte [Como usar máquinas virtuais de data science](use-data-science-virtual-machine.md).
+Por padrão, os projetos são executados na camada de **computação gratuita** , que é limitada a 4 GB de memória e 1GB de dados para evitar abusos. Você pode ignorar essas limitações e aumentar a capacidade de computação usando uma máquina virtual diferente que você provisionou em uma assinatura do Azure. Para obter mais informações, consulte [como usar máquinas virtuais de ciência de dados](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 
@@ -40,7 +40,7 @@ No painel do projeto, selecione **Configurações do Projeto** e, em seguida, se
 | Configuração | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para seu projeto que usa o Azure Notebooks para fins de exibição. Por exemplo, "Olá, Mundo no Python". |
-| Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto. Este ID pode usar apenas letras, números e hífens, é limitado a 30 caracteres e não pode ser um [ID de projeto reservado](create-clone-jupyter-notebooks.md#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
+| Project ID | Um identificador personalizado que se torna parte da URL que você usa para compartilhar um projeto. Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](create-clone-jupyter-notebooks.md#reserved-project-ids). Se você não tiver certeza sobre o que usar, uma convenção comum é usar uma versão em letras minúsculas do nome do seu projeto, na qual espaços são transformados em hifens, por exemplo “projeto-meu-notebook” (truncado se necessário para encaixar o limite de comprimento). |
 | Projeto público | Se definido, permite que qualquer pessoa com o link acesse o projeto. Ao criar um projeto privado, desmarque essa opção. |
 | Ocultar clones | Se definido, outros usuários não poderão ver uma lista de clones que foram feitos para este projeto. Ocultar clones é útil para projetos que são compartilhados com muitas pessoas que não fazem parte da mesma organização, como ao usar um notebook para dar uma aula. |
 
@@ -65,7 +65,7 @@ O comando **+ Novo** (atalho de teclado: n) cria novos arquivos ou pastas. Ao us
 
 ### <a name="upload-files"></a>Carregar arquivos
 
-O **comando Upload** oferece duas opções para importar dados de outros locais: De **URL** e De **Computador**. Para obter mais informações, confira [Trabalhar com arquivos de dados em projetos do Azure Notebooks](work-with-project-data-files.md).
+O comando **upload** fornece duas opções para importar dados de outros locais: **da URL** e **do computador**. Para obter mais informações, confira [Trabalhar com arquivos de dados em projetos do Azure Notebooks](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Selecionar comandos específicos do arquivo
 
@@ -73,7 +73,7 @@ Cada item na lista de arquivos do projeto fornece comandos por meio de um menu d
 
 ![Comandos em um menu de contexto do arquivo](media/project-file-commands.png)
 
-| Comando | Atalho do teclado | Ação |
+| Comando | Atalho de teclado | Ação |
 | --- | --- | --- |
 | Executar | r (ou clique) | Executa um arquivo do notebook. Outros tipos de arquivos são abertos para visualização.  |
 | Copiar Link | y | Copia um link para o arquivo na área de transferência. |
@@ -91,7 +91,7 @@ Uma visualização de um arquivo ou notebook é uma exibição somente leitura d
 
 A página de visualização dá suporte a vários comandos da barra de ferramentas com atalhos do teclado:
 
-| Comando | Atalho do teclado | Ação |
+| Comando | Atalho de teclado | Ação |
 | --- | --- | --- |
 | Compartilhar | s | Exibe o pop-up de compartilhamento do qual você pode obter um link, compartilhar em mídias sociais, obter o HTML para inserção e enviar um email. |
 | Clone | c  | Clonar o notebook para sua conta. |
@@ -110,7 +110,7 @@ Todas as formas de configuração do projeto são aplicadas sempre que a máquin
 
 ### <a name="one-time-initialization-script"></a>Script de inicialização única
 
-O Primeiro Azure Notebooks cria um servidor para o projeto, ele procura um arquivo no projeto chamado *aznbsetup.sh*. Se este arquivo estiver presente, o Azure Notebooks o executa. A saída do script é armazenada na pasta do projeto como *.aznbsetup.log*.
+O Azure Notebooks da primeira vez que cria um servidor para o projeto, ele procura um arquivo no projeto chamado *aznbsetup.sh*. Se esse arquivo estiver presente, Azure Notebooks o executará. A saída do script é armazenada na pasta do projeto como *.aznbsetup.log*.
 
 ### <a name="environment-setup-steps"></a>Etapas de configuração do ambiente
 
@@ -126,14 +126,14 @@ Para adicionar uma etapa, primeiro selecione **+ Adicionar** e, em seguida, sele
 
 As informações que você projeta em seguida dependem do tipo de operação que você escolheu:
 
-- **Requisitos.txt**: Na segunda lista de paradas, selecione um arquivo *requirements.txt* que já está no projeto. Em seguida, selecione uma versão do Python na terceira lista suspensa que aparece. Usando um arquivo *Requirements.txt*, o Azure Notebooks executa o `pip install -r` com o arquivo *Requirements.txt* ao iniciar um servidor de notebook. Você não precisa instalar explicitamente os pacotes de dentro do notebook propriamente dito.
+- **Requirements. txt**: na segunda lista suspensa, selecione um arquivo *requirements. txt* que já está no projeto. Em seguida, selecione uma versão do Python na terceira lista suspensa que aparece. Usando um arquivo *Requirements.txt*, o Azure Notebooks executa o `pip install -r` com o arquivo *Requirements.txt* ao iniciar um servidor de notebook. Você não precisa instalar explicitamente os pacotes de dentro do notebook propriamente dito.
 
-- **Script Shell**: Na segunda lista de paradas, selecione um script bash shell no projeto (tipicamente um arquivo com a extensão *.sh)* que contém quaisquer comandos que você deseja executar para inicializar o ambiente.
+- **Script de shell**: na segunda lista suspensa, selecione um script de shell bash no projeto (normalmente um arquivo com a extensão *. sh* ) que contém os comandos que você deseja executar para inicializar o ambiente.
 
-- **Ambiente.yml**: Na segunda lista de paradas, selecione um arquivo *environments.yml* para projetos Python usando um ambiente conda.
+- **Environment. yml**: na segunda lista suspensa, selecione um arquivo *Environments. yml* para projetos do Python usando um ambiente Conda.
 
    > [!WARNING]
-   > Como este é um serviço de pré-visualização em `Environment.yml` desenvolvimento, há atualmente um problema conhecido onde a configuração não é aplicada ao seu projeto como esperado. O projeto e os cadernos Jupyter dentro não carregam o arquivo de ambiente especificado no momento.
+   > Como se trata de um serviço de visualização em desenvolvimento, há um problema conhecido no momento `Environment.yml` em que a configuração não é aplicada ao seu projeto conforme o esperado. O projeto e os blocos de anotações do Jupyter dentro do não carregam o arquivo de ambiente especificado no momento.
 
 Quando você terminar de adicionar etapas, selecione **Salvar**.
 
@@ -188,5 +188,5 @@ Você também pode usar o comando de uma célula de código em um notebook do Py
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
+- [Como trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
 - [Acessar dados de nuvem em um notebook](access-data-resources-jupyter-notebooks.md)

@@ -1,15 +1,15 @@
 ---
-title: Conheça as opções de suporte à malha de serviço do Azure
+title: Saiba mais sobre as opções de suporte do Azure Service Fabric
 description: Versões de cluster do Azure Service Fabric com suporte e links para transmitir tíquetes de suporte
 author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282088"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
@@ -26,9 +26,9 @@ Saiba mais sobre:
 - [Suporte premier da Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Os clusters em execução em um nível de confiabilidade de bronze ou cluster de nó único permitirão que você execute apenas cargas de trabalho de teste. Se você tiver problemas com um cluster em execução com confiabilidade de bronze ou cluster de nó único, a equipe de suporte da Microsoft irá ajudá-lo a mitigar o problema, mas não executará uma Análise de Causa Raiz. Consulte [as características de confiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.
+> Clusters em execução em uma camada de confiabilidade bronze ou cluster de nó único permitirão que você execute somente cargas de trabalho de teste. Se você tiver problemas com um cluster em execução em confiabilidade bronze ou cluster de nó único, a equipe de suporte da Microsoft ajudará você a mitigar o problema, mas não executará uma análise da causa raiz. Consulte [as características de confiabilidade do cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obter mais detalhes.
 >
-> Para obter mais informações sobre o que é necessário para um cluster pronto para produção, consulte a [lista de verificação de prontidão da produção](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Para obter mais informações sobre o que é necessário para um cluster pronto para produção, consulte a [lista de verificação de preparação de produção](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 
