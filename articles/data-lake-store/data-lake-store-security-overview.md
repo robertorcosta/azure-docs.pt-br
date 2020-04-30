@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
 ms.openlocfilehash: 7e987c56c3a125a03e3a90540313ace1f8adf47a
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086565"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
@@ -66,7 +66,7 @@ O Azure Data Lake Storage Gen1 é um Sistema de Arquivos Distribuído como o HDF
 
 Recomendamos que você defina as ACLs para vários usuários usando [grupos de segurança](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Adicione usuários a um grupo de segurança e atribua as ACLs de um arquivo ou pasta ao grupo de segurança. Isso é útil quando você desejar fornecer permissões atribuídas, uma vez que estará limitado a um máximo de 28 entradas para permissões atribuídas. Para saber mais sobre como proteger melhor os dados armazenados no Data Lake Storage Gen1 usando grupos de segurança do Azure Active Directory, confira [Atribuir usuários ou grupo de segurança, como ACLs, ao sistema de arquivos do Azure Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
 
-![Permissões de acesso à lista](./media/data-lake-store-security-overview/adl.acl.2.png "Permissões de acesso à lista")
+![Listar permissões de acesso](./media/data-lake-store-security-overview/adl.acl.2.png "Listar permissões de acesso")
 
 ## <a name="network-isolation"></a>Isolamento da rede
 
@@ -74,7 +74,7 @@ Use o Azure Data Lake Storage Gen1 para ajudar a controlar o acesso ao seu armaz
 
 ![Configurações do firewall e acesso IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Configurações de firewall e endereço IP")
 
-As tags de serviço de suporte de redes virtuais do Azure (VNet) para Data Lake Gen 1. Uma tag de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gerencia os prefixos de endereço englobados pela tag de serviço e atualiza automaticamente a tag de serviço à medida que os endereços mudam. Para obter mais informações, consulte [a visão geral das tags de serviço do Azure](../virtual-network/service-tags-overview.md).
+As marcas de serviço de suporte de VNet (redes virtuais) do Azure para Data Lake Gen 1. Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados. Para obter mais informações, consulte [visão geral das marcas de serviço do Azure](../virtual-network/service-tags-overview.md).
 
 ## <a name="data-protection"></a>Proteção de dados
 
@@ -105,7 +105,7 @@ Para obter mais informações sobre como trabalhar com os logs, consulte [Exibir
 
 ### <a name="diagnostics-logs"></a>Logs de diagnóstico
 
-Você pode habilitar o registro de auditoria e diagnóstico de acesso de dados no portal do Azure e enviar os logs para uma conta de armazenamento Azure Blob, um hub de eventos ou logs do Monitor Do Azure.
+Você pode habilitar a auditoria de acesso a dados e o log de diagnóstico no portal do Azure e enviar os logs para uma conta de armazenamento de BLOBs do Azure, um hub de eventos ou logs de Azure Monitor.
 
 ![Logs de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "Logs de diagnóstico")
 

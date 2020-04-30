@@ -1,5 +1,5 @@
 ---
-title: Crie uma VM windows a partir de um VHD especializado no portal Azure
+title: Criar uma VM do Windows de um VHD especializado no portal do Azure
 description: Crie uma nova VM do Windows em um VHD no portal do Azure.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
 ms.openlocfilehash: d360ac5a57fe72b092a6694721905c066527bba3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086446"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Crie uma VM a partir de um VHD usando o portal do Azure
@@ -28,7 +28,7 @@ Existem várias maneiras de criar uma máquina virtual (VM) no Azure:
 
 Não use um disco especializado, se você quiser criar várias VMs. Em vez disso, para implantações maiores, [criar uma imagem](capture-image-resource.md) e, em seguida [usar essa imagem para criar várias VMs](create-vm-generalized-managed.md).
 
-Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único snapshot ou VHD. 
+Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único instantâneo ou VHD. 
 
 ## <a name="copy-a-disk"></a>Copiar um disco
 

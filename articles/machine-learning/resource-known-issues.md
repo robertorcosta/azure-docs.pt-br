@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82127561"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231961"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
@@ -56,7 +56,23 @@ Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode 
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-     
+
+* **Erros do panda: normalmente vistos durante o experimento do AutoML:**
+   
+   Ao configurar manualmente seu environmnet usando Pip, você observará erros de atributo (especialmente de pandas) devido à instalação de versões de pacote sem suporte. Para evitar esses erros, [Instale o SDK do AutoML usando o automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Abra um prompt do Anaconda e clone o repositório do GitHub para um conjunto de blocos de anotações de exemplo.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. CD para a pasta como usar-azureml/Automated-Machine Learning em que os blocos de anotações de exemplo foram extraídos e, em seguida, executados:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Mensagem de erro: não é possível desinstalar 'PyYAML'**
 
     Azure Machine Learning SDK para Python: PyYAML é um `distutils` projeto instalado. Portanto, não é possível determinar com precisão quais arquivos pertencem a ele no caso de uma desinstalação parcial. Para continuar a instalação do SDK ignorando esse erro, use:
@@ -198,7 +214,7 @@ Problemas conhecidos:
 
 Execute estas ações para os seguintes erros:
 
-|Erro  | Resolução  |
+|Erro do  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |

@@ -4,12 +4,12 @@ description: Saiba como usar a biblioteca de convenções de arquivo do lote do 
 ms.topic: article
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116427"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232693"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET
 
@@ -182,7 +182,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Exibir arquivos de saída no portal do Azure
 
-O portal do Azure exibe os arquivos de saída de tarefa e os logs que são mantidos para uma conta de Armazenamento do Azure vinculado usando o [padrão de Convenções de Arquivo em Lote](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Você mesmo pode implementar essas convenções em uma linguagem de sua escolha ou pode usar a biblioteca de Convenções de Arquivo em seus aplicativos .NET.
+O portal do Azure exibe os arquivos de saída de tarefa e os logs que são mantidos para uma conta de Armazenamento do Azure vinculado usando o [padrão de Convenções de Arquivo em Lote](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). Você mesmo pode implementar essas convenções em uma linguagem de sua escolha ou pode usar a biblioteca de Convenções de Arquivo em seus aplicativos .NET.
 
 Para habilitar a exibição de seus arquivos de saída no portal, você deve atender aos seguintes requisitos:
 
