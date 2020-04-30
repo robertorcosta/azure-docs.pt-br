@@ -5,16 +5,16 @@ ms.subservice: custom-vision
 ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 85b06527a6d34ebd8d6bf1605533b9bf4d09fa84
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: b726f7464f681637a577ac63a39b79afd4c64022
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "66236412"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82130656"
 ---
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você deseja implementar seu próprio projeto de detecção de objeto (ou experimentar um projeto de [classificação de imagens](../csharp-tutorial.md) em vez disso), você talvez queira excluir o projeto de detecção de garfo/tesoura deste exemplo. Uma avaliação gratuita permite dois projetos de Visão Personalizada.
+Se você deseja implementar seu próprio projeto de detecção de objeto (ou experimentar um projeto de [classificação de imagens](../quickstarts/image-classification.md) em vez disso), você talvez queira excluir o projeto de detecção de garfo/tesoura deste exemplo. Uma avaliação gratuita permite dois projetos de Visão Personalizada.
 
 No [site de Visão Personalizada](https://customvision.ai), navegue até **Projetos** e selecione a Lixeira em Meu novo projeto.
 

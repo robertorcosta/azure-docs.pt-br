@@ -7,20 +7,21 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7bebc9e682f5156fa235b77ff020e502695a28be
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 47cee660114ba0b19b952015b1fecff8c85d2c25
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76981184"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82189208"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights
 
 Este tutorial orientará você pelo processo de criação de um ambiente do Azure Time Series Insights populado com os dados de dispositivos simulados. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
+>
 > * Crie um ambiente do Time Series Insights.
 > * Criar uma solução de simulação de dispositivo que contém um hub IoT.
 > * Conectar o ambiente do Time Series Insights ao hub IoT.
@@ -59,7 +60,7 @@ Primeiramente, crie a solução de simulação de dispositivo que gera dados de 
 
    [![Executar o acelerador de Simulação de Dispositivo](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-landing-page.png#lightbox)
 
-1.  Selecione **Experimentar Agora**. Em seguida, insira os parâmetros necessários na página da **solução Criar Simulação de Dispositivo**.
+1. Selecione **Experimentar Agora**. Em seguida, insira os parâmetros necessários na página da **solução Criar Simulação de Dispositivo**.
 
    Parâmetro|Descrição
    ---|---
@@ -72,7 +73,7 @@ Primeiramente, crie a solução de simulação de dispositivo que gera dados de 
 
    [![Provisionar a solução de simulação de dispositivo](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. Após a conclusão do provisionamento, duas atualizações serão exibidas, notificando que o estado da implantação foi movido de **Provisionamento** para **Pronto**. 
+1. Após a conclusão do provisionamento, duas atualizações serão exibidas, notificando que o estado da implantação foi movido de **Provisionamento** para **Pronto**.
 
    >[!IMPORTANT]
    > Não insira seu acelerador de solução ainda. Mantenha essa página da Web aberta porque você retornará a ela mais tarde.
@@ -87,9 +88,9 @@ Primeiramente, crie a solução de simulação de dispositivo que gera dados de 
 
 Em segundo lugar, crie um ambiente do Time Series Insights em sua assinatura do Azure.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando sua conta da assinatura do Azure. 
-1. Selecione **+ Criar um recurso** no canto superior esquerdo. 
-1. Selecione a categoria **Internet das Coisas** e depois selecione **Time Series Insights**. 
+1. Entre no [portal do Azure](https://portal.azure.com) usando sua conta da assinatura do Azure.
+1. Selecione **+ Criar um recurso** no canto superior esquerdo.
+1. Selecione a categoria **Internet das Coisas** e depois selecione **Time Series Insights**.
 
    [![Selecione o recurso de ambiente Time Series Insights](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png)](media/tutorial-create-populate-tsi-environment/tsi-create-new-environment.png#lightbox)
 
@@ -114,7 +115,7 @@ Em segundo lugar, crie um ambiente do Time Series Insights em sua assinatura do 
 
    Por fim, selecione **Examinar + criar**.
 
-1. Verifique o painel **Notificações** para monitorar a conclusão da implantação. 
+1. Verifique o painel **Notificações** para monitorar a conclusão da implantação.
 
    [![Implantação do ambiente do Time Series Insights bem-sucedida](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/create-resource-tsi-deployment-succeeded.png#lightbox)
 
@@ -142,7 +143,7 @@ Com o hub IoT, um aplicativo Web do Serviço de Aplicativo do Azure foi gerado p
    **Frequência de telemetria** | Insira `10` segundos.
    **Duração da simulação** | Selecione **Terminar em:** e insira `5` minutos.
 
-   Quando terminar, selecione **Iniciar Simulação**. A simulação é executada por um total de 5 minutos. Ela gera dados de 1.000 dispositivos simulados a cada 10 segundos. 
+   Quando terminar, selecione **Iniciar Simulação**. A simulação é executada por um total de 5 minutos. Ela gera dados de 1.000 dispositivos simulados a cada 10 segundos.
 
    [![Instalação da simulação de dispositivo](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png#lightbox)
 
@@ -189,6 +190,7 @@ No menu à esquerda no portal do Azure:
 Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
+>
 > * Crie um ambiente do Time Series Insights.
 > * Criar uma solução de simulação de dispositivo que contém um hub IoT.
 > * Conectar o ambiente do Time Series Insights ao hub IoT.

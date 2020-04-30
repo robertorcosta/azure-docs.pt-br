@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 5219af0ec343a6e7f87a07e4a7280ac5f4e85cd3
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.openlocfilehash: 920d3d6c1cfc928efa5daa2d6c0aa3a6b4e81375
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80619123"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82161118"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -28,7 +28,7 @@ Neste início rápido, você aprenderá a gerenciar blobs usando o código JavaS
 - Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
 - Um servidor Web local. Este artigo usa o [Node.js](https://nodejs.org) para abrir um servidor básico.
 - [Visual Studio Code](https://code.visualstudio.com).
-- Uma extensão do VS Code para depuração do navegador, como [Depurador para Chrome](vscode:extension/msjsdiag.debugger-for-chrome) ou [Depurador para Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
+- Uma extensão do VS Code para depuração do navegador, como [Depurador para Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) ou [Depurador para Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configurando regras de CORS para a conta de armazenamento
 
@@ -94,7 +94,7 @@ Agora que a SAS foi gerada, copie o valor de retorno e salve-o em algum lugar pa
 
 ## <a name="implement-the-html-page"></a>Implementar a página HTML
 
-Nesta seção, você criará uma página da Web básica e configurará o VS Code para iniciar e depurar a página. Porém, antes de iniciar, será necessário usar o Node.js para iniciar um servidor da Web local e veicular a página quando o navegador solicitar. Você adicionará código JavaScript para chamar várias APIs de armazenamento de blobs e exibir os resultados na página. Você também pode ver os resultados dessas chamadas no [portal do Azure](https://portal.azure.com), no [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer) e na [extensão do Armazenamento do Azure](vscode:extension/ms-azuretools.vscode-azurestorage) para o VS Code.
+Nesta seção, você criará uma página da Web básica e configurará o VS Code para iniciar e depurar a página. Porém, antes de iniciar, será necessário usar o Node.js para iniciar um servidor da Web local e veicular a página quando o navegador solicitar. Você adicionará código JavaScript para chamar várias APIs de armazenamento de blobs e exibir os resultados na página. Você também pode ver os resultados dessas chamadas no [portal do Azure](https://portal.azure.com), no [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer) e na [extensão do Armazenamento do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) para o VS Code.
 
 ### <a name="set-up-the-web-application"></a>Configurar o aplicativo Web
 
