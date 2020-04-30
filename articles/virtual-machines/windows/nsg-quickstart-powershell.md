@@ -1,5 +1,5 @@
 ---
-title: Abra portas para uma VM usando o Azure PowerShell
+title: Abrir portas para uma VM usando Azure PowerShell
 description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Azure Resource Manager e o Azure PowerShell
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,17 +8,17 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.openlocfilehash: a0dcc53d84edb4dd697213106c02626df24acfd8
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869408"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Como abrir portas e pontos de extremidade para uma VM no Azure usando o PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Comandos rápidos
-Para criar um Grupo de Segurança de Rede e as regras de ACL, você precisa [ter a versão mais recente do Azure PowerShell instalada](/powershell/azureps-cmdlets-docs). Você também pode [executar essas etapas usando o portal Azure](nsg-quickstart-portal.md).
+Para criar um Grupo de Segurança de Rede e as regras de ACL, você precisa [ter a versão mais recente do Azure PowerShell instalada](/powershell/azureps-cmdlets-docs). Você também pode [executar essas etapas usando o portal do Azure](nsg-quickstart-portal.md).
 
 Faça logon na sua Conta do Azure:
 
@@ -44,7 +44,7 @@ $httprule = New-AzNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Em seguida, crie seu Grupo de Segurança de Rede com [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) e atribua a regra de HTTP que você acabou de criar conforme descrito a seguir. O exemplo a seguir cria um Grupo de Segurança de Rede chamado *myNetworkSecurityGroup*:
+Em seguida, crie seu Grupo de Segurança de Rede com [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) e atribua a regra de HTTP que você acabou de criar conforme descrito a seguir. O exemplo a seguir cria um grupo de segurança de rede chamado *myNetworkSecurityGroup*:
 
 ```powershell
 $nsg = New-AzNetworkSecurityGroup `
@@ -89,7 +89,7 @@ Para aplicativos Web altamente disponíveis, você deve colocar suas VMs atrás 
 ## <a name="next-steps"></a>Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
-* [Visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+* [Visão geral de Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [O que é um grupo de segurança de rede?](../../virtual-network/security-overview.md)
-* [Visão geral do balanceador de carga do Azure](../../load-balancer/load-balancer-overview.md)
+* [Visão geral de Azure Load Balancer](../../load-balancer/load-balancer-overview.md)
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 6c50e5892aca37bac47e68a9ae17435611c99817
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 38152889ad43b41aeb345f59963cbfb869964b98
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80157459"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82025230"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -60,7 +60,7 @@ Como construtor se solução, você usa o IoT Central para criar uma solução d
 - Um aplicativo baseado em nuvem que recebe telemetria de seus dispositivos e permite o gerenciamento dos dispositivos.
 - Vários dispositivos executando o código personalizado conectado ao seu aplicativo baseado em nuvem.
 
-É possível implantar rapidamente um novo aplicativo do IoT Central e personalizá-lo de acordo com os requisitos específicos de seu navegador. Comece com um _modelo de aplicativo_ genérico ou um dos modelos de aplicativo voltados para o setor para [Varejo](../retail/overview-iot-central-retail-pnp.md), [Energia](../energy/overview-iot-central-energy.md), [Governo](../government/overview-iot-central-government.md) ou [Serviços de saúde](../healthcare/overview-iot-central-healthcare.md).
+É possível implantar rapidamente um novo aplicativo do IoT Central e personalizá-lo de acordo com os requisitos específicos de seu navegador. Comece com um _modelo de aplicativo_ genérico ou um dos modelos de aplicativo voltados para o setor para [Varejo](../retail/overview-iot-central-retail.md), [Energia](../energy/overview-iot-central-energy.md), [Governo](../government/overview-iot-central-government.md) ou [Serviços de saúde](../healthcare/overview-iot-central-healthcare.md).
 
 Como construtor de soluções, você usa as ferramentas baseadas na Web para criar um _modelo de dispositivo_ para os dispositivos que se conectam ao seu aplicativo. Um modelo de dispositivo é um blueprint que define as características e o comportamento de um tipo de dispositivo, como:
 
@@ -205,3 +205,5 @@ Agora que você tem uma visão geral do IoT Central, estas são as próximas eta
 - Saiba mais sobre o [IoT Plug and Play (versão prévia)](../../iot-pnp/overview-iot-plug-and-play.md).
 - Saiba como [Conectar um dispositivo Azure IoT Edge](./tutorial-add-edge-as-leaf-device.md).
 - Saiba mais sobre [as tecnologias e os serviços de IoT do Azure](../../iot-fundamentals/iot-services-and-technologies.md).
+
+Se você é um desenvolvedor de dispositivos e deseja se aprofundar em algum código, a próxima etapa sugerida é [Criar e conectar um aplicativo cliente ao seu aplicativo do Azure IoT Central](./tutorial-connect-device-nodejs.md).

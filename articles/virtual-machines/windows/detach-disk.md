@@ -1,5 +1,5 @@
 ---
-title: Desconecte um disco de dados de uma VM do Windows - Azure
+title: Desanexar um disco de dados de uma VM do Windows-Azure
 description: Desanexe um disco de dados de uma máquina virtual no Azure usando o modelo de implantação do Resource Manager.
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: cynthn
 ms.openlocfilehash: c93bb5fd3e92c6a947fe997b58207b87b2717fd5
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082757"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
@@ -48,14 +48,14 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Desanexar um disco de dados usando o portal
 
-Você pode remover um disco de dados *quente,* mas certifique-se de que nada está usando ativamente o disco antes de desconectá-lo da VM.
+Você pode *remover* um disco de dados, mas certifique-se de que nada esteja usando o disco ativamente antes de desanexá-lo da VM.
 
 1. No menu à esquerda, selecione **Máquinas Virtuais**.
-1. Selecione a máquina virtual que tem o disco de dados que deseja desvincular.
+1. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar.
 1. Em **Configurações**, selecione **Discos**.
 1. Na parte superior do painel **Discos**, selecione **Editar**.
-1. No painel **Discos,** à extrema direita do disco de dados que você gostaria de desprender, selecione **Desapego**.
-1. Selecione **Salvar** na parte superior da página para salvar suas alterações.
+1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, selecione **desanexar**.
+1. Selecione **salvar** na parte superior da página para salvar as alterações.
 
 O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.
 

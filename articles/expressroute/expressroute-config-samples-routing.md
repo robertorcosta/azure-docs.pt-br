@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: amostras de configuração do roteador'
+title: 'Azure ExpressRoute: exemplos de configuração do roteador'
 description: Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper.
 services: expressroute
 author: cherylmc
@@ -8,37 +8,37 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
 ms.openlocfilehash: 3603bc45b920dc62eb8bf6f2eb8557f98e21638e
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024805"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemplos de configuração do roteador para configurar e gerenciar o roteamento
-Esta página fornece amostras de configuração de interface e roteamento para roteadores da série Cisco IOS-XE e Juniper MX quando você está trabalhando com o Azure ExpressRoute.
+Esta página fornece exemplos de configuração de interface e roteamento para os roteadores da série Cisco IOS-XE e Juniper MX quando você está trabalhando com o Azure ExpressRoute.
 
 > [!IMPORTANT]
-> As amostras nesta página são puramente para orientação. Você deve trabalhar com a equipe técnica/de vendas do seu fornecedor e sua equipe de rede para encontrar configurações apropriadas para atender às suas necessidades. A Microsoft não suportará problemas relacionados às configurações listadas nesta página. Entre em contato com o fornecedor do dispositivo para obter problemas de suporte.
+> Exemplos nesta página são puramente para orientação. Você deve trabalhar com a equipe de vendas/técnicas do seu fornecedor e sua equipe de rede para encontrar as configurações apropriadas para atender às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Contate o fornecedor do dispositivo para obter problemas de suporte.
 > 
 > 
 
 ## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Configurações de MSS TCP e MTU em interfaces do roteador
-A unidade de transmissão máxima (MTU) para a interface ExpressRoute é 1500, que é o MTU padrão típico para uma interface Ethernet em um roteador. A menos que seu roteador tenha uma MTU diferente por padrão, não é necessário especificar um valor na interface do roteador.
+A MTU (unidade máxima de transmissão) para a interface do ExpressRoute é 1500, que é a MTU padrão típica para uma interface Ethernet em um roteador. A menos que seu roteador tenha uma MTU diferente por padrão, não é necessário especificar um valor na interface do roteador.
 
-Ao contrário de um gateway Azure VPN, o tamanho máximo do segmento TCP (MSS) para um circuito ExpressRoute não precisa ser especificado.
+Ao contrário de um gateway de VPN do Azure, o MSS (tamanho máximo de segmento) de TCP para um circuito de ExpressRoute não precisa ser especificado.
 
-As amostras de configuração do roteador neste artigo aplicam-se a todos os peerings. Examine [emparelhamentos do ExpressRoute](expressroute-circuit-peerings.md) e [requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter mais detalhes sobre roteamento.
+Os exemplos de configuração do roteador neste artigo se aplicam a todos os emparelhamentos. Examine [emparelhamentos do ExpressRoute](expressroute-circuit-peerings.md) e [requisitos de roteamento do ExpressRoute](expressroute-routing.md) para obter mais detalhes sobre roteamento.
 
 
 ## <a name="cisco-ios-xe-based-routers"></a>Roteadores com base em Cisco IOS-XE
-As amostras nesta seção aplicam-se a qualquer roteador que executa a família IOS-XE OS.
+Os exemplos nesta seção se aplicam a qualquer roteador que executa a família de sistemas operacionais IOS-XE.
 
 ### <a name="configure-interfaces-and-subinterfaces"></a>Configurar interfaces e subinterfaces
-Você precisará de uma subinterface por peering em cada roteador que você conectar à Microsoft. Uma subinterface pode ser identificada com um ID VLAN ou um par de IDs VLAN empilhados e um endereço IP.
+Você precisará de uma subinterface por emparelhamento em cada roteador ao qual você se conecta à Microsoft. Uma subinterface pode ser identificada com uma ID de VLAN ou um par empilhado de IDs de VLAN e um endereço IP.
 
 **Definição da interface Dot1Q**
 
-Esta amostra fornece a definição de subinterface para uma subinterface com um único ID VLAN. A ID de VLAN é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
+Este exemplo fornece a definição de subinterface para uma subinterface com uma única ID de VLAN. A ID de VLAN é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
@@ -46,14 +46,14 @@ Esta amostra fornece a definição de subinterface para uma subinterface com um 
 
 **Definição da interface QinQ**
 
-Esta amostra fornece a definição de subinterface para uma subinterface com dois IDs de VLAN. O ID VLAN externo (s-tag), se usado, permanece o mesmo em todos os peerings. A ID de VLAN interna (marca c) é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
+Este exemplo fornece a definição de subinterface para uma subinterface com duas IDs de VLAN. A ID de VLAN externa (s-tag), se usada, permanece a mesma em todos os emparelhamentos. A ID de VLAN interna (marca c) é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
-### <a name="set-up-ebgp-sessions"></a>Configure as sessões de eBGP
-Você deve configurar uma sessão de BGP com a Microsoft para cada peering. Configure uma sessão BGP usando a seguinte amostra. Se o endereço IPv4 que você usou para sua subinterface foi a.b.c.d, então o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
+### <a name="set-up-ebgp-sessions"></a>Configurar sessões eBGP
+Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. Configure uma sessão BGP usando o exemplo a seguir. Se o endereço IPv4 que você usou para sua subinterface era a. b. c. d, o endereço IP do vizinho BGP (Microsoft) será a. b. c. d + 1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -64,8 +64,8 @@ Você deve configurar uma sessão de BGP com a Microsoft para cada peering. Conf
      exit-address-family
     !
 
-### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Configure prefixos a serem anunciados durante a sessão BGP
-Configure seu roteador para anunciar prefixos selecionados para a Microsoft usando a seguinte amostra.
+### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Configurar os prefixos a serem anunciados na sessão BGP
+Configure seu roteador para anunciar os prefixos selecionados para a Microsoft usando o exemplo a seguir.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -78,7 +78,7 @@ Configure seu roteador para anunciar prefixos selecionados para a Microsoft usan
     !
 
 ### <a name="route-maps"></a>Mapas de rotas
-Use mapas de rota e listas de prefixos para filtrar prefixos propagados em sua rede. Consulte a amostra a seguir e certifique-se de que você tenha as listas de prefixos apropriadas configuradas.
+Use mapas de rota e listas de prefixo para filtrar prefixos propagados para a sua rede. Consulte o exemplo a seguir e verifique se você tem as listas de prefixo apropriadas configuradas.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -94,9 +94,9 @@ Use mapas de rota e listas de prefixos para filtrar prefixos propagados em sua r
      match ip address prefix-list <MS_Prefixes>
     !
 
-### <a name="configure-bfd"></a>Configurar BFD
+### <a name="configure-bfd"></a>Configurar o BFD
 
-Você configurará o BFD em dois lugares: um no nível de interface e outro no nível BGP. O exemplo aqui é para a interface QinQ. 
+Você configurará o BFD em dois locais: um no nível da interface e outro no nível do BGP. O exemplo aqui é para a interface QinQ. 
 
     interface GigabitEthernet<Interface_Number>.<Number>
      bfd interval 300 min_rx 300 multiplier 3
@@ -115,13 +115,13 @@ Você configurará o BFD em dois lugares: um no nível de interface e outro no n
 
 
 ## <a name="juniper-mx-series-routers"></a>Roteadores da série Juniper MX
-As amostras nesta seção aplicam-se a qualquer roteador da série Juniper MX.
+Os exemplos nesta seção se aplicam a qualquer roteador da série Juniper MX.
 
 ### <a name="configure-interfaces-and-subinterfaces"></a>Configurar interfaces e subinterfaces
 
 **Definição da interface Dot1Q**
 
-Esta amostra fornece a definição de subinterface para uma subinterface com um único ID VLAN. A ID de VLAN é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
+Este exemplo fornece a definição de subinterface para uma subinterface com uma única ID de VLAN. A ID de VLAN é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
     interfaces {
         vlan-tagging;
@@ -138,7 +138,7 @@ Esta amostra fornece a definição de subinterface para uma subinterface com um 
 
 **Definição da interface QinQ**
 
-Esta amostra fornece a definição de subinterface para uma subinterface com dois IDs de VLAN. O ID VLAN externo (s-tag), se usado, permanece o mesmo em todos os peerings. A ID de VLAN interna (marca c) é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
+Este exemplo fornece a definição de subinterface para uma subinterface com duas IDs de VLAN. A ID de VLAN externa (s-tag), se usada, permanece a mesma em todos os emparelhamentos. A ID de VLAN interna (marca c) é exclusiva por emparelhamento. O último octeto de seu endereço IPv4 sempre será um número ímpar.
 
     interfaces {
         <Interface_Number> {
@@ -152,8 +152,8 @@ Esta amostra fornece a definição de subinterface para uma subinterface com doi
         }                                   
     }                           
 
-### <a name="set-up-ebgp-sessions"></a>Configure as sessões de eBGP
-Você deve configurar uma sessão de BGP com a Microsoft para cada peering. Configure uma sessão BGP usando a seguinte amostra. Se o endereço IPv4 que você usou para sua subinterface foi a.b.c.d, então o endereço IP do vizinho BGP (Microsoft) será a.b.c.d+1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
+### <a name="set-up-ebgp-sessions"></a>Configurar sessões eBGP
+Você deve configurar uma sessão BGP com a Microsoft para cada emparelhamento. Configure uma sessão BGP usando o exemplo a seguir. Se o endereço IPv4 que você usou para sua subinterface era a. b. c. d, o endereço IP do vizinho BGP (Microsoft) será a. b. c. d + 1. O último octeto do endereço de IPv4 do vizinho BGP sempre será um número par.
 
     routing-options {
         autonomous-system <Customer_ASN>;
@@ -168,8 +168,8 @@ Você deve configurar uma sessão de BGP com a Microsoft para cada peering. Conf
         }                                   
     }
 
-### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Configure prefixos a serem anunciados durante a sessão BGP
-Configure seu roteador para anunciar prefixos selecionados para a Microsoft usando a seguinte amostra.
+### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Configurar os prefixos a serem anunciados na sessão BGP
+Configure seu roteador para anunciar os prefixos selecionados para a Microsoft usando o exemplo a seguir.
 
     policy-options {
         policy-statement <Policy_Name> {
@@ -194,8 +194,8 @@ Configure seu roteador para anunciar prefixos selecionados para a Microsoft usan
     }
 
 
-### <a name="route-policies"></a>Políticas de rotas
-Você pode usar mapas de rota e listas de prefixos para filtrar prefixos propagados em sua rede. Consulte a amostra a seguir e certifique-se de ter as listas de prefixos apropriadas configuradas.
+### <a name="route-policies"></a>Políticas de rota
+Você pode usar mapas de rota e listas de prefixos para filtrar prefixos propagados para a sua rede. Consulte o exemplo a seguir e verifique se você tem as listas de prefixo apropriadas configuradas.
 
     policy-options {
         prefix-list MS_Prefixes {
@@ -224,8 +224,8 @@ Você pode usar mapas de rota e listas de prefixos para filtrar prefixos propaga
         }                                   
     }
 
-### <a name="configure-bfd"></a>Configurar BFD
-Configure bfd somente sob a seção BGP do protocolo.
+### <a name="configure-bfd"></a>Configurar o BFD
+Configure BFD somente na seção BGP do protocolo.
 
     protocols {
         bgp { 

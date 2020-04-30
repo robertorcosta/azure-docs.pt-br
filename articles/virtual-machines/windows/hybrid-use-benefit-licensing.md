@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
 ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869578"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para Windows Server
@@ -24,7 +24,7 @@ Usar o Benefício Híbrido do Azure para Windows Server com quaisquer VMs execut
 
 ## <a name="classic-vms"></a>VMs clássicas
 
-Para VMs clássicos, apenas a implantação de novas VM a partir de imagens personalizadas no local é suportada. Para aproveitar os recursos com suporte neste artigo, você deve primeiro migrar as VMs clássicas para o modelo do Resource Manager.
+Para VMs clássicas, há suporte apenas para implantar uma nova VM a partir de imagens personalizadas locais. Para aproveitar os recursos com suporte neste artigo, você deve primeiro migrar as VMs clássicas para o modelo do Resource Manager.
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
@@ -162,7 +162,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implantar um Conjunto de Dimensionamento de Máquinas Virtuais com o Benefício Híbrido do Azure para Windows Server
-Nos modelos do Gerenciador de Recursos de seu conjunto de dimensionamento de máquinas virtuais, um parâmetro adicional `licenseType` deve ser especificado dentro da sua propriedade VirtualMachineProfile. Você pode fazer isso durante a criação ou atualização para o seu conjunto de escala através do modelo ARM, PowerShell, Azure CLI ou REST.
+Nos modelos do Gerenciador de Recursos de seu conjunto de dimensionamento de máquinas virtuais, um parâmetro adicional `licenseType` deve ser especificado dentro da sua propriedade VirtualMachineProfile. Você pode fazer isso durante criar ou atualizar para seu conjunto de dimensionamento por meio do modelo ARM, PowerShell, CLI do Azure ou REST.
 
 O exemplo a seguir usa um modelo ARM com uma imagem do Windows Server 2016 Datacenter:
 ```json
@@ -188,9 +188,9 @@ O exemplo a seguir usa um modelo ARM com uma imagem do Windows Server 2016 Datac
 Você também pode aprender mais sobre como [Modificar um conjunto de escala de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) para outras maneiras de atualizar sua escala definida.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [como economizar com o Benefício Híbrido Do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+- Leia mais sobre [como economizar dinheiro com o benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Leia sobre as [Perguntas frequentes sobre Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
 - Leia mais sobre [Orientação detalhada sobre licenciamento do Benefício Híbrido do Azure para Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 - Saiba mais sobre como o [Benefício Híbrido do Azure para Windows Server e o Azure Site Recovery tornam a migração de aplicativos para o Azure ainda mais econômica](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 - Saiba mais sobre o [Windows 10 no Azure com Direitos de Hospedagem Multilocatário](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-- Saiba mais sobre [o uso de modelos do Gerenciador de Recursos](../../azure-resource-manager/management/overview.md)
+- Saiba mais sobre como [usar modelos do Resource Manager](../../azure-resource-manager/management/overview.md)

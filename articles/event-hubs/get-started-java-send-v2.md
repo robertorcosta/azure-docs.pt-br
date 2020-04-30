@@ -6,14 +6,14 @@ author: spelluru
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 02/11/2020
+ms.date: 04/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 824244c0c3247e5a218c1551dd95de6e1d6e1007
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ca22f4481750abb3bd4432c8b42fbce93ede8ffd
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419214"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770875"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-messaging-eventhubs"></a>Usar o Java para enviar eventos ou receber eventos dos Hubs de Eventos do Azure (azure-messaging-eventhubs)
 Este início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote Java **azure-messaging-eventhubs**.
@@ -193,7 +193,7 @@ A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso 
                      .processEvent(processEvent)
                      .processError(processError)
                      .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
-                     .checkpointStore(new InMemoryCheckpointStore())
+                     .checkpointStore(new SampleCheckpointStore())
                      .buildEventProcessorClient();
     
              System.out.println("Starting event processor");
@@ -211,7 +211,7 @@ A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso 
      }
     ```
     
-2. Baixe o arquivo **InMemoryCheckpointStore.java** do [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/InMemoryCheckpointStore.java) e adicione-o ao seu projeto. 
+2. Baixe o arquivo **SampleCheckpointStore.java** do [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs/SampleCheckpointStore.java) e adicione-o ao seu projeto. 
 3. Compile o programa e certifique-se de que não existem erros. 
 
 ## <a name="run-the-applications"></a>Executar os aplicativos

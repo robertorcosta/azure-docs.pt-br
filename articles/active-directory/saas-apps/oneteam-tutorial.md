@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 195fa26a38d89d9ef738e6060ff7dab602d5c234
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 875114c53cb3193b1b140e95be19daf7fb6415a9
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67095903"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870326"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: integração do Azure Active Directory com o Oneteam
+# <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: Integração do Azure Active Directory com o Oneteam
 
 Neste tutorial, você aprenderá a integrar o Oneteam ao Azure AD (Azure Active Directory).
 A integração do Oneteam ao Azure AD oferece os seguintes benefícios:
@@ -34,7 +34,7 @@ A integração do Oneteam ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Oneteam, você precisa dos seguintes itens:
 
@@ -118,7 +118,7 @@ Para configurar o logon único do Azure Active Directory com o Oneteam, execute 
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<team name>.one-team.io/`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do Cliente Oneteam](https://support.one-team.com/hc/requests/new) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a equipe de suporte do Cliente Oneteam para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure Active Directory com o Oneteam, execute 
 
 ### <a name="configure-oneteam-single-sign-on"></a>Configurar o logon único do Oneteam
 
-Para configurar o logon único no lado do **Oneteam**, é necessário enviar o **XML de metadados de federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Oneteam](https://support.one-team.com/hc/requests/new). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Oneteam**, é necessário enviar o **XML de metadados de federação** baixado e as URLs apropriadas copiadas do portal do Azure para a equipe de suporte do Oneteam. Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -194,7 +194,7 @@ Nesta seção, você concederá a Brenda Fernandes acesso ao Oneteam para que el
 Nesta seção, um usuário chamado Brenda Fernandes será criado no Oneteam. O Oneteam dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Oneteam, um novo será criado após a autenticação.
 
 >[!NOTE]
->Se você precisar criar um usuário manualmente, você poderá gerar o tíquete de suporte com a [equipe de suporte de Oneteam](https://support.one-team.com/hc/requests/new).
+>Se você precisar criar um usuário manualmente, poderá gerar o tíquete de suporte com a equipe de suporte de Oneteam.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
@@ -208,5 +208,5 @@ Ao clicar no bloco do Oneteam no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

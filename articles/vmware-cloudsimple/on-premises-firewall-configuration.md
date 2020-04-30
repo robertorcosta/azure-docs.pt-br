@@ -1,7 +1,7 @@
 ---
-title: Acesse a solução Azure VMware por CloudSimple a partir do local
+title: Acesse a solução do Azure VMware de CloudSimple do local
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Acessando sua solução Azure VMware pelo CloudSimple a partir de sua rede local através de um firewall
+description: Acessando sua solução do Azure VMware por meio do CloudSimple de sua rede local por meio de um firewall
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/08/2019
@@ -10,56 +10,56 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81868135"
 ---
-# <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Acessando seu ambiente cloudsimple private cloud e aplicativos a partir de locais
+# <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Acessando seu ambiente de nuvem privada do CloudSimple e aplicativos do local
 
-Uma conexão pode ser configurada a partir da rede local para o CloudSimple usando o Azure ExpressRoute ou a VPN site-to-site.  Acesse seu CloudSimple Private Cloud vCenter e quaisquer cargas de trabalho que você executar na Nuvem Privada usando a conexão.  Você pode controlar quais portas são abertas na conexão usando um firewall em sua rede local.  Este artigo discute alguns dos requisitos típicos de porta de aplicativos.  Para quaisquer outros aplicativos, consulte a documentação do aplicativo para os requisitos da porta.
+Uma conexão pode ser configurada da rede local para CloudSimple usando o Azure ExpressRoute ou VPN site a site.  Acesse o vCenter de nuvem privada do CloudSimple e as cargas de trabalho que você executa na nuvem privada usando a conexão.  Você pode controlar quais portas são abertas na conexão usando um firewall em sua rede local.  Este artigo aborda alguns dos requisitos de porta de aplicativos típicos.  Para qualquer outro aplicativo, consulte a documentação do aplicativo para obter os requisitos de porta.
 
 ## <a name="ports-required-for-accessing-vcenter"></a>Portas necessárias para acessar o vCenter
 
-Para acessar o gerenciador private cloud vCenter e NSX-T, as portas definidas na tabela abaixo devem ser abertas no firewall local.  
+Para acessar sua nuvem privada do vCenter e o Gerenciador do NSX-T, as portas definidas na tabela a seguir devem ser abertas no firewall local.  
 
 | Porta       | Fonte                           | Destino                      | Finalidade                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | Servidores locais DNS          | Servidores DNS privados em nuvem        | Necessário para o encaminhamento de pesquisas dns de *az.cloudsimple.io* para servidores DNS privados em nuvem da rede local.       |
-| 53 (UDP)   | Servidores DNS privados em nuvem        | Servidores locais DNS          | Necessário para o encaminhamento de DNS procure nomes de domínio no local, do Private Cloud vCenter para servidores DNS no local. |
-| 80 (TCP)   | Rede local              | Rede privada de gerenciamento de nuvem | Necessário para redirecionar o URL do vCenter de *http* para *https*.                                                           |
-| 443 (TCP)  | Rede local              | Rede privada de gerenciamento de nuvem | Necessário para acessar o gerenciador vCenter e NSX-T da rede local.                                             |
-| 8000 (TCP) | Rede local              | Rede privada de gerenciamento de nuvem | Necessário para vMotion de máquinas virtuais de on-premises para Private Cloud.                                            |
-| 8000 (TCP) | Rede privada de gerenciamento de nuvem | Rede local              | Necessário para vMotion de máquinas virtuais de Private Cloud para on-premises.                                            |
+| 53 (UDP)   | Servidores locais DNS          | Servidores DNS da nuvem privada        | Necessário para encaminhar a pesquisa DNS de *AZ.cloudsimple.Io* para servidores DNS da nuvem privada da rede local.       |
+| 53 (UDP)   | Servidores DNS da nuvem privada        | Servidores locais DNS          | Necessário para o encaminhamento de DNS pesquisar nomes de domínio locais do vCenter de nuvem privada para servidores DNS locais. |
+| 80 (TCP)   | Rede local              | Rede de gerenciamento de nuvem privada | Necessário para redirecionar a URL do vCenter de *http* para *https*.                                                           |
+| 443 (TCP)  | Rede local              | Rede de gerenciamento de nuvem privada | Necessário para acessar o vCenter e o NSX-T Manager da rede local.                                             |
+| 8000 (TCP) | Rede local              | Rede de gerenciamento de nuvem privada | Necessário para o vMotion de máquinas virtuais do local para a nuvem privada.                                            |
+| 8000 (TCP) | Rede de gerenciamento de nuvem privada | Rede local              | Necessário para o vMotion de máquinas virtuais da nuvem privada para o local.                                            |
 
-## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Portas necessárias para usar diretório ativo no local como fonte de identidade
+## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Portas necessárias para usar o Active Directory local como uma fonte de identidade
 
-Para configurar o diretório ativo no local como uma fonte de identidade no Private Cloud vCenter, as portas definidas na tabela devem ser abertas.  Consulte [Use o Azure AD como um provedor de identidade para o vCenter no CloudSimple Private Cloud](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) para obter etapas de configuração.
+Para configurar o Active Directory local como uma fonte de identidade no vCenter de nuvem privada, as portas definidas na tabela devem ser abertas.  Consulte [usar o Azure ad como um provedor de identidade para o vCenter na nuvem privada do CloudSimple](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) para obter as etapas de configuração.
 
 | Porta         | Fonte                           | Destino                                         | Finalidade                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)      | Servidores DNS privados em nuvem        | Servidores locais DNS                             | Necessário para o encaminhamento de DNS procure nomes de domínio de diretórios ativos no local, do Private Cloud vCenter para servidores DNS no local.          |
-| 389 (TCP/UDP) | Rede privada de gerenciamento de nuvem | Controladores de domínio de diretório ativo no local     | Necessário para a comunicação LDAP do servidor Private Cloud vCenter para controladores ativos de domínio de diretório para autenticação do usuário.                |
-| 636 (TCP)     | Rede privada de gerenciamento de nuvem | Controladores de domínio de diretório ativo no local     | Necessário para a comunicação LDAP (LDAPS) segura do servidor Private Cloud vCenter aos controladores ativos de domínio de diretório para autenticação do usuário. |
-| 3268 (TCP)    | Rede privada de gerenciamento de nuvem | Servidores globais de catálogo ativo no local | Necessário para a comunicação LDAP em implantações de controladores de vários domínios.                                                                        |
-| 3269 (TCP)    | Rede privada de gerenciamento de nuvem | Servidores globais de catálogo ativo no local | Necessário para a comunicação LDAPS em implantações de controladores de vários domínios.                                                                       |                                           |
+| 53 (UDP)      | Servidores DNS da nuvem privada        | Servidores locais DNS                             | Necessário para o encaminhamento de DNS pesquisar nomes de domínio do Active Directory local do vCenter de nuvem privada para servidores DNS locais.          |
+| 389 (TCP/UDP) | Rede de gerenciamento de nuvem privada | Controladores de domínio do Active Directory local     | Necessário para a comunicação LDAP do servidor vCenter de nuvem privada para controladores de domínio do Active Directory para autenticação de usuário.                |
+| 636 (TCP)     | Rede de gerenciamento de nuvem privada | Controladores de domínio do Active Directory local     | Necessário para comunicação LDAP (LDAPs) segura do servidor vCenter de nuvem privada para controladores de domínio do Active Directory para autenticação de usuário. |
+| 3268 (TCP)    | Rede de gerenciamento de nuvem privada | Servidores de catálogo global do Active Directory local | Necessário para a comunicação LDAP em implantações de controlador de vários domínios.                                                                        |
+| 3269 (TCP)    | Rede de gerenciamento de nuvem privada | Servidores de catálogo global do Active Directory local | Necessário para comunicação LDAPs em implantações de controlador de vários domínios.                                                                       |                                           |
 
 ## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>Portas comuns necessárias para acessar máquinas virtuais de carga de trabalho
 
-O acesso às máquinas virtuais de carga de trabalho em execução no Private Cloud requer que as portas sejam abertas no firewall local.  A tabela abaixo mostra algumas das portas comuns necessárias e seu propósito.  Para quaisquer requisitos de porta específicos do aplicativo, consulte a documentação do aplicativo.
+As máquinas virtuais de carga de trabalho de acesso em execução na nuvem privada exigem que as portas sejam abertas no firewall local.  A tabela abaixo mostra algumas das portas comuns necessárias e sua finalidade.  Para qualquer requisito de porta específica do aplicativo, consulte a documentação do aplicativo.
 
 | Porta         | Fonte                         | Destino                          | Finalidade                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
-| 22 (TCP)      | Rede local            | Rede de carga de trabalho privada cloud       | Acesso seguro shell a máquinas virtuais Linux em execução no Private Cloud.              |
-| 3389 (TCP)    | Rede local            | Rede de carga de trabalho privada cloud       | Desktop remoto para máquinas virtuais windows em execução no Private Cloud.                 |
-| 80 (TCP)      | Rede local            | Rede de carga de trabalho privada cloud       | Acesse quaisquer servidores web implantados em máquinas virtuais em execução no Private Cloud.        |
-| 443 (TCP)     | Rede local            | Rede de carga de trabalho privada cloud       | Acesse quaisquer servidores web seguros implantados em máquinas virtuais em execução no Private Cloud. |
-| 389 (TCP/UDP) | Rede de carga de trabalho privada cloud | Rede de diretórios ativos no local | Junte as máquinas virtuais de carga de trabalho do Windows ao domínio de diretório ativo no local.       |
-| 53 (UDP)      | Rede de carga de trabalho privada cloud | Rede local                  | Acesso ao serviço DNS para máquinas virtuais de carga de trabalho para servidores DNS no local.         |
+| 22 (TCP)      | Rede local            | Rede de carga de trabalho de nuvem privada       | Proteja o acesso do Shell a máquinas virtuais Linux em execução na nuvem privada.              |
+| 3389 (TCP)    | Rede local            | Rede de carga de trabalho de nuvem privada       | Área de trabalho remota para máquinas virtuais do Windows em execução na nuvem privada.                 |
+| 80 (TCP)      | Rede local            | Rede de carga de trabalho de nuvem privada       | Acessar qualquer servidor Web implantado em máquinas virtuais em execução na nuvem privada.        |
+| 443 (TCP)     | Rede local            | Rede de carga de trabalho de nuvem privada       | Acessar qualquer servidor Web seguro implantado em máquinas virtuais em execução na nuvem privada. |
+| 389 (TCP/UDP) | Rede de carga de trabalho de nuvem privada | Rede do Active Directory local | Ingresse máquinas virtuais de carga de trabalho do Windows no domínio do Active Directory local.       |
+| 53 (UDP)      | Rede de carga de trabalho de nuvem privada | Rede local                  | Acesso do serviço DNS para máquinas virtuais de carga de trabalho para servidores DNS locais.         |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Crie e gerencie VLANs e Subnets](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
-* [Conecte-se à rede local usando o Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
-* [Configurar VPN site-to-site a partir de locais](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)
+* [Criar e gerenciar VLANs e sub-redes](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
+* [Conectar-se à rede local usando o Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
+* [Configurar VPN site a site do local](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)

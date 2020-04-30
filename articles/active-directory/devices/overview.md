@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c895a13eb9b2bed9e3a8a5a250c4e925dfa834c5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
+ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80331803"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82024431"
 ---
 # <a name="what-is-a-device-identity"></a>O que é uma identidade do dispositivo?
 
@@ -53,6 +53,9 @@ Há várias opções para colocar um dispositivo no Azure AD:
 
 ![Dispositivos exibidos na folha Dispositivos do Azure AD](./media/overview/azure-active-directory-devices-all-devices.png)
 
+> [!NOTE]
+> Um estado híbrido refere-se a mais do que apenas o estado de um dispositivo. Para que um estado híbrido seja válido, um usuário válido do Azure AD também é necessário.
+
 ## <a name="device-management"></a>Gerenciamento de dispositivos
 
 Os dispositivos no Azure AD podem ser gerenciados usando ferramentas de MDM (Gerenciamento de Dispositivo Móvel), como o Microsoft Intune, o Microsoft Endpoint Configuration Manager ou a Política de Grupo (ingresso no Azure AD híbrido), ferramentas de MAM (Gerenciamento de Aplicativo Móvel) ou outras ferramentas de terceiros.
@@ -63,6 +66,8 @@ Registrar e ingressar dispositivos no Azure AD oferece aos usuários o SSO (logo
 
 > [!NOTE]
 > As políticas de Acesso Condicional com base no dispositivo exigem dispositivos ingressados no Azure AD híbridos ou dispositivos registrados no Azure AD em conformidade ou dispositivos registrados do Azure AD.
+
+O PRT (token de atualização principal) contém informações sobre o dispositivo e é necessário para o SSO. Se você tiver uma política de acesso condicional baseada em dispositivo definida em um aplicativo, sem o PRT, o acesso será negado. As políticas de acesso condicional híbrido exigem um dispositivo de estado híbrido e um usuário válido que esteja conectado.
 
 Os dispositivos ingressados no Azure AD ou no Azure AD híbrido beneficiam-se do SSO nos recursos locais da sua organização e nos recursos de nuvem. Saiba mais no artigo [Como funciona o SSO em recursos locais para dispositivos ingressados no Azure AD](azuread-join-sso.md).
 

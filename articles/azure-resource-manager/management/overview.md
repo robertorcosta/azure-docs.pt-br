@@ -2,17 +2,17 @@
 title: Visão geral
 description: Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure.
 ms.topic: overview
-ms.date: 03/25/2020
-ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/21/2020
+ms.openlocfilehash: 253fc2f296fa764a6c22fa1331221df60ca21bb5
+ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80258134"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81870483"
 ---
 # <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
-O Azure Resource Manager é p serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua assinatura do Azure. Use recursos de gerenciamento, como controle de acesso, bloqueios e marcas, para proteger e organizar seus recursos após a implantação.
+O Azure Resource Manager é p serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua conta do Azure. Use recursos de gerenciamento, como controle de acesso, bloqueios e marcas, para proteger e organizar seus recursos após a implantação.
 
 Para saber mais sobre os modelos do Azure Resource Manager, confira [Visão geral de implantação de modelo](../templates/overview.md).
 
@@ -30,10 +30,10 @@ Todos as funcionalidades disponíveis no portal também estão disponíveis por 
 
 Se você for um novo usuário do Azure Resource Manager, há alguns termos com os quais talvez você não esteja familiarizado.
 
-* **recurso** -um item gerenciável que está disponível por meio do Azure. Máquinas virtuais, contas de armazenamento, aplicativos Web, bancos de dados e redes virtuais são exemplos de recursos.
+* **recurso** -um item gerenciável que está disponível por meio do Azure. Máquinas virtuais, contas de armazenamento, aplicativos Web, bancos de dados e redes virtuais são exemplos de recursos. Grupos de recursos, assinaturas, grupos de gerenciamento e marcas também são exemplos de recursos.
 * **grupo de recursos** - Um contêiner que mantém os recursos relacionados a uma solução do Azure. O grupo de recursos inclui esses recursos que você deseja gerenciar como um grupo. Você decide quais recursos pertencem a um grupo de recursos com base no que faz mais sentido para sua organização. Confira [Grupos de recursos](#resource-groups).
 * **provedor de recursos** – um serviço que fornece recursos do Azure. Por exemplo, um provedor de recursos comum é Microsoft.Compute, que fornece o recurso de máquina virtual. Microsoft.Storage é outro provedor de recursos comum. Confira [Provedores e tipos de recurso](resource-providers-and-types.md).
-* **Modelo do Resource Manager** – um arquivo JSON (JavaScript Object Notation) que define um ou mais recursos para implantação em um grupo de recursos ou assinatura. O modelo pode ser usado para implantar os recursos de forma consiste e repetida. Confira [Visão geral da implantação de modelo](../templates/overview.md).
+* **Modelo do Resource Manager** – um arquivo JSON (JavaScript Object Notation) que define um ou mais recursos para implantação em um grupo de recursos, assinatura, grupo de gerenciamento ou locatário. O modelo pode ser usado para implantar os recursos de forma consiste e repetida. Confira [Visão geral da implantação de modelo](../templates/overview.md).
 * **sintaxe declarativa** - sintaxe que permite a declaração "Isso é o que pretendo criar" sem precisar escrever a sequência de comandos de programação para criá-la. O modelo do Resource Manager é um exemplo de sintaxe declarativa. No arquivo, você define as propriedades da infraestrutura a ser implantada no Azure.  Confira [Visão geral da implantação de modelo](../templates/overview.md).
 
 ## <a name="the-benefits-of-using-resource-manager"></a>Os benefícios de usar o Gerenciador de Recursos
@@ -48,7 +48,7 @@ Com o Resource Manager, você pode:
 
 * Definir as dependências entre os recursos para que eles sejam implantados na ordem correta.
 
-* Aplicar o controle de acesso a todos os serviços no grupo de recursos, pois o RBAC (Controle de Acesso Baseado em Função) é integrado nativamente à plataforma de gerenciamento.
+* Aplicar o controle de acesso a todos os serviços, pois o RBAC (Controle de Acesso Baseado em Função) é integrado nativamente à plataforma de gerenciamento.
 
 * Aplicar marcas aos recursos para organizar de modo lógico todos os recursos em sua assinatura.
 
@@ -58,11 +58,11 @@ Com o Resource Manager, você pode:
 
 O Azure fornece quatro níveis de escopo: [grupos de gerenciamento](../../governance/management-groups/overview.md), assinaturas, [grupos de recursos](#resource-groups) e recursos. A imagem a seguir mostra um exemplo dessas camadas.
 
-![Escopo](./media/overview/scope-levels.png)
+![Níveis de gerenciamento](./media/overview/scope-levels.png)
 
 As configurações de gerenciamento são aplicadas em qualquer desses níveis de escopo. O nível que você seleciona determina o quão amplamente a configuração é aplicada. Os níveis inferiores herdam as configurações de níveis superiores. Por exemplo, ao aplicar uma [política](../../governance/policy/overview.md) à assinatura, ela será aplicada a todos os grupos de recursos e recursos em sua assinatura. Ao aplicar uma política no grupo de recursos, ela será aplicada ao grupo de recursos e a todos os recursos. No entanto, outro grupo de recursos não terá essa atribuição de política.
 
-Você pode implantar modelos em grupos de gerenciamento, assinaturas ou grupos de recursos.
+Você pode implantar modelos a locatários, grupos de gerenciamento, assinaturas ou grupos de recursos.
 
 ## <a name="resource-groups"></a>Grupos de recursos
 
@@ -71,6 +71,8 @@ Existem alguns fatores importantes a considerar ao definir seu grupo de recursos
 * Todos os recursos no grupo devem compartilhar o mesmo ciclo de vida. Você os implanta, atualiza e exclui juntos. Se um recurso, como um servidor de banco de dados, precisar existir em um ciclo de implantação diferente, ele deve ser de outro grupo de recursos.
 
 * Cada recurso só pode existir em um grupo de recursos.
+
+* Alguns recursos podem existir fora de um grupo de recursos. Esses recursos são implantados na [assinatura](../templates/deploy-to-subscription.md), no [grupo de gerenciamento](../templates/deploy-to-management-group.md) ou no [locatário](../templates/deploy-to-tenant.md). Somente tipos de recursos específicos têm suporte nesses escopos.
 
 * Você pode adicionar ou remover um recurso de um grupo de recursos a qualquer momento.
 

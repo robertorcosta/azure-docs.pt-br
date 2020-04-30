@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec2791911d1461ae47d9353629d23a5d7dc30791
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
+ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420930"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81770718"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (versão prévia do workspace)
 
@@ -92,7 +92,7 @@ A: O fluxo de dados permite que os engenheiros de dados desenvolvam a lógica de
 
 ## <a name="security-and-access"></a>Segurança e acesso
 
-A: A experiência de logon único de ponta a ponta é um processo de autenticação importante no Synapse Analytics. São obrigatórios o gerenciamento da identidade e a passagem por ela usando uma integração completa do AAD.
+A: A experiência de logon único de ponta a ponta é um processo de autenticação importante no Synapse Analytics. São obrigatórios o gerenciamento da identidade por meio de uma integração completa do AAD.
 
 ### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>P: Como fazer para obter acesso a arquivos e pastas no ADLSg2?
 
