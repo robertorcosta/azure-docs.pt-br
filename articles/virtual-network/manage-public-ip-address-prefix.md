@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 720496c56cdae69e3b7415ac4d4d05d5796fbff9
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146360"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou excluir um prefixo de endereço IP público
@@ -46,9 +46,9 @@ Prefixos do endereço IP público têm um encargo. Para detalhes, consulte o [pr
 3. Em **Prefixo de endereço IP público**, selecione **Criar**.
 4. Insira ou selecione valores para as configurações a seguir, em **Criar prefixo de endereço IP público** e, em seguida, selecione **Criar**:
 
-   |Configuração|Obrigatório?|Detalhes|
+   |Setting|Necessário?|Detalhes|
    |---|---|---|
-   |Subscription|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você deseja associar o endereço IP público.|
+   |Assinatura|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você deseja associar o endereço IP público.|
    |Resource group|Sim|Pode existir no mesmo ou em outro [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) que o recurso ao qual você deseja associar o endereço IP público.|
    |Name|Sim|O nome deve ser exclusivo no grupo de recursos selecionado.|
    |Região|Sim|Deve existir no mesma [região](https://azure.microsoft.com/regions)que os endereços IP públicos que você atribuirá endereços do intervalo.|
@@ -69,7 +69,7 @@ Após criar um prefixo, você deverá criar endereços IP estáticos a partir do
 3. Quando aparecer nos resultados da pesquisa, selecione-o e clique em **+Adicionar endereço IP** na seção Visão geral.
 4. Insira ou selecione valores para as seguintes configurações em **Criar um endereço IP público**. Como um prefixo é para SKU Standard, IPv4 e estático, é necessário apenas fornecer as seguintes informações:
 
-   |Configuração|Obrigatório?|Detalhes|
+   |Setting|Necessário?|Detalhes|
    |---|---|---|
    |Name|Sim|O nome do endereço IP público deve ser exclusivo no grupo de recursos selecionado.|
    |Tempo limite de ociosidade (minutos)|Não|Por quantos minutos manter uma conexão TCP ou HTTP aberta sem depender de clientes para enviar mensagens keep alive. |

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/11/2020
+ms.date: 04/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 40d291ee17f1fdaf819d70daade735e152df8f71
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: fd4b41cc2fe97ad0c2f075884e21f4f2ffc01561
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548532"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159447"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Enviar e receber eventos bidirecionalmente dos Hubs de Eventos do Azure – .NET Core (Azure.Messaging.EventHubs) 
 Este início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote de .NET Core **Azure.Messaging.EventHubs**. 
@@ -126,7 +126,7 @@ Neste início rápido, você usará o Armazenamento do Azure como o repositório
 
 1. [Crie uma conta de Armazenamento do Azure](/azure/storage/common/storage-account-create?tabs=azure-portal)
 2. [Crie um contêiner de blob](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Obtenha a cadeia de conexão para a conta de armazenamento](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Obtenha a cadeia de conexão para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
     Anote a cadeia de conexão e o nome do contêiner. Você os usará no código de recebimento. 
 
@@ -202,11 +202,13 @@ Neste início rápido, você usará o Armazenamento do Azure como o repositório
 1. Agora, adicione os métodos de manipulador de erro e eventos à classe. 
 
     ```csharp
-        static Task ProcessEventHandler(ProcessEventArgs eventArgs)
-        { 
+        static async Task ProcessEventHandler(ProcessEventArgs eventArgs)
+        {
             // Write the body of the event to the console window
-            Console.WriteLine("\tReceived event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray())); 
-            return Task.CompletedTask; 
+            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+
+            // Update checkpoint in the blob storage so that the app receives only new events the next time it's run
+            await eventArgs.UpdateCheckpointAsync(eventArgs.CancellationToken);
         }
 
         static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)

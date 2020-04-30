@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/24/2020
 ms.openlocfilehash: 68480f5b3b52d2347369f878802c71672213940a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146871"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce usando o Azure Data Factory
@@ -67,9 +67,9 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |A propriedade type deve ser definida para **Salesforce**. |Sim |
+| type |A propriedade type deve ser definida para **Salesforce**. |Sim |
 | environmentUrl | Especifique a URL da instância do Salesforce. <br> – O padrão é `"https://login.salesforce.com"`. <br> – Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
 | username |Especifique um nome de usuário para a conta de usuário. |Sim |
 | password |Especifique um senha para a conta de usuário.<br/><br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). |Sim |
@@ -146,9 +146,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do e para o Salesforce, defina a propriedade tipo do conjunto de dados como **SalesforceObject**. Há suporte para as seguintes propriedades.
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **SalesforceObject**.  | Sim |
+| type | A propriedade tipo deve ser definida para **SalesforceObject**.  | Sim |
 | objectApiName | O nome do objeto de Salesforce para recuperar dados. | Não para fonte, Sim para o coletor |
 
 > [!IMPORTANT]
@@ -178,9 +178,9 @@ Para copiar dados do e para o Salesforce, defina a propriedade tipo do conjunto 
 >[!NOTE]
 >Para retrocompatibilidade: ao copiar dados de Salesforce, se você usar o conjunto de dados de tipo "RelationalTable" anterior continuará funcionando, enquanto você vê uma sugestão para alternar para o novo tipo de "SalesforceObject".
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade type do conjunto de dados deve ser definida como **RelationalTable**. | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como **RelationalTable**. | Sim |
 | tableName | Nome da tabela no Salesforce. | Não (se "query" na fonte da atividade for especificada) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -191,9 +191,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia como **SalesforceSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia.
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceSource**. | Sim |
+| type | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceSource**. | Sim |
 | Consulta |Utiliza a consulta personalizada para ler os dados. É possível usar a consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou a consulta SQL-92. Veja mais dicas na seção [dicas de consulta](#query-tips). Se a consulta não for especificada, todos os dados do objeto Salesforce especificado em "objectApiName" no conjunto de dados serão recuperados. | Não (se "objectApiName" no conjunto de dados for especificado) |
 | readBehavior | Indica se deve consultar os registros existentes, ou consultar todos os registros, incluindo o que foi excluído. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **query** (padrão), **queryAll**.  | Não |
 
@@ -241,9 +241,9 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 
 Para copiar dados do Salesforce, defina o tipo de coletor na atividade de cópia como **SalesforceSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia.
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade type do coletor da atividade de cópia deve ser definida como **SalesforceSink**. | Sim |
+| type | A propriedade type do coletor da atividade de cópia deve ser definida como **SalesforceSink**. | Sim |
 | writeBehavior | O comportamento da operação de gravação.<br/>Valores permitidos são **Insert** e **Upsert**. | Não (o padrão é Insert) |
 | externalIdFieldName | O nome do campo de ID externo para a operação upsert. O campo especificado deve ser definido como "Campo de ID externo" no objeto de Salesforce. Ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados no Salesforce em cada lote. | Não (o padrão é 5.000) |
@@ -304,8 +304,8 @@ Ao copiar dados do Salesforce, é possível usar a consulta SOQL ou a consulta S
 | Aspas | Nomes de campos/objetos não podem ser entre aspas. | Nomes de campos/objetos podem ser entre aspas, p. ex. `SELECT "id" FROM "Account"` |
 | Formato de data/hora |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na próxima seção. | Consulte os detalhes [aqui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e exemplos na próxima seção. |
 | Valores boolianos | Representado como `False` e `True`, p. ex. `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, p. ex. `SELECT … WHERE IsDeleted=1`. |
-| Renomeação de coluna | Sem suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
-| Relação | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Sem suporte. |
+| Renomeação de coluna | Não há suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
+| Relação | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperar dados usando um onde cláusula na coluna DateTime
 
@@ -324,25 +324,25 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 
 | Tipo de dados do Salesforce | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| Numeração automática |String |
-| Caixa de seleção |Boolean |
+| Numeração automática |Cadeia de caracteres |
+| Caixa de seleção |Booliano |
 | Currency |Decimal |
 | Data |Datetime |
 | Data/hora |Datetime |
-| Email |String |
-| ID |String |
-| Relação de pesquisa |String |
-| Lista de seleção múltipla |String |
+| Email |Cadeia de caracteres |
+| ID |Cadeia de caracteres |
+| Relação de pesquisa |Cadeia de caracteres |
+| Lista de seleção múltipla |Cadeia de caracteres |
 | Número |Decimal |
 | Porcentagem |Decimal |
-| Telefone |String |
-| Lista de seleção |String |
-| Texto |String |
-| Área de texto |String |
-| Área de texto (longo) |String |
-| Área de texto (Rich) |String |
-| Texto (criptografado) |String |
-| URL |String |
+| Telefone |Cadeia de caracteres |
+| Lista de seleção |Cadeia de caracteres |
+| Texto |Cadeia de caracteres |
+| Área de texto |Cadeia de caracteres |
+| Área de texto (longo) |Cadeia de caracteres |
+| Área de texto (Rich) |Cadeia de caracteres |
+| Texto (criptografado) |Cadeia de caracteres |
+| URL |Cadeia de caracteres |
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 

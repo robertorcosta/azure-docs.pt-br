@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77187233"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159328"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capturar dados dos Hubs de Eventos no Armazenamento do Azure e lê-los usando o Python (azure-eventhub versão 5)
 
@@ -46,7 +46,7 @@ Neste início rápido, você:
 - Uma conta de armazenamento do Azure, um contêiner de blobs na conta de armazenamento e uma cadeia de conexão para a conta de armazenamento. Se você não tiver esses itens, faça o seguinte:  
     1. [Crie uma conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
     1. [Crie um contêiner de blobs na conta de armazenamento](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-    1. [Obtenha a cadeia de conexão para a conta de armazenamento](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string)
+    1. [Obtenha a cadeia de conexão para a conta de armazenamento](../storage/common/storage-configure-connection-string.md)
 
     Registre a cadeia de conexão e o nome do contêiner para usá-los posteriormente neste início rápido.  
 - Habilite o recurso Captura para o hub de eventos. Para fazer isso, siga as instruções em [Habilitar a Captura dos Hubs de Eventos usando o portal do Azure](event-hubs-capture-enable-through-portal.md). Selecione a conta de armazenamento e o contêiner de blobs criados na etapa anterior. Você também poderá habilitar o recurso quando criar o hub de eventos.  

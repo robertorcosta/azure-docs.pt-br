@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
 ms.openlocfilehash: 4c86d7c84ba5d7692e010ad95f258b67aa7dcfac
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147633"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implantar um sistema de escalabilidade horizontal SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no Red Hat Enterprise Linux 
@@ -251,7 +251,7 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
 
     d. Selecione **rede**e, em seguida, anexe a interface de rede. Na lista suspensa **anexar interface de rede** , selecione as interfaces de rede já criadas para as `storage` sub-redes e `hana` .  
     
-    e. Clique em **Salvar**. 
+    e. Selecione **Salvar**. 
  
     f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo, **hanadb2** e **hanadb3**).
  
@@ -706,8 +706,8 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
 6. Para otimizar SAP HANA para o armazenamento de Azure NetApp Files subjacente, defina os seguintes parâmetros de SAP HANA:
 
    - `max_parallel_io_requests`**128**
-   - `async_read_submit` **on**
-   - `async_write_submit_active` **on**
+   - `async_read_submit`**em**
+   - `async_write_submit_active`**em**
    - `async_write_submit_blocks`**todos**
 
    Para obter mais informações, consulte [aplicativos SAP da NetApp em Microsoft Azure usando Azure NetApp files][anf-sap-applications-azure]. 

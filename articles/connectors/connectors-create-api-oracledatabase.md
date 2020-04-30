@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
 ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147809"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introdução ao conector do Banco de Dados Oracle
@@ -53,7 +53,7 @@ Este artigo mostra como usar o conector do Banco de Dados Oracle um aplicativo l
 
     ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. Clique em **Salvar**. Quando você salva, a URL de uma solicitação é gerada automaticamente. 
+3. Selecione **Salvar**. Quando você salva, a URL de uma solicitação é gerada automaticamente. 
 
 4. Selecione **Nova etapa** e selecione **Adicionar uma ação**. Digite `oracle` para ver as ações disponíveis: 
 

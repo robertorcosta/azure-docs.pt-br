@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 09122581a3ade4e741a29996b7202ce0f96d074b
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82145540"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
@@ -44,7 +44,7 @@ Você pode usar um Hybrid Runbook Worker para executar runbooks diretamente no c
 
 A tabela a seguir lista algumas tarefas de execução de runbook com o ambiente de execução recomendado listado para cada uma.
 
-|Tarefa|Recomendação|Observações|
+|Tarefa|Recomendação|Anotações|
 |---|---|---|
 |Integração com serviços do Azure|Área restrita do Azure|Hospedado no Azure, a autenticação é mais simples. Se você estiver usando uma Hybrid Runbook Worker em uma VM do Azure, poderá usar [identidades gerenciadas para recursos do Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
 |Obter o desempenho ideal para gerenciar recursos do Azure|Área restrita do Azure|O script é executado no mesmo ambiente, que tem menos latência.|
