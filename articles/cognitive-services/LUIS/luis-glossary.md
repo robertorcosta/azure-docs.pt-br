@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82099352"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
@@ -45,7 +45,7 @@ Consulte também:
 
 Um colaborador/colaborador, não é o [proprietário](#owner) do aplicativo, mas tem as mesmas permissões para adicionar, editar e excluir as intenções, entidades, declarações.
 
-## <a name="contributor"></a><a name="contributor"></a>Colaborador
+## <a name="contributor"></a><a name="contributor"></a>Simplifica
 
 Um colaborador é a mesma coisa que um [colaborador.](#collaborator)
 
@@ -53,7 +53,7 @@ Um colaborador é a mesma coisa que um [colaborador.](#collaborator)
 
 Um descritor é um [recurso](#features) aplicado a um modelo no tempo de treinamento, incluindo [listas de frases](#phrase-list) e [entidades](#entity).
 
-## <a name="domain"></a><a name="domain"></a>Controlador
+## <a name="domain"></a><a name="domain"></a>Domain
 
 No contexto do LUIS, um **domínio** é uma área de conhecimento. Seu domínio é específico para a área de conhecimento do aplicativo. Isso pode ser uma área geral, como o aplicativo de agente de viagem. Um aplicativo de agente de viagem também pode ser específico apenas para as áreas de informações da sua empresa, como os locais geográficos, idiomas e serviços específicos.
 
@@ -119,7 +119,7 @@ No [teste de lote](luis-interactive-test.md#batch-testing), a precisão (também
 
 Renomeada para [chave de criação](#authoring-key).
 
-## <a name="publish"></a><a name="publish"></a>Publicar
+## <a name="publish"></a><a name="publish"></a>Publicou
 
 Publicar significa tornar uma versão ativa do LUIS disponível no [ponto de extremidade](#endpoint) de preparo ou de produção.
 

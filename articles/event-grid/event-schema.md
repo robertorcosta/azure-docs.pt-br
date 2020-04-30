@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82113996"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
@@ -80,25 +80,25 @@ Por exemplo, o esquema publicado para um evento de armazenamento de Blob do Azur
 
 Todos os eventos terão os mesmos dados de nível superior a seguir:
 
-| Propriedade | Type | Obrigatório | Descrição |
+| Propriedade | Tipo | Necessária | Descrição |
 | -------- | ---- | -------- | ----------- |
-| topic | string | Não, mas se incluído, deve corresponder exatamente ao tópico da grade de eventos Azure Resource Manager ID. Se não estiver incluído, a grade de eventos será carimbada no evento. | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Sim | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | string | Sim | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | Sim | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Sim | Identificador exclusivo do evento. |
+| topic | cadeia de caracteres | Não, mas se incluído, deve corresponder exatamente ao tópico da grade de eventos Azure Resource Manager ID. Se não estiver incluído, a grade de eventos será carimbada no evento. | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | cadeia de caracteres | Sim | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | cadeia de caracteres | Sim | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | Sim | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | cadeia de caracteres | Sim | Identificador exclusivo do evento. |
 | data | objeto | Não | Dados do evento específicos ao provedor de recursos. |
-| dataVersion | string | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | Não obrigatório, mas se incluído, deve corresponder exatamente ao esquema `metadataVersion` da grade de eventos (atualmente `1`, somente). Se não estiver incluído, a grade de eventos será carimbada no evento. | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | cadeia de caracteres | Não, mas será carimbado com um valor vazio. | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | Não obrigatório, mas se incluído, deve corresponder exatamente ao esquema `metadataVersion` da grade de eventos (atualmente `1`, somente). Se não estiver incluído, a grade de eventos será carimbada no evento. | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, consulte a origem do evento:
 
 * [Assinaturas do Azure (operações de gerenciamento)](event-schema-subscriptions.md)
 * [Registro de Contêiner](event-schema-container-registry.md)
-* [Armazenamento de BLOBs](event-schema-blob-storage.md)
+* [Armazenamento de Blobs](event-schema-blob-storage.md)
 * [Hubs de Evento](event-schema-event-hubs.md)
 * [Hub IoT](event-schema-iot-hub.md)
-* [Serviços de Mídia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+* [Serviços de mídia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Grupos de recursos (operações de gerenciamento)](event-schema-resource-groups.md)
 * [Barramento de Serviço](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)

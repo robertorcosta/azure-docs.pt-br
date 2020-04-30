@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112568"
 ---
-# <a name="continuous-access-evaluation"></a>Avaliação de acesso contínuo
+# <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
 Os serviços da Microsoft, como o Azure Active Directory (Azure AD) e o Office 365, usam padrões abertos e protocolos para maximizar a interoperabilidade. Um dos mais críticos é o Open ID Connect (OIDC). Quando um aplicativo cliente como o Outlook se conecta a um serviço como o Exchange Online, as solicitações de API são autorizadas usando tokens de acesso OAuth 2,0. Por padrão, esses tokens de acesso são válidos por uma hora. Quando eles expirarem, o cliente será Redirecionado de volta para o Azure AD para atualizá-los. Isso também fornece uma oportunidade para reavaliar as políticas de acesso do usuário – podemos optar por não atualizar o token devido a uma política de acesso condicional ou porque o usuário foi desabilitado no diretório. 
 

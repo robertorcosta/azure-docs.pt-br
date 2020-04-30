@@ -3,12 +3,12 @@ title: 'Tutorial: Entidade de lista – LUIS'
 description: Obtenha dados que correspondam a uma lista predefinida de itens. Cada item na lista pode ter sinônimos que também tenham correspondência exata
 ms.topic: tutorial
 ms.date: 03/12/2020
-ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 9530719c43260751d64d7ccf446bc7941078d6e9
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79297400"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82101120"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutorial: Obter dados de correspondência de texto exata de um enunciado com a entidade de lista
 
@@ -33,7 +33,7 @@ Para esse aplicativo de pizza importado, crie uma entidade de lista para os dife
 Uma entidade de lista é uma boa escolha para esse tipo de dados quando:
 
 * Os valores de dados são um conjunto conhecido.
-* O conjunto não excede os [limites](luis-boundaries.md) máximos do LUIS para esse tipo de entidade.
+* O conjunto não excede os [limites](luis-limits.md) máximos do LUIS para esse tipo de entidade.
 * O texto no enunciado é uma correspondência que não diferencia maiúsculas de minúsculas com um sinônimo ou o nome canônico. O LUIS não usa a lista além da correspondência. Lematização, plurais e outras variações não são resolvidas com apenas uma entidade de lista. Para gerenciar variações, considere usar um [padrão](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) com a sintaxe de texto opcional.
 
 > [!CAUTION]

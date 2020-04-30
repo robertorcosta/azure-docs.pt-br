@@ -4,10 +4,10 @@ description: Fornece uma visão geral do dispositivo de migrações para Azure u
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: 71a17211a530b4cb55764f3b3ab84ff5a4d5f3e6
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106331"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
@@ -18,7 +18,7 @@ Este artigo resume os pré-requisitos e os requisitos de suporte para o disposit
 
 O dispositivo migrações para Azure é usado nos cenários a seguir.
 
-**Cenário** | **Ferramenta** | **Usado para** 
+**Cenário** | **Ferramenta** | **Usada para** 
 --- | --- | ---
 **Avaliação de VM VMware** | Migrações para Azure: avaliação do servidor | Descobrir VMs VMware<br/><br/> Descobrir aplicativos e dependências de computador<br/><br/> Coletar metadados de computador e metadados de desempenho para avaliações.
 **Migração sem agente de VM VMware** | Migrações para Azure: migração de servidor | Descobrir VMs VMware <br/><br/> Replique VMs VMware com migração sem agente.
@@ -176,7 +176,7 @@ Endereços IPv6 | vm.Guest.Net
 Taxa de transferência de leitura (MB por segundo) | net.received.average
 Taxa de transferência de gravação (MB por segundo) | net.transmitted.average
 **Detalhes do caminho de inventário** | 
-Nome | container.GetType().Name
+Name | container.GetType().Name
 Tipo de objeto filho | container.ChildType
 Detalhes de referência | container.MoRef
 Detalhes do pai | Container.Parent

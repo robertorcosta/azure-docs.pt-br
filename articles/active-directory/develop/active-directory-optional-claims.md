@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099030"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: fornecer declarações opcionais para seu aplicativo do Azure AD
@@ -37,8 +37,8 @@ Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v
 
 | Tipo de Conta               | Tokens v1.0 | Tokens v2.0 |
 |----------------------------|-------------|-------------|
-| Conta pessoal da Microsoft | N/D         | Com suporte   |
-| Conta do AD do Azure           | Com suporte   | Com suporte   |
+| Conta pessoal da Microsoft | N/D         | Suportado   |
+| Conta do Azure AD           | Com suporte   | Com suporte   |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>conjunto de declarações opcionais v 1.0 e v 2.0
 
@@ -49,13 +49,13 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 
 **Tabela 2: conjunto de declarações opcionais v 1.0 e v 2.0**
 
-| Nome                       |  Descrição   | Tipo de token | Tipo de Usuário | Observações  |
+| Name                       |  Descrição   | Tipo de token | Tipo de Usuário | Anotações  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora em que o usuário foi autenticado pela última vez. Confira especificações de OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
 | `home_oid`                 | Para usuários convidados, a ID de objeto do usuário no locatário inicial do usuário.| JWT        |           | |
 | `sid`                      | ID da sessão, usada para saída do usuário por sessão. | JWT        |  Contas pessoais e do Azure AD.   |         |
-| `platf`                    | Plataforma de dispositivos    | JWT        |           | Restrito aos dispositivos gerenciados que podem verificar o tipo de dispositivo.|
+| `platf`                    | Plataforma do dispositivo    | JWT        |           | Restrito aos dispositivos gerenciados que podem verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Originado de PrimaryAuthoritativeEmail do usuário      | JWT        |           |         |
 | `verified_secondary_email` | Originado de SecondaryAuthoritativeEmail do usuário   | JWT        |           |        |
 | `enfpolids`                | IDs de política aplicada. Uma lista de IDs de política que foram avaliadas para o usuário atual. | JWT |  |  |
@@ -78,7 +78,7 @@ Essas declarações são sempre incluídas em tokens do Azure AD v 1.0, mas não
 
 **Tabela 3: v 2.0-apenas declarações opcionais**
 
-| Declaração JWT     | Nome                            | Descrição                                | Observações |
+| Declaração JWT     | Name                            | Descrição                                | Observações |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP com o qual o cliente se conectou.   |       |
 | `onprem_sid`  | Identificador de Segurança Local |                                             |       |
@@ -367,7 +367,7 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 - Você pode usar o **manifesto** (Veja o exemplo abaixo). Primeiro leia o [documento Noções básicas sobre o manifesto do aplicativo Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) para obter uma introdução ao manifesto.
 - Também é possível escrever um aplicativo que usa a [API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) para atualizar seu aplicativo. O tipo [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) no guia de referência da API Microsoft Graph pode ajudá-lo a configurar as declarações opcionais.
 
-**Exemplo**
+**Exemplo:**
 
 No exemplo a seguir, você usará a interface do usuário de **configuração de token** e o **manifesto** para adicionar declarações opcionais aos tokens de acesso, ID e SAML destinados ao seu aplicativo. Diferentes declarações opcionais serão adicionadas a cada tipo de token que o aplicativo pode receber:
 

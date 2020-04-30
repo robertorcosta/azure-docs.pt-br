@@ -1,6 +1,6 @@
 ---
-title: sincronização azcopy | Microsoft Docs
-description: Este artigo fornece informações de referência para o comando azcopy sync.
+title: sincronização de azcopy | Microsoft Docs
+description: Este artigo fornece informações de referência para o comando azcopy Sync.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -9,50 +9,50 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: d855019be7f357a35a26d14e68ba3d427d984e17
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086021"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
-Replica a localização de origem para o local de destino.
+Replica o local de origem para o local de destino.
 
 ## <a name="synopsis"></a>Sinopse
 
-Os últimos tempos modificados são usados para comparação. O arquivo é ignorado se o último tempo modificado no destino for mais recente.
+As horas da última modificação são usadas para comparação. O arquivo será ignorado se a hora da última modificação no destino for mais recente.
 
-Os pares suportados são:
+Os pares com suporte são:
 
-- <-> Local Azure Blob (autenticação SAS ou OAuth pode ser usada)
-- Azure Blob <-> Azure Blob (A Fonte deve incluir um SAS ou é acessível publicamente; ou a autenticação SAS ou OAuth pode ser usada para destino)
-- Arquivo azure <-> Arquivo Azure (A fonte deve incluir um SAS ou é acessível publicamente; A autenticação SAS deve ser usada para o destino)
+- < local-> blob do Azure (a autenticação SAS ou OAuth pode ser usada)
+- Blob do Azure <-> blob do Azure (a origem deve incluir uma SAS ou está acessível publicamente; a autenticação SAS ou OAuth pode ser usada para o destino)
+- Arquivo do Azure <-> arquivo do Azure (a origem deve incluir uma SAS ou pode ser acessado publicamente; A autenticação SAS deve ser usada para o destino)
 
-O comando sync difere do comando copy de várias maneiras:
+O comando de sincronização difere do comando de cópia de várias maneiras:
 
-1. Por padrão, o sinalizador recursivo é verdadeiro e a sincronização copia todos os subdiretórios. A sincronização só copia os arquivos de nível superior dentro de um diretório se o sinalizador recursivo for falso.
-2. Ao sincronizar entre diretórios virtuais, adicione uma barra de arrasto ao caminho (consulte exemplos) se houver uma bolha com o mesmo nome de um dos diretórios virtuais.
-3. Se o sinalizador 'deleteDestination' estiver definido como verdadeiro ou prompt, então a sincronização excluirá arquivos e blobs no destino que não estão presentes na origem.
+1. Por padrão, o sinalizador recursivo é true e a sincronização copia todos os subdiretórios. Sincronizar somente copiará os arquivos de nível superior dentro de um diretório se o sinalizador recursivo for false.
+2. Ao sincronizar entre diretórios virtuais, adicione uma barra à direita no caminho (consulte exemplos) se houver um blob com o mesmo nome de um dos diretórios virtuais.
+3. Se o sinalizador ' deleteDestination ' for definido como true ou prompt, a sincronização excluirá arquivos e blobs no destino que não estão presentes na origem.
 
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com armazenamento AzCopy e Blob](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
 ### <a name="advanced"></a>Avançado
 
-Se você não especificar uma extensão de arquivo, o AzCopy detectará automaticamente o tipo de conteúdo dos arquivos ao fazer o upload do disco local, com base na extensão ou conteúdo do arquivo (se nenhuma extensão for especificada).
+Se você não especificar uma extensão de arquivo, o AzCopy detectará automaticamente o tipo de conteúdo dos arquivos ao carregar do disco local, com base na extensão de arquivo ou no conteúdo (se nenhuma extensão for especificada).
 
-A tabela de análise incorporada é pequena, mas no Unix, ela é aumentada pelo arquivo mime.types do sistema local se disponível em um ou mais desses nomes:
+A tabela de pesquisa interna é pequena, mas no UNIX, ela é aumentada pelos arquivos MIME. Types do sistema local, se disponíveis em um ou mais desses nomes:
 
 - /etc/mime.types
 - /etc/apache2/mime.types
 - /etc/apache/mime.types
 
-No Windows, os tipos MIME são extraídos do registro.
+No Windows, os tipos de MIME são extraídos do registro.
 
 ```azcopy
 azcopy sync <source> <destination> [flags]
@@ -60,22 +60,22 @@ azcopy sync <source> <destination> [flags]
 
 ## <a name="examples"></a>Exemplos
 
-Sincronize um único arquivo:
+Sincronizar um único arquivo:
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
 > [!NOTE]
-> A bolha de destino *deve* existir. Use `azcopy copy` para copiar um único arquivo que ainda não existe no destino. Caso contrário, ocorre o `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`seguinte erro: .
+> O blob de destino *deve* existir. Use `azcopy copy` para copiar um único arquivo que ainda não existe no destino. Caso contrário, ocorre o seguinte erro `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`:.
 
-O mesmo que acima, mas desta vez, também compute o hash MD5 do conteúdo do arquivo e salve-o como propriedade do Blob Content-MD5:
+O mesmo que acima, mas desta vez, também calcula o hash MD5 do conteúdo do arquivo e o salva como a propriedade Content-MD5 do blob:
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
 ```
 
-Sincronize um diretório inteiro, incluindo seus subdiretórios (note que o recursivo está ligado por padrão):
+Sincronize um diretório inteiro incluindo seus subdiretórios (Observe que recursivo é ativado por padrão):
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
@@ -87,83 +87,83 @@ ou
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
 ```
 
-Sincronize apenas os arquivos superiores dentro de um diretório, mas não seus subdiretórios:
+Sincronizar somente os arquivos principais dentro de um diretório, mas não seus subdiretórios:
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Sincronize um subconjunto de arquivos em um diretório (Por exemplo: apenas arquivos jpg e pdf, ou se o nome do arquivo é "exactName"):
+Sincronizar um subconjunto de arquivos em um diretório (por exemplo: somente arquivos jpg e PDF, ou se o nome do arquivo for "exactname"):
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include="*.jpg;*.pdf;exactName"
 ```
 
-Sincronize um diretório inteiro, mas exclua certos arquivos do escopo (Por exemplo: cada arquivo que começa com foo ou termina com barra):
+Sincronize um diretório inteiro, mas exclua determinados arquivos do escopo (por exemplo: cada arquivo que começa com foo ou termina com bar):
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
 ```
 
-Sincronize uma única bolha:
+Sincronizar um único blob:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-Sincronize um diretório virtual:
+Sincronizar um diretório virtual:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
 ```
 
-Sincronize um diretório virtual que tenha o mesmo nome de uma bolha (adicione uma barra de arrasto ao caminho para desambiguar):
+Sincronizar um diretório virtual que tem o mesmo nome de um blob (adicione uma barra à direita no caminho para eliminar a ambiguidade):
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
 ```
 
-Sincronize um diretório de arquivo Azure (a mesma sintaxe que Blob):
+Sincronizar um diretório de arquivos do Azure (mesma sintaxe que BLOB):
 
 ```azcopy
 azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]" --recursive=true
 ```
 
 > [!NOTE]
-> Se os sinalizadores include/exclusão forem usados juntos, apenas os arquivos correspondentes aos padrões de inclusão serão analisados, mas aqueles que correspondem aos padrões de exclusão serão sempre ignorados.
+> Se os sinalizadores de inclusão/exclusão forem usados juntos, somente os arquivos correspondentes aos padrões de inclusão serão examinados, mas aqueles que correspondem aos padrões de exclusão seriam sempre ignorados.
 
 ## <a name="options"></a>Opções
 
-**flutuador de tamanho de bloco-mb** Use este tamanho de bloco (especificado no MiB) ao fazer upload no Azure Storage ou baixar no Azure Storage. O padrão é calculado automaticamente com base no tamanho do arquivo. Frações decimais são permitidas (Por exemplo: 0,25).
+**--Block-size-MB** float Use esse tamanho de bloco (especificado na MIB) ao carregar no armazenamento do Azure ou baixar do armazenamento do Azure. O padrão é calculado automaticamente com base no tamanho do arquivo. Frações decimais são permitidas (por exemplo: 0,25).
 
-**--check-md5** string Especifica como os hashes estritamente MD5 devem ser validados ao baixar. Esta opção só está disponível no download. Os valores disponíveis incluem: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (padrão 'FailIfDifferent'). (padrão "FailIfDifferent")
+--a cadeia de caracteres **de verificação MD5** especifica como os hashes MD5 estritamente devem ser validados durante o download. Essa opção só está disponível durante o download. Os valores disponíveis incluem: NOCHECK, LogOn, FailIfDifferent, FailIfDifferentOrMissing. (padrão ' FailIfDifferent '). (padrão "FailIfDifferent")
 
-**a seqüência de exclusão de destino** define se exclui arquivos extras do destino que não estão presentes na origem. Pode ser definido como verdadeiro, falso ou rápido. Se definido para solicitar, o usuário será perguntado antes de agendar arquivos e blobs para exclusão. (padrão 'falso'). (padrão "falso")
+**--delete –** a cadeia de caracteres de destino define se é para excluir arquivos extras do destino que não estão presentes na origem. Pode ser definido como true, false ou prompt. Se definido como prompt, o usuário receberá uma pergunta antes de agendar arquivos e BLOBs para exclusão. (padrão ' false '). (padrão "false")
 
-**--exclua-atributos** string (somente Windows) Exclua arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; S; R
+**--Exclude-atributos** String (somente Windows) exclua os arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
 
-**--exclua-caminho de** seqüência Exclua esses caminhos ao copiar. Esta opção não suporta caracteres curinga (*). Verifica o prefixo relativo do caminho (Por exemplo: myFolder;myFolder/subDirName/file.pdf). Quando usado em combinação com a travessia da conta, os caminhos não incluem o nome do contêiner.
+**--Exclude-cadeia de** caracteres de caminho exclua esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/File. pdf). Quando usado em combinação com passagem de conta, os caminhos não incluem o nome do contêiner.
 
-**--excluir-padrão de** seqüência Desexcluir arquivos onde o nome corresponde à lista de padrões. Por exemplo: \*.jpg; \*.pdf;exactName
+**--Exclude-Pattern** cadeia de caracteres excluir arquivos onde o nome corresponde à lista padrão. Por exemplo: \*. jpg; \*. pdf; exatoname
 
-**-h, -- ajudar a** ajudar a sincronizar
+**-h,--** ajuda da ajuda para sincronização
 
-**--incluir-atributos** string (somente Windows) Inclua apenas arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; S; R
+**--include-** a cadeia de caracteres de atributos (somente Windows) inclui apenas arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
 
-**--incluir-seqüência de padrões** Inclua apenas arquivos onde o nome corresponda à lista de padrões. Por exemplo: \*.jpg; \*.pdf;exactName
+**--include-** a cadeia de caracteres de padrão inclui apenas arquivos em que o nome corresponde à lista de padrões. Por exemplo: \*. jpg; \*. pdf; exatoname
 
-**--log-level** string Defina a verbosidade de log para o arquivo log, níveis disponíveis: INFO(todas as solicitações e respostas), AVISO (respostas lentas), ERRO (apenas solicitações com falha) e NONE (sem registros de saída). (INFO padrão). (padrão "INFO")
+**--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: informações (todas as solicitações e respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (informações padrão). (padrão "INFO")
 
-**--put-md5**                     Crie um hash MD5 de cada arquivo e salve o hash como propriedade Content-MD5 da bolha de destino ou arquivo. (Por padrão, o hash NÃO é criado.) Só disponível quando o upload.
+**--Put-MD5**                     Crie um hash MD5 de cada arquivo e salve o hash como a propriedade Content-MD5 do BLOB ou arquivo de destino. (Por padrão, o hash não é criado.) Disponível somente ao carregar.
 
-**--recursivo**                   True por padrão, olhe para subdiretórios recursivamente ao sincronizar entre diretórios. (padrão verdadeiro). (padrão verdadeiro)
+**--recursivo**                   True por padrão, examinar subdiretórios recursivamente ao sincronizar entre diretórios. (padrão true). (padrão true)
 
-## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos parentais
+## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 
 |Opção|Descrição|
 |---|---|
-|--cap-mbps uint32|Limita a taxa de transferência, em megabits por segundo. O throughput momento a momento pode variar ligeiramente da tampa. Se esta opção estiver definida como zero, ou for omitida, o throughput não será limitado.|
-|--cadeia de tipo de saída|Formato da saída do comando. As opções incluem: texto, json. O valor padrão é "texto".|
+|--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
+|--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
 
 ## <a name="see-also"></a>Confira também
 

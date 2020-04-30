@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
 ms.openlocfilehash: e2cc04be5a79009f92e275f9de46df60a8e23c8b
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106569"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Perguntas frequentes-perguntas gerais sobre a central de segurança do Azure
@@ -36,7 +36,7 @@ A Central de Segurança do Azure é habilitada com sua assinatura do Microsoft A
 A Central de Segurança do Azure monitora os seguintes recursos do Azure:
 
 * VMs (máquinas virtuais) (incluindo [serviços de nuvem](../cloud-services/cloud-services-choose-me.md))
-* conjuntos de escala de máquina virtual
+* Conjuntos de dimensionamento de máquinas virtuais
 * Redes Virtuais do Azure
 * Contêineres
 * Serviço do SQL Azure

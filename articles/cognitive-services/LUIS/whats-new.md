@@ -4,10 +4,10 @@ description: Este artigo é atualizado regularmente com notícias sobre os API d
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 8e3b6f729f69866cdb797cdfd1887de4f5e2be05
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82097720"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
@@ -80,7 +80,7 @@ Os seguintes recursos foram lançados na conferência Build 2019:
 
 [Ambas as estruturas](https://blog.botframework.com/)
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 
 ### <a name="2019-ignite-videos"></a>vídeos de 2019 Ignite
 

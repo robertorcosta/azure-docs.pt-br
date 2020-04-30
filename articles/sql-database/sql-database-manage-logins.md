@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
 ms.openlocfilehash: 0f1611e6d3524cc78fc20fed9d1aac6f3fd453fa
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106433"
 ---
 # <a name="authorizing-database-access-to-authenticated-users-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Autorizando o acesso ao banco de dados a usuários autenticados no banco de dados SQL e no Azure Synapse Analytics usando logons e contas de usuário
@@ -40,7 +40,7 @@ Quando um usuário tenta se conectar a um banco de dados, ele fornece uma conta 
 - [Autenticação do SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   Com esse método de autenticação, o usuário envia um nome de conta de usuário e uma senha associada para estabelecer uma conexão. Essa senha é armazenada no banco de dados mestre para contas de usuário vinculadas a um logon ou armazenadas no banco de dados que contém as contas de usuário *não* vinculadas a um logon.
-- [Autenticação Azure Active Directory](sql-database-aad-authentication.md)
+- [Autenticação do Azure Active Directory](sql-database-aad-authentication.md)
 
   Com esse método de autenticação, o usuário envia um nome de conta de usuário e solicita que o serviço use as informações de credenciais armazenadas no Azure Active Directory.
 

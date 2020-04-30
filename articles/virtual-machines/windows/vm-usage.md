@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
 ms.openlocfilehash: 0caa028c8352f8dd1b3be4a843b9b49128b2c382
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101562"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Noções básicas sobre o uso de máquina virtual do Azure
@@ -57,7 +57,7 @@ Para algumas imagens na galeria do Azure, o tipo de imagem é preenchido no camp
   - Windows Server BYOL 
   - Versão prévia do Windows Server 
 
-## <a name="service-type"></a>Tipo de Serviço
+## <a name="service-type"></a>Tipo de serviço
 O campo de tipo de serviço no campo Informações Adicionais corresponde ao tamanho exato da VM implantada. VMs de armazenamento Premium (baseadas em SSD) e VMs de armazenamento não Premium (baseadas em HDD) possuem o mesmo preço. Se você implantar um tamanho baseado em SSD, como Standard\_DS2\_v2, você visualizará o tamanho não SSD (‘Standard\_D2\_v2 VM’) na coluna Subcategoria do Medidor e o Tamanho SSD (‘Standard\_DS2\_v2’) no campo Informações Adicionais.
 
 ## <a name="region-names"></a>Nomes de região

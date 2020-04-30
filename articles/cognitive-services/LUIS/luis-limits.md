@@ -4,10 +4,10 @@ description: Este artigo contém os limites conhecidos do LUIS (Reconhecimento v
 ms.topic: reference
 ms.date: 04/02/2020
 ms.openlocfilehash: 0a734091ad2c9812f079d77c97c22872717aa7c9
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82103587"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
@@ -22,7 +22,7 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 |Área|Limite|
 |--|:--|
 | [Nome do aplicativo][luis-get-started-create-app] | *Máximo de caracteres padrão |
-| Aplicativo| 500 aplicativos por recurso de criação do Azure |
+| Aplicativos| 500 aplicativos por recurso de criação do Azure |
 | [Teste em lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
 | Lista explícita | 50 por aplicativo|
 | Entidades externas | sem limites |

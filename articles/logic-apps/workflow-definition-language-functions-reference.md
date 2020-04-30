@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.openlocfilehash: 6ab3db36ac4d743c8c03b57075d3c4d5f6c85d67
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115016"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para usar funções em expressões para aplicativos lógicos do Azure e automatizar energia
@@ -80,7 +80,7 @@ Para trabalhar com cadeias de caracteres, você pode usar essas funções de cad
 | [Concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combinar duas ou mais cadeias de caracteres e retornar a cadeia de caracteres combinada. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Verificar se uma cadeia de caracteres termina com a subcadeia de caracteres especificada. |
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Retornar um número como uma cadeia de caracteres com base no formato especificado |
-| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gerar um GUID (identificador global exclusivo) como uma cadeia de caracteres. |
+| [volume](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gerar um GUID (identificador global exclusivo) como uma cadeia de caracteres. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retornar a posição inicial de uma subcadeia de caracteres. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retorna a posição inicial da última ocorrência de uma subcadeia de caracteres. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substituir uma subcadeia de caracteres pela cadeia de caracteres especificada e retornar a cadeia de caracteres atualizada. |
@@ -100,12 +100,12 @@ Para trabalhar com coleções, matrizes em geral, cadeias de caracteres e, às v
 
 | Função de coleção | Tarefa |
 | ------------------- | ---- |
-| [terá](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verificar se uma coleção tem um item específico. |
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Verificar se uma coleção tem um item específico. |
 | [esvaziá](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Verifique se uma coleção está vazia. |
 | [primeiro](../logic-apps/workflow-definition-language-functions-reference.md#first) | Retornar o primeiro item de uma coleção. |
 | [interseção](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retornar uma coleção que tem *somente* os itens comuns entre as coleções especificadas. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando está dentro de uma ação repetida em uma matriz, retornar o item atual na matriz durante a iteração atual da ação. |
-| [em](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retornar uma cadeia de caracteres que tem *todos* os itens de uma matriz, separados pelo caractere especificado. |
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retornar uma cadeia de caracteres que tem *todos* os itens de uma matriz, separados pelo caractere especificado. |
 | [última](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retornar o último item de uma coleção. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retornar o número de itens em uma cadeia de caracteres ou matriz. |
 | [saltar](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Remover itens do início de uma coleção e retornar *todos os outros* itens. |
@@ -129,7 +129,7 @@ Para trabalhar com condições, comparar valores e resultados de expressão ou a
 | [inferiores](../logic-apps/workflow-definition-language-functions-reference.md#less) | Verificar se o primeiro valor é menor que o segundo valor. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Verificar se o primeiro valor é inferior ou igual ao segundo valor. |
 | [válido](../logic-apps/workflow-definition-language-functions-reference.md#not) | Verificar se uma expressão é falsa. |
-| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Verificar se pelo menos uma expressão é verdadeira. |
+| [ou](../logic-apps/workflow-definition-language-functions-reference.md#or) | Verificar se pelo menos uma expressão é verdadeira. |
 |||
 
 <a name="conversion-functions"></a>
@@ -347,12 +347,12 @@ action().outputs.body.<property>
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Propriedade*> | Não | String | O nome da propriedade do objeto de ação cuo valor você deseja: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. No portal do Azure, é possível localizar essas propriedades revisando os detalhes de um histórico de execuções específico. Para obter mias informações, consulte [REST API – Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get) (API REST – Ações de execução de fluxo de trabalho). |
+| <*Propriedade*> | Não | Cadeia de caracteres | O nome da propriedade do objeto de ação cuo valor você deseja: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. No portal do Azure, é possível localizar essas propriedades revisando os detalhes de um histórico de execuções específico. Para obter mias informações, consulte [REST API – Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get) (API REST – Ações de execução de fluxo de trabalho). |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | -----| ----------- |
-| <*ação-saída*> | String | A saída da ação ou da propriedade atual |
+| <*ação-saída*> | Cadeia de caracteres | A saída da ação ou da propriedade atual |
 ||||
 
 <a name="actionBody"></a>
@@ -374,7 +374,7 @@ actionBody('<actionName>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | -----| ----------- |
-| <*ação-corpo-saída*> | String | A saída `body` da ação especificada |
+| <*ação-corpo-saída*> | Cadeia de caracteres | A saída `body` da ação especificada |
 ||||
 
 *Exemplo*
@@ -419,7 +419,7 @@ actionOutputs('<actionName>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | -----| ----------- |
-| <*der*> | String | A saída da ação especificada |
+| <*der*> | Cadeia de caracteres | A saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -485,12 +485,12 @@ actions('<actionName>').outputs.body.<property>
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sim | String | O nome do objeto de ação cuja saída você deseja  |
-| <*Propriedade*> | Não | String | O nome da propriedade do objeto de ação cuo valor você deseja: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. No portal do Azure, é possível localizar essas propriedades revisando os detalhes de um histórico de execuções específico. Para obter mias informações, consulte [REST API – Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get) (API REST – Ações de execução de fluxo de trabalho). |
+| <*Propriedade*> | Não | Cadeia de caracteres | O nome da propriedade do objeto de ação cuo valor você deseja: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. No portal do Azure, é possível localizar essas propriedades revisando os detalhes de um histórico de execuções específico. Para obter mias informações, consulte [REST API – Workflow Run Actions](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get) (API REST – Ações de execução de fluxo de trabalho). |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | -----| ----------- |
-| <*ação-saída*> | String | A saída da ação ou propriedade especificada |
+| <*ação-saída*> | Cadeia de caracteres | A saída da ação ou propriedade especificada |
 ||||
 
 *Exemplo*
@@ -505,7 +505,7 @@ E retorna este resultado: `"Succeeded"`
 
 <a name="add"></a>
 
-### <a name="add"></a>adicionar
+### <a name="add"></a>add
 
 Retornar o resultado da adição de dois números.
 
@@ -547,12 +547,12 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*dias*> | Sim | Integer | O número positivo ou negativo de dias a ser adicionado |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número de dias especificado  |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora mais o número de dias especificado  |
 ||||
 
 *Exemplo 1*
@@ -589,12 +589,12 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*duração*> | Sim | Integer | O número positivo ou negativo de horas a ser adicionado |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número de horas especificado  |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora mais o número de horas especificado  |
 ||||
 
 *Exemplo 1*
@@ -631,12 +631,12 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*alguns*> | Sim | Integer | O número positivo ou negativo de minutos a ser adicionado |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número de minutos especificado |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora mais o número de minutos especificado |
 ||||
 
 *Exemplo 1*
@@ -772,12 +772,12 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*seg*> | Sim | Integer | O número positivo ou negativo de segundos a ser adicionado |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número de segundos especificado  |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora mais o número de segundos especificado  |
 ||||
 
 *Exemplo 1*
@@ -816,12 +816,12 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*intervalo*> | Sim | Integer | O número de unidades de tempo especificadas a ser adicionado |
 | <*timeUnit*> | Sim | String | A unidade de tempo a ser usada com *intervalo*: "Segundos", "Minutos", "Hora", "Dia", "Semanas", "Mês", "Ano" |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora mais o número de unidades de tempo especificado  |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora mais o número de unidades de tempo especificado  |
 ||||
 
 *Exemplo 1*
@@ -862,7 +862,7 @@ and(<expression1>, <expression2>, ...)
 
 | Valor retornado | Type | Descrição |
 | ------------ | -----| ----------- |
-| true ou false | Boolean | Retornará true quando todas as expressões forem true. Retornará false quando pelo menos uma expressão for false. |
+| true ou false | Booliano | Retornará true quando todas as expressões forem true. Retornará false quando pelo menos uma expressão for false. |
 ||||
 
 *Exemplo 1*
@@ -948,7 +948,7 @@ base64('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*Cadeia de caracteres Base64*> | String | A versão codificada em Base64 da cadeia de caracteres de entrada |
+| <*Cadeia de caracteres Base64*> | Cadeia de caracteres | A versão codificada em Base64 da cadeia de caracteres de entrada |
 ||||
 
 *Exemplo*
@@ -981,7 +981,7 @@ base64ToBinary('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Base64-String*> | String | A versão binária da cadeia de caracteres codificada em Base64 |
+| <*Binary-for-Base64-String*> | Cadeia de caracteres | A versão binária da cadeia de caracteres codificada em Base64 |
 ||||
 
 *Exemplo*
@@ -1016,7 +1016,7 @@ base64ToString('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*decodificado-Base64-cadeia de caracteres*> | String | A versão da cadeia de caracteres de uma cadeia de caracteres codificada em Base64 |
+| <*decodificado-Base64-cadeia de caracteres*> | Cadeia de caracteres | A versão da cadeia de caracteres de uma cadeia de caracteres codificada em Base64 |
 ||||
 
 *Exemplo*
@@ -1046,7 +1046,7 @@ binary('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*Binary-de-valor-de-entrada*> | String | A versão binária para a cadeia de caracteres especificada |
+| <*Binary-de-valor-de-entrada*> | Cadeia de caracteres | A versão binária para a cadeia de caracteres especificada |
 ||||
 
 *Exemplo*
@@ -1080,7 +1080,7 @@ body('<actionName>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | -----| ----------- |
-| <*ação-corpo-saída*> | String | A saída `body` da ação especificada |
+| <*ação-corpo-saída*> | Cadeia de caracteres | A saída `body` da ação especificada |
 ||||
 
 *Exemplo*
@@ -1125,7 +1125,7 @@ bool(<value>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | A versão booliana do valor especificado |
+| true ou false | Booliano | A versão booliana do valor especificado |
 ||||
 
 *Exemplo*
@@ -1196,7 +1196,7 @@ concat('<text1>', '<text2>', ...)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | String | A cadeia de caracteres criada das cadeias de caracteres de entrada combinadas |
+| <*text1text2...*> | Cadeia de caracteres | A cadeia de caracteres criada das cadeias de caracteres de entrada combinadas |
 ||||
 
 *Exemplo*
@@ -1236,7 +1236,7 @@ Especificamente, essa função funciona nestes tipos de coleção:
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | Retornará true quando o item for localizado. Retorna false quando não localizada. |
+| true ou false | Booliano | Retornará true quando o item for localizado. Retorna false quando não localizada. |
 ||||
 
 *Exemplo 1*
@@ -1269,12 +1269,12 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*destinationTimeZone*> | Sim | String | O nome do fuso horário de destino. Para nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mas talvez seja necessário remover qualquer Pontuação do nome do fuso horário. |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*convertido-carimbo de data/hora*> | String | O carimbo de data/hora convertido na região do fuso horário |
+| <*convertido-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora convertido na região do fuso horário |
 ||||
 
 *Exemplo 1*
@@ -1312,12 +1312,12 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário de origem. Para nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mas talvez seja necessário remover qualquer Pontuação do nome do fuso horário. |
 | <*destinationTimeZone*> | Sim | String | O nome do fuso horário de destino. Para nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mas talvez seja necessário remover qualquer Pontuação do nome do fuso horário. |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*convertido-carimbo de data/hora*> | String | O carimbo de data/hora convertido na região do fuso horário |
+| <*convertido-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora convertido na região do fuso horário |
 ||||
 
 *Exemplo 1*
@@ -1354,12 +1354,12 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*sourceTimeZone*> | Sim | String | O nome do fuso horário de origem. Para nomes de fuso horário, consulte [valores de índice de fuso horário da Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values), mas talvez seja necessário remover qualquer Pontuação do nome do fuso horário. |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*convertido-carimbo de data/hora*> | String | O carimbo de data/hora convertido no UTC |
+| <*convertido-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora convertido no UTC |
 ||||
 
 *Exemplo 1*
@@ -1430,7 +1430,7 @@ dataUri('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*URI de dados*> | String | O URI dos dados da cadeia de caracteres de entrada |
+| <*URI de dados*> | Cadeia de caracteres | O URI dos dados da cadeia de caracteres de entrada |
 ||||
 
 *Exemplo*
@@ -1462,7 +1462,7 @@ dataUriToBinary('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Data-URI*> | String | A versão binária do URI de dados |
+| <*Binary-for-Data-URI*> | Cadeia de caracteres | A versão binária do URI de dados |
 ||||
 
 *Exemplo*
@@ -1497,7 +1497,7 @@ dataUriToString('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*Cadeia de caracteres para data-URI*> | String | A versão de cadeia de caracteres do URI de dados |
+| <*Cadeia de caracteres para data-URI*> | Cadeia de caracteres | A versão de cadeia de caracteres do URI de dados |
 ||||
 
 *Exemplo*
@@ -1626,7 +1626,7 @@ decodeDataUri('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*Binary-for-Data-URI*> | String | A versão binária de uma cadeia de caracteres do URI de dados |
+| <*Binary-for-Data-URI*> | Cadeia de caracteres | A versão binária de uma cadeia de caracteres do URI de dados |
 ||||
 
 *Exemplo*
@@ -1661,7 +1661,7 @@ decodeUriComponent('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*decodificado-URI*> | String | A cadeia de caracteres atualizada com os caracteres de escape decodificados |
+| <*decodificado-URI*> | Cadeia de caracteres | A cadeia de caracteres atualizada com os caracteres de escape decodificados |
 ||||
 
 *Exemplo*
@@ -1727,7 +1727,7 @@ encodeUriComponent('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*URI codificado*> | String | A cadeia de caracteres codificada para URI com caracteres de escape |
+| <*URI codificado*> | Cadeia de caracteres | A cadeia de caracteres codificada para URI com caracteres de escape |
 ||||
 
 *Exemplo*
@@ -1742,7 +1742,7 @@ E retorna este resultado: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-### <a name="empty"></a>empty
+### <a name="empty"></a>vazio
 
 Verifique se uma coleção está vazia.
 Retornará true quando a coleção estiver vazia ou false quando não estiver vazia.
@@ -1759,7 +1759,7 @@ empty([<collection>])
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | Retornará true quando a coleção estiver vazia. Retornará false quando não estiver vazia. |
+| true ou false | Booliano | Retornará true quando a coleção estiver vazia. Retornará false quando não estiver vazia. |
 ||||
 
 *Exemplo*
@@ -1796,7 +1796,7 @@ endsWith('<text>', '<searchText>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false  | Boolean | Retornará true quando a subcadeia de caracteres final for localizada. Retorna false quando não localizada. |
+| true ou false  | Booliano | Retornará true quando a subcadeia de caracteres final for localizada. Retorna false quando não localizada. |
 ||||
 
 *Exemplo 1*
@@ -1837,7 +1837,7 @@ equals('<object1>', '<object2>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | Retornará true quando ambos forem equivalentes. Retornará false quando não forem equivalentes. |
+| true ou false | Booliano | Retornará true quando ambos forem equivalentes. Retornará false quando não forem equivalentes. |
 ||||
 
 *Exemplo*
@@ -1933,12 +1933,12 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*Reformat-timestamp*> | String | O carimbo de data/hora atualizado no formato especificado |
+| <*Reformat-timestamp*> | Cadeia de caracteres | O carimbo de data/hora atualizado no formato especificado |
 ||||
 
 *Exemplo*
@@ -2001,7 +2001,7 @@ formDataValue('<actionName>', '<key>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*chave-valor*> | String | O valor na chave especificada  |
+| <*chave-valor*> | Cadeia de caracteres | O valor na chave especificada  |
 ||||
 
 *Exemplo*
@@ -2028,12 +2028,12 @@ formatNumber(<number>, <format>, <locale>?)
 | --------- | -------- | ---- | ----------- |
 | <*automática*> | Sim | Inteiro ou duplo | O valor que você deseja formatar. |
 | <*ao*> | Sim | String | Uma cadeia de caracteres de formato composto que especifica o formato que você deseja usar. Para as cadeias de caracteres de formato numérico com suporte, consulte [cadeias de caracteres de formato numérico padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-numeric-format-strings), que são compatíveis com `number.ToString(<format>, <locale>)`o. |
-| <*localidade*> | Não | String | A localidade a ser usada como com `number.ToString(<format>, <locale>)`suporte pelo. Se esse campo não for especificado, o valor padrão será `en-us`. |
+| <*localidade*> | Não | Cadeia de caracteres | A localidade a ser usada como com `number.ToString(<format>, <locale>)`suporte pelo. Se esse campo não for especificado, o valor padrão será `en-us`. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*número formatado*> | String | O número especificado como uma cadeia de caracteres no formato que você especificou. Você pode converter esse valor de retorno em `int` um `float`ou. |
+| <*número formatado*> | Cadeia de caracteres | O número especificado como uma cadeia de caracteres no formato que você especificou. Você pode converter esse valor de retorno em `int` um `float`ou. |
 ||||
 
 *Exemplo 1*
@@ -2082,12 +2082,12 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*intervalo*> | Sim | Integer | O número de unidades de tempo especificadas a ser adicionado |
 | <*timeUnit*> | Sim | String | A unidade de tempo a ser usada com *intervalo*: "Segundos", "Minutos", "Hora", "Dia", "Semanas", "Mês", "Ano" |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora atual mais o número de unidades de tempo especificado |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora atual mais o número de unidades de tempo especificado |
 ||||
 
 *Exemplo 1*
@@ -2126,12 +2126,12 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- |
 | <*intervalo*> | Sim | Integer | O número de unidades de tempo especificadas a serem subtraídas |
 | <*timeUnit*> | Sim | String | A unidade de tempo a ser usada com *intervalo*: "Segundos", "Minutos", "Hora", "Dia", "Semanas", "Mês", "Ano" |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora atual menos o número de unidades de tempo especificado |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora atual menos o número de unidades de tempo especificado |
 ||||
 
 *Exemplo 1*
@@ -2176,7 +2176,7 @@ greater('<value>', '<compareTo>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | Retornará true quando o primeiro valor for maior que o segundo. Retornará false quando o primeiro valor for igual ou menor que o segundo. |
+| true ou false | Booliano | Retornará true quando o primeiro valor for maior que o segundo. Retornará false quando o primeiro valor for igual ou menor que o segundo. |
 ||||
 
 *Exemplo*
@@ -2213,7 +2213,7 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | Retornará true quando o primeiro valor for superior ou igual ao segundo. Retornará false quando o primeiro valor for menor que o segundo. |
+| true ou false | Booliano | Retornará true quando o primeiro valor for superior ou igual ao segundo. Retornará false quando o primeiro valor for menor que o segundo. |
 ||||
 
 *Exemplo*
@@ -2248,12 +2248,12 @@ guid('<format>')
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*ao*> | Não | String | Um único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para o GUID retornado. Por padrão, o formato é "D", mas é possível usar "N", "D", "B", "P" ou "X". |
+| <*ao*> | Não | Cadeia de caracteres | Um único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para o GUID retornado. Por padrão, o formato é "D", mas é possível usar "N", "D", "B", "P" ou "X". |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*GUID-valor*> | String | Um GUID gerado aleatoriamente |
+| <*GUID-valor*> | Cadeia de caracteres | Um GUID gerado aleatoriamente |
 ||||
 
 *Exemplo*
@@ -2634,7 +2634,7 @@ join([<collection>], '<delimiter>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*char1*><*char2*><*delimiter* *delimiter*delimitador de char1 delimitador de char2>...>< | String | A cadeia de caracteres resultante criada com base em todos os itens na matriz especificada |
+| <*char1*><*char2*><*delimiter* *delimiter*delimitador de char1 delimitador de char2>...>< | Cadeia de caracteres | A cadeia de caracteres resultante criada com base em todos os itens na matriz especificada |
 ||||
 
 *Exemplo*
@@ -2766,7 +2766,7 @@ less('<value>', '<compareTo>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | Retornará true quando o primeiro valor for menor que o segundo. Retornará false quando o primeiro valor for igual ou maior que o segundo. |
+| true ou false | Booliano | Retornará true quando o primeiro valor for menor que o segundo. Retornará false quando o primeiro valor for igual ou maior que o segundo. |
 ||||
 
 *Exemplo*
@@ -2803,7 +2803,7 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false  | Boolean | Retornará true quando o primeiro valor for inferior ou igual ao segundo valor. Retornará false quando o primeiro valor for maior que o segundo. |
+| true ou false  | Booliano | Retornará true quando o primeiro valor for inferior ou igual ao segundo valor. Retornará false quando o primeiro valor for maior que o segundo. |
 ||||
 
 *Exemplo*
@@ -2833,7 +2833,7 @@ listCallbackUrl()
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*URL de retorno de chamada*> | String | A URL de retorno de chamada para um gatilho ou uma ação |
+| <*URL de retorno de chamada*> | Cadeia de caracteres | A URL de retorno de chamada para um gatilho ou uma ação |
 ||||
 
 *Exemplo*
@@ -2993,7 +2993,7 @@ multipartBody('<actionName>', <index>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*conteúdo*> | String | O corpo da parte especificada |
+| <*conteúdo*> | Cadeia de caracteres | O corpo da parte especificada |
 ||||
 
 <a name="not"></a>
@@ -3014,7 +3014,7 @@ not(<expression>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | Retornará true quando a expressão for falsa. Retornará false quando a expressão for verdadeira. |
+| true ou false | Booliano | Retornará true quando a expressão for falsa. Retornará false quando a expressão for verdadeira. |
 ||||
 
 *Exemplo 1*
@@ -3047,7 +3047,7 @@ E retornam estes resultados:
 
 <a name="or"></a>
 
-### <a name="or"></a>ou o
+### <a name="or"></a>ou
 
 Verificar se pelo menos uma expressão é verdadeira.
 Retornará true quando pelo menos uma expressão for verdadeira ou false quando todas forem falsas.
@@ -3063,7 +3063,7 @@ or(<expression1>, <expression2>, ...)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false | Boolean | Retornará true quando pelo menos uma expressão for verdadeira. Retornará false quando todas as expressões forem falsas. |
+| true ou false | Booliano | Retornará true quando pelo menos uma expressão for verdadeira. Retornará false quando todas as expressões forem falsas. |
 ||||
 
 *Exemplo 1*
@@ -3111,7 +3111,7 @@ outputs('<actionName>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | -----| ----------- |
-| <*der*> | String | A saída da ação especificada |
+| <*der*> | Cadeia de caracteres | A saída da ação especificada |
 ||||
 
 *Exemplo*
@@ -3276,7 +3276,7 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*texto atualizado*> | String | A cadeia de caracteres atualizada após substituir a subcadeia de caracteres <p>Se a subcadeia de caracteres não for localizada, retorne a cadeia de caracteres original. |
+| <*texto atualizado*> | Cadeia de caracteres | A cadeia de caracteres atualizada após substituir a subcadeia de caracteres <p>Se a subcadeia de caracteres não for localizada, retorne a cadeia de caracteres original. |
 ||||
 
 *Exemplo*
@@ -3674,12 +3674,12 @@ startOfDay('<timestamp>', '<format>'?)
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora especificado, mas começando na marca de zero hora para o dia |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora especificado, mas começando na marca de zero hora para o dia |
 ||||
 
 *Exemplo*
@@ -3705,12 +3705,12 @@ startOfHour('<timestamp>', '<format>'?)
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora especificado, mas começando na marca de zero minuto para a hora |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora especificado, mas começando na marca de zero minuto para a hora |
 ||||
 
 *Exemplo*
@@ -3736,12 +3736,12 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora especificado, mas começando no primeiro dia do mês na marca de zero hora |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora especificado, mas começando no primeiro dia do mês na marca de zero hora |
 ||||
 
 *Exemplo*
@@ -3774,7 +3774,7 @@ startsWith('<text>', '<searchText>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| true ou false  | Boolean | Retornará true quando a subcadeia de caracteres inicial for localizada. Retorna false quando não localizada. |
+| true ou false  | Booliano | Retornará true quando a subcadeia de caracteres inicial for localizada. Retorna false quando não localizada. |
 ||||
 
 *Exemplo 1*
@@ -3799,7 +3799,7 @@ E retorna este resultado: `false`
 
 <a name="string"></a>
 
-### <a name="string"></a>string
+### <a name="string"></a>cadeia de caracteres
 
 Retornar a versão de cadeia de caracteres para um valor.
 
@@ -3814,7 +3814,7 @@ string(<value>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*Cadeia de caracteres-valor*> | String | A versão de cadeia de caracteres do valor especificado |
+| <*Cadeia de caracteres-valor*> | Cadeia de caracteres | A versão de cadeia de caracteres do valor especificado |
 ||||
 
 *Exemplo 1*
@@ -3888,7 +3888,7 @@ substring('<text>', <startIndex>, <length>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*substring-resultado*> | String | Uma subcadeia de caracteres com o número de caracteres especificado, começando na posição de índice especificada na cadeia de caracteres de origem |
+| <*substring-resultado*> | Cadeia de caracteres | Uma subcadeia de caracteres com o número de caracteres especificado, começando na posição de índice especificada na cadeia de caracteres de origem |
 ||||
 
 *Exemplo*
@@ -3917,12 +3917,12 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*estampa*> | Sim | String | Uma cadeia de caracteres que contém o carimbo de data/hora |
 | <*intervalo*> | Sim | Integer | O número de unidades de tempo especificadas a serem subtraídas |
 | <*timeUnit*> | Sim | String | A unidade de tempo a ser usada com *intervalo*: "Segundos", "Minutos", "Hora", "Dia", "Semanas", "Mês", "Ano" |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*atualizado-carimbo de data/hora*> | String | O carimbo de data/hora menos o número de unidades de tempo especificado |
+| <*atualizado-carimbo de data/hora*> | Cadeia de caracteres | O carimbo de data/hora menos o número de unidades de tempo especificado |
 ||||
 
 *Exemplo 1*
@@ -4019,7 +4019,7 @@ toLower('<text>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*texto em minúsculas*> | String | A cadeia de caracteres original no formato em minúsculas |
+| <*texto em minúsculas*> | Cadeia de caracteres | A cadeia de caracteres original no formato em minúsculas |
 ||||
 
 *Exemplo*
@@ -4049,7 +4049,7 @@ toUpper('<text>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*texto em maiúsculas*> | String | A cadeia de caracteres original no formato em maiúsculas |
+| <*texto em maiúsculas*> | Cadeia de caracteres | A cadeia de caracteres original no formato em maiúsculas |
 ||||
 
 *Exemplo*
@@ -4081,7 +4081,7 @@ trigger()
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*gatilho-saída*> | String | A saída de um gatilho em runtime |
+| <*gatilho-saída*> | Cadeia de caracteres | A saída de um gatilho em runtime |
 ||||
 
 <a name="triggerBody"></a>
@@ -4098,7 +4098,7 @@ triggerBody()
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*gatilho-saída de corpo*> | String | A saída `body` do gatilho |
+| <*gatilho-saída de corpo*> | Cadeia de caracteres | A saída `body` do gatilho |
 ||||
 
 <a name="triggerFormDataMultiValues"></a>
@@ -4149,7 +4149,7 @@ triggerFormDataValue('<key>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*chave-valor*> | String | O valor na chave especificada |
+| <*chave-valor*> | Cadeia de caracteres | O valor na chave especificada |
 ||||
 
 *Exemplo*
@@ -4179,7 +4179,7 @@ triggerMultipartBody(<index>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*conteúdo*> | String | O corpo da parte especificada na saída de várias partes de um gatilho |
+| <*conteúdo*> | Cadeia de caracteres | O corpo da parte especificada na saída de várias partes de um gatilho |
 ||||
 
 <a name="triggerOutputs"></a>
@@ -4196,7 +4196,7 @@ triggerOutputs()
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*gatilho-saída*> | String | A saída de um gatilho em runtime  |
+| <*gatilho-saída*> | Cadeia de caracteres | A saída de um gatilho em runtime  |
 ||||
 
 <a name="trim"></a>
@@ -4216,7 +4216,7 @@ trim('<text>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*updatedText*> | String | Uma versão atualizada da cadeia de caracteres original sem espaço em branco à esquerda ou à direita |
+| <*updatedText*> | Cadeia de caracteres | Uma versão atualizada da cadeia de caracteres original sem espaço em branco à esquerda ou à direita |
 ||||
 
 *Exemplo*
@@ -4280,7 +4280,7 @@ uriComponent('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*URI codificado*> | String | A cadeia de caracteres codificada para URI com caracteres de escape |
+| <*URI codificado*> | Cadeia de caracteres | A cadeia de caracteres codificada para URI com caracteres de escape |
 ||||
 
 *Exemplo*
@@ -4310,7 +4310,7 @@ uriComponentToBinary('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*binário-para-URI-codificado*> | String | A versão binária da cadeia de caracteres codificada para URI. O conteúdo binário é codificado em Base64 e representado por `$content`. |
+| <*binário-para-URI-codificado*> | Cadeia de caracteres | A versão binária da cadeia de caracteres codificada para URI. O conteúdo binário é codificado em Base64 e representado por `$content`. |
 ||||
 
 *Exemplo*
@@ -4345,7 +4345,7 @@ uriComponentToString('<value>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*decodificado-URI*> | String | A versão decodificada para a cadeia de caracteres codificada para URI |
+| <*decodificado-URI*> | Cadeia de caracteres | A versão decodificada para a cadeia de caracteres codificada para URI |
 ||||
 
 *Exemplo*
@@ -4375,7 +4375,7 @@ uriHost('<uri>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor do host*> | String | O valor `host` do URI especificado |
+| <*valor do host*> | Cadeia de caracteres | O valor `host` do URI especificado |
 ||||
 
 *Exemplo*
@@ -4405,7 +4405,7 @@ uriPath('<uri>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*caminho-valor*> | String | O valor `path` do URI especificado. Se `path` não tiver um valor, retorne o caractere "/". |
+| <*caminho-valor*> | Cadeia de caracteres | O valor `path` do URI especificado. Se `path` não tiver um valor, retorne o caractere "/". |
 ||||
 
 *Exemplo*
@@ -4435,7 +4435,7 @@ uriPathAndQuery('<uri>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*caminho-consulta-valor*> | String | Os valores `path` e `query` para o URI especificado. Se `path` não especificar um valor, retorne o caractere "/". |
+| <*caminho-consulta-valor*> | Cadeia de caracteres | Os valores `path` e `query` para o URI especificado. Se `path` não especificar um valor, retorne o caractere "/". |
 ||||
 
 *Exemplo*
@@ -4495,7 +4495,7 @@ uriQuery('<uri>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*valor da consulta*> | String | O valor `query` do URI especificado |
+| <*valor da consulta*> | Cadeia de caracteres | O valor `query` do URI especificado |
 ||||
 
 *Exemplo*
@@ -4525,7 +4525,7 @@ uriScheme('<uri>')
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*esquema-valor*> | String | O valor `scheme` do URI especificado |
+| <*esquema-valor*> | Cadeia de caracteres | O valor `scheme` do URI especificado |
 ||||
 
 *Exemplo*
@@ -4553,12 +4553,12 @@ Ou é possível especificar um formato diferente com o parâmetro <*formato*>.
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*ao*> | Não | String | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
+| <*ao*> | Não | Cadeia de caracteres | Um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou um [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). O formato padrão do carimbo de data/hora é ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), compatível com a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e que preserva informações de fuso horário. |
 |||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*carimbo de data/hora atual*> | String | A data e hora atual |
+| <*carimbo de data/hora atual*> | Cadeia de caracteres | A data e hora atual |
 ||||
 
 *Exemplo 1*
@@ -4626,7 +4626,7 @@ workflow().<property>
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*Propriedade*> | Não | String | O nome da propriedade de fluxo de trabalho cujo valor você deseja <p>Um objeto de fluxo de trabalho tem estas propriedades: **name**, **type**, **id**, **location** e **run**. O valor da propriedade **run** também é um objeto que tem estas propriedades: **name**, **type** e **id**. |
+| <*Propriedade*> | Não | Cadeia de caracteres | O nome da propriedade de fluxo de trabalho cujo valor você deseja <p>Um objeto de fluxo de trabalho tem estas propriedades: **name**, **type**, **id**, **location** e **run**. O valor da propriedade **run** também é um objeto que tem estas propriedades: **name**, **type** e **id**. |
 |||||
 
 *Exemplo*

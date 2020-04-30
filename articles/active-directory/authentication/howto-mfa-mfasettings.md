@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9002447df44a1f0c87ec9de03e316d7d12d8a626
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82105651"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
@@ -84,7 +84,7 @@ Configure o recurso de _alerta de fraude_ para que os usuários possam relatar t
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador.
 2. Navegue até **Azure Active Directory** > **alerta de fraude**da**MFA** > de**segurança** > .
 3. Defina a configuração **Permitir que os usuários enviem alertas de fraude** como **Ativada**.
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ### <a name="configuration-options"></a>Opções de configuração
 
@@ -156,7 +156,7 @@ Por exemplo, se houver apenas uma mensagem personalizada, com um idioma alemão:
 
 Scripts de exemplo para a criação de mensagens personalizadas.
 
-| Nome da mensagem | Script |
+| Nome da mensagem | script |
 | --- | --- |
 | Êxito na autenticação | Sua entrada foi verificada com êxito. Logo. |
 | Prompt de extensão | Obrigado por usar o sistema de verificação de entrada da Microsoft. Pressione a tecla tralha para continuar. |
@@ -300,7 +300,7 @@ Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos l
 
 | Tipo de locatário do Azure AD | Opções do recurso IPs Confiáveis |
 |:--- |:--- |
-| Gerenciada |**Intervalos específicos de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
+| Gerenciados |**Intervalos específicos de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
 | Federado |**Todos os usuários federados**: todos os usuários federados que se conectam de dentro da organização tem permissão para ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalos específicos de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. |
 
 O bypass dos IPs Confiáveis funciona somente dentro da intranet da empresa. Se você selecionar a opção **Todos os usuários federados** e um usuário se conectar de fora da intranet da empresa, ele deverá se autenticar usando a verificação em duas etapas. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS. 
@@ -341,7 +341,7 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
       * Para um único endereço IP, use a notação como **xxx.xxx.xxx.xxx/32**.
       * Você pode inserir até 50 intervalos de endereço IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Habilitar o recurso IPs Confiáveis, usando as configurações do serviço
 
@@ -360,7 +360,7 @@ Independentemente se o recurso IPs Confiáveis estiver habilitado, a verificaç�
       * Para um único endereço IP, use a notação como **xxx.xxx.xxx.xxx/32**.
       * Você pode inserir até 50 intervalos de endereço IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="verification-methods"></a>Métodos de verificação
 
@@ -382,7 +382,7 @@ Quando os usuários registram suas contas na Autenticação Multifator do Azure,
 3. Selecione **autenticação multifator**.
 4. Em Autenticação Multifator do Microsoft Azure, selecione **configurações de serviço**.
 5. Na página **Configurações do Serviço**, em **Opções de verificação**, selecione/cancele a seleção dos métodos a serem fornecidos aos usuários.
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 Detalhes adicionais sobre o uso de métodos de autenticação podem ser encontrados no artigo [O que são os métodos de autenticação](concept-authentication-methods.md).
 
@@ -419,7 +419,7 @@ O recurso reduz o número de autenticações em aplicativos Web, que normalmente
 4. Em Autenticação Multifator do Microsoft Azure, selecione **configurações de serviço**.
 5. Na página **Configurações do Serviço**, **Gerenciar Lembrar a Autenticação Multifator**, selecione a opção **Permite aos usuários lembrar a autenticação multifator em dispositivos que eles confiam**.
 6. Defina o número de dias a permitir que os dispositivos confiáveis ignorem a verificação em duas etapas. O padrão é 14 dias.
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marcar um dispositivo como confiável
 

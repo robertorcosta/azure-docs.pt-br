@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112194"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
@@ -554,7 +554,7 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Type     | Nome                          | Acesso               | Aplica-se A
+Type     | Name                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | Controle total         | Este objeto  |
 Allow    | Administrador corporativo             | Controle total         | Este objeto  |
@@ -579,7 +579,7 @@ Para usar o script do PowerShell, para aplicar essas configurações, para uma c
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Em que 
+Where 
 
 **$ObjectDN** = A conta do Active Directory cujas permissões precisam ser reforçadas.
 
@@ -898,7 +898,7 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Selecionar|
-    |CertKeyAlgorithmParams|CertHashString|Em que|
+    |CertKeyAlgorithmParams|CertHashString|Where|
     |||With|
 
 * As seguintes alterações de esquema foram introduzidas para permitir que os clientes criem regras de sincronização personalizadas para transmitir sAMAccountName, domainNetBios e domainFQDN para objetos de grupo, bem como transmitir distinguishedName para objetos de usuário:

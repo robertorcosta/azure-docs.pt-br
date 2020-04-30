@@ -12,10 +12,10 @@ manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
 ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82106603"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Criar um tempo de execução de integração auto-hospedado compartilhado no Azure Data Factory
@@ -99,7 +99,7 @@ Para criar um IR compartilhado auto-hospedado usando Azure PowerShell, você pod
 1. Crie um grupo de recursos e um Data Factory.
 
     > [!NOTE]  
-    > Esta etapa é opcional. Se você já tiver um data factory, ignore esta etapa. 
+    > Essa etapa é opcional. Se você já tiver um data factory, ignore esta etapa. 
 
     Crie um [grupo de recursos do Azure](../azure-resource-manager/management/overview.md) usando o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` na localização WestEurope: 
 
@@ -118,7 +118,7 @@ Para criar um IR compartilhado auto-hospedado usando Azure PowerShell, você pod
 ### <a name="create-a-self-hosted-integration-runtime"></a>Criar um Integration Runtime auto-hospedado
 
 > [!NOTE]  
-> Esta etapa é opcional. Se você já possui o runtime de integração auto-hospedada que deseja compartilhar com outros data factories, pule esta etapa.
+> Essa etapa é opcional. Se você já possui o runtime de integração auto-hospedada que deseja compartilhar com outros data factories, pule esta etapa.
 
 Execute o comando a seguir para criar um runtime de integração auto-hospedada:
 
@@ -157,7 +157,7 @@ A resposta contém a chave de autenticação para esse runtime de integração a
 #### <a name="create-another-data-factory"></a>Criar outro data factory
 
 > [!NOTE]  
-> Esta etapa é opcional. Se você já possui o data factory com o qual deseja compartilhar, pule esta etapa.
+> Essa etapa é opcional. Se você já possui o data factory com o qual deseja compartilhar, pule esta etapa.
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

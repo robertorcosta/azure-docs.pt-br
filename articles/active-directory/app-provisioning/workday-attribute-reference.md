@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
 ms.openlocfilehash: 61f374c3fbc15e78784fe30c4e66ea109537727d
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112874"
 ---
 # <a name="workday-attribute-reference"></a>Referência de atributos do Workday
@@ -29,7 +29,7 @@ Esta seção fornece uma lista de atributos que você pode buscar do workday usa
 
 A tabela a seguir captura a lista de atributos de workday e as expressões XPATH correspondentes que são enviadas prontamente com o conector de aplicativo de provisionamento de entrada do workday. 
 
-| \# | Nome                                  | Expressão da API workday                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Name                                  | Expressão da API workday                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Ativo                                | WD: Worker/WD: Work\_data/WD: data\_de emprego/WD:\_data\_de status do trabalhador/WD: ativo/texto\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | WD: Worker/WD: Work\_data/WD: data\_de emprego/WD:\_position data/WD:\_data\_de\_Resumo do site da empresa\_/WD: endereço data\_/\_WD\[@wd:Type: dados de\_linha\_de endereço\]= ' linha de endereço 2 '/Text\(\)                                                                                                                                                                                                                             |
@@ -117,7 +117,7 @@ A tabela a seguir captura a lista de atributos de workday e as expressões XPATH
 Se você estiver usando uma API do WWS v 30.0 e superior, antes de ativar o trabalho de provisionamento, atualize as **expressões da API XPath** em **mapeamento de atributo-> opções avançadas-> lista de atributos de edição para o workday** usar os valores listados abaixo. Para configurar XPATHs adicionais, consulte a seção [tutorial: Gerenciando sua configuração](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
-| \# | Nome                                  | Expressão da API XPATH do workday                                                                                                                                                                                                                                                                                                                                                |
+| \# | Name                                  | Expressão da API XPATH do workday                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Ativo                                | WD: Worker/WD: Work\_data/WD: data\_de emprego/WD:\_data\_de status do trabalhador/WD: ativo/texto\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | WD: Worker/WD: Work\_data/WD: empregos\_de trabalho/WD:\_trabalho\_de\[@wd:Primary\_dados de trabalho\]de trabalho =\_1/WD: posição data\_/\_WD\_: data de Resumo de\_site corporativo/WD:\_endereço\_data\[@wd:Type/WD:\_dados\_de linha\]de endereço = ' linha de endereço 2 '/Text\(\)                                                                                                                                                            |

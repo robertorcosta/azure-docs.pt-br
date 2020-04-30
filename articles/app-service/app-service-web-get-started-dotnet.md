@@ -3,14 +3,14 @@ title: 'Início Rápido: Criar um aplicativo ASP.NET Core C#'
 description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure implantando o modelo de aplicativo Web ASP.NET Core C# padrão por meio do Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: be7c4a2fb65f913bc97617af1a0f21ee8fcca714
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 6c7ab1290033792cf356c4882811670011df5efe
+ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313289"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82086038"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Início Rápido: Criar um aplicativo Web ASP.NET Core no Azure
 
@@ -107,7 +107,7 @@ Siga estas etapas para atualizar e reimplantar seu aplicativo Web:
 
 1. No **Gerenciador de Soluções**, em seu projeto, abra **Páginas** > **Index.cshtml**.
 
-1. Substitua as duas marcas `<div>` pelo código a seguir:
+1. Substitua toda a marcação `<div>` pelo seguinte código:
 
    ```HTML
    <div class="jumbotron">

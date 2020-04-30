@@ -13,10 +13,10 @@ ms.workload: tbd
 ms.date: 4/22/2020
 ms.author: yohaddad
 ms.openlocfilehash: 83ecbf05ab892e0673b31df893f66b03373957b7
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101494"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
@@ -334,4 +334,4 @@ A política de suporte e desativação do SO convidado é explicada [aqui][retir
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[cada]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  
+[more]: https://docs.microsoft.com/azure/cloud-services/applications-dont-support-tls-1-2  

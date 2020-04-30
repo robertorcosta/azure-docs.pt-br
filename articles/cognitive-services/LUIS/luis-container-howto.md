@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2df36d80aea34da1693cecde524d239abd2bb04a
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82100236"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Para executar o contêiner LUIS, observe os seguintes pré-requisitos:
 
-|Necessária|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.|
@@ -254,7 +254,7 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 |Parâmetro de consulta|Type|Finalidade|
 |--|--|--|
-|`query`|string|A declaração do usuário.|
+|`query`|cadeia de caracteres|A declaração do usuário.|
 |`verbose`|booleano|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é false.|
 |`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é false.|
 |`show-all-intents`|booleano|Um valor booliano que indica se todas as tentativas ou a primeira tentativa de Pontuação devem ser retornadas. O padrão é false.|
@@ -270,7 +270,7 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 
 |Parâmetro de consulta|Type|Finalidade|
 |--|--|--|
-|`q`|string|A declaração do usuário.|
+|`q`|cadeia de caracteres|A declaração do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
 |`verbose`|booleano|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
 |`staging`|booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
