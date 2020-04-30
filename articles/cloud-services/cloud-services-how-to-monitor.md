@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273092"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao Monitoramento de Serviço de Nuvem
@@ -34,7 +34,7 @@ O monitoramento básico não exige uma conta de armazenamento.
 
 ## <a name="advanced-monitoring"></a>Monitoramento avançado
 
-O monitoramento avançado envolve o uso da extensão **Azure Diagnostics** (e, opcionalmente, do Application Insights SDK) na função que você deseja monitorar. A extensão de diagnóstico usa um arquivo de configuração (por função) chamado **diagnostics.wadcfgx** para configurar as métricas de diagnóstico monitoradas. A extensão Diagnóstico do Azure coleta e armazena dados em uma conta de Armazenamento do Azure. Essas configurações são definidas nos arquivos **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Isso significa que há um custo extra associado ao monitoramento avançado.
+O monitoramento avançado envolve o uso da extensão **diagnóstico do Azure** (e, opcionalmente, o SDK do Application insights) na função que você deseja monitorar. A extensão de diagnóstico usa um arquivo de configuração (por função) chamado **diagnostics.wadcfgx** para configurar as métricas de diagnóstico monitoradas. A extensão Diagnóstico do Azure coleta e armazena dados em uma conta de Armazenamento do Azure. Essas configurações são definidas nos arquivos **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Isso significa que há um custo extra associado ao monitoramento avançado.
 
 À medida que cada função é criada, o Visual Studio adiciona a extensão de Diagnóstico do Azure a ela. Essa extensão de diagnóstico pode coletar os seguintes tipos de informações:
 
@@ -48,13 +48,13 @@ O monitoramento avançado envolve o uso da extensão **Azure Diagnostics** (e, o
 * Logs de erro do cliente
 
 > [!IMPORTANT]
-> Embora todos esses dados sejam agregados na conta de armazenamento, o portal **não** fornece uma maneira nativa de mapear os dados. É altamente recomendável integrar outro serviço, como o Application Insights, ao seu aplicativo.
+> Embora todos esses dados sejam agregados na conta de armazenamento, o portal não **fornece uma** maneira nativa de gráfico dos dados. É altamente recomendável integrar outro serviço, como o Application Insights, ao seu aplicativo.
 
 ## <a name="setup-diagnostics-extension"></a>Extensão de diagnóstico da configuração
 
 Primeiro, se você não tiver uma conta de armazenamento **clássica**, [crie uma](../storage/common/storage-account-create.md). Crie a conta de armazenamento com o **Modelo de implantação clássico** especificado.
 
-Em seguida, navegue até o recurso **Conta de armazenamento (clássico)**. Selecione **Configurações** > **Acessar teclas** e copiar o valor **da seqüência de seqüência de conexões primária.** Você precisa desse valor para o serviço de nuvem. 
+Em seguida, navegue até o recurso **Conta de armazenamento (clássico)**. Selecione **configurações** > **chaves de acesso** e copie o valor da **cadeia de conexão primária** . Você precisa desse valor para o serviço de nuvem. 
 
 Você precisa alterar dois arquivos de configuração para habilitar o diagnóstico avançado, **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
 

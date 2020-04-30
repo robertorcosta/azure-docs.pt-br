@@ -1,6 +1,6 @@
 ---
-title: Serviço de provisionamento de dispositivos Azure IoT Hub - Conceitos de segurança
-description: Descreve conceitos de provisionamento de segurança específicos para dispositivos com DPS (Device Provisioning Service) e IoT Hub
+title: Serviço de provisionamento de dispositivos no Hub IoT do Azure-conceitos de segurança
+description: Descreve os conceitos de provisionamento de segurança específicos para dispositivos com o DPS (serviço de provisionamento de dispositivos) e o Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271558"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceitos de segurança do Serviço de Provisionamento de Dispositivos no Hub IoT 
@@ -28,7 +28,7 @@ O mecanismo de atestado é o método usado para confirmar a identidade de um dis
 O Serviço de Provisionamento de Dispositivos dá suporte às seguintes formas de atestado:
 * **Certificados X.509** com base no fluxo de autenticação do certificado X.509 padrão.
 * **Trusted Platform Module (TPM)** com base em um desafio nonce, usando o padrão TPM para chaves para apresentar um token de Assinatura de Acesso Compartilhado (SAS) assinado. Esta forma de atestado não requer um TPM físico no dispositivo, mas o serviço espera atestar usando a chave de endosso de acordo com a [especificação TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Chave Simétrica** baseada em [tokens de segurança](../iot-hub/iot-hub-devguide-security.md#security-tokens)de assinatura de acesso compartilhado (SAS), que incluem uma assinatura hashed e uma expiração incorporada. Para obter mais informações, veja [Atestado de chave simétrica](concepts-symmetric-key-attestation.md).
+* **Chave simétrica** baseada em [tokens de segurança](../iot-hub/iot-hub-devguide-security.md#security-tokens)SAS (assinatura de acesso compartilhado), que incluem uma assinatura com hash e uma expiração incorporada. Para obter mais informações, veja [Atestado de chave simétrica](concepts-symmetric-key-attestation.md).
 
 
 ## <a name="hardware-security-module"></a>Módulo de segurança de hardware
@@ -78,7 +78,7 @@ Um certificado intermediário é um certificado X.509 que foi assinado pelo cert
 
 O certificado de folha, ou certificado de entidade final, identifica o proprietário do certificado. Ele tem o certificado raiz em sua cadeia de certificados, bem como zero ou mais certificados intermediários. O certificado de folha não é usado para assinar outros certificados. Ele identifica exclusivamente o dispositivo para o serviço de provisionamento e, às vezes, são referenciados como um certificado de dispositivo. Durante a autenticação, o dispositivo usa a chave privada associada ao certificado para responder a um desafio de comprovação de posse do serviço.
 
-Os certificados de folha utilizados com uma inscrição [individual](./concepts-service.md#individual-enrollment) têm o requisito de que o Nome do **Assunto** deve ser definido no ID de inscrição da inscrição individual. Os certificados de folha usados com uma entrada [de grupo de inscrição](./concepts-service.md#enrollment-group) devem ter o Nome do **Assunto** definido no ID do dispositivo desejado que será mostrado nos Registros **de Registro** do dispositivo autenticado no grupo de inscrição.
+Os certificados folha usados com uma entrada de [registro individual](./concepts-service.md#individual-enrollment) têm um requisito de que o **nome da entidade** deve ser definido como a ID de registro da entrada de registro individual. Os certificados folha usados com uma entrada do [grupo de registros](./concepts-service.md#enrollment-group) devem ter o **nome da entidade** definido como a ID de dispositivo desejada que será mostrada nos registros de **registro** do dispositivo autenticado no grupo de registro.
 
 Para saber mais, consulte [Autenticação de dispositivos assinados com certificados de AC X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 

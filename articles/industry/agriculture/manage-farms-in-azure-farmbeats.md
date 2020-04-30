@@ -1,82 +1,82 @@
 ---
-title: Gerenciar fazendas
-description: Descreve como gerenciar fazendas
+title: Gerenciar farms
+description: Descreve como gerenciar farms
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271714"
 ---
 # <a name="manage-farms"></a>Gerenciar farms
 
-Você pode gerenciar suas fazendas em Azure FarmBeats. Este artigo fornece informações sobre como criar fazendas, instalar dispositivos, sensores e drones que ajudam você a gerenciar suas fazendas.
+Você pode gerenciar seus farms no Azure FarmBeats. Este artigo fornece informações sobre como criar farms, instalar dispositivos, sensores e drones que ajudam a gerenciar seus farms.
 
-## <a name="create-farms"></a>Criar fazendas
+## <a name="create-farms"></a>Criar farms
 
 Use as seguintes etapas:
 
-1. Faça login no Farm Accelerator, a página **Fazendas** é exibida.
-    A página **Fazendas** exibe a lista de fazendas caso elas já tenham sido criadas em assinatura.
+1. Faça logon no acelerador de farm, a página **farms** é exibida.
+    A página **farms** exibe a lista de farms caso eles já tenham sido criados na assinatura.
 
-    Aqui está a imagem da amostra:
+    Aqui está a imagem de exemplo:
 
     ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
-2. Selecione **Criar Fazenda** e forneça **Nome,** **Culturas** e **Endereço.**
-3. No **Definir Limite da Fazenda**, (campo obrigatório) selecione **Marca no Mapa** ou Cole **código GeoJSON**.
+2. Selecione **criar farm** e forneça o **nome**, os **aparas** e o **endereço**.
+3. Em **definir limite do farm**, (campo obrigatório) selecione **marcar no mapa** ou **colar código geojson**.
 
-Aqui estão as duas maneiras de definir um limite de fazenda:
+Aqui estão as duas maneiras de definir um limite de farm:
 
-1. **Marca no Mapa**: Use a ferramenta de controle do mapa para desenhar e marcar o limite da fazenda. Para marcar os ![limites,](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) o Project Farm Beats e marcar os limites exatos.
+1. **Marcar no mapa**: Use a ferramenta de controle de mapa para desenhar e marcar o limite do farm. Para marcar os limites, ![o farm de](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) projetos vence e marca os limites exatos.
 
     ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
-2. **Código GeoJson**de pasta : O GeoJSON é um formato para codificação de estruturas de dados geográficos, usando A notação de objeto JavaScript (JSON). Esta opção exibe uma caixa de texto onde uma seqüência GeoJSON pode ser inserida para marcar os limites da fazenda. Você também pode criar o código GeoJSON a partir de GeoJSON.io.
-Use as dicas de ferramentas para ajudar a preencher as informações.
+2. **Colar código geojson**: o geojson é um formato para codificar estruturas de dados geográficos, usando JavaScript Object Notation (JSON). Esta opção exibe uma caixa de texto em que uma cadeia de caracteres geojson pode ser inserida para marcar os limites do farm. Você também pode criar código geojson a partir de GeoJSON.io.
+Use as dicas de ferramenta para ajudar a preencher as informações.
 
     ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
-3.  Selecione **Enviar** para criar uma fazenda. Uma nova fazenda é criada e exibida na página **Fazendas.**
+3.  Selecione **Enviar** para criar um farm. Um novo farm é criado e exibido na página **farms** .
 
-## <a name="view-farm"></a>Ver fazenda
+## <a name="view-farm"></a>Exibir farm
 
-A página da lista Fazenda exibe uma lista de fazendas criadas. Selecione uma fazenda para visualizar a lista de:
+A página lista de farms exibe uma lista de farms criados. Selecione um farm para exibir a lista de:
 
- - **Contagem de** dispositivos — exibe o número e o status dos dispositivos implantados dentro da fazenda.
- - **Mapa** — mapa da fazenda com os dispositivos implantados na fazenda.
- - **Telemetria** — exibe a telemetria dos sensores implantados na fazenda.
- - **Mapas de precisão mais recentes** — exibem o mais recente mapa de índices de satélite (EVI, NDWI), mapa de calor de umidade do solo e mapa de colocação de sensores.
+ - **Contagem de dispositivos** — exibe o número e o status dos dispositivos implantados no farm.
+ - **Mapa** — mapa do farm com os dispositivos implantados no farm.
+ - **Telemetria** — exibe a telemetria dos sensores implantados no farm.
+ - **Mapas de precisão mais** recentes — exibe o mapa de índices satélite mais recente (Evi, NDWI), a umidade de solo calor e o mapa de posicionamento do sensor.
 
-## <a name="edit-farm"></a>Editar fazenda
+## <a name="edit-farm"></a>Editar farm
 
-A página **Fazendas** exibe uma lista de fazendas criadas.
+A página **farms** exibe uma lista de farms criados.
 
-1.  Selecione uma fazenda para visualizar e editar a fazenda.
-2.  Selecione **Editar Fazenda** para editar as informações da fazenda. Na janela Detalhes da **Fazenda,** você pode editar **Nome,** **Culturas,** **Endereço**e definir campos de Limite **de Fazenda.**
+1.  Selecione um farm para exibir e editar o farm.
+2.  Selecione **Editar farm** para editar as informações do farm. Na janela **detalhes do farm** , você pode editar **nomes**, **aparas**, **endereços**e definir campos de **limite do farm** .
 
     ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
 
 3. Selecione **Enviar** para salvar os detalhes editados.
 
-## <a name="delete-farm"></a>Excluir fazenda
+## <a name="delete-farm"></a>Excluir farm
 
-A página **Fazendas** exibe uma lista de fazendas criadas. Use as seguintes etapas para excluir uma fazenda:
+A página **farms** exibe uma lista de farms criados. Use as seguintes etapas para excluir um farm:
 
-1.  Selecione uma fazenda da lista para excluir os detalhes da fazenda.
-2.  Selecione **Excluir Fazenda** para excluir a fazenda.
+1.  Selecione um farm na lista para excluir os detalhes do farm.
+2.  Selecione **excluir farm** para excluir o farm.
 
     ![Projeto do FarmBeats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
-    > Quando você exclui uma fazenda, os dispositivos e mapas associados à fazenda não são excluídos. Qualquer informação da fazenda associada ao dispositivo e aos mapas não será relevante. Você pode continuar a ver dispositivos, telemetria e mapas do serviço FarmBeats.
+    > Quando você exclui um farm, os dispositivos e mapas associados ao farm não são excluídos. Todas as informações de farm associadas ao dispositivo e aos mapas não serão relevantes. Você pode continuar a exibir dispositivos, telemetria e mapas do serviço FarmBeats.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou sua fazenda, aprenda a [obter dados de sensores](get-sensor-data-from-sensor-partner.md) fluindo para sua fazenda.
+Agora que você criou seu farm, saiba como [obter dados de sensor](get-sensor-data-from-sensor-partner.md) que fluem para seu farm.

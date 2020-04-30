@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79274756"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e do Linux no Azure Monitor
@@ -41,7 +41,7 @@ Siga este procedimento para adicionar um novo contador de desempenho do Windows 
 
     Durante a coleta de contadores de desempenho do SQL Server de instâncias nomeadas, todos os contadores de instância nomeados começam com *MSSQL$* seguidos do nome da instância.  Por exemplo, para coletar o contador de Proporção de Ocorrência no Cache de Log para todos os bancos de dados do objeto de desempenho de Banco de Dados para a instância nomeada do SQL INST2, especificar `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Clique **+** ou **pressione Enter** para adicionar o contador à lista.
+2. Clique **+** ou pressione **Enter** para adicionar o contador à lista.
 3. Quando você adicionar um contador, ele usa o padrão de 10 segundos para seu **Intervalo de Amostragem**.  Você poderá alterar isso para um valor mais alto de até 1800 segundos (30 minutos) se desejar reduzir os requisitos de armazenamento dos dados de desempenho coletados.
 4. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
 
@@ -53,7 +53,7 @@ Siga este procedimento para adicionar um novo contador de desempenho do Linux pa
 
 1. Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes.  Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.  Se você quiser modificar esse arquivo manualmente em cada agente do Linux, desmarque a caixa *Aplicar as configurações abaixo aos computadores Linux* e siga a diretriz abaixo.
 2. Digite o nome do contador na caixa de texto no formato *objeto(instâncias)\contador*.  Quando você começar a digitar, verá uma lista de correspondência dos contadores comuns.  Você pode selecionar um contador na lista ou digitar um dos seus.  
-3. Clique **+** ou **pressione Enter** para adicionar o contador à lista de outros contadores para o objeto.
+3. Clique **+** ou pressione **Enter** para adicionar o contador à lista de outros contadores para o objeto.
 4. Todos os contadores para um objeto usam o mesmo **Intervalo de Amostragem**.  O padrão é 10 segundos.  Você altera para um valor mais alto de até 1800 segundos (30 minutos) se desejar reduzir os requisitos de armazenamento dos dados de desempenho coletados.
 5. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
 
@@ -115,9 +115,9 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Rede | Total de Erros de Rx |
 | Rede | Total de Erros de Tx |
 | Rede | Total de Colisões |
-| Disco Físico | Avg. Disk sec/Read |
-| Disco Físico | Avg. Disk sec/Transfer |
-| Disco Físico | Avg. Disk sec/Write |
+| Disco Físico | Média de disco s/leitura |
+| Disco Físico | Média de disco s/transferência |
+| Disco Físico | Média de disco s/gravação |
 | Disco Físico | Bytes/s do Disco Físico |
 | Processo | % de Tempo Privilegiado |
 | Processo | % de Tempo do Usuário |
@@ -131,13 +131,13 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Processador | % de Tempo Privilegiado |
 | Processador | % Tempo do Processador |
 | Processador | % de Tempo do Usuário |
-| Sistema | Memória Física Livre |
-| Sistema | Espaço Livre em Arquivos de Paginação |
-| Sistema | Memória Virtual Livre |
-| Sistema | Processos |
-| Sistema | Tamanho Armazenado em Arquivos de Paginação |
-| Sistema | Tempo de atividade |
-| Sistema | Usuários |
+| System (sistema) | Memória Física Livre |
+| System (sistema) | Espaço Livre em Arquivos de Paginação |
+| System (sistema) | Memória Virtual Livre |
+| System (sistema) | Processos |
+| System (sistema) | Tamanho Armazenado em Arquivos de Paginação |
+| System (sistema) | Tempo de atividade |
+| System (sistema) | Usuários |
 
 
 A seguir está a configuração padrão para as métricas de desempenho.
@@ -204,10 +204,10 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 | Perf |Todos os dados de desempenho |
 | Perf &#124; where Computer == "MyComputer" |Todos os dados de desempenho de um computador específico |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |Todos os dados de desempenho de um contador específico |
-| O Perf &#124; onde ObjectName == "Processador" e ContraNome == "% Tempo do Processador" e Nome de Ocorrência =: "_Total" &#124; resumir AVGCPU = avg (CounterValue) pelo computador |Utilização média da CPU em todos os computadores |
-| Perf &#124; onde CounterName == "% Tempo do Processador" &#124; resumir AgregadoValor = max (CounterValue) pelo computador |Utilização máxima da CPU em todos os computadores |
-| O Perf &#124; onde objectName == "LogicalDisk" e CounterName == "Comprimento da fila de disco atual" e computador == "MyComputerName" &#124; resumir AgregadoValor = avg (CounterValue) por InstanceName |Comprimento médio da fila de disco atual em todas as instâncias de um determinado computador |
-| Perf &#124; onde CounterName == "Transferências de Disco/seg" &#124; resumir AggregatedValue = percentil (CounterValue, 95) por computador |95º percentil de transferências de disco/s em todos os computadores |
+| Perf &#124; em que ObjectName = = "Processor" e CounterName = = "% Processor Time" e InstanceName = = "_Total" &#124; resume AVGCPU = AVG (comvalue) por computador |Utilização média da CPU em todos os computadores |
+| Perf &#124; em que CounterName = = "% Processor Time" &#124; resume AggregatedValue = Max (comvalue) por computador |Utilização máxima da CPU em todos os computadores |
+| Perf &#124; em que ObjectName = = "LogicalDisk" e CounterName = = "comprimento atual da fila do disco" e computador = = "mycomputername" &#124; resumir AggregatedValue = AVG (comvalue) por InstanceName |Comprimento médio da fila de disco atual em todas as instâncias de um determinado computador |
+| Perf &#124; em que CounterName = = "transferências de disco/s" &#124; resumir AggregatedValue = percentil (comvalue, 95) por computador |95º percentil de transferências de disco/s em todos os computadores |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Por hora média de utilização da CPU em todos os computadores |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Percentil de 70 por hora de cada contador de porcentagem % para um computador específico |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Por hora média, mínima, máximo e percentil de 75 da CPU para um computador específico |

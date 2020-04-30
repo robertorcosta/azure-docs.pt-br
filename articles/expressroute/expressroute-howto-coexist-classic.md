@@ -1,5 +1,5 @@
 ---
-title: 'Configure conexões coexistentes expressRoute e S2S VPN: clássica'
+title: 'Configurar conexões coexistentes de VPN do ExpressRoute e S2S: clássico'
 description: Este artigo o orienta na configuração do ExpressRoute e de uma conexão VPN Site a Site que pode coexistir para o modelo de implantação clássico.
 documentationcenter: na
 services: expressroute
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: charwen
 ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79272923"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Configurar as conexões coexistentes do ExpressRoute e do Site a Site (clássico)

@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275172"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um arquivo de solução de gerenciamento no Azure (versão prévia)
@@ -66,7 +66,7 @@ A tabela a seguir descreve os atributos de um parâmetro.
 | type |Tipo de dados para o parâmetro. O controle de entrada exibido para o usuário depende do tipo de dados.<br><br>bool – Caixa suspensa<br>cadeia de caracteres – caixa de texto<br>int – Caixa de texto<br>securestring – Campo de senha<br> |
 | category |Categoria opcional para o parâmetro.  Parâmetros na mesma categoria são agrupados. |
 | controle |Funcionalidade adicional para parâmetros de cadeia de caracteres.<br><br>datetime – O controle datetime é exibido.<br>GUID – O valor de GUID é gerado automaticamente e o parâmetro não é exibido. |
-| descrição |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
+| description |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
 
 ### <a name="standard-parameters"></a>Parâmetros padrão
 A tabela a seguir lista os parâmetros padrão para todas as soluções de gerenciamento.  Esses valores são populados para o usuário em vez de solicitados a eles quando a solução é instalada dos modelos do Azure Marketplace ou de Início Rápido.  Se a solução for instalada com outro método, o usuário deverá fornecer valores para eles.
@@ -78,12 +78,12 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 
 | Parâmetro | Type | Descrição |
 |:--- |:--- |:--- |
-| accountName |string |Nome da conta de Automação do Azure. |
-| pricingTier |string |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
-| regionId |string |Região da conta de Automação do Azure. |
-| solutionName |string |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
-| workspaceName |string |O nome do espaço de trabalho do Log Analytics. |
-| workspaceRegionId |string |A região do espaço de trabalho do Log Analytics. |
+| accountName |cadeia de caracteres |Nome da conta de Automação do Azure. |
+| pricingTier |cadeia de caracteres |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
+| regionId |cadeia de caracteres |Região da conta de Automação do Azure. |
+| solutionName |cadeia de caracteres |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
+| workspaceName |cadeia de caracteres |O nome do espaço de trabalho do Log Analytics. |
+| workspaceRegionId |cadeia de caracteres |A região do espaço de trabalho do Log Analytics. |
 
 
 A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar em seu arquivo de solução.  
@@ -122,7 +122,7 @@ A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar
     }
 
 
-Consulte os valores de parâmetro em outros elementos da solução com a sintaxe **parameters('nome do parâmetro')**.  Por exemplo, para acessar o nome do espaço de trabalho, você usaria **parâmetros ('workspaceName')**
+Consulte os valores de parâmetro em outros elementos da solução com a sintaxe **parameters('nome do parâmetro')**.  Por exemplo, para acessar o nome do espaço de trabalho, você usaria **parâmetros (' WorkspaceName ')**
 
 ## <a name="variables"></a>Variáveis
 [Variáveis](../../azure-resource-manager/templates/template-syntax.md#variables) são valores que serão usados no restante da solução de gerenciamento.  Esses valores não são expostos ao usuário que instala a solução.  Eles se destinam a fornecer ao autor um único local onde ele pode gerenciar os valores que podem ser usados várias vezes em toda a solução. É necessário colocar os valores específicos à solução em variáveis, em vez de embuti-los em código no elemento **resources**.  Isso torna o código mais legível e permite que você altere esses valores facilmente em versões posteriores.
@@ -137,7 +137,7 @@ A seguir está um exemplo de um elemento **variables** com parâmetros típicos 
         "AutomationApiVersion": "2015-10-31"
     },
 
-Você consulta os valores de variáveis por toda a solução com a sintaxe **variables('nome da variável')**.  Por exemplo, para acessar a variável SolutionName, você usaria **variáveis ('SolutionName')**.
+Você consulta os valores de variáveis por toda a solução com a sintaxe **variables('nome da variável')**.  Por exemplo, para acessar a variável SolutionName, você usaria **variáveis (' SolutionName ')**.
 
 Você também pode definir variáveis complexas que têm vários conjuntos de valores.  Elas são particularmente úteis em soluções de gerenciamento, quando você estiver definindo várias propriedades para diferentes tipos de recursos.  Por exemplo, é possível reestruturar as variáveis da solução mostradas acima, conforme indicado a seguir.
 
@@ -206,7 +206,7 @@ O recurso da solução tem as propriedades na tabela a seguir.  Isso inclui os r
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| workspaceResourceId |ID do espaço de trabalho do Log Analytics no formulário * \<ID do Grupo\<de Recursos\>>/provedores/Microsoft.OperationalInsights/workspaces/ Nome do espaço de trabalho*. |
+| workspaceResourceId |ID do espaço de trabalho log Analytics na * \<ID do grupo de recursos do\<formulário>\>nome do espaço de trabalho/Providers/Microsoft.operationalinsights/Workspaces/*. |
 | referencedResources |Lista de recursos na solução que não deverão ser removidos quando a solução for removida. |
 | containedResources |Lista de recursos na solução que deverão ser removidos quando a solução for removida. |
 
@@ -218,9 +218,9 @@ A entidade **plano** do recurso da solução tem as propriedades na tabela a seg
 | Propriedade | Descrição |
 |:--- |:--- |
 | name |O nome da solução. |
-| version |Versão da solução conforme determinado pelo autor. |
+| Versão |Versão da solução conforme determinado pelo autor. |
 | product |Cadeia de caracteres exclusiva para identificar a solução. |
-| publicador |O publicador da solução. |
+| editor |O publicador da solução. |
 
 
 
