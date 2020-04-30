@@ -1,13 +1,13 @@
 ---
-title: Saiba mais sobre a segurança do aplicativo Azure Service Fabric
+title: Saiba mais sobre a segurança do aplicativo Service Fabric do Azure
 description: Uma visão geral de como executar com segurança aplicativos de microsserviço no Service Fabric. Saiba como executar um script de inicialização e serviços em diferentes contas de segurança, autenticar e autorizar usuários, gerenciar segredos de aplicativo, proteger as comunicações de serviço, usar um gateway de API e proteger dados em repouso de aplicativos.
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.openlocfilehash: c97c5345a1a18cce8c44508542f12d3642d2b8f9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461422"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Segurança de serviço e aplicativo do Service Fabric
@@ -25,7 +25,7 @@ A primeira etapa para tomar decisões de confiança de nível de API é a autent
 
 Se os serviços puderem ser acessados diretamente, um serviço de autenticação, como o Azure Active Directory ou um microsserviço de autenticação dedicado atuando como um serviço de token de segurança (STS), poderá ser usado para autenticar os usuários. As decisões de confiança são compartilhadas entre os serviços com tokens de segurança ou cookies. 
 
-Para o ASP.NET Core, o mecanismo principal para [autenticar usuários](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) é o sistema de associação da Identidade do ASP.NET Core. A Identidade do ASP.NET Core armazena informações de usuário (incluindo informações de logon, funções e declarações) em um repositório de dados configurado pelo desenvolvedor. A Identidade do ASP.NET Core dá suporte à autenticação de dois fatores.  Os provedores de autenticação externotambém são suportados, para que os usuários possam entrar usando processos de autenticação existentes de provedores como Microsoft, Google, Facebook ou Twitter.
+Para o ASP.NET Core, o mecanismo principal para [autenticar usuários](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) é o sistema de associação da Identidade do ASP.NET Core. A Identidade do ASP.NET Core armazena informações de usuário (incluindo informações de logon, funções e declarações) em um repositório de dados configurado pelo desenvolvedor. A Identidade do ASP.NET Core dá suporte à autenticação de dois fatores.  Os provedores de autenticação externa também têm suporte, para que os usuários possam entrar usando os processos de autenticação existentes de provedores como Microsoft, Google, Facebook ou Twitter.
 
 ### <a name="authorization"></a>Autorização
 Após a autenticação, os serviços precisam autorizar o acesso do usuário ou determinar o que um usuário é capaz de fazer. Esse processo permite que um serviço disponibilize APIs para alguns usuários autenticados, mas não para todos. A autorização é ortogonal e independente de autenticação, que é o processo de verificação de quem é um usuário. A autenticação pode criar uma ou mais identidades para o usuário atual.
@@ -33,14 +33,14 @@ Após a autenticação, os serviços precisam autorizar o acesso do usuário ou 
 A [autorização do ASP.NET Core](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) pode ser feita com base nas funções dos usuários ou com base em política personalizada, que pode incluir a inspeção de declarações ou outros fatores.
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>Restringir e proteger o acesso usando um gateway de API
-Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. Um [gateway de API](/azure/architecture/microservices/gateway) fica entre clientes e serviços e é o ponto de entrada para todos os serviços que o seu aplicativo fornece. Ele atua como um proxy reverso, encaminhando as solicitações de clientes para serviços. Ele também pode executar várias tarefas transversais, como autenticação e autorização, rescisão de TLS e limitação de taxas. Se você não implantar um gateway, os clientes deverão enviar solicitações diretamente aos serviços front-end.
+Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. Um [gateway de API](/azure/architecture/microservices/gateway) fica entre clientes e serviços e é o ponto de entrada para todos os serviços que o seu aplicativo fornece. Ele atua como um proxy reverso, encaminhando as solicitações de clientes para serviços. Ele também pode executar várias tarefas abrangentes, como autenticação e autorização, terminação de TLS e limitação de taxa. Se você não implantar um gateway, os clientes deverão enviar solicitações diretamente aos serviços front-end.
 
 No Service Fabric, um gateway pode ser qualquer serviço sem estado, como um [aplicativo ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md), ou outro serviço projetado para entrada de tráfego, como [Traefik](https://docs.traefik.io/), [Hubs de Eventos](https://docs.microsoft.com/azure/event-hubs/), [Hub IoT](https://docs.microsoft.com/azure/iot-hub/) ou [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management).
 
 O Gerenciamento de API integra-se diretamente com o Service Fabric, permitindo que APIs sejam publicadas com um conjunto de regras de roteamento avançado para serviços de back-end do Service Fabric .  Você pode proteger o acesso a serviços de back-end, evitar ataques de DOS usando limitação ou verificar chaves de API, tokens de JWT, certificados e outras credenciais. Para saber mais, leia [Service Fabric com visão geral de Gerenciamento de API do Azure](service-fabric-api-management-overview.md).
 
 ## <a name="manage-application-secrets"></a>Gerenciar segredos do aplicativo
-Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação. Este artigo usa o Azure Key Vault para gerenciar chaves e segredos. No entanto, *o uso de* segredos em um aplicativo é agnóstico em nuvem para permitir que os aplicativos sejam implantados em um cluster hospedado em qualquer lugar.
+Os segredos podem ser informações confidenciais, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser tratados como texto sem formatação. Este artigo usa o Azure Key Vault para gerenciar chaves e segredos. No entanto, o *uso* de segredos em um aplicativo é independente da plataforma de nuvem para permitir que os aplicativos sejam implantados em um cluster hospedado em qualquer lugar.
 
 A maneira recomendada de gerenciar as definições de configuração de serviço é por meio de [pacotes de configuração de serviço][config-package]. Os pacotes de configuração são atualizáveis e têm controle de versão por meio de atualizações sem interrupção gerenciadas com reversão automática e validação de integridade. Isso é preferível à configuração global, pois reduz as chances de uma interrupção de serviços globais. Segredos criptografados não são exceção. O Service Fabric tem recursos internos para criptografar e descriptografar valores em um arquivo Settings.XML do pacote de configuração usando a criptografia de certificado.
 

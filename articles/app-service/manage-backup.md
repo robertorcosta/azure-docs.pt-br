@@ -1,19 +1,19 @@
 ---
 title: Fazer backup de um aplicativo
-description: Saiba como criar backups de seus aplicativos no Serviço de Aplicativo do Azure. Executar backups manuais ou agendados. Personalize backups incluindo o banco de dados anexado.
+description: Saiba como criar backups de seus aplicativos no Serviço de Aplicativo do Azure. Execute backups manuais ou agendados. Personalize os backups incluindo o banco de dados anexado.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81535750"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
-O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode configurar os backups a serem retidos até um período de tempo indefinido. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
+O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode configurar os backups a serem mantidos até um período indefinido de tempo. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
 
 Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md).
 
@@ -22,7 +22,7 @@ Para obter informações sobre como restaurar um aplicativo por um backup, veja 
 ## <a name="what-gets-backed-up"></a>Do que é feito backup
 O Serviço de Aplicativo pode fazer backup das seguintes em uma conta de armazenamento do Azure e um contêiner que você configurou para uso de seu aplicativo. 
 
-* Configuração do aplicativo
+* Configuração de aplicativo
 * Conteúdo do arquivo
 * Banco de dados conectado ao seu aplicativo
 
@@ -44,8 +44,8 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 * O recurso de Backup e Restauração exige que o plano de Serviço de Aplicativo esteja na camada **Standard** ou **Premium**. Para obter mais informações sobre como dimensionar seu plano do Serviço de Aplicativo para usar uma camada superior, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](manage-scale-up.md). A camada **Premium** permite um número maior de backups diários do que a camada **Standard**.
 * Você precisa de uma conta de armazenamento do Azure e do contêiner na mesma assinatura do aplicativo do qual você deseja fazer backup. Para saber mais sobre as contas de armazenamento do Microsoft Azure, confira [Visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Backups podem ter até 10 GB de conteúdo do aplicativo e do banco de dados. Se o tamanho do backup ultrapassar esse limite, você receberá um erro.
-* Os backups do Banco de Dados Azure habilitado para TLS para MySQL não são suportados. Se houver um backup configurado, os backups falharão.
-* Os backups do Banco de Dados Azure habilitado para O MailgreSQL não são suportados. Se houver um backup configurado, os backups falharão.
+* Não há suporte para backups do banco de dados do Azure habilitado para TLS para MySQL. Se houver um backup configurado, os backups falharão.
+* Não há suporte para backups do banco de dados do Azure habilitado para TLS para PostgreSQL. Se houver um backup configurado, os backups falharão.
 * O backup de bancos de dados MySQL no aplicativo é feito automaticamente, sem nenhuma configuração. Se você fizer manualmente configurações para bancos de dados MySQL no aplicativo, tais como a adição de cadeias de conexão, os backups poderão não funcionar corretamente.
 * Não há suporte para usar uma conta de armazenamento habilitada para firewall como o destino dos backups. Se houver um backup configurado, os backups falharão.
 
@@ -64,11 +64,11 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
     > 
     > 
 
-2. Na página **Backup,** **selecione Backup não está configurado. Clique aqui para configurar o backup para o seu aplicativo**.
+2. Na página **backup** , selecione o **backup não está configurado. Clique aqui para configurar o backup para seu aplicativo**.
 
     ![Clique em Configurar](./media/manage-backup/configure-start.png)
 
-3. Na página **Configuração de backup,** clique **em Armazenamento não configurado** para configurar uma conta de armazenamento.
+3. Na página **configuração de backup** , clique em **armazenamento não configurado** para configurar uma conta de armazenamento.
 
     ![Escolher uma conta de armazenamento](./media/manage-backup/configure-storage.png)
 
@@ -86,7 +86,7 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
     > 
 
 6. Na página **Configuração de backup**, clique em **Salvar**.
-7. Na página **Backups,** clique **em Backup**.
+7. Na página **backups** , clique em **backup**.
 
     ![Botão BackUpNow](./media/manage-backup/manual-backup.png)
 
@@ -101,7 +101,7 @@ Após a configuração da conta de armazenamento e do contêiner, será possíve
 
     ![Habilitar backups automatizados](./media/manage-backup/scheduled-backup.png)
 
-2. Configure o cronograma de backup conforme desejado e selecione **OK**.
+2. Configure o agendamento de backup conforme desejado e selecione **OK**.
 
 <a name="partialbackups"></a>
 
@@ -115,12 +115,12 @@ Após a configuração da conta de armazenamento e do contêiner, será possíve
 Os backups parciais permitem que você escolha exatamente quais arquivos deseja incluir no backup.
 
 > [!NOTE]
-> Bancos de dados individuais no backup podem ser de 4GB no máximo, mas o tamanho máximo total do backup é de 10GB
+> Bancos de dados individuais no backup podem ter 4 GB máx, mas o tamanho máximo total do backup é 10 GB
 
 ### <a name="exclude-files-from-your-backup"></a>Excluir arquivos do backup
 Vamos supor que você tenha um aplicativo que contém arquivos de log e imagens estáticas que passaram por backup e não vão mais sofrer alteração. Nesses casos, é possível excluir essas pastas e arquivos de serem armazenadas em seus backups futuros. Para excluir arquivos e pastas de seus backups, crie um arquivo `_backup.filter` na pasta `D:\home\site\wwwroot` de seu aplicativo. Especifique a lista de arquivos e pastas que você excluir deste arquivo. 
 
-Você pode acessar seus arquivos `https://<app-name>.scm.azurewebsites.net/DebugConsole`navegando para . Se solicitado, entre em sua conta do Azure.
+Você pode acessar seus arquivos navegando até `https://<app-name>.scm.azurewebsites.net/DebugConsole`. Se solicitado, entre em sua conta do Azure.
 
 Identifique as pastas que você quer excluir de seus backups. Por exemplo, você deseja filtrar a pasta e os arquivos realçados.
 
@@ -134,7 +134,7 @@ Crie um arquivo chamado `_backup.filter` e coloque a lista anterior no arquivo, 
 \site\wwwroot\Images\2013
 ```
 
-Carregue o arquivo `_backup.filter` no diretório `D:\home\site\wwwroot\` de seu site usando o [ftp](deploy-ftp.md) ou qualquer outro método. Se desejar, você pode criar o `DebugConsole` arquivo diretamente usando Kudu e inserir o conteúdo lá.
+Carregue o arquivo `_backup.filter` no diretório `D:\home\site\wwwroot\` de seu site usando o [ftp](deploy-ftp.md) ou qualquer outro método. Se desejar, você pode criar o arquivo diretamente usando kudu `DebugConsole` e inserir o conteúdo lá.
 
 Execute backups da mesma maneira que faria normalmente, de modo [manual](#create-a-manual-backup) ou [automático](#configure-automated-backups). Agora, quaisquer arquivos e pastas especificados em `_backup.filter` serão excluídos dos backups futuros agendados ou iniciados manualmente. 
 
@@ -164,7 +164,7 @@ O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. 
 Para obter exemplos, consulte:
 
 - [Exemplos da CLI do Azure](samples-cli.md)
-- [Amostras do Azure PowerShell](samples-powershell.md)
+- [Exemplos de Azure PowerShell](samples-powershell.md)
 
 <a name="nextsteps"></a>
 

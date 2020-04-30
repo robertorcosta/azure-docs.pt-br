@@ -1,6 +1,6 @@
 ---
 title: Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
-description: Como configurar algumas das propriedades de rede mais avançadas para conjuntos de escala de máquinavirtual do Azure.
+description: Como configurar algumas das propriedades de rede mais avançadas para conjuntos de dimensionamento de máquinas virtuais do Azure.
 author: mimckitt
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
 ms.openlocfilehash: efe3a39008361fdf76d80a0c8e7e2e30b061117d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461337"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -41,27 +41,27 @@ A Rede Acelerada do Azure melhora o desempenho de rede habilitando a SR-IOV (vir
 }
 ```
 
-## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de escala de máquina virtual do Azure com o Azure Load Balancer
+## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Conjuntos de dimensionamento de máquinas virtuais do Azure com Azure Load Balancer
 
-Ao trabalhar com conjuntos de escala de máquina virtual e balanceador de carga, devem ser considerados os seguintes:
+Ao trabalhar com conjuntos de dimensionamento de máquinas virtuais e balanceador de carga, deve-se considerar o seguinte:
 
-* **Vários conjuntos de escala de máquinavirtual não podem usar o mesmo balanceador de carga**.
-* **Regras de encaminhamento de portas e NAT de entrada:**
-  * Cada conjunto de escala de máquina virtual deve ter uma regra NAT de entrada.
-  * Depois que o conjunto de escalas for criado, a porta backend não pode ser modificada para uma regra de balanceamento de carga usada por uma sonda de saúde do balanceador de carga. Para alterar a porta, você pode remover o teste de saúde atualizando o conjunto de escala da máquina virtual do Azure, atualizar a porta e, em seguida, configurar o teste de saúde novamente.
-  * Ao usar a escala de máquina virtual definida no pool de backend do balanceador de carga, as regras NAT de entrada padrão são criadas automaticamente.
+* **Vários conjuntos de dimensionamento de máquinas virtuais não podem usar o mesmo balanceador de carga**.
+* **Regras NAT de encaminhamento de porta e de entrada**:
+  * Cada conjunto de dimensionamento de máquinas virtuais deve ter uma regra NAT de entrada.
+  * Depois que o conjunto de dimensionamento tiver sido criado, a porta de back-end não poderá ser modificada para uma regra de balanceamento de carga usada por uma investigação de integridade do balanceador de carga. Para alterar a porta, você pode remover a investigação de integridade atualizando o conjunto de dimensionamento de máquinas virtuais do Azure, atualizar a porta e, em seguida, configurar a investigação de integridade novamente.
+  * Ao usar o conjunto de dimensionamento de máquinas virtuais no pool de back-end do balanceador de carga, as regras de NAT de entrada padrão são criadas automaticamente.
 * **Regras de balanceamento de carga**:
-  * Ao usar a escala de máquina virtual definida no pool de backend do balanceador de carga, a regra padrão de balanceamento de carga é criada automaticamente.
-* **Regras de saída:**
-  *  Para criar uma regra de saída para um pool de backend que já é referenciada por uma regra de balanceamento de carga, você precisa primeiro marcar **"Criar regras implícitas de saída"** como **Não** no portal quando a regra de balanceamento de carga de entrada for criada.
+  * Ao usar o conjunto de dimensionamento de máquinas virtuais no pool de back-end do balanceador de carga, a regra de balanceamento de carga padrão é criada automaticamente.
+* **Regras de saída**:
+  *  Para criar uma regra de saída para um pool de back-end que já é referenciado por uma regra de balanceamento de carga, você precisa primeiro marcar **"criar regras de saída implícitas"** como **não** no portal quando a regra de balanceamento de carga de entrada é criada.
 
-  :::image type="content" source="./media/vmsslb.png" alt-text="Criação de regras de balanceamento de carga" border="true":::
+  :::image type="content" source="./media/vmsslb.png" alt-text="Criação de regra de balanceamento de carga" border="true":::
 
-Os seguintes métodos podem ser usados para implantar um conjunto de escala de máquina virtual com um balanceador de carga Azure existente.
+Os métodos a seguir podem ser usados para implantar um conjunto de dimensionamento de máquinas virtuais com um balanceador de carga do Azure existente.
 
-* [Configure um conjunto de escala de máquina virtual com um Azure Load Balancer existente usando o portal Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
-* [Configure um conjunto de escala de máquina virtual com um Balanceador de carga Azure existente usando o Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
-* [Configure um conjunto de escala de máquina virtual com um Azure Load Balancer existente usando o Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
+* [Configure um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o CLI do Azure](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencia um Gateway de Aplicativo
 Para criar um conjunto de dimensionamento que usa um gateway de aplicativo, referencie o pool de endereços de back-end do gateway de aplicativo na seção ipConfigurations do conjunto de dimensionamento como nesta configuração de modelo ARM:

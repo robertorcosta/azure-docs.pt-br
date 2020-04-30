@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 32691e0ddcee3f5410b12f07a2fb80806345bc26
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460504"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Azure Key Vault com Java para o Armazenamento do Microsoft Azure
@@ -47,7 +47,7 @@ A descriptografia com a técnica de envelope funciona da seguinte maneira:
 A biblioteca de cliente de armazenamento usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para criptografar os dados do usuário. Especificamente, o modo [CBC (Encadeamento de Blocos de Criptografia)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) com AES. Cada serviço funciona ligeiramente diferente, portanto, discutiremos cada uma deles aqui.
 
 ### <a name="blobs"></a>Blobs
-Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, a criptografia é suportada quando os usuários usam os métodos **upload*** ou o método **openOutputStream.** Para downloads, tanto os downloads completos quanto os de intervalo têm suporte.  
+Atualmente, a biblioteca de cliente dá suporte à criptografia somente de blobs completos. Especificamente, há suporte para a criptografia quando os usuários usam os métodos **upload*** ou o método **openOutputStream** . Para downloads, tanto os downloads completos quanto os de intervalo têm suporte.  
 
 Durante a criptografia, a biblioteca de cliente gerará um vetor de inicialização aleatório (IV) de 16 bytes, juntamente com uma chave de criptografia aleatória de conteúdo (CEK) de 32 bytes e executará a criptografia de envelope dos dados blob usando essas informações. O CEK encapsulado e alguns metadados adicionais de criptografia são armazenadas como metadados com o blob criptografado no serviço de blob.
 
@@ -56,9 +56,9 @@ Durante a criptografia, a biblioteca de cliente gerará um vetor de inicializaç
 > 
 > 
 
-Baixar uma bolha criptografada envolve recuperar o conteúdo de toda a bolha usando os métodos de conveniência**openInputStream** **de download.**/ O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
+O download de um blob criptografado envolve a recuperação do conteúdo do blob inteiro usando os métodos de conveniência de **Download**/do**openInputStream** . O CEK encapsulado é desempacotado e usado em conjunto com o IV (armazenado como metadados de blob neste caso) para retornar os dados descriptografados para os usuários.
 
-Baixar uma faixa arbitrária (métodos**downloadRange)** na bolha criptografada envolve ajustar o intervalo fornecido pelos usuários, a fim de obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com sucesso o intervalo solicitado.  
+O download de um intervalo arbitrário (métodos**métodos downloadrange** ) no blob criptografado envolve o ajuste do intervalo fornecido pelos usuários para obter uma pequena quantidade de dados adicionais que podem ser usados para descriptografar com êxito o intervalo solicitado.  
 
 Todos os tipos de blob (blobs de blocos, blobs de páginas e blobs de anexo) podem ser criptografados/descriptografados usando este esquema.
 
@@ -90,7 +90,7 @@ Criptografia de dados de tabela funciona da seguinte maneira:
    
    Observe que somente as propriedades de cadeia de caracteres podem ser criptografadas. Se outros tipos de propriedades precisarem ser criptografados, elas devem ser convertidas em cadeias de caracteres. As cadeias de caracteres criptografadas são armazenadas no serviço como propriedades binárias, e são convertidas novamente em cadeias de caracteres após a descriptografia.
    
-   Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando um atributo [Encrypt] \(para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, então criptografar a propriedade A; de outra forma, criptografar as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou consulta de entidades.
+   Para tabelas, além da política de criptografia, os usuários devem especificar as propriedades que devem ser criptografadas. Isso pode ser feito especificando um atributo [Encrypt] \(para entidades POCO que derivam de TableEntity) ou um resolvedor de criptografia nas opções de solicitação. Um resolvedor de criptografia é um delegado que usa uma chave de partição, a chave de linha e o nome da propriedade e retorna um valor booliano que indica se essa propriedade deve ser criptografada. Durante a criptografia, a biblioteca de cliente usará essas informações para decidir se uma propriedade deve ser criptografada durante a gravação para a transmissão. O representante também oferece a possibilidade de lógica em torno de como as propriedades são criptografadas. (Por exemplo, se X, em seguida, criptografe A propriedade A; caso contrário, criptografe as propriedades A e B.) Observe que não é necessário fornecer essas informações durante a leitura ou consulta de entidades.
 
 ### <a name="batch-operations"></a>Operações em lote
 Em operações em lote, o mesmo KEK será usado em todas as linhas de operação em lote porque a biblioteca de cliente permite apenas um objeto de opções (e, portanto, uma política/KEK) por operação em lote. No entanto, a biblioteca de cliente gerará internamente um novo IV e CEK aleatórios por linha no lote. Os usuários também podem optar por criptografar propriedades diferentes para cada operação em lote definindo esse comportamento no resolvedor de criptografia.
@@ -146,7 +146,7 @@ Ao criar um objeto EncryptionPolicy, os usuários podem fornecer somente uma cha
     Os [exemplos de criptografia](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstram um cenário completo mais detalhado para blobs, filas e tabelas, juntamente com a integração do Cofre da Chave.
 
 ### <a name="requireencryption-mode"></a>Modo RequireEncryption
-Os usuários podem habilitar opcionalmente um modo de operação no qual todos os downloads e uploads devem ser criptografados. Nesse modo, as tentativas de carregamento de dados sem uma política de criptografia ou o download de dados que não são criptografados no serviço falharão no cliente. O sinalizador **requireEncryption** do objeto de opções da solicitação controla esse comportamento. Se o aplicativo criptografar todos os objetos armazenados no Azure Storage, você poderá definir a propriedade **requireEncryption** nas opções de solicitação padrão para o objeto cliente do serviço.   
+Os usuários podem habilitar opcionalmente um modo de operação no qual todos os downloads e uploads devem ser criptografados. Nesse modo, as tentativas de carregamento de dados sem uma política de criptografia ou o download de dados que não são criptografados no serviço falharão no cliente. O sinalizador **requireEncryption** do objeto de opções da solicitação controla esse comportamento. Se seu aplicativo for criptografar todos os objetos armazenados no armazenamento do Azure, você poderá definir a propriedade **requireEncryption** nas opções de solicitação padrão para o objeto de cliente de serviço.   
 
 Por exemplo, use **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** para exigir a criptografia de todas as operações de blob executadas por meio desse objeto de cliente.
 
@@ -193,7 +193,7 @@ CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
 
 ### <a name="table-service-encryption"></a>Criptografia do serviço Tabela
-Além de criar uma política de criptografia e defini-la nas opções de solicitação, você deve especificar um **EncryptionResolver** em **TableRequestOptions**ou definir o atributo [Criptografar] no getter e setter da entidade.
+Além de criar uma política de criptografia e defini-la nas opções de solicitação, você deve especificar um **EncryptionResolver** em **TableRequestOptions**ou definir o atributo [Encrypt] no getter e no setter da entidade.
 
 ### <a name="using-the-resolver"></a>Usando o resolvedor
 
@@ -255,5 +255,5 @@ Observe que criptografar seu armazenamento de dados resulta em uma sobrecarga ad
 * Baixar a [Biblioteca de cliente do Armazenamento do Azure para o código-fonte Java do GitHub](https://github.com/Azure/azure-storage-java)
 * Baixe a biblioteca do Azure Key Vault Maven para pacotes Java Maven:
   * [Core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core)
-  * [Pacote cliente](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
+  * Pacote do [cliente](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault)
 * Visitar a [Documentação do Cofre de Chaves do Azure](../../key-vault/general/overview.md)

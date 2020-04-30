@@ -1,6 +1,6 @@
 ---
-title: Serviços de aprendizado de máquina com R (visualização)
-description: Este artigo descreve o Azure SQL Database Machine Learning Services (com R) e explica como ele funciona.
+title: Serviços de Machine Learning com R (visualização)
+description: Este artigo descreve o Serviços de Machine Learning do banco de dados SQL do Azure (com R) e explica como ele funciona.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,10 +14,10 @@ manager: cgronlun
 ms.date: 11/20/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 46ca4661d06b52c861431a680a69297575ac99b0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461405"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços de Machine Learning do Banco de Dados SQL do Azure com R (versão prévia)
@@ -28,13 +28,13 @@ Os Serviços do Machine Learning são um recurso do Banco de Dados SQL do Azure,
 
 ## <a name="what-you-can-do-with-r"></a>O que você pode fazer com o R
 
-Use o poder da linguagem R para fornecer análise avançada e machine learning no banco de dados. Essa capacidade leva os cálculos e o processamento para o local em que os dados residem, eliminando a necessidade de efetuar pull de dados na rede. Além disso, você pode aproveitar o poder dos pacotes R corporativos para fornecer análises avançadas em escala.
+Use o poder da linguagem R para fornecer análise avançada e machine learning no banco de dados. Essa capacidade leva os cálculos e o processamento para o local em que os dados residem, eliminando a necessidade de efetuar pull de dados na rede. Além disso, você pode aproveitar o poder dos pacotes de R corporativos para fornecer análises avançadas em escala.
 
 Os Serviços do Machine Learning incluem uma distribuição base do R, sobreposta com pacotes empresariais do R da Microsoft. As funções e os algoritmos do R da Microsoft foram desenvolvidos para escala e utilidade, fornecendo análise preditiva, modelagem estatística, visualizações de dados e algoritmos de machine learning de ponta.
 
 ### <a name="r-packages"></a>Pacotes R
 
-Os pacotes R de código aberto mais comuns são pré-instalados em Serviços de Aprendizado de Máquina. Os seguintes pacotes do R da Microsoft também estão incluídos:
+Os pacotes de R de software livre mais comuns são pré-instalados em Serviços de Machine Learning. Os seguintes pacotes do R da Microsoft também estão incluídos:
 
 | Pacote R | Descrição|
 |-|-|
@@ -46,13 +46,13 @@ Além dos pacotes pré-instalados, você pode [instalar pacotes adicionais](sql-
 
 <a name="signup"></a>
 
-## <a name="sign-up-for-the-preview-closed"></a>Inscreva-se para a pré-visualização (fechada)
+## <a name="sign-up-for-the-preview-closed"></a>Inscrever-se para a versão prévia (fechada)
 
 > [!IMPORTANT]
-> Inscreva-se no Azure SQL Database Machine Learning Services (preview) está **atualmente fechado**.
+> Inscreva-se no Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia) está **fechado**no momento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Veja as [principais diferenças em relação aos Serviços de Aprendizagem de Máquina do Servidor SQL](sql-database-machine-learning-services-differences.md).
-- Para saber como usar o R para consultar o Azure SQL Database Machine Learning Services (preview), consulte o [guia Quickstart](sql-database-connect-query-r.md).
-- Para começar com alguns scripts R simples, consulte [Criar e executar scripts R simples no Azure SQL Database Machine Learning Services (visualização)](sql-database-quickstart-r-create-script.md).
+- Consulte as [principais diferenças de SQL Server serviços de Machine Learning](sql-database-machine-learning-services-differences.md).
+- Para saber como usar o R para consultar o Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia), consulte o [Guia de início rápido](sql-database-connect-query-r.md).
+- Para começar com alguns scripts R simples, consulte [criar e executar scripts r simples no banco de dados SQL do Azure serviços de Machine Learning (versão prévia)](sql-database-quickstart-r-create-script.md).

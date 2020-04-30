@@ -11,17 +11,17 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81530958"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Suporte a linguagem natural nos Serviços Cognitivos do Azure
 
-Os Azure Cognitive Services permitem que você crie aplicativos que vejam, ouçam, falem e entendam seus usuários. Nesses serviços, mais de três dezenas de idiomas têm suporte, permitindo que os usuários se comuniquem com seu aplicativo de formas naturais. Use os links abaixo para ver a disponibilidade do idioma pelo serviço.
+Os serviços cognitivas do Azure permitem criar aplicativos que veem, ouvem, falam e entendem seus usuários. Nesses serviços, mais de três dezenas de idiomas têm suporte, permitindo que os usuários se comuniquem com seu aplicativo de formas naturais. Use os links abaixo para exibir a disponibilidade da linguagem por serviço.
 
-Esses Serviços Cognitivos são agnósticos de linguagem e não têm limitações baseadas na linguagem humana.
+Esses serviços cognitivas são independentes de idioma e não têm limitações com base no idioma humano.
 
 * [Detector de Anomalias (versão prévia)](./anomaly-detector/index.yml)
 * [Custom Vision](./Custom-Vision-Service/index.yml)
@@ -49,7 +49,7 @@ Esses Serviços Cognitivos são agnósticos de linguagem e não têm limitaçõe
 * [Serviço de Fala: conversão de texto em fala](./speech-service/supported-languages.md#text-to-speech)
 * [Serviço de Fala: tradução de fala](./speech-service/supported-languages.md#speech-translation)
 
-## <a name="search"></a>Search
+## <a name="search"></a>Pesquisar
 
 * [Pesquisa Personalizada do Bing](./bing-custom-search/supported-countries-markets.md)
 * [Pesquisa de Imagem do Bing](./bing-image-search/supported-countries-markets.md)
@@ -65,5 +65,5 @@ Esses Serviços Cognitivos são agnósticos de linguagem e não têm limitaçõe
 
 ## <a name="see-also"></a>Confira também
 
-* [O que são os Serviços Cognitivos?](welcome.md)
+* [Quais são os serviços cognitivas?](welcome.md)
 * [Criar uma conta](cognitive-services-apis-create-account.md)

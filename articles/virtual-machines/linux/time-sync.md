@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
 ms.openlocfilehash: 7c93c1f525713a90abd71c30a21401b9d1cfcb9f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460895"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de tempo para VMs Linux no Azure
@@ -26,7 +26,7 @@ A sincronização de Data/Hora é importante para segurança e correlação de e
 O Azure é apoiado pela infraestrutura que executa o Windows Server 2016. O Windows Server 2016 aprimorou os algoritmos usados para corrigir a hora e condicionar o relógio local a sincronizar com o UTC.  O recurso Windows Server 2016 Accurate Time melhorou muito a forma como o serviço VMICTimeSync controla as VMs com o host para o tempo exato. Os aprimoramentos incluem um tempo inicial mais preciso no início da VM ou na restauração da VM e interrupção da correção de latência. 
 
 >[!NOTE]
->Para uma rápida visão geral do Serviço de Tempo do Windows, dê uma olhada neste [vídeo de visão geral de alto nível](https://aka.ms/WS2016TimeVideo).
+>Para obter uma visão geral rápida do Serviço de Horário do Windows, assista a este [vídeo de visão geral de alto nível](https://aka.ms/WS2016TimeVideo).
 >
 > Para obter mais informações, consulte [Hora precisa para Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
@@ -70,7 +70,7 @@ Para confirmar que o NTP está sincronizando corretamente, execute o comando `nt
 
 ### <a name="host-only"></a>Somente do host 
 
-Como os servidores NTP como time.windows.com e ntp.ubuntu.com são públicos, sincronizar o tempo com eles requer o envio de tráfego pela Internet. Atrasos variados de pacotes podem afetar negativamente a qualidade da sincronização de tempo. A remoção do NTP mudando para sincronização somente com host pode, por vezes, melhorar os resultados da sincronização de tempo.
+Como os servidores NTP como time.windows.com e ntp.ubuntu.com são públicos, sincronizar o tempo com eles requer o envio de tráfego pela Internet. Os atrasos de pacotes variados podem afetar negativamente a qualidade da sincronização de tempo. A remoção do NTP alternando para a sincronização somente de host pode às vezes melhorar o tempo de sincronização dos resultados.
 
 Alternar para a sincronização de data/hora somente do host será viável se você tiver problemas de sincronização de data/hora usando a configuração padrão. Experimente a sincronização somente do host para ver se isso melhoraria a sincronização de tempo na sua VM. 
 
@@ -132,27 +132,27 @@ Isso deve retornar **Hyper-v**.
 
 ### <a name="chrony"></a>chrony
 
-No Ubuntu 19.10 e nas versões posteriores, Red Hat Enterprise Linux e CentOS 7.x, [o Chrony](https://chrony.tuxfamily.org/) é configurado para usar um relógio de origem PTP. Em vez de chrony, os lançamentos mais antigos do Linux usam o daemon do Network Time Protocol (ntpd), que não suporta fontes PTP. Para habilitar ptp nessas versões, chrony deve ser instalado manualmente e configurado (em chrony.conf) usando o seguinte código:
+No Ubuntu 19,10 e versões posteriores, Red Hat Enterprise Linux e CentOS 7. x, o [chrony](https://chrony.tuxfamily.org/) é configurado para usar um relógio de origem do PTP. Em vez de chrony, as versões mais antigas do Linux usam o daemon de protocolo NTP (ntpd), que não dá suporte a fontes PTP. Para habilitar o PTP nessas versões, chrony deve ser instalado e configurado manualmente (em chrony. conf) usando o seguinte código:
 
 ```bash
 refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
-Para obter mais informações sobre o Ubuntu e o NTP, consulte [Sincronização de tempo](https://help.ubuntu.com/lts/serverguide/NTP.html).
+Para obter mais informações sobre o Ubuntu e o NTP, consulte [sincronização de horário](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-Para obter mais informações sobre o Red Hat e o NTP, consulte [Configurar NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+Para obter mais informações sobre o Red Hat e o NTP, consulte [Configurar o NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
 
-Para obter mais informações sobre chrony, consulte [Usando chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+Para obter mais informações sobre chrony, consulte [usando o chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
 
-Se as fontes chrony e TimeSync estiverem habilitadas simultaneamente, você pode marcar uma como **preferir,** o que define a outra fonte como um backup. Como os serviços NTP não atualizam o relógio para grandes distorções, exceto após um longo período, o VMICTimeSync recuperará o relógio de eventos de VM pausados muito mais rapidamente do que as ferramentas baseadas em NTP.
+Se as fontes chrony e TimeSync estiverem habilitadas simultaneamente, você poderá marcar uma como **preferir**, o que define a outra fonte como um backup. Como os serviços NTP não atualizam o relógio para grandes distorções, exceto após um longo período, o VMICTimeSync recuperará o relógio de eventos de VM pausados muito mais rapidamente do que as ferramentas baseadas em NTP.
 
-Por padrão, chronyd acelera ou retarda o relógio do sistema para corrigir qualquer desvio de tempo. Se a deriva se tornar muito grande, chrony não consegue consertar a deriva. Para superar isso, o `makestep` parâmetro em **/etc/chrony.conf** pode ser alterado para forçar uma sincronia temporal se a deriva exceder o limite especificado.
+Por padrão, o chronyd acelera ou reduz o relógio do sistema para corrigir qualquer descompasso de tempo. Se o descompasso se tornar muito grande, o chrony falhará ao corrigir o descompasso. Para superar isso, o `makestep` parâmetro em **/etc/chrony.conf** pode ser alterado para forçar um TimeSync se a descompasso exceder o limite especificado.
 
  ```bash
 makestep 1.0 -1
 ```
 
-Aqui, Chrony forçará uma atualização de tempo se a deriva for maior que 1 segundo. Para aplicar as alterações, reinicie o serviço chronyd:
+Aqui, o chrony forçará uma atualização de tempo se a descompasso for maior que 1 segundo. Para aplicar as alterações, reinicie o serviço chronyd:
 
 ```bash
 systemctl restart chronyd
@@ -160,7 +160,7 @@ systemctl restart chronyd
 
 ### <a name="systemd"></a>systemd 
 
-Nas versões SUSE e Ubuntu antes de 19.10, a sincronização de tempo é configurada usando [systemd](https://www.freedesktop.org/wiki/Software/systemd/). Para obter mais informações sobre o Ubuntu, consulte [Sincronização de tempo](https://help.ubuntu.com/lts/serverguide/NTP.html). Para obter mais informações sobre o SUSE, consulte a Seção 4.5.8 no [SUSE Linux Enterprise Server 12 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
+Em versões SUSE e Ubuntu anteriores a 19,10, a sincronização de horário é configurada usando o [sistema](https://www.freedesktop.org/wiki/Software/systemd/). Para obter mais informações sobre o Ubuntu, consulte [sincronização de horário](https://help.ubuntu.com/lts/serverguide/NTP.html). Para obter mais informações sobre o SUSE, consulte a seção 4.5.8 em [notas de versão do SUSE Linux Enterprise Server 12 SP3](https://www.suse.com/releasenotes/x86_64/SUSE-SLES/12-SP3/#InfraPackArch.ArchIndependent.SystemsManagement).
 
 ## <a name="next-steps"></a>Próximas etapas
 

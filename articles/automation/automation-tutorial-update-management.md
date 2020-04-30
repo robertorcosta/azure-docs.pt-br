@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 888dc99162551482afc715f1a793614d2c866384
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
+ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677045"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81604686"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para as VMs do Azure
 
@@ -40,13 +40,13 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="view-update-assessment"></a>Exibir avaliação de atualização
 
-Após habilitar o Gerenciamento de Atualizações, a página **Gerenciamento de Atualizações** será aberta. Se alguma atualização for identificada como ausente, uma lista de atualizações ausentes aparecerá na guia **Atualizações ausentes**.
+Após habilitar o Gerenciamento de Atualizações, a página Gerenciamento de Atualizações será aberta. Se alguma atualização for identificada como ausente, uma lista de atualizações ausentes aparecerá na guia **Atualizações ausentes**.
 
 Em **Link de informações**, selecione o link de atualização para abrir o artigo de suporte da atualização. Você pode ver informações importantes sobre a atualização.
 
 ![Exibir o status de atualização](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Clique em qualquer lugar da atualização para abrir o painel **Pesquisa de logs** da atualização selecionada. A consulta da pesquisa de log é predefinida para essa atualização específica. Você pode modificar ou criar uma consulta própria para ver informações detalhadas sobre as atualizações implantadas ou ausentes no ambiente.
+Clique em qualquer lugar da atualização para abrir o painel Pesquisa de logs da atualização selecionada. A consulta da pesquisa de log é predefinida para essa atualização específica. Você pode modificar ou criar uma consulta própria para ver informações detalhadas sobre as atualizações implantadas ou ausentes no ambiente.
 
 ![Exibir o status de atualização](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -58,7 +58,7 @@ Nesta etapa, você aprenderá a configurar um alerta para informar o status da i
 
 Em sua Conta de automação, acesse **Alertas**, em **Monitoramento** e, em seguida, clique em **+ Nova regra de alerta**.
 
-Sua Conta de automação já está selecionada como o recurso. Se você desejar alterá-la, clique em **Selecionar**. Na página **Selecionar um recurso**, escolha **Contas de Automação** no menu suspenso **Filtrar por tipo de recurso**. Selecione sua Conta de automação, depois clique em **Concluído**.
+Sua Conta de automação já está selecionada como o recurso. Se você desejar alterá-la, clique em **Selecionar**. Na página Selecionar um recurso, escolha **Contas de Automação** no menu suspenso **Filtrar por tipo de recurso**. Selecione sua Conta de automação, depois clique em **Concluído**.
 
 Clique em **Adicionar condição** para selecionar o sinal adequado para sua implantação de atualização. A tabela a seguir mostra os detalhes dos dois sinais disponíveis.
 
@@ -85,11 +85,11 @@ No campo **Nome do grupo de ações**, digite um nome para o alerta e um nome cu
 
 Em **Ações**, insira um nome para a ação, como **Notificação por Email**. Para **Tipo de Ação**, selecione **Email/SMS/Push/Voz**. Para **Detalhes**, selecione **Editar detalhes**.
 
-No painel **Email/SMS/Push/Voz**, digite um nome. Marque a caixa de seleção **Email** e digite um endereço de email válido.
+No painel Email/SMS/Push/Voz, digite um nome. Marque a caixa de seleção **Email** e digite um endereço de email válido.
 
 ![Configurar um grupo de ação de email](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-No painel **Email/SMS/Push/Voice**, clique em **OK**. No painel **Adicionar grupo de ações**, clique em **OK**.
+No painel Email/SMS/Push/Voice, clique em **OK**. No painel Adicionar grupo de ações, clique em **OK**.
 
 Para personalizar o assunto do email de alerta, em **Criar regra**, em **Personalizar ações**, selecione **Assunto do email**. Quando terminar, selecione **Criar regra de alerta**. O alerta indica quando uma implantação de atualização é bem-sucedida e quais computadores fazem parte da execução de implantação de atualização.
 
@@ -132,7 +132,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 > Não é possível especificar atualizações que foram substituídas para inclusão na implantação de atualização.
 >
 
-* **Configurações da agenda**: O painel **Configurações da agenda** é aberto. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
+* **Configurações da agenda**: O painel Configurações da agenda é aberto. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
 
    Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Em **Recorrência**, selecione **Uma vez**. Deixe o padrão como 1 dia e clique em **OK**. Essas entradas configuram um agenda recorrente.
 

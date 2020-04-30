@@ -1,6 +1,6 @@
 ---
-title: Instale o agente C# no dispositivo Windows
-description: Saiba como instalar o Azure Security Center para agente IoT em dispositivos Windows de 32 ou 64 bits.
+title: Instalar o agente C# no dispositivo Windows
+description: Saiba mais sobre como instalar a central de segurança do Azure para agente de IoT em dispositivos Windows de 32 bits ou 64 bits.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 4d7d2f0a423a50f85160a856480eaa973be7e2b0
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537603"
 ---
 # <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Implantar um agente de segurança baseado em C# da Central de Segurança do Azure para IoT para Windows
 
-Este guia explica como instalar o Azure Security Center para agente de segurança baseado em IoT C#no Windows.
+Este guia explica como instalar a central de segurança do Azure para o agente de segurança baseado em C# do IoT no Windows.
 
 Neste guia, você aprenderá a:
 
@@ -36,9 +36,9 @@ Neste guia, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para outras plataformas e sabores de agente, consulte [Escolha o agente de segurança certo](how-to-deploy-agent.md).
+Para outras plataformas e tipos de agente, consulte [escolher o agente de segurança certo](how-to-deploy-agent.md).
 
-1. Direitos de admin locais na máquina que você deseja instalar.
+1. Direitos de administrador local no computador em que você deseja instalar.
 
 1. [Criar um módulo de segurança](quickstart-create-security-twin.md) para o dispositivo.
 
@@ -46,7 +46,7 @@ Para outras plataformas e sabores de agente, consulte [Escolha o agente de segur
 
 Para instalar o agente de segurança, use o seguinte fluxo de trabalho:
 
-1. Instale o Azure Security Center para o agente IoT Windows C# no dispositivo. Baixe a versão mais recente para sua máquina no Azure Security Center para [o repositório IoT GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
+1. Instale a central de segurança do Azure para o agente do Windows C# do IoT no dispositivo. Baixe a versão mais recente em seu computador na central de segurança do Azure para o [repositório GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS)do IOT.
 
 1. Extraia o conteúdo do pacote e navegue até a pasta /Install.
 
@@ -57,7 +57,7 @@ Para instalar o agente de segurança, use o seguinte fluxo de trabalho:
     Unblock-File .\InstallSecurityAgent.ps1
     ```
 
-    em seguida, executar:
+    em seguida, execute:
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
@@ -69,18 +69,18 @@ Para instalar o agente de segurança, use o seguinte fluxo de trabalho:
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
     ```
 
-    Para obter mais informações sobre parâmetros de autenticação, consulte [Como configurar a autenticação](concept-security-agent-authentication-methods.md).
+    Para obter mais informações sobre parâmetros de autenticação, consulte [como configurar a autenticação](concept-security-agent-authentication-methods.md).
 
-Este script faz as seguintes ações:
+Esse script executa as seguintes ações:
 
 * Instala pré-requisitos.
-* Adiciona um usuário de serviço (com sinal interativo desativado).
+* Adiciona um usuário de serviço (com logon interativo desabilitado).
 * Instala o agente como um **Serviço do Sistema**.
 * Configura o agente com os parâmetros de autenticação fornecidos.
 
 Para obter ajuda adicional, use o comando Get-Help no PowerShell.
 
-Exemplo de ajuda:```Get-Help .\InstallSecurityAgent.ps1```
+Exemplo de Get-Help:```Get-Help .\InstallSecurityAgent.ps1```
 
 ### <a name="verify-deployment-status"></a>Verificar o status da implantação
 
@@ -104,7 +104,7 @@ Se o agente não conseguir iniciar, ative o log (por padrão, o log fica *desati
 
 Para ativar o log:
 
-1. Abra o arquivo de configuração (General.config) para edição usando um editor de arquivos padrão.
+1. Abra o arquivo de configuração (General. config) para edição usando um editor de arquivo padrão.
 
 1. Edite os valores a seguir:
 
@@ -120,7 +120,7 @@ Para ativar o log:
 
 1. Reinicie o agente executando o seguinte PowerShell ou a linha de comando:
 
-    **Powershell**
+    **PowerShell**
 
      ```
      Restart-Service "ASC IoT Agent"
@@ -128,21 +128,21 @@ Para ativar o log:
 
    ou
 
-    **Cmd**
+    **CMD**
 
      ```
      sc.exe stop "ASC IoT Agent"
      sc.exe start "ASC IoT Agent"
      ```
 
-1. Examine o arquivo de log para obter mais informações sobre a falha. O arquivo de registro estaria presente no diretório de trabalho onde executamos o script. 
+1. Examine o arquivo de log para obter mais informações sobre a falha. O arquivo de log estaria presente no diretório de trabalho onde executamos o script. 
 
    Localização do arquivo de log: `.\IoTAgentLog.log`
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Leia o Centro de Segurança do Azure para visão geral do serviço [de IoT](overview.md)
-* Saiba mais sobre o Azure Security Center for IoT [Architecture](architecture.md)
+* Leia a [visão geral](overview.md) da central de segurança do Azure para serviços de IOT
+* Saiba mais sobre a [arquitetura](architecture.md) da central de segurança do Azure para IOT
 * Habilite o [serviço](quickstart-onboard-iot-hub.md)
-* Leia a [FAQ](resources-frequently-asked-questions.md)
+* Leia as [perguntas frequentes](resources-frequently-asked-questions.md)
 * Entenda os [alertas](concept-security-alerts.md)

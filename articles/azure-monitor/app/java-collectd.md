@@ -4,10 +4,10 @@ description: Monitoramento estendido do desempenho de aplicativo do seu site Jav
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 62a723dad7e9f6c2bfdabde159968d507d2d5d41
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537518"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
@@ -82,7 +82,7 @@ Configure outros [plug-ins collectd](https://collectd.org/wiki/index.php/Table_o
 Reinicie o collectd, de acordo com seu [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Exibir os dados no Application Insights
-No recurso Application Insights, abra [Métricas e adicione gráficos,][metrics]selecionando as métricas que deseja ver na categoria Personalizado.
+No recurso Application Insights, abra [métricas e adicione gráficos][metrics], selecionando as métricas que você deseja ver na categoria personalizada.
 
 Por padrão, as métricas são agregadas em todos os computadores host dos quais as métricas foram coletadas. Para exibir as métricas por host, na folha Detalhes do gráfico, ative Agrupamento e escolha Agrupar por CollectD-Host.
 
@@ -115,7 +115,7 @@ Diretivas separadas por uma nova linha.
 
 O plug-in de Gravação do Application Insights é incompatível com determinados plugins de Leitura. Alguns plugins às vezes enviam "NaN" onde o plug-in do Application Insights espera um número de ponto flutuante.
 
-Sintoma: O registro coletado mostra erros que incluem "IA: ... SintaxError: Token inesperado N".
+Sintoma: o log coletado mostra erros que incluem "ia:... SyntaxError: token N inesperado ".
 
 Solução alternativa: exclua dados coletados pelo problema de plugins de Gravação. 
 

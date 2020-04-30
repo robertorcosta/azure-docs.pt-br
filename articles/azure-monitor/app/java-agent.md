@@ -1,33 +1,33 @@
 ---
-title: Monitoramento de desempenho de aplicativos web Java - Azure Application Insights
+title: Monitoramento de desempenho de aplicativos Web Java-insights de Aplicativo Azure
 description: Desempenho e monitoramento de uso estendidos do seu site Java com o Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537535"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de métodos em aplicativos web Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
 
 
 Se você [instrumentou seu aplicativo Web em Java com o Application Insights][java], será possível usar o Agente Java para obter uma visão mais aprofundada, sem nenhuma alteração de código:
 
 * **Dependências:** dados sobre chamadas de seu aplicativo a outros componentes, incluindo:
-  * **As chamadas HTTP de saída** feitas via `java.net.HttpURLConnection` Apache HttpClient, OkHttp e são capturadas.
-  * **As chamadas de Redis** feitas através do cliente Jedi são capturadas.
-  * **Consultas JDBC** - Para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente informa o plano de consulta.
+  * As **chamadas http de saída** feitas por meio do Apache HttpClient, `java.net.HttpURLConnection` OkHttp e são capturadas.
+  * **Chamadas Redis** feitas por meio do cliente Jedis são capturadas.
+  * **Consultas JDBC** – para MySQL e PostgreSQL, se a chamada demorar mais de 10 segundos, o agente relatará o plano de consulta.
 
-* **Registro de aplicativos:** Capture e correlaciona seus registros de aplicativos com solicitações HTTP e outras telemetrias
-  * **Log4j 1.2**
+* **Log de aplicativo:** Capturar e correlacionar os logs de aplicativo com solicitações HTTP e outras telemetrias
+  * **Log4J 1,2**
   * **Log4j2**
   * **Logback**
 
-* **Melhor nomeação de operação:** (usado para agregação de solicitações no portal)
-  * **Primavera** - `@RequestMapping`baseada em .
-  * **JAX-RS** - `@Path`baseado em . 
+* **Melhor nomenclatura de operação:** (usada para agregação de solicitações no Portal)
+  * **Spring** Baseado em `@RequestMapping`Spring.
+  * Baseado em **JAX-RS** em `@Path`. 
 
 Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java]. 
 
@@ -75,23 +75,23 @@ Defina o conteúdo do arquivo xml. Edite o exemplo a seguir para incluir ou omit
 </ApplicationInsightsAgent>
 ```
 
-## <a name="additional-config-spring-boot"></a>Config adicional (Bota de Mola)
+## <a name="additional-config-spring-boot"></a>Configuração adicional (Spring boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
-Para os serviços de aplicativos do Azure, faça o seguinte:
+Para Azure App serviços, faça o seguinte:
 
 * Selecione Configurações > Configurações do Aplicativo
 * Em configurações do aplicativo, adicione um novo par de chave/valor:
 
-Chave: `JAVA_OPTS` Valor:`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
+Chave: `JAVA_OPTS` valor:`-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-Para a versão mais recente do agente Java, verifique as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
+Para obter a versão mais recente do agente Java, verifique as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
 ). 
 
-O agente deve ser embalado como um recurso em seu projeto de tal forma que ele acabe no diretório D:/home/site/wwwroot/. Você pode confirmar que seu agente está no diretório correto do App Service indo para **o Development Tools** > **Advanced Tools** > **Debug Console** e examinando o conteúdo do diretório do site.    
+O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas** > **avançadas** > **console de depuração** e examinando o conteúdo do diretório do site.    
 
-* Salve as configurações e Reinicie seu aplicativo. (Essas etapas só se aplicam aos Serviços de Aplicativos em execução no Windows.)
+* Salve as configurações e Reinicie seu aplicativo. (Essas etapas se aplicam somente aos serviços de aplicativo em execução no Windows.)
 
 > [!NOTE]
 > IA-Agent.xml e o arquivo jar do agente devem estar na mesma pasta. Frequentemente, eles são colocados juntos na pasta `/resources` do projeto.  
@@ -116,7 +116,7 @@ Idealmente, esse seria o caso quando todos os seus serviços fossem atualizados 
 Verifique se **ambas as configurações de [entrada](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) e saídas (agente)** são exatamente as mesmas.
 
 ## <a name="view-the-data"></a>Exibir os dados
-No recurso Application Insights, os tempos agregados de dependência remota e execução do método aparecem [sob o bloco performance][metrics].
+No recurso Application Insights, a dependência remota agregada e os tempos de execução [do método aparecem no bloco desempenho][metrics].
 
 Para procurar instâncias individuais de dependência, exceções e relatórios de método, abra [Pesquisar][diagnostic].
 

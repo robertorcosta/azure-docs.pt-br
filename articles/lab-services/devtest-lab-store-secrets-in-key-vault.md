@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 0ca36a7081aaf70ee2045ee7586184c89591df16
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461507"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Armazenar segredos em um cofre de chaves no Azure DevTest Labs
@@ -26,7 +26,7 @@ Talvez seja necessário inserir um segredo complexo ao usar o Azure DevTest Labs
 
 Para resolver esse problema e também manter seus segredos em um local seguro, o DevTest Labs dá suporte ao armazenamento de segredos em um [Azure Key Vault](../key-vault/general/overview.md). Quando um usuário salva um segredo pela primeira vez, o serviço DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no cofre de chaves. O DevTest Labs cria um cofre de chaves separado para cada usuário. 
 
-Por favor, note que o usuário do laboratório precisará primeiro criar uma máquina virtual de laboratório antes que eles possam criar um segredo no cofre de chaves. Isso porque o serviço DevTest Lab precisa associar o usuário do laboratório a um documento de usuário válido antes que eles possam criar e armazenar segredos em seu cofre de chaves. 
+Observe que o usuário do laboratório precisará primeiro criar uma máquina virtual de laboratório antes de poder criar um segredo no cofre de chaves. Isso ocorre porque o DevTest Lab Service precisa associar o usuário do laboratório a um documento de usuário válido antes de poder criar e armazenar segredos em seu cofre de chaves. 
 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Salvar um segredo no Azure Key Vault

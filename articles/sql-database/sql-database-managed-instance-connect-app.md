@@ -12,10 +12,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
 ms.openlocfilehash: 8d920fb7815e5a9fe30d8f3b4e40f36133d83222
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538079"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à instância gerenciada do Banco de Dados SQL do Azure
@@ -44,7 +44,7 @@ Há duas opções de conexão de VNETs:
 A opção de emparelhamento é a preferencial porque o emparelhamento usa a rede de backbone da Microsoft. Portanto, da perspectiva de conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais na VNET emparelhada e na mesma VNET. O emparelhamento de VNET é limitado a redes na mesma região.  
 
 > [!IMPORTANT]
-> O cenário de emparelhamento VNet para a instância gerenciada está limitado às redes na mesma região devido a [restrições do emparelhamento de Rede Virtual Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [Azure Virtual Networks Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
+> O cenário de emparelhamento VNet para a instância gerenciada está limitado às redes na mesma região devido a [restrições do emparelhamento de Rede Virtual Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte também a seção relevante do artigo [perguntas frequentes sobre redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para obter mais detalhes. 
 
 ## <a name="connect-an-on-premises-application"></a>Conectar um aplicativo local
 
@@ -55,7 +55,7 @@ Há duas opções de conexão do local à VNET do Azure:
 - Conexão VPN Site a Site ([portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Conexão do [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Se você estabeleceu a conexão on-premises para o Azure com sucesso e não pode estabelecer conexão com a Instância Gerenciada, verifique se o firewall tem conexão de saída aberta na porta SQL 1433, bem como a gama de portas 11000-11999 para redirecionamento.
+Se você tiver estabelecido a conexão local para o Azure com êxito e não puder estabelecer conexão com Instância Gerenciada, verifique se o firewall tem conexão de saída aberta na porta SQL 1433, bem como 11000-11999 intervalo de portas para redirecionamento.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Conectar um aplicativo na caixa de desenvolvedores
 
@@ -95,7 +95,7 @@ Este cenário é ilustrado no seguinte diagrama:
 
 Para solucionar problemas de conectividade, examine o seguinte:
 
-- Se você não puder se conectar à Instância Gerenciada a partir de uma máquina virtual do Azure dentro da mesma sub-rede VNet, mas diferente, verifique se você tem um grupo de segurança de rede definido na sub-rede VM que pode estar bloqueando o acesso. Além disso, observe que você precisa abrir conexão de saída na porta SQL 1433, bem como portas no alcance 11000-11999, uma vez que essas são necessárias para conectar via redirecionamento dentro da fronteira do Azure.
+- Se você não conseguir se conectar a Instância Gerenciada de uma máquina virtual do Azure na mesma VNet, mas em uma sub-rede diferente, verifique se você tem um grupo de segurança de rede definido na sub-rede VM que pode estar bloqueando o acesso. Além disso, observe que você precisa abrir a conexão de saída na porta SQL 1433, bem como portas no intervalo 11000-11999, já que elas são necessárias para se conectar via redirecionamento dentro do limite do Azure.
 - Verifique se a Propagação de BGP está definida como **Habilitada** para a tabela de rotas associada à VNet.
 - Se estiver usando VPN P2S, verifique a configuração no portal do Azure para verificar se os números de **Entrada/Saída** são mostrados. Números diferentes de zero indicam que o Azure está roteando o tráfego de/para o local.
 
@@ -133,7 +133,7 @@ Para solucionar problemas de conectividade, examine o seguinte:
 
 - Se você usar o emparelhamento VNet, verifique se as instruções de configuração [Permitir trânsito de gateway e usar gateways remotos](#connect-from-on-premises-with-vnet-peering) foram seguidas.
 
-- Se usar o vnet peering para conectar um aplicativo hospedado do Azure App Service e o VNet de instância gerenciada tiver um intervalo de endereço IP público, certifique-se de que as configurações de aplicativos hospedados permitam que seu tráfego de saída seja roteado para redes IP públicas. Siga as instruções em [Integração VNet Regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
+- Se estiver usando o emparelhamento VNet para conectar um aplicativo hospedado no serviço Azure App e a VNet Instância Gerenciada tiver um intervalo de endereços IP públicos, verifique se as configurações do aplicativo hospedado permitem que o tráfego de saída seja roteado para redes IP públicas. Siga as instruções em [integração VNet regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versões necessárias de drivers e ferramentas
 
@@ -147,10 +147,10 @@ As seguintes versões mínimas das ferramentas e drivers são recomendadas se vo
 |Driver JDBC| 6.4.0 |
 |Driver Node.js| 2.1.1 |
 |Driver OLE DB| 18.0.2.0 |
-|SSMS| 18,0 ou [mais](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou mais |
+|SSMS| 18,0 ou [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou superior |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre instância gerenciada, consulte [o que é uma instância gerenciada](sql-database-managed-instance.md).
+- Para obter informações sobre Instância Gerenciada, consulte [o que é um instância gerenciada](sql-database-managed-instance.md).
 - Para obter um tutorial mostrando como criar uma nova Instância Gerenciada, consulte [Criar uma Instância Gerenciada](sql-database-managed-instance-get-started.md).
