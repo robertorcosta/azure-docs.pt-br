@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: 68fe7da136d744e1efa76a89061afe6995a75051
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133254"
 ---
 # <a name="troubleshoot-input-connections"></a>Solucionar problemas de conexões de entrada
@@ -62,7 +62,7 @@ O erro mostrado quando o número de destinatários excede o máximo é:
 
 Para adicionar um novo grupo de consumidores à instância dos Hubs de Eventos, execute estas etapas:
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 
 2. Localize seu hub de eventos.
 

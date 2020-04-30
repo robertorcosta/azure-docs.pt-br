@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e55d3f704c76d2783c3e442a90c829448129a4d0
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134410"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implantar módulos IoT Edge em escala usando o portal do Azure
@@ -183,7 +183,7 @@ Quando você modifica uma implantação, as alterações são replicadas imediat
 
 1. No Hub IoT, selecione **IOT Edge** no menu do painel esquerdo.
 1. Selecione a guia **implantações IOT Edge** e, em seguida, selecione a implantação que deseja configurar.
-1. Selecione a guia **condição de destino** . Altere a condição de **destino** para direcionar os dispositivos pretendidos. Você também pode ajustar a **prioridade**.  Clique em **Salvar**.
+1. Selecione a guia **condição de destino** . Altere a condição de **destino** para direcionar os dispositivos pretendidos. Você também pode ajustar a **prioridade**.  Selecione **Salvar**.
 
     Se você atualizar a condição de destino, ocorrerão as seguintes atualizações:
 
@@ -191,7 +191,7 @@ Quando você modifica uma implantação, as alterações são replicadas imediat
     * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino, ele desinstalará essa implantação e usará a próxima implantação com a prioridade mais alta.
     * Caso um dispositivo que executa essa implantação no momento não atenda mais à condição de destino e não atenda à condição de destino de todas as outras implantações, nenhuma alteração ocorrerá no dispositivo. O dispositivo continua executando seus módulos atuais em seu estado atual, mas não é mais gerenciado como parte dessa implantação. Depois que ele atende à condição de destino de qualquer outra implantação, ele desinstala essa implantação e usa a nova.
 
-1. Selecione a guia **métricas** e clique no botão **Editar métricas** . Adicione ou modifique métricas personalizadas usando a sintaxe de exemplo como um guia. Clique em **Salvar**.
+1. Selecione a guia **métricas** e clique no botão **Editar métricas** . Adicione ou modifique métricas personalizadas usando a sintaxe de exemplo como um guia. Selecione **Salvar**.
 
     ![Editar métricas personalizadas em uma implantação](./media/how-to-deploy-monitor/metric-list.png)
 

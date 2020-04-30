@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 3131d6a7e3675027968eadd5f3e3ca8a7f2449c3
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143590"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migre do Linux para uma implantação de nuvem híbrida com Sincronização de Arquivos do Azure
@@ -205,7 +205,7 @@ Você pode tentar executar algumas dessas cópias em paralelo. É recomendável 
 
 A política de espaço livre no volume de camadas de nuvem atua em um nível de volume com potencialmente vários pontos de extremidade de servidor sincronizando a partir dele. Se você se esquecer de ajustar o espaço livre em um ponto de extremidade de servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter o espaço livre em disco em 99%. O cache local pode não ser executado conforme o esperado. O desempenho poderá ser aceitável se o objetivo for ter o namespace para um volume que contenha apenas dados de arquivamento acessados raramente, e você estiver reservando o restante do espaço de armazenamento para outro cenário.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 O problema mais comum é que o comando Robocopy falha com **volume cheio** no lado do Windows Server. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco do Windows Server local que foi sincronizado. Seu objetivo é atingir o espaço livre de 99 por cento no volume.
 

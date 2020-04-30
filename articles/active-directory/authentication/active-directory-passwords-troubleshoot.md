@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1224aef044c558147f4c7234f6514d0de2f09e0c
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143990"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solucionar problemas de autoatendimento de redefinição de senha
@@ -25,7 +25,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 
 ## <a name="troubleshoot-self-service-password-reset-errors-that-a-user-might-see"></a>Como solucionar problemas de erros de redefinição de senha de autoatendimento que um usuário pode ver
 
-| Erro | Detalhes | Detalhes técnicos |
+| Erro do | Detalhes | Detalhes técnicos |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled = 9 | Não é possível redefinir sua senha neste momento porque o administrador desabilitou a redefinição de senha para sua organização. Não há mais ações para solucionar esta situação. Entre em contato com seu administrador e solicite a habilitação deste recurso. Para saber mais, confira [Preciso de ajuda, esqueci a minha senha do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: detectamos que a redefinição de senha não foi habilitada pelo administrador. Entre em contato com o seu administrador e solicite a habilitação da redefinição de senha para a sua organização. |
 | WritebackNotEnabled = 10 |Não é possível redefinir sua senha neste momento porque o administrador não habilitou um serviço necessário para sua organização. Não há mais ações para solucionar esta situação. Entre em contato com o seu administrador e solicite a verificação da configuração da sua organização. Para saber mais sobre o serviço necessário, confira [Como configurar o write-back de senha](howto-sspr-writeback.md). | SSPR_0010: detectamos que o write-back de senha não foi habilitado. Entre em contato com o seu administrador e solicite a habilitação do write-back de senha. |
@@ -38,7 +38,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Solução de problemas de configuração de redefinição de senha no portal do Azure
 
-| Erro | Solução |
+| Erro do | Solução |
 | --- | --- |
 | Não consigo ver a seção **Redefinição de Senha** em Azure AD no portal do Azure. | Isso pode acontecer se você não tiver uma licença do Azure AD atribuída ao administrador que executa a operação. <br> <br> Atribua uma licença à conta de administrador em questão. Você pode seguir as etapas do artigo [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Não consigo ver determinada opção de configuração. | Muitos elementos da interface do usuário ficam ocultos até que sejam necessários. Tente habilitar todas as opções que você deseja ver. |
@@ -46,14 +46,14 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 
 ## <a name="troubleshoot-password-reset-reporting"></a>Solução de problemas de relatório de redefinição de senha
 
-| Erro | Solução |
+| Erro do | Solução |
 | --- | --- |
 | Não consigo ver nenhum tipo de atividade de gerenciamento de senhas na categoria de evento de auditoria **Gerenciamento de Senhas de Autoatendimento**. | Isso pode acontecer se você não tiver uma licença do Azure AD atribuída ao administrador que executa a operação. <br> <br> Para resolver esse problema, você pode atribuir uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | Os registros do usuário aparecem várias vezes. | Quando um usuário se registra, registramos cada dado individual que é registrado como um evento separado. <br> <br> Se você quiser agregar esses dados e ter maior flexibilidade em como exibi-los, poderá baixar o relatório e abrir os dados como uma tabela dinâmica no Excel.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>Solucionar problemas do portal de registro de redefinição de senha
 
-| Erro | Solução |
+| Erro do | Solução |
 | --- | --- |
 | O diretório não está habilitado para redefinição de senha. **O administrador não habilitou você para usar esse recurso.** | Alterne o sinalizador **Autoatendimento de redefinição de senha habilitado** para **Selecionado** ou **Todos** e selecione **Salvar**. |
 | O usuário não tem uma licença do Azure AD atribuída. **O administrador não habilitou você para usar esse recurso.** | Isso pode acontecer se você não tiver uma licença do Azure AD atribuída ao administrador que executa a operação. <br> <br> Para resolver esse problema, você pode atribuir uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
@@ -61,7 +61,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>Solucionar problemas do portal de redefinição de senha
 
-| Erro | Solução |
+| Erro do | Solução |
 | --- | --- |
 | O diretório não está habilitado para redefinição de senha. | Alterne o sinalizador **Autoatendimento de redefinição de senha habilitado** para **Selecionado** ou **Todos** e selecione **Salvar**. |
 | O usuário não tem uma licença do Azure AD atribuída. | Isso pode acontecer se você não tiver uma licença do Azure AD atribuída ao administrador que executa a operação. <br> <br> Você pode resolver esse problema atribuindo uma licença à conta de administrador em questão. Siga as etapas no artigo [Atribuir, verificar e resolver problemas com licenças](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
@@ -79,7 +79,7 @@ Você está tendo um problema com a SSPR (redefinição de senha de autoatendime
 
 ## <a name="troubleshoot-password-writeback"></a>Solução de problemas de write-back de senha
 
-| Erro | Solução |
+| Erro do | Solução |
 | --- | --- |
 | O serviço de redefinição de senha não é iniciado no local. O Erro 6800 aparece no log de eventos do aplicativo do computador do Azure AD Connect. <br> <br> Após a integração, os usuários federados, com autenticação de passagem ou sincronizados com hash de senha não conseguem redefinir suas senhas. | Quando o write-back de senha é habilitado, o mecanismo de sincronização chama a biblioteca de write-back para realizar a configuração (integração) comunicando-se com o serviço de integração em nuvem. Os erros encontrados durante a integração ou ao iniciar o ponto de extremidade do WCF (Windows Communication Foundation) para o write-back de senha resultam em erros no log de eventos e no computador do Azure AD Connect. <br> <br> Durante a reinicialização do serviço ADSync (Sincronização do Azure AD), se o write-back tiver sido configurado, o ponto de extremidade do WCF será inicializado. No entanto, se a inicialização do ponto de extremidade falhar, registraremos o evento 6800 e permitiremos a inicialização do serviço de sincronização. A presença desse evento significa que o ponto de extremidade de write-back de senha de não foi iniciado. Os detalhes do log de eventos desse evento (6800) juntamente com as entradas do log de eventos geradas pelo componente PasswordResetService indicam por que não é possível iniciar o ponto de extremidade. Examine esses erros do log de eventos e tente reiniciar o Azure AD Connect se o write-back de senha ainda não estiver funcionando. Se o problema persistir, tente desabilitar e reabilitar o write-back de senha.
 | Quando um usuário tenta redefinir uma senha ou desbloquear uma conta com write-back de senha habilitada, a operação falha. <br> <br> Além disso, você verá um evento no log de eventos do Azure AD Connect que contém: "O mecanismo de sincronização retornou um erro hr=800700CE, message=O nome de arquivo ou a extensão é muito longo" após a operação de desbloqueio ocorrer. | Localize a conta de Active Directory para Azure AD Connect e redefina a senha para que ela contenha no máximo 256 caracteres. Em seguida, abra o **Serviço de Sincronização** no menu **Iniciar**. Navegue para **Conectores** e localize o **Active Directory Connector**. Selecione-o e, em seguida, selecione **Propriedades**. Navegue até a página **Credenciais** e digite a nova senha. Selecione **OK** para fechar a página. |

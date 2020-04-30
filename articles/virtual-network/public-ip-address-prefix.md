@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: allensu
 ms.openlocfilehash: 0f71f845ef3209146ead79cafae2f3aa5c8c6d7d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144514"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo de endereço IP público
@@ -35,7 +35,7 @@ Os endereços IP públicos são atribuídos de um pool de endereços em cada reg
 
 Quando você cria recursos de endereço IP público, o Azure atribui um endereço IP público disponível de qualquer um dos intervalos usados na região. Depois que o Azure atribui o endereço, você sabe qual é o endereço, mas até que o Azure atribua o endereço, você não sabe qual endereço poderá ser atribuído. Isso pode ser um problema quando, por exemplo, você ou seus parceiros comerciais, configuram regras de firewall que permitem endereços IP específicos. Sempre que você atribuir um novo endereço IP público a um recurso, o endereço deverá ser adicionado à regra de firewall. Quando você atribui endereços aos recursos de um prefixo de endereço IP público, as regras de firewall não precisam ser atualizadas sempre que um dos endereços é atribuído, porque todo o intervalo poderia ser adicionado a uma regra.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 - Você pode criar recursos de endereço IP público de um intervalo conhecido.
 - Você ou seus parceiros comerciais podem criar regras de firewall com intervalos que incluem endereços IP públicos atribuídos no momento, bem como endereços que você ainda não atribuiu. Isso elimina a necessidade de alterar as regras de firewall à medida que você atribui endereços IP a novos recursos.

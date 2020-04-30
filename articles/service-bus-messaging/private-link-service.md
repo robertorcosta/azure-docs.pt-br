@@ -8,10 +8,10 @@ ms.date: 03/13/2020
 ms.service: service-bus-messaging
 ms.topic: article
 ms.openlocfilehash: 33e6ce1d5feb50080b00fcbecdeb9e512980eab6
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141941"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link-preview"></a>Integrar o barramento de serviço do Azure com o link privado do Azure (versão prévia)
@@ -182,7 +182,7 @@ Há quatro estados de provisionamento:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma conexão de ponto de extremidade privado
 
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 1. Na barra de pesquisa, digite **barramento de serviço**.
 1. Selecione o **namespace** que você deseja gerenciar.
 1. Selecione a guia **rede** .

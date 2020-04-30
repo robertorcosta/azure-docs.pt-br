@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133791"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento do Azure
@@ -22,7 +22,7 @@ A plataforma de armazenamento do Azure é a solução de armazenamento em nuvem 
 - **Durável e altamente disponível.** A redundância garante a segurança dos seus dados no caso de falhas de hardware transitórias. Você também pode optar por replicar dados em datacenters ou regiões geográficas para obter mais proteção contra catástrofes ou desastres naturais. Os dados replicados dessa maneira permanecem altamente disponíveis no caso de uma interrupção inesperada.
 - **Soquete.** Todos os dados gravados em uma conta de armazenamento do Azure são criptografados pelo serviço. O Armazenamento do Azure oferece um controle refinado sobre quem possui acesso aos seus dados.
 - **Chegar.** O Armazenamento do Azure foi concebido para ser altamente escalonável e atender às necessidades de desempenho e armazenamento de dados dos aplicativos atuais.
-- **Gerenciado.** O Azure lida com a manutenção de hardware, atualizações e problemas críticos para você.
+- **Administra.** O Azure lida com a manutenção de hardware, atualizações e problemas críticos para você.
 - **Acessível.** Os dados no Armazenamento do Azure são acessíveis de qualquer lugar no mundo por HTTP ou HTTPS. A Microsoft fornece bibliotecas de cliente para o armazenamento do Azure em uma variedade de linguagens, incluindo .NET, Java, Node. js, Python, PHP, Ruby, Go e outros, bem como uma API REST madura. O Armazenamento do Azure oferece suporte para scripts no Azure PowerShell ou na CLI do Azure. E o Portal do Azure e o Gerenciador de Armazenamento do Azure oferecem soluções visualmente fáceis para o trabalho com os seus dados.  
 
 ## <a name="core-storage-services"></a>Serviços de armazenamento de núcleo
@@ -49,7 +49,7 @@ A tabela a seguir compara arquivos, BLOBs, discos, filas e tabelas e mostra cen�
 | **Filas do Azure** | Permite o enfileiramento de mensagens assíncronas entre componentes do aplicativo. | Você deseja desacoplar componentes de aplicativos e usar mensagens assíncronas para se comunicar entre eles.<br><br>Para obter orientação sobre quando usar o armazenamento de filas versus filas do barramento de serviço, consulte [filas de armazenamento e filas do barramento de serviço – comparações e contrastes](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Tabelas do Azure** | Permitir que você armazene dados NoSQL estruturados na nuvem, fornecendo um repositório de chaves/atributos com um design sem esquema. | Você deseja armazenar conjuntos de dados flexíveis, como os de usuário para aplicativos Web, catálogos de endereços, informações de dispositivo ou outros tipos de metadados que seu serviço requer. <br/><br/>Para obter orientação sobre quando usar o armazenamento de tabela versus o Azure Cosmos DB API de Tabela, consulte [desenvolvendo com Azure Cosmos DB API de tabela e armazenamento de tabelas do Azure](../../cosmos-db/table-support.md). |
 
-## <a name="blob-storage"></a>Armazenamento de blob
+## <a name="blob-storage"></a>Armazenamento de Blobs
 
 O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. O armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários.
 
@@ -91,7 +91,7 @@ Por exemplo, digamos que você deseja que seus clientes possam carregar imagens 
 
 Para obter mais informações sobre Filas do Azure, consulte [Introdução às Filas do Azure](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Armazenamento de tabela
+## <a name="table-storage"></a>Armazenamento de tabelas
 
 O armazenamento de Tabelas do Azure agora faz parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Visão geral do Armazenamento de Tabelas do Azure](../tables/table-storage-overview.md). Além do serviço de armazenamento de Tabelas do Azure existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que fornece tabelas otimizadas de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência Premium, confira [Azure Cosmos DB API de tabela](https://aka.ms/premiumtables).
 

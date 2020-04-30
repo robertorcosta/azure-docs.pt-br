@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: ef73956b1b0d3e7bed6e91cde0b92bcc3e432795
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141836"
 ---
 # <a name="publish-iot-edge-module-offer"></a>Publicar oferta de módulo do IoT Edge
@@ -31,7 +31,7 @@ A tabela a seguir descreve cada etapa de publicação, com um tempo estimado (m�
 <!-- P2: we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
-|  **Etapa de publicação**           | **Hora**    | **Descrição**                                                            |
+|  **Etapa de publicação**           | **Momento**    | **Descrição**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar os pré-requisitos         | 15 min   | Informações de oferta e configurações de oferta são validadas.                        |
 | Certificação                  | 2 semanas | A oferta é analisada pela equipe de certificação do Azure. Esta etapa realizará varreduras por vírus, malware, conformidade de segurança e problemas de segurança. Ele verificará se essa oferta de módulo do IoT Edge atende a todos os critérios de qualificação (consulte [pré-requisitos](./cpp-prerequisites.md) e [Preparando seus ativos técnicos](./cpp-create-technical-assets.md)). Comentários serão fornecidos se um problema for encontrado. |
