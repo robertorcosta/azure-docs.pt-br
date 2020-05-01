@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 08/22/2019
+ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: f7ca8fdaddab9757292939c4f7e658179d6e517c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 267c2fb72b38053429019746a573c740d812c38c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422263"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608363"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Conversão de fala em texto (subgráfico: gráficos/speechToText)
 
@@ -40,3 +40,30 @@ Para substituir o gráfico "abrangência", adicione o prefixo `speechToText.` em
 | `service.annotations` | As anotações de **fala para texto** para os metadados de serviço. As anotações são pares chave-valor. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Se a [escala de aumento horizontal do pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) é habilitada. Se `true`, o `speech-to-text-autoscaler` será implantado no cluster kubernetes. | `true` |
 | `service.podDisruption.enabled` | Se o [orçamento de interrupção do pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) está habilitado. Se `true`, o `speech-to-text-poddisruptionbudget` será implantado no cluster kubernetes. | `true` |
+
+#### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>Análise de sentimentos (subgráfico: gráficos/speechToText)
+
+Começando com v 2.2.0 do contêiner de fala a texto, os parâmetros a seguir são usados para análise de sentimentos usando o API de Análise de Texto.
+
+|Parâmetro|Descrição|Valores|Padrão|
+| --- | --- | --- | --- |
+|`textanalytics.enabled`| Se o serviço **de análise de texto** está habilitado| true/false| `false`|
+|`textanalytics.image.registry`| O registro de imagem do Docker da **análise de texto**| registro de imagem do Docker válido| |
+|`textanalytics.image.repository`| O repositório de imagens do Docker da **análise de texto**| repositório de imagem do Docker válido| |
+|`textanalytics.image.tag`| A marca de imagem do Docker da **análise de texto**| marca de imagem do Docker válida| |
+|`textanalytics.image.pullSecrets`| Os segredos da imagem para extrair a imagem do Docker de **análise de texto**| nome de segredos válidos| |
+|`textanalytics.image.pullByHash`| Especifica se você está extraindo a imagem do Docker por hash.  Se `yes`, `image.hash` também deve ser necessário. Se `no`, defina como ' false '. O padrão é `false`.| true/false| `false`|
+|`textanalytics.image.hash`| O hash da imagem do Docker da **análise de texto** . Use-o apenas `image.pullByHash:true`com.| hash de imagem do Docker válido | |
+|`textanalytics.image.args.eula`| Um dos argumentos necessários por contêiner de **análise de texto** , que indica que você aceitou a licença. O valor dessa opção deve ser: `accept`.| `accept`, se você quiser usar o contêiner | |
+|`textanalytics.image.args.billing`| Um dos argumentos necessários por contêiner de **análise de texto** , que especifica o URI do ponto de extremidade de cobrança. O valor do URI do ponto de extremidade de cobrança está disponível na página Visão geral de fala do portal do Azure.|URI de ponto de extremidade de cobrança válido||
+|`textanalytics.image.args.apikey`| Um dos argumentos necessários por contêiner **de análise de texto** , que é usado para rastrear informações de cobrança.| apiKey válido||
+|`textanalytics.cpuRequest`| A CPU solicitada para o contêiner de **análise de texto**| INT| `3000m`|
+|`textanalytics.cpuLimit`| A CPU limitada para o contêiner de **análise de texto**| | `8000m`|
+|`textanalytics.memoryRequest`| A memória solicitada para o contêiner de **análise de texto**| | `3Gi`|
+|`textanalytics.memoryLimit`| A memória limitada para o contêiner de **análise de texto**| | `8Gi`|
+|`textanalytics.service.sentimentURISuffix`| O sufixo de URI da análise de sentimentos, o URI inteiro está no`<service>`formato`<port>`/`<sentimentURISuffix>`"http://:". | | `text/analytics/v3.0-preview/sentiment`|
+|`textanalytics.service.type`| O tipo de serviço de **análise de texto** em kubernetes. Consulte [tipos de serviço kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) | tipo de serviço kubernetes válido | `LoadBalancer` |
+|`textanalytics.service.port`| A porta do serviço de **análise de texto**| INT| `50085`|
+|`textanalytics.service.annotations`| As anotações que os usuários podem adicionar aos metadados do serviço **de análise de texto** . Por exemplo:<br/> **anotações**<br/>`   `**some/annotation1: value1**<br/>`  `**some/annotation2: value2** | anotações, uma por cada linha| |
+|`textanalytics.serivce.autoScaler.enabled`| Se a [autoescala de Pod horizontal](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) está habilitada. Se habilitada `text-analytics-autoscaler` , será implantada no cluster kubernetes | true/false| `true`|
+|`textanalytics.service.podDisruption.enabled`| Se o [orçamento de interrupção do pod](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) está habilitado. Se habilitada `text-analytics-poddisruptionbudget` , será implantada no cluster kubernetes| true/false| `true`|

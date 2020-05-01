@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Usar um modelo ONNX com Windows ML – Serviço de Visão Personalizada'
+title: Usar um modelo ONNX com Windows ML – Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
 description: Saiba como criar um aplicativo UWP do Windows que usa um modelo ONNX exportado dos Serviços Cognitivos do Azure.
 services: cognitive-services
@@ -7,73 +7,56 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: tutorial
-ms.date: 04/14/2020
+ms.topic: conceptual
+ms.date: 04/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 0b59321bf04a8230342be706b88cd208c19d76ea
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: d6bcb5485833fbfaa3eb72191ee54b1ee69bab04
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404185"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594288"
 ---
-# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Usar um modelo ONNX do Serviço de Visão Personalizada com Windows ML (versão prévia)
+# <a name="use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Usar um modelo ONNX do Serviço de Visão Personalizada com Windows ML (versão prévia)
 
 Saiba como usar o modelo exportado ONNX do Serviço de Visão Personalizada com Windows ML (versão prévia).
 
-As informações neste documento demonstram como usar um arquivo ONNX exportado do Serviço de Visão Personalizada com Windows ML. Um aplicativo UWP do Windows de exemplo é fornecido. Um modelo treinado capaz de reconhecimento é incluído com o exemplo. Também são fornecidas etapas sobre como você pode usar seu próprio modelo com esse exemplo.
-
-> [!div class="checklist"]
-> * Sobre o aplicativo de exemplo
-> * Obter o código de exemplo
-> * Executar o exemplo
-> * Usar seu próprio modelo
+Neste guia, você aprenderá a usar um arquivo ONNX exportado do Serviço de Visão Personalizada com o Windows ML. Você usará o aplicativo de exemplo UWP com seu próprio classificador de imagem treinado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Windows 10 versão 1809 ou superior
-
 * SDK do Windows build 17763 ou superior
-
 * Visual Studio 2017 versão 15.7 ou posterior com a carga de trabalho __Desenvolvimento com a Plataforma Universal do Windows__ habilitada.
-
-* Modo de desenvolvedor habilitado. Para obter mais informações, confira o documento [Habilitar seu dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
+* Modo de desenvolvedor habilitado em seu PC. Para obter mais informações, consulte [habilitar seu dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
 
 ## <a name="about-the-example-app"></a>Sobre o aplicativo de exemplo
 
-O aplicativo é um aplicativo UWP do Windows genérico. Ele permite que você selecione uma imagem do seu computador, que é enviada para o modelo. As marcações e as pontuações retornadas pelo modelo são exibidas ao lado da imagem.
+O aplicativo incluído é um aplicativo UWP genérico do Windows. Ele permite que você selecione uma imagem do seu computador, que é processada por um modelo de classificação armazenado localmente. As marcações e as pontuações retornadas pelo modelo são exibidas ao lado da imagem.
 
 ## <a name="get-the-example-code"></a>Obter o código de exemplo
 
-O aplicativo de exemplo fica disponível em [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample).
+O aplicativo de exemplo está disponível no [ONNX de serviços cognitivas visão personalizada](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample) repositório de exemplo no github. Clone-o no computador local e abra *SampleOnnxEvaluationApp. sln* no Visual Studio.
 
-## <a name="run-the-example"></a>Executar o exemplo
+## <a name="test-the-application"></a>Testar o aplicativo
 
-1. Use a tecla `F5` para iniciar o aplicativo do Visual Studio. É possível que seja solicitado que você habilite o Modo de Desenvolvedor. Para obter mais informações, confira o documento [Habilitar seu dispositivo para desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
-
-1. Quando o aplicativo for iniciado, use o botão para selecionar uma imagem para pontuação.
+1. Use a tecla `F5` para iniciar o aplicativo do Visual Studio. É possível que seja solicitado que você habilite o Modo de Desenvolvedor.
+1. Quando o aplicativo for iniciado, use o botão para selecionar uma imagem para pontuação. O modelo ONNX padrão é treinado para classificar diferentes tipos de Plankton.
 
 ## <a name="use-your-own-model"></a>Usar seu próprio modelo
 
-Para usar seu próprio modelo, use as seguintes etapas:
+Para usar seu próprio modelo classificador de imagem, siga estas etapas:
 
-1. [Crie e treine](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) um classificador com o Serviço de Visão Personalizada. Para exportar o modelo, selecione um domínio __compacto__, como **Geral (compacto)** . Para exportar um classificador existente, converta o domínio a ser compactado, selecionando o ícone de engrenagem no canto superior direito. Em __Configurações__, selecione um modelo compacto, salve e treine seu projeto.  
-
-1. [Exporte o seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) indo até a guia Desempenho. Selecione uma iteração treinada com um domínio compacto, um botão “Export” será exibido. Selecione *Exportar*, *ONNX* e, em seguida, *Exportar*. Depois que o arquivo estiver pronto, selecione o botão *Baixar*.
-
-1. Solte o arquivo ONNX na pasta __Ativos__ do projeto. 
-
-1. No Gerenciador de Soluções, clique com o botão direito na pasta Ativos e selecione __Adicionar item existente__. Selecione o arquivo ONNX.
-
-1. No Gerenciador de Soluções, selecione o arquivo ONNX da pasta Ativos. Altere as seguintes propriedades para o arquivo:
-
-    * __Ação de Compilação__ -> __Conteúdo__
-    * __Copiar para Diretório de Saída__ -> __Copiar se mais recente__
-
-1. Altere a variável `_onnxFileNames` para o nome do arquivo ONNX. Modifique também `ClassLabel` para o número de rótulos que o modelo contém.
-
-1. Compilar e executar.
-
+1. Crie e treine um classificador com o Serviço de Visão Personalizada. Para obter instruções sobre como fazer isso, consulte [criar e treinar um classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier). Use um dos domínios do **Compact** , como **geral (compacto)**. 
+   * Se você tiver um classificador existente que usa um domínio diferente, poderá convertê-lo para **compactar** as configurações do projeto. Em seguida, treine novamente o seu projeto antes de continuar.
+1. Exporte seu modelo. Alterne para a guia desempenho e selecione uma iteração que foi treinada com um domínio **compacto** . Selecione o botão **Exportar** que aparece. Em seguida, selecione **ONNX**e **Exportar**. Depois que o arquivo estiver pronto, selecione o botão **Baixar**. Para obter mais informações sobre opções de exportação, consulte [exportar seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model).
+1. Abra o arquivo *. zip* baixado e extraia o arquivo *Model. onnx* dele. Este arquivo contém o modelo de classificador.
+1. Na Gerenciador de Soluções no Visual Studio, clique com o botão direito do mouse na pasta **ativos** e selecione __Adicionar item existente__. Selecione o arquivo ONNX.
+1. Em Gerenciador de Soluções, clique com o botão direito do mouse no arquivo ONNX e selecione **Propriedades**. Altere as seguintes propriedades para o arquivo:
+   * __Ação de Compilação__ -> __Conteúdo__
+   * __Copiar para Diretório de Saída__ -> __Copiar se mais recente__
+1. Em seguida, abra _MainPage.XAML.cs_ e altere o `_ourOnnxFileName` valor de para o nome do seu arquivo ONNX.
+1. Use o `F5` para compilar e executar o projeto.
 1. Clique no botão para selecionar a imagem a ser avaliada.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -85,4 +68,4 @@ Para descobrir outras maneiras de exportar e usar um modelo do Serviço de Visã
 * [Usar o modelo CoreML exportado em um aplicativo iOS Swift](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Usar o modelo CoreML exportado em um aplicativo iOS com Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-Para obter mais informações sobre como usar modelos ONNX com Windows ML, confira o documento [Integrar um modelo ao aplicativo no Windows ML](/windows/ai/windows-ml/integrate-model).
+Para obter mais informações sobre como usar modelos ONNX com o Windows ML, consulte [integrar um modelo em seu aplicativo com o Windows ml](/windows/ai/windows-ml/integrate-model).
