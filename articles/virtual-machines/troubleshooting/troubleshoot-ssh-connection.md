@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
 ms.openlocfilehash: f221a0bdf579dbbf42ecf64e18803decfb718456
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060654"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solucionar problemas em conexões SSH com uma VM Linux do Azure que falha, apresenta erro ou é recusada
@@ -29,16 +29,16 @@ Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com
 ## <a name="quick-troubleshooting-steps"></a>Etapas rápidas para solucionar problemas
 Após cada etapa de solução de problemas, tente se reconectar à VM.
 
-1. [Redefinir a configuração SSH](#reset-config).
-2. [Redefinir as credenciais](#reset-credentials) para o usuário.
+1. [Redefina a configuração de SSH](#reset-config).
+2. [Redefina as credenciais](#reset-credentials) do usuário.
 3. Verifique se as regras do [grupo de segurança de rede](../../virtual-network/security-overview.md) permitem o tráfego SSH.
-   * Certifique-se de que existe uma [regra do Grupo de Segurança de Rede](#security-rules) para permitir o tráfego de SSH (por padrão, porta TCP 22).
+   * Verifique se existe uma [regra de grupo de segurança de rede](#security-rules) para permitir o tráfego SSH (por padrão, porta TCP 22).
    * Você não pode usar o mapeamento/redirecionamento de porta sem usar um Azure Load Balancer.
-4. Verifique a saúde dos recursos da [VM](../../resource-health/resource-health-overview.md).
+4. Verifique a [integridade do recurso da VM](../../resource-health/resource-health-overview.md).
    * Certifique-se de que a VM é relatada como íntegra.
-   * Se você tiver [diagnósticos de inicialização ativados,](boot-diagnostics.md)verifique se a VM não está relatando erros de inicialização nos logs.
-5. [Reinicie o VM](#restart-vm).
-6. [Reimplante o VM](#redeploy-vm).
+   * Se você tiver o [diagnóstico de inicialização habilitado](boot-diagnostics.md), verifique se a VM não está relatando erros de inicialização nos logs.
+5. [Reinicie a VM](#restart-vm).
+6. [Reimplante a VM](#redeploy-vm).
 
 Caso você precise de etapas e explicações mais detalhadas para solução de problemas, continue lendo.
 
@@ -46,7 +46,7 @@ Caso você precise de etapas e explicações mais detalhadas para solução de p
 Você pode redefinir as credenciais ou configuração de SSH usando um dos seguintes métodos:
 
 * [Portal do Azure](#use-the-azure-portal) – excelente se você precisar redefinir rapidamente as credenciais de usuário ou configurações de SSH ou chave SSH e não tiver as Ferramentas do Azure instaladas.
-* [Azure VM Serial Console](https://aka.ms/serialconsolelinux) - o console serial VM funcionará independentemente da configuração SSH, e fornecerá um console interativo para sua VM. Na verdade, as situações "não pode SSH" são especificamente o que o console serial foi projetado para ajudar a resolver. Mais detalhes abaixo.
+* [Console serial da VM do Azure](https://aka.ms/serialconsolelinux) -o console serial da VM funcionará independentemente da configuração do SSH e fornecerá a você um console interativo para sua VM. Na verdade, as situações "não é SSH" são especificamente o que o console serial foi projetado para ajudar a solucioná-lo. Mais detalhes abaixo.
 * [CLI do Azure](#use-the-azure-cli) - se você já estiver na linha de comando, redefina rapidamente a configuração ou as credenciais do SSH. Se você estiver trabalhando com uma VM clássica, poderá usar a [CLI clássica do Azure](#use-the-azure-classic-cli).
 * [Extensão VMAccessForLinux do Azure](#use-the-vmaccess-extension) – criar e reutilizar os arquivos de definição json para redefinir as credenciais de usuário ou configuração do SSH.
 
@@ -75,27 +75,27 @@ Use a [verificação de fluxo de IP](../../network-watcher/network-watcher-check
 
 Use a funcionalidade [Próximo salto](../../network-watcher/network-watcher-check-next-hop-portal.md) do Observador de Rede para confirmar que uma rota não está impedindo que o tráfego seja roteado de ou para uma máquina virtual. Você também pode examinar as rotas efetivas para ver todas as rotas efetivas para uma interface de rede. Para saber mais, confira [Usar regras efetivas para solucionar problemas de fluxo de tráfego de VM](../../virtual-network/diagnose-network-routing-problem.md).
 
-## <a name="use-the-azure-vm-serial-console"></a>Use o console serial Azure VM
-O [Azure VM Serial Console](./serial-console-linux.md) fornece acesso a um console baseado em texto para máquinas virtuais Linux. Você pode usar o console para solucionar problemas da sua conexão SSH em uma concha interativa. Certifique-se de ter cumprido os [pré-requisitos](./serial-console-linux.md#prerequisites) para usar o Console Serial e tente os comandos abaixo para solucionar ainda mais sua conectividade SSH.
+## <a name="use-the-azure-vm-serial-console"></a>Usar o console serial da VM do Azure
+O [console serial da VM do Azure](./serial-console-linux.md) fornece acesso a um console baseado em texto para máquinas virtuais do Linux. Você pode usar o console do para solucionar problemas de conexão SSH em um shell interativo. Verifique se você atendeu os [pré-requisitos](./serial-console-linux.md#prerequisites) para usar o console serial e tente os comandos a seguir para solucionar problemas de conectividade SSH.
 
-### <a name="check-that-ssh-is-running"></a>Verifique se o SSH está sendo executado
-Você pode usar o seguinte comando para verificar se o SSH está sendo executado em sua VM:
+### <a name="check-that-ssh-is-running"></a>Verificar se o SSH está em execução
+Você pode usar o seguinte comando para verificar se o SSH está em execução em sua VM:
 
 ```console
 ps -aux | grep ssh
 ```
 
-Se houver alguma saída, o SSH está funcionando.
+Se houver qualquer saída, o SSH estará ativo e em execução.
 
-### <a name="check-which-port-ssh-is-running-on"></a>Verifique em qual porta o SSH está sendo executado
+### <a name="check-which-port-ssh-is-running-on"></a>Verificar em qual porta o SSH está sendo executado
 
-Você pode usar o seguinte comando para verificar em qual porta o SSH está sendo executado:
+Você pode usar o seguinte comando para verificar em qual porta o SSH está em execução:
 
 ```console
 sudo grep Port /etc/ssh/sshd_config
 ```
 
-Sua saída será algo como:
+A saída terá uma aparência semelhante a:
 
 ```output
 Port 22
@@ -130,7 +130,7 @@ az vm user update --resource-group myResourceGroup --name myVM \
 ```
 
 ## <a name="use-the-vmaccess-extension"></a>Usar a extensão VMAccess
-O VM Access Extension for Linux lê-se em um arquivo json que define ações a serem realizadas. Essas ações incluem redefinir o SSHD, redefinir uma chave SSH ou adicionar um usuário. Você ainda usa a CLI do Azure para chamar a extensão VMAccess, mas você pode reutilizar os arquivos json em várias VMs, se desejado. Essa abordagem permite que você crie um repositório de arquivos json que podem então ser chamados para determinado cenários.
+A extensão de acesso da VM para o Linux lê em um arquivo JSON que define as ações a serem executadas. Essas ações incluem a redefinição de SSHD, a redefinição de uma chave SSH ou a adição de um usuário. Você ainda usa a CLI do Azure para chamar a extensão VMAccess, mas você pode reutilizar os arquivos json em várias VMs, se desejado. Essa abordagem permite que você crie um repositório de arquivos json que podem então ser chamados para determinado cenários.
 
 ### <a name="reset-sshd"></a>Redefinir SSHD
 Crie um arquivo chamado `settings.json` com o conteúdo a seguir:
@@ -277,7 +277,7 @@ Experimente essas etapas para resolver as falhas de conexão SSH mais comuns em 
   * Criar uma nova conta de usuário *sudo*.
   * Redefinir a configuração de SSH.
 * Verifique se há problemas de plataforma na integridade do recurso da VM.<br>
-     Selecione sua VM e role para baixo **Configurações** > **Verifique a saúde**.
+     Selecione sua VM e role para baixo **configurações** > **verificar integridade**.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * Se ainda não puder se conectar com SSH à VM após seguir essas etapas, veja [etapas de solução de problemas mais detalhadas](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para examinar etapas adicionais para resolver o problema.
