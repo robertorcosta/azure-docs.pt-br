@@ -214,6 +214,7 @@
             - name: Páginas da Web
               items:
                 - name: JavaScript do lado do cliente
+                  displayname: 'SPA, Single Page Applications, React, JS, Angular'
                   href: app/javascript.md
                 - name: Source map para JavaScript
                   href: app/source-map-support.md
@@ -243,11 +244,13 @@
             - name: Autônomo – qualquer ambiente
               items:
                 - name: Java (versão prévia)
-                  href: app/java-in-process-agent.md
-                - name: Configuração da JVM Java
-                  href: app/java-standalone-arguments.md
-                - name: Opções de configuração do Java
-                  href: app/java-standalone-config.md
+                  items:
+                    - name: Visão geral
+                      href: app/java-in-process-agent.md
+                    - name: Opções de configuração
+                      href: app/java-standalone-config.md
+                    - name: Instalação de argumentos da JVM
+                      href: app/java-standalone-arguments.md
             - name: Servidores locais
               items:
                 - name: ASP.NET
@@ -439,6 +442,11 @@
               href: app/custom-data-correlation.md
             - name: Cadeias de conexão
               href: app/sdk-connection-string.md
+            - name: Cadeias de conexão
+              href: app/sdk-connection-string.md
+            - name: GetMetric
+              displayname: 'get metric, custom metrics, metrics, TrackMetric'
+              href: app/get-metric.md
             - name: Tópicos especiais
               items:
                 - name: Diagnósticos detalhados para aplicativos Web e serviços
@@ -690,8 +698,10 @@
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Habilitar para cluster híbrido
                   href: insights/container-insights-hybrid-setup.md
-                - name: Habilitar para o Red Hat OpenShift no Azure
+                - name: Habilitar para o Red Hat OpenShift no Azure v3
                   href: insights/container-insights-azure-redhat-setup.md
+                - name: Habilitar para o Red Hat OpenShift no Azure v4
+                  href: insights/container-insights-azure-redhat4-setup.md
                 - name: Mapeamentos de região
                   href: insights/container-insights-region-mapping.md
             - name: Monitorar desempenho
@@ -724,10 +734,16 @@
               href: insights/container-insights-update-metrics.md
             - name: Configuração de monitoramento de integridade
               href: insights/container-insights-health-monitors-config.md
-            - name: Desabilitar monitoramento do AKS
-              href: insights/container-insights-optout.md
-            - name: Desabilitar monitoramento do Red Hat OpenShift
-              href: insights/container-insights-optout-openshift.md
+            - name: Desabilitar o monitoramento
+              items:
+                - name: Desabilitar monitoramento do AKS
+                  href: insights/container-insights-optout.md
+                - name: Desabilitar monitoramento do Red Hat OpenShift v3
+                  href: insights/container-insights-optout-openshift-v3.md
+                - name: Desabilitar monitoramento do Red Hat OpenShift v4
+                  href: insights/container-insights-optout-openshift-v4.md
+                - name: Desabilitar monitoramento de cluster híbrido
+                  href: insights/container-insights-optout-hybrid.md
             - name: Solução de problemas
               href: insights/container-insights-troubleshoot.md
         - name: Monitoramento do Docker e do Contêiner do Windows

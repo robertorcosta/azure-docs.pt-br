@@ -36,8 +36,12 @@
       href: powershell-samples.md
 - name: Conceitos
   items:
-    - name: Componentes e limitações
-      href: concepts-limitations.md
+    - name: Componentes
+      href: components.md
+    - name: Conceitos
+      href: concepts.md
+    - name: Tipos
+      href: types.md
     - name: Monitoramento da integridade
       items:
         - name: Investigações de integridade
@@ -133,6 +137,8 @@
       items:
         - name: Solucionar problemas do Azure Load Balancer
           href: load-balancer-troubleshoot.md
+        - name: Solucionar Problemas de erros comuns de implantação
+          href: load-balancer-common-deployment-errors.md
 - name: Referência
   items:
     - name: Exemplos de código
