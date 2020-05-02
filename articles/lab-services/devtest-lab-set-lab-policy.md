@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79270713"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerenciar todas as políticas de um laboratório no Azure DevTest Labs
@@ -113,7 +113,7 @@ Se você definir seu laboratório para essa política, os usuários do laborató
 ## <a name="set-autostart"></a>Conjunto autostart
 A diretiva de início automático permite especificar quando as VMs no laboratório atual devem ser iniciadas.  
 
-1. No painel **configuração e políticas** do laboratório, selecione **Autostart**.
+1. No painel **configuração e políticas** do laboratório, selecione **inicialização automática**.
    
     ![Início automático](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -123,7 +123,7 @@ A diretiva de início automático permite especificar quando as VMs no laborató
 
 4. Selecione **Salvar**.
 
-Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra o painel de gerenciamento da VM e altere a configuração **Autostart.**
+Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra o painel Gerenciamento da VM e altere sua configuração de **inicialização automática** .
 
 ## <a name="set-expiration-date"></a>Definir a data de validade
 Você pode definir uma data de validade ao [criar a VM](devtest-lab-add-vm.md). Em **Configurações avançadas**, escolha o ícone de calendário para especificar uma data em que a VM será excluída automaticamente. Por padrão, a VM nunca expira.
