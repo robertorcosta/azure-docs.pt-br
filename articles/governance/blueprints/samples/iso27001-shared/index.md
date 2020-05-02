@@ -4,10 +4,10 @@ description: Visão geral e arquitetura do exemplo de blueprint dos Serviços Co
 ms.date: 04/15/2020
 ms.topic: sample
 ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 05/01/2020
 ms.locfileid: "81458447"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Visão geral do exemplo de blueprint dos Serviços Compartilhados do ISO 27001

@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dbbbbb18bf81d70ed7955530db7c603594c16d0
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371613"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652733"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de versão: SDK de dispositivos de fala
 
 As seções a seguir listam as alterações nas versões mais recentes.
+
+## <a name="speech-devices-sdk-1110"></a>SDK de dispositivos de fala 1.11.0:
+
+- Suporte para [URBETTER DDK](http://www.urbetter.com/products_56/278.html).
+- Binários liberados para o [GGEC palestrante](https://aka.ms/sdsdk-download-speaker) usado em nosso [exemplo de assistente de voz](https://aka.ms/sdsdk-speaker).
+- Binários liberados para [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) e [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) para Raspberry Pi e dispositivos semelhantes.
+- Atualizado o componente [SDK de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) para a versão 1.11.0. Para obter mais informações, consulte [notas de versão](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-190"></a>SDK de dispositivos de fala 1.9.0:
 
@@ -55,7 +62,7 @@ As seções a seguir listam as alterações nas versões mais recentes.
 - A nova tecnologia de palavra-chave traz melhorias significativas de qualidade, consulte alterações significativas.
 - Novo pipeline de processamento de áudio para um reconhecimento de campo aprimorado.
 
-**Alterações de quebra**
+**Alterações da falha**
 
 - Devido à nova palavra-chave Technology, todas as palavras-chave devem ser recriadas em nosso portal de palavra-chave aprimorado. Para remover totalmente as palavras-chave antigas do dispositivo, desinstale o aplicativo antigo.
   - desinstalação de ADB com. Microsoft. cognitivaservices. Speech. Samples. sdsdkstarterapp
@@ -70,7 +77,7 @@ As seções a seguir listam as alterações nas versões mais recentes.
 - Tratamento de palavra-chave atualizado, consulte alterações significativas.
 - O aplicativo de exemplo adiciona a opção de linguagem para reconhecimento de fala e tradução.
 
-**Alterações de quebra**
+**Alterações da falha**
 
 - [A instalação de uma palavra-chave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) foi simplificada, agora faz parte do aplicativo e não precisa de instalação separada no dispositivo.
 - O reconhecimento de palavra-chave foi alterado e há suporte para dois eventos.
@@ -89,7 +96,7 @@ As seções a seguir listam as alterações nas versões mais recentes.
 - A precisão do reconhecimento de fala será aprimorada com nosso algoritmo de processamento de áudio aprimorada
 - Um bug da sessão de áudio de reconhecimento contínuo é corrigido.
 
-**Alterações de quebra**
+**Alterações da falha**
 
 - Com essa versão, várias alterações significativas foram introduzidas. Confira [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes das APIs.
 - Os arquivos de modelo KWS não são compatíveis com Dispositivos de Fala SDK 1.0.1. Os arquivos de palavra-chave existentes serão excluídos depois que os novos arquivos de palavra-chave forem gravados no dispositivo.
