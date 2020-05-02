@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876499"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690834"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres de serviços cognitivas do Azure
 
@@ -76,7 +76,11 @@ Infelizmente, os contêineres de serviços cognitivas *não* têm suporte nativo
 
 **P: como devo executar os contêineres de serviços cognitivas em dispositivos IoT?**
 
-Se você não tem uma conexão com a Internet confiável ou deseja economizar no custo de largura de banda. Ou, se tiver requisitos de baixa latência ou se estiver lidando com dados confidenciais que precisam ser analisados no local, [Azure IOT Edge com os contêineres de serviços cognitivas](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) proporcionam consistência com a nuvem.
+**R:** Se você não tem uma conexão com a Internet confiável ou deseja economizar no custo de largura de banda. Ou, se tiver requisitos de baixa latência ou se estiver lidando com dados confidenciais que precisam ser analisados no local, [Azure IOT Edge com os contêineres de serviços cognitivas](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) proporcionam consistência com a nuvem.
+
+**P: esses contêineres são compatíveis com o OpenShift?** 
+
+Não testamos contêineres com OpenShift, mas, em geral, os contêineres de serviços cognitivas devem ser executados em qualquer plataforma que ofereça suporte a imagens do Docker. Se você estiver usando o OpenShift, é recomendável executar os `root-user`contêineres como.
 
 **P: Como fazer fornecer comentários sobre o produto e recomendações de recursos?**
 

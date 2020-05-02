@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a4c90ed12c8023e0b9ebc509b20d8d9224b49f1b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c829579f3ad9922c8c621b6dbfa966b69a2497d1
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220155"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690809"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
 
@@ -26,10 +26,10 @@ O Pesquisa Visual Computacional fornece vários serviços que detectam e extraem
 
 A API de leitura detecta o conteúdo de texto em uma imagem usando nossos modelos de reconhecimento mais recentes e converte o texto identificado em um fluxo de caracteres legível por máquina. Ele é otimizado para imagens com texto pesado (como documentos que foram digitalizados digitalmente) e para imagens com muitos ruídos visuais. Ele determinará qual modelo de reconhecimento usar para cada linha de texto, dando suporte a imagens com texto impresso e manuscrito. A API de leitura é executada de forma assíncrona porque documentos maiores podem levar vários minutos para retornar um resultado.
 
-A operação de leitura mantém os agrupamentos de linhas originais de palavras reconhecidas em sua saída. Cada linha vem com coordenadas de caixa delimitadora, e cada palavra dentro da linha também tem suas próprias coordenadas. Se uma palavra tiver sido reconhecida com baixa confiança, essas informações também serão transmitidas. Consulte a [ler](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) documentos de referência de API de leitura e [ler sobre API de leitura](https://go.microsoft.com/fwlink/?linkid=2118322) para saber mais.
+A operação de leitura mantém os agrupamentos de linhas originais de palavras reconhecidas em sua saída. Cada linha vem com coordenadas de caixa delimitadora, e cada palavra dentro da linha também tem suas próprias coordenadas. Se uma palavra tiver sido reconhecida com baixa confiança, essas informações também serão transmitidas. Consulte os documentos de referência de visualização da [API de leitura v 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) ou [leitura da API v 3.0 Preview](https://go.microsoft.com/fwlink/?linkid=2118322) para saber mais.
 
 > [!NOTE]
-> Esse recurso só está disponível para texto em inglês e espanhol (versão prévia).
+> Este recurso só está disponível para texto em inglês e espanhol (versão prévia do v 3.0).
 
 ### <a name="image-requirements"></a>Requisitos de imagem
 
