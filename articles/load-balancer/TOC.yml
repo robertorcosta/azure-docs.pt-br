@@ -40,8 +40,6 @@
       href: components.md
     - name: Conceitos
       href: concepts.md
-    - name: Tipos
-      href: types.md
     - name: Monitoramento da integridade
       items:
         - name: Investigações de integridade
