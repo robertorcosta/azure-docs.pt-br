@@ -8,10 +8,12 @@
   items:
     - name: Alta disponibilidade para os aplicativos do Azure
       href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+    - name: Regiões e Zonas de Disponibilidade
+      href: az-overview.md
     - name: Documentação de Zonas de Disponibilidade
       items:
-        - name: O que são Zonas de Disponibilidade?
-          href: az-overview.md
+        - name: Regiões que oferecem suporte às Zonas de Disponibilidade
+          href: az-region.md
         - name: Máquinas virtuais
           items:
             - name: Criar uma VM do Linux em uma zona de disponibilidade com a CLI

@@ -155,11 +155,11 @@
           href: directory-assign-admin-roles.md
         - name: Exibir e atribuir funções
           href: directory-manage-roles-portal.md
-        - name: Função personalizada
+        - name: Funções personalizadas
           items:
-            - name: Função personalizada
+            - name: Funções personalizadas
               href: roles-custom-overview.md
-            - name: Criar função personalizada
+            - name: Criar uma função personalizada
               href: roles-create-custom.md
             - name: Exibir atribuições de função personalizadas
               href: roles-view-assignments.md
@@ -167,7 +167,7 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Atribuir funções personalizadas no PowerShell
               href: roles-assign-powershell.md
-            - name: Permissões de funções personalizadas
+            - name: Permissões de função personalizada
               href: roles-custom-available-permissions.md
             - name: Delegar permissões de administrador de aplicativo
               href: roles-delegate-app-roles.md

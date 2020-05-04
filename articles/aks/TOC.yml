@@ -252,7 +252,7 @@
         - name: Exibir dados de contêiner em tempo real
           href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
-    - name: Usar contêineres do Windows Server (versão prévia)
+    - name: Usar contêineres do Windows Server
       items:
         - name: Criar um cluster AKS
           href: windows-container-cli.md

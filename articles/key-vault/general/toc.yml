@@ -48,6 +48,8 @@
       href: authentication-requests-and-responses.md
     - name: Diretrizes de limitação do Azure Key Vault
       href: overview-throttling.md
+    - name: Redundância e disponibilidade de Cofre de Chaves do Azure
+      href: disaster-recovery-guidance.md
     - name: Pontos de extremidade de serviço de rede virtual para o Azure Key Vault – Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: Guias de instruções
@@ -92,6 +94,10 @@
           href: soft-delete-cli.md
         - name: Como usar a exclusão reversível com o PowerShell
           href: soft-delete-powershell.md
+    - name: Mover o Key Vault
+      items:
+        - name: Mover o Key Vault para outra região
+          href: keyvault-moveregion.md
     - name: Solucionar problemas
       items:
         - name: Alterar uma ID de locatário do cofre de chaves após mover uma assinatura
