@@ -6,6 +6,10 @@
       href: overview-iot-central.md
     - name: Tour da interface do usuário
       href: overview-iot-central-tour.md
+    - name: Atualizações recentes
+      items:
+        - name: Março de 2020
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
 - name: Inícios rápidos
   expanded: true
   items:
