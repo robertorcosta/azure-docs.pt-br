@@ -1,21 +1,15 @@
 ---
 title: Início rápido do Azure - Executar trabalho do Lote - CLI
 description: Aprenda rapidamente a executar um trabalho do Lote com a CLI do Azure. Crie e gerencie recursos do Azure na linha de comando ou em scripts.
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
-ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 9106741e18354d39909fa84ce6e9f3a66ccf2014
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3ec3ab6cc988ba1d11231a1bda1eec15d6e811c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77024493"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116325"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido: Executar o primeiro trabalho do Lote com a CLI do Azure
 
@@ -170,7 +164,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-Você pode exibir o conteúdo de `stdout.txt` em um editor de texto. O conteúdo mostra as variáveis de ambiente do Lote do Azure que são definidas no nó. Ao criar seus próprios trabalhos do Lote, você pode consultar essas variáveis de ambiente nas linhas de comando da tarefa e nos aplicativos e scripts executados pelas linhas de comando. Por exemplo:
+Você pode exibir o conteúdo de `stdout.txt` em um editor de texto. O conteúdo mostra as variáveis de ambiente do Lote do Azure que são definidas no nó. Ao criar seus próprios trabalhos do Lote, você pode consultar essas variáveis de ambiente nas linhas de comando da tarefa e nos aplicativos e scripts executados pelas linhas de comando. Por exemplo: 
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

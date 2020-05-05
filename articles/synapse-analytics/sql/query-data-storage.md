@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cdad95b1a910a45629e85bcc716218b272afd9de
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421290"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82116240"
 ---
 # <a name="overview-query-data-in-storage"></a>Visão geral: Consultar dados no armazenamento
 
@@ -72,9 +72,6 @@ Você precisa criar credenciais para poder executar consultas. Esta credencial s
 > O SQL sob demanda sempre usa por padrão a passagem do AAD.
 
 Para obter mais informações sobre como gerenciar o controle de acesso de armazenamento, confira este [link](develop-storage-files-storage-access-control.md).
-
-> [!WARNING]
-> Você precisa criar credenciais para uma conta de armazenamento que está localizada na sua região de ponto de extremidade. Embora o SQL sob demanda possa acessar armazenamentos de diferentes regiões, ter o armazenamento e o ponto de extremidade na mesma região proporcionará uma experiência com melhor desempenho.
 
 Para criar credenciais para contêineres CSV, JSON e Parquet, execute o código abaixo:
 

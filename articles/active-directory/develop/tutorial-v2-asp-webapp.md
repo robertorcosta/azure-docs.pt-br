@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 94d3993c6a0c62a68ea77a888d3351c8fea1d935
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80990983"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82181606"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -70,10 +70,8 @@ Esta seção descreve como instalar e configurar o pipeline de autenticação po
     Install-Package Microsoft.Owin.Host.SystemWeb
     ```
 
-<!--start-collapse-->
-> ### <a name="about-these-libraries"></a>Sobre estas bibliotecas
-> Estas bibliotecas permitem o SSO (logon único) usando o OpenID Connect por meio da autenticação baseada em cookie. Depois que a autenticação for concluída e o token que representa o usuário for enviado ao aplicativo, o middleware OWIN criará um cookie de sessão. Em seguida, o navegador usará esse cookie nas próximas solicitações, de modo que o usuário não precise digitar a senha novamente e nenhuma verificação adicional será necessária.
-<!--end-collapse-->
+### <a name="about-these-libraries"></a>Sobre estas bibliotecas
+Estas bibliotecas permitem o SSO (logon único) usando o OpenID Connect por meio da autenticação baseada em cookie. Depois que a autenticação for concluída e o token que representa o usuário for enviado ao aplicativo, o middleware OWIN criará um cookie de sessão. Em seguida, o navegador usará esse cookie nas próximas solicitações, de modo que o usuário não precise digitar a senha novamente e nenhuma verificação adicional será necessária.
 
 ## <a name="configure-the-authentication-pipeline"></a>Configurar o pipeline de autenticação
 
@@ -117,7 +115,7 @@ As etapas a seguir são usadas para criar uma classe de Inicialização do middl
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
-        /// Configure OWIN to use OpenIdConnect 
+        /// Configure OWIN to use OpenIdConnect
         /// </summary>
         /// <param name="app"></param>
         public void Configuration(IAppBuilder app)
@@ -171,10 +169,9 @@ As etapas a seguir são usadas para criar uma classe de Inicialização do middl
 > A configuração de `ValidateIssuer = false` é uma simplificação deste início rápido. Em aplicativos reais, você precisará validar o emissor.
 > Confira as amostras para saber como fazer isso.
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Mais informações
-> Os parâmetros fornecidos em *OpenIDConnectAuthenticationOptions* servem como coordenadas para seu aplicativo se comunicar com a plataforma de identidade da Microsoft. Como o middleware do OpenID Connect usa cookies em segundo plano, você também precisará configurar a autenticação de cookie, como mostra o código anterior. O valor *ValidateIssuer* instrui OpenIdConnect a não restringir o acesso a uma organização específica.
-<!--end-collapse-->
+### <a name="more-information"></a>Mais informações
+
+Os parâmetros fornecidos em *OpenIDConnectAuthenticationOptions* servem como coordenadas para seu aplicativo se comunicar com a plataforma de identidade da Microsoft. Como o middleware do OpenID Connect usa cookies em segundo plano, você também precisará configurar a autenticação de cookie, como mostra o código anterior. O valor *ValidateIssuer* instrui OpenIdConnect a não restringir o acesso a uma organização específica.
 
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Adicionar um controlador para manipular solicitações de entrada e saída
 
@@ -208,7 +205,7 @@ Para criar um controlador para expor métodos de entrada e saída, siga estas et
                 OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
     }
-    
+
     /// <summary>
     /// Send an OpenID Connect sign-out request.
     /// </summary>
@@ -266,10 +263,8 @@ No Visual Studio, crie uma exibição para adicionar o botão Entrar e para exib
     </html>
     ```
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Mais informações
-> Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Diretrizes de identidade Visual").
-<!--end-collapse-->
+### <a name="more-information"></a>Mais informações
+Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de entrada, acesse [Diretrizes de identidade visual](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Diretrizes de identidade Visual").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para exibir as declarações do usuário
 Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um controlador. Esse atributo restringe o acesso ao controlador permitindo apenas usuários autenticados. O seguinte código usa o atributo para exibir as declarações de usuário que foram recuperadas como parte da entrada:
@@ -291,28 +286,26 @@ Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um co
         public ActionResult Index()
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
-    
+
             //You get the user’s first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
-    
+
             // The 'preferred_username' claim can be used for showing the username
             ViewBag.Username = userClaims?.FindFirst("preferred_username")?.Value;
-    
+
             // The subject/ NameIdentifier claim can be used to uniquely identify the user across the web
             ViewBag.Subject = userClaims?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-    
+
             // TenantId is the unique Tenant Id - which represents an organization in Azure AD
             ViewBag.TenantId = userClaims?.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid")?.Value;
-    
+
             return View();
         }
     }
     ```
 
-<!--start-collapse-->
-> ### <a name="more-information"></a>Mais informações
-> Devido ao uso do atributo `[Authorize]`, todos os métodos desse controlador podem ser executados apenas se o usuário está autenticado. Se o usuário não estiver autenticado e tentar acessar o controlador, o OWIN iniciará um desafio de autenticação e forçará o usuário a se autenticar. O código anterior examina a lista de declarações em busca de atributos de usuário específicos incluídos no token de ID do usuário. Esses atributos incluem o nome completo do usuário e o nome de usuário, bem como a entidade de identificador de usuário global. Também contém a *ID de Locatário*, que representa a ID da organização do usuário. 
-<!--end-collapse-->
+### <a name="more-information"></a>Mais informações
+Devido ao uso do atributo `[Authorize]`, todos os métodos desse controlador podem ser executados apenas se o usuário está autenticado. Se o usuário não estiver autenticado e tentar acessar o controlador, o OWIN iniciará um desafio de autenticação e forçará o usuário a se autenticar. O código anterior examina a lista de declarações em busca de atributos de usuário específicos incluídos no token de ID do usuário. Esses atributos incluem o nome completo do usuário e o nome de usuário, bem como a entidade de identificador de usuário global. Também contém a *ID de Locatário*, que representa a ID da organização do usuário.
 
 ## <a name="create-a-view-to-display-the-users-claims"></a>Criar uma exibição para exibir as declarações do usuário
 
@@ -403,16 +396,16 @@ Quando estiver pronto para executar o teste, use uma conta do Azure AD (conta co
 <br/><br/>
 ![Entre na sua conta da Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-<!--start-collapse-->
-> ###  <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
->  Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. Depois que um usuário se autenticar na plataforma de identidade da Microsoft para acessar esse aplicativo, ele deverá fornecer seu consentimento às permissões solicitadas pelo aplicativo ("Exibir seu perfil básico" e "Manter o acesso aos dados aos quais você permitiu acesso"). Depois de aceitar essas permissões, o usuário será direcionado aos resultados do aplicativo. No entanto, o usuário poderá receber uma página **Consentimento do administrador necessário** se ocorrer uma das seguintes ações:
->  > - O desenvolvedor de aplicativos adiciona permissões extras que exigem o **consentimento do administrador**.
->  > - Ou o locatário está configurado (em **Aplicativos Empresariais – > Configurações de Usuário**), em que os usuários não podem fornecer consentimento aos aplicativos que acessam os dados da empresa em seu nome.
->
-> Para obter mais informações, veja [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
-<!--end-collapse-->
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
-#### <a name="view-application-results"></a>Veja os resultados de aplicativo
+Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. Depois que um usuário se autenticar na plataforma de identidade da Microsoft para acessar esse aplicativo, ele deverá fornecer seu consentimento às permissões solicitadas pelo aplicativo ("Exibir seu perfil básico" e "Manter o acesso aos dados aos quais você permitiu acesso"). Depois de aceitar essas permissões, o usuário será direcionado aos resultados do aplicativo. No entanto, o usuário poderá receber uma página **Consentimento do administrador necessário** se ocorrer uma das seguintes ações:
+
+- O desenvolvedor de aplicativos adiciona permissões extras que exigem o **consentimento do administrador**.
+- Ou o locatário está configurado (em **Aplicativos Empresariais – > Configurações de Usuário**), em que os usuários não podem fornecer consentimento aos aplicativos que acessam os dados da empresa em seu nome.
+
+Para obter mais informações, veja [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+
+### <a name="view-application-results"></a>Veja os resultados de aplicativo
 
 Depois de entrar, o usuário será redirecionado para a home page do seu site. A home page é a URL HTTPS especificada nas informações de registro de aplicativo no Portal de Registro de Aplicativo da Microsoft. A home page inclui uma mensagem de boas-vindas *"Olá, \<usuário>"* , um link para sair e um link para exibir as declarações do usuário. O link para as declarações do usuário é conectado ao controlador de Declarações criado anteriormente.
 
@@ -446,14 +439,13 @@ Você será solicitado a autenticar para usar a exibição do controlador proteg
 
 ## <a name="advanced-options"></a>Opções Avançadas
 
-<!--start-collapse-->
 ### <a name="protect-your-entire-website"></a>Proteja todo o seu site
+
 Para proteger todo o site, no arquivo **Global.asax**, adicione o atributo `AuthorizeAttribute` ao filtro `GlobalFilters` no método `Application_Start`:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
-<!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restringir quem pode se conectar ao seu aplicativo
 

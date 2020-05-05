@@ -6,24 +6,24 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 03/02/2020
-ms.openlocfilehash: 24981c10985cd353fcd476f416e89c94ad6b6cc6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/20/2020
+ms.openlocfilehash: 97b1466e6ac1f2c2dfb931655b64b0f9937ba21d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78271894"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82183255"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
-O [Apache Storm](https://storm.apache.org/) é um sistema de computação distribuída, tolerante a falhas e de software livre. Você pode usar o Storm para processar fluxos de dados em tempo real com o [Apache Hadoop](https://hadoop.apache.org/). As soluções do Storm também podem oferecer um processamento de dados garantido, com a capacidade de reproduzir os dados que não foram processados com êxito na primeira vez.
+O [Apache Storm](https://storm.apache.org/) é um sistema de computação distribuída, tolerante a falhas e de software livre. Você pode usar o Storm para processar fluxos de dados em tempo real com o [Apache Hadoop](../hadoop/apache-hadoop-introduction.md). As soluções do Storm também podem oferecer um processamento de dados garantido, com a capacidade de reproduzir os dados que não foram processados com êxito na primeira vez.
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>Por que usar o Apache Storm no HDInsight?
 
 O Storm no HDInsight oferece os seguintes recursos:
 
-* __99% Contrato de Nível de Serviço (SLA) no tempo de atividade do Storm__: Para saber mais, veja o documento [Informações de SLA para o HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
+* __99% Contrato de Nível de Serviço (SLA) no tempo de atividade do Storm__: O Storm no HDInsight é fornecido com suporte contínuo completo. O Storm no HDInsight também tem um SLA de 99,9%. Isso significa a Microsoft garante que um cluster Storm tenha conectividade externa pelo menos 99,9% do tempo. Para saber mais, confira o [Suporte do Azure](https://azure.microsoft.com/support/options/). Confira também o documento [Informações de SLA para o HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * Dá suporte à personalização fácil executando scripts em relação a um cluster Storm durante ou após a criação. Para obter mais informações, confira [Personalizar clusters HDInsight usando a ação de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -33,9 +33,9 @@ O Storm no HDInsight oferece os seguintes recursos:
 
     * Dá suporte à interface Java Trident. Você pode criar topologias Storm que dão suporte ao processamento de mensagens exatamente uma vez, à persistência de armazenamento de dados transacional e a um conjunto de operações de análise de fluxo comuns.
 
-* **Escala dinâmica**: Você pode adicionar ou remover nós de trabalho sem afetar a execução de topologias Storm. Você deve desativar e reativar topologias em execução para aproveitar novos nós adicionados por meio de operações de dimensionamento.
+* **Escala dinâmica**: Você pode adicionar ou remover nós de trabalho sem afetar a execução de topologias Storm. Desative e reative topologias em execução para aproveitar novos nós adicionados por meio de operações de dimensionamento.
 
-* **Criar pipelines de streaming usando vários serviços do Azure**: O Storm no HDInsight integra-se a outros serviços do Azure, como Hubs de Eventos, Banco de Dados SQL, Armazenamento do Azure e Azure Data Lake Storage. Para ver um exemplo de solução que se integrar aos serviços do Azure, consulte [Processar eventos dos Hubs de Eventos com Apache Storm no HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
+* **Criar pipelines de streaming usando vários serviços do Azure**: O Storm no HDInsight se integra a outros serviços do Azure. Entre eles, Hubs de Eventos, Banco de Dados SQL, Armazenamento do Azure e Azure Data Lake Storage. Para ver um exemplo de solução que se integrar aos serviços do Azure, consulte [Processar eventos dos Hubs de Eventos com Apache Storm no HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 Para obter uma lista de empresas que estão usando o Apache Storm em suas soluções de análise em tempo real, consulte [Empresas que estão usando o Apache Storm](https://storm.apache.org/Powered-By.html).
 
@@ -55,15 +55,11 @@ O Storm processa topologias em vez dos trabalhos do [Apache Hadoop MapReduce](ht
 
 O Apache Storm sempre faz com que cada mensagem de entrada seja sempre totalmente processada, mesmo quando a análise de dados é difundida por centenas de nós.
 
-O nó Nimbus fornece uma funcionalidade semelhante ao Apache Hadoop JobTracker e atribui tarefas a outros nós em um cluster por meio do [Apache ZooKeeper](https://zookeeper.apache.org/). Os Nós do Zookeeper fazem a coordenação de um cluster e facilitam a comunicação entre o Nimbus e o processo Supervisor nos nós de trabalho. Quando um nó de processamento falha, o nó Nimbus é informado e atribui a tarefa e os dados associados a outro nó.
+O nó do Nimbus fornece uma funcionalidade semelhante à do Apache Hadoop JobTracker. O Nimbus atribui tarefas a outros nós em um cluster por meio do Apache ZooKeeper. Os Nós do Zookeeper fazem a coordenação de um cluster e auxiliam a comunicação entre o Nimbus e o processo Supervisor nos nós de trabalho. Quando um nó de processamento falha, o nó Nimbus é informado e atribui a tarefa e os dados associados a outro nó.
 
 A configuração padrão dos clusters Apache Storm é ter apenas um nó Nimbus. O Storm no HDInsight oferece dois nós Nimbus. Se o nó primário falhar, o cluster Storm alternará para o nó secundário enquanto o nó primário é recuperado. O diagrama a seguir ilustra a configuração de fluxo de tarefa para o Storm no HDInsight:
 
 ![Diagrama do Nimbus, Zookeeper e Supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
-
-## <a name="ease-of-creation"></a>Fácil de criar
-
-Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para obter mais informações sobre como criar um cluster Storm, consulte [Criar clusters do Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Fácil de uso
 
@@ -76,7 +72,7 @@ Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para obter
 
 ## <a name="integration-with-other-azure-services"></a>Integração a outros serviços do Azure
 
-* __Azure Data Lake Storage__: Para obter um exemplo de como usar o Data Lake Store com um cluster Storm, confira [Usar o Azure Data Lake Store com Apache Storm no HDInsight](apache-storm-write-data-lake-store.md).
+* __Azure Data Lake Storage__: Confira [Usar o Armazenamento do Azure Data Lake Storage com o Apache Storm no HDInsight](apache-storm-write-data-lake-store.md).
 
 * __Hubs de Evento__: Para obter um exemplo de como usar os Hubs de Eventos com um cluster Storm, veja os seguintes exemplos:
 
@@ -85,10 +81,6 @@ Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para obter
     * [Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
 * __Banco de Dados SQL__, __Cosmos DB__, __Hubs de eventos__, e __HBase__: Exemplos de modelo são incluídos nas Ferramentas Data Lake para Visual Studio. Para saber mais,confira [Desenvolver uma topologia em C# para Apache Storm no HDInsight](apache-storm-develop-csharp-visual-studio-topology.md).
-
-## <a name="support"></a>Suporte
-
-O Storm no HDInsight é fornecido com suporte contínuo completo de nível empresarial. O Storm no HDInsight também tem um SLA de 99,9%. Isso significa a Microsoft garante que um cluster Storm tenha conectividade externa pelo menos 99,9% do tempo. Para saber mais, confira o [Suporte do Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="apache-storm-use-cases"></a>Casos de uso do Apache Storm
 
@@ -116,11 +108,11 @@ Também é possível usar Python para desenvolver componentes do Storm. Para obt
 
 ### <a name="guaranteed-message-processing"></a>Processamento de mensagem garantido
 
-O Apache Storm pode oferecer diferentes níveis de processamento de mensagem garantido. Por exemplo, um aplicativo básico Storm pode garantir um processamento pelo menos uma vez e o [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) pode garantir o processamento exatamente uma vez. Para obter mais informações, consulte [Garantias do processamento de dados](https://storm.apache.org/about/guarantees-data-processing.html) em apache.org.
+O Apache Storm pode oferecer diferentes níveis de processamento de mensagem garantido. Por exemplo, um aplicativo básico do Storm garante processamento pelo menos uma vez e o Trident pode garantir o processamento exatamente uma vez. Confira [Garantias do processamento de dados](https://storm.apache.org/about/guarantees-data-processing.html) em apache.org.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-O padrão de leitura de uma tupla de entrada, emitindo zero ou mais tuplas, e depois confirmando a tupla de entrada imediatamente no final do método de execução é comum. O Storm oferece a interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar esse padrão.
+O padrão de leitura de uma tupla de entrada, emitindo zero ou mais tuplas e depois confirmando a tupla de entrada imediatamente no final do método de execução, é comum. O Storm oferece a interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar esse padrão.
 
 ### <a name="joins"></a>Junções
 
@@ -150,7 +142,7 @@ Para obter um exemplo do cálculo de um valor de N principal, confira o exemplo 
 
 ## <a name="logging"></a>Registro em log
 
-O Storm usa o [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) para registrar informações em log. Por padrão, uma grande quantidade de dados é registrada e pode ser difícil classificar as informações. Você pode incluir um arquivo de configuração de log como parte de sua topologia do Storm para controlar o comportamento de log.
+O Storm usa o Apache Log4j 2 para registrar informações em log. Por padrão, uma grande quantidade de dados é registrada e pode ser difícil classificar as informações. Você pode incluir um arquivo de configuração de log como parte de sua topologia do Storm para controlar o comportamento de log.
 
 Para uma topologia de exemplo que demonstra como configurar o log, veja o exemplo [WordCount baseado em Java](apache-storm-develop-java-topology.md) para Storm no HDInsight.
 

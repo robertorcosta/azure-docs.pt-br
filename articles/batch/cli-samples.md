@@ -1,26 +1,16 @@
 ---
-title: Exemplos da CLI do Azure – Lote
+title: Exemplos de CLI do Azure
 description: Exemplos da CLI do Azure para o serviço de Lote do Azure. Saiba como criar uma conta do Lote e adicionar um aplicativo.
-services: batch
-documentationcenter: batch
-author: LauraBrenner
-manager: evansma
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: batch
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: ''
 ms.date: 01/29/2018
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: dd95511365a25c8f642cb7dcc5ef477f90926d31
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6674c3e1523408ea24a0b1b956c72af905821bb3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77022691"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117464"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Exemplos da CLI do Azure para o Lote do Azure
 
