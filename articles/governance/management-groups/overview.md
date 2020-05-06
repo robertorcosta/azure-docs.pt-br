@@ -4,10 +4,10 @@ description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de sua
 ms.date: 04/15/2020
 ms.topic: overview
 ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81381532"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure

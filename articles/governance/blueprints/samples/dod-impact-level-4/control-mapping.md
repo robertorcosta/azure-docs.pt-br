@@ -4,10 +4,10 @@ description: Mapeamento de controle do modelo de blueprint do Nível de Impacto 
 ms.date: 03/06/2020
 ms.topic: sample
 ms.openlocfilehash: a11a8637618bb42831ccf1a7001e4da40529ba74
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82024822"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controle do modelo de blueprint do Nível de Impacto 4 do DoD
