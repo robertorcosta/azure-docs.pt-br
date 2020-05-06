@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ef46b86186d1f5e26360de891b3a090ab0ece66b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78894827"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144858"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
@@ -99,11 +99,6 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 5. À esquerda, clique em **Métricas**. Use o Metrics Explorer para investigar a integridade e o uso do recurso. Você pode clicar em **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar a altura, paleta de cores, agrupamentos, métricas e tipos de gráfico existentes. Por exemplo, é possível fazer um gráfico que exiba o tempo médio de carregamento de página de um navegador selecionando "Tempo de carregamento de página do navegador" no menu suspenso de métricas e "Média" de agregação. Para saber mais sobre o Azure Metrics Explorer, acesse [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
      ![Guia Métricas: Gráfico de tempo médio de carregamento de página do navegador](./media/dotnetcore-quick-start/8metrics.png)
-
-## <a name="video"></a>Vídeo
-
-- Vídeo externo de passo a passo sobre [configuração do Application Insights com um .NET Core e Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) a partir do zero.
-- Vídeo externo de passo a passo sobre [configuração do Application Insights com um .NET Core e Visual Studio Code](https://youtu.be/ygGt84GDync) a partir do zero.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Quando você terminar de testar, poderá excluir o grupo de recursos e todos os recursos relacionados. Para isso, siga as etapas abaixo.

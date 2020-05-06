@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
 ms.openlocfilehash: cfdd0beac7d257a424d327df71602b4612c3da3b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79536846"
 ---
 # <a name="azure-monitor-overview"></a>Visão geral do Azure Monitor
@@ -105,10 +105,10 @@ As regras de alerta no Azure Monitor usam [grupos de ação](platform/action-gro
 
 ![Alertas](media/overview/alerts.png)
 
-### <a name="autoscale"></a>Dimensionamento automático
+### <a name="autoscale"></a>Autoscale
 O dimensionamento automático permite ter a quantidade certa de recursos em execução para lidar com a carga em seu aplicativo. Ele permite que você crie regras que usam métricas coletadas pelo Azure Monitor para determinar quando adicionar recursos automaticamente para lidar com aumentos de carga e também economizar dinheiro removendo recursos que estão ociosos. Especifique um número mínimo e máximo de instâncias e a lógica de quando aumentar ou diminuir os recursos.
 
-![Dimensionamento automático](media/overview/autoscale.png)
+![Autoscale](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>Visualizando dados de monitoramento
 As [Visualizações](visualizations.md), como tabelas e gráficos, são ferramentas eficientes para resumir dados de monitoramento e apresentá-los para públicos diferentes. O Azure Monitor tem seus próprios recursos para visualizar os dados de monitoramento e aproveita outros serviços do Azure para mostrá-los a públicos diferentes.
@@ -133,7 +133,7 @@ O [Power BI](https://powerbi.microsoft.com) é um serviço de análise de negóc
 ## <a name="integrate-and-export-data"></a>Integrar e exportar dados
 Geralmente, você terá o requisito de integrar o Azure Monitor a outros sistemas e de criar soluções personalizadas que usam os dados de monitoramento. Outros serviços do Azure funcionam com o Azure Monitor para fornecer essa integração.
 
-### <a name="event-hub"></a>Hub de Eventos
+### <a name="event-hub"></a>Hub de evento
 Os [Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs) são um serviço de ingestão de eventos e plataforma de streaming que pode transformar e armazenar dados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Use os Hubs de Eventos para [transmitir dados do Azure Monitor](platform/stream-monitoring-data-event-hubs.md) a ferramentas de monitoramento e SIEM de parceiros.
 
 

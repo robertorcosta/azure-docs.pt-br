@@ -10,10 +10,10 @@ keywords: azure automation, DSC, powershell, desired state configuration, update
 ms.date: 03/24/2020
 ms.topic: overview
 ms.openlocfilehash: 5fa39028f1041a063bab295adabf8145a8b46ae4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81308781"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>O que é Azure Arc para servidores (versão prévia)
@@ -43,7 +43,7 @@ Com o Azure Arc para servidores (versão prévia), só há suporte a determinada
 
 Na maioria dos casos, o local selecionado durante a criação do script de instalação deve ser a região do Azure mais próxima à localização do seu computador. Os dados em repouso serão armazenados na geografia do Azure que contém a região especificada por você, o que também pode afetar sua escolha de região se você tiver requisitos de residência de dados. Se a região do Azure a qual seu computador está conectado for afetada por uma interrupção, a máquina conectada não será afetada, mas talvez as operações de gerenciamento que usam o Azure não possam terminar. Para obter resiliência no caso de uma interrupção regional, se houver várias localizações que fornecem um serviço com redundância geográfica, será melhor conectar os computadores em cada localização a uma região diferente do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -92,7 +92,7 @@ Marcas de serviço:
 
 URLs:
 
-| recurso de agente | Descrição |
+| recurso de agente | DESCRIÇÃO |
 |---------|---------|
 |management.azure.com|Azure Resource Manager|
 |login.windows.net|Azure Active Directory|
@@ -153,7 +153,7 @@ O agente do Connected Machine envia uma mensagem de pulsação regular para o se
 
 Conectar computadores em seu ambiente híbrido diretamente com o Azure pode ser feito usando métodos diferentes, dependendo das suas necessidades. A tabela a seguir realça cada método para determinar qual funciona melhor para sua organização.
 
-| Método | Descrição |
+| Método | DESCRIÇÃO |
 |--------|-------------|
 | Interativamente | Instalar manualmente o agente em um número único ou pequeno de computadores seguindo as etapas em [Conectar computadores do portal do Azure](onboard-portal.md).<br> No portal do Azure, você pode gerar um script e executá-lo no computador para automatizar as etapas de instalação e configuração do agente.|
 | Em escala | Instalar e configurar o agente para vários computadores seguindo [Conectar computadores usando uma Entidade de Serviço](onboard-service-principal.md).<br> Esse método cria uma entidade de serviço para conectar computadores de maneira não interativa.|

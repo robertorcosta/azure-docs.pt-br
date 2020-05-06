@@ -4,10 +4,10 @@ description: Entenda como o serviço do Azure Blueprints permite criar, definir 
 ms.date: 11/21/2019
 ms.topic: overview
 ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80677406"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
@@ -48,7 +48,7 @@ Uma política pode ser incluída como um dos muitos _artefatos_ em uma definiç�
 
 Um plano gráfico é composto por _artefatos_. O Azure Blueprints atualmente dá suporte aos seguintes recursos como artefatos:
 
-|Recurso  | Opções de hierarquia| Descrição  |
+|Recurso  | Opções de hierarquia| DESCRIÇÃO  |
 |---------|---------|---------|
 |Grupos de recursos | Subscription | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager. |
 |Modelo do Azure Resource Manager | Assinatura, Grupo de Recursos | Modelos, incluindo aninhados e vinculados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
@@ -106,7 +106,7 @@ Para atribuir ou desatribuir um plano gráfico, sua conta precisa das seguintes 
 
 As seguintes funções internas estão disponíveis:
 
-|Função RBAC | Descrição |
+|Função RBAC | DESCRIÇÃO |
 |-|-|
 |[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, inclui todas as permissões relacionadas ao Azure Blueprint. |
 |[Colaborador](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, pode criar e excluir definições de blueprint, mas não tem permissões de atribuição de blueprint. |

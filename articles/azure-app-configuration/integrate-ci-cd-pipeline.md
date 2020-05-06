@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: lcozzens
-ms.openlocfilehash: c744557471a9b37bd620bb9195bdb709c24649ab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4b1b9e2360f4ae1cf428133006ed08327b10cdef
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77047281"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790755"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar com um pipeline de CI/CD
 
@@ -96,4 +96,4 @@ Para fazer um build de nuvem com o Azure DevOps, por exemplo, assegure que a [CL
 Neste tutorial, você exportou os dados de Configuração de Aplicativos do Azure a serem usados em um pipeline de implantação. Para saber mais sobre como usar a Configuração de Aplicativo, continue para ver as amostras da CLI do Azure.
 
 > [!div class="nextstepaction"]
-> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)
+> [CLI do Azure](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
