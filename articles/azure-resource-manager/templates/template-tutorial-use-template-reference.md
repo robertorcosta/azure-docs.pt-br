@@ -2,16 +2,16 @@
 title: Usar referência de modelo
 description: Use a referência do modelo do Azure Resource Manager para criar um modelo.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: b713d508a5e28291778d3727c15e12972eea3a77
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 12990238455046d837b175318225bb4f3d317706
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878469"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185040"
 ---
 # <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Utilizar a referência de modelo do Resource Manager
 
@@ -102,21 +102,42 @@ No Visual Studio Code, adicione os tipos de conta de armazenamento extras, confo
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Consulte a seção [Implantar o modelo](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) do guia de início rápido do Visual Studio Code para o procedimento de implantação. Ao implantar o modelo, especifique o parâmetro **storageAccountType** com um valor recém-adicionado, por exemplo, **Premium_ZRS**. A implantação falhará se você usar o modelo de início rápido original porque **Premium_ZRS** não era um valor permitido.  Para passar o valor do parâmetro, adicione a seguinte opção ao comando de implantação:
+1. Entrar no [Azure Cloud Shell](https://shell.azure.com)
 
-# <a name="cli"></a>[CLI](#tab/CLI)
+1. Escolha seu ambiente preferencial selecionando **PowerShell** ou **Bash** (para a CLI) no canto superior esquerdo.  Ao alternar, é necessário reiniciar o shell.
 
-```azurecli
---parameters storageAccountType='Premium_ZRS'
-```
+    ![Carregar arquivo do Cloud Shell no portal do Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou na seção anterior. Após carregar o arquivo, você pode usar o comando **ls** e o comando **cat** para verificar se o arquivo foi carregado com êxito.
 
-```azurepowershell
--storageAccountType "Premium_ZRS"
-```
+1. No Cloud Shell, execute os comandos a seguir. Selecione a guia para mostrar o código do PowerShell ou o código da CLI.
 
----
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters storageAccountType='Standard_RAGRS'
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -storageAccountType "Standard_RAGRS"
+    ```
+
+    ---
+
+ Ao implantar o modelo, especifique o parâmetro **storageAccountType** com um valor recém-adicionado, por exemplo, **Standard_RAGRS**. A implantação falhará se você usar o modelo de início rápido original porque **Standard_RAGRS** não era um valor permitido.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

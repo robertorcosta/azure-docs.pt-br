@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: 3912d55b13f3977818e8d898efa651ffeb1a798a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76046472"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195614"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integrar vários recursos da Leitura Avançada
 
@@ -258,7 +258,7 @@ O ponto de extremidade da API do **getimmersivereaderlaunchparams** deve ser pro
     npm start
     ```
 
-4. Abra o navegador da Web e navegue até [http://localhost:3000](http://localhost:3000). Veja o conteúdo acima na página. Clique no botão da **Leitura Avançada no EastUS** ou no botão da **Leitura Avançada no WestUS** para iniciar a Leitura Avançada usando esses recursos respectivos.
+4. Abra o navegador e navegue até `http://localhost:3000`. Veja o conteúdo acima na página. Clique no botão da **Leitura Avançada no EastUS** ou no botão da **Leitura Avançada no WestUS** para iniciar a Leitura Avançada usando esses recursos respectivos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

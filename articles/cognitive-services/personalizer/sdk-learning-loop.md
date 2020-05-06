@@ -2,14 +2,14 @@
 title: 'Início Rápido: Criar e usar o loop de aprendizado com o SDK – Personalizador'
 description: Este guia de início rápido mostra como criar e gerenciar sua base de dados de conhecimento usando o SDK do cliente.
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 7ebe22227b4323b2e6b1c3fc9ca31e171d1d97cd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: c65be6c68372ffe92ffd942bf71d2b635ec2fd16
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77524862"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82188834"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Início Rápido: Biblioteca de clientes do Personalizador
 
@@ -17,7 +17,7 @@ Exiba o conteúdo personalizado neste início rápido com o serviço Personaliza
 
 Introdução à biblioteca de clientes do Personalizador. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas.
 
- * API de Classificação: seleciona o melhor item, dos itens de conteúdo, com base em informações em tempo real fornecidas sobre o conteúdo e o contexto.
+ * API de Classificação: seleciona o melhor item dentre as ações, com base em informações em tempo real fornecidas sobre o conteúdo e o contexto.
  * API de Recompensa: você determina a pontuação de recompensa de acordo com as suas necessidades empresariais e, em seguida, envia-a para o Personalizador com essa API. Essa pontuação pode ser um só valor, como 1 para bom e 0 para ruim, ou um algoritmo criado de acordo com as suas necessidades empresariais.
 
 ::: zone pivot="programming-language-csharp"

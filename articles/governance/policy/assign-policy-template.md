@@ -4,12 +4,12 @@ description: Neste início rápido, você usa um modelo do Resource Manager para
 ms.date: 03/16/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: ae6b2d151baaa904215639276c7fb74766810c6a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 646e2e064618e70fd9e9e747926f0886d85fde26
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606597"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82187776"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando um modelo do Resource Manager
 
@@ -70,7 +70,7 @@ Alguns recursos adicionais:
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as **VMs de auditoria que não usam a atribuição de política de discos gerenciados** que você criou.
 
-![Página de visão geral de conformidade de política](./media/assign-policy-template/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Página de visão geral de conformidade de política" border="false":::
 
 Se houver recursos sem conformidade com essa nova atribuição, eles aparecerão em **Recursos sem conformidade**.
 
@@ -84,7 +84,7 @@ Para remover a atribuição criada, siga estas etapas:
 
 1. Clique com o botão direito do mouse na atribuição de política **Auditar VMs que não usam discos gerenciados** e selecione **Excluir atribuição**.
 
-   ![Excluir uma atribuição da página de visão geral de conformidade](./media/assign-policy-template/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Excluir uma atribuição da página de visão geral de conformidade" border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

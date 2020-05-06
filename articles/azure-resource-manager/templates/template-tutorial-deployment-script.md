@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/23/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94b351ddb18ca596f47e8ef40cff8229c838d7bd
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 2b4b94c05b39dddcef83644638a105d5b6c75118
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239217"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184972"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Usar scripts de implantação para criar um certificado autoassinado (Versão prévia)
 
@@ -48,13 +48,12 @@ Para concluir este artigo, você precisa do seguinte:
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  use o seguinte script do PowerShell para obter a ID fornecendo o nome do grupo de recursos e o nome da identidade.
+  Use o script da CLI a seguir para obter a ID fornecendo o nome do grupo de recursos e o nome da identidade.
 
-  ```azurepowershell-interactive
-  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
-  $idName = Read-Host -Prompt "Enter the name of the managed identity"
-
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  az identity list -g $resourceGroupName
   ```
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
@@ -285,35 +284,43 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Veja a seção [Implantar o modelo](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) no guia de início rápido do Visual Studio Code para abrir o Cloud Shell e carregar o arquivo de modelo para o shell. E, em seguida, execute o seguinte script de PowerShell:
+1. Entrar no [Azure Cloud Shell](https://shell.azure.com)
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-$identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
+1. Escolha seu ambiente preferencial selecionando **PowerShell** ou **Bash** (para a CLI) no canto superior esquerdo.  Ao alternar, é necessário reiniciar o shell.
 
-$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
-$resourceGroupName = "${projectName}rg"
-$keyVaultName = "${projectName}kv"
+    ![Carregar arquivo do Cloud Shell no portal do Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior.  Selecione o arquivo que você salvou na seção anterior. Após carregar o arquivo, você pode usar o comando **ls** e o comando **cat** para verificar se o arquivo foi carregado com êxito.
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
+1. Execute o script do PowerShell a seguir para implantar o modelo.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+    $identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
-O serviço de script de implantação para criar outros recursos de script de implantação para a execução do script. Pode levar até um minuto para que a preparação e o processo de limpeza sejam concluídos, além do tempo de execução do script real.
+    $adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+    $resourceGroupName = "${projectName}rg"
+    $keyVaultName = "${projectName}kv"
 
-A implantação falhou devido ao comando inválido. **Write-Output1** é usado no script. Você receberá uma mensagem informando:
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-```error
-The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
-```
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
 
-O resultado da execução do script de implantação é armazenado nos recursos do script de implantação para a finalidade de solução de problemas.
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    O serviço de script de implantação precisa criar outros recursos de script de implantação para a execução do script. Pode levar até um minuto para que a preparação e o processo de limpeza sejam concluídos, além do tempo de execução do script real.
+
+    A implantação falhou devido ao comando inválido. **Write-Output1** é usado no script. Você receberá uma mensagem informando:
+
+    ```error
+    The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
+    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    ```
+
+    O resultado da execução do script de implantação é armazenado nos recursos do script de implantação para a finalidade de solução de problemas.
 
 ## <a name="debug-the-failed-script"></a>Depurar o script com falha
 

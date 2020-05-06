@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b66414e87f642bc72b8723ebff57f2e9009f17
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: 737e8a247a232278db73de716647fc5bb890fe39
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239244"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184989"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solucionar problemas de implantações do modelo do ARM
 
@@ -26,20 +26,18 @@ Ambos os tipos de erro retornam um código de erro que você pode usar para solu
 Este tutorial cobre as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Criar um modelo com problemas
-> * Solucionar erros de validação
-> * Solucionar problemas de erros de implantação
-> * Limpar os recursos
+> - Criar um modelo com problemas
+> - Solucionar erros de validação
+> - Solucionar problemas de erros de implantação
+> - Limpar os recursos
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
+- Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Usar o Visual Studio Code para criar modelos do ARM](use-vs-code-to-create-template.md).
 
 ## <a name="create-a-problematic-template"></a>Criar um modelo com problemas
 
@@ -51,12 +49,14 @@ Abra um modelo chamado [Criar uma conta de armazenamento Standard](https://azure
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Escolha **Abrir** para abrir o arquivo.
 4. Altere a linha **apiVersion** para a seguinte linha:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
+
     - **apiVersion1** é o nome de elemento inválido. Esse é um erro de validação.
     - A versão da API deverá ser "2018-07-01".  Esse é um erro de implantação.
 
@@ -64,7 +64,7 @@ Abra um modelo chamado [Criar uma conta de armazenamento Standard](https://azure
 
 ## <a name="troubleshoot-the-validation-error"></a>Solucionar o erro de validação
 
-Consulte a seção [Implantar o modelo](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) para implantar o modelo.
+Consulte a seção [Implantar o modelo](template-tutorial-create-multiple-instances.md#deploy-the-template) para implantar o modelo.
 
 Você deverá receber um erro do shell semelhante a:
 
@@ -78,7 +78,7 @@ Use o Visual Studio Code para corrigir o problema alterando **apiVersion1** para
 
 ## <a name="troubleshoot-the-deployment-error"></a>Solucionar o erro de implantação
 
-Consulte a seção [Implantar o modelo](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) para implantar o modelo.
+Consulte a seção [Implantar o modelo](template-tutorial-create-multiple-instances.md#deploy-the-template) para implantar o modelo.
 
 Você deverá receber um erro do shell semelhante a:
 
