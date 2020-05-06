@@ -4,10 +4,10 @@ description: Etapas de implantação da amostra de blueprint de carga de trabalh
 ms.date: 01/13/2020
 ms.topic: sample
 ms.openlocfilehash: 6b8f3b753f1dd8cfbc247a77f2004e3c4d3423bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922570"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantação da amostra de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL do ISO 27001

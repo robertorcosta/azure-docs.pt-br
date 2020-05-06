@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/13/2020
 ms.author: victorh
 ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79366267"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>O que é a Versão prévia do Gerenciador de Firewall do Azure?
@@ -78,7 +78,7 @@ As Políticas de Firewall do Azure podem ser usadas entre regiões. Por exemplo,
 
 A Versão prévia do Gerenciador de Firewall do Azure tem os seguintes problemas conhecidos:
 
-|Problema  |Descrição  |Atenuação  |
+|Problema  |DESCRIÇÃO  |Atenuação  |
 |---------|---------|---------|
 |Limitações da filtragem de terceiros.|A filtragem de tráfego V2I com provedores de terceiros não tem suporte no Firewall do Azure B2V e V2V.|Investigando|
 |Divisão de tráfego sem suporte no momento.|A divisão de tráfego do Office 365 e PaaS público do Azure não tem suporte no momento. Dessa forma, selecionar um provedor de terceiros para V2I ou B2I também envia todo o tráfego de PaaS público do Azure e do Office 365 por meio do serviço do parceiro.|Investigando a divisão de tráfego no hub.

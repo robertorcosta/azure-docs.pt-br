@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,seodec18
-ms.date: 03/11/2020
-ms.openlocfilehash: 66bfa0d3ee4cb03f1b48e2db24be7a90d97f60d6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.date: 04/22/2020
+ms.openlocfilehash: 8aa7401a2ee7a0d87736e6b18fc814f983e2afa0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79117222"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82184190"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o fluxo estruturado do Apache Spark com o Apache Kafka no HDInsight
 
@@ -35,7 +35,7 @@ Quando você concluir as etapas neste documento, lembre-se de excluir os cluster
 
 * Familiaridade com o uso de [Jupyter Notebook](https://jupyter.org/) com Spark no HDInsight. Para saber mais, confira o documento [Carregar dados e executar consultas com o Apache Spark no HDInsight](spark/apache-spark-load-data-run-query.md).
 
-* Familiaridade com a linguagem de programação [Scala](https://www.scala-lang.org/). O código usado neste tutorial é gravado em Scala.
+* Familiaridade com a linguagem de programação Scala. O código usado neste tutorial é gravado em Scala.
 
 * Familiaridade com a criação de tópicos Kafka. Para saber mais, confira o documento [Início rápido do Apache Kafka no HDInsight](kafka/apache-kafka-get-started.md).
 
@@ -182,7 +182,7 @@ Este exemplo demonstra como usar o Streaming Estruturado do Spark com o Kafka no
 
 1. Selecione **Novo > Spark** para criar um notebook.
 
-1. O streaming do Spark tem microenvio em lote, o que significa que os dados são recebidos como lotes e os executores são executados nos lotes de dados. Se o executor tiver um tempo limite de ociosidade menor que o tempo necessário para processar o lote, os executores serão constantemente adicionados e removidos. Se o tempo limite de ociosidade dos executores for maior que a duração do lote, o executor nunca será removido. Portanto, **recomendamos que você desabilite a alocação dinâmica definindo spark.dynamicAllocation.enabled como falso ao executar aplicativos de streaming.**
+1. O streaming do Spark tem microenvio em lote, o que significa que os dados são recebidos como lotes e os executores são executados nos lotes de dados. Se o executor tiver um tempo limite de ociosidade menor que o tempo necessário para processar o lote, os executores serão constantemente adicionados e removidos. Se o tempo limite de ociosidade dos executores for maior que a duração do lote, o executor nunca será removido. Assim, **recomendamos que você desabilite a alocação dinâmica definindo spark.dynamicAllocation.enabled como falso ao executar aplicativos de streaming.**
 
     Carregue os pacotes usados pelo Notebook inserindo as informações a seguir em uma célula do Notebook. Execute o comando usando **CTRL + ENTER**.
 
@@ -277,7 +277,7 @@ Este exemplo demonstra como usar o Streaming Estruturado do Spark com o Kafka no
     println("Schema declared")
     ```
 
-1. Selecione dados e inicie o fluxo. O comando a seguir demonstra como recuperar dados do Kafka usando uma consulta em lotes e, em seguida, gravar os resultados no HDFS no cluster Spark. Neste exemplo, o comando `select` recupera a mensagem (campo de valor) do Kafka e aplica o esquema a ela. Os dados são então gravados no HDFS (WASB ou ADL) no formato parquet. Insira o comando na próxima célula do Jupyter.
+1. Selecione dados e inicie o fluxo. O comando a seguir demonstra como recuperar dados do Kafka usando uma consulta em lote. E, em seguida, grave os resultados no HDFS no cluster do Spark. Neste exemplo, o comando `select` recupera a mensagem (campo de valor) do Kafka e aplica o esquema a ela. Os dados são então gravados no HDFS (WASB ou ADL) no formato parquet. Insira o comando na próxima célula do Jupyter.
 
     ```scala
     // Read a batch from Kafka
@@ -316,7 +316,7 @@ Este exemplo demonstra como usar o Streaming Estruturado do Spark com o Kafka no
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para limpar os recursos criados por este tutorial, você pode excluir o grupo de recursos. A exclusão do grupo de recursos também exclui o cluster HDInsight associado e todos os outros recursos associados ao grupo de recursos.
+Para limpar os recursos criados por este tutorial, você pode excluir o grupo de recursos. Excluir o grupo de recursos também exclui o cluster HDInsight associado. E quaisquer outros recursos associados ao grupo de recursos.
 
 Para remover o grupo de recursos usando o portal do Azure:
 
@@ -331,7 +331,7 @@ Para remover o grupo de recursos usando o portal do Azure:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a usar o [Fluxo Estruturado do Apache Spark](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) para gravar e ler dados do [Apache Kafka](./kafka/apache-kafka-introduction.md) no HDInsight. Use o link a seguir para aprender a usar o [Apache Storm](./storm/apache-storm-overview.md) com o Kafka.
+Neste tutorial, você aprendeu a usar o Fluxo Estruturado do Apache Spark. Para gravar e ler os dados do Apache Kafka no HDInsight. Use o link a seguir para aprender a usar o Apache Storm com o Kafka.
 
 > [!div class="nextstepaction"]
 > [Usar o Apache Storm com o Apache Kafka](hdinsight-apache-storm-with-kafka.md)
