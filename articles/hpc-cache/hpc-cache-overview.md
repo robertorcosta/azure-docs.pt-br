@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: 084c33874b474fc1789df93e088d3cec4263eac9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 02013abe7050f7f193b6aeb1a441e70f46a5df48
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81536634"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82106450"
 ---
 # <a name="what-is-azure-hpc-cache"></a>O que é o Azure HPC Cache?
 
@@ -63,6 +63,12 @@ Apenas estas regiões dão suporte ao [recurso de chaves gerenciadas pelo client
 * Oeste dos EUA 2
 
 Verifique a [página do produto do Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache) para obter as informações de disponibilidade mais recentes.
+
+## <a name="service-availability"></a>Disponibilidade do serviço
+
+Você deve solicitar acesso para cada assinatura que usará com o Azure HPC Cache. Essa restrição ajuda a garantir a qualidade do serviço.
+
+Solicite acesso preenchendo [este formulário](https://aka.ms/onboard-hpc-cache). Depois que sua assinatura for adicionada à lista de acesso, você poderá criar caches.
 
 ## <a name="next-steps"></a>Próximas etapas
 

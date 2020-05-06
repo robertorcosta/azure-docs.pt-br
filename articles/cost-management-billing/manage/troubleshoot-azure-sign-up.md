@@ -1,27 +1,31 @@
 ---
-title: Solucionar problemas de inscrição no Azure
+title: Solucionar problemas ao se inscrever para uma nova conta no portal do Azure ou no Centro de Contas do Azure
 description: Solução de problemas ao tentar se inscrever em uma nova conta no Centro de Contas do portal do Microsoft Azure.
+services: cost-management-billing
 author: v-miegge
-ms.reviewer: dcscontentpm
+manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 540cb5b4ca8f78c734fbc7dcd16358be8eb391c0
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409467"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133178"
 ---
-# <a name="troubleshoot-azure-sign-up"></a>Solucionar problemas de inscrição no Azure
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Solucionar problemas ao se inscrever para uma nova conta no portal do Azure ou no Centro de Contas do Azure
 
 Você pode ter problemas ao tentar se inscrever em uma nova conta no portal do Microsoft Azure ou no Centro de Contas do Azure. Antes de solucionar o problema, primeiro verifique o seguinte:
 
 - Se as informações que você forneceu em seu perfil de conta do Azure (incluindo o endereço de email de contato, o endereço residencial e o número de telefone) estão corretas.
 - Se as informações do cartão de crédito estão corretas.
-- Se você já não tem uma conta Microsoft com as mesmas informações.
+- Se você ainda não tem uma conta Microsoft com as mesmas informações.
+
+> [!NOTE]
+> Se você já tiver uma conta existente e estiver procurando orientações para solucionar problemas de credenciais, confira [Solucionar problemas de credenciais da assinatura do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
 
 ## <a name="resolutions"></a>Resoluções
 
@@ -110,7 +114,7 @@ Para resolver esse problema, verifique se os seguintes itens:
 
 - Se as informações que você forneceu em seu perfil de conta do Azure (incluindo o endereço de email de contato, o endereço residencial e o número de telefone) estão corretas.
 - Se as informações do cartão de crédito estão corretas.
-- Se você já não tem uma conta Microsoft que usa as mesmas informações.
+- Se você ainda não tem uma conta Microsoft que usa as mesmas informações.
 
 ### <a name="error-your-current-account-type-is-not-supported"></a>Erro: *Seu tipo de conta atual não é compatível*
 

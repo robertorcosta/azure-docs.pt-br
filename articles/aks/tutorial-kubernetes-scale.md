@@ -5,14 +5,14 @@ services: container-service
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 5c1cbebd671568d200321615ad34f52cb636c6c8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: f830d42ef09a60b1f9ced43250b24a68003d1e87
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878078"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128990"
 ---
-# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
 Se você tiver seguido os tutoriais, terá um cluster de Kubernetes operacional no AKS e já implantou o aplicativo Azure Voting de exemplo. Neste tutorial, parte cinco de sete, você escala horizontalmente os pods no aplicativo e experimenta o dimensionamento automático do pod. Você também aprenderá como dimensionar o número de nós da VM do Azure para alterar a capacidade do cluster para hospedagem de cargas de trabalho. Você aprenderá como:
 
@@ -74,11 +74,11 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Se o cluster AKs for menor que *1.10*, o Servidor de Métricas não será instalado automaticamente. Para instalar, clone o repositório do GitHub `metrics-server` e instale as definições de recurso de exemplo. Para exibir o conteúdo dessas definições YAML, confira [Servidor de Medição para o Kubernetes 1.8 e posterior][metrics-server-github].
+> Se o cluster AKs for menor que *1.10*, o Servidor de Métricas não será instalado automaticamente. Os manifestos de instalação do servidor de métricas estão disponíveis como um ativo `components.yaml` em versões do servidor de métricas, o que significa que você pode instalá-los por meio de uma URL. Para saber mais sobre essas definições de YAML, confira a seção [Implantação][metrics-server-github] do Leiame.
 > 
+> Exemplo de instalação:
 > ```console
-> git clone https://github.com/kubernetes-incubator/metrics-server.git
-> kubectl create -f metrics-server/deploy/1.8+/
+> kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
 Para usar o dimensionador automático, todos os contêineres em seus pods devem ter limites e solicitações de CPU definidos. Na implantação, `azure-vote-front` o contêiner de front-end já solicita 0,25 CPU, com um limite de 0,5 CPU. Essas solicitações e limites de recursos são definidos como mostrado no snippet de exemplo a seguir:
@@ -192,7 +192,7 @@ Avance para o próximo tutorial para saber mais sobre como atualizar um aplicati
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
+[metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
 [metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 
 <!-- LINKS - internal -->

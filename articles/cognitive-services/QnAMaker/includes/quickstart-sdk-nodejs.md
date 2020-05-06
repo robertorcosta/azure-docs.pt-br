@@ -2,13 +2,13 @@
 title: 'Início Rápido: Biblioteca de clientes do QnA Maker para Node.js'
 description: Este início rápido oferece uma introdução à biblioteca de clientes do QnA Maker para Node.js.
 ms.topic: quickstart
-ms.date: 01/13/2020
-ms.openlocfilehash: 05e6d2c77a351c22c73f0bdb54daeaf0e03f4a9d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/27/2020
+ms.openlocfilehash: 48038c8e7e8250190d79aba7901567e18881e912
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "76021322"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203991"
 ---
 Use a biblioteca de clientes do QnA Maker para Node.js para:
 
@@ -27,6 +27,9 @@ Use a biblioteca de clientes do QnA Maker para Node.js para:
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
 * A versão atual do [Node.js](https://nodejs.org).
+* Quando você tiver sua assinatura do Azure, crie um [recurso do QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) no portal do Azure para obter a chave de criação e o ponto de extremidade. Após a implantação, selecione **Ir para recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso que você criar para conectar seu aplicativo à API do QnA Maker. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
 
 ## <a name="setting-up"></a>Configurando
 
@@ -132,7 +135,7 @@ Inclua a função [`wait_for_operation`](#get-status-of-an-operation), referenci
 
 ## <a name="publish-a-knowledge-base"></a>Como publicar uma base de dados de conhecimento
 
-Publique a base de dados de conhecimento usando o método [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-). Ele usa o modelo salvo e treinado atual, referenciado pela ID da base de dados de conhecimento, e o publica em um ponto de extremidade. Verifique o código de resposta HTTP para validar se a publicação foi bem-sucedida.
+Publique a base de dados de conhecimento usando o método [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-). Ele usa o modelo salvo e treinado atual, referenciado pela ID da base de dados de conhecimento, e o publica em um ponto de extremidade. Verifique o código de resposta HTTP para validar que a publicação foi bem-sucedida.
 
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=publishKnowledgeBase&highlight=3)]
 

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: c393ba081b480408373ed6867624ac6278c1674e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6f4626a8c42f3a50fa273c55099158750241bfee
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260948"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202913"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API do Azure
 
@@ -35,7 +35,7 @@ Você saberá como:
 > * Testar a API no Portal do Azure
 > * Testar a API no portal do desenvolvedor
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclua o início rápido [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 * Verifique se que você tem um aplicativo do Azure Functions em sua assinatura. Para obter mais informações, consulte [Criar um Aplicativo de funções do Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Ele deve conter o Functions com gatilho HTTP e a configuração de nível de autorização definida como *Anônimo* ou *Função*.
@@ -46,7 +46,7 @@ Você saberá como:
 
 Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funções do Azure.
 
-1. Em sua instância de serviço do **Gerenciamento de API do Azure**, selecione **APIs** no menu à esquerda.
+1. Navegue até o serviço de Gerenciamento de API no portal do Azure e selecione **APIs** no menu.
 
 2. Na lista **Adicionar nova API**, selecione **Aplicativo de funções**.
 
@@ -71,10 +71,7 @@ Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funç
     > [!NOTE]
     > Você pode importar apenas as funções baseadas em gatilho HTTP e que tenham a configuração de nível de autorização definida como *Anônimo* ou *Função*.
 
-7. Alterne para a exibição **Completa** e atribua **Produto** à nova API. Se necessário, edite outros campos preenchidos previamente.
-
-    ![Adicionar a partir do Aplicativo de funções](./media/import-function-app-as-api/add-06.png)
-
+7. Alterne para a exibição **Completa** e atribua **Produto** à nova API. Se necessário, especifique outros campos durante a criação ou configure-os mais tarde, acessando a guia **Configurações**. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#-import-and-publish-a-backend-api).
 8. Clique em **Criar**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Acrescentar o Aplicativo de funções do Azure a uma API existente
