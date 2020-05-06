@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 26e5386f1c9730f1600e59a002ea7845b82ffe06
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3b34b45cba805d748dcc8a0c31340cd8116e1c80
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76937123"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160759"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Início Rápido: Criar uma zona DNS do Azure e registrar usando o portal do Azure
 
-Você pode configurar o DNS do Azure para resolver nomes de host em seu domínio público. Por exemplo, se você adquiriu o nome de domínio *contoso.xyz* de um registrador de nomes de domínio, poderá configurar o DNS do Azure para hospedar o domínio *contoso.xyz* e resolver *www.contoso.xyz* para o endereço IP do servidor Web ou aplicativo Web.
+Você pode configurar o DNS do Azure para resolver nomes de host em seu domínio público. Por exemplo, se você tiver adquirido o nome de domínio *contoso.xyz* de um registrador de nomes de domínio, poderá configurar o DNS do Azure para hospedar o domínio *contoso.xyz* e resolver *`www.contoso.xyz`* para o endereço IP do servidor Web ou aplicativo Web.
 
 Neste início rápido, você criará um domínio de teste e depois um registro de endereço para resolver o *www* do endereço IP *10.10.10.10*.
 
@@ -89,7 +89,7 @@ Agora que você tem uma zona DNS de teste com um registro 'A' de teste, é poss�
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Por exemplo:
+   Por exemplo: 
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

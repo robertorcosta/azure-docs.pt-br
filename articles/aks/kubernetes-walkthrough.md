@@ -3,7 +3,7 @@ title: 'Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure
 description: Saiba como criar rapidamente um cluster do Kubernetes, implantar um aplicativo e monitorar o desempenho no AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure.
 services: container-service
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 04/28/2020
 ms.custom:
 - H1Hack27Feb2017
 - mvc
@@ -11,18 +11,18 @@ ms.custom:
 - seo-javascript-september2019
 - seo-javascript-october2019
 - seo-python-october2019
-ms.openlocfilehash: 369e0da49064197524ee20bb8a0050c00c242260
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 2b45154a0198fe0845649167d0fa35aabfd0625e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81392770"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207387"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure usando a CLI do Azure
 
 Neste início rápido, você implanta um cluster do AKS (Serviço de Kubernetes do Azure) usando a CLI do Azure. O AKS é um serviço de Kubernetes gerenciado que permite implantar e gerenciar clusters rapidamente. Um aplicativo de vários contêineres que inclui um front-end da Web e uma instância do Redis é executado no cluster. Em seguida, você verá como monitorar a integridade do cluster e dos pods que executam seu aplicativo.
 
-Se você quiser usar contêineres do Windows Server (atualmente em versão prévia no AKS), confira [Criar um cluster AKS que dá suporte a contêineres do Windows Server][windows-container-cli].
+Para saber mais sobre como criar um pool de nós do Windows Server, confira [Criar um cluster do AKS compatível com contêineres do Windows Server][windows-container-cli].
 
 ![Aplicativo de votação implantado no Serviço de Kubernetes do Azure](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 

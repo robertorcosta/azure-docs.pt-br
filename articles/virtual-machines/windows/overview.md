@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: e304841d09913aac59f5e6ba082d3e76ec791e81
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81869355"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuais do Windows no Azure
@@ -45,7 +45,7 @@ Todos os recursos criados no Azure são distribuídos entre várias [regiões ge
 
 Esta tabela mostra algumas das maneiras de obter uma lista dos locais disponíveis.
 
-| Método | Descrição |
+| Método | DESCRIÇÃO |
 | --- | --- |
 | Portal do Azure |Selecione um local na lista quando você criar uma VM. |
 | Azure PowerShell |Use o comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
@@ -71,7 +71,7 @@ O Azure fornece muitas [imagens do marketplace](https://azure.microsoft.com/mark
 
 Esta tabela mostra algumas maneiras de encontrar as informações de uma imagem.
 
-| Método | Descrição |
+| Método | DESCRIÇÃO |
 | --- | --- |
 | Portal do Azure |Os valores são especificados automaticamente quando você seleciona uma imagem a ser usada. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
@@ -92,7 +92,7 @@ Estas tarefas comuns podem ser realizadas usando extensões:
 ### <a name="related-resources"></a>Recursos relacionados
 Os recursos nesta tabela são usados por VM e precisam existir ou ser criados quando a VM é criada.
 
-| Recurso | Obrigatório | Descrição |
+| Recurso | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
 | [Grupo de recursos](../../azure-resource-manager/management/overview.md) |Sim |A VM deve estar contida em um grupo de recursos. |
 | [Conta de armazenamento](../../storage/common/storage-create-storage-account.md) |Sim |A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais. |

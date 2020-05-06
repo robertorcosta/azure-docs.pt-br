@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224033"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82182337"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V para o Azure
 
@@ -127,7 +127,7 @@ A Recuperação de Site verifica se você tem uma ou mais contas de armazenament
 2. Em **Criar e associar política**, especifique um nome de política. Estamos usando **ContosoReplicationPolicy**.
 3. Para este tutorial, vamos deixar as configurações padrão:
     - **Frequência de cópia** indica com que frequência os dados delta (após a replicação inicial) serão replicados. A frequência padrão é a cada cinco minutos.
-    - **Retenção do ponto de recuperação** indica que os pontos de recuperação serão mantidos por duas horas.
+    - **Retenção do ponto de recuperação** indica que os pontos de recuperação serão mantidos por duas horas. O valor máximo permitido para a retenção ao proteger as máquinas virtuais hospedadas em hosts Hyper-V é de 24 horas.
     - **Frequência do instantâneo consistente com o aplicativo** indica que os pontos de recuperação contendo instantâneos consistentes com aplicativos serão criados a cada hora.
     - **Hora de início para replicação inicial** indica que a replicação inicial deve começar imediatamente.
 4. Depois que a política for criada, selecione **OK**. Quando você cria uma nova política, ela é automaticamente associada ao site do Hyper-V especificado. Em nosso tutorial, isso equivale a **ContosoHyperVSite**.

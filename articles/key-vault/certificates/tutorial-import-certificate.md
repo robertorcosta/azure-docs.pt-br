@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/03/2020
+ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 754f30f7931f9fad6a95328cbf8ab34f70cb75a0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9496173ee006c6ca3cab557f4e63ec21647ad0fd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426105"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82105566"
 ---
 # <a name="tutorial-import-a-certificate-in-azure-key-vault"></a>Tutorial: Importar um certificado no Azure Key Vault
 
@@ -76,11 +76,14 @@ Para importar um certificado para o cofre, você precisa ter um arquivo de certi
     - **Método de Criação de Certificado**: Importação.
     - **Nome do Certificado**: ExampleCertificate.
     - **Carregar o Arquivo de Certificado**: selecione o arquivo de certificado do disco
-    - Deixe os outros valores com seus padrões. Clique em **Criar**.
+    - **Senha**: se você estiver carregando um arquivo de certificado protegido por senha, forneça essa senha aqui. Caso contrário, deixe em branco. Depois que o arquivo de certificado for importado com êxito, o cofre de chaves removerá essa senha.
+4. Clique em **Criar**.
 
 ![Propriedades do certificado](../media/certificates/tutorial-import-cert/cert-import.png)
 
-Depois de receber a mensagem indicando que o certificado foi importado com êxito, clique nele na lista. Ao fazê-lo, você poderá ver algumas das propriedades dele. 
+Ao adicionar um certificado usando o método de **Importação**, o Azure Key Vault preencherá automaticamente os parâmetros do certificado (ou seja, período de validade, nome do emissor, data de ativação etc.).
+
+Depois de receber a mensagem indicando que o certificado foi importado com êxito, clique nele na lista para ver as propriedades dele. 
 
 ![Propriedades do certificado](../media/certificates/tutorial-import-cert/current-version-hidden.png)
 
@@ -101,6 +104,22 @@ az keyvault certificate import --file
 ```
 Saiba mais sobre os parâmetros [aqui](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
 
+Depois de importar o certificado, você poderá vê-lo usando [Mostrar certificado](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
+
+
+```azurecli
+az keyvault certificate show [--id]
+                             [--name]
+                             [--only-show-errors]
+                             [--subscription]
+                             [--vault-name]
+                             [--version]
+```
+
+
+
+Agora você criou um cofre de chaves, importou um certificado e viu as propriedades dele.
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros tutoriais e inícios rápidos do Key Vault complementam este início rápido. Se você planeja continuar a trabalhar com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão.
@@ -115,6 +134,6 @@ Quando não for mais necessário, exclua o grupo de recursos, que excluirá o Ke
 
 Neste tutorial, você criou um Key Vault e importou um certificado nele. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
 
-- Leia mais sobre [Como gerenciar certificados no Azure Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)
+- Leia mais sobre [Gerenciar a criação de certificados no Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
 - Veja exemplos de [Como importar certificados usando APIs REST](/rest/api/keyvault/importcertificate/importcertificate)
 - Examine as [Melhores práticas do Azure Key Vault](../general/best-practices.md)

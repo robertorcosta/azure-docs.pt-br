@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 2a30222902fd8797908202562a04018209842af2
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81115052"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82114557"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Avaliar servidores pelo uso de dados importados
 
@@ -68,7 +68,7 @@ Para configurar um novo projeto das Migrações para Azure:
 5. Em **Migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, caso não tenha um.
 6. Em **DETALHES DO PROJETO**, especifique o nome do projeto e a geografia em que deseja criá-lo. Para mais informações:
 
-    - Examine as [geografias compatíveis](migrate-support-matrix.md#supported-geographies). A geografia do projeto é usada apenas para armazenar os metadados coletados das VMs locais.
+    - Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
     - Você pode selecionar qualquer região de destino ao executar uma migração.
 
     ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-import/migrate-project.png)
@@ -248,6 +248,8 @@ Essa exibição mostra o custo estimado de computação e armazenamento da execu
 > As classificações de confiança não são atribuídas a avaliações de servidores importados para a Avaliação de Servidor pelo uso de CSV.
 
 ## <a name="supported-operating-system-names"></a>Nomes de sistemas operacionais com suporte
+
+Os nomes de sistema operacional fornecidos no CSV devem corresponder ou conter os nomes desta lista. Isso é necessário para que os nomes especificados sejam reconhecidos como válidos pela avaliação.
 
 <!-- BEGIN A - H -->
 

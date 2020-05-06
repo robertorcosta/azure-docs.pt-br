@@ -4,12 +4,12 @@ description: Aprenda a implantar um modelo do Azure Resource Manager do seu comp
 ms.date: 03/13/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c8e3eb62fa52caeaa63808b6b9ea199bdff5c4da
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80081815"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82188817"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implantar o modelo do Azure Resource Manager local
 
@@ -37,9 +37,7 @@ Modelos são arquivos JSON. Para examinar/editar modelos, você precisa de um bo
 
 ## <a name="review-template"></a>Examinar modelo
 
-O modelo usado neste tutorial é semelhante ao modelo usado no [tutorial sobre os modelos de Início Rápido](template-tutorial-quickstart-template.md). Se você estiver interessado em criar o modelo, poderá passar por esse tutorial. No entanto, isso não é necessário para concluir este tutorial.
-
-O modelo implanta uma conta de armazenamento, um plano do serviço de aplicativo e um aplicativo Web.
+O modelo implanta uma conta de armazenamento, um plano do serviço de aplicativo e um aplicativo Web. Se você estiver interessado em criar o modelo, veja o [tutorial sobre Modelos de Início Rápido](template-tutorial-quickstart-template.md). No entanto, isso não é necessário para concluir este tutorial.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/local-template/azuredeploy.json":::
 

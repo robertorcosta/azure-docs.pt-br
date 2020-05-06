@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/02/2020
-ms.openlocfilehash: fa33861d86ff8bee3e2a34fb3d93032ac6180880
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879618"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203634"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagens de várias classes 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -75,18 +75,6 @@ Os armazenamentos de dados do Azure Machine Learning são usados para armazenar 
 
 1. Selecione **Criar** para criar o armazenamento de dados.
 
-### <a name="add-labelers-to-workspace"></a>Adicionar rotuladores ao workspace
-
-Configure seu workspace para incluir todas as pessoas que rotularão os dados de qualquer um dos seus projetos.  Posteriormente, você adicionará esses rotuladores ao projeto de rotulagem específico.
-
-1. No lado esquerdo, selecione **Rotulagem de dados**.
-
-1. Na parte superior da página, selecione **Rotuladores**.
-
-1. Selecione **Adicionar rotulador** para adicionar o endereço de email de um rotulador.
-
-1. Continue a adicionar mais rotuladores até terminar.
-
 ### <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
 Agora que você tem a lista de rotuladores e o acesso aos dados que deseja rotular, crie o projeto de rotulagem.
@@ -142,51 +130,21 @@ Agora que você tem a lista de rotuladores e o acesso aos dados que deseja rotul
 
 Essa página não é atualizada automaticamente. Após uma pausa, atualize manualmente a página até o status do projeto mudar para **Criado**.
 
-### <a name="add-labelers-to-your-project"></a>Adicionar rotuladores ao seu projeto
-
-Adicione alguns ou todos os seus rotuladores a este projeto.
-
-1. Selecione o nome do projeto para abri-lo.  
-
-1. Na parte superior da página, selecione **Equipes**.
-
-1. Selecione o link **Equipe Padrão de labeling_tutorial**.
-
-1. Agora, use **Atribuir rotuladores** para adicionar os rotuladores que você deseja que participem deste projeto. 
-
-1. Selecione na lista de rotuladores que você criou anteriormente.  Depois de selecionar todos os rotuladores que você deseja usar, selecione **Atribuir rotuladores** para adicioná-los à sua equipe de projeto padrão.
-
 ## <a name="start-labeling"></a>Iniciar rotulagem
 
 Você já configurou os recursos do Azure e configurou um projeto de rotulagem de dados. Agora é hora de adicionar rótulos aos seus dados.
 
-### <a name="notify-labelers"></a>Notificar rotuladores
+### <a name="tag-the-images"></a>Marcar as imagens
 
-Se você tiver muitas imagens a serem rotuladas, espera-se que também tenha muitos rotuladores para realizar a tarefa.  Agora, você precisa enviar instruções para que eles possam acessar os dados e começar a rotular.
+Nesta parte do tutorial, você mudará da função de *administrador de projeto* para a de um *rotulador*.  Qualquer pessoa que tenha acesso de colaborador ao seu workspace pode se tornar um rotulador.
 
 1. Em [Machine Learning Studio](https://ml.azure.com), selecione **Rotulagem de dados** no lado esquerdo para localizar seu projeto.  
 
-1. Selecione o link do nome do projeto.
+1. Selecione o nome do projeto na lista.
 
-1. Na parte superior da página, selecione **Detalhes**.  Você verá um resumo do seu projeto.
+1. Abaixo do nome do projeto, selecione **Rotular dados**.
 
-    ![Detalhes do projeto](media/tutorial-labeling/project-details.png)
-
-1. Copie o link da **URL do portal de rotulagem** para enviar aos seus rotuladores.
-
-1. Agora, selecione **Equipe** na parte superior para localizar sua equipe de rotulagem.  
-
-1. Selecione o link do nome da equipe.
-
-1. Na parte superior da página, selecione **Enviar email para a equipe** para iniciar seu email.  Cole a URL do portal de rotulagem que você acabou de copiar.  
-
-Sempre que um rotulador acessar a URL do portal, ele receberá mais imagens para rotular, até que a fila esteja vazia.  
-
-### <a name="tag-the-images"></a>Marcar as imagens
-
-Nesta parte do tutorial, você mudará da função de *administrador de projeto* para a de um *rotulador*.  Use a URL que você enviou para a equipe.  Essa URL o leva para o portal de rotulagem do seu projeto.  Se você tivesse adicionado instruções, você as veria aqui quando chegasse na página.
-
-1. Na parte superior da página, selecione **Tarefas** para iniciar a rotulagem.
+1. Leia as instruções e, em seguida, selecione **Tarefas**.
 
 1. Selecione uma imagem em miniatura à direita para exibir o número de imagens que você deseja rotular de uma vez. Você deve rotular todas essas imagens antes de continuar. Só alterne entre os layouts quando tiver uma página nova de dados sem rótulo. Alternar entre layouts limpa o trabalho de marcação em andamento na página.
 

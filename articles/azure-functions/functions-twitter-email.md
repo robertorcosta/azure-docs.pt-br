@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75768955"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82190292"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -36,7 +36,11 @@ Neste tutorial, você aprenderá como:
 
 + Uma conta do [Twitter](https://twitter.com/) ativa. 
 + Uma conta do [Outlook.com](https://outlook.com/) (para enviar notificações).
-+ Este artigo usa como ponto de partida os recursos criados em [Criar sua primeira função no portal do Azure](functions-create-first-azure-function.md).  
+
+> [!NOTE]
+> Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrições nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar o conector do Gmail somente com serviços e aplicativos específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação no conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
++ Este artigo usa como ponto de partida os recursos criados em [Criar sua primeira função no portal do Azure](functions-create-first-azure-function.md).
 Se você ainda não fez isso, conclua estas etapas agora para criar seu aplicativo de função.
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos

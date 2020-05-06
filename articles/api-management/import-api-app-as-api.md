@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6195409a08498527ec40a2ddd2f909a092c9d19
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74108495"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202818"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar um aplicativo de API como uma API
 
@@ -30,16 +30,16 @@ Neste artigo, você aprenderá como:
 > * Testar a API no Portal do Azure
 > * Testar a API no Portal do desenvolvedor
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-+ Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
++ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 + Verifique se há um aplicativo de API em sua assinatura. Para saber mais, veja a [Documentação do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
-1. Selecione **APIs** em **GERENCIAMENTO DE API**.
+1. Navegue até o serviço de Gerenciamento de API no portal do Azure e selecione **APIs** no menu.
 2. Selecione **Aplicativo de API** na lista **Adicionar uma nova API**.
 
     ![Aplicativo de API](./media/import-api-app-as-api/api-app.png)
@@ -56,7 +56,8 @@ Neste artigo, você aprenderá como:
 
     * **Inicial**
     * **Ilimitado**   
-7. Selecione **Criar**.
+7. Insira outras configurações de API. Você pode definir os valores durante a criação ou configurá-los mais tarde, acessando a guia **Configurações**. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#-import-and-publish-a-backend-api).
+8. Selecione **Criar**.
 
 ## <a name="test-the-new-api-in-the-azure-portal"></a>Testar a nova API no portal do Azure
 

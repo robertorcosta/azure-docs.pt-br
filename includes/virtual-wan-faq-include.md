@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2b30c176cf3c9dd31ae3efa85d308b3f89bd4dbe
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81734686"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204586"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O usuário precisa ter hub e spoke com dispositivos SD-WAN/VPN para usar a WAN virtual do Azure?
 
@@ -49,7 +49,7 @@ Há duas opções para adicionar servidores DNS aos clientes do P2S.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Para VPN de usuário (ponto a site) – há suporte para quantos clientes?
 
-Cada gateway P2S VPN de usuário tem duas instâncias e cada instância é compatível com até um número de usuários determinado à medida que a unidade de escala muda. A unidade de escala 1-3 é compatível com 500 conexões, a unidade de escala 4-6 é compatível com 1.000 conexões, a unidade de escala 7-10 é compatível com 5 mil conexões e a unidade de escala 11+ é compatível com até 10 mil conexões. Como exemplo, digamos que o usuário escolha uma unidade de escala. Cada unidade de escala implica um gateway ativo-ativo implantado, e cada uma das instâncias (neste caso, 2) seria compatível com até 500 conexões. Como você pode obter 500 conexões * 2 por gateway, isso não significa que você planeja 1.000, em vez de 500, para essa unidade de escala, pois as instâncias podem precisar ser atendidas, e durante esse tempo a conectividade para as 500 extras poderá ser interrompida se você ultrapassar a contagem de conexões recomendada.
+Cada gateway P2S VPN de usuário tem duas instâncias e cada instância é compatível com até um número de usuários determinado à medida que a unidade de escala muda. A unidade de escala 1-3 é compatível com 500 conexões, a unidade de escala 4-6 é compatível com 1 mil conexões, a unidade de escala 7-12 é compatível com 5 mil conexões e a unidade de escala 13-20 é compatível com até 10 mil conexões. Como exemplo, digamos que o usuário escolha uma unidade de escala. Cada unidade de escala implica um gateway ativo-ativo implantado, e cada uma das instâncias (neste caso, 2) seria compatível com até 500 conexões. Como você pode obter 500 conexões * 2 por gateway, isso não significa que você planeja 1.000, em vez de 500, para essa unidade de escala, pois as instâncias podem precisar ser atendidas, e durante esse tempo a conectividade para as 500 extras poderá ser interrompida se você ultrapassar a contagem de conexões recomendada.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um gateway de VPN da WAN Virtual do Azure?
 
@@ -215,6 +215,10 @@ Se um hub virtual aprende a mesma rota de vários hubs remotos, a ordem na qual 
 1) Origem da rota a) Rotas de rede – prefixos de VNET aprendidos diretamente pelos gateways de hub virtual b) RouteTable do hub (rotas configuradas estaticamente) c) BGP d) Rotas InterHub
 2)  Métrica de rota: a WAN Virtual prefere o ExpressRoute à VPN. O par de ExpressRoute tem um peso maior se comparado com o par de VPN
 3)  Comprimento do caminho de sistema autônomo
+
+### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Há suporte para IPv6 na WAN Virtual?
+
+Não há suporte para IPv6 no hub WAN Virtual e seus gateways. Se você tiver uma VNET compatível com IPv6 e quiser conectar a VNET à WAN Virtual, esse cenário também não terá suporte. 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Quais são as diferenças entre os tipos de WAN Virtual (Básico e Standard)?
 

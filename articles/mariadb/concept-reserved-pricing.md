@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 9a6bd3cab41c69075f5170a8a3aad4f059d970e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159040"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732896"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para recursos de computação MariaDB com capacidade reservada
 
@@ -19,7 +19,7 @@ O banco de dados do Azure para MariaDB agora ajuda a economizar dinheiro prestan
 
 Você não precisa atribuir a reserva ao banco de dados do Azure específico para servidores MariaDB. Um banco de dados do Azure já em execução para MariaDB ou aqueles que foram implantados recentemente obterá automaticamente o benefício do preço reservado. Ao comprar uma reserva, você está pagando antecipadamente os custos de computação por um período de um ou três anos. Assim que você comprar uma reserva, o banco de dados do Azure para cobranças de computação MariaDB que correspondam aos atributos de reserva não serão cobrados com as tarifas pagas conforme o uso. Uma reserva não abrange os encargos de software, rede ou armazenamento associados ao servidor de banco de dados MariaDB. No final do prazo de reserva, o benefício de cobrança expira e o banco de dados do Azure para MariaDB são cobrados pelo preço pago conforme o uso. As reservas não são renovadas automaticamente. Para obter informações sobre preços, consulte a [oferta de capacidade reservada do banco de dados do Azure para MariaDB](https://azure.microsoft.com/pricing/details/mariadb/). </br>
 
-Você pode comprar o banco de dados do Azure para a capacidade reservada do MariaDB no [portal do Azure](https://portal.azure.com/). Para comprar a capacidade reservada:
+Você pode comprar o banco de dados do Azure para a capacidade reservada do MariaDB no [portal do Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a capacidade reservada:
 
 * Você deve estar na função de proprietário de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
 * Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.
