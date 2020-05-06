@@ -1,23 +1,18 @@
 ---
-title: Executar uma carga de trabalho paralela - Python do Lote do Azure
+title: Executar uma carga de trabalho paralela
 description: 'Tutorial: processar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente Python do Lote'
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 32e42fe04ad8ce55bbbbb90e5aca6356fd1c6f22
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77023082"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117107"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: executar uma carga de trabalho paralela com o Lote do Azure usando a API do Python
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do Python
 
 Use o Lote do Azure para executar trabalhos em lote de HPC (computação de alto desempenho) e paralelos em larga escala com eficiência no Azure. Este tutorial percorre um exemplo de Python para executar uma carga de trabalho paralela usando o Lote. Você conhecerá um fluxo de trabalho de aplicativo comum no Lote e como interagir programaticamente com recursos do Armazenamento e do Lote. Você aprenderá como:
 
@@ -33,7 +28,7 @@ Neste tutorial, você converte os arquivos de mídia MP4 em paralelo para o form
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [Python 2.7 ou 3.3 ou versão posterior](https://www.python.org/downloads/)
 
@@ -65,7 +60,7 @@ Em seu ambiente do Python, instale os pacotes necessários usando `pip`.
 pip install -r requirements.txt
 ```
 
-Abra o arquivo `config.py`. Atualize as cadeias de credenciais da conta de armazenamento e do Lote com os valores exclusivos para suas contas. Por exemplo:
+Abra o arquivo `config.py`. Atualize as cadeias de credenciais da conta de armazenamento e do Lote com os valores exclusivos para suas contas. Por exemplo: 
 
 
 ```Python

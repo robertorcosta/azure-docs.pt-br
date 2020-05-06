@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 73160a6bf416722021d76da21a32a1cd1ee04386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111718"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864565"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para a recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -44,7 +44,7 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
 Sul | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA
-Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, oeste da África do Sul, norte da África do Sul, leste da Noruega, oeste da Noruega
+Ocidental | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, oeste da África do Sul, norte da África do Sul, leste da Noruega, oeste da Noruega
 Ásia | Sul da Índia, Índia central, Índia ocidental, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, sul da Coreia
 Austrália    | Leste da Austrália, Sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, Leste do US DoD, Região Central do US DoD
@@ -154,7 +154,8 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,29 | Todos os estoques 
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | 9,32 | Há suporte para todos os kernels SUSE 15 e 15 de estoque.</br></br> 4.12.14-5.5-Azure para 4.12.14-8.22-Azure |
+SUSE Linux Enterprise Server 15 e 15 SP1 | 9,32 | Por padrão, há suporte para todos os [kernels SuSE 15 e 15 de estoque](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5.5-Azure para 4.12.14-8.22-Azure |
+
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas - sistema de arquivos Linux / armazenamento convidado
 
@@ -171,13 +172,15 @@ Tamanho | Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1
 Conjuntos de disponibilidade | Com suporte | Se você habilitar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade será criado automaticamente, com base nas configurações de região de origem. Você pode modificar essas configurações.
 Zonas de disponibilidade | Com suporte |
 Benefício de uso híbrido (HUB) | Com suporte | Se a VM de origem tiver uma licença do HUB ativada, um failover de teste ou falha na VM também usará a licença do HUB.
-Conjuntos de dimensionamento de máquinas virtuais | Sem suporte |
+conjuntos de escala de máquina virtual | Sem suporte |
 Imagens da galeria do Azure - Microsoft publicada | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 Imagens da Galeria do Azure – publicadas por terceiros | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 Imagens personalizadas – publicadas por terceiros | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 VMs migradas com o Site Recovery | Com suporte | Se uma VM VMware ou uma máquina física foi migrada para o Azure usando o Site Recovery, você precisará desinstalar a versão mais antiga do serviço Mobility em execução na máquina e reiniciá-la antes de replicá-la para outra região do Azure.
 Políticas de RBAC | Sem suporte | As políticas de RBAC (controle de acesso baseado em função) em VMs não são replicadas para a VM de failover na região de destino.
 Extensões | Sem suporte | As extensões não são replicadas para a VM de failover na região de destino. Ele precisa ser instalado manualmente após o failover.
+Grupos de posicionamento de proximidade | Sem suporte | As máquinas virtuais localizadas dentro de um grupo de posicionamento de proximidade não podem ser protegidas usando Site Recovery.
+
 
 ## <a name="replicated-machines---disk-actions"></a>As máquinas - ações de disco replicadas
 

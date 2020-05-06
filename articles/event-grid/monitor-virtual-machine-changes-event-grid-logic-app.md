@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 045f6d50846092820014ccc7f11a81f1e2234311
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75982563"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82144090"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorar as alterações de máquinas virtuais usando a Grade de Eventos do Azure e os Aplicativos Lógicos
 
@@ -48,6 +48,9 @@ Neste tutorial, você aprenderá como:
 * Uma conta de email de qualquer provedor de email compatível com Aplicativos Lógicos para envio de notificações, como o Office 365 Outlook, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](/connectors/).
 
   Este tutorial usa uma conta do Office 365 Outlook. Se você usar uma conta de email diferente, as etapas gerais serão as mesmas, mas a interface do usuário poderá parecer um pouco diferente.
+
+  > [!IMPORTANT]
+  > Se você quiser usar o conector do Gmail, somente as contas comerciais do G Suite poderão usar esse conector sem restrição nos aplicativos lógicos. Se você tiver uma conta de consumidor do Gmail, poderá usar esse conector somente com serviços específicos do Google aprovados ou poderá [criar um aplicativo cliente do Google para usar para autenticação com o conector do Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Uma [máquina virtual](https://azure.microsoft.com/services/virtual-machines) sozinha em seu próprio grupo de recursos do Azure. Se você ainda não fez isso, crie uma máquina virtual por meio do [tutorial sobre como criar uma VM](../virtual-machines/windows/quick-create-portal.md). Para fazer com que a máquina virtual publique eventos, [não é necessário fazer mais nada](../event-grid/overview.md).
 
@@ -145,7 +148,7 @@ Se você quiser que o aplicativo lógico execute somente quando uma operação o
 
       `triggerBody()?['data']['operationName']`
 
-      Por exemplo:
+      Por exemplo: 
 
       ![Inserir a expressão para extrair o nome da operação](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-add-data-operation-name.png)
 
@@ -173,7 +176,7 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Como adicionar uma ação para condição definida como verdadeira](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
-1. Em **Escolher uma ação**, na caixa de pesquisa, insira `send an email` como o filtro. Com base no seu provedor de email, localize e selecione o conector correspondente. Em seguida, selecione a ação "enviar email" para o conector. Por exemplo:
+1. Em **Escolher uma ação**, na caixa de pesquisa, insira `send an email` como o filtro. Com base no seu provedor de email, localize e selecione o conector correspondente. Em seguida, selecione a ação "enviar email" para o conector. Por exemplo: 
 
    * Por exemplo, se você tiver uma conta corporativa ou de estudante do Azure, selecione o conector Office 365 Outlook.
 
@@ -224,7 +227,7 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-co
 
    Por exemplo, você pode redimensionar a máquina virtual no portal do Azure ou [redimensionar a VM com o Azure PowerShell](../virtual-machines/windows/resize-vm.md).
 
-   Você receberá um email em alguns instantes. Por exemplo:
+   Você receberá um email em alguns instantes. Por exemplo: 
 
    ![Email sobre a atualização da máquina virtual](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 
