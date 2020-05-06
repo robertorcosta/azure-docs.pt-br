@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc
-ms.date: 03/02/2020
-ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: hdinsightactive,mvc,seoapr2020
+ms.date: 04/21/2020
+ms.openlocfilehash: 4eb10298ac683c991835f86582d82fb952b314b2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251945"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82195104"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark usando o Power BI no HDInsight
 
-Neste tutorial, você aprende a usar o [Microsoft Power BI](https://powerbi.microsoft.com/) para visualizar dados em um cluster do Apache Spark no [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
+Neste tutorial, você aprende a usar o Microsoft Power BI para visualizar dados em um cluster do Apache Spark no Azure HDInsight.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -70,9 +70,6 @@ Nesta seção, use o Power BI para criar painéis, relatórios e visualizações
 ### <a name="create-a-report-in-power-bi-desktop"></a>Criar um relatório no Power BI Desktop
 
 As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power BI Desktop, carregar dados do cluster e criar uma visualização básica com base nesses dados.
-
-> [!NOTE]  
-> O conector demonstrado neste artigo está atualmente em visualização. Forneça qualquer comentário que você tenha por meio do site da [Comunidade do Power BI](https://community.powerbi.com/) ou [Ideias do Power BI](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Abra o Power BI Desktop. Feche a tela inicial de inicialização, se estiver aberta.
 
@@ -180,7 +177,7 @@ Para excluir um cluster, confira [Delete an HDInsight cluster using your browser
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a usar o [Microsoft Power BI](https://powerbi.microsoft.com/) para visualizar dados em um cluster do Apache Spark no [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/). Avance para o próximo artigo para ver que você pode criar uma aplicativo de aprendizado de máquina.
+Neste tutorial, você aprendeu a usar o Microsoft Power BI para visualizar dados em um cluster do Apache Spark no Azure HDInsight. Avance para o próximo artigo para ver que você pode criar uma aplicativo de aprendizado de máquina.
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo de aprendizado de máquina](./apache-spark-ipython-notebook-machine-learning.md)
