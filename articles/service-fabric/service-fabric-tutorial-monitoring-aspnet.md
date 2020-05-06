@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6ce2e5a71d48942642ee01d8d2cc75a232abf259
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75614036"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82159942"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorar e diagnosticar um aplicativo ASP.NET Core no Service Fabric usando o Application Insights
 
@@ -32,7 +32,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar CI/CD usando o Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurar o monitoramento e o diagnóstico do aplicativo
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 
@@ -168,7 +168,7 @@ Neste ponto, você está pronto para implantar o aplicativo. Clique em **Iniciar
 >[!NOTE]
 >Você poderá receber um erro de build se não tiver uma versão atualizada do SDK do .NET Core instalada.
 
-Quando o aplicativo terminar a implantação, vá para [localhost:8080](localhost:8080), em que você deverá conseguir ver o aplicativo de página única de votação de exemplo. Votar em alguns itens diferentes de sua escolha para criar alguns dados e a telemetria de exemplo – fui pelas sobremesas!
+Quando o aplicativo terminar a implantação, vá para `localhost:8080`, em que você deverá conseguir ver o aplicativo de página única de votação de exemplo. Votar em alguns itens diferentes de sua escolha para criar alguns dados e a telemetria de exemplo – fui pelas sobremesas!
 
 ![Votos de exemplo do AI](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -251,7 +251,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Quando terminar de fazer essas alterações, **Inicie** o aplicativo para ele compilar e implantar a versão mais recente dele. Quando o aplicativo terminar a implantação, vá para [localhost:8080](localhost:8080), adicione e exclua algumas opções de votação. Em seguida, volte para o recurso do Application Insights para ver os rastreamentos para a execução mais recente (como antes, os rastreamentos podem levar de 1 a 2 min para serem exibidos no Application Insights). Para todos os votos adicionados e excluídos, agora você deve ver um "Evento personalizado* junto com a telemetria de resposta.
+Quando terminar de fazer essas alterações, **Inicie** o aplicativo para ele compilar e implantar a versão mais recente dele. Quando o aplicativo terminar a implantação, vá para `localhost:8080`, adicione e exclua algumas opções de votação. Em seguida, volte para o recurso do Application Insights para ver os rastreamentos para a execução mais recente (como antes, os rastreamentos podem levar de 1 a 2 min para serem exibidos no Application Insights). Para todos os votos adicionados e excluídos, agora você deve ver um "Evento personalizado* junto com a telemetria de resposta.
 
 ![eventos personalizados](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957fee48397bc0b23737157dec0e74cf6505fab5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d6f6cb87cf7628c48ce6adf12336c4b712dc0ff9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73160139"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Jira da Resolution GmbH
 
@@ -291,7 +291,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 Ao clicar no bloco do SSO do SAML para Jira da Resolution GmbH no Painel de Acesso, você deverá ser conectado automaticamente ao SSO do SAML para Jira da Resolution GmbH para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-Também é possível testar o logon único navegando até [https://\<url-base-do-servidor>/plugins/servlet/samlsso](https://\<server-base-url>/plugins/servlet/samlsso). Substitua **\<url-base-do-servidor>** pela URL base da sua instância do Jira.
+Você também pode testar o logon único se navegar até `https://<server-base-url>/plugins/servlet/samlsso`. Substitua **\<url-base-do-servidor>** pela URL base da sua instância do Jira.
 
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Habilitar redirecionamento de logon único para o Jira
@@ -311,7 +311,7 @@ Para ativar o redirecionamento de SSO, faça o seguinte em **sua instância do J
 
 1. Pressione o botão **Salvar Configurações** no canto superior direito.
 
-Após ativar a opção, ainda será possível chegar ao prompt de nome de usuário/senha se a opção **Habilitar nosso** estiver marcada navegando até [https://\<url-base-do-servidor>/login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso). Como sempre, substitua **\<url-base-do-servidor>** pela URL base.
+Após ativar a opção, ainda será possível chegar ao prompt de nome de usuário/senha se a opção **Habilitar nosso** estiver marcada navegando até `https://\<server-base-url>/login.jsp?nosso`. Como sempre, substitua **\<url-base-do-servidor>** pela URL base.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
-ms.openlocfilehash: ed78d3dd4e6fbde10c69403cc3dcff24072dc676
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: de46eeb20f3c99eb7a459965d17e2dd55728a9db
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75358020"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82146656"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Início Rápido: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando a CLI do Azure
 
@@ -58,7 +58,7 @@ sku-name | GP_Gen5_2 | O nome da SKU. Segue a convenção {tipo de preço}\_{ger
 backup-retention | 7 | Quanto tempo um backup deve ser retido. A unidade é dias. O intervalo é de 7 a 35. 
 geo-redundant-backup | Desabilitado | Indica se os backups com redundância geográfica devem ser habilitados para este servidor ou não. Valores permitidos: Habilitado, Desabilitado.
 local | westus | O local do Azure para o servidor.
-ssl-enforcement | habilitado | Se o ssl deve ser habilitado ou não para este servidor. Valores permitidos: Habilitado, Desabilitado.
+ssl-enforcement | habilitado | Se o TLS/SSL deve ser habilitado ou não para este servidor. Valores permitidos: Habilitado, Desabilitado.
 storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é no mínimo 5.120 MB e aumenta em incrementos de 1.024 MB. Confira o documento [tipos de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
 version | 9.6. | A versão principal do PostgreSQL.
 admin-user | myadmin | O nome de usuário para o logon de administrador. Não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** nem **public**.
@@ -186,7 +186,7 @@ pgAdmin é uma ferramenta de software livre usada com PostgreSQL. Instale o pgAd
     Nome de Usuário | Nome de logon do administrador do servidor | O nome de usuário de logon do administrador do servidor fornecido ao criar o Banco de Dados do Azure para o servidor PostgreSQL anteriormente. Caso não se lembre do nome de usuário, siga as etapas da seção anterior para obter as informações de conexão. O formato é *nome de usuário\@nome do servidor*.
     Senha | Sua senha de administrador | A senha que você escolheu ao criar o servidor anteriormente neste Guia de início rápido.
     Função | Deixar em branco | Não é necessário fornecer um nome de função neste momento. Deixe o campo em branco.
-    Modo SSL | *Exigir* | Você pode definir o modo SSL na guia SSL do pgAdmin. Por padrão, todos os Bancos de Dados do Azure para servidores PostgreSQL são criados com a imposição de SSL ligada. Para desligar a imposição de SSL, confira [Imposição de SSL](./concepts-ssl-connection-security.md).
+    Modo SSL | *Exigir* | Você pode definir o modo TLS/SSL na guia SSL do pgAdmin. Por padrão, todos os servidores do Banco de Dados do Azure para PostgreSQL são criados com a imposição de TLS ligada. Para desligar a imposição de TLS, confira [Configurar a imposição de TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
     
 5. Clique em **Salvar**.
 

@@ -3,12 +3,12 @@ title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79222743"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82190700"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -73,7 +73,7 @@ Há várias maneiras de examinar um [modelo do Resource Manager](../../../azure-
 A maneira mais simples de encontrar propriedades é examinar um recurso existente do mesmo tipo. Os recursos já definidos com a configuração que você deseja impor também fornecem o valor para comparação.
 Examine a página **Exportar modelo** (em **Configurações**) no portal do Azure desse recurso específico.
 
-![Exportar a página de modelo no recurso existente](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Exportar página de modelo em recurso existente" border="false":::
 
 Fazer isso para uma conta de armazenamento revela um modelo semelhante a este exemplo:
 
@@ -358,7 +358,7 @@ Os três primeiros componentes são os metadados da política. É fácil fornece
 "mode": "all",
 ```
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 Embora não tenhamos usado um parâmetro para alterar a avaliação, desejamos usar um parâmetro para permitir a alteração do **efeito** para solução de problemas. Definiremos um parâmetro **effectType** e o limitaremos apenas a **Negar** e **Desabilitado**. Essas duas opções correspondem aos nossos requisitos de negócios. O bloco de parâmetros concluído é parecido com este exemplo:
 
