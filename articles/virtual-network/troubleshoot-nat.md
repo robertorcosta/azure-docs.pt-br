@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: allensu
-ms.openlocfilehash: c012a8d83761b88cc59b62d11fd3d5542ca7f7a1
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80396084"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508421"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Solucionar problemas de conectividade da NAT da Rede Virtual do Azure
 
@@ -101,6 +101,7 @@ A tabela a seguir pode ser usada como um ponto de partida para saber quais ferra
 
 Problemas de conectividade com a [NAT de Rede Virtual](nat-overview.md) podem ser causados por vários problemas diferentes:
 
+* falhas permanentes devido a erros de configuração.
 * [esgotamento de SNAT](#snat-exhaustion) transitório ou persistente do Gateway da NAT;
 * falhas transitórias na infraestrutura do Azure; 
 * falhas transitórias no caminho entre o Azure e o destino público da Internet; 
@@ -112,6 +113,13 @@ Use ferramentas como as mostradas a seguir para validar a conectividade. [Não h
 |---|---|---|---|
 | Linux | nc (teste de conexão genérica) | cURL (teste da camada de aplicativo TCP) | específico ao aplicativo |
 | Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) do PowerShell | específico ao aplicativo |
+
+#### <a name="configuration"></a>Configuração
+
+Confira o seguinte:
+1. O recurso de gateway NAT tem pelo menos um recurso IP público ou um recurso de prefixo de IP público? Você deve ter pelo menos um endereço IP associado ao gateway NAT para que ele possa fornecer conectividade de saída.
+2. A sub-rede da rede virtual está configurada para usar o gateway NAT?
+3. Você está usando uma UDR (rota definida pelo usuário) e substituindo o destino?  Os recursos do gateway NAT se tornam a rota padrão (0/0) em sub-redes configuradas.
 
 #### <a name="snat-exhaustion"></a>Esgotamento de SNAT
 

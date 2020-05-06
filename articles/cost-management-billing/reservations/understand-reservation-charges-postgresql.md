@@ -1,20 +1,17 @@
 ---
-title: Como um desconto de reserva é aplicado a um servidor individual do Banco de Dados do Azure para PostgreSQL
-description: Como um desconto de reserva é aplicado a um servidor individual do Banco de Dados do Azure para PostgreSQL
+title: Entender o desconto de reserva – servidor único do Banco de Dados do Azure para PostgreSQL
+description: Saiba como um desconto de reserva é aplicado a um servidor individual do Banco de Dados do Azure para PostgreSQL.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e01b35bc540045bc272484159380f8a11e5a6c48
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199289"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509390"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Como um desconto de reserva é aplicado a um servidor individual do Banco de Dados do Azure para PostgreSQL
 
@@ -28,7 +25,7 @@ Quando você desliga um recurso, o desconto de reserva se aplica automaticamente
 
 ## <a name="discount-applied-to-azure-database-for-postgresql-single-server"></a>Desconto aplicado ao servidor individual do Banco de Dados do Azure para PostgreSQL
 
-O desconto de capacidade reservado ao servidor individual do Banco de Dados do Azure para PostgreSQL é aplicado na execução por hora do servidor individual do PostgreSQL. A reserva que você compra corresponde ao uso de computação emitido por um servidor individual em execução do Banco de Dados do Azure para PostgreSQL. Para servidores individuais do PostgreSQL que não são executados por uma hora inteira, a reserva é aplicada automaticamente a outro servidor individual do Banco de Dados do Azure para PostgreSQL que corresponda aos atributos de reserva. O desconto pode se aplicado aos servidores do Banco de Dados do Azure para PostgreSQL que estejam em execução simultânea. Se você não tiver um servidor individual PostgreSQL que seja executado durante a hora inteira e que corresponda aos atributos de reserva, você não obterá o benefício total do desconto de reserva para essa hora.
+O desconto de capacidade reservado ao servidor individual do Banco de Dados do Azure para PostgreSQL é aplicado na execução por hora do servidor individual do PostgreSQL. A reserva que você compra corresponde ao uso de computação emitido por um servidor individual em execução do Banco de Dados do Azure para PostgreSQL. Para servidores individuais do PostgreSQL que não são executados por uma hora inteira, a reserva é aplicada automaticamente a outro servidor individual do Banco de Dados do Azure para PostgreSQL que corresponda aos atributos de reserva. O desconto pode se aplicado aos servidores do Banco de Dados do Azure para PostgreSQL que estejam em execução simultânea. Se você não tiver um servidor individual PostgreSQL que seja executado durante a hora inteira e que corresponda aos atributos de reserva, não obterá o benefício total do desconto de reserva para essa hora.
 
 Os exemplos a seguir mostram como o desconto de capacidade reservada do servidor individual do Banco de Dados do Azure para PostgreSQL se aplica, dependendo do número de núcleos que você comprou e quando está em execução.
 
@@ -44,5 +41,6 @@ Para o restante desses exemplos, suponha que a capacidade reservada do Banco de 
 
 Para entender e visualizar o aplicativo de suas reservas do Azure nos relatórios de uso de faturamento, consulte [Entender o uso de reserva do Azure](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
+## <a name="next-steps"></a>Próximas etapas
+
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
