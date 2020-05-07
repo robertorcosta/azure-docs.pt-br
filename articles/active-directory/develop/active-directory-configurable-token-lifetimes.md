@@ -13,19 +13,19 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e66cd6a05a7c616b22eefffdd9d132aa0f4d36d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680065"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853976"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
 Especifique o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
 
 > [!IMPORTANT]
-> Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Depois de 1º de maio de 2020, você não poderá usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
+> Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Após 30 de maio de 2020, nenhum novo locatário será capaz de usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. A reprovação ocorrerá em vários meses depois disso, o que significa que vamos parar de respeitar as políticas existentes de tokens de atualização e de sessão. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
 
 No Azure AD, um objeto de política representa um conjunto de regras aplicadas a todos os aplicativos ou a aplicativos individuais em uma organização. Cada tipo de política tem uma estrutura exclusiva com um conjunto de propriedades que são aplicadas aos objetos aos quais são atribuídas.
 

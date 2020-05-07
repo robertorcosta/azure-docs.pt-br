@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45648170f69d513b15e79cdd76f56e66bbc88bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 553ecc971235b5ba7d55a2dcb6963200919a3480
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332076"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853469"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Pré-requisitos para o provisionamento do Azure AD Connect Cloud
 Este artigo fornece orientação sobre como escolher e usar o provisionamento de nuvem do Azure Active Directory (Azure AD) Connect como sua solução de identidade.
@@ -47,6 +47,8 @@ Execute a [ferramenta IdFix](https://docs.microsoft.com/office365/enterprise/pre
 ### <a name="in-your-on-premises-environment"></a>Em seu ambiente local
 
 1. Identifique um servidor de host ingressado no domínio que executa o Windows Server 2012 R2 ou superior com um mínimo de 4 GB de RAM e do tempo de execução do .NET 4.7.1 +.
+
+1. A política de execução do PowerShell no servidor local deve ser definida como undefined ou RemoteSigned.
 
 1. Se houver um firewall entre seus servidores e o Azure AD, configure os seguintes itens:
    - Certifique-se de que os agentes possam fazer solicitações de *saída* para o Azure AD nas seguintes portas:

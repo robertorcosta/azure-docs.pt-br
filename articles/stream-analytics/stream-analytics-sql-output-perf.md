@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443613"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839106"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída do Azure Stream Analytics para Banco de Dados SQL do Azure
 
@@ -24,7 +24,7 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 ## <a name="azure-stream-analytics"></a>Stream Analytics do Azure
 
-- **Herdar Particionamento** – essa opção de configuração de saída SQL permite herdar o esquema de particionamento de sua entrada ou etapa de consulta anterior. Com esse recurso habilitado, gravando em uma tabela baseada em disco e tendo uma topologia [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para seu trabalho, espere ver melhores taxas de transferência. Esse particionamento já acontece automaticamente para muitas outras [saídas](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Bloqueio de tabela (TABLOCK) também será desabilitado para inserções em massa feitas com essa opção.
+- **Herdar Particionamento** – essa opção de configuração de saída SQL permite herdar o esquema de particionamento de sua entrada ou etapa de consulta anterior. Com esse recurso habilitado, gravando em uma tabela baseada em disco e tendo uma topologia [totalmente paralela](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) para seu trabalho, espere ver melhores taxas de transferência. Esse particionamento já acontece automaticamente para muitas outras [saídas](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Bloqueio de tabela (TABLOCK) também será desabilitado para inserções em massa feitas com essa opção.
 
 > [!NOTE] 
 > Quando há mais de oito partições de entrada, a herança de entrada de esquema de particionamento pode não ser uma opção apropriada. Esse limite superior foi observado em uma tabela com uma coluna de identidade única e um índice clusterizado. Nesse caso, considere o uso [de 8 em sua consulta para especificar](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) explicitamente o número de gravadores de saída. Com base no seu esquema e na escolha de índices, suas observações podem variar.

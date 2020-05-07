@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: df22c857571e51bb886ff1d25db185a306999540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 409fe69d111e2c5aebe0ad0bd38ced10604b5f1b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420865"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839055"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Tamanhos de VM de computação de alto desempenho
 
@@ -39,7 +39,7 @@ As máquinas virtuais (VMs) da série H do Azure foram projetadas para fornecer 
 
 ## <a name="rdma-capable-instances"></a>Instâncias compatíveis com RDMA
 
-A maioria dos tamanhos de VM HPC (HBv2, HB, HC, H16r, H16mr, A8 e A9) tem um recurso de interface de rede para conectividade RDMA (acesso remoto direto à memória). Selecionou [série N] (https://docs.microsoft.com/azure/virtual-machines/nc-series) os tamanhos designados com ' r ', como as configurações de NC24rs (NC24rs_v3, NC24rs_v2 e NC24r) também são compatíveis com RDMA. Essa interface é além da interface de rede padrão do Azure disponível nos outros tamanhos de VM.
+A maioria dos tamanhos de VM HPC (HBv2, HB, HC, H16r, H16mr, A8 e A9) tem um recurso de interface de rede para conectividade RDMA (acesso remoto direto à memória). Os tamanhos de [série N](https://docs.microsoft.com/azure/virtual-machines/nc-series) selecionados designados com ' r ', como as configurações de NC24rs (NC24rs_v3, NC24rs_v2 e NC24r) também são compatíveis com RDMA. Essa interface é além da interface de rede padrão do Azure disponível nos outros tamanhos de VM.
 
 Essa interface permite que as instâncias compatíveis com RDMA se comuniquem por meio de uma rede InfiniBand (IB), operando com tarifas HDR para HBv2, taxas de EDR para HB, HC, FDR taxas para H16r, H16mr e máquinas virtuais da série N compatíveis com RDMA e taxas de QDR para VMs A8 e A9. Esses recursos RDMA podem melhorar a escalabilidade e o desempenho de determinados aplicativos MPI (Interface de Transmissão de Mensagens). Para obter mais informações sobre velocidade, consulte os detalhes nas tabelas desta página.
 
@@ -92,7 +92,7 @@ O Azure fornece várias opções para criar clusters de VMs do Windows HPC que p
 
 - **Máquinas virtuais** – implante as VMs HPC compatíveis com RDMA no mesmo conjunto de dimensionamento ou conjunto de disponibilidade (ao usar o modelo de implantação Azure Resource Manager). Se você usar o modelo de implantação clássico, implante as VMs no mesmo serviço de nuvem.
 
-- **Conjuntos de dimensionamento de máquinas virtuais** – em um conjunto de dimensionamento de máquinas virtuais (VMSS), certifique-se de limitar a implantação a um único grupo de posicionamento. Por exemplo, em um modelo do Resource Manager, defina a `singlePlacementGroup`propriedade como`true`. Observe que o tamanho máximo de VMSS que pode ser girado `singlePlacementGroup` com a `true` propriedade para é limitado às VMs 100 por padrão. Se suas necessidades de escala de trabalho do HPC forem maiores que 100 VMs em um único locatário VMSS, você poderá solicitar um aumento, [abrir uma solicitação de atendimento ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) sem custos.
+- **Conjuntos de dimensionamento de máquinas virtuais** – em um conjunto de dimensionamento de máquinas virtuais (VMSS), certifique-se de limitar a implantação a um único grupo de posicionamento para comunicação InfiniBand dentro do VMSS. Por exemplo, em um modelo do Resource Manager, defina a `singlePlacementGroup`propriedade como`true`. Observe que o tamanho máximo de VMSS que pode ser girado `singlePlacementGroup` com a `true` propriedade para é limitado às VMs 100 por padrão. Se suas necessidades de escala de trabalho do HPC forem maiores que 100 VMs em um único locatário VMSS, você poderá solicitar um aumento, [abrir uma solicitação de atendimento ao cliente online](../azure-supportability/how-to-create-azure-support-request.md) sem custos. O limite do número de VMs em um único VMSS pode ser aumentado para 300. Observe que, ao implantar VMs usando conjuntos de disponibilidade, o limite máximo é de 200 VMs por conjunto de disponibilidade.
 
 - **MPI entre máquinas virtuais** – se RDMA (por exemplo, usando a comunicação MPI) for necessário entre VMs (máquinas virtuais), verifique se as VMs estão no mesmo conjunto de dimensionamento de máquinas virtuais ou conjunto de disponibilidade.
 
@@ -129,6 +129,6 @@ O Azure fornece várias opções para criar clusters de VMs do Windows HPC que p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre como otimizar seu aplicativo HPC para o Azure e alguns exemplos em [cargas de trabalho do HPC] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
+- Saiba mais sobre como otimizar seu aplicativo HPC para o Azure e alguns exemplos em [cargas de trabalho do HPC](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
 
 - Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem ajudar você a comparar o desempenho de computação entre SKUs do Azure.

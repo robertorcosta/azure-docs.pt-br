@@ -5,12 +5,12 @@ description: Saiba como proteger o tráfego que flui para dentro e fora do pods 
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: a2794f53407be3ce3d7e69caa8039c13217a0356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca0b6d4acd48dde0ea381ab37080fb6af1fb936c
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392604"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854230"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
@@ -50,9 +50,9 @@ Ambas as implementações usam *iptables* do Linux para impor as políticas espe
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e do Calico e seus recursos
 
-| Funcionalidade                               | Azure                      | Calico                      |
+| Capacidade                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| Plataformas com Suporte                      | Linux                      | Linux                       |
+| Plataformas compatíveis                      | Linux                      | Linux                       |
 | Opções de rede com suporte             | CNI do Azure                  | CNI e kubenet do Azure       |
 | Conformidade com a especificação kubernetes | Todos os tipos de política com suporte |  Todos os tipos de política com suporte |
 | Recursos adicionais                      | Nenhum                       | Modelo de política estendida que consiste em política de rede global, conjunto de rede global e ponto de extremidade do host. Para obter mais informações sobre como `calicoctl` usar a CLI para gerenciar esses recursos estendidos, consulte [calicoctl User Reference][calicoctl]. |
@@ -481,7 +481,7 @@ Para saber mais sobre políticas, consulte [kubernetes Network Policies][kuberne
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[use-advanced-networking]: configure-advanced-networking.md
+[use-advanced-networking]: configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [concepts-network]: concepts-network.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

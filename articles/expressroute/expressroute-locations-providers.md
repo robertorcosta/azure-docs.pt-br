@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: ba0573af59c2924648361fec10bffed189291d28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19457dc7324c509f54a58a2cdaa39561bfc71b4d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768564"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853351"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -42,7 +42,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Região geopolítica** | **Regiões do Azure** | **Locais do ExpressRoute** |
 | --- | --- | --- |
 | **Governo da Austrália** | Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
-| **Europa** | França central, sul da França, Norte da Alemanha, Centro-oeste da Alemanha, Europa Setentrional, EUA, leste da Noruega, oeste da Noruega, Norte da Suíça, Oeste da Suíça, oeste do Reino Unido, sul do Reino Unido, Europa Ocidental |Amsterdã, Amsterdam2, Copenhague, Dublin, Frankfurt, Geneva, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique, Munique |
+| **Ocidental** | França central, sul da França, Norte da Alemanha, Centro-oeste da Alemanha, Europa Setentrional, EUA, leste da Noruega, oeste da Noruega, Norte da Suíça, Oeste da Suíça, oeste do Reino Unido, sul do Reino Unido, Europa Ocidental |Amsterdã, Amsterdam2, Berlim, Copenhague, Dublin, Frankfurt, Geneva, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique, Munique |
 | **América do Norte** | Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, vale do silício, silício Valley2, Washington DC, Washington DC2, Montreal, cidade de Quebec, Toronto, Vancouver |
 | **Ásia** | Leste da Ásia, Sudeste Asiático | Bancoc, Hong Kong, Hong Kong2, Jacarta, Kuala Lumpur, Cingapura, Cingapura2, Taipé |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -75,13 +75,14 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 
 
 ### <a name="global-commercial-azure"></a>Azure comercial global
-| **Local** | **Endereço** | **Zone** | **Regiões locais do Azure** | **ER direto** | **Provedores de serviço** |
+| **Localidade** | **Endereço** | **Zone** | **Regiões locais do Azure** | **ER direto** | **Provedores de serviço** |
 | --- | --- | --- | --- | --- | --- |
 | **Amsterdã** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | Europa Ocidental | 10G, 100G | Redes aryaka networkss, em&T netbonde, British Telecom, Colt, Equinix, euNetworks, GÉANT, entre nuvens, Interxion, KPN, IX REACH, comunicações de nível 3, Megaport, comunicações de NTT, Orange, Tata Communications, Telefonica +, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdã2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa Ocidental | 10G, 100G | CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, Interxion, laranja, Vodafone |
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | N/D | N/D | Equinix, Megaport |
 | **Auckland** | [Albany Vocus de NZ de grupo](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | N/D | Database | Devoli, Kordia, Megaport, Spark NZ, Vocus grupo NZ |
 | **Bancoc** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | N/D | Database | AIS |
+| **Berlim** | [GDC DE NTT](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Norte da Alemanha | Database | Data centers globais da NTT EMEA|
 | **Busan** | [LG CNS](https://www.lgcns.com/datacenter) | 2 | Sul da Coreia | N/D | LG CNS |
 | **Camberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Austrália Central | 10G, 100G | CDC |
 | **Camberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Austrália Central 2| 10G, 100G | CDC |
@@ -111,7 +112,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | N/D | Database | C3ntro, Equinix, Megaport, Neutrona Networks |
 | **Milão** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | N/D | Database | |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | N/D | 10G, 100G | Bell Canada, Cologix, Megaport, Telus, Zayo |
-| **Mumbai** | Tata Communications | 2 | Oeste da Índia | N/D | CloudXchange global (GCX), dependência Jio, Sify, comunicações Tata, Verizon |
+| **Mumbai** | Tata Communications | 2 | Oeste da Índia | Database | CloudXchange global (GCX), dependência Jio, Sify, comunicações Tata, Verizon |
 | **Mumbai2** | Airtel | 2 | Oeste da Índia | N/D | Airtel, Sify, Vodafone Idea |
 | **Munique** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | N/D | 10G, 100G | |
 | **Nova Iorque** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | N/D | N/D | CenturyLink Cloud Connect, Colt, Coresite, Equinix, MultiCloud, Megaport, pacote, Zayo |
@@ -133,11 +134,11 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Estocolmo** | [Equinix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | N/D | Database | Equinix, Telia Carrier |
 | **Sydney** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | Leste da Austrália | 10G, 100G | AARNet, em&T netbonde, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus Group NZ |
 | **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | Leste da Austrália | 10G, 100G | Megaport, NextDC |
-| **Taipé** | Chief Telecom | 2 | N/D | Database | Diretor de telecomunicações, FarEasTone |
+| **Taipé** | Chief Telecom | 2 | N/D | Database | Diretor de telecomunicações, Chunghwa Telecom, FarEasTone |
 | **Tóquio** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Leste do Japão | 10G, 100G | Redes aryaka Networks, em&T netbonde, BBIX, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japão Inc.-IIJ, Megaport, NTT Communications, NTT leste, Orange, Softbank, Verizon |
 | **Tokyo2** | [EM TÓQUIO](https://www.attokyo.com/) | 2 | Leste do Japão | 10G, 100G | EM TÓQUIO |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Canadá Central | 10G, 100G | EM&T netbonde, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX REACH Megaport, Telus, Verizon, Zayo |
-| **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | Cologix | 10G, 100G | |
+| **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | N/D | Database | Cologix |
 | **Washington, d.c.** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Leste dos EUA, leste dos EUA 2 | 10G, 100G | Redes aryaka networkss, em&T netbonde, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, entre nuvens, IX REACH, comunicações de nível 3, Megaport, Neutrona Networks, NTT Communications, Orange, PacketFabric, SES, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | Leste dos EUA, leste dos EUA 2 | 10G, 100G | CenturyLink Cloud Connect, Coresite, Intelsat, Viasat, Zayo | 
 | **Zurique** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Norte da Suíça | 10G, 100G | Internuvem, Interxion, Megaport, Swisscom |
@@ -149,7 +150,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 As nuvens nacionais do Azure são isoladas umas das outras e do Azure comercial global. O ExpressRoute para uma nuvem do Azure não pode se conectar às regiões do Azure nos outros.
 
 ### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
-| **Local** | **Endereço** | **Regiões locais do Azure**| **ER direto** | **Provedores de serviço** |
+| **Localidade** | **Endereço** | **Regiões locais do Azure**| **ER direto** | **Provedores de serviço** |
 | --- | --- | --- | --- | --- |
 | **Atlanta** | [Equinix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | N/D | 10G, 100G | Equinix |
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | N/D | 10G, 100G | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -162,17 +163,17 @@ As nuvens nacionais do Azure são isoladas umas das outras e do Azure comercial 
 | **Washington, d.c.** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | US DoD Leste, US Gov-Virgínia | 10G, 100G | EM&T netbonde, CenturyLink Cloud Connect, Equinix, comunicações de nível 3, Megaport, Verizon |
 
 ### <a name="china"></a>China
-| **Local** | **Provedores de serviço** |
+| **Localidade** | **Provedores de serviço** |
 | --- | --- |
 | **Pequim** |China Telecom |
 | **Beijing2** | China Telecom, China Unicom, GDS |
 | **Xangai** |China Telecom |
-| **Shanghai2** | Telecomunicações da China, GDS |
+| **Shanghai2** | China Telecom, China Unicom, GDS |
 
 Para saber mais, confira [ExpressRoute na China](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>Alemanha
-| **Local** | **Provedores de serviço** |
+| **Localidade** | **Provedores de serviço** |
 | --- | --- |
 | **Berlim** |e-shelter, Megaport+, T-Systems |
 | **Frankfurt** |Colt, Equinix, Interxion |
@@ -183,6 +184,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 * Verifique com seu provedor de conectividade para ver se eles estão conectados a qualquer um dos Exchanges na tabela acima. Você pode verificar os links a seguir para obter mais informações sobre os serviços oferecidos por provedores do Exchange. Vários provedores de conectividade já estão conectados a Exchanges de Ethernet.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
+  * [CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
   * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](https://www.interxion.com/)
   * [NextDC](https://www.nextdc.com/)
@@ -203,7 +205,7 @@ Se você for remoto e não tiver conectividade de fibra ou se quiser explorar ou
 * [Viasat](http://www.directcloud.viasatbusiness.com/)
 
 ## <a name="connectivity-through-additional-service-providers"></a><a name="c1partners"></a>Conectividade por meio de provedores de serviço adicionais
-| **Local** | **Exchange** | **Provedores de conectividade** |
+| **Localidade** | **Exchange** | **Provedores de conectividade** |
 | --- | --- | --- |
 | **Amsterdã** | Equinix, Interxion, comunicações de nível 3 | BICS, CloudXpress, Eurofiber, Fastweb S. p. A, ponte do Golfo internacional, Kalaam Telecom Bahrein B. S. C, MainOne, Nianet, POST Telecom Luxemburgo, Proximus, RETN, TDC erhverv, Telecom Italia Sparkle, Telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Castle de coroa
@@ -238,7 +240,7 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 | --- | --- |
 | **Ásia** |Avanade Inc., OneAs1a |
 | **Austrália** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |
-| **Europa** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
+| **Ocidental** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **América do Norte** |Avanade Inc., Equinix Professional Services, FlexManage, Lightstream, Perficient, Presidio |
 | **América do Sul** |Avanade Inc., Venha Pra Nuvem |
 ## <a name="next-steps"></a>Próximas etapas

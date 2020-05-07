@@ -6,13 +6,13 @@ author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 371b99c794feb4a64eb3e9af389020e25d14eedb
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879421"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82204314"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem
 
@@ -25,21 +25,24 @@ Depois que o administrador de projeto [criar um projeto de rotulagem](https://do
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A URL do portal de rotulagem para um projeto de rotulagem de dados em execução
 * Uma [conta Microsoft](https://account.microsoft.com/account) ou uma conta do Azure Active Directory para a organização e o projeto
+* Acesso de nível de colaborador ao workspace que contém o projeto de rotulagem.
 
-> [!NOTE]
-> O administrador de projeto pode encontrar a URL do portal de rotulagem na guia **Detalhes** da página **Detalhes do projeto**.
+## <a name="sign-in-to-the-workspace"></a>Entrar no workspace
 
-## <a name="sign-in-to-the-projects-labeling-portal"></a>Entrar no portal de rotulagem do projeto
+1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com).
 
-Acesse a URL do portal de rotulagem fornecida pelo administrador de projeto. Entre usando a conta de email que o administrador usou para adicionar você à equipe. Para a maioria dos usuários, essa será a sua conta Microsoft. Se o projeto de rotulagem usar o Azure Active Directory, você entrará conforme mostrado abaixo.
+1. Selecione a assinatura e o workspace que contém o projeto de rotulagem.  Obtenha essas informações de seu administrador de projeto.
+
+1. Selecione **Rotulagem de dados** no lado esquerdo para localizar o projeto.  
+
+1. Selecione o nome do projeto na lista.
 
 ## <a name="understand-the-labeling-task"></a>Entender a tarefa de rotulagem
 
-Depois de entrar, você verá a página de visão geral do projeto.
+Depois de selecionar o projeto, na parte superior da página, selecione **Dados do rótulo**.
 
-Acesse **Exibir instruções detalhadas**. Essas instruções são específicas do projeto. Elas explicam o tipo de dados com o qual você está lidando, como deverá tomar decisões e outras informações relevantes. Depois de ler essas informações, retorne à página do projeto e selecione **Iniciar rotulagem**.
+Você verá instruções específicas para seu projeto. Elas explicam o tipo de dados com o qual você está lidando, como deverá tomar decisões e outras informações relevantes. Depois de ler essas informações, na parte superior da página, selecione **Tarefas**.  Ou, na parte inferior da página, selecione **Iniciar rotulagem**.
 
 ## <a name="common-features-of-the-labeling-task"></a>Recursos comuns da tarefa de rotulagem
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/11/2020
+ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ddcc5165f5588ff9015d7fafbc2b822268ffea7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2e3219cebcc5e989059c02fec86ba242e1c31cc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337157"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853866"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -370,7 +370,7 @@ O ponto de entrada para a carga de trabalho SAP na documentação do Azure é en
 
 As seguintes Notas do SAP estão relacionadas com o tópico do SAP no Azure:
 
-| Número da observação | Título |
+| Número da observação | Title |
 | --- | --- |
 | [1928533] |Aplicativos SAP no Azure: dimensionamento e produtos com suporte |
 | [2015553] |SAP no Microsoft Azure: pré-requisitos de suporte |
@@ -487,7 +487,7 @@ Como modelo de preços, você tem várias opções de preços diferentes que lis
 
 O preço de cada uma das diferentes ofertas com ofertas de serviço diferentes em relação a sistemas operacionais e regiões diferentes está disponível no site [máquinas virtuais do Linux preços](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [preços de máquinas virtuais do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Para obter detalhes e flexibilidade de instâncias reservadas de um ano e de três anos, consulte estes artigos:
 
-- [O que são as reservas do Azure?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [O que são Reservas do Azure?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Flexibilidade de tamanho de máquina virtual com instâncias de VM reservadas](https://docs.microsoft.com/azure/virtual-machines/windows/reserved-vm-instance-size-flexibility)
 - [Como o desconto de reserva do Azure é aplicado a máquinas virtuais](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-vm-reservation-charges) 
 
@@ -503,9 +503,50 @@ O hipervisor da Microsoft é capaz de lidar com duas gerações diferentes de m�
  
 Não é possível mover uma VM existente de uma geração para a outra geração. Para alterar a geração da máquina virtual, você precisa implantar uma nova VM da geração que deseja e reinstalar o software que está executando na máquina virtual do da geração. Isso afeta apenas a imagem de VHD base da VM e não afeta os discos de dados ou os compartilhamentos de NFS ou SMB conectados. Discos de dados, NFS ou compartilhamentos SMB que originalmente foram atribuídos, por exemplo, em uma VM de geração 1
 
-No momento, você encontrará esse problema especialmente entre as VMs da série M do Azure e as VMs da série Mv2. Devido a limitações no formato de VM de geração 1, as grandes VMs da família Mv2 não podiam ser oferecidas no formato de geração 1, mas precisam ser oferecidas exclusivamente na geração 2. Por outro lado, a família de VMs da série M ainda não está habilitada para ser implantada na geração 2. Como resultado, redimensionar entre as máquinas virtuais da série M e da série Mv2 exigem uma reinstalação do software em uma máquina virtual que você tem como destino da outra família de VMs. A Microsoft está trabalhando para permitir que você implante VMs da série M para implantações de geração 2. A implantação de VMs da série M como VMs de geração 2 no futuro fará com que pareça menos redimensionamento entre as máquinas virtuais série M e Mv2. Em ambas as direções, o dimensionamento da série M para máquinas virtuais maiores da série Mv2 ou o dimensionamento vertical de VMs maiores da série Mv2 para VMs menores da série M. A documentação será atualizada assim que as VMs da série M puderem ser implantadas como VMs de geração 2.    
+> [!NOTE]
+> A implantação de VMs da família de VMs Mv1 como VMs de geração 2 é possível desde o início de maio de 2020. Com isso, é possível que pareça menos e downsizing entre as VMs da família Mv1 e Mv2.
 
- 
+
+#### <a name="quotas-in-azure-virtual-machine-services"></a>Cotas nos Serviços da Máquina Virtual do Azure
+A infraestrutura de rede e armazenamento do Azure é compartilhada entre VMs que executam uma variedade de serviços na infraestrutura do Azure. E assim como em seus próprios data centers, o excesso de provisionamento de alguns recursos de infraestrutura ocorre em um certo grau. A plataforma Microsoft Azure usa cotas de disco, CPU, rede e outras para limitar o consumo de recursos e para manter o desempenho consistente e previsível. Os diferentes tipos de VM e famílias (E32s_v3, D64s_v3, etc.) têm diferentes cotas para o número de discos, CPU, RAM e rede.
+
+> [!NOTE]
+> Recursos de CPU e memória dos tipos de VM aos quais o SAP dá suporte são pré-alocados nos nós de host. Isso significa que, após a VM ser implantada, os recursos no host estarão disponíveis conforme definido pelo tipo de VM.
+
+
+Ao planejar e dimensionar soluções SAP no Azure, as cotas para cada tamanho de máquina virtual devem ser consideradas. As cotas VM são descritas [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows]. 
+
+Além das cotas de recursos de memória e CPU, outras cotas definidas para SKUs de VM estão relacionadas a:
+
+- Taxa de transferência do tráfego de rede para a VM
+- IOPS para o tráfego de armazenamento
+- Taxa de transferência para o tráfego de rede
+
+Os limites de taxa de transferência para armazenamento de uma rede são definidos; portanto, os efeitos de vizinho com ruído podem ser mantidos em um mínimo absoluto. A cota relacionada ao armazenamento de uma VM substitui as cotas dos discos acumulados que estão anexados (consulte também mais adiante na parte de armazenamento). Ou, em outras palavras, se você montar discos de armazenamento que em acumulação excederia a cota de taxa de transferência e IOPS da VM, os limites de cota da VM têm prioridade.
+
+#### <a name="rough-sizing-of-vms-for-sap"></a>Tamanho aproximado das VMs para SAP 
+
+Como uma árvore de decisão grosseira para decidir se um sistema SAP se ajusta aos Serviços da Máquina Virtual do Azure e seus recursos ou se um sistema existente precisa ser configurado de forma diferente para implantar o sistema no Azure, a árvore de decisão abaixo pode ser usada:
+
+![Árvore de decisão para decidir a capacidade de implantar um sistema SAP no Azure][planning-guide-figure-700]
+
+**Etapa 1**: as informações mais importantes para começar são o requisito de SAPS para um determinado sistema do SAP. Os requisitos de SAPS precisam ser divididos entre a parte do DBMS e a parte do aplicativo SAP, mesmo que o sistema SAP já esteja implantado localmente em uma configuração de duas camadas. Para os sistemas existentes, os SAPS relacionados ao hardware em uso geralmente podem ser determinados ou estimados com base nos parâmetros de comparação de SAP existentes. Os resultados podem ser encontrados aqui: <https://sap.com/about/benchmark.html>.
+Para sistemas SAP recém-implantados, você deverá ter feito um exercício de dimensionamento que deve determinar os requisitos de SAPS do sistema.
+Visite também este blog e consulte o documento anexado para obter o dimensionamento do SAP no Azure: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+
+**Etapa 2**: para sistemas existentes, o volume de E/S e operações de E/S por segundo no servidor DBMS devem ser medidos. Para sistemas recém-planejados, o exercício de dimensionamento para o novo sistema também deverá dar uma ideia dos requisitos de E/S no lado do DBMS. Se não tiver certeza, eventualmente, você precisará realizar uma prova de conceito.
+
+**Etapa 3**: compare o requisito de SAPS do servidor DBMS com os SAPS que os diferentes tipos de VM do Azure podem fornecer. As informações sobre os SAPS dos diferentes tipos de VM do Azure estão documentadas na Nota do SAP [1928533]. O foco deve ser primeiro na VM de DBMS, já que a camada de banco de dados é a camada em um sistema SAP NetWeaver que não é escalado horizontalmente na maioria das implantações. Por outro lado, a camada de aplicativo SAP pode ser expandida. Se nenhum dos tipos de VM do Azure com suporte do SAP puder fornecer os SAPS necessários, a carga de trabalho do sistema SAP planejado não poderá ser executada no Azure. Você precisará implantar o sistema localmente ou precisará alterar o volume de carga de trabalho para o sistema.
+
+**Etapa 4**: conforme documentado [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows], o Azure impõe uma cota de IOPS por disco independentemente de você usar o Armazenamento Standard ou o Armazenamento Premium. Dependo do tipo de VM, o número de discos que pode ser montado varia. Como resultado, você pode calcular um número de IOPS máximo que pode ser alcançado com cada um dos diferentes tipos de VM. Dependendo do layout do arquivo de banco de dados, você pode distribuir discos para que se tornem um volume no SO convidado. No entanto, se o volume de IOPS atual de um sistema SAP implantado exceder os limites calculados do maior tipo de VM do Azure e se não houver nenhuma chance de compensar com mais memória, a carga de trabalho do sistema SAP poderá ser gravemente afetada. Nesses casos, você pode atingir um ponto em que você não deve implantar o sistema no Azure.
+
+**Etapa 5**: Especialmente em sistemas do SAP implantados localmente em configurações de duas camadas, as chances são de que o sistema talvez precise ser configurado no Azure em uma configuração de três camadas. Nesta etapa, você precisa verificar se há um componente na camada do aplicativo SAP que não pode ser escalado horizontalmente e que não se ajusta aos recursos de CPU e memória oferecidos pelos diferentes tipos de VM do Azure. Se realmente existir tal componente, o sistema SAP e a carga de trabalho não poderão ser implantados no Azure. No entanto, se for possível escalar horizontalmente os componentes do aplicativo SAP em várias VMs do Azure, o sistema poderá ser implantado no Azure.
+
+**Etapa 6**: se os componentes de camada de aplicativo do DBMS e SAP puderem ser executados em VMs do Azure, a configuração precisará ser definida em relação a:
+
+* Número de VMs do Azure
+* Tipos de VM para os componentes individuais
+* Número de VHDs na VM de DBMS para fornecer IOPS suficientes 
 
 ### <a name="storage-microsoft-azure-storage-and-data-disks"></a><a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Armazenamento: armazenamento do Microsoft Azure e discos de dados
 Máquinas Virtuais do Microsoft Azure utilizam diferentes tipos de armazenamento. Ao implementar aplicativos SAP nos Serviços da Máquina Virtual do Azure, é importante entender as diferenças entre esses dois tipos principais de armazenamento:
@@ -725,39 +766,6 @@ Este capítulo continha muitos pontos importantes sobre a Rede do Azure. Eis aqu
 * Para configurar uma conexão site a site ou ponto a site, você precisa primeiro criar uma Rede Virtual do Azure
 * Após a implantação de uma máquina virtual, não é possível alterar a Rede Virtual atribuída à VM
 
-### <a name="quotas-in-azure-virtual-machine-services"></a>Cotas nos Serviços da Máquina Virtual do Azure
-Precisamos ser claros sobre o fato de que a infraestrutura de rede e de armazenamento é compartilhada entre as VMs que executam uma variedade de serviços na infraestrutura do Azure. E assim como nos data centers do próprio cliente, o sobreprovisionamento de alguns recursos de infraestrutura ocorre até um certo grau. A plataforma Microsoft Azure usa cotas de disco, CPU, rede e outras para limitar o consumo de recursos e para manter o desempenho consistente e previsível.  Os diferentes tipos de VM (A5, A6 etc.) têm diferentes cotas para o número de discos, CPU, RAM e rede.
-
-> [!NOTE]
-> Recursos de CPU e memória dos tipos de VM aos quais o SAP dá suporte são pré-alocados nos nós de host. Isso significa que, após a VM ser implantada, os recursos no host estarão disponíveis conforme definido pelo tipo de VM.
->
->
-
-Ao planejar e dimensionar soluções SAP no Azure, as cotas para cada tamanho de máquina virtual devem ser consideradas. As cotas VM são descritas [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows].
-
-As cotas descritas representam os valores máximos teóricos.  O limite de IOPS por disco pode ser obtido com o E/Ss pequenas (8 kb), mas é possível que não possa ser obtido com o E/Ss grandes (1 Mb).  O limite de IOPS é aplicado na granularidade de discos individuais.
-
-Como uma árvore de decisão grosseira para decidir se um sistema SAP se ajusta aos Serviços da Máquina Virtual do Azure e seus recursos ou se um sistema existente precisa ser configurado de forma diferente para implantar o sistema no Azure, a árvore de decisão abaixo pode ser usada:
-
-![Árvore de decisão para decidir a capacidade de implantar um sistema SAP no Azure][planning-guide-figure-700]
-
-**Etapa 1**: as informações mais importantes para começar são o requisito de SAPS para um determinado sistema do SAP. Os requisitos de SAPS precisam ser divididos entre a parte do DBMS e a parte do aplicativo SAP, mesmo que o sistema SAP já esteja implantado localmente em uma configuração de duas camadas. Para os sistemas existentes, os SAPS relacionados ao hardware em uso geralmente podem ser determinados ou estimados com base nos parâmetros de comparação de SAP existentes. Os resultados podem ser encontrados aqui: <https://sap.com/about/benchmark.html>.
-Para sistemas SAP recém-implantados, você deverá ter feito um exercício de dimensionamento que deve determinar os requisitos de SAPS do sistema.
-Visite também este blog e consulte o documento anexado para obter o dimensionamento do SAP no Azure: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
-
-**Etapa 2**: para sistemas existentes, o volume de E/S e operações de E/S por segundo no servidor DBMS devem ser medidos. Para sistemas recém-planejados, o exercício de dimensionamento para o novo sistema também deverá dar uma ideia dos requisitos de E/S no lado do DBMS. Se não tiver certeza, eventualmente, você precisará realizar uma prova de conceito.
-
-**Etapa 3**: compare o requisito de SAPS do servidor DBMS com os SAPS que os diferentes tipos de VM do Azure podem fornecer. As informações sobre os SAPS dos diferentes tipos de VM do Azure estão documentadas na Nota do SAP [1928533]. O foco deve ser primeiro na VM de DBMS, já que a camada de banco de dados é a camada em um sistema SAP NetWeaver que não é escalado horizontalmente na maioria das implantações. Por outro lado, a camada de aplicativo SAP pode ser expandida. Se nenhum dos tipos de VM do Azure com suporte do SAP puder fornecer os SAPS necessários, a carga de trabalho do sistema SAP planejado não poderá ser executada no Azure. Você precisará implantar o sistema localmente ou precisará alterar o volume de carga de trabalho para o sistema.
-
-**Etapa 4**: conforme documentado [aqui (Linux)][virtual-machines-sizes-linux] e [aqui (Windows)][virtual-machines-sizes-windows], o Azure impõe uma cota de IOPS por disco independentemente de você usar o Armazenamento Standard ou o Armazenamento Premium. Dependo do tipo de VM, o número de discos que pode ser montado varia. Como resultado, você pode calcular um número de IOPS máximo que pode ser alcançado com cada um dos diferentes tipos de VM. Dependendo do layout do arquivo de banco de dados, você pode distribuir discos para que se tornem um volume no SO convidado. No entanto, se o volume de IOPS atual de um sistema SAP implantado exceder os limites calculados do maior tipo de VM do Azure e se não houver nenhuma chance de compensar com mais memória, a carga de trabalho do sistema SAP poderá ser gravemente afetada. Nesses casos, você pode atingir um ponto em que você não deve implantar o sistema no Azure.
-
-**Etapa 5**: Especialmente em sistemas do SAP implantados localmente em configurações de duas camadas, as chances são de que o sistema talvez precise ser configurado no Azure em uma configuração de três camadas. Nesta etapa, você precisa verificar se há um componente na camada do aplicativo SAP que não pode ser escalado horizontalmente e que não se ajusta aos recursos de CPU e memória oferecidos pelos diferentes tipos de VM do Azure. Se realmente existir tal componente, o sistema SAP e a carga de trabalho não poderão ser implantados no Azure. No entanto, se for possível escalar horizontalmente os componentes do aplicativo SAP em várias VMs do Azure, o sistema poderá ser implantado no Azure.
-
-**Etapa 6**: se os componentes de camada de aplicativo do DBMS e SAP puderem ser executados em VMs do Azure, a configuração precisará ser definida em relação a:
-
-* Número de VMs do Azure
-* Tipos de VM para os componentes individuais
-* Número de VHDs na VM de DBMS para fornecer IOPS suficientes
 
 ## <a name="managing-azure-assets"></a>Gerenciando Ativos do Azure
 
@@ -1277,7 +1285,7 @@ Uma conta de armazenamento do Azure não fornece recursos infinitos em termos de
 
 Outro tópico relevante para as Contas de Armazenamento é se os VHDs em uma Conta de Armazenamento estão sendo replicados geograficamente. A replicação geográfica é habilitada ou desabilitada no nível da Conta de Armazenamento e não no nível da VM. Se a replicação geográfica estiver habilitada, os VHDs na Conta de Armazenamento serão replicados para outro data center do Azure na mesma região. Antes de decidir sobre isso, você deve considerar a seguinte restrição:
 
-A replicação geográfica do Azure funciona localmente em cada VHD em uma VM e não replica as E/Ss em ordem cronológica entre vários VHDs em uma VM. Portanto, o VHD que representa a VM base, bem como VHDs adicionais vinculados à VM, são replicados de modo independente uns dos outros. Isso significa que não há nenhuma sincronização entre as alterações nos diferentes VHDs. O fato de que as E/Ss são replicadas de modo independente da ordem em que são gravadas significa que a replicação geográfica não tem valor para servidores de banco de dados com bancos de dados distribuídos entre vários VHDs. Além do DBMS, também pode haver outros aplicativos em que os processos gravam ou manipulam dados em diferentes VHDs e nos quais é importante manter a ordem das alterações. Se isso for um requisito, a replicação geográfica no Azure não deverá ser habilitada. Dependendo de você precisar/querer ou não a replicação geográfica para um conjunto de VMs, mas não para outro conjunto, você já pode categorizar VMs e os VHDs relacionados a elas em diferentes Contas de Armazenamento com replicação geográfica habilitada ou desabilitada.
+A replicação geográfica do Azure funciona localmente em cada VHD em uma VM e não Replica a e/SS em ordem cronológica em vários VHDs em uma VM. Portanto, o VHD que representa a VM base, bem como VHDs adicionais vinculados à VM, são replicados de modo independente uns dos outros. Isso significa que não há nenhuma sincronização entre as alterações nos diferentes VHDs. O fato de que as e/SS são replicadas independentemente da ordem em que elas são gravadas significa que a replicação geográfica não é de valor para servidores de banco de dados que têm seus bancos distribuídos em vários VHDs. Além do DBMS, também pode haver outros aplicativos em que os processos gravam ou manipulam dados em diferentes VHDs e nos quais é importante manter a ordem das alterações. Se isso for um requisito, a replicação geográfica no Azure não deverá ser habilitada. Dependendo de você precisar/querer ou não a replicação geográfica para um conjunto de VMs, mas não para outro conjunto, você já pode categorizar VMs e os VHDs relacionados a elas em diferentes Contas de Armazenamento com replicação geográfica habilitada ou desabilitada.
 
 #### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Configurando a montagem automática para discos anexados
 ---
@@ -2015,7 +2023,7 @@ No entanto, ao longo do ano passado, parceiros de data center desenvolveram colo
 Dependendo da configuração SAP escolhida (2 ou 3 camadas), pode haver necessidade de backup. O conteúdo da própria VM, além de ter um backup do banco de dados. Os backups relacionados ao DBMS devem ser feitos com métodos de banco de dados. Uma descrição detalhada dos diferentes bancos de dados pode ser encontrada no [Guia de DBMS][dbms-guide]. Por outro lado, os dados da SAP podem fazer backup de maneira offline (incluindo o conteúdo do banco de dados) conforme descrito nesta seção, ou online, conforme descrito na próxima seção.
 
 O backup offline basicamente exigiria um desligamento da VM por meio do Portal do Azure e uma cópia do disco da VM base, além de todos os discos anexados à VM. Isso preservaria uma imagem da VM e seus discos associados em um ponto no tempo. É recomendável copiar os backups para outra Conta de Armazenamento do Azure. Portanto, o procedimento descrito no capítulo [Copiando discos entre Contas de Armazenamento do Azure][planning-guide-5.4.2] deste documento seria aplicável.
-Além do desligamento com o uso do portal do Azure, também é possível fazer isso por meio do PowerShell ou da CLI, conforme descrito aqui: <https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+Além do desligamento usando o portal do Azure um também pode fazer isso por meio do PowerShell ou da CLI, conforme descrito aqui:<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
 
 Uma restauração de estado consiste em excluir a VM base, bem como os discos originais da VM base e os discos montados, copiando os discos salvos de volta à Conta de Armazenamento original ou grupo de recursos para managed disks e, em seguida, reimplantando o sistema.
 Este artigo mostra um exemplo de como gerar um script desse processo no PowerShell:<http://www.westerndevs.com/azure-snapshots/>

@@ -3,12 +3,12 @@ title: Atualizar grupo de contêineres
 description: Saiba como atualizar os contêineres em execução nos grupos de contêineres das Instâncias de Contêiner do Azure.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: d64590c553f4ae4ef462d4468fade68861db31c3
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160095"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854453"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contêineres nas Instâncias de Contêiner do Azure
 
@@ -28,7 +28,7 @@ Para atualizar um grupo de contêineres existente:
 * Defina outras propriedades com os valores que você forneceu anteriormente. Se você não definir um valor para uma propriedade, ele será revertido para seu valor padrão.
 
 > [!TIP]
-> Um [arquivo YAML](/container-instances-container-groups.md#deployment) ajuda a manter a configuração de implantação de um grupo de contêineres e fornece um ponto de partida para implantar um grupo atualizado. Se você usou um método diferente para criar o grupo, poderá exportar a configuração para YAML usando [AZ container Export][az-container-export], 
+> Um [arquivo YAML](container-instances-container-groups.md#deployment) ajuda a manter a configuração de implantação de um grupo de contêineres e fornece um ponto de partida para implantar um grupo atualizado. Se você usou um método diferente para criar o grupo, poderá exportar a configuração para YAML usando [AZ container Export][az-container-export], 
 
 ### <a name="example"></a>Exemplo
 

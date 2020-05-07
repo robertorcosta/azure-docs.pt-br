@@ -1,6 +1,6 @@
 ---
 title: Exemplos de modelos de política | Microsoft Docs
-description: Amostras de modelo de política do Azure para a Rede Virtual.
+description: Amostras de modelo do Azure Policy para a Rede Virtual.
 services: virtual-network
 documentationcenter: ''
 author: KumudD
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
-ms.date: 05/02/2018
+ms.date: 05/05/2020
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: db10520508eb0b216a59cc643394ab27fd5ffa69
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 93d0138f336ffc7055daf9988658a6284af53188
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77169897"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839123"
 ---
-# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Exemplo de políticas internas do Azure para rede virtual
+# <a name="azure-policy-sample-built-ins-for-virtual-network"></a>Exemplos de políticas internas do Azure Policy para rede virtual
 
 A tabela a seguir inclui links para amostras do [Azure Policy](../governance/policy/overview.md). As amostras são encontradas no [repositório de amostras do Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="network"></a>Rede
 
-[!INCLUDE [azure-policy-samples-policies-network](../../includes/azure-policy-samples-policies-network.md)]
+[!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
 ## <a name="tags"></a>Marcas
 
-[!INCLUDE [azure-policy-samples-policies-tags](../../includes/azure-policy-samples-policies-tags.md)]
+[!INCLUDE [azure-policy-samples-policies-tags](../../includes/policy/samples/bycat/policies-tags.md)]
 
 ## <a name="general"></a>Geral
 
-[!INCLUDE [azure-policy-samples-policies-general](../../includes/azure-policy-samples-policies-general.md)]
+[!INCLUDE [azure-policy-samples-policies-general](../../includes/policy/samples/bycat/policies-general.md)]

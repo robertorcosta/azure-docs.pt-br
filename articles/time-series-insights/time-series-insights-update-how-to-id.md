@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083536"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838715"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Práticas recomendadas para escolher uma ID do Time Series
 
@@ -27,6 +27,7 @@ A seleção de uma ID de série temporal apropriada é crítica. Escolher uma ID
 
 > [!IMPORTANT]
 > As IDs de série temporal são:
+>
 > * Uma propriedade que *diferencia maiúsculas de minúsculas* : letras e maiúsculas de caracteres são usadas em pesquisas, comparações, atualizações e ao particionar.
 > * Uma propriedade *imutável* : uma vez criada, ela não pode ser alterada.
 
@@ -56,7 +57,7 @@ Os cenários a seguir descrevem a seleção de mais de uma propriedade de chave 
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Exemplo 2: ID de série temporal com uma chave composta
 
-* Você precisa que várias propriedades sejam exclusivas dentro do mesma frota de ativos. 
+* Você precisa que várias propriedades sejam exclusivas dentro do mesma frota de ativos.
 * Você é um fabricante de prédios inteligentes e implanta sensores em todas as salas. Em cada sala, você normalmente tem os mesmos valores para **sensorid**. Os exemplos são **sensor1**, **sensor2**e **sensor3**.
 * Seu edifício tem sobreposição de piso e números de sala entre sites na propriedade **flrRm**. Esses números têm valores como **1a**, **2B**e **3a**.
 * Você tem uma propriedade, **local**, que contém valores como **Redmond**, **Barcelona**e **Tokyo**. Para criar a exclusividade, você designa as três propriedades a seguir como suas chaves de ID de série temporal: **sensorid**, **flrRm**e **local**.
@@ -72,7 +73,7 @@ Exemplo de evento bruto:
 }
 ```
 
-Na portal do Azure, você pode inserir a chave composta da seguinte maneira: 
+Na portal do Azure, você pode inserir a chave composta da seguinte maneira:
 
 ```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
