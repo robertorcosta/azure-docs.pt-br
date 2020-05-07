@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dde84f0973cc7e21e57574bbabe398b38581358f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022674"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562368"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso do Azure Data Box Gateway
 
@@ -77,7 +77,7 @@ Essa transferência em massa conclui a fase de semeadura inicial.
 
 ### <a name="ongoing-feed-with-data-box-gateway"></a>Alimentação em andamento com o Data Box Gateway
 
-Siga estas etapas para a ingestão em andamento pelo Data Box Gateway.
+Siga estas etapas para a ingestão em andamento pelo Data Box Gateway. 
 
 1. Crie um compartilhamento de nuvem no Data Box Gateway. Esse compartilhamento carrega automaticamente todos os dados para a conta de Armazenamento do Azure. Vá para **Compartilhamentos** em seu recurso do Data Box Gateway e clique em **+ Adicionar compartilhamento**.
 

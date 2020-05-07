@@ -6,16 +6,16 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273561"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690702"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho do barramento de serviço do Azure para Azure Functions
 
-Use o gatilho do Barramento de Serviço para responder às mensagens de uma fila ou tópico do Barramento de Serviço.
+Use o gatilho do Barramento de Serviço para responder às mensagens de uma fila ou tópico do Barramento de Serviço. Começando com a versão de extensão 3.1.0, você pode disparar em uma fila ou tópico habilitado para sessão.
 
 Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](functions-bindings-service-bus-output.md).
 
@@ -222,7 +222,7 @@ Em [bibliotecas de classes C#](functions-dotnet-class-library.md), use os seguin
   }
   ```
 
-  Você pode definir a `Connection` propriedade para especificar o nome de uma configuração de aplicativo que contém a cadeia de conexão do barramento de serviço a ser usada, conforme mostrado no exemplo a seguir:
+  Como a `Connection` propriedade não está definida, o Functions procura uma configuração `AzureWebJobsServiceBus`de aplicativo chamada, que é o nome padrão para a cadeia de conexão do barramento de serviço. Você também pode definir a `Connection` propriedade para especificar o nome de uma configuração de aplicativo que contém a cadeia de conexão do barramento de serviço a ser usada, conforme mostrado no exemplo a seguir:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -354,21 +354,24 @@ O `maxAutoRenewDuration` pode ser configurado no *host.json*, que mapeia para [O
 
 ## <a name="message-metadata"></a>Metadados da mensagem
 
-O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas propriedades são membros da classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) .
+O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas propriedades são membros da classe de [mensagem](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) .
 
 |Propriedade|Type|Descrição|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|Número total de entregas.|
-|`DeadLetterSource`|`string`|A origem de mensagens mortas.|
-|`ExpiresAtUtc`|`DateTime`|Tempo de expiração em UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|O tempo de enfileiramento no UTC.|
-|`MessageId`|`string`|Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo destinatário para lógica específica do aplicativo.|
-|`ReplyTo`|`string`|A resposta para o endereço da fila.|
-|`SequenceNumber`|`Int64`|Número exclusivo atribuído a uma mensagem pelo Barramento de Serviço.|
-|`To`|`string`|Enviar para o endereço.|
-|`Label`|`string`|O rótulo específico do aplicativo.|
 |`CorrelationId`|`string`|ID de correlação.|
+|`DeadLetterSource`|`string`|A origem de mensagens mortas.|
+|`DeliveryCount`|`Int32`|Número total de entregas.|
+|`EnqueuedTimeUtc`|`DateTime`|O tempo de enfileiramento no UTC.|
+|`ExpiresAtUtc`|`DateTime`|Tempo de expiração em UTC.|
+|`Label`|`string`|O rótulo específico do aplicativo.|
+|`MessageId`|`string`|Um valor definido pelo usuário que o Barramento de Serviço pode usar para identificar mensagens duplicadas, se habilitado.|
+|`MessageReceiver`|`MessageReceiver`|Receptor de mensagens do barramento de serviço. Pode ser usado para abandonar, concluir ou usar a mensagem de mensagens mortas.|
+|`MessageSession`|`MessageSession`|Um receptor de mensagens especificamente para filas e tópicos habilitados para sessão.|
+|`ReplyTo`|`string`|A resposta para o endereço da fila.|
+|`SequenceNumber`|`long`|Número exclusivo atribuído a uma mensagem pelo Barramento de Serviço.|
+|`To`|`string`|Enviar para o endereço.|
+|`UserProperties`|`IDictionary<string, object>`|Propriedades definidas pelo remetente.|
 
 Consulte [exemplos de código](#example) que usam essas propriedades neste artigo.
 

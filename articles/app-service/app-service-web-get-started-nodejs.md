@@ -5,14 +5,12 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-experimental: false
-experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: bcb0ae2457175e7511c3539187d72d48e80baa5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80047127"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690787"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure 
 
@@ -23,7 +21,7 @@ Introdução ao Serviço de Aplicativo do Azure com a criação de um aplicativo
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - [Node.js e npm](https://nodejs.org). Execute o comando `node --version` para verificar se o Node.js está instalado.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- A [extensão do Serviço de Aplicativo do Azure](vscode:extension/ms-azuretools.vscode-azureappservice) para Visual Studio Code.
+- A [extensão do Serviço de Aplicativo do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) para Visual Studio Code.
 
 ## <a name="clone-and-run-a-local-nodejs-application"></a>Clonar e executar um aplicativo Node.js local
 
@@ -45,7 +43,7 @@ Introdução ao Serviço de Aplicativo do Azure com a criação de um aplicativo
     npm start
     ```
     
-1. Abra o navegador da Web e navegue até [http://localhost:1337](http://localhost:1337). O navegador deverá exibir "Olá, Mundo!".
+1. Abra o navegador e navegue até `http://localhost:1337`. O navegador deverá exibir "Olá, Mundo!".
 
 1. Selecione **CTRL**+**C** no terminal para interromper o servidor.
 

@@ -2,7 +2,7 @@
 title: Plataforma de identidade da Microsoft e fluxo em nome de do OAuth 2.0 | Azure
 description: Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço para serviço usando o fluxo em nome de do OAuth2.0.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f33350dd076d0386c7518c91b77da59c3b09d0dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57497c7bd8cd1d0b46c40b6977079f4a6a2d876f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181504"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82689543"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e fluxo em nome de OAuth 2,0
 
@@ -62,12 +62,12 @@ Ao usar um segredo compartilhado, uma solicitação de token de acesso de servi�
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| `grant_type` | Obrigatório | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obrigatório | A ID do aplicativo (cliente) que [a página portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
-| `client_secret` | Obrigatório | O segredo do cliente que você gerou para seu aplicativo na página de portal do Azure Registros de aplicativo. |
-| `assertion` | Obrigatório | O valor do token usado na solicitação.  Esse token deve ter um público-alvo do aplicativo que faz essa solicitação OBO (o aplicativo indicado pelo `client-id` campo). |
-| `scope` | Obrigatório | Uma lista de escopos separados por espaços para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md). |
-| `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
+| `grant_type` | Necessária | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Necessária | A ID do aplicativo (cliente) que [a página portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
+| `client_secret` | Necessária | O segredo do cliente que você gerou para seu aplicativo na página de portal do Azure Registros de aplicativo. |
+| `assertion` | Necessária | O valor do token usado na solicitação.  Esse token deve ter um público-alvo do aplicativo que faz essa solicitação OBO (o aplicativo indicado pelo `client-id` campo). |
+| `scope` | Necessária | Uma lista de escopos separados por espaços para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md). |
+| `requested_token_use` | Necessária | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
 
 #### <a name="example"></a>Exemplo
 
@@ -94,13 +94,13 @@ Uma solicitação de token de acesso de serviço a serviço com um certificado c
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| `grant_type` | Obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obrigatório |  A ID do aplicativo (cliente) que [a página portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
-| `client_assertion_type` | Obrigatório | O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obrigatório | Uma asserção (um token Web JSON) que você precisa criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Para saber mais sobre como registrar seu certificado e o formato da asserção, confira [credenciais de certificado](active-directory-certificate-credentials.md). |
-| `assertion` | Obrigatório | O valor do token usado na solicitação. |
-| `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
-| `scope` | Obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md).|
+| `grant_type` | Necessária | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Necessária |  A ID do aplicativo (cliente) que [a página portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
+| `client_assertion_type` | Necessária | O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Necessária | Uma asserção (um token Web JSON) que você precisa criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Para saber mais sobre como registrar seu certificado e o formato da asserção, confira [credenciais de certificado](active-directory-certificate-credentials.md). |
+| `assertion` | Necessária | O valor do token usado na solicitação. |
+| `requested_token_use` | Necessária | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
+| `scope` | Necessária | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md).|
 
 Observe que os parâmetros são praticamente os mesmos como no caso da solicitação pelo segredo compartilhado, exceto pelo fato de o parâmetro `client_secret` ser substituído por dois parâmetros: `client_assertion_type` e `client_assertion`.
 

@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: e2d168d8828d17e13f875e3b2555c7db0d4ba32d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f42c411263575040d4392b85542920e8f2463d4
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656794"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690753"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -37,6 +37,10 @@ A cadeia de conexão para Application Insights. Use `APPLICATIONINSIGHTS_CONNECT
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
 Na versão 2. x e versões posteriores do tempo de execução do functions, o configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é [lido durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Você pode definir `AZURE_FUNCTIONS_ENVIRONMENT` para qualquer valor, mas há suporte para [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) : [desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [preparo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging)e [produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não está definido, ele usa como `Development` padrão um ambiente local e `Production` no Azure. Essa configuração deve ser usada em vez `ASPNETCORE_ENVIRONMENT` de para definir o ambiente de tempo de execução. 
+
+## <a name="azurefunctionsjobhost__"></a>AzureFunctionsJobHost__\*
+
+Na versão 2. x e versões posteriores do tempo de execução do functions, as configurações do aplicativo podem substituir as configurações de [host. JSON](functions-host-json.md) no ambiente atual. Essas substituições são expressas como configurações `AzureFunctionsJobHost__path__to__setting`de aplicativo chamadas. Para obter mais informações, consulte [substituir os valores de host. JSON](functions-host-json.md#override-hostjson-values).
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -200,7 +204,7 @@ Por padrão, os proxies de funções utilizarão um atalho para enviar chamadas 
 |Chave|Valor|Descrição|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local não serão mais enviadas diretamente para a função e, em vez disso, serão direcionadas de volta para o front-end HTTP para o Aplicativo de funções|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor padrão. Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local serão encaminhadas diretamente para essa função|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Esse é o valor padrão. Chamadas com uma URL de back-end apontando para uma função no Aplicativo de funções local serão encaminhadas diretamente para essa função|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES

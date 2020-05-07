@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 55fbe4ae383e5275d185e2a03224e77660a01ef5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 9bb8d91d141997a7dd466d247ddcb0bd364e1c80
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382502"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559862"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -51,7 +51,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft. ClassicSubscription | Modelo de implantação clássica |
 | Microsoft.CognitiveServices | [Serviços cognitivas](/azure/cognitive-services/) |
 | Microsoft.Commerce | core |
-| Microsoft.Compute | [Máquinas Virtuais](/azure/virtual-machines/)<br />[Conjuntos de Dimensionamento de Máquinas Virtuais](/azure/virtual-machine-scale-sets/) |
+| Microsoft.Compute | [Máquinas Virtuais](/azure/virtual-machines/)<br />[Conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) |
 | Microsoft.Consumption | [Gerenciamento de custos](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Instâncias de Contêiner](/azure/container-instances/) |
 | Microsoft.ContainerRegistry | [Registro de Contêiner](/azure/container-registry/) |
@@ -61,7 +61,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft. CustomerLockbox | Sistema de Proteção de Dados do Cliente para Microsoft Azure |
 | Microsoft. CustomProviders | [Provedores Personalizados do Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
-| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/data-box-edge-overview.md) |
+| Microsoft.DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft.DataCatalog | [Catálogo de Dados](/azure/data-catalog/) |
 | Microsoft.DataFactory | [Data Factory](/azure/data-factory/) |
@@ -115,7 +115,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Migrate | [Migrações para Azure](../../migrate/migrate-overview.md) |
 | Microsoft. MixedReality | [Âncoras Espaciais do Azure](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Gateway de Aplicativo](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall do Azure](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Link Privado do Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gerenciador de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Gateway de aplicativo](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Proteção contra DDoS do Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS do Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall do Azure](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Link Privado do Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Observador de Rede](../../network-watcher/index.yml)<br />[Gerenciador de Tráfego](../../traffic-manager/index.yml)<br />[Rede Virtual](../../virtual-network/index.yml)<br />[WAN Virtual](../../virtual-wan/index.yml)<br />[Gateway de VPN](../../vpn-gateway/index.yml)<br /> |
 | Microsoft.NotificationHubs | [Hubs de Notificação](../../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Migrações para Azure](../../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
@@ -145,9 +145,9 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Solutions | [Aplicativos gerenciados do Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Banco de Dados SQL do Azure](../../sql-database/index.yml)<br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server nas Máquinas Virtuais do Azure](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
-| Microsoft.Storage | [Armazenamento](../../storage/index.yml) |
+| Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft. StorageCache | [Azure HPC Cache](/azure/hpc-cache/) |
-| Microsoft.StorageSync | [Armazenamento](../../storage/index.yml) |
+| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Stream Analytics do Azure](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |

@@ -162,7 +162,7 @@
               href: troubleshoot/desired-state-configuration.md
             - name: Histórico de versão de extensão de DSC do Azure
               href: automation-dsc-extension-history.md
-        - name: Controle de Alterações e Inventário
+        - name: Controle de alterações e inventário
           items:
             - name: Visão geral
               href: change-tracking.md
@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: Em um runbook de Automação
                   href: automation-onboard-solutions.md
-            - name: Exibir o conteúdo de arquivos rastreados
+            - name: Gerenciar controle de alterações e inventário
               href: change-tracking-file-contents.md
             - name: Gerenciar coleção de inventário de VMs
               href: automation-vm-inventory.md

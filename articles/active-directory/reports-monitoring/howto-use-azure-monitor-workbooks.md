@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014371"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690623"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory
 
@@ -42,7 +42,7 @@ Deseja:
 
 - Obter informações mais aprofundadas sobre consultas de log de entrada, a pasta de trabalho relata quantos usuários tiveram acesso concedido ou negado, bem como quantos usuários ignoraram as políticas de acesso condicional ao acessar recursos.
 
-- Para ajudá-lo a resolver essas perguntas, Active Directory fornece pastas de trabalho para monitoramento. [Azure monitor pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos sofisticados.
+- Para ajudá-lo a resolver essas perguntas, Azure Active Directory fornece pastas de trabalho para monitoramento. [Azure monitor pastas de trabalho](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinam texto, consultas de análise, métricas e parâmetros em relatórios interativos sofisticados.
 
 
 
@@ -58,7 +58,7 @@ Este artigo:
 
 Para usar pastas de trabalho de monitoramento, você precisa de:
 
-- Um locatário Active Directory com uma licença Premium (P1 ou P2). Saiba como [obter uma licença Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Um locatário Azure Active Directory com uma licença Premium (P1 ou P2). Saiba como [obter uma licença Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - Um [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -97,7 +97,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
-- Êxito
+- Sucesso
 
 - Ação pendente do usuário
 
@@ -134,7 +134,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
-- Êxito
+- Sucesso
 
 
 Você pode filtrar cada tendência pelas seguintes categorias:
@@ -190,7 +190,7 @@ Para acessar a pasta de trabalho para informações de acesso condicional, selec
 
 - **Usuário**
 
-- **Aplicativos**
+- **Apps**
 
 - **Exibição de dados**
 
@@ -206,7 +206,7 @@ Essa pasta de trabalho também mostra o impacto das políticas selecionadas divi
 - **Plataforma do dispositivo**
 - **Aplicativos cliente**
 - **Risco de entrada**
-- **Local**
+- **Localidade**
 - **Aplicativos**
 
 ![Status de acesso condicional](./media/howto-use-azure-monitor-workbooks/device-platform.png)
@@ -267,7 +267,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Todas as entradas
 
-- Êxito
+- Sucesso
 
 - Ação pendente
 

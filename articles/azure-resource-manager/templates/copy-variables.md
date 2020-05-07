@@ -3,12 +3,12 @@ title: Definir várias instâncias de uma variável
 description: Use a operação de cópia em um modelo de Azure Resource Manager para iterar várias vezes ao criar uma variável.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fbe392e8a0fb477b6986fc9c7584291590eb4e7
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153294"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583378"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteração variável em modelos ARM
 
@@ -16,7 +16,7 @@ Este artigo mostra como criar mais de um valor para uma variável em seu modelo 
 
 Você também pode usar copiar com [recursos](copy-resources.md), [Propriedades em um recurso](copy-properties.md)e [saídas](copy-outputs.md).
 
-## <a name="variable-iteration"></a>Iteração de variável
+## <a name="syntax"></a>Sintaxe
 
 O elemento Copy tem o seguinte formato geral:
 
@@ -33,6 +33,21 @@ O elemento Copy tem o seguinte formato geral:
 A propriedade **Name** é qualquer valor que identifique o loop. A propriedade **Count** especifica o número de iterações que você deseja para a variável.
 
 A propriedade de **entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos com base no valor na propriedade de **entrada** . Pode ser uma única propriedade (como uma cadeia de caracteres) ou um objeto com várias propriedades.
+
+## <a name="copy-limits"></a>Limites de cópia
+
+A contagem não pode exceder 800.
+
+A contagem não pode ser um número negativo. Ele pode ser zero se você implantar o modelo com uma versão recente do CLI do Azure, do PowerShell ou da API REST. Especificamente, você deve usar:
+
+* Azure PowerShell **2,6** ou posterior
+* CLI do Azure **2.0.74** ou posterior
+* API REST versão **2019-05-10** ou posterior
+* [Implantações vinculadas](linked-templates.md) devem usar a versão de API **2019-05-10** ou posterior para o tipo de recurso de implantação
+
+As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
+
+## <a name="variable-iteration"></a>Iteração de variável
 
 O exemplo a seguir mostra como criar uma matriz de valores de cadeia de caracteres:
 
@@ -294,12 +309,6 @@ O exemplo a seguir mostra as diferentes maneiras que você pode usar copiar com 
   }
 }
 ```
-
-## <a name="copy-limits"></a>Limites de cópia
-
-A contagem não pode exceder 800.
-
-A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, CLI do Azure 2.0.74 ou posterior, ou a API REST versão **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
 
 ## <a name="example-templates"></a>Modelos de exemplo
 

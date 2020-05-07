@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd5fed45332c73c633db1137bdc23aea66fd3403
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332773"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900390"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definir um perfil técnico de senha de uso único em uma política personalizada de Azure AD B2C
 
@@ -144,6 +144,7 @@ Os metadados a seguir podem ser usados para configurar as mensagens de erro exib
 | UserMessageIfSessionDoesNotExist | Não | A mensagem a ser exibida para o usuário se a sessão de verificação de código tiver expirado. O código expirou ou o código nunca foi gerado para um determinado identificador. |
 | UserMessageIfMaxRetryAttempted | Não | A mensagem a ser exibida para o usuário se ele tiver excedido o máximo de tentativas de verificação permitidas. |
 | UserMessageIfInvalidCode | Não | A mensagem a ser exibida para o usuário se ele tiver fornecido um código inválido. |
+| UserMessageIfVerificationFailedRetryAllowed | Não | A mensagem a ser exibida para o usuário se ele tiver fornecido um código inválido e o usuário tiver permissão para fornecer o código correto.  |
 |UserMessageIfSessionConflict|Não| A mensagem a ser exibida para o usuário se o código não puder ser verificado.|
 
 ### <a name="example"></a>Exemplo

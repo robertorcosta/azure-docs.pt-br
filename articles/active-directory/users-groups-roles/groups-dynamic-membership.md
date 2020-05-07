@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114736"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582893"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -31,7 +31,7 @@ Quando os atributos de um usuário ou um dispositivo são alterados, o sistema a
 - Você não pode criar um grupo de dispositivos com base em atributos os proprietários do dispositivo. Regras de associação de dispositivo só podem fazer referência a atributos do dispositivo.
 
 > [!NOTE]
-> Este recurso requer uma licença do Azure AD Premium P1 para cada usuário exclusivo que for um membro de um ou mais grupos dinâmicos. Você não precisa atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos, mas é necessário ter o número mínimo de licenças no locatário para cobrir todos esses usuários. Por exemplo, se você tiver o total de 1.000 usuários exclusivos em todos os grupos dinâmicos no locatário, serão necessárias pelo menos 1.000 licenças do Azure AD Premium P1 para atender ao requisito de licença.
+> Este recurso requer uma licença do Azure AD Premium P1 para cada usuário exclusivo que for um membro de um ou mais grupos dinâmicos. Você não precisa atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos, mas você deve ter o número mínimo de licenças na organização do Azure AD para abranger todos esses usuários. Por exemplo, se você tivesse um total de 1.000 usuários exclusivos em todos os grupos dinâmicos em sua organização, precisaria de pelo menos uma licença de 1.000 para Azure AD Premium P1 para atender ao requisito de licença.
 > Nenhuma licença é necessária para dispositivos que são membros de um grupo de dispositivos dinâmico.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal do Azure
@@ -78,8 +78,8 @@ A ordem das partes dentro de uma expressão é importante para evitar erros de s
 
 Há três tipos de propriedades que podem ser usadas para construir uma regra de associação.
 
-- Booliano
-- Cadeia de caracteres
+- Boolean
+- String
 - Coleção de Cadeias de Caracteres
 
 Estas são todas as propriedades do usuário que você pode usar para criar uma expressão única.
@@ -310,20 +310,20 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 As dicas a seguir podem ajudá-lo a usar a regra corretamente.
 
 - O **Manager ID** é a ID de objeto do Gerenciador. Ele pode ser encontrado no Gerenciador de **Perfil**.
-- Para que a regra funcione, verifique se a propriedade **ID do Gerenciador** está definida corretamente nos usuários em seu locatário. Você pode verificar o valor atual no **Perfil** do usuário.
+- Para que a regra funcione, verifique se a propriedade **Manager** está definida corretamente para os usuários em sua organização. Você pode verificar o valor atual no **Perfil** do usuário.
 - Essa regra dá suporte a apenas os relatórios de diretos do gerente. Em outras palavras, é possível criar um grupo com subordinados diretos do gerente *e* seus relatórios.
 - Esta regra não pode ser combinada com nenhuma outra regra avançada.
 
 ### <a name="create-an-all-users-rule"></a>Criar uma regra de "Todos os usuários"
 
-Você pode criar um grupo contendo todos os usuários dentro de um locatário usando uma regra de associação. Quando os usuários são adicionados ou removidos do locatário no futuro, a associação do grupo é ajustada automaticamente.
+Você pode criar um grupo que contém todos os usuários em uma organização usando uma regra de associação. Quando os usuários são adicionados ou removidos da organização no futuro, a associação do grupo é ajustada automaticamente.
 
 A regra "todos os usuários" é construída usando uma única expressão usando o operador-ne e o valor nulo. Essa regra adiciona usuários convidados de B2B, bem como os usuários de membro ao grupo.
 
 ```
 user.objectId -ne null
 ```
-Se você quiser que o grupo exclua os usuários convidados e inclua somente os membros do seu locatário, poderá usar a seguinte sintaxe:
+Se você quiser que o grupo exclua os usuários convidados e inclua somente os membros da sua organização, poderá usar a seguinte sintaxe:
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
@@ -331,7 +331,7 @@ Se você quiser que o grupo exclua os usuários convidados e inclua somente os m
 
 ### <a name="create-an-all-devices-rule"></a>Criar uma regra de "todos os dispositivos"
 
-Você pode criar um grupo contendo todos os usuários dentro de um locatário usando uma regra de associação. Quando os dispositivos são adicionados ou removidos do locatário no futuro, a associação do grupo é ajustada automaticamente.
+Você pode criar um grupo que contém todos os dispositivos de uma organização usando uma regra de associação. Quando os dispositivos são adicionados ou removidos da organização no futuro, a associação do grupo é ajustada automaticamente.
 
 A regra "todos os dispositivos" é construída usando uma única expressão usando o operador-ne e o valor nulo:
 

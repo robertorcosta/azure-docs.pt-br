@@ -3,12 +3,12 @@ title: Solucionar problemas de backup de compartilhamento de arquivos do Azure
 description: Este artigo tem informações sobre a solução de problemas que ocorrem ao proteger seus compartilhamentos de arquivos no Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100049"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562076"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solucionar problemas ao fazer backup de compartilhamentos de arquivos do Azure
 
@@ -25,6 +25,7 @@ Este artigo fornece informações de solução de problemas para resolver os pro
   >Todos os compartilhamentos de arquivos em uma conta de armazenamento podem ser protegidos somente em um cofre dos Serviços de Recuperação. Você pode usar [esse script](scripts/backup-powershell-script-find-recovery-services-vault.md) para localizar o cofre dos serviços de recuperação em que sua conta de armazenamento está registrada.
 
 - Verifique se o compartilhamento de arquivos não está presente em nenhuma das contas de armazenamento sem suporte. Você pode consultar a [matriz de suporte para o backup do compartilhamento de arquivos do Azure](azure-file-share-support-matrix.md) para localizar as contas de armazenamento com suporte.
+- Verifique as configurações de firewall da conta de armazenamento para garantir que a opção de permitir que os serviços confiáveis da Microsoft acessem a conta de armazenamento esteja habilitada.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erro no portal declara que a descoberta de contas de armazenamento falhou
 
@@ -280,5 +281,5 @@ Aguarde a conclusão da outra operação em andamento e tente novamente mais tar
 
 Para obter mais informações sobre o backup de compartilhamentos de arquivos do Azure, confira:
 
-- [Fazer backup de compartilhamentos de arquivos do Azure](backup-afs.md)
+- [Backup de compartilhamentos de arquivos do Azure](backup-afs.md)
 - [Perguntas frequentes sobre backup de compartilhamentos de arquivos do Azure](backup-azure-files-faq.md)

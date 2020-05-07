@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/01/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 282946a023e4e79ee79b05cc2a317efc5a4056e4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b88f4aad650d77fea12677e61d3f249a77367e6f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165851"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690682"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerenciar seus usuários com minha equipe (versão prévia)
 
@@ -26,9 +26,28 @@ Minha equipe permite delegar a uma figura de autoridade, como um gerente de loja
 
 Antes de configurar minha equipe para sua organização, recomendamos que você examine esta documentação, bem como a [documentação do usuário](../user-help/my-staff-team-manager.md) , para garantir que você compreenda a funcionalidade e o impacto desse recurso em seus usuários. Você pode aproveitar a documentação do usuário para treinar e preparar seus usuários para a nova experiência e ajudar a garantir uma distribuição bem-sucedida.
 
+A autenticação baseada em SMS para usuários é um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
 ## <a name="how-my-staff-works"></a>Como minha equipe funciona
 
 Minha equipe é baseada em unidades administrativas (AUs), que são um contêiner de recursos que podem ser usados para restringir o escopo do controle administrativo de uma atribuição de função. Na minha equipe, a AUs é usada para definir um subconjunto de usuários de uma organização, como uma loja ou um departamento. Em seguida, por exemplo, um gerente de equipe pode ser atribuído a uma função cujo escopo é um ou mais AUs. No exemplo a seguir, o usuário recebeu a função administrativa de autenticação e as três AUs são o escopo da função. Para obter mais informações sobre unidades administrativas, consulte [Gerenciamento de unidades administrativas em Azure Active Directory](directory-administrative-units.md).
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
+
+* Uma assinatura ativa do Azure.
+
+  * Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Um locatário Azure Active Directory associado à sua assinatura.
+
+  * Se necessário, [crie um locatário do Azure Active Directory](../fundamentals/sign-up-organization.md) ou [associe uma assinatura do Azure à sua conta](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+* Você precisa de privilégios de *administrador global* em seu locatário do Azure ad para habilitar a autenticação baseada em SMS.
+* Cada usuário habilitado na política de método de autenticação de mensagem de texto deve ser licenciado, mesmo que não o use. Cada usuário habilitado deve ter uma das seguintes licenças do Azure AD ou do Microsoft 365:
+
+  * [O Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/)
+  * [Microsoft 365 (M365) F1 ou F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [Enterprise Mobility + Security (EMS) E3 ou E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) ou [Microsoft 365 (M365) E3 ou E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>Como habilitar minha equipe
 
@@ -47,10 +66,10 @@ Você pode proteger o portal minha equipe usando a política de acesso condicion
 
 É altamente recomendável que você proteja minha equipe usando [as políticas de acesso condicional do Azure ad](https://docs.microsoft.com/azure/active-directory/conditional-access/). Para aplicar uma política de acesso condicional à minha equipe, você deve criar manualmente a entidade de serviço minha equipe usando o PowerShell.
 
-### <a name="apply-a-----conditional-access-policy-to-my-staff"></a>Aplicar uma política de acesso condicional à minha equipe
+### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Aplicar uma política de acesso condicional à minha equipe
 
 1. Instale os [cmdlets do PowerShell do Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
-1. Execute os comandos a seguir:
+1. Execute os seguintes comandos:
 
         Connect-Graph -Scopes "Directory.AccessAsUser.All"
         New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
@@ -62,13 +81,6 @@ Você pode proteger o portal minha equipe usando a política de acesso condicion
 ## <a name="using-my-staff"></a>Usando minha equipe
 
 Quando um usuário vai para a minha equipe, ele mostra os nomes das [unidades administrativas](directory-administrative-units.md) nas quais eles têm permissões administrativas. Na [documentação do usuário da minha equipe](../user-help/my-staff-team-manager.md), usamos o termo "local" para fazer referência a unidades administrativas. Se as permissões de um administrador não tiverem um escopo de AU, as permissões serão aplicadas em toda a organização. Após a habilitação da minha equipe, os usuários que estão habilitados e foram atribuídos a uma função administrativa podem acessá-la por meio [https://mystaff.microsoft.com](https://mystaff.microsoft.com)do. Eles podem selecionar uma AU para exibir os usuários nessa AU e selecionar um usuário para abrir seu perfil.
-
-## <a name="licenses"></a>Licenças
-
-Cada usuário habilitado na minha equipe deve ser licenciado, mesmo que não use o portal da minha equipe. Cada usuário habilitado deve ter uma das seguintes licenças do Azure AD ou do Microsoft 365:
-
-- O Azure AD Premium P1 ou P2
-- Microsoft 365 F1 ou F3
 
 ## <a name="reset-a-users-password"></a>Redefinir a senha de um usuário
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082587"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901275"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Perguntas frequentes sobre o Azure Disk Encryption para máquinas virtuais do Windows
 
@@ -21,7 +21,7 @@ Este artigo fornece respostas para perguntas frequentes sobre Azure Disk Encrypt
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>O que é Azure Disk Encryption para VMs do Windows?
 
-Azure Disk Encryption para VMs do Windows usa o recurso BitLocker do Windows para fornecer criptografia de disco completa do disco do sistema operacional e discos de dados. Além disso, ele fornece criptografia do disco de recursos efêmeras quando o [parâmetro volumetype é todos](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  O conteúdo flui criptografado da VM para o back-end de armazenamento. Assim, fornecendo criptografia de ponta a ponta com uma chave gerenciada pelo cliente.
+Azure Disk Encryption para VMs do Windows usa o recurso BitLocker do Windows para fornecer criptografia de disco completa do disco do sistema operacional e discos de dados. Além disso, ele fornece criptografia do disco temporário quando o [parâmetro volumetype é todos](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  O conteúdo flui criptografado da VM para o back-end de armazenamento. Assim, fornecendo criptografia de ponta a ponta com uma chave gerenciada pelo cliente.
  
 Consulte [VMs e sistemas operacionais com suporte](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
@@ -61,7 +61,7 @@ A criptografia do servidor de armazenamento criptografa os Azure Managed disks n
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Como o Azure Disk Encryption é diferente da criptografia do lado do servidor de armazenamento com a chave gerenciada pelo cliente e quando devo usar cada solução?
 
-O Azure Disk Encryption fornece criptografia de ponta a ponta para o disco do sistema operacional, discos de dados e o disco de recursos efêmeras com uma chave gerenciada pelo cliente.
+O Azure Disk Encryption fornece criptografia de ponta a ponta para o disco do sistema operacional, discos de dados e o disco temporário com uma chave gerenciada pelo cliente.
 
 - Se seus requisitos incluírem a criptografia de todas as criptografias acima e de ponta a ponta, use Azure Disk Encryption. 
 - Se seus requisitos incluírem criptografar somente dados em repouso com chave gerenciada pelo cliente, use [a criptografia do lado do servidor com chaves gerenciadas pelo cliente](disk-encryption.md). Você não pode criptografar um disco com a criptografia do lado do servidor Azure Disk Encryption e de armazenamento com chaves gerenciadas pelo cliente.
@@ -129,9 +129,6 @@ Azure Disk Encryption seleciona o método de criptografia no BitLocker com base 
 \*O AES 256 bit com difusor não tem suporte no Windows 2012 e posterior.
 
 Para determinar a versão do sistema operacional Windows, execute a ferramenta ' winver ' em sua máquina virtual.
-
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se eu usar EncryptFormatAll e especificar todos os tipos de volume, ele apagará os dados em unidades de dados que já tivermos criptografado?
-Não, os dados não serão apagados de unidades de dados que já tiverem sido criptografadas usando o Azure Disk Encryption. Semelhante ao modo como o EncryptFormatAll não criptografou novamente a unidade do sistema operacional, ele não criptografará novamente a unidade de dados já criptografada. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Posso fazer backup e restaurar uma VM criptografada? 
 

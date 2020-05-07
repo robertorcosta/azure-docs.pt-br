@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0af897ca284b1d51867808c2c74496c73e9bdcc3
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266280"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582785"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos com o uso de grupos para gerenciar o licenciamento no Azure Active Directory
 
@@ -100,7 +100,7 @@ Inicialmente, o usuário herda a licença somente do grupo de *Serviços do E3 B
 
 ## <a name="managing-new-services-added-to-products"></a>Gerenciando novos serviços adicionados a produtos
 
-Quando o Microsoft adiciona um novo serviço a um plano de licença de produto, ele é habilitado por padrão em todos os grupos aos quais você atribuiu a licença de produto. Os usuários no locatário que estão inscritos em notificações sobre alterações do produto receberão emails antecipadamente, notificando sobre as próximas adições de serviço.
+Quando o Microsoft adiciona um novo serviço a um plano de licença de produto, ele é habilitado por padrão em todos os grupos aos quais você atribuiu a licença de produto. Os usuários em sua organização que assinaram notificações sobre alterações de produtos receberão emails antecipadamente notificando-os sobre as próximas adições de serviço.
 
 Como administrador, você pode examinar todos os grupos afetados pela alteração e tomar uma ação, como desabilitar o novo serviço em cada grupo. Por exemplo, se você criou grupos que direcionam apenas serviços específicos para implantação, reveja esses grupos e verifique se os serviços recém-adicionados estão desabilitados.
 
@@ -108,7 +108,7 @@ Este é um exemplo da aparência desse processo:
 
 1. Originalmente, você atribuiu o produto *Office 365 Enterprise E5* a vários grupos. Um desses grupos, chamado *O365 E5 – somente Exchange* foi criado para habilitar apenas o serviço *Exchange Online (Plano 2)* para seus membros.
 
-2. Você recebeu uma notificação da Microsoft informando que o produto E5 será estendido com um novo serviço – o *Microsoft Stream*. Quando o serviço estiver disponível no locatário, você poderá fazer o seguinte:
+2. Você recebeu uma notificação da Microsoft informando que o produto E5 será estendido com um novo serviço – o *Microsoft Stream*. Quando o serviço estiver disponível em sua organização, você poderá fazer o seguinte:
 
 3. Acesse a folha [**Azure Active Directory > Licenças > Todos os produtos**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products), selecione *Office 365 Enterprise E5* e, em seguida, selecione **Grupos Licenciados** para exibir uma lista de todos os grupos com o produto.
 
@@ -128,9 +128,9 @@ Este é um exemplo da aparência desse processo:
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Usar o PowerShell para ver quem tem licenças herdadas e diretas
 Use um script do PowerShell para verificar se os usuários têm uma licença atribuída diretamente ou herdada de um grupo.
 
-1. Execute o cmdlet `connect-msolservice` para autenticar e conectar-se ao locatário.
+1. Execute o `connect-msolservice` cmdlet para autenticar e conectar-se à sua organização.
 
-2. `Get-MsolAccountSku` pode ser usado para descobrir todas as licenças de produto provisionadas no locatário.
+2. `Get-MsolAccountSku`pode ser usado para descobrir todas as licenças de produtos provisionadas na organização do Azure AD.
 
    ![Captura de tela do cmdlet Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990898"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583089"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Perguntas frequentes sobre o proxy de aplicativo Active Directory (Azure AD)
 
@@ -95,6 +95,10 @@ Se os servidores do conector e a conta de serviço do aplicativo Web estiverem n
 
 Se os servidores do conector e a conta de serviço de aplicativo Web estiverem em domínios diferentes, a delegação baseada em recursos será usada. As permissões de delegação são configuradas no servidor Web de destino e na conta de serviço de aplicativo Web. Esse método de delegação restrita é relativamente novo. O método foi introduzido no Windows Server 2012, que dá suporte à delegação entre domínios, permitindo que o proprietário do recurso (serviço Web) controle quais contas de computador e serviço podem delegar a ele. Não há nenhuma interface do usuário para ajudar nessa configuração, portanto, você precisará usar o PowerShell.
 Para obter mais informações, consulte o White Paper [noções básicas sobre a delegação restrita de Kerberos com o proxy de aplicativo](https://aka.ms/kcdpaper).
+
+### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>A autenticação NTLM funciona com o Proxy de Aplicativo do AD do Azure?
+
+A autenticação NTLM não pode ser usada como um método de pré-autenticação ou logon único. A autenticação NTLM pode ser usada somente quando pode ser negociada diretamente entre o cliente e o aplicativo Web publicado. Usar a autenticação NTLM geralmente faz com que uma solicitação de entrada apareça no navegador.
 
 ## <a name="pass-through-authentication"></a>Autenticação de passagem
 

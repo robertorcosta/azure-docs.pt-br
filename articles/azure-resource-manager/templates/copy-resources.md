@@ -2,13 +2,13 @@
 title: Implantar várias instâncias de recursos
 description: Use a operação de cópia e matrizes em um modelo de Azure Resource Manager para implantar o tipo de recurso muitas vezes.
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153311"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583393"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recurso em modelos ARM
 
@@ -18,7 +18,7 @@ Você também pode usar copiar com [Propriedades](copy-properties.md), [variáve
 
 Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](conditional-resource-deployment.md).
 
-## <a name="resource-iteration"></a>Iteração de recurso
+## <a name="syntax"></a>Sintaxe
 
 O elemento Copy tem o seguinte formato geral:
 
@@ -34,6 +34,23 @@ O elemento Copy tem o seguinte formato geral:
 A propriedade **Name** é qualquer valor que identifique o loop. A propriedade **Count** especifica o número de iterações que você deseja para o tipo de recurso.
 
 Use as propriedades **Mode** e **BatchSize** para especificar se os recursos são implantados em paralelo ou em sequência. Essas propriedades são descritas em [serial ou paralela](#serial-or-parallel).
+
+## <a name="copy-limits"></a>Limites de cópia
+
+A contagem não pode exceder 800.
+
+A contagem não pode ser um número negativo. Ele pode ser zero se você implantar o modelo com uma versão recente do CLI do Azure, do PowerShell ou da API REST. Especificamente, você deve usar:
+
+* Azure PowerShell **2,6** ou posterior
+* CLI do Azure **2.0.74** ou posterior
+* API REST versão **2019-05-10** ou posterior
+* [Implantações vinculadas](linked-templates.md) devem usar a versão de API **2019-05-10** ou posterior para o tipo de recurso de implantação
+
+As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
+
+Tenha cuidado ao usar a [implantação do modo completo](deployment-modes.md) com a cópia. Se você reimplantar com o modo completo em um grupo de recursos, todos os recursos que não forem especificados no modelo após a resolução do loop de cópia serão excluídos.
+
+## <a name="resource-iteration"></a>Iteração de recurso
 
 O exemplo a seguir cria o número de contas de armazenamento especificadas no parâmetro **storageCount** .
 
@@ -257,14 +274,6 @@ O exemplo a seguir mostra a implementação:
   ...
 }]
 ```
-
-## <a name="copy-limits"></a>Limites de cópia
-
-A contagem não pode exceder 800.
-
-A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, CLI do Azure 2.0.74 ou posterior, ou a API REST versão **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
-
-Tenha cuidado ao usar a [implantação do modo completo](deployment-modes.md) com a cópia. Se você reimplantar com o modo completo em um grupo de recursos, todos os recursos que não forem especificados no modelo após a resolução do loop de cópia serão excluídos.
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
