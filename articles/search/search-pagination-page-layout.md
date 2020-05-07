@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641615"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801766"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva
 
@@ -92,9 +92,15 @@ Outra opção é usar um [perfil de Pontuação personalizado](index-add-scoring
 
 ## <a name="hit-highlighting"></a>Realce de ocorrência
 
-Realce de ocorrências refere-se à formatação de texto (como, por exemplo, realces em negrito ou amarelo) aplicada ao termo correspondente em um resultado, facilitando a identificação da correspondência. As instruções de realce de visita são fornecidas na [solicitação de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). O mecanismo de pesquisa inclui o termo correspondente nas marcas `highlightPreTag` e `highlightPostTag`, e seu código manipula a resposta (por exemplo, aplicando uma fonte em negrito).
+Realce de ocorrências refere-se à formatação de texto (como, por exemplo, realces em negrito ou amarelo) aplicados aos termos correspondentes em um resultado, facilitando a identificação da correspondência. As instruções de realce de visita são fornecidas na [solicitação de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-A formatação é aplicada a consultas de termo completo. No exemplo a seguir, os termos "arenoso", "areia", "praias", "praia" encontrados no campo Descrição são marcados para realce. As consultas que disparam a expansão de consulta no mecanismo, como pesquisa difusa e curinga, têm suporte limitado para realce de clique.
+Para habilitar o realce de clique `highlight=[comma-delimited list of string fields]` , adicione para especificar quais campos usarão o realce. O realce é útil para campos de conteúdo mais longos, como um campo de descrição, em que a correspondência não é imediatamente óbvia. Somente definições de campo que são atribuídas como que podem ser **pesquisadas** para realce de clique.
+
+Por padrão, o Azure Pesquisa Cognitiva retorna até cinco destaques por campo. Você pode ajustar esse número acrescentando ao campo um traço seguido por um inteiro. Por exemplo, `highlight=Description-10` retorna até 10 destaques sobre o conteúdo correspondente no campo Descrição.
+
+A formatação é aplicada a consultas de termo completo. O tipo de formatação é determinado pelas marcas `highlightPreTag` e `highlightPostTag`, e seu código manipula a resposta (por exemplo, aplicando uma fonte em negrito ou um plano de fundo amarelo).
+
+No exemplo a seguir, os termos "arenoso", "areia", "praias", "praia" encontrados no campo Descrição são marcados para realce. As consultas que disparam a expansão de consulta no mecanismo, como pesquisa difusa e curinga, têm suporte limitado para realce de clique.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 

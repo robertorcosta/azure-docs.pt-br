@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313596"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792370"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Perguntas frequentes sobre o acelerador de solução Connected Factory
 
@@ -76,7 +76,7 @@ Se tiver implantado a solução de www.azureiotsolutions.com, você não poderá
 1. Para verificar quais contêineres estão ativos, execute `docker ps`.
 1. Para interromper todos os contêineres de simulação, execute `./stopsimulation`.
 1. Para iniciar todos os contêineres de simulação:
-    * Exporte uma variável do shell com o nome **IOTHUB_CONNECTIONSTRING**. Use o valor da configuração **IotHubOwnerConnectionString** no arquivo `<name of your deployment>.config.user`. Por exemplo:
+    * Exporte uma variável do shell com o nome **IOTHUB_CONNECTIONSTRING**. Use o valor da configuração **IotHubOwnerConnectionString** no arquivo `<name of your deployment>.config.user`. Por exemplo: 
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -111,7 +111,7 @@ A simulação registra automaticamente os seguintes dispositivos:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Usando o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou [a extensão de IoT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) ferramenta, você pode verificar quais dispositivos estão registrados com o sua solução está usando o hub IoT. Para usar o gerenciador de dispositivos, você precisa da cadeia de conexão do hub IoT na implantação. Para usar a extensão de IoT para CLI do Azure, é necessário o nome do IoT Hub.
+Usando o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) ou [a extensão de IoT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) ferramenta, você pode verificar quais dispositivos estão registrados com o sua solução está usando o hub IoT. Para usar o gerenciador de dispositivos, você precisa da cadeia de conexão do hub IoT na implantação. Para usar a extensão de IoT para CLI do Azure, é necessário o nome do IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Como obter dados de log dos componentes da simulação?
 
@@ -125,7 +125,7 @@ Como alternativa, faça logon na VM por meio do SSH e inspecione os arquivos de 
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Como verificar se a simulação está enviando dados para a nuvem?
 
-Com o [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou a ferramenta [iothub-explorer](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events), inspecione os dados enviados para o Hub IoT de determinados dispositivos. Para usar essas ferramentas, você precisa saber a cadeia de conexão do hub IoT na implantação. Consulte [Como fazer para descobrir a cadeia de conexão do hub IoT usada por minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Com o [Azure IOT Explorer](https://github.com/Azure/azure-iot-explorer) ou o comando [Monitor-Events de extensão da CLI do Azure IOT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) , você pode inspecionar os dados enviados ao Hub IOT de determinados dispositivos. Para usar essas ferramentas, você precisa saber a cadeia de conexão do hub IoT na implantação. Consulte [Como fazer para descobrir a cadeia de conexão do hub IoT usada por minha solução?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspecione os dados enviados por um dos dispositivos fornecedores:
 

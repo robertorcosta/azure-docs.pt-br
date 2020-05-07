@@ -1,24 +1,24 @@
 ---
-title: Configurar clientes potenciais de sua oferta do Microsoft Commercial Marketplace
-description: Configure leads do cliente no Microsoft Commercial Marketplace.
+title: Gerenciamento de leads do Marketplace comercial da Microsoft
+description: Saiba mais sobre como gerar e receber leads de clientes do seu Microsoft AppSource e ofertas do Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 54c67656d7847b44c8fc83b33a4e03be3838cf76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131080"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837321"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>Clientes potenciais de sua oferta do marketplace
+# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Clientes potenciais de sua oferta de Marketplace comercial
 
-Os clientes potenciais estão interessados ou implantando suas ofertas do Microsoft [AppSource](https://appsource.microsoft.com) e [do Azure Marketplace](https://azuremarketplace.microsoft.com). Você receberá leads do cliente depois que sua oferta for publicada no Marketplace. Este artigo explica:
+Os clientes potenciais estão interessados ou implantando suas ofertas do [Microsoft AppSource](https://appsource.microsoft.com) e [do Azure Marketplace](https://azuremarketplace.microsoft.com). Você pode receber leads do cliente depois que sua oferta for publicada no Marketplace comercial. Este artigo explica os seguintes conceitos de gerenciamento de leads:
 
-* Como sua oferta do Marketplace gera clientes potenciais para garantir que você não perca as oportunidades de negócios. 
+* Como sua oferta do Marketplace comercial gera clientes potenciais para garantir que você não perca as oportunidades de negócios. 
 * Como conectar seu sistema CRM (gerenciamento de relacionamento com o cliente) à sua oferta para que você possa gerenciar seus leads em um local central.
 * Os dados de Lead que enviamos para você para que você possa acompanhar os clientes que chegaram a você.
 
@@ -56,7 +56,7 @@ Cada cliente potencial que você recebe durante o processo de aquisição de cli
 
 Os valores possíveis são:
 
-- **"Ins"**: significa *instalação*. Esta ação está no Azure Marketplace ou AppSource quando um cliente compra seu produto.
+- **"Ins"**: significa *instalação*. Esta ação está no Azure Marketplace ou AppSource quando um cliente adquire seu produto.
 - **"PLT"**: significa avaliação orientada por *parceiro*. Essa ação está em AppSource quando um cliente seleciona a opção **entre em contato comigo** .
 - **"DNC"**: significa *não contatar*. Essa ação está em AppSource quando um parceiro que foi listado em sua página de aplicativo é solicitado a ser contatado. Compartilhamos uma notificação informando que esse cliente foi listado em seu aplicativo, mas eles não precisam ser contatados.
 - **"Criar"**: essa ação está apenas dentro do portal do Azure e é gerada quando um cliente compra sua oferta para sua conta.
@@ -92,7 +92,7 @@ As informações do cliente são enviadas por vários campos. O exemplo a seguir
 - **Acompanhamento**: não se esqueça de acompanhar. Espere que a transação típica exija 5 a 12 chamadas de acompanhamento.
 - **Incentivá**: incentivá Your leads para ajudá-lo a obter uma margem de lucro mais alta.
 
-## <a name="leads-frequently-asked-questions"></a>Perguntas frequentes sobre leads
+## <a name="common-questions-about-lead-management"></a>Perguntas comuns sobre o gerenciamento de leads
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Onde posso obter ajuda na configuração de meu destino de cliente potencial?
 
@@ -133,7 +133,7 @@ O armazenamento de BLOBs do Azure não tem mais suporte como um destino de Lead,
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Recebi um email do Marketplace comercial, mas por que não posso encontrar o cliente potencial no meu CRM?
 
-É possível que o domínio de email do usuário final é de. edu. Por motivos de privacidade, não passamos informações de identificação pessoal do domínio. edu. Envie um tíquete de suporte por meio da [ajuda e suporte do Partner Center](https://partner.microsoft.com/support/v2/?stage=1).
+É possível que o domínio de email do usuário final é de. edu. Por motivos de privacidade, não passamos informações pessoais do domínio. edu. Envie um tíquete de suporte por meio da [ajuda e suporte do Partner Center](https://partner.microsoft.com/support/v2/?stage=1).
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Configurei uma tabela do Azure como meu destino de Lead. Como posso exibir os leads?
 
@@ -149,7 +149,7 @@ Verifique se o formulário da Web para o lead é um campo obrigatório com base 
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Houve um problema com meu destino de cliente potencial e eu me perdi de alguns clientes potenciais. É possível tê-los enviados para mim por email?
 
-Devido a políticas de informações de identificação pessoal, não podemos compartilhar informações de Lead por emails não seguros.
+Devido a políticas de informações pessoais, não podemos compartilhar informações de Lead por meio de emails não seguros.
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Configurei uma tabela do Azure como meu destino de Lead. Quanto custará?
 

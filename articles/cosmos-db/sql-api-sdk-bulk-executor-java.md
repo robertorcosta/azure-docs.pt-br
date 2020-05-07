@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: API Java do executor em massa, recursos de & do SDK'
 description: Saiba tudo sobre o SDK e a API Java de bulk executor, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK Java de bulk executor do Azure Cosmos DB.
-author: tknandu
+author: milismsft
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
-ms.author: ramkris
-ms.openlocfilehash: 1a5de2647df5b8092fdcf8e6233f1fddc1690b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: adrianmi
+ms.openlocfilehash: 0030f974a36dc80dc8c4112000aa5934126a2482
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981317"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836437"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Biblioteca bulk executor Java: informações sobre o download
 
@@ -39,4 +39,27 @@ ms.locfileid: "80981317"
 | **Documentação da API**| [Documentação de referência de API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Introdução**|[Introdução ao SDK Java da biblioteca bulk executor](bulk-executor-java.md)|
 |**runtime mínimo com suporte**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
+
+## <a name="release-notes"></a>Notas de versão
+
+### <a name="2100"></a><a name="2.10.0"/>2.10.0
+
+* Correção para DocumentAnalyzer. java para extrair corretamente valores de chave de partição aninhada do JSON.
+
+### <a name="294"></a><a name="2.9.4"/>2.9.4
+
+* Adicione funcionalidade em operações BulkDelete para tentar novamente em caso de falhas específicas e também retornar uma lista de falhas para o usuário que pode ser repetido.
+
+### <a name="293"></a><a name="2.9.3"/>2.9.3
+
+* Atualização para Cosmos SDK versão 2.4.7.
+
+### <a name="292"></a><a name="2.9.2"/>2.9.2
+
+* Corrija para ' mergeAll ' para continuar em ' ID ' e o valor de chave de partição para que qualquer propriedade de documento com patch que seja colocada após ' ID ' e o valor de chave de partição seja adicionada à lista de itens atualizados.
+
+### <a name="291"></a><a name="2.9.1"/>2.9.1
+
+* Atualize o grau inicial de simultaneidade para 1 e adicionei logs de depuração para minilote.
+
 

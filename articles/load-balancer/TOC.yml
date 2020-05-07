@@ -40,6 +40,8 @@
       href: components.md
     - name: Conceitos
       href: concepts.md
+    - name: SKUs
+      href: skus.md
     - name: Monitoramento da integridade
       items:
         - name: Investigações de integridade

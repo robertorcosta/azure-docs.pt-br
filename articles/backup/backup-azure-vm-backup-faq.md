@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: a6746944e34b8bd2fbb115baaabece96ee93dd1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190088"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800644"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -176,6 +176,14 @@ O backup da VM é feito usando as configurações de retenção e agendamento na
 4. Retome o backup.
 
 Você pode restaurar a VM a partir dos pontos de restauração disponíveis que foram criados antes da operação de migração.
+
+### <a name="what-happens-after-i-move-a-vm-to-a-different-resource-group"></a>O que acontece depois de mover uma VM para um grupo de recursos diferente?
+
+Depois que uma VM é movida para um grupo de recursos diferente, ela é uma nova VM no que diz respeito ao backup do Azure.
+
+Depois de mover a VM para um novo grupo de recursos, você pode proteger novamente a VM no mesmo cofre ou em um cofre diferente. Como essa é uma nova VM para o backup do Azure, você será cobrado separadamente.
+
+Os pontos de restauração da VM antiga estarão disponíveis para restauração, se necessário. Se você não precisar desses dados de backup, poderá parar de proteger sua VM antiga com excluir dados.
 
 ### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Há um limite para o número de VMs que podem ser associadas à mesma política de backup?
 

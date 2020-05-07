@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676740"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792200"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Início Rápido: Criar um workspace do Azure Synapse Analytics (versão prévia)
 
@@ -41,7 +41,7 @@ Entre no [Portal do Azure](https://portal.azure.com/)
     | Configuração | Valor sugerido | Descrição |
     | :------ | :-------------- | :---------- |
     | **Assinatura** | *Sua assinatura* | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
-    | **Grupo de recursos** | *Qualquer grupo de recursos* | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Grupo de recursos** | *Qualquer grupo de recursos* | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Nome do workspace** | mysampleworkspace | Especifica o nome do workspace, que também será usado em pontos de extremidade de conexão.|
     | **Região** | Leste dos EUA 2 | Especifica a localização do workspace.|
     | **Data Lake Storage Gen2** | Conta: `storage account name` </br> Sistema de arquivos: `root file system to use` | Especifica o nome da conta de armazenamento do ADLS Gen2 a ser usado como armazenamento primário e o sistema de arquivos a ser usado.|

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf9fa48019ab88190175131b27f4a40e29eb5ed0
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76935472"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801715"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
-
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Comece</a></span>a<span class="has-padding-small">resolver seu problema rapidamente usando nosso agente virtual para executar o <b>diagnóstico automatizado.</b> </span> <span class="has-padding-small"> <sub>Privacy Statement</sub> Política <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 Esta página fornece informações de solução de problemas para perguntas de Azure Load Balancer comuns básicas e padrão. Para obter mais informações sobre o Load Balancer Standard, veja [Visão geral do Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
 
 Quando a conectividade do Load Balancer não estiver disponível, os sintomas mais comuns são os seguintes: 
@@ -98,7 +98,7 @@ Se uma VM não responder ao tráfego de dados, pode ser porque a porta de destin
 
 1. Faça logon na VM de back-end. 
 2. Abra um prompt de comando e execute o seguinte comando para verificar se existe um aplicativo escutando na porta de dados:   netstat -an 
-3. Se a porta não estiver listada com o estado "LISTENING", configure a porta de ouvinte apropriada 
+3. Se a porta não estiver listada com o estado "ouvindo", configure a porta do ouvinte apropriada 
 4. Se a porta estiver marcada como Listening, verifique se há algum problema no aplicativo de destino dessa porta.
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>Causa 2: O grupo de segurança de rede está bloqueando a porta na VM do pool de back-end do Load Balancer  
@@ -124,7 +124,7 @@ Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentan
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: acesso ao front end interno do Load Balancer a partir da VM participante do pool de back-end do Load Balancer
 
-Se um Balanceador de Carga interno estiver configurado dentro de uma Rede Virtual e uma das VMs de backend do participante estiver tentando acessar o frontend interno do Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Não há suporte para esse cenário. Analise as [limitações](concepts-limitations.md#limitations) para uma discussão detalhada.
+Se um Balanceador de Carga interno estiver configurado dentro de uma Rede Virtual e uma das VMs de backend do participante estiver tentando acessar o frontend interno do Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Não há suporte para esse cenário. Analise as [limitações](concepts.md#limitations) para uma discussão detalhada.
 
 **Resolução** há várias maneiras para desbloquear este cenário, incluindo o uso de um proxy. Avalie o Gateway de aplicativo ou outros proxies 3ª de terceiros (por exemplo, nginx ou haproxy). Para saber mais sobre o Gateway de Aplicativo, confira [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
 

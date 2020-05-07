@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: eb78f6073d2bcb7289f13d5c994cff8c13f9a6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8e7b2f8f6483d462f781d95011ef7b972e83b87
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185788"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801783"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -26,7 +26,7 @@ Recuperação de desastre de servidores físicos | Replicação de servidores f�
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
 
-**Servidor** | **Requirements** | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 vCenter Server | Versão 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que você use um servidor vCenter em sua implantação de recuperação de desastre.
 Hosts vSphere | Versão 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, o servidor de processo é executado no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
@@ -39,7 +39,7 @@ O servidor de configuração é um computador local que executa componentes do S
 - Para VMs VMware, você define o servidor de configuração baixando um modelo OVF para criar uma VM VMware.
 - Para servidores físicos, você configura manualmente o computador do servidor de configuração.
 
-**Componente** | **Requirements**
+**Componente** | **Requisitos**
 --- |---
 Núcleos de CPU | 8
 RAM | 16 GB
@@ -128,11 +128,13 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | SP1 3.1
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 e 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Há suporte para todos os kernels SUSE 15 e 15 de estoque. </br></br> 4.12.14-5.5-Azure para 4.12.14-8.22-Azure
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Por padrão, há suporte para todos os [kernels SuSE 15 e 15 de estoque](https://www.suse.com/support/kb/doc/?id=000019587) . </br></br> 4.12.14-5.5-Azure para 4.12.14-8.22-Azure
+
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de arquivos Linux/armazenamento convidado
 
-**Componente** | **Com suporte**
+**Componente** | **Porta**
 --- | ---
 Sistemas de arquivos | ext3, ext4, XFS, BTRFS (condições aplicáveis de acordo com esta tabela)
 Provisionamento LVM (gerenciamento de volume lógico)| Provisão espessa-Sim <br></br> Provisionamento dinâmico-não
@@ -156,7 +158,7 @@ Adicionar disco na VM replicada | Não há suporte.<br/> Desabilite a replicaç�
 
 ## <a name="network"></a>Rede
 
-**Componente** | **Com suporte**
+**Componente** | **Porta**
 --- | ---
 Agrupamento NIC da rede do host | Compatível com VMs da VMware. <br/><br/>Sem suporte para a replicação de computador físico.
 VLAN da rede do host | Sim.
@@ -172,7 +174,7 @@ Várias NICs da rede do convidado/servidor | Sim.
 
 ## <a name="azure-vm-network-after-failover"></a>Rede VM do Azure (após o failover)
 
-**Componente** | **Com suporte**
+**Componente** | **Porta**
 --- | ---
 Azure ExpressRoute | Sim
 ILB | Sim
@@ -186,7 +188,7 @@ Pontos de extremidade de serviço de rede virtual do Azure<br/> | Sim
 Redes aceleradas | Não
 
 ## <a name="storage"></a>Armazenamento
-**Componente** | **Com suporte**
+**Componente** | **Porta**
 --- | ---
 Dados dinâmicos | O disco do sistema operacional deve ser um disco básico. <br/><br/>Os discos de Dados podem ser discos dinâmicos
 Configuração de disco do Docker | Não
@@ -217,7 +219,7 @@ Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Se
 
 ## <a name="replication-channels"></a>Canais de replicação
 
-|**Tipo de replicação**   |**Com suporte**  |
+|**Tipo de replicação**   |**Porta**  |
 |---------|---------|
 |Transferências de dados descarregadas (ODX)    |       Não  |
 |Propagação offline        |   Não      |
@@ -225,7 +227,7 @@ Inicialização de EFI/servidor do convidado/UEFI | -Com suporte para Windows Se
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
 
-**Componente** | **Com suporte**
+**Componente** | **Porta**
 --- | ---
 Armazenamento com redundância local | Sim
 Armazenamento com redundância geográfica | Sim
@@ -242,7 +244,7 @@ Contas de armazenamento v2 de uso geral (camadas quentes e frias) | Sim (os cust
 
 ## <a name="azure-compute"></a>Computação do Azure
 
-**Recurso** | **Com suporte**
+**Recurso** | **Porta**
 --- | ---
 Conjuntos de disponibilidade | Sim
 Zonas de disponibilidade | Não
@@ -253,7 +255,7 @@ Discos gerenciados | Sim
 
 As VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
 
-**Componente** | **Requirements** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | Verificar [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falha se não tiver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha se não tiver suporte.
@@ -299,7 +301,7 @@ Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 T
 
 ## <a name="vault-tasks"></a>Tarefas do Vault
 
-**Ação** | **Com suporte**
+**Ação** | **Porta**
 --- | ---
 Mover cofre entre grupos de recursos | Não
 Mover o cofre dentro e entre assinaturas | Não

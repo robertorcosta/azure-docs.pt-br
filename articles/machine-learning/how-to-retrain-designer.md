@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810366"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837151"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Readaptar modelos com o designer do Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,13 +32,7 @@ Neste artigo, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um workspace do Azure Machine Learning com o SKU Enterprise.
-* Um DataSet acessível ao designer. Pode ser um dos seguintes:
-   * Um conjunto de Azure Machine Learning DataSet registrado
-    
-     **or**
-   * Um arquivo de dados armazenado em um Azure Machine Learning datastore.
-   
-Para obter informações sobre o acesso a dados usando o designer, consulte [como importar dados para o designer](how-to-designer-import-data.md).
+* Conclua a parte 1 desta série de instruções, [Transforme dados no designer](how-to-designer-transform-data.md).
 
 Este artigo também pressupõe que você tenha conhecimento básico sobre a criação de pipelines no designer. Para obter uma introdução guiada, conclua o [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
@@ -72,7 +66,7 @@ Crie parâmetros de pipeline para definir variáveis dinamicamente em tempo de e
    > [!NOTE]
    > Você pode inspecionar e editar os parâmetros de pipeline selecionando o ícone de engrenagem **configurações** ao lado do título do rascunho do seu pipeline. 
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Envie a execução do pipeline.
 

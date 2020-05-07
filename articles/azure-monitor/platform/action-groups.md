@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 339b11664308962962c59b2e9386ff122681293a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116206"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801001"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. Você pode configurar até 2 mil grupos de ação em uma assinatura.
@@ -200,16 +200,21 @@ Consulte as [informações de limitação de taxa](./../../azure-monitor/platfor
 
 Você pode ter um número limitado de ações de SMS em um grupo de ações.
 
-Se a interface do usuário do grupo de ações portal do Azure não permitir que você selecione o código do país, o SMS não terá suporte para o seu país. Os preços dos países com suporte são listados na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Se o código do seu país não estiver disponível, você poderá votar em ter seu país adicionado no [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+> [!NOTE]
+> Se a interface do usuário do grupo de ações portal do Azure não permitir que você selecione o código do país, o SMS não terá suporte para o seu país.  Se o código do seu país não estiver disponível, você poderá votar em ter seu país adicionado no [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). Enquanto isso, uma solução alternativa é fazer com que seu grupo de ação chame um webhook para um provedor de SMS de terceiros com suporte em seu país.  
 
+Os preços dos países com suporte são listados na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
   
 
 ### <a name="voice"></a>Voz
-Consulte o artigo [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) .
+Consulte o artigo [informações de limitação de taxa](./../../azure-monitor/platform/alerts-rate-limiting.md) para obter um comportamento adicional importante.
 
 Você pode ter um número limitado de ações de voz em um grupo de ações.
 
-Se a interface do usuário do grupo de ações portal do Azure não permitir que você selecione o código do país, as chamadas de voz não serão suportadas para seu país. Os preços dos países com suporte são listados na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Se o código do seu país não estiver disponível, você poderá votar em ter seu país adicionado no [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+> [!NOTE]
+> Se a interface do usuário do grupo de ações portal do Azure não permitir que você selecione o código do país, as chamadas de voz não serão suportadas para seu país. Se o código do seu país não estiver disponível, você poderá votar em ter seu país adicionado no [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Enquanto isso, uma solução alternativa é fazer com que seu grupo de ação chame um webhook para um provedor de chamada de voz de terceiros com suporte em seu país.  
+
+Os preços dos países com suporte são listados na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
 Os WebHooks são repetidos usando as regras a seguir. A chamada de webhook é repetida no máximo duas vezes quando os seguintes códigos de status HTTP são retornados: 408, 429, 503, 504 ou o ponto de extremidade HTTP não responde. A primeira nova tentativa ocorre após 10 segundos. A segunda tentativa ocorre após 100 segundos. Após duas falhas, nenhum grupo de ação chamará o ponto de extremidade por 30 minutos. 
