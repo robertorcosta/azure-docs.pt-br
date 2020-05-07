@@ -3,12 +3,12 @@ title: Matriz de suporte do Backup do Azure
 description: Fornece um resumo de configurações compatíveis e limitações do serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc817c1833c4c9aedcbc5fa111de694fab715c43
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537314"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801256"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para o backup do Azure
 
@@ -43,7 +43,7 @@ A tabela a seguir descreve os recursos dos cofres dos serviços de recuperação
 
 Veja os que têm suporte se você quiser fazer backup de computadores locais:
 
-**Computador** | **O que é feito backup** | **Local** | **Recursos**
+**Computador** | **O que é feito backup** | **Localidade** | **Recursos**
 --- | --- | --- | ---
 **Backup direto de computador Windows com o agente MARS** | Arquivos, pastas, estado do sistema | Faça backup no cofre dos serviços de recuperação. | Fazer backup três vezes por dia<br/><br/> Nenhum backup com reconhecimento de aplicativo<br/><br/> Restaurar arquivo, pasta, volume
 **Backup direto de computador Linux com o agente MARS** | Backup sem suporte
@@ -56,14 +56,14 @@ Veja os que têm suporte se você quiser fazer backup de computadores locais:
 
 **Limite** | **Detalhes**
 --- | ---
-**Discos de dados de VM do Azure** | Limite de 16 <br> Para se inscrever para a versão prévia privada de VMs com mais de 16 discos (até 32 discos), escreva para nós em AskAzureBackupTeam@microsoft.com
+**Discos de dados de VM do Azure** | Limite de 16 <br> Para se inscrever para a visualização limitada de VMs com mais de 16 discos (até 32 discos), escreva para nós emAskAzureBackupTeam@microsoft.com
 **Tamanho do disco de dados de VM do Azure** | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 
 ### <a name="azure-vm-backup-options"></a>Opções de backup de VM do Azure
 
 Aqui estão as suportadas se você quiser fazer backup de VMs do Azure:
 
-**Computador** | **O que é feito backup** | **Local** | **Recursos**
+**Computador** | **O que é feito backup** | **Localidade** | **Recursos**
 --- | --- | --- | ---
 **Backup de VM do Azure usando a extensão de VM** | Toda a VM | Faça backup no cofre. | Extensão instalada quando você habilita o backup de uma VM.<br/><br/> Fazer backup uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativo para VMs do Windows; backup consistente com o arquivo para VMs Linux. Você pode configurar a consistência de aplicativos para computadores Linux usando scripts personalizados.<br/><br/> Restaure a VM ou o disco.<br/><br/> Não é possível fazer backup de uma VM do Azure em uma localização local.
 **Backup de VM do Azure usando o agente MARS** | Arquivos, pastas, estado do sistema | Faça backup no cofre. | Faça backup três vezes por dia.<br/><br/> Se você quiser fazer backup de arquivos ou pastas específicas em vez de toda a VM, o agente MARS poderá ser executado junto com a extensão de VM.

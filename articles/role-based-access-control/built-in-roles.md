@@ -1,6 +1,6 @@
 ---
-title: Funções internas do Azure para RBAC do Azure
-description: Este artigo descreve as funções internas do Azure para RBAC (controle de acesso baseado em função) do Azure. Ele lista ações, não ações, dataactions e NotDataActions.
+title: Funções internas do Azure – RBAC do Azure
+description: Este artigo descreve as funções internas do Azure para o controle de acesso baseado em função do Azure (RBAC do Azure). Ele lista ações, não ações, dataactions e NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 78e5c219d83198f3bf4c329c33018caad2b0cc62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194917"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838732"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
-O [RBAC (controle de acesso baseado em função) do Azure](overview.md) tem várias funções internas do Azure que você pode atribuir a usuários, grupos, entidades de serviço e identidades gerenciadas. Atribuições de função são a maneira de controlar o acesso aos recursos do Azure. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas do Azure](custom-roles.md).
+O Azure [RBAC (controle de acesso baseado em função)](overview.md) do Azure tem várias funções internas do Azure que você pode atribuir a usuários, grupos, entidades de serviço e identidades gerenciadas. Atribuições de função são a maneira de controlar o acesso aos recursos do Azure. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas do Azure](custom-roles.md).
 
-Este artigo lista as funções internas para recursos do Azure, que estão sempre evoluindo. Para obter as funções mais recentes, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list). Se você estiver procurando por funções de administrador para Azure Active Directory (AD do Azure), consulte [permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Este artigo lista as funções internas do Azure, que estão sempre em evolução. Para obter as funções mais recentes, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou [az role definition list](/cli/azure/role/definition#az-role-definition-list). Se você estiver procurando por funções de administrador para Azure Active Directory (AD do Azure), consulte [permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="all"></a>Todos
 
-A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Selecione o nome da função para ver a lista `Actions`de `NotActions`, `DataActions`, e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função para recursos do Azure](role-definitions.md).
+A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Selecione o nome da função para ver a lista `Actions`de `NotActions`, `DataActions`, e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [entender as definições de função do Azure](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
@@ -55,7 +55,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Colaborador de zona DNS](#dns-zone-contributor) | Permite gerenciar zonas DNS e conjuntos de registros no DNS do Azure, mas não permite controlar quem tem acesso a eles. | befefa01-2a29-4197-83a8-272ff33ce314 |
 > | [Colaborador de rede](#network-contributor) | Permite gerenciar redes, mas não acessá-las. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Colaborador do Gerenciador de Tráfego](#traffic-manager-contributor) | Permite gerenciar perfis do Gerenciador de Tráfego, mas não permite controlar quem tem acesso a eles. | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
-> | **Armazenamento** |  |  |
+> | **Storage** |  |  |
 > | [Colaborador de avere](#avere-contributor) | Pode criar e gerenciar um cluster avere vFXT. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Operador avere](#avere-operator) | Usado pelo cluster avere vFXT para gerenciar o cluster | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
 > | [Colaborador de backup](#backup-contributor) | Permite que você gerencie o serviço de backup, mas não pode criar cofres e conceder acesso a outros | 5e467623-bb1f-42f4-a55d-6e525e11384b |
@@ -81,7 +81,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Remetente da mensagem de dados da fila de armazenamento](#storage-queue-data-message-sender) | Adicionar mensagens a uma fila de armazenamento do Azure. Para saber quais ações são necessárias para uma determinada operação de dados, confira [permissões para chamar operações de BLOB e de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [Leitor de dados da fila de armazenamento](#storage-queue-data-reader) | Leia e liste as filas do armazenamento do Azure e as mensagens da fila. Para saber quais ações são necessárias para uma determinada operação de dados, confira [permissões para chamar operações de BLOB e de dados de fila](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Web** |  |  |
-> | [Leitor de dados do Azure Mapas (versão prévia)](#azure-maps-data-reader-preview) | Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Leitor de dados do Azure Maps](#azure-maps-data-reader) | Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Maps. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite gerenciar serviços de pesquisa, mas não acessá-las. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Colaborador do Plano de Web](#web-plan-contributor) | Permite gerenciar os planos da Web para sites, mas não o acesso a eles. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Colaborador do Site](#website-contributor) | Permite gerenciar sites (não planos da Web), mas não acessá-los. | de139f84-1756-47ae-9be6-808fbbe84772 |
@@ -147,10 +147,10 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Leitor do Azure Sentinel](#azure-sentinel-reader) | Leitor do Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Respondente do Azure Sentinel](#azure-sentinel-responder) | Respondente do Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Colaborador de Key Vault](#key-vault-contributor) | Permite gerenciar cofres de chaves, mas não acessá-los. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Administrador de segurança](#security-admin) | pode exibir políticas de segurança, estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Administrador de segurança](#security-admin) | Permissões de exibição e atualização para a central de segurança. Mesmas permissões que a função leitor de segurança e também podem atualizar a política de segurança e ignorar alertas e recomendações. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Colaborador de avaliação de segurança](#security-assessment-contributor) | Permite enviar avaliações por push para a central de segurança | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Gerenciador de Segurança (Herdado)](#security-manager-legacy) | Esta é uma função herdada. Em vez disso, use o administrador de segurança. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Leitor de segurança](#security-reader) | Pode exibir recomendações e alertas, exibir políticas de segurança, exibir Estados de segurança, mas não pode fazer alterações. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Leitor de segurança](#security-reader) | Exibir permissões para a central de segurança. Pode exibir recomendações, alertas, uma política de segurança e Estados de segurança, mas não pode fazer alterações. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [Usuário do DevTest Labs](#devtest-labs-user) | Permite conectar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Criador de laboratório](#lab-creator) | Permite a você criar, gerenciar e excluir os laboratórios gerenciados nas contas de laboratório do Azure. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
@@ -2543,7 +2543,7 @@ Leia e liste as filas do armazenamento do Azure e as mensagens da fila. Para sab
 ## <a name="web"></a>Web
 
 
-### <a name="azure-maps-data-reader-preview"></a>Leitor de dados do Azure Mapas (versão prévia)
+### <a name="azure-maps-data-reader"></a>Leitor de dados do Azure Maps
 
 Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Maps.
 
@@ -2555,7 +2555,7 @@ Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Maps.
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.Maps/accounts/data/read | Concede acesso de leitura de dados a uma conta de mapas. |
+> | Microsoft. Maps/accounts/*/Read |  |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2572,12 +2572,12 @@ Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Maps.
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Maps/accounts/data/read"
+        "Microsoft.Maps/accounts/*/read"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Maps Data Reader (Preview)",
+  "roleName": "Azure Maps Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -5710,7 +5710,7 @@ Permite gerenciar cofres de chaves, mas não acessá-los.
 
 ### <a name="security-admin"></a>Administrador de Segurança
 
-pode exibir políticas de segurança, estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações.
+Permissões de exibição e atualização para a central de segurança. Mesmas permissões que a função leitor de segurança e também podem atualizar a política de segurança e ignorar alertas e recomendações.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5868,7 +5868,7 @@ Esta é uma função herdada. Em vez disso, use o administrador de segurança.
 
 ### <a name="security-reader"></a>Leitor de segurança
 
-Pode exibir recomendações e alertas, exibir políticas de segurança, exibir Estados de segurança, mas não pode fazer alterações.
+Exibir permissões para a central de segurança. Pode exibir recomendações, alertas, uma política de segurança e Estados de segurança, mas não pode fazer alterações.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6217,6 +6217,9 @@ Pode ler todos os dados de monitoramento e editar configurações de monitoramen
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Criar e gerenciar testes na Web do insights |
 > | Microsoft. insights/pastas de trabalho/* |  |
+> | Microsoft. insights/privateLinkScopes/* |  |
+> | Microsoft. insights/privateLinkScopeOperationStatuses/* |  |
+> | Microsoft.OperationalInsights/workspaces/write | Criar um novo workspace ou links para um workspace existente fornecendo a ID do cliente do workspace existente. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Ler/gravar/excluir pacotes de solução do log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Ler/gravar/excluir pesquisas salvas do log Analytics. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executar uma consulta de pesquisa |
@@ -6263,6 +6266,9 @@ Pode ler todos os dados de monitoramento e editar configurações de monitoramen
         "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.Insights/webtests/*",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/privateLinkScopes/*",
+        "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",

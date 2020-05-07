@@ -3,12 +3,12 @@ title: Perguntas sobre descoberta, avaliação e análise de dependência em mig
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b4b2a50bc88768d46c82f6bce73447dc901e5dfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 868755bb8926ffe218fdab76714c9970f26bb0a9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681911"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744580"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência-perguntas comuns
 
@@ -103,10 +103,15 @@ Suporte | Essa opção está atualmente em visualização e só está disponíve
 Agente | Não é necessário instalar agentes em computadores que você deseja verificar. | Agentes a serem instalados em cada computador local que você deseja analisar: o [MMA (Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)e o [Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Pré-requisitos | [Examine](concepts-dependency-visualization.md#agentless-analysis) os pré-requisitos e os requisitos de implantação. | [Examine](concepts-dependency-visualization.md#agent-based-analysis) os pré-requisitos e os requisitos de implantação.
 Log Analytics | Não obrigatório. | As migrações para Azure usam a solução [mapa do serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) em [logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
-Como isso funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
+Como ele funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
 Dados | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta. | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta.<br/><br/> Número de conexões, latência e informações de transferência de dados são coletadas e disponibilizadas para consultas de Log Analytics. 
 Visualização | O mapa de dependências de um único servidor pode ser exibido durante uma duração de uma hora a 30 dias. | Mapa de dependências de um único servidor.<br/><br/> O mapa pode ser exibido somente em uma hora.<br/><br/> Mapa de dependências de um grupo de servidores.<br/><br/> Adicionar e remover servidores de um grupo da exibição de mapa.
 Exportação de dados | Atualmente, não pode ser baixado no formato tabular. | Os dados podem ser consultados com Log Analytics.
+
+
+## <a name="do-i-need-to-deploy-the-appliance-for-agentless-dependency-analysis"></a>Preciso implantar o dispositivo para análise de dependência sem agente?
+
+Sim, o [dispositivo migrações para Azure](migrate-appliance.md) deve ser implantado.
 
 ## <a name="do-i-pay-for-dependency-visualization"></a>Eu pago pela visualização de dependência?
 
