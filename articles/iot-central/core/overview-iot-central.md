@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560960"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790874"
 ---
 # <a name="what-is-azure-iot-central"></a>O que é Azure IoT Central?
 
@@ -29,19 +29,6 @@ Este artigo descreve os seguintes tópicos do Azure IoT Central:
 - Como gerenciar seu aplicativo.
 - Funcionalidades do Azure IoT Edge no IoT Central.
 - Como conectar seus dispositivos capacitados com o runtime do Azure IoT Edge ao seu aplicativo.
-
-## <a name="known-issues"></a>Problemas conhecidos
-
-- A exportação de dados contínua não é compatível com o formato Avro.
-- Atualmente, não há compatibilidade com GeoJSON.
-- Atualmente, não há compatibilidade com peças de mapa.
-- Os trabalhos não são compatíveis com tipos complexos.
-- Não há compatibilidade com tipos de esquema de matriz.
-- Somente o SDK do dispositivo C e os SDKs do serviço e do dispositivo Node.js são compatíveis.
-- No momento, o IoT Central está disponível nos Estados Unidos, na Europa, no Pacífico Asiático, na Austrália, no Reino Unido e no Japão.
-- Você não pode usar o modelo de aplicativo **Aplicativo personalizado (herdado)** no Reino Unido e no Japão.
-- Os modelos de funcionalidade do dispositivo precisam ter todas as interfaces definidas embutidas no mesmo arquivo.
-- O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em versão prévia e só tem suporte em regiões selecionadas.
 
 ## <a name="personas"></a>Personas
 
@@ -152,7 +139,7 @@ Os administradores gerenciam o acesso ao seu aplicativo [com funções de usuár
 
 Com qualquer solução de IoT projetada para operar em escala, é importante ter uma abordagem estruturada para o gerenciamento de dispositivo. Não é suficiente apenas conectar seus dispositivos à nuvem; você precisa mantê-los conectados e íntegros. Um operador pode usar as seguintes funcionalidades do IoT Central para gerenciar os dispositivos ao longo do ciclo de vida do aplicativo:
 
-### <a name="dashboards"></a>Painéis 
+### <a name="dashboards"></a>Painéis
 
 Os [painéis](./howto-set-up-template.md#generate-default-views) internos fornecem uma interface do usuário personalizável para monitorar a integridade e a telemetria do dispositivo. Comece com um painel predefinido em um [modelo de aplicativo](howto-use-app-templates.md) ou crie os próprios painéis adaptados às necessidades de seus operadores. Você pode compartilhar painéis com todos os usuários em seu aplicativo ou mantê-los particulares.
 
@@ -193,6 +180,18 @@ Crie soluções de IoT, como:
 ## <a name="quotas"></a>Cotas
 
 Cada assinatura do Azure tem cota padrão que podem afetar o escopo de sua solução de IoT. No momento, o IoT Central limita o número de aplicativos que você pode implantar em uma assinatura a 10. Se precisar aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/support/options/).
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+- A exportação de dados contínua não é compatível com o formato Avro.
+- Atualmente, não há compatibilidade com GeoJSON.
+- Atualmente, não há compatibilidade com peças de mapa.
+- Não há compatibilidade com tipos de esquema de matriz.
+- Somente o SDK do dispositivo C e os SDKs do serviço e do dispositivo Node.js são compatíveis.
+- No momento, o IoT Central está disponível nos Estados Unidos, na Europa, no Pacífico Asiático, na Austrália, no Reino Unido e no Japão.
+- Você não pode usar o modelo de aplicativo **Aplicativo personalizado (herdado)** no Reino Unido e no Japão.
+- Os modelos de funcionalidade do dispositivo precisam ter todas as interfaces definidas embutidas no mesmo arquivo.
+- O suporte para [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) está em versão prévia e só tem suporte em regiões selecionadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

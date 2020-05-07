@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5494b1a7590e87bac9f8ffeaeef8f1da791fd6e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060185"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791129"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutorial: configurar o grupo de disponibilidade na VM de SQL Server do Azure manualmente
 
@@ -114,7 +114,7 @@ Adicione o outro SQL Server ao cluster.
     >[!WARNING]
    >Se você estiver usando Espaços de Armazenamento e não desmarcar **Adicionar todo o armazenamento qualificado ao cluster**, o Windows desconectará os discos virtuais durante o processo de clustering. Como resultado, eles não aparecem no Gerenciador ou Explorador de Discos até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell. Espaços de Armazenamento agrupam vários discos em pools de armazenamento. Para saber mais, veja [Espaços de Armazenamento](https://technet.microsoft.com/library/hh831739).
 
-1. Clique em **Avançar**.
+1. Clique em **Próximo**.
 
 1. Clique em **Concluir**.
 
@@ -138,9 +138,9 @@ Neste exemplo, o cluster do Windows usa um compartilhamento de arquivos para cri
 
    Use **Criar um Assistente de Pasta Compartilhada** para criar um compartilhamento.
 
-1. Em **Caminho da Pasta**, clique em **Procurar** e localize ou crie um caminho para a pasta compartilhada. Clique em **Avançar**.
+1. Em **Caminho da Pasta**, clique em **Procurar** e localize ou crie um caminho para a pasta compartilhada. Clique em **Próximo**.
 
-1. Em **Nome, Descrição e Configurações**, verifique o nome de compartilhamento e o caminho. Clique em **Avançar**.
+1. Em **Nome, Descrição e Configurações**, verifique o nome de compartilhamento e o caminho. Clique em **Próximo**.
 
 1. Em **Permissões de Pasta Compartilhada**, defina **Personalizar permissões**. Clique em **personalizado...**.
 
@@ -175,9 +175,9 @@ Em seguida, configure o quorum do cluster.
    >[!TIP]
    >O Windows Server 2016 dá suporte a testemunha de nuvem. Se você escolher esse tipo de testemunha, não precisará de testemunha de compartilhamento de arquivos. Para saber mais, confira [Implantar uma testemunha de nuvem para um Cluster de Failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial usa uma testemunha de compartilhamento de arquivos, o que tem suporte de sistemas operacionais anteriores.
 
-1. Em **Configurar Testemunha de Compartilhamento de Arquivos**, insira o caminho para o compartilhamento criado. Clique em **Avançar**.
+1. Em **Configurar Testemunha de Compartilhamento de Arquivos**, insira o caminho para o compartilhamento criado. Clique em **Próximo**.
 
-1. Verifique as configurações em **Confirmação**. Clique em **Avançar**.
+1. Verifique as configurações em **Confirmação**. Clique em **Próximo**.
 
 1. Clique em **Concluir**.
 
@@ -240,9 +240,9 @@ Repeat these steps on the second SQL Server.
 
    Use **Criar um Assistente de Pasta Compartilhada** para criar um compartilhamento.
 
-1. Em **Caminho da Pasta**, clique em **Procurar** e localize ou crie um caminho para a pasta compartilhada de backup do banco de dados. Clique em **Avançar**.
+1. Em **Caminho da Pasta**, clique em **Procurar** e localize ou crie um caminho para a pasta compartilhada de backup do banco de dados. Clique em **Próximo**.
 
-1. Em **Nome, Descrição e Configurações**, verifique o nome de compartilhamento e o caminho. Clique em **Avançar**.
+1. Em **Nome, Descrição e Configurações**, verifique o nome de compartilhamento e o caminho. Clique em **Próximo**.
 
 1. Em **Permissões de Pasta Compartilhada**, defina **Personalizar permissões**. Clique em **personalizado...**.
 
@@ -278,7 +278,7 @@ Agora você está pronto para configurar um Grupo de Disponibilidade usando as s
 
     ![Inicie o Assistente de Novo Grupo de Disponibilidade](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
-2. Na página **Introdução**, clique em **Avançar**. Na página **Especificar Nome do Grupo de Disponibilidade**, digite um nome para o Grupo de Disponibilidade, por exemplo, **AG1**, em **Nome do Grupo de Disponibilidade**. Clique em **Avançar**.
+2. Na página **Introdução**, clique em **Avançar**. Na página **Especificar Nome do Grupo de Disponibilidade**, digite um nome para o Grupo de Disponibilidade, por exemplo, **AG1**, em **Nome do Grupo de Disponibilidade**. Clique em **Próximo**.
 
     ![Novo assistente de AG, especifique o nome do AG](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/58-newagname.png)
 
@@ -301,7 +301,7 @@ Agora você está pronto para configurar um Grupo de Disponibilidade usando as s
 
     ![Novo assistente de AG, selecionar sincronização de dados inicial](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completo** e especifique um local de rede compartilhada. Para o local, use o [compartilhamento de backup criado](#backupshare). No exemplo, ele foi, ** \\ \\ \<primeiro SQL Server\>\backup\\**. Clique em **Avançar**.
+8. Na página **Selecionar Sincronização de Dados Inicial** , selecione **Completo** e especifique um local de rede compartilhada. Para o local, use o [compartilhamento de backup criado](#backupshare). No exemplo, ele foi, ** \\ \\ \<primeiro SQL Server\>\backup\\**. Clique em **Próximo**.
 
    >[!NOTE]
    >A sincronização completa usa um backup completo do banco de dados na primeira instância do SQL Server e o restaura na segunda instância. Em caso de grandes bancos de dados, a sincronização completa não é recomendada porque pode levar muito tempo. Você pode reduzir esse tempo manualmente usando um backup do banco de dados e restaurando-o com `NO RECOVERY`. Se o banco de dados já foi restaurado com `NO RECOVERY` no segundo SQL Server antes da configuração do Grupo de Disponibilidade, escolha **Somente junção**. Se você quiser usar o backup depois de configurar o Grupo de Disponibilidade, escolha **Ignorar sincronização inicial de dados**.
@@ -348,7 +348,7 @@ Agora você tem um Grupo de Disponibilidade com réplicas em duas instâncias do
 
 Nas máquinas virtuais do Azure, um Grupo de Disponibilidade do SQL Server precisa de um balanceador de carga. O balanceador de carga contém os endereços IP para os ouvintes do Grupo de Disponibilidade e o Cluster de Failover do Windows Server. Esta seção resume como criar o balanceador de carga no portal do Azure.
 
-Um Azure Load Balancer pode ser um Standard Load Balancer ou um Balanceador de Carga Básico. O Standard Load Balancer possui mais recursos que o Balanceador de Carga Básico. Para um grupo de disponibilidade, o Standard Load Balancer é necessário se você usar uma Zona de Disponibilidade (em vez de um Conjunto de Disponibilidade). Para obter detalhes sobre a diferença entre os tipos de balanceadores de carga, consulte [Comparação de SKU do Load Balancer](../../../load-balancer/concepts-limitations.md#skus).
+Um Azure Load Balancer pode ser um Standard Load Balancer ou um Balanceador de Carga Básico. O Standard Load Balancer possui mais recursos que o Balanceador de Carga Básico. Para um grupo de disponibilidade, o Standard Load Balancer é necessário se você usar uma Zona de Disponibilidade (em vez de um Conjunto de Disponibilidade). Para obter detalhes sobre a diferença entre os SKUs do balanceador de carga, consulte [Load Balancer a comparação de SKU](../../../load-balancer/skus.md).
 
 1. No portal do Azure, vá para o grupo de recursos em que estão seus SQL Servers e clique em **+Adicionar**.
 1. Procure **Load Balancer**. Escolha o balanceador de carga publicado pela Microsoft.
@@ -367,7 +367,7 @@ Um Azure Load Balancer pode ser um Standard Load Balancer ou um Balanceador de C
    | **Atribuição de endereço IP** |Estático |
    | **Endereço IP** |Use um endereço disponível da sub-rede. Use este endereço para o ouvinte do grupo de disponibilidade. Observe que isso é diferente do endereço IP de cluster.  |
    | **Assinatura** |Use a mesma assinatura da máquina virtual. |
-   | **Local** |Use o mesmo local da máquina virtual. |
+   | **Localidade** |Use o mesmo local da máquina virtual. |
 
    A folha do portal do Azure deve ser semelhante a esta:
 
@@ -402,7 +402,7 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
 
 1. Defina a investigação de integridade do ouvinte, conforme a seguir:
 
-   | Configuração | Descrição | Exemplo
+   | Setting | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Escolher TCP | TCP |
@@ -418,7 +418,7 @@ Para configurar o balanceador de carga, você precisará criar um pool de back-e
 
 1. Defina as regras de balanceamento de carga do ouvinte, conforme a seguir.
 
-   | Configuração | Descrição | Exemplo
+   | Setting | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | SQLAlwaysOnEndPointListener |
    | **Endereço IP de front-end** | Escolher um endereço |Use o endereço que você criou ao criar o balanceador de carga. |
@@ -445,7 +445,7 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
 
 1. Defina a investigação de integridade do endereço IP principal de cluster do WSFC, conforme a seguir:
 
-   | Configuração | Descrição | Exemplo
+   | Setting | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | WSFCEndPointProbe |
    | **Protocolo** | Escolher TCP | TCP |
@@ -459,7 +459,7 @@ O endereço IP do WSFC também precisa estar no balanceador de carga.
 
 1. Defina as regras de balanceamento de carga de endereço IP do núcleo do cluster, conforme a seguir.
 
-   | Configuração | Descrição | Exemplo
+   | Setting | Descrição | Exemplo
    | --- | --- |---
    | **Nome** | Texto | WSFCEndPoint |
    | **Endereço IP de front-end** | Escolher um endereço |Use o endereço que você criou quando configurou o endereço IP do WSFC. Isso é diferente do endereço IP do ouvinte |

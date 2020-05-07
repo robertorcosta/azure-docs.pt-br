@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203141"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790472"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
 
 O gerenciamento de API do Azure dá suporte à implantação de várias regiões, que permite que os editores de API distribuam um único serviço de gerenciamento de API do Azure em qualquer número de regiões do Azure com suporte. O recurso de várias regiões ajuda a reduzir a latência de solicitação percebida por consumidores de API distribuídos geograficamente e melhora a disponibilidade do serviço se uma região ficar offline.
 
-Um novo serviço de gerenciamento de API do Azure inicialmente contém apenas uma [unidade][unit] em uma única região do Azure, a região primária. Regiões adicionais podem ser adicionadas às regiões primárias ou secundárias. Um componente de gateway de gerenciamento de API é implantado em todas as regiões primárias e secundárias selecionadas. As solicitações de API de entrada são automaticamente direcionadas para a região mais próxima. Se uma região ficar offline, as solicitações de API serão automaticamente roteadas em volta da região com falha para o gateway mais próximo.
+Um novo serviço de gerenciamento de API do Azure inicialmente contém apenas uma [unidade][unit] em uma única região do Azure, a região primária. Unidades adicionais podem ser adicionadas às regiões primárias ou secundárias. Um componente de gateway de gerenciamento de API é implantado em todas as regiões primárias e secundárias selecionadas. As solicitações de API de entrada são automaticamente direcionadas para a região mais próxima. Se uma região ficar offline, as solicitações de API serão automaticamente roteadas em volta da região com falha para o gateway mais próximo.
 
 > [!NOTE]
 > Somente o componente de gateway do gerenciamento de API é implantado em todas as regiões. O componente de gerenciamento de serviços e o portal do desenvolvedor são hospedados somente na região primária. Portanto, no caso da interrupção da região primária, o acesso ao portal do desenvolvedor e a capacidade de alterar a configuração (por exemplo, adicionar APIs, aplicar políticas) será prejudicado até a região primária ficar online novamente. Embora a região primária esteja offline, as regiões secundárias disponíveis continuarão a servir o tráfego de API usando a configuração mais recente disponível para elas.

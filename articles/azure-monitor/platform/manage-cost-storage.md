@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8904d584d453cb0945a11b08ad50688aeb1e1fc0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 601f1c224d6e1d756c27dc2478951682ce6bb4fd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207319"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854753"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
@@ -44,11 +44,13 @@ Em todos os tipos de preço, o volume de dados é calculado a partir de uma repr
 
 Além disso, observe que algumas soluções, como a [central de segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), o [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) e o [Gerenciamento de configuração](https://azure.microsoft.com/pricing/details/automation/) têm seus próprios modelos de preços. 
 
-### <a name="dedicated-clusters"></a>Clusters dedicados
+### <a name="log-analytics-clusters"></a>Clusters Log Analytics
 
-Azure Monitor clusters dedicados de log são coleções de espaços de trabalho em um único cluster gerenciado do Azure Data Explorer (ADX) para dar suporte a cenários avançados, como [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Os clusters dedicados dão suporte a apenas um modelo de preços de reserva de capacidade a partir de 1000 GB/dia com um desconto de 25% em comparação com o preço pago conforme o uso. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. A reserva de capacidade do cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas pode ser aumentado a qualquer momento. Saiba mais sobre como [Criar clusters dedicados](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e [associar espaços de trabalho a ele](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
+Clusters de Log Analytics são coleções de espaços de trabalho em um único cluster gerenciado do Azure Data Explorer para dar suporte a cenários avançados, como [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Log Analytics clusters dão suporte a apenas um modelo de preços de reserva de capacidade a partir de 1000 GB/dia com um desconto de 25% em comparação com o preço pago conforme o uso. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. A reserva de capacidade do cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas pode ser aumentado a qualquer momento. Saiba mais sobre como [criar log Analytics clusters](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e [associar espaços de trabalho a ele](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
 
-Como a cobrança de dados ingeridos é feita no nível do cluster, os espaços de trabalho associados a um cluster não têm mais um tipo de preço. As quantidades de dados ingeridos de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. Observe que as alocações por nó da central de segurança do Azure são aplicadas no nível do espaço de trabalho antes dessa agregação. A retenção de dados ainda é cobrada no nível do espaço de trabalho.  
+O nível de reserva de capacidade do cluster é configurado por meio de `Capacity` programação com `Sku`Azure Resource Manager usando o parâmetro em. O `Capacity` é especificado em unidades de GB e pode ter valores de 1000 GB/dia ou mais em incrementos de 100 GB/dia. Isso é detalhado [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Se o cluster precisar de uma reserva acima de 2000 GB/dia, [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)entre em contato conosco em.
+
+Como a cobrança de dados ingeridos é feita no nível do cluster, os espaços de trabalho associados a um cluster não têm mais um tipo de preço. As quantidades de dados ingeridos de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. Observe que as alocações por nó da central de [segurança do Azure](https://docs.microsoft.com/azure/security-center/) são aplicadas no nível do espaço de trabalho antes dessa agregação de dados agregados em todos os espaços de trabalho no cluster. A retenção de dados ainda é cobrada no nível do espaço de trabalho. Observe que a cobrança do cluster começa quando o cluster é criado, independentemente de os espaços de trabalho estarem associados ao cluster. 
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Estimando os custos para gerenciar seu ambiente 
 
@@ -310,7 +312,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>Volume de dados por computador
 
-O `Usage` tipo de dados não inclui informações no nível de preenchimento. Para ver o **tamanho** dos dados ingeridos por computador, use `_BilledSize` a [Propriedade](log-standard-properties.md#_billedsize), que fornece o tamanho em bytes:
+O `Usage` tipo de dados não inclui informações no nível do computador. Para ver o **tamanho** dos dados ingeridos por computador, use `_BilledSize` a [Propriedade](log-standard-properties.md#_billedsize), que fornece o tamanho em bytes:
 
 ```kusto
 union withsource = tt * 
@@ -467,7 +469,7 @@ union withsource = tt *
 | where computerName != ""
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
-| join (
+| join kind=leftouter (
     Heartbeat 
     | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
     | where Computer != ""

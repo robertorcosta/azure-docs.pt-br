@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a reduzir horizontalmente e expand
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6e8dbb5a56bf313bf35ad97ec6ea7df8ce483be9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78251805"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788814"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -84,7 +84,7 @@ Expandir e reduzir horizontalmente, ou dimensionamento horizontal, altera o núm
 
 Portanto, atualizando o valor de *nt1InstanceCount*, você altera o número de nós no segundo tipo de nó.  Lembre-se, você não pode dimensionar um tipo de nó para mais de 100 nós.  Tipos de nó não primário executando cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós. Tipos de nó não primário executando cargas de trabalho de produção sem estado sempre devem ter dois ou mais nós.
 
-Se você estiver reduzindo horizontalmente um tipo de nó de [nível de durabilidade][durability] Bronze (removendo nós dele), você deverá [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade Ouro e Prata, essas etapas são executadas automaticamente pela plataforma.
+Se você estiver reduzindo horizontalmente um tipo de nó de [nível de durabilidade][durability] Bronze (removendo nós dele), você deverá [remover manualmente o estado desses nós](service-fabric-cluster-scale-in-out.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade Ouro e Prata, essas etapas são executadas automaticamente pela plataforma.
 
 ### <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
 Salve as alterações nos arquivos *template.json* e *parameters.json*.  Para implantar o modelo atualizado, execute o seguinte comando:
