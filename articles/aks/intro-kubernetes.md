@@ -5,18 +5,18 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f78b65169899107bcd4626bbed65bd4fddd8af43
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c36d651fde4c10157979e12fda12604153aefdfc
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77595443"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561872"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS (Serviço de Kubernetes do Azure)
 
 O AKS (Serviço de Kubernetes do Azure) simplifica a implantação de um cluster do Kubernetes gerenciado no Azure. O AKS reduz a complexidade e a sobrecarga operacional de gerenciar o Kubernetes passando grande parte dessa responsabilidade para o Azure. Como um serviço Kubernetes hospedado, o Azure lida com as tarefas críticas para você, como o monitoramento da integridade e a manutenção. Os mestres de Kubernetes são gerenciados pelo Azure. Você só gerencia e mantém os nós de agente. Como um serviço do Kubernetes gerenciado, o AKS é gratuito: você paga apenas pelos nós de agentes dentro dos clusters, não pelos mestres.
 
-Você pode criar um cluster do AKS no portal do Azure, com a CLI do Azure, ou opções de implantação controladas pelo modelo, como modelos do Resource Manager e o Terraform. Ao implantar um cluster do AKS, o mestre do Kubernetes e todos os nós serão implantados e configurados para você. Recursos adicionais, como rede avançada, integração do Azure Active Directory e monitoramento, também podem ser configurados durante o processo de implantação. O suporte para contêineres do Windows Server no AKS está em versão prévia.
+Você pode criar um cluster do AKS no portal do Azure, com a CLI do Azure, ou opções de implantação controladas pelo modelo, como modelos do Resource Manager e o Terraform. Ao implantar um cluster do AKS, o mestre do Kubernetes e todos os nós serão implantados e configurados para você. Recursos adicionais, como rede avançada, integração do Azure Active Directory e monitoramento, também podem ser configurados durante o processo de implantação. Os contêineres do Windows Server são compatíveis com o AKS.
 
 Para obter mais informações sobre os conceitos básicos do Kubernetes, confira [Conceitos básicos do Kubernetes para o AKS][concepts-clusters-workloads].
 
@@ -44,7 +44,7 @@ Para obter mais informações, confira [Monitorar a integridade de contêiner do
 
 ## <a name="clusters-and-nodes"></a>Clusters e nós
 
-Os nós do AKS são executados em máquinas virtuais do Azure. Você pode conectar o armazenamento a nós e pods, atualizar componentes do cluster e usar GPUs. O AKS dá suporte a clusters de Kubernetes que executam vários pools de nós para dar suporte a sistemas operacionais mistos e contêineres do Windows Server (atualmente em versão prévia). Nós Linux executam uma imagem personalizada do sistema operacional do Ubuntu e nós do Windows Server executam uma imagem personalizada do sistema operacional Windows Server 2019.
+Os nós do AKS são executados em máquinas virtuais do Azure. Você pode conectar o armazenamento a nós e pods, atualizar componentes do cluster e usar GPUs. O AKS dá suporte a clusters de Kubernetes que executam vários pools de nós para dar suporte a sistemas operacionais mistos e contêineres do Windows Server. Nós Linux executam uma imagem personalizada do sistema operacional do Ubuntu e nós do Windows Server executam uma imagem personalizada do sistema operacional Windows Server 2019.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Nó de cluster e dimensionamento de pod
 
@@ -88,7 +88,7 @@ Para começar a usar o tráfego de entrada, confira [Roteamento de aplicativo HT
 
 ## <a name="development-tooling-integration"></a>Integração de ferramentas de desenvolvimento
 
-O Kubernetes tem um amplo ecossistema de ferramentas de desenvolvimento e gerenciamento, como o Helm, o Rascunho e a extensão do Kubernetes para o Visual Studio Code. Essas ferramentas funcionam perfeitamente com o AKS.
+O Kubernetes tem um amplo ecossistema de ferramentas de desenvolvimento e gerenciamento, como o Helm e a extensão do Kubernetes para o Visual Studio Code. Essas ferramentas funcionam perfeitamente com o AKS.
 
 Além disso, o Azure Dev Spaces fornece uma experiência de desenvolvimento Kubernetes rápida e iterativa para equipes. Com o mínimo de configuração, você pode executar e depurar contêineres diretamente no AKS. Para começar, confira [Azure Dev Spaces][azure-dev-spaces].
 

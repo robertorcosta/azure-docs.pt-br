@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 5c5b2a0c6e27f83e94b8f6a0ba3bb09ed1831680
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5f9e50f0d4969e10d3c01496ea29652712a407c5
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73471563"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592376"
 ---
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -19,4 +19,4 @@ No menu do portal do Azure ou na página **Inicial**, selecione **Grupos de Recu
 
 Na página **myResourceGroup**, certifique-se de que os recursos listados são aqueles que deseja excluir.
 
-Selecione **Excluir**, digite **myResourceGroup** na caixa de texto e selecione **Excluir**.
+Selecione **Excluir grupo de recursos**, digite **myResourceGroup** na caixa de texto para confirmar e selecione **Excluir**.

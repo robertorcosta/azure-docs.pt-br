@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ef355361516264db95a333dde8a117819ca1a661
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 92529c2d60b32e9c8b57b897008b5333adc2a4d4
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203685"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594960"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
@@ -135,7 +135,7 @@ Os clientes podem acessar as métricas de CPU/memória no nível do nó usando o
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual é a configuração do Agendador de Pod padrão para toa?
 
-A toa usa o agendador padrão fornecido no OpenShift. Há alguns mecanismos adicionais que não têm suporte na toa. Consulte a documentação do [Agendador padrão](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) e a [documentação do Agendador mestre](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v6/data/master/etc/origin/master/scheduler.json) para obter mais detalhes.
+A toa usa o agendador padrão fornecido no OpenShift. Há alguns mecanismos adicionais que não têm suporte na toa. Consulte a documentação do [Agendador padrão](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/scheduler.html#generic-scheduler) e a [documentação do Agendador mestre](https://github.com/openshift/openshift-azure/blob/master/pkg/startup/v16/data/master/etc/origin/master/scheduler.json) para obter mais detalhes.
 
 No momento, não há suporte para o agendamento avançado/personalizado. Consulte a [documentação de agendamento](https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/index.html) para obter mais detalhes.
 

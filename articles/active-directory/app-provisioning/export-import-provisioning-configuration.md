@@ -1,50 +1,54 @@
 ---
-title: Exporte sua configuração de provisionamento e reverta para um estado válido conhecido para recuperação de desastre. | Microsoft Docs
+title: Exportar a configuração de provisionamento e reverter para um estado válido conhecido para recuperação de desastre
 description: Saiba como exportar sua configuração de provisionamento e reverter para um estado válido conhecido para recuperação de desastre.
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
+manager: CelesteDG
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.subservice: app-provisioning
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: chmutali
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92a40a5fe3067cf96d3c742102c9ca66078cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acc14cf9fc544a15dfb9ac4ffd74e5ed0ac56108
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051305"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593736"
 ---
-# <a name="export-your-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Exporte sua configuração de provisionamento e reverta para um estado válido conhecido
+# <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Como: exportar a configuração de provisionamento e reverter para um estado válido conhecido
+
+Neste artigo, você aprenderá a:
+
+- Exportar e importar sua configuração de provisionamento do portal do Azure
+- Exportar e importar sua configuração de provisionamento usando a API de Microsoft Graph
 
 ## <a name="export-and-import-your-provisioning-configuration-from-the-azure-portal"></a>Exportar e importar sua configuração de provisionamento do portal do Azure
 
-### <a name="how-can-i-export-my-provisioning-configuration"></a>Como posso exportar minha configuração de provisionamento?
+### <a name="export-your-provisioning-configuration"></a>Exportar sua configuração de provisionamento
+
 Para exportar sua configuração:
+
 1. No [portal do Azure](https://portal.azure.com/), no painel de navegação esquerdo, selecione **Azure Active Directory**.
-2. No painel de **Azure Active Directory** , selecione **aplicativos empresariais** e escolha seu aplicativo.
-3. No painel de navegação esquerdo, selecione **provisionamento**. Na página configuração de provisionamento, clique em **mapeamentos de atributo**, em seguida, **Mostrar opções avançadas**e, por fim, **examine o esquema**. Isso o levará para o editor de esquema. 
-5. Clique em baixar na barra de comandos na parte superior da página para baixar o esquema.
+1. No painel de **Azure Active Directory** , selecione **aplicativos empresariais** e escolha seu aplicativo.
+1. No painel de navegação esquerdo, selecione **provisionamento**. Na página configuração de provisionamento, clique em **mapeamentos de atributo**, em seguida, **Mostrar opções avançadas**e, por fim, **examine o esquema**. Isso o levará para o editor de esquema.
+1. Clique em baixar na barra de comandos na parte superior da página para baixar o esquema.
 
 ### <a name="disaster-recovery---roll-back-to-a-known-good-state"></a>Recuperação de desastre-reverta para um estado válido conhecido
-Exportar e salvar sua configuração permite que você reverta para uma versão anterior da sua configuração. É recomendável exportar sua configuração de provisionamento e salvá-la para uso posterior sempre que você fizer uma alteração nos mapeamentos de atributo ou nos filtros de escopo. Tudo o que você precisa fazer é abrir o arquivo JSON que você baixou nas etapas acima, copiar todo o conteúdo do arquivo JSON, substituir todo o conteúdo da carga JSON no editor de esquema e, em seguida, salvar. Se houver um ciclo de provisionamento ativo, ele será concluído e o próximo ciclo usará o esquema atualizado. O próximo ciclo também será um ciclo inicial, que reavalia todos os usuários e grupos com base na nova configuração. Considere o seguinte ao reverter para uma configuração anterior:
-* Os usuários serão avaliados novamente para determinar se devem estar no escopo. Se os filtros de escopo tiverem alterado um usuário não estiver no escopo, mais eles serão desabilitados. Embora esse seja o comportamento desejado na maioria dos casos, há ocasiões em que você pode querer evitar isso e pode usar a funcionalidade [ignorar exclusões de exclusão de escopo](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
-* A alteração da configuração de provisionamento reinicia o serviço e dispara um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
+Exportar e salvar sua configuração permite que você reverta para uma versão anterior da sua configuração. É recomendável exportar sua configuração de provisionamento e salvá-la para uso posterior sempre que você fizer uma alteração nos mapeamentos de atributo ou nos filtros de escopo. Tudo o que você precisa fazer é abrir o arquivo JSON que você baixou nas etapas acima, copiar todo o conteúdo do arquivo JSON, substituir todo o conteúdo da carga JSON no editor de esquema e, em seguida, salvar. Se houver um ciclo de provisionamento ativo, ele será concluído e o próximo ciclo usará o esquema atualizado. O próximo ciclo também será um ciclo inicial, que reavalia todos os usuários e grupos com base na nova configuração. Considere o seguinte ao reverter para uma configuração anterior:
+
+- Os usuários serão avaliados novamente para determinar se devem estar no escopo. Se os filtros de escopo tiverem alterado um usuário não estiver no escopo, mais eles serão desabilitados. Embora esse seja o comportamento desejado na maioria dos casos, há ocasiões em que você pode querer evitar isso e pode usar a funcionalidade [ignorar exclusões de exclusão de escopo](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
+- A alteração da configuração de provisionamento reinicia o serviço e dispara um [ciclo inicial](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental).
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportar e importar sua configuração de provisionamento usando a API de Microsoft Graph
-Você pode usar a API de Microsoft Graph e o Microsoft Graph Explorer para exportar mapeamentos e esquemas de atributos de provisionamento de usuário para um arquivo JSON e importá-los de volta ao Azure AD. Você também pode usar as etapas capturadas aqui para criar um backup de sua configuração de provisionamento. 
+
+Você pode usar a API de Microsoft Graph e o Microsoft Graph Explorer para exportar mapeamentos e esquemas de atributos de provisionamento de usuário para um arquivo JSON e importá-los de volta ao Azure AD. Você também pode usar as etapas capturadas aqui para criar um backup de sua configuração de provisionamento.
 
 ### <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Etapa 1: recuperar a ID da entidade de serviço do aplicativo de provisionamento (ID do objeto)
 
-1. Inicie o [portal do Azure](https://portal.azure.com)e navegue até a seção Propriedades do seu aplicativo de provisionamento. Por exemplo, se você quiser exportar seu *WORKDAY para* o mapeamento de aplicativo de provisionamento de usuário do AD, navegue até a seção de propriedades desse aplicativo. 
+1. Inicie o [portal do Azure](https://portal.azure.com)e navegue até a seção Propriedades do seu aplicativo de provisionamento. Por exemplo, se você quiser exportar seu *WORKDAY para* o mapeamento de aplicativo de provisionamento de usuário do AD, navegue até a seção de propriedades desse aplicativo.
 1. Na seção Propriedades do seu aplicativo de provisionamento, copie o valor GUID associado ao campo *ID de Objeto*. Esse valor também é chamado de **servicePrincipalName** do seu aplicativo e será usado em operações do Microsoft Graph Explorer.
 
    ![ID da Entidade de Serviço de Aplicativo do Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
@@ -99,4 +103,4 @@ Na guia “Cabeçalhos de solicitação”, adicione o atributo de cabeçalho de
 
    [![Cabeçalhos de solicitação](./media/export-import-provisioning-configuration/wd_export_05.png)](./media/export-import-provisioning-configuration/wd_export_05.png#lightbox)
 
-Clique no botão “Executar consulta” para importar o novo esquema.
+Selecione **Executar consulta** para importar o novo esquema.
