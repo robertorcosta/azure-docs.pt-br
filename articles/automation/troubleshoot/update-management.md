@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f936b62349a534e6193a3c628c66c49d1a58b681
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678933"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790823"
 ---
 # <a name="troubleshoot-issues-with-the-update-management-solution"></a>Solucionar problemas com a solução de Gerenciamento de Atualizações
 
@@ -23,7 +23,7 @@ Este artigo aborda os problemas que você pode encontrar ao usar a solução de 
 >Se você encontrar problemas ao integrar a solução em uma VM (máquina virtual), verifique o log de **Operations Manager** em **logs de aplicativos e serviços** no computador local. Procure eventos com a ID de evento 4502 e detalhes do evento `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`que contêm.
 
 >[!NOTE]
->Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](../automation-update-azure-modules.md).
+>Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo Az no seu Hybrid Runbook Worker, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de Automação, você pode atualizar seus módulos para a versão mais recente usando [Como atualizar os módulos do Azure PowerShell na Automação do Azure](../automation-update-azure-modules.md).
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Cenário: você recebe o erro "falha ao habilitar a solução de atualização"
 
@@ -49,13 +49,13 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 * Execute a solução de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux](update-agent-issues-linux.md#troubleshoot-offline), dependendo do sistema operacional.
 
-* Vá para [planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas devem ser permitidos para que gerenciamento de atualizações funcionem.  
+* Vá para [configuração de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas devem ser permitidos para que gerenciamento de atualizações funcionem.  
 
-* Vá para [planejamento de rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para saber mais sobre quais endereços e portas devem ser permitidos para que o agente de log Analytics funcione.
+* Vá para [configuração de rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para saber mais sobre quais endereços e portas devem ser permitidos para que o agente de log Analytics funcione.
 
 * Verifique se há problemas de configuração de escopo. A [configuração de escopo](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais computadores são configurados para a solução. Se seu computador estiver aparecendo no seu espaço de trabalho, mas não no portal * * Gerenciamento de Atualizações, você precisará definir a configuração de escopo para os computadores de destino. Para saber mais sobre a configuração de escopo, confira [computadores integrados no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Remova a configuração de trabalho seguindo as etapas em [excluindo o Hybrid runbook Worker](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
+* Remova a configuração do trabalhador seguindo as etapas em [remover um Hybrid runbook Worker do Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou [remover um Hybrid runbook Worker do Linux](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Cenário: atualização substituída indicada como ausente no Gerenciamento de Atualizações
 
@@ -448,7 +448,7 @@ O computador já foi integrado a outro espaço de trabalho para Gerenciamento de
 ### <a name="resolution"></a>Resolução
 
 1. Siga as etapas em [computadores que não aparecem no portal em gerenciamento de atualizações](#nologs) para certificar-se de que a máquina está relatando para o espaço de trabalho correto.
-2. Limpe os artefatos no computador [excluindo o grupo de runbooks híbrido](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)e tente novamente.
+2. Limpe os artefatos no computador [excluindo o grupo de runbooks híbrido](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group)e tente novamente.
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Cenário: a máquina não pode se comunicar com o serviço
 

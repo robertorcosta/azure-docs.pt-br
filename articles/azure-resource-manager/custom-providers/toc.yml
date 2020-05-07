@@ -21,6 +21,11 @@
       href: tutorial-custom-providers-create.md
     - name: Estender recursos
       href: tutorial-resource-onboarding.md
+- name: Exemplos
+  items:
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Azure Policy para associações
