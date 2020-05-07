@@ -3,15 +3,15 @@ title: Gerenciar ambientes de serviço de integração nos aplicativos lógicos 
 description: Verificar a integridade da rede e gerenciar aplicativos lógicos, conexões, conectores personalizados e contas de integração no ISE (ambiente do serviço de integração) para aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284194"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598412"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gerenciar seu ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure
 
@@ -54,6 +54,10 @@ Você pode exibir e gerenciar os aplicativos lógicos que estão no ISE.
    ![Exibir aplicativos lógicos](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
 1. Para remover os aplicativos lógicos que você não precisa mais no ISE, selecione esses aplicativos lógicos e, em seguida, selecione **excluir**. Para confirmar que deseja excluir, selecione **Sim**.
+
+> [!NOTE]
+> Se você excluir e recriar um aplicativo lógico filho, deverá salvar novamente o aplicativo lógico pai. O aplicativo filho recriado terá metadados diferentes.
+> Se você não salvar novamente o aplicativo lógico pai depois de recriar seu filho, suas chamadas para o aplicativo lógico filho falharão com um erro de "não autorizado". Esse comportamento se aplica a aplicativos lógicos pai-filho, por exemplo, aqueles que usam artefatos em contas de integração ou chamam o Azure functions.
 
 <a name="find-api-connections"></a>
 

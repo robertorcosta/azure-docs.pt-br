@@ -16,18 +16,19 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: has-adal-ref
+ms.openlocfilehash: 13c3a7f8376d4c852a74be75e323c6bb042b5407
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80048428"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610982"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar um aplicativo OpenID/OAuth da galeria de aplicativo do Azure AD
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processo para adicionar um aplicativo OpenID da galeria
 
-1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**. 
+1. No [Portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png))
 
@@ -61,17 +62,17 @@ O fluxo de entrada mais básico contém as seguintes etapas:
 
 ![Fluxo de autenticação usando o OpenID Connect](./media/openidoauth-tutorial/authenticationflow.png)
 
-### <a name="multitenant-application"></a>Aplicativo multilocatário 
-Um aplicativo multilocatário é destinado para uso em muitas organizações, não em apenas uma. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor de software independente (ISV). 
+### <a name="multitenant-application"></a>Aplicativo multilocatário
+Um aplicativo multilocatário é destinado para uso em muitas organizações, não em apenas uma. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor de software independente (ISV).
 
-Aplicativos multilocatários precisam ser provisionados em cada diretório em que serão usados. Eles exigem o consentimento do usuário ou do administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo tiver sido registrado no diretório e receber acesso à API do Graph ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscrever para usar o aplicativo, uma caixa de diálogo exibe as permissões das quais o aplicativo precisa. 
+Aplicativos multilocatários precisam ser provisionados em cada diretório em que serão usados. Eles exigem o consentimento do usuário ou do administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo tiver sido registrado no diretório e receber acesso à API do Graph ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscrever para usar o aplicativo, uma caixa de diálogo exibe as permissões das quais o aplicativo precisa.
 
 O usuário ou administrador pode então dar consentimento ao aplicativo. O consentimento fornece ao aplicativo acesso aos dados declarados e, por fim, registra o aplicativo no diretório.
 
 > [!NOTE]
 > Se você estiver disponibilizando seu aplicativo a usuários em múltiplos diretórios, será necessário um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único só precisa procurar por um usuário em seu próprio diretório. Um aplicativo multilocatário precisa identificar um usuário específico em todos os diretórios no Azure AD.
-> 
-> Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é `https://login.microsoftonline.com/common` para todos os diretórios no Azure AD. Um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
+>
+> Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é `https://login.microsoftonline.com/common` para todos os diretórios no Azure AD. Um ponto de extremidade específico de locatário pode ser `https://login.microsoftonline.com/contoso.onmicrosoft.com`.
 >
 > É importante levar em consideração o ponto de extremidade comum quando estiver desenvolvendo seu aplicativo. Você precisará da lógica adequada para lidar com vários locatários durante a entrada, saída e validação de token.
 
@@ -80,9 +81,9 @@ Por padrão, o Azure AD promove aplicativos multilocatários. Eles são acessado
 ## <a name="consent-framework"></a>Estrutura de consentimento
 
 É possível usar a estrutura de consentimento do Azure AD para desenvolver aplicativos Web multilocatários e clientes nativos. Esses aplicativos permitem a entrada de contas de usuário de um locatário do Azure AD diferente daquele no qual o aplicativo está registrado. Eles também precisam acessar APIs Web como:
-- A API do Microsoft Graph, para acessar o Azure AD, Intune e serviços no Office 365. 
+- A API do Microsoft Graph, para acessar o Azure AD, Intune e serviços no Office 365.
 - Outras APIs de serviços da Microsoft.
-- Suas próprias APIs Web. 
+- Suas próprias APIs Web.
 
 A estrutura se baseia em um usuário ou administrador que dá autorização a um aplicativo que solicita seu registro no diretório. O registro pode envolver acesso aos dados de diretório. Depois que o consentimento for dado, o aplicativo cliente pode chamar a API do Microsoft Graph em nome do usuário e usar as informações conforme o necessário.
 
@@ -146,7 +147,7 @@ Como administrador, você pode também concorda com permissões do aplicativo em
 
 As permissões somente do aplicativo sempre exigem o consentimento do administrador de locatários. Se o aplicativo solicitar uma permissão somente aplicativo e um usuário tentar entrar nele, uma mensagem de erro será exibida. A mensagem informa que o usuário não pode consentir.
 
-Se o aplicativo usar permissões que exigem o consentimento do administrador, você precisará ter um gesto, como um botão ou link, em que o administrador pode iniciar a ação. A solicitação que seu aplicativo envia para essa ação é uma solicitação de autorização usual do OAuth2/OpenID Connect. Essa solicitação inclui o parâmetro de cadeia de consulta *prompt = admin_consent*. 
+Se o aplicativo usar permissões que exigem o consentimento do administrador, você precisará ter um gesto, como um botão ou link, em que o administrador pode iniciar a ação. A solicitação que seu aplicativo envia para essa ação é uma solicitação de autorização usual do OAuth2/OpenID Connect. Essa solicitação inclui o parâmetro de cadeia de consulta *prompt = admin_consent*.
 
 Depois que o administrador fornecer seu consentimento e a entidade de serviço for criada no locatário do cliente, as solicitações posteriores de conexão não precisarão do parâmetro *prompt=admin_consent*. Como o administrador decidiu que as permissões solicitadas são aceitáveis, não será solicitado o consentimento de nenhum outro usuário no locatário daquele ponto em diante.
 

@@ -1,23 +1,32 @@
 ---
 title: Intermitência de disco gerenciado
-description: Saiba mais sobre a intermitência de disco e como ele funciona para o SSDs Premium do Azure.
-author: roygara
-ms.author: rogarana
-ms.date: 03/28/2019
+description: Saiba mais sobre a intermitência de disco para discos do Azure e intermitência de disco para máquinas virtuais do Azure
+author: albecker1
+ms.author: albecker
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 4cac3c3e5346fa9c8ab68a4238d64419060a0967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385190"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594739"
 ---
-# <a name="premium-ssd-bursting"></a>Intermitência de SSD Premium
-
+# <a name="disk-bursting"></a>Intermitência de disco
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="virtual-machine-level-bursting"></a>Intermitência de nível de máquina virtual
+O suporte à intermitência no nível da VM está habilitado em todas as regiões na nuvem pública nesses tamanhos com suporte: 
+- [Série Lsv2](../lsv2-series.md)
 
-[Utilize o portal para anexar um disco de dados a uma VM Linux](attach-disk-portal.md)
+A intermitência é habilitada por padrão para máquinas virtuais que dão suporte a ela.
+
+## <a name="disk-level-bursting"></a>Intermitência de nível de disco
+A intermitência também está disponível em nosso [SSDs Premium](disks-types.md#premium-ssd) para tamanhos de disco P20 e menor em todas as regiões. A intermitência de disco é habilitada por padrão em novas implantações dos tamanhos de disco que dão suporte a ela. Os tamanhos de disco existentes, se oferecerem suporte a intermitência de disco, podem habilitar a intermitência por meio de qualquer um dos seguintes métodos: 
+- **Reinicie a VM** 
+- **Desanexar e reanexar o disco**
+
+
+[!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting-2.md)]
