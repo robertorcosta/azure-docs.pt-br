@@ -1,14 +1,14 @@
 ---
 title: Como gerenciar atribuições com o PowerShell
 description: Saiba como gerenciar atribuições de plano gráfico com o módulo oficial do PowerShell para plantas oficiais do Azure, AZ. Blueprint.
-ms.date: 09/30/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677435"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863970"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Como gerenciar atribuições com o PowerShell
 
@@ -205,8 +205,7 @@ ResourceGroups    : ResourceGroup
 
 ### <a name="example-2-use-a-json-assignment-definition-file"></a>Exemplo 2: usar um arquivo de definição de atribuição JSON
 
-O exemplo a seguir cria quase a mesma atribuição como o [exemplo 1](#example-1-provide-parameters).
-Em vez de passar parâmetros para o cmdlet, o exemplo mostra o uso de um arquivo de definição de atribuição JSON e o parâmetro **assignmentfile** . Além disso, a propriedade **excludedPrincipals** é configurada como parte dos **bloqueios**. Não há um parâmetro do PowerShell para **excludedPrincipals** e a propriedade só pode ser configurada pela configuração por meio do arquivo de definição de atribuição JSON.
+O exemplo a seguir cria quase a mesma atribuição como o [exemplo 1](#example-1-provide-parameters). Em vez de passar parâmetros para o cmdlet, o exemplo mostra o uso de um arquivo de definição de atribuição JSON e o parâmetro **assignmentfile** . Além disso, a propriedade **excludedPrincipals** é configurada como parte dos **bloqueios**. Não há um parâmetro do PowerShell para **excludedPrincipals** e a propriedade só pode ser configurada pela configuração por meio do arquivo de definição de atribuição JSON.
 
 ```json
 {
@@ -335,7 +334,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Exemplo de código de ponta a ponta
+## <a name="code-example"></a>Exemplo de código
 
 Reunindo todas as etapas, o exemplo a seguir obtém a definição do plano gráfico, depois cria, atualiza e remove uma atribuição Blueprint na assinatura específica representada `{subId}`como:
 

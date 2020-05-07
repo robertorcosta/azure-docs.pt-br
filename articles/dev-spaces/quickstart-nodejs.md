@@ -7,10 +7,10 @@ description: Este início rápido mostra como usar o Azure Dev Spaces e o Visual
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 18171a2f8d13bfcf3df76b1453c39c59cab89d7c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80240193"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Início Rápido: Depurar e iterar no Kubernetes com o Visual Studio Code e o Node.js no Kubernetes – Azure Dev Spaces
@@ -108,7 +108,7 @@ Selecione **Depurar** e, em seguida, **Parar Depuração** para interromper o de
 
 ## <a name="update-code"></a>Atualizar código
 
-Para implantar uma versão atualizada do serviço, atualize qualquer arquivo no projeto e execute **Iniciar Servidor** novamente. Por exemplo:
+Para implantar uma versão atualizada do serviço, atualize qualquer arquivo no projeto e execute **Iniciar Servidor** novamente. Por exemplo: 
 
 1. Se o aplicativo ainda estiver em execução, selecione **Depurar** e, em seguida, **Parar Depuração** para interrompê-lo.
 1. Atualize a [linha 13 em `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) para:
@@ -146,7 +146,7 @@ Este comando compila e executa o serviço no Azure Dev Spaces. E também inicia 
 
 Depois que o serviço é iniciado, navegue até ele usando o navegador e interaja com ele.
 
-Enquanto o serviço está em execução, retorne ao VS Code e atualize a linha 13 em *server.js*. Por exemplo:
+Enquanto o serviço está em execução, retorne ao VS Code e atualize a linha 13 em *server.js*. Por exemplo: 
 ```javascript
     res.send('Hello from webfrontend in Azure while debugging!');
 ```

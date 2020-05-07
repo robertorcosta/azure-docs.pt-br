@@ -4,17 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 7c1ad2581d025a9259c5cb2a84e4237f938fc892
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: a2083de1ddf400b368815877725d3b8dd446156b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81637138"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82844588"
 ---
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
 
 - Automatizar a configuração de VMs
-    - As ferramentas incluem o modelo [Ansible,](#ansible) [Chef,](#chef) [Puppet](#puppet)e [Azure Resource Manager.](#azure-resource-manager-template)
+    - As ferramentas incluem o modelo [Ansible](#ansible), [chefe](#chef), [Puppet](#puppet)e [Azure Resource Manager](#azure-resource-manager-template).
     - As ferramentas específicas para a personalização de VM incluem [cloud-init](#cloud-init) para VMs do Linux, [DSC (Configuração de Estado Desejado) do PowerShell](#powershell-dsc) e [Extensão de Script Personalizado do Azure](#azure-custom-script-extension) para todas as VMs do Azure.
 
 - Automatizar o gerenciamento de infraestrutura
@@ -30,7 +30,7 @@ Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é i
 Saiba como:
 
 - [Instalar e configurar o Ansible no Linux para usar com o Azure](../articles/ansible/ansible-install-configure.md).
-- [Crie uma máquina virtual Linux](../articles/ansible/ansible-create-vm.md).
+- [Crie uma máquina virtual do Linux](../articles/ansible/ansible-create-vm.md).
 - [Gerencie uma máquina virtual do Linux](../articles/ansible/ansible-manage-linux-vm.md).
 
 
@@ -100,8 +100,8 @@ O [Terraform](https://www.terraform.io) é uma ferramenta de automação que per
 
 Saiba como:
 
-- [Instalar e configurar o Terraform com o Azure](../articles/terraform/terraform-install-configure.md).
-- [Criar uma infraestrutura do Azure com o Terraform](../articles/terraform/terraform-create-complete-vm.md).
+- [Instalar e configurar o Terraform com o Azure](/azure/developer/terraform/install-configure).
+- [Criar uma infraestrutura do Azure com o Terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
 
 
 ## <a name="azure-automation"></a>Automação do Azure
@@ -111,7 +111,7 @@ A Automação do Azure também oferece um serviço de DSC (Configuração de Est
 
 Saiba como:
 
-- [Crie um runbook PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
+- [Criar um runbook do PowerShell](../articles/automation/automation-first-runbook-textual-powershell.md).
 - [Usar Hybrid Runbook Worker para gerenciar recursos locais](../articles/automation/automation-hybrid-runbook-worker.md).
 - [Usar o DSC de Automação do Azure](../articles/automation/automation-dsc-getting-started.md).
 
@@ -133,15 +133,15 @@ Saiba como:
 
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
-[O Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) é o serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua assinatura do Azure. Use recursos de gerenciamento, como controle de acesso, bloqueios e marcas, para proteger e organizar seus recursos após a implantação.
+[Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) é o serviço de implantação e gerenciamento do Azure. Ele fornece uma camada de gerenciamento que lhe permite criar, atualizar e excluir recursos em sua assinatura do Azure. Use recursos de gerenciamento, como controle de acesso, bloqueios e marcas, para proteger e organizar seus recursos após a implantação.
 
 Saiba como:
 
-- [Implantar VMs spot usando um modelo de gerenciador de recursos](../articles/virtual-machines/linux/spot-template.md).
-- [Implante uma máquina virtual do Azure usando c# e um modelo de gerenciador de recursos](../articles/virtual-machines/windows/csharp-template.md).
-- [Crie uma máquina virtual do Windows a partir de um modelo de Gerenciador de recursos](../articles/virtual-machines/windows/ps-template.md).
-- [Baixe o modelo de uma VM](../articles/virtual-machines/windows/download-template.md).
-- [Crie um modelo de Construtor de Imagens Azure](../articles/virtual-machines/linux/image-builder-json.md).
+- [Implante VMs pontuais usando um modelo do Resource Manager](../articles/virtual-machines/linux/spot-template.md).
+- [Implante uma máquina virtual do Azure usando C# e um modelo do Resource Manager](../articles/virtual-machines/windows/csharp-template.md).
+- [Crie uma máquina virtual do Windows a partir de um modelo do Resource Manager](../articles/virtual-machines/windows/ps-template.md).
+- [Baixe o modelo para uma VM](../articles/virtual-machines/windows/download-template.md).
+- [Crie um modelo do Azure Image Builder](../articles/virtual-machines/linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Há muitas opções diferentes para usar as ferramentas de automação de infraestrutura no Azure. Você tem a liberdade de usar a solução que melhor atenda às suas necessidades e ao seu ambiente. Para começar e experimentar algumas das ferramentas internas do Azure, confira como automatizar a personalização de uma VM [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) ou [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md).

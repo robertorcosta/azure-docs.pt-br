@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276069"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854973"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -76,7 +76,7 @@ Por padrão, o SDK do JavaScript Application Insights coleta a um número de ite
     - ID (se houver) do usuário que faz a solicitação
     - Contexto de correlação (se houver) em que a solicitação é feita
 - **Informações do usuário** (por exemplo, local, rede, IP)
-- **Informações do dispositivo** (por exemplo, navegador, sistema operacional, versão, idioma, resolução, modelo)
+- **Informações do dispositivo** (por exemplo, navegador, sistema operacional, versão, idioma, modelo)
 - **Informações da sessão**
 
 ### <a name="telemetry-initializers"></a>Inicializadores de telemetria
@@ -145,7 +145,14 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 Por padrão, esse SDK **não** tratará da alteração de rota baseada em estado que ocorre em aplicativos de página única. Para habilitar o controle de alterações de rota automático para seu aplicativo de página única `enableAutoRouteTracking: true` , você pode adicionar à sua configuração de instalação.
 
-Atualmente, oferecemos um [plug-in reajam](#react-extensions) separado que você pode inicializar com esse SDK. Ele também realizará o controle de alterações de rota para você, além de coletar [outra telemetria específica de reagir](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+Atualmente, oferecemos um [plug-in reajam](#react-extensions)separado, que pode ser inicializado com esse SDK. Ele também realizará o controle de alterações de rota para você, além de coletar [outra telemetria específica de reagir](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+
+> [!NOTE]
+> Use `enableAutoRouteTracking: true` somente se você **não** estiver usando o plug-in reagir. Ambos são capazes de enviar novos PageViews quando a rota é alterada. Se ambos estiverem habilitados, PageViews duplicados poderão ser enviados.
+
+## <a name="configuration-autotrackpagevisittime"></a>Configuração: autoTrackPageVisitTime
+
+Por configuração `autoTrackPageVisitTime: true`, o tempo que um usuário gasta em cada página é acompanhado. Em cada novo PageView, a duração que o usuário gastou na página *anterior* é enviada como uma [métrica personalizada](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) chamada `PageVisitTime`. Essa métrica personalizada é visível na [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) como uma "métrica baseada em log".
 
 ## <a name="react-extensions"></a>Extensões de reagir
 
