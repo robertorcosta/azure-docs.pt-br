@@ -1,0 +1,42 @@
+- name: AVS (Solução VMware no Azure)
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre a AVS (Solução VMware no Azure)
+      href: introduction.md
+- name: Tutoriais
+  items:
+    - name: 1 – Planejamento de rede
+      href: tutorial-network-checklist.md
+    - name: 2 – Criar uma nuvem privada da AVS
+      href: tutorial-create-private-cloud.md
+    - name: 3 – Configurar a rede
+      href: tutorial-configure-networking.md
+    - name: 4 – Acessar uma nuvem privada
+      href: tutorial-access-private-cloud.md
+    - name: 5 – Escalar uma nuvem privada
+      href: tutorial-scale-private-cloud.md
+- name: Conceitos
+  items:
+    - name: Nuvens e clusters privados
+      href: concepts-private-clouds-clusters.md
+    - name: Rede de nuvem privada e interconectividade
+      href: concepts-networking.md
+    - name: Armazenamento em nuvens privadas
+      href: concepts-storage.md
+    - name: Acesso e identidade para nuvens privadas
+      href: concepts-identity.md
+    - name: Upgrades de nuvem privada
+      href: concepts-upgrades.md
+- name: Guias de instruções
+  items:
+    - name: Gerenciar DHCP
+      href: manage-dhcp.md
+    - name: Recuperação de desastre
+      href: disaster-recovery.md
+- name: Referência
+  items: null
+- name: Recursos
+  items:
+    - name: Perguntas frequentes
+      href: faq.md

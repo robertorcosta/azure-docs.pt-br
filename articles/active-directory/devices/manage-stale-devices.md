@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdc011a39c5526e6a2577ab1b21567bbe64ffcc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672291"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788868"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como gerenciar dispositivos obsoletos no Azure AD
 
@@ -176,7 +176,7 @@ Para saber mais sobre os diferentes tipos, consulte a [visão geral do gerenciam
 
 Qualquer autenticação em que um dispositivo está sendo usado para autenticar-se no Azure AD é negada. Alguns exemplos comuns são:
 
-- **Dispositivo híbrido ingressado no Azure AD** – Os usuários talvez devam usar o dispositivo para entrar em seu domínio local. No entanto, eles não podem acessar os recursos do Azure AD como o Office 365.
+- **Dispositivo ingressado no Azure ad híbrido** -os usuários podem ser capazes de usar o dispositivo para entrar em seu domínio local. No entanto, eles não podem acessar os recursos do Azure AD como o Office 365.
 - **Dispositivo ingressado no Azure AD** – usuários não podem usar o dispositivo para entrar. 
 - **Dispositivos móveis** – o usuário não pode acessar os recursos do Azure AD como o Office 365. 
 

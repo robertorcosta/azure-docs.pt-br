@@ -3,12 +3,12 @@ title: Suporte para avaliação do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte à avaliação do Hyper-V com a avaliação do servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67fabebf805e38a6bca5dda6e691c263ee235219
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538164"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744595"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
@@ -54,7 +54,7 @@ As migrações para Azure usam o [dispositivo de migrações para Azure](migrate
 
 - Saiba mais sobre [os requisitos de dispositivo](migrate-appliance.md#appliance---hyper-v) para o Hyper-V.
 - Saiba mais sobre URLs que o dispositivo precisa acessar em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls) .
-- No Azure governamental, você deve implantar o dispositivo usando o script.
+- No Azure governamental, você deve implantar o dispositivo [usando o script](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Acesso à porta
 

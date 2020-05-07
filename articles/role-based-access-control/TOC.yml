@@ -1,9 +1,9 @@
-- name: Documentação do RBAC para recursos do Azure
+- name: Documentação do Azure RBAC
   href: index.yml
   items: null
 - name: Visão geral
   items:
-    - name: O que é o RBAC?
+    - name: O que é o Azure RBAC?
       href: overview.md
     - name: Entender as diferentes funções
       href: rbac-and-directory-admin-roles.md
@@ -74,7 +74,7 @@
           href: deny-assignments-powershell.md
         - name: API REST
           href: deny-assignments-rest.md
-    - name: Criar funções personalizadas
+    - name: Criar ou atualizar funções personalizadas
       items:
         - name: Visão geral
           href: custom-roles.md
@@ -100,7 +100,7 @@
       href: built-in-roles.md
     - name: Operações de provedor de recursos
       href: resource-provider-operations.md
-    - name: Limites RBAC
+    - name: Limites do Azure RBAC
       href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources

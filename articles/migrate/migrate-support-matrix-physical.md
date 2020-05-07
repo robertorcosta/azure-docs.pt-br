@@ -3,12 +3,12 @@ title: Suporte para avaliação de servidor físico nas migrações para Azure
 description: Saiba mais sobre o suporte para avaliação de servidor físico com a avaliação de servidor de migrações para Azure
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: ae76a6b570ec58e71a8a1728a2a601728030f58c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f21ec149aa6f85c0a1f33e91dacf9de48ff72bbb
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538147"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744509"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -34,16 +34,18 @@ Para avaliar servidores físicos, você cria um projeto de migrações para Azur
 | **Suporte**                | **Detalhes**               
 | :-------------------       | :------------------- |
 | **Implantação de servidor físico**       | O servidor físico pode ser autônomo ou implantado em um cluster. |
-| **Permissões**           | **Windows:** Você precisa de uma conta de usuário local ou de domínio em todos os servidores Windows que deseja descobrir. A conta de usuário deve ser adicionada a esses grupos: Área de Trabalho Remota usuários, usuários de monitor de desempenho e usuários de log de desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. |
-| **Sistema operacional** | Todos os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) com suporte do Azure, exceto para o Windows Server 2003 e o SuSE Linux.|
+| **Permissões**           | **Windows:** Você precisa ser um administrador de domínio ou administrador local em todos os servidores Windows que deseja descobrir. A conta de usuário deve ser adicionada a esses grupos: usuários de gerenciamento remoto, usuários de monitor de desempenho e usuários de log de desempenho. <br/><br/> **Linux:** Você precisa de uma conta raiz nos servidores Linux que deseja descobrir. |
+| **Sistema operacional** | Todos os sistemas operacionais de servidor [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) com suporte do Azure, exceto para o Windows Server 2003 e o SuSE Linux.<br/><br/> Sistemas operacionais cliente Windows 10 e Windows 8. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure
 
-As migrações para Azure usam o [dispositivo de migrações para Azure](migrate-appliance.md) para descoberta e avaliação. O dispositivo para servidores físicos pode ser executado em uma VM ou em um computador físico. Você define o dispositivo usando um script do PowerShell que você baixa do portal do Azure.
+As migrações para Azure usam o [dispositivo de migrações para Azure](migrate-appliance.md) para descoberta e avaliação. O dispositivo para servidores físicos pode ser executado em uma VM ou em um computador físico. 
 
 - Saiba mais sobre [os requisitos de dispositivo](migrate-appliance.md#appliance---physical) para servidores físicos.
 - Saiba mais sobre URLs que o dispositivo precisa acessar em nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls) .
+- Você define o dispositivo usando um [script do PowerShell](how-to-set-up-appliance-physical.md) que você baixa do portal do Azure.
+No Azure governamental, implante o dispositivo [usando esse script](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Acesso à porta
 

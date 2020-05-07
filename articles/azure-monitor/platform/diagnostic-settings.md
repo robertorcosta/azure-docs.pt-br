@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: edb34b1456efae4d06465cfa2e64e546f621c6da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681234"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737888"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Criar configuração de diagnóstico para coletar logs de recursos e métricas no Azure
 
@@ -31,7 +31,13 @@ Cada recurso do Azure requer sua própria configuração de diagnóstico, que de
 Uma única configuração de diagnóstico pode definir, no máximo, um de cada um dos destinos. Se você quiser enviar dados para mais de um tipo de destino específico (por exemplo, dois workspaces do Log Analytics diferentes), crie várias configurações. Cada recurso pode ter até cinco configurações de diagnóstico.
 
 > [!NOTE]
-> As [métricas de plataforma](metrics-supported.md) são coletadas automaticamente para [Azure monitor métricas](data-platform-metrics.md). As configurações de diagnóstico podem ser usadas para coletar métricas para determinados serviços do Azure em Azure Monitor logs para análise com outros dados de monitoramento usando [consultas de log](../log-query/log-query-overview.md).
+> As [métricas de plataforma](metrics-supported.md) são coletadas automaticamente para [Azure monitor métricas](data-platform-metrics.md). As configurações de diagnóstico podem ser usadas para coletar métricas para determinados serviços do Azure em Azure Monitor logs para análise com outros dados de monitoramento usando [consultas de log](../log-query/log-query-overview.md) com determinadas limitações. 
+>  
+>  
+> Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão. *Por exemplo*: a métrica ' IOReadBytes ' em um Blockchain pode ser explorada e grafada em um nível por nó. No entanto, quando exportadas por meio de configurações de diagnóstico, a métrica exportada representa como todos os bytes de leitura de todos os nós Além disso, devido a limitações internas, nem todas as métricas são exportáveis para Azure Monitor logs/Log Analytics. Para obter mais informações, consulte a [lista de métricas exportáveis](metrics-supported-export-diagnostic-settings.md). 
+>  
+>  
+> Para contornar essas limitações para métricas específicas, sugerimos extraí-las manualmente usando a [API REST de métricas](https://docs.microsoft.com/rest/api/monitor/metrics/list) e importá-las em Logs de Azure monitor usando a [API do coletor de dados Azure monitor](data-collector-api.md).  
 
 ## <a name="destinations"></a>Destinos
 
@@ -78,9 +84,8 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
      - As **biometrias roteiam** as métricas de plataforma de um recurso para o repositório de logs do Azure, mas no formulário de log. Essas métricas geralmente são enviadas somente para o banco de dados de série temporal de Azure Monitor métricas. Enviá-los para o repositório de logs de Azure Monitor (que é pesquisável via Log Analytics) para integrá-los em consultas que pesquisam em outros logs. Essa opção pode não estar disponível para todos os tipos de recurso. Quando há suporte, [Azure monitor métricas com suporte](metrics-supported.md) lista as métricas coletadas para quais tipos de recursos.
 
        > [!NOTE]
-       > Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão.
-       >
-       > *Por exemplo*: a métrica ' IOReadBytes ' em um Blockchain pode ser explorada e grafada em um nível por nó. No entanto, quando exportadas por meio de configurações de diagnóstico, a métrica exportada representa como todos os bytes de leitura de todos os nós
+       > Consulte limitatation para obter métricas de roteamento para Azure Monitor logs anteriormente neste artigo.  
+
 
      - **Logs** lista as diferentes categorias disponíveis dependendo do tipo de recurso. Verifique todas as categorias que você deseja rotear para um destino.
 
@@ -107,7 +112,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
         >
         > Por exemplo, se você definir a política de retenção para *WorkflowRuntime* como 180 dias e, em seguida, 24 horas depois defini-la como 365 dias, os logs armazenados durante essas primeiras 24 horas serão excluídos automaticamente após 180 dias, enquanto todos os logs subsequentes desse tipo serão excluídos automaticamente após 365 dias. A alteração da política de retenção mais tarde não faz com que as primeiras 24 horas de logs permaneçam por cerca de 365 dias.
 
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações desse recurso e os logs serão transmitidos para os destinos especificados à medida que novos dados de evento forem gerados. Pode levar até 15 minutos entre o momento em que um evento é emitido e quando ele [aparece em um espaço de trabalho log Analytics](data-ingestion-time.md).
 

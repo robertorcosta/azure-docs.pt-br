@@ -87,6 +87,9 @@
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Bancos de dados relacionais versus NoSQL
@@ -136,7 +139,7 @@
         - name: Aprovisionar a taxa de transferência para contêineres e bancos de dados
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Provisionar a taxa de transferência – modo de dimensionamento automático
+        - name: Provisionar a taxa de transferência – dimensionamento automático
           href: provision-throughput-autoscale.md
         - name: Perguntas frequentes sobre dimensionamento automático
           href: autoscale-faq.md
@@ -913,6 +916,8 @@
           href: how-to-manage-consistency.md
         - name: Configurar políticas de resolução de conflitos
           href: how-to-manage-conflicts.md
+        - name: Converter formato de token da sessão
+          href: how-to-convert-session-token.md
     - name: Taxa de transferência provisionada
       items:
         - name: Provisionar a taxa de transferência em um contêiner
@@ -1051,22 +1056,26 @@
       items:
         - name: Monitorar Cosmos DB
           href: monitor-cosmos-db.md
-        - name: Monitorar a latência do lado do servidor
-          href: monitor-server-side-latency.md
-        - name: Monitorar o uso da unidade de solicitação
-          href: monitor-request-unit-usage.md
-        - name: Monitorar com logs de diagnóstico
-          href: cosmosdb-monitor-resource-logs.md
-        - name: Auditar logs do painel de controle
-          href: audit-control-plane-logs.md
-        - name: Azure Monitor para Cosmos (versão prévia)
-          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Usar métricas de monitoramento do Azure
+          items:
+            - name: Azure Monitor para Cosmos (versão prévia)
+              href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Monitorar a latência do lado do servidor
+              href: monitor-server-side-latency.md
+            - name: Monitorar o uso da unidade de solicitação
+              href: monitor-request-unit-usage.md
+        - name: Usar os logs do Azure Monitor
+          items:
+            - name: Monitorar com logs de diagnóstico
+              href: cosmosdb-monitor-resource-logs.md
+            - name: Auditar logs do painel de controle
+              href: audit-control-plane-logs.md
         - name: Exibir métricas da conta do Cosmos DB
           href: use-metrics.md
-        - name: Log de aplicativo com Aplicativos Lógicos
-          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Referência de dados de monitoramento
           href: monitor-cosmos-db-reference.md
+        - name: Log de aplicativo com Aplicativos Lógicos
+          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Desenvolver localmente
       items:
         - name: Use o emulador

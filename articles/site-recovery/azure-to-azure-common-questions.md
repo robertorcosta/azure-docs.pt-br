@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547884"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738041"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação de desastre do Azure para o Azure
 
@@ -194,10 +194,10 @@ Você pode replicar 16 máquinas virtuais ao mesmo tempo em um grupo de replica�
 Como a consistência de várias VMs tem uso intensivo de CPU, a habilitação da TI pode afetar o desempenho da carga de trabalho. Use a consistência de várias VMs somente se os computadores estiverem executando a mesma carga de trabalho e você precisar de consistência em vários computadores. Por exemplo, se você tiver duas instâncias de SQL Server e dois servidores Web em um aplicativo, deverá ter consistência de várias VMs somente para as instâncias de SQL Server.
 
 ### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>Você pode adicionar uma VM que já está replicando a um grupo de replicação?
-
 Você pode adicionar uma VM a um novo grupo de replicação ao habilitar a replicação. Você também pode adicionar uma VM a um grupo de replicação existente ao habilitar a replicação. No entanto, você não pode adicionar uma VM que já está replicando a um novo grupo de replicação ou grupo de replicação existente.
-
+ 
 ## <a name="failover"></a>Failover
+
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Como a capacidade é garantida na região de destino para VMs do Azure?
 

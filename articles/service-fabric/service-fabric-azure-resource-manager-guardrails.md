@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368571"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790908"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 Ao implantar um cluster de Service Fabric, os guardrails são colocados em vigor, o que falhará em uma implantação de Azure Resource Manager no caso de uma configuração de cluster inválida. As seções a seguir fornecem uma visão geral dos problemas comuns de configuração de cluster e as etapas necessárias para mitigar esses problemas. 
@@ -79,7 +79,7 @@ A operação de remoção do nó de semente foi detectada e será rejeitada.
 Verifique se o tipo de nó primário tem máquinas virtuais suficientes para a confiabilidade especificada no cluster. Você não poderá remover uma máquina virtual se ela for colocar o conjunto de dimensionamento de máquinas virtuais abaixo do número mínimo de nós para a camada de confiabilidade fornecida.
 * Se a camada de confiabilidade for especificada corretamente, verifique se você tem nós suficientes no tipo de nó primário conforme necessário para a camada de confiabilidade. 
 * Se a camada de confiabilidade estiver incorreta, inicie uma alteração no recurso de Service Fabric para reduzir o nível de confiabilidade primeiro antes de iniciar qualquer operação do conjunto de dimensionamento de máquinas virtuais e aguarde a conclusão.
-* Se a camada de confiabilidade for bronze, siga estas [etapas](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para reduzir o cluster de forma apropriada.
+* Se a camada de confiabilidade for bronze, siga estas [etapas](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) para dimensionar o cluster normalmente.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Crie um cluster em VMs ou em computadores que estejam executando o Windows Server: [Criação de um cluster do Service Fabric para o Windows Server](service-fabric-cluster-creation-for-windows-server.md)

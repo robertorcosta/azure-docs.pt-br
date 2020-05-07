@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15b022726c09ccbaf9674775d114c8dd1916e1d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 022c6360b97c7c27887ff5d2f6460f69cb8126c6
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457290"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778457"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso condicional: aplicativos de nuvem ou ações
 
@@ -54,7 +54,7 @@ Os administradores podem atribuir uma política de acesso condicional aos seguin
 - Pesquisa da Microsoft no Bing
 - Microsoft StaffHub
 - Microsoft Stream
-- Equipes da Microsoft
+- Microsoft Teams
 - Office 365 Exchange Online
 - Office 365 SharePoint Online
 - Office 365 Yammer
@@ -71,7 +71,7 @@ Os administradores podem atribuir uma política de acesso condicional aos seguin
 
 O Office 365 fornece serviços de produtividade e colaboração baseados em nuvem, como o Exchange, o SharePoint e o Microsoft Teams. Os serviços de nuvem do Office 365 estão profundamente integrados para garantir experiências suaves e colaborativas. Essa integração pode causar confusão ao criar políticas, já que alguns aplicativos, como o Microsoft Teams, têm dependências em outras pessoas, como o SharePoint ou o Exchange.
 
-O aplicativo Office 365 (versão prévia) torna possível direcionar esses serviços de uma só vez. É recomendável usar o novo aplicativo Office 365 (versão prévia), em vez de direcionar aplicativos de nuvem individuais. Direcionar esse grupo de aplicativos ajuda a evitar problemas que podem surgir devido a políticas e dependências inconsistentes.
+O aplicativo Office 365 (versão prévia) torna possível direcionar esses serviços de uma só vez. É recomendável usar o novo aplicativo Office 365 (versão prévia), em vez de direcionar aplicativos de nuvem individuais para evitar problemas com [dependências de serviço](service-dependencies.md). Direcionar esse grupo de aplicativos ajuda a evitar problemas que podem surgir devido a políticas e dependências inconsistentes.
 
 Os administradores podem optar por excluir aplicativos específicos da política se quiserem incluindo o aplicativo Office 365 (versão prévia) e excluindo os aplicativos específicos de sua escolha na política.
 
@@ -81,7 +81,7 @@ Aplicativos-chave incluídos no aplicativo cliente do Office 365 (versão prévi
    - Microsoft Forms
    - Microsoft Stream
    - Microsoft To-Do
-   - Equipes da Microsoft
+   - Microsoft Teams
    - Office 365 Exchange Online
    - Office 365 SharePoint Online
    - Serviço de Pesquisa do Office 365

@@ -4,12 +4,12 @@ description: Uma visão geral sobre por que criar aplicativos de nuvem com uma a
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75750624"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792861"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microserviços para a criação de aplicativos
 
@@ -35,7 +35,7 @@ Durante a era do cliente/servidor, nós tendiammos a se concentrar na criação 
 
 Há benefícios para uma abordagem de design monolítico. Os aplicativos monolíticos costumam ser mais simples de criar, e as chamadas entre os componentes são mais rápidas, pois essas chamadas geralmente são sobre a IPC (comunicação entre processos). Além disso, todos testam um único produto, que tende a ser um uso mais eficiente dos recursos humanos. A desvantagem é que há um acoplamento rígido entre camadas em camadas, e você não pode dimensionar componentes individuais. Se você precisar fazer correções ou atualizações, precisará esperar que outras pessoas concluam seus testes. É mais difícil ser ágil.
 
-Os microserviços atendem a essas desvantagens e alinham-se mais com os requisitos de negócios anteriores. Mas eles também têm benefícios e passivos. Os benefícios dos micros serviços são que cada um normalmente encapsula uma funcionalidade de negócios mais simples, que você pode ampliar, testar, implantar e gerenciar de forma independente. Um benefício importante de uma abordagem de microserviço é que as equipes são mais orientadas por cenários de negócios do que por tecnologia. As equipes menores desenvolvem um microserviço baseado em um cenário de cliente e usam as tecnologias que desejam usar.
+Os microserviços atendem a essas desvantagens e alinham-se mais com os requisitos de negócios anteriores. Mas eles também têm benefícios e passivos. Os benefícios dos microserviços são que cada um normalmente encapsula uma funcionalidade comercial mais simples, que você pode escalar horizontalmente, testar, implantar e gerenciar de forma independente. Um benefício importante de uma abordagem de microserviço é que as equipes são mais orientadas por cenários de negócios do que por tecnologia. As equipes menores desenvolvem um microserviço baseado em um cenário de cliente e usam as tecnologias que desejam usar.
 
 Em outras palavras, a organização não precisa padronizar a tecnologia para manter aplicativos de microsserviço. As equipes individuais que detêm serviços podem escolher o que fizer sentido para elas com base em suas competências ou no que é mais apropriado para resolver o problema. Na prática, um conjunto de tecnologias recomendadas, como um armazenamento NoSQL específico ou estrutura de aplicativo Web, é preferível.
 

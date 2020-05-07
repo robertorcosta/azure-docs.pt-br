@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c1d2c0e48394fbde1b595ae4b405d84f437dc5e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3be60888d3d12d37650ad2cffc1911fb3b5e6682
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392824"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790670"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -189,7 +189,7 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 A saída de exemplo mostra o valor padrão para *AllocatedOutboundPorts* e *IdleTimeoutInMinutes*. Um valor de 0 para *AllocatedOutboundPorts* define o número de portas de saída usando atribuição automática para o número de portas de saída com base no tamanho do pool de back-end. Por exemplo, se o cluster tiver 50 ou menos nós, 1024 portas para cada nó serão alocadas.
 
-Considere alterar a configuração de *allocatedOutboundPorts* ou *IdleTimeoutInMinutes* se você pretende enfrentar o esgotamento de SNAT com base na configuração padrão acima. Cada endereço IP adicional permite 64.000 portas adicionais para alocação, no entanto, o Standard Load Balancer do Azure não aumenta automaticamente as portas por nó quando mais endereços IP são adicionados. Você pode alterar esses valores definindo o *balanceador de carga-portas de saída* e os parâmetros de *balanceador de carga-tempo ocioso* . Por exemplo:
+Considere alterar a configuração de *allocatedOutboundPorts* ou *IdleTimeoutInMinutes* se você pretende enfrentar o esgotamento de SNAT com base na configuração padrão acima. Cada endereço IP adicional permite 64.000 portas adicionais para alocação, no entanto, o Standard Load Balancer do Azure não aumenta automaticamente as portas por nó quando mais endereços IP são adicionados. Você pode alterar esses valores definindo o *balanceador de carga-portas de saída* e os parâmetros de *balanceador de carga-tempo ocioso* . Por exemplo: 
 
 ```azurecli-interactive
 az aks update \
@@ -202,7 +202,7 @@ az aks update \
 > [!IMPORTANT]
 > Você deve [calcular a cota necessária][calculate-required-quota] antes de personalizar o *allocatedOutboundPorts* para evitar problemas de conectividade ou de dimensionamento. O valor especificado para *allocatedOutboundPorts* também deve ser um múltiplo de 8.
 
-Você também pode usar os parâmetros *balanceador de carga-portas de saída* e *balanceador de carga-tempo limite ocioso* ao criar um cluster, mas também é necessário especificar o *balanceador de carga-gerenciado de saída-IP-Count*, o *balanceador de carga-Outbound-IPS*ou o *balanceador de carga-Outbound-IP-prefixos* também.  Por exemplo:
+Você também pode usar os parâmetros *balanceador de carga-portas de saída* e *balanceador de carga-tempo limite ocioso* ao criar um cluster, mas também é necessário especificar o *balanceador de carga-gerenciado de saída-IP-Count*, o *balanceador de carga-Outbound-IPS*ou o *balanceador de carga-Outbound-IP-prefixos* também.  Por exemplo: 
 
 ```azurecli-interactive
 az aks create \
@@ -283,7 +283,7 @@ Saiba mais sobre os serviços do Kubernetes na [documentação dos serviços do 
 [az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
-[azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
+[azure-lb-comparison]: ../load-balancer/skus.md
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
 [azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports

@@ -4,15 +4,15 @@ description: Saiba como monitorar aplicativos no Serviço de Aplicativo do Azure
 author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 8baefcbfa1eb34bc6cd37e4325d9a9bfc11e2d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181215"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738092"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorar aplicativos no Serviço de Aplicativo do Azure
 O [serviço de Azure app](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidade de monitoramento interna para aplicativos Web, móveis e aplicativos de API no [portal do Azure](https://portal.azure.com).
@@ -36,7 +36,7 @@ As cotas para aplicativos Gratuitos ou Compartilhados são:
 | **CPU (Curto)** | A quantidade de CPU permitida para esse aplicativo em um intervalo de cinco minutos. Essa cota é definida novamente a cada cinco minutos. |
 | **CPU (Dia)** | A quantidade total de CPU permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
 | **Memória** | A quantidade total de memória permitida para esse aplicativo. |
-| **Larga** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
+| **Largura de Banda** | A quantidade total de largura de banda de saída permitida para esse aplicativo em um dia. Essa cota é definida novamente a cada 24 horas, à meia-noite UTC. |
 | **WPD** | A quantidade total de armazenamento permitida. |
 
 A única cota aplicável a aplicativos hospedados em *Basic*, *Standard*e *Premium* é FileSystem.
@@ -49,7 +49,7 @@ Se um aplicativo exceder a cota *CPU (Curto)*, *CPU (Dia)* ou *largura de banda*
 
 ![Mensagem de erro 403][http403]
 
-Se a cota de Memória do aplicativo for excedida, o aplicativo será reiniciado.
+Se a cota de memória do aplicativo for excedida, o aplicativo será interrompido temporariamente.
 
 Se a cota de Sistema de arquivos for excedida, qualquer operação de gravação falhará. Falhas em operações de gravação incluem gravações em logs.
 
@@ -131,8 +131,7 @@ Há duas métricas que refletem o uso da CPU:
 **Percentual de CPU**: útil para aplicativos hospedados nos planos básico, Standard e Premium, pois eles podem ser escalados horizontalmente. A porcentagem de CPU é uma boa indicação do uso geral em todas as instâncias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularidade de métricas e política de retenção
-
-As métricas para um aplicativo e um plano do serviço de aplicativo são registradas e agregadas pelo serviço. As métricas são retidas por 90 dias.
+As métricas para um aplicativo e um plano do serviço de aplicativo são registradas e agregadas pelo serviço e [mantidas de acordo com essas regras](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoramento de cotas e métricas no portal do Azure
 Para examinar o status das várias cotas e métricas que afetam um aplicativo, acesse o [portal do Azure](https://portal.azure.com).
