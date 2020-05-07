@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74027103"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582880"
 ---
-# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: adicionar ou remover membros do grupo automaticamente
+# <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
 
-No Azure Active Directory (Azure AD), você pode adicionar ou remover usuários automaticamente para grupos de segurança ou grupos do Office 365, para que você não precise fazê-lo sempre manualmente. Sempre que alterar as propriedades de um usuário ou dispositivo, o Azure AD avalia todas as regras de grupo dinâmico em seu locatário para ver se a alteração deve adicionar ou remover membros.
+No Azure Active Directory (Azure AD), você pode adicionar ou remover usuários automaticamente para grupos de segurança ou grupos do Office 365, para que você não precise fazê-lo sempre manualmente. Sempre que alterar as propriedades de um usuário ou dispositivo, o Azure AD avalia todas as regras de grupo dinâmico em sua organização do Azure AD para ver se a alteração deve adicionar ou remover membros.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
@@ -33,17 +33,17 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Esse recurso requer uma licença do Azure AD Premium para você como o administrador global do locatário. Se você não tiver uma, no Azure AD, selecione **Licenças** > **Produtos** > **Experimentar/Comprar**.
+Esse recurso requer uma licença do Azure AD Premium para você como o administrador global da organização. Se você não tiver uma, no Azure AD, selecione **Licenças** > **Produtos** > **Experimentar/Comprar**.
 
-Não é necessário atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos. Você precisa apenas do número mínimo de licenças do Azure AD Premium P1 disponíveis no locatário para cobrir todos esses usuários. 
+Não é necessário atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos. Você precisa apenas do número mínimo de licenças do Azure AD Premium P1 disponíveis na organização para cobrir todos esses usuários. 
 
 ## <a name="create-a-group-of-guest-users"></a>Criar um grupo de usuários convidados
 
 Primeiro, você criará um grupo para os usuários convidados que são de uma única empresa parceira. Eles precisam de uma licença especial, portanto, geralmente é mais eficiente criar um grupo para essa finalidade.
 
-1. Entre no portal do Azure (https://portal.azure.com) com uma conta que seja o administrador global do locatário.
+1. Entre no portal do Azure (https://portal.azure.com) com uma conta que seja o administrador global da organização.
 2. Selecione **Azure Active Directory** > **Grupos** > **Novo grupo**.
    ![selecione o comando para iniciar um novo grupo](./media/groups-dynamic-tutorial/new-group.png)
 3. Na folha **Grupo**:
@@ -80,7 +80,7 @@ Agora que você tem o seu novo grupo, você pode aplicar as licenças que esses 
 
 ## <a name="remove-guests-from-all-users-group"></a>Remover convidados do grupo Todos os usuários
 
-Talvez seu plano administrativo final seja atribuir todos os usuários convidados a seus próprios grupos por empresa. Agora você também pode alterar o grupo **Todos os usuários** para que ele seja reservado somente para os usuários membros no seu locatário. Em seguida, você pode usá-lo para atribuir aplicativos e licenças que são específicas para sua organização inicial.
+Talvez seu plano administrativo final seja atribuir todos os usuários convidados a seus próprios grupos por empresa. Agora você também pode alterar o grupo **Todos os usuários** para que ele seja reservado somente para os usuários membros na sua organização. Em seguida, você pode usá-lo para atribuir aplicativos e licenças que são específicas para sua organização inicial.
 
    ![Alterar o grupo Todos os usuários para somente membros](./media/groups-dynamic-tutorial/all-users-edit.png)
 
@@ -88,7 +88,7 @@ Talvez seu plano administrativo final seja atribuir todos os usuários convidado
 
 **Para remover o grupo de usuários convidados**
 
-1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja de Administrador Global para o seu locatário.
+1. Entre no [portal do Azure](https://portal.azure.com) com uma conta que seja o Administrador Global da organização.
 2. Selecione **Azure Active Directory** > **Grupos**. Selecione o grupo **Usuários convidados Contoso**, selecione as reticências (...) e, em seguida, selecione **Excluir**. Quando você excluir o grupo, quaisquer licenças atribuídas são removidas.
 
 **Para restaurar o grupo Todos os Usuários**
