@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026945"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582826"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início Rápido: política de nomenclatura para grupos no Azure Active Directory
 
-Neste início rápido, você configurará a política de nomenclatura em seu locatário do Azure AD (Azure Active Directory) para grupos do Office 365 criados pelo usuário, para ajudar você a classificar e pesquisar os grupos do seu locatário. Por exemplo, você poderia usar a política de nomenclatura para:
+Neste início rápido, você configurará a política de nomenclatura em sua organização do Azure AD (Azure Active Directory) para grupos do Office 365 criados pelo usuário, para ajudar você a classificar e pesquisar os grupos da sua organização. Por exemplo, você poderia usar a política de nomenclatura para:
 
 * Comunicar a função de um grupo, associação, região geográfica ou quem criou o grupo.
 * Ajude a categorizar grupos no catálogo de endereços.
@@ -31,7 +31,7 @@ Neste início rápido, você configurará a política de nomenclatura em seu loc
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configurar a política de nomenclatura de grupos para um locatário usando o portal do Azure
+## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Configurar a política de nomenclatura de grupo no portal do Azure
 
 1. Entre no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) com uma conta de administrador.
 1. Para abrir a página da política de nomenclatura, escolha **Grupos** e **Política de nomenclatura**.

@@ -1,5 +1,5 @@
 ---
-title: Métricas personalizadas no Azure Monitor
+title: Métricas personalizadas no Azure Monitor (versão prévia)
 description: Saiba mais sobre as métricas personalizadas no Azure Monitor e como elas são modeladas.
 author: ancav
 ms.author: ancav
@@ -7,17 +7,20 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4286910c926cd6bd3b21acfd145e4e69548319ce
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204297"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837304"
 ---
-# <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
+# <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Azure Monitor (versão prévia)
 
-Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas [de Standard ou Platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). No entanto, eles são limitados por natureza. Você pode querer coletar alguns indicadores de desempenho personalizados ou métricas específicas de negócios para fornecer insights mais profundos.
-Essas **métricas personalizadas** podem ser coletadas por meio da telemetria do aplicativo, um agente que é executado nos recursos do Azure ou até mesmo um sistema de monitoramento externo e enviado diretamente ao Monitor do Azure. Depois de publicados no Azure Monitor, você pode procurar, consultar e alertar sobre métricas personalizadas para os recursos e aplicativos do Azure, lado a lado com as métricas padrão emitidas pelo Azure.
+Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas [de Standard ou Platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). No entanto, eles são limitados por natureza. 
+
+Você pode querer coletar alguns indicadores de desempenho personalizados ou métricas específicas de negócios para fornecer insights mais profundos. Essas **métricas personalizadas** podem ser coletadas por meio da telemetria do aplicativo, um agente que é executado nos recursos do Azure ou até mesmo um sistema de monitoramento externo e enviado diretamente ao Monitor do Azure. Depois de publicados no Azure Monitor, você pode procurar, consultar e alertar sobre métricas personalizadas para os recursos e aplicativos do Azure, lado a lado com as métricas padrão emitidas pelo Azure.
+
+Azure Monitor métricas personalizadas são atuais em visualização pública. 
 
 ## <a name="methods-to-send-custom-metrics"></a>Métodos para enviar métricas personalizadas
 
@@ -27,19 +30,15 @@ Métricas personalizadas podem ser enviadas ao Monitor do Azure por vários mét
 - Instale o [agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) em sua VM do Azure Linux e envie as métricas usando o plug-in de saída do Monitor do Azure.
 - Envie métricas personalizadas [diretamente para a API REST do Azure monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
-## <a name="pricing-model"></a>Modelo de preços
+## <a name="pricing-model-and-rentention"></a>Modelo de preços e a retenção
 
-Não há nenhum custo para ingerir métricas padrão (métricas de plataforma) em Azure Monitor repositório de métricas. As métricas personalizadas ingeridas no repositório de métricas de Azure Monitor serão cobradas por MByte com cada DataPoint de métrica personalizada gravado como 8 bytes de tamanho. Todas as métricas ingeridas são mantidas por 90 dias.
+Verifique a [página de preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes sobre quando a cobrança será habilitada para métricas personalizadas e consultas de métricas. Detalhes específicos de preços de todas as métricas, incluindo métricas personalizadas e consultas de métricas, estão disponíveis nesta página. Em resumo, não há nenhum custo para ingerir métricas padrão (métricas de plataforma) em Azure Monitor repositório de métricas, mas as métricas personalizadas terão custos incorridos quando entrarem em disponibilidade geral. As consultas de API de métricas geram custos incorridos.
 
-As consultas de métrica serão cobradas com base no número de chamadas à API padrão. Uma chamada à API padrão é uma chamada que analisa 1.440 pontos de dados (1.440 também é o número total de pontos de dados que podem ser armazenados por métrica por dia). Se uma chamada de API analisar mais de 1.440 pontos de dados, ela será contada como várias chamadas de API padrão. Se uma chamada à API analisar menos de 1.440 pontos de dados, ela será contada como menos de uma chamada à API. O número de chamadas de API padrão é calculado todos os dias como o número total de pontos de dados analisados por dia dividido por 1.440.
-
-Detalhes de preço específicos para métricas personalizadas e consultas de métrica estão disponíveis na [página de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
+As métricas personalizadas são mantidas durante o [mesmo período de tempo que as métricas de plataforma](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> As métricas enviadas para Azure Monitor por meio do SDK do Application Insights serão cobradas como dados de log ingeridos e incorrerão em encargos adicionais de métricas somente se o recurso Application Insights [habilitar alertas em dimensões de métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) tiver sido selecionado. Saiba mais sobre os preços e o [modelo de preços de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) [em sua região](https://azure.microsoft.com/pricing/details/monitor/).
+> As métricas enviadas para Azure Monitor por meio do SDK do Application Insights são cobradas como dados de log ingeridos. Eles só incorrerão em cobranças de métricas adicionais se o recurso de Application Insights [habilitar alertas em dimensões de métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) tiver sido selecionado. Essa caixa de seleção envia dados para o banco de dado Azure Monitor métricas usando a API de métricas personalizadas para permitir o alerta mais complexo.  Saiba mais sobre os preços e o [modelo de preços de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) [em sua região](https://azure.microsoft.com/pricing/details/monitor/).
 
-> [!NOTE]  
-> Verifique a [página de preços Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes sobre quando a cobrança será habilitada para métricas personalizadas e consultas de métricas. 
 
 ## <a name="how-to-send-custom-metrics"></a>Como enviar métricas personalizadas
 
@@ -75,7 +74,7 @@ Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo d
 ### <a name="namespace"></a>Namespace
 Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **contosomemorymetrics** que controla as métricas de uso de memória cujo perfil é seu aplicativo. Outro namespace chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de usuário em seu aplicativo.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 **Nome** é o nome da métrica que está sendo relatada. Normalmente, o nome é descritivo para ajudar a identificar o que está sendo medido. Um exemplo é uma métrica que mede o número de bytes de memória usados em uma determinada VM. Pode ter um nome de métrica como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
