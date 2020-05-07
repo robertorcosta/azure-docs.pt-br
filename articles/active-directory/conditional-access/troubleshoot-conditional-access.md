@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 03/13/2020
+ms.date: 04/30/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf1daca79f3ed20d9b7a89af20d74ff5f3148b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337435"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610491"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Solucionando problemas de conexão com acesso condicional
 
@@ -55,8 +55,11 @@ Para descobrir qual política de acesso condicional ou políticas são aplicadas
    1. As informações na guia **solução de problemas e suporte** podem fornecer um motivo claro sobre por que uma falha de entrada, como um dispositivo que não atende aos requisitos de conformidade.
    1. Para investigar ainda mais, faça uma busca detalhada na configuração das políticas clicando no **nome da política**. Clicar no **nome da política** mostrará a interface do usuário de configuração de política para a política selecionada para revisão e edição.
    1. Os **detalhes do dispositivo** e do **usuário cliente** que foram usados para a avaliação da política de acesso condicional também estão disponíveis nas guias **informações básicas**, **localização**, **informações do dispositivo**, **detalhes de autenticação**e **detalhes adicionais** do evento de entrada.
+   1. Selecionar as reticências no lado direito da política traz os detalhes da política. Isso fornece aos administradores informações adicionais sobre por que uma política foi aplicada com êxito ou não.
 
    ![Guia acesso condicional de evento de entrada](./media/troubleshoot-conditional-access/image5.png)
+
+   ![Detalhes da política (versão prévia)](./media/troubleshoot-conditional-access/policy-details.png)
 
 Se as informações no evento não forem suficientes para entender os resultados de entrada ou ajustar a política para obter os resultados desejados, um incidente de suporte poderá ser aberto. Navegue até a guia **solução de problemas e suporte** do evento de entrada e selecione **criar uma nova solicitação de suporte**.
 

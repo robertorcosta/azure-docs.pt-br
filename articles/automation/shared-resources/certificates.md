@@ -1,5 +1,5 @@
 ---
-title: Gerenciar o certificado na automação do Azure
+title: Gerenciar certificados na automação do Azure
 description: Os certificados são armazenados com segurança na automação do Azure para que os runbooks ou as configurações DSC possam acessá-los para autenticação no Azure e em recursos de terceiros. Este artigo explica os detalhes de certificados e como trabalhar com elas na criação textual e gráfica.
 services: automation
 ms.service: automation
@@ -9,46 +9,48 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 69bc1a0333365e15452c6d3b253266d37d99b608
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 4c6b28cd8b34d94c9fc88943922d2ed3e9a199c1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732819"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855287"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Gerenciar certificados na automação do Azure
 
-Os certificados são armazenados com segurança na automação do Azure para que possam ser acessados por runbooks ou configurações DSC usando a atividade [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) para recursos Azure Resource Manager. O armazenamento de certificado seguro permite criar runbooks e configurações DSC que usam certificados para autenticação ou adicioná-los ao Azure ou a recursos de terceiros.
-
-Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é armazenada em um Key Vault gerenciado pelo sistema. Antes de armazenar um ativo seguro, a chave é carregada do Key Vault e usada para criptografar o ativo. Esse processo é gerenciado pela Automação do Azure.
+Os certificados são armazenados com segurança na automação do Azure para acesso por runbooks e configurações DSC usando o cmdlet [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) para recursos Azure Resource Manager. O armazenamento de certificado seguro permite criar runbooks e configurações DSC que usam certificados para autenticação ou adicioná-los ao Azure ou a recursos de terceiros.
 
 >[!NOTE]
->Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](../automation-update-azure-modules.md).
+>Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. A automação do Azure armazena a chave no Key Vault gerenciado pelo sistema. Antes de armazenar um ativo seguro, a automação carrega a chave de Key Vault e a usa para criptografar o ativo. 
 
-## <a name="az-powershell-cmdlets"></a>AZ cmdlets do PowerShell
+>[!NOTE]
+>Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo Az no seu Hybrid Runbook Worker, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de Automação, você pode atualizar seus módulos para a versão mais recente usando [Como atualizar os módulos do Azure PowerShell na Automação do Azure](../automation-update-azure-modules.md).
 
-Para AZ, os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de credenciais de automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo AZ. Automation](/powershell/azure/overview), que está disponível para uso em Runbooks de automação e configurações DSC.
+## <a name="powershell-cmdlets-to-access-certificates"></a>Cmdlets do PowerShell para acessar certificados
+
+Os cmdlets na tabela a seguir criam e gerenciam certificados de automação com o PowerShell. Eles são fornecidos como parte dos [módulos AZ](modules.md#az-modules).
 
 |Cmdlet |Descrição|
 | --- | ---|
-|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Carrega um certificado de serviço para o serviço de nuvem especificado.|
-|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Obtém informações sobre um certificado a ser usado em um runbook ou configuração DSC. Você só pode recuperar o certificado em si usando `Get-AutomationCertificate` a atividade.|
+|[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Obtém informações sobre um certificado a ser usado em um runbook ou configuração DSC. Você só pode recuperar o certificado em si usando o `Get-AutomationCertificate` cmdlet interno.|
 |[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Cria um novo certificado na automação do Azure.|
 |[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Remove um certificado da Automação do Azure.|
 |[Set-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Define as propriedades de um certificado existente, incluindo o carregamento do arquivo de certificado e a definição da senha para um arquivo **. pfx** .|
 
-## <a name="activities"></a>Atividades
+O cmdlet [Add-azurecertificate pelo](/powershell/module/servicemanagement/azure/add-azurecertificate) também pode ser usado para carregar um certificado de serviço para o serviço de nuvem especificado.
 
-As atividades na tabela a seguir são usadas para acessar certificados em um runbook e em configurações de DSC.
+## <a name="internal-cmdlets-to-access-certificates"></a>Cmdlets internos para acessar certificados
 
-| Atividades | Descrição |
+O cmdlet interno na tabela a seguir é usado para acessar certificados em seus runbooks. Esse cmdlet vem com o módulo `Orchestrator.AssetManagement.Cmdlets`global. Para obter mais informações, consulte [cmdlets internos](modules.md#internal-cmdlets).
+
+| Cmdlet interno | Descrição |
 |:---|:---|
 |`Get-AutomationCertificate`|Obtém um certificado a ser usado em um runbook ou configuração DSC. Retorna um objeto [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2).|
 
 > [!NOTE] 
-> Evite usar variáveis no `Name` parâmetro de uma configuração de `Get-AutomationCertificate` runbook ou DSC. O uso de variáveis nesse parâmetro complica a descoberta de dependências entre runbooks ou configurações DSC e variáveis de automação em tempo de design.
+> Evite usar variáveis no `Name` parâmetro de uma configuração de `Get-AutomationCertificate` runbook ou DSC. O uso de variáveis nesse parâmetro pode complicar a descoberta de dependências entre runbooks ou configurações DSC e variáveis de automação em tempo de design.
 
-## <a name="python-2-functions"></a>Funções do Python 2
+## <a name="python-2-functions-to-access-certificates"></a>Funções do Python 2 para acessar certificados
 
 A função na tabela a seguir é usada para acessar certificados em um runbook Python 2.
 
@@ -59,7 +61,7 @@ A função na tabela a seguir é usada para acessar certificados em um runbook P
 > [!NOTE]
 > Você deve importar o `automationassets` módulo no início do seu runbook do Python para acessar as funções de ativo.
 
-## <a name="creating-a-new-certificate"></a>Criando um novo certificado
+## <a name="create-a-new-certificate"></a>Criar um novo certificado
 
 Ao criar um novo certificado, você carrega um arquivo .cer ou .pfx na Automação do Azure. Se marcar certificado como exportável, você poderá transferi-lo do repositório de certificados da Automação do Azure. Se não for exportável, ele só poderá ser usado para assinatura dentro do runbook ou da configuração DSC. A automação do Azure requer que o certificado tenha o provedor **Microsoft Enhanced RSA e o provedor criptográfico do AES**.
 
@@ -128,9 +130,9 @@ $json | out-file .\template.json
 New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -TemplateFile .\template.json
 ```
 
-## <a name="using-a-certificate"></a>Usando um certificado
+## <a name="get-a-certificate"></a>Obter um certificado
 
-Para usar um certificado, use a `Get-AutomationCertificate` atividade. Você não pode usar o cmdlet [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) , pois ele retorna informações sobre o ativo de certificado, mas não o próprio certificado.
+Para recuperar um certificado, use o cmdlet `Get-AutomationCertificate` interno. Você não pode usar o cmdlet [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) , pois ele retorna informações sobre o ativo de certificado, mas não o próprio certificado.
 
 ### <a name="textual-runbook-example"></a>Exemplo de runbook textual
 
@@ -146,11 +148,11 @@ Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### <a name="graphical-runbook-example"></a>Exemplo de runbook gráfico
 
-Adicione uma `Get-AutomationCertificate` atividade a um runbook gráfico clicando com o botão direito do mouse no certificado no painel Biblioteca e selecionando **Adicionar à tela**.
+Adicione uma atividade para o cmdlet `Get-AutomationCertificate` interno a um runbook gráfico clicando com o botão direito do mouse no certificado no painel Biblioteca e selecionando **Adicionar à tela**.
 
 ![Adicionar certificado à tela](../media/certificates/automation-certificate-add-to-canvas.png)
 
-A imagem a seguir mostra um exemplo do uso de um certificado em um runbook gráfico. Isso é o mesmo que o exemplo anterior que mostra como adicionar um certificado a um serviço de nuvem de um runbook textual.
+A imagem a seguir mostra um exemplo do uso de um certificado em um runbook gráfico. 
 
 ![Exemplo de criação gráfica](../media/certificates/graphical-runbook-add-certificate.png)
 
@@ -168,4 +170,6 @@ print cert
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como trabalhar com links para controlar o fluxo lógico de atividades executadas por seu runbook, consulte [links em criação gráfica](../automation-graphical-authoring-intro.md#links-and-workflow). 
+* Para saber mais sobre os cmdlets usados para acessar certificados, consulte [gerenciar módulos na automação do Azure](modules.md).
+* Para obter informações gerais sobre runbooks, consulte [execução de runbook na automação do Azure](../automation-runbook-execution.md).
+* Para obter detalhes sobre as configurações DSC, consulte [visão geral da configuração de estado](../automation-dsc-overview.md). 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: 61b382f1c286209a12d0be39a81e6817806d3251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113452"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856742"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
 
@@ -193,17 +193,21 @@ Examine os logs de serviço pelos últimos 5 minutos usando. Se acabar de instal
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Execute uma verificação automatizada para os erros de configuração e de rede mais comuns.
+Execute a [ferramenta de solução de problemas](troubleshoot.md#run-the-check-command) para verificar os erros de configuração e de rede mais comuns.
 
 ```powershell
 iotedge check
 ```
 
-Módulos de execução da lista. Após uma nova instalação, o único módulo que você deve ver em execução é **edgeAgent**. Depois de [implantar os módulos do IOT Edge](how-to-deploy-modules-portal.md) pela primeira vez, o outro módulo do sistema, **edgeHub**, também será iniciado no dispositivo.
+Até que você implante seu primeiro módulo para IoT Edge em seu dispositivo, o módulo do sistema **$edgeHub** não será implantado no dispositivo. Como resultado, a verificação automática retornará um erro para a verificação de `Edge Hub can bind to ports on host` conectividade. Esse erro pode ser ignorado, a menos que ocorra após a implantação de um módulo no dispositivo.
+
+Por fim, liste módulos em execução:
 
 ```powershell
 iotedge list
 ```
+
+Após uma nova instalação, o único módulo que você deve ver em execução é **edgeAgent**. Depois de [implantar os módulos do IOT Edge](how-to-deploy-modules-portal.md) pela primeira vez, o outro módulo do sistema, **edgeHub**, também será iniciado no dispositivo.
 
 ## <a name="manage-module-containers"></a>Gerenciar contêineres de módulo
 
@@ -270,7 +274,7 @@ O comando Deploy-IoTEdge baixa e implanta o daemon de segurança IoT Edge e suas
 | **Proxy** | URL do Proxy | Inclua esse parâmetro se o dispositivo precisar passar por um servidor proxy para acessar a Internet. Para obter mais informações, consulte [Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Caminho do diretório | Se esse parâmetro estiver incluído, o instalador verificará o diretório listado quanto aos arquivos MSI de tempo de execução do IoT Edge cab e do VC Runtime necessários para a instalação. Todos os arquivos não encontrados no diretório são baixados. Se ambos os arquivos estiverem no diretório, você poderá instalar IoT Edge sem uma conexão com a Internet. Você também pode usar esse parâmetro para usar uma versão específica. |
 | **InvokeWebRequestParameters** | Tabela de hash de parâmetros e valores | Durante a instalação, várias solicitações da Web serão feitas. Use esse campo para definir parâmetros para essas solicitações da Web. Esse parâmetro é útil para configurar credenciais para servidores proxy. Para obter mais informações, consulte [Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md). |
-| **RestartIfNeeded** | none | Esse sinalizador permite que o script de implantação reinicie o computador sem avisar, se necessário. |
+| **RestartIfNeeded** | nenhuma | Esse sinalizador permite que o script de implantação reinicie o computador sem avisar, se necessário. |
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
@@ -300,14 +304,14 @@ O comando Initialize-IoTEdge configura IoT Edge com a cadeia de conexão do disp
 | **Proxy** | URL do Proxy | Inclua esse parâmetro se o dispositivo precisar passar por um servidor proxy para acessar a Internet. Para obter mais informações, consulte [Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md). |
 | **InvokeWebRequestParameters** | Tabela de hash de parâmetros e valores | Durante a instalação, várias solicitações da Web serão feitas. Use esse campo para definir parâmetros para essas solicitações da Web. Esse parâmetro é útil para configurar credenciais para servidores proxy. Para obter mais informações, consulte [Configurar um dispositivo IoT Edge para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md). |
 | **OfflineInstallationPath** | Caminho do diretório | Se esse parâmetro estiver incluído, o instalador verificará o diretório listado quanto aos arquivos MSI de tempo de execução do IoT Edge cab e do VC Runtime necessários para a instalação. Todos os arquivos não encontrados no diretório são baixados. Se ambos os arquivos estiverem no diretório, você poderá instalar IoT Edge sem uma conexão com a Internet. Você também pode usar esse parâmetro para usar uma versão específica. |
-| **RestartIfNeeded** | none | Esse sinalizador permite que o script de implantação reinicie o computador sem avisar, se necessário. |
+| **RestartIfNeeded** | nenhuma | Esse sinalizador permite que o script de implantação reinicie o computador sem avisar, se necessário. |
 
 ### <a name="uninstall-iotedge"></a>Desinstalar-IoTEdge
 
 | Parâmetro | Valores aceitos | Comentários |
 | --------- | --------------- | -------- |
-| **Aplicação** | none | Esse sinalizador força a desinstalação caso a tentativa anterior de desinstalar não tenha sido bem-sucedida.
-| **RestartIfNeeded** | none | Esse sinalizador permite que o script de desinstalação reinicie o computador sem avisar, se necessário. |
+| **Aplicação** | nenhuma | Esse sinalizador força a desinstalação caso a tentativa anterior de desinstalar não tenha sido bem-sucedida.
+| **RestartIfNeeded** | nenhuma | Esse sinalizador permite que o script de desinstalação reinicie o computador sem avisar, se necessário. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
