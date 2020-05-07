@@ -1,22 +1,16 @@
 ---
-title: Executar uma carga de trabalho paralela - .NET do Lote do Azure
+title: Executar uma carga de trabalho paralela
 description: 'Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote'
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.assetid: ''
-ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 8734f748da07b36497ce143646e614ef82056d37
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: d8a5db6c6c63d680514e21bef0e5a8bc6b3ea550
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81254590"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733066"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -71,7 +65,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Navegue até o diretório que contém o arquivo da solução Visual Studio `BatchDotNetFfmpegTutorial.sln`.
 
-Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `Program.cs` com os valores obtidos para suas contas. Por exemplo:
+Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `Program.cs` com os valores obtidos para suas contas. Por exemplo: 
 
 ```csharp
 // Batch account credentials
@@ -199,7 +193,7 @@ Em seguida, o exemplo cria um pool de nós de computação na conta do Lote com 
 O número de nós e o tamanho da VM são definidos usando constantes definidas. O Lote dá suporte a nós dedicados e a [nós de baixa prioridade](batch-low-pri-vms.md), e você pode usar um ou ambos em seus pools. Nós dedicados são reservados para o pool. Nós de baixa prioridade são oferecidos a um preço menor do excedente de capacidade da VM no Azure. Nós de baixa prioridade ficam indisponíveis quando o Azure não tem capacidade suficiente. O exemplo, por padrão, cria um pool que contém apenas cinco nós de baixa prioridade em tamanho *Standard_A1_v2*.
 
 >[!Note]
->Confira as cotas do seu nó. Confira [Cotas e limites de serviço em lote](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0) para obter instruções sobre como criar uma solicitação de cota."
+>Confira as cotas do seu nó. Confira [Cotas e limites de serviço em lote](batch-quota-limit.md#increase-a-quota) para obter instruções sobre como criar uma solicitação de cota."
 
 O aplicativo ffmpeg for implantado para os nós de computação adicionando um [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) à configuração do pool.
 

@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: e4d85bd460c39964c9f42ac946e3522f5f129c1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474434"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561350"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerenciar o acesso, a energia e o modo de conectividade para seu Gateway do Azure Data Box
 
-Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para o Azure Data Box Gateway. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure.
+Este artigo descreve como gerenciar o modo de acesso, energia e conectividade para o Azure Data Box Gateway. Essas operações são executadas por meio da interface do usuário da web local ou o portal do Azure. 
 
 Neste artigo, você aprenderá como:
 
@@ -56,16 +56,16 @@ O fluxo de trabalho de redefinição não exige que o usuário recupere a senha 
 
 ## <a name="manage-resource-access"></a>Gerenciar o acesso de recursos
 
-Para criar seu Data Box Edge/Gateway do Data Box, o Hub IoT e o recurso de armazenamento do Azure, você precisa de permissões como um colaborador ou superior em um nível de grupo de recursos. Você também precisa que os provedores de recursos correspondentes sejam registrados. Para quaisquer operações que envolvam credenciais e chave de ativação, as permissões para Azure Active Directory API do Graph também são necessárias. Elas são descritas nas seções a seguir.
+Para criar seu Azure Stack Edge/Gateway do Data Box, o Hub IoT e o recurso de armazenamento do Azure, você precisa de permissões como um colaborador ou superior em um nível de grupo de recursos. Você também precisa que os provedores de recursos correspondentes sejam registrados. Para quaisquer operações que envolvam credenciais e chave de ativação, as permissões para Azure Active Directory API do Graph também são necessárias. Elas são descritas nas seções a seguir.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gerenciar permissões de API de Microsoft Graph
 
-Ao gerar a chave de ativação para o dispositivo Data Box Edge ou executar qualquer operação que exija credenciais, você precisa de permissões para Microsoft Graph API. As operações que precisam de credenciais podem ser:
+Ao gerar a chave de ativação para o dispositivo Azure Stack Edge ou executar qualquer operação que exija credenciais, você precisa de permissões para Microsoft Graph API. As operações que precisam de credenciais podem ser:
 
 -  Criando um compartilhamento com uma conta de armazenamento associada.
 -  Criar um usuário que pode acessar os compartilhamentos no dispositivo.
 
-Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de `Read all directory objects`fazer isso. Você não pode ser um usuário convidado, pois não tem permissões `Read all directory objects`para. Se você for um convidado, as operações como geração de uma chave de ativação, criação de um compartilhamento em seu dispositivo do Data Box Edge, a criação de um usuário falhará.
+Você deve ter `User` acesso ao Active Directory locatário, pois precisa ser capaz de `Read all directory objects`fazer isso. Você não pode ser um usuário convidado, pois não tem permissões `Read all directory objects`para. Se você for um convidado, as operações, como a geração de uma chave de ativação, a criação de um compartilhamento em seu Azure Stack dispositivo de borda, a criação de um usuário falharão.
 
 Para obter mais informações sobre como fornecer acesso aos usuários para Microsoft Graph API, consulte [referência de permissões de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -88,7 +88,7 @@ Para obter uma lista de provedores de recursos registrados na assinatura atual, 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para Data Box Edge dispositivo, `Microsoft.DataBoxEdge` deve ser registrado. Para se `Microsoft.DataBoxEdge`registrar, o administrador de assinatura deve executar o seguinte comando:
+Para Azure Stack dispositivo de borda `Microsoft.DataBoxEdge` , deve ser registrado. Para se `Microsoft.DataBoxEdge`registrar, o administrador de assinatura deve executar o seguinte comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
@@ -127,7 +127,7 @@ Você pode desligar ou reiniciar seu dispositivo virtual usando a interface do u
 1. Na interface do usuário de web local, vá para **manutenção > configurações de energia**.
 2. Clique em **desligamento** ou **reiniciar** dependendo do que você pretende fazer.
 
-    ![Configurações de energia](media/data-box-gateway-manage-access-power-connectivity-mode/shut-down-restart-1.png)
+    ![Configurações da energia](media/data-box-gateway-manage-access-power-connectivity-mode/shut-down-restart-1.png)
 
 3. Quando solicitado a confirmar, clique em **Sim** para continuar.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 3d250ef1aba979be04a44acaf31a3d685f162e37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df96ceb47bf33b734f2127bade50af18713a97a0
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283881"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581372"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes de Azure Monitor para VMs disponíveis (GA)
 Essas perguntas frequentes sobre disponibilidade geral abordam as alterações feitas no quarto trimestre de 2019 e no primeiro trimestre 2020, conforme preparamos para a GA.
@@ -44,7 +44,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>O que devo fazer sobre os contadores de desempenho em meu espaço de trabalho se eu instalar a solução VMInsights?
 
-O método anterior de habilitar Azure Monitor para VMs contadores de desempenho usados em seu espaço de trabalho. A versão atual armazena esses dados em uma tabela chamada `InsightsMetrics`. Você pode optar por desabilitar esses contadores de desempenho no seu espaço de trabalho se não precisar mais usá-los. 
+O método anterior de habilitar Azure Monitor para VMs contadores de desempenho usados em seu espaço de trabalho. A versão atual armazena esses dados em uma tabela chamada `InsightsMetrics`. Você pode optar por desabilitar esses contadores de desempenho em seu espaço de trabalho se não precisar mais usá-los. 
 
 >[!NOTE]
 >Se você tiver regras de alerta que referenciem esses contadores `Perf` na tabela, será necessário atualizá-los para fazer referência a novos `InsightsMetrics` dados armazenados na tabela. Consulte nossa documentação para obter exemplos de consultas de log que você pode usar para fazer referência a esta tabela.

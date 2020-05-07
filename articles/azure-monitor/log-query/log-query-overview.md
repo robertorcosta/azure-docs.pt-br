@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 54a6f875bc33d24d412d2424c634d1019b4af399
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cd2a28ddbe970385ff44deec2158c257937982e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670110"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591645"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de log no Azure Monitor
 As consultas de log ajudam você a aproveitar totalmente o valor dos dados coletados nos [logs de Azure monitor](../platform/data-platform-logs.md). Uma linguagem de consulta eficiente permite unir dados de várias tabelas, agregar grandes conjuntos de dados e executar operações complexas com o mínimo de código. Praticamente qualquer pergunta pode ser respondida e a análise realizada desde que os dados de suporte tenham sido coletados e você entenda como construir a consulta correta.
@@ -81,7 +81,7 @@ Log Analytics é a principal ferramenta na portal do Azure para gravar consultas
 Você pode iniciar o Log Analytics de vários locais na portal do Azure. O escopo dos dados disponíveis para Log Analytics é determinado pelo modo como você o inicia. Consulte [escopo da consulta](scope.md) para obter mais detalhes.
 
 - Selecione **logs** no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** .
-- Selecione **análise** na página **visão geral** de um aplicativo Application insights.
+- Selecione **logs** na página **visão geral** de um aplicativo Application insights.
 - Selecione **logs** no menu de um recurso do Azure.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)

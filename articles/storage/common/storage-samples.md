@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: f4d8eabdba32eaa0a2c04e6b330fbd4c8d3a563e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 900fb5120b1674397c248fd7d090660c7a813705
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80061130"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594178"
 ---
 # <a name="azure-storage-samples"></a>Exemplos do Armazenamento do Azure
 
@@ -50,9 +50,9 @@ Para explorar os exemplos do Node.js, baixe a [Biblioteca do Cliente de Armazena
 
 Para explorar os exemplos do C++, baixe a [Biblioteca do Cliente de Armazenamento do C++](https://www.nuget.org/packages/wastorage/) do NuGet.
 
-* [Introdução aos blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
-* [Introdução às tabelas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
-* [Introdução às filas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
+* [Introdução aos blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)
+* [Introdução às tabelas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted.cpp)
+* [Introdução às filas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted.cpp)
 
 ## <a name="azure-cli"></a>CLI do Azure
 
@@ -68,7 +68,7 @@ Para explorar os exemplos da CLI do Azure, primeiro [instale a CLI do Azure](/cl
 |----------|---------------|-------------|
 | .NET | [Referência da Biblioteca do Cliente do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Código-fonte da biblioteca do cliente de armazenamento do .NET](https://github.com/Azure/azure-storage-net) |
 | Java | [Referência da Biblioteca do Cliente do Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Código-fonte da biblioteca do cliente de armazenamento do Java](https://github.com/azure/azure-storage-java) |
-| Python | [Referência da Biblioteca de Clientes de Python](https://azure-storage.readthedocs.io/) | [Código-fonte da biblioteca do cliente de armazenamento de Python](https://github.com/Azure/azure-storage-p[ython]) |
+| Python | [Referência da Biblioteca de Clientes de Python](https://azure-storage.readthedocs.io/) | [Código-fonte da biblioteca do cliente de armazenamento de Python](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Referência da Biblioteca do Cliente do Node.js](https://azure.github.io/azure-storage-node) | [Código-fonte da biblioteca do cliente de armazenamento do Node.js](https://github.com/Azure/azure-storage-node) |
 | C++ | [Referência da Biblioteca do Cliente do C++](https://azure.github.io/azure-storage-cpp/) | [Código-fonte da biblioteca do cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)|
 | CLI do Azure | [Referência de Biblioteca da CLI do Azure](/cli/azure/storage) | [Código-fonte da biblioteca de clientes do armazenamento da CLI do Azure](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)

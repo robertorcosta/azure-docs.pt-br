@@ -5,21 +5,20 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: jgao
-ms.openlocfilehash: 99db4ec61a515301224691d7c2e4e3c905fee1c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188902"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610795"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (visualização)
 
 Saiba como usar scripts de implantação em modelos de recursos do Azure. Com um novo tipo de recurso `Microsoft.Resources/deploymentScripts`chamado, os usuários podem executar scripts de implantação em implantações de modelo e examinar os resultados da execução. Esses scripts podem ser usados para executar etapas personalizadas, como:
 
 - Adicionar usuários a um diretório
-- criar um registro de aplicativo
 - executar operações do plano de dados, por exemplo, copiar BLOBs ou banco de dados de semente
 - Pesquisar e validar uma chave de licença
 - criar um certificado autoassinado
@@ -37,14 +36,14 @@ Os benefícios do script de implantação:
 O recurso de script de implantação só está disponível nas regiões em que a instância de contêiner do Azure está disponível.  Consulte [disponibilidade de recursos para instâncias de contêiner do Azure em regiões do Azure](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
-> Dois recursos de script de implantação, uma conta de armazenamento e uma instância de contêiner são criados no mesmo grupo de recursos para execução de script e solução de problemas. Esses recursos geralmente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para saber mais, consulte [limpar recursos de script de implantação](#clean-up-deployment-script-resources).
+> Uma conta de armazenamento e uma instância de contêiner são necessárias para a execução do script e a solução de problemas. Você tem as opções para especificar uma conta de armazenamento existente, caso contrário, a conta de armazenamento junto com a instância de contêiner será criada automaticamente pelo serviço de script. Os dois recursos criados automaticamente geralmente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para saber mais, consulte [limpar recursos de script de implantação](#clean-up-deployment-script-resources).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Uma identidade gerenciada atribuída pelo usuário com a função do colaborador para o grupo de recursos de destino**. Essa identidade é usada para executar scripts de implantação. Para executar operações fora do grupo de recursos, você precisa conceder permissões adicionais. Por exemplo, atribua a identidade ao nível de assinatura se você quiser criar um novo grupo de recursos.
 
   > [!NOTE]
-  > O mecanismo de script de implantação cria uma conta de armazenamento e uma instância de contêiner em segundo plano.  Uma identidade gerenciada atribuída pelo usuário com a função do colaborador no nível da assinatura será necessária se a assinatura não tiver registrado os provedores de recursos da conta de armazenamento do Azure (Microsoft. Storage) e da instância de contêiner do Azure (Microsoft. ContainerInstance).
+  > O serviço de script cria uma conta de armazenamento (a menos que você especifique uma conta de armazenamento existente) e uma instância de contêiner em segundo plano.  Uma identidade gerenciada atribuída pelo usuário com a função do colaborador no nível da assinatura será necessária se a assinatura não tiver registrado os provedores de recursos da conta de armazenamento do Azure (Microsoft. Storage) e da instância de contêiner do Azure (Microsoft. ContainerInstance).
 
   Para criar uma identidade, consulte [criar uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), ou [usando CLI do Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), ou [usando Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Você precisa da ID da identidade ao implantar o modelo. O formato da identidade é:
 
@@ -101,6 +100,13 @@ O JSON a seguir é um exemplo.  O esquema de modelo mais recente pode ser encont
   },
   "properties": {
     "forceUpdateTag": 1,
+    "containerSettings": {
+      "containerGroupName": "mycustomaci"
+    },
+    "storageAccountSettings": {
+      "storageAccountName": "myStorageAccount",
+      "storageAccountKey": "myKey"
+    },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "environmentVariables": [
@@ -132,6 +138,8 @@ Detalhes do valor da propriedade:
 - **Identidade**: o serviço de script de implantação usa uma identidade gerenciada atribuída pelo usuário para executar os scripts. Atualmente, somente a identidade gerenciada atribuída pelo usuário tem suporte.
 - **tipo**: especifique o tipo de script. Atualmente, os scripts Azure PowerShell e CLI do Azure são compatíveis. Os valores são **AzurePowerShell** e **AzureCLI**.
 - **forceUpdateTag**: a alteração desse valor entre implantações de modelo força o script de implantação a ser executado novamente. Use a função newGuid () ou utcNow () que precisa ser definida como o defaultValue de um parâmetro. Para saber mais, confira [Executar script mais de uma vez](#run-script-more-than-once).
+- **containerSettings**: especifique as configurações para personalizar a instância de contêiner do Azure.  **containerGroupName** é para especificar o nome do grupo de contêineres.  Se não for especificado, o nome do grupo será gerado automaticamente.
+- **storageAccountSettings**: especifique as configurações para usar uma conta de armazenamento existente. Se não for especificado, uma conta de armazenamento será criada automaticamente. Consulte [usar uma conta de armazenamento existente](#use-an-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Especifique a versão do módulo a ser usada. Para obter uma lista de versões do PowerShell e da CLI com suporte, consulte [pré-requisitos](#prerequisites).
 - **argumentos**: Especifique os valores de parâmetro. os valores são separados por espaços.
 - **environmentVariables**: especifique as variáveis de ambiente para passar para o script. Para obter mais informações, consulte [desenvolver scripts de implantação](#develop-deployment-scripts).
@@ -182,7 +190,7 @@ A saída se parece com isso:
 
 ## <a name="use-external-scripts"></a>Usar scripts externos
 
-Além dos scripts embutidos, você também pode usar arquivos de script externos. Somente os scripts primários do PowerShell com a extensão de arquivo **ps1** têm suporte. Para scripts da CLI, os scripts principais podem ter qualquer extensão (ou sem uma extensão), desde que os scripts sejam scripts bash válidos. Para usar arquivos de script externo, `scriptContent` substitua `primaryScriptUri`por. Por exemplo:
+Além dos scripts embutidos, você também pode usar arquivos de script externos. Somente os scripts primários do PowerShell com a extensão de arquivo **ps1** têm suporte. Para scripts da CLI, os scripts principais podem ter qualquer extensão (ou sem uma extensão), desde que os scripts sejam scripts bash válidos. Para usar arquivos de script externo, `scriptContent` substitua `primaryScriptUri`por. Por exemplo: 
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -241,7 +249,7 @@ As saídas de script de implantação devem ser salvas no local de AZ_SCRIPTS_OU
 ### <a name="handle-non-terminating-errors"></a>Tratar erros de não encerramento
 
 Você pode controlar como o PowerShell responde a erros de não encerramento usando a variável [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) em seu script de implantação. O mecanismo de script de implantação não define/altera o valor.  Apesar do valor definido para $ErrorActionPreference, o script de implantação define o estado de provisionamento de recursos como *falha* quando o script encontra um erro.
+) em seu script de implantação. O serviço de script não define/altera o valor.  Apesar do valor definido para $ErrorActionPreference, o script de implantação define o estado de provisionamento de recursos como *falha* quando o script encontra um erro.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passar cadeias de caracteres seguras para o script de implantação
 
@@ -249,7 +257,7 @@ Definir variáveis de ambiente (EnvironmentVariable) em suas instâncias de cont
 
 ## <a name="debug-deployment-scripts"></a>Depurar scripts de implantação
 
-O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) e uma instância de [contêiner](../../container-instances/container-instances-overview.md) para a execução do script. Ambos os recursos têm o sufixo **azscripts** nos nomes dos recursos.
+O serviço de script cria uma [conta de armazenamento](../../storage/common/storage-account-overview.md) (a menos que você especifique uma conta de armazenamento existente) e uma instância de [contêiner](../../container-instances/container-instances-overview.md) para execução de script. Se esses recursos forem criados automaticamente pelo serviço de script, ambos os recursos terão o sufixo **azscripts** nos nomes dos recursos.
 
 ![Nomes de recursos de script de implantação de modelo do Resource Manager](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -292,17 +300,38 @@ Para ver o recurso deploymentScripts no portal, selecione **Mostrar tipos oculto
 
 ![Script de implantação de modelo do Resource Manager, Mostrar tipos ocultos, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
+## <a name="use-an-existing-storage-account"></a>Usar uma conta de armazenamento existente
+
+Uma conta de armazenamento e uma instância de contêiner são necessárias para a execução do script e a solução de problemas. Você tem as opções para especificar uma conta de armazenamento existente, caso contrário, a conta de armazenamento junto com a instância de contêiner será criada automaticamente pelo serviço de script. Os requisitos para usar uma conta de armazenamento existente:
+
+- Os tipos de conta de armazenamento com suporte são: contas de uso geral v2, contas v1 de uso geral e contas de armazenamento de File. Para obter mais informações, consulte [tipos de contas de armazenamento](../../storage/common/storage-account-overview.md).
+- As regras de firewall da conta de armazenamento devem ser desativadas. Consulte [Configurar firewalls de armazenamento do Azure e rede virtual](../../storage/common/storage-network-security.md)
+- A identidade gerenciada atribuída pelo usuário do script de implantação deve ter permissões para gerenciar a conta de armazenamento, que inclui os compartilhamentos de arquivos de leitura, criação e exclusão.
+
+Para especificar uma conta de armazenamento existente, adicione o JSON a seguir ao elemento de `Microsoft.Resources/deploymentScripts`propriedade de:
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+Consulte [modelos de exemplo](#sample-templates) para obter `Microsoft.Resources/deploymentScripts` uma amostra de definição completa.
+
+Quando uma conta de armazenamento existente é usada, o serviço de script cria um compartilhamento de arquivos com um nome exclusivo. Consulte [limpar recursos de script de implantação](#clean-up-deployment-script-resources) para saber como o serviço de script limpa o compartilhamento de arquivos.
+
 ## <a name="clean-up-deployment-script-resources"></a>Limpar recursos de script de implantação
 
-O script de implantação cria uma conta de armazenamento e uma instância de contêiner que são usadas para executar scripts de implantação e armazenar informações de depuração. Esses dois recursos são criados no mesmo grupo de recursos que os recursos provisionados e serão excluídos pelo serviço de script quando o script expirar. Você pode controlar o ciclo de vida desses recursos.  Até que eles sejam excluídos, você será cobrado por ambos os recursos. Para obter as informações de preço, consulte [preços de instâncias de contêiner](https://azure.microsoft.com/pricing/details/container-instances/) e preços de [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+Uma conta de armazenamento e uma instância de contêiner são necessárias para a execução do script e a solução de problemas. Você tem as opções para especificar uma conta de armazenamento existente, caso contrário, uma conta de armazenamento juntamente com uma instância de contêiner será criada automaticamente pelo serviço de script. Os dois recursos criados automaticamente são excluídos pelo serviço de script quando a execução do script de implantação entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para obter as informações de preço, consulte [preços de instâncias de contêiner](https://azure.microsoft.com/pricing/details/container-instances/) e preços de [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 O ciclo de vida desses recursos é controlado pelas seguintes propriedades no modelo:
 
-- **cleanupPreference**: limpar a preferência quando a execução do script chegar em um estado de terminal.  Os valores com suporte são:
+- **cleanupPreference**: limpar a preferência quando a execução do script chegar em um estado de terminal. Os valores com suporte são:
 
-  - **Sempre**: exclua os recursos depois que a execução do script chegar em um estado de terminal. Como o recurso deploymentScripts ainda pode estar presente depois que os recursos são limpos, o script do sistema copiaria os resultados da execução do script, por exemplo, stdout, Outputs, valor de retorno, etc. para DB antes de os recursos serem excluídos.
-  - **OnSuccess**: exclua os recursos somente quando a execução do script for bem-sucedida. Você ainda pode acessar os recursos para localizar as informações de depuração.
-  - **Onexpiretion**: exclua os recursos somente quando a configuração **retentionInterval** estiver expirada. Esta propriedade está desabilitada no momento.
+  - **Sempre**: exclua os recursos criados automaticamente quando a execução do script chegar em um estado de terminal. Se uma conta de armazenamento existente for usada, o serviço de script excluirá o compartilhamento de arquivos criado na conta de armazenamento. Como o recurso deploymentScripts ainda pode estar presente depois que os recursos são limpos, os serviços de script persistem os resultados da execução do script, por exemplo, stdout, saídas, valor de retorno, etc. antes de os recursos serem excluídos.
+  - **OnSuccess**: exclua os recursos criados automaticamente somente quando a execução do script for bem-sucedida. Se uma conta de armazenamento existente for usada, o serviço de script removerá o compartilhamento de arquivos somente quando a execução do script for bem-sucedida. Você ainda pode acessar os recursos para localizar as informações de depuração.
+  - **Onexpiretion**: exclua os recursos automaticamente somente quando a configuração **retentionInterval** estiver expirada. Se uma conta de armazenamento existente for usada, o serviço de script removerá o compartilhamento de arquivos, mas manterá a conta de armazenamento.
 
 - **retentionInterval**: especifique o intervalo de tempo que um recurso de script será retido e depois o qual será expirado e excluído.
 

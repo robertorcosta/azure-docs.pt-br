@@ -4,12 +4,12 @@ description: Saiba mais sobre grupos de contêineres em instâncias de contêine
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 3efc4528863286da676fc7eb758176156c87a32a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115645"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583826"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em Instâncias de Contêiner do Azure
 
@@ -69,7 +69,7 @@ Nesse cenário, você pode definir um limite de recursos de até 2 CPUs para a i
 
 ## <a name="networking"></a>Rede
 
-Os grupos de contêineres podem compartilhar um endereço IP externo, uma ou mais portas nesse endereço IP e um rótulo DNS com um FQDN (nome de domínio totalmente qualificado). Para permitir que clientes externos alcancem um contêiner dentro do grupo, você deve expor a porta no endereço IP e do contêiner. Como os contêineres no grupo compartilham um namespace de porta, o mapeamento de porta não tem suporte. O endereço IP e o FQDN de um grupo de contêineres serão liberados quando o grupo de contêineres for excluído. 
+Os grupos de contêineres podem compartilhar um endereço IP externo, uma ou mais portas nesse endereço IP e um rótulo DNS com um FQDN (nome de domínio totalmente qualificado). Para permitir que clientes externos alcancem um contêiner dentro do grupo, você deve expor a porta no endereço IP e do contêiner. O endereço IP e o FQDN de um grupo de contêineres são liberados quando o grupo de contêineres é excluído. 
 
 Dentro de um grupo de contêineres, as instâncias de contêiner podem chegar umas às outras por meio de localhost em qualquer porta, mesmo se essas portas não estiverem expostas externamente no endereço IP do grupo ou no contêiner.
 
@@ -118,7 +118,7 @@ Saiba como implantar um grupo de contêineres com vários contêineres com um mo
 [resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-[virtual-network]: container-instances-vnet.md
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
