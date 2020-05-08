@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/14/2020
-ms.openlocfilehash: 1dceb3db4572ecdaf504745dba1099a5eccead43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80395779"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731893"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Excluir e recuperar o espaço de trabalho do Azure Log Analytics
 
@@ -59,14 +59,13 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 
 ### <a name="troubleshooting"></a>Solução de problemas
 
-Você deve ter permissões de ' Log Analytics colaborador ' para excluir Log Analytics espaço de trabalho.<br>
-Se você receber uma mensagem de erro "*este nome de espaço de trabalho já está em uso*" ao criar um espaço de trabalho, poderia ser desde:
+Você deve ter pelo menos *log Analytics* permissões de colaborador para excluir um espaço de trabalho.<br>
+Se você receber uma mensagem de erro *esse nome de espaço de trabalho já está em uso ou está em* *conflito* ao criar um espaço de trabalho, pode ser desde que:
 * O nome do espaço de trabalho não está disponível e sendo usado por alguém em sua organização ou por outro cliente.
-* O espaço de trabalho foi excluído nos últimos 14 dias e seu nome permanece reservado para o período de exclusão reversível. Para substituir a exclusão reversível e excluir imediatamente seu espaço de trabalho e criar um novo espaço de trabalho com o mesmo nome, siga estas etapas para recuperar o espaço de trabalho primeiro e executar a exclusão permanente:<br>
+* O espaço de trabalho foi excluído nos últimos 14 dias e seu nome permanece reservado para o período de exclusão reversível. Para substituir a exclusão reversível e excluir permanentemente seu espaço de trabalho para criar um novo espaço de trabalho com o mesmo nome, siga estas etapas para recuperar o espaço de trabalho primeiro e executar a exclusão permanente:<br>
    1. [Recupere](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) seu espaço de trabalho.
    2. [Exclua permanentemente](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) seu espaço de trabalho.
    3. Crie um novo espaço de trabalho usando o mesmo nome de espaço de trabalho.
-
 
 ## <a name="permanent-workspace-delete"></a>Exclusão de espaço de trabalho permanente
 O método de exclusão reversível pode não se ajustar em alguns cenários, como desenvolvimento e teste, onde você precisa repetir uma implantação com as mesmas configurações e o nome do espaço de trabalho. Nesses casos, você pode excluir permanentemente seu espaço de trabalho e "substituir" o período de exclusão reversível. A operação de exclusão de espaço de trabalho permanente libera o nome do espaço de trabalho e você pode criar um novo espaço de trabalho usando o mesmo nome.
@@ -96,12 +95,7 @@ Onde ' eyJ0eXAiOiJKV1Qi... ' representa o token de autorização completo.
 
 Se você tiver permissões de colaborador para a assinatura e o grupo de recursos em que o espaço de trabalho foi associado antes da operação de exclusão reversível, poderá recuperá-lo durante seu período de exclusão reversível, incluindo seus dados, configuração e agentes conectados. Após o período de exclusão reversível, o espaço de trabalho é não recuperável e atribuído para exclusão permanente. Os nomes dos espaços de trabalho excluídos são preservados durante o período de exclusão reversível e não podem ser usados durante a tentativa de criar um novo espaço de trabalho.  
 
-Você pode recuperar um espaço de trabalho recriando-o usando o seguinte espaço de trabalho criar métodos: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [API REST]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) , contanto que as propriedades a seguir sejam preenchidas com os detalhes do espaço de trabalho excluído:
-
-* ID da assinatura
-* Nome do Grupo de Recursos
-* Nome do workspace
-* Região
+Você pode recuperar seu espaço de trabalho criando um espaço de trabalho com os detalhes do espaço de trabalho excluído, incluindo a *ID da assinatura*, o nome do *grupo de recursos*, o nome do *espaço de trabalho* e a *região*. Se o grupo de recursos também tiver sido excluído e não existir, crie um grupo de recursos com o mesmo nome que foi usado antes da exclusão e, em seguida, crie um espaço de trabalho usando qualquer um destes métodos: [portal do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) ou [API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell

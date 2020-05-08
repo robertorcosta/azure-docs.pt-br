@@ -3,7 +3,7 @@ title: Entrar com concessão de credenciais de senha do proprietário do recurso
 titleSuffix: Microsoft identity platform
 description: Suporte a fluxos de autenticação sem navegador usando a concessão de credencial de senha do proprietário do recurso (ROPC).
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a282264ed3e9539bcc96babfc41376d2c6c35628
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26b3cb343aba2d45d5a14944a7f8856715bca100
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868644"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690093"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plataforma de identidade da Microsoft e credenciais de senha do proprietário do recurso OAuth 2,0
 
@@ -66,12 +66,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Obrigatório | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
-| `client_id` | Obrigatório | A ID do aplicativo (cliente) que a página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
-| `grant_type` | Obrigatório | Deve ser definido como `password`. |
-| `username` | Obrigatório | O endereço de email do usuário. |
-| `password` | Obrigatório | A senha do usuário. |
-| `scope` | Recomendadas | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Em um fluxo interativo, o administrador ou o usuário deve consentir esses escopos antes do tempo. |
+| `tenant` | Necessária | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
+| `client_id` | Necessária | A ID do aplicativo (cliente) que a página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuída ao seu aplicativo. |
+| `grant_type` | Necessária | Deve ser definido como `password`. |
+| `username` | Necessária | O endereço de email do usuário. |
+| `password` | Necessária | A senha do usuário. |
+| `scope` | Recomendado | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Em um fluxo interativo, o administrador ou o usuário deve consentir esses escopos antes do tempo. |
 | `client_secret`| Às vezes é necessário | Se seu aplicativo for um cliente público, o ou `client_secret` `client_assertion` o não poderá ser incluído.  Se o aplicativo for um cliente confidencial, ele deverá ser incluído. |
 | `client_assertion` | Às vezes é necessário | Uma forma diferente de `client_secret`, gerada usando um certificado.  Consulte [credenciais de certificado](active-directory-certificate-credentials.md) para obter mais detalhes. |
 
@@ -92,7 +92,7 @@ O exemplo abaixo mostra uma resposta de token bem-sucedida:
 
 | Parâmetro | Formatar | Descrição |
 | --------- | ------ | ----------- |
-| `token_type` | Cadeia de caracteres | Sempre defina como `Bearer`. |
+| `token_type` | String | Sempre defina como `Bearer`. |
 | `scope` | Cadeia de caracteres separadas por espaço | Se um token de acesso for retornado, esse parâmetro listará os escopos para os quais o token de acesso é válido. |
 | `expires_in`| INT | Número de segundos pelos quais o token de acesso incluído é válido. |
 | `access_token`| Cadeia de caracteres opaca | Emitido para os [escopos](v2-permissions-and-consent.md) que foram solicitados. |

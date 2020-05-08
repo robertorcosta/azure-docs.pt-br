@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 1a913e714565ffb99237357e331ef5cf0189c40f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8743aeea6278588da308feb37016b679a4f0509
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204214"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929257"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Crie Azure Machine Learning Studio (clássico) experimentos de exemplos de trabalho em Galeria de IA do Azure
 
@@ -60,5 +60,4 @@ Um novo experimento é criado no seu espaço de trabalho Machine Learning Studio
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Importar dados de várias fontes](import-data.md)
-* [Tutorial de início rápido para a linguagem R no Machine Learning](r-quickstart.md)
 * [Implantar um serviço Web do Machine Learning](deploy-a-machine-learning-web-service.md)

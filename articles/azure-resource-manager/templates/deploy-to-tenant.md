@@ -3,12 +3,12 @@ title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460255"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930056"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
 
@@ -19,6 +19,7 @@ ms.locfileid: "79460255"
 Você pode implantar os seguintes tipos de recursos no nível do locatário:
 
 * [implantações](/azure/templates/microsoft.resources/deployments) – para modelos aninhados que são implantados em grupos de gerenciamento ou assinaturas.
+* managementGroups
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -103,13 +104,13 @@ Para implantações de locatários, há algumas considerações importantes ao u
 * Use a função [tenantResourceId ()](template-functions-resource.md#tenantresourceid) para obter a ID do recurso para os recursos que são implantados no nível do locatário.
 
   Por exemplo, para obter a ID de recurso para uma definição de política, use:
-  
+
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
-  
+
   A ID de recurso retornada tem o seguinte formato:
-  
+
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: a7957c7cbcfa511ea441d8c7bd4371f56ab87560
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461677"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731688"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -95,7 +95,7 @@ O [Assistente do Azure](../../advisor/index.yml) é um consultor de nuvem person
 A [central de segurança](../../security-center/security-center-intro.md) ajuda você a prevenir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 Além disso, a central de segurança ajuda com as operações de segurança, fornecendo um único painel que superfícies alertas e recomendações que podem ser acionadas imediatamente. Geralmente, você pode corrigir problemas com um único clique dentro do console da central de segurança.
-## <a name="applications"></a>Aplicativos
+## <a name="applications"></a>Aplicativo
 A seção fornece outras informações sobre os principais recursos em segurança do aplicativo e informações de resumo sobre esses recursos.
 
 ### <a name="web-application-vulnerability-scanning"></a>Verificação de vulnerabilidades de aplicativos Web
@@ -266,9 +266,9 @@ O Gerenciador de Tráfego oferece uma variedade de métodos de roteamento de tr�
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 O [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) oferece alta disponibilidade e desempenho de rede para seus aplicativos. É um balanceador de carga do tipo Camada 4 (TCP, UDP) que distribui o tráfego de entrada entre as instâncias de serviço íntegras definidas em um conjunto de balanceadores de carga. O Azure Load Balancer pode ser configurado para:
 
--   Balancear carga de tráfego de entrada na Internet para máquinas virtuais. Essa configuração é conhecida como [balanceamento de carga voltada para a Internet](../../load-balancer/concepts-limitations.md#publicloadbalancer).
+-   Balancear carga de tráfego de entrada na Internet para máquinas virtuais. Essa configuração é conhecida como [balanceamento de carga público](../../load-balancer/components.md#frontend-ip-configurations).
 
--   Balanceie o tráfego de carga entre as máquinas virtuais em uma rede virtual, entre as máquinas virtuais nos serviços de nuvem ou entre os computadores locais e as máquinas virtuais em uma rede virtual entre as instalações. Essa configuração é conhecida como [balanceamento de carga interno](../../load-balancer/concepts-limitations.md#internalloadbalancer).
+-   Balanceie o tráfego de carga entre as máquinas virtuais em uma rede virtual, entre as máquinas virtuais nos serviços de nuvem ou entre os computadores locais e as máquinas virtuais em uma rede virtual entre as instalações. Essa configuração é conhecida como [balanceamento de carga interno](../../load-balancer/components.md#frontend-ip-configurations).
 
 - Encaminhe o tráfego externo para uma máquina virtual específica
 

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727210"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692252"
 ---
 # <a name="known-issues"></a>Problemas conhecidos #
 
@@ -46,9 +46,10 @@ A versão atual tem os seguintes problemas conhecidos:
 
 - Na janela DVR de conteúdo ao vivo, quando o conteúdo for concluído, a linha do tempo continuará crescendo até que você vá para a área ou atinja o final da apresentação.
 - As apresentações ao vivo no Firefox com o MSE habilitado têm alguns problemas
-- Os ativos que são áudio ou vídeo só não reproduzirão por meio do AzureHtml5JS Tech.
-  - Se você quiser reproduzir ativos sem áudio ou vídeo, poderá fazer isso inserindo áudio ou vídeo em branco usando a ferramenta do Gerenciador de [serviços de mídia do Azure](https://aka.ms/amse)
-    - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+
+- Os ativos que são somente áudio não serão reproduzidos por meio do AzureHtml5JS Tech.
+  - Se você quiser reproduzir ativos sem áudio, poderá fazê-lo inserindo áudio em branco usando a [ferramenta do Gerenciador de serviços de mídia do Azure](https://aka.ms/amse)
+  - Instruções sobre como inserir áudio silencioso podem ser encontradas [aqui](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
 ## <a name="flash"></a>Piscando ##
 
@@ -111,4 +112,4 @@ A versão atual tem os seguintes problemas conhecidos:
 
 ## <a name="next-steps"></a>Próximas etapas ##
 
-- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605999"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692623"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteger seu espaço de trabalho do Synapse (versão prévia)
 
@@ -36,7 +36,7 @@ Para proteger um espaço de trabalho do Synapse (versão prévia), você seguir�
 
 Este documento usa nomes padrão para simplificar as instruções. Substitua-os por qualquer nome de sua escolha.
 
-|Setting | Valor de exemplo | Descrição |
+|Configuração | Valor de exemplo | Descrição |
 | :------ | :-------------- | :---------- |
 | **Espaço de trabalho Synapse** | WS1 |  O nome que o espaço de trabalho Synapse terá. |
 | **Conta do ADLSGEN2** | STG1 | A conta ADLS a ser usada com seu espaço de trabalho. |
@@ -165,9 +165,22 @@ O Synapse Studio se comportará de maneira diferente com base nas funções de u
 | Gerenciar Hub/serviços vinculados | YES | YES | YES |
 | Gerenciar o Hub/controle de acesso (atribuir usuários a funções de espaço de trabalho Synapse) | YES | Não | Não |
 | Gerenciar tempos de execução de Hub/integração | YES | YES | YES |
+| Usar o Hub do monitor | YES | YES | YES |
+| Monitorar execuções de Hub/orquestração/pipeline  | YES | Não | Não |
+| Monitorar execuções de Hub/orquestração/gatilho  | YES | Não | Não |
+| Monitorar tempos de execução de Hub/orquestração/integração  | YES | YES | YES |
+| Monitorar aplicativos de Hub/atividades/Spark | YES | YES | Não  |
+| Monitorar as solicitações de Hub/atividades/SQL | YES | Não | YES |
+| Monitorar Hub/atividades/pools do Spark | YES | YES | Não  |
+| Monitorar Hub/gatilhos | YES | Não | Não |
+| Gerenciar Hub/serviços vinculados | YES | YES | YES |
+| Gerenciar o Hub/controle de acesso (atribuir usuários a funções de espaço de trabalho Synapse) | YES | Não | Não |
+| Gerenciar tempos de execução de Hub/integração | YES | YES | YES |
+
 
 > [!NOTE]
-> [1] o acesso a dados em contêineres depende do controle de acesso em ADLSGen2 [2] as tabelas OD do SQL e as tabelas do Spark armazenam seus dados no ADLSGen2 e o acesso requer as permissões apropriadas no ADLSGen2.
+> [1] o acesso a dados em contêineres depende do controle de acesso no ADLSGen2. </br>
+> [2] as tabelas OD do SQL e as tabelas do Spark armazenam seus dados no ADLSGen2 e o acesso requer as permissões apropriadas no ADLSGen2.
 
 ## <a name="next-steps"></a>Próximas etapas
 

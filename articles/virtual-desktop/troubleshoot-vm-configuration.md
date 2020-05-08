@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/03/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127592"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607241"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
+
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+>
+> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 
@@ -25,10 +31,10 @@ Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https
 
 ## <a name="vms-are-not-joined-to-the-domain"></a>As VMs não ingressaram no domínio
 
-Siga estas instruções se você estiver tendo problemas para ingressar VMs no domínio.
+Siga estas instruções se você estiver tendo problemas para ingressar máquinas virtuais (VMs) no domínio.
 
 - Ingresse a VM manualmente usando o processo em [ingressar uma máquina virtual do Windows Server em um domínio gerenciado](../active-directory-domain-services/join-windows-vm.md) ou usando o [modelo de ingresso no domínio](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
-- Tente executar o ping no nome de domínio da linha de comando na VM.
+- Tente executar o ping no nome de domínio por meio de uma linha de comando na VM.
 - Examine a lista de mensagens de erro de ingresso no domínio em [Solucionando problemas de mensagens de erro de ingresso no domínio](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
 ### <a name="error-incorrect-credentials"></a>Erro: credenciais incorretas
@@ -77,7 +83,7 @@ Siga estas instruções se você estiver tendo problemas para ingressar VMs no d
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>O agente de área de trabalho virtual do Windows e o carregador de inicialização do Windows Virtual Desktop não estão instalados
 
-A maneira recomendada para provisionar VMs é usar a Azure Resource Manager **criar e provisionar o modelo de pool de hosts da área de trabalho virtual do Windows** O modelo instala automaticamente o agente de área de trabalho virtual do Windows e o carregador de inicialização do agente de desktop virtual do Windows.
+A maneira recomendada para provisionar VMs é usar o modelo de criação de portal do Azure. O modelo instala automaticamente o agente de área de trabalho virtual do Windows e o carregador de inicialização do agente de desktop virtual do Windows.
 
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
@@ -96,8 +102,8 @@ Siga estas instruções para confirmar se os componentes estão instalados e par
 **Correção 2:** Confirme os itens na lista a seguir.
 
 - Verifique se a conta não tem MFA.
-- Confirme se o nome do locatário é preciso e se o locatário existe na área de trabalho virtual do Windows.
-- Confirme se a conta tem pelo menos permissões de colaborador de RDS.
+- Confirme se o nome do pool de hosts é preciso e se o pool de hosts existe na área de trabalho virtual do Windows.
+- Confirme se a conta tem pelo menos permissões de colaborador na assinatura do Azure ou no grupo de recursos.
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Erro: falha na autenticação, erro em C:\Windows\Temp\ScriptLog.log
 
@@ -106,16 +112,16 @@ Siga estas instruções para confirmar se os componentes estão instalados e par
 **Correção:** Confirme os itens na lista a seguir.
 
 - Registre manualmente as VMs com o serviço de área de trabalho virtual do Windows.
-- Confirme que a conta usada para conexão com a área de trabalho virtual do Windows tem permissões no locatário para criar pools de hosts.
+- Confirme que a conta usada para conexão com a área de trabalho virtual do Windows tem permissões na assinatura do Azure ou no grupo de recursos para criar pools de hosts.
 - A conta de confirmação não tem MFA.
 
 ## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>O agente de área de trabalho virtual do Windows não está se registrando no serviço de área de trabalho virtual do Windows
 
-Quando o agente de área de trabalho virtual do Windows é instalado pela primeira vez em VMs de host de sessão (manualmente ou por meio do modelo de Azure Resource Manager e DSC do PowerShell), ele fornece um token de registro. A seção a seguir aborda a solução de problemas aplicáveis ao agente de área de trabalho virtual do Windows e ao token.
+Quando o agente de área de trabalho virtual do Windows é instalado pela primeira vez em VMs de host de sessão (manualmente ou por meio do modelo de Azure Resource Manager e DSC do PowerShell), ele fornece um token de registro. A seção a seguir aborda a solução de problemas que se aplicam ao agente de área de trabalho virtual do Windows e ao token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: o status arquivado no cmdlet Get-RdsSessionHost mostra o status como indisponível
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: o status arquivado no cmdlet Get-AzWvdSessionHost mostra o status como indisponível
 
-![O cmdlet Get-RdsSessionHost mostra o status como indisponível.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![O cmdlet Get-AzWvdSessionHost mostra o status como indisponível.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Causa:** O agente não é capaz de se atualizar para uma nova versão.
 
@@ -128,17 +134,17 @@ Quando o agente de área de trabalho virtual do Windows é instalado pela primei
 5. Conclua o assistente de instalação.
 6. Abra o Gerenciador de tarefas e inicie o serviço RDAgentBootLoader.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Erro: a entrada do registro isregister do agente de área de trabalho virtual do Windows mostra um valor de 0
+## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Erro: a entrada do registro isregister do agente de área de trabalho virtual do Windows mostra um valor de 0
 
 **Causa:** O token de registro expirou ou foi gerado com o valor de expiração de 999999.
 
 **Correção:** Siga estas instruções para corrigir o erro de registro do agente.
 
-1. Se já houver um token de registro, remova-o com Remove-RDSRegistrationInfo.
-2. Gerar novo token com RDS-NewRegistrationInfo.
-3. Confirme se o parâmetro-ExpriationHours está definido como 72 (o valor máximo é 99999).
+1. Se já houver um token de registro, remova-o com Remove-AzWvdRegistrationInfo. 
+2. Execute o cmdlet **New-AzWvdRegistrationInfo** para gerar um novo token. 
+3. Confirme se o parâmetro *-ExpriationTime* está definido como 3 dias.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Erro: o agente de área de trabalho virtual do Windows não está relatando uma pulsação ao executar Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Erro: o agente de área de trabalho virtual do Windows não está relatando uma pulsação ao executar Get-AzWvdSessionHost
 
 **Causa 1:** O serviço RDAgentBootLoader foi interrompido.
 
@@ -180,7 +186,7 @@ A pilha lado a lado da área de trabalho virtual do Windows é instalada automat
 
 Há três maneiras principais pelas quais a pilha lado a lado é instalada ou habilitada nas VMs do pool de hosts de sessão:
 
-- Com a Azure Resource Manager **criar e provisionar o novo modelo de pool de hosts de área de trabalho virtual**
+- Com o modelo de criação de portal do Azure
 - Ao ser incluído e habilitado na imagem mestra
 - Instalado ou habilitado manualmente em cada VM (ou com extensões/PowerShell)
 
@@ -209,13 +215,7 @@ Examine as entradas de registro listadas abaixo e confirme se seus valores corre
 **Correção:** Siga estas instruções para instalar a pilha lado a lado na VM host de sessão.
 
 1. Use protocolo RDP (RDP) para obter diretamente a VM host da sessão como administrador local.
-2. Baixe e importe [o módulo do PowerShell de área de trabalho virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usar em sua sessão do PowerShell, se ainda não tiver feito isso, execute este cmdlet para entrar em sua conta:
-
-    ```powershell
-    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-    ```
-
-3. Instale a pilha lado a lado usando [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md).
+2. Instale a pilha lado a lado usando [criar um pool de hosts com o PowerShell](create-host-pools-powershell.md).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Como corrigir uma pilha lado a lado da área de trabalho virtual do Windows que não funciona corretamente
 
@@ -339,7 +339,7 @@ Reimplante o sistema operacional do host com a versão mais recente da imagem do
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
-- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues.md).
+- Para solucionar problemas durante a criação de um pool de hosts em um ambiente de área de trabalho virtual do Windows, consulte [ambiente e criação de pool de hosts](troubleshoot-set-up-issues.md).
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [conexões do serviço área de trabalho virtual do Windows](troubleshoot-service-connection.md).
 - Para solucionar problemas com clientes Área de Trabalho Remota, consulte [solucionar problemas do cliente área de trabalho remota](troubleshoot-client.md)

@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: d0fd9999abc4a67ded0f66977e1a3ba5310c87be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 466c47492de9c2fc86f309f4cb74df1ff5411dcb
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383042"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929291"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Visão geral do Azure HDInsight 4.0
 
@@ -93,8 +93,12 @@ Não há nenhum caminho de atualização com suporte de versões anteriores do H
 * O HDInsight 4,0 não oferece suporte a Apache Storm.
 * A exibição do Hive não está mais disponível no HDInsight 4.0.
 * O interpretador de Shell no Apache Zeppelin não tem suporte em clusters de consulta do Spark e interativo.
-* Não é possível *desabilitar* o LLAP em um cluster Spark-LLAP. Você só pode desligar o LLAP.
-* Azure Data Lake Storage Gen2 não pode salvar notebooks Jupyter em um cluster Spark.
+* Não é possível *desabilitar* o LLAP em um cluster Spark-LLAP. Você pode apenas desativar o LLAP.
+* O Azure Data Lake Storage Gen2 não é capaz de salvar Jupyter Notebooks em um cluster Spark.
+* O Apache Pig é executado no tez por padrão, no entanto, você pode alterá-lo para o MapReduce
+* A integração do Spark SQL Ranger para segurança de linha e coluna foi preterida
+* O Spark 2,4 e o Kafka 2,1 estão disponíveis no HDInsight 4,0, portanto, o Spark 2,3 e o Kafka 1,1 não têm mais suporte. É recomendável usar o Spark 2,4 & Kafka 2,3 e superior no HDInsight 4,0.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

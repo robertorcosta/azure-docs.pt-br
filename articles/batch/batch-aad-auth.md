@@ -3,12 +3,13 @@ title: Autenticar serviços do lote do Azure com Azure Active Directory
 description: O Lote dá suporte ao Azure AD para autenticação por meio do serviço do Lote. Saiba como autenticar de uma de duas maneiras.
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116172"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608465"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
@@ -35,9 +36,9 @@ Para autenticar no Azure AD, use esse ponto de extremidade junto com a ID do loc
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-> [!NOTE] 
-> O ponto de extremidade específico ao locatário é necessário quando você realiza uma autenticação usando uma entidade de serviço. 
-> 
+> [!NOTE]
+> O ponto de extremidade específico ao locatário é necessário quando você realiza uma autenticação usando uma entidade de serviço.
+>
 > O ponto de extremidade específico ao locatário é opcional, mas recomendado, quando você realiza uma autenticação usando a autenticação integrada. No entanto, você também pode usar o ponto de extremidade comum do Azure AD. O ponto de extremidade comum fornece uma interface genérica de coleta de credenciais quando um locatário específico não é fornecido. O ponto de extremidade comum é `https://login.microsoftonline.com/common`.
 >
 >
@@ -126,7 +127,7 @@ Para autenticar com uma entidade de serviço, você precisa atribuir o RBAC ao s
 1. Na seção **configurações** da conta do lote, selecione **controle de acesso (iam)**.
 1. Selecione a guia **Atribuições de função**.
 1. Selecione **Adicionar atribuição de função**.
-1. Na lista suspensa **Função**, escolha a função *Colaborador* ou *Leitor* para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).  
+1. Na lista suspensa **Função**, escolha a função *Colaborador* ou *Leitor* para o aplicativo. Para obter mais informações sobre essas funções, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../role-based-access-control/overview.md).
 1. No campo **Selecionar**, insira o nome de seu aplicativo. Selecione o aplicativo na lista e, em seguida, selecione **salvar**.
 
 O aplicativo agora deverá ser exibido nas configurações de controle de acesso com uma função RBAC atribuída.
@@ -209,7 +210,7 @@ A ID do locatário identifica o locatário do Azure AD que fornece serviços de 
 Os exemplos de código desta seção mostram como realizar a autenticação com o Azure AD usando a autenticação integrada e com uma entidade de serviço. A maioria desses exemplos de código usa o .NET, mas os conceitos são semelhantes para outras linguagens.
 
 > [!NOTE]
-> Um token de autenticação do AD do Azure expirará após uma hora. Ao usar uma vida útil longa **BatchClient** de objeto, é recomendável que você recuperar um token da ADAL em cada solicitação para garantir que você sempre tenha um token válido. 
+> Um token de autenticação do AD do Azure expirará após uma hora. Ao usar uma vida útil longa **BatchClient** de objeto, é recomendável que você recuperar um token da ADAL em cada solicitação para garantir que você sempre tenha um token válido.
 >
 >
 > Para fazer isso no .NET, escrever um método que recupera o token do AD do Azure e passar esse método para um **BatchTokenCredentials** objeto como um delegado. O método de representante é chamado em cada solicitação para o serviço de lote para garantir que um token válido seja fornecido. Por padrão ADAL armazena em cache os tokens, para que um novo token é recuperado do AD do Azure somente quando necessário. Para saber mais sobre tokens no AD do Azure, veja [Cenários de autenticação do AD do Azure][aad_auth_scenarios].
@@ -266,9 +267,9 @@ public static async Task<string> GetAuthenticationTokenAsync()
     var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri, 
-                                                        ClientId, 
-                                                        new Uri(RedirectUri), 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri,
+                                                        ClientId,
+                                                        new Uri(RedirectUri),
                                                         new PlatformParameters(PromptBehavior.Auto));
 
     return authResult.AccessToken;
@@ -307,7 +308,7 @@ Referencie o ponto de extremidade do Azure AD no código, incluindo a ID do loca
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Referencie o ponto de extremidade de recursos do serviço do Lote:  
+Referencie o ponto de extremidade de recursos do serviço do Lote:
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -372,7 +373,7 @@ Ao usar uma entidade de serviço, você deverá fornecer a ID do locatário. Par
 TENANT_ID = "<tenant-id>"
 ```
 
-Referencie o ponto de extremidade de recursos do serviço do Lote:  
+Referencie o ponto de extremidade de recursos do serviço do Lote:
 
 ```python
 RESOURCE = "https://batch.core.windows.net/"

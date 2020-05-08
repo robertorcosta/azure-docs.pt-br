@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943437"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690497"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
@@ -168,7 +168,7 @@ Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas em enti
 
 Se não retornar nada, você não terá políticas criadas no locatário.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Exemplo: Definir política de HRD para um aplicativo 
+### <a name="example-set-an-hrd-policy-for-an-application"></a>Exemplo: definir uma política de HRD para um aplicativo 
 
 Neste exemplo, você cria uma política que, quando é atribuída a um aplicativo: 
 - Acelera automaticamente os usuários para uma tela de login do AD FS quando eles estão entrando em um aplicativo quando há um único domínio em seu locatário. 
@@ -251,7 +251,7 @@ Observe o **ObjectID** da política cujas atribuições você deseja listar.
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemplo: Remover uma política de HRD de um aplicativo
+### <a name="example-remove-an-hrd-policy-from-an-application"></a>Exemplo: remover uma política de HRD de um aplicativo
 #### <a name="step-1-get-the-objectid"></a>Etapa 1: obter a ObjectID
 Use o exemplo anterior para obter a **ObjectID** da política e a entidade de serviço do aplicativo da qual você deseja removê-la. 
 

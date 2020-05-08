@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77561962"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735429"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -49,7 +49,7 @@ As etapas a seguir descrevem um fluxo de trabalho típico para uma solicitação
 
     A solicitação está agora em um estado **notificado do cliente** , aguardando a aprovação do cliente antes de conceder acesso.
 
-7. Na organização do cliente, o usuário que tem a [função proprietário](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) para a assinatura do Azure recebe um email da Microsoft para notificá-los sobre a solicitação de acesso pendente. Para solicitações de Sistema de Proteção de Dados do Cliente, essa pessoa é o aprovador designado.
+7. Na organização do cliente, o usuário que tem a [função proprietário](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) para a assinatura do Azure recebe um email da Microsoft para notificá-los sobre a solicitação de acesso pendente. Para solicitações de Sistema de Proteção de Dados do Cliente, essa pessoa é o aprovador designado.
 
     Email de exemplo:
 
@@ -65,7 +65,7 @@ As etapas a seguir descrevem um fluxo de trabalho típico para uma solicitação
 
     ![Sistema de Proteção de Dados do Cliente do Azure – exibir a solicitação pendente](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. O aprovador designado também pode selecionar a **ID de solicitação de serviço** para exibir a solicitação de tíquete de suporte que foi criada pelo usuário original. Essas informações fornecem contexto sobre por que Suporte da Microsoft está envolvido e o histórico do problema relatado. Por exemplo:
+10. O aprovador designado também pode selecionar a **ID de solicitação de serviço** para exibir a solicitação de tíquete de suporte que foi criada pelo usuário original. Essas informações fornecem contexto sobre por que Suporte da Microsoft está envolvido e o histórico do problema relatado. Por exemplo: 
 
     ![Sistema de Proteção de Dados do Cliente do Azure – exibir a solicitação de tíquete de suporte](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 

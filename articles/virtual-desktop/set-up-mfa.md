@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 069d2a153e307ed94032ce1d980f26521969fc56
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: a769b5584abbd6da89ccb6032e5f0c5ac8ea1cb1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508303"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930515"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitar a autenticação multifator do Azure para área de trabalho virtual do Windows
 
@@ -34,24 +34,29 @@ Veja o que você precisará para começar:
 > [!NOTE]
 > A configuração a seguir também se aplica ao [cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
 
-## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
+## <a name="create-a-conditional-access-policy"></a>Criar política de Acesso Condicional
 
 Esta seção mostrará como criar uma política de acesso condicional que requer autenticação multifator ao se conectar à área de trabalho virtual do Windows.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
-1. Selecione **nova política**.
-1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **Atribuições**, selecione **Usuários e Grupos**.
-   1. Em **incluir**, selecione **Selecionar usuários e grupos** > **usuários e grupos** > escolha o grupo criado no estágio pré-requisitos.
-   1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações** > **incluem**, selecione **selecionar aplicativos**.
-   1. Escolha **área de trabalho virtual** do Windows e **cliente de área de trabalho virtual do Windows**e selecione **selecionar** e **concluído**.
-   ![Uma captura de tela da página de aplicativos ou ações na nuvem. Os aplicativos cliente de área de trabalho virtual do Windows e área de trabalho virtual do Windows são realçados em vermelho.](media/cloud-apps-enterprise-selected.png)
-1. Em **Access controls** > **concessão**de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator**e, em seguida, **selecione**.
-1. Em **Access controls** > **sessão**de controles de acesso, selecione **frequência de entrada**, defina o valor como **1** e a unidade para **horas**e, em seguida, **selecione**.
-1. Confirme suas configurações e defina **habilitar política** como **ativado**.
-1. Selecione **criar** para habilitar sua política.
+2. Navegue até **Azure Active Directory** > **Security** > **acesso condicional**de segurança.
+3. Selecione **nova política**.
+4. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
+5. Em **Atribuições**, selecione **Usuários e Grupos**.
+   - Em **incluir**, selecione **Selecionar usuários e grupos** > **usuários e grupos** > escolha o grupo criado no estágio pré-requisitos.
+   - Selecione **Concluído**.
+6. Em **aplicativos de nuvem ou ações** > **incluem**, selecione **selecionar aplicativos**.
+   - Escolha **área de trabalho virtual do Windows** (ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07), em seguida, **selecione**e, em seguida, **concluído**.
+   
+     ![Uma captura de tela da página de aplicativos ou ações na nuvem. Os aplicativos cliente de área de trabalho virtual do Windows e área de trabalho virtual do Windows são realçados em vermelho.](media/cloud-apps-enterprise.png)
+
+     >[!NOTE]
+     >Para localizar a ID do aplicativo que você deseja selecionar, vá para **aplicativos empresariais** e selecione aplicativos da **Microsoft** no menu suspenso tipo de aplicativo.
+
+7. Em **Access controls** > **concessão**de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator**e, em seguida, **selecione**.
+8. Em **Access controls** > **sessão**de controles de acesso, selecione **frequência de entrada**, defina o valor como **1** e a unidade para **horas**e selecione **selecionar**.
+9. Confirme suas configurações e defina **habilitar política** como **ativado**.
+10. Selecione **criar** para habilitar sua política.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137655"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692457"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gerenciar Propriedades de BLOB e metadados com o .NET
 
@@ -24,6 +24,11 @@ Além dos dados que eles contêm, os BLOBs dão suporte a propriedades do sistem
 - **Propriedades do sistema**: existem propriedades do sistema em cada recurso de armazenamento de BLOBs. Algumas podem ser lidas ou definidas, enquanto outras são de somente leitura. Internamente, algumas propriedades do sistema correspondem a certos cabeçalhos HTTP padrão. A biblioteca de cliente de armazenamento do Azure para .NET mantém essas propriedades para você.
 
 - **Metadados definidos pelo usuário**: os metadados definidos pelo usuário consistem em um ou mais pares de nome-valor que você especifica para um recurso de armazenamento de BLOBs. Você pode usar metadados para armazenar valores adicionais com o recurso. Os valores de metadados são apenas para suas próprias finalidades e não afetam a forma como o recurso se comporta.
+
+> [!NOTE]
+> As marcas de índice de blob também fornecem a capacidade de armazenar atributos de chave/valor arbitrários definidos pelo usuário junto com um recurso de armazenamento de BLOBs. Embora seja semelhante aos metadados, somente as marcas de índice de blob são indexadas automaticamente e tornam-se consultáveis pelo serviço blob nativo. Os metadados não podem ser indexados nativamente e consultados a menos que você utilize um serviço separado, como Azure Search.
+>
+> Para saber mais sobre esse recurso, consulte [gerenciar e localizar dados no armazenamento de BLOBs do Azure com o índice de BLOB (versão prévia)](storage-manage-find-blobs.md).
 
 Recuperar metadados e valores de propriedade para um recurso de armazenamento de BLOBs é um processo de duas etapas. Antes de poder ler esses valores, você deve obtê-los explicitamente chamando o `FetchAttributes` método `FetchAttributesAsync` ou. A exceção a essa regra é que os `Exists` métodos `ExistsAsync` e chamam o método `FetchAttributes` apropriado nos bastidores. Ao chamar um desses métodos, você não precisa também chamar `FetchAttributes`.
 
@@ -158,7 +163,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Definir operação de propriedades de BLOB](/rest/api/storageservices/set-blob-properties)
 - [Operação de obtenção de propriedades de BLOB](/rest/api/storageservices/get-blob-properties)
