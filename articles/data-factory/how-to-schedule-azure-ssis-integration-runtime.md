@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 50ff0afe13b5b098fbc8d9fbeefba295a6217192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606080"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584011"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Azure-SSIS Integration Runtime em um agendamento
 
@@ -117,7 +117,7 @@ Se você criar um terceiro gatilho agendado para ser executado diariamente à me
     1. Para **Função**, selecione **Colaborador**. 
     2. Para **Atribuir acesso a**, selecione **Usuário, grupo ou entidade de serviço do Azure AD**. 
     3. Para **Selecionar**, pesquise o nome do ADF e selecione-o. 
-    4. Clique em **Salvar**.
+    4. Clique em **Save** (Salvar).
     
    ![Atribuição de Função de Identidade Gerenciada do ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
@@ -353,7 +353,7 @@ A seção a seguir fornece as etapas para criar um runbook do PowerShell. O scri
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Criar agendas para seu runbook para iniciar/parar o Azure-SSIS IR
 
-Na seção anterior, você criou um runbook de Automação do Azure que pode iniciar ou parar o Azure-SSIS IR. Nesta seção, você criará dois agendamentos para seu runbook. Ao configurar o primeiro agendamento, você especifica **START** para **OPERATION**. Da mesma forma, ao configurar o segundo, especifique **STOP** para **OPERATION**. Para obter etapas detalhadas criar agendas, veja o artigo [Criar uma agenda](../automation/shared-resources/schedules.md#creating-a-schedule).
+Na seção anterior, você criou um runbook de Automação do Azure que pode iniciar ou parar o Azure-SSIS IR. Nesta seção, você criará dois agendamentos para seu runbook. Ao configurar o primeiro agendamento, você especifica **START** para **OPERATION**. Da mesma forma, ao configurar o segundo, especifique **STOP** para **OPERATION**. Para obter etapas detalhadas criar agendas, veja o artigo [Criar uma agenda](../automation/shared-resources/schedules.md#create-a-schedule).
 
 1. Na janela **Runbook**, selecione **Agendamentos**, e selecione **+ Adicionar um agendamento** na barra de ferramentas. 
 

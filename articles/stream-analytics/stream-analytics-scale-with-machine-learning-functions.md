@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 5b08625d055063b3804a35a3344ff01c7edb79de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e2c99274df90d232754c862f3174b5767392cec
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066997"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929036"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Dimensionar seu trabalho de Stream Analytics com funções Azure Machine Learning Studio (clássicas)
 
@@ -58,7 +58,7 @@ Em geral, sendo ***B*** o tamanho do lote e ***L*** a latência do serviço Web 
 
 Você também pode configurar o ' máximo de chamadas simultâneas ' no serviço Web do Machine Learning. É recomendável definir esse parâmetro para o valor máximo (200 no momento).
 
-Para saber mais sobre essa configuração, confira o [artigo sobre dimensionamento de serviços Web do Machine Learning](../machine-learning/studio/scaling-webservice.md).
+Para saber mais sobre essa configuração, confira o [artigo sobre dimensionamento de serviços Web do Machine Learning](../machine-learning/studio/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Exemplo – análise de sentimento
 O exemplo a seguir inclui um trabalho do Stream Analytics com a função do Machine Learning de análise de sentimento, conforme descrito no [Tutorial de integração do Machine Learning do Stream Analytics](stream-analytics-machine-learning-integration-tutorial.md).

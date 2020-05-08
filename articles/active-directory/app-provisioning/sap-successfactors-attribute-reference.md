@@ -1,33 +1,37 @@
 ---
-title: Referência de atributo SAP SuccessFactors | Microsoft Docs
+title: Referência de atributo SAP SuccessFactors
 description: Saiba quais atributos de SuccessFactors são suportados pelo provisionamento controlado por SuccessFactors-HR
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522349"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593177"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referência de atributo SAP SuccessFactors
 
+Neste artigo, você encontrará informações sobre:
+
+- [Atributos e entidades SuccessFactors com suporte](#supported-successfactors-entities-and-attributes)
+- [Mapeamento de atributo padrão](#default-attribute-mapping)
+
 ## <a name="supported-successfactors-entities-and-attributes"></a>Atributos e entidades SuccessFactors com suporte
 
-A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos dois aplicativos de provisionamento a seguir: 
-* [SuccessFactors para Active Directory provisionamento de usuário](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-* [SuccessFactors para provisionamento de usuário do Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
+A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos dois aplicativos de provisionamento a seguir:
+
+- [SuccessFactors para Active Directory provisionamento de usuário](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [SuccessFactors para provisionamento de usuário do Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+
 
 | \# | Entidade SuccessFactors                  | Atributo SuccessFactors     | Tipo de operação |
 |----|----------------------------------------|------------------------------|----------------|
@@ -111,7 +115,6 @@ A tabela a seguir captura a lista de atributos SuccessFactors com suporte nos do
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Ler           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | Ler           |
 
-
 ## <a name="default-attribute-mapping"></a>Mapeamento de atributo padrão
 
 A tabela a seguir fornece o mapeamento de atributo padrão entre os atributos SuccessFactors listados acima e os atributos AD/Azure AD. Na folha "mapeamento" do aplicativo de provisionamento do Azure AD, você pode modificar esse mapeamento padrão para incluir atributos da lista acima. 
@@ -130,7 +133,7 @@ A tabela a seguir fornece o mapeamento de atributo padrão entre os atributos Su
 | 10 | Usuário                                   | username                 | samAccountName                          | NA                                                                                           |
 | 11 | Usuário                                   | zipCode                  | postalCode                              | NA                                                                                           |
 | 12 | Enviar por email                               | emailAddress             | mail                                    | NA                                                                                           |
-| 13 | EmpJob                                 | jobTitle                 | título                                   | NA                                                                                           |
+| 13 | EmpJob                                 | jobTitle                 | title                                   | NA                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | NA                                                                                           |
 | 15 | EmpJob\.Company\.CountryOfRegistration | twoCharCountryCode       | c                                       | NA                                                                                           |
 | 16 | Departamento\.de EmpJob                     | department               | department                              | NA                                                                                           |
@@ -138,4 +141,3 @@ A tabela a seguir fornece o mapeamento de atributo padrão entre os atributos Su
 | 18 | Local\.EmpJob                       | officeLocationAddress    | streetAddress                           | NA                                                                                           |
 | 19 | Local\.EmpJob                       | officeLocationZipCode    | postalCode                              | NA                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | se activeEmploymentsCount = 0, desabilite o account\.                                           |
-
