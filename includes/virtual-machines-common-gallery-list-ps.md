@@ -5,19 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a55653c0f23be594fe65e7a322c11edc37ee1ce6
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: fc60d1266f4aad4c337611f0fa32fe8293744559
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67171884"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792268"
 ---
-## <a name="shared-image-management"></a>Gerenciamento de imagem compartilhada 
-
-Estes são alguns exemplos de tarefas comuns de gerenciamento e como para concluí-las usando o PowerShell.
+## <a name="list-information"></a>Listar informações
 
 Liste todas as galerias por nome.
 

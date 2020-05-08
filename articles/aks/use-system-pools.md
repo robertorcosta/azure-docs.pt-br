@@ -3,13 +3,13 @@ title: Usar pools de nós do sistema no serviço kubernetes do Azure (AKS)
 description: Saiba como criar e gerenciar pools de nós do sistema no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
-ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259061"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790551"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerenciar pools de nós do sistema no serviço kubernetes do Azure (AKS)
 
@@ -29,6 +29,8 @@ As seguintes limitações se aplicam quando você cria e gerencia clusters AKS q
 * Consulte [cotas, restrições de tamanho de máquina virtual e disponibilidade de região no serviço de kubernetes do Azure (AKs)][quotas-skus-regions].
 * O cluster AKS deve ser compilado com conjuntos de dimensionamento de máquinas virtuais como o tipo de VM.
 * O nome de um pool de nós pode conter apenas caracteres alfanuméricos minúsculos e deve começar com uma letra minúscula. Para pools de nós do Linux, o comprimento deve ter entre 1 e 12 caracteres. Para pools de nós do Windows, o comprimento deve ter entre 1 e 6 caracteres.
+* Uma versão de API de 2020-03-01 ou superior deve ser usada para definir um modo de pool de nós.
+* O modo de um pool de nós é uma propriedade necessária e deve ser definido explicitamente ao usar modelos ARM ou chamadas de API direta.
 
 ## <a name="system-and-user-node-pools"></a>Pools de nó do usuário e do sistema
 
@@ -175,4 +177,4 @@ Neste artigo, você aprendeu a criar e gerenciar pools de nós do sistema em um 
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

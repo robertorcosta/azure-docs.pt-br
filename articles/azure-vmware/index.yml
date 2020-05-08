@@ -1,0 +1,36 @@
+### YamlMime:Landing
+title: Documentação da AVS (Solução VMware no Azure)
+summary: Saiba como usar a AVS (Solução VMware no Azure) para implantar uma nuvem privada do VMware no Azure
+metadata:
+  title: Documentação da AVS (Solução VMware no Azure)
+  description: Saiba como usar a AVS (Solução VMware no Azure) para implantar uma nuvem privada do VMware no Azure
+  ms.service: azure-vmware
+  ms.topic: landing-page
+  author: dikamath
+  ms.author: dikamath
+  ms.date: 05/04/2020
+  ms.openlocfilehash: 2ae8f6bc5257dc4d7383516201912c504c4d6038
+  ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 05/04/2020
+  ms.locfileid: "82739443"
+landingContent:
+- title: Sobre a AVS (Solução VMware no Azure)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é AVS (Solução VMware no Azure)?
+      url: introduction.md
+  - linkListType: get-started
+    links:
+    - text: Lista de verificação de rede
+      url: tutorial-network-checklist.md
+  - linkListType: tutorial
+    links:
+    - text: Criar uma nuvem privada da AVS
+      url: tutorial-create-private-cloud.md
+    - text: Configurar a rede
+      url: tutorial-configure-networking.md
+    - text: Acessar a Nuvem Privada
+      url: tutorial-access-private-cloud.md

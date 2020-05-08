@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 66d7228e78f03196da0b26249e7f1f86e79d79fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/02/2020
+ms.openlocfilehash: 7f671e2a77a0a00fd1cc4338e29c14f7b8fca4f2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159006"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734715"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para PostgreSQL recursos de computação com capacidade reservada
 
@@ -22,7 +22,7 @@ Você não precisa atribuir a reserva a servidores do banco de dados do Azure es
 > [!IMPORTANT]
 > O preço da capacidade reservada só está disponível para a implantação de [servidor único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) do banco de dados do Azure para PostgreSQL e não para a implantação de [Citus de hiperescala](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) .
 
-Você pode comprar a capacidade reservada do banco de dados do Azure para PostgreSQL no [portal do Azure](https://portal.azure.com/). Para comprar a capacidade reservada:
+Você pode comprar a capacidade reservada do banco de dados do Azure para PostgreSQL no [portal do Azure](https://portal.azure.com/). Pague pela reserva [antecipadamente ou com pagamentos mensais](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar a capacidade reservada:
 
 * Você deve estar na função de proprietário de pelo menos uma assinatura corporativa ou individual com tarifas pagas conforme o uso.
 * Para as assinaturas Enterprise, a opção **Adicionar Instâncias Reservadas** deve estar habilitada no [Portal EA](https://ea.azure.com/). Ou, se essa configuração estiver desabilitada, você deve ser um administrador de EA na assinatura.

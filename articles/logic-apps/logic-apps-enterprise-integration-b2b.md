@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 01b2bd464db51e255930fe83a3f4321687322275
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77151052"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792353"
 ---
-# <a name="receive-and-send-b2b-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receber e enviar mensagens B2B usando os aplicativos lógicos do Azure e Enterprise Integration Pack
+# <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receber e confirmar mensagens AS2 de B2B usando os aplicativos lógicos do Azure e Enterprise Integration Pack
 
 Quando você tem uma conta de integração que define parceiros e contratos comerciais, você pode criar um fluxo de trabalho de B2B (Business to Business) automatizado que troca mensagens entre parceiros comerciais usando [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) com o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). Os aplicativos lógicos do Azure funcionam com conectores que dão suporte aos protocolos de padrão do setor AS2, X12, EDIFACT e RosettaNet. Você também pode combinar esses conectores com outros [conectores disponíveis nos aplicativos lógicos](../connectors/apis-list.md), por exemplo, Salesforce e Office 365 Outlook.
 

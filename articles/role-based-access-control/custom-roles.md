@@ -1,6 +1,6 @@
 ---
-title: Funções personalizadas para recursos do Azure | Microsoft Docs
-description: Saiba como criar as funções personalizadas com RBAC (controle de acesso baseado em função) para o gerenciamento de acesso refinado de recursos do Azure.
+title: Funções personalizadas do Azure – RBAC do Azure
+description: Saiba como criar funções personalizadas do Azure com o Azure RBAC (controle de acesso baseado em função) para o gerenciamento de acesso refinado de recursos do Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,27 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 04/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9454962e210781559f2fdceb1c36f499c4ae8ff7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5030fb50313e1db2173990c55930c22fdf58f559
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062179"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734783"
 ---
-# <a name="custom-roles-for-azure-resources"></a>Funções personalizadas para recursos do Azure
+# <a name="azure-custom-roles"></a>Funções personalizadas do Azure
 
 > [!IMPORTANT]
 > A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se as [funções internas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Assim como as funções internas, você pode atribuir funções personalizadas a usuários, grupos e entidades de serviço em escopos grupo de gerenciamento, assinatura e grupo de recursos.
+Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Assim como as funções internas, você pode atribuir funções personalizadas a usuários, grupos e entidades de serviço em escopos grupo de gerenciamento, assinatura e grupo de recursos.
 
-As funções personalizadas podem ser compartilhadas entre assinaturas que confiam no mesmo diretório do Azure AD. Há um limite de **5.000** funções personalizadas por diretório. (Para Azure Alemanha e Azure China 21Vianet, o limite é de 2.000 funções personalizadas.) As funções personalizadas podem ser criadas usando o portal do Azure (visualização), Azure PowerShell, CLI do Azure ou a API REST.
+As funções personalizadas podem ser compartilhadas entre assinaturas que confiam no mesmo diretório do Azure AD. Há um limite de **5.000** funções personalizadas por diretório. (Para Azure Alemanha e Azure China 21Vianet, o limite é de 2.000 funções personalizadas.) As funções personalizadas podem ser criadas usando o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST.
 
 ## <a name="custom-role-example"></a>Exemplo de função personalizada
 
@@ -75,7 +75,7 @@ Quando você cria uma função personalizada, ela aparece no portal do Azure com
 
 1. Decidir como você deseja criar a função personalizada
 
-    Você pode criar funções personalizadas usando [portal do Azure](custom-roles-portal.md) (visualização), [Azure PowerShell](custom-roles-powershell.md), [CLI do Azure](custom-roles-cli.md)ou a [API REST](custom-roles-rest.md).
+    Você pode criar funções personalizadas usando [portal do Azure](custom-roles-portal.md), [Azure PowerShell](custom-roles-powershell.md), [CLI do Azure](custom-roles-cli.md)ou a [API REST](custom-roles-rest.md).
 
 1. Determinar as permissões necessárias
 
@@ -89,13 +89,13 @@ Quando você cria uma função personalizada, ela aparece no portal do Azure com
 
     Quando tiver sua função personalizada, será necessário testá-la para verificar se funciona como o esperado. Se você precisar fazer ajustes mais tarde, você pode atualizar a função personalizada.
 
-Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [Tutorial: criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: criar uma função personalizada usando a CLI do Azure](tutorial-custom-role-cli.md).
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [tutorial: criar uma função personalizada do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md) ou [tutorial: criar uma função personalizada do Azure usando CLI do Azure](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propriedades da função personalizada
 
 Uma função personalizada tem as seguintes propriedades.
 
-| Propriedade | Obrigatório | Type | Descrição |
+| Propriedade | Obrigatório | Type | Description |
 | --- | --- | --- | --- |
 | `Name` | Sim | String | O nome de exibição da função personalizada. Embora uma definição de função seja um grupo de gerenciamento ou recurso de nível de assinatura, uma definição de função pode ser usada em várias assinaturas que compartilham o mesmo diretório do AD do Azure. Esse nome de exibição precisa ser exclusivo no escopo do diretório do Azure AD. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é 128. |
 | `Id` | Sim | String | A ID exclusiva da função personalizada. Para o Azure PowerShell e a CLI do Azure, essa ID é gerada automaticamente ao criar uma nova função. |
@@ -131,6 +131,6 @@ A lista a seguir descreve os limites para funções personalizadas.
 Para obter mais informações sobre funções personalizadas e grupos de gerenciamento, consulte [organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar ou atualizar funções personalizadas do Azure usando o portal do Azure (versão prévia)](custom-roles-portal.md)
-- [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md)
-- [Solução de problemas com o RBAC para recursos do Azure](troubleshooting.md)
+- [Criar ou atualizar funções personalizadas do Azure usando o portal do Azure](custom-roles-portal.md)
+- [Entender as definições de função do Azure](role-definitions.md)
+- [Solucionar problemas do RBAC do Azure](troubleshooting.md)

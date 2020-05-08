@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 476a2d910b916ea29132b108478d06f756454813
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2973428354f101b5b546128b08bf67587923a8e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75463295"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793067"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Atualizar a configuração de um cluster no Azure 
 
@@ -26,7 +26,7 @@ Este artigo descreve como personalizar as várias configurações de malha e a p
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalize as configurações do cluster, utilizando os modelos do Resource Manager
 Clusters do Azure podem ser configurados por meio do modelo do Resource Manager do JSON. Para saber mais sobre as diferentes configurações, consulte [Definições de configuração para clusters](service-fabric-cluster-fabric-settings.md). Por exemplo, as etapas a seguir mostram como adicionar uma nova configuração *MaxDiskQuotaInMB* à seção *diagnóstico* usando o Gerenciador de recursos do Azure.
 
-1. Acesse https://resources.azure.com
+1. Ir para https://resources.azure.com
 2. Navegue até sua assinatura expandindo **assinaturas** -> **\<sua assinatura>**  ->  **resourceGroups** -> **\<seu grupo de recursos>**  ->  **provedores** -> **Microsoft. Service Fabric** -> **clusters** -> **\<seu nome de cluster>**
 3. No canto superior direito, selecione **leitura/gravação.**
 4. Selecione **Editar** e atualize o `fabricSettings` elemento JSON e adicione um novo elemento:
@@ -53,4 +53,4 @@ Você também pode personalizar as configurações de cluster em uma das maneira
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
-* Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md).
+* Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-in-out.md).

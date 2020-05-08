@@ -1,6 +1,6 @@
 ---
-title: Visualize seus dados usando painéis com base em pastas de trabalho Azure Monitor no Azure Sentinel | Microsoft Docs
-description: Use este tutorial para aprender a visualizar seus dados usando painéis baseados em pastas de trabalho no Azure Sentinel.
+title: Visualize seus dados usando Azure Monitor pastas de trabalho no Azure sentinela | Microsoft Docs
+description: Use este tutorial para aprender a visualizar seus dados usando pastas de trabalho no Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/01/2020
+ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f145b75ba351121bf750f90dbc0a7df382ca04b1
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585213"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739153"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar e monitorar seus dados
 
 
 
-Depois de [conectar suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, você pode visualizar e monitorar os dados usando a adoção do Azure Sentinel de Azure monitor pastas de trabalho, que fornece versatilidade na criação de painéis personalizados. Embora as pastas de trabalho sejam exibidas de forma diferente no Azure Sentinel, pode ser útil ver como [criar relatórios interativos com pastas de trabalho do Azure monitor](../azure-monitor/app/usage-workbooks.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter insights rapidamente em seus dados assim que você conectar uma fonte de dados.
+Depois de [conectar suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, você poderá visualizar e monitorar os dados usando a adoção do Azure Sentinel de Azure monitor pastas de trabalho, que fornece versatilidade na criação de painéis personalizados. Embora as pastas de trabalho sejam exibidas de forma diferente no Azure Sentinel, pode ser útil ver como [criar relatórios interativos com pastas de trabalho do Azure monitor](../azure-monitor/app/usage-workbooks.md). O Azure Sentinel permite que você crie pastas de trabalho personalizadas em seus dados e também vem com modelos de pasta de trabalho internos para que você possa obter insights rapidamente em seus dados assim que você conectar uma fonte de dados.
 
 
 Este tutorial ajuda você a visualizar seus dados no Azure Sentinel.
@@ -38,7 +38,7 @@ Este tutorial ajuda você a visualizar seus dados no Azure Sentinel.
 - Você deve ter pelo menos as permissões de colaborador ou leitor de pasta de trabalho no grupo de recursos do espaço de trabalho do Azure Sentinel.
 
 > [!NOTE]
-> As pastas de trabalho que você pode ver no Azure Sentinel são salvas no grupo de recursos de espaço de trabalho do Azure Sentinel e são marcadas pelo espaço de trabalho no qual foram criadas.
+> As pastas de trabalho que você pode ver no Azure Sentinel são salvas no grupo de recursos do espaço de trabalho do Azure Sentinel e são marcadas pelo espaço de trabalho no qual foram criadas.
 
 ## <a name="use-built-in-workbooks"></a>Usar pastas de trabalho internas
 

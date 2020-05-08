@@ -4,12 +4,12 @@ description: Saiba como criar e gerenciar vários pools de nós para um cluster 
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259078"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610914"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Criar e gerenciar vários pools de nós para um cluster no serviço de kubernetes do Azure (AKS)
 
@@ -722,22 +722,65 @@ az group deployment create \
 
 Pode levar alguns minutos para atualizar o cluster AKS dependendo das configurações do pool de nós e das operações definidas no modelo do Resource Manager.
 
-## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Atribuir um IP público por nó para um pool de nós (versão prévia)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Atribuir um IP público por nó para seus pools de nós (visualização)
 
 > [!WARNING]
-> Durante a versão prévia de atribuição de um IP público por nó, ele não pode ser usado com o *Standard Load BALANCER SKU em AKs* devido a possíveis regras do balanceador de carga em conflito com o provisionamento de VM. Como resultado dessa limitação, os pools do agente do Windows não têm suporte com esse recurso de visualização. Enquanto estiver na versão prévia, você deverá usar o *SKU do Load Balancer básico* se precisar atribuir um IP público por nó.
+> Você deve instalar a extensão de visualização da CLI 0.4.43 ou superior para usar o recurso IP público por nó.
 
 Os nós AKS não exigem seus próprios endereços IP públicos para comunicação. No entanto, os cenários podem exigir que os nós em um pool de nós recebam seus próprios endereços IP públicos dedicados. Um cenário comum é para cargas de trabalho de jogos, em que um console precisa fazer uma conexão direta com uma máquina virtual de nuvem para minimizar os saltos. Esse cenário pode ser obtido em AKS registrando-se para um recurso de visualização, o IP público do nó (versão prévia).
 
-Registre-se para o recurso de IP público do nó emitindo o comando CLI do Azure a seguir.
+Para instalar e atualizar a extensão AKs-Preview mais recente, use os seguintes comandos de CLI do Azure:
+
+```azurecli
+az extension add --name aks-preview
+az extension update --name aks-preview
+az extension list
+```
+
+Registre-se para o recurso de IP público do nó com o seguinte comando de CLI do Azure:
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
+Pode levar vários minutos para que o recurso seja registrado.  Você pode verificar o status com o seguinte comando:
 
-Após o registro bem-sucedido, implante um modelo de Azure Resource Manager seguindo as mesmas instruções [acima](#manage-node-pools-using-a-resource-manager-template) e adicione a propriedade `enableNodePublicIP` booliana a agentPoolProfiles. Defina o valor `true` como, por padrão, é definido como `false` se não for especificado. 
+```azurecli-interactive
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
+```
 
-Esta propriedade é uma propriedade somente de tempo de criação e requer uma versão de API mínima de 2019-06-01. Isso pode ser aplicado a pools de nós do Linux e do Windows.
+Após o registro bem-sucedido, crie um novo grupo de recursos.
+
+```azurecli-interactive
+az group create --name myResourceGroup2 --location eastus
+```
+
+Crie um novo cluster AKS e anexe um IP público para seus nós. Cada um dos nós no pool de nós recebe um IP público exclusivo. Você pode verificar isso examinando as instâncias do conjunto de dimensionamento de máquinas virtuais.
+
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+Para clusters AKS existentes, você também pode adicionar um novo pool de nós e anexar um IP público para seus nós.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
+
+> [!Important]
+> Durante a visualização, o serviço de metadados de instância do Azure atualmente não dá suporte à recuperação de endereços IP públicos para a SKU de VM da camada Standard. Devido a essa limitação, você não pode usar comandos kubectl para exibir os IPs públicos atribuídos aos nós. No entanto, os IPs são atribuídos e funcionam conforme o esperado. Os IPs públicos para seus nós são anexados às instâncias em seu conjunto de dimensionamento de máquinas virtuais.
+
+Você pode localizar os IPs públicos para seus nós de várias maneiras:
+
+* Use o comando CLI do Azure [AZ vmss List-Instance-Public-IPS][az-list-ips]
+* Use os [Comandos PowerShell ou bash][vmss-commands]. 
+* Você também pode exibir os IPs públicos no portal do Azure exibindo as instâncias no conjunto de dimensionamento de máquinas virtuais.
+
+> [!Important]
+> O [grupo de recursos de nó][node-resource-group] contém os nós e seus IPs públicos. Use o grupo de recursos do nó ao executar comandos para localizar os IPs públicos para seus nós.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -753,6 +796,12 @@ Para excluir o próprio cluster, use o comando [AZ Group Delete][az-group-delete
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+Você também pode excluir o cluster adicional que você criou para o cenário de IP público para pools de nós.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -795,3 +844,7 @@ Para criar e usar pools de nós de contêiner do Windows Server, consulte [criar
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md
+[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips

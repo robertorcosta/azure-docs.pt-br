@@ -1,48 +1,52 @@
 ---
-title: Gerenciamento de leads do Microsoft Commercial Marketplace com HTTPS
-description: Configure o gerenciamento de leads do Microsoft Commercial Marketplace para um ponto de extremidade HTTPS.
+title: Gerenciamento de leads com um ponto de extremidade HTTPS-Microsoft Commercial Marketplace
+description: Saiba como usar a automatização de energia e um ponto de extremidade HTTPS para gerenciar clientes potenciais do Microsoft AppSource e do Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133728"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790976"
 ---
-# <a name="configure-lead-management-by-using-an-https-endpoint"></a>Configurar o gerenciamento de leads usando um ponto de extremidade HTTPS
+# <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Usar um ponto de extremidade HTTPS para gerenciar clientes potenciais do Marketplace comercial
+
+Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiver suporte explícito no Partner Center para receber Microsoft AppSource e leads do Azure Marketplace, você poderá usar um ponto de extremidade HTTPS na [automatização de energia](https://powerapps.microsoft.com/automate-processes/) para lidar com esses leads. Com um ponto de extremidade HTTPS, os clientes potenciais do Marketplace comercial podem ser enviados como uma notificação por email ou podem ser gravados em um sistema de CRM com suporte para a automatização de energia.
+
+Este artigo explica como criar um novo fluxo no Power Automate para gerar a URL HTTP POST que você usará para configurar clientes potenciais no Partner Center. Ele também inclui etapas para testar seu fluxo com o [postmaster](https://www.getpostman.com/downloads/).
 
 >[!NOTE]
->O conector de automatização de energia usado nestas instruções requer uma assinatura paga para automatizar a energia. Certifique-se de considerar isso antes de seguir as instruções neste artigo.
-
-Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiver suporte explícito no Partner Center para receber Microsoft AppSource e leads do Azure Marketplace, você poderá usar um ponto de extremidade HTTPS na automatização de energia para lidar com esses leads. Com um ponto de extremidade HTTPS, esses clientes potenciais podem ser enviados como uma notificação por email ou podem ser gravados em um sistema de CRM com suporte para a automatização de energia. As instruções neste artigo orientam você pelo processo básico para criar um novo fluxo usando o Power Automate, que gera a URL http post que você vai inserir no portal de publicação para o campo > **URL de ponto de extremidade https** de **Gerenciamento de clientes potenciais**. Também estão incluídas instruções sobre como testar seu fluxo com a ajuda de uma ferramenta chamada [postmaster](https://www.getpostman.com/downloads/), que está disponível online.
+>O conector de automatização de energia usado nestas instruções requer uma assinatura paga para automatizar a energia. Certifique-se de considerar isso antes de configurar esse fluxo.
 
 ## <a name="create-a-flow-by-using-power-automate"></a>Criar um fluxo usando o Power Automate
 
-1. Abra a página da Web [Power Automate](https://flow.microsoft.com/) . Selecione **Entrar**. Se você ainda não tiver uma conta, selecione **inscrever-se gratuitamente** para criar uma conta gratuita de energia automatizada.
+1. Abra a página da Web [Power Automate](https://flow.microsoft.com/) . Escolha **Entrar**. Se você ainda não tiver uma conta, selecione **inscrever-se gratuitamente** para criar uma conta gratuita de energia automatizada.
 
 1. Entre e selecione **meus fluxos** no menu.
 
-1. Selecione **+ automatizado--de em branco**.
+    ![Entrar em meus fluxos](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-    ![Meus fluxos + automatizados--de em branco](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+1. Em **+ novo**, selecione **+ instantâneo – de em branco**.
 
-1. Na janela **criar um fluxo automatizado** , selecione **ignorar**. 
+    ![Meus fluxos + automatizados--de em branco](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-    ![Criar uma janela de fluxo automatizada botão ignorar](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+1. Nomeie o fluxo e, em **escolha como disparar esse fluxo**, selecione **quando uma solicitação HTTP é recebida**.
 
-1. No campo **conectores de pesquisa e gatilhos** , insira **solicitação** para localizar o conector de solicitação.
-1. Em **Gatilhos**, selecione **Quando uma solicitação HTTP é recebida**. 
+    ![Criar uma janela de fluxo automatizada botão ignorar](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-    ![Menu de gatilhos](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+1. Clique na etapa de fluxo para expandi-la.
 
-1. Na janela **quando uma solicitação HTTP é recebida** , copie e cole o esquema JSON a seguir na caixa de texto **esquema JSON do corpo da solicitação** . Esse esquema é usado pela Microsoft para conter seus dados de Lead.
+    ![Expandir a etapa de fluxo](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-    ![Caixa de texto esquema JSON do corpo da solicitação](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+1. Use um dos seguintes métodos para configurar o **esquema JSON do corpo da solicitação**:
+
+    - Copie o esquema JSON na caixa de texto **esquema JSON do corpo da solicitação** .
+    - Selecione **Use o conteúdo de amostra para gerar o esquema**. Na caixa de texto **Inserir ou colar um exemplo de carga JSON** , Cole o exemplo de JSON. Selecione **Concluído** para criar o esquema.
 
     **JSON schema**
 
@@ -103,6 +107,26 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
     }
     ```
 
+    **Exemplo de JSON**
+    
+    ```json
+    {
+      "UserDetails": {
+        "FirstName": "Some",
+        "LastName": "One",
+        "Email": "someone@contoso.com",
+        "Phone": "16175555555",
+        "Country": "USA",
+        "Company": "Contoso",
+        "Title": "Esquire"
+     },
+      "LeadSource": "AzureMarketplace",
+      "ActionCode": "INS",
+      "OfferTitle": "Test Microsoft",
+      "Description": "Test run through Power Automate"
+    }
+    ```
+
 >[!NOTE]
 >Neste ponto da configuração, você pode optar por se conectar a um sistema CRM ou configurar uma notificação por email. Siga as instruções restantes com base em sua escolha.
 
@@ -157,7 +181,7 @@ Se o seu sistema de gerenciamento de relacionamento com o cliente (CRM) não tiv
 
 ### <a name="testing"></a>Testando
 
-Você pode testar se tudo funciona conforme o esperado usando uma ferramenta chamada [postmaster](https://app.getpostman.com/app/download/win64), que pode ser baixada online. Essa ferramenta está disponível para o Windows. 
+Você pode testar sua configuração com o [postmaster](https://app.getpostman.com/app/download/win64). Um download online do postmaster está disponível para o Windows. 
 
 1. Inicie o postmaster e selecione **nova** > **solicitação** para configurar sua ferramenta de teste. 
 
@@ -201,10 +225,18 @@ Você pode testar se tudo funciona conforme o esperado usando uma ferramenta cha
 
 Quando você estiver pronto para configurar as informações de gerenciamento de Lead para sua oferta no portal de publicação, siga estas etapas.
 
-1. Vá para a página de **instalação da oferta** de sua oferta.
-1. Selecione **conectar** na seção **Gerenciamento de leads** .
+1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. Selecione sua oferta e vá para a guia **instalação da oferta** .
+
+1. Na seção **Gerenciamento de leads** , selecione **conectar**. 
+    ![Botão conectar do Lead Management](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+
 1. Na janela pop-up **detalhes da conexão** , selecione **ponto de extremidade https** para o **destino do cliente potencial**. Cole a URL HTTP POST do fluxo que você criou seguindo as etapas anteriores no campo **URL do ponto de extremidade https** .
+    ![Email de contato de detalhes de conexão](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+
 1. Em **email de contato**, insira os endereços de email para as pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode fornecer vários emails separando-os com um ponto e vírgula.
+
 1. Selecione **OK**.
 
 Para verificar se você se conectou com êxito a um destino de cliente potencial, selecione o botão **validar** . Se for bem-sucedido, você terá um líder de teste no destino do cliente potencial.
@@ -213,10 +245,3 @@ Para verificar se você se conectou com êxito a um destino de cliente potencial
 >Você deve concluir a configuração do restante da oferta e publicá-la antes de receber clientes potenciais para a oferta.
 
 Quando os clientes potenciais são gerados, a Microsoft envia os leads para o fluxo. Os clientes potenciais são roteados para o sistema de CRM ou o endereço de email que você configurou.
-
-![Botão conectar do Lead Management](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
-
-![Destino de Lead de detalhes de conexão](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
-
-![Email de contato de detalhes de conexão](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
-
