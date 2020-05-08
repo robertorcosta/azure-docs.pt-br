@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c93c8e354c7c02c6a085c2baa8fd664faaf1f64
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77559140"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582624"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Atribuir funções de administrador personalizadas usando a API de Microsoft Graph no Azure Active Directory 
 
@@ -26,7 +26,7 @@ Você pode automatizar a forma como atribui funções a contas de usuário usand
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
-Conecte-se ao seu locatário do Azure AD usando uma conta de administrador global ou administrador de identidade privilegiada para atribuir ou remover funções.
+Conecte-se à sua organização do Azure AD usando uma conta de administrador global ou administrador de identidade privilegiada para atribuir ou remover funções.
 
 ## <a name="post-operations-on-roleassignment"></a>Operações POST no RoleAssignment
 

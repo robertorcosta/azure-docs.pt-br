@@ -4,14 +4,14 @@ description: Indexar dados espaciais com Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137896"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839191"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexar dados geoespaciais com Azure Cosmos DB
 
@@ -28,11 +28,17 @@ Se você especificar uma política de indexação que inclua o índice espacial 
 
 ## <a name="modifying-geospatial-data-type"></a>Modificando tipo de dados geoespaciais
 
-Em seu contêiner, o `geospatialConfig` especifica como os dados geoespaciais serão indexados. Você deve especificar um `geospatialConfig` por contêiner: geography ou Geometry. Se não for especificado, `geospatialConfig` o padrão será o tipo de dados geography. Quando você modifica o `geospatialConfig`, todos os dados geoespaciais existentes no contêiner serão reindexados.
+Em seu contêiner, a **configuração geoespacial** especifica como os dados espaciais serão indexados. Especifique uma **configuração geoespacial** por contêiner: geography ou Geometry.
 
-> [!NOTE]
-> Atualmente, Azure Cosmos DB dá suporte a modificações no geospatialConfig no SDK do .NET somente nas versões 3,6 e posteriores.
->
+Você pode alternar entre o tipo espacial **geography** e **Geometry** no portal do Azure. É importante que você crie uma [política de indexação de geometria espacial válida com uma caixa delimitadora](#geometry-data-indexing-examples) antes de alternar para o tipo espacial de geometry.
+
+Veja como definir a **configuração geoespacial** no **Data Explorer** no portal do Azure:
+
+![Definindo configuração geoespacial](./media/sql-query-geospatial-index/geospatial-configuration.png)
+
+Você também pode modificar o `geospatialConfig` no SDK do .net para ajustar a **configuração geoespacial**:
+
+Se não for especificado, `geospatialConfig` o padrão será o tipo de dados geography. Quando você modifica o `geospatialConfig`, todos os dados geoespaciais existentes no contêiner serão reindexados.
 
 Aqui está um exemplo para modificar o tipo de dados geoespaciais `geometry` para `geospatialConfig` definindo a propriedade e adicionando um **boundingBox**:
 
@@ -112,7 +118,7 @@ A caixa delimitadora consiste nas seguintes propriedades:
 
 Uma caixa delimitadora é necessária porque os dados geométricos ocupam um plano que pode ser infinito. No entanto, os índices espaciais exigem um espaço finito. Para o tipo de dados **geography** , a terra é o limite e você não precisa definir uma caixa delimitadora.
 
-Você deve criar uma caixa delimitadora que contenha todos (ou mais) dos seus dados. Somente as operações computadas nos objetos que estão inteiramente dentro da caixa delimitadora poderão utilizar o índice espacial. Você não deve tornar a caixa delimitadora significativamente maior do que a necessária, pois isso afetará negativamente o desempenho da consulta.
+Crie uma caixa delimitadora que contenha todos (ou mais) dos seus dados. Somente as operações computadas nos objetos que estão inteiramente dentro da caixa delimitadora poderão utilizar o índice espacial. Tornar a caixa delimitadora maior do que o necessário afetará negativamente o desempenho da consulta.
 
 Aqui está um exemplo de política de indexação que indexa dados de **geometria** com `geometry` **geospatialConfig** definido como:
 

@@ -1,21 +1,21 @@
 ---
-title: Biblioteca do processador de feed de alterações no Azure Cosmos DB
-description: Saiba como usar a biblioteca do processador do feed de alterações Azure Cosmos DB para ler o feed de alterações, os componentes do processador do feed de alterações
-author: markjbrown
-ms.author: mjbrown
+title: Processador do feed de alterações no Azure Cosmos DB
+description: Saiba como usar o processador de feed de alterações Azure Cosmos DB para ler o feed de alterações, os componentes do processador do feed de alterações
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 4/29/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273314"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594144"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB
 
 O processador do feed de alterações faz parte do [SDK do Azure Cosmos DB v3](https://github.com/Azure/azure-cosmos-dotnet-v3). Ele simplifica o processo de leitura do feed de alterações e distribui o processamento de eventos em vários consumidores com eficiência.
 
@@ -23,13 +23,13 @@ O principal benefício da biblioteca do processador do feed de alterações é s
 
 ## <a name="components-of-the-change-feed-processor"></a>Componentes do processador do feed de alterações
 
-Há quatro componentes principais da implementação do processador do feed de alterações: 
+Há quatro componentes principais da implementação do processador do feed de alterações:
 
 1. **Contêiner monitorado:** o contêiner monitorado possui os dados a partir dos quais o feed de alterações é gerado. Todas as inserções e atualizações do contêiner monitorado são refletidas no feed de alterações do contêiner.
 
-1. **O contêiner de concessão:** O contêiner de concessão atua como um armazenamento de estado e coordena o processamento do feed de alterações entre vários trabalhadores. O contêiner de concessão pode ser armazenado na mesma conta que o contêiner monitorado ou em uma conta separada. 
+1. **O contêiner de concessão:** O contêiner de concessão atua como um armazenamento de estado e coordena o processamento do feed de alterações entre vários trabalhadores. O contêiner de concessão pode ser armazenado na mesma conta que o contêiner monitorado ou em uma conta separada.
 
-1. **O host:** Um host é uma instância de aplicativo que usa o processador do feed de alterações para escutar alterações. Várias instâncias com a mesma configuração de concessão podem ser executadas em paralelo, mas cada instância deve ter um **nome de instância**diferente. 
+1. **O host:** Um host é uma instância de aplicativo que usa o processador do feed de alterações para escutar alterações. Várias instâncias com a mesma configuração de concessão podem ser executadas em paralelo, mas cada instância deve ter um **nome de instância**diferente.
 
 1. **O delegado:** O delegado é o código que define o que você, o desenvolvedor, deseja fazer com cada lote de alterações que o processador do feed de alterações lê. 
 
@@ -65,7 +65,11 @@ O ciclo de vida normal de uma instância de host é:
 
 ## <a name="error-handling"></a>Tratamento de erros
 
-O processador do feed de alterações é resiliente aos erros de código do usuário. Isso significa que, se sua implementação de representante tiver uma exceção sem tratamento (etapa #4), o processamento de threads que o lote específico de alterações será interrompido e um novo thread será criado. O novo thread verificará qual foi o último ponto no tempo em que o repositório de concessão tem para esse intervalo de valores de chave de partição e reiniciará de lá, enviando efetivamente o mesmo lote de alterações para o delegado. Esse comportamento continuará até que seu delegado processe as alterações corretamente e seja o motivo pelo qual o processador do feed de alterações tem uma garantia "pelo menos uma vez", porque se o código delegado for acionado, ele tentará novamente esse lote.
+O processador do feed de alterações é resiliente aos erros de código do usuário. Isso significa que, se sua implementação de representante tiver uma exceção sem tratamento (etapa #4), o processamento de threads que o lote específico de alterações será interrompido e um novo thread será criado. O novo thread verificará qual foi o último ponto no tempo em que o repositório de concessão tem para esse intervalo de valores de chave de partição e reiniciará de lá, enviando efetivamente o mesmo lote de alterações para o delegado. Esse comportamento continuará até que seu representante processe as alterações corretamente e seja o motivo pelo qual o processador do feed de alterações tem uma garantia "pelo menos uma vez", porque se o código delegado lançar uma exceção, ele tentará novamente esse lote.
+
+Para impedir que o processador do feed de alterações fique "preso" repetindo continuamente o mesmo lote de alterações, você deve adicionar lógica em seu código delegado para gravar documentos, mediante exceção, em uma fila de mensagens mortas. Esse design garante que você possa controlar as alterações não processadas enquanto ainda poderá continuar a processar alterações futuras. A fila de mensagens mortas pode ser simplesmente outro contêiner Cosmos. O armazenamento de dados exato não importa, simplesmente que as alterações não processadas sejam persistidas.
+
+Além disso, você pode usar o [estimador do feed de alterações](how-to-use-change-feed-estimator.md) para monitorar o progresso das instâncias do processador do feed de alterações à medida que elas lêem o feed de alterações. Além de monitorar se o processador do feed de alterações fica "preso" repetindo continuamente o mesmo lote de alterações, você também pode entender se o processador do feed de alterações está ficando atrasado devido a recursos disponíveis, como CPU, memória e largura de banda da rede.
 
 ## <a name="dynamic-scaling"></a>Escala dinâmica
 

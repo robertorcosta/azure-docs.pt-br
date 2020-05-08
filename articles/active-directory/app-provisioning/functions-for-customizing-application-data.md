@@ -50,8 +50,8 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **suffix** |Necessária |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
+| **original** |Necessária |String |Normalmente o nome do atributo do objeto de source. |
+| **suffix** |Necessária |String |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -101,8 +101,8 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **source1  … sourceN** | Necessária | Cadeia de caracteres |Obrigatório, número de vezes variável. Normalmente o nome do atributo do objeto de source. |
-| **defaultValue** | Opcional | Cadeia de caracteres | Valor padrão a ser usado quando todos os valores de origem forem nulos. Pode ser uma cadeia de caracteres vazia ("").
+| **source1  … sourceN** | Necessária | String |Obrigatório, número de vezes variável. Normalmente o nome do atributo do objeto de source. |
+| **defaultValue** | Opcional | String | Valor padrão a ser usado quando todos os valores de origem forem nulos. Pode ser uma cadeia de caracteres vazia ("").
 
 ---
 ### <a name="converttobase64"></a>ConvertToBase64
@@ -114,7 +114,7 @@ Retorna True se ambos os atributos têm o mesmo valor.
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Cadeia de caracteres a ser convertida em base 64|
+| **original** |Necessária |String |Cadeia de caracteres a ser convertida em base 64|
 
 **Exemplo:**<br>
 ConvertToBase64("Hello world!")                                                                                                        
@@ -130,7 +130,7 @@ ConvertToBase64("Hello world!")
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Cadeia de caracteres a ser convertida em UTF8 hex|
+| **original** |Necessária |String |Cadeia de caracteres a ser convertida em UTF8 hex|
 
 **Exemplo:**<br>
 ConvertToUTF8Hex("Hello world!")                                                                                                         
@@ -191,9 +191,9 @@ DateFromNum(129699324000000000)
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **inputFormat** |Necessária |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)consulte. |
-| **outputFormat** |Necessária |Cadeia de caracteres |Formato da data de saída. |
+| **original** |Necessária |String |Normalmente o nome do atributo do objeto de source. |
+| **inputFormat** |Necessária |String |Formato esperado do valor de source. Para formatos com suporte, [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)consulte. |
+| **outputFormat** |Necessária |String |Formato da data de saída. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -228,8 +228,8 @@ IIF ([país] = "EUA", [país], [departamento])
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **value1** |Necessária |Cadeia de caracteres |Cadeia de caracteres a ser pesquisada |
-| **value2** |Necessária |Cadeia de caracteres |Cadeia de caracteres a ser encontrada |
+| **value1** |Necessária |String |Cadeia de caracteres a ser pesquisada |
+| **value2** |Necessária |String |Cadeia de caracteres a ser encontrada |
 | **start** |Opcional |Integer |Posição inicial para localizar a subcadeia de caracteres|
 | **comparetype** |Opcional |Enum |Pode ser vbTextCompare ou vbBinaryCompare |
 
@@ -311,7 +311,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
 | **Attribute** |Necessária |Atributo |Atributo de valores múltiplos a ser pesquisado |
-| **índice** |Necessária |Integer | Índice para um item na cadeia de caracteres de valores múltiplos|
+| **index** |Necessária |Integer | Índice para um item na cadeia de caracteres de valores múltiplos|
 
 **Exemplo:**<br>
 Item ([proxyAddresses], 1)
@@ -328,8 +328,8 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **separator** |Necessária |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
-| **source1  … sourceN** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
+| **separator** |Necessária |String |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
+| **source1  … sourceN** |Obrigatório, número de vezes variável |String |Valores de cadeia de caracteres a serem unidos. |
 
 ---
 ### <a name="left"></a>Left (à esquerda)
@@ -361,7 +361,7 @@ Retorna "Joh"
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Geralmente o nome do atributo. |
+| **original** |Necessária |String |Geralmente o nome do atributo. |
 | **start** |Necessária |inteiro |Índice na cadeia de caracteres de **origem** em que a subcadeia deve iniciar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
 | **length** |Necessária |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
@@ -375,7 +375,7 @@ Retorna "Joh"
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome. |
+| **original** |Necessária |String | Geralmente um atributo de nome ou sobrenome. |
 
 ---
 ### <a name="not"></a>Not
@@ -399,7 +399,7 @@ Retorna "Joh"
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **value** |Necessária | Cadeia de caracteres | Cadeia de caracteres de data e hora no formato com suporte. Para formatos com suporte, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
+| **value** |Necessária | String | Cadeia de caracteres de data e hora no formato com suporte. Para formatos com suporte, consulte https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
 **Exemplo:**<br>
 * Exemplo de workday <br>
@@ -455,13 +455,13 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Normalmente o nome do atributo do objeto de **origem** . |
-| **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
-| **regexPattern** |Opcional |Cadeia de caracteres |Padrão Regex para o valor a ser substituído na **origem**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
-| **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
-| **replacementValue** |Opcional |Cadeia de caracteres |Novo valor com o qual substituir um antigo. |
-| **replacementAttributeName** |Opcional |Cadeia de caracteres |Nome do atributo a ser usado para o valor de substituição |
-| **modelos** |Opcional |Cadeia de caracteres |Quando o valor do **modelo** for fornecido, procuraremos **OldValue** dentro do modelo e o substituíremos pelo valor de **origem** . |
+| **original** |Necessária |String |Normalmente o nome do atributo do objeto de **origem** . |
+| **oldValue** |Opcional |String |Valor a ser substituído em **source** ou **template**. |
+| **regexPattern** |Opcional |String |Padrão Regex para o valor a ser substituído na **origem**. Ou, quando **replacementPropertyName** for usado, o padrão para extrair o valor de **replacementPropertyName**. |
+| **regexGroupName** |Opcional |String |Nome do grupo dentro de **regexPattern**. Somente quando **replacementPropertyName** for usado, extrairemos o valor desse grupo como **replacementValue** de **replacementPropertyName**. |
+| **replacementValue** |Opcional |String |Novo valor com o qual substituir um antigo. |
+| **replacementAttributeName** |Opcional |String |Nome do atributo a ser usado para o valor de substituição |
+| **modelos** |Opcional |String |Quando o valor do **modelo** for fornecido, procuraremos **OldValue** dentro do modelo e o substituíremos pelo valor de **origem** . |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -480,7 +480,7 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |Cadeia de caracteres | Lista de regras de geração de valor exclusivo para avaliar. |
+| **uniqueValueRule1  … uniqueValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras de geração de valor exclusivo para avaliar. |
 
 
 ---
@@ -493,7 +493,7 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Necessária |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Necessária |String |Objeto **[appRoleAssignments]**. |
 
 ---
 ### <a name="split"></a>Divisão
@@ -505,8 +505,8 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Valor da **origem** para atualizar. |
-| **delimitador** |Necessária |Cadeia de caracteres |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
+| **original** |Necessária |String |Valor da **origem** para atualizar. |
+| **delimitador** |Necessária |String |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -518,7 +518,7 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Valor da **origem** para atualizar. |
+| **original** |Necessária |String |Valor da **origem** para atualizar. |
 
 ---
 ### <a name="switch"></a>Alternar
@@ -530,10 +530,10 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |**Source** a atualizar. |
-| **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
-| **chave** |Necessária |Cadeia de caracteres |Parâmetro **key** com o qual comparar o valor de **source**. |
-| **value** |Necessária |Cadeia de caracteres |Valor de substituição para o **source** que corresponde ao parâmetro key. |
+| **original** |Necessária |String |**Source** a atualizar. |
+| **defaultValue** |Opcional |String |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
+| **chave** |Necessária |String |Parâmetro **key** com o qual comparar o valor de **source**. |
+| **value** |Necessária |String |Valor de substituição para o **source** que corresponde ao parâmetro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -545,8 +545,8 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
-| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+| **original** |Necessária |String |Normalmente o nome do atributo do objeto de source |
+| **cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -558,8 +558,8 @@ Retorna um atributo proxyAddress limpo em que todos os valores duplicados foram 
 
 | Nome | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **original** |Necessária |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
+| **original** |Necessária |String |Normalmente o nome do atributo do objeto de source. |
+| **cultura** |Opcional |String |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ---
 ### <a name="word"></a>Word
@@ -577,7 +577,7 @@ Se a cadeia de caracteres for menor que o número de palavras ou a cadeia não c
 | --- | --- | --- | --- |
 | **Cadeia de caracteres** |Necessária |Atributo de valores múltiplos |Cadeia de caracteres da qual retornar uma palavra.|
 | **WordNumber** |Necessária | Integer | Número que identifica qual número de palavras deve retornar|
-| **delimitadores** |Necessária |Cadeia de caracteres| Uma cadeia de caracteres que representa os delimitadores que devem ser usados para identificar palavras|
+| **delimitadores** |Necessária |String| Uma cadeia de caracteres que representa os delimitadores que devem ser usados para identificar palavras|
 
 **Exemplo:**<br>
 Word ("The Quick Brown raposa", 3, "")                                                                                       

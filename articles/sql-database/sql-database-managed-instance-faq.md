@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364155"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598480"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a instância gerenciada do banco de dados SQL
 
@@ -94,7 +94,13 @@ A alternância online automatizada entre gerações de hardware é possível se 
 
 Essa é uma operação de execução longa, pois uma nova instância gerenciada será provisionada em segundo plano e os bancos de dados são transferidos automaticamente entre a instância antiga e a nova com um failover rápido no final do processo. 
 
+**E se as duas gerações de hardware não tiverem suporte na mesma região?**
+
 Se as duas gerações de hardware não tiverem suporte na mesma região, a alteração da geração de hardware é possível, mas deve ser feita manualmente. Isso exige que você provisione uma nova instância na região onde a geração de hardware desejada esteja disponível e faça backup e restaure manualmente os dados entre a instância antiga e a nova.
+
+**E se não houver endereços IP suficientes para executar a operação de atualização?**
+
+Caso não haja endereços IP suficientes na sub-rede em que sua instância gerenciada é provisionada, você precisará criar uma nova sub-rede e uma nova instância gerenciada dentro dela. Também sugerimos que a nova sub-rede seja criada com mais endereços IP alocated para que as operações de atualização futuras evitem uma situação semelhante (para o tamanho da sub-rede Propper, verifique [como determinar o tamanho da sub-rede vnet](sql-database-managed-instance-determine-size-vnet-subnet.md). Depois que a nova instância for provisionada, você poderá fazer backup e restaurar dados manualmente entre a instância antiga e nova ou executar a [restauração pontual](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell)entre instâncias. 
 
 
 ## <a name="tune-performance"></a>Desempenho de ajuste

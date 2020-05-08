@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3113f01341d2a1ec6160cfea3eb9d12d18b8495c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 49a94b8877d46cf95ec8701f470d87e187713f69
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687177"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583302"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conecte um dispositivo downstream a um gateway do Azure IoT Edge
 
@@ -185,9 +185,9 @@ Esta seção apresenta um aplicativo de amostra para conectar um cliente de disp
 
 Esta seção apresenta um aplicativo de exemplo para conectar um cliente de dispositivo Python do IoT do Azure a um gateway do IoT Edge.
 
-1. Obtenha o exemplo de **send_message** do [SDK do dispositivo IOT do Azure para exemplos do Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
-2. Verifique se você está executando em um contêiner de IoT Edge, ou em um cenário de depuração, se `EdgeHubConnectionString` o `EdgeModuleCACertificateFile` e as variáveis de ambiente estão definidas.
-3. Consulte a documentação do SDK para obter instruções sobre como executar a amostra no seu dispositivo.
+1. Obtenha o exemplo de **send_message_downstream** do [SDK do dispositivo IOT do Azure para exemplos do Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
+2. Defina as `IOTHUB_DEVICE_CONNECTION_STRING` variáveis `IOTEDGE_ROOT_CA_CERT_PATH` de ambiente e conforme especificado nos comentários do script Python.
+3. Consulte a documentação do SDK para obter instruções adicionais sobre como executar o exemplo em seu dispositivo.
 
 ## <a name="test-the-gateway-connection"></a>Testar a conexão de gateway
 

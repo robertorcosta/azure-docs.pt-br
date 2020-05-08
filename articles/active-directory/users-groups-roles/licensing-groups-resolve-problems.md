@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025690"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582685"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
@@ -100,7 +100,7 @@ Para resolver esse problema, remova usuários de locais sem suporte do grupo lic
 
 ## <a name="duplicate-proxy-addresses"></a>Endereços de proxy duplicados
 
-Se você usar o Exchange Online, alguns usuários em seu locatário poderão estar configurados incorretamente com o mesmo valor de endereço do proxy. Quando o licenciamento baseado em grupo tenta ceder uma licença para esse usuário, ele falha e mostra “O endereço proxy já está sendo usado”.
+Se você usar o Exchange Online, alguns usuários em sua organização poderão estar configurados incorretamente com o mesmo valor de endereço de proxy. Quando o licenciamento baseado em grupo tenta ceder uma licença para esse usuário, ele falha e mostra “O endereço proxy já está sendo usado”.
 
 > [!TIP]
 > Para ver se há um endereço de proxy duplicado, execute o seguinte cmdlet do PowerShell no Exchange Online:

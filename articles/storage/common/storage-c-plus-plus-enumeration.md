@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29ce845fa3239dd48ff2ff0480beff08cf704b30
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74269441"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591674"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos do Armazenamento do Azure no C++
 
@@ -34,7 +34,7 @@ Cada um desses métodos é mostrado usando sobrecargas diferentes para diferente
 
 ## <a name="asynchronous-versus-synchronous"></a>Assíncrono versus síncrono
 
-Como a Biblioteca de Cliente de Armazenamento para C++ é construída sobre a [Biblioteca C++ REST](https://github.com/Microsoft/cpprestsdk), nós oferecemos inerentemente suporte a operações assíncronas usando [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo:
+Como a Biblioteca de Cliente de Armazenamento para C++ é construída sobre a [Biblioteca C++ REST](https://github.com/Microsoft/cpprestsdk), nós oferecemos inerentemente suporte a operações assíncronas usando [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por exemplo: 
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -62,7 +62,7 @@ A resposta para uma operação de listagem segmentada inclui:
 * *_segment*, que contém o conjunto de resultados retornado para uma única chamada à API de listagem.
 * *continuation_token*, que é passado para a próxima chamada para obter a próxima página de resultados. Quando não há mais nenhum resultados para retornar, o token de continuação é nulo.
 
-Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pode se parecer com o seguinte snippet de código. O código está disponível em nossos [exemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+Por exemplo, uma chamada típica para listar todos os blobs em um contêiner pode se parecer com o seguinte snippet de código. O código está disponível em nossos [exemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
 ```cpp
 // List blobs in the blob container
@@ -185,7 +185,7 @@ As APIs de listagem lenta estão incluídas na Biblioteca de Cliente de Armazena
 
 ## <a name="conclusion"></a>Conclusão
 
-Neste artigo, discutimos diferentes sobrecargas para listar as APIs de vários objetos na Biblioteca de Cliente de Armazenamento do C++. Resumidamente:
+Neste artigo, discutimos diferentes sobrecargas para listar as APIs de vários objetos na Biblioteca de Cliente de Armazenamento do C++. Para resumir:
 
 * As APIs assíncronas são altamente recomendadas em vários cenários de threads.
 * A listagem segmentada é recomendada para a maioria dos cenários.

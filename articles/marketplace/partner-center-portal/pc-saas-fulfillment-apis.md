@@ -1,26 +1,25 @@
 ---
-title: APIs de preenchimento de SaaS | Azure Marketplace
-description: Apresenta as versões das APIs de preenchimento que permitem que você integre suas ofertas de SaaS com o Azure Marketplace.
+title: APIs de preenchimento de SaaS no Microsoft Commercial Marketplace
+description: Uma introdução às APIs de preenchimento que permitem que você integre suas ofertas de SaaS no Microsoft AppSource e no Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275723"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858079"
 ---
-# <a name="saas-fulfillment-apis"></a>APIs de cumprimento de SaaS
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>APIs de preenchimento de SaaS no Microsoft Commercial Marketplace
 
-As APIs de cumprimento de SaaS permitem que fornecedores de software independentes (ISVs) integrem seus aplicativos SaaS com o Azure Marketplace. Essas APIs permitem que aplicativos ISV participem de todos os canais habilitados para comércio: direto, orientado por parceiros (revendedor) e orientado por campo.  Eles são um requisito para listar as ofertas de SaaS transactáveis no Azure Marketplace.
+As APIs de cumprimento de SaaS permitem que fornecedores de software independentes (ISVs) integrem seus aplicativos SaaS no Microsoft AppSource e no Azure Marketplace. Essas APIs permitem que aplicativos ISV participem de todos os canais habilitados para comércio: direto, orientado por parceiros (revendedor) e orientado por campo. Eles são necessários para listar as ofertas de SaaS que podem ser acessadas no Microsoft AppSource e no Azure Marketplace.
 
 > [!WARNING]
 > A versão atual desta API é a versão 2, que deve ser usada para todas as novas ofertas de SaaS.  A versão 1 da API foi preterida e está sendo mantida para dar suporte às ofertas existentes.
-
 
 ## <a name="business-model-support"></a>Suporte a modelos de negócios
 

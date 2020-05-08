@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c42637dda9d1a413c0521ea2d7565a63ca58e81
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209138"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858293"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 
@@ -138,7 +138,7 @@ Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usan
 ## <a name="next-steps"></a>Próximas etapas
 
 * O [exemplo de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) apresenta um fluxo de trabalho simples que cria um emparelhamento de área geográfica e inicia um failover para um cenário de recuperação de desastre.
-* A [referência da API REST](/rest/api/eventhub/disasterrecoveryconfigs) descreve as APIs para executar a configuração de recuperação de desastres de replicação geográfica.
+* A [referência da API REST](/rest/api/eventhub/) descreve as APIs para executar a configuração de recuperação de desastres de replicação geográfica.
 
 Para saber mais sobre Hubs de Eventos, acesse os seguintes links:
 
