@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204436"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930141"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciência de dados para iniciantes, vídeo 1: As cinco perguntas que a ciência de dados responde
 Obtenha uma breve introdução à ciência de dados com *Ciência de dados para iniciantes* em cinco vídeos curtos de um grande cientista de dados. Esses vídeos são básicos, mas úteis, esteja você interessado em fazer a ciência de dados ou trabalhar com os cientistas de dados.
@@ -66,7 +66,7 @@ Essa família de algoritmos é chamada de classificação de duas classes.
 
 Ela é útil para qualquer pergunta que tenha apenas duas respostas possíveis.
 
-Por exemplo:
+Por exemplo: 
 
 * Este pneu falhará nos próximos 1000 Km: Sim ou não?
 * O que traz mais clientes: um cupom de $5 ou 25% de desconto?
@@ -136,4 +136,4 @@ Então é isso, As cinco perguntas que a ciência de dados pode responder.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Experimente um primeiro experimento de ciência de dados com Machine Learning Studio (clássico)](create-experiment.md)
-* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

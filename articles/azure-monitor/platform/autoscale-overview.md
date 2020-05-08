@@ -1,24 +1,23 @@
 ---
-title: Dimensionamento automático em VMs, serviços de nuvem e aplicativos Web
-description: Dimensionamento automático no Microsoft Azure. É aplicável a Máquinas Virtuais, conjuntos de dimensionamento de máquinas virtuais, Serviços de Nuvem e Aplicativos Web.
+title: Dimensionamento automático em Microsoft Azure
+description: Dimensionamento automático em Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: eeb8b301bf087efa164a7864cdce3a04952f45ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08b39fce046ea9dee02ddf6ffe34971b81c3b5b7
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114134"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928696"
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Visão geral do dimensionamento automático em Aplicativos Web, Serviços de Nuvem e Máquinas Virtuais do Microsoft Azure
+# <a name="overview-of-autoscale-in-microsoft-azure"></a>Visão geral do dimensionamento automático no Microsoft Azure
 Este artigo descreve o que é dimensionamento automático do Microsoft Azure, seus benefícios e como começar a usá-lo.  
 
-O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+Azure Monitor dimensionamento automático se aplica somente aos [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços de nuvem](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicativo-aplicativos Web](https://azure.microsoft.com/services/app-service/web/), [serviços de gerenciamento de API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)e [clusters do Azure data Explorer](https://docs.microsoft.com/azure/data-explorer/).
 
 > [!NOTE]
 > O Azure tem dois métodos de dimensionamento automático. Uma versão mais antiga do dimensionamento automático aplica-se às Máquinas Virtuais (conjuntos de disponibilidade). Esse recurso tem suporte limitado e recomendamos migrar para os conjuntos de dimensionamento da máquina virtual para obter um suporte mais rápido e confiável do dimensionamento automático. Um link sobre como usar a tecnologia mais antiga será incluído neste artigo.  
->
 >
 
 ## <a name="what-is-autoscale"></a>O que é dimensionamento automático?
@@ -87,7 +86,6 @@ O dimensionamento automático ocorre apenas horizontalmente, que é um aumento (
 
 Já o dimensionamento vertical é diferente. Ele mantém o mesmo número de VMs, mas torna as VMs mais ("para cima") ou menos ("para baixo") potentes. A potência é medida na memória, na velocidade da CPU, no espaço em disco, etc.  O dimensionamento vertical tem mais limitações. Ele depende da disponibilidade de um hardware maior, que atinge rapidamente um limite superior e pode variar por região. O dimensionamento vertical normalmente também exige que uma VM pare e reinicie.
 
-
 ## <a name="methods-of-access"></a>Métodos de acesso
 Você pode configurar o dimensionamento automático via
 
@@ -106,7 +104,9 @@ Você pode configurar o dimensionamento automático via
 | Máquinas Virtuais: Conjunto de Dimensionamento do Linux |[Dimensionamento de conjuntos de dimensionamento de máquina virtual no Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Máquinas Virtuais: Exemplo para Windows |[Configuração avançada de dimensionamento automático usando modelos do Resource Manager para conjuntos de dimensionamento de VM](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | Serviço de Gerenciamento de API|[Dimensionar automaticamente uma instância do Gerenciamento de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
-
+| Clusters de Data Explorer do Azure|[Gerenciar o dimensionamento de clusters do Azure Data Explorer para acomodar a demanda em alteração](https://docs.microsoft.com/azure/data-explorer/manage-cluster-horizontal-scaling)|
+| Serviço de aplicativo do Azure |[Escalar verticalmente um aplicativo no serviço Azure App](https://docs.microsoft.com/azure/app-service/manage-scale-up)|
+| Aplicativos Lógicos |[Adicionando capacidade do ISE (ambiente do serviço de integração)](https://docs.microsoft.com/azure/logic-apps/ise-manage-integration-service-environment#add-ise-capacity)|
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o dimensionamento automático, use as Explicações Passo a Passo sobre o Dimensionamento Automático listadas anteriormente ou consulte os recursos a seguir:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80da8d2880509a8ed6a2af8cb181b3bc2c281c09
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393097"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930566"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -119,7 +119,7 @@ Ao usar o [Load Balancer Standard com Zonas de Disponibilidade](load-balancer-st
 
 ### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>Disfarce de porta SNAT (PAT)
 
-Quando um recurso público do Load Balancer estiver associado a instâncias VM, cada fonte de conexão de saída será reescrita. A origem é regravada do espaço do endereço IP privado da rede virtual para o endereço IP Público de front-end do balanceador de carga. No espaço de endereço IP público, as 5 tuplas do fluxo (endereço IP de origem, porta de origem, protocolo de transporte IP, endereço IP de destino, porta de destino) devem ser exclusivas.  O SNAT simulado de porta pode ser usado com protocolos TCP ou IP UDP.
+Quando um recurso de Load Balancer público é associado a instâncias de VM, que não têm endereços IP públicos dedicados, cada fonte de conexão de saída é reescrita. A origem é regravada do espaço do endereço IP privado da rede virtual para o endereço IP Público de front-end do balanceador de carga. No espaço de endereço IP público, as 5 tuplas do fluxo (endereço IP de origem, porta de origem, protocolo de transporte IP, endereço IP de destino, porta de destino) devem ser exclusivas. O SNAT simulado de porta pode ser usado com protocolos TCP ou IP UDP.
 
 As portas efêmeras (portas SNAT) são usadas para conseguir isso após a regravação do endereço IP de origem privada, já que vários fluxos originam-se de um único endereço IP público. O algoritmo de SNAT de disfarce de porta aloca as portas SNAT de forma diferente para UDP e TCP.
 
@@ -147,7 +147,7 @@ Para padrões para mitigar condições que geralmente levam ao esgotamento da po
 
 ### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>Pré-alocação de porta efêmera para a porta de disfarce SNAT (PAT)
 
-O Azure usa um algoritmo para determinar o número de portas SNAT pré-alocadas disponíveis com base no tamanho do pool do back-end ao usar a porta de disfarce SNAT ([PAT](#pat)). As portas SNAT são portas efêmeras disponíveis para um determinado endereço de origem IP público.
+O Azure usa um algoritmo para determinar o número de portas SNAT pré-alocadas disponíveis com base no tamanho do pool do back-end ao usar a porta de disfarce SNAT ([PAT](#pat)). As portas SNAT são portas efêmeras disponíveis para um determinado endereço de origem IP público. Para cada endereço IP público associado a um balanceador de carga, há 64.000 portas disponíveis como portas SNAT para cada protocolo de transporte IP.
 
 O mesmo número de portas SNAT é pré-alocado respectivamente para TCP e UDP e independentemente consumido por protocolo de transporte IP.  No entanto, o uso da porta SNAT é diferente dependendo de o fluxo ser UDP ou TCP.
 
@@ -193,11 +193,14 @@ As alocações de portas SNAT são o protocolo de transporte IP específico (TCP
 Esta seção destina-se a ajudar a mitigar o esgotamento de SNAT e que pode ocorrer com conexões de saída no Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Gerenciar esgotamento da porta SNAT (PAT)
-[As portas efêmeras](#preallocatedports) usadas [para Pat](#pat) são um recurso esse esgotável, conforme descrito em [VM autônoma sem um endereço IP público](#defaultsnat) e [VM com balanceamento de carga sem um endereço IP público](#lb). Você pode monitorar o uso de portas efêmeras e comparar com sua alocação atual para determinar o risco de ou confirmar a exhuastion SNAT usando [este](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guia.
+[As portas efêmeras](#preallocatedports) usadas [para Pat](#pat) são um recurso esse esgotável, conforme descrito em [VM autônoma sem um endereço IP público](#defaultsnat) e [VM com balanceamento de carga sem um endereço IP público](#lb). Você pode monitorar o uso de portas efêmeras e comparar com sua alocação atual para determinar o risco de ou confirmar o esgotamento de SNAT usando [este](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guia.
 
 Se você sabe que está iniciando muitas conexões TCP ou UDP de saída para o mesmo endereço e porta IP de destino, se você observa as conexões de saída com falha ou é avisado pelo suporte que as portas SNAT ([portas efêmeras](#preallocatedports) pré-alocadas usadas pela [PAT](#pat)) estão se esgotando, você terá várias opções gerais de mitigação. Avalie essas opções e decida o que está disponível e melhor para o seu cenário. É possível que uma ou mais possam ajudar a gerenciar esse cenário.
 
 Se você tiver problemas para entender o comportamento da conexão de saída, poderá usar as estatísticas de pilha de IP (netstat). Ou pode ser útil observar comportamentos de conexão usando capturas de pacote. Você pode executar essas capturas de pacotes no sistema operacional convidado da sua instância ou usar o [Observador de Rede para captura de pacote](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
+
+#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Alocar manualmente portas SNAT para maximizar as portas SNAT por VM
+Conforme definido em [portas](#preallocatedports)predefinidas, o balanceador de carga irá alocar automaticamente as portas com base no número de VMs no back-end. Por padrão, isso é feito de forma conservadora para garantir a escalabilidade. Se você souber o número máximo de VMs que terá no back-end, poderá alocar manualmente as portas SNAT configurando-as em cada regra de saída. Por exemplo, se você souber que terá um máximo de 10 VMs, poderá alocar 6.400 portas SNAT por VM em vez do 1.024 padrão. 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modificar o aplicativo para reutilizar conexões 
 Você pode reduzir a demanda por portas efêmeras usadas para SNAT, reutilizando as conexões em sua aplicação. Isto é especialmente verdadeiro para protocolos como HTTP/1.1, onde a reutilização de conexão é a padrão. E outros protocolos que usam o HTTP como seu transporte (por exemplo, REST) podem se beneficiar por sua vez. 

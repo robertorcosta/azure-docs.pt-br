@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: e76c75e172e48866565cc292ac673f7bbddabf1f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/08/2020
+ms.openlocfilehash: 458925dd9f7f7386a9159256fdb024d027f7016c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232812"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929308"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -48,17 +48,20 @@ Nenhuma alteração de comportamento para esta versão. Para se preparar para as
 ## <a name="upcoming-changes"></a>Alterações futuras
 As seguintes alterações ocorrerão em versões futuras. 
 
-### <a name="deprecate-spark-21-and-22-for-hdinsight-36-spark-cluster"></a>Substitua o Spark 2,1 e o 2,2 pelo cluster HDInsight 3,6 Spark
-A partir de julho de 1 2020, os clientes não poderão criar novos clusters Spark com Spark 2,1 e 2,2 no HDInsight 3,6. Os clusters existentes serão executados como estão sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2,3 no HDInight 3,6 até junho de 30 2020 para evitar a interrupção potencial do sistema/suporte.
+### <a name="deprecate-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Substitua o Spark 2,1 e o 2,2 no cluster HDInsight 3,6 Spark
+A partir de julho de 1 2020, os clientes não poderão criar novos clusters Spark com Spark 2,1 e 2,2 no HDInsight 3,6. Os clusters existentes serão executados como estão sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2,3 no HDInsight 3,6 até junho de 30 2020 para evitar a interrupção potencial do sistema/suporte.
 
-### <a name="deprecate-spark-23-for-hdinsight-40-spark-cluster"></a>Substitua o Spark 2,3 para o cluster HDInsight 4,0 Spark
-A partir de julho de 1 2020, os clientes não poderão criar novos clusters Spark com o Spark 2,3 no HDInsight 4,0. Os clusters existentes serão executados como estão sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2,4 no HDInight 4,0 até junho de 30 2020 para evitar a interrupção potencial do sistema/suporte.
+### <a name="deprecate-spark-23-in-hdinsight-40-spark-cluster"></a>Substitua o Spark 2,3 no cluster HDInsight 4,0 Spark
+A partir de julho de 1 2020, os clientes não poderão criar novos clusters Spark com o Spark 2,3 no HDInsight 4,0. Os clusters existentes serão executados como estão sem o suporte da Microsoft. Considere a possibilidade de migrar para o Spark 2,4 no HDInsight 4,0 até junho de 30 2020 para evitar a interrupção potencial do sistema/suporte.
 
-### <a name="deprecate-kafka-11-for-hdinsight-40-kafka-cluster"></a>Preterir Kafka 1,1 para o cluster HDInsight 4,0 Kafka
-A partir de julho de 1 2020, os clientes não poderão criar novos clusters Kafka com Kafka 1,1 no HDInsight 4,0. Os clusters existentes serão executados como estão sem o suporte da Microsoft. Considere a possibilidade de migrar para o Kafka 2,1 no HDInight 4,0 até junho de 30 2020 para evitar a interrupção potencial do sistema/suporte.
+### <a name="deprecate-kafka-11-in-hdinsight-40-kafka-cluster"></a>Substitua o Kafka 1,1 no cluster Kafka do HDInsight 4,0
+A partir de julho de 1 2020, os clientes não poderão criar novos clusters Kafka com Kafka 1,1 no HDInsight 4,0. Os clusters existentes serão executados como estão sem o suporte da Microsoft. Considere a possibilidade de migrar para o Kafka 2,1 no HDInsight 4,0 até junho de 30 2020 para evitar a interrupção potencial do sistema/suporte.
 
-### <a name="hbase-20-to-21"></a>HBase 2,0 a 2,1
-Na próxima versão do HDInsight 4,0, a versão do HBase será atualizada da versão 2,0 para a 2,1.
+### <a name="hbase-20-to-216"></a>HBase 2,0 para 2.1.6
+Na próxima versão do HDInsight 4,0, a versão do HBase será atualizada da versão 2,0 para a 2.1.6
+
+### <a name="spark-240-to-244"></a>Spark 2.4.0 para 2.4.4
+Na próxima versão do HDInsight 4,0, a versão do Spark será atualizada da versão 2.4.0 para a 2.4.4
 
 ### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>Uma VM de 4 núcleos mínima é necessária para o nó de cabeçalho 
 Uma VM de 4 núcleos mínima é necessária para o nó de cabeçalho para garantir a alta disponibilidade e a confiabilidade dos clusters HDInsight. A partir de abril de 6 2020, os clientes só podem escolher a VM de 4 núcleos ou acima como nó principal para os novos clusters HDInsight. Os clusters existentes continuarão a ser executados conforme o esperado. 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa3c6bf39dbef601fe64e125999f519f725f2e2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 87f5b1ec02400c5cd9d26cc324ddbafdf8d76537
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67083765"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582595"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegar administração no Azure Active Directory
 
@@ -100,7 +100,7 @@ Para manter o acesso ao repositório de gerenciamento de identidade quando surge
 
 ## <a name="secure-your-administrator-roles"></a>Proteger as funções de administrador
 
-Os invasores que tomam o controle de contas com privilégios pode causar enorme danos, então, proteja essas contas em primeiro lugar, usando a [política de acesso de linha de base](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) que está disponível, por padrão, para todos os locatários do Azure AD (em visualização pública). A política impõe a autenticação multifator em contas do Azure AD com privilégios. As seguintes funções do Azure AD são cobertas pela política de linha de base do Azure AD:
+Os invasores que recebem o controle de contas com privilégios podem fazer danos enormes, portanto, proteja essas contas primeiro, usando a [política de acesso de linha de base](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) que está disponível por padrão para todas as organizações do Azure AD (em visualização pública). A política impõe a autenticação multifator em contas do Azure AD com privilégios. As seguintes funções do Azure AD são cobertas pela política de linha de base do Azure AD:
 
 * Administrador global
 * Administrador do SharePoint

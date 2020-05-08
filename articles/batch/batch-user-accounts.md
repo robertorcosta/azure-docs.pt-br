@@ -4,20 +4,20 @@ description: É útil ser capaz de configurar a conta de usuário sob a qual voc
 ms.topic: article
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111735"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980279"
 ---
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
+
 > [!NOTE] 
 > As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
 >
 > Para se conectar a um nó em execução na configuração da máquina virtual Linux via SSH, confira [Usar Área de Trabalho Remota para uma VM Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para se conectar a nós em execução no Windows via RDP, confira [Conectar-se a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para se conectar a um nó em execução na configuração do serviço de nuvem via RDP, confira [Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
-
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
 Uma tarefa no Lote do Azure sempre é executada em uma conta de usuário. Por padrão, as tarefas são executadas em contas de usuário padrão, sem permissões de administrador. Essas configurações da conta de usuário padrão normalmente são suficientes. No entanto, para determinados cenários, é útil ser capaz de configurar a conta de usuário sob a qual você deseja executar uma tarefa. Este artigo descreve os tipos de conta de usuário e como configurá-los para seu cenário.
 

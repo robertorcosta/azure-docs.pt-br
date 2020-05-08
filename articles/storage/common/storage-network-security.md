@@ -9,12 +9,12 @@ ms.date: 01/21/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 6f0e7c514835227fafd439803107531fbc62285c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 911172bd6ef9c08419e74828657c8bdb2f8d1b30
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133843"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930634"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -393,9 +393,9 @@ A configuração **permitir serviços confiáveis da Microsoft...** também perm
 | Fábrica de dados do Azure             | Microsoft.DataFactory/factories        | Permite o acesso a contas de armazenamento por meio do tempo de execução do ADF. |
 | Azure Data Share               | Microsoft. DataShare/accounts           | Permite o acesso a contas de armazenamento por meio do compartilhamento de dados. |
 | Aplicativos Lógicos do Azure               | Microsoft.Logic/workflows              | Permite que os aplicativos lógicos acessem contas de armazenamento. [Saiba mais](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
-| Serviço do Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída de experimento, os modelos e os logs no armazenamento de BLOBs e lêem os dados. [Saiba mais](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Serviço do Azure Machine Learning | Microsoft.MachineLearningServices      | Os espaços de trabalho Azure Machine Learning autorizados gravam a saída de experimento, os modelos e os logs no armazenamento de BLOBs e lêem os dados. [Saiba mais](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | SQL Data Warehouse do Azure       | Microsoft.Sql                          | Permite a importação e a exportação de dados de instâncias específicas do banco do dados SQL usando o polybase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Stream Analytics do Azure         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam gravados no armazenamento de BLOBs. Esse recurso atualmente está em versão prévia. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
+| Stream Analytics do Azure         | Microsoft.StreamAnalytics             | Permite que os dados de um trabalho de streaming sejam gravados no armazenamento de BLOBs. Esse recurso está atualmente na visualização. [Saiba mais](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft. Synapse/Workspaces          | Habilita o acesso a dados no armazenamento do Azure do Synapse Analytics. |
 
 

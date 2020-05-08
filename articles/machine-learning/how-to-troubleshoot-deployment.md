@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399674"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929240"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Solução de problemas Azure Machine Learning implantação do serviço kubernetes do Azure e instâncias de contêiner do Azure
 
@@ -24,12 +24,12 @@ Saiba como solucionar ou resolver erros comuns de implantação do Docker com AC
 
 Ao implantar um modelo no Azure Machine Learning, o sistema executa várias tarefas.
 
-A abordagem recomendada e mais atualizada para implantação de modelo é por meio da API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando um objeto de [ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) como um parâmetro de entrada. Nesse caso, nosso serviço criará uma imagem base do Docker para você durante o estágio de implantação e montará os modelos necessários em uma única chamada. As tarefas básicas de implantação são:
+A abordagem recomendada e mais atualizada para implantação de modelo é por meio da API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando um objeto de [ambiente](how-to-use-environments.md) como um parâmetro de entrada. Nesse caso, nosso serviço criará uma imagem base do Docker para você durante o estágio de implantação e montará os modelos necessários em uma única chamada. As tarefas básicas de implantação são:
 
 1. Registre o modelo no Registro de modelo do workspace.
 
 2. Definir configuração de inferência:
-    1. Crie um objeto de [ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) com base nas dependências especificadas no arquivo YAML do ambiente ou use um dos nossos ambientes adquiridos.
+    1. Crie um objeto de [ambiente](how-to-use-environments.md) com base nas dependências especificadas no arquivo YAML do ambiente ou use um dos nossos ambientes adquiridos.
     2. Crie uma configuração de inferência (objeto InferenceConfig) com base no ambiente e no script de pontuação.
 
 3. Implante o modelo no serviço ACI (instância de contêiner do Azure) ou no AKS (serviço kubernetes do Azure).
@@ -50,7 +50,7 @@ Saiba mais sobre esse processo na introdução a [Gerenciamento de Modelos](conc
 
 Se você tiver qualquer problema, a primeira medida a adotar é dividir a tarefa de implantação (descrita anteriormente) em etapas individuais para isolar o problema.
 
-Supondo que você esteja usando o método de implantação novo/recomendado por meio da API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) com um objeto de [ambiente](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) como um parâmetro de entrada, seu código pode ser dividido em três etapas principais:
+Supondo que você esteja usando o método de implantação novo/recomendado por meio da API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) com um objeto de [ambiente](how-to-use-environments.md) como um parâmetro de entrada, seu código pode ser dividido em três etapas principais:
 
 1. Registre o modelo. Aqui está um código de exemplo:
 
@@ -204,7 +204,7 @@ Definir o nível de log para depurar pode fazer com que informações adicionais
 
 ## <a name="function-fails-runinput_data"></a>Falha de função: run(input_data)
 
-Se o serviço for implantado com êxito, mas falhar quando você publicar dados no ponto de extremidade de pontuação, você poderá adicionar o erro capturando instrução na função `run(input_data)` de modo que ele retorne a mensagem de erro detalhada em vez disso. Por exemplo:
+Se o serviço for implantado com êxito, mas falhar quando você publicar dados no ponto de extremidade de pontuação, você poderá adicionar o erro capturando instrução na função `run(input_data)` de modo que ele retorne a mensagem de erro detalhada em vez disso. Por exemplo: 
 
 ```python
 def run(input_data):
