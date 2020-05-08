@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 8cba02d3c7d1e649853570b199b646b1c4dcce2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667410"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901346"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Solucionar problemas de replicação na recuperação de desastre de VM do Azure
 
@@ -41,7 +41,7 @@ Se você selecionar o evento, deverá ver as informações exatas do disco:
 
 A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites se baseiam em nossos testes, mas não podem abranger todas as combinações de e/s (entrada e saída) de aplicativos possíveis. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo.
 
-Há dois limites a serem considerados: variação de dados por disco e variação de dados por máquina virtual. Vejamos o disco P20 Premium na tabela a seguir para obter um exemplo. Para uma única VM, Site Recovery pode lidar com 5 MB/s de rotatividade por disco com um máximo de cinco discos. Site Recovery tem um limite de 25 MB/s de rotatividade total por VM.
+Há dois limites a serem considerados: variação de dados por disco e variação de dados por máquina virtual. Vejamos o disco P20 Premium na tabela a seguir para obter um exemplo. Para uma única VM, Site Recovery pode lidar com 5 MB/s de rotatividade por disco com um máximo de cinco discos. Site Recovery tem um limite de 54 MB/s de rotatividade total por VM.
 
 **Destino de armazenamento de replicação** | **Tamanho médio da E/S do disco de origem** |**Rotatividade média dos dados para o disco de origem** | **Rotatividade total dos dados por dia para o disco de dados de origem**
 ---|---|---|---

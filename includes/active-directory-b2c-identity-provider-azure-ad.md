@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
-ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678060"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82925448"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registrar um aplicativo do Azure AD
 
@@ -36,7 +36,7 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 
 ### <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
 
-Se você quiser obter as `family_name` declarações e `given_name` do Azure AD, poderá configurar declarações opcionais para seu aplicativo na interface do usuário do portal do Azure ou no manifesto do aplicativo. Para obter mais informações, consulte [como fornecer declarações opcionais para seu aplicativo do Azure ad](/active-directory/develop/active-directory-optional-claims.md).
+Se você quiser obter as `family_name` declarações e `given_name` do Azure AD, poderá configurar declarações opcionais para seu aplicativo na interface do usuário do portal do Azure ou no manifesto do aplicativo. Para obter mais informações, consulte [como fornecer declarações opcionais para seu aplicativo do Azure ad](/azure/active-directory/develop/active-directory-optional-claims).
 
 1. Entre no [portal do Azure](https://portal.azure.com). Pesquise **Azure Active Directory** e selecione-o.
 1. Na seção **gerenciar** , selecione **registros de aplicativo**.

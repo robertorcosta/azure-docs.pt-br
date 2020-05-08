@@ -1,14 +1,14 @@
 ---
-title: Perguntas frequentes sobre migração de servidor do Azure Migrate
+title: Perguntas comuns sobre a migração de servidor de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre como usar a migração de servidor de migração do Azure para migrar computadores.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 8d4d83791366e153f0fa8b81ae120ca3fd33be2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146044"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744337"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migração de servidor de migrações para Azure: perguntas comuns
 
@@ -81,11 +81,15 @@ No momento, você pode migrar 100 VMs por instância do vCenter Server simultane
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Como fazer a replicação de limitação no uso do dispositivo de migração do Azure para replicação do VMware sem agente?  
 
-Você pode limitar usando NetQosPolicy. Por exemplo:
+Você pode limitar usando NetQosPolicy. Por exemplo: 
 
 O AppNamePrefix a ser usado no NetQosPolicy é "GatewayWindowsService. exe". Você pode criar uma política no dispositivo de migrações para Azure para limitar o tráfego de replicação do dispositivo criando uma política como esta:
  
 New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService. exe"-ThrottleRateActionBitsPerSecond 1MB
+
+## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>Posso migrar VMs que já estão sendo replicadas para o Azure? 
+
+Se as VMs já estiverem sendo replicadas para o Azure por outros meios, você não poderá migrar esses computadores como VMs com a migração de servidor de migrações para Azure. Como alternativa, você pode tratar as VMs como servidores físicos e migrá-las de acordo com a [migração de servidor físico com suporte](migrate-support-matrix-physical-migration.md).
 
 ## <a name="when-do-i-migrate-machines-as-physical-servers"></a>Quando faço para migrar computadores como servidores físicos?
 

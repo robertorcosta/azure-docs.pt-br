@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2b9cc0c69f0c559c9561a02de4192974ee7f521
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189610"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926180"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Neste artigo, você aprenderá a configurar o [tempo de vida e a compatibilidade
 
 [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
 
-## <a name="configure-token-lifetime"></a>Configurar tempo de vida do token
+## <a name="configure-jwt-token-lifetime"></a>Configurar tempo de vida do token JWT
 
 Você pode configurar o tempo de vida do token em qualquer fluxo de usuário.
 
@@ -39,9 +39,9 @@ Você pode configurar o tempo de vida do token em qualquer fluxo de usuário.
 
     ![Configurações de propriedade de tempo de vida do token no portal do Azure](./media/configure-tokens/token-lifetime.png)
 
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 
-## <a name="configure-token-compatibility"></a>Configurar a compatibilidade de token
+## <a name="configure-jwt-token-compatibility"></a>Configurar a compatibilidade do token JWT
 
 1. Selecione **fluxos de usuário (políticas)**.
 2. Abra o fluxo de usuário que você criou anteriormente.
@@ -50,7 +50,7 @@ Você pode configurar o tempo de vida do token em qualquer fluxo de usuário.
 
     ![Configurações de propriedade de compatibilidade de token no portal do Azure](./media/configure-tokens/token-compatibility.png)
 
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 ## <a name="next-steps"></a>Próximas etapas
 

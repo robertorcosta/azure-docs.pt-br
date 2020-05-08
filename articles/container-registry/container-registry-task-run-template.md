@@ -3,12 +3,12 @@ title: Execução de tarefa rápida com modelo
 description: Enfileirar uma tarefa ACR executada para criar uma imagem usando um modelo de Azure Resource Manager
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 6e85e4a3d10ea34d71efde959aa7d179eba69e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196524"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927761"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Executar tarefas ACR usando modelos do Resource Manager
 
@@ -16,7 +16,7 @@ ms.locfileid: "82196524"
 
 Este artigo mostra Azure Resource Manager exemplos de modelo para enfileirar uma execução de tarefa rápida, semelhante a uma que você pode criar manualmente usando o comando [AZ ACR Build][az-acr-build] .
 
-Um modelo do Resource Manager para enfileirar uma execução de tarefa é útil em cenários de automação `az acr build`e estende a funcionalidade do. Por exemplo:
+Um modelo do Resource Manager para enfileirar uma execução de tarefa é útil em cenários de automação `az acr build`e estende a funcionalidade do. Por exemplo: 
 
 * Use um modelo para criar um registro de contêiner e, imediatamente, colocar uma tarefa em fila para criar e enviar por push uma imagem de contêiner
 * Criar ou habilitar recursos adicionais que você pode usar em uma tarefa de execução rápida, como uma identidade gerenciada para recursos do Azure
@@ -139,7 +139,7 @@ Para fins de demonstração, crie um registro de contêiner separado como seu re
 
 ### <a name="create-new-dockerfile"></a>Criar novo Dockerfile
 
-Crie um Dockerfile que efetua pull da imagem base do registro base. Execute as etapas a seguir em sua bifurcação local do repositório GitHub, por exemplo https://github.com/myGitHubID/acr-build-helloworld-node.git, *.
+Crie um Dockerfile que efetua pull da imagem base do registro base. Execute as etapas a seguir em sua bifurcação local do repositório GitHub, por exemplo `https://github.com/myGitHubID/acr-build-helloworld-node.git`,.
 
 1. Na interface do usuário do GitHub, selecione **criar novo arquivo**.
 1. Nomeie o arquivo *Dockerfile-teste* e cole o conteúdo a seguir. Substitua o nome do registro por *mybaseregistry*.

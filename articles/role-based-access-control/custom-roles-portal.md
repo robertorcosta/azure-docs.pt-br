@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas do Azure usando o portal do Azure (visualização) – RBAC do Azure
-description: Saiba como criar funções personalizadas do Azure para o controle de acesso baseado em função do Azure (RBAC do Azure) usando o portal do Azure. Isso inclui como listar, criar, atualizar e excluir funções personalizadas.
+title: Criar ou atualizar funções personalizadas do Azure usando o portal do Azure-RBAC do Azure
+description: Saiba como criar funções personalizadas do Azure usando o portal do Azure e o Azure RBAC (controle de acesso baseado em função). Isso inclui como listar, criar, atualizar e excluir funções personalizadas.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,23 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77674864"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734172"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Criar ou atualizar funções personalizadas do Azure usando o portal do Azure (versão prévia)
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Criar ou atualizar funções personalizadas do Azure usando o portal do Azure
 
-> [!IMPORTANT]
-> As funções personalizadas do Azure usando o portal do Azure está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas do Azure. Assim como as funções internas, você pode atribuir funções personalizadas a usuários, grupos e entidades de serviço em escopos de grupo de recursos e assinatura. As funções personalizadas são armazenadas em um diretório do Azure AD (Azure Active Directory) e podem ser compartilhadas entre assinaturas. Cada diretório pode ter até 5000 funções personalizadas. As funções personalizadas podem ser criadas usando o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST. Este artigo descreve como criar funções personalizadas usando o portal do Azure (atualmente em visualização).
+Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas do Azure. Assim como as funções internas, você pode atribuir funções personalizadas a usuários, grupos e entidades de serviço em escopos de grupo de recursos e assinatura. As funções personalizadas são armazenadas em um diretório do Azure AD (Azure Active Directory) e podem ser compartilhadas entre assinaturas. Cada diretório pode ter até 5000 funções personalizadas. As funções personalizadas podem ser criadas usando o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST. Este artigo descreve como criar funções personalizadas usando o portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -77,7 +72,7 @@ Se preferir, você pode seguir estas etapas para iniciar uma função personaliz
 
 1. No portal do Azure, abra uma assinatura ou grupo de recursos em que você deseja que a função personalizada seja atribuível e, em seguida, abra o **controle de acesso (iam)**.
 
-1. Clique em **Adicionar** e em **Adicionar função personalizada (versão prévia)**.
+1. Clique em **Adicionar** e em **Adicionar função personalizada**.
 
     ![Adicionar menu de função personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -109,7 +104,7 @@ Se preferir, você pode especificar a maioria dos valores de função personaliz
     }
     ```
 
-1. No arquivo JSON, especifique valores para as várias propriedades. Aqui está um exemplo com alguns valores adicionados. Para obter informações sobre as diferentes propriedades, consulte [entender as definições de função](role-definitions.md).
+1. No arquivo JSON, especifique valores para as várias propriedades. Aqui está um exemplo com alguns valores adicionados. Para obter informações sobre as diferentes propriedades, consulte [entender as definições de função do Azure](role-definitions.md).
 
     ```json
     {
@@ -141,7 +136,7 @@ Se preferir, você pode especificar a maioria dos valores de função personaliz
     
 1. No portal do Azure, abra a página **controle de acesso (iam)** .
 
-1. Clique em **Adicionar** e em **Adicionar função personalizada (versão prévia)**.
+1. Clique em **Adicionar** e em **Adicionar função personalizada**.
 
     ![Adicionar menu de função personalizado](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -260,7 +255,7 @@ Quando você exclui uma permissão, ela é adicionada como um `NotActions` ou `N
 
 ## <a name="step-5-assignable-scopes"></a>Etapa 5: escopos atribuíveis
 
-Na guia **escopos atribuíveis** , especifique onde sua função personalizada está disponível para atribuição, como assinatura ou grupo de recursos. Dependendo de como você optou por iniciar, essa guia pode listar o escopo onde você abriu a página controle de acesso (IAM). Não há suporte para definir o escopo atribuível para o escopo raiz ("/"). Para esta versão prévia, você não pode adicionar um grupo de gerenciamento como um escopo atribuível.
+Na guia **escopos atribuíveis** , especifique onde sua função personalizada está disponível para atribuição, como assinatura ou grupo de recursos. Dependendo de como você optou por iniciar, essa guia pode listar o escopo onde você abriu a página controle de acesso (IAM). Não há suporte para definir o escopo atribuível para o escopo raiz ("/"). No momento, não é possível adicionar um grupo de gerenciamento como um escopo atribuível.
 
 1. Clique em **Adicionar escopos atribuíveis** para abrir o painel Adicionar escopos atribuíveis.
 
@@ -352,6 +347,6 @@ Siga estas etapas para exibir suas funções personalizadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tutorial: Criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Funções personalizadas no Azure](custom-roles.md)
+- [Tutorial: criar uma função personalizada do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Funções personalizadas do Azure](custom-roles.md)
 - [Operações do provedor de recursos Azure Resource Manager](resource-provider-operations.md)

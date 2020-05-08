@@ -63,6 +63,9 @@
       href: samples-powershell.md
     - name: Modelos do Gerenciador de Recursos
       href: samples-resource-manager-templates.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Planos do Serviço de Aplicativo

@@ -1,6 +1,6 @@
 ---
-title: Criar ou atualizar funções personalizadas para recursos do Azure com a API REST
-description: Saiba como listar, criar, atualizar ou excluir funções personalizadas com RBAC (controle de acesso baseado em função) para recursos do Azure usando a API REST.
+title: Criar ou atualizar funções personalizadas do Azure usando a API REST – RBAC do Azure
+description: Saiba como listar, criar, atualizar ou excluir funções personalizadas do Azure usando a API REST e o controle de acesso baseado em função do Azure (RBAC do Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bc96dc9a8e541cfd827ba5f5abe35c13f2d2462
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062184"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734086"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Criar ou atualizar funções personalizadas para recursos do Azure usando a API REST
+# <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Criar ou atualizar funções personalizadas do Azure usando a API REST
 
 > [!IMPORTANT]
 > A adição de um grupo `AssignableScopes` de gerenciamento ao está em visualização no momento.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Se as [funções internas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando a API REST.
+Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Este artigo descreve como listar, criar, atualizar ou excluir funções personalizadas usando a API REST.
 
 ## <a name="list-custom-roles"></a>Listar funções personalizadas
 
@@ -189,7 +189,7 @@ Para criar uma função personalizada, use [Definições de Função - Criar ou 
 
 1. Em `notActions` propriedade, adicione as operações que são excluídas do permitidos `actions`.
 
-1. Em `roleName` e `description` propriedades, especifique um nome exclusivo de função e uma descrição. Para obter informações sobre as propriedades, confira [Funções personalizadas](custom-roles.md).
+1. Em `roleName` e `description` propriedades, especifique um nome exclusivo de função e uma descrição. Para obter mais informações sobre as propriedades, consulte [funções personalizadas do Azure](custom-roles.md).
 
     O exemplo a seguir mostra um exemplo de um corpo de solicitação:
 
@@ -340,6 +340,6 @@ Para excluir uma função personalizada, use [Definições de Função - Excluir
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções personalizadas para recursos do Azure](custom-roles.md)
-- [Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST](role-assignments-rest.md)
+- [Funções personalizadas do Azure](custom-roles.md)
+- [Adicionar ou remover atribuições de função do Azure usando a API REST](role-assignments-rest.md)
 - [Referência da API REST do Azure](/rest/api/azure/)

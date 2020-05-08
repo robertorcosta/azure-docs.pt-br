@@ -7,44 +7,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 249b9bb282024431d0ecd38c62d8d780602e6709
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f5400b47c1e0b4657e40d2c57f8212711bbdaf3f
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229962"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927064"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
-Esse recurso oferece um controle refinado, [com base em cada fluxo de usuário](user-flow-overview.md), de:
-
-- Vida útil de sessões dos aplicativos Web gerenciados pelo Azure AD B2C.
-- Comportamento de logon único (SSO) em vários aplicativos e políticas no locatário do Azure AD B2C.
-
-Essas configurações não estão disponíveis para os fluxos de usuário de redefinição de senha.
-
-O Azure AD B2C dá suporte ao [protocolo de autenticação do OpenID Connect](openid-connect.md) para habilitar o logon seguro em aplicativos Web. Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos da Web:
+O gerenciamento de [sessão de SSO (logon único)](session-overview.md) no Azure Active Directory B2C (Azure ad B2C) permite que um administrador controle a interação com um usuário depois que o usuário já tiver se autenticado. Por exemplo, o administrador pode controlar se a seleção de provedores de identidade é exibida ou se os detalhes da conta precisam ser inseridos novamente. Este artigo descreve como definir as configurações de SSO para o Azure AD B2C.
 
 ## <a name="session-behavior-properties"></a>Propriedades de comportamento da sessão
+
+Você pode usar as seguintes propriedades para gerenciar sessões de aplicativos da Web:
 
 - **Duração da sessão do aplicativo Web (minutos)** - A vida útil do cookie de sessão do Azure AD B2C armazenado no navegador do usuário após a autenticação bem-sucedida.
     - Padrão = 1440 minutos.
     - Mínimo (inclusive) = 15 minutos.
     - Máximo (inclusive) = 1440 minutos.
-- **Tempo limite da sessão do aplicativo da Web**: se essa opção for definida como **Absoluta**, o usuário será forçado a autenticar novamente após o período especificado por **duração da sessão do aplicativo Web (minutos)** decorre. Se essa opção estiver definida como **Rolling** (a configuração padrão), o usuário permanecerá conectado desde que esteja ativo de forma contínua em seu aplicativo Web.
-- **Configuração de logon único** Se você tiver vários aplicativos e fluxos de usuário em seu locatário B2C, poderá gerenciar interações de usuário entre eles usando a propriedade de **configuração de logon único** . Você pode definir a propriedade com uma das seguintes configurações:
-    - **Locatário** -essa configuração é o padrão. O uso dessa configuração permite a vários aplicativos e fluxos de usuário em seu locatário B2C compartilhar a mesma sessão de usuário. Por exemplo, depois que um usuário faz login em um aplicativo, o usuário também pode fazer login em outro, a Contoso Pharmacy, ao acessá-lo.
-    - **Aplicação** - Esta configuração permite que você mantenha uma sessão de usuário exclusivamente para um aplicativo, independente de outros aplicativos. Por exemplo, se você quiser que o usuário entre na Contoso Pharmacy (com as mesmas credenciais), mesmo que o usuário já esteja conectado ao Contoso Shopping, outro aplicativo no mesmo locatário B2C.
-    - **Política** - Essa configuração permite que você mantenha uma sessão de usuário exclusivamente para um fluxo de usuário, independentemente dos aplicativos que a usam. Por exemplo, se o usuário já tiver feito login e concluído uma etapa de autenticação de vários fatores (MFA), o usuário poderá ter acesso a partes de maior segurança de vários aplicativos, desde que a sessão vinculada ao fluxo de usuário não expire.
-    - **Desabilitado** – essa configuração orces o usuário a percorrer o fluxo do usuário inteira em cada execução da política.
+- **Tempo limite da sessão do aplicativo Web** -o [tipo de expiração da sessão](session-overview.md#session-expiry-type), *sem interrupção*ou *absoluto*. 
+- **Configuração de logon único** – o [escopo da sessão](session-overview.md#session-scope) do comportamento de logon único (SSO) em vários aplicativos e fluxos de usuário em seu locatário Azure ad B2C. 
 
-Os casos de uso a seguir são ativados usando estas propriedades:
-
-- Atenda aos requisitos de conformidade e segurança de seu setor definindo adequadamente a vida útil da sessão do aplicativo Web.
-- Forçar autenticação após um período de tempo definido durante a interação do usuário com uma parte de alto nível de segurança do seu aplicativo web.
 
 ## <a name="configure-the-properties"></a>Configurar as propriedades
 

@@ -1,18 +1,17 @@
 ---
-title: Práticas recomendadas de segurança de Pod
-titleSuffix: Azure Kubernetes Service
+title: Melhores práticas do desenvolvedor - Segurança do Pod no Azure Kubernetes Services (AKS)
 description: Conheça as práticas recomendadas do desenvolvedor para saber como proteger os pods no serviço de Kubernetes do Azure (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d97ae5692a4cdc328833ce4c01a8114506a960a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804377"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779053"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas de segurança do pod no Serviço de Kubernetes do Azure (AKS)
 
@@ -75,7 +74,7 @@ Para limitar o risco de credenciais que estão sendo expostas no código do apli
 Os seguintes [projetos de código-fonte aberto AKs associados][aks-associated-projects] permitem autenticar automaticamente os pods ou solicitar credenciais e chaves de um cofre digital:
 
 * Identidades gerenciadas para recursos do Azure e
-* Driver de FlexVol do Azure Key Vault
+* [Provedor de Azure Key Vault para os segredos armazenar o driver CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
 
 Os projetos de código-fonte aberto AKS associados não têm suporte do suporte técnico do Azure. Eles são fornecidos para reunir comentários e bugs de nossa comunidade. Esses projetos não são recomendados para uso em produção.
 
@@ -89,28 +88,28 @@ Com uma identidade gerenciada, seu código do aplicativo não precisa incluir as
 
 Para obter mais informações sobre as identidades de Pod, consulte [configurar um cluster AKs para usar identidades de Pod gerenciado e com seus aplicativos][aad-pod-identity]
 
-### <a name="use-azure-key-vault-with-flexvol"></a>Usar o Azure Key Vault com FlexVol
+### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Usar Azure Key Vault com os segredos armazenar o driver CSI
 
-Identidades de pod gerenciado funcionam muito bem para autenticar em relação a suporte de Serviços do Azure. Para seus próprios serviços ou aplicativos sem identidades gerenciadas para recursos do Azure, você ainda se autentica usando credenciais ou chaves. Um cofre digital pode ser usado para armazenar essas credenciais.
+O uso do projeto de identidade pod permite a autenticação em relação ao suporte aos serviços do Azure. Para seus próprios serviços ou aplicativos sem identidades gerenciadas para recursos do Azure, você ainda pode autenticar usando credenciais ou chaves. Um cofre digital pode ser usado para armazenar esses conteúdos secretos.
 
-Quando os aplicativos precisam de uma credencial, se comunicam com o cofre digital, recuperam as credenciais mais recentes e, em seguida, conecte-se para o serviço necessário. O Azure Key Vault pode ser este cofre digital. O fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves do Azure usando identidades gerenciadas de pod é mostrado no diagrama a seguir:
+Quando os aplicativos precisam de uma credencial, eles se comunicam com o cofre digital, recuperam o conteúdo do segredo mais recente e, em seguida, se conectam ao serviço necessário. O Azure Key Vault pode ser este cofre digital. O fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves do Azure usando identidades gerenciadas de pod é mostrado no diagrama a seguir:
 
-![Identidade do fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves usando uma identidade gerenciada de pod](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
+![Identidade do fluxo de trabalho simplificado para recuperar uma credencial de Cofre de Chaves usando uma identidade gerenciada de pod](media/developer-best-practices-pod-security/basic-key-vault.png)
 
-Com o Azure Key Vault, você pode armazenar e regularmente girar segredos, como certificados, chaves de conta de armazenamento ou as credenciais. Você pode integrar o Azure Key Vault com um cluster AKS usando um FlexVolume. O driver FlexVolume permite que o cluster do AKS nativamente recupere credenciais do Cofre de Chaves e fornecê-las com segurança apenas para o pod solicitante. Trabalhe com seu operador de cluster para implantar o driver FlexVol de Cofre de Chaves para os nós do AKS. Você pode usar uma identidade gerenciada de pod para solicitar acesso ao Key Vault e recuperar as credenciais necessárias por meio do driver FlexVolume.
+Com o Azure Key Vault, você pode armazenar e regularmente girar segredos, como certificados, chaves de conta de armazenamento ou as credenciais. Você pode integrar Azure Key Vault com um cluster do AKS usando o [provedor de Azure Key Vault para o driver do armazenamento de segredos do CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). O driver do armazenamento de segredos do CSI permite que o cluster AKS recupere nativamente o conteúdo secreto de Key Vault e os forneça com segurança apenas ao Pod solicitante. Trabalhe com o operador de cluster para implantar os segredos que armazenam o driver CSI em nós de trabalho do AKS. Você pode usar uma identidade gerenciada pod para solicitar acesso a Key Vault e recuperar o conteúdo secreto necessário por meio do driver de armazenamento de segredos do CSI.
 
-Azure Key Vault com FlexVol destina-se ao uso com aplicativos e serviços em execução em pods e nós do Linux.
+Azure Key Vault com os segredos, o driver CSI pode ser usado para nós do Linux e pods que exigem uma versão kubernetes de 1,16 ou superior. Para nós do Windows e pods, é necessária uma versão kubernetes de 1,18 ou superior.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Este artigo se concentrou em como proteger seus pods. Para implementar algumas dessas áreas, confira os seguintes artigos:
 
 * [Usar identidades gerenciadas para recursos do Azure com AKS][aad-pod-identity]
-* [Integrar o Azure Key Vault ao AKS][aks-keyvault-flexvol]
+* [Integrar o Azure Key Vault ao AKS][aks-keyvault-csi-driver]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
-[aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
 [aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects

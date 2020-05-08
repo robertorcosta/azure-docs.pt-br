@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8460f4f2a66a1f545bea767cccf3aa77c9d3bff3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79368325"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778950"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -58,7 +58,7 @@ O motivo para os avisos no painel é que agora o cluster está habilitado com o 
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo conectar-me ao painel. O que devo fazer?
 
-A maneira mais fácil de acessar seu serviço fora do cluster é executar `kubectl proxy`, que enviará solicitações de proxy para sua porta local 8001 ao servidor Kubernetes API. A partir daí, o servidor de API pode usar um proxy ao seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+A maneira mais fácil de acessar seu serviço fora do cluster é executar `kubectl proxy`, que enviará solicitações de proxy para sua porta local 8001 ao servidor Kubernetes API. A partir daí, o servidor de API pode usar um proxy ao seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
 
 Se você não vir o painel kubernetes, verifique se o `kube-proxy` Pod está em execução no `kube-system` namespace. Se não estiver em estado de execução, exclua o pod e ele será reiniciado.
 
@@ -172,14 +172,14 @@ Verifique se as configurações não estão em conflito com nenhuma das portas d
 
 No kubernetes versão 1,10, MountVolume. WaitForAttach pode falhar com a remontagem de disco do Azure.
 
-No Linux, você pode ver um erro de formato DevicePath incorreto. Por exemplo:
+No Linux, você pode ver um erro de formato DevicePath incorreto. Por exemplo: 
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-No Windows, você pode ver um erro de número de DevicePath (LUN) errado. Por exemplo:
+No Windows, você pode ver um erro de número de DevicePath (LUN) errado. Por exemplo: 
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -225,7 +225,7 @@ spec:
   >[!NOTE]
   > Como GID e uid são montados como root ou 0 por padrão. Se GID ou uid forem definidos como não raiz, por exemplo, 1000, o kubernetes usará `chown` para alterar todos os diretórios e arquivos nesse disco. Essa operação pode ser demorada e pode tornar a montagem do disco muito lenta.
 
-* Use `chown` em initContainers para definir o GID e UID. Por exemplo:
+* Use `chown` em initContainers para definir o GID e UID. Por exemplo: 
 
 ```yaml
 initContainers:
@@ -239,7 +239,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Erro ao excluir o Azure Disk PersistentVolumeClaim em uso por um pod
 
-Se você tentar excluir um disco PersistentVolumeClaim do Azure que está sendo usado por um pod, você poderá ver um erro. Por exemplo:
+Se você tentar excluir um disco PersistentVolumeClaim do Azure que está sendo usado por um pod, você poderá ver um erro. Por exemplo: 
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -295,7 +295,7 @@ Se você estiver usando uma versão do kubernetes que não tenha a correção pa
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Disco do Azure aguardando desanexar indefinidamente
 
-Em alguns casos, se uma operação de desanexação de disco do Azure falhar na primeira tentativa, ela não repetirá a operação de desanexação e permanecerá anexada à VM do nó original. Esse erro pode ocorrer ao mover um disco de um nó para outro. Por exemplo:
+Em alguns casos, se uma operação de desanexação de disco do Azure falhar na primeira tentativa, ela não repetirá a operação de desanexação e permanecerá anexada à VM do nó original. Esse erro pode ocorrer ao mover um disco de um nó para outro. Por exemplo: 
 
 ```console
 [Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
@@ -468,13 +468,13 @@ Se sua chave de conta de armazenamento tiver sido alterada, você poderá ver fa
 
 Você pode mitigar o problema atualizando manualmente o campo *azurestorageaccountkey* manualmente no segredo de arquivo do Azure com sua chave de conta de armazenamento codificada em base64.
 
-Para codificar sua chave de conta de armazenamento em base64, você `base64`pode usar. Por exemplo:
+Para codificar sua chave de conta de armazenamento em base64, você `base64`pode usar. Por exemplo: 
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Para atualizar o arquivo secreto do Azure, `kubectl edit secret`use. Por exemplo:
+Para atualizar o arquivo secreto do Azure, `kubectl edit secret`use. Por exemplo: 
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

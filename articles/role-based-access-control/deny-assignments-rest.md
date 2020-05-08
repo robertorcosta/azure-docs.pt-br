@@ -1,6 +1,6 @@
 ---
-title: Listar atribuições de negação para recursos do Azure com a API REST
-description: Saiba como listar atribuições de negação para usuários, grupos e aplicativos usando o RBAC (controle de acesso baseado em função) para recursos do Azure e a API REST.
+title: Listar atribuições de negação do Azure usando a API REST – RBAC do Azure
+description: Saiba como listar atribuições de negação do Azure para usuários, grupos e aplicativos usando a API REST e o controle de acesso baseado em função do Azure (RBAC do Azure).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,25 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0f648405a3d71bf27c64dacbb3fd78f3e9801137
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dae0352566e6cb4f8ed1384ca12213e2aaa07f9d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063024"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733863"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Listar atribuições de negação para recursos do Azure usando a API REST
+# <a name="list-azure-deny-assignments-using-the-rest-api"></a>Listar atribuições de negação do Azure usando a API REST
 
-As [atribuições Deny](deny-assignments.md) bloqueiam os usuários de executarem ações específicas de recursos do Azure, mesmo que uma atribuição de função conceda a eles acesso. Este artigo descreve como listar atribuições de negação usando a API REST.
+As [atribuições de negação do Azure](deny-assignments.md) bloqueiam os usuários de executarem ações específicas do Azure Resource, mesmo se uma atribuição de função conceder a eles acesso Este artigo descreve como listar atribuições de negação usando a API REST.
 
 > [!NOTE]
-> Você não pode criar suas próprias atribuições de negação diretamente. Para obter informações sobre como as atribuições de negação são criadas, consulte [Deny assignments](deny-assignments.md).
+> Você não pode criar suas próprias atribuições de negação diretamente. Para obter informações sobre como as atribuições de negação são criadas, consulte [atribuições de negação do Azure](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para obter informações sobre uma atribuição de negação, você deve ter:
 
-- `Microsoft.Authorization/denyAssignments/read`, que está incluída na maioria das [funções internas para recursos do Azure](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read`permissão, que está incluída na maioria das [funções internas do Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lista uma única atribuição de negação
 
@@ -91,7 +91,7 @@ Para obter informações sobre uma atribuição de negação, você deve ter:
 
 ## <a name="list-deny-assignments-at-the-root-scope-"></a>Listar atribuições de negação no escopo raiz (/)
 
-1. Elevar o acesso conforme descrito em [Elevar acesso para um Administrador Global no Azure Active Directory](elevate-access-global-admin.md).
+1. Eleve seu acesso conforme descrito em [elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](elevate-access-global-admin.md).
 
 1. Envie a seguinte solicitação:
 
@@ -111,6 +111,6 @@ Para obter informações sobre uma atribuição de negação, você deve ter:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Compreender atribuições de negação dos recursos do Azure](deny-assignments.md)
-- [Elevar o acesso para um administrador global no Azure Active Directory](elevate-access-global-admin.md)
+- [Entender as atribuições de negação do Azure](deny-assignments.md)
+- [Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](elevate-access-global-admin.md)
 - [Referência da API REST do Azure](/rest/api/azure/)

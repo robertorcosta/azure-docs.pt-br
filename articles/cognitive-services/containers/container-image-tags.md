@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 786fde90e1bcf47e08857c26235a27862c5b3d75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 850d7b9732ad547d502b042e7eaad5d3b471030e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878758"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925993"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Marcas de imagem de contêiner de serviços cognitivas do Azure
 
@@ -29,7 +29,7 @@ A imagem de contêiner do [detector de anomalias][ad-containers] pode ser `conta
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | Observações |
+| Marcas de imagem                    | Anotações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -41,7 +41,7 @@ A imagem de contêiner [Pesquisa Visual computacional][cv-containers] pode ser e
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | Observações |
+| Marcas de imagem                    | Anotações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.011580001-amd64-preview` |       |
@@ -54,7 +54,7 @@ A imagem de contêiner de [face][fa-containers] pode ser encontrada `containerpr
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | Observações |
+| Marcas de imagem                    | Anotações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -72,7 +72,7 @@ A imagem de contêiner do [reconhecedor de formulário][fr-containers] pode `con
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | Observações |
+| Marcas de imagem                    | Anotações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -85,7 +85,7 @@ A imagem de contêiner [Luis][lu-containers] pode ser encontrada na `mcr.microso
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | Observações |
+| Marcas de imagem                    | Anotações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.010330004-amd64-preview` |       |
@@ -103,9 +103,10 @@ A imagem de contêiner de [fala personalizada para texto][sp-cstt] pode ser enco
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem            | Observações |
+| Marcas de imagem            | Anotações |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
 | `2.0.2-amd64-preview` |       |
@@ -117,7 +118,7 @@ A imagem de contêiner de [texto em fala personalizado][sp-ctts] pode ser encont
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem            | Observações |
+| Marcas de imagem            | Anotações |
 |-----------------------|:------|
 | `latest`              |       |
 | `1.3.0-amd64-preview` |       |
@@ -128,9 +129,49 @@ A imagem de contêiner de [fala em texto][sp-stt] pode ser encontrada no registr
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                  | Observações                                    |
+| Marcas de imagem                  | Anotações                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Imagem de contêiner com `en-US` a localidade. |
+| `2.2.0-amd64-ar-ae-preview` | Imagem de contêiner com `ar-AE` a localidade. |
+| `2.2.0-amd64-ar-eg-preview` | Imagem de contêiner com `ar-EG` a localidade. |
+| `2.2.0-amd64-ar-kw-preview` | Imagem de contêiner com `ar-KW` a localidade. |
+| `2.2.0-amd64-ar-qa-preview` | Imagem de contêiner com `ar-QA` a localidade. |
+| `2.2.0-amd64-ar-sa-preview` | Imagem de contêiner com `ar-SA` a localidade. |
+| `2.2.0-amd64-ca-es-preview` | Imagem de contêiner com `ca-ES` a localidade. |
+| `2.2.0-amd64-da-dk-preview` | Imagem de contêiner com `da-DK` a localidade. |
+| `2.2.0-amd64-de-de-preview` | Imagem de contêiner com `de-DE` a localidade. |
+| `2.2.0-amd64-en-au-preview` | Imagem de contêiner com `en-AU` a localidade. |
+| `2.2.0-amd64-en-ca-preview` | Imagem de contêiner com `en-CA` a localidade. |
+| `2.2.0-amd64-en-gb-preview` | Imagem de contêiner com `en-GB` a localidade. |
+| `2.2.0-amd64-en-in-preview` | Imagem de contêiner com `en-IN` a localidade. |
+| `2.2.0-amd64-en-nz-preview` | Imagem de contêiner com `en-NZ` a localidade. |
+| `2.2.0-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
+| `2.2.0-amd64-es-es-preview` | Imagem de contêiner com `es-ES` a localidade. |
+| `2.2.0-amd64-es-mx-preview` | Imagem de contêiner com `es-MX` a localidade. |
+| `2.2.0-amd64-fi-fi-preview` | Imagem de contêiner com `fi-FI` a localidade. |
+| `2.2.0-amd64-fr-ca-preview` | Imagem de contêiner com `fr-CA` a localidade. |
+| `2.2.0-amd64-fr-fr-preview` | Imagem de contêiner com `fr-FR` a localidade. |
+| `2.2.0-amd64-gu-in-preview` | Imagem de contêiner com `gu-IN` a localidade. |
+| `2.2.0-amd64-hi-in-preview` | Imagem de contêiner com `hi-IN` a localidade. |
+| `2.2.0-amd64-it-it-preview` | Imagem de contêiner com `it-IT` a localidade. |
+| `2.2.0-amd64-ja-jp-preview` | Imagem de contêiner com `ja-JP` a localidade. |
+| `2.2.0-amd64-ko-kr-preview` | Imagem de contêiner com `ko-KR` a localidade. |
+| `2.2.0-amd64-mr-in-preview` | Imagem de contêiner com `mr-IN` a localidade. |
+| `2.2.0-amd64-nb-no-preview` | Imagem de contêiner com `nb-NO` a localidade. |
+| `2.2.0-amd64-nl-nl-preview` | Imagem de contêiner com `nl-NL` a localidade. |
+| `2.2.0-amd64-pl-pl-preview` | Imagem de contêiner com `pl-PL` a localidade. |
+| `2.2.0-amd64-pt-br-preview` | Imagem de contêiner com `pt-BR` a localidade. |
+| `2.2.0-amd64-pt-pt-preview` | Imagem de contêiner com `pt-PT` a localidade. |
+| `2.2.0-amd64-ru-ru-preview` | Imagem de contêiner com `ru-RU` a localidade. |
+| `2.2.0-amd64-sv-se-preview` | Imagem de contêiner com `sv-SE` a localidade. |
+| `2.2.0-amd64-ta-in-preview` | Imagem de contêiner com `ta-IN` a localidade. |
+| `2.2.0-amd64-te-in-preview` | Imagem de contêiner com `te-IN` a localidade. |
+| `2.2.0-amd64-th-th-preview` | Imagem de contêiner com `th-TH` a localidade. |
+| `2.2.0-amd64-tr-tr-preview` | Imagem de contêiner com `tr-TR` a localidade. |
+| `2.2.0-amd64-zh-cn-preview` | Imagem de contêiner com `zh-CN` a localidade. |
+| `2.2.0-amd64-zh-hk-preview` | Imagem de contêiner com `zh-HK` a localidade. |
+| `2.2.0-amd64-zh-tw-preview` | Imagem de contêiner com `zh-TW` a localidade. |
+| `2.1.1-amd64-en-us-preview` | Imagem de contêiner com `en-US` a localidade. |
 | `2.1.1-amd64-ar-ae-preview` | Imagem de contêiner com `ar-AE` a localidade. |
 | `2.1.1-amd64-ar-eg-preview` | Imagem de contêiner com `ar-EG` a localidade. |
 | `2.1.1-amd64-ar-kw-preview` | Imagem de contêiner com `ar-KW` a localidade. |
@@ -410,7 +451,7 @@ A imagem de contêiner de [conversão de texto em fala][sp-tts] pode ser encontr
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                                  | Observações                                                                      |
+| Marcas de imagem                                  | Anotações                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Imagem de contêiner com `en-US` a localidade `en-US-JessaRUS` e a voz.        |
 | `1.3.0-amd64-ar-eg-hoda-preview`            | Imagem de contêiner com `ar-EG` a localidade `ar-EG-Hoda` e a voz.            |
@@ -586,7 +627,7 @@ A imagem de contêiner [extração de frases-chave][ta-kp] pode ser encontrada n
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | Observações |
+| Marcas de imagem                    | Anotações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -601,7 +642,7 @@ A imagem de contêiner [detecção de idioma][ta-la] pode ser encontrada na `mcr
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | Observações |
+| Marcas de imagem                    | Anotações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -616,7 +657,7 @@ A imagem de contêiner [análise de sentimento][ta-se] pode ser encontrada na `m
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
-| Marcas de imagem                    | Observações |
+| Marcas de imagem                    | Anotações |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
