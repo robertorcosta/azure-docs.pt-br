@@ -3,13 +3,13 @@ title: Conceitos – Segurança no AKS (Serviços do Kubernetes do Azure)
 description: Saiba mais sobre segurança no AKS (Serviço de Kubernetes do Azure), incluindo segredos do Kubernetes, políticas de rede e comunicação mestre e de nó.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 1960d18396f47b3dbdd51a50ec4241be5ebe4ff1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/08/2020
+ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206622"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981384"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -27,7 +27,9 @@ Este artigo apresenta os conceitos básicos que protegem seus aplicativos no AKS
 
 No AKS, os componentes mestres de Kubernetes fazem parte do serviço gerenciado fornecido pela Microsoft. Cada cluster AKS tem seu próprio mestre kubernetes dedicado de locatário único para fornecer o servidor de API, o Agendador, etc. Este mestre é gerenciado e mantido pela Microsoft.
 
-Por padrão, o servidor de API kubernetes usa um endereço IP público e um FQDN (nome de domínio totalmente qualificado). Você pode controlar o acesso ao Servidor de API usando os controles de acesso baseados em função do Kubernetes e do Azure Active Directory. Para obter mais informações, confira [Integração do Azure AD com o AKS][aks-aad].
+Por padrão, o servidor de API kubernetes usa um endereço IP público e um FQDN (nome de domínio totalmente qualificado). Você pode limitar o acesso ao ponto de extremidade do servidor de API usando [intervalos de IP autorizados][authorized-ip-ranges]. Você também pode criar um [cluster totalmente privado][private-clusters] para limitar o acesso do servidor de API à sua rede virtual.
+
+Você pode controlar o acesso ao Servidor de API usando os controles de acesso baseados em função do Kubernetes e do Azure Active Directory. Para obter mais informações, confira [Integração do Azure AD com o AKS][aks-aad].
 
 ## <a name="node-security"></a>Segurança do nó
 
@@ -65,6 +67,10 @@ Para conectividade e segurança com redes locais, você pode implantar um cluste
 ### <a name="azure-network-security-groups"></a>Grupos de segurança de rede do Azure
 
 Para filtrar o fluxo de tráfego em redes virtuais, o Azure usa regras de grupo de segurança de rede. Essas regras definem o código-fonte e intervalos de IP de destino, portas e protocolos que têm o acesso a recursos permitido ou negado. Regras padrão são criadas para permitir o tráfego TLS para o servidor de API kubernetes. Conforme você cria serviços com balanceadores de carga, mapeamentos de porta ou rotas de entrada, o AKS modifica automaticamente o grupo de segurança de rede para o tráfego fluir de modo adequado.
+
+### <a name="kubernetes-network-policy"></a>Política de rede kubernetes
+
+Para limitar o tráfego de rede entre pods no cluster, o AKS oferece suporte para [políticas de rede kubernetes][network-policy]. Com as políticas de rede, você pode optar por permitir ou negar caminhos de rede específicos no cluster com base em namespaces e seletores de rótulo.
 
 ## <a name="kubernetes-secrets"></a>Segredos do Kubernetes
 
@@ -104,3 +110,6 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[authorized-ip-ranges]: api-server-authorized-ip-ranges.md
+[private-clusters]: private-clusters.md
+[network-policy]: use-network-policies.md

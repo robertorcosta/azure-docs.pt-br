@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: fb0122833dabe4030232efb3ca07557ce1826aff
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837151"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981894"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Readaptar modelos com o designer do Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Este artigo também pressupõe que você tenha conhecimento básico sobre a cria
 
 ### <a name="sample-pipeline"></a>Amostra do pipeline
 
-O pipeline usado neste artigo é uma versão alterada do [exemplo 3: Previsão de renda](samples-designer.md#classification-samples). O pipeline usa o módulo [importar dados](algorithm-module-reference/import-data.md) , em vez de usar o conjunto de exemplo para mostrar como treinar modelos usando seus próprios dados.
+O pipeline usado neste artigo é uma versão alterada do [exemplo 3: Previsão de renda](samples-designer.md#classification). O pipeline usa o módulo [importar dados](algorithm-module-reference/import-data.md) , em vez de usar o conjunto de exemplo para mostrar como treinar modelos usando seus próprios dados.
 
 ![Captura de tela que mostra o pipeline de exemplo modificado com uma caixa realçando o módulo importar dados](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -66,7 +66,7 @@ Crie parâmetros de pipeline para definir variáveis dinamicamente em tempo de e
    > [!NOTE]
    > Você pode inspecionar e editar os parâmetros de pipeline selecionando o ícone de engrenagem **configurações** ao lado do título do rascunho do seu pipeline. 
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Envie a execução do pipeline.
 

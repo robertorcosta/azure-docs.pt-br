@@ -1,17 +1,17 @@
 ---
 title: Gravar procedimentos armazenados, gatilhos e UDFs no Azure Cosmos DB
 description: Saiba como definir procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.author: tisande
+ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441727"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982285"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo usuário no Azure Cosmos DB
 
@@ -21,15 +21,12 @@ Para chamar um procedimento armazenado, um gatilho e uma função definida pelo 
 
 > [!NOTE]
 > Para contêineres particionados, ao executar um procedimento armazenado, um valor de chave de partição deve ser fornecido nas opções de solicitação. O escopo dos procedimentos armazenados sempre é uma chave de partição. Itens que têm um valor de chave de partição diferente não estarão visíveis para o procedimento armazenado. Isso também aplica-se a gatilhos.
-
 > [!Tip]
 > O cosmos dá suporte à implantação de contêineres com procedimentos armazenados, gatilhos e funções definidas pelo usuário. Para obter mais informações, consulte [criar um contêiner de Azure Cosmos DB com a funcionalidade do lado do servidor.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Como escrever procedimentos armazenados
 
 Procedimentos armazenados são escritos usando o JavaScript; eles podem criar, atualizar, ler, consultar e excluir itens dentro de um contêiner do Azure Cosmos. Os procedimentos armazenados são registrados por coleção e podem ser operados em qualquer documento ou ser um anexo presente na coleção.
-
-**Exemplo**
 
 Veja abaixo um procedimento armazenado simples que retorna uma resposta "Olá, Mundo".
 
@@ -51,7 +48,7 @@ Uma vez escrito, o procedimento armazenado deve ser registrado com uma coleção
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Criar um item usando o procedimento armazenado
 
-Quando você cria um item usando o procedimento armazenado, o item é inserido no contêiner Cosmos do Azure e uma ID para o item recém-criado é retornada. A criação de um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros – um para o objeto de erro, caso a operação falhe, e outro para um valor retornado; nesse caso, o objeto criado. Dentro da chamada de retorno, é possível lidar com a exceção ou gerar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o runtime do Azure Cosmos DB gerará um erro. 
+Quando você cria um item usando o procedimento armazenado, o item é inserido no contêiner Cosmos do Azure e uma ID para o item recém-criado é retornada. A criação de um item é uma operação assíncrona e depende das funções de retorno de chamada do JavaScript. A função de retorno de chamada tem dois parâmetros – um para o objeto de erro, caso a operação falhe, e outro para um valor retornado; nesse caso, o objeto criado. Dentro da chamada de retorno, é possível lidar com a exceção ou gerar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o runtime do Azure Cosmos DB gerará um erro.
 
 O procedimento armazenado também inclui um parâmetro para definir a descrição; é um valor booliano. Quando o parâmetro é definido como true e a descrição está ausente, o procedimento armazenado gerará uma exceção. Caso contrário, o restante do procedimento armazenado continuará em execução.
 
@@ -73,7 +70,7 @@ function createToDoItem(itemToCreate) {
 }
 ```
 
-### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrizes como parâmetros de entrada para procedimentos armazenados 
+### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matrizes como parâmetros de entrada para procedimentos armazenados
 
 Ao definir um procedimento armazenado no Portal do Azure, os parâmetros de entrada são sempre enviados como uma cadeia para o procedimento armazenado. Mesmo se você passar uma matriz de cadeias de caracteres como uma entrada, a matriz será convertida em cadeia de caracteres e enviada para o procedimento armazenado. Para contornar isso, é possível definir uma função no procedimento armazenado para analisar a cadeia de caracteres como uma matriz. O código a seguir mostra como analisar um parâmetro de entrada de cadeia de caracteres como uma matriz:
 
@@ -102,12 +99,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 
-    {     
+    var filterQuery =
+    {
         'query' : 'SELECT * FROM Players p where p.id = @playerId1',
         'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
     };
-            
+
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -115,10 +112,10 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 
-            {     
+            var filterQuery2 =
+            {
                 'query' : 'SELECT * FROM Players p where p.id = @playerId2',
-                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}]
             };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
@@ -208,6 +205,56 @@ function bulkImport(items) {
             tryCreate(items[count], callback);
         }
     }
+}
+```
+
+### <a name="async-await-with-stored-procedures"></a><a id="async-promises"></a>Expressão assíncrona Await com procedimentos armazenados
+
+Veja a seguir um exemplo de um procedimento armazenado que usa Async-Await com promessas usando uma função auxiliar. O procedimento armazenado consulta um item e o substitui.
+
+```javascript
+function async_sample() {
+    const ERROR_CODE = {
+        NotAccepted: 429
+    };
+
+    const asyncHelper = {
+        queryDocuments(sqlQuery, options) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.queryDocuments(__.getSelfLink(), sqlQuery, options, (err, feed, options) => {
+                    if (err) reject(err);
+                    resolve({ feed, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        },
+
+        replaceDocument(doc) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.replaceDocument(doc._self, doc, (err, result, options) => {
+                    if (err) reject(err);
+                    resolve({ result, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        }
+    };
+
+    async function main() {
+        let continuation;
+        do {
+            let { feed, options } = await asyncHelper.queryDocuments("SELECT * from c", { continuation });
+
+            for (let doc of feed) {
+                doc.newProp = 1;
+                await asyncHelper.replaceDocument(doc);
+            }
+
+            continuation = options.continuation;
+        } while (continuation);
+    }
+
+    main().catch(err => getContext().abort(err));
 }
 ```
 

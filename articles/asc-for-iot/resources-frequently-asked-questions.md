@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 02736b63b900600c51eda8666aff0117b9307824
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeab1a7dcdf2b12efc268ed0d47834b24d34b87
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310762"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734970"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Perguntas frequentes sobre a Central de Segurança do Azure para IoT
 
@@ -66,7 +66,7 @@ A central de segurança do Azure para o agente de IoT fornece cobertura de amea�
 
 ## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>Onde posso obter a central de segurança do Azure para o agente de segurança de IoT?
 
-A central de segurança do Azure para o agente de segurança de IoT é de software livre e está disponível no GitHub nas versões do Windows e https://github.com/Azure/Azure-Security-IoTdo Linux de 32 bits e 64 bits:.
+A central de segurança do Azure para o agente de segurança de IoT é de software livre e está disponível no GitHub nas versões do Windows e https://github.com/Azure/Azure-IoT-Securitydo Linux de 32 bits e 64 bits:.
 
 ## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>Onde a central de segurança do Azure para o agente de IoT é instalada?
 

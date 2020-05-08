@@ -3,15 +3,15 @@ title: Acesso às redes virtuais do Azure
 description: Visão geral sobre como os ambientes de serviço de integração (ISEs) ajudam os aplicativos lógicos a acessar redes virtuais do Azure (VNETs)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
+ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127255"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734902"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir dos Aplicativos Lógicos do Azure usando ISEs (Ambientes de Serviço de Integração)
 
@@ -111,16 +111,18 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 
 ## <a name="ise-endpoint-access"></a>Acesso ao ponto de extremidade do ISE
 
-Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso internos ou externos. Sua seleção determina se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual.
-
-Esses pontos de extremidade também afetam a maneira como você pode acessar entradas e saídas no histórico de execução de seus aplicativos lógicos.
-
-* **Interno**: pontos de extremidade privados que permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar as entradas e saídas dos seus aplicativos lógicos no histórico *de execução somente de dentro de sua rede virtual*
-
-* **External**: pontos de extremidade públicos que permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar as entradas e saídas dos seus aplicativos lógicos no histórico *de execução de fora da sua rede virtual*. Se você usar NSGs (grupos de segurança de rede), verifique se eles estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execuções. Para obter mais informações, consulte [habilitar o acesso para ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso internos ou externos. Sua seleção determina se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual. Esses pontos de extremidade também afetam a maneira como você pode acessar as entradas e saídas do histórico de execuções de seus aplicativos lógicos.
 
 > [!IMPORTANT]
-> A opção de ponto de extremidade de acesso só está disponível na criação do ISE e não pode ser alterada posteriormente.
+> Você pode selecionar o ponto de extremidade de acesso somente durante a criação do ISE e não pode alterar essa opção posteriormente.
+
+* **Interno**: pontos de extremidade privados permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *somente de dentro de sua rede virtual*. Verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execuções. Por exemplo, o computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual conectada à rede virtual do ISE, por exemplo, por meio de emparelhamento ou de uma rede virtual privada.
+
+* **Externo**: pontos de extremidade públicos permitem chamadas para aplicativos lógicos no ISE, onde você pode exibir e acessar entradas e saídas do histórico de execuções de aplicativos lógicos *de fora da sua rede virtual*. Se você usar NSGs (grupos de segurança de rede), verifique se eles estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execuções. Para obter mais informações, consulte [habilitar o acesso para ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+
+Para determinar se o ISE usa um ponto de extremidade de acesso interno ou externo, no menu do ISE, em **configurações**, selecione **Propriedades**e localize a propriedade **ponto de extremidade de acesso** :
+
+![Localizar ponto de extremidade de acesso do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

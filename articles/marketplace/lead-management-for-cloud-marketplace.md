@@ -7,24 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6f93e00cb9f840b27578eb9a5b0c6a2cab1ac525
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160538"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789837"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Gerenciamento de leads para o Marketplace comercial
 
-
 Os clientes são a essência de qualquer bom negócio. Na transformação das aquisições de produtos atuais, os comerciantes precisam se concentrar na conexão com os clientes diretamente e na criação de uma relação. Por isso, gerar leads de alta qualidade é uma ferramenta essencial no ciclo de vendas. Depois de listar sua oferta no [Partner Center](https://partner.microsoft.com/), há ferramentas habilitadas para que você receba programaticamente as informações de contato do cliente imediatamente depois que um cliente expressa o interesse ou implanta seu produto no Marketplace. 
-
-
 
 ## <a name="what-are-leads-in-the-marketplace"></a>Quais são os clientes potenciais no marketplace?
 
 São clientes potenciais de clientes que estão interessados ou implantando seus produtos do Marketplace. Se seu produto estiver listado no Azure Marketplace ou AppSource, você poderá receber clientes potenciais de clientes depois que ele for configurado corretamente de seu CRM para sua listagem (s) no Partner Center. 
-
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Como conectar seu sistema CRM ao Partner Center
 
@@ -48,7 +44,7 @@ Depois de configurar corretamente o destino do lead e acessar Publicar na oferta
 
 Depois que a configuração técnica estiver em vigor, você deverá incorporar esses leads em suas vendas atuais & estratégia de marketing e processos operacionais. Estamos interessados em entender melhor seu processo geral de vendas e queremos trabalhar estreitamente com você para fornecer leads de alta qualidade e dados suficientes para o seu sucesso. Apreciamos seus comentários sobre como otimizar e melhorar os leads que enviamos a você, com dados adicionais para ajudar a tornar esses clientes bem-sucedidos. Informe-nos se você estiver interessado em fornecer comentários e sugestões para permitir que sua equipe de vendas seja mais bem-sucedida com leads do Marketplace.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Erros comuns de configuração de leads durante a publicação no Partner Center
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>Erros comuns de configuração de leads durante a publicação no Partner Center
 
 **Não foi possível salvar o cliente potencial no Dynamics CRM. Verifique as configurações de conta do Dynamics CRM. LastCRMError: não é possível entrar no Dynamics CRM, LastCRMException:** 
 

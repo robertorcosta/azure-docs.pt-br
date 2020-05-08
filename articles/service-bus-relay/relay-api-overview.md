@@ -1,7 +1,7 @@
 ---
 title: Visão geral da API de Retransmissão do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral das APIs de retransmissão do Azure disponíveis (.NET Standard, .NET Framework, Node. js, etc.)
-services: event-hubs
+services: service-bus-relay
 documentationcenter: na
 author: spelluru
 manager: timlt
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad7226b5c5badfddf9f436a1229a48f729485821
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76513959"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983118"
 ---
 # <a name="available-relay-apis"></a>APIs de Retransmissão disponíveis
 
@@ -43,13 +43,13 @@ O ecossistema .NET tem vários runtimes, portanto, há várias bibliotecas .NET 
 
 A biblioteca do .NET Framework dá suporte apenas ao modelo de programação do WCF e conta com um protocolo binário proprietário baseado no transporte WCF `net.tcp`. Este protocolo e biblioteca são mantidos para compatibilidade com aplicativos existentes.
 
-A biblioteca do .NET Standard é baseada na definição de protocolo aberto para a Retransmissão de Conexões Híbridas com base em HTTP e WebSockets. A biblioteca dá suporte a uma abstração de fluxo sobre Websockets e um gesto de API de solicitação-resposta simples para responder a solicitações HTTP. O exemplo [API da Web](https://github.com/Azure/azure-relay-dotnet) mostra como integrar Conexões Híbridas com ASP.NET Core para serviços Web.
+A biblioteca do .NET Standard é baseada na definição de protocolo aberto para a Retransmissão de Conexões Híbridas com base em HTTP e WebSockets. A biblioteca dá suporte a uma abstração de fluxo sobre WebSockets e um gesto de API de solicitação-resposta simples para responder a solicitações HTTP. O exemplo [API da Web](https://github.com/Azure/azure-relay-dotnet) mostra como integrar Conexões Híbridas com ASP.NET Core para serviços Web.
 
 #### <a name="nodejs"></a>Node.js
 
 Os módulos de Conexões Híbridas listados na tabela acima substituem ou corrigem módulos Node.js existentes por implementações alternativas que escutam no serviço de Retransmissão do Azure em vez da pilha de rede local.
 
-O módulo `hyco-https` corrige e substitui parcialmente os módulos Node.js principais `http` e `https`, fornecendo uma implementação de ouvinte HTTPS que é compatível com muitos aplicativos de módulos Node.js existentes que dependem desses módulos principais.
+O `hyco-https` módulo se modifique e substitui parcialmente os módulos `http` do node. js principal `https`e fornece uma implementação de ouvinte HTTPS que é compatível com muitos módulos e aplicativos existentes do node. js que dependem desses módulos principais.
 
 Os módulos `hyco-ws` e `hyco-websocket` corrigem os módulos populares `ws` e `websocket` para Node.js, fornecendo implementações de ouvinte alternativas que permitem que os módulos e aplicativos dependentes de qualquer módulo trabalhem na Retransmissão de Conexões Híbridas.
 

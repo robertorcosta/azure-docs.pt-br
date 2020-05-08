@@ -26,11 +26,11 @@
         - name: Guias de publicação por tipo de oferta
           href: ./publisher-guide-by-offer-type.md
           items:
-            - name: Máquinas Virtuais
+            - name: Máquinas virtuais
               href: ./marketplace-virtual-machines.md
-            - name: 'Aplicativos do Azure: modelos de solução'
+            - name: Modelos de solução de aplicativos do Azure
               href: ./marketplace-solution-templates.md
-            - name: 'Aplicativos do Azure: aplicativos gerenciados'
+            - name: Aplicativos gerenciados do Azure
               href: ./marketplace-managed-apps.md
             - name: Aplicativos SaaS
               href: ./marketplace-saas-applications-technical-publishing-guide.md
@@ -42,7 +42,7 @@
               href: ./consulting-services.md
             - name: 'Office 365, Dynamics 365 e Power BI'
               href: ./appsource-offer-publishing-guide.md
-            - name: Habilite uma listagem do AppSource e do Marketplace usando o Active Directory do Azure
+            - name: Habilitar autenticação de oferta com o Azure AD
               href: ./enable-appsource-marketplace-using-azure-ad.md
             - name: Soluções integradas
               href: ./integrated-solutions-for-publishers.md
@@ -51,7 +51,7 @@
           items:
             - name: Práticas recomendadas de listagem de ofertas
               href: ./gtm-offer-listing-best-practices.md
-            - name: Como obter destaque
+            - name: Como ficar em destaque
               href: ./gtm-how-to-get-featured.md
             - name: Validação de conteúdo do Marketplace
               href: ./marketplace-criteria-content-validation.md
@@ -69,7 +69,7 @@
         - name: Suporte para o marketplace comercial
           href: ./support-azure-marketplace.md
           items:
-            - name: Perguntas frequentes sobre o Marketplace
+            - name: Perguntas frequentes sobre o marketplace comercial
               href: ./marketplace-faq-publisher-guide.md
             - name: Disponibilidade geográfica e moedas
               href: ./marketplace-geo-availability-currencies.md
@@ -289,49 +289,9 @@
             - name: Wiki de ajuda
               href: ./cloud-partner-portal-orig/help-wiki.md
         - name: Oferta de módulo do IoT Edge
-          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
-            - name: Criar oferta de módulo do IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
-              items:
-                - name: Guia Configurações da Oferta
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
-                - name: Guia SKUs
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
-                - name: Guia Marketplace
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
-                - name: Guia Suporte
-                  href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
-            - name: Criar ativos técnicos do módulo do IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
-            - name: Publicar oferta de módulo do IoT Edge
-              href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
-            - name: Atualizar oferta existente
-              href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+          href: ./cloud-partner-portal/iot-edge-module/iot-edge-module-offer.md
         - name: Oferta de Aplicativo do Power BI
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
-          items:
-            - name: Pré-requisitos
-              href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
-            - name: Criar oferta de Aplicativo do Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
-              items:
-                - name: Guia Configurações da Oferta
-                  href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
-                - name: Guia Informações Técnicas
-                  href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
-                - name: Guia Detalhes da Vitrine
-                  href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
-                - name: Guia Contatos
-                  href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
-            - name: Criar ativos técnicos do Aplicativo do Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
-            - name: Publicar oferta de Aplicativo do Power BI
-              href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
-            - name: Atualizar oferta existente
-              href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
         - name: Oferta de aplicativo SaaS
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: Oferta de máquina virtual
@@ -449,6 +409,8 @@
           items:
             - name: Criar uma oferta de aplicativo do Azure
               href: ./partner-center-portal/create-new-azure-apps-offer.md
+            - name: Cobrança limitada de aplicativo do Azure
+              href: ./partner-center-portal/azure-app-metered-billing.md
             - name: Tratar comentários de revisão
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API para integração
@@ -493,10 +455,10 @@
               href: ./partner-center-portal/create-new-business-central-offer.md
         - name: Ofertas de módulo do IoT Edge
           items:
-            - name: Preparar ativos técnicos de módulo do Azure IoT Edge
-              href: ./partner-center-portal/create-iot-edge-module-asset.md
             - name: Criar uma oferta de módulo do IoT Edge
               href: ./partner-center-portal/azure-iot-edge-module-creation.md
+            - name: Preparar ativos técnicos de módulo do Azure IoT Edge
+              href: ./partner-center-portal/create-iot-edge-module-asset.md
         - name: Ofertas de serviço gerenciado
           items:
             - name: Criar uma oferta de serviço gerenciado
@@ -515,11 +477,6 @@
               href: ./partner-center-portal/create-new-saas-offer.md
             - name: SaaS limitados de cobrança
               href: ./partner-center-portal/saas-metered-billing.md
-              items:
-                - name: APIs de serviço de medição do Marketplace – perguntas frequentes
-                  href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-                - name: APIs de serviço de medição do Marketplace
-                  href: ./partner-center-portal/marketplace-metering-service-apis.md
             - name: APIs de cumprimento de SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -546,6 +503,14 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+        - name: Serviço de medição do Marketplace
+          items:
+            - name: Estratégias de autenticação
+              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+            - name: APIs de serviço de medição do Marketplace
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
+            - name: APIs de serviço de medição do Marketplace – perguntas frequentes
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: Teste sua oferta
           href: ./partner-center-portal/test-drive.md
         - name: Opção de venda conjunta
@@ -589,11 +554,13 @@
           href: ./partner-center-portal/get-paid.md
         - name: Configurar sua conta de pagamento e formulários de imposto
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: Detalhes de cobrança
-          href: ./partner-center-portal/billing-details.md
-        - name: 'Limites, métodos e períodos de pagamento'
+        - name: 'Limites, formas e períodos de pagamento'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Resumo do pagamento
+        - name: Visão geral do resumo do pagamento
+          href: ./partner-center-portal/payout-summary-overview.md
+        - name: Resumos do pagamento
           href: ./partner-center-portal/payout-summary.md
+        - name: Detalhes da política de pagamento
+          href: ./partner-center-portal/payout-policy-details.md
         - name: Detalhes do imposto
           href: ./partner-center-portal/tax-details-paid-transactions.md

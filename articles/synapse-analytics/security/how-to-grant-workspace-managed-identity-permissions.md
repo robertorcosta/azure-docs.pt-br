@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f519022fffe98c565c3b2d30f6578b9ebb70c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f0644c25d0047f774fe8f99efa34a33e10d7b2b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428011"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983288"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Conceder permissões para identidade gerenciada do espaço de trabalho (versão prévia)
 
-Este artigo ensina como conceder permissões para a identidade gerenciada no espaço de trabalho Synapse do Azure. As permissões, por sua vez, permitem o acesso a pools SQL no espaço de trabalho e a conta de armazenamento ADLS Gen2 por meio do portal do Azure.
+Este artigo ensina como conceder permissões para a identidade gerenciada no espaço de trabalho Synapse do Azure. As permissões, por sua vez, permitem o acesso a pools SQL no espaço de trabalho e ADLS Gen2 conta de armazenamento por meio do portal do Azure.
 
 >[!NOTE]
 >Essa identidade gerenciada do workspace será referida como identidade gerenciada no restante deste documento.
@@ -29,9 +29,9 @@ Selecione **segurança + rede** ao criar seu espaço de trabalho Synapse do Azur
 
 ![Permissão CONTROL em pools SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
-## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Conceder as permissões de identidade gerenciada para a conta de armazenamento ADLS Gen2
+## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Conceder as permissões de identidade gerenciada para ADLS Gen2 conta de armazenamento
 
-Uma conta de armazenamento ADLS Gen2 é necessária para criar um espaço de trabalho do Synapse do Azure. Para iniciar com êxito os pools do Spark no espaço de trabalho Synapse do Azure, a identidade gerenciada do Azure Synapse precisa da função *colaborador de dados do blob de armazenamento* nessa conta de armazenamento. A orquestração de pipeline no Azure Synapse também se beneficia dessa função.
+Uma conta de armazenamento ADLS Gen2 é necessária para criar um espaço de trabalho Synapse do Azure. Para iniciar com êxito os pools do Spark no espaço de trabalho Synapse do Azure, a identidade gerenciada do Azure Synapse precisa da função *colaborador de dados do blob de armazenamento* nessa conta de armazenamento. A orquestração de pipeline no Azure Synapse também se beneficia dessa função.
 
 ### <a name="grant-permissions-to-managed-identity-during-workspace-creation"></a>Conceder permissões para identidade gerenciada durante a criação do espaço de trabalho
 
@@ -39,11 +39,11 @@ O Azure Synapse tentará conceder a função de colaborador de dados de blob de 
 
 ![Guia básico no fluxo de criação do espaço de trabalho](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
 
-Escolha a conta de armazenamento do ADLS Gen2 e o sistema de arquivos em **nome da conta** e nome do **sistema de arquivo**.
+Escolha a conta de armazenamento ADLS Gen2 e o sistema de arquivos em **nome da conta** e nome do **sistema de arquivos**.
 
-![Fornecendo detalhes da conta de armazenamento do ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
+![Fornecendo um ADLS Gen2 detalhes da conta de armazenamento](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
-Se o criador do espaço de trabalho também for **proprietário** da conta de armazenamento ADLS Gen2, o Synapse do Azure atribuirá a função de *colaborador de dados de blob de armazenamento* à identidade gerenciada. Você verá a seguinte mensagem abaixo dos detalhes da conta de armazenamento que você inseriu.
+Se o criador do espaço de trabalho também for o **proprietário** da conta de armazenamento ADLS Gen2, o Azure Synapse atribuirá a função de *colaborador de dados de blob de armazenamento* à identidade gerenciada. Você verá a seguinte mensagem abaixo dos detalhes da conta de armazenamento que você inseriu.
 
 ![Atribuição de colaborador de dados de blob de armazenamento bem-sucedida](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-3.png)
 
@@ -59,8 +59,8 @@ Durante a criação do espaço de trabalho, se você não atribuir o *colaborado
 
 #### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Etapa 1: Navegue até a conta de armazenamento ADLS Gen2 no portal do Azure
 
-Em portal do Azure, abra a conta de armazenamento ADLS Gen2 e selecione **visão geral** no painel de navegação esquerdo. Você só precisará atribuir a função de *colaborador de dados de blob de armazenamento* no nível do contêiner ou do sistema de arquivos. Selecione **Contêineres**.  
-![Visão geral da conta de armazenamento do ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
+Em portal do Azure, abra a conta de armazenamento de ADLS Gen2 e selecione **visão geral** no painel de navegação esquerdo. Você só precisará atribuir a função de *colaborador de dados de blob de armazenamento* no nível do contêiner ou do sistema de arquivos. Selecione **Contêineres**.  
+![Visão geral da conta de armazenamento ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
 #### <a name="step-2-select-the-container"></a>Etapa 2: selecionar o contêiner
 
@@ -69,7 +69,7 @@ A identidade gerenciada deve ter acesso a dados ao contêiner (sistema de arquiv
 
 
 Selecione o mesmo contêiner ou sistema de arquivos para conceder a função de *colaborador de dados de blob de armazenamento* à identidade gerenciada.
-![Seleção de contêiner da conta de armazenamento do ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+![Seleção de contêiner de conta de armazenamento ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
 #### <a name="step-3-navigate-to-access-control"></a>Etapa 3: navegar até o controle de acesso
 
@@ -114,7 +114,7 @@ Selecione **controle de acesso (iam)** e, em seguida, selecione **atribuições 
 ![Verificar atribuição de função](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
 
 Você deve ver sua identidade gerenciada listada na seção **colaborador de dados de blob de armazenamento** com a função de colaborador de dados de blob de *armazenamento* atribuída a ela. 
-![Seleção de contêiner da conta de armazenamento do ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
+![Seleção de contêiner de conta de armazenamento ADLS Gen2](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

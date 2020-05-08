@@ -4,12 +4,12 @@ description: Saiba como definir uma rota de saída personalizada no serviço kub
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676500"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733491"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Personalizar a saída do cluster com uma rota definida pelo usuário (versão prévia)
 
@@ -73,7 +73,7 @@ Abaixo está uma topologia de rede implantada em clusters AKS por padrão, `outb
 
 Se `userDefinedRouting` for definido, o AKs não configurará automaticamente os caminhos de saída. Espera-se que a seguir seja feita pelo **usuário**.
 
-O cluster deve ser implantado em uma rede virtual existente com uma sub-rede que foi configurada. Uma rota definida pelo usuário válida (UDR) deve existir na sub-rede com conectividade de saída.
+O cluster AKS deve ser implantado em uma rede virtual existente com uma sub-rede que foi configurada. Ao usar a arquitetura do balanceador de carga padrão (SLB), você deve estabelecer egresso explícita. Isso requer o envio de solicitações de saída para um dispositivo, como um firewall, gateway, local ou para permitir que a saída seja feita por um IP público atribuído ao balanceador de carga padrão ou a um determinado nó.
 
 O provedor de recursos AKS implantará um SLB (balanceador de carga padrão). O balanceador de carga não está configurado com nenhuma regra e [não incorre em um encargo até que uma regra seja colocada](https://azure.microsoft.com/pricing/details/load-balancer/). O AKS **não** provisionará automaticamente um endereço IP público para o front-end SLB. O AKS **não** configurará automaticamente o pool de back-end do balanceador de carga.
 

@@ -1,6 +1,6 @@
 ---
-title: Listar atribuições de função usando o RBAC e Azure PowerShell do Azure
-description: Saiba como determinar quais recursos os usuários, grupos, entidades de serviço ou identidades gerenciadas têm acesso ao uso do RBAC (controle de acesso baseado em função) do Azure e Azure PowerShell.
+title: Listar atribuições de função do Azure usando o Azure PowerShell-RBAC do Azure
+description: Saiba como determinar quais recursos os usuários, grupos, entidades de serviço ou identidades gerenciadas têm acesso ao uso de Azure PowerShell e do Azure RBAC (controle de acesso baseado em função).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ec3153e5b1bfbe04a079d1cfc44e8e8709784d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bdf703ac29ce11749de70fa0ef5972ee284401b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931146"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735701"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Listar atribuições de função usando o RBAC e Azure PowerShell do Azure
+# <a name="list-azure-role-assignments-using-azure-powershell"></a>Listar atribuições de função do Azure usando Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de função usando Azure PowerShell.
 
@@ -168,4 +168,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar ou remover atribuições de função usando o Azure RBAC e Azure PowerShell](role-assignments-powershell.md)
+- [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](role-assignments-powershell.md)

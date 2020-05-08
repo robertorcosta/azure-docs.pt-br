@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/20/2020
-ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729132"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982642"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alterar transformação de linha no fluxo de dados de mapeamento
 
@@ -24,6 +24,8 @@ Use a transformação alterar linha para definir políticas de inserção, exclu
 ![Alterar configurações de linha](media/data-flow/alter-row1.png "Alterar configurações de linha")
 
 As transformações de alteração de linha só funcionarão em coletores de banco de dados ou CosmosDB em seu fluxo de dados. As ações que você atribui a linhas (inserir, atualizar, excluir, Upsert) não ocorrerão durante as sessões de depuração. Execute uma atividade executar fluxo de dados em um pipeline para aplicar as políticas de alteração de linha nas tabelas do banco de dados.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 
 ## <a name="specify-a-default-row-policy"></a>Especificar uma política de linha padrão
 
@@ -54,6 +56,20 @@ O comportamento padrão é permitir apenas inserções. Para permitir atualizaç
 > Se suas inserções, atualizações ou upserts modificarem o esquema da tabela de destino no coletor, o fluxo de dados falhará. Para modificar o esquema de destino em seu banco de dados, escolha **recriar tabela** como a ação da tabela. Isso removerá e recriará sua tabela com a nova definição de esquema.
 
 A transformação do coletor requer uma única chave ou uma série de chaves para identificação de linha exclusiva no banco de dados de destino. Para coletores SQL, defina as chaves na guia Configurações do coletor. Para CosmosDB, defina a chave de partição nas configurações e também defina o campo do sistema CosmosDB "ID" em seu mapeamento de coletor. Para CosmosDB, é obrigatório incluir a coluna "ID" do sistema para atualizações, upserts e exclusões.
+
+## <a name="merges-and-upserts-with-azure-sql-database-and-synapse"></a>Mescla e upserts com o banco de dados SQL do Azure e o Synapse
+
+Os fluxos de dados do ADF dão suporte a mesclagens em relação ao Azure SQL Database e ao data warehouse Synapse
+
+No entanto, você pode encontrar cenários em que o esquema de banco de dados de destino utilizou a propriedade Identity das colunas de chave. O ADF exige que você identifique as chaves que serão usadas para corresponder aos valores de linha de atualizações e upserts. Mas se a coluna de destino tiver a propriedade Identity definida e você estiver usando a política Upsert, o banco de dados de destino não permitirá que você grave na coluna. Você também pode encontrar erros ao tentar Upsert na coluna de distribuição de uma tabela distribuída.
+
+Aqui estão as maneiras de corrigir isso:
+
+1. Vá para as configurações de transformação do coletor e defina "ignorar a gravação de colunas de chave". Isso fará com que o ADF não grave a coluna que você selecionou como o valor de chave para seu mapeamento.
+
+2. Se essa coluna de chave não for a coluna que está causando o problema para colunas de identidade, você poderá usar a opção SQL da transformação do coletor pré ```SET IDENTITY_INSERT tbl_content ON```-processando:. Em seguida, desative-a com a propriedade SQL de pós-processamento ```SET IDENTITY_INSERT tbl_content OFF```:.
+
+3. Para o caso de identidade e o caso de coluna de distribuição, você pode alternar a lógica de Upsert para usando uma condição de atualização separada e uma condição de inserção separada usando uma transformação de divisão condicional. Dessa forma, você pode definir o mapeamento no caminho de atualização para ignorar o mapeamento de coluna de chave.
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 

@@ -15,12 +15,12 @@ ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: b5ba4b84fcd9c1722e8ab2f4031ec1551357e406
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838732"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869982"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -156,7 +156,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Criador de laboratório](#lab-creator) | Permite a você criar, gerenciar e excluir os laboratórios gerenciados nas contas de laboratório do Azure. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
 > | **Monitor** |  |  |
 > | [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
-> | [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
+> | [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). Ao conceder aos usuários a função de Depurador de Instantâneos Application Insights, você deve conceder a função diretamente ao usuário. A função não é reconhecida quando adicionada a uma função personalizada. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Colaborador de monitoramento](#monitoring-contributor) | Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Publicador de Métricas de Monitoramento](#monitoring-metrics-publisher) | Habilita a publicação de métricas com base nos recursos do Azure | 3913510d-42f4-4e42-8a64-420c390055eb |
 > | [Leitor de monitoramento](#monitoring-reader) | Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
@@ -6083,7 +6083,7 @@ Permite a você criar, gerenciar e excluir os laboratórios gerenciados nas cont
 }
 ```
 
-## <a name="monitor"></a>Monitoramento
+## <a name="monitor"></a>Monitor
 
 
 ### <a name="application-insights-component-contributor"></a>Colaborador de componente do Application Insights
@@ -6144,7 +6144,7 @@ Pode gerenciar os componentes do Application Insights
 
 ### <a name="application-insights-snapshot-debugger"></a>Depurador de Instantâneos do Application Insights
 
-Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor).
+Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). Ao conceder aos usuários a função de Depurador de Instantâneos Application Insights, você deve conceder a função diretamente ao usuário. A função não é reconhecida quando adicionada a uma função personalizada. 
 
 > [!div class="mx-tableFixed"]
 > |  |  |

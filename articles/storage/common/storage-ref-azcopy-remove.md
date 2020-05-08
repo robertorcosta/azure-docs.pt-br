@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74033991"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780718"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -89,9 +89,13 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Opções
 
-**--Exclude-cadeia de caracteres de caminho**      Exclua esses caminhos ao remover. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo do caminho relativo. Por exemplo: MyFolder; MyFolder/subDirName/File. pdf.
+**--delete –** cadeia de caracteres de instantâneos por padrão, a operação de exclusão falhará se um blob tiver instantâneos. Especifique ' include ' para remover o blob raiz e todos os seus instantâneos; Alternativamente, especifique ' only ' para remover apenas os instantâneos, mas manter o blob raiz.
+
+**--Exclude-String de caminho** exclui esses caminhos ao remover. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo do caminho relativo. Por exemplo: MyFolder; MyFolder/subDirName/File. pdf.
 
 **--Exclude-Pattern** cadeia de caracteres excluir arquivos onde o nome corresponde à lista padrão. Por exemplo: *. jpg;*. PDF; exatoname
+
+**--Force-If-somente leitura**    Ao excluir um arquivo ou pasta de arquivos do Azure, force a exclusão para funcionar mesmo que o objeto existente tenha seu atributo somente leitura definido
 
 **-h,-** ajuda ajuda para remover
 
@@ -111,7 +115,8 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+|--Cadeia de caracteres de sufixos confiáveis da Microsoft   | Especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [azcopy](storage-ref-azcopy.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390425"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738109"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solucionar erros de replicação de VM do Azure para o Azure
 
@@ -172,8 +172,6 @@ Como o SUSE Linux usa links simbólicos, ou symlinks, para manter uma lista de c
 ## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>Intervalos de IP ou URLs de saída (código de erro 151037 ou 151072)
 
 Para que a replicação de Site Recovery funcione, a conectividade de saída para URLs específicas é necessária da VM. Se a VM estiver atrás de um firewall ou usa regras de grupo de segurança de rede (NSG) para controlar a conectividade de saída, você poderá enfrentar um desses problemas. Enquanto continuamos a dar suporte ao acesso de saída por meio de URLs, não há mais suporte para o uso de uma lista de permissões de intervalos de IP.
-
-### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>Problema 1: falha ao registrar a VM do Azure com Site Recovery (151195)
 
 #### <a name="possible-causes"></a>Possíveis causas
 
@@ -477,7 +475,7 @@ Os exemplos a seguir são linhas de arquivos GRUB nos quais os nomes de disposit
 
 Substitua cada nome de dispositivo pelo UUID correspondente:
 
-1. Localize o UUID do dispositivo executando o comando `blkid <device name>`. Por exemplo:
+1. Localize o UUID do dispositivo executando o comando `blkid <device name>`. Por exemplo: 
 
    ```shell
    blkid /dev/sda1

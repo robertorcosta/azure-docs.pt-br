@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641361"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733645"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure
 
@@ -84,7 +84,7 @@ Siga estas etapas para elevar o acesso de um administrador global usando o porta
 
 1. Faça as alterações que você precisa fazer no acesso com privilégios elevados.
 
-    Para obter informações sobre como atribuir funções, veja [Gerenciar o acesso usando o portal do Azure e o RBAC](role-assignments-portal.md). Se você estiver usando o Azure AD PIM (Privileged Identity Management), veja [Descobrir recursos do Azure para gerenciar no PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Atribuir funções de recurso do Azure no PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Para obter informações sobre como atribuir funções, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md). Se você estiver usando o Azure AD PIM (Privileged Identity Management), veja [Descobrir recursos do Azure para gerenciar no PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou [Atribuir funções de recurso do Azure no PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ### <a name="remove-elevated-access"></a>Remover acesso elevado
 
@@ -321,5 +321,5 @@ Quando você chama `elevateAccess`, você cria uma atribuição de função para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Entender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
-- [Gerenciar o acesso aos recursos do Azure usando o RBAC e a API REST](role-assignments-rest.md)
+- [Entender as diferentes funções](rbac-and-directory-admin-roles.md)
+- [Adicionar ou remover atribuições de função do Azure usando a API REST](role-assignments-rest.md)

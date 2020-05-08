@@ -1,7 +1,7 @@
 ---
 title: Códigos de erro de eventos dinâmicos dos serviços de mídia do Azure | Microsoft Docs
 description: Este artigo lista códigos de erro de eventos ao vivo.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2020
-ms.author: juliako
-ms.openlocfilehash: f9067562f67190b8bc04392f33078d4d3262f986
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/4/2020
+ms.author: inhenkel
+ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77654572"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791044"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro de eventos dinâmicos dos serviços de mídia
 
@@ -40,6 +40,7 @@ Ao assinar os eventos da [grade de eventos](https://docs.microsoft.com/azure/eve
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | O carimbo de data/hora para FLVTag de áudio ou vídeo é inválido a partir do codificador RTMP. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | Os fluxos ingeridos do codificador de entrada com taxa de quadros excederam o máximo permitido de 30fps para codificar eventos/canais ao vivo.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | Os fluxos ingeridos do codificador de entrada excederam as seguintes resoluções permitidas: 1920x1088 para codificação de eventos/canais ao vivo e 4096 x 2160 para eventos/canais ao vivo de passagem.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | O evento ao vivo recebeu uma grande quantidade de dados de áudio ao mesmo tempo, ou uma grande quantidade de dados de vídeo sem quadros-chave. Desconectamos o codificador para dar a ele a oportunidade de tentar novamente com os dados corretos. |
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
@@ -53,7 +54,7 @@ Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](me
 |Códigos de erro desconhecidos|Esses códigos de erro podem variar de erro de memória para entradas duplicadas no mapa de hash.|
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Códigos de erro de ponto de extremidade de streaming (origem)](streaming-endpoint-error-codes.md)
 

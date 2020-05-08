@@ -12,12 +12,12 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112194"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981979"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -47,6 +47,17 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 >Se você tiver habilitado Azure AD Connect para sincronização, logo começará automaticamente a receber notificações de integridade que avisam sobre as substituições futuras quando você estiver executando uma das versões mais antigas.
 >
 >Veja [Este artigo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para saber mais sobre como atualizar Azure ad Connect para a versão mais recente.
+
+## <a name="15300"></a>1.5.30.0
+
+### <a name="release-status"></a>Status de liberação
+05/07/2020: liberado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+- Corrigido um problema em que os domínios não selecionados estavam sendo selecionados incorretamente na interface do usuário do assistente.
+- Foi corrigido um problema no módulo ADSyncConfig do PowerShell, no qual invocar o comando DSACLS usado em todos os cmdlets Set-ADSync * Permissions causaria um dos seguintes erros:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -105,6 +116,7 @@ Esse hotfix Build corrige um problema com o Build 1.5.18.0 se você tiver o recu
 - Foi corrigido um problema com a criação da conta de sincronização de Azure Active Directory em que a habilitação de extensões de diretório ou PHS pode falhar porque a conta não foi propagada em todas as réplicas de serviço antes da tentativa de uso. 
 - Corrigido um bug no utilitário de compactação de erros de sincronização que não estava manipulando caracteres substitutos corretamente. 
 - Correção de um bug na atualização automática que deixou o servidor no estado suspenso do Agendador. 
+- Foi corrigido um bug na página de filtragem de domínio/UO que removeria os perfis de execução de um domínio apenas expandindo parcialmente a árvore de domínio, sem fazer nenhuma alteração.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Status de liberação
@@ -554,7 +566,7 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Type     | Name                          | Acesso               | Aplica-se A
+Digite     | Nome                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | Controle total         | Este objeto  |
 Allow    | Administrador corporativo             | Controle total         | Este objeto  |

@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: e3eca498e5716ae7c0a03e5e624d618899da8dc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df7b8e6243bc45b5d5bdd8a9a72e81b0946454ff
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770396"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858402"
 ---
 # <a name="upgrade-azure-internal-load-balancer---outbound-connection-required"></a>Atualização de Load Balancer interno do Azure-conexão de saída necessária
-O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Como o Load Balancer interno padrão não fornece conexão de saída, fornecemos uma solução para criar um Load Balancer público padrão.
+O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](https://docs.microsoft.com/azure/load-balancer/skus#skus). Como o Load Balancer interno padrão não fornece conexão de saída, fornecemos uma solução para criar um Load Balancer público padrão.
 
 Há quatro estágios em uma atualização:
 
@@ -104,7 +104,7 @@ Aqui estão alguns cenários de como adicionar VMs a pools de back-end do Load B
    
     1. Selecione o pool de back-end que corresponde ao pool de back-end do Load Balancer básico, selecione o seguinte valor: 
       - **Máquina virtual**: lista suspensa e selecione as VMs do pool de back-end correspondente do Load Balancer básico.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
     >[!NOTE]
     >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
 

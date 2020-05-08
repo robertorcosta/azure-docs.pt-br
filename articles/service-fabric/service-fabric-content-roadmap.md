@@ -3,12 +3,12 @@ title: Saiba mais sobre o Azure Service Fabric
 description: Saiba mais sobre os principais conceitos e as principais áreas do Azure Service Fabric. Fornece uma visão geral estendida do Service Fabric e como criar microsserviços.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458155"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791843"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis.  No entanto, o Service Fabric tem uma área de superfície grande, e há muito a aprender.  Este artigo fornece um resumo do Service Fabric e descreve os principais conceitos, modelos de programação, ciclo de vida do aplicativo, teste, clusters e monitoramento de integridade. Leia a [Visão geral](service-fabric-overview.md) e [O que são microsserviços?](service-fabric-overview-microservices.md) para obter uma introdução e saber como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista abrangente de conteúdo, mas vincula a visão geral e os artigos de introdução de cada área do Service Fabric. 
@@ -136,7 +136,7 @@ Os cenários de segurança do cluster são:
 Para obter mais informações, leia [Proteger um cluster](service-fabric-cluster-security.md).
 
 ### <a name="scaling"></a>Scaling
-Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó. Você pode dimensionar clusters no Azure [manualmente](service-fabric-cluster-scale-up-down.md) ou [programaticamente](service-fabric-cluster-programmatic-scaling.md). Clusters autônomos podem ser dimensionados [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
+Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó. Você pode dimensionar clusters no Azure [manualmente](service-fabric-cluster-scale-in-out.md) ou [programaticamente](service-fabric-cluster-programmatic-scaling.md). Clusters autônomos podem ser dimensionados [manualmente](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### <a name="cluster-upgrades"></a>Atualizações do cluster
 Periodicamente, são lançadas novas versões do runtime do Service Fabric. Realize as atualizações de runtime ou de malha no cluster para que você sempre tenha uma [versão com suporte](service-fabric-support.md) em execução. Além das atualizações de malha, você também pode atualizar a configuração do cluster, como os certificados ou as portas de aplicativo.

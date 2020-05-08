@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96a2cce5d0e8abfd1f22b5fc64633eebc41aca39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f58c34a46f4eb1bffe4516f2a6f9f17a799fbfb3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431560"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786590"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Exibições do sistema com suporte no SQL Synapse
 Links para a documentação para instruções T-SQL com suporte no SQL Synapse.
@@ -242,13 +242,13 @@ As DMVs a seguir são aplicáveis ao pool do SQL, mas devem ser executadas conec
 * [PARÂMETROS](/sql/relational-databases/system-information-schema-views/parameters-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [ROUTINES](/sql/relational-databases/system-information-schema-views/routines-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SCHEMATA](/sql/relational-databases/system-information-schema-views/schemata-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [TABLES](/sql/relational-databases/system-information-schema-views/tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [TABELAS](/sql/relational-databases/system-information-schema-views/tables-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [VIEW_COLUMN_USAGE](/sql/relational-databases/system-information-schema-views/view-column-usage-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [VIEW_TABLE_USAGE](/sql/relational-databases/system-information-schema-views/view-table-usage-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [VIEWS](/sql/relational-databases/system-information-schema-views/views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [Modos de exibição](/sql/relational-databases/system-information-schema-views/views-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações de referência, consulte [instruções t-SQL em Synapse SQL](/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)e [elementos de linguagem t-SQL no SQL Synapse](/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
+Para obter mais informações de referência, consulte [instruções t-SQL em Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)e [elementos de linguagem t-SQL no SQL Synapse](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
 
  

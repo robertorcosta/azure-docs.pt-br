@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a046791b8c50577c1921764b06bac5d88780194d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758898"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734987"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como usar o SDK do Azure WebJobs para o processamento em segundo plano controlado por evento
 
@@ -825,7 +825,7 @@ Cada log criado por uma instância de `ILogger` possui um `Category` e `Level` a
 |------------|---|
 |Trace       | 0 |
 |Depurar       | 1 |
-|Informações do | 2 |
+|Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítico    | 5 |
@@ -956,9 +956,9 @@ Na versão 3. *x*, você não precisa mais liberar o [`TelemetryClient`] quando 
 
 #### <a name="version-2x"></a>Versão 2. *x*
 
-Na versão 2. *x*, o [`TelemetryClient`] criado internamente pelo provedor de Application insights para o SDK de trabalhos Web [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)usa. Quando o ponto de extremidade do Application Insights está indisponível ou limitando solicitações de entrada, este canal [salva as solicitações no sistema de arquivos do aplicativo Web e reenvia-as depois](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+Na versão 2. *x*, o [`TelemetryClient`] criado internamente pelo provedor de Application insights para o SDK de trabalhos Web [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll)usa. Quando o ponto de extremidade do Application Insights está indisponível ou limitando solicitações de entrada, este canal [salva as solicitações no sistema de arquivos do aplicativo Web e reenvia-as depois](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
-O [`TelemetryClient`] é criado por uma classe que implementa `ITelemetryClientFactory`. Por padrão, esse é o [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
+O [`TelemetryClient`] é criado por uma classe que implementa `ITelemetryClientFactory`. Por padrão, esse é o [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
 Se você quiser modificar qualquer parte do pipeline de Application Insights, poderá fornecer seu próprio `ITelemetryClientFactory`e o host usará sua classe para construir um. [`TelemetryClient`] Por exemplo, esse código substitui `DefaultTelemetryClientFactory` para modificar uma propriedade de `ServerTelemetryChannel`:
 

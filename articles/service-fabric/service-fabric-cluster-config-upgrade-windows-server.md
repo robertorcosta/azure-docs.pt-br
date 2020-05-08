@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75610107"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790840"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Atualize a configuração de um cluster independente 
 
@@ -75,7 +75,7 @@ Há suporte para quatro opções:
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como personalizar algumas das [configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
-* Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-up-down.md).
+* Saiba como [reduzir e escalar horizontalmente seu cluster](service-fabric-cluster-scale-in-out.md).
 * Saiba mais sobre [atualizações de aplicativo](service-fabric-application-upgrade.md).
 
 <!--Image references-->

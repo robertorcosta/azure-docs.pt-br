@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 1d340aadc20110e6aa4bfb05b1cf794fd6a286b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7b1e7471f7850f71596317c7e2c38db367bfd3a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146184"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790075"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Crie uma máquina virtual com um endereço IP público estático usando o PowerShell
 
@@ -47,7 +47,7 @@ Você pode concluir as etapas a seguir no seu computador local ou usando o Shell
      -AllocationMethod "Static"
    ```
 
-   Se o endereço IP público precisar ser um SKU padrão, você deverá [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address), [criar uma interface de rede](virtual-network-network-interface.md#create-a-network-interface), [atribuir o endereço IP público à interface de rede](virtual-network-network-interface-addresses.md#add-ip-addresses) e, em seguida, [crie uma máquina virtual com a interface de rede](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), em etapas separadas. Saiba mais sobre [SKUs de endereço IP público](virtual-network-ip-addresses-overview-arm.md#sku). Se a máquina virtual for adicionada ao pool de back-end de um Azure Load Balancer público, o SKU do endereço IP público da máquina virtual deverá corresponder ao SKU do endereço IP público do balanceador de carga. Para obter detalhes, consulte [balanceador de carga do Azure](../load-balancer/concepts-limitations.md#skus).
+   Se o endereço IP público precisar ser um SKU padrão, você deverá [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address), [criar uma interface de rede](virtual-network-network-interface.md#create-a-network-interface), [atribuir o endereço IP público à interface de rede](virtual-network-network-interface-addresses.md#add-ip-addresses) e, em seguida, [crie uma máquina virtual com a interface de rede](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), em etapas separadas. Saiba mais sobre [SKUs de endereço IP público](virtual-network-ip-addresses-overview-arm.md#sku). Se a máquina virtual for adicionada ao pool de back-end de um Azure Load Balancer público, o SKU do endereço IP público da máquina virtual deverá corresponder ao SKU do endereço IP público do balanceador de carga. Para obter detalhes, consulte [balanceador de carga do Azure](../load-balancer/skus.md).
 
 4. Exiba o endereço IP público atribuído e confirme se ele foi criado como um endereço estático, com [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 

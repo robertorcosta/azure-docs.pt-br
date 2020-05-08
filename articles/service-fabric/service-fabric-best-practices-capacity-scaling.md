@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: bf228e17ca24df9833f96f0c6fd3ef232cdf7ae6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be0f0a48e2fd334e2000c8a4b8c2e0101b291cef
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258987"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791860"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento para o Azure Service Fabric
 
@@ -38,7 +38,7 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de dimensionamento vertical
 
-[Dimensionamento vertical](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo:
+[Dimensionamento vertical](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo: 
 
 * O cluster deve estar íntegro antes do dimensionamento. Caso contrário, você desestabilizará o cluster.
 * O nível de durabilidade prateada ou maior é necessário para todos os Service Fabric tipos de nó de cluster que hospedam serviços com estado.
@@ -68,13 +68,13 @@ Com as propriedades de nó e as restrições de posicionamento declaradas, siga 
 1. No PowerShell, execute `Disable-ServiceFabricNode` com intenção `RemoveNode` para desabilitar o nó que você pretende remover. Remova o tipo de nó que tem o número mais alto. Por exemplo, se você tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
 2. Execute `Get-ServiceFabricNode` para garantir que o nó tenha feito a transição para desabilitado. Caso contrário, aguarde até que o nó seja desabilitado. Isso pode levar algumas horas para cada nó. Não continue até que o nó tenha feito a transição para desabilitado.
 3. Diminua o número de VMs por um nesse tipo de nó. A instância da VM mais alta agora será removida.
-4. Repita as etapas 1 a 3 conforme necessário, mas nunca reduza verticalmente o número de instâncias no tipo de nó primário para uma quantidade menor do que a camada de confiabilidade garante. Confira [Planejamento de capacidade do cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
+4. Repita as etapas 1 a 3, conforme necessário, mas nunca dimensione o número de instâncias nos tipos de nó primários menos do que a camada de confiabilidade garante. Confira [Planejamento de capacidade do cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
 5. Depois que todas as VMs estiverem ausentes (representadas como "inativas"), o Fabric:/System/InfrastructureService/[nome do nó] mostrará um estado de erro. Em seguida, você pode atualizar o recurso de cluster para remover o tipo de nó. Você pode usar a implantação de modelo ARM ou editar o recurso de cluster por meio do [Azure Resource Manager](https://resources.azure.com). Isso iniciará uma atualização de cluster, o que removerá o serviço Fabric:/System/InfrastructureService/[nó Type] que está em estado de erro.
  6. Depois disso, você pode, opcionalmente, excluir o VMScaleSet, você ainda verá os nós como "inativos" do modo de exibição de Service Fabric Explorer no entanto. A última etapa seria limpá-los com `Remove-ServiceFabricNodeState` o comando.
 
 ## <a name="horizontal-scaling"></a>Dimensionamento em escala horizontal
 
-Você pode fazer o dimensionamento horizontal [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) ou [programaticamente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+Você pode fazer o dimensionamento horizontal [manualmente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out) ou [programaticamente](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
 > [!NOTE]
 > Se você estiver dimensionando um tipo de nó que tem durabilidade prata ou ouro, o dimensionamento será lento.
@@ -103,7 +103,7 @@ Para expandir manualmente, atualize a capacidade na propriedade SKU do recurso d
 
 O dimensionamento no requer mais consideração do que escalar horizontalmente. Por exemplo:
 
-* Service Fabric serviços do sistema são executados no tipo de nó primário no cluster. Nunca desligue nem reduza verticalmente o número de instâncias desse tipo de nó para que você tenha menos instâncias do que o que a camada de confiabilidade requer. 
+* Service Fabric serviços do sistema são executados no tipo de nó primário no cluster. Nunca desligue ou dimensione o número de instâncias para esse tipo de nó para que você tenha menos instâncias do que a garantia da camada de confiabilidade. 
 * Para um serviço com estado, você precisa de um determinado número de nós que sempre estão ativos para manter a disponibilidade e preservar o estado do serviço. No mínimo, você precisa de um número de nós igual à contagem de conjuntos de réplicas de destino da partição ou do serviço.
 
 Para reduzir manualmente, siga estas etapas:
@@ -111,7 +111,7 @@ Para reduzir manualmente, siga estas etapas:
 1. No PowerShell, execute `Disable-ServiceFabricNode` com intenção `RemoveNode` para desabilitar o nó que você pretende remover. Remova o tipo de nó que tem o número mais alto. Por exemplo, se você tiver um cluster de seis nós, remova a instância de máquina virtual "MyNodeType_5".
 2. Execute `Get-ServiceFabricNode` para garantir que o nó tenha feito a transição para desabilitado. Caso contrário, aguarde até que o nó seja desabilitado. Isso pode levar algumas horas para cada nó. Não continue até que o nó tenha feito a transição para desabilitado.
 3. Diminua o número de VMs por um nesse tipo de nó. A instância da VM mais alta agora será removida.
-4. Repita as etapas 1 a 3, conforme necessário, até que você provisione a capacidade desejada. Não reduza o número de instâncias nos tipos de nó primários para menos do que aquilo que a camada de confiabilidade requer. Confira [Planejamento de capacidade do cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
+4. Repita as etapas 1 a 3, conforme necessário, até que você provisione a capacidade desejada. Não dimensione o número de instâncias nos tipos de nó primários para menos do que a camada de confiabilidade garante. Confira [Planejamento de capacidade do cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
 
 Para dimensionar manualmente, atualize a capacidade na propriedade SKU do recurso de conjunto de [dimensionamento de máquinas virtuais](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) desejado.
 
@@ -123,7 +123,7 @@ Para dimensionar manualmente, atualize a capacidade na propriedade SKU do recurs
 }
 ```
 
-Você deve preparar o nó para que o desligamento seja reduzido de forma programática. Localize o nó a ser removido (o nó de instância mais alta). Por exemplo:
+Você deve preparar o nó para que o desligamento seja reduzido de forma programática. Localize o nó a ser removido (o nó de instância mais alta). Por exemplo: 
 
 ```csharp
 using (var client = new FabricClient())
@@ -166,7 +166,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Ao reduzir verticalmente um cluster, você verá a instância do nó/VM removida exibida em um estado não íntegro em Service Fabric Explorer. Para obter uma explicação desse comportamento, consulte [comportamentos que podem ser observados em Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Você pode:
+> Ao dimensionar em um cluster, você verá a instância do nó/VM removida exibida em um estado não íntegro em Service Fabric Explorer. Para obter uma explicação desse comportamento, consulte [comportamentos que podem ser observados em Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#behaviors-you-may-observe-in-service-fabric-explorer). Você pode:
 > * Chame o [comando Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) com o nome do nó apropriado.
 > * Implante o [aplicativo auxiliar AutoScale Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) no cluster. Esse aplicativo garante que os nós reduzidos sejam apagados de Service Fabric Explorer.
 

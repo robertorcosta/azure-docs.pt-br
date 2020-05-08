@@ -1,20 +1,20 @@
 ---
-title: API de integração para aplicativos do Azure no Marketplace comercial
-description: Pré-requisitos de API para aplicativos do Azure no Marketplace comercial no Microsoft Partner Center.
+title: API de envio do Partner Center para aplicativos integrados do Azure no Microsoft Commercial Marketplace
+description: Conheça os pré-requisitos para usar a API de envio do Partner Center para aplicativos do Azure no mercado comercial no Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279752"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744890"
 ---
-# <a name="api-for-onboarding-azure-apps-in-partner-center"></a>API para integração de aplicativos do Azure no Partner Center
+# <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de envio do Partner Center para aplicativos integrados do Azure no Partner Center
 
 Use a *API de envio do Partner Center* para consultar programaticamente, criar envios e publicar ofertas do Azure.  Essa API é útil se sua conta gerencia muitas ofertas e você deseja automatizar e otimizar o processo de envio para essas ofertas.
 
@@ -70,3 +70,8 @@ Para o valor *tenant_id* no `POST URI` e os parâmetros *client_id* e *client_se
 Depois de ter um token de acesso do AD do Azure, você pode chamar métodos na API de envio do Partner Center. Para criar ou atualizar envios, você normalmente chama vários métodos na API de envio do Partner Center em uma ordem específica. Para obter informações sobre cada cenário e a sintaxe de cada método, consulte o Swagger de API de ingestão.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Saiba como criar um [ativo técnico de criação de uma VM do Azure](create-azure-container-technical-assets.md)
+* Saiba mais sobre o como para criar uma [oferta de contêiner do Azure](create-azure-container-offer.md)

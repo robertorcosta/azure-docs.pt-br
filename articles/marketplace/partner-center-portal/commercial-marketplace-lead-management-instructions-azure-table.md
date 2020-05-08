@@ -1,24 +1,24 @@
 ---
-title: Configurar o gerenciamento de leads do Microsoft Commercial Marketplace com uma tabela do Azure
-description: Saiba como usar uma tabela do Azure para gerenciar clientes potenciais do Microsoft AppSource e do Azure Marketplace.
+title: Gerenciamento de leads com o armazenamento de tabelas do Azure-Microsoft Commercial Marketplace
+description: Saiba como usar o armazenamento de tabelas do Azure para configurar clientes potenciais para o Microsoft AppSource e o Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 9814b03e348fc807c04364afbf027369f917670a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131138"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791010"
 ---
-# <a name="configure-lead-management-by-using-an-azure-table"></a>Configurar o gerenciamento de leads usando uma tabela do Azure
+# <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usar o armazenamento de tabelas do Azure para gerenciar clientes potenciais do Marketplace comercial
 
-Se o sistema CRM (gerenciamento de relacionamento com o cliente) não tiver suporte explícito no Partner Center para receber Microsoft AppSource e leads do Azure Marketplace, você poderá usar uma tabela do Azure para lidar com esses leads. Você pode optar por exportar os dados e importá-los para o sistema CRM. As instruções neste artigo orientam você pelo processo de criação de uma conta de armazenamento do Azure e de uma tabela do Azure nessa conta. Além disso, você pode criar um novo fluxo usando o Power Automate para enviar uma notificação por email quando sua oferta receber um cliente potencial.
+Se o sistema CRM (gerenciamento de relacionamento com o cliente) não tiver suporte explícito no Partner Center para receber Microsoft AppSource e leads do Azure Marketplace, você poderá usar o armazenamento de tabelas do Azure para lidar com esses leads. Você pode optar por exportar os dados e importá-los para o sistema CRM. Este artigo explica como criar uma conta de armazenamento do Azure e uma tabela sob essa conta. Além disso, você pode criar um novo fluxo usando o Power Automate para enviar uma notificação por email quando sua oferta receber um cliente potencial.
 
-## <a name="configure-an-azure-table"></a>Configurar uma tabela do Azure
+## <a name="configure-an-azure-storage-account"></a>Configurar uma conta de armazenamento do Azure
 
 1. Se você não tiver uma conta do Azure, poderá [criar uma conta de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 1. Depois que sua conta do Azure estiver ativa, entre no [portal do Azure](https://portal.azure.com).
@@ -32,7 +32,11 @@ Se o sistema CRM (gerenciamento de relacionamento com o cliente) não tiver supo
 
         Para obter mais informações sobre contas de armazenamento, consulte o [tutorial de início rápido](https://docs.microsoft.com/azure/storage/). Para obter mais informações sobre preços de armazenamento, consulte [preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Aguarde até que sua conta de armazenamento seja provisionada. Esse processo normalmente leva alguns minutos. Em seguida, acesse sua conta de armazenamento na **Home** page do portal do Azure selecionando **Ver todos os seus recursos**. Você também pode selecionar **todos os recursos** na barra de menus à esquerda do portal do Azure.
+1. Aguarde até que sua conta de armazenamento seja provisionada. Esse processo normalmente leva alguns minutos. 
+
+## <a name="create-a-table-in-your-storage-account"></a>Criar uma tabela em sua conta de armazenamento
+
+1. Na **Home** page do portal do Azure, selecionando **Ver todos os seus recursos** para acessar sua conta de armazenamento. Você também pode selecionar **todos os recursos** na barra de menus à esquerda do portal do Azure.
 
     ![Acessar sua conta de armazenamento do Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -52,13 +56,13 @@ Se o sistema CRM (gerenciamento de relacionamento com o cliente) não tiver supo
 
     Você pode usar [Gerenciador de armazenamento do Azure](https://archive.codeplex.com/?p=azurestorageexplorer) ou qualquer outra ferramenta para ver os dados em sua tabela de armazenamento. Você também pode exportar os dados na tabela do Azure. 
 
-## <a name="optional-use-power-automate-with-an-azure-table"></a>Adicional Usar a automatização de energia com uma tabela do Azure 
+## <a name="optional-use-power-automate-to-get-lead-notifications"></a>Adicional Use a automatização de energia para obter notificações de leads
 
-Você pode usar a [automatização de energia](https://docs.microsoft.com/flow/) para automatizar as notificações sempre que um cliente potencial for adicionado a uma tabela do Azure. Se você não tiver uma conta, poderá se [inscrever para obter uma conta gratuita](https://flow.microsoft.com/).
+Você pode usar a [automatização de energia](https://docs.microsoft.com/flow/) para automatizar as notificações sempre que um cliente potencial for adicionado à sua tabela de armazenamento do Azure. Se você não tiver uma conta, poderá se [inscrever para obter uma conta gratuita](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Exemplo de notificação de cliente potencial
 
-Use este exemplo como um guia para criar um fluxo simples que automaticamente envia uma notificação por email quando um novo cliente potencial for adicionado a uma tabela do Azure. Este exemplo configura uma recorrência para enviar informações do Lead a cada hora se o armazenamento de tabela for atualizado.
+O exemplo cria um fluxo que envia automaticamente uma notificação por email quando um novo cliente potencial é adicionado ao armazenamento de tabelas do Azure. Este exemplo configura uma recorrência para enviar informações do Lead a cada hora se o armazenamento de tabela for atualizado.
 
 1. Entre em sua conta de energia automatizada.
 1. Na barra à esquerda, selecione **meus fluxos**.
@@ -89,21 +93,21 @@ Use este exemplo como um guia para criar um fluxo simples que automaticamente en
    >[!TIP] 
    >Você pode verificar seu fluxo a qualquer momento para verificar se cada etapa está configurada corretamente. Para verificar o fluxo, selecione **Verificador de fluxo** na barra de menus do **fluxo** .
 
-   No próximo conjunto de etapas, você se conectará à tabela do Azure e configurará a lógica de processamento para lidar com novos clientes potenciais.
+   No próximo conjunto de etapas, você se conectará à sua tabela e configurará a lógica de processamento para lidar com novos clientes potenciais.
 
-1. Após a etapa 8, selecione **+ nova etapa**. Em seguida, procure **obter entidades** na janela **escolher uma ação** .
+1. Selecione **+ Nova Etapa**. Em seguida, procure **obter entidades** na janela **escolher uma ação** .
 1. Em **ações**, selecione **obter entidades (armazenamento de tabelas do Azure)**.
 1. Na janela **armazenamento de tabelas do Azure** , forneça informações para as seguintes caixas e selecione **criar**:
 
-    * **Nome da conexão**: forneça um nome significativo para a conexão que você está estabelecendo entre esse fluxo e a tabela do Azure.
-    * **Nome da conta de armazenamento**: forneça o nome da conta de armazenamento para sua tabela do Azure. Você pode encontrar esse nome na página **chaves de acesso** da conta de armazenamento.
-    * **Chave de armazenamento compartilhado**: forneça o valor de chave para sua conta de armazenamento para sua tabela do Azure. Você pode encontrar esse valor na página **chaves de acesso** da conta de armazenamento.
+    * **Nome da conexão**: forneça um nome significativo para a conexão que você está estabelecendo entre esse fluxo e a tabela.
+    * **Nome da conta de armazenamento**: forneça o nome da conta de armazenamento para a tabela. Você pode encontrar esse nome na página **chaves de acesso** da conta de armazenamento.
+    * **Chave de armazenamento compartilhado**: forneça o valor de chave para sua conta de armazenamento para sua tabela. Você pode encontrar esse valor na página **chaves de acesso** da conta de armazenamento.
 
       ![Janela de armazenamento de tabelas do Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
    Depois de selecionar **criar**, a janela **obter entidades** é exibida. Aqui, selecione **Mostrar opções avançadas**e forneça informações para as seguintes caixas:
 
-   * **Tabela**: selecione o nome do armazenamento de tabelas do Azure (da etapa 6 das instruções na seção "configurar uma tabela do Azure"). A imagem a seguir mostra o prompt quando a tabela "marketplaceleads" é selecionada para este exemplo.
+   * **Tabela**: selecione o nome da sua tabela (em [criar uma tabela](#create-a-table-in-your-storage-account)). A imagem a seguir mostra o prompt quando a tabela "marketplaceleads" é selecionada para este exemplo.
 
      ![Janela obter entidades](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
@@ -177,9 +181,18 @@ Se você não estiver obtendo notificações por email de Lead, isso significa q
 Quando você estiver pronto para configurar as informações de gerenciamento de Lead para sua oferta no portal de publicação, siga estas etapas.
 
 1. Vá para a página de **instalação da oferta** de sua oferta.
+
 1. Selecione **conectar** na seção **Gerenciamento de leads** .
-1. Na janela pop-up **detalhes da conexão** , selecione **tabela do Azure** para o **destino do cliente potencial**. Cole a cadeia de conexão da conta de armazenamento do Azure criada seguindo as etapas anteriores na caixa **cadeia de conexão da conta de armazenamento** .
+     ![Gerenciamento de cliente potencial](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+
+1. Na janela pop-up **detalhes da conexão** , selecione **tabela do Azure** para o **destino do cliente potencial**. 
+     ![Gerenciamento de leads, detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
+
+1. Cole a cadeia de conexão da conta de armazenamento do Azure criada seguindo as etapas anteriores na caixa **cadeia de conexão da conta de armazenamento** .
+     ![Gerenciamento de leads, conta de armazenamento de detalhes de conexão](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
+
 1. **Email de contato**: forneça emails para pessoas em sua empresa que devem receber notificações por email quando um novo cliente potencial for recebido. Você pode fornecer vários emails separando-os com pontos-e-vírgulas.
+
 1. Selecione **OK**.
 
 Para verificar se você se conectou com êxito a um destino de cliente potencial, selecione o botão **validar** . Se for bem-sucedido, você terá um líder de teste no destino do cliente potencial.
@@ -188,10 +201,3 @@ Para verificar se você se conectou com êxito a um destino de cliente potencial
 >Você deve concluir a configuração do restante da oferta e publicá-la antes de receber clientes potenciais para a oferta.
 
 Quando os clientes potenciais são gerados, a Microsoft envia os clientes potenciais para a tabela do Azure. Se você configurou um fluxo, um email também será enviado para o endereço de email que você configurou.
-
-![Gerenciamento de clientes potenciais](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
-
-![Gerenciamento de leads, detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
-
-![Gerenciamento de leads, conta de armazenamento de detalhes de conexão](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
-
