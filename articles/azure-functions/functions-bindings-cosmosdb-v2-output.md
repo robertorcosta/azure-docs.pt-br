@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 743bd21a4fd974654760402a639c661fe086d2d5
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277759"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735004"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Cosmos DB Associação de saída para Azure Functions 2. x
 
@@ -527,7 +527,7 @@ Na biblioteca de runtime das funções [Java](/java/api/overview/azure/functions
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Em [Bibliotecas de classes C#](functions-dotnet-class-library.md), utilize o atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs).
+Em [Bibliotecas de classes C#](functions-dotnet-class-library.md), utilize o atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/test/WebJobs.Extensions.CosmosDB.Tests).
 
 O construtor do atributo toma o nome do banco de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que podem ser configuradas, consulte [Saída – configurações](#configuration). Aqui está um exemplo de atributo `CosmosDB` em uma assinatura de método:
 

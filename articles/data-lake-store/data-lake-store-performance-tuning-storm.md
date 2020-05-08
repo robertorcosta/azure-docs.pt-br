@@ -1,23 +1,17 @@
 ---
-title: Diretrizes de ajuste de desempenho de Data Lake armazenamento Gen1 Storm do Azure | Microsoft Docs
-description: Diretrizes de ajuste de desempenho de Data Lake armazenamento Gen1 Storm do Azure
-services: data-lake-store
-documentationcenter: ''
+title: Ajuste de desempenho – Storm com Azure Data Lake Storage Gen1
+description: Saiba mais sobre as diretrizes de ajuste de desempenho para um cluster Storm no Azure Data Lake Storage Gen1.
 author: stewu
-manager: amitkul
-editor: stewu
-ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61436470"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691637"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes para o Storm no HDInsight e Azure Data Lake armazenamento Gen1 de ajuste de desempenho
 
@@ -42,7 +36,7 @@ Você poderá melhorar o desempenho aumentando a simultaneidade de e/s para e do
 
 Por exemplo, em um cluster com 4 VMs e 4 processos de trabalho, 32 executores de spout e 32 tarefas de spout, 256 executores de bolt e 512 tarefas de bolt, considere o seguinte:
 
-Cada supervisor, que é um nó de trabalho, tem um único processo de trabalho de máquina virtual Java (JVM). Esse processo JVM gerencia 4 threads de spout e 64 threads de bolt. Em cada thread, as tarefas são executadas sequencialmente. Com a configuração anterior, cada thread de spout tem 1 tarefa, e cada thread de bolt tem 2 tarefas.
+Cada supervisor, que é um nó de trabalho, tem um único processo de trabalho de máquina virtual Java (JVM). Esse processo JVM gerencia 4 threads de spout e 64 threads de bolt. Em cada thread, as tarefas são executadas sequencialmente. Com a configuração anterior, cada thread Spout tem uma tarefa, e cada thread de raio tem duas tarefas.
 
 No Storm, aqui estão os diversos componentes envolvidos e como eles afetam o nível de paralelismo que você tem:
 * O nó principal (chamado Nimbus no Storm) é usado para enviar e gerenciar trabalhos. Esses nós não têm impacto sobre o grau de paralelismo.
@@ -59,15 +53,15 @@ Ao trabalhar com o Data Lake Store, você obtém o melhor desempenho se fizer o 
 
 ### <a name="example-topology"></a>Exemplo de topologia
 
-Suponhamos que você tenha um cluster de 8 nós de trabalho com a VM D13v2 do Azure. Uma VM tem 8 núcleos, portanto, entre os 8 nós de trabalho, você tem 64 núcleos no total.
+Vamos supor que você tenha um cluster de oito nós de trabalho com uma VM do Azure D13v2. Essa VM tem oito núcleos, portanto, entre os oito nós de trabalho, você tem um total de 64 núcleos.
 
-Digamos que façamos oito threads de bolt por núcleo. Dados 64 núcleos, isso significa que desejamos um total de 512 instâncias de executor de bolt (ou seja, threads). Nesse caso, digamos que podemos começar com uma JVM por VM e usar principalmente a simultaneidade de threads na JVM para obter a simultaneidade. Isso significa que precisamos de oito tarefas de trabalho (uma por VM do Azure) e 512 executores de bolt. Dada essa configuração, o Storm tenta distribuir os trabalhos uniformemente entre os nós de trabalho (também conhecidos como nós de supervisor), dando a cada nó de trabalho 1 JVM. Dentro dos supervisores, o Storm tenta distribuir os executores uniformemente entre supervisores, dando a cada supervisor (ou seja, JVM) 8 threads.
+Digamos que tenhamos oito threads de raio por núcleo. Dados 64 núcleos, isso significa que desejamos um total de 512 instâncias de executor de bolt (ou seja, threads). Nesse caso, digamos que podemos começar com uma JVM por VM e usar principalmente a simultaneidade de threads na JVM para obter a simultaneidade. Isso significa que precisamos de oito tarefas de trabalho (uma por VM do Azure) e executores de raio de 512. Dada essa configuração, o Storm tenta distribuir os operadores uniformemente entre nós de trabalho (também conhecidos como nós de supervisor), fornecendo a cada nó de trabalho uma JVM. Agora, nos supervisores, o Storm tenta distribuir os executores uniformemente entre supervisores, fornecendo a cada Supervisor (ou seja, JVM) oito threads.
 
 ## <a name="tune-additional-parameters"></a>Ajuste de parâmetros adicionais
 Depois que tiver a topologia básica, você pode considerar se deseja ajustar qualquer um dos parâmetros:
 * **Número de JVMs por nó de trabalho.** Se você tiver uma grande estrutura de dados (por exemplo, uma tabela de pesquisa) hospedada na memória, cada JVM vai precisar de uma cópia separada. Como alternativa, você pode usar a estrutura de dados em vários threads, se tiver menos JVMs. Para E/S do bolt, o número de JVMs não faz tanta diferença quanto o número de threads adicionados entre essas JVMs. Para simplificar, é uma boa ideia ter uma JVM por trabalho. No entanto, dependendo do que o bolt esteja fazendo ou de que processamento de aplicativo você esteja precisando, talvez seja necessário alterar esse número.
 * **Número de executores de spout.** Como o exemplo anterior usa bolts para gravar no Data Lake Store, o número de spouts não é diretamente relevante para o desempenho do bolt. No entanto, dependendo do volume de processamento ou de E/S ocorrendo no spout, é recomendável ajustar os spouts para melhor desempenho. Você precisa ter spouts suficientes para conseguir manter os bolts trabalhando. As taxas de saída dos spouts devem coincidir com a taxa de transferência dos bolts. A configuração real depende do spout.
-* **Número de tarefas.** Cada bolt é executado como um único thread. Tarefas adicionais por bolt não fornecem simultaneidade adicional. A situação em que elas são benéficas é se o processo de confirmação da tupla utilizar uma grande proporção de seu tempo de execução de bolt. É recomendável agrupar muitas tuplas em um acréscimo maior antes de enviar uma confirmação do bolt. Portanto, na maioria dos casos, várias tarefas não oferecem qualquer benefício adicional.
+* **Número de tarefas.** Cada bolt é executado como um único thread. Tarefas adicionais por bolt não fornecem simultaneidade adicional. A situação em que elas são benéficas é se o processo de confirmação da tupla utilizar uma grande proporção de seu tempo de execução de bolt. É uma boa ideia agrupar várias tuplas em um acréscimo maior antes de enviar uma confirmação do parafuso. Portanto, na maioria dos casos, várias tarefas não oferecem qualquer benefício adicional.
 * **Agrupamento local ou aleatório.** Quando essa configuração é habilitada, tuplas são enviadas a bolts dentro do mesmo processo de trabalho. Isso reduz as chamadas de rede e comunicação entre processos. Isso é recomendado para a maioria das topologias.
 
 Esse cenário básico é um bom ponto de partida. Teste com seus próprios dados para ajustar os parâmetros anteriores para obter o desempenho ideal.
@@ -76,7 +70,7 @@ Esse cenário básico é um bom ponto de partida. Teste com seus próprios dados
 
 Você pode modificar as seguintes configurações para ajustar o spout.
 
-- **Tempo limite de tupla: topology.message.timeout.secs**. Essa configuração determina quanto tempo uma mensagem leva para ser concluída e receber a confirmação antes de ser considerada com falha.
+- **Tempo limite de tupla: topology.message.timeout.secs**. Essa configuração determina a quantidade de tempo que uma mensagem leva para ser concluída e recebe a confirmação antes de ser considerada falha.
 
 - **Memória máxima por processo de trabalho: worker.childopts**. Essa configuração permite especificar parâmetros de linha de comando adicionais para os trabalhos Java. A configuração mais comumente usada aqui é XmX, que determina o máximo de memória alocado para o heap de uma JVM.
 
@@ -85,7 +79,7 @@ Você pode modificar as seguintes configurações para ajustar o spout.
   Um bom cálculo a fazer é estimar o tamanho de cada uma de suas tuplas. Em seguida, calcule quanta memória um thread de spout tem. A memória total alocada para um thread dividida por esse valor deve fornecer o limite superior para o parâmetro de máx. de spouts pendentes.
 
 ## <a name="tune-the-bolt"></a>Ajustar o bolt
-Quando você estiver gravando no Data Lake Storage Gen1, defina uma política de sincronização de tamanho (buffer no lado do cliente) como 4 MB. Uma liberação ou hsync() será executada somente quando o tamanho do buffer tiver esse valor. O driver Data Lake Storage Gen1 na VM de trabalho faz esse buffer automaticamente, a menos que você execute explicitamente um hsync ().
+Quando você estiver gravando no Data Lake Storage Gen1, defina uma política de sincronização de tamanho (buffer no lado do cliente) como 4 MB. Uma liberação ou Hsync () é então executada somente quando o tamanho do buffer está nesse valor. O driver Data Lake Storage Gen1 na VM de trabalho faz esse buffer automaticamente, a menos que você execute explicitamente um hsync ().
 
 O parafuso Storm do Data Lake Storage Gen1 padrão possui um parâmetro de política de sincronização de tamanho (fileBufferSize) que pode ser usado para ajustar esse parâmetro.
 
@@ -95,7 +89,7 @@ Em topologias com uso intensivo de E/S, é recomendável fazer com que cada thre
 
 No Storm, um spout permanece com uma tupla até que ela seja explicitamente confirmada pelo bolt. Se uma tupla tiver sido lida pelo parafuso, mas ainda não tiver sido confirmada, o bico pode não ter persistido no back end do Data Lake Storage Gen1. Após a confirmação da tupla, o spout pode ter sua persistência garantida pelo bolt e, em seguida, pode excluir os dados de origem de qualquer fonte da qual esteja lendo.  
 
-Para melhor desempenho no Data Lake armazenamento Gen1, ter o bolt do buffer de 4 MB de dados de tupla. Em seguida, grave a Gen1 de armazenamento do Data Lake volta final como uma gravação de 4 MB. Depois que os dados tiverem sido gravados com êxito no repositório (chamando hflush()), o bolt poderá confirmar os dados de volta para o spout. É isso que o bolt de exemplo fornecido aqui faz. Também é aceitável manter um número maior de tuplas antes de fazer a chamada de hflush() e confirmar as tuplas. No entanto, isso aumenta o número de tuplas em voo que o spout precisa armazenar e, portanto, aumenta a quantidade de memória exigida por JVM.
+Para melhor desempenho no Data Lake armazenamento Gen1, ter o bolt do buffer de 4 MB de dados de tupla. Em seguida, grave no back-end de Data Lake Storage Gen1 como uma gravação de 4 MB. Depois que os dados tiverem sido gravados com êxito no repositório (chamando hflush()), o bolt poderá confirmar os dados de volta para o spout. É isso que o bolt de exemplo fornecido aqui faz. Também é aceitável manter um número maior de tuplas antes de fazer a chamada de hflush() e confirmar as tuplas. No entanto, isso aumenta o número de tuplas em voo que o spout precisa armazenar e, portanto, aumenta a quantidade de memória exigida por JVM.
 
 > [!NOTE]
 > Determinados aplicativos podem ter um requisito de confirmar tuplas com maior frequência (em tamanhos de dados menores que 4 MB), por motivos não relacionados a desempenho. No entanto, isso pode afetar a taxa de transferência de E/S para o back-end de armazenamento. Avalie com cuidado essa compensação em relação ao desempenho de E/S do bolt.
@@ -104,14 +98,14 @@ Se a taxa de entrada de tuplas não for alta, fazendo com que o buffer de 4 MB d
 * Reduzindo o número de bolts, de modo que haja menos buffers a preencher.
 * Adotando uma política baseada em tempo ou em contagem, na qual um hflush() é disparado a cada x liberações ou a cada y milissegundos e as tuplas acumuladas até esse ponto são confirmadas de volta.
 
-Observe que neste caso a taxa de transferência é menor, mas de todo modo, com uma taxa de eventos baixa, a taxa de transferência máxima não é o objetivo principal. Essas reduções ajudam a reduzir o tempo total necessário para o fluxo de uma tupla até o repositório. Isso pode ser relevante se você quiser um pipeline em tempo real, mesmo com uma taxa baixa de evento. Observe também que, se a taxa de entrada de tuplas for baixa, você precisará ajustar o parâmetro topology.message.timeout_secs para que as tuplas não atinjam o tempo limite enquanto estiverem sendo armazenadas em buffer ou processadas.
+A taxa de transferência, nesse caso, é menor, mas com uma taxa lenta de eventos, a taxa de transferência máxima não é o maior objetivo mesmo assim. Essas reduções ajudam a reduzir o tempo total necessário para o fluxo de uma tupla até o repositório. Isso pode ser relevante se você quiser um pipeline em tempo real, mesmo com uma taxa baixa de evento. Observe também que, se a taxa de entrada de tuplas for baixa, você precisará ajustar o parâmetro topology.message.timeout_secs para que as tuplas não atinjam o tempo limite enquanto estiverem sendo armazenadas em buffer ou processadas.
 
 ## <a name="monitor-your-topology-in-storm"></a>Monitorar a topologia no Storm  
 Enquanto a topologia estiver em execução, você pode monitorá-la na interface do usuário do Storm. Aqui estão os principais parâmetros examinar:
 
 * **Latência total de execução do processo.** Tempo médio que uma tupla leva para ser emitida pelo spout, processada pelo bolt e confirmada.
 
-* **Latência total de processo do bolt.** Tempo médio gasto pela tupla no bolt até receber uma confirmação.
+* **Latência total de processo do bolt.** Este é o tempo médio gasto pela tupla no raio até receber uma confirmação.
 
 * **Latência total de execute do bolt.** Tempo médio gasto pelo bolt no método execute.
 

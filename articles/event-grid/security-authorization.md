@@ -8,15 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 03bc2f9de6f50f08c9f62f86a3d1791a067cecd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f8b0a779e6cb70537d126c251e1e065892934a9
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78899276"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629500"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizando o acesso aos recursos da grade de eventos
 A Grade de Eventos do Azure permite que você controle o nível de acesso concedido a usuários diferentes para execução de várias operações de gerenciamento, como listar assinaturas de evento, criar novos e gerar chaves. O Event Grid usa o controle de acesso baseado em função (RBAC) do Azure.
+
 
 ## <a name="operation-types"></a>Tipos de operação
 
@@ -182,6 +183,23 @@ Você pode criar funções personalizadas com [PowerShell](../role-based-access-
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 
 Todos os eventos ou dados gravados no disco pelo serviço de grade de eventos são criptografados por uma chave gerenciada pela Microsoft, garantindo que ele seja criptografado em repouso. Além disso, o período máximo de tempo que os eventos ou os dados retidos é de 24 horas em conformidade com a [política de repetição de grade de eventos](delivery-and-retry.md). A grade de eventos excluirá automaticamente todos os eventos ou dados após 24 horas ou a vida útil do evento, o que for menor.
+
+## <a name="permissions-for-event-subscriptions"></a>Permissões para assinaturas de evento
+Se você estiver usando um manipulador de eventos que não seja um WebHook (como um armazenamento de fila ou hub de eventos), será necessário acesso de gravação a esse recurso. Essa verificação de permissões impede que um usuário não autorizado envie eventos para seu recurso.
+
+Você deve ter a permissão **Microsoft.EventGrid/EventSubscriptions/Write** no recurso que é a origem do evento. Essa permissão é necessária porque está gravando uma nova assinatura no escopo do recurso. O recurso necessário varia de acordo com se você estiver assinando um tópico de sistema ou um tópico personalizado. Ambos os tipos são descritos nesta seção.
+
+### <a name="system-topics-azure-service-publishers"></a>Tópicos do sistema (publicadores de serviço do Azure)
+Para tópicos do sistema, você precisa de permissão para gravar uma nova assinatura de evento no escopo do recurso que está publicando o evento. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+
+Por exemplo, para assinar um evento em uma conta de armazenamento chamada **myacct**, você precisa da permissão Microsoft.EventGrid/EventSubscriptions/Write em: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+
+### <a name="custom-topics"></a>Tópicos personalizados
+Para tópicos personalizados, você precisa de permissão para gravar uma nova assinatura de evento no escopo do tópico da grade de eventos. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+
+Por exemplo, para assinar um tópico personalizado chamado **mytopic**, você precisa da permissão Microsoft.EventGrid/EventSubscriptions/Write em: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

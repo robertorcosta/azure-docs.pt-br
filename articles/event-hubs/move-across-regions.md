@@ -9,12 +9,12 @@ ms.custom: subject-moving-resources
 ms.date: 04/14/2020
 ms.author: spelluru
 ms.reviewer: shvija
-ms.openlocfilehash: 2dfc9c517605bbb48bee0b306fb275464cfebe39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606802"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690481"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Mover um namespace de hubs de eventos do Azure para outra região
 Há vários cenários em que você deseja mover o namespace de seus hubs de eventos existentes de uma região para outra. Por exemplo, talvez você queira criar um namespace com a mesma configuração para teste. Você também pode querer criar um namespace secundário em outra região como parte do [planejamento de recuperação de desastre](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -27,7 +27,7 @@ Há vários cenários em que você deseja mover o namespace de seus hubs de even
 - Verifique se os serviços e recursos que sua conta usa têm suporte na região de destino.
 - Para recursos de visualização, verifique se sua assinatura está na lista de permissões para a região de destino.
 - Se você tiver o **recurso de captura** habilitado para hubs de eventos no namespace, mova o [armazenamento do Azure ou Azure data Lake Store gen 2](../storage/common/storage-account-move.md) ou Azure data Lake Store contas [Gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) antes de mover o namespace dos hubs de eventos. Você também pode mover o grupo de recursos que contém os namespaces de armazenamento e hubs de eventos para a outra região seguindo as etapas semelhantes às descritas neste artigo. 
-- Se o namespace de hubs de eventos estiver em um **cluster de hubs de eventos**, [crie um cluster dedicado](event-hubs-dedicated-cluster-create-portal.md) na **região de destino** antes de percorrer as etapas neste artigo. 
+- Se o namespace de hubs de eventos estiver em um **cluster de hubs de eventos**, [crie um cluster dedicado](event-hubs-dedicated-cluster-create-portal.md) na **região de destino** antes de percorrer as etapas neste artigo. Você também pode usar o [modelo de início rápido no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) para criar um cluster de hubs de eventos. No modelo, remova a parte de namespace do JSON para criar apenas o cluster. 
 
 ## <a name="prepare"></a>Preparar
 Para começar, exporte um modelo do Resource Manager. Este modelo contém configurações que descrevem seu namespace de hubs de eventos.

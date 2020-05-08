@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: e5f9762533dc2ad47f855714822ba39c645bf847
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79fc74cc946578ffe91629065ddd03e43aa76957
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045462"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629466"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introdução à criação de um balanceador de carga para a Internet com IPv6 usando o PowerShell para Resource Manager
 
@@ -61,7 +61,7 @@ Para implantar um balanceador de carga, crie e configure os seguintes objetos:
 * Regras NAT de entrada – contém regras de mapeamento de uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no pool de endereços de back-end.
 * Investigações – contém investigações de integridade usadas para verificar a disponibilidade de instâncias de máquinas virtuais no pool de endereços de back-end.
 
-Para obter mais informações, consulte [Azure Load Balancer Components](./concepts-limitations.md#load-balancer-components).
+Para obter mais informações, consulte [Azure Load Balancer Components](./components.md).
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Configurar o PowerShell para usar o Gerenciador de Recursos
 

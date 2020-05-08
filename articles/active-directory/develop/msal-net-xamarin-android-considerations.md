@@ -13,13 +13,12 @@ ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81b55253d757f641979c6f72001803d7d38d9af3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77132510"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652680"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Considerações sobre o uso do Xamarin Android com MSAL.NET
 Este artigo discute o que você deve considerar ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
@@ -130,7 +129,7 @@ var authResult = AcquireTokenInteractive(scopes)
 Para obter mais informações, consulte [usar navegadores da Web para](msal-net-web-browsers.md) [Considerações sobre o navegador do sistema MSAL.net e Xamarin Android](msal-net-system-browser-android-considerations.md).
 
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 Você pode criar um novo aplicativo Xamarin. Forms e adicionar uma referência ao pacote NuGet MSAL.NET.
 Mas você poderá ter problemas de compilação se atualizar um aplicativo Xamarin. Forms existente para o MSAL.NET Preview 1.1.2 ou posterior.
 
