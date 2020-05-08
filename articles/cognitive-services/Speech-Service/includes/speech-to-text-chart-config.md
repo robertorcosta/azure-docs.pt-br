@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 05/05/2020
 ms.author: trbye
-ms.openlocfilehash: 267c2fb72b38053429019746a573c740d812c38c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 85c4e0641e1989ddea6c8aa8b8a8895a966a5ddb
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608363"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82876047"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Conversão de fala em texto (subgráfico: gráficos/speechToText)
 
@@ -43,7 +43,7 @@ Para substituir o gráfico "abrangência", adicione o prefixo `speechToText.` em
 
 #### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>Análise de sentimentos (subgráfico: gráficos/speechToText)
 
-Começando com v 2.2.0 do contêiner de fala a texto, os parâmetros a seguir são usados para análise de sentimentos usando o API de Análise de Texto.
+Começando com v 2.2.0 do contêiner de fala a texto e v 0.2.0 do gráfico de Helm, os parâmetros a seguir são usados para análise de sentimentos usando o API de Análise de Texto.
 
 |Parâmetro|Descrição|Valores|Padrão|
 | --- | --- | --- | --- |

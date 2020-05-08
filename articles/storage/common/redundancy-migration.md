@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5c37dbdc34138faab8adae6ad18252c18a75cad4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337085"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871371"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar como uma conta de armazenamento é replicada
 
@@ -26,7 +26,7 @@ O armazenamento do Azure oferece os seguintes tipos de replicação:
 - Armazenamento com redundância local (LRS)
 - Armazenamento com redundância de zona (ZRS)
 - Armazenamento com redundância geográfica (GRS) ou armazenamento com redundância geográfica com acesso de leitura (RA-GRS)
-- Armazenamento com redundância de zona geográfica (GZRS) ou armazenamento com redundância de acesso de leitura (RA-GZRS) (visualização)
+- Armazenamento com redundância de zona geográfica (GZRS) ou armazenamento com redundância de acesso de leitura (RA-GZRS)
 
 Para obter uma visão geral de cada uma dessas opções, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
 
@@ -40,13 +40,14 @@ A tabela a seguir fornece uma visão geral de como alternar de cada tipo de repl
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>... de LRS</b> | N/D | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação<sup>1</sup> | Executar uma migração manual <br /><br />Solicitar uma migração ao vivo | Executar uma migração manual <br /><br /> OU <br /><br /> Alterne para GRS/RA-GRS primeiro e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
 | <b>... de GRS/RA-GRS</b> | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação | N/D | Executar uma migração manual <br /><br /> OU <br /><br /> Alterne para o LRS primeiro e, em seguida, solicite uma migração ao vivo | Executar uma migração manual <br /><br /> Solicitar uma migração ao vivo |
-| <b>... de ZRS</b> | Executar uma migração manual | Executar uma migração manual | N/D | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação<sup>1</sup> |
+| <b>... de ZRS</b> | Executar uma migração manual | Executar uma migração manual | N/D | Use portal do Azure, PowerShell ou CLI para alterar a configuração de replicação<sup>1, 2</sup> |
 | <b>... de GZRS/RA-GZRS</b> | Executar uma migração manual | Executar uma migração manual | Usar portal do Azure, PowerShell ou CLI para alterar a configuração de replicação | N/D |
 
-<sup>1</sup> gera uma cobrança de egresso única.
+<sup>1</sup> gera uma cobrança de egresso única.<br />
+<sup>2</sup> não há suporte para a conversão de ZRS em GZRS/ra-GZRS ou vice-versa nas seguintes regiões: leste dos EUA 2, leste dos EUA, oeste da Europa.
 
 > [!CAUTION]
-> Se você executou um [failover de conta](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance) para sua conta do (ra-) grs ou (ra-) GZRS, ele será configurado para ser localmente redundante na nova região primária. Não há suporte para a migração dinâmica para ZRS ou GZRS para essas contas LRS. Você precisará executar a [migração manual](https://docs.microsoft.com/azure/storage/common/redundancy-migration#perform-a-manual-migration-to-zrs).
+> Se você executou um [failover de conta](storage-disaster-recovery-guidance.md) para sua conta do (ra-) grs ou (ra-) GZRS, a conta será localmente redundante na nova região primária após o failover. Não há suporte para a migração dinâmica para ZRS ou GZRS para uma conta LRS resultante de um failover. Você precisará executar uma [migração manual](#perform-a-manual-migration-to-zrs) para ZRS ou GZRS.
 
 ## <a name="change-the-replication-setting"></a>Alterar a configuração de replicação
 
@@ -191,8 +192,8 @@ Se você migrar sua conta de armazenamento de GRS para LRS, não haverá nenhum 
 > [!IMPORTANT]
 > Se você migrar sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta será cobrada como RA-GRS por um adicional 30 dias além da data em que foi convertida.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Redundância de armazenamento do Azure](storage-redundancy.md)
 - [Verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md)
-- [Criando aplicativos altamente disponíveis usando o armazenamento com redundância geográfica com acesso de leitura](storage-designing-ha-apps-with-ragrs.md)
+- [Use a redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)

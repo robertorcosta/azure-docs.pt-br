@@ -2,7 +2,7 @@
 title: Personalizar tarefas de análise de código de segurança da Microsoft
 titleSuffix: Azure
 description: Este artigo descreve como personalizar as tarefas na extensão de análise de código de segurança da Microsoft
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77500000"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871877"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurar e personalizar as tarefas de compilação
 
@@ -41,7 +41,7 @@ O Windows Defender usa o cliente Windows Update para baixar e instalar assinatur
 
 Para obter mais informações sobre erros de Windows Update e sua mitigação, consulte [Windows Update códigos de erro por componente](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) e o artigo do TechNet [Windows Update códigos de erro de agente](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML de anti-malware](yaml-configuration.md#anti-malware-scanner-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de anti-malware](yaml-configuration.md#anti-malware-scanner-task)
 
 ## <a name="binskim-task"></a>Tarefa BinSkim
 
@@ -82,7 +82,7 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 
 Para obter mais informações sobre argumentos de linha de comando BinSkim, regras por ID ou códigos de saída, consulte o [Guia do usuário do BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML do BinSkim](yaml-configuration.md#binskim-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML do BinSkim](yaml-configuration.md#binskim-task)
 
 ## <a name="credential-scanner-task"></a>Tarefa do verificador de credenciais
 
@@ -91,7 +91,8 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 ![Configurando a tarefa de compilação do verificador de credenciais](./media/security-tools/3-taskdetails.png)
 
 As opções disponíveis incluem:
-
+  - **Nome de exibição**: o nome da tarefa DevOps do Azure. O valor padrão é executar o verificador de credenciais
+  - **Versão principal da ferramenta**: os valores disponíveis incluem **CredScan v2**, **CredScan v1**. Recomendamos que os clientes usem a versão **CredScan v2** .
   - **Formato de saída**: os valores disponíveis incluem **TSV**, **CSV**, **SARIF**e **PREfast**.
   - **Versão da ferramenta**: Recomendamos que você selecione **mais recente**.
   - **Pasta de verificação**: a pasta do repositório a ser verificada.
@@ -105,7 +106,7 @@ As opções disponíveis incluem:
   - **Opções de controle** > **executar esta tarefa**: especifica quando a tarefa será executada. Selecione **condições personalizadas** para especificar condições mais complexas.
   - **Versão**: a versão da tarefa de compilação no Azure DevOps. Essa opção não é usada com frequência.
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML do verificador de credenciais](yaml-configuration.md#credential-scanner-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML do verificador de credenciais](yaml-configuration.md#credential-scanner-task)
 
 ## <a name="microsoft-security-risk-detection-task"></a>Tarefa de detecção de riscos de segurança da Microsoft
 
@@ -135,7 +136,7 @@ Os detalhes para configurar essa tarefa são mostrados na lista a seguir. Para q
        - O **Driver de teste pode ser renomeado**: Marque esta caixa de seleção se o arquivo executável do driver de teste puder ser renomeado e ainda funcionar corretamente.
        - **O aplicativo de fuzzing é executado como um único processo do sistema operacional**: Marque esta caixa de seleção se o driver de teste for executado em um único processo do sistema operacional. Desmarque-a se o driver de teste gerar processos adicionais.
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML de detecção de riscos de segurança da Microsoft](yaml-configuration.md#microsoft-security-risk-detection-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de detecção de riscos de segurança da Microsoft](yaml-configuration.md#microsoft-security-risk-detection-task)
 
 ## <a name="roslyn-analyzers-task"></a>Tarefa de analisadores de Roslyn
 
@@ -172,7 +173,7 @@ Para obter recursos adicionais para a tarefa analisadores de Roslyn, confira [os
 
 Você pode encontrar o pacote do analisador instalado e usado por essa tarefa de compilação na página do NuGet [Microsoft. CodeAnalysis. FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML de analisadores de Roslyn](yaml-configuration.md#roslyn-analyzers-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de analisadores de Roslyn](yaml-configuration.md#roslyn-analyzers-task)
 
 ## <a name="tslint-task"></a>Tarefa TSLint
 
@@ -181,7 +182,7 @@ Para obter mais informações sobre TSLint, acesse o [repositório GitHub TSLint
 >[!NOTE] 
 >Como você deve estar ciente, o [repositório GitHub TSLint](https://github.com/palantir/tslint) Home Page diz que o TSLint será preterido em algum momento em 2019. A Microsoft está investigando o [ESLint](https://github.com/eslint/eslint) como uma tarefa alternativa.
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML do TSLint](yaml-configuration.md#tslint-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML do TSLint](yaml-configuration.md#tslint-task)
 
 ## <a name="publish-security-analysis-logs-task"></a>Tarefa publicar logs de análise de segurança
 
@@ -193,7 +194,7 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 - **Tipo de artefato**: dependendo da sua seleção, você pode publicar logs em seu Azure DevOps Server ou em um arquivo compartilhado que seja acessível para o agente de compilação.
 - **Ferramentas**: você pode optar por preservar os logs para ferramentas específicas ou pode selecionar **todas as ferramentas** para preservar todos os logs.
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML de logs de segurança de publicação](yaml-configuration.md#publish-security-analysis-logs-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de logs de segurança de publicação](yaml-configuration.md#publish-security-analysis-logs-task)
 
 ## <a name="security-report-task"></a>Tarefa de relatório de segurança
 
@@ -206,7 +207,7 @@ Os detalhes da configuração do relatório de segurança são mostrados na segu
 - **Opções avançadas**: se não houver nenhum log para uma das ferramentas selecionadas, você poderá optar por registrar um aviso ou um erro. Se você registrar um erro, a tarefa falhará.
 - **Pasta de logs de base**: você pode personalizar a pasta de logs de base onde os logs devem ser encontrados. Mas essa opção normalmente não é usada.
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML de relatório de segurança](yaml-configuration.md#security-report-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de relatório de segurança](yaml-configuration.md#security-report-task)
 
 ## <a name="post-analysis-task"></a>Tarefa de pós-análise
 
@@ -218,7 +219,7 @@ Os detalhes da configuração de tarefa são mostrados na seguinte captura de te
 - **Relatório**: opcionalmente, você pode gravar os resultados que estão causando a quebra de compilação. Os resultados são gravados na janela do console DevOps do Azure e no arquivo de log.
 - **Opções avançadas**: se não houver nenhum log para uma das ferramentas selecionadas, você poderá optar por registrar um aviso ou um erro. Se você registrar um erro, a tarefa falhará.
 
-Para obter informações sobre a configuração de YAML para essa tarefa, consulte nossas [Opções de YAML de pós-análise](yaml-configuration.md#post-analysis-task)
+Para obter informações sobre a configuração de YAML para essa tarefa, verifique nossas [Opções de YAML de pós-análise](yaml-configuration.md#post-analysis-task)
 
 ## <a name="next-steps"></a>Próximas etapas
 

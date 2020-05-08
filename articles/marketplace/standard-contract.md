@@ -1,22 +1,22 @@
 ---
-title: Contrato Standard | Azure Marketplace
-description: Contrato padrão para o Azure Marketplace e o AppSource
+title: Contrato padrão do Microsoft Commercial Marketplace
+description: Contrato padrão para o Azure Marketplace e o AppSource no Partner Center
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3886b29a47edcfb36114cedf8b8edb3799e0c345
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681456"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871441"
 ---
-# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrato padrão para o Marketplace comercial da Microsoft
+# <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato padrão do Microsoft Commercial Marketplace
 
-Para simplificar o processo de aquisição para clientes e reduzir a complexidade legal para fornecedores de software, a Microsoft oferece um contrato padrão para o Microsoft Commercial Marketplace a fim de ajudar a facilitar as transações no Marketplace. Em vez de criar termos e condições personalizados, os editores de mercado comercial podem optar por oferecer seu software sob o contrato padrão, que os clientes precisam apenas examinaremos e aceitar uma vez. O contrato padrão pode ser encontrado aqui: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
+A Microsoft oferece um contrato padrão para o Microsoft Commercial Marketplace. Isso ajuda a simplificar o processo de aquisição para clientes, reduzir a complexidade legal para fornecedores de software e facilitar as transações no Marketplace. Em vez de criar termos e condições personalizados, como um editor de mercado comercial, você pode optar por oferecer seu software sob o [contrato padrão](https://go.microsoft.com/fwlink/?linkid=2041178), que os clientes precisam apenas examinaremos e aceitar uma vez.
 
 Os termos e condições de uma oferta são definidos ao criar a oferta no Partner Center. Você pode optar por usar o contrato padrão para o Marketplace comercial da Microsoft em vez de fornecer seus próprios termos e condições personalizados.
 
