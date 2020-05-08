@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 2fc2a32c47991b9b3615417dfb8f50ca3e7c988f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864565"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983492"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para a recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -114,7 +114,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões com suporte do kernel Ubuntu para máquinas virtuais do Azure
 
-**Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
+**Liberar** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
 14.04 LTS | 9,32| 3.13.0-24-Generic para 3.13.0-170-Generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-148-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1045-Azure |
 14.04 LTS | 9.31 | 3.13.0-24-Generic para 3.13.0-170-Generic,<br/>3.16.0-25-generic para 3.16.0-77-generic,<br/>3.19.0-18-generic para 3.19.0-80-generic,<br/>4.2.0-18-generic para 4.2.0-42-generic,<br/>4.4.0-21-Generic para 4.4.0-148-Generic,<br/>4.15.0-1023-Azure para 4.15.0-1045-Azure |
@@ -134,7 +134,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versões com suporte do kernel Debian para máquinas virtuais do Azure
 
-**Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
+**Liberar** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
 Debian 7 | 9.28,9.29,9.30,9.31 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -143,7 +143,7 @@ Debian 8 | 9,28 | 3.16.0-4-AMD64 para 3.16.0-10-AMD64, 4.9.0-0. BPO. 4-AMD64 par
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versões de kernel com suporte do SUSE Linux Enterprise Server 12 para máquinas virtuais do Azure
 
-**Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
+**Liberar** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,32 | Todos os estoques SUSE 12 SP1, SP2, SP3 e kernels do SP4 têm suporte.</br></br> 4.4.138-4.7-Azure para 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure para 4.12.14-6.34-Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.31 | Todos os estoques SUSE 12 SP1, SP2, SP3 e kernels do SP4 têm suporte.</br></br> 4.4.138-4.7-Azure para 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure para 4.12.14-6.29-Azure  |
@@ -152,7 +152,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,29 | Todos os estoques 
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>SUSE Linux Enterprise Server de 15 versões de kernel com suporte para máquinas virtuais do Azure
 
-**Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
+**Liberar** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 15 e 15 SP1 | 9,32 | Por padrão, há suporte para todos os [kernels SuSE 15 e 15 de estoque](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5.5-Azure para 4.12.14-8.22-Azure |
 
@@ -215,9 +215,9 @@ Armazenamento frio e quente | Sem suporte | Discos de VM não são suportados em
 Espaços de Armazenamento | Com suporte |
 Criptografia em repouso (SSE) | Com suporte | SSE é a configuração padrão em contas de armazenamento.
 Criptografia em repouso (CMK) | Com suporte | As chaves de software e HSM têm suporte para discos gerenciados
-Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | Com suporte para VMs com discos gerenciados. | Não há suporte para VMs que usam discos não gerenciados. <br/><br/> Não há suporte para chaves protegidas por HSM. |
-ADE (Azure Disk Encryption) para sistema operacional Linux | Com suporte para VMs com discos gerenciados. | Não há suporte para VMs que usam discos não gerenciados. <br/><br/> Não há suporte para chaves protegidas por HSM. |
-Adição a quente    | Com suporte | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada tem suporte para VMs que usam discos gerenciados.
+Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | Com suporte para VMs com discos gerenciados. | Não há suporte para VMs que usam discos não gerenciados. <br/><br/> Não há suporte para chaves protegidas por HSM. <br/><br/> Não há suporte para a criptografia de volumes individuais em um único disco. |
+ADE (Azure Disk Encryption) para sistema operacional Linux | Com suporte para VMs com discos gerenciados. | Não há suporte para VMs que usam discos não gerenciados. <br/><br/> Não há suporte para chaves protegidas por HSM. <br/><br/> Não há suporte para a criptografia de volumes individuais em um único disco. |
+Adição a quente    | Com suporte | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada tem suporte para VMs que usam discos gerenciados. <br/><br/> Somente um disco pode ser adicionado a uma VM do Azure por vez. Não há suporte para a adição paralela de vários discos. |
 Disco de remoção quente    | Sem suporte | Se você remover o disco de dados na VM, será necessário desabilitar a replicação e habilitar a replicação novamente para a VM.
 Exclusão de disco | Suporte. Você deve usar o [PowerShell](azure-to-azure-exclude-disks.md) para configurar o. |    Os discos temporários são excluídos por padrão.
 Espaços de Armazenamento Direct  | Com suporte para pontos de recuperação de falha consistentes. Sem suporte para pontos de recuperação de aplicativo consistentes. |
