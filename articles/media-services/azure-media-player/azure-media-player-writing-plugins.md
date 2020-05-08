@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727106"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857411"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Gravando plug-ins para Player de Mídia do Azure #
 
@@ -87,8 +87,8 @@ Para inspiração e mais exemplos de como criar um plug-in, dê uma olhada em no
 
 ### <a name="plugin-gallery"></a>Galeria de plug-ins ###
 
-A [Galeria de plug-](http//:aka.ms/ampplugins) ins tem vários plugins que a Comunidade já contribuiu para recursos como marcadores de linha de tempo, zoom, análise e muito mais. A página fornece acesso aos plug-ins e instruções sobre como configurá-lo, bem como uma demonstração que mostra o plug-in em ação. Se você criar um plug-in interessante que você acha que deve ser incluído em nossa galeria, fique à vontade para enviá-lo para que possamos fazer check-out.
+A [Galeria de plug-](https://aka.ms/ampplugins) ins tem vários plugins que a Comunidade já contribuiu para recursos como marcadores de linha de tempo, zoom, análise e muito mais. A página fornece acesso aos plug-ins e instruções sobre como configurá-lo, bem como uma demonstração que mostra o plug-in em ação. Se você criar um plug-in interessante que você acha que deve ser incluído em nossa galeria, fique à vontade para enviá-lo para que possamos fazer check-out.
 
 ## <a name="next-steps"></a>Próximas etapas ##
 
-- [Guia de início rápido Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

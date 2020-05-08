@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 94fe099984fae77c65658d7085a8540ff4f2448b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51fde73565c9c4cdb21e998b8d43d303ceef062e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67172378"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561375"
 ---
-Esta seção descreve os limites de serviço de Armazenamento do Microsoft Azure e as convenções de nomenclatura necessárias para Arquivos do Azure, blobs de blocos do Azure e blobs de páginas do Azure, conforme aplicável ao serviço de Data Box Gateway/Data Box Edge. Examine os limites de armazenamento com cuidado e siga todas as recomendações.
+Esta seção descreve os limites do serviço de armazenamento do Azure e as convenções de nomenclatura necessárias para arquivos do Azure, blobs de blocos do Azure e blobs de páginas do Azure, conforme aplicável ao serviço Azure Stack Edge/Gateway do Data Box. Examine os limites de armazenamento com cuidado e siga todas as recomendações.
 
 Para obter as informações mais recentes sobre os limites de serviço de armazenamento do Azure e práticas recomendadas para nomear compartilhamentos, contêineres e arquivos, visite:
 
@@ -20,4 +20,4 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 - [Convenções de blobs de páginas e blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Se há quaisquer arquivos ou diretórios que excedem os limites de serviço de Armazenamento do Microsoft Azure ou não estão em conformidade com as convenções de nomenclatura de Blobs/Arquivos do Azure, esses arquivos ou diretórios não são ingeridos no Armazenamento do Azure por meio do serviço Data Box Edge/Data Box Gateway.
+> Se houver arquivos ou diretórios que excedam os limites do serviço de armazenamento do Azure ou não estiverem em conformidade com as convenções de nomenclatura de blob/arquivos do Azure, esses arquivos ou diretórios não serão incluídos no armazenamento do Azure por meio do serviço Azure Stack Edge/Gateway do Data Box.

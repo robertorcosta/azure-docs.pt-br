@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585282"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559532"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico por meio de Azure Monitor
 
@@ -63,7 +63,7 @@ As métricas de [pontos de extremidade de streaming](https://docs.microsoft.com/
 |Nome da métrica|Nome de exibição|Descrição|
 |---|---|---|
 |Requests|Requests|Fornece o número total de solicitações HTTP atendidas pelo ponto de extremidade de streaming.|
-|Saída|Saída|O número total de bytes de saída. Por exemplo, bytes transmitidos pelo ponto de extremidade de streaming.|
+|Saída|Saída|Total de bytes de saída por minuto por ponto de extremidade de streaming.|
 |SuccessE2ELatency|Latência de ponta a ponta com êxito|Duração de tempo de quando o ponto de extremidade de streaming recebeu a solicitação para quando o último byte da resposta foi enviado.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>Por que desejo usar métricas?
@@ -92,7 +92,7 @@ Os serviços de mídia oferecem suporte aos seguintes logs de diagnóstico:
 
 ### <a name="key-delivery"></a>Entrega de chave
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |Solicitação do serviço de distribuição de chaves|Logs que mostram as informações de solicitação de serviço de entrega de chave. Para obter mais informações, consulte [esquemas](media-services-diagnostic-logs-schema.md).|
 

@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: b4d3be9fbacee82f36f1238c5d9b4598c95b5df2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856260"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888815"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -170,7 +170,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
     - Você pode usar SAS (assinaturas de acesso compartilhado) para gerar tokens que têm permissões específicas e que são válidos para um intervalo de tempo especificado. Por exemplo, você pode gerar um token com acesso somente leitura a um arquivo específico que tem validade de 10 minutos. Qualquer pessoa que tem esse token enquanto ele é válido tem acesso somente leitura ao arquivo por 10 minutos. As chaves de assinatura de acesso compartilhado têm suporte apenas por meio da API REST ou nas bibliotecas de cliente. Você deve montar o compartilhamento de arquivos do Azure no SMB usando as chaves de conta de armazenamento.
 
-    - A Sincronização de Arquivos do Azure preserva e replica todas as ACLs discricionárias ou DACLs (sejam elas baseadas no Active Directory ou locais) para todos os pontos de extremidade do servidor aos quais ela é sincronizada. Já que o Windows Server já pode se autenticar com o Active Directory, a Sincronização de Arquivos do Azure pode ser uma medida preventiva eficaz até que o suporte completo para autenticação baseada em Active Directory e o suporte a ACL fiquem disponíveis.
+    - A Sincronização de Arquivos do Azure preserva e replica todas as ACLs discricionárias ou DACLs (sejam elas baseadas no Active Directory ou locais) para todos os pontos de extremidade do servidor aos quais ela é sincronizada. 
     
     Você pode consultar [autorizar o acesso ao armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para uma representação abrangente de todos os protocolos com suporte nos serviços de armazenamento do Azure. 
 
@@ -414,7 +414,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 **Como posso usar os Arquivos do Azure com o IBM MQ?**  
     A IBM liberou um documento que ajuda clientes do IBM MQ a configurar o Arquivos do Azure juntamente com o serviço IBM. Para obter mais informações, consulte [Como configurar o gerenciador de filas com várias instâncias do IBM MQ com o serviço Arquivos do Microsoft Azure](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Solucionar problemas do Arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Solucionar problemas do Arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Solucionar problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

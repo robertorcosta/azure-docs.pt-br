@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 04/10/2020
-ms.openlocfilehash: ed2fe1736c887fd8aa866c8d0c71a5df0aa4fb31
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/30/2020
+ms.openlocfilehash: 4eaa9c4e3d200eedd57c468639c1af3830911d1d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232829"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889252"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configure os clusters no HDInsight com o Apache Hadoop, o Apache Spark, o Apache Kafka e muito mais
 
@@ -26,11 +26,13 @@ Um cluster Hadoop é composto por várias máquinas virtuais (nós), usadas para
 > [!IMPORTANT]  
 > A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado. Saiba como [excluir um cluster.](hdinsight-delete-cluster.md)
 
+Se você estiver usando vários clusters juntos, você desejará criar uma rede virtual e, se estiver usando um cluster Spark, você também desejará usar o conector de depósito do hive. Para obter mais informações, consulte [planejar uma rede virtual para o Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) e [integrar Apache Spark e Apache Hive com o conector do depósito do hive](interactive-query/apache-hive-warehouse-connector.md).
+
 ## <a name="cluster-setup-methods"></a>Métodos de instalação de cluster
 
 A tabela a seguir mostra os diferentes métodos que você pode usar para configurar um cluster HDInsight.
 
-| Clusters criados com | Navegador da Web | Linha de Comando | API REST | . |
+| Clusters criados com | Navegador da Web | Linha de comando | API REST | . |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |

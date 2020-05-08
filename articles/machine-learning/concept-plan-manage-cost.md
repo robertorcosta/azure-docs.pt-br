@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 67b703f0079e26d01330d52d170f99699480fad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196381"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857004"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planejar e gerenciar custos para Azure Machine Learning
 
@@ -90,7 +90,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 Assim como outros recursos de computação do Azure, o AmlCompute vem com uma [configuração de cota inerente (ou limite)](how-to-manage-quotas.md#azure-machine-learning-compute). Essa cota é por família de VMs (por exemplo, série Dv2, série NCv3) e varia por região para cada assinatura. As assinaturas começam com pequenos padrões para ajudá-lo, mas use essa configuração para controlar a quantidade de recursos Amlcompute disponíveis para ser girada em sua assinatura. 
 
-Também configure a [cota de nível de espaço de trabalho por família de VM](/how-to-manage-quotas.md#workspace-level-quota)para cada espaço de trabalho em uma assinatura. Isso permite que você tenha um controle mais granular dos custos que cada espaço de trabalho pode potencialmente incorrer e restringir determinadas famílias de VMs. 
+Também configure a [cota de nível de espaço de trabalho por família de VM](how-to-manage-quotas.md#workspace-level-quota)para cada espaço de trabalho em uma assinatura. Isso permite que você tenha um controle mais granular dos custos que cada espaço de trabalho pode potencialmente incorrer e restringir determinadas famílias de VMs. 
 
 Para definir cotas no nível do espaço de trabalho, inicie na [portal do Azure](https://portal.azure.com).  Selecione qualquer espaço de trabalho em sua assinatura e selecione **usos + cotas** no painel esquerdo. Em seguida, selecione a guia **configurar cotas** para exibir as cotas. Você precisa de privilégios no escopo da assinatura para definir essa cota, pois é uma configuração que afeta vários espaços de trabalho.
 

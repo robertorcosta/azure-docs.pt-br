@@ -1,36 +1,36 @@
 ---
-title: Parceria entre parceiros de venda | Azure Marketplace
-description: O programa de vendas da Microsoft para parceiros pode ajudá-lo a alcançar uma vasta base de clientes e gerar novas vendas.
+title: Parceria entre parceiros de venda-mercado comercial da Microsoft
+description: O programa de venda covendedor do Microsoft Partner Center para parceiros pode ajudá-lo a alcançar uma vasta base de clientes e gerar novas vendas.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 5cae07f02c62db0fbeb4043f9804fffe461ce1a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23823e3952adcad6c7047636a24596e930927f6f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684396"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857349"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
-O programa de vendas da Microsoft permite que os parceiros trabalhem diretamente com a Microsoft em oportunidades de vendas conjuntas. Você pode alcançar uma vasta comunidade de clientes e criar novas oportunidades de vendas que podem ajudar a acelerar o crescimento dos negócios.
+Se você for um parceiro, poderá usar o programa Microsoft co-revenda para trabalhar diretamente com a Microsoft em oportunidades de venda conjuntas. O programa ajuda nossos parceiros a alcançar uma vasta comunidade de clientes e a criar novas oportunidades de vendas que podem ajudar a acelerar o crescimento dos negócios.
 
 ## <a name="partner-selling-motions"></a>Movimentos de vendas de parceiros
 
-Há três movimentos de venda de parceiros:
+A Microsoft oferece três movimentos de vendas de parceiros:
 
 * *Venda por parceiro*: você pode revender a tecnologia da Microsoft por meio de seus vendedores.
 * *Co-venda de serviços*: vendedores e parceiros colaboram para vender seu projeto ou serviços gerenciados com a tecnologia da Microsoft incorporada.
-* *Co-venda de IP*: vendedores/parceiros colaboram para vender sua solução de IP com pacote repetível *.
+* *Co-venda de IP*: vendedores e parceiros colaboram para vender sua solução de IP com pacote repetível. *
 
-\*Algumas dessas soluções de venda de IP podem receber incentivos adicionais quando forem vendidas e implantadas com êxito com as equipes de vendas de campo da Microsoft.
+\*Algumas dessas soluções de revenda de IP podem receber incentivos adicionais quando são vendidas e implantadas com êxito com as equipes de vendas de campo da Microsoft.
 
-![Co-venda ocorre](./media/marketplace-publishers-guide/marketplace-co-sell.png)
+![Diagrama mostrando como a venda de vendas ocorre quando os clientes potenciais são compartilhados, aceitos e ganhos em relação aos clientes gerenciados pela Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre como [vender com a Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Saiba mais sobre a [opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) .
+- Saiba mais sobre a [opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).

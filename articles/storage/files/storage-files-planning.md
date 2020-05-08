@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1fffb3eb10b7d3cbb3360a03112c3b4d7db8d109
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209478"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856873"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -84,7 +84,7 @@ Em geral, os recursos de arquivos do Azure e a interoperabilidade com outros ser
     - Os compartilhamentos de arquivos Premium são cobrados usando um modelo de cobrança provisionado, o que significa que você paga pela quantidade de armazenamento que você provisiona, em vez da quantidade de armazenamento que realmente pede. 
     - Os compartilhamentos de arquivos padrão são cobrados usando um modelo pago conforme o uso, que inclui um custo base de armazenamento para a quantidade de armazenamento que você está consumindo e, em seguida, um custo de transação adicional com base em como você usa o compartilhamento. Com compartilhamentos de arquivos padrão, sua fatura aumentará se você usar (leitura/gravação/montagem) do compartilhamento de arquivos do Azure mais.
 - **Opções de redundância**
-    - Os compartilhamentos de arquivos Premium só estão disponíveis para armazenamento com redundância local (LRS) e com redundância de zona (ZRS). 
+    - Os compartilhamentos de arquivos Premium só estão disponíveis para armazenamento com redundância local (LRS) e com redundância de zona (ZRS).
     - Os compartilhamentos de arquivos padrão estão disponíveis para o armazenamento localmente redundante, com redundância de zona, com redundância geográfica (GRS) e com redundância de zona geográfica (GZRS).
 - **Tamanho máximo do compartilhamento de arquivos**
     - Os compartilhamentos de arquivos Premium podem ser provisionados para até 100 TiB sem nenhum trabalho adicional.

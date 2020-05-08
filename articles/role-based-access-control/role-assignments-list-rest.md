@@ -1,6 +1,6 @@
 ---
-title: Listar atribuições de função usando o RBAC do Azure e a API REST
-description: Saiba como determinar quais recursos os usuários, grupos, entidades de serviço ou identidades gerenciadas têm acesso ao uso do RBAC (controle de acesso baseado em função) do Azure e a API REST.
+title: Listar atribuições de função do Azure usando a API REST – RBAC do Azure
+description: Saiba como determinar quais recursos os usuários, grupos, entidades de serviço ou identidades gerenciadas têm acesso ao uso da API REST e do Azure RBAC (controle de acesso baseado em função).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,17 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a494e7fd4c9fb79faa6a1d8cb2c3c871796ccdc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50ef431559a38d30f7e1e76646e8930c70fc4ef9
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062149"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891330"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Listar atribuições de função usando o RBAC do Azure e a API REST
+# <a name="list-azure-role-assignments-using-the-rest-api"></a>Listar atribuições de função do Azure usando a API REST
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar as atribuições de função usando a API REST.
 
@@ -31,7 +31,7 @@ ms.locfileid: "80062149"
 
 ## <a name="list-role-assignments"></a>Listar atribuições de função
 
-No RBAC, para listar o acesso, você lista as atribuições de função. Para listar as atribuições de função, use uma das APIs REST [Atribuições de Função - Listar](/rest/api/authorization/roleassignments/list). Para refinar seus resultados, especifique um escopo e um filtro opcional.
+No RBAC do Azure, para listar o acesso, você lista as atribuições de função. Para listar as atribuições de função, use uma das APIs REST [Atribuições de Função - Listar](/rest/api/authorization/roleassignments/list). Para refinar seus resultados, especifique um escopo e um filtro opcional.
 
 1. Comece com a solicitação a seguir:
 
@@ -61,7 +61,36 @@ No RBAC, para listar o acesso, você lista as atribuições de função. Para li
     > | `$filter=atScope()+and+assignedTo('{objectId}')` | Lista as atribuições de função para o usuário ou a entidade de serviço especificada e no escopo especificado. |
     > | `$filter=principalId+eq+'{objectId}'` | Lista as atribuições de função para um usuário, grupo ou entidade de serviço especificado. |
 
+A solicitação a seguir lista todas as atribuições de função para o usuário especificado no escopo da assinatura:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()+and+assignedTo('{objectId1}')
+```
+
+O texto a seguir mostra um exemplo da saída:
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+                "principalId": "{objectId1}",
+                "scope": "/subscriptions/{subscriptionId1}",
+                "createdOn": "2019-01-15T21:08:45.4904312Z",
+                "updatedOn": "2019-01-15T21:08:45.4904312Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "name": "{roleAssignmentId1}"
+        }
+    ]
+}
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar ou remover atribuições de função usando o RBAC do Azure e a API REST](role-assignments-rest.md)
+- [Adicionar ou remover atribuições de função do Azure usando a API REST](role-assignments-rest.md)
 - [Referência da API REST do Azure](/rest/api/azure/)

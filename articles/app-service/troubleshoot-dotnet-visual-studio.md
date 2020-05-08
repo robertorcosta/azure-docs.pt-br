@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280047"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891068"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solucionar problemas de um aplicativo no Serviço de Aplicativo do Azure usando o Visual Studio
 ## <a name="overview"></a>Visão geral
@@ -614,7 +614,7 @@ Você viu como o Visual Studio facilita a exibição de logs criados por um apli
 Para saber mais sobre como solucionar problemas de aplicativos no Serviço de Aplicativo do Azure, confira os seguintes recursos:
 
 * [Como monitorar aplicativos](web-sites-monitor.md)
-* [Investigando perdas de memória em Serviço de Aplicativo do Azure com o Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Postagem no blog do Microsoft ALM sobre os recursos do Visual Studio para análise de problemas de memória gerenciados.
+* [Investigando perdas de memória em Serviço de Aplicativo do Azure com o Visual Studio 2013](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/). Postagem no blog do Microsoft ALM sobre os recursos do Visual Studio para análise de problemas de memória gerenciados.
 * [Ferramentas online do Serviço de Aplicativo do Azure sobre as quais você deve saber](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Postagem de blog de Amit Apple.
 
 Para obter ajuda com uma pergunta específica de solução de problemas, inicie um thread em um dos seguintes fóruns:
@@ -678,7 +678,7 @@ Para obter mais informações sobre como analisar logs de servidor web, consulte
   Uma ferramenta para exibir dados em logs de servidor Web (arquivos *.log* ).
 * [Solucionando problemas de desempenho do IIS ou erros de aplicativo usando o LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    Uma introdução à ferramenta LogParser que pode ser usada para analisar logs de servidor web.
-* [Postagens no blog por Robert McMurray sobre como usar o LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Postagens no blog por Robert McMurray sobre como usar o LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [O código de status HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisando logs de rastreamento de solicitação com falha

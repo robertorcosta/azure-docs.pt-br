@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461711"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857165"
 ---
 # <a name="design-secure-applications-on-azure"></a>Criar aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades e os controles de segurança a serem considerados quando você cria aplicativos para a nuvem. Os recursos de treinamento, juntamente com as perguntas de segurança e os conceitos a serem considerados durante as fases de design e de requisitos do Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) , são abordados. O objetivo é ajudá-lo a definir atividades e serviços do Azure que você pode usar para criar um aplicativo mais seguro.
@@ -222,11 +222,11 @@ Um desenvolvedor de software precisa de direitos de administrador de domínio? U
 Certifique-se de que seu aplicativo impõe [privilégios mínimos](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) em seus padrões de acesso.
 
 > [!NOTE]
->  As regras de privilégios mínimos precisam ser aplicadas ao software e às pessoas que criam o software. Os desenvolvedores de software podem ser um grande risco para a segurança de ti se receberem muito acesso. As consequências podem ser severas se um desenvolvedor tiver uma intenção mal-intencionada ou receber muito acesso. Recomendamos que as regras de privilégios mínimos sejam aplicadas aos desenvolvedores em todo o ciclo de vida do desenvolvimento.
+> As regras de privilégios mínimos precisam ser aplicadas ao software e às pessoas que criam o software. Os desenvolvedores de software podem ser um grande risco para a segurança de ti se receberem muito acesso. As consequências podem ser severas se um desenvolvedor tiver uma intenção mal-intencionada ou receber muito acesso. Recomendamos que as regras de privilégios mínimos sejam aplicadas aos desenvolvedores em todo o ciclo de vida do desenvolvimento.
 
 #### <a name="implement-just-in-time-access"></a>Implementar o acesso just-in-time
 
-Implemente o acesso JIT ( *just-in-time* ) para reduzir ainda mais o tempo de exposição dos privilégios. Use [Azure ad Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) para:
+Implemente o acesso JIT ( *just-in-time* ) para reduzir ainda mais o tempo de exposição dos privilégios. Use [Azure ad Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) para:
 
 - Dê aos usuários as permissões de que eles precisam apenas de JIT.
 - Atribua funções por uma duração reduzida com confiança de que os privilégios são revogados automaticamente.

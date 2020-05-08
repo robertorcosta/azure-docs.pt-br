@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 771d7f5b037fde1144b18dc4ed0dee7aecac6744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100202"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562212"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Solucionar problemas de conexão com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -49,6 +49,7 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azur
 * Configuração de firewall do servidor: Verifique se o Firewall do servidor do banco de dados do Azure para PostgreSQL está configurado para permitir conexões do cliente, incluindo servidores proxy e gateways.
 * Configuração de firewall do cliente: o firewall em seu cliente deve permitir conexões com o servidor de banco de dados. Endereços IP e portas do servidor devem ser permitidos, bem como nomes de aplicativo, como MySQL, em alguns firewalls.
 * Erro do usuário: você pode ter parâmetros de conexão digitados, como o nome do servidor na cadeia de conexão ou um sufixo * \@ServerName* ausente no nome de usuário.
+* Se você vir que o _servidor de erro não está configurado para permitir conexões IPv6_, observe que a camada básica não dá suporte a pontos de extremidade de serviço de VNet. Você precisa remover o ponto de extremidade Microsoft. SQL da sub-rede que está tentando se conectar ao servidor básico.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Etapas para resolver os problemas de conectividade temporários
 

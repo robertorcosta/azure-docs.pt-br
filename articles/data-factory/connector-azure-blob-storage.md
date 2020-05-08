@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/09/2020
-ms.openlocfilehash: b04ff409c95980a1569a2709a475dd8ec74d59b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 3a67dc68415dacaa024fae1b1de97bb82eb65723
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415476"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891562"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento de BLOBs do Azure usando Azure Data Factory
 
@@ -76,7 +76,7 @@ O conector de Blob do Azure suporta os seguintes tipos de autenticação, consul
 
 Para usar a autenticação de chave de conta de armazenamento, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo deve ser definida como **AzureBlobStorage** (sugerido) ou **AzureStorage** (consulte as observações abaixo). |Sim |
 | connectionString | Especifique as informações necessárias para se conectar ao Armazenamento para a propriedade connectionString. <br/> Você também pode colocar a chave de conta no Azure Key Vault e efetuar pull da configuração `accountKey` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
@@ -142,7 +142,7 @@ Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da s
 
 Para usar a autenticação de assinatura de acesso compartilhado, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo deve ser definida como **AzureBlobStorage** (sugerido) ou **AzureStorage** (consulte as observações abaixo). |Sim |
 | sasUri | Especifique o URI de assinatura de acesso compartilhado para os recursos de Armazenamento, como blob/contêiner. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar o token SAS em Azure Key Vault para aproveitar a rotação automática e remover a parte do token. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
@@ -161,7 +161,7 @@ Para usar a autenticação de assinatura de acesso compartilhado, há suporte pa
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource e.g. https://<container>.blob.core.windows.net/?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<accountname>.blob.core.windows.net/?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
             }
         },
         "connectVia": {
@@ -182,7 +182,7 @@ Para usar a autenticação de assinatura de acesso compartilhado, há suporte pa
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<container>.blob.core.windows.net/>"
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<accountname>.blob.core.windows.net/>"
             },
             "sasToken": { 
                 "type": "AzureKeyVaultSecret", 
@@ -226,7 +226,7 @@ Para usar a autenticação de entidade de serviço, siga estas etapas:
 
 Estas propriedades são suportadas por um serviço vinculado de armazenamento de Blob do Azure:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo deve ser definida como **AzureBlobStorage**. |Sim |
 | serviceEndpoint | Especifique o ponto de extremidade do serviço de armazenamento de Blob do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
@@ -280,7 +280,7 @@ Saiba mais sobre a autenticação de armazenamento do Azure em geral em [Autenti
 
 Estas propriedades são suportadas por um serviço vinculado de armazenamento de Blob do Azure:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo deve ser definida como **AzureBlobStorage**. |Sim |
 | serviceEndpoint | Especifique o ponto de extremidade do serviço de armazenamento de Blob do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
@@ -315,7 +315,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para o blob `location` do Azure em configurações em conjunto de base de formato:
 
-| Propriedade   | Descrição                                                  | Obrigatório |
+| Propriedade   | Descrição                                                  | Necessária |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | A propriedade Type do local no DataSet deve ser definida como **AzureBlobStorageLocation**. | Sim      |
 | contêiner  | O contêiner de BLOB.                                          | Sim      |
@@ -359,7 +359,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte para o blob `storeSettings` do Azure em configurações em fonte de cópia baseada em formato:
 
-| Propriedade                 | Descrição                                                  | Obrigatório                                      |
+| Propriedade                 | Descrição                                                  | Necessária                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | A propriedade Type em `storeSettings` deve ser definida como **AzureBlobStorageReadSettings**. | Sim                                           |
 | recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                            |
@@ -420,7 +420,7 @@ As propriedades a seguir têm suporte para o blob `storeSettings` do Azure em co
 
 As propriedades a seguir têm suporte para o blob `storeSettings` do Azure em configurações no coletor de cópia com base em formato:
 
-| Propriedade                 | Descrição                                                  | Obrigatório |
+| Propriedade                 | Descrição                                                  | Necessária |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade Type em `storeSettings` deve ser definida como **AzureBlobStorageWriteSettings**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>- MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo ou do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não       |
@@ -589,7 +589,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-dataset-model"></a>Modelo de conjunto de DataSet herdado
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureBlob**. |Sim |
 | folderPath | Caminho para o contêiner e a pasta no armazenamento de blob. <br/><br/>O filtro curinga é permitido para o caminho, excluindo o nome do contêiner. Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br/><br/>Exemplos: myblobcontainer/myblobfolder/; veja mais exemplos em [Exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). |Sim para atividade de cópia/pesquisa, não para a atividade GetMetadata |
@@ -634,7 +634,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-copy-activity-source-model"></a>Modelo de origem da atividade de cópia herdada
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como **blobname**. |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor.<br/>Os valores permitidos são **true** (padrão) e **false**. | Não |
@@ -674,7 +674,7 @@ Para obter detalhes sobre as propriedades, marque a [atividade de exclusão](del
 
 ### <a name="legacy-copy-activity-sink-model"></a>Modelo de coletor de atividade de cópia herdado
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como **BlobSink**. |Sim |
 | copyBehavior | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>- MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo ou do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não |

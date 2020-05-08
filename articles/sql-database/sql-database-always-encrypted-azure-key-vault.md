@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c171c1bab99e4e3748267308745ee66631ed08d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451662"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888972"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre criptografado: proteja dados confidenciais e armazene chaves de criptografia no Cofre de Chaves do Azure
 
@@ -172,7 +172,7 @@ Clique em **Avançar** na página **Introdução** para abrir a página **Seleç
 
 Criptografe as informações de **SSN** e **BirthDate** de cada paciente. A coluna SSN usará criptografia determinística, que oferece suporte a pesquisas de igualdade, junções e agrupar por. A coluna BirthDate usará criptografia aleatória, que não oferece suporte a operações.
 
-Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Avançar**.
+Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Próximo**.
 
 ![Criptografar Colunas](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -184,7 +184,7 @@ Este tutorial mostra como armazenar suas chaves no Cofre de Chaves do Azure.
 
 1. Selecione **Cofre de Chaves do Azure**.
 2. Selecione o cofre de chaves desejado na lista suspensa.
-3. Clique em **Avançar**.
+3. Clique em **Próximo**.
 
 ![Configuração da Chave Mestra](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -621,4 +621,4 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 - [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 - [SQL Server criptografia](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Assistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog do Always Encrypted](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+- [Blog do Always Encrypted](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como instalar e configurar um controlador de entrada NGINX que usa vamos criptografar para a geração automática de certificado TLS em um cluster AKS (serviço de kubernetes do Azure).
 services: container-service
 ms.topic: article
-ms.date: 01/29/2020
-ms.openlocfilehash: c0c0e885f7802c35b5fa33dfa0f81565d730f32a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.date: 04/27/2020
+ms.openlocfilehash: 59f1b63a5c72ed5583b88af9e42bf5337f358b47
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207183"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561889"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de ingresso HTTPS no Serviço de Kubernetes do Azure (AKS)
 
@@ -32,7 +32,7 @@ Este artigo considera que já existe um cluster do AKS. Se você precisar de um 
 
 Este artigo também pressupõe que você tenha [um domínio personalizado][custom-domain] com uma [zona DNS][dns-zone] no mesmo grupo de recursos que o cluster AKs.
 
-Este artigo usa [Helm 3][helm] para instalar o controlador de entrada do nginx, o CERT-Manager e um aplicativo Web de exemplo. Verifique se você está usando a versão mais recente do Helm. Para obter instruções de atualização, consulte o [Helm instalar documentos][helm-install]. Para obter mais informações sobre como configurar e usar o Helm, consulte [instalar aplicativos com Helm no serviço kubernetes do Azure (AKs)][use-helm].
+Este artigo usa [Helm 3][helm] para instalar o controlador de entrada e o Gerenciador de certificados do nginx. Verifique se você está usando a versão mais recente do Helm. Para obter instruções de atualização, consulte o [Helm instalar documentos][helm-install]. Para obter mais informações sobre como configurar e usar o Helm, consulte [instalar aplicativos com Helm no serviço kubernetes do Azure (AKs)][use-helm].
 
 Este artigo também requer que você esteja executando o CLI do Azure versão 2.0.64 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
@@ -171,25 +171,89 @@ kubectl apply -f cluster-issuer.yaml
 
 Um controlador de entrada e uma solução de gerenciamento de certificados foi configurado. Agora, vamos executar duas demonstrações de aplicativos no cluster do AKS. Neste exemplo, Helm é usado para implantar duas instâncias de um aplicativo *Hello World* simples.
 
-Antes de instalar os gráficos de exemplo do Helm, adicione o repositório de exemplos do Azure ao seu ambiente Helm.
+Para ver o controlador de entrada em ação, execute dois aplicativos de demonstração no cluster AKS. Neste exemplo, você usa `kubectl apply` o para implantar duas instâncias de um aplicativo *Hello World* simples.
 
-```console
-helm repo add azure-samples https://azure-samples.github.io/helm-charts/
+Crie um arquivo *AKs-HelloWorld-One. YAML* e copie no seguinte exemplo YAML:
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-helloworld-one
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld-one
+  template:
+    metadata:
+      labels:
+        app: aks-helloworld-one
+    spec:
+      containers:
+      - name: aks-helloworld-one
+        image: neilpeterson/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-helloworld-one
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aks-helloworld-one
 ```
 
-Crie um aplicativo de demonstração chamado *AKs-HelloWorld* usando o gráfico *Azure-Samples/AKs-HelloWorld* Helm.
+Crie um arquivo *AKs-HelloWorld-Two. YAML* e copie no seguinte exemplo YAML:
 
-```console
-helm install aks-helloworld azure-samples/aks-helloworld --namespace ingress-basic
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-helloworld-two
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld-two
+  template:
+    metadata:
+      labels:
+        app: aks-helloworld-two
+    spec:
+      containers:
+      - name: aks-helloworld-two
+        image: neilpeterson/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "AKS Ingress Demo"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-helloworld-two
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aks-helloworld-two
 ```
 
-Crie uma segunda instância do aplicativo de demonstração chamado *AKs-HelloWorld-Two*. Especifique um novo título e um nome de serviço exclusivo para que os dois aplicativos sejam visualmente distintos usando *--set*.
+Execute os dois aplicativos de demonstração `kubectl apply`usando:
 
 ```console
-helm install aks-helloworld-two azure-samples/aks-helloworld \
-    --namespace ingress-basic \
-    --set title="AKS Ingress Demo" \
-    --set serviceName="aks-helloworld-two"
+kubectl apply -f aks-helloworld-one.yaml --namespace ingress-basic
+kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 ```
 
 ## <a name="create-an-ingress-route"></a>Criar rota de entrada
@@ -197,6 +261,9 @@ helm install aks-helloworld-two azure-samples/aks-helloworld \
 Ambos os aplicativos agora estão em execução no cluster do Kubernetes. No entanto, eles são configurados `ClusterIP` com um serviço do tipo e não podem ser acessados pela Internet. Para torná-los disponíveis publicamente, crie um recurso de entrada de Kubernetes. O recurso de entrada configura as regras que roteiam o tráfego para um dos dois aplicativos.
 
 No exemplo a seguir, o tráfego para o endereço *Hello-World-ingress. MY_CUSTOM_DOMAIN* é roteado para o serviço *AKs-HelloWorld* . Tráfego para o endereço *Hello-World-ingress. MY_CUSTOM_DOMAIN/Hello-World-Two* é roteado para o serviço *AKs-HelloWorld-dois* . Tráfego para *Hello-World-Ingres. MY_CUSTOM_DOMAIN/static* é roteado para o serviço chamado *AKs-HelloWorld* para ativos estáticos.
+
+> [!NOTE]
+> Se você configurou um FQDN para o endereço IP do controlador de entrada em vez de um domínio personalizado, use o FQDN em vez de *Hello-World-Ingres. MY_CUSTOM_DOMAIN*. Por exemplo, se o seu FQDN for *demo-AKs-ingress.eastus.cloudapp.Azure.com*, substitua *Hello-World-Ingres. MY_CUSTOM_DOMAIN* com *demo-AKs-ingress.eastus.cloudapp.Azure.com* no `hello-world-ingress.yaml`.
 
 Crie um arquivo chamado `hello-world-ingress.yaml` usando o exemplo abaixo de YAML. Atualize o *dnsNames* e *domínios* para o nome DNS que você criou na etapa anterior.
 
@@ -219,7 +286,7 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: aks-helloworld
+          serviceName: aks-helloworld-one
           servicePort: 80
         path: /(.*)
       - backend:
@@ -245,7 +312,7 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: aks-helloworld
+          serviceName: aks-helloworld-one
           servicePort: 80
         path: /static(/|$)(.*)
 ```
@@ -285,12 +352,6 @@ Para excluir o namespace de exemplo inteiro, use `kubectl delete` o comando e es
 kubectl delete namespace ingress-basic
 ```
 
-Em seguida, remova o repositório Helm para o aplicativo Hello World do AKS:
-
-```console
-helm repo remove azure-samples
-```
-
 ### <a name="delete-resources-individually"></a>Excluir recursos individualmente
 
 Como alternativa, uma abordagem mais granular é excluir os recursos individuais criados. Primeiro, remova os recursos do emissor do cluster:
@@ -299,33 +360,30 @@ Como alternativa, uma abordagem mais granular é excluir os recursos individuais
 kubectl delete -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
-Liste as versões Helm com `helm list` o comando. Procure gráficos nomeados *nginx -gresso* e *aks-helloworld*, conforme mostrado na saída do exemplo a seguir:
+Liste as versões Helm com `helm list` o comando. Procure gráficos chamados *Nginx* e *CERT-Manager*, conforme mostrado na seguinte saída de exemplo:
 
 ```
 $ helm list --namespace ingress-basic
 
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
-aks-helloworld          ingress-basic   1               2020-01-15 10:24:32.054871 -0600 CST    deployed        aks-helloworld-0.1.0               
-aks-helloworld-two      ingress-basic   1               2020-01-15 10:24:37.671667 -0600 CST    deployed        aks-helloworld-0.1.0               
 cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0    
 nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
 ```
 
-Excluir as versões com o `helm delete` comando. O exemplo a seguir exclui a implantação de ingresso NGINX e os dois aplicativos exemplo AKS hello world.
+Desinstale as versões com `helm uninstall` o comando. O exemplo a seguir desinstala as implantações NGINX ingress e CERT-Manager.
 
 ```
-$ helm uninstall aks-helloworld aks-helloworld-two cert-manager nginx --namespace ingress-basic
+$ helm uninstall cert-manager nginx --namespace ingress-basic
 
-release "aks-helloworld" uninstalled
-release "aks-helloworld-two" uninstalled
 release "cert-manager" uninstalled
 release "nginx" uninstalled
 ```
 
-Em seguida, remova o repositório do Helm para o aplicativo hello world do AKS:
+Em seguida, remova os dois aplicativos de exemplo:
 
 ```console
-helm repo remove azure-samples
+kubectl delete -f aks-helloworld-one.yaml --namespace ingress-basic
+kubectl delete -f aks-helloworld-two.yaml --namespace ingress-basic
 ```
 
 Remova a rota de entrada que direcionava o tráfego para os aplicativos de exemplo:

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 54f6473954c73de6ec29602c3d1563579b3e8cc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b452362744d7fbf655ea043127a15f5173d04e4c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265383"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562450"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Solucionar problemas do Azure Data Box Gateway 
 
@@ -40,7 +40,7 @@ Para diagnosticar e solucionar quaisquer erros de dispositivo, você pode execut
 
 ## <a name="collect-support-package"></a>Coletar o pacote de Suporte
 
-Um pacote de log é composto por todos os logs relevantes que podem ajudar o Suporte da Microsoft a solucionar problemas no dispositivo. Você pode gerar um pacote de log por meio da interface do usuário da Web local.
+Um pacote de log é composto por todos os logs relevantes que podem ajudar o Suporte da Microsoft a solucionar problemas no dispositivo. Você pode gerar um pacote de log por meio da interface do usuário da Web local. 
 
 Execute as seguintes etapas para coletar um pacote de suporte. 
 

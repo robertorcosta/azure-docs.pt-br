@@ -20,7 +20,7 @@ O controle de manutenção permite que você decida quando aplicar atualizaçõe
 
 ## <a name="create-a-maintenance-configuration"></a>Criar uma configuração de manutenção
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 1. Procure **configurações de manutenção**.
 
@@ -30,11 +30,11 @@ O controle de manutenção permite que você decida quando aplicar atualizaçõe
 
    ![Captura de tela mostrando como adicionar uma configuração de manutenção](media/virtual-machines-maintenance-control-portal/maintenance-configurations-add.png)
 
-1. Escolha uma assinatura e um grupo de recursos, forneça um nome para a configuração e escolha uma região. Clique em **Avançar**.
+1. Escolha uma assinatura e um grupo de recursos, forneça um nome para a configuração e escolha uma região. Clique em **Próximo**.
 
    ![Captura de tela mostrando noções básicas de configuração de manutenção](media/virtual-machines-maintenance-control-portal/maintenance-configurations-basics.png)
 
-1. Adicione marcas e valores. Clique em **Avançar**.
+1. Adicione marcas e valores. Clique em **Próximo**.
 
    ![Captura de tela mostrando como adicionar marcas a uma configuração de manutenção](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
 

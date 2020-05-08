@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/2/2020
+ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: fcbaabac0961f1269a929fb4a56f81ac282bae29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80619155"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857303"
 ---
 # <a name="translator-text-api-v30"></a>API de Tradução de Texto v3.0
 
@@ -45,7 +45,7 @@ Para forçar a manipulação da solicitação por uma geografia do Azure especí
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
-|Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Ocidental|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Pacífico Asiático|    api-apc.cognitive.microsofttranslator.com|
 
 ## <a name="authentication"></a>Autenticação
@@ -147,7 +147,7 @@ Um token de autenticação é válido por 10 minutos. O token deve ser reutiliza
 
 ## <a name="virtual-network-support"></a>Suporte para Rede Virtual
 
-O serviço Tradutor agora está disponível com recursos de rede virtual em regiões`WestUS2`limitadas `SouthCentralUS`( `WestUS`, `Central US EUAP` `EastUS`, `global`,,,). Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+O serviço Tradutor agora está disponível com recursos de rede virtual em regiões`WestUS2`limitadas `SouthCentralUS`( `WestUS`, `CentralUSEUAP` `EastUS`, `global`,,,). Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 Depois de ativar esse recurso, você deve usar o ponto de extremidade personalizado para chamar a API do tradutor. Você não pode usar o ponto de extremidade do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um token de acesso.
 
