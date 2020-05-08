@@ -3,16 +3,16 @@ title: Atualizar grupo de contêineres
 description: Saiba como atualizar os contêineres em execução nos grupos de contêineres das Instâncias de Contêiner do Azure.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854453"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928713"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Atualizar contêineres nas Instâncias de Contêiner do Azure
 
-Durante a operação normal das instâncias de contêiner, talvez você ache necessário atualizar os contêineres em execução em um [grupo de contêineres](container-instances-container-groups.md). Por exemplo, talvez você queira atualizar uma propriedade, como uma versão de imagem, um nome DNS ou uma variável de ambiente, ou atualizar uma propriedade em um contêiner cujo aplicativo tenha falhado.
+Durante a operação normal das instâncias de contêiner, talvez você ache necessário atualizar os contêineres em execução em um [grupo de contêineres](./container-instances-container-groups.md). Por exemplo, talvez você queira atualizar uma propriedade, como uma versão de imagem, um nome DNS ou uma variável de ambiente, ou atualizar uma propriedade em um contêiner cujo aplicativo tenha falhado.
 
 Atualize os contêineres em um grupo de contêineres em execução Reimplantando um grupo existente com pelo menos uma propriedade modificada. Quando você atualiza um grupo de contêineres, todos os contêineres em execução no grupo são reiniciados no local, geralmente no mesmo host de contêiner subjacente.
 
@@ -28,7 +28,7 @@ Para atualizar um grupo de contêineres existente:
 * Defina outras propriedades com os valores que você forneceu anteriormente. Se você não definir um valor para uma propriedade, ele será revertido para seu valor padrão.
 
 > [!TIP]
-> Um [arquivo YAML](container-instances-container-groups.md#deployment) ajuda a manter a configuração de implantação de um grupo de contêineres e fornece um ponto de partida para implantar um grupo atualizado. Se você usou um método diferente para criar o grupo, poderá exportar a configuração para YAML usando [AZ container Export][az-container-export], 
+> Um [arquivo YAML](./container-instances-container-groups.md#deployment) ajuda a manter a configuração de implantação de um grupo de contêineres e fornece um ponto de partida para implantar um grupo atualizado. Se você usou um método diferente para criar o grupo, poderá exportar a configuração para YAML usando [AZ container Export][az-container-export], 
 
 ### <a name="example"></a>Exemplo
 
@@ -80,7 +80,7 @@ Ao excluir um grupo de contêineres e recriá-lo, ele não será "reimplantado",
 
 **Grupo de contêineres** foi mencionado várias vezes neste artigo. Cada contêiner em Instâncias de Contêiner do Azure é implantado em um grupo de contêineres, sendo que grupos de contêineres podem conter mais de um contêiner.
 
-[Grupos de contêineres em Instâncias de Contêiner do Azure](container-instances-container-groups.md)
+[Grupos de contêineres em Instâncias de Contêiner do Azure](./container-instances-container-groups.md)
 
 [Implantar um grupo de multicontêiner](container-instances-multi-container-group.md)
 

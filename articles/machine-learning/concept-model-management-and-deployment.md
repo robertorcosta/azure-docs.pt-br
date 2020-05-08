@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314303"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929750"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -153,7 +153,7 @@ O Azure ML oferece a capacidade de acompanhar a trilha de auditoria de ponta a p
 - A [interpretação](how-to-machine-learning-interpretability.md) permite explicar seus modelos, atender à conformidade regulatória e entender como os modelos chegam em um resultado para determinada entrada.
 - O histórico de execuções do Azure ML armazena um instantâneo do código, dos dados e das computações usados para treinar um modelo.
 - O registro de modelo do Azure ML captura todos os metadados associados ao seu modelo (que experimento o treina, onde ele está sendo implantado, se suas implantações estiverem íntegras).
-- A [integração com a grade de eventos do Azure](concept-event-grid-integration.md) permite que você atue em eventos no ciclo de vida do ml. Por exemplo, eventos de registro, implantação, descompasso de dados e treinamento (execução) do modelo.
+- A [integração com o Azure](how-to-use-event-grid.md) permite que você atue em eventos no ciclo de vida do ml. Por exemplo, eventos de registro, implantação, descompasso de dados e treinamento (execução) do modelo.
 
 > [!TIP]
 > Embora algumas informações sobre modelos e conjuntos de dados sejam capturadas automaticamente, você pode adicionar informações adicionais usando __marcas__. Ao procurar por modelos registrados e conjuntos de valores em seu espaço de trabalho, você pode usar marcas como um filtro.

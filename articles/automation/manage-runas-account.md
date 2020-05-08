@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cb3752e5a74f26936efcbb9dba5cdcda76e01f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d77fc756530115ff828c79a3b444c1152ffe5c5a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113299"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608670"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da Automação do Azure
 
@@ -63,9 +63,9 @@ Para criar ou atualizar uma conta Executar como, é necessário ter privilégios
 
 |Tarefa|Cmdlet  |Permissões mínimas  |Onde você define as permissões|
 |---|---------|---------|---|
-|Criar aplicativo do Azure AD|[New-AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication)     | Função de desenvolvedor de aplicativo<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> do Azure AD > registros do aplicativo |
-|Adicione uma credencial ao aplicativo.|[New-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential)     | Administrador de aplicativos ou administrador global<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> do Azure AD > registros do aplicativo|
-|Criar e obter uma entidade de serviço do Azure AD|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)     | Administrador de aplicativos ou administrador global<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> do Azure AD > registros do aplicativo|
+|Criar aplicativo do Azure AD|[New-AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication)     | Função de desenvolvedor de aplicativo<sup>1</sup>        |[AD do Azure](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> do Azure AD > registros do aplicativo |
+|Adicione uma credencial ao aplicativo.|[New-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential)     | Administrador de aplicativos ou administrador global<sup>1</sup>         |[AD do Azure](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> do Azure AD > registros do aplicativo|
+|Criar e obter uma entidade de serviço do Azure AD|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)     | Administrador de aplicativos ou administrador global<sup>1</sup>        |[AD do Azure](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> do Azure AD > registros do aplicativo|
 |Atribuir ou obter a função RBAC para a entidade especificada|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administrador ou proprietário de acesso do usuário ou tenha as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Assinatura](../role-based-access-control/role-assignments-portal.md)</br>Página Inicial > Assinaturas > \<nome da assinatura\> – Controle de Acesso (IAM)|
 |Criar ou remover um certificado de Automação|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate)     | Colaborador no grupo de recursos         |Grupo de recursos da conta de automação|
 |Criar ou remover uma conexão de Automação|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection)|Colaborador no grupo de recursos |Grupo de recursos da conta de automação|
@@ -310,7 +310,7 @@ if ($CreateClassicRunAsAccount) {
 ```
 
 >[!NOTE]
->`Add-AzAccount`e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de automação para as versões mais recentes. Talvez seja necessário atualizar seus módulos mesmo se você acabou de criar uma nova conta de automação.
+>`Add-AzAccount`e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
 
 ### <a name="execute-the-powershell-script"></a>Executar o script do PowerShell
 
@@ -415,7 +415,7 @@ Use as etapas a seguir para testar o processo de renovação imediatamente.
    ```
 
 2. Publique o runbook.
-3. Iniciar o runbook.
+3. Inicie o runbook.
 4. Verifique a renovação bem-sucedida com o seguinte código:
 
    ```powershell
@@ -475,7 +475,7 @@ Alguns itens de configuração necessários para uma conta Executar como ou exec
 * Conta Executar como removida da função colaborador
 * Entidade de serviço ou aplicativo no Azure AD
 
-Para essas instâncias de configuração incorreta, a conta de automação detecta as alterações e exibe `Incomplete` um status de no painel de propriedades contas Executar como para a conta.
+Para essas instâncias de configuração incorreta, a conta de automação detecta as alterações e exibe um status *incompleto* no painel de propriedades contas Executar como para a conta.
 
 ![Status incompleto de configuração de conta Executar como](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

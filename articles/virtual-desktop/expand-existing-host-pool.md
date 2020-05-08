@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: be76c665e1f5319b3e1ff1976e44fee9cd90ea6b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79365212"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607191"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandir um pool de hosts existente com novos hosts de sessão
+
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
+>
+> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ao aumentar o uso em seu pool de hosts, talvez seja necessário expandir seu pool de hosts existente com novos hosts de sessão para lidar com a nova carga.
 
@@ -25,103 +31,48 @@ Este artigo lhe dirá como você pode expandir um pool de hosts existente com no
 
 Antes de começar, verifique se você criou um pool de hosts e VMs (máquinas virtuais) de host de sessão usando um dos seguintes métodos:
 
-- [Oferta do Azure Marketplace](./create-host-pools-azure-marketplace.md)
-- [Modelo de Azure Resource Manager do GitHub](./create-host-pools-arm-template.md)
+- [Azure portal](./create-host-pools-azure-marketplace.md)
 - [Criar um pool de host com o PowerShell](./create-host-pools-powershell.md)
 
 Você também precisará das seguintes informações ao criar pela primeira vez o pool de hosts e as VMs de host de sessão:
 
 - Tamanho da VM, imagem e prefixo do nome
-- Credenciais do administrador de locatários do ingresso no domínio e do Windows Virtual Desktop
+- Credenciais de administrador de ingresso no domínio
 - Nome da rede virtual e nome da sub-rede
 
-As próximas três seções são três métodos que podem ser usados para expandir o pool de hosts. Você pode fazer com qualquer ferramenta de implantação com a qual esteja familiarizado.
+## <a name="add-virtual-machines-with-the-azure-portal"></a>Adicionar máquinas virtuais com o portal do Azure
 
->[!NOTE]
->Durante a fase de implantação, você verá mensagens de erro para os recursos de VM do host da sessão anterior se eles estiverem desligados no momento. Esses erros ocorrem porque o Azure não pode executar a extensão de DSC do PowerShell para validar que as VMs do host de sessão estão corretamente registradas em seu pool de hosts existente. Você pode ignorar esses erros com segurança ou pode evitar os erros iniciando todas as VMs de host de sessão no pool de hosts existente antes de iniciar o processo de implantação.
+Para expandir o pool de hosts adicionando máquinas virtuais:
 
-## <a name="redeploy-from-azure"></a>Reimplantar do Azure
+1. Entre no portal do Azure.
 
-Se você já tiver criado um pool de hosts e VMs de host de sessão usando a [oferta do Azure Marketplace](./create-host-pools-azure-marketplace.md) ou o [modelo de Azure Resource Manager do GitHub](./create-host-pools-arm-template.md), poderá reimplantar o mesmo modelo do portal do Azure. Reimplantar o modelo reinsere automaticamente todas as informações inseridas no modelo original, com exceção das senhas.
+2. Procure e selecione **área de trabalho virtual do Windows**.
 
-Veja como reimplantar o modelo de Azure Resource Manager para expandir um pool de hosts:
+3. No menu no lado esquerdo da tela, selecione **pools de hosts**e, em seguida, selecione o nome do pool de hosts ao qual você deseja adicionar máquinas virtuais.
 
-1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Na barra de pesquisa na parte superior da portal do Azure, procure grupos de **recursos** e selecione o item em **Serviços**.
-3. Localize e selecione o grupo de recursos que você criou quando fez o pool de hosts.
-4. No painel no lado esquerdo do navegador, selecione **implantações**.
-5. Selecione a implantação apropriada para o processo de criação do pool de hosts:
-     - Se você criou o pool de hosts original com a oferta do Azure Marketplace, selecione a implantação começando com **RDS. wvd-Provision-host-pool**.
-     - Se você criou o pool de hosts original com o modelo de Azure Resource Manager do GitHub, selecione a implantação chamada **Microsoft. Template**.
-6. Selecione **reimplantar**.
-     
-     >[!NOTE]
-     >Se o modelo não for reimplantado automaticamente quando você selecionar **reimplantar**, selecione **modelo** no painel no lado esquerdo do navegador e selecione **implantar**.
+4. Selecione **máquinas virtuais** no menu no lado esquerdo da tela.
 
-7. Selecione o grupo de recursos que contém as VMs de host de sessão atual no pool de hosts existente.
-     
-     >[!NOTE]
-     >Se você vir um erro que informa para selecionar um grupo de recursos diferente, embora aquele que você inseriu esteja correto, selecione outro grupo de recursos e selecione o grupo de recursos original.
+5. Selecione **+ Adicionar** para começar a criar o pool de hosts.
 
-8. Insira a URL a seguir para o *_artifactsLocation*:`https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
-9. Insira o novo número total de hosts de sessão que você deseja no *número de RDSH de instâncias*. Por exemplo, se você estiver expandindo o pool de hosts de cinco hosts de sessão para oito, digite **8**.
-10. Insira a mesma senha de domínio existente que você usou para o UPN de domínio existente. Não altere o nome de usuário, pois isso causará um erro quando você executar o modelo.
-11. Insira a mesma senha de administrador de locatário que você usou para a ID de usuário ou aplicativo que você inseriu para o *UPN do administrador de locatário ou a ID do aplicativo*. Mais uma vez, não altere o nome de usuário.
-12. Conclua o envio para expandir seu pool de hosts.
+6. Ignore a guia noções básicas e, em vez disso, selecione a guia **detalhes da VM** . Aqui você pode exibir e editar os detalhes da VM (máquina virtual) que deseja adicionar ao pool de hosts.
 
-## <a name="run-the-azure-marketplace-offering"></a>Executar a oferta do Azure Marketplace
-
-Siga as instruções em [criar um pool de hosts usando o Azure Marketplace](./create-host-pools-azure-marketplace.md) até que você atinja [executar a oferta do Azure Marketplace para provisionar um novo pool de hosts](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). Quando chegar a esse ponto, você precisará inserir as seguintes informações para cada guia:
-
-### <a name="basics"></a>Noções básicas
-
-Todos os valores nesta seção devem corresponder ao que você forneceu ao criar pela primeira vez o pool de hosts e VMs de host de sessão, exceto para *usuários de área de trabalho padrão*:
-
-1.    Para *assinatura*, selecione a assinatura na qual você criou o pool de hosts pela primeira vez.
-2.    Para *grupo de recursos*, selecione o mesmo grupo de recursos em que as VMs de host de sessão do pool de hosts existentes estão localizadas.
-3.    Para *região*, selecione a mesma região em que as VMs de host de sessão do pool de hosts existentes estão localizadas.
-4.    Para *nome do Hostpool*, insira o nome do pool de hosts existente.
-5.    Para *tipo de área de trabalho*, selecione o tipo de área de trabalho que corresponde ao pool de hosts existente.
-6.    Para *usuários da área de trabalho padrão*, insira uma lista separada por vírgulas de todos os usuários adicionais que você deseja entrar nos clientes da área de trabalho virtual do Windows e acesse uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser user3@contoso.com atribuir e user4@contoso.com acessar, insira user3@contoso.com,.user4@contoso.com
-7.    Selecione **Avançar: configurar máquina virtual**.
-
->[!NOTE]
->Exceto para *usuários da área de trabalho padrão*, todos os campos devem corresponder exatamente ao que foi configurado no pool de hosts existente. Se houver uma incompatibilidade que resultará em um novo pool de hosts.
-
-### <a name="configure-virtual-machines"></a>Configurar máquinas virtuais
-
-Todos os valores de parâmetro nesta seção devem corresponder ao que você forneceu quando criou pela primeira vez o pool de hosts e as VMs de host de sessão, exceto o número total de VMs. O número de VMs que você inserir será o número de VMs em seu pool de hosts expandido:
-
-1. Selecione o tamanho da VM que corresponde às VMs do host de sessão existente.
-    
+7. Selecione o grupo de recursos em que você deseja criar as VMs e, em seguida, selecione a região. Você pode escolher a região atual que está usando ou uma nova região.
+   
+8. Insira o novo número total de hosts de sessão que você deseja para o **número de VMs**. Por exemplo, se você estiver expandindo o pool de hosts de cinco hosts de sessão para oito, digite **8**. 
+   
     >[!NOTE]
-    >Se o tamanho específico da VM que você procura não aparece no seletor de tamanho da VM, é porque ainda não o integramos à ferramenta Azure Marketplace. Para solicitar um tamanho de VM, crie uma solicitação ou atualize uma solicitação existente no [fórum UserVoice do Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Você não pode editar o tamanho ou a imagem das VMs porque é importante garantir que todas as VMs no pool de hosts tenham o mesmo tamanho.
+    
+9. Para obter as **informações da rede virtual**, selecione a rede virtual e a sub-rede às quais você deseja que as máquinas virtuais sejam unidas. Você pode selecionar a mesma rede virtual que seus computadores existentes usam atualmente ou escolher outro que seja mais adequado para a região que você selecionou na etapa 7.
 
-2. Personalize o *perfil de uso*, o *total de usuários*e o *número de parâmetros de máquinas virtuais* para selecionar o número total de hosts de sessão que você gostaria de ter em seu pool de hosts. Por exemplo, se você estiver expandindo o pool de hosts de cinco hosts de sessão para oito, configure essas opções para chegar a 8 máquinas virtuais.
-3. Digite um prefixo para os nomes das máquinas virtuais. Por exemplo, se você inserir o nome “prefixo”, as máquinas virtuais serão chamadas de "prefixo-0," "prefixo-1" e assim por diante.
-4. Selecione **Avançar: configurações da máquina virtual**.
+10. Para a **conta de administrador**, insira o nome de usuário e a senha de domínio Active Directory associados à rede virtual selecionada. Essas credenciais serão usadas para unir as máquinas virtuais à rede virtual.
 
-### <a name="virtual-machine-settings"></a>Configurações da máquina virtual
+      >[!NOTE]
+      >Verifique se os nomes de seu administrador estão em conformidade com as informações fornecidas aqui. E que não há MFA habilitada na conta.
 
-Todos os valores de parâmetro nesta seção devem corresponder ao que você forneceu ao criar pela primeira vez o pool de hosts e as VMs de host de sessão:
+11. Selecione a guia **marca** se você tiver marcas nas quais deseja agrupar as máquinas virtuais. Caso contrário, ignore esta guia. 
 
-1. Para a *origem da imagem* e a versão do so da *imagem*, insira as mesmas informações que você forneceu ao criar o pool de hosts pela primeira vez.
-2. Para o *UPN de ingresso no domínio do AD* e as senhas associadas, insira as mesmas informações que você forneceu ao criar o pool de hosts pela primeira vez para ingressar as VMs no domínio Active Directory. Essas credenciais serão usadas para criar uma conta local em suas máquinas virtuais. Você pode redefinir essas contas locais para alterar suas credenciais posteriormente.
-3. Para as informações de rede virtual, selecione a mesma rede virtual e sub-rede para onde estão localizadas suas VMs de host de sessão de pool de hosts existentes.
-4. Selecione **Avançar: configurar informações da área de trabalho virtual do Windows**.
-
-### <a name="windows-virtual-desktop-information"></a>Informações da área de trabalho virtual do Windows
-
-Todos os valores de parâmetro nesta seção devem corresponder ao que você forneceu ao criar pela primeira vez o pool de hosts e as VMs de host de sessão:
-
-1. Para *Nome do grupo de locatário da Área de Trabalho Virtual do Windows*, digite o nome do grupo de locatário que contém seu locatário. Deixe-o como o padrão, a menos que você tenha recebido um nome de grupo de locatário específico.
-2. Para *Nome de locatário da Área de Trabalho Virtual do Windows*, digite o nome do locatário no qual você criará esse pool de hosts.
-3. Especifique as mesmas credenciais que você usou ao criar pela primeira vez o pool de hosts e as VMs de host de sessão. Se você estiver usando uma entidade de serviço, insira a ID da instância de Azure Active Directory onde a entidade de serviço está localizada.
-4. Selecione **Avançar: revisar + criar**.
-
-## <a name="run-the-github-azure-resource-manager-template"></a>Executar o modelo de Azure Resource Manager do GitHub
-
-Siga as instruções em [executar o modelo de Azure Resource Manager para provisionar um novo pool de hosts](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) e fornecer todos os mesmos valores de parâmetro, exceto o *número de RDSH de instâncias*. Insira o número de VMs de host de sessão que você deseja no pool de hosts depois de executar o modelo. Por exemplo, se você estiver expandindo o pool de hosts de cinco hosts de sessão para oito, digite **8**.
+12. Selecione a guia **revisar + criar** . revise suas escolhas e, se tudo estiver correto, selecione **criar**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

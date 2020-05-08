@@ -4,13 +4,13 @@ description: Saiba como configurar a autenticação Azure Active Directory como 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
-ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 913aac7755e6c4f9a4b42d45933728fcc8840bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190003"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609894"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurar seu serviço de aplicativo ou Azure Functions aplicativo para usar o logon do Azure AD
 
@@ -33,7 +33,7 @@ Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticaçã
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configurar com configurações expressas
 
 > [!NOTE]
-> A opção **expressa** não está disponível para nuvens governamentais. 
+> A opção **expressa** não está disponível para nuvens governamentais.
 
 1. No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo.
 2. No painel de navegação esquerdo, selecione **autenticação/autorização** > **em**.
@@ -45,9 +45,9 @@ Siga estas práticas recomendadas ao configurar seu aplicativo e a autenticaçã
    2. Escolha um registro de aplicativo existente e clique em **OK**.
 
 3. Selecione **OK** para registrar o aplicativo do Serviço de Aplicativo no Azure Active Directory. Um novo registro de aplicativo é criado.
-   
+
     ![Configurações expressas no Azure Active Directory](./media/configure-authentication-provider-aad/express-settings.png)
-   
+
 4. Adicional Por padrão, o serviço de aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo e às APIs do site. Você deve autorizar os usuários no código do aplicativo. Para restringir o acesso do aplicativo somente aos usuários autenticados pelo Azure Active Directory, defina **a ação a ser tomada quando a solicitação não for autenticada** para **fazer logon com Azure Active Directory**. Quando você define essa funcionalidade, seu aplicativo requer que todas as solicitações sejam autenticadas. Ele também redireciona todas as Azure Active Directory não autenticadas para autenticação.
 
     > [!CAUTION]
@@ -75,7 +75,7 @@ Execute as seguintes etapas:
 1. Entre no [portal do Azure], procure e selecione **serviços de aplicativos**e, em seguida, selecione seu aplicativo. Anote a **URL**do seu aplicativo. Você o usará para configurar o registro do aplicativo Azure Active Directory.
 1. Selecione **Azure Active Directory** > **registros de aplicativo** > **novo registro**.
 1. Na página **registrar um aplicativo** , insira um **nome** para o registro do aplicativo.
-1. Em **URI de redirecionamento**, selecione `<app-url>/.auth/login/aad/callback` **Web** e digite. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. 
+1. Em **URI de redirecionamento**, selecione `<app-url>/.auth/login/aad/callback` **Web** e digite. Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Selecione **Criar**.
 1. Depois que o registro do aplicativo for criado, copie a **ID do aplicativo (cliente)** e a **ID do diretório (locatário)** para mais tarde.
 1. Selecione **Autenticação**. Em **concessão implícita**, habilite **tokens de ID** para permitir entradas de usuário do OpenID Connect do serviço de aplicativo.
@@ -87,14 +87,14 @@ Execute as seguintes etapas:
 
 1. Selecione **Adicionar um escopo**.
    1. Em **nome do escopo**, insira *user_impersonation*.
-   1. Nas caixas de texto, insira o nome do escopo de consentimento e a descrição que você deseja que os usuários vejam na página de consentimento. Por exemplo, digite *acessar meu aplicativo*. 
+   1. Nas caixas de texto, insira o nome do escopo de consentimento e a descrição que você deseja que os usuários vejam na página de consentimento. Por exemplo, digite *acessar meu aplicativo*.
    1. Selecione **Adicionar escopo**.
 1. Adicional Para criar um segredo do cliente, selecione **certificados & segredos** > **novo** > **Adicionar**segredo do cliente. Copie o valor do segredo do cliente mostrado na página. Não será mostrado novamente.
 1. Adicional Para adicionar várias **URLs de resposta**, selecione **autenticação**.
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Habilitar Azure Active Directory em seu aplicativo do serviço de aplicativo
 
-1. No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo. 
+1. No [portal do Azure], procure e selecione serviços de **aplicativos**e, em seguida, selecione seu aplicativo.
 1. No painel esquerdo, em **configurações**, selecione **autenticação/autorização** > **em**.
 1. Adicional Por padrão, a autenticação do serviço de aplicativo permite o acesso não autenticado ao seu aplicativo. Para impor a autenticação de usuário, defina **a ação a ser tomada quando a solicitação não for autenticada** para **fazer logon com Azure Active Directory**.
 1. Em **provedores de autenticação**, selecione **Azure Active Directory**.

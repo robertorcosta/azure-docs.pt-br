@@ -3,12 +3,13 @@ title: Usar Azure Active Directory para autenticar soluções de gerenciamento d
 description: Explore o uso de Azure Active Directory para autenticar de aplicativos que usam a biblioteca .NET de gerenciamento do lote.
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: 0aa95aa440303d1577b7646c1a9f1bc5b6e69ac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 7ca32e5f9ff32d635d7f662c74dea5534e3dd072
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114778"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608448"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gerenciamento do lote com o Active Directory
 
@@ -28,7 +29,7 @@ Para registrar o aplicativo de exemplo AccountManagement, siga as etapas da seç
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
-Depois de concluir o processo de registro, você verá a ID do aplicativo e a ID de objeto (entidade de serviço) listados para seu aplicativo.  
+Depois de concluir o processo de registro, você verá a ID do aplicativo e a ID de objeto (entidade de serviço) listados para seu aplicativo.
 
 ![](./media/batch-aad-auth-management/app-registration-client-id.png)
 
@@ -44,7 +45,7 @@ Siga estas etapas no portal do Azure:
     ![Procure o nome do aplicativo](./media/batch-aad-auth-management/search-app-registration.png)
 
 3. Exibição de **configurações** folha. Na seção **Acesso à API**, selecione **Permissões necessárias**.
-4. Clique em **adicionar** para adicionar uma nova permissão necessária. 
+4. Clique em **adicionar** para adicionar uma nova permissão necessária.
 5. Na etapa 1, digite **API de gerenciamento de serviços do Microsoft Azure**, selecione essa API da lista de resultados e clique no **selecione** botão.
 6. Na etapa 2, selecione a caixa de seleção Avançar ao **Aceder a modelo de implantação clássico do Azure enquanto usuários da organização**e clique no **selecione** botão.
 7. Clique no botão **Concluído**.
@@ -70,11 +71,11 @@ O aplicativo de exemplo AccountManagement define constantes para esses pontos de
 ```csharp
 // Azure Active Directory "common" endpoint.
 private const string AuthorityUri = "https://login.microsoftonline.com/common";
-// Azure Resource Manager endpoint 
+// Azure Resource Manager endpoint
 private const string ResourceUri = "https://management.core.windows.net/";
 ```
 
-## <a name="reference-your-application-id"></a>Consultar a ID do aplicativo 
+## <a name="reference-your-application-id"></a>Consultar a ID do aplicativo
 
 O aplicativo cliente usa a ID do aplicativo (também conhecida como a ID do cliente) para acessar o Azure AD em runtime. Depois de registrar seu aplicativo no portal do Azure, atualize seu código para usar a ID do aplicativo fornecida pelo Azure AD para seu aplicativo registrado. No aplicativo de exemplo de AccountManagement, copie a ID do aplicativo do portal do Azure à constante apropriada:
 
@@ -96,7 +97,7 @@ private const string RedirectUri = "http://myaccountmanagementsample";
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>Adquirir um token de autenticação do Azure AD
 
-Depois de registrar o exemplo AccountManagement no locatário do Azure AD e de atualizar o código-fonte de exemplo com os valores, o exemplo estará pronto para se autenticar usando o Azure AD. Quando você executar o exemplo, o ADAL tenta adquirir um token de autenticação. Nesta etapa, ele solicitará suas credenciais da Microsoft: 
+Depois de registrar o exemplo AccountManagement no locatário do Azure AD e de atualizar o código-fonte de exemplo com os valores, o exemplo estará pronto para se autenticar usando o Azure AD. Quando você executar o exemplo, o ADAL tenta adquirir um token de autenticação. Nesta etapa, ele solicitará suas credenciais da Microsoft:
 
 ```csharp
 // Obtain an access token using the "common" AAD resource. This allows the application
@@ -109,7 +110,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
                                                         PromptBehavior.Auto);
 ```
 
-Depois de fornecer suas credenciais, o aplicativo de exemplo poderá emitir solicitações autenticadas para o serviço de Gerenciamento do Lote. 
+Depois de fornecer suas credenciais, o aplicativo de exemplo poderá emitir solicitações autenticadas para o serviço de Gerenciamento do Lote.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -117,7 +118,7 @@ Para saber mais sobre a execução do [aplicativo de exemplo AccountManagement][
 
 Para saber mais sobre o Azure AD, veja a [documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Exemplos mais detalhados que mostram como usar o ADAL estão disponíveis na biblioteca [Amostras de código do Azure](https://azure.microsoft.com/resources/samples/?service=active-directory).
 
-Para autenticar aplicativos de serviço do lote usando o Azure AD, consulte [Autenticar soluções de serviço do lote no Active Directory](batch-aad-auth.md). 
+Para autenticar aplicativos de serviço do lote usando o Azure AD, consulte [Autenticar soluções de serviço do lote no Active Directory](batch-aad-auth.md).
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "O que é Azure Active Directory?"

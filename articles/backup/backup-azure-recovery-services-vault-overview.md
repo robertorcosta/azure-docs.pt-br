@@ -3,12 +3,12 @@ title: Visão geral de cofres de Serviços de Recuperação
 description: Uma visão geral e a comparação entre os cofres de Serviços de Recuperação e os cofres de Backup do Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436954"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597936"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -79,6 +79,14 @@ As seções a seguir contêm links para artigos que explicam como usar um cofre 
 ### <a name="secure-the-vault"></a>Proteger o cofre
 
 - [Protegendo dados de backup de nuvem em cofres dos Serviços de Recuperação](backup-azure-security-feature.md)
+
+## <a name="azure-advisor"></a>Assistente do Azure
+
+O [Azure Advisor](https://docs.microsoft.com/azure/advisor/) é um consultor de nuvem personalizado que ajuda a otimizar o uso do Azure. Ele analisa o uso do Azure e fornece recomendações oportunas para ajudar a otimizar e proteger suas implantações. Ele fornece recomendações em quatro categorias: alta disponibilidade, segurança, desempenho e custo.
+
+O assistente do Azure fornece [recomendações](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) por hora para VMs que não são submetidas a backup, portanto, você nunca perde o backup de VMs importantes. Você também pode controlar as recomendações adiando-as.  Você pode clicar na recomendação e habilitar o backup em VMs em linha especificando o cofre (em que os backups serão armazenados) e a política de backup (agendamento de backups e retenção de cópias de backup).
+
+![Assistente do Azure](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

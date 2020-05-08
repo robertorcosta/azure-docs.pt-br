@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 79638f584f1c65b33f23a68f01dbe82878460cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234070"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606884"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças na Central de Segurança do Azure
 
@@ -34,7 +34,9 @@ Se um alerta for gerado pela central de segurança ou recebido pela central de s
 > [!TIP]
 > Para habilitar os recursos de proteção contra ameaças da central de segurança, você deve aplicar o tipo de preço padrão à assinatura que contém as cargas de trabalho aplicáveis.
 >
-> A proteção contra ameaças da central de segurança para contas de armazenamento e servidores SQL/MySQL/PG de PaaS atualmente são as únicas cargas de trabalho que podem ser habilitadas no nível de recurso para proteger cargas de trabalho de armazenamento/SQL individuais.
+> Você pode habilitar a proteção contra ameaças para **contas de armazenamento do Azure** no nível de assinatura ou nível de recurso.
+> Você pode habilitar a proteção contra ameaças para **SQL Servers do banco de dados SQL do Azure** no nível de assinatura ou no nível de recurso.
+> Você pode habilitar a proteção contra ameaças para o **banco de dados do Azure para MariaDB/MySQL/PostgreSQL** somente no nível de recurso.
 
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 71ba24784dee7771acbe19bf0261c7dc02478b24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bb315991846b115070854b6e81caf16232fef6b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127526"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607174"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows
 
@@ -57,4 +57,4 @@ Se você estiver pronto para criar seus próprios contêineres de perfil do FSLo
 - [Criar um contêiner de perfil do FSLogix para um pool de hosts usando os arquivos do Azure NetApp](create-fslogix-profile-container.md)
 - As instruções em [implantar um servidor de arquivos de escalabilidade horizontal de dois nós espaços de armazenamento diretos para o armazenamento UPD no Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) também se aplicam quando você usa um contêiner de perfil FSLogix em vez de um disco de perfil de usuário
 
-Você também pode começar desde o início e configurar sua própria solução de área de trabalho virtual do Windows em [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
+Você também pode começar desde o início e configurar sua própria solução de área de trabalho virtual do Windows em [criar um locatário na área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

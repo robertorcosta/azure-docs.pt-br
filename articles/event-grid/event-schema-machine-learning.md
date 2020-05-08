@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393270"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928866"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning como uma fonte de grade de eventos
 
@@ -224,7 +224,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | Experimentoid | cadeia de caracteres | A ID do experimento ao qual a execução pertence. |
 | Experimentoname | cadeia de caracteres | O nome do experimento ao qual a execução pertence. |
@@ -235,7 +235,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | Onficaid | cadeia de caracteres | A ID do monitor de descompasso de dados que disparou o evento. |
 | Datalogoffname | cadeia de caracteres | O nome do monitor de descompasso de dados que disparou o evento. |
@@ -248,7 +248,7 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
 
-| Propriedade | Type | Descrição |
+| Propriedade | Type | Description |
 | -------- | ---- | ----------- |
 | Experimentoid | cadeia de caracteres | A ID do experimento ao qual a execução pertence. |
 | Experimentoname | cadeia de caracteres | O nome do experimento ao qual a execução pertence. |
@@ -267,5 +267,5 @@ O objeto de dados tem as seguintes propriedades para cada tipo de evento:
 
 * Para ver uma introdução à Grade de Eventos do Azure, confira [O que é uma Grade de eventos?](overview.md)
 * Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md)
-* Para obter uma introdução ao uso da grade de eventos do Azure com o Azure Machine Learning, consulte [consumir Azure Machine Learning eventos](/azure/machine-learning/service/concept-event-grid-integration)
-* Para obter um exemplo de como usar a grade de eventos do Azure com Azure Machine Learning, consulte [criar fluxos de trabalho de aprendizado de máquina direcionados a eventos](/azure/machine-learning/service/how-to-use-event-grid)
+* Para obter uma introdução ao uso da grade de eventos do Azure com o Azure Machine Learning, consulte [consumir Azure Machine Learning eventos](/azure/machine-learning/concept-event-grid-integration)
+* Para obter um exemplo de como usar a grade de eventos do Azure com Azure Machine Learning, consulte [criar fluxos de trabalho de aprendizado de máquina direcionados a eventos](/azure/machine-learning/how-to-use-event-grid)

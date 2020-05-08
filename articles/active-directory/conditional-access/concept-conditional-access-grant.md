@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ec8dace971cd4dc1407c9e8d20839504c9ecc3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331849"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583201"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -83,7 +83,6 @@ Essa configuração se aplica aos seguintes aplicativos iOS e Android:
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft Office
-- Hub de Microsoft Office
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
@@ -95,7 +94,7 @@ Essa configuração se aplica aos seguintes aplicativos iOS e Android:
 - Microsoft Skype for Business
 - Microsoft StaffHub
 - Microsoft Stream
-- Equipes da Microsoft
+- Microsoft Teams
 - Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
