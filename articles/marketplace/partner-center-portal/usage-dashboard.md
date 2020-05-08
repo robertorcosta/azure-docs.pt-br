@@ -1,31 +1,31 @@
 ---
-title: Painel de uso na análise do Marketplace comercial no Partner Center
-description: Saiba como acessar toda a VM oferece métricas de uso e cobrança limitada.
+title: Painel de uso no Microsoft Commercial Marketplace Analytics
+description: Saiba como acessar toda a VM oferece métricas de uso e cobrança limitada. Vá para o painel de uso no Partner Center em Marketplace comercial.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262172"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792999"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Painel de uso na análise do Marketplace comercial
+# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Painel de uso no Microsoft Commercial Marketplace Analytics
 
 Este artigo fornece informações sobre o painel de uso no Partner Center. Este painel exibe todas as métricas de uso e cobrança limitada em duas guias separadas: uso de VM e uso de cobrança limitada.
 
-Para acessar o painel de uso, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no Marketplace comercial.
+Para acessar o painel de uso, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** no **Marketplace comercial**.
 
 >[!NOTE]
 > Para obter definições detalhadas de terminologia de análise, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Painel de uso
 
-O painel uso representa as métricas para todas as máquinas virtuais (VM) que oferecem uso e uso de cobrança medido. Elas são encontradas em duas guias separadas: uso da VM e uso de cobrança limitada.
+O painel uso representa as métricas para todas as máquinas virtuais (VM) que oferecem uso e uso de cobrança medido. Essas métricas são encontradas em duas guias separadas: uso da VM e uso de cobrança limitada.
 
 Na guia uso da VM, há representações gráficas dos seguintes itens:
 
@@ -46,7 +46,7 @@ Na guia uso da VM, há representações gráficas dos seguintes itens:
 A tabela de Resumo de uso exibe as horas de uso do cliente para todas as ofertas que foram adquiridas.
 
 - As horas de uso normalizadas são definidas como as horas de uso normalizadas para considerar o número de núcleos de VM ([número de núcleos de VM] x [horas de uso bruto]). As VMs designadas como "SHAREDCORE" usam 1/6 (ou 0,1666) como o multiplicador [número de núcleos de VM].
-- Horas de uso brutos são definidas como a quantidade de tempo que as VMs estão em execução em termos de horas.
+- Horas de uso brutos são definidas como o número de vezes que as VMs estão em execução em termos de horas.
 - O valor percentual representa a alteração de crescimento de uso para o intervalo de datas selecionado ([uso do último mês – uso do primeiro mês])/uso do primeiro mês).
 - Triângulos verdes apontando para cima indicam uma mudança de crescimento.
 - O triângulo vermelho apontando para baixo indica uma alteração de crescimento negativa em relação ao mês anterior.
@@ -58,13 +58,13 @@ O **uso normalizado por geography** calor exibe horas de uso mapeadas de acordo 
 
 ### <a name="usage-by-offers"></a>Uso por ofertas
 
-- O gráfico de pizza **uso normalizado por ofertas** exibe uma divisão de horas de uso normalizadas por ofertas de acordo com o intervalo de datas selecionado. As 5 principais ofertas são exibidas no grafo, enquanto o restante é agrupado na categoria "Rest All".
+- O gráfico de pizza **uso normalizado por ofertas** exibe uma divisão de horas de uso normalizadas por ofertas de acordo com o intervalo de datas selecionado. As cinco principais ofertas são exibidas no grafo, enquanto o restante é agrupado na categoria **REST All** .
 - O gráfico de barras representa uma tendência de crescimento mês a mês para o intervalo de datas selecionado. As colunas mês representam horas de uso das ofertas com as horas de uso mais altas para o respectivo mês. O gráfico de linhas mostra a tendência de percentual de crescimento plotada no eixo Y secundário.
 - Use o controle deslizante na parte superior do gráfico para rolar da direita para a esquerda ao longo do eixo x e/ou se concentrar em pontos de dados específicos.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>Tendência de uso por ofertas e SKUs
 
-Este gráfico exibe a tendência de uso normalizado para os SKUs selecionados de uma oferta. A oferta placar exibe as principais ofertas de 50 com o uso mais alto e são classificadas por horas de uso. O SKU placar exibe os principais SKUs 50 com o uso mais alto para a oferta selecionada.
+Este gráfico exibe a tendência de uso normalizado para os SKUs selecionados de uma oferta. A oferta placar exibe as principais ofertas de 50 com o uso mais alto, classificadas por horas de uso. O SKU placar exibe os principais SKUs 50 com o uso mais alto para a oferta selecionada.
 
 ### <a name="usage-by-offer-type"></a>Uso por tipo de oferta
 
@@ -101,7 +101,7 @@ Os **filtros da página de uso** são aplicados no nível da página. Você pode
 
 - Os **tipos de oferta** e os nomes de **oferta** são listados apenas para as ofertas que você adquiriu durante o intervalo de datas selecionado. Os nomes de oferta na lista são exibidos para os tipos de oferta selecionados na lista.
 - A seleção padrão é "todos" para cada uma das opções de filtro, exceto para o **tipo de uso**. A seleção padrão para o **tipo de uso** é o uso normalizado. Para exibir o uso bruto nos gráficos, selecione "uso bruto".
-- Filtros aplicados mostram as seleções de contagem para as seleções de filtro feitas. Os filtros aplicados não são exibidos para as seleções padrão.
+- Filtros aplicados mostram a seleção de contagem para as seleções de filtro que foram feitas. Os filtros aplicados não são exibidos para as seleções padrão.
 
 > [!NOTE]
 > Uma definição detalhada de cada um dos campos na grade "dados da ordem detalhada", filtros de página e todas as seleções possíveis são definidas na seção dicionário de dados do artigo [perguntas frequentes e terminologia](link needed) .
@@ -123,5 +123,5 @@ A guia **uso de cobrança limitada** apresenta informações de uso para os tipo
 - Para obter informações sobre seus pedidos em um formato gráfico e baixável, consulte [painel de pedidos na análise do Marketplace comercial](./orders-dashboard.md).
 - Para obter informações detalhadas sobre seus clientes, incluindo tendências de crescimento, consulte [painel do cliente na análise do Marketplace comercial](./customer-dashboard.md).
 - Para obter uma lista de suas solicitações de download nos últimos 30 dias, consulte o [painel de downloads na análise do Marketplace comercial](./downloads-dashboard.md).
-- Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e no AppSource, consulte [painel classificações e revisões na análise do Marketplace comercial](./ratings-reviews.md).
+- Para ver uma exibição consolidada dos comentários dos clientes para ofertas no Microsoft AppSource e no Azure Marketplace, consulte o [painel classificações e revisões na análise do Marketplace comercial](./ratings-reviews.md).
 - Para perguntas frequentes sobre a análise do Marketplace comercial e um dicionário abrangente de termos de dados, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).

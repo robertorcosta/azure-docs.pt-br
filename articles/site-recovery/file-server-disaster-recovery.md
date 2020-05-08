@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 59541c568c1d5341375236f9f074b7f82e1a6f94
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75980292"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858744"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
 
@@ -30,7 +30,7 @@ O objetivo de um sistema de compartilhamento de arquivos distribuído é oferece
 A DFSR usa um algoritmo de compactação conhecido como RDC (Compactação Diferencial Remota) que pode ser usado para atualizar com eficiência os arquivos em uma rede com largura de banda limitada. Ele detecta inserções, remoções e reorganizações de dados em arquivos. A DFSR está habilitada para replicar apenas os blocos de arquivo alterados quando os arquivos são atualizados. Também existem ambientes de servidor de arquivos em que os backups diários são feitos em intervalos fora de pico, que atendem às necessidades de desastre. A DFSR não está implementada.
 
 O diagrama a seguir ilustra o ambiente de servidor de arquivos com DFSR implementada.
-                
+        
 ![Arquitetura de DFSR](media/site-recovery-file-server/dfsr-architecture.JPG)
 
 No diagrama anterior, vários servidores de arquivos chamados de membros participam ativamente da replicação de arquivos em um grupo de replicação. O conteúdo na pasta replicada está disponível para todos os clientes que enviam solicitações para um dos membros, mesmo que um dos membros fique offline.
@@ -57,19 +57,19 @@ O diagrama a seguir o ajudará a determinar qual estratégia deve ser usada para
 |Ambiente  |Recomendação  |Considere o seguinte |
 |---------|---------|---------|
 |Ambiente de servidor de arquivos com ou sem DFSR|   [Usar o Site Recovery para replicação](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    O Site Recovery não oferece suporte a clusters de discos compartilhados ou armazenamento anexado à rede (NAS). Se seu ambiente usa essas configurações, use um dos outros métodos, conforme apropriado. <br> O Site Recovery não oferece suporte a SMB 3.0. A VM replicada incorpora as alterações somente quando as alterações feitas nos arquivos são atualizadas no local original dos arquivos.<br>  O Site Recovery oferece um processo de replicação de dados quase síncrono e, portanto, no caso de um cenário de failover não planejado, pode haver potencial perda de dados e pode criar problemas de incompatibilidade de USN.
-|Ambiente de servidor de arquivos com DFSR     |  [Estender a DFSR para uma máquina virtual IaaS do Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      A DFSR funciona bem em ambientes de largura de banda extremamente fragmentada. Essa abordagem requer uma VM do Azure que esteja em execução o tempo todo. Você precisa levar em conta o custo da VM no planejamento.         |
+|Ambiente de servidor de arquivos com DFSR     |  [Estender a DFSR para uma máquina virtual IaaS do Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |    A DFSR funciona bem em ambientes de largura de banda extremamente fragmentada. Essa abordagem requer uma VM do Azure que esteja em execução o tempo todo. Você precisa levar em conta o custo da VM no planejamento.         |
 |VM IaaS do Azure     |     Sincronização de Arquivos    |     Se você usar a Sincronização de Arquivos em um cenário de recuperação de desastre, durante o failover, você deve realizar ações manuais para certificar-se de que os compartilhamentos de arquivos podem ser acessados pelo computador cliente de forma transparente. A Sincronização de Arquivos requer que a porta 445 esteja aberta no computador cliente.     |
 
 
 ### <a name="site-recovery-support"></a>Suporte do Site Recovery
 Como a replicação do Site Recovery é independente do aplicativo, estas recomendações devem servir também para os cenários a seguir.
 
-| Fonte    |Para um site secundário    |Para o Azure
+| Fonte  |Para um site secundário  |Para o Azure
 |---------|---------|---------|
-|Azure| -|Sim|
-|Hyper-V|   Sim |Sim
-|VMware |Sim|   Sim
-|Servidor físico|   Sim |Sim
+|Azure|  -|Sim|
+|Hyper-V|  Sim  |Sim
+|VMware  |Sim|  Sim
+|Servidor físico|  Sim  |Sim
  
 
 > [!IMPORTANT]
@@ -97,7 +97,7 @@ Os Arquivos do Azure podem ser usados para substituir completamente ou complemen
 
 As etapas a seguir descrevem brevemente como usar a Sincronização de Arquivos:
 
-1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se você tiver escolhido armazenamento com redundância geográfica com acesso de leitura para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastres. Para obter mais informações, consulte [recuperação de desastre e failover forçado (versão prévia) no armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se você tiver escolhido armazenamento com redundância geográfica com acesso de leitura para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastres. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie um compartilhamento de arquivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Inicie a sincronização de arquivos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no servidor de arquivos do Azure.
 4. Criar um grupo de sincronização. Os pontos de extremidade em um grupo de sincronização são mantidos em sincronização entre si. Um grupo de sincronização deve conter pelo menos um ponto de extremidade de nuvem, que representa um compartilhamento de arquivos do Azure. Um grupo de sincronização também deve conter um ponto de extremidade de servidor, que representa um caminho em um servidor Windows.
@@ -146,7 +146,7 @@ Para integrar a Sincronização de Arquivos com o Site Recovery:
 
 Siga estas etapas para usar a Sincronização de Arquivos:
 
-1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se você escolheu armazenamento com redundância geográfica com acesso de leitura (recomendado) para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastre. Para obter mais informações, confira [Recuperação de desastre e failover forçado (versão prévia) no Armazenamento do Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Criar uma conta de armazenamento no Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se você escolheu armazenamento com redundância geográfica com acesso de leitura (recomendado) para suas contas de armazenamento, terá acesso de leitura aos dados da região secundária em caso de desastre. Para obter mais informações, consulte [recuperação de desastre e failover da conta de armazenamento](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Crie um compartilhamento de arquivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implantar a Sincronização de Arquivos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) no seu servidor de arquivos local.
 4. Criar um grupo de sincronização. Os pontos de extremidade em um grupo de sincronização são mantidos em sincronização entre si. Um grupo de sincronização deve conter pelo menos um ponto de extremidade de nuvem, que representa um compartilhamento de arquivos do Azure. O grupo de sincronização também deve conter um ponto de extremidade de servidor, que representa um caminho em um servidor Windows no local.

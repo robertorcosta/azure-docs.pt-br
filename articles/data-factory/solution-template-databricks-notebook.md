@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: 65b89a13637f5a4e1712995a6ac58d88b4421806
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414858"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857651"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformação com o Azure Databricks
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Neste tutorial, você cria um pipeline de ponta a ponta que contém a **validação**, a **cópia de dados**e as atividades do **Notebook** em Azure data Factory.
 
@@ -153,6 +153,9 @@ No novo pipeline, a maioria das configurações é configurada automaticamente c
 1. Verifique se os **parâmetros de pipeline** correspondem ao que é mostrado na seguinte captura ![de tela: parâmetros de pipeline](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
 1. Conecte-se a seus conjuntos de os.
+
+    >[!NOTE]
+    >Nos conjuntos de valores abaixo, o caminho do arquivo foi especificado automaticamente no modelo. Se forem necessárias alterações, certifique-se de especificar o caminho para o **contêiner** e o **diretório** em caso de erro de conexão.
 
    - **SourceAvailabilityDataset** -para verificar se os dados de origem estão disponíveis.
 

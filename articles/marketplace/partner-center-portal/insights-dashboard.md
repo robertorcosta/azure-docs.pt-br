@@ -1,22 +1,22 @@
 ---
-title: Painel do Marketplace insights na análise do Marketplace comercial no Partner Center
-description: Acesse um resumo do Marketplace Web Analytics, que permite que os editores meçam o envolvimento do cliente nas vitrines do AppSource e do Azure Marketplace.
+title: Insights do Marketplace-Microsoft Commercial Marketplace
+description: Acesse um resumo do Marketplace Web Analytics, que permite que você meça o envolvimento do cliente no Microsoft AppSource e no Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cecff7347189c5e5b964e10439297bce405810b7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251700"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857914"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Painel do Marketplace insights na análise do Marketplace comercial
+# <a name="marketplace-insights-dashboard-in-partner-center"></a>Painel do Marketplace insights no Partner Center
 
-Este artigo fornece informações sobre o painel do Marketplace insights no Partner Center. Este painel exibe um resumo do Marketplace Web Analytics, que permite que os editores meçam o envolvimento do cliente para suas respectivas páginas de detalhes do produto listadas nas vitrines do Marketplace: AppSource e Azure Marketplace.
+Este artigo fornece informações sobre o painel do Marketplace insights no Partner Center. Este painel exibe um resumo do Marketplace Web Analytics, que permite que os editores meçam o envolvimento do cliente para suas respectivas páginas de detalhes do produto listadas nas vitrines do Marketplace: Microsoft AppSource e Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Painel Insights do Marketplace
 

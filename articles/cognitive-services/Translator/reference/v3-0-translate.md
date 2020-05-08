@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14d1f042240fd045925afe1725b32ddade490dfe
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052403"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858550"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: tradução
 
@@ -202,11 +202,11 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   <th>Descrição</th>
   <tr>
     <td>200</td>
-    <td>Sucesso.</td>
+    <td>Êxito.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está ausente ou é inválido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
+    <td>Um dos parâmetros de consulta está ausente ou não é válido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -390,7 +390,7 @@ Para <code>ProfanityMarker=Tag</code>, palavras ofensivas são circundadas por m
   </tr>
 </table> 
 
-Por exemplo:
+Por exemplo: 
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
@@ -454,6 +454,14 @@ A resposta é:
 
 ### <a name="obtain-alignment-information"></a>Obter informações de alinhamento
 
+O alinhamento é retornado como um valor de cadeia de caracteres do seguinte formato para cada palavra da fonte. As informações para cada palavra são separadas por um espaço, incluindo para idiomas não separados por espaço (scripts), como o chinês:
+
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+
+Exemplo de cadeia de caracteres de alinhamento: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+Em outras palavras, os dois-pontos separam o índice inicial e final, o traço separa os idiomas e o espaço separa as palavras. Uma palavra pode alinhar com zero, uma, ou várias palavras em outro idioma e, as palavras alinhadas podem ser não contíguas. Quando nenhuma informação de alinhamento estiver disponível, o elemento Alinhamento ficará vazio. Nesse caso, método não retornará nenhum erro.
+
 Para receber informações de alinhamento, especifique `includeAlignment=true` na cadeia de caracteres de consulta.
 
 ```curl
@@ -483,9 +491,10 @@ A obtenção de informações de alinhamento é um recurso experimental que habi
 
 * O alinhamento não está disponível para texto no formato HTML, ou seja, TextType = HTML
 * O alinhamento é retornado apenas para um subconjunto dos pares de idiomas:
-  - do inglês para qualquer outro idioma;
-  - de qualquer outro idioma para o inglês, exceto chinês simplificado, chinês tradicional e letão para inglês;
+  - Inglês de/para qualquer outra linguagem, exceto chinês tradicional, cantonês (tradicional) ou sérvio (cirílico).
   - do japonês para o coreano ou do coreano para o japonês.
+  - de japonês a chinês simplificado e chinês simplificado para japonês. 
+  - de chinês simplificado a chinês tradicional e chinês tradicional para chinês simplificado. 
 * Você não receberá alinhamento se a sentença for uma tradução predefinida. Exemplo de uma tradução predefinida é "Isso é um teste", "eu te amo", e outras frases de alta frequência.
 * O alinhamento não está disponível quando você aplica uma das abordagens para impedir a tradução, conforme descrito [aqui](../prevent-translation.md)
 
@@ -515,7 +524,7 @@ A resposta é:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Traduzir com dicionário dinâmico
 
-Se você já souber a tradução que deseja aplicar a uma palavra ou frase, poderá fornecê-la como marcação dentro da solicitação. O dicionário dinâmico é seguro somente para substantivos compostos como nomes próprios e nomes de produtos.
+Se você já souber a tradução que deseja aplicar a uma palavra ou frase, poderá fornecê-la como marcação dentro da solicitação. O dicionário dinâmico só é seguro para substantivos apropriados, como nomes pessoais e nomes de produtos.
 
 A marcação para fornecer usa a seguinte sintaxe.
 

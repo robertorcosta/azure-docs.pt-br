@@ -1,6 +1,6 @@
 ---
 title: incluir arquivo
-description: incluir arquivo para taxonomia da indústria
+description: incluir arquivo para taxonomia do setor
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
 ms.author: dsindona
@@ -10,31 +10,31 @@ ms.topic: include
 ms.date: 09/20/2019
 ms.custom: include file
 ms.openlocfilehash: 19fac46fae2ae938c4ed00967171067ec9f67435
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80278119"
 ---
-Você pode, opcionalmente, selecionar até duas indústrias e duas verticais em cada indústria. Essas categorias são usadas para exibir sua oferta, quando a indústria e as verticais são usadas em filtros de pesquisa e aplicadas na Vitrine.  Se sua oferta estiver voltada para um setor específico e/ou vertical, certifique-se de descrever como sua oferta suporta as indústrias ou verticais selecionadas na descrição da oferta.  Caso contrário, se sua oferta não for específica do setor, não faça uma seleção e deixe esta seção em branco.
+Opcionalmente, você pode selecionar até duas indústrias e duas verticais em cada setor. Essas categorias são usadas para exibir sua oferta, quando as verticais e da indústria são usadas em filtros de pesquisa e aplicadas na vitrine.  Se sua oferta for direcionada a um setor específico e/ou vertical, descreva como sua oferta dá suporte a setores selecionados ou verticais na descrição da oferta.  Caso contrário, se sua oferta não for específica do setor, não faça uma seleção e deixe essa seção em branco.
 
 >[!NOTE]
->À medida que trabalhamos para introduzir novas indústrias e verticais para melhorar a experiência de descoberta de ofertas, algumas indústrias ou verticais podem ainda não ser visíveis na Vitrine. Indústrias e verticais marcadas com um (*) estarão disponíveis em uma data futura. Todas as ofertas publicadas são descobertas através da pesquisa de palavras-chave.
+>À medida que trabalhamos para apresentar novos setores e verticais para melhorar a experiência de descoberta da oferta, alguns setores ou verticais talvez ainda não estejam visíveis na vitrine. Os setores e as verticais marcados com um (*) estarão disponíveis em uma data futura. Todas as ofertas publicadas são detectáveis por meio da pesquisa de palavra-chave.
 
-| **Setor**    | **Subindústria**  | 
+| **Setor**    | **Submercado**  | 
 | :------------------- | :-------------------|
-| *Automotivo     | *Automotivo |
-| Agricultura     | *Outros - Não segmentados |
-| Distribuição    | *Atacado <br> *Envio de pacotes de & parcela |
-| Educação     | *Ensino Superior <br> *Ensino Fundamental & Ensino Médio / K-12 <br> *Bibliotecas & Museus |
-| Serviços Financeiros     | *Mercado de Capitais & Bancário <br> *Seguro |
-| Governamental    | *Defesa & Inteligência (costumava ser chamada de Segurança Nacional e Pública) <br> *Segurança Pública & Justiça <br> *Governo Civil |
-| Saúde (costumava ser chamada de Saúde)   | *Pagador de saúde <br> *Provedor de Saúde <br> *Farmacêuticos |
-| Fabricação & Recursos (costumava ser chamado de Manufatura)   | *Produto químico & Agroquímico <br> *Fabricação Discreta <br> *Energia |
-| Varejo & Bens de Consumo (costumava ser chamado de Varejo)  | *Bens de Consumo <br> *Varejistas |
-| *Mídia & Comunicações (costumava ser chamada de Mídia e Entretenimento)  | *Mídia & Entretenimento <br> *Telecomunicações |
-| Serviços Profissionais  | *Legal <br> *Serviços profissionais de parceiros |
-| *Arquitetura & Construção (costumava ser chamada engenharia de arquitetura)  | *Outros - Não segmentados |
-| *Hospitalidade & Viagens  | *Hotéis & Lazer <br> *Transporte & viagem <br> *Restaurantes & Food Services |
-| *Outras Indústrias do Setor Público  | *Pesca florestal & <br> *Sem fins lucrativos |
-| *Imóveis  | *Outros - Não segmentados |
+| * Automotivo     | * Automotivo |
+| Agricultura     | * Outros-não segmentados |
+| Distribuição    | * Atacado <br> * Envio de pacote de & de remessa |
+| Educação     | * Ensino superior <br> * Principal & educação secundária/K-12 <br> * Bibliotecas & museus |
+| Serviços Financeiros     | * Mercados de capital & bancários <br> * Seguro |
+| Governamental    | * Defense & Intelligence (usado para ser chamado de segurança nacional e pública) <br> * Segurança pública & justiça <br> * Governo civis |
+| Saúde (costumava ser chamada de integridade)   | * Pagador de integridade <br> * Provedor de integridade <br> * Produtos farmacêuticos |
+| Recursos de fabricação & (usados para ser chamado de fabricação)   | * Agrochemical química & <br> * Fabricação discreta <br> * Energia |
+| Bens de consumo de & de varejo (usados para serem chamados de varejo)  | * Bens de consumo <br> * Varejistas |
+| * Comunicações de & de mídia (usadas para serem chamadas de mídia e entretenimento)  | * Mídia & entretenimento <br> * Telecomunicações |
+| Serviços Profissionais  | * Legal <br> * Serviços profissionais de parceiros |
+| * Arquitetura & construção (usada para ser chamada de engenharia de arquitetura)  | * Outros-não segmentados |
+| * Hotelaria & viagem  | * Hotéis & lazer <br> * Transporte de & de viagem <br> * Restaurantes & serviços de alimentos |
+| * Outros setores do setor público  | * Pesca & de floresta <br> * Não fins lucrativos |
+| * Espaço real  | * Outros-não segmentados |
