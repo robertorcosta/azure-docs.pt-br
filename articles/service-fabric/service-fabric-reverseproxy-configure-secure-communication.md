@@ -1,23 +1,21 @@
 ---
 title: Comunicação segura de proxy reverso do Azure Service Fabric
 description: Configure o proxy reverso para habilitar a comunicação de ponta a ponta segura em um aplicativo Service Fabric do Azure.
-author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
-ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617121"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858535"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conectar-se a um serviço seguro com o proxy inverso
 
 Este artigo explica como estabelecer uma conexão segura entre o proxy reverso e serviços, permitindo um canal seguro de ponta a ponta. Para saber mais sobre o proxy reverso, consulte o [proxy reverso no Microsoft Azure Service Fabric](service-fabric-reverseproxy.md)
 
-A conexão aos serviços seguros tem suporte apenas quando o proxy reverso é configurado para escutar em HTTPS. Este artigo pressupõe que este é o caso.
-Consulte [Configuração reversa no Microsoft Azure Service Fabric](service-fabric-reverseproxy-setup.md) para configurar o proxy reverso no Service Fabric.
+> [!IMPORTANT]
+> A conexão aos serviços seguros tem suporte apenas quando o proxy reverso é configurado para escutar em HTTPS. Este artigo pressupõe que este é o caso. Consulte [Configuração reversa no Microsoft Azure Service Fabric](service-fabric-reverseproxy-setup.md) para configurar o proxy reverso no Service Fabric.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Estabelecimento de conexão segura entre o proxy reverso e os serviços 
 
@@ -180,10 +178,10 @@ Esse é o comportamento padrão.
 
 2. Quando **ForwardClientCertificate** é definido como **true**, o proxy reverso solicita o certificado do cliente durante seu handshake TLS com o cliente.
 Em seguida, ele encaminhará os dados do certificado do cliente em um cabeçalho HTTP personalizado chamado **X-Client-Certificate**. O valor do cabeçalho é a cadeia de formato PEM codificado em base64 do certificado do cliente. O serviço pode conseguir ou não atender à solicitação com o código de status apropriado depois de inspecionar os dados do certificado.
-Se o cliente não apresentar um certificado, o proxy reverso encaminhará um cabeçalho vazio e permitirá ao serviço lidar com o caso.
+Se o cliente não apresentar um certificado, o proxy reverso encaminha um cabeçalho vazio e permite que o serviço manipule o caso.
 
 > [!NOTE]
-> Proxy reverso é um mero encaminhador. Ele não executará nenhuma validação de certificado do cliente.
+> O proxy reverso atua apenas como um serviço de encaminhamento. Ele não executará nenhuma validação de certificado do cliente.
 
 
 ## <a name="next-steps"></a>Próximas etapas
