@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253449"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583127"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para logon único em seus aplicativos com o Proxy de Aplicativo
 
@@ -88,7 +88,7 @@ A configuração do Active Directory varia, dependendo de se o conector do Proxy
    Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
    ```
 
-## <a name="configure-single-sign-on"></a>Configurar logon único 
+## <a name="configure-single-sign-on"></a>Configurar o logon único 
 1. Publique seu aplicativo seguindo as instruções descritas em [Publicar aplicativos com o Proxy de Aplicativo](application-proxy-add-on-premises-application.md). Certifique-se de selecionar **Active Directory do Azure** como o **Método de pré-autenticação**.
 2. Depois que o aplicativo aparecer na lista de aplicativos empresariais, selecione-o e clique em **Logon único**.
 3. Defina o modo de logon único como **Autenticação Integrada do Windows**.  
@@ -100,11 +100,13 @@ A configuração do Active Directory varia, dependendo de se o conector do Proxy
 
 ## <a name="sso-for-non-windows-apps"></a>SSO para aplicativos não Windows
 
-O fluxo de delegação de Kerberos no Proxy de Aplicativo do AD do Azure é iniciado quando o AD do Azure autentica o usuário na nuvem. Depois que a solicitação chega localmente, o conector do Proxy de Aplicativo Azure AD emite um tíquete do Kerberos em nome do usuário interagindo com o Active Directory local. Esse processo é conhecido como KCD (delegação restrita do Kerberos). Na próxima fase, uma solicitação é enviada ao aplicativo de back-end com esse tíquete Kerberos. 
+O fluxo de delegação de Kerberos no Proxy de Aplicativo do AD do Azure é iniciado quando o AD do Azure autentica o usuário na nuvem. Depois que a solicitação chega localmente, o conector do Proxy de Aplicativo Azure AD emite um tíquete do Kerberos em nome do usuário interagindo com o Active Directory local. Esse processo é conhecido como KCD (delegação restrita do Kerberos). 
 
-Há vários protocolos que definem como enviar essas solicitações. A maioria dos servidores não Windows espera negociar com o SPNEGO. Esse protocolo é compatível com o Proxy de Aplicativo do Azure AD, mas é desabilitado por padrão. Um servidor pode ser configurado para SPNEGO ou KCD padrão, mas não ambos.
+Na próxima fase, uma solicitação é enviada ao aplicativo de back-end com esse tíquete Kerberos. 
 
-Se você configurar um computador conector para SPNEGO, certifique-se de que todos os outros conectores nesse grupo conector também estejam configurados com SPNEGO. Aplicativos que esperam KCD padrão devem ser roteados por meio de outros conectores que não estão configurados para SPNEGO.
+Há vários mecanismos que definem como enviar o tíquete Kerberos em tais solicitações. A maioria dos servidores não Windows espera recebê-lo na forma de token SPNEGO. Esse mecanismo tem suporte na Proxy de Aplicativo do AD do Azure, mas está desabilitado por padrão. Um conector pode ser configurado para o token de Kerberos SPNEGO ou Standard, mas não para ambos.
+
+Se você configurar um computador conector para SPNEGO, certifique-se de que todos os outros conectores nesse grupo conector também estejam configurados com SPNEGO. Os aplicativos que esperam token Kerberos padrão devem ser roteados por meio de outros conectores que não estão configurados para SPNEGO.
  
 
 Para habilitar SPNEGO:

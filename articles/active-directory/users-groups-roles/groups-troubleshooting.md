@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f685ac63e3b4a8cf466be4eb4561472fb084d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74026552"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582721"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Solucionar problemas e resolver questões de grupos
 
@@ -43,7 +43,7 @@ Para desabilitar a criação de grupo para usuários não administradores no Pow
    ```
 
 <br/>**Recebi um erro de máximo de grupos permitidos ao tentar criar um grupo dinâmico no PowerShell**<br/>
-Se você receber uma mensagem no PowerShell indicando que a _contagem máxima de grupos permitidos das diretivas de grupo dinâmicos foi atingida_, isso significa que você atingiu o limite máximo de grupos dinâmicos em seu locatário. O número máximo de grupos dinâmicos por locatário é 5.000.
+Se você receber uma mensagem no PowerShell indicando que a _contagem máxima de grupos permitidos das diretivas de grupo dinâmicos foi atingida_, isso significa que você atingiu o limite máximo de grupos dinâmicos em sua organização. O número máximo de grupos dinâmicos por organização é 5.000.
 
 Para criar novos grupos dinâmicos, primeiro você precisará excluir alguns grupos dinâmicos existentes. Não há como aumentar o limite.
 
@@ -53,9 +53,9 @@ Para criar novos grupos dinâmicos, primeiro você precisará excluir alguns gru
 1. Verifique os valores dos atributos de usuário ou dispositivo na regra. Verifique se há usuários que satisfaçam a regra. Para dispositivos, verifique as propriedades do dispositivo para garantir que todos os atributos sincronizados contenham os valores esperados.<br/>
 2. Verifique o status de processamento de associação para confirmar se ele está concluído. Você pode verificar o [status de processamento de associação](groups-create-rule.md#check-processing-status-for-a-rule) e a data da última atualização na página **visão geral** do grupo.
 
-Se tudo estiver correto, aguarde alguns instantes para que o grupo seja populado. Dependendo do tamanho do seu locatário, o grupo pode levar até 24 horas para ser populado pela primeira vez ou depois de uma alteração de regra.
+Se tudo estiver correto, aguarde alguns instantes para que o grupo seja populado. Dependendo do tamanho da sua organização do Azure AD, o grupo pode levar até 24 horas para ser populado pela primeira vez ou após uma alteração de regra.
 
-**Configurei uma regra, mas agora os membros da regra existentes foram removidos**<br/>Este comportamento é esperado. Membros existentes do grupo são removidos quando uma regra é habilitada ou alterada. Os usuários retornados da avaliação da regra são adicionados como membros ao grupo.
+**Configurei uma regra, mas agora os membros da regra existentes foram removidos**<br/>Esse comportamento é esperado. Membros existentes do grupo são removidos quando uma regra é habilitada ou alterada. Os usuários retornados da avaliação da regra são adicionados como membros ao grupo.
 
 **Não vejo as alterações da associação instantaneamente quando adiciono ou altero uma regra, por que não?**<br/>A avaliação de associação dedicada é feita periodicamente em um processo assíncrono em segundo plano. O tempo que o processo leva é determinado pelo número de usuários no diretório e pelo tamanho do grupo criado como resultado da regra. Normalmente, os diretórios com um pequeno número de usuários verão as alterações de associação de grupo em poucos minutos. Os diretórios com um grande número de usuários podem levar até 30 minutos ou mais para serem populados.
 
@@ -74,7 +74,7 @@ Atualmente, não há como disparar automaticamente o grupo a ser processado sob 
 
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
-* [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](../fundamentals/active-directory-manage-groups.md)
+* [Gerenciando o acesso a recursos com grupos de Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Gerenciamento de aplicativos no Microsoft Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [O que é o Active Directory do Azure?](../fundamentals/active-directory-whatis.md)
 * [Integrando suas identidades locais ao Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

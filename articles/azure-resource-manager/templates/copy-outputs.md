@@ -3,12 +3,12 @@ title: Definir várias instâncias de um valor de saída
 description: Use a operação de cópia em um modelo de Azure Resource Manager para iterar várias vezes ao retornar um valor de uma implantação.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617826"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583417"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Iteração de saída em modelos ARM
 
@@ -16,7 +16,7 @@ Este artigo mostra como criar mais de um valor para uma saída em seu modelo de 
 
 Você também pode usar copiar com [recursos](copy-resources.md), [Propriedades em um recurso](copy-properties.md)e [variáveis](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Iteração de saída
+## <a name="syntax"></a>Sintaxe
 
 O elemento Copy tem o seguinte formato geral:
 
@@ -30,6 +30,21 @@ O elemento Copy tem o seguinte formato geral:
 A propriedade **Count** especifica o número de iterações que você deseja para o valor de saída.
 
 A propriedade de **entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos com base no valor na propriedade de **entrada** . Pode ser uma única propriedade (como uma cadeia de caracteres) ou um objeto com várias propriedades.
+
+## <a name="copy-limits"></a>Limites de cópia
+
+A contagem não pode exceder 800.
+
+A contagem não pode ser um número negativo. Ele pode ser zero se você implantar o modelo com uma versão recente do CLI do Azure, do PowerShell ou da API REST. Especificamente, você deve usar:
+
+* Azure PowerShell **2,6** ou posterior
+* CLI do Azure **2.0.74** ou posterior
+* API REST versão **2019-05-10** ou posterior
+* [Implantações vinculadas](linked-templates.md) devem usar a versão de API **2019-05-10** ou posterior para o tipo de recurso de implantação
+
+As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
+
+## <a name="outputs-iteration"></a>Iteração de saída
 
 O exemplo a seguir cria um número variável de contas de armazenamento e retorna um ponto de extremidade para cada conta de armazenamento:
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 6cf89790ee125d8d09d9bdead2f6e34dcb73e8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e4f811d39c75742f11c52de5c178fbf4063000d
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188116"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864633"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Proteger trabalhos de experimentação e de inferência do Azure ML em uma rede virtual do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -359,7 +359,7 @@ Para usar uma máquina virtual ou um cluster do Azure HDInsight em uma rede virt
 Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as seguintes etapas:
 
 > [!IMPORTANT]
-> Antes de começar o procedimento a seguir, siga os pré-requisitos no como [Configurar a rede avançada no AKs (serviço kubernetes do Azure)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) e planejar o endereçamento IP para o cluster.
+> Antes de começar o procedimento a seguir, siga os pré-requisitos no como [Configurar a rede avançada no AKs (serviço kubernetes do Azure)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) e planejar o endereçamento IP para o cluster.
 >
 > A instância AKS e a rede virtual do Azure devem estar na mesma região. Se você proteger as contas de armazenamento do Azure usadas pelo espaço de trabalho em uma rede virtual, elas deverão estar na mesma rede virtual que a instância AKS.
 
@@ -557,7 +557,7 @@ Para obter informações sobre como usar Azure Machine Learning com o Firewall d
     
     Para obter mais informações, consulte a referência do método [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
 
-1. Se você estiver usando o link privado para seu espaço de trabalho Azure Machine Learning e colocar o registro de contêiner do Azure para seu espaço de trabalho em uma rede virtual, também deverá aplicar o seguinte modelo de Azure Resource Manager. Este modelo permite que seu espaço de trabalho se comunique com o ACR por meio do link privado.
+1. Você deve aplicar o modelo de Azure Resource Manager a seguir. Este modelo permite que seu espaço de trabalho se comunique com o ACR.
 
     ```json
     {

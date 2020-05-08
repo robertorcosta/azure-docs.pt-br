@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50118dcd4bf0fafa3e25399cf7d82558b7c776c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048150"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582799"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
 
@@ -160,7 +160,7 @@ Aqui estão as configurações definidas no Group.Unified SettingsTemplate. A me
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booliano<li> Padrão: False | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booliano<li> Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo dos Grupos do Office 365.  Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Padrão: "" | A url de um link para as diretrizes de uso do convidado. |
-|  <ul><li>AllowToAddGuests<li>Tipo: booliano<li> Padrão: True | Um booliano que indica se há permissão para adicionar convidados a este diretório. <br>Essa configuração poderá ser substituída e se tornará somente leitura se *EnableMIPLabels* estiver definido como *true* e uma política de convidado estiver associada ao rótulo de sensibilidade atribuído ao grupo.<br>Se a configuração AllowToAddGuests for definida como false no nível do locatário, qualquer configuração de AllowToAddGuests no nível do grupo será ignorada. Se você quiser habilitar o acesso de convidado para apenas alguns grupos, deverá definir AllowToAddGuests como true no nível do locatário e, em seguida, desabilitá-lo seletivamente para grupos específicos. |
+|  <ul><li>AllowToAddGuests<li>Tipo: booliano<li> Padrão: True | Um booliano que indica se há permissão para adicionar convidados a este diretório. <br>Essa configuração poderá ser substituída e se tornará somente leitura se *EnableMIPLabels* estiver definido como *true* e uma política de convidado estiver associada ao rótulo de sensibilidade atribuído ao grupo.<br>Se a configuração AllowToAddGuests for definida como false no nível da organização, qualquer configuração de AllowToAddGuests no nível do grupo será ignorada. Se você quiser habilitar o acesso de convidado para apenas alguns grupos, deverá definir AllowToAddGuests como true no nível da organização e, em seguida, desabilitá-lo seletivamente para grupos específicos. |
 |  <ul><li>ClassificationList<li>Tipo: String<li>Padrão: "" | Uma lista delimitada por vírgulas de valores de classificação válidos que podem ser aplicados aos Grupos do Office 365. <br>Essa configuração não se aplica quando EnableMIPLabels = = true.|
 |  <ul><li>EnableMIPLabels<li>Tipo: booliano<li>Padrão: "false" |O sinalizador que indica se os rótulos de sensibilidade publicados no centro de conformidade Microsoft 365 podem ser aplicados aos grupos do Office 365. Para obter mais informações, consulte [atribuir rótulos de sensibilidade para grupos do Office 365](groups-assign-sensitivity-labels.md). |
 

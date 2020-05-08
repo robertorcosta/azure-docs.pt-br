@@ -3,14 +3,14 @@ title: Implantação de modelo What-if (visualização)
 description: Determine quais alterações ocorrerão para seus recursos antes de implantar um modelo de Azure Resource Manager.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: jgao
-ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509577"
+ms.locfileid: "82581192"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operação de hipóteses de implantação de modelo ARM (versão prévia)
 
@@ -106,7 +106,7 @@ Para visualizar as alterações antes de implantar um modelo, adicione `-Whatif`
 * `New-AzResourceGroupDeployment -Whatif`para implantações de grupo de recursos
 * `New-AzSubscriptionDeployment -Whatif`e `New-AzDeployment -Whatif` para implantações em nível de assinatura
 
-Ou, você pode usar o `-Confirm` parâmetro switch para visualizar as alterações e receber uma solicitação para continuar com a implantação.
+Você pode usar o `-Confirm` parâmetro switch para visualizar as alterações e receber uma solicitação para continuar com a implantação.
 
 * `New-AzResourceGroupDeployment -Confirm`para implantações de grupo de recursos
 * `New-AzSubscriptionDeployment -Confirm`e `New-AzDeployment -Confirm` para implantações em nível de assinatura
@@ -123,10 +123,10 @@ Para visualizar as alterações antes de implantar um modelo, `what-if` use com 
 * `az deployment group what-if`para implantações de grupo de recursos
 * `az deployment sub what-if`para implantações em nível de assinatura
 
-Ou, você pode usar o `--confirm-with-what-if` parâmetro para visualizar as alterações e receber uma solicitação para continuar com a implantação.
+Você pode usar a `--confirm-with-what-if` opção (ou sua forma `-c`abreviada) para visualizar as alterações e receber uma solicitação para continuar com a implantação.
 
-* `az deployment group create --confirm-with-what-if`para implantações de grupo de recursos
-* `az deployment sub create --confirm-with-what-if`para implantações em nível de assinatura
+* `az deployment group create --confirm-with-what-if`ou `-c` para implantações de grupo de recursos
+* `az deployment sub create --confirm-with-what-if`ou `-c` para implantações de nível de assinatura
 
 Os comandos anteriores retornam um resumo de texto que você pode inspecionar manualmente. Para obter um objeto JSON que você pode inspecionar para alterações programaticamente, use:
 
@@ -340,7 +340,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 A operação What-If dá suporte ao uso do [modo de implantação](deployment-modes.md). Quando definido para o modo completo, os recursos que não estão no modelo são excluídos. O exemplo a seguir implanta um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) no modo completo.
 
-Para visualizar as alterações antes de implantar um modelo, use `-Confirm` o parâmetro switch com o comando de implantação. Se as alterações forem as esperadas, confirme se deseja que a implantação seja concluída.
+Para visualizar as alterações antes de implantar um modelo, use o parâmetro de opção Confirm com o comando de implantação. Se as alterações forem as esperadas, confirme que você deseja que a implantação seja concluída.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

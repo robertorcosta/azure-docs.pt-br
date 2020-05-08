@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 47bd550bbd8d75a06d38babe88b5a95f3790af50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5fc106bfd97e8decd47ac7d43383907dcbbbda9c
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106535"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792965"
 ---
-## <a name="2-assign-access-permissions-to-an-identity"></a>2. atribuir permissões de acesso a uma identidade
+## <a name="2-assign-access-permissions-to-an-identity"></a>2 atribuir permissões de acesso a uma identidade
 
 Para acessar os recursos de arquivos do Azure com autenticação baseada em identidade, uma identidade (um usuário, grupo ou entidade de serviço) deve ter as permissões necessárias no nível de compartilhamento. Esse processo é semelhante à especificação de permissões de compartilhamento do Windows, em que você especifica o tipo de acesso que um usuário específico tem a um compartilhamento de arquivos. As orientações nesta seção demonstram como atribuir ler, gravar ou excluir as permissões para um compartilhamento de arquivos para uma identidade. 
 
@@ -28,7 +28,7 @@ Introduzimos três funções internas do Azure para conceder permissões de nív
 > [!IMPORTANT]
 > O controle administrativo total de um compartilhamento de arquivos, incluindo a capacidade de apropriar-se de um arquivo, requer o uso da chave da conta de armazenamento. O controle administrativo não é compatível com credenciais do Azure AD.
 
-Você pode usar o portal do Azure, o PowerShell ou o CLI do Azure para atribuir as funções internas à identidade do Azure AD de um usuário para conceder permissões de nível de compartilhamento.
+Você pode usar o portal do Azure, o PowerShell ou o CLI do Azure para atribuir as funções internas à identidade do Azure AD de um usuário para conceder permissões de nível de compartilhamento. Lembre-se de que a atribuição de função RBAC de nível de compartilhamento pode levar algum tempo para estar em vigor. 
 
 > [!NOTE]
 > Lembre-se de [sincronizar suas credenciais do AD DS com o AD do Azure](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) se você planeja usar sua AD DS local para autenticação. A sincronização de hash de senha de AD DS para o Azure AD é opcional. A permissão de nível de compartilhamento será concedida à identidade do Azure AD que é sincronizada a partir de seu AD DS local.
@@ -70,7 +70,7 @@ Antes de executar o script de exemplo a seguir, lembre-se de substituir os valor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="3-configure-ntfs-permissions-over-smb"></a>3. configurar permissões NTFS em relação ao SMB 
+## <a name="3-configure-ntfs-permissions-over-smb"></a>3 configurar permissões NTFS em relação ao SMB 
 Depois de atribuir permissões no nível de compartilhamento com o RBAC, você deve atribuir permissões de NTFS corretas no nível raiz, de diretório ou de arquivo. Considere as permissões de nível de compartilhamento como o gatekeeper de alto nível que determina se um usuário pode acessar o compartilhamento. Enquanto as permissões de NTFS atuam em um nível mais granular para determinar quais operações o usuário pode fazer no nível do diretório ou do arquivo.
 
 Os arquivos do Azure dá suporte a todo o conjunto de permissões de NTFS básicos e avançados. Você pode exibir e configurar as permissões NTFS em diretórios e arquivos em um compartilhamento de arquivos do Azure montando o compartilhamento e usando o explorador de arquivos do Windows ou executando o comando [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) do Windows ou [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
@@ -119,7 +119,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Para obter mais informações sobre como usar o icacls para definir permissões NTFS e sobre os diferentes tipos de permissões com suporte, consulte [a referência de linha de comando para icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. montar um compartilhamento de arquivos de uma VM ingressada no domínio
+## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 montar um compartilhamento de arquivos de uma VM ingressada no domínio
 
 O processo a seguir verifica se as permissões de acesso e compartilhamento de arquivos foram configuradas corretamente e se você pode acessar um compartilhamento de arquivos do Azure de uma VM ingressada no domínio. Lembre-se de que a atribuição de função RBAC de nível de compartilhamento pode levar algum tempo para estar em vigor. 
 

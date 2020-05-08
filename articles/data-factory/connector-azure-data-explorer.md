@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 12bf807f5866567508b644105f377cfde1494250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ba8c35fc1802f7ef3ac54c693c8106bbc40cc185
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410772"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560169"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure Data Explorer usando Azure Data Factory
 
@@ -75,7 +75,7 @@ O conector de Data Explorer do Azure usa a autenticação de entidade de serviç
 
 As propriedades a seguir têm suporte para o serviço vinculado do Azure Data Explorer:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AzureDataExplorer**. | Sim |
 | endpoint | URL de ponto de extremidade do cluster do Azure Data Explorer com o formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
@@ -113,7 +113,7 @@ Para copiar dados para o Azure Data Explorer, defina a propriedade type do conju
 
 Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AzureDataExplorerTable**. | Sim |
 | tabela | O nome da tabela à qual o serviço vinculado se refere. | Não para coletor; não para fonte |
@@ -145,7 +145,7 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 Para copiar dados do Azure Data Explorer, defina a propriedade **type** na fonte da atividade de Cópia como **AzureDataExplorerSource**. As propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** da fonte da atividade de cópia deve ser definida como: **AzureDataExplorerSource** | Sim |
 | Consulta | Uma solicitação somente leitura fornecida em um [formato KQL](/azure/kusto/query/). Use a consulta KQL personalizada como referência. | Sim |
@@ -192,11 +192,11 @@ Para copiar dados do Azure Data Explorer, defina a propriedade **type** na fonte
 
 Para copiar dados do Azure Data Explorer, defina a propriedade type no coletor da atividade de cópia como **AzureDataExplorerSink**. As propriedades a seguir têm suporte na seção **coletor** de atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade **Type** do coletor da atividade de cópia deve ser definida como: **AzureDataExplorerSink**. | Sim |
 | ingestionMappingName | Nome de um [mapeamento](/azure/kusto/management/mappings#csv-mapping) criado previamente em uma tabela Kusto. Para mapear as colunas da origem para o Azure Data Explorer (que se aplica a [todos os formatos e repositórios de origem com suporte](copy-activity-overview.md#supported-data-stores-and-formats), incluindo os formatos CSV/JSON/Avro), você pode usar o [mapeamento de coluna](copy-activity-schema-and-type-mapping.md) de atividade de cópia (implicitamente por nome ou explicitamente como configurado) e/ou mapeamentos de data Explorer do Azure. | Não |
-| additionalProperties | Um recipiente de propriedades que pode ser usado para especificar qualquer uma das propriedades de ingestão que não estão sendo definidas já pelo coletor de Data Explorer do Azure. Especificamente, isso pode ser útil para especificar marcas de ingestão. Saiba mais no [documento de ingestão de dados do Azure data Explore](https://kusto.azurewebsites.net/docs/management/data-ingestion/index.html). | Não |
+| additionalProperties | Um recipiente de propriedades que pode ser usado para especificar qualquer uma das propriedades de ingestão que não estão sendo definidas já pelo coletor de Data Explorer do Azure. Especificamente, isso pode ser útil para especificar marcas de ingestão. Saiba mais no [documento de ingestão de dados do Azure data Explore](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | Não |
 
 **Exemplo:**
 

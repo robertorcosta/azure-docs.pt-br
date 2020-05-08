@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 30cda7a83feddaeb41385252a61d1dc68a881a47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7fb7b6b409a4e24be97ee61fc7ba1f0c0a93202
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646499"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792625"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster Apache HBase para uma nova versão
 
@@ -32,16 +32,16 @@ Aqui está um exemplo de matriz de compatibilidade de versão. Y indica compatib
 
 | Tipo de compatibilidade | Versão principal| Versão secundária | Patch |
 | --- | --- | --- | --- |
-| Compatibilidade de transferência cliente-servidor | N | S | S |
-| Compatibilidade servidor-servidor | N | S | S |
-| Compatibilidade de formato de arquivo | N | S | S |
-| Compatibilidade de API do cliente | N | S | S |
+| Compatibilidade de transferência cliente-servidor | N | S | Y |
+| Compatibilidade servidor-servidor | N | S | Y |
+| Compatibilidade de formato de arquivo | N | S | Y |
+| Compatibilidade de API do cliente | N | S | Y |
 | Compatibilidade de binário do cliente | N | N | S |
 | **Compatibilidade de API limitada ao lado do servidor** |  |  |  |
-| Estável | N | S | S |
+| Estável | N | S | Y |
 | Evoluindo | N | N | S |
 | Instável | N | N | N |
-| Compatibilidade de dependência | N | S | S |
+| Compatibilidade de dependência | N | S | Y |
 | Compatibilidade operacional | N | N | S |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Atualizar com a mesma versão principal do Apache HBase
@@ -220,4 +220,4 @@ Para saber mais sobre o [Apache HBase](https://hbase.apache.org/) e como atualiz
 * [Atualizar um cluster HDInsight para uma versão mais recente](../hdinsight-upgrade-cluster.md)
 * [Monitorar e gerenciar o Azure HDInsight usando a IU da Web do Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
 * [Componentes e versões do Apache Hadoop](../hdinsight-component-versioning.md)
-* [Otimizar configurações usando o Apache Ambari](../hdinsight-changing-configs-via-ambari.md#apache-hbase-optimization-with-the-ambari-web-ui)
+* [Otimizar o Apache HBase](../optimize-hbase-ambari.md)

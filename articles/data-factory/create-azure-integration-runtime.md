@@ -10,12 +10,12 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414073"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858008"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Como criar e configurar o Integration Runtime do Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,10 +59,10 @@ Use as etapas a seguir para criar um Azure IR usando a interface do usuário do 
 1. Na página **instalação do Integration Runtime** , selecione **Azure, auto-hospedado**e, em seguida, selecione **continuar**. 
 
 1. Na página a seguir, selecione **Azure** para criar um Azure ir e, em seguida, selecione **continuar**.
-   ![Criar um Integration Runtime](media/create-azure-integration-runtime/new-azure-ir.png)
+   ![Criar um Integration Runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Insira um nome para sua Azure IR e selecione **criar**.
-   ![Criar um Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+   ![Criar um Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. Você verá uma notificação pop-up quando a criação for concluída. Na página **tempos de execução de integração** , certifique-se de que você veja o ir recém-criado na lista.
 
