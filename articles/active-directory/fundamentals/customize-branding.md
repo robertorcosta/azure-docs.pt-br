@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049803"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982030"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). As páginas de entrada aparecem quando os usuários entram nos aplicativos baseados na Web da organização, como o Office 365, que usam o Azure AD como provedor de identidade.
@@ -52,9 +52,9 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
 
         - **Idioma.** O idioma é definido automaticamente como padrão e não pode ser alterado.
         
-        - **Imagem de plano de fundo da página de entrada.** Selecione um arquivo de imagem .png ou .jpg para aparecer como plano de fundo nas páginas de entrada. 
+        - **Imagem de plano de fundo da página de entrada.** Selecione um arquivo de imagem .png ou .jpg para aparecer como plano de fundo nas páginas de entrada. A imagem será ancorada ao centro do navegador e será dimensionada para o tamanho do espaço visível. Você não pode selecionar uma imagem maior que 1920 x 1080 pixels de tamanho ou que tenha um tamanho de arquivo maior que 300 KB.
         
-            A imagem não pode ter mais de 1920x1080 pixels de tamanho e deve ter um tamanho de arquivo inferior a 300 KB.
+            É recomendável usar imagens sem um foco forte de assunto, por exemplo, uma caixa branca opaca aparece no centro da tela e pode cobrir qualquer parte da imagem, dependendo das dimensões do espaço visível.
 
         - **Logotipo de faixa.** Selecione uma versão .png ou .jpg do logotipo para aparecer na página de entrada, depois que o usuário inserir um nome de usuário e na página do portal **Meus Aplicativos**.
             
@@ -62,7 +62,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
 
         - **Dica de nome de usuário.** Digite o texto de dica que aparecerá aos usuários, caso não se lembrem do nome de usuário. Esse texto deve ser Unicode, sem links ou código, e não pode exceder 64 caracteres. Se os visitantes entrarem no aplicativo, sugerimos que você não adicione essa dica.
 
-        - **Texto da página de entrada.** Digite o texto que aparece na parte inferior da página de entrada. Você pode usar esse texto para comunicar informações adicionais como o número de telefone do seu suporte técnico ou uma instrução legal. Esse texto deve ser Unicode e não deve exceder 256 caracteres. É recomendável também não incluir links ou marcas HTML.
+        - **Texto da página de entrada.** Digite o texto que aparece na parte inferior da página de entrada. Você pode usar esse texto para comunicar informações adicionais como o número de telefone do seu suporte técnico ou uma instrução legal. Esse texto deve ser Unicode e não deve exceder 256 caracteres.
 
     - **Configurações avançadas**
             
@@ -101,7 +101,7 @@ Após criar a identidade visual personalizada, você poderá retornar e fazer to
 
 3. Na página **Configurar a identidade visual da empresa**, adicione, remova ou altere qualquer informação, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
    Pode demorar até uma hora para que apareçam todas as alterações feitas à identidade visual da página de entrada.
 
@@ -118,7 +118,7 @@ Não é possível alterar o idioma da configuração original do idioma padrão.
 
 3. Na página **Configurar a identidade visual da empresa**, selecione o idioma (por exemplo, francês) e adicione as informações traduzidas, com base nas descrições na seção [Personalizar a página de entrada do Azure AD](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
     A página **Contoso – Identidade visual da empresa** é atualizada para mostrar a nova configuração em francês.
 

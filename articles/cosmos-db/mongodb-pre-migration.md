@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 9e867a544de8904274286cb68fc047f3f4b93e0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183306"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791741"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para migrações de dados do MongoDB para a API do Azure Cosmos DB para o MongoDB
 
@@ -30,7 +30,7 @@ Se você já tiver concluído os pré-requisitos acima para a migração, poder�
 
 Veja a seguir características específicas sobre a API do Azure Cosmos DB para MongoDB:
 
-- **Modelo de capacidade**: a capacidade do banco de dados no Azure Cosmos DB é baseada em um modelo baseado em taxa de transferência. Esse modelo é baseado em [unidades de solicitação por segundo](request-units.md), que é uma unidade que representa o número de operações de banco de dados que podem ser executadas em uma coleção por segundo. Essa capacidade pode ser alocada em [um nível de banco de dados ou de coleção](set-throughput.md)e pode ser provisionada em um modelo de alocação ou usando o [modelo de dimensionamento automático](provision-throughput-autoscale.md).
+- **Modelo de capacidade**: a capacidade do banco de dados no Azure Cosmos DB é baseada em um modelo baseado em taxa de transferência. Esse modelo é baseado em [unidades de solicitação por segundo](request-units.md), que é uma unidade que representa o número de operações de banco de dados que podem ser executadas em uma coleção por segundo. Essa capacidade pode ser alocada em [um nível de banco de dados ou de coleção](set-throughput.md)e pode ser provisionada em um modelo de alocação ou usando a [taxa de transferência provisionada de dimensionamento automático](provision-throughput-autoscale.md).
 
 - **Unidades de solicitação**: cada operação de banco de dados tem um custo de RUs (unidades de solicitação) associadas em Azure Cosmos DB. Quando executado, isso é subtraído do nível de unidades de solicitação disponíveis em um determinado segundo. Se uma solicitação exigir mais RUs do que o RU/s alocado atualmente, há duas opções para resolver o problema-aumente a quantidade de RUs ou aguarde até que o próximo segundo inicie e repita a operação.
 

@@ -1,30 +1,30 @@
 ---
 title: Chamar, disparar ou aninhar aplicativos lógicos
-description: Configurar pontos de extremidade HTTP para chamar, disparar ou aninhar fluxos de trabalho de aplicativo lógico em aplicativos lógicos do Azure
+description: Configurar pontos de extremidade HTTPS para chamar, disparar ou aninhar fluxos de trabalho de aplicativo lógico nos aplicativos lógicos do Azure
 services: logic-apps
 ms.workload: integration
-ms.reviewer: klam, jehollan, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2019
-ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191342"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983683"
 ---
-# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTP em aplicativos lógicos do Azure
+# <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTPS em aplicativos lógicos do Azure
 
-Para tornar seu aplicativo lógico chamável por meio de uma URL para que seu aplicativo lógico possa receber solicitações de entrada de outros serviços, você pode expor nativamente um ponto de extremidade HTTP síncrono como um gatilho nesse aplicativo lógico. Ao configurar esse recurso, você também pode aninhar seu aplicativo lógico dentro de outros aplicativos lógicos, o que permite criar um padrão de pontos de extremidade que podem ser chamados.
+Para tornar seu aplicativo lógico chamável por meio de uma URL para que seu aplicativo lógico possa receber solicitações de entrada de outros serviços, você pode expor nativamente um ponto de extremidade HTTPS síncrono como um gatilho nesse aplicativo lógico. Ao configurar esse recurso, você também pode aninhar seu aplicativo lógico dentro de outros aplicativos lógicos, o que permite criar um padrão de pontos de extremidade que podem ser chamados.
 
-Para configurar um ponto de extremidade HTTP, você pode usar qualquer um desses tipos de gatilho, o que permite que os aplicativos lógicos recebam solicitações de entrada:
+Para configurar um ponto de extremidade chamável, você pode usar qualquer um desses tipos de gatilho, o que permite que os aplicativos lógicos recebam solicitações de entrada:
 
 * [Solicitação](../connectors/connectors-native-reqres.md)
 * [Webhook HTTP](../connectors/connectors-native-webhook.md)
-* Gatilhos de conector gerenciado que têm o [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber solicitações HTTP de entrada
+* Gatilhos de conector gerenciado que têm o [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber solicitações HTTPS de entrada
 
 > [!NOTE]
-> Esses exemplos usam o gatilho de solicitação, mas você pode usar qualquer gatilho baseado em solicitação HTTP que esteja na lista anterior. Todos os princípios se aplicam de forma idêntica a esses outros tipos de gatilho.
+> Esses exemplos usam o gatilho de solicitação, mas você pode usar qualquer gatilho baseado em solicitação HTTPS que esteja na lista anterior. Todos os princípios se aplicam de forma idêntica a esses outros tipos de gatilho.
 
 Se você for novo em aplicativos lógicos, consulte [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) [: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -32,13 +32,13 @@ Se você for novo em aplicativos lógicos, consulte [o que é o início rápido 
 
 * Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* O aplicativo lógico no qual você deseja configurar o ponto de extremidade HTTP como o gatilho. Você pode começar com um aplicativo lógico em branco ou um aplicativo lógico existente no qual você deseja substituir o gatilho atual. Este exemplo começa com um aplicativo lógico em branco.
+* O aplicativo lógico no qual você deseja usar o gatilho para criar o ponto de extremidade que possa ser chamado. Você pode começar com um aplicativo lógico em branco ou um aplicativo lógico existente no qual você deseja substituir o gatilho atual. Este exemplo começa com um aplicativo lógico em branco.
 
 ## <a name="create-a-callable-endpoint"></a>Criar um ponto de extremidade que possa ser chamado
 
 1. Entre no [portal do Azure](https://portal.azure.com). Crie e abra um aplicativo lógico em branco no designer de aplicativo lógico.
 
-   Este exemplo usa o gatilho Request, mas você pode usar qualquer gatilho que possa receber solicitações HTTP de entrada. Todos os princípios se aplicam de forma idêntica a esses gatilhos. Para obter mais informações sobre o gatilho de solicitação, consulte [receber e responder a chamadas HTTPS de entrada usando o aplicativo lógico do Azure](../connectors/connectors-native-reqres.md).
+   Este exemplo usa o gatilho Request, mas você pode usar qualquer gatilho que possa receber solicitações HTTPS de entrada. Todos os princípios se aplicam de forma idêntica a esses gatilhos. Para obter mais informações sobre o gatilho de solicitação, consulte [receber e responder a chamadas HTTPS de entrada usando o aplicativo lógico do Azure](../connectors/connectors-native-reqres.md).
 
 1. Na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, insira `request` como o filtro. Na lista de gatilhos, selecione **quando uma solicitação HTTP é recebida**.
 
@@ -100,91 +100,165 @@ Se você for novo em aplicativos lógicos, consulte [o que é o início rápido 
 
 1. Salve seu aplicativo lógico.
 
-   A caixa **http post para esta URL** agora mostra a URL de retorno de chamada gerada que outros serviços podem usar para chamar e disparar seu aplicativo lógico. Essa URL inclui uma chave de assinatura de acesso compartilhado (SAS), que é usada para autenticação, nos parâmetros de consulta, por exemplo:
+   A caixa **URL de postagem http** agora mostra a URL de retorno de chamada gerada que outros serviços podem usar para chamar e disparar seu aplicativo lógico. Essa URL inclui parâmetros de consulta que especificam uma chave de assinatura de acesso compartilhado (SAS), que é usada para autenticação.
 
    ![URL de retorno de chamada gerada para ponto de extremidade](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-   Você também pode obter a URL de ponto de extremidade HTTP no painel de **visão geral** do seu aplicativo lógico.
+1. Para copiar a URL de retorno de chamada, você tem estas opções:
 
-   1. No menu do aplicativo lógico, selecione **visão geral**.
+   * À direita da caixa **URL do http post** , selecione **Copiar URL** (ícone copiar arquivos).
 
-   1. Na seção **Resumo** , selecione **Ver Histórico de gatilho**.
+   * Faça esta chamada POST:
 
-      ![Obter a URL de ponto de extremidade HTTP no portal do Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
+     `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
-   1. Em **URL de retorno de chamada [post]**, copie a URL:
+   * Copie a URL de retorno de chamada do painel de **visão geral** do seu aplicativo lógico.
 
-      ![Copiar URL de ponto de extremidade HTTP de portal do Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url.png)
+     1. No menu do aplicativo lógico, selecione **visão geral**.
 
-      Ou você pode obter a URL fazendo esta chamada:
+     1. Na seção **Resumo** , selecione **Ver Histórico de gatilho**.
 
-      ```http
-      POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01
-      ```
+        ![Obter URL do ponto de extremidade de portal do Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-<a name="set-method"></a>
+     1. Em **URL de retorno de chamada [post]**, copie a URL:
 
-## <a name="set-expected-http-method"></a>Definir o método HTTP esperado
+        ![Copiar URL do ponto de extremidade de portal do Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
-Por padrão, o gatilho Solicitação aguarda uma solicitação HTTP POST. No entanto, você pode especificar um método diferente para esperar, mas apenas um método.
+<a name="select-method"></a>
+
+## <a name="select-expected-request-method"></a>Selecionar o método de solicitação esperado
+
+Por padrão, o gatilho de solicitação espera uma solicitação POST. Você pode especificar um método diferente para esperar, mas apenas um único método.
 
 1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione o **método**, que adiciona essa propriedade ao gatilho.
 
    ![Adicionar a propriedade "Method" para disparar](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
-1. Na lista **método** , selecione outro método que o gatilho espera em vez disso. Ou, você pode especificar um método personalizado.
+1. Na lista **método** , selecione o método que o gatilho deve esperar. Ou, você pode especificar um método personalizado.
 
-   Por exemplo, selecione o método **Get** para que você possa testar a URL do ponto de extremidade http mais tarde.
+   Por exemplo, selecione o método **Get** para que você possa testar a URL do ponto de extremidade mais tarde.
 
-   ![Selecione o método HTTP a ser usado para o gatilho](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
+   ![Selecionar o método de solicitação esperado pelo gatilho](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## <a name="accept-parameters-in-endpoint-url"></a>Aceitar parâmetros na URL do ponto de extremidade
 
-Quando desejar que a URL do ponto de extremidade aceite parâmetros, especifique o caminho relativo no gatilho. Você também precisa definir explicitamente [o método](#set-method) que sua solicitação HTTP espera.
+Quando desejar que a URL do ponto de extremidade aceite valores de parâmetro por meio da URL do ponto de extremidade, você terá estas opções:
+
+* [Aceite valores por meio de parâmetros Get](#get-parameters) ou parâmetros de URL.
+
+  Esses valores são passados como pares de nome-valor ao enviar a solicitação para a URL do ponto de extremidade. Para essa opção, você precisa usar o método GET em seu gatilho de solicitação. Em uma ação subsequente, você pode obter os valores de parâmetro como saídas do gatilho usando `triggerOutputs()` a função em uma expressão.
+
+* [Aceite valores por meio de um caminho relativo](#relative-path) para parâmetros em seu gatilho de solicitação.
+
+  Esses valores são passados ao enviar a solicitação para a URL do ponto de extremidade. Você também precisa selecionar explicitamente [o método](#select-method) esperado pelo gatilho. Em uma ação subsequente, você pode obter os valores de parâmetro como saídas do gatilho referenciando essas saídas diretamente.
+
+<a name="get-parameters"></a>
+
+### <a name="accept-values-through-get-parameters"></a>Aceitar valores por meio de parâmetros GET
+
+1. No gatilho de solicitação, abra a **lista Adicionar novo parâmetro**, adicione a propriedade **método** ao gatilho e selecione o método **Get** .
+
+   Para obter mais informações, consulte [selecionar método de solicitação esperado](#select-method).
+
+1. No gatilho de solicitação, adicione a ação em que você deseja usar o valor do parâmetro. Para este exemplo, adicione a ação de **resposta** .
+
+   1. No gatilho de solicitação, selecione **nova etapa** > **Adicionar uma ação**.
+   
+   1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
+
+1. Para criar a `triggerOutputs()` expressão que recupera o valor do parâmetro, siga estas etapas:
+
+   1. Clique dentro da propriedade **corpo** da ação de resposta para que a lista conteúdo dinâmico seja exibida e selecione **expressão**.
+
+   1. Na caixa **expressão** , insira esta expressão, substituindo `parameter-name` pelo nome do parâmetro e selecione **OK**.
+
+      `triggerOutputs()['queries']['parameter-name']`
+
+      ![Adicionar a expressão "triggerOutputs ()" para disparar](./media/logic-apps-http-endpoint/trigger-outputs-expression.png)
+
+      Na propriedade **Body** , a expressão é resolvida para o `triggerOutputs()` token.
+
+      ![Resolvida a expressão "triggerOutputs ()"](./media/logic-apps-http-endpoint/trigger-outputs-expression-token.png)
+
+      Se você salvar o aplicativo lógico, sair do designer e retornar ao designer, o token mostrará o nome do parâmetro que você especificou, por exemplo:
+
+      ![Expressão resolvida para o nome do parâmetro](./media/logic-apps-http-endpoint/resolved-expression-parameter-token.png)
+
+      Na exibição de código, a propriedade **Body** é exibida na definição da ação de resposta da seguinte maneira:
+
+      `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
+
+      Por exemplo, suponha que você deseja passar um valor para um parâmetro chamado `postalCode`. A propriedade **Body** especifica a cadeia de `Postal Code: ` caracteres, com um espaço à direita, seguido pela expressão correspondente:
+
+      ![Adicione a expressão "triggerOutputs ()" de exemplo para disparar](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
+
+1. Para testar seu ponto de extremidade chamável, copie a URL de retorno de chamada do gatilho de solicitação e cole a URL em outra janela do navegador. Na URL, adicione o nome do parâmetro e o valor seguindo o ponto de`?`interrogação () à URL no formato a seguir e pressione Enter.
+
+   `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
+
+   `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+
+   O navegador retorna uma resposta com este texto:`Postal Code: 123456`
+
+   ![Resposta de envio de solicitação para URL de retorno de chamada](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+1. Para colocar o nome e o valor do parâmetro em uma posição diferente dentro da URL, use o e comercial (`&`) como um prefixo, por exemplo:
+
+   `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
+
+   Este exemplo mostra a URL de retorno de chamada com o nome do `postalCode=123456` parâmetro de exemplo e o valor em posições diferentes dentro da URL:
+
+   * 1ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+   * 2ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/XXXXXXXXXXXXXXXXXXXXXX/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZ`
+
+<a name="relative-path"></a>
+
+### <a name="accept-values-through-a-relative-path"></a>Aceitar valores por meio de um caminho relativo
 
 1. No gatilho de solicitação, abra a lista **Adicionar novo parâmetro** e selecione **caminho relativo**, que adiciona essa propriedade ao gatilho.
 
    ![Adicionar a propriedade "caminho relativo" para disparar](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. Na propriedade **caminho relativo** , especifique o caminho relativo para o parâmetro no esquema JSON que você deseja que a URL aceite, por exemplo, `address/{postalCode}`.
+1. Na propriedade **caminho relativo** , especifique o caminho relativo para o parâmetro no esquema JSON que você deseja que a URL aceite, por exemplo, `/address/{postalCode}`.
 
    ![Especifique o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
-1. Para usar o parâmetro, localize e adicione uma ação de **resposta** ao seu aplicativo lógico.
+1. No gatilho de solicitação, adicione a ação em que você deseja usar o valor do parâmetro. Para este exemplo, adicione a ação de **resposta** .
 
    1. No gatilho de solicitação, selecione **nova etapa** > **Adicionar uma ação**.
 
-   1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro.
-
-   1. Na lista ações, selecione a ação **resposta** .
+   1. Em **Escolher uma ação**, na caixa de pesquisa, insira `response` como o filtro. Na lista ações, selecione a ação **resposta** .
 
 1. Na propriedade **Body** da ação de resposta, inclua o token que representa o parâmetro que você especificou no caminho relativo do gatilho.
 
    Por exemplo, suponha que você deseja que a ação de resposta `Postal Code: {postalCode}`seja retornada.
 
-   Na propriedade **corpo** , insira `Postal Code: ` com um espaço à direita. Na lista de conteúdo dinâmico que aparece, selecione o token de **PostalCode** .
+   1. Na propriedade **corpo** , insira `Postal Code: ` com um espaço à direita. Mantenha o cursor dentro da caixa de edição para que a lista de conteúdo dinâmico permaneça aberta.
 
-   ![Adicionar o parâmetro especificado ao corpo da resposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
+   1. Na lista de conteúdo dinâmico, na seção **quando uma solicitação HTTP é recebida** , selecione o token de **PostalCode** .
 
-   A propriedade **Body** agora inclui o parâmetro selecionado:
+      ![Adicionar o parâmetro especificado ao corpo da resposta](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
-   ![Exemplo de corpo de resposta com parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+      A propriedade **Body** agora inclui o parâmetro selecionado:
+
+      ![Exemplo de corpo de resposta com parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 1. Salve seu aplicativo lógico.
 
-    A URL de ponto de extremidade HTTP agora inclui o caminho relativo, por exemplo:
+   No gatilho de solicitação, a URL de retorno de chamada é atualizada e agora inclui o caminho relativo, por exemplo:
 
-    ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
-    ```
+   `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. Para testar o ponto de extremidade HTTP, copie e cole a URL atualizada em outra janela do navegador, mas substitua `{postalCode}` por `123456` e pressione Enter.
+1. Para testar seu ponto de extremidade chamável, copie a URL de retorno de chamada atualizada do gatilho de solicitação, Cole a URL `{postalCode}` em outra janela do `123456`navegador, substitua na URL por e pressione Enter.
 
-   Seu navegador mostra este texto:`Postal Code: 123456`
+   O navegador retorna uma resposta com este texto:`Postal Code: 123456`
 
-## <a name="call-logic-app-through-http-endpoint"></a>Chamar aplicativo lógico por meio do ponto de extremidade HTTP
+   ![Resposta de envio de solicitação para URL de retorno de chamada](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-Depois de criar o ponto de extremidade HTTP, você pode disparar o aplicativo lógico enviando uma `POST` solicitação HTTP para a URL completa do ponto de extremidade. Os aplicativos lógicos têm suporte interno para pontos de extremidade de acesso direto.
+## <a name="call-logic-app-through-endpoint-url"></a>Chamar aplicativo lógico por meio da URL do ponto de extremidade
+
+Depois de criar o ponto de extremidade, você pode disparar o aplicativo lógico enviando uma `POST` solicitação HTTPS para a URL completa do ponto de extremidade. Os aplicativos lógicos têm suporte interno para pontos de extremidade de acesso direto.
 
 <a name="generated-tokens"></a>
 
@@ -261,7 +335,7 @@ Para acessar especificamente a `body` Propriedade, você pode usar a [ `@trigger
 
 ## <a name="respond-to-requests"></a>Responder às solicitações
 
-Às vezes, você deseja responder a determinadas solicitações que disparam o aplicativo lógico retornando o conteúdo ao chamador. Para construir o código de status, o cabeçalho e o corpo da sua resposta, use a ação de resposta. Essa ação pode aparecer em qualquer lugar no aplicativo lógico, não apenas no fim do fluxo de trabalho. Se seu aplicativo lógico não incluir uma ação de resposta, o ponto de extremidade HTTP responderá *imediatamente* com o status de **202 aceito** .
+Às vezes, você deseja responder a determinadas solicitações que disparam o aplicativo lógico retornando o conteúdo ao chamador. Para construir o código de status, o cabeçalho e o corpo da sua resposta, use a ação de resposta. Essa ação pode aparecer em qualquer lugar no aplicativo lógico, não apenas no fim do fluxo de trabalho. Se seu aplicativo lógico não incluir uma ação de resposta, o ponto de extremidade responderá *imediatamente* com o status de **202 aceito** .
 
 Para que o chamador original obtenha a resposta com êxito, todas as etapas necessárias para a resposta devem ser concluídas dentro do [limite de tempo limite da solicitação](./logic-apps-limits-and-config.md) , a menos que o aplicativo lógico disparado seja chamado como um aplicativo lógico aninhado. Se nenhuma resposta for retornada dentro desse limite, a solicitação de entrada atingirá o tempo limite e receberá a resposta de **tempo limite do cliente 408** .
 
@@ -271,14 +345,14 @@ Para aplicativos lógicos aninhados, o aplicativo lógico pai continua aguardand
 
 No corpo da resposta, você pode incluir vários cabeçalhos e qualquer tipo de conteúdo. Por exemplo, o cabeçalho dessa resposta especifica que o tipo de conteúdo da resposta `application/json` é e que o corpo contém valores para `town` as `postalCode` Propriedades e, com base no esquema JSON descrito anteriormente neste tópico para o gatilho de solicitação.
 
-![Fornecer conteúdo de resposta para ação de resposta HTTP](./media/logic-apps-http-endpoint/content-for-response-action.png)
+![Fornecer conteúdo de resposta para a ação de resposta HTTPS](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 As respostas têm estas propriedades:
 
 | Propriedade (exibição) | Property (JSON) | Descrição |
 |--------------------|-----------------|-------------|
-| **Código de status** | `statusCode` | O código de status HTTP a ser usado na resposta para a solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
-| **headers** | `headers` | Um ou mais cabeçalhos a serem incluídos na resposta |
+| **Código de status** | `statusCode` | O código de status HTTPS a ser usado na resposta para a solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
+| **Conector** | `headers` | Um ou mais cabeçalhos a serem incluídos na resposta |
 | **Conteúdo** | `body` | Um objeto Body que pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo conteúdo binário referenciado de uma etapa anterior |
 ||||
 
@@ -314,9 +388,9 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 > * A chave de acesso compartilhado é exibida na URL.
 > * Você não pode gerenciar políticas de conteúdo de segurança devido a domínios compartilhados em clientes de aplicativos lógicos do Azure.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP mais tarde?
+#### <a name="q-can-i-configure-callable-endpoints-further"></a>P: posso configurar os pontos de extremidade que podem ser chamados ainda mais?
 
-**R**: Sim, os pontos de extremidade http dão suporte à configuração mais avançada por meio [do gerenciamento de API do Azure](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
+**R**: Sim, os pontos de extremidade https dão suporte à configuração mais avançada por meio [do gerenciamento de API do Azure](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
 
 * [Alterar o método de solicitação](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Alterar os segmentos de URL da solicitação](../api-management/api-management-transformation-policies.md#RewriteURL)

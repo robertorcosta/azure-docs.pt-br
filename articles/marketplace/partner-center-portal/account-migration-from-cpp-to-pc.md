@@ -1,20 +1,20 @@
 ---
-title: Migração de conta do Portal do Cloud Partner para o Partner Center-Marketplace comercial para o Azure
-description: Como migrar sua conta do CPP para o Partner Center-Marketplace comercial para o Azure
+title: Migrar contas de Portal do Cloud Partner para o Marketplace comercial da Microsoft
+description: Saiba como migrar sua conta do Portal do Cloud Partner para o Partner Center no Microsoft Commercial Marketplace para Azure
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 49fb2da05b7284fff10e6271de177551000995ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 033b603630fc219fc378556a2ccbaef4eae524e4
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024414"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743523"
 ---
-# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migração de conta do Portal do Cloud Partner para o Partner Center
+# <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Como migrar sua conta do Portal do Cloud Partner para o Partner Center
 
 Se você tiver uma conta de Portal do Cloud Partner (CPP) existente, suas configurações de conta precisarão ser migradas para o Partner Center.
 

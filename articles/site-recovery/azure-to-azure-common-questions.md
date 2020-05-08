@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738041"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983271"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação de desastre do Azure para o Azure
 
@@ -100,6 +100,10 @@ Não, Site Recovery não requer conectividade com a Internet. Mas ele requer ace
 Sim, você pode replicar o aplicativo e manter a configuração de recuperação de desastre em um grupo de recursos separado também.
 
 Por exemplo, se seu aplicativo tiver o aplicativo, o banco de dados e a Web de cada camada em um grupo de recursos separado, você precisará selecionar o [Assistente de replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) três vezes para proteger todas as camadas. Site Recovery replicará essas três camadas em três grupos de recursos diferentes.
+
+### <a name="can-i-move-storage-accounts-across-resource-groups"></a>Posso mover contas de armazenamento entre grupos de recursos?
+
+Não. Esse é um cenário sem suporte. No entanto, se você acidentalmente mover contas de armazenamento para um grupo de recursos diferente e excluir o grupo de recursos original, poderá criar um novo grupo de recursos com o mesmo nome do grupo de recursos antigo e, em seguida, mover a conta de armazenamento para esse grupo de recursos.
 
 ## <a name="replication-policy"></a>Política de replicação
 

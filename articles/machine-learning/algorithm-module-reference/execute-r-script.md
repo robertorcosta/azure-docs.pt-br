@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684705"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983560"
 ---
 # <a name="execute-r-script"></a>Executar script R
 
@@ -42,6 +42,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+> [!NOTE]
+> Se o pipeline contiver vários módulos executar script R e precisar dos mesmos pacotes que não estão na lista pré-instalada, instale os pacotes em cada módulo, respectivamente. 
 
 ## <a name="installing-r-packages"></a>Instalando pacotes R
 Para instalar pacotes de R adicionais, use `install.packages()` o método. Os pacotes são instalados para cada módulo **Executar script r** e não são compartilhados entre outros módulos **Executar script r** .
@@ -140,7 +142,7 @@ Os conjuntos de dados armazenados no designer são convertidos automaticamente e
 1. Na caixa de texto **script r** , digite ou cole um script R válido.
 
     > [!NOTE]
-    > Tenha cuidado ao escrever seu script e verifique se não há nenhum erro de sintaxe, como usar uma variável não declarada ou um módulo ou função não importado. Além disso, preste atenção extra à lista de pacotes pré-instalada no final deste documento. Para usar pacotes que não estão listados, instale-os em seu script, como`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    > Tenha cuidado ao escrever seu script e verifique se não há nenhum erro de sintaxe, como usar variáveis não declaradas ou funções ou módulos não importados. Além disso, preste atenção extra à lista de pacotes pré-instaladas no final deste documento. Para usar pacotes que não estão listados, instale-os em seu script, como`install.packages("zoo",repos = "http://cran.us.r-project.org")`
     
     > [!NOTE]
     > Funções dependentes da biblioteca X11, como "exibição", não têm suporte porque a biblioteca X11 não está pré-instalada.
