@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870209"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611391"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -45,11 +45,13 @@ Criar e capturar uma imagem de VM e depois usá-la como a fonte para o conjunto 
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Se eu reduzir a capacidade do meu conjunto de dimensionamento de 20 para 15, quais VMs serão removidas?
 
-Máquinas virtuais são removidas do conjunto de dimensionamento uniformemente entre domínios de atualização e domínios de falha para maximizar a disponibilidade. VMs com as IDs mais altas são removidas primeiro.
+Por padrão, as máquinas virtuais são removidas do conjunto de dimensionamento uniformemente entre as zonas de disponibilidade (se o conjunto de dimensionamento for implantado na configuração de zonal) e os domínios de falha para maximizar a disponibilidade. VMs com as IDs mais altas são removidas primeiro.
+
+Você pode alterar a ordem de remoção da máquina virtual especificando uma [política de redução](virtual-machine-scale-sets-scale-in-policy.md) para o conjunto de dimensionamento.
 
 ### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>E se eu aumentar a capacidade de 15 para 18?
 
-Se você aumentar a capacidade para 18, serão criadas três novas VMs. Em casa caso, a ID da instância VM será incrementada do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre domínios de falha e domínios de atualização.
+Se você aumentar a capacidade para 18, serão criadas três novas VMs. Em casa caso, a ID da instância VM será incrementada do valor mais alto anterior (por exemplo, 20, 21, 22). As VMs são balanceadas entre domínios de falha.
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Ao usar várias extensões em um conjunto de dimensionamento, posso impor uma sequência de execução?
 
@@ -223,7 +225,7 @@ Você pode fornecer as chaves públicas SSH em texto sem formatação ao criar u
 
 Nome do elemento linuxConfiguration | Obrigatório | Type | Descrição
 --- | --- | --- | ---
-ssh | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
+ssh | Não | Coleta | Especifica a configuração da chave SSH para um SO Linux
 path | Sim | String | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | String | Especifica uma chave pública SSH codificada em base64
 
@@ -335,13 +337,13 @@ Para obter mais informações, consulte o [Centro de Confiabilidade da Microsoft
 
 Sim. Você pode ver alguns modelos de MSI de exemplo nos modelos de início rápido do Azure para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>Excluindo 
+## <a name="deleting"></a>Excluindo
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Os bloqueios definidos em vigor nas instâncias do conjunto de dimensionamento de máquinas virtuais serão respeitados ao excluir instâncias?
 
-No portal do Azure, você tem a capacidade de excluir uma instância individual ou excluir em massa selecionando várias instâncias. Se você tentar excluir uma única instância que tenha um bloqueio no local, o bloqueio será respeitado e não será possível excluir a instância. No entanto, se você selecionar várias instâncias em massa e qualquer uma dessas instâncias tiver um bloqueio em vigor, os bloqueios não serão respeitados e todas as instâncias selecionadas serão excluídas. 
- 
-No CLI do Azure, você só tem a capacidade de excluir uma instância individual. Se você tentar excluir uma única instância que tenha um bloqueio em vigor, o bloqueio será respeitado e você não poderá excluir essa instância. 
+No portal do Azure, você tem a capacidade de excluir uma instância individual ou excluir em massa selecionando várias instâncias. Se você tentar excluir uma única instância que tenha um bloqueio no local, o bloqueio será respeitado e não será possível excluir a instância. No entanto, se você selecionar várias instâncias em massa e qualquer uma dessas instâncias tiver um bloqueio em vigor, os bloqueios não serão respeitados e todas as instâncias selecionadas serão excluídas.
+
+No CLI do Azure, você só tem a capacidade de excluir uma instância individual. Se você tentar excluir uma única instância que tenha um bloqueio em vigor, o bloqueio será respeitado e você não poderá excluir essa instância.
 
 ## <a name="extensions"></a>Extensões
 

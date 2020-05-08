@@ -8,14 +8,20 @@ ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 57d5198cb54dc096fb09bb52d76539b1e4bbc1f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6298b3a9c5769b1d82f89956736b451935b2c5d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127452"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612632"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões do serviço de área de trabalho virtual do Windows
+
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md).
+>
+> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Use este artigo para resolver problemas com conexões de cliente de área de trabalho virtual do Windows.
 
@@ -30,10 +36,10 @@ Um usuário pode iniciar Área de Trabalho Remota clientes e é capaz de autenti
 Confirme se o usuário que relata os problemas foi atribuído a grupos de aplicativos usando esta linha de comando:
 
 ```PowerShell
-Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
+Get-AzRoleAssignment -SignInName <userupn>
 ```
 
-Confirme se o usuário está fazendo logon com as credenciais corretas.
+Confirme se o usuário está entrando com as credenciais corretas.
 
 Se o cliente Web estiver sendo usado, confirme se não há problemas de credenciais em cache.
 
@@ -44,19 +50,21 @@ Se uma máquina virtual não estiver respondendo e você não puder acessá-la p
 Para verificar o status do host, execute este cmdlet:
 
 ```powershell
-Get-RdsSessionHost -TenantName $TenantName -HostPoolName $HostPool | ft SessionHostName, LastHeartBeat, AllowNewSession, Status
+Get-AzWvdSessionHost -HostPoolName <hostpoolname> -ResourceGroupName <resourcegroupname>| Format-List Name, LastHeartBeat, AllowNewSession, Status
 ```
 
 Se o status do host `NoHeartBeat`for, isso significa que a VM não está respondendo e o agente não pode se comunicar com o serviço de área de trabalho virtual do Windows.
 
 ```powershell
-SessionHostName          LastHeartBeat     AllowNewSession    Status 
----------------          -------------     ---------------    ------ 
-WVDHost1.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost2.contoso.com     21-Nov-19 5:21:35            True     Available 
-WVDHost3.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost4.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
-WVDHost5.contoso.com     21-Nov-19 5:21:35            True     NoHeartBeat 
+Name            : 0301HP/win10pd-0.contoso.com 
+LastHeartBeat   : 4/8/2020 1:48:35 AM 
+AllowNewSession : True 
+Status          : Available 
+
+Name            : 0301HP/win10pd-1.contoso.com 
+LastHeartBeat   : 4/8/2020 1:45:44 AM 
+AllowNewSession : True 
+Status          : NoHeartBeat
 ```
 
 Há algumas coisas que você pode fazer para corrigir o status noheartbeat.
@@ -65,21 +73,10 @@ Há algumas coisas que você pode fazer para corrigir o status noheartbeat.
 
 Se o seu FSLogix não estiver atualizado, especialmente se for a versão 2.9.7205.27375 do frxdrvvt. sys, isso poderá causar um deadlock. Certifique-se de [atualizar o FSLogix para a versão mais recente](https://go.microsoft.com/fwlink/?linkid=2084562).
 
-### <a name="disable-bgtaskregistrationmaintenancetask"></a>Desabilitar BgTaskRegistrationMaintenanceTask
-
-Se a atualização do FSLogix não funcionar, o problema poderá ser que um componente BiSrv esteja esgotando os recursos do sistema durante uma tarefa de manutenção semanal. Desabilite temporariamente a tarefa de manutenção desabilitando o BgTaskRegistrationMaintenanceTask com um destes dois métodos:
-
-- Vá para o menu iniciar e procure **Agendador de tarefas**. Navegue até **Agendador de tarefas biblioteca** > **Microsoft** > **Windows** > **BrokerInfrastructure**. Procure uma tarefa chamada **BgTaskRegistrationMaintenanceTask**. Quando encontrá-lo, clique nele com o botão direito do mouse e selecione **desabilitar** no menu suspenso.
-- Abra um menu de linha de comando como administrador e execute o seguinte comando:
-    
-    ```cmd
-    schtasks /change /tn "\Microsoft\Windows\BrokerInfrastructure\BgTaskRegistrationMaintenanceTask" /disable 
-    ```
-
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
-- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool de hosts](troubleshoot-set-up-issues.md).
+- Para solucionar problemas ao criar um ambiente de área de trabalho virtual do Windows e um pool de hosts em um ambiente de área de trabalho virtual do Windows, consulte [criação de pool de hosts e](troubleshoot-set-up-issues.md)
 - Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
 - Para solucionar problemas ao usar o PowerShell com a área de trabalho virtual do Windows, consulte [PowerShell da área de trabalho virtual do Windows](troubleshoot-powershell.md).
 - Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

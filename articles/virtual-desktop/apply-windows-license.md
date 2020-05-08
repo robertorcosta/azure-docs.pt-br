@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254229"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612445"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Aplicar licença do Windows a máquinas virtuais do host de sessão
 
@@ -23,7 +23,7 @@ O licenciamento de área de trabalho virtual do Windows permite que você apliqu
 
 Há algumas maneiras de usar a licença de área de trabalho virtual do Windows:
 - Você pode criar um pool de hosts e suas máquinas virtuais de host de sessão usando a [oferta do Azure Marketplace](./create-host-pools-azure-marketplace.md). As máquinas virtuais criadas dessa maneira automaticamente têm a licença aplicada.
-- Você pode criar um pool de hosts e suas máquinas virtuais de host de sessão usando o [modelo de Azure Resource Manager do GitHub](./create-host-pools-arm-template.md). As máquinas virtuais criadas dessa maneira automaticamente têm a licença aplicada.
+- Você pode criar um pool de hosts e suas máquinas virtuais de host de sessão usando o [modelo de Azure Resource Manager do GitHub](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). As máquinas virtuais criadas dessa maneira automaticamente têm a licença aplicada.
 - Você pode aplicar uma licença a uma máquina virtual de host de sessão existente. Para fazer isso, primeiro siga as instruções em [criar um pool de hosts com o PowerShell](./create-host-pools-powershell.md) para criar um pool de hosts e VMs associadas e, em seguida, retorne a este artigo para saber como aplicar a licença.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Aplicar uma licença do Windows a uma VM host de sessão

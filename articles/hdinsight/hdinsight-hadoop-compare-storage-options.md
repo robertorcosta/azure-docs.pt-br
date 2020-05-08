@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: bfbe311d9768923eee8c1b0cc4f3b4ec1a7ad69a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186298"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610693"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
 Você pode escolher entre alguns serviços de armazenamento do Azure diferentes ao criar clusters HDInsight:
 
 * [Armazenamento do Azure](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen1.md)
-* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
 
 Este artigo fornece uma visão geral desses tipos de armazenamento e de seus recursos exclusivos.
 
