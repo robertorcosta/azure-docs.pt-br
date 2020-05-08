@@ -1,22 +1,22 @@
 ---
-title: APIs do serviço de medição do Marketplace-perguntas frequentes | Azure Marketplace
-description: Emitir o uso de uma oferta de SaaS no Azure Marketplace.
+title: Perguntas frequentes sobre APIs de serviço de medição-Microsoft Commercial Marketplace
+description: Perguntas frequentes sobre as APIs de serviço de medição para ofertas de SaaS no Microsoft AppSource e no Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 6e5b691a41ef283449f9eeeb90e9d01a91616146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/13/2020
+ms.openlocfilehash: eb27089777baaaa7a29e020318fbc7635792af2d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275774"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857906"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>APIs de serviço de medição do Marketplace – perguntas frequentes
 
-Depois que um usuário do Azure assina um serviço SaaS que inclui cobrança limitada, você acompanhará o consumo de cada dimensão de cobrança usada pelo cliente. Se o consumo exceder as quantidades incluídas definidas para o termo selecionado pelo cliente, seu serviço emitirá eventos de uso para a Microsoft.
+Quando um usuário do Azure assina um serviço SaaS que inclui cobrança limitada, você acompanhará o consumo de cada dimensão de cobrança usada pelo cliente. Se o consumo exceder as quantidades incluídas definidas para o termo selecionado pelo cliente, seu serviço emitirá eventos de uso para a Microsoft.
 
 ## <a name="emit-usage-events"></a>Emitir eventos de uso
 
@@ -35,7 +35,7 @@ Idealmente, você deve emitir o uso a cada hora na última hora, somente se houv
 
 O ideal é que o evento de uso seja emitido a cada hora para eventos que ocorreram na última hora. No entanto, os atrasos são esperados. O atraso máximo permitido é de 24 horas, após o qual os eventos de uso não serão aceitos.
 
-Por exemplo, se um evento de uso ocorrer em 1 PM em um dia, você terá até 1 PM no dia seguinte para emitir um evento de uso associado a esse evento. Isso significa que, no caso do sistema que está emitindo o uso tem um tempo de inatividade, ele pode recuperar e, em seguida, enviar o evento de uso para o intervalo de hora em que o uso ocorreu, sem perda de fidelidade.
+Por exemplo, se um evento de uso ocorrer em 1 PM em um dia, você terá até 1 PM no dia seguinte para emitir um evento de uso associado a esse evento. Quando o sistema que emite o uso tiver um tempo de inatividade, ele será recuperado e enviará o evento de uso para o intervalo de horas em que o uso ocorreu, sem perda de fidelidade.
 
 ### <a name="what-happens-when-you-send-more-than-one-usage-event-on-the-same-hour"></a>O que acontece quando você envia mais de um evento de uso na mesma hora?
 
@@ -49,6 +49,12 @@ Qualquer evento de uso emitido para a plataforma do Marketplace não será aceit
 
 Sim, quando você chama a `GET /saas/subscriptions` API, ela inclui uma lista de todas as assinaturas de SaaS. O campo status na resposta para cada assinatura de SaaS captura se a assinatura está ativa ou não assinada. A chamada para listar assinaturas retorna um máximo de 100 assinaturas no momento.
 
+### <a name="what-happens-if-the-marketplace-metering-service-has-an-outage"></a>O que acontecerá se o serviço de medição do Marketplace tiver uma interrupção?
+
+Se o ISV enviar um medidor personalizado e receber um erro, o ISV deverá aguardar e tentar novamente.
+
+Se o erro persistir, reenvie esse medidor personalizado na próxima hora (acumule a quantidade). Continue esse processo até que uma resposta sem erro seja recebida.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte [APIs do serviço de medição do Marketplace](./marketplace-metering-service-apis.md) para obter mais informações.
+- Para obter mais informações, consulte [APIs de serviço de medição do Marketplace](./marketplace-metering-service-apis.md).

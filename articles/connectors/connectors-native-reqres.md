@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/04/2020
 tags: connectors
-ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656293"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900943"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos aplicativos lógicos do Azure
 
@@ -22,10 +22,13 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a
 * Disparar um fluxo de trabalho quando ocorrer um evento de webhook externo.
 * Receber e responder a uma chamada HTTPS de outro aplicativo lógico.
 
+O gatilho de solicitação dá suporte a [Azure Active Directory autenticação aberta](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) para autorizar chamadas de entrada para seu aplicativo lógico. Para obter mais informações sobre como habilitar essa autenticação, consulte [proteger o acesso e os dados nos aplicativos lógicos do Azure-habilitar a autenticação OAuth do Azure ad](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+
 > [!NOTE]
-> O gatilho de solicitação dá suporte *apenas* ao protocolo TLS 1,2 para chamadas de entrada. As chamadas de saída continuam a dar suporte a TLS 1,0, 1,1 e 1,2. Para obter mais informações, consulte [resolvendo o problema de TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+> O gatilho de solicitação dá suporte *apenas* ao protocolo TLS 1,2 para chamadas de entrada. As chamadas de saída dão suporte a TLS 1,0, 1,1 e 1,2. Para obter mais informações, consulte [resolvendo o problema de TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Se você vir erros de handshake de TLS, certifique-se de usar o TLS 1,2. Para chamadas de entrada, aqui estão os conjuntos de codificação com suporte:
+> Se você obtiver erros de handshake de TLS, certifique-se de usar o TLS 1,2. 
+> Para chamadas de entrada, aqui estão os conjuntos de codificação com suporte:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -46,7 +49,7 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a
 
 ## <a name="add-request-trigger"></a>Adicionar gatilho de solicitação
 
-Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode receber *somente* solicitações HTTPS de entrada. Quando esse evento acontece, o gatilho é acionado e executa o aplicativo lógico. Para obter mais informações sobre a definição de JSON subjacente do gatilho e como chamar esse gatilho, consulte o [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
+Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode receber *somente* solicitações HTTPS de entrada. Quando esse evento acontece, o gatilho é acionado e executa o aplicativo lógico.
 
 1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
@@ -58,7 +61,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
    ![Gatilho de solicitação](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Necessária | Descrição |
    |---------------|--------------------|----------|-------------|
    | **URL HTTP POST** | {none} | Sim | A URL do ponto de extremidade que é gerada depois que você salva o aplicativo lógico e é usada para chamar seu aplicativo lógico |
    | **Esquema JSON do corpo da solicitação** | `schema` | Não | O esquema JSON que descreve as propriedades e os valores no corpo da solicitação de entrada |
@@ -157,7 +160,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
 1. Para especificar propriedades adicionais, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros que você deseja adicionar.
 
-   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Necessária | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Forma** | `method` | Não | O método que a solicitação de entrada deve usar para chamar o aplicativo lógico |
    | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que a URL do ponto de extremidade do aplicativo lógico pode aceitar |
@@ -177,13 +180,17 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
    Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, `504 GATEWAY TIMEOUT` seu aplicativo lógico retornará um para o chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará `202 ACCEPTED` imediatamente uma resposta ao chamador.
 
-1. Quando terminar, salve o aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer. 
+1. Quando terminar, salve o aplicativo lógico. Selecione **Salvar** na barra de ferramentas do designer.
 
    Esta etapa gera a URL a ser usada para enviar a solicitação que dispara o aplicativo lógico. Para copiar essa URL, selecione o ícone de cópia ao lado da URL.
 
    ![URL para usar o disparo do seu aplicativo lógico](./media/connectors-native-reqres/generated-url.png)
 
-1. Para disparar seu aplicativo lógico, envie um HTTP POST para a URL gerada. Por exemplo, você pode usar uma ferramenta como o [postmaster](https://www.getpostman.com/).
+1. Para disparar seu aplicativo lógico, envie um HTTP POST para a URL gerada.
+
+   Por exemplo, você pode usar uma ferramenta como o [postmaster](https://www.getpostman.com/) para enviar o http post. Se você [habilitou Azure Active Directory autenticação aberta](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure ad OAuth) para autorizar chamadas de entrada para o gatilho de solicitação, chame o gatilho usando uma [URL de SAS (assinatura de acesso compartilhado)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) ou usando um token de autenticação, mas não poderá usar ambos. O token de autenticação deve especificar `Bearer` o tipo no cabeçalho de autorização. Para obter mais informações, consulte [proteger o acesso e os dados em aplicativos lógicos do Azure-acesso a gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+
+Para obter mais informações sobre a definição de JSON subjacente do gatilho e como chamar esse gatilho, consulte estes tópicos, [solicitar tipo de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 ### <a name="trigger-outputs"></a>Saídas do gatilho
 
@@ -244,7 +251,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
    Aqui estão mais informações sobre as propriedades que podem ser definidas na ação de resposta. 
 
-   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Necessária | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Código de status** | `statusCode` | Sim | O código de status a ser retornado na resposta |
    | **headers** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos a serem incluídos na resposta |
