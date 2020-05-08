@@ -10,20 +10,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a87f3563b995081de8e7cbb4b4499718f77b02ff
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885745"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583254"
 ---
 # <a name="transport-layer-security-tls"></a>Protocolo TLS
 
-Para garantir um nível mais alto de segurança, os hubs de notificação desabilitarão o suporte para as versões 1,0 e 1,1 de TLS em 31 de maio de 2020 (estendido de 30 de abril de 2020). Esses protocolos mais antigos fornecem criptografia fraca e estão vulneráveis a ataques fera e POODLE. Os aplicativos implantados em dispositivos que executam o Android versão 5 ou superior, ou iOS versão 5 ou superior, não são afetados por essa alteração, pois esses sistemas operacionais dão suporte a TLS 1,2 e o cliente e o servidor negociarão a versão mais recente com suporte mútuo do protocolo na conexão.
+Para garantir um nível mais alto de segurança, os hubs de notificação desabilitarão o suporte para as versões 1,0 e 1,1 de TLS em **31 de dezembro de 2020** (estendido de 30 de abril de 2020). Esses protocolos mais antigos fornecem criptografia fraca e estão vulneráveis a ataques fera e POODLE. Os aplicativos implantados em dispositivos que executam o Android versão 5 ou superior, ou iOS versão 5 ou superior, não são afetados por essa alteração, pois esses sistemas operacionais dão suporte a TLS 1,2 e o cliente e o servidor negociarão a versão mais recente com suporte mútuo do protocolo na conexão.
 
 Recomendamos que você examine todos os seus aplicativos que usam os hubs de notificação do Azure para garantir que eles usem as bibliotecas mais aplicáveis e pilhas TLS que dão suporte a TLS 1,2.
 

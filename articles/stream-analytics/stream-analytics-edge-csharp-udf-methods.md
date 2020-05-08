@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426309"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598140"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver .NET Standard funções definidas pelo usuário para trabalhos de Azure Stream Analytics (versão prévia)
 
@@ -42,17 +42,29 @@ Há três maneiras de implementar UDFs:
 O formato de qualquer pacote UDF possui o caminho `/UserCustomCode/CLR/*`. As DLLs (Bibliotecas de Vínculo Dinâmico) e os recursos são copiados na pasta `/UserCustomCode/CLR/*`, o que ajuda a isolar DLLs do usuário do sistema e DLLs do Azure Stream Analytics. Esse caminho de pacote é usado para todas as funções, independentemente do método usado para empregá-las.
 
 ## <a name="supported-types-and-mapping"></a>Tipos com suporte e mapeamento
+Para Azure Stream Analytics valores a serem usados em C#, eles precisam ser empacotados de um ambiente para o outro. O marshaling ocorre para todos os parâmetros de entrada de um UDF. Cada tipo de Azure Stream Analytics tem um tipo correspondente em C# mostrado na tabela abaixo:
 
-|**Tipo de UDF (C#)**  |**Tipo do Azure Stream Analytics**  |
+|**Tipo do Azure Stream Analytics** |**Tipo C#** |
+|---------|---------|
+|BIGINT | long |
+|FLOAT | double |
+|nvarchar(max) | Cadeia de caracteres |
+|DATETIME | Datetime |
+|Record | Cadeia\<de caracteres de dicionário,> de objeto |
+|Array | >\<de objeto de matriz |
+
+O mesmo é verdadeiro quando os dados precisam ser empacotados de C# para Azure Stream Analytics, o que acontece no valor de saída de um UDF. A tabela a seguir mostra quais tipos têm suporte:
+
+|**Tipo C#**  |**Tipo do Azure Stream Analytics**  |
 |---------|---------|
 |long  |  BIGINT   |
-|double  |  double   |
-|cadeia de caracteres  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|objeto  |  IRecord   |
-|>\<de objeto de matriz  |  IArray   |
-|dictionary<string, object>  |  IRecord   |
+|double  |  FLOAT   |
+|Cadeia de caracteres  |  nvarchar(max)   |
+|Datetime  |  dateTime   |
+|struct  |  Record   |
+|objeto  |  Record   |
+|>\<de objeto de matriz  |  Array   |
+|Cadeia\<de caracteres de dicionário,> de objeto  |  Record   |
 
 ## <a name="codebehind"></a>CodeBehind
 É possível gravar funções definidas pelo usuário no CodeBehind do **Script.asql**. As ferramentas do Visual Studio compilarão automaticamente o arquivo CodeBehind em um arquivo do assembly. Os assemblies são empacotados como um arquivo zip e carregados na conta de armazenamento quando você envia o trabalho para o Azure. Você pode aprender como gravar uma UDF em C# usando CodeBehind seguindo o tutorial [UDF em C# para trabalhos do Edge do Stream Analytics](stream-analytics-edge-csharp-udf.md). 

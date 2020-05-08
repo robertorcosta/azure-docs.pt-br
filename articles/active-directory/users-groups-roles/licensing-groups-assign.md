@@ -10,23 +10,23 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253059"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582716"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças a usuários por meio da associação a grupos no Azure Active Directory
 
 Este artigo explica como atribuir licenças de produto a um grupo de usuários e verificar se eles estão licenciados corretamente no Azure Active Directory (AD do Azure).
 
-Neste exemplo, o locatário contém um grupo de segurança chamado **Departamento de RH**. Esse grupo inclui todos os membros do departamento de recursos humanos (cerca de 1.000 usuários). Você deseja atribuir licenças do Office 365 Enterprise E3 para todo o departamento. O serviço Yammer Enterprise, que está incluído no produto, precisa ser desabilitado temporariamente até que o departamento esteja pronto para começar a usá-lo. Você também deseja implantar licenças do Enterprise Mobility + Security para o mesmo grupo de usuários.
+Neste exemplo, a organização do Azure AD contém um grupo de segurança chamado **departamento de RH**. Esse grupo inclui todos os membros do departamento de recursos humanos (cerca de 1.000 usuários). Você deseja atribuir licenças do Office 365 Enterprise E3 para todo o departamento. O serviço Yammer Enterprise, que está incluído no produto, precisa ser desabilitado temporariamente até que o departamento esteja pronto para começar a usá-lo. Você também deseja implantar licenças do Enterprise Mobility + Security para o mesmo grupo de usuários.
 
 > [!NOTE]
 > Alguns serviços da Microsoft não estão disponíveis em todos os locais. Para que uma licença possa ser atribuída a um usuário, o administrador precisa especificar a propriedade “Local de uso” para o usuário.
@@ -37,7 +37,7 @@ Neste exemplo, o locatário contém um grupo de segurança chamado **Departament
 
 1. Entre no centro de [**Administração do Azure ad**](https://aad.portal.azure.com) com uma conta de administrador de licenças. Para gerenciar licenças, a conta deve ser um administrador de licenças, administrador de usuários ou administrador global.
 
-1. Selecione **licenças** para abrir uma página onde você pode ver e gerenciar todos os produtos licenciados no locatário.
+1. Selecione **licenças** para abrir uma página onde você pode ver e gerenciar todos os produtos licenciados na organização.
 
 1. Em **todos os produtos**, selecione o Office 365 Enterprise E5 e Enterprise Mobility + Security E3 selecionando os nomes dos produtos. Para iniciar a atribuição, selecione **atribuir** na parte superior da página.
 

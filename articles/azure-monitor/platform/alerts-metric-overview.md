@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que você pode fazer com alertas de mé
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397985"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855047"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -26,7 +26,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 - Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
 - Métrica: porcentagem de CPU
 - Tipo de condição: estático
-- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As agregações de tempo com suporte são mín., máx., média, total, contagem): média
+- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As [agregações de tempo com suporte](metrics-charts.md#changing-aggregation) são mín., máx., média, total, contagem): média
 - Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
 - Operador: maior que
@@ -43,7 +43,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 - Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
 - Métrica: porcentagem de CPU
 - Tipo de condição: dinâmica
-- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As agregações de tempo com suporte são mín., máx., média, total, contagem): média
+- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As [agregações de tempo com suporte](metrics-charts.md#changing-aggregation) são mín., máx., média, total, contagem): média
 - Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
 - Operador: maior que

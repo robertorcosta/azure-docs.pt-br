@@ -3,12 +3,12 @@ title: Contadores de desempenho no Application Insights | Microsoft Docs
 description: Monitore o sistema e contadores de desempenho .NET personalizados no Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 94d2520c17867f6d70caffd002a76365a425986f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 201338d3a904030ea961aede094b9877bfee3e36
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669872"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855119"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 
@@ -74,7 +74,7 @@ Para coletar contadores de desempenho do sistema e enviá-los ao Application Ins
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
-      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
+      @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
 

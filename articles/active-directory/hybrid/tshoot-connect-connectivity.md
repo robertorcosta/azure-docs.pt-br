@@ -16,12 +16,13 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049727"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610438"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividade do Azure AD
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
@@ -31,7 +32,7 @@ O Azure AD Connect está usando Autenticação Moderna (usando a biblioteca ADAL
 
 Neste artigo, mostraremos como a Fabrikam se conecta ao AD do Azure por meio de seu proxy. O servidor proxy é chamado fabrikamproxy e está usando a porta 8080.
 
-Primeiro, precisamos garantir que [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) esteja configurado corretamente.  
+Primeiro, precisamos garantir que [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) esteja configurado corretamente.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -58,25 +59,24 @@ O assistente de instalação está usando dois contextos de segurança diferente
 Estes são os problemas mais comuns que você encontrará no assistente de instalação.
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>O assistente de instalação não foi configurado corretamente
-Esse erro aparecerá quando o assistente não conseguir acessar o proxy.  
+Esse erro aparecerá quando o assistente não conseguir acessar o proxy.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Se você vir esse erro, verifique se o [machine.config](how-to-connect-install-prerequisites.md#connectivity) foi configurado corretamente.
 * Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
 
 ### <a name="a-microsoft-account-is-used"></a>Uma conta da Microsoft é usada
-Se você usar uma **conta da Microsoft** em vez de uma conta **corporativa ou de estudante**, você verá um erro genérico.  
+Se você usar uma **conta da Microsoft** em vez de uma conta **corporativa ou de estudante**, você verá um erro genérico.
 ![Uma conta da Microsoft é usada](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>Não é possível alcançar o ponto de extremidade da MFA
-Esse erro será exibido se o **https://secure.aadcdn.microsoftonline-p.com** ponto de extremidade não puder ser acessado e o administrador global tiver a MFA habilitada.  
+Esse erro será exibido se o **https://secure.aadcdn.microsoftonline-p.com** ponto de extremidade não puder ser acessado e o administrador global tiver a MFA habilitada.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Se você vir esse erro, verifique se o ponto de extremidade **secure.aadcdn.microsoftonline-p.com** foi adicionado ao proxy.
 
 ### <a name="the-password-cannot-be-verified"></a>A senha não pode ser verificada
-Se o assistente de instalação for bem-sucedido ao conectar-se ao AD do Azure, mas a senha não puder ser verificada, você verá este erro:  
-![Senha inadequada.](./media/tshoot-connect-connectivity/badpassword.png)
+Se o assistente de instalação for bem-sucedido ao conectar-se ao Azure AD, mas a própria senha não puder ser verificada ![, você verá este erro: senha inadequada.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * A senha é uma senha temporária e deve ser alterada? É realmente a senha correta? Tente entrar em `https://login.microsoftonline.com` (em outro computador que não seja o servidor do Azure AD Connect) e verifique se a conta é utilizável.
 
@@ -186,7 +186,7 @@ A autenticação foi bem-sucedida, mas o PowerShell do Azure AD tem um problema 
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Função de Administrador Global do Azure AD necessária
-O usuário foi autenticado com êxito. No entanto o usuário não está atribuído a função de administrador global. Isso é [como você pode atribuir a função de administrador global](../users-groups-roles/directory-assign-admin-roles.md) ao usuário. 
+O usuário foi autenticado com êxito. No entanto o usuário não está atribuído a função de administrador global. Isso é [como você pode atribuir a função de administrador global](../users-groups-roles/directory-assign-admin-roles.md) ao usuário.
 
 <div id="privileged-identity-management">
 <!--
@@ -224,7 +224,7 @@ Mostrada como um erro inesperado no assistente de instalação. Poderá ocorrer 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Etapas para solucionar problemas de versões anteriores.
 O assistente de conexão foi desativado a partir das versões com número de compilação 1.1.105.0 (lançada em fevereiro de 2016). Esta seção e a configuração não são mais necessárias, mas são mantidas como referência.
 
-Para que o assistente de conexão funcione, o winhttp deve ser configurado. Essa configuração pode ser feita com [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+Para que o assistente de conexão funcione, o winhttp deve ser configurado. Essa configuração pode ser feita com [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
 ![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>O assistente de conexão não foi configurado corretamente

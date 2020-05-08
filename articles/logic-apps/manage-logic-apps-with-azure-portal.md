@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/13/2020
-ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415935"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598157"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Gerenciar aplicativos lógicos no portal do Azure
 
@@ -57,7 +57,7 @@ Para localizar e abrir seu aplicativo lógico, siga estas etapas:
    * **Nome**
    * **ID do recurso**
    * **Grupo de recursos**
-   * **Local**
+   * **Localidade**
    * **Tipo** 
    * **Nome da assinatura**
    * **ID da assinatura**
@@ -145,6 +145,10 @@ Excluir seu aplicativo lógico afeta suas instâncias de fluxo de trabalho das s
 * Todas as execuções em andamento e pendentes continuam até que sejam concluídas. Dependendo do número dessas execuções, esse processo pode levar algum tempo.
 
 * O mecanismo de aplicativos lógicos não criará ou executará novas instâncias de fluxo de trabalho.
+
+> [!NOTE]
+> Se você excluir e recriar um aplicativo lógico filho, deverá salvar novamente o aplicativo lógico pai. O aplicativo filho recriado terá metadados diferentes.
+> Se você não salvar novamente o aplicativo lógico pai depois de recriar seu filho, suas chamadas para o aplicativo lógico filho falharão com um erro de "não autorizado". Esse comportamento se aplica a aplicativos lógicos pai-filho, por exemplo, aqueles que usam artefatos em contas de integração ou chamam o Azure functions.
 
 <a name="delete-single-logic-app"></a>
 

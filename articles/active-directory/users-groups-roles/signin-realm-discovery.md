@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1f27c7b91a78da8944c23fd353d3b6791b3e015
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74024243"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582559"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Home Realm Discovery para páginas de entrada Azure Active Directory
 
@@ -28,7 +28,7 @@ Estamos alterando nosso comportamento de entrada do Azure Active Directory (AD d
 
 Historicamente, a descoberta de realm inicial foi regida pelo domínio que é fornecido na entrada ou por uma política de descoberta de realm inicial para alguns aplicativos herdados. Por exemplo, em nosso comportamento de descoberta, um usuário Azure Active Directory poderia digitar o nome de usuário indigitadamente, mas ainda chegaria à tela de coleção de credenciais de sua organização. Isso ocorre quando o usuário fornece corretamente o nome de domínio da organização "contoso.com". Esse comportamento não permite a granularidade de personalizar experiências para um usuário individual.
 
-Para dar suporte a um intervalo mais amplo de credenciais e aumentar a usabilidade, Azure Active Directory comportamento de pesquisa de nome de usuário durante o processo de entrada agora é atualizado. O novo comportamento faz decisões inteligentes com a leitura de configurações de locatário e de nível de usuário com base no nome de usuários inserido na página de entrada. Para tornar isso possível, Azure Active Directory verificará se o nome de usuário inserido na página de entrada existe no domínio especificado ou redireciona o usuário para fornecer suas credenciais.
+Para dar suporte a um intervalo mais amplo de credenciais e aumentar a usabilidade, Azure Active Directory comportamento de pesquisa de nome de usuário durante o processo de entrada agora é atualizado. O novo comportamento toma decisões inteligentes com a leitura de configurações no nível da organização e do usuário com base no nome de usuários inserido na página de entrada. Para tornar isso possível, Azure Active Directory verificará se o nome de usuário inserido na página de entrada existe no domínio especificado ou redireciona o usuário para fornecer suas credenciais.
 
 Um benefício adicional desse trabalho é o sistema de mensagens de erro aprimorado. Aqui estão alguns exemplos das mensagens de erro aprimoradas ao entrar em um aplicativo que dá suporte apenas a Azure Active Directory usuários.
 

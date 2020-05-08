@@ -2,13 +2,13 @@
 title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 04/30/2020
+ms.openlocfilehash: 80fe451f696480ec24b3d8eced64941de9492fef
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605001"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610812"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos em nível de assinatura
 
@@ -20,6 +20,7 @@ Para implantar modelos no nível de assinatura, use CLI do Azure, PowerShell ou 
 
 Você pode implantar os seguintes tipos de recursos no nível da assinatura:
 
+* [planos gráficos](/azure/templates/microsoft.blueprint/blueprints)
 * [Orçamentos](/azure/templates/microsoft.consumption/budgets)
 * [implantações](/azure/templates/microsoft.resources/deployments) -para modelos aninhados que são implantados em grupos de recursos.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
@@ -244,11 +245,11 @@ O exemplo a seguir cria um grupo de recursos e implanta uma conta de armazenamen
 }
 ```
 
-## <a name="create-policies"></a>Criar políticas
+## <a name="azure-policy"></a>Azure Policy
 
-### <a name="assign-policy"></a>Atribuir política
+### <a name="assign-policy-definition"></a>Atribuir definição de política
 
-O exemplo a seguir atribui uma definição de política existente para a assinatura. Se a política usa parâmetros, você deve fornecê-los como um objeto. Se a política não aceita parâmetros, use o objeto vazio padrão.
+O exemplo a seguir atribui uma definição de política existente para a assinatura. Se a definição de política usar parâmetros, forneça-os como um objeto. Se a definição de política não usar parâmetros, use o objeto vazio padrão.
 
 ```json
 {
@@ -285,7 +286,7 @@ O exemplo a seguir atribui uma definição de política existente para a assinat
 Para implantar este modelo de exemplo com a CLI do Azure, use:
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -312,9 +313,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### <a name="define-and-assign-policy"></a>Definir e atribuir política
+### <a name="create-and-assign-policy-definitions"></a>Criar e atribuir definições de política
 
-Você pode [definir](../../governance/policy/concepts/definition-structure.md) e atribuir uma política no mesmo modelo.
+Você pode [definir](../../governance/policy/concepts/definition-structure.md) e atribuir uma definição de política no mesmo modelo.
 
 ```json
 {
@@ -357,7 +358,7 @@ Você pode [definir](../../governance/policy/concepts/definition-structure.md) e
 }
 ```
 
-Para criar a definição de política em sua assinatura e aplicá-la à assinatura, use o seguinte comando CLI:
+Para criar a definição de política em sua assinatura e atribuí-la à assinatura, use o seguinte comando da CLI:
 
 ```azurecli
 az deployment sub create \
@@ -373,6 +374,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## <a name="azure-blueprints"></a>Azure Blueprints
+
+### <a name="create-blueprint-definition"></a>Criar definição de Blueprint
+
+Você pode [criar](../../governance/blueprints/tutorials/create-from-sample.md) uma definição de plano gráfico a partir de um modelo.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+Para criar a definição de planta em sua assinatura, use o seguinte comando da CLI:
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+Para implantar este modelo com o PowerShell, use:
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## <a name="template-samples"></a>Amostras de modelo

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: af4e33e2653aebe5d1c979aa314463e4beb7b0d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233390"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594310"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação pesquisa no fluxo de dados de mapeamento
 
@@ -33,7 +33,7 @@ Uma transformação pesquisa é semelhante a uma junção externa esquerda. Toda
 
 **Corresponder várias linhas:** Se habilitada, uma linha com várias correspondências no fluxo principal retornará várias linhas. Caso contrário, apenas uma única linha será retornada com base na condição ' corresponder em '.
 
-**Corresponder em:** Visível somente se ' corresponder várias linhas ' estiver habilitado. Escolha se deseja corresponder em qualquer linha, a primeira correspondência ou a última correspondência. Qualquer linha é recomendada à medida que ela é executada mais rapidamente. Se a primeira linha ou última linha for selecionada, será necessário especificar as condições de classificação.
+**Corresponder em:** Visível somente se ' corresponder várias linhas ' não estiver selecionado. Escolha se deseja corresponder em qualquer linha, a primeira correspondência ou a última correspondência. Qualquer linha é recomendada à medida que ela é executada mais rapidamente. Se a primeira linha ou última linha for selecionada, será necessário especificar as condições de classificação.
 
 **Condições de pesquisa:** Escolha em quais colunas corresponder. Se a condição de igualdade for atendida, as linhas serão consideradas uma correspondência. Focalize e selecione "coluna computada" para extrair um valor usando a [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md).
 

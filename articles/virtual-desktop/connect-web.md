@@ -8,14 +8,20 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70fd29944d31682de5a6a34f76fdf27e3ff7d3ff
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656367"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607836"
 ---
 # <a name="connect-with-the-web-client"></a>Conectar-se ao cliente Web
+
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).
+>
+> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O cliente Web permite que você acesse seus recursos de área de trabalho virtual do Windows em um navegador da Web sem o processo de instalação demorado.
 
@@ -36,7 +42,7 @@ Embora qualquer navegador compatível com HTML5 funcione, oficialmente damos sup
 
 ## <a name="access-remote-resources-feed"></a>Acessar feed de recursos remotos
 
-Em um navegador, navegue até o [cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/webclient) e entre com sua conta de usuário.
+Em um navegador, navegue até o [cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/arm/webclient) e entre com sua conta de usuário.
 
 >[!NOTE]
 >Se você já tiver entrado com uma conta de Azure Active Directory diferente daquela que deseja usar para a área de trabalho virtual do Windows, você deverá sair ou usar uma janela de navegador privada.

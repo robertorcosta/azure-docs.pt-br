@@ -4,12 +4,12 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 33ab913c64b651db9e75d4791ecb631ed7e081a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9ba9972bcdd5b7e4bd1c4b489dcea08b5502a72
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298383"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854942"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -279,7 +279,7 @@ O Turbonomic oferece automação de carga de trabalho para nuvens híbridas otim
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "Documentação do AppDynamics."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Introdução ao Botmetric."
-[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
+[circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "Introdução ao CloudMonix."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Documentação do Datadog."

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 04b07ff60c882501c49ad58607db867e7e99897c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65bce50665b6dd99662e99ca57569f906f3af208
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879064"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598531"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a instância gerenciada do banco de dados SQL do Azure?
 
@@ -46,7 +46,7 @@ A instância gerenciada combina os melhores recursos disponíveis no Banco de Da
 | --- | --- |
 |Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>Compilado em [alta disponibilidade](sql-database-high-availability.md) <br>Dados protegidos com [backups automatizados](sql-database-automated-backups.md) <br>Período de retenção de backup configurável pelo cliente <br>[Backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) iniciados pelo usuário <br>Capacidade de [restauração pontual do banco de dados](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Segurança e conformidade** | **Gerenciamento**|
-|Ambiente isolado ([integração VNet](sql-database-managed-instance-connectivity-architecture.md), serviço de locatário único, computação dedicada e armazenamento) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de segurança do servidor do Azure AD (logons)</a>  <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>[Auditoria do SQL](sql-database-managed-instance-auditing.md) <br>[Proteção avançada contra ameaças](sql-database-managed-instance-threat-detection.md) |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados
+|Ambiente isolado ([integração VNet](sql-database-managed-instance-connectivity-architecture.md), serviço de locatário único, computação dedicada e armazenamento) <br>[TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de segurança do servidor do Azure AD (logons)</a>  <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>[Auditoria do SQL](sql-database-managed-instance-auditing.md) <br>[Proteção Avançada contra Ameaças](sql-database-managed-instance-threat-detection.md) |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados
 
 > [!IMPORTANT]
 > O banco de dados SQL do Azure (todas as opções de implantação) foi certificado em relação a vários padrões de conformidade. Para obter mais informações, consulte a [central de confiabilidade do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) , em que você pode encontrar a lista mais atual de certificações de conformidade do banco de dados SQL.
@@ -167,19 +167,31 @@ A tabela a seguir resume as operações e as durações gerais típicas:
 
 \*\*\*12 horas é a configuração atual, mas isso pode mudar no futuro, portanto, não faça uma dependência difícil. Se você precisar excluir um cluster virtual anteriormente (para liberar a sub-rede, por exemplo), consulte [excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-delete-virtual-cluster.md).
 
-### <a name="instance-availability-during-management"></a>Disponibilidade da instância durante o gerenciamento
+### <a name="instance-availability-during-management-operations"></a>Disponibilidade da instância durante operações de gerenciamento
 
-As instâncias gerenciadas não estão disponíveis para aplicativos cliente durante operações de implantação e exclusão.
+A instância gerenciada não está disponível para aplicativos cliente durante operações de implantação e exclusão.
 
-As instâncias gerenciadas estão disponíveis durante operações de atualização, mas há um breve tempo de inatividade causado pelo failover que ocorre no final das atualizações que normalmente duram até 10 segundos. A exceção a isso é a atualização do espaço de armazenamento reservado na camada de serviço Uso Geral que não provoca failover nem afeta a disponibilidade da instância.
-
-> [!IMPORTANT]
-> A duração de um failover pode variar significativamente no caso de transações de longa execução que ocorrem nos bancos de dados devido a [tempo de recuperação prolongado](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Portanto, não é recomendável dimensionar a computação ou o armazenamento da instância gerenciada do banco de dados SQL do Azure ou alterar a camada de serviço ao mesmo tempo com as transações de longa execução (importação de dados, trabalhos de processamento de dados, recompilação de índice, etc.). O failover de banco de dados que será executado no final da operação cancelará as transações contínuas e resultará em tempo de recuperação prolongado.
+A instância gerenciada está disponível durante operações de atualização, exceto um breve tempo de inatividade causado pelo failover que ocorre no final da atualização. Normalmente, ele dura até 10 segundos mesmo no caso de transações de longa execução interrompidas, graças à [recuperação acelerada do banco de dados](sql-database-accelerated-database-recovery.md).
 
 > [!TIP]
 > A atualização do espaço de armazenamento reservado na camada de serviço Uso Geral não incorre em failover nem afeta a disponibilidade da instância.
 
-A [recuperação de banco de dados acelerada](sql-database-accelerated-database-recovery.md) não está disponível atualmente para instâncias gerenciadas do banco de dados SQL do Azure. Uma vez habilitado, esse recurso reduzirá significativamente a variabilidade do tempo de failover, mesmo no caso de transações de longa execução.
+> [!IMPORTANT]
+> Não é recomendável dimensionar a computação ou o armazenamento da instância gerenciada do banco de dados SQL do Azure ou alterar a camada de serviço ao mesmo tempo com as transações de longa execução (importação de dados, trabalhos de processamento de dados, recompilação de índice, etc.). O failover de banco de dados que será executado no final da operação cancelará todas as transações em andamento.
+
+
+### <a name="management-operations-cross-impact"></a>Operações de gerenciamento com impacto cruzado
+
+As operações gerenciadas de gerenciamento de instância podem afetar outras operações de gerenciamento das instâncias colocadas dentro do mesmo cluster virtual. Isso inclui o seguinte:
+
+- **As operações de restauração de longa execução** em um cluster virtual colocarão em espera outra operação de criação ou dimensionamento de instância na mesma sub-rede.<br/>**Exemplo:** se houver uma operação de restauração de longa execução e houver solicitação de criação ou escala na mesma sub-rede, essa solicitação levará mais tempo para ser concluída, pois ela aguardará a conclusão da operação de restauração antes de continuar.
+    
+- A operação de **criação ou dimensionamento de instância subsequente** é colocada em espera por criação de instância iniciada anteriormente ou escala de instância que iniciou o redimensionamento de cluster virtual.<br/>**Exemplo:** se houver várias solicitações de criação e/ou escala na mesma sub-rede no mesmo cluster virtual e uma delas iniciar o redimensionamento de cluster virtual, todas as solicitações enviadas 5 + minutos após o redimensionamento necessário do cluster virtual serão mais longas do que o esperado, pois essas solicitações precisarão aguardar a conclusão do redimensionamento antes de continuar.
+
+- **As operações de criação/dimensionamento enviadas em uma janela de 5 minutos** serão colocadas em lote e executadas em paralelo.<br/>**Exemplo:** Somente um redimensionamento de cluster virtual será executado para todas as operações enviadas em uma janela de 5 minutos (medindo desde o momento da execução da primeira solicitação de operação). Caso outra solicitação seja enviada mais de 5 minutos após o envio da primeira, ela aguardará que o redimensionamento do cluster virtual seja concluído antes do início da execução.
+
+> [!IMPORTANT]
+> As operações de gerenciamento que são colocadas em espera devido a outra operação em andamento serão automaticamente retomadas uma vez que as condições para continuar forem atendidas. Não há nenhuma ação do usuário necessária para retomar a operação de gerenciamento em pausa temporariamente.
 
 ### <a name="canceling-management-operations"></a>Cancelando operações de gerenciamento
 

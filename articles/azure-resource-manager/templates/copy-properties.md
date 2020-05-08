@@ -3,12 +3,12 @@ title: Definir várias instâncias de uma propriedade
 description: Use a operação de cópia em um modelo de Azure Resource Manager para iterar várias vezes ao criar uma propriedade em um recurso.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81391335"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583413"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
@@ -16,7 +16,7 @@ Este artigo mostra como criar mais de uma instância de uma propriedade em seu m
 
 Você também pode usar a cópia com [recursos](copy-resources.md), [variáveis](copy-variables.md)e [saídas](copy-outputs.md).
 
-## <a name="property-iteration"></a>Iteração de propriedade
+## <a name="syntax"></a>Sintaxe
 
 O elemento Copy tem o seguinte formato geral:
 
@@ -35,6 +35,21 @@ Para **nome**, forneça o nome da propriedade de recurso que você deseja criar.
 A propriedade **Count** especifica o número de iterações que você deseja para a propriedade.
 
 A propriedade de **entrada** especifica as propriedades que você deseja repetir. Você cria uma matriz de elementos construídos com base no valor na propriedade de **entrada** .
+
+## <a name="copy-limits"></a>Limites de cópia
+
+A contagem não pode exceder 800.
+
+A contagem não pode ser um número negativo. Ele pode ser zero se você implantar o modelo com uma versão recente do CLI do Azure, do PowerShell ou da API REST. Especificamente, você deve usar:
+
+* Azure PowerShell **2,6** ou posterior
+* CLI do Azure **2.0.74** ou posterior
+* API REST versão **2019-05-10** ou posterior
+* [Implantações vinculadas](linked-templates.md) devem usar a versão de API **2019-05-10** ou posterior para o tipo de recurso de implantação
+
+As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
+
+## <a name="property-iteration"></a>Iteração de propriedade
 
 O exemplo a seguir mostra como aplicar `copy` para a propriedade dataDisks em uma máquina virtual:
 
@@ -232,12 +247,6 @@ Você pode usar iteração de recurso e propriedade juntos. Referência a itera�
   }
 }
 ```
-
-## <a name="copy-limits"></a>Limites de cópia
-
-A contagem não pode exceder 800.
-
-A contagem não pode ser um número negativo. Se você implantar um modelo com Azure PowerShell 2,6 ou posterior, CLI do Azure 2.0.74 ou posterior, ou a API REST versão **2019-05-10** ou posterior, poderá definir Count como zero. As versões anteriores do PowerShell, da CLI e da API REST não dão suporte a zero para contagem.
 
 ## <a name="example-templates"></a>Modelos de exemplo
 

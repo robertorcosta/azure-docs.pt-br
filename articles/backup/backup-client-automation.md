@@ -3,12 +3,12 @@ title: Usar o PowerShell para fazer backup do Windows Server no Azure
 description: Neste artigo, saiba como usar o PowerShell para configurar o backup do Azure no Windows Server ou um cliente do Windows e gerenciar o backup e a recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 3b9bcf8e777244cec11383619d145e3a99ff46d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fde81aba5a2b74ce25c8f3cd70dc24df6f566420
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193013"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597970"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
 
@@ -209,7 +209,12 @@ Server properties updated successfully.
 
 Os dados de backup enviados para o Backup do Azure são criptografados para proteger a confidencialidade dos dados. A senha de criptografia é a "senha" para descriptografar os dados no momento da restauração.
 
-Você deve gerar um PIN de segurança selecionando **gerar**, em **configurações** > **Propriedades** > **PIN de segurança** na seção **cofre dos serviços de recuperação** do portal do Azure. Em seguida, use-o `generatedPIN` como no comando:
+Você deve gerar um PIN de segurança selecionando **gerar**, em **configurações** > **Propriedades** > **PIN de segurança** na seção **cofre dos serviços de recuperação** do portal do Azure. 
+
+>[!NOTE]
+> O PIN de segurança só pode ser gerado por meio do portal do Azure.
+
+Em seguida, use-o `generatedPIN` como no comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -541,7 +546,7 @@ The backup operation completed successfully.
 
 Esta seção aborda o comando do PowerShell para configurar o estado do sistema no agente do MABS
 
-### <a name="schedule"></a>Agendamento
+### <a name="schedule"></a>Agenda
 
 ```powershell
 $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
