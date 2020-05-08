@@ -1,44 +1,41 @@
 ---
-title: Painel de classificações e avaliações na análise do Marketplace comercial no Partner Center
-description: Saiba como acessar uma exibição consolidada dos comentários dos clientes para suas ofertas no Azure Marketplace e no AppSource.
+title: Painel de análise de avaliações & análises no Partner Center
+description: Saiba como acessar uma exibição consolidada dos comentários dos clientes para suas ofertas em Microsoft AppSource e no Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262410"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792914"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Painel de classificações e avaliações na análise do Marketplace comercial
+# <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Painel de análise de avaliações & análises no Partner Center
 
-Este artigo fornece informações sobre o painel classificações & revisões no Partner Center. Este painel exibe uma exibição consolidada dos comentários dos clientes para ofertas no Azure Marketplace e no AppSource.
-
-Para acessar o **painel classificações de &** de avaliações nas ferramentas de análise do Partner Center, abra o painel **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** em Marketplace comercial.
-
->[!NOTE]
-> Para obter definições detalhadas de terminologia de análise, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
-
-## <a name="ratings--reviews"></a>Avaliações & revisões
-
-À medida que os clientes navegam, pesquisam e compram ofertas em ambos os Marketplaces, eles podem deixar classificações e análises para as ofertas adquiridas.
+Este artigo fornece informações sobre o painel classificações & revisões no Partner Center. Este painel exibe uma exibição consolidada dos comentários dos clientes para ofertas em Microsoft AppSource e no Azure Marketplace. À medida que os clientes navegam, pesquisam e compram ofertas em ambos os Marketplaces, eles podem deixar classificações e análises para as ofertas adquiridas.
 
 - Os clientes podem enviar uma nova classificação ou revisão e atualizar ou excluir uma classificação ou revisão existente que foram enviadas. Os clientes podem fazer alterações apenas nas classificações e análises que elas possuem.  
 - As revisões são lançadas na guia revisões na página de exibição do produto da oferta no Azure Marketplace ou no AppSource. Os clientes podem incluir seu nome ou postar anonimamente.  
 
-O **painel de análise de & de classificações** exibe as tendências e as informações dessa atividade pelos clientes. Você pode exibir uma representação gráfica dos seguintes itens:
+>[!NOTE]
+> Para obter definições detalhadas de terminologia de análise, consulte [perguntas e terminologia frequentes para análise do Marketplace comercial](./faq-terminology.md).
+
+## <a name="access-the-dashboard"></a>Acessar o painel
+
+No [painel do Marketplace comercial](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) no Partner Center, expanda a seção **[analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** e selecione **classificações & revisões**.
+
+O painel exibe uma representação gráfica da seguinte atividade do cliente:
 
 - Avaliações & revisões  
 - Examinar comentários
 
-As **guias de vitrine do Marketplace** permitem que os editores exibam suas métricas de oferta separadamente nas guias do AppSource & Azure Marketplace. Para exibir métricas de oferta específicas, selecione a oferta na lista suspensa oferta.
+Use as guias de **vitrine do Marketplace** para exibir sua oferta Microsoft AppSource e as métricas do Azure Marketplace separadamente. Para exibir métricas de oferta específicas, selecione a oferta na lista suspensa oferta.
 
-
-### <a name="ratings-and-reviews-summary"></a>Resumo de classificações e avaliações
+### <a name="ratings--reviews-summary"></a>Resumo de avaliações & revisões
 
 A seção de resumo classificações & revisões exibe as métricas abaixo para um intervalo de datas selecionado:
 

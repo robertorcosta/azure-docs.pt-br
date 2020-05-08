@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129844"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983356"
 ---
 # <a name="evaluate-model-module"></a>Módulo avaliar modelo
 
@@ -34,9 +34,13 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Como usar o modelo de avaliação
-1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](./score-model.md) à porta de entrada à esquerda do **modelo de avaliação**. 
+1. Conecte a saída do conjunto de dados **pontuado** da saída do [modelo de Pontuação](./score-model.md) ou do conjunto de resultados do resultado de [assign data a clusters](./assign-data-to-clusters.md) à porta de entrada à esquerda do **modelo de avaliação**. 
+  > [!NOTE] 
+  > Se usar módulos, como "selecionar colunas no conjunto de dados", para selecionar parte do DataSet de entrada, verifique se a coluna de rótulo real (usada no treinamento), a coluna ' probabilidades de Pontuação ' e a coluna ' rótulos pontuados ' existem para calcular as métricas como AUC, a precisão da classificação binária/detecção de anomalias.
+  > Coluna de rótulo real, a coluna ' rótulos pontuados ' existe para calcular métricas para classificação/regressão de várias classes.
+  > Coluna ' assignments ', Columns ' DistancesToClusterCenter no. X ' (X é índice de centróide, variando de 0,..., número de centróides-1) existem para calcular métricas para clustering.
 
-2. Adicional Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](./score-model.md) para o segundo modelo à entrada do **lado direito** do **modelo de avaliação**. Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ser do mesmo tipo de algoritmo. Ou, você pode comparar classificações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
+2. Adicional Conecte a saída do conjunto de dados **pontuado** da saída do [modelo de Pontuação](./score-model.md) ou do conjunto de resultados do resultado de Assign data a clusters para o segundo modelo à porta de entrada **à direita** do **modelo de avaliação**. Você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Os dois algoritmos de entrada devem ser do mesmo tipo de algoritmo. Ou, você pode comparar classificações de duas execuções diferentes sobre os mesmos dados com parâmetros diferentes.
 
     > [!NOTE]
     > O tipo de algoritmo se refere a ' classificação de duas classes ', ' classificação multiclasse ', ' regressão ', ' clustering ' em ' algoritmos de Machine Learning '. 

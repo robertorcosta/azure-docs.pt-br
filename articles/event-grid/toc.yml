@@ -8,8 +8,6 @@
       href: overview.md
     - name: Comparar serviços de mensagem
       href: compare-messaging-services.md
-    - name: Camadas Premium versus Básicas
-      href: premium-basic-tiers.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -149,6 +147,8 @@
           href: event-filtering.md
         - name: Entregar e tentar novamente
           href: delivery-and-retry.md
+        - name: Entrega de eventos do webhook
+          href: webhook-event-delivery.md
     - name: Recuperação de desastre
       items:
         - name: Recuperação de desastre geográfico
@@ -161,20 +161,18 @@
           href: security-authorization.md
         - name: Segurança de rede
           href: network-security.md
+    - name: Monitorar e solucionar problemas
+      items:
+        - name: Logs de diagnóstico
+          href: diagnostic-logs.md
+        - name: Métricas
+          href: metrics.md
 - name: Guias de instruções
   items:
-    - name: Configurar pontos de extremidade privados (versão prévia)
-      href: configure-private-endpoints.md
-    - name: Configurar firewall do IP (versão prévia)
-      href: configure-firewall.md
-    - name: Atualizar tipo de preço
-      href: update-tier.md
     - name: Postar para tópico personalizado
       href: post-to-custom-topic.md
     - name: Receber eventos em um ponto de extremidade HTTP
       href: receive-events.md
-    - name: Proteger webhook com o AAD
-      href: secure-webhook-delivery.md
     - name: Mensagens mortas e tentar novamente
       href: manage-event-delivery.md
     - name: Filtrar eventos
@@ -191,12 +189,24 @@
       href: how-to-event-domains.md
     - name: Implementar o failover do lado do cliente
       href: custom-disaster-recovery.md
+    - name: Rastrear operações REST assíncronas
+      href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Seguro
+      items:
+        - name: Configurar pontos de extremidade privados (versão prévia)
+          href: configure-private-endpoints.md
+        - name: Configurar firewall do IP (versão prévia)
+          href: configure-firewall.md
+        - name: Proteger webhook com o AAD
+          href: secure-webhook-delivery.md
     - name: Solucionar problemas
       items:
-        - name: Habilitar logs de diagnóstico para um tópico
+        - name: Habilitar logs de diagnóstico
           href: enable-diagnostic-logs-topic.md
         - name: Solucionar problemas de erros
           href: troubleshoot-errors.md
+        - name: Solucionar problemas de validação de assinatura
+          href: troubleshoot-subscription-validation.md
         - name: Monitorize as entregas de eventos
           href: monitor-event-delivery.md
 - name: Referência

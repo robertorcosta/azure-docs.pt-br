@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 2f67079938ddcf4a65e01ef50ab7e5cdf7078b73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260931"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871262"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registrar eventos em log para Hubs de Eventos do Azure no Gerenciamento de API do Azure
 Hub de Eventos do Azure é um serviço de entrada de dados altamente escalonável que pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Hub de Eventos age como a "porta de entrada” para um pipeline de eventos e depois que os dados são coletados em um hub de eventos, ele pode ser transformado e armazenado usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Hub de Eventos separa a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam acessar os eventos em seu próprio cronograma.
@@ -34,9 +34,9 @@ Agora que você tem um Hub de Eventos, a próxima etapa será configurar um [Age
 
 Os agentes do Gerenciamento de API são configurados usando a [API REST do Gerenciamento de API](https://aka.ms/apimapi). Para obter exemplos de solicitação detalhados, consulte [como criar agentes](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
-## <a name="configure-log-to-eventhubs-policies"></a>Configurar políticas log-to-eventhubs
+## <a name="configure-log-to-eventhub-policies"></a>Configurar políticas de log para eventhub
 
-Depois que o agente de log estiver configurado no Gerenciamento de API, você poderá configurar suas políticas log-to-eventhubs para registrar os eventos desejados em log. A política log-to-eventhubs pode ser usada na seção de política de entrada ou na seção de política de saída.
+Depois que o agente de log estiver configurado no gerenciamento de API, você poderá configurar a política de logon para eventhub para registrar os eventos desejados. A política de log para eventhub pode ser usada na seção política de entrada ou na seção política de saída.
 
 1. Navegue até sua instância de APIM.
 2. Selecione a guia API.
@@ -49,15 +49,32 @@ Depois que o agente de log estiver configurado no Gerenciamento de API, você po
 9. Na janela à direita, selecione **políticas** > avançadas**log no EventHub**. Isso insere o modelo de instrução da política `log-to-eventhub`.
 
 ```xml
-<log-to-eventhub logger-id ='logger-id'>
-  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+<log-to-eventhub logger-id="logger-id">
+    @{
+        return new JObject(
+            new JProperty("EventTime", DateTime.UtcNow.ToString()),
+            new JProperty("ServiceName", context.Deployment.ServiceName),
+            new JProperty("RequestId", context.RequestId),
+            new JProperty("RequestIp", context.Request.IpAddress),
+            new JProperty("OperationName", context.Operation.Name)
+        ).ToString();
+    }
 </log-to-eventhub>
 ```
-Substitua `logger-id` pelo valor usado para `{new logger name}` na URL ao criar o agente na etapa anterior.
+Substitua `logger-id` pelo valor usado para `{loggerId}` na URL da solicitação para criar o agente de log na etapa anterior.
 
-Você pode usar qualquer expressão que retorne uma cadeia de caracteres como o valor do elemento `log-to-eventhub` . Neste exemplo, uma cadeia de caracteres que contém a data e a hora, o nome do serviço, a ID da solicitação, endereço IP da solicitação e o nome da operação é registrada.
+Você pode usar qualquer expressão que retorne uma cadeia de caracteres como o valor do elemento `log-to-eventhub` . Neste exemplo, uma cadeia de caracteres no formato JSON que contém a data e a hora, o nome do serviço, a ID da solicitação, o endereço IP da solicitação e o nome da operação é registrado.
 
 Clique em **Salvar** para salvar a configuração da política atualizada. Assim que for salva, a política estará ativa e os eventos serão registrados em log para o Hub de Eventos designado.
+
+## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Visualizar o log nos hubs de eventos usando Azure Stream Analytics
+
+Você pode visualizar o log nos hubs de eventos usando [consultas Azure Stream Analytics](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+
+1. Na portal do Azure, navegue até o Hub de eventos para o qual o agente envia eventos. 
+2. Em **recursos**, selecione a guia **processar dados** .
+3. No cartão **habilitar percepções em tempo real do evento** , selecione **explorar**.
+4. Você deve ser capaz de visualizar o log na guia **visualização de entrada** . Se os dados mostrados não estiverem atuais, selecione **Atualizar** para ver os eventos mais recentes.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre Hubs de Eventos do Azure

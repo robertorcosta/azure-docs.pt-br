@@ -155,8 +155,16 @@
           items:
             - name: Gerenciar clusters usando a interface do usuário da Web do Apache Ambari
               href: ./hdinsight-hadoop-manage-ambari.md
-            - name: Otimizar os clusters com a interface do usuário da Web do Apache Ambari
-              href: ./hdinsight-changing-configs-via-ambari.md
+            - name: Otimizar com o Apache Ambari
+              items:
+                - name: Otimizar clusters
+                  href: ./hdinsight-changing-configs-via-ambari.md
+                - name: Otimizar o Apache HBase
+                  href: ./optimize-hbase-ambari.md
+                - name: Otimizar o Apache Hive
+                  href: ./optimize-hive-ambari.md
+                - name: Otimizar o Apache Pig
+                  href: ./optimize-pig-ambari.md
             - name: Usar a API REST do Apache Ambari
               href: ./hdinsight-hadoop-manage-ambari-rest-api.md
             - name: Excluir um cluster
@@ -221,14 +229,18 @@
               href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
             - name: Monitorar o desempenho do cluster
               href: ./hdinsight-key-scenarios-to-monitor.md
-            - name: Monitorar a disponibilidade do cluster com os logs do Ambari e do Azure Monitor
+            - name: Disponibilidade do cluster – Apache Ambari
               href: ./hdinsight-cluster-availability.md
+            - name: Disponibilidade do cluster – Logs do Azure Monitor
+              href: ./cluster-availability-monitor-logs.md
         - name: Solucionar problemas
           items:
             - name: Solucionar problemas de ações de script
               href: ./troubleshoot-script-action.md
             - name: Falhas de criação de recursos
               href: ./troubleshoot-resource-creation-fails.md
+            - name: Solucionar problemas do Apache Oozie
+              href: ./troubleshoot-oozie.md
     - name: Referência
       items:
         - name: Azure PowerShell
@@ -699,6 +711,8 @@
               href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
             - name: Solucionar problemas do Apache HBase
               href: ./hbase/apache-troubleshoot-hbase.md
+            - name: API REST para consultar o Apache HBase
+              href: ./hbase/troubleshoot-rest-api.md
 - name: Consulta Interativa
   items:
     - name: Visão geral
@@ -901,6 +915,8 @@
           href: ./transport-layer-security.md
         - name: Planejar VNETs para o HDInsight
           href: ./hdinsight-plan-virtual-network-deployment.md
+        - name: Controlar tráfego de rede
+          href: ./control-network-traffic.md
         - name: Endereços IP necessários para NSGs e UDRs
           href: ./hdinsight-management-ip-addresses.md
         - name: Marcas de serviço para o Firewall do Azure
@@ -931,6 +947,8 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Usar o firewall para restringir o tráfego de saída
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: Configurar solução de virtualização de rede
+          href: ./network-virtual-appliance.md
         - name: Solucionar problemas
           items:
             - name: Problemas de autenticação do ESP

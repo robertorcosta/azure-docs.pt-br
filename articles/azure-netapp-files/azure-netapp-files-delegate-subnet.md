@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/04/2020
 ms.author: b-juche
-ms.openlocfilehash: b83f530549ffa43789963fd0c95b4982f5289356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f36e40091ada27f411adc2ffa78b6d4a58f8cca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80054457"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791401"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede ao Azure NetApp Files 
 
@@ -28,7 +28,8 @@ ms.locfileid: "80054457"
 ## <a name="considerations"></a>Considerações
 * O assistente para criar uma nova sub-rede usa como padrão uma máscara de rede /24, que possibilita 251 endereços IP disponíveis. Usar uma máscara de rede /28, que possibilita 16 endereços IP utilizáveis, é suficiente para o serviço.
 * Em cada VNet (Rede virtual do Azure), apenas uma sub-rede pode ser delegada para o Azure NetApp Files.   
-   O Azure permite que você crie várias sub-redes delegadas em uma VNet.  No entanto, qualquer tentativa de criar um novo volume falhará se você usar mais de uma sub-rede delegada.
+   O Azure permite que você crie várias sub-redes delegadas em uma VNet.  No entanto, qualquer tentativa de criar um novo volume falhará se você usar mais de uma sub-rede delegada.  
+   Você pode ter apenas uma única sub-rede delegada em uma VNet. Uma conta do NetApp pode implantar volumes em vários VNets, cada um com sua própria sub-rede delegada.  
 * Não é possível designar um grupo de segurança de rede nem um ponto de extremidade de serviço na sub-rede delegada. Fazer isso causa a falha da delegação da sub-rede.
 * Atualmente, não há suporte para o acesso a um volume de uma rede virtual emparelhada globalmente.
 * Não há suporte para a criação de [rotas personalizadas definidas pelo usuário](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) em sub-redes VM com prefixo de endereço (destino) para uma sub-rede delegada a Azure NetApp files. Isso afetará a conectividade da VM.

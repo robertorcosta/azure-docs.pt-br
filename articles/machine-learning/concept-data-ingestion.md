@@ -1,5 +1,5 @@
 ---
-title: Opções de ingestão de dados
+title: Ingestão de dados & automação
 titleSuffix: Azure Machine Learning
 description: Saiba mais sobre as opções de ingestão de dados para treinar seus modelos de aprendizado de máquina.
 services: machine-learning
@@ -10,25 +10,27 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086883"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789854"
 ---
-# <a name="data-ingestion-in-azure-machine-learning"></a>Ingestão de dados no Azure Machine Learning
+# <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opções de ingestão de dados para fluxos de trabalho de Azure Machine Learning
 
-Neste artigo, você aprende os prós e contras das seguintes opções de ingestão de dados disponíveis com Azure Machine Learning. 
+Neste artigo, você aprende os prós e contras das opções de ingestão de dados disponíveis com Azure Machine Learning. 
 
-1. Pipelines de [Azure data Factory](#use-azure-data-factory)
-2. [Azure Machine Learning SDK do Python](#use-the-python-sdk)
+Escolha:
++ [Azure data Factory](#azure-data-factory) pipelines, especificamente criados para extrair, carregar e transformar dados
+
++ [Azure Machine Learning o SDK do Python](#azure-machine-learning-python-sdk), fornecendo uma solução de código personalizado para tarefas básicas de ingestão de dados.
+
++ uma combinação de ambos
 
 A ingestão de dados é o processo no qual os dados não estruturados são extraídos de uma ou várias fontes e, em seguida, preparados para o treinamento de modelos de aprendizado de máquina. Ele também é demorado, especialmente se feito manualmente, e se você tiver grandes quantidades de dados de várias fontes. Automatizar esse esforço libera recursos e garante que seus modelos usem os dados mais recentes e aplicáveis.
 
-Azure Data Factory (ADF) foi criado especificamente para extrair, carregar e transformar dados, no entanto, o SDK do Python permite desenvolver uma solução de código personalizada para tarefas básicas de ingestão de dados. Se nenhum for exatamente o que você precisa, você também poderá usar o ADF e o SDK do Python juntos para criar um fluxo de trabalho de ingestão de dados geral que atenda às suas necessidades. 
-
-## <a name="use-azure-data-factory"></a>Usar o Azure Data Factory
+## <a name="azure-data-factory"></a>Fábrica de dados do Azure
 
 O [Azure data Factory](https://docs.microsoft.com/azure/data-factory/introduction) oferece suporte nativo para monitoramento de fonte de dados e gatilhos para pipelines de ingestão de dados.  
 
@@ -55,7 +57,7 @@ Essas etapas e o diagrama a seguir ilustram o fluxo de trabalho de ingestão de 
     
 Saiba como criar um pipeline de ingestão de dados para Machine Learning com [Azure data Factory](how-to-data-ingest-adf.md).
 
-## <a name="use-the-python-sdk"></a>Usar o SDK do Python 
+## <a name="azure-machine-learning-python-sdk"></a>Azure Machine Learning SDK do Python 
 
 Com o [SDK do Python](https://docs.microsoft.com/python/api/overview/azure/ml), você pode incorporar tarefas de ingestão de dados em uma etapa [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) .
 
@@ -73,5 +75,7 @@ No diagrama a seguir, o pipeline de Azure Machine Learning consiste em duas etap
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como criar um pipeline de ingestão de dados para Machine Learning com [Azure data Factory](how-to-data-ingest-adf.md)
-* Saiba como automatizar e gerenciar os ciclos de vida de desenvolvimento de seus pipelines de ingestão de dados com o [Azure pipelines](how-to-cicd-data-ingestion.md).
+Siga estes artigos de instruções:
+* [Criar um pipeline de ingestão de dados com Azure Data Factory](how-to-data-ingest-adf.md)
+
+* [Automatize e gerencie pipelines de ingestão de dados com Azure pipelines](how-to-cicd-data-ingestion.md).

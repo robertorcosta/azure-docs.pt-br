@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: d3e456d57d98b796fb1aea2e82de51f9fae40c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733174"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982721"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entender como Azure IoT Edge usa certificados
 
@@ -36,7 +36,7 @@ A autoridade de certificação ou 'CA' para abreviar, é uma entidade que emite 
 
 ### <a name="root-ca-certificate"></a>Certificado de AC raiz
 
-Um certificado CA raiz é a raiz da confiança de todo o processo. Em cenários de produção, esse Certificado de Autoridade de Certificação normalmente é adquirido de uma autoridade de certificação comercial confiável, como Baltimore, Verisign ou DigiCert. Se você tiver controle total sobre os dispositivos que se conectam aos dispositivos IoT Edge, é possível usar uma autoridade de certificação de nível corporativo. Em qualquer um dos casos, toda a cadeia de certificados do hub do IoT Edge é acumulada até ela, portanto, os dispositivos de folha de IoT devem confiar no certificado raiz. Você pode armazenar o Certificado de Autoridade de Certificação raiz no armazenamento de autoridade de certificação raiz confiável ou fornecer os detalhes do certificado no código de aplicativo.
+Um certificado CA raiz é a raiz da confiança de todo o processo. Em cenários de produção, esse Certificado de Autoridade de Certificação normalmente é adquirido de uma autoridade de certificação comercial confiável, como Baltimore, Verisign ou DigiCert. Se você tiver controle total sobre os dispositivos que se conectam aos dispositivos IoT Edge, é possível usar uma autoridade de certificação de nível corporativo. Em qualquer evento, toda a cadeia de certificados do hub de IoT Edge é acumulada para ele, de modo que os dispositivos IoT folha devem confiar no certificado raiz. Você pode armazenar o Certificado de Autoridade de Certificação raiz no armazenamento de autoridade de certificação raiz confiável ou fornecer os detalhes do certificado no código de aplicativo.
 
 ### <a name="intermediate-certificates"></a>Certificados intermediários
 
