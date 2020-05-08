@@ -2,13 +2,13 @@
 title: Matriz de suporte para backup de compartilhamento de arquivos do Azure
 description: Fornece um resumo das configurações de suporte e limitações ao fazer backup de compartilhamentos de arquivos do Azure.
 ms.topic: conceptual
-ms.date: 1/26/2020
-ms.openlocfilehash: b5bfae9454464bc8d11cef3bd346861e13822046
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 5/07/2020
+ms.openlocfilehash: 4da17bb591e94a0eaf26f95210a3e841ad17973b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838562"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890716"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para backup de compartilhamento de arquivos do Azure
 
@@ -41,21 +41,21 @@ O backup para compartilhamentos de arquivos do Azure está disponível no seguin
 
 ## <a name="protection-limits"></a>Limites de proteção
 
-| Setting                                                      | Limite |
+| Configuração                                                      | Limite |
 | ------------------------------------------------------------ | ----- |
 | Número máximo de compartilhamentos de arquivos que podem ser protegidos por dia por cofre | 200   |
 | Número máximo de contas de armazenamento que podem ser registradas por cofre por dia | 50    |
 
 ## <a name="backup-limits"></a>Limites do Backup
 
-| Setting                                      | Limite |
+| Configuração                                      | Limite |
 | -------------------------------------------- | ----- |
 | Número máximo de backups sob demanda por dia | 4     |
 | Número máximo de backups agendados por dia | 1     |
 
 ## <a name="restore-limits"></a>Restaurar limites
 
-| Setting                                                      | Limite   |
+| Configuração                                                      | Limite   |
 | ------------------------------------------------------------ | ------- |
 | Número máximo de restaurações por dia                           | 10      |
 | Número máximo de arquivos por restauração                         | 10      |
@@ -63,7 +63,7 @@ O backup para compartilhamentos de arquivos do Azure está disponível no seguin
 
 ## <a name="retention-limits"></a>Limites de retenção
 
-| Setting                                                      | Limite    |
+| Configuração                                                      | Limite    |
 | ------------------------------------------------------------ | -------- |
 | Total máximo de pontos de recuperação por compartilhamento de arquivos a qualquer momento | 200      |
 | Retenção máxima do ponto de recuperação criado pelo backup sob demanda | 10 anos |

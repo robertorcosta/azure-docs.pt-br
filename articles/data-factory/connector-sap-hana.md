@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/17/2020
-ms.openlocfilehash: 74462b68bea38e4d84219adeedb7c3bb0893bbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/22/2020
+ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417233"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890625"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -46,7 +46,7 @@ Especificamente, este conector do SAP HANA dá suporte à:
 - Cópia paralela de uma fonte de SAP HANA. Consulte a seção [cópia paralela de SAP Hana](#parallel-copy-from-sap-hana) para obter detalhes.
 
 > [!TIP]
-> Para copiar dados **no** armazenamento de dados do SAP HANA, use o conector ODBC genérico. Veja [coletor do SAP HANA](connector-odbc.md#sap-hana-sink) para saber mais detalhes. Observe que os serviços vinculados para o conector do SAP HANA e o conector ODBC são de tipos diferentes, portanto, não podem ser reutilizados.
+> Para copiar dados **no** armazenamento de dados do SAP HANA, use o conector ODBC genérico. Consulte a seção [SAP Hana Sink](#sap-hana-sink) com detalhes. Observe que os serviços vinculados para o conector do SAP HANA e o conector ODBC são de tipos diferentes, portanto, não podem ser reutilizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +65,7 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado do SAP HANA:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **SapHana** | Sim |
 | connectionString | Especifique as informações necessárias para se conectar ao SAP HANA usando a **autenticação básica** ou a **autenticação do Windows**. Consulte os exemplos a seguir.<br>Na cadeia de conexão, servidor/porta é obrigatório (a porta padrão é 30015) e o nome de usuário e a senha são obrigatórios ao usar a autenticação básica. Para obter configurações avançadas adicionais, consulte [SAP Hana Propriedades de conexão ODBC](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>Você também pode colocar a senha em Azure Key Vault e extrair a configuração de senha da cadeia de conexão. Consulte [armazenar credenciais no artigo Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
@@ -146,7 +146,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de SAP HANA, há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como: **SapHanaTable** | Sim |
 | esquema | Nome do esquema no banco de dados de SAP HANA. | Não (se "query" na fonte da atividade for especificada) |
@@ -185,7 +185,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de SAP HANA, as propriedades a seguir têm suporte na seção **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como: **SapHanaSource** | Sim |
 | Consulta | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Sim |
@@ -271,33 +271,61 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 
 | Tipo de dados do SAP HANA | Tipo de dados provisório do Data Factory |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | Cadeia de caracteres                         |
+| ALPHANUM           | String                         |
 | bigint             | Int64                          |
 | BINARY             | Byte[]                         |
-| Bintext            | Cadeia de caracteres                         |
+| Bintext            | String                         |
 | BLOB               | Byte[]                         |
 | BOOL               | Byte                           |
-| CLOB               | Cadeia de caracteres                         |
+| CLOB               | String                         |
 | DATE               | Datetime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | Cadeia de caracteres                         |
-| NVARCHAR           | Cadeia de caracteres                         |
+| NCLOB              | String                         |
+| NVARCHAR           | String                         |
 | real               | Single                         |
 | SECONDDATE         | Datetime                       |
-| SHORTTEXT          | Cadeia de caracteres                         |
+| SHORTTEXT          | String                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | Ponto de extremidade        | Byte[]                         |
-| TEXT               | Cadeia de caracteres                         |
+| TEXT               | String                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | String                         |
 | timestamp          | Datetime                       |
 | VARBINARY          | Byte[]                         |
+
+### <a name="sap-hana-sink"></a>Coletor do SAP HANA
+
+Atualmente, o conector de SAP HANA não tem suporte como coletor, enquanto você pode usar o conector ODBC genérico com SAP HANA driver para gravar dados em SAP HANA. 
+
+Siga os [pré-requisitos](#prerequisites) para configurar o Integration Runtime auto-hospedado e instale o driver SAP Hana ODBC primeiro. Crie um serviço vinculado de ODBC para se conectar ao armazenamento de dados de SAP HANA, conforme mostrado no exemplo a seguir, em seguida, crie um conjunto e um coletor de atividade de cópia com o tipo ODBC adequadamente. Saiba mais no artigo [conector ODBC](connector-odbc.md) .
+
+```json
+{
+    "name": "SAPHANAViaODBCLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="lookup-activity-properties"></a>Propriedades da atividade de pesquisa
 

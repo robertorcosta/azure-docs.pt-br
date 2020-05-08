@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff4647682f5f4d688f3b581b96715e01976a387
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528207"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891165"
 ---
 # <a name="in-memory-sample"></a>Exemplo de In-Memory
 
@@ -51,7 +51,7 @@ Para ver uma demonstração de desempenho mais simples, porém, mais visualmente
 
 3. Copie o [script Transact-SQL do OLTP Na Memória](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) para a área de transferência. O script T-SQL cria os objetos necessários In-Memory no banco de dados de exemplo AdventureWorksLT criado na etapa 1.
 
-4. Cole o script T-SQL no SSMS e execute o script. As instruções CREATE TABLE da cláusula `MEMORY_OPTIMIZED = ON` são cruciais. Por exemplo:
+4. Cole o script T-SQL no SSMS e execute o script. As instruções CREATE TABLE da cláusula `MEMORY_OPTIMIZED = ON` são cruciais. Por exemplo: 
 
 
 ```sql
@@ -182,7 +182,7 @@ Na VM ou em qualquer host que você escolher, instale os utilitários RML (Repla
 Para obter mais informações, consulte:
 - A discussão sobre ostress.exe no [Banco de dados de exemplo para OLTP In-Memory](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Banco de dados de exemplo para OLTP na memória](https://msdn.microsoft.com/library/mt465764.aspx).
-- O [blog para instalar o ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- O [blog para instalar o ostress.exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 
 
@@ -417,4 +417,4 @@ Em um banco de dados com o tipo de preço P2, você pode esperar um ganho de des
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SSDT (SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx)
