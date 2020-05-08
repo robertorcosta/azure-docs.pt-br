@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 05/04/2020
 ms.author: rogarana
-ms.openlocfilehash: b2dd501344e1ea799db58ea749395aaed05d05f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6309219b31c22f1f1d090cc9de9931609e3423f7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106536"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792966"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Habilitar a autenticação de Active Directory Domain Services local sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -54,13 +54,11 @@ Antes de habilitar a autenticação AD DS para compartilhamentos de arquivos do 
 
     Para acessar um compartilhamento de arquivos usando credenciais do AD de um computador ou VM, seu dispositivo deve estar ingressado no domínio para AD DS. Para obter informações sobre como ingressar no domínio, consulte [ingressar um computador em um domínio](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain). 
 
-- Selecione ou crie uma conta de armazenamento do Azure em [uma região com suporte](#regional-availability). 
+- Selecione ou crie uma conta de armazenamento do Azure.  Para obter um desempenho ideal, recomendamos que você implante a conta de armazenamento na mesma região da VM da qual você planeja acessar o compartilhamento.
 
     Certifique-se de que a conta de armazenamento que contém seus compartilhamentos de arquivos ainda não esteja configurada para autenticação de AD DS do Azure. Se a autenticação de AD DS do Azure for habilitada na conta de armazenamento, ela precisará ser desabilitada antes da alteração para usar o AD DS local. Isso implica que as ACLs existentes configuradas no ambiente de AD DS do Azure precisarão ser reconfiguradas para a imposição de permissão adequada.
     
     Para obter informações sobre como criar um novo compartilhamento de arquivos, consulte [criar um compartilhamento de arquivos em arquivos do Azure](storage-how-to-create-file-share.md).
-    
-    Para obter um desempenho ideal, recomendamos que você implante a conta de armazenamento na mesma região da VM da qual você planeja acessar o compartilhamento. 
 
 - Verifique a conectividade montando compartilhamentos de arquivos do Azure usando sua chave de conta de armazenamento. 
 
@@ -70,23 +68,23 @@ Antes de habilitar a autenticação AD DS para compartilhamentos de arquivos do 
 
 A autenticação de arquivos do Azure com AD DS (versão prévia) está disponível em [todas as regiões públicas e regiões do Azure gov](https://azure.microsoft.com/global-infrastructure/locations/).
 
-## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
-
-Antes de habilitar a autenticação AD DS sobre o SMB para compartilhamentos de arquivos do Azure, recomendamos que você leia e conclua a seção de [pré-requisitos](#prerequisites) . Os pré-requisitos validam que o AD, o Azure AD e os ambientes de armazenamento do Azure estão configurados corretamente. 
+## <a name="overview"></a>Visão geral
 
 Se você planeja habilitar qualquer configuração de rede em seu compartilhamento de arquivos, recomendamos que você avalie a [consideração de rede](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) e conclua a configuração relacionada primeiro antes de habilitar a autenticação de AD DS.
 
-Em seguida, siga as etapas abaixo para configurar os arquivos do Azure para autenticação do AD: 
+Habilitar a autenticação de AD DS para seus compartilhamentos de arquivos do Azure permite que você se autentique em seus compartilhamentos de arquivos do Azure com suas credenciais de AD DS local. Além disso, ele permite que você gerencie melhor suas permissões para permitir o controle de acesso granular. Isso requer a sincronização de identidades do AD DS local para o Azure AD com o AD Connect. Você controla o acesso de nível de compartilhamento com identidades sincronizadas com o Azure AD enquanto gerencia o acesso de nível de arquivo/compartilhamento com credenciais de AD DS local.
 
-1. Habilite os arquivos do Azure AD DS a autenticação em sua conta de armazenamento. 
+Em seguida, siga as etapas abaixo para configurar os arquivos do Azure para autenticação AD DS: 
 
-2. Atribua permissões de acesso para um compartilhamento para a identidade do Azure AD (um usuário, grupo ou entidade de serviço) que esteja em sincronia com a identidade do AD de destino. 
+1. [Habilitar a autenticação de AD DS de arquivos do Azure em sua conta de armazenamento](#1-enable-ad-ds-authentication-for-your-account)
 
-3. Configure ACLs sobre SMB para diretórios e arquivos. 
+1. [Atribuir permissões de acesso para um compartilhamento para a identidade do Azure AD (um usuário, grupo ou entidade de serviço) que está em sincronia com a identidade do AD de destino](#2-assign-access-permissions-to-an-identity)
+
+1. [Configurar ACLs sobre SMB para diretórios e arquivos](#3-configure-ntfs-permissions-over-smb)
  
-4. Monte um compartilhamento de arquivos do Azure em uma VM ingressada em seu AD DS. 
+1. [Montar um compartilhamento de arquivos do Azure para uma VM ingressada em seu AD DS](#4-mount-a-file-share-from-a-domain-joined-vm)
 
-5. Atualize a senha da sua identidade de conta de armazenamento no AD DS.
+1. [Atualize a senha da sua identidade de conta de armazenamento no AD DS](#5-update-the-password-of-your-storage-account-identity-in-ad-ds)
 
 O diagrama a seguir ilustra o fluxo de trabalho de ponta a ponta para habilitar a autenticação do Azure AD sobre SMB para compartilhamentos de arquivos do Azure. 
 
@@ -95,9 +93,9 @@ O diagrama a seguir ilustra o fluxo de trabalho de ponta a ponta para habilitar 
 > [!NOTE]
 > Só há suporte para a autenticação AD DS sobre SMB para compartilhamentos de arquivos do Azure em máquinas ou VMs em execução em versões do sistema operacional mais recentes do que o Windows 7 ou o Windows Server 2008 R2. 
 
-## <a name="1-enable-ad-authentication-for-your-account"></a>1. habilitar a autenticação do AD para sua conta 
+## <a name="1-enable-ad-ds-authentication-for-your-account"></a>1 habilitar a autenticação AD DS para sua conta 
 
-Para habilitar a autenticação de AD DS sobre o SMB para compartilhamentos de arquivos do Azure, primeiro você precisa registrar sua conta de armazenamento com AD DS e, em seguida, definir as propriedades de domínio necessárias na conta de armazenamento. Quando o recurso é habilitado na conta de armazenamento, ele se aplica a todos os compartilhamentos de arquivos novos e existentes na conta. Use `join-AzStorageAccountForAuth` para habilitar o recurso. Você pode encontrar a descrição detalhada do fluxo de trabalho de ponta a ponta no script dentro desta seção. 
+Para habilitar a autenticação de AD DS sobre o SMB para compartilhamentos de arquivos do Azure, primeiro você precisa registrar sua conta de armazenamento com AD DS e, em seguida, definir as propriedades de domínio necessárias na conta de armazenamento. Quando o recurso é habilitado na conta de armazenamento, ele se aplica a todos os compartilhamentos de arquivos novos e existentes na conta. Baixe o módulo do PowerShell do AzFilesHybrid `join-AzStorageAccountForAuth` e use para habilitar o recurso. Você pode encontrar a descrição detalhada do fluxo de trabalho de ponta a ponta no script dentro desta seção. 
 
 > [!IMPORTANT]
 > O `Join-AzStorageAccountForAuth` cmdlet fará modificações no seu ambiente do AD. Leia a explicação a seguir para entender melhor o que está fazendo para garantir que você tenha as permissões adequadas para executar o comando e que as alterações aplicadas se alinhem às políticas de conformidade e segurança. 
@@ -118,7 +116,7 @@ Você pode usar o script a seguir para executar o registro e habilitar o recurso
 Lembre-se de substituir os valores de espaço reservado pelos seus próprios nos parâmetros abaixo antes de executá-los no PowerShell.
 > [!IMPORTANT]
 > O cmdlet ingresso no domínio criará uma conta do AD para representar a conta de armazenamento (compartilhamento de arquivos) no AD. Você pode optar por se registrar como uma conta de computador ou conta de logon de serviço, consulte [perguntas frequentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) para obter detalhes. Para contas de computador, há uma duração de expiração de senha padrão definida no AD em 30 dias. Da mesma forma, a conta de logon do serviço pode ter uma duração de expiração de senha padrão definida no domínio do AD ou na UO (unidade organizacional).
-> Para ambos os tipos de conta, é altamente recomendável verificar qual é a idade de expiração de senha configurada no seu ambiente do AD e planejar [atualizar a senha da sua identidade de conta de armazenamento no AD](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) da conta do AD abaixo antes da duração máxima da senha. Falha ao atualizar a senha da conta do AD resultará em falhas de autenticação ao acessar compartilhamentos de arquivos do Azure. Você pode considerar [criar uma nova ou (unidade organizacional) do AD no AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) e desabilitar a política de expiração de senha em [contas de computador](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) ou contas de logon de serviço de acordo. 
+> Para ambos os tipos de conta, é altamente recomendável verificar qual é a idade de expiração de senha configurada no seu ambiente do AD e planejar [atualizar a senha da sua identidade de conta de armazenamento no AD](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) da conta do AD abaixo antes da duração máxima da senha. Você pode considerar [criar uma nova ou (unidade organizacional) do AD no AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) e desabilitar a política de expiração de senha em [contas de computador](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) ou contas de logon de serviço de acordo. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -144,12 +142,12 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
-#You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+# You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` # Default set to "ComputerAccount" if this parameter is not provided
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
@@ -218,7 +216,7 @@ Agora você ativou com êxito o recurso em sua conta de armazenamento. Agora que
 
 Agora você habilitou com êxito AD DS autenticação sobre o SMB e atribuiu uma função personalizada que fornece acesso a um compartilhamento de arquivos do Azure com uma identidade de AD DS. Para conceder a usuários adicionais acesso ao seu compartilhamento de arquivos, siga as instruções nas seções [atribuir permissões de acesso](#2-assign-access-permissions-to-an-identity) para usar uma identidade e [configurar permissões NTFS em relação ao SMB](#3-configure-ntfs-permissions-over-smb) .
 
-## <a name="5-update-the-password-of-your-storage-account-identity-in-ad-ds"></a>5. atualize a senha da sua identidade de conta de armazenamento no AD DS
+## <a name="5-update-the-password-of-your-storage-account-identity-in-ad-ds"></a>5 atualize a senha da sua identidade de conta de armazenamento no AD DS
 
 Se você registrou o AD DS identidade/conta que representa sua conta de armazenamento em uma UO que impõe o tempo de expiração da senha, você deve girar a senha antes da duração máxima da senha. A falha ao atualizar a senha da conta de AD DS resultará em falhas de autenticação para acessar compartilhamentos de arquivos do Azure.  
 

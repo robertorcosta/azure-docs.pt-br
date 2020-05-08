@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a6f97f45ec1adaa42d1f17a1916af137845392
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77167322"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559999"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions gatilho de aquecimento
 
@@ -240,7 +240,7 @@ Nenhuma informação adicional é fornecida a uma função disparada por aquecim
 ## <a name="trigger---limits"></a>Gatilho - limites
 
 * O gatilho aquecimento só está disponível para aplicativos em execução no [plano Premium](./functions-premium-plan.md).
-* O gatilho aquecimento é chamado somente durante operações de escala vertical, não durante reinicializações ou outras inicializações sem escala. Você deve garantir que sua lógica possa carregar todas as dependências necessárias sem usar o gatilho aquecimento. O carregamento lento é um bom padrão para conseguir isso.
+* O gatilho aquecimento é chamado somente durante operações de expansão, não durante reinicializações ou outras inicializações sem escala. Você deve garantir que sua lógica possa carregar todas as dependências necessárias sem usar o gatilho aquecimento. O carregamento lento é um bom padrão para conseguir isso.
 * O gatilho aquecimento não pode ser invocado depois que uma instância já está em execução.
 * Só pode haver uma função de gatilho aquecimento por aplicativo de função.
 

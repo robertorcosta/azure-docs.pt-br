@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6dcda58652abe51d360748222263f30f337a2251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182728"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791758"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB cotas de serviço
 
@@ -138,9 +138,9 @@ Cosmos DB usa HMAC para autorização. Você pode usar uma chave mestra ou [toke
 
 Cosmos DB dá suporte à execução de gatilhos durante as gravações. O serviço dá suporte a um máximo de um pré-gatilho e um pós-gatilho por operação de gravação. 
 
-## <a name="autoscale-mode-limits"></a>Limites do modo de dimensionamento automático
+## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites para taxa de transferência provisionada de dimensionamento automático
 
-Consulte o artigo de [dimensionamento automático](provision-throughput-autoscale.md#autoscale-limits) para os limites de taxa de transferência e armazenamento no modo de dimensionamento automático.
+Consulte o artigo de [dimensionamento automático](provision-throughput-autoscale.md#autoscale-limits) para os limites de armazenamento e taxa de transferência com dimensionamento automático.
 
 ## <a name="sql-query-limits"></a>Limites de consulta SQL
 

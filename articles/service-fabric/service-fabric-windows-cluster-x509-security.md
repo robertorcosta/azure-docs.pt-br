@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 5a18f957dfb7143f403d5ac30ea184023021f12c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf7d418d8bca8f690acf29ba701fdc54ced1ca6c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75613917"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561991"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteger um cluster autônomo no Windows usando os certificados X.509
 Esse artigo descreve como proteger a comunicação entre vários nós do cluster autônomo do Windows. Ele também descreve como autenticar os clientes que estão se conectando a este cluster usando certificados X.509. Essa autenticação garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento. A segurança do certificado deve ser habilitada no cluster quando o cluster é criado.  
@@ -309,7 +309,7 @@ Quando tiver os certificados, você poderá instalá-los nos nós de cluster. Os
     $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
    
     # Specify the user, the permissions, and the permission type
-    $permission = "$($serviceAccount)","FullControl","Allow"
+    $permission = "$($serviceAccount)","FullControl","Allow" # "NT AUTHORITY\NetworkService" is the service account
     $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
    
     # Location of the machine-related keys
@@ -338,7 +338,7 @@ Depois de configurar a seção de segurança do arquivo ClusterConfig.X509.Multi
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-Depois que o cluster do Windows autônomo seguro estiver sendo executado com sucesso e os clientes autenticados tiverem sido configurados para se conectarem a ele, siga as etapas na seção [Conectar-se a um cluster seguro usando o PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) para se conectar a ele. Por exemplo:
+Depois que o cluster do Windows autônomo seguro estiver sendo executado com sucesso e os clientes autenticados tiverem sido configurados para se conectarem a ele, siga as etapas na seção [Conectar-se a um cluster seguro usando o PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) para se conectar a ele. Por exemplo: 
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

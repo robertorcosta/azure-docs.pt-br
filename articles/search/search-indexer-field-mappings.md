@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 17a96479b80410cbfcb2a6061904491f95c45f10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5820856f7d4c51e41162f01a9687304cb223088
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116257"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791911"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos de campo e transformações usando indexadores do Azure Pesquisa Cognitiva
 
@@ -28,7 +28,7 @@ Algumas situações em que os mapeamentos de campo são úteis:
 * Você precisa codificar ou decodificar Base64 seus dados. Mapeamentos de campo dão suporte a diversas **funções de mapeamento**, incluindo funções para codificação e decodificação Base64.
 
 > [!NOTE]
-> Os mapeamentos de campo nos indexadores são uma maneira simples de mapear campos de dados para campos de índice, com alguma capacidade de conversão de dados leves. Dados mais complexos podem exigir pré-processamento para reformatá-lo em um formulário que conduza à indexação. Uma opção que você pode considerar é [Azure data Factory](https://docs.microsoft.com/zure/data-factory/).
+> Os mapeamentos de campo nos indexadores são uma maneira simples de mapear campos de dados para campos de índice, com alguma capacidade de conversão de dados leves. Dados mais complexos podem exigir pré-processamento para reformatá-lo em um formulário que conduza à indexação. Uma opção que você pode considerar é [Azure data Factory](https://docs.microsoft.com/azure/data-factory/).
 
 ## <a name="set-up-field-mappings"></a>Configurar mapeamentos de campo
 

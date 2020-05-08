@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274569"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791996"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemplo: criar uma habilidade personalizada do reconhecedor de formulário
 
@@ -164,8 +164,8 @@ Para usar essa habilidade em um pipeline Pesquisa Cognitiva, você precisará ad
 
 Neste guia, você criou uma habilidade personalizada do serviço reconhecedor do Azure Form. Para saber mais sobre habilidades personalizadas, consulte os recursos a seguir. 
 
-* [Azure Search habilidades de energia: um repositório de habilidades personalizadas](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Azure Search habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
 * [Definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-* [Criar um qualificable (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Criar um qualificable (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 * [Mapear campos aprimorados](cognitive-search-output-field-mapping.md)

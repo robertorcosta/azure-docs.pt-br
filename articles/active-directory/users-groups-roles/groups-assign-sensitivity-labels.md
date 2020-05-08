@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 667fb39aabfec14cff01221b82a45ba8ad1d68d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e4dabad5057fda39fe3753c810a85e6aeb55b3a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78329725"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582943"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Atribuir rótulos de sensibilidade a grupos do Office 365 no Azure Active Directory (versão prévia)
 
@@ -112,10 +112,10 @@ Depois de habilitar esse recurso, as classificações "clássicas" para grupos s
 
 A opção de rótulo de sensibilidade só é exibida para grupos quando todas as condições a seguir são atendidas:
 
-1. Os rótulos são publicados no centro de conformidade Microsoft 365 para esse locatário.
+1. Os rótulos são publicados no centro de conformidade Microsoft 365 para esta organização do Azure AD.
 1. O recurso está habilitado, EnableMIPLabels é definido como true no PowerShell.
 1. O grupo é um grupo do Office 365.
-1. O locatário tem uma licença do Active Azure Active Directory Premium P1.
+1. A organização tem uma licença do Active Azure Active Directory Premium P1.
 1. O usuário conectado atual tem privilégios suficientes para atribuir rótulos. O usuário deve ser um administrador global, administrador de grupo ou o proprietário do grupo.
 
 Certifique-se de que todas as condições sejam atendidas para atribuir rótulos a um grupo.
@@ -135,7 +135,7 @@ Os rótulos podem ser trocados a qualquer momento usando as mesmas etapas que at
 1. Selecione **Grupos**.
 1. Na página **todos os grupos** , selecione o grupo que você deseja rotular.
 1. Na página do grupo selecionado, selecione **Propriedades** e selecione um novo rótulo de sensibilidade na lista.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>As alterações de configuração de grupo em rótulos publicados não são atualizadas nos grupos
 
