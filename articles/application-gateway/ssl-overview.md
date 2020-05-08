@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: ae80b49c3bfb40743665768622d3f4a8a6990c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 286c9329be38055808571d8d32c724d27a61cbf3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311857"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855883"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Visão geral do término do TLS e TLS de ponta a ponta com o gateway de aplicativo
 
@@ -28,6 +28,10 @@ O gateway de aplicativo dá suporte à terminação TLS no gateway, após o qual
 - **Gerenciamento de certificados** – os certificados só precisam ser comprados e instalados no gateway de aplicativo e não em todos os servidores de back-end. Isso economiza tempo e dinheiro.
 
 Para configurar a terminação de TLS, é necessário que um certificado TLS/SSL seja adicionado ao ouvinte para permitir que o gateway de aplicativo derive uma chave simétrica de acordo com a especificação do protocolo TLS/SSL. A chave simétrica é usada para criptografar e descriptografar o tráfego enviado para o gateway. O certificado TLS/SSL precisa estar no formato PFX (troca de informações pessoais). Esse formato de arquivo permite exportar a chave privada que é exigida pelo gateway de aplicativo para realizar a criptografia e descriptografia do tráfego.
+
+> [!IMPORTANT] 
+> Observe que o certificado no ouvinte requer que toda a cadeia de certificados seja carregada. 
+
 
 > [!NOTE] 
 >

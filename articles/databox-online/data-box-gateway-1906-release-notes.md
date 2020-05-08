@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 69c905176a5beb1c7d442cd5f1a69161cd520c5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f4633a3fcafcb2b3151270715036e7940eb1c91
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71099480"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561852"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1906-release-notes"></a>Notas de versão do Azure Data Box Edge e Gateway do Azure Data Box 1906
 
-As notas de versão a seguir identificam os problemas críticos abertos e os problemas resolvidos para a versão 1906 para Azure Data Box Edge e Gateway do Azure Data Box.
+As notas de versão a seguir identificam os problemas críticos abertos e os problemas resolvidos para a versão 1906 para Azure Data Box Edge e Gateway do Azure Data Box. 
 
 As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar seu Data Box Edge/Gateway do Data Box, examine atentamente as informações contidas nas notas de versão.
 
@@ -31,8 +31,8 @@ Esta versão corresponde às versões de software:
 
 ## <a name="whats-new"></a>Novidades
 
-- **Correção de bug no fluxo de trabalho de gerenciamento de chaves de recuperação** – na versão anterior, houve um bug devido ao qual a chave de recuperação não estava sendo aplicada. Esse bug foi corrigido nesta versão. É altamente recomendável que você aplique essa atualização, pois a chave de recuperação permite recuperar os dados no dispositivo, caso o dispositivo não inicialize. Para obter mais informações, consulte como [salvar a chave de recuperação ao implantar data Box Edge ou gateway do data Box](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
-- **Melhorias no log de FPGA (matriz de portão) de campo** – iniciando a versão 1905, os aprimoramentos de log e alertas relacionados ao FPGA foram feitos. Isso continuará a ser uma atualização necessária para Data Box Edge se você estiver usando o recurso de computação de borda com o FPGA. Para obter mais informações, consulte como [transformar dados com a computação de borda em seu data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Correção de bug no fluxo de trabalho de gerenciamento de chaves de recuperação** – na versão anterior, houve um bug devido ao qual a chave de recuperação não estava sendo aplicada. Esse bug foi corrigido nesta versão. É altamente recomendável que você aplique essa atualização, pois a chave de recuperação permite recuperar os dados no dispositivo, caso o dispositivo não inicialize. Para obter mais informações, consulte como [salvar a chave de recuperação ao implantar data Box Edge ou gateway do data Box](azure-stack-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
+- **Melhorias no log de FPGA (matriz de portão) de campo** – iniciando a versão 1905, os aprimoramentos de log e alertas relacionados ao FPGA foram feitos. Isso continuará a ser uma atualização necessária para Data Box Edge se você estiver usando o recurso de computação de borda com o FPGA. Para obter mais informações, consulte como [transformar dados com a computação de borda em seu data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## <a name="known-issues-in-ga-release"></a>Problemas conhecidos na versão GA
 
@@ -42,4 +42,4 @@ Não foram observados novos problemas para esta versão. Toda a versão observou
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Preparar para implantar Gateway do Azure Data Box](data-box-gateway-deploy-prep.md)
-- [Preparar para implantar o Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Preparar para implantar o Azure Data Box Edge](azure-stack-edge-deploy-prep.md)
