@@ -9,36 +9,39 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: dadfe0022cfb99703222ba7a91ca3ec6f5fce645
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836624"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927965"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Solucionar problemas do agente de atualização do Linux
 
-Pode haver muitos motivos pelos quais seu computador não está aparecendo como pronto (íntegro) na solução de Gerenciamento de Atualizações de automação do Azure. No Gerenciamento de Atualizações, você pode verificar a integridade de um agente de Hybrid Runbook Worker para determinar o problema subjacente. Este artigo discute como executar a solução de problemas para computadores do Azure por meio do portal do Azure e de computadores não Azure no [cenário offline](#troubleshoot-offline). 
+Pode haver muitas razões pelas quais o computador não está aparecendo como pronto (íntegro) no Gerenciamento de Atualizações. Você pode verificar a integridade de um agente de Hybrid Runbook Worker do Linux para determinar o problema subjacente. A seguir estão os três Estados de preparação para um computador:
 
-Um computador pode estar em três Estados de preparação:
-
-* **Pronto**: a Hybrid runbook Worker é implantada e foi vista pela última vez há menos de uma hora.
-* **Desconectado**: o Hybrid runbook Worker é implantado e foi visto pela última vez há uma hora.
-* **Não configurado**: a Hybrid runbook Worker não foi encontrada ou não terminou a integração.
+* Pronto: a Hybrid Runbook Worker é implantada e foi vista pela última vez há menos de uma hora.
+* Desconectado: o Hybrid Runbook Worker é implantado e foi visto pela última vez há uma hora.
+* Não configurado: a Hybrid Runbook Worker não foi encontrada ou não terminou a integração.
 
 > [!NOTE]
 > Pode haver um pequeno atraso entre o que o portal do Azure mostra e o estado atual de um computador.
 
+Este artigo discute como executar a solução de problemas para computadores do Azure por meio do portal do Azure e de computadores não Azure no [cenário offline](#troubleshoot-offline). 
+
+> [!NOTE]
+> O script de solução de problemas atualmente não roteia o tráfego por meio de um servidor proxy, se um estiver configurado.
+
 ## <a name="start-the-troubleshooter"></a>Iniciar a solução de problemas
 
-Para computadores do Azure, selecione o link **solucionar problemas** na coluna **prontidão do agente de atualização** no portal para abrir a página **solucionar problemas do agente de atualização** . Para computadores não Azure, o link o leva a este artigo. Para solucionar problemas de um computador não Azure, consulte as instruções na seção "solucionar problemas offline".
+Para computadores do Azure, selecione o link **solucionar problemas** na coluna **prontidão do agente de atualização** no portal para abrir a página solucionar problemas do agente de atualização. Para computadores não Azure, o link o leva a este artigo. Para solucionar problemas de um computador não Azure, consulte as instruções na seção "solucionar problemas offline".
 
 ![Página lista de VMs](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > As verificações exigem que a VM esteja em execução. Se a VM não estiver em execução, **iniciar a VM** será exibida.
 
-Na página **solucionar problemas do agente de atualização** , selecione **executar verificações** para iniciar a solução de problemas. A solução de problemas usa o [comando executar](../../virtual-machines/linux/run-command.md) para executar um script no computador para verificar as dependências. Quando a solução de problemas é concluída, ela retorna o resultado das verificações.
+Na página solucionar problemas do agente de atualização, selecione **executar verificações** para iniciar a solução de problemas. A solução de problemas usa o [comando executar](../../virtual-machines/linux/run-command.md) para executar um script no computador para verificar as dependências. Quando a solução de problemas é concluída, ela retorna o resultado das verificações.
 
 ![Página Solucionar problemas](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -52,7 +55,7 @@ Quando as verificações forem concluídas, os resultados serão retornados na j
 
 A verificação do sistema operacional verifica se o Hybrid Runbook Worker está executando um dos sistemas operacionais a seguir.
 
-|Sistema operacional  |Anotações  |
+|Sistema operacional  |Observações  |
 |---------|---------|
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux devem ter acesso a um repositório de atualização. A aplicação de patches baseada em classificação requer ' yum ' para retornar dados de segurança, que o CentOS não está pronto para uso.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
@@ -84,6 +87,9 @@ Essa verificação verifica se o agente de Log Analytics para Linux tem o pacote
 ### <a name="hybrid-runbook-worker-status"></a>Status do Hybrid Runbook Worker
 
 Essa verificação garante que o Hybrid Runbook Worker esteja em execução no computador. Os processos a seguir devem estar presentes se o Hybrid Runbook Worker estiver sendo executado corretamente. Para saber mais, confira [solução de problemas do agente de log Analytics para Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+
+> [!NOTE]
+> Se o Hybrid Runbook Worker não estiver em execução e o ponto de extremidade de operações tiver falhado, a atualização poderá falhar. Gerenciamento de Atualizações baixa os pacotes de trabalho híbrido do ponto de extremidade de operações.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

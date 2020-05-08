@@ -1,24 +1,22 @@
 ---
-title: Suporte para o Marketplace comercial | Azure Marketplace
-description: Informações e links de suporte para o Azure Marketplace e o AppSource
+title: Suporte do Marketplace comercial da Microsoft-Azure Marketplace
+description: Informações de suporte e links para o Azure Marketplace e o AppSource no Partner Center
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 3871ef232d9a2315ece632f6f764f8377a8435c5
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 9dacbbac1caad33a6ab2f5f09d3f6c9d31c32bb7
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159908"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871560"
 ---
-# <a name="support-for-the-marketplace"></a>Suporte para o Marketplace
+# <a name="support-for-microsoft-commercial-marketplace"></a>Suporte para o Marketplace comercial da Microsoft
 
-Aqui está uma lista de opções de suporte para o Marketplace.  
-
-Além disso, você pode obter muitas das suas dúvidas na [canal do Marketplace do Fórum da comunidade de C + AI](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+Você tem dúvidas sobre como começar como um Publicador do Microsoft Commercial Marketplace? Aqui está uma lista de opções de suporte para o Marketplace comercial. Além dos recursos a seguir, você também pode obter muitas de suas perguntas respondidas no [canal do Marketplace do fórum da Comunidade do C + ai](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## <a name="onboarding"></a>Integração
 
