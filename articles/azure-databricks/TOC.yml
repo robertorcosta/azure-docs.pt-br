@@ -1010,6 +1010,8 @@
         - name: Visão geral da segurança
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: Linha de base de segurança
+          href: security-baseline.md
         - name: Controle de acesso
           items:
             - name: Visão geral do controle de acesso
@@ -1061,7 +1063,7 @@
             - name: Exemplo de fluxo de trabalho de segredo
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
-        - name: Melhores práticas do GDPR
+        - name: Práticas recomendadas do GDPR
           href: /azure/databricks/security/privacy/gdpr-delta
         - name: Criptografar o tráfego entre nós de trabalho do cluster
           href: /azure/databricks/security/encryption/encrypt-otw
@@ -1625,7 +1627,7 @@
                     - name: Visão geral da autenticação de tokens do AAD
                       href: /azure/databricks/dev-tools/api/latest/aad/index
                       maintainContext: true
-                    - name: Obter um token do AAD usando a Biblioteca de Autenticação do AAD
+                    - name: Obter um token do AAD usando a ADAL
                       href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
                       maintainContext: true
                     - name: Obter um token do AAD usando uma entidade de serviço

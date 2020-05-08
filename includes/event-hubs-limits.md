@@ -21,7 +21,7 @@ Os limites a seguir são comuns em camadas básica, Standard e dedicada.
 
 | Limite | Escopo | Anotações | Valor |
 | --- | --- | --- | --- |
-| Número de namespaces de Hubs de Eventos do Azure por assinatura |Assinatura |- |100 |
+| Número de namespaces de Hubs de Eventos do Azure por assinatura |Subscription |- |100 |
 | Número de hubs de eventos por namespace |Namespace |As solicitações subsequentes para a criação de um novo hub de eventos são rejeitadas. |10 |
 | O número de partições por hub de eventos |Entidade |- |32 |
 | Tamanho máximo do nome de um hub de eventos |Entidade |- |50 caracteres |
@@ -47,7 +47,7 @@ A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um
 
 | Recurso | limites |
 | --- | ---|
-| Largura de banda |  20 CUs |
+| Largura de Banda |  20 CUs |
 | Namespaces | 50 por CU |
 | Hubs de Eventos |  1000 por namespace |
 | Eventos de entrada | Incluído |

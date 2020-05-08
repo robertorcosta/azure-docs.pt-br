@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 94cdeff36553268d691fc968036c5264e77fddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13d7e0bfd3c7061d9dec68a1d14ff2a5e2c05fcd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188800"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791248"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Dimensionar de forma elástica uma conta de API do Cassandra de Azure Cosmos DB
 
@@ -58,9 +58,9 @@ Você pode dimensionar o sistema dinamicamente com o código executando os [coma
 
 A vantagem dessa abordagem é que ela permite que você responda às necessidades de dimensionamento dinamicamente e de uma maneira personalizada adequada ao seu aplicativo. Com essa abordagem, você ainda pode aproveitar os encargos e as tarifas de RU/s padrão. Se as necessidades de dimensionamento do seu sistema forem principalmente previsíveis (cerca de 70% ou mais), usar o SDK com CQL pode ser um método mais econômico de dimensionamento automático do que o uso de autoescala. A desvantagem dessa abordagem é que ela pode ser bastante complexa para implementar repetições enquanto a limitação de taxa pode aumentar a latência.
 
-## <a name="use-autoscale"></a><a id="use-autoscale"></a>Usar autoescala
+## <a name="use-autoscale-provisioned-throughput"></a><a id="use-autoscale"></a>Usar taxa de transferência provisionada prodimensional
 
-Além da maneira manual ou programática de provisionar a taxa de transferência, você também pode configurar contêineres Cosmos do Azure no modo de dimensionamento automático. O modo de dimensionamento automático será dimensionado de forma automática e instantânea para suas necessidades de consumo dentro dos intervalos de RU especificados sem comprometer os SLAs. Para saber mais, consulte o artigo [criar contêineres e bancos de dados do Azure Cosmos no modo de dimensionamento automático](provision-throughput-autoscale.md) .
+Além da maneira padrão (manual) ou programática de provisionar a taxa de transferência, você também pode configurar contêineres de Cosmos do Azure na taxa de transferência provisionada de dimensionamento automático. O dimensionamento automático será dimensionado de forma automática e instantânea para suas necessidades de consumo dentro dos intervalos de RU especificados sem comprometer os SLAs. Para saber mais, consulte o artigo [criar contêineres e bancos de dados do Azure Cosmos no dimensionamento automático](provision-throughput-autoscale.md) .
 
 A vantagem dessa abordagem é que é a maneira mais fácil de gerenciar as necessidades de dimensionamento em seu sistema. Ele garante a não aplicação da limitação de taxa **dentro dos intervalos de ru configurados**. A desvantagem é que, se as necessidades de dimensionamento em seu sistema forem previsíveis, o dimensionamento automático poderá ser uma maneira menos econômica de lidar com suas necessidades de dimensionamento do que usar as abordagens do plano de controle do bespoke ou do nível do SDK mencionadas acima.
 

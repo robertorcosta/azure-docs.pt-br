@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 07bf03096cbe5ec8e0fe9619519fdddb91cde984
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf690ad3ad38632834a92c4a743b1cb584beaf65
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231655"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838817"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -38,6 +38,7 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure (exceto p
 * [Série HB](../hb-series.md)
 * [Série HC](../hc-series.md)
 * Série [ls](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) e [série Lsv2](../lsv2-series.md)
+* [Série M](../m-series.md)
 * [Série Mv2](../mv2-series.md)<sup>1</sup>
 * Série [NCv2](../ncv2-series.md) e [série NCv3](../ncv3-series.md)
 * [Série ND](../nd-series.md)
@@ -85,7 +86,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Recursos de geração 1 versus geração 2
 
-| Funcionalidade | Geração 1 | 2ª geração |
+| Capacidade | Geração 1 | 2ª geração |
 |------------|--------------|--------------|
 | Disco do sistema operacional > 2 TB                    | :x:                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
@@ -146,7 +147,7 @@ Consulte a seção [recursos e funcionalidades](#features-and-capabilities) para
 
 Você pode criar uma VM de geração 2 de uma imagem gerenciada ou de um disco gerenciado da mesma maneira que criaria uma VM de geração 1.
 
-### <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
+### <a name="virtual-machine-scale-sets"></a>conjuntos de escala de máquina virtual
 
 Você também pode criar VMs de geração 2 usando conjuntos de dimensionamento de máquinas virtuais. No CLI do Azure, use conjuntos de dimensionamento do Azure para criar VMs de geração 2.
 

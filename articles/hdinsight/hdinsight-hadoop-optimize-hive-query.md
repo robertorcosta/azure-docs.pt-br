@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 4955df718dcc8f169232052979ccf4a636c3be80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390307"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791486"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Apache Hive no Azure HDInsight
 
@@ -122,7 +122,7 @@ Para obter mais informações, consulte [Partitioned Tables](https://cwiki.apach
 
 ## <a name="use-the-orcfile-format"></a>Use o formato ORCFile
 
-O Hive dá suporte a vários formatos de arquivo. Por exemplo:
+O Hive dá suporte a vários formatos de arquivo. Por exemplo: 
 
 * **Texto**: é o formato de arquivo padrão e funciona com a maioria dos cenários.
 * **Avro**: funciona bem para cenários de interoperabilidade.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Em seguida, insira dados na tabela ORC a partir da tabela de preparo. Por exemplo:
+Em seguida, insira dados na tabela ORC a partir da tabela de preparo. Por exemplo: 
 
 ```sql
 INSERT INTO TABLE lineitem_orc
@@ -198,5 +198,6 @@ Há mais métodos de otimização que você pode considerar, por exemplo:
 Neste artigo, você aprendeu a vários métodos comuns de otimização de consultas do Hive. Para saber mais, leia os seguintes artigos:
 
 * [Usar o Apache Hive no HDInsight](hadoop/hdinsight-use-hive.md)
+* [Otimizar o Apache Hive](./optimize-hive-ambari.md)
 * [Analisar dados de atraso de voo usando a consulta interativa no HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analise os dados do Twitter usando o Apache Hive no HDInsight](hdinsight-analyze-twitter-data-linux.md)

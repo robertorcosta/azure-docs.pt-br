@@ -1,18 +1,18 @@
 ---
-title: Gerenciamento de leads para o compromisso com o cliente do Dynamics 365 | Azure Marketplace
-description: Configure o gerenciamento de leads para o compromisso com o cliente do Dynamics 365.
+title: Gerenciamento de leads para o compromisso com o cliente do Dynamics 365-Microsoft Commercial Marketplace
+description: Saiba como configurar o compromisso com o cliente do Dynamics 365 para gerenciar clientes potenciais do Microsoft AppSource e do Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131047"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790993"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurar o gerenciamento de leads para o compromisso do cliente do Dynamics 365
 
@@ -23,12 +23,12 @@ Este artigo descreve como configurar o engajamento do cliente do Dynamics 365 (a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As permissões de usuário a seguir são necessárias para concluir as etapas neste artigo. Você precisa:
+As seguintes permissões de usuário são necessárias para concluir as etapas neste artigo:
 
-* Seja um administrador em sua instância do engajamento do cliente do Dynamics 365 para poder instalar uma solução e seguir estas instruções.
-* Ser um administrador de locatários para criar uma nova conta de serviço para o serviço de Lead usado para enviar clientes potenciais de ofertas do Marketplace comercial.
-* Ter acesso ao portal de administração do Office 365.
-* Ter acesso ao portal do Azure.
+* Direitos de administrador em sua instância do engajamento do cliente do Dynamics 365 para poder instalar uma solução.
+* Direitos de administrador de locatários para criar uma nova conta de serviço para o serviço de Lead usado para enviar clientes potenciais de ofertas do Marketplace comercial.
+* Acesso ao portal de administração do Office 365.
+* Acesso ao portal do Azure.
 
 ## <a name="install-the-solution"></a>Instalar a solução
 

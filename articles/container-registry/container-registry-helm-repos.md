@@ -3,12 +3,12 @@ title: Armazenar gráficos do Helm
 description: Saiba como armazenar gráficos Helm para seus aplicativos kubernetes usando repositórios no registro de contêiner do Azure
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04ba3aaf312188ab77c04a97ab960cf9b9af078f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399386"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857618"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Enviar por push e efetuar pull de gráficos do Helm para um registro de contêiner do Azure
 
@@ -31,8 +31,8 @@ Você pode usar o Helm 3 ou o Helm 2 para hospedar gráficos Helm no registro de
 ### <a name="additional-information"></a>Informações adicionais
 
 * Para a maioria dos cenários, é recomendável usar o fluxo de `helm chart` trabalho Helm 3 com comandos nativos para gerenciar gráficos como artefatos de OCI.
-* Você pode usar os comandos e o fluxo de trabalho do [AZ ACR helm][az-acr-helm] CLI do azures herdados com o cliente e os gráficos do Helm 3. No entanto, alguns comandos `az acr helm list` como não são compatíveis com gráficos Helm 3.
-* A partir de Helm 3, os comandos [AZ ACR Helm][az-acr-helm] têm suporte principalmente para compatibilidade com o cliente Helm 2 e o formato de gráfico. O desenvolvimento futuro desses comandos não está planejado no momento.
+* A partir de Helm 3, os comandos [AZ ACR Helm][az-acr-helm] têm suporte para compatibilidade com o cliente Helm 2 e o formato de gráfico. O desenvolvimento futuro desses comandos não está planejado no momento. Consulte o [roteiro do produto](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
+* Gráficos Helm 2 não podem ser exibidos ou gerenciados usando o portal do Azure.
 
 ## <a name="use-the-helm-3-client"></a>Usar o cliente Helm 3
 
@@ -178,7 +178,7 @@ A saída é semelhante a:
 }
 ```
 
-Execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] para ver detalhes do gráfico armazenado no repositório. Por exemplo:
+Execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] para ver detalhes do gráfico armazenado no repositório. Por exemplo: 
 
 ```azurecli
 az acr repository show-manifests \
@@ -246,7 +246,7 @@ version: 0.1.0
 
 ### <a name="install-helm-chart"></a>Instalar o gráfico do Helm
 
-Execute `helm install` para instalar o gráfico Helm que você recebeu no cache local e exportado. Especifique um nome de versão, como *myhelmtest*, ou passe `--generate-name` o parâmetro. Por exemplo:
+Execute `helm install` para instalar o gráfico Helm que você recebeu no cache local e exportado. Especifique um nome de versão, como *myhelmtest*, ou passe `--generate-name` o parâmetro. Por exemplo: 
 
 ```console
 helm install myhelmtest ./hello-world

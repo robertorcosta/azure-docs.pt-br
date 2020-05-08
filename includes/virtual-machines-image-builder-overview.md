@@ -57,7 +57,7 @@ O AIB dará suporte a imagens do sistema operacional base do Azure Marketplace:
 
 O suporte do RHEL ISOs está sendo preterido. Examine a documentação do modelo para obter mais detalhes.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 
 ![Desenho conceitual do construtor de imagens do Azure](./media/virtual-machines-image-builder-overview/image-builder.png)

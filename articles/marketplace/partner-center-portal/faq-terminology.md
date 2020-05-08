@@ -1,26 +1,24 @@
 ---
-title: Perguntas frequentes e terminologia para a análise do Marketplace comercial no Partner Center
-description: Saiba como abordar as perguntas mais frequentes sobre a análise do Marketplace comercial. Inclui um dicionário de dados para a terminologia de análise.
+title: Perguntas frequentes sobre a análise do Marketplace comercial & terminologia-Partner Center
+description: Obtenha respostas para perguntas frequentes sobre a análise do Marketplace comercial no Partner Center. Este artigo inclui um dicionário de dados para a terminologia de análise.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251819"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791469"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Perguntas frequentes e terminologia para análise do Marketplace comercial
+# <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologia e perguntas comuns sobre a análise do Marketplace comercial
 
 Este artigo aborda as perguntas mais frequentes sobre as mensagens de análise no Partner Center e também fornece um dicionário de terminologia de análise.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
-
-Esta seção fornece respostas para perguntas frequentes sobre **nenhuma análise disponível ainda** em mensagens no Partner Center.
+## <a name="common-questions"></a>Perguntas comuns
 
 **Não consigo exibir meus dados de análise no Partner Center. Quando acesso essas páginas, vejo a mensagem abaixo. Por que isso?**
 

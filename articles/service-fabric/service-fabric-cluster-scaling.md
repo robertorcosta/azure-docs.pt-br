@@ -4,12 +4,12 @@ description: Saiba mais sobre dimensionamento de clusters do Azure Service Fabri
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258688"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793169"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Dimensionar clusters do Azure Service Fabric
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Os clusters podem conter potencialmente milhares de nós. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
@@ -29,13 +29,13 @@ Ao dimensionar um cluster do Azure, lembre-se das diretrizes a seguir:
 - os tipos de nó não primário que executam cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
 - os tipos de nó não primário que executam cargas de trabalho de produção sem estado sempre devem ter dois ou mais nós.
 - Todos os tipos de nó com [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de Ouro ou Prata sempre devem ter cinco ou mais nós.
-- Não remova nós/instâncias de VM aleatórias de um tipo de nó, sempre use o recurso de redução vertical do conjunto de dimensionamento de máquinas virtuais. A exclusão de instâncias de VM aleatórias pode afetar negativamente a capacidade do sistema para balancear carga adequadamente.
+- Não remova instâncias/nós de VM aleatórios de um tipo de nó, sempre use a escala do conjunto de dimensionamento de máquinas virtuais no recurso. A exclusão de instâncias de VM aleatórias pode afetar negativamente a capacidade do sistema para balancear carga adequadamente.
 - Se estiver usando regras de autoescala, defina as regras para que a redução horizontal (remoção de instâncias de VM) seja feito um nó por vez. Redução de mais de uma instância em um momento não é segura.
 
-Como os tipos de nós do Service Fabric no cluster são compostos de conjuntos de dimensionamento de máquinas virtuais no back-end, é possível [configurar regras de autoescala ou dimensionar manualmente](service-fabric-cluster-scale-up-down.md) cada tipo de nó/conjunto de dimensionamento de máquinas virtuais.
+Como os tipos de nós do Service Fabric no cluster são compostos de conjuntos de dimensionamento de máquinas virtuais no back-end, é possível [configurar regras de autoescala ou dimensionar manualmente](service-fabric-cluster-scale-in-out.md) cada tipo de nó/conjunto de dimensionamento de máquinas virtuais.
 
 ### <a name="programmatic-scaling"></a>Dimensionamento programático
-Em muitos cenários, [Dimensionar um cluster manualmente ou com regras de autoescala](service-fabric-cluster-scale-up-down.md) é uma boa solução. Para cenários mais avançados, no entanto, eles podem não ser adequados. As desvantagens desses métodos incluem:
+Em muitos cenários, [Dimensionar um cluster manualmente ou com regras de autoescala](service-fabric-cluster-scale-in-out.md) é uma boa solução. Para cenários mais avançados, no entanto, eles podem não ser adequados. As desvantagens desses métodos incluem:
 
 - O dimensionamento manual exige que você entre e solicite explicitamente as operações de dimensionamento. Se as operações de dimensionamento são necessárias com frequência ou em momentos imprevisíveis, essa abordagem não pode ser uma boa solução.
 - Quando as regras de dimensionamento automático removem uma instância de um conjunto de dimensionamento de máquinas virtuais, elas não removem o conhecimento do nó do cluster do Service Fabric associado, a menos que o tipo de nó tenha um nível de durabilidade de Prata ou Ouro. Como as regras de dimensionamento automático funcionam no nível do conjunto de dimensionamento (em vez do nível do Service Fabric), elas podem remover nós do Service Fabric sem desligá-lo normalmente. Essa remoção de nó sem maiores cuidados deixará um estado do nó do Service Fabric “fantasma” de rastro após as operações de redução horizontal. Uma pessoa (ou um serviço) precisaria limpar periodicamente o estado do nó removido no cluster do Service Fabric.
