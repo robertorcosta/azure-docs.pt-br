@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257194"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594603"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,28 +128,32 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Depuração e solução de problemas no designer de Azure Machine Learning (versão prévia)
 
-Esta seção fornece uma visão geral de como solucionar problemas de pipelines no designer.
-Para pipelines criados no designer, você pode encontrar os **arquivos de log** na página de criação ou na página de detalhes de execução do pipeline.
+Esta seção fornece uma visão geral de como solucionar problemas de pipelines no designer. Para pipelines criados no designer, você pode encontrar o arquivo de **70_driver_log** na página de criação ou na página de detalhes de execução de pipeline.
 
-### <a name="access-logs-from-the-authoring-page"></a>Acessar logs da página de criação
+### <a name="get-logs-from-the-authoring-page"></a>Obter logs da página de criação
 
-Ao enviar uma execução de pipeline e permanecer na página de criação, você pode encontrar os arquivos de log gerados para cada módulo.
+Ao enviar uma execução de pipeline e permanecer na página de criação, você poderá encontrar os arquivos de log gerados para cada módulo à medida que cada módulo terminar a execução.
 
-1. Selecione qualquer módulo na tela de criação.
+1. Selecione um módulo que concluiu a execução na tela de criação.
 1. No painel direito do módulo, vá para a guia **saídas + logs** .
-1. Selecione o arquivo `70_driver_log.txt`de log.
+1. Expanda o painel direito e selecione o **70_driver_log. txt** para exibir o arquivo no navegador. Você também pode baixar logs localmente.
 
-    ![Criando logs de módulo de página](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="access-logs-from-pipeline-runs"></a>Acessar logs de execuções de pipeline
+### <a name="get-logs-from-pipeline-runs"></a>Obter logs de execuções de pipeline
 
-Você também pode encontrar os arquivos de log de execuções específicas na página de detalhes de execução do pipeline nas seções **pipelines** ou **experimentos** .
+Você também pode encontrar os arquivos de log para execuções específicas na página de detalhes de execução do pipeline, que pode ser encontrada na seção **pipelines** ou **experimentos** do estúdio.
 
 1. Selecione uma execução de pipeline criada no designer.
-    ![Página de execução de pipeline](./media/how-to-debug-pipelines/pipelinerun-04.png)
-1. Selecione qualquer módulo no painel de visualização.
+
+    ![Página de execução de pipeline](./media/how-to-debug-pipelines/designer-pipelines.png)
+
+1. Selecione um módulo no painel de visualização.
 1. No painel direito do módulo, vá para a guia **saídas + logs** .
-1. Selecione o arquivo `70_driver_log.txt`de log.
+1. Expanda o painel direito para exibir o arquivo **70_driver_log. txt** no navegador ou selecione o arquivo para baixar os logs localmente.
+
+> [!IMPORTANT]
+> Para atualizar um pipeline da página de detalhes de execução do pipeline, você deve **clonar** a execução do pipeline para um novo rascunho do pipeline. Uma execução de pipeline é um instantâneo do pipeline. Ele é semelhante a um arquivo de log e não pode ser alterado. 
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Depuração e solução de problemas no Application Insights
 Para obter mais informações sobre como usar a biblioteca do OpenCensus Python dessa maneira, consulte este guia: [depurar e solucionar problemas de pipelines do Machine Learning no Application insights](how-to-debug-pipelines-application-insights.md)
@@ -171,7 +175,7 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 
 Para saber mais sobre como usar uma rede virtual do Azure com Azure Machine Learning, confira [trabalhos de inferência e experimentação seguros do Azure ml em uma rede virtual do Azure](how-to-enable-virtual-network.md).
 
-### <a name="how-it-works"></a>Como isso funciona
+### <a name="how-it-works"></a>Como ele funciona
 
 Suas etapas de pipeline ML executam scripts Python. Esses scripts são modificados para executar as seguintes ações:
     

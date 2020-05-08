@@ -16,12 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 730e478622da8cd90af1c559e4d0c6fd04151cca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 690cb37df4a5d195bfce6ee792f7565a6f7f1768
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686803"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612768"
 ---
 # <a name="develop-a-secure-web-app"></a>Desenvolver um aplicativo Web seguro
 
@@ -104,7 +105,7 @@ Este aplicativo usado:
 - [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para implantação.
 - [Hub do Docker](https://hub.docker.com/) como o registro de contêiner.
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 ### <a name="network"></a>Rede
 
@@ -920,7 +921,7 @@ Para criar este espaço de trabalho:
 
       *Adicionar diagnóstico do gateway de aplicativo*
 
-   4. Na página **configurações de diagnóstico** , selecione o espaço de trabalho log Analytics que você criou e, em seguida, selecione todas as métricas que deseja coletar e enviar para o Azure Sentinel. Selecione **Salvar**.
+   4. Na página **configurações de diagnóstico** , selecione o espaço de trabalho log Analytics que você criou e, em seguida, selecione todas as métricas que deseja coletar e enviar para o Azure Sentinel. Clique em **Salvar**.
 
         ![Configurações do conector do Azure Sentinel](./media/secure-web-app/sentinel-connector-settings.png)
 

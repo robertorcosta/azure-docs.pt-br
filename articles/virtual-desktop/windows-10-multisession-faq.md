@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637092"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611986"
 ---
-# <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
+# <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise multissessão
 
 Este artigo responde a perguntas frequentes e explica as práticas recomendadas para o Windows 10 Enterprise Multi-Session.
  
@@ -104,4 +104,4 @@ Para saber mais sobre a área de trabalho virtual do Windows e a várias sessõe
 
 - Leia nossa [documentação da versão prévia da área de trabalho virtual do Windows](overview.md)
 - Visite nossa [área de trabalho virtual do Windows TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
-- Configurar sua implantação de área de trabalho virtual do Windows com os [tutoriais de área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md)
+- Configurar sua implantação de área de trabalho virtual do Windows com os [tutoriais de área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

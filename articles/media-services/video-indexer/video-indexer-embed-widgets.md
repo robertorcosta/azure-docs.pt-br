@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262903"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594841"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Inserir Video Indexer widgets em seus aplicativos
 
 Este artigo mostra como você pode inserir Video Indexer widgets em seus aplicativos. O Video Indexer dá suporte à inserção de três tipos de widgets em seus aplicativos: *ideias cognitivas*, *Player*e *Editor*.
 
-A partir da versão 2, a URL base do widget inclui a região da conta especificada. Por exemplo, uma conta da região Oeste dos EUA gera: `https://wus2.videoindexer.ai/embed/insights/...`.
+A partir da versão 2, a URL base do widget inclui a região da conta especificada. Por exemplo, uma conta da região Oeste dos EUA gera: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
 ## <a name="widget-types"></a>Tipos de widget
 
@@ -29,19 +29,20 @@ A partir da versão 2, a URL base do widget inclui a região da conta especifica
 
 Um widget Insights cognitivos inclui todos os insights visuais que foram extraídos do processo de indexação do seu vídeo. O widget cognitiva insights dá suporte aos seguintes parâmetros de URL opcionais:
 
-|Name|Definição|Descrição|
+|Nome|Definição|Descrição|
 |---|---|---|
 |`widgets` | Cadeias de caracteres separadas por vírgula | Permite que você controle as informações que deseja renderizar.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renderiza apenas pessoas e palavras-chave da interface do usuário.<br/>Opções disponíveis: pessoas, animatedCharacters, palavras-chave, rótulos, sentimentos, emoções, tópicos, quadros chave, transcrição, OCR, alto-falantes, cenas e namedEntities.|
 |`controls`|Cadeias de caracteres separadas por vírgula|Permite que você controle os controles que deseja renderizar.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renderiza apenas a opção de pesquisa e o botão de download.<br/>Opções disponíveis: Pesquisar, baixar, predefinições, idioma.|
 |`language`|Um código de idioma curto (nome do idioma)|Controla a linguagem de informações.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>ou `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Um código de idioma curto | Controla o idioma da interface do usuário. O valor padrão é `en`. <br/>Exemplo: `locale=de`.|
 |`tab` | A guia selecionada padrão | Controla a guia **insights** que é renderizada por padrão. <br/>Exemplo: `tab=timeline` renderiza as informações com a guia **linha do tempo** selecionada.|
+|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` parâmetro.| 
 
 ### <a name="player-widget"></a>Widget do player
 
 Você pode usar o widget Player para transmitir vídeo usando a taxa de bits adaptável. O widget Player dá suporte aos seguintes parâmetros de URL opcionais.
 
-|Name|Definição|Descrição|
+|Nome|Definição|Descrição|
 |---|---|---|
 |`t` | Segundos desde o início | Faz com que o Player comece a ser reproduzido do ponto de tempo especificado.<br/> Exemplo: `t=60`. |
 |`captions` | Um código de idioma | Busca a legenda no idioma especificado durante o carregamento do widget para estar disponível no menu **legendas** .<br/> Exemplo: `captions=en-US`. |
@@ -49,34 +50,40 @@ Você pode usar o widget Player para transmitir vídeo usando a taxa de bits ada
 |`type`| | Ativa uma capa de player de áudio (a parte de vídeo é removida).<br/> Exemplo: `type=audio`. |
 |`autoplay` | Um valor booliano | Indica se o Player deve começar a reproduzir o vídeo quando carregado. O valor padrão é `true`.<br/> Exemplo: `autoplay=false`. |
 |`language`/`locale` | Um código de idioma | Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`.|
+|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` parâmetro.| 
 
 ### <a name="editor-widget"></a>Widget do editor
 
 Você pode usar o widget editor para criar novos projetos e gerenciar informações de um vídeo. O widget editor dá suporte aos seguintes parâmetros de URL opcionais.
 
-|Name|Definição|Descrição|
+|Nome|Definição|Descrição|
 |---|---|---|
-|`accessToken`<sup>*</sup> | Cadeia de caracteres | Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer `accessToken` o parâmetro. |
+|`accessToken`<sup>*</sup> | String | Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer `accessToken` o parâmetro. |
 |`language` | Um código de idioma | Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`. |
 |`locale` | Um código de idioma curto | Controla o idioma do insights. O valor padrão é `en`.<br/>Exemplo: `language=de`. |
+|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` paramete.| 
 
 <sup>*</sup>O proprietário deve fornecer `accessToken` com cuidado.
 
-## <a name="embedding-public-content"></a>Inserindo conteúdo público
+## <a name="embedding-videos"></a>Inserindo vídeos
+
+Esta seção aborda a inserção de conteúdo público e privado em aplicativos.
+
+O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` paramete. Por exemplo: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
+> [!IMPORTANT]
+> O compartilhamento de um link para o widget **Player** ou **insights** incluirá o token de acesso e concederá as permissões somente leitura à sua conta.
+
+### <a name="public-content"></a>Conteúdo público
 
 1. Entre no site do [Video indexer](https://www.videoindexer.ai/) .
-2. Selecione o vídeo com o qual você deseja trabalhar.
-3. Selecione o botão Inserir (**</>**) que aparece sob o vídeo.
-
-    Depois de selecionar o botão **Inserir** , você pode selecionar o widget que deseja inserir em seu aplicativo.
-4. Selecione o tipo de widget que você deseja (**ideias cognitivas**, **Player**ou **Editor**).
+1. Selecione o vídeo com o qual você deseja trabalhar e pressione **reproduzir**.
+1. Selecione o tipo de widget que você deseja (**ideias cognitivas**, **Player**ou **Editor**).
+1. Clique ** &lt; / em &gt; inserir**.
 5. Copie o código de inserção (aparece em **copiar o código inserido** na caixa de diálogo **compartilhar & inserir** ).
 6. Adicione o código ao seu aplicativo.
 
-> [!NOTE]
-> Se você tiver problemas para compartilhar suas URLs de vídeo, `location` adicione o parâmetro ao link. O parâmetro deve ser definido para as [regiões do Azure nas quais Video indexer existe](regions.md). Por exemplo: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
-
-## <a name="embedding-private-content"></a>Inserindo conteúdo privado
+### <a name="private-content"></a>Conteúdo privado
 
 Para inserir um vídeo privado, você deve passar um token de acesso no `src` atributo do iframe:
 
@@ -186,7 +193,7 @@ Se você usar um player de vídeo diferente de Player de Mídia do Azure, será 
         </video>    
 
 2. Insira o widget de Insights cognitivos.
-3. Implemente a comunicação para seu player escutando o evento de "mensagem". Por exemplo:
+3. Implemente a comunicação para seu player escutando o evento de "mensagem". Por exemplo: 
 
         <script>
     
@@ -247,7 +254,7 @@ Observe que essa opção será relevante apenas em casos em que for necessário 
 
 Se inserir o player do Video Indexer, você poderá escolher seu tamanho especificando o tamanho do iframe.
 
-Por exemplo:
+Por exemplo: 
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

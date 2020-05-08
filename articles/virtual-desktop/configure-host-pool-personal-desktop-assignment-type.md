@@ -5,22 +5,32 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 41b24a94d36b21fe5d5f539e056abb535bda433a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8451dc14a7ed42aa92f9adbd5ad050936949e302
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128294"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612411"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configurar o tipo de atribuição de pool de hosts de área de trabalho pessoal
+
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/configure-host-pool-personal-desktop-assignment-type-2019.md).
+>
+> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Você pode configurar o tipo de atribuição de seu pool de hosts de área de trabalho pessoal para ajustar o ambiente de área de trabalho virtual do Windows para atender melhor às suas necessidades. Neste tópico, mostraremos como configurar a atribuição automática ou direta para seus usuários.
 
 >[!NOTE]
 > As instruções neste artigo se aplicam somente a pools de hosts de área de trabalho pessoais, não pools de hosts em pool, pois os usuários em pools de hosts em pool não são atribuídos a hosts de sessão
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este artigo pressupõe que você já baixou e instalou o módulo do PowerShell de área de trabalho virtual do Windows. Se você ainda não fez isso, siga as instruções em [Configurar o módulo do PowerShell](powershell-module.md).
 
 ## <a name="configure-automatic-assignment"></a>Configurar atribuição automática
 
@@ -28,27 +38,16 @@ Atribuição automática é o tipo de atribuição padrão para novos pools de h
 
 Para atribuir usuários automaticamente, primeiro atribua-os ao pool de hosts de área de trabalho pessoal para que eles possam ver a área de trabalho em seu feed. Quando um usuário atribuído iniciar a área de trabalho no feed, ele solicitará um host de sessão disponível se ainda não tiver se conectado ao pool de hosts, o que concluirá o processo de atribuição.
 
-Antes de começar, [Baixe e importe o módulo do PowerShell da área de trabalho virtual do Windows](/powershell/windows-virtual-desktop/overview/) , caso ainda não tenha feito isso. 
-
-> [!NOTE]
-> Verifique se você instalou o módulo do PowerShell da área de trabalho virtual do Windows versão 1.0.1534.2001 ou posterior antes de seguir estas instruções.
-
-Depois disso, execute o seguinte cmdlet para entrar em sua conta:
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
 Para configurar um pool de hosts para atribuir usuários automaticamente a VMs, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Automatic
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -PersonalDesktopAssignmentType Automatic
 ```
 
 Para atribuir um usuário ao pool de hosts de área de trabalho pessoal, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 ## <a name="configure-direct-assignment"></a>Configurar atribuição direta
@@ -58,19 +57,19 @@ Ao contrário da atribuição automática, ao usar a atribuição direta, você 
 Para configurar um pool de hosts para exigir atribuição direta de usuários a hosts de sessão, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Direct
+Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -PersonalDesktopAssignmentType Direct
 ```
 
 Para atribuir um usuário ao pool de hosts de área de trabalho pessoal, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 Para atribuir um usuário a um host de sessão específico, execute o seguinte cmdlet do PowerShell:
 
 ```powershell
-Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
+Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -79,3 +78,6 @@ Agora que você configurou o tipo de atribuição de área de trabalho pessoal, 
 
 - [Conectar-se ao Cliente de Área de Trabalho do Windows](connect-windows-7-and-10.md)
 - [Conectar-se ao cliente Web](connect-web.md)
+- [Conectar-se ao cliente Android](connect-android.md)
+- [Conectar-se ao cliente iOS](connect-ios.md)
+- [Conectar-se ao cliente macOS](connect-macos.md)

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 00d5b86c8cae01d342d55b7ad20ec59c3f7530bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1de7b1412a242e1b658128ba11f482a2d9dc3107
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67707830"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594790"
 ---
 # <a name="scaling-hpc-applications"></a>Dimensionamento de aplicativos HPC
 
@@ -37,7 +37,7 @@ Clang é um compilador C, C++ e Objective-C que manipula o pré-processamento, a
 
 ### <a name="flang"></a>FLANG
 
-O compilador FLANG é uma adição recente ao AOCC Suite (adicionado em abril de 2018) e atualmente está em pré-lançamento para que os desenvolvedores baixem e testem. Com base no Fortran 2008, o AMD estende a versão do GitHubhttps://github.com/flangcompiler/flang)do Flang (. O compilador FLANG dá suporte a todas as opções do compilador Clang e a um número adicional de opções de compilador específicas do FLANG.
+O compilador FLANG é uma adição recente ao AOCC Suite (adicionado em abril de 2018) e atualmente está em pré-lançamento para que os desenvolvedores baixem e testem. Com base no Fortran 2008, o AMD estende a versão do GitHubhttps://github.com/flang-compiler/flang)do Flang (. O compilador FLANG dá suporte a todas as opções do compilador Clang e a um número adicional de opções de compilador específicas do FLANG.
 
 ### <a name="dragonegg"></a>DragonEgg
 

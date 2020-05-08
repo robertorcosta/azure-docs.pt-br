@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09012d93a1f9fd24427cb8b3937b3a36cf75d9e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36c7bb426a329a54f333b76e028b884204543014
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834179"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582985"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -34,15 +34,15 @@ Durante o processo de controle do administrador, você pode comprovar a propried
 
 ## <a name="internal-admin-takeover"></a>Controle de administrador interno
 
-Alguns produtos que incluem o SharePoint e OneDrive, como o Office 365, não dão suporte a controle externo. Se esse for o seu cenário ou se você for um administrador e deseja controlar um locatário de “sombra” não gerenciado criado pelos usuários que usaram inscrição de autoatendimento, faça isso por meio do controle de administrador interno.
+Alguns produtos que incluem o SharePoint e OneDrive, como o Office 365, não dão suporte a controle externo. Se esse for o seu cenário, ou se você for um administrador e quiser assumir uma organização não gerenciada ou "sombra" do Azure AD criada por usuários que usaram inscrição de autoatendimento, você pode fazer isso com um tomada de administrador interno.
 
-1. Crie um contexto de usuário no locatário não gerenciado por meio da inscrição para Power BI. Para fins de conveniência do exemplo, essas etapas pressupõem esse caminho.
+1. Crie um contexto de usuário na organização não gerenciada por meio da inscrição para Power BI. Para fins de conveniência do exemplo, essas etapas pressupõem esse caminho.
 
 2. Abra o [site do Power BI](https://powerbi.com) e selecione **Iniciar gratuitamente**. Insira uma conta de usuário que usa o nome de domínio para a organização como, por exemplo, `admin@fourthcoffee.xyz`. Depois que você inserir o código de verificação, confira seu email para ver o código de confirmação.
 
 3. No email de confirmação do Power BI, selecione **Sim, sou eu**.
 
-4. Entre no centro de [Administração do Microsoft 365](https://portal.office.com/admintakeover) com a conta de usuário do Power bi. Você receberá uma mensagem instruindo-lhe a **Tornar-se o administrador** do nome de domínio que já foi verificado no locatário não gerenciado. selecione **Sim, quero ser o administrador**.
+4. Entre no centro de [Administração do Microsoft 365](https://portal.office.com/admintakeover) com a conta de usuário do Power bi. Você recebe uma mensagem que instrui você a **se tornar o administrador** do nome de domínio que já foi verificado na organização não gerenciada. selecione **Sim, quero ser o administrador**.
   
    ![primeira captura de tela para Tornar-se o administrador](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -50,35 +50,35 @@ Alguns produtos que incluem o SharePoint e OneDrive, como o Office 365, não dã
   
    ![Adicionar um registro txt para o nome de domínio](./media/domains-admin-takeover/become-admin-txt-record.png)
 
-Quando os registros TXT do DNS forem verificados no seu registrador de nomes de domínio, você poderá gerenciar o locatário do Azure AD.
+Quando os registros TXT do DNS são verificados no seu registrador de nome de domínio, você pode gerenciar a organização do Azure AD.
 
-Após concluir as etapas anteriores, você será o administrador global do locatário Fourth Coffee no Office 365. Para integrar o nome de domínio aos outros serviços do Azure, você pode removê-lo do Office 365 e adicioná-lo a um locatário gerenciado diferente no Azure.
+Ao concluir as etapas anteriores, agora você é o administrador global da Fourth Coffee Organization in Office 365. Para integrar o nome de domínio com seus outros serviços do Azure, você pode removê-lo do Office 365 e adicioná-lo a uma organização gerenciada diferente no Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Como adicionar o nome de domínio a um locatário gerenciado no Azure AD
+### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Adicionando o nome de domínio a uma organização gerenciada no Azure AD
 
 1. Abra o [centro de administração do Microsoft 365](https://admin.microsoft.com).
 2. Selecione a guia **usuários** e crie uma nova conta de usuário com um nome como o *usuário\@fourthcoffeexyz.onmicrosoft.com* que não usa o nome de domínio personalizado. 
-3. Verifique se a nova conta de usuário tem privilégios de administrador global para o locatário do Azure AD.
+3. Verifique se a nova conta de usuário tem privilégios de administrador global para a organização do Azure AD.
 4. Abra a guia **domínios** no centro de administração Microsoft 365, selecione o nome de domínio e selecione **remover**. 
   
    ![remover o nome de domínio do Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
 5. Se você tiver usuários ou grupos no Office 365 que fazem referência ao nome de domínio removido, eles deverão ser renomeados para o domínio .onmicrosoft.com. Se você forçar a exclusão do nome de domínio, todos os usuários serão automaticamente renomeados, neste exemplo, para o *usuário\@fourthcoffeexyz.onmicrosoft.com*.
   
-6. Entre no [Centro de administração do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que seja um administrador global para o locatário para o Azure AD.
+6. Entre no centro de [Administração do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que seja o administrador global da organização do Azure AD.
   
 7. Selecione **Personalizar nomes de domínio** e adicione o nome de domínio. Você precisará inserir os registros TXT do DNS para verificar a propriedade do nome de domínio. 
   
    ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Os usuários do PowerBI ou do serviço Azure Rights Management que têm licenças atribuídas ao locatário do Office 365 devem salvar seus painéis, se o nome de domínio for removido. Eles devem entrar com um nome de usuário como *o\@usuário fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário\@fourthcoffee. xyz*.
+> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas na organização do Office 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como *o\@usuário fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário\@fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Controle do administrador externo
 
-Se você já gerencia um locatário com os serviços do Azure ou o Office 365, não será possível adicionar um nome de domínio personalizado se ele já estiver verificado em outro locatário do Azure AD. No entanto, do seu locatário gerenciado no Azure AD, você poderá controlar locatário não gerenciado como um controle de administrador externo. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
+Se você já gerencia uma organização com os serviços do Azure ou o Office 365, não é possível adicionar um nome de domínio personalizado se ele já estiver verificado em outra organização do Azure AD. No entanto, de sua organização gerenciada no Azure AD, você pode assumir uma organização não gerenciada como um tomada de administrador externo. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
 
-Quando você verificar a propriedade do nome de domínio, o Azure AD remove o nome de domínio do locatário não gerenciado e o migra para o locatário existente. O controle de administrador externo de um diretório não gerenciado requer o mesmo processo de validação de TXT do DNS que o controle de administrador interno. A diferença é que os itens a seguir também são movidos com o nome de domínio:
+Quando você verifica a propriedade do nome de domínio, o Azure AD remove o nome de domínio da organização não gerenciada e o move para a sua organização existente. O controle de administrador externo de um diretório não gerenciado requer o mesmo processo de validação de TXT do DNS que o controle de administrador interno. A diferença é que os itens a seguir também são movidos com o nome de domínio:
 
 - Usuários
 - Assinaturas
@@ -100,13 +100,13 @@ Os planos de serviço com suporte incluem:
 
 O tomada de administração externa não tem suporte para nenhum serviço que tenha planos de serviço que incluam o SharePoint, OneDrive ou Skype for Business; por exemplo, por meio de uma assinatura gratuita do Office. 
 
-Opcionalmente, você pode usar a opção [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio do locatário não gerenciado e verificá-lo no locatário desejado. 
+Opcionalmente, você pode usar a [opção **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio da organização não gerenciada e verificá-lo na organização desejada. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Mais informações sobre o RMS para pessoas
 
-Para [RMS para pessoas](/azure/information-protection/rms-for-individuals), quando o locatário não gerenciado está na mesma região que o locatário que você possui, a [chave de locatário da Proteção de Informações do Azure](/azure/information-protection/plan-implement-tenant-key) e os [modelos de proteção padrão](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) criados automaticamente são movidos adicionalmente com o nome de domínio.
+Para o [RMS para pessoas físicas](/azure/information-protection/rms-for-individuals), quando a organização não gerenciada está na mesma região que a organização que você possui, a [chave da organização de proteção de informações do Azure](/azure/information-protection/plan-implement-tenant-key) criada automaticamente e os modelos de [proteção padrão](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) também são movidos com o nome de domínio.
 
-A chave e os modelos não são movidos quando o locatário não gerenciado está em uma região diferente. Por exemplo, se o locatário não gerenciado estiver na Europa e a organização que você possui estiver em América do Norte.
+A chave e os modelos não são movidos quando a organização não gerenciada está em uma região diferente. Por exemplo, se a organização não gerenciada estiver na Europa e a organização que você possui estiver em América do Norte.
 
 Embora o RMS para pessoas seja projetado para oferecer suporte à autenticação do Microsoft Azure Active Directory para abrir o conteúdo protegido, ele não impede que os usuários também protejam o conteúdo. Se os usuários tiverem protegido o conteúdo com a assinatura do RMS para pessoas físicas e a chave e os modelos não tiverem sido movidos, esse conteúdo não poderá ser acessado após o tomada de domínio.
 
@@ -115,12 +115,12 @@ Você pode ver esses cmdlets usados no [exemplo do PowerShell](#powershell-examp
 
 cmdlet | Uso
 ------- | -------
-`connect-msolservice` | Quando solicitado, entre no seu locatário gerenciado.
-`get-msoldomain` | Mostra os nomes de domínio associados ao locatário atual.
-`new-msoldomain –name <domainname>` | Adiciona o nome de domínio ao locatário como Não verificado (nenhuma verificação de DNS foi executada ainda).
-`get-msoldomain` | O nome de domínio agora está incluído na lista de nomes de domínio associados com seu locatário gerenciado, mas está listado como **Não verificado**.
+`connect-msolservice` | Quando solicitado, entre em sua organização gerenciada.
+`get-msoldomain` | Mostra os nomes de domínio associados à organização atual.
+`new-msoldomain –name <domainname>` | Adiciona o nome de domínio à organização como não verificado (nenhuma verificação de DNS foi executada ainda).
+`get-msoldomain` | O nome de domínio agora está incluído na lista de nomes de domínio associados à sua organização gerenciada, mas está listado como não **verificado**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornece informações que serão colocadas no novo registro TXT do DNS para o domínio (MS=xxxxx). A verificação pode não acontecer imediatamente porque demora algum tempo para o registro TXT se propagar, portanto, aguarde alguns minutos antes de considerar a opção **-ForceTakeover**. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se seu nome de domínio ainda não foi verificado, você pode prosseguir com a opção **-ForceTakeover**. Ele verifica se o registro TXT foi criado e inicia o processo de tomada de controle.<li>A opção **-ForceTakeover** deve ser adicionada ao cmdlet apenas ao forçar um controle de administrador externo, como quando o locatário não gerenciado tem serviços do Office 365 que bloqueiam o controle.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se seu nome de domínio ainda não foi verificado, você pode prosseguir com a opção **-ForceTakeover**. Ele verifica se o registro TXT foi criado e inicia o processo de tomada de controle.<li>A opção **-ForceTakeover** deve ser adicionada ao cmdlet somente ao forçar um tomada de administrador externo, como quando a organização não gerenciada tem os serviços do Office 365 bloqueando o tomada.
 `get-msoldomain` | A lista de domínios agora mostra o nome de domínio como **Verificado**.
 
 > [!NOTE]
@@ -144,12 +144,12 @@ cmdlet | Uso
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    Por exemplo:
+    Por exemplo: 
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo:
+4. Copie o valor (o desafio) que é retornado deste comando. Por exemplo: 
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -160,7 +160,7 @@ cmdlet | Uso
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   Por exemplo:
+   Por exemplo: 
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force

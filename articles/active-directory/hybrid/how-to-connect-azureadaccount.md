@@ -16,12 +16,13 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 7f6b623cc5f864106dc2f119308370e80014a4c2
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67204524"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611017"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Alterar a senha da conta do Conector Azure AD
 A conta do conector do Azure AD deve ser gratuita pelo serviço. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um administrador global tiver por engano, redefina a senha na conta usando o PowerShell.
@@ -30,7 +31,7 @@ A conta do conector do Azure AD deve ser gratuita pelo serviço. Se você precis
 Se a conta do conector do Azure AD não puder contatar o Azure AD devido a problemas de autenticação, a senha poderá ser redefinida.
 
 1. Entre no servidor de sincronização do Azure AD Connector e inicie o PowerShell.
-2. Execute `Add-ADSyncAADServiceAccount`.  
+2. Execute `Add-ADSyncAADServiceAccount`.
    ![Cmdlet addadsyncaadserviceaccount do PowerShell](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
 3. Forneça credenciais de Administrador Global do Azure AD.
 
@@ -40,18 +41,13 @@ Esse cmdlet redefinirá a senha da conta de serviço e a atualizará no Azure AD
 Esta seção é uma lista de erros relatados por clientes que foram corrigidos por uma redefinição de credenciais na conta do conector do Azure AD.
 
 ---
-Evento 6900  
-O servidor encontrou um erro inesperado ao processar uma notificação de alteração de senha:  
-AADSTS70002: erro ao validar as credenciais. AADSTS50054: A senha antiga é usada para autenticação.
+Evento 6900 o servidor encontrou um erro inesperado ao processar uma notificação de alteração de senha: AADSTS70002: erro ao validar as credenciais. AADSTS50054: A senha antiga é usada para autenticação.
 
 ---
-Evento 659  
-Erro ao recuperar a configuração de sincronização de política de senha. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
-AADSTS70002: erro ao validar as credenciais. AADSTS50054: A senha antiga é usada para autenticação.
+Erro 659 do evento ao recuperar a configuração de sincronização da política de senha. Microsoft. IdentityModel. clients. ActiveDirectory. AdalServiceException: AADSTS70002: erro ao validar as credenciais. AADSTS50054: A senha antiga é usada para autenticação.
 
 ## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 * [Integrando suas identidades locais ao Azure Active Directory](whatis-hybrid-identity.md)
-

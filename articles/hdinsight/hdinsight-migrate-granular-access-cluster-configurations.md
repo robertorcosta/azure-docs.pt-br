@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/20/2020
+ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546347"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598463"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para acesso baseado em função granular para configurações de cluster
 
@@ -24,14 +24,14 @@ Anteriormente, os segredos poderiam ser obtidos por meio da API do HDInsight por
 
 A partir de 3 de setembro de 2019, o acesso a esses `Microsoft.HDInsight/clusters/configurations/action` segredos exigirá a permissão, o que significa que eles não podem mais ser acessados por usuários com a função leitor. As funções que têm essa permissão são colaborador, proprietário e a nova função de operador de cluster HDInsight (mais informações sobre isso abaixo).
 
-Também estamos introduzindo uma nova função de [operador de cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) que poderá recuperar segredos sem receber as permissões administrativas de colaborador ou proprietário. Resumidamente:
+Também estamos introduzindo uma nova função de [operador de cluster HDInsight](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) que poderá recuperar segredos sem receber as permissões administrativas de colaborador ou proprietário. Para resumir:
 
 | Função                                  | Anteriormente                                                                                        | Em frente       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Leitor                                | -Acesso de leitura, incluindo segredos                                                                   | -Acesso de leitura, **excluindo** segredos |           |   |   |
+| Leitor                                | -Acesso de leitura, incluindo segredos.                                                                   | -Acesso de leitura, **excluindo** segredos |           |   |   |
 | Operador de cluster HDInsight<br>(Nova função) | N/D                                                                                              | -Acesso de leitura/gravação, incluindo segredos         |   |   |
-| Colaborador                           | -Acesso de leitura/gravação, incluindo segredos<br>-Crie e gerencie todos os tipos de recursos do Azure.     | Nenhuma alteração |
-| Proprietário                                 | -Acesso de leitura/gravação, incluindo segredos<br>-Acesso completo a todos os recursos<br>-Delegar acesso a outras pessoas | Nenhuma alteração |
+| Colaborador                           | -Acesso de leitura/gravação, incluindo segredos.<br>-Crie e gerencie todos os tipos de recursos do Azure.<br>-Executar ações de script.     | Nenhuma alteração |
+| Proprietário                                 | -Acesso de leitura/gravação, incluindo segredos.<br>-Acesso completo a todos os recursos<br>-Delegar acesso a outras pessoas.<br>-Executar ações de script. | Nenhuma alteração |
 
 Para obter informações sobre como adicionar a atribuição de função de operador de cluster HDInsight a um usuário para conceder acesso de leitura/gravação a segredos de cluster, consulte a seção abaixo, [Adicionar a atribuição de função de operador de cluster HDInsight a um usuário](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user).
 

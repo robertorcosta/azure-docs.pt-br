@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189357"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592053"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Dimensionar clusters do Azure HDInsight
 
@@ -74,27 +74,38 @@ O impacto da alteração do número de nós de dados varia em cada tipo de clust
 
 * Apache Storm
 
-    Você pode adicionar ou remover nós de dados diretamente enquanto o Storm está em execução. No entanto, após uma conclusão bem-sucedida da operação de dimensionamento, você precisará reequilibrar a topologia.
-
-    A redistribuição pode ser feita de duas maneiras:
+    Você pode adicionar ou remover nós de dados diretamente enquanto o Storm está em execução. No entanto, após uma conclusão bem-sucedida da operação de dimensionamento, você precisará reequilibrar a topologia. O rebalanceamento permite que a topologia reajuste [as configurações de paralelismo](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) com base no novo número de nós no cluster. Para rebalancear topologias em execução, use uma das seguintes opções:
 
   * Interface da Web Storm
+
+    Use as etapas a seguir para redistribuir uma topologia usando a interface do usuário do Storm.
+
+    1. Abra `https://CLUSTERNAME.azurehdinsight.net/stormui` o no navegador da Web, `CLUSTERNAME` em que é o nome do cluster Storm. Se solicitado, insira o nome de administrador (admin) do cluster HDInsight e a senha que você especificou ao criar o cluster.
+
+    1. Selecione a topologia que você quer rebalancear e selecione o botão **Rebalancear** . Insira o atraso antes que a operação de rebalanceamento seja concluída.
+
+        ![Redistribuir escala do Storm do HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * Ferramenta CLI (interface de linha de comando)
 
-    Para obter mais informações, consulte a [documentação do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Conecte-se ao servidor e use o seguinte comando para redistribuir uma topologia:
 
-    A IU da Web do Storm está disponível no cluster HDInsight:
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![Redistribuir escala do Storm do HDInsight](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    Você também pode especificar parâmetros para substituir as dicas de paralelismo fornecidas originalmente pela topologia. Por exemplo, o código abaixo reconfigura a `mytopology` topologia para 5 processos de trabalho, 3 executores para o componente Blue-Spout e 10 executores para o componente de raio amarelo.
 
-    Veja um exemplo do comando CLI para redistribuir a topologia do Storm:
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    Você deverá redistribuir as réplicas de partições após as operações de dimensionamento. Para obter mais informações, consulte o documento [Alta disponibilidade de dados com o Apache Kafka no HDInsight](./kafka/apache-kafka-high-availability.md).
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Como reduzir com segurança um cluster
 
@@ -127,7 +138,7 @@ Para eliminar manualmente o aplicativo que está em execução, execute o seguin
 yarn application -kill <application_id>
 ```
 
-Por exemplo:
+Por exemplo: 
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -252,3 +263,8 @@ Os servidores de região são balanceados automaticamente em alguns minutos apó
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Dimensionar automaticamente os clusters do Azure HDInsight](hdinsight-autoscale-clusters.md)
+
+Para obter informações específicas sobre como dimensionar o cluster HDInsight, consulte:
+
+* [Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Gerenciar clusters de Apache Hadoop no HDInsight usando CLI do Azure](hdinsight-administer-use-command-line.md#scale-clusters)

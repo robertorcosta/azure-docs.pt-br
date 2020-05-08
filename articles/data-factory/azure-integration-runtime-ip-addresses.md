@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: b0ba47ff28208bce1a6fa6ec300a261d788167de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3fae34d0bb1aaaa2471f1cc9fd55ef9b4b73dfd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415609"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594280"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços de IP do Azure Integration Runtime
 
@@ -25,7 +25,7 @@ ms.locfileid: "81415609"
 Os endereços IP que Azure Integration Runtime usa depende da região em que o tempo de execução de integração do Azure está localizado. *Todos* Os tempos de execução de integração do Azure que estão na mesma região usam os mesmos intervalos de endereços IP.
 
 > [!IMPORTANT]  
-> Os fluxos de dados não usam esses IPs no momento. 
+> Os fluxos de dados não dão suporte ao uso de intervalos de IP fixos.
 >
 > Você pode usar esses intervalos de IP para a movimentação de dados, pipeline e execuções de atividades externas. Esses intervalos de IP podem ser usados para a lista de permissões em armazenamentos de dados/grupo de segurança de rede (NSG)/firewalls para acesso de entrada do tempo de execução de integração do Azure. 
 
@@ -42,7 +42,7 @@ Permita o tráfego dos endereços IP listados para o tempo de execução de inte
 | Brasil         | Sul do Brasil        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |
 | Canada         | Canadá Central      | 52.228.80.128/25,</br>52.228.81.0/26,</br>13.71.175.80/28    |
 | China          | Leste da China 2        | 40.73.172.48/28,</br>52.130.0.128/25,</br>52.130.1.0/26      |
-| Europa         | Norte da Europa        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
+| Ocidental         | Norte da Europa        | 20.38.82.0/23,</br>20.38.80.192/26,</br>13.69.230.96/28      |
 | &nbsp;         | Europa Ocidental         | 40.74.26.0/23,</br>40.74.24.192/26,</br>13.69.67.192/28      |
 | França         | França Central      | 20.43.40.128/25,</br>20.43.41.0/26,</br>40.79.132.112/28     |
 | Índia          | Índia Central       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |

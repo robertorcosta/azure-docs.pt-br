@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684721"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983594"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -150,6 +150,8 @@ Os pacotes pré-instalados são:
 import os
 os.system(f"pip install scikit-misc")
 ```
+> [!NOTE]
+> Se o pipeline contiver vários módulos executar script Python e precisar dos mesmos pacotes que não estão na lista pré-instalada, instale os pacotes em cada módulo, respectivamente. 
 
 ## <a name="upload-files"></a>Carregar arquivos
 O **script executar Python** dá suporte ao carregamento de arquivos usando [Azure Machine Learning SDK do Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
@@ -218,7 +220,7 @@ O módulo **Executar script Python** contém o código Python de exemplo que voc
 5. Na caixa de texto **script do Python** , digite ou cole script Python válido.
 
     > [!NOTE]
-    > Tenha cuidado ao escrever seu script e verifique se não há nenhum erro de sintaxe, como usar um objeto não declarado ou um módulo não importado. Além disso, preste atenção extra à lista de módulos pré-instaladas. Para importar módulos que não estão listados, instale os pacotes correspondentes em seu script, como
+    > Tenha cuidado ao escrever seu script e certifique-se de que não há nenhum erro de sintaxe, como o uso de objetos não declarados ou módulos não importados. Além disso, preste atenção extra à lista de módulos pré-instaladas. Para importar módulos que não estão listados, instale os pacotes correspondentes em seu script, como
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
