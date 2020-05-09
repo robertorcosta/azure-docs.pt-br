@@ -1,25 +1,20 @@
 ---
 title: Tutorial – Fazer backup de máquinas virtuais do Windows no portal do Azure
 description: Neste tutorial, você aprenderá a usar o portal do Azure para proteger máquinas virtuais do Windows com o Backup do Azure.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e1fa85dc63bc23760888192f2118158e73320a86
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 4b5e4fe585b01670c06d5ff08fb3d221086d94d2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81456100"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82100423"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Fazer backup e restaurar arquivos para máquinas virtuais do Windows no Azure
 
@@ -76,15 +71,15 @@ Neste exemplo, mostraremos como recuperar o arquivo de imagem que é usado na p�
 1. No menu à esquerda, selecione **Máquinas virtuais** e selecione a VM da lista.
 1. Na folha da VM, na seção **Operações**, clique em **Backup**. A folha **Backup** é aberta. 
 1. No menu na parte superior da folha, selecione **Recuperação de Arquivo**. A folha **Recuperação de arquivo** será aberta.
-1. Na **Etapa 1: Selecionar um ponto de recuperação**, selecione um ponto de recuperação do menu suspenso.
-1. Na **Etapa 2: Baixar o script para procurar e recuperar arquivos**, clique no botão **Baixar Executável**. Copie a senha para o arquivo e salve-o em um local seguro.
+1. Em **Etapa 1: selecionar um ponto de recuperação**, selecione um ponto de recuperação do menu suspenso.
+1. Em **Etapa 2: baixar o script para procurar e recuperar arquivos**, clique no botão **Baixar Executável**. Copie a senha para o arquivo e salve-o em um local seguro.
 1. No computador local, abra o **Explorador de Arquivos** e navegue até a pasta **Downloads** e copie o arquivo .exe baixado. O nome do arquivo é prefixado com o nome da VM. 
 1. Na VM (usando a conexão RDP), cole o arquivo .exe na Área de Trabalho da VM. 
 1. Navegue até a área de trabalho da sua VM e clique duas vezes no .exe. Um prompt de comando será iniciado. O programa monta o ponto de recuperação como um compartilhamento de arquivo que você pode acessar. Quando a criação do compartilhamento for concluída, digite **p** para fechar o prompt de comando.
 1. Na VM, abra o **Explorador de Arquivos** e navegue até a letra da unidade que foi usada para o compartilhamento de arquivos.
 1. Navegue até \inetpub\wwwroot e copie **iisstart.png** do compartilhamento de arquivos e cole-o em \inetpub\wwwroot. Por exemplo, copie F:\inetpub\wwwroot\iisstart.png e cole-o em c:\inetpub\wwwroot para recuperar o arquivo.
 1. No computador local, abra a guia do navegador em que você está conectado ao endereço IP da VM mostrando a página padrão do IIS. Pressione CTRL + F5 para atualizar a página do navegador. Agora, você verá que a imagem foi restaurada.
-1. No computador local, volte para a guia do navegador no portal do Azure e, na **Etapa 3: Desmontar os discos após a recuperação**, clique no botão **Desmontar discos**. Se você esquecer de fazer isso, a conexão para o ponto de montagem será fechada automaticamente após 12 horas. Após essas 12 horas, você precisa baixar um novo script para criar outro ponto de montagem.
+1. No computador local, volte para a guia do navegador para o Portal do Azure e, na **Etapa 3: desmontar discos após a recuperação**, clique no botão **Desmontar Discos**. Se você esquecer de fazer isso, a conexão para o ponto de montagem será fechada automaticamente após 12 horas. Após essas 12 horas, você precisa baixar um novo script para criar outro ponto de montagem.
 
 
 

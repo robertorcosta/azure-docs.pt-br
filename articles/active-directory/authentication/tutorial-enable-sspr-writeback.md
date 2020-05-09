@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 04/24/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3578cb1326ebd701c3f00618c19a501a1476372
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80332133"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82143740"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitar o write-back da redefinição de senha por autoatendimento do Azure Active Directory para um ambiente local
 
@@ -57,7 +57,7 @@ Para trabalhar corretamente com o write-back do SSPR, a conta especificada no Az
    * O objeto raiz de *cada domínio* na floresta
    * As unidades organizacionais (OUs) do usuário que você deseja que estejam no escopo para SSPR
 
-Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar as respectivas senhas locais na nuvem.
+Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar as respectivas senhas locais na nuvem. As permissões precisam ser aplicadas para que **esse objeto e todos os objetos descendentes** de "Não Permitir Expiração de Senha" sejam exibidos.  
 
 Para configurar as permissões apropriadas para que ocorra o write-back de senha, conclua as etapas a seguir:
 
@@ -67,7 +67,7 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 1. Na guia **Permissões**, selecione **Adicionar**.
 1. Para **Entidade de segurança**, selecione a conta à qual as permissões devem ser aplicadas (a conta usada pelo Azure AD Connect).
 1. Na lista suspensa **Aplica-se a**, selecione os **objetos de Usuário Descendente**.
-1. Em *Permissões*, selecione as caixas para as seguintes opções:
+1. Em *Permissões*, selecione a caixa para a seguinte opção:
     * **Redefinir senha**
 1. Em *Permissões*, marque as caixas das opções a seguir. Você precisa percorrer a lista para encontrar essas opções, que podem já estar definidas por padrão:
     * **Gravar lockoutTime**
@@ -79,7 +79,7 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 
 Quando você atualizar as permissões, poderá levar até uma hora ou mais para que essas permissões sejam replicadas em todos os objetos no diretório.
 
-As políticas de senha no ambiente local do AD DS podem impedir que as redefinições de senha sejam processadas corretamente. Para que o write-back de senha funcione com o máximo de eficiência, a política de grupo para *Tempo de vida mínimo da senha* precisa ser definida como 0. Essa configuração pode ser encontrada em **Configuração do Computador > Políticas > Configurações do Windows > Configurações de Segurança > Políticas de Conta** em `gpedit.msc`. 
+As políticas de senha no ambiente local do AD DS podem impedir que as redefinições de senha sejam processadas corretamente. Para que o write-back de senha funcione com o máximo de eficiência, a política de grupo para *Tempo de vida mínimo da senha* precisa ser definida como 0. Essa configuração pode ser encontrada em **Configuração do Computador > Políticas > Configurações do Windows > Configurações de Segurança > Políticas de Conta** em `gpedit.msc`.
 
 Se você atualizar a política de grupo, aguarde a política atualizada ser replicada ou use o comando `gpupdate /force`.
 

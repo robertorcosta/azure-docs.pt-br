@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605472"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838579"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux (RHEL) imagens disponíveis no Azure
 O Azure oferece uma variedade de imagens RHEL para diferentes casos de uso.
@@ -27,6 +27,9 @@ O Azure oferece uma variedade de imagens RHEL para diferentes casos de uso.
 
 ## <a name="list-of-rhel-images"></a>Lista de imagens RHEL
 Esta é uma lista de imagens RHEL disponíveis no Azure. Salvo indicação em contrário, todas as imagens são particionadas por LVM e anexadas a repositórios RHEL regulares (não EUS, não E4S). As seguintes imagens estão disponíveis no momento para uso geral:
+
+> [!NOTE]
+> As imagens BRUTAs não são mais produzidas em favor das imagens de particionamento LVM. O LVM fornece várias vantagens em relação ao esquema de particionamento bruto (não LVM) mais antigo, incluindo opções de redimensionamento de partição significativamente mais flexíveis.
 
 Oferta| SKU | Particionamento | Provisionamento | Anotações
 :----|:----|:-------------|:-------------|:-----
@@ -47,6 +50,9 @@ RHEL          | 6.7      | RAW    | Agente do Linux |
 |             | 7.6      | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão a partir de maio de 2019.
 |             | 76-Gen2  | RAW    | Agente do Linux | Anexado a repositórios do EUS por padrão.
 |             | 7,7      | LVM    | Agente do Linux | Anexado a repositórios do EUS por padrão.
+|             | 77-Gen2  | LVM    | Agente do Linux | Anexado a repositórios do EUS por padrão.
+|             | 7.8      | LVM    | Agente do Linux | Anexado a repositórios regulares (EUS não disponível para RHEL 7,8)
+|             | 78-Gen2  | LVM    | Agente do Linux | Anexado a repositórios regulares (EUS não disponível para RHEL 7,8)
 |             | 8-LVM    | LVM    | Agente do Linux | Família de imagens RHEL 8. x. Anexado a repositórios regulares.
 |             | 8-LVM-Gen2| LVM    | Agente do Linux | Hyper-V geração 2-família de imagens RHEL 8. x. Anexado a repositórios regulares.
 |             | 8        | LVM    | Agente do Linux | Imagens RHEL 8,0

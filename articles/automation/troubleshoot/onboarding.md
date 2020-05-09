@@ -1,6 +1,6 @@
 ---
 title: Solucionando problemas de integração das soluções de gerenciamento de automação do Azure
-description: Saiba como solucionar erros de integração da solução.
+description: Saiba como solucionar erros de integração da solução de automação do Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,16 +8,16 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: da5152b459f54cbaae5ec168f103f23a237edebd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 371094ecba5168fd32a7af9fb81a71eb722efc91
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679226"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836522"
 ---
 # <a name="troubleshoot-solution-onboarding"></a>Solução de problemas de integração da solução
 
-Você pode receber erros ao integrar a solução de Gerenciamento de Atualizações ou a solução de Controle de Alterações e de inventário. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
+Você pode receber mensagens de erro ao integrar a solução de Gerenciamento de Atualizações de automação do Azure ou a solução de Controle de Alterações e de inventário. Este artigo descreve os vários erros que podem ocorrer e como resolvê-los.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -35,15 +35,15 @@ Renomear nós registrados não atualiza o nome do nó na automação do Azure.
 
 Cancele o registro do nó da configuração de estado da automação do Azure e registre-o novamente. Os relatórios publicados no serviço antes dessa hora não estarão mais disponíveis.
 
-### <a name="scenario-re-signing-certificates-via-https-proxy-is-not-supported"></a><a name="resigning-cert"></a>Cenário: não há suporte para assinar certificados novamente por meio do proxy HTTPS
+### <a name="scenario-re-signing-certificates-via-https-proxy-isnt-supported"></a><a name="resigning-cert"></a>Cenário: não há suporte para assinar certificados novamente por proxy HTTPS
 
 #### <a name="issue"></a>Problema
 
-Ao se conectar por meio de uma solução de proxy que termina o tráfego HTTPS e, em seguida, criptografa novamente o tráfego usando um novo certificado, o serviço não permite a conexão.
+Quando você se conecta por meio de uma solução de proxy que encerra o tráfego HTTPS e, em seguida, criptografa novamente o tráfego usando um novo certificado, o serviço não permite a conexão.
 
 #### <a name="cause"></a>Causa
 
-A automação do Azure não dá suporte à assinatura de certificados usados para criptografar o tráfego.
+A automação do Azure não dá suporte a certificados de nova assinatura usados para criptografar o tráfego.
 
 #### <a name="resolution"></a>Resolução
 
@@ -51,7 +51,7 @@ Atualmente, não há nenhuma solução alternativa para esse problema.
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="scenario-onboarding-fails-with-the-message---the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Cenário: a integração falha com a mensagem-a solução não pode ser habilitada
+### <a name="scenario-onboarding-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Cenário: a integração falha com a mensagem "a solução não pode ser habilitada"
 
 #### <a name="issue"></a>Problema
 
@@ -71,9 +71,9 @@ Esse erro é causado por permissões incorretas ou ausentes na VM ou no espaço 
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se você tem [as permissões corretas necessárias para carregar computadores](../automation-role-based-access-control.md#onboarding-permissions) e tente realizar a integração da solução novamente. Se você receber o erro `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, certifique-se de que `Microsoft.OperationalInsights/workspaces/read` você tem permissão para encontrar se a VM está integrada a um espaço de trabalho.
+Verifique se você tem [as permissões corretas necessárias para a integração de computadores](../automation-role-based-access-control.md#onboarding-permissions)e tente realizar a integração da solução novamente. Se você receber a mensagem `The solution cannot be enabled on this VM because the permission to read the workspace is missing`de erro, certifique-se de `Microsoft.OperationalInsights/workspaces/read` que você tem permissão para conseguir encontrar se a VM está integrada a um espaço de trabalho.
 
-### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: a integração falha com a mensagem: falha ao configurar a conta de automação para o log de diagnóstico
+### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Cenário: a integração falha com a mensagem "falha ao configurar a conta de automação para o log de diagnóstico"
 
 #### <a name="issue"></a>Problema
 
@@ -85,7 +85,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Esse erro pode ser causado se o tipo de preço não corresponder ao modelo de cobrança da assinatura. Consulte [monitoramento de uso e custos estimados em Azure monitor](https://aka.ms/PricingTierWarning).
+Esse erro pode ser causado se o tipo de preço não corresponder ao modelo de cobrança da assinatura. Para obter mais informações, consulte [monitoramento de uso e custos estimados em Azure monitor](https://aka.ms/PricingTierWarning).
 
 #### <a name="resolution"></a>Resolução
 
@@ -103,7 +103,7 @@ Você pode ter alterado a consulta ou o sistema pode tê-la alterado.
 
 #### <a name="resolution"></a>Resolução
 
-Você pode excluir a consulta para a solução e, em seguida, integrar a solução novamente, o que recriará a consulta. A consulta pode ser encontrada em seu espaço de trabalho, em **pesquisas salvas**. O nome da consulta é **MicrosoftDefaultComputerGroup**e a categoria da consulta é o nome da solução associada. Se várias soluções estiverem habilitadas, a consulta **MicrosoftDefaultComputerGroup** mostrará várias vezes em **pesquisas salvas**.
+Você pode excluir a consulta para a solução e, em seguida, carregar a solução novamente, que recria a consulta. A consulta pode ser encontrada em seu espaço de trabalho em **pesquisas salvas**. O nome da consulta é **MicrosoftDefaultComputerGroup**e a categoria da consulta é o nome da solução associada. Se várias soluções estiverem habilitadas, a consulta **MicrosoftDefaultComputerGroup** mostrará várias vezes em **pesquisas salvas**.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Cenário: PolicyViolation
 
@@ -124,13 +124,13 @@ Para implantar a solução com êxito, você deve considerar alterar a política
 * Redirecione a política para um recurso específico, por exemplo, uma conta de automação.
 * Revisar o conjunto de recursos que a política está configurada para negar.
 
-Verifique as notificações no canto superior direito do portal do Azure ou navegue até o grupo de recursos que contém sua conta de automação e selecione **implantações** em **configurações** para exibir a implantação com falha. Para saber mais sobre Azure Policy, consulte [visão geral do Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Verifique as notificações no canto superior direito do portal do Azure ou vá para o grupo de recursos que contém sua conta de automação e selecione **implantações** em **configurações** para exibir a implantação com falha. Para saber mais sobre Azure Policy, consulte [visão geral do Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ### <a name="scenario-errors-trying-to-unlink-a-workspace"></a><a name="unlink"></a>Cenário: erros ao tentar desvincular um espaço de trabalho
 
 #### <a name="issue"></a>Problema
 
-Você recebe o seguinte erro ao tentar desvincular um espaço de trabalho:
+Você recebe a seguinte mensagem de erro ao tentar desvincular um espaço de trabalho:
 
 ```error
 The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
@@ -148,10 +148,10 @@ Remova as seguintes soluções do seu espaço de trabalho se você as estiver us
 * Controle de Alterações e Inventário
 * Iniciar/Parar VMs durante os horários inativos
 
-Depois de remover as soluções, você pode desvincular seu espaço de trabalho. É importante limpar todos os artefatos existentes dessas soluções do seu espaço de trabalho e da sua conta de automação 
+Depois de remover as soluções, você pode desvincular seu espaço de trabalho. É importante limpar todos os artefatos existentes dessas soluções do seu espaço de trabalho e sua conta de automação:
 
-* Para Gerenciamento de Atualizações, remova as implantações de atualização (agendas) da sua conta de automação.
-* Para iniciar/parar VMs fora do horário comercial, remova os bloqueios nos componentes da solução em sua conta de automação em**bloqueios**de **configurações** > . Consulte [remover a solução de iniciar/parar VMs fora do horário comercial](../automation-solution-vm-management.md#remove-the-solution).
+* Para Gerenciamento de Atualizações, remova as **implantações de atualização (agendas)** da sua conta de automação.
+* Para iniciar/parar VMs fora do horário comercial, remova os bloqueios nos componentes da solução em sua conta de automação em**bloqueios**de **configurações** > . Para obter mais informações, consulte [remover a solução de iniciar/parar VMs fora do horário comercial](../automation-solution-vm-management.md#remove-the-solution).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics para falhas de extensão do Windows
 
@@ -180,7 +180,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 #### <a name="cause"></a>Causa
 
-Algumas causas possíveis para esse erro são:
+Algumas causas potenciais desse erro são:
 
 * Um proxy configurado na VM só permite portas específicas.
 * Uma configuração de firewall bloqueou o acesso às portas e endereços necessários.
@@ -189,13 +189,13 @@ Algumas causas possíveis para esse erro são:
 
 Certifique-se de ter as portas e os endereços adequados abertos para comunicação. Para obter uma lista de portas e endereços, consulte [planejando sua rede](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="scenario-install-failed-because-of-a-transient-environment-issues"></a><a name="transient-environment-issue"></a>Cenário: falha na instalação devido a problemas de um ambiente transitório
+### <a name="scenario-install-failed-because-of-transient-environment-issues"></a><a name="transient-environment-issue"></a>Cenário: falha na instalação devido a problemas de ambiente transitório
 
-Falha na instalação da extensão do Log Analytics para Windows durante a implantação devido a outra instalação ou ação que está bloqueando a instalação
+Falha na instalação da extensão do Log Analytics para Windows durante a implantação devido a outra instalação ou ação que está bloqueando a instalação.
 
 #### <a name="issue"></a>Problema
 
-A seguir, exemplos de mensagens de erro podem ser retornados:
+Veja a seguir exemplos de mensagens de erro que podem ser retornadas:
 
 ```error
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
@@ -211,7 +211,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 #### <a name="cause"></a>Causa
 
-Algumas causas possíveis para esse erro são:
+Algumas causas potenciais desse erro são:
 
 * Outra instalação está em andamento.
 * O sistema é disparado para reinicialização durante a implantação do modelo.
@@ -242,8 +242,8 @@ Tente instalar a extensão do agente de Log Analytics para Windows quando a VM e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você não encontrar o problema acima ou não conseguir resolver o problema, tente um dos seguintes canais para obter suporte adicional:
+Se você não encontrar seu problema aqui ou não puder resolver o problema, tente um dos seguintes canais para obter suporte adicional:
 
 * Obtenha respostas de especialistas do Azure por meio dos [fóruns do Azure](https://azure.microsoft.com/support/forums/).
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport)se com o, a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
+* Conecte- [@AzureSupport](https://twitter.com/azuresupport)se com o, a conta de Microsoft Azure oficial para melhorar a experiência do cliente. O suporte do Azure conecta a Comunidade do Azure a respostas, suporte e especialistas.
+* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**.

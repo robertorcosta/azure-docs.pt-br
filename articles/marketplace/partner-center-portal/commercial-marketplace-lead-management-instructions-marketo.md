@@ -1,22 +1,22 @@
 ---
-title: Configurar gerenciamento de leads no Marketo | Azure Marketplace
-description: Configure o gerenciamento de leads para clientes do Marketo para o Azure Marketplace.
+title: Gerenciamento de leads no Marketo – Marketplace comercial da Microsoft
+description: Saiba como usar um sistema de CRM do Marketo para gerenciar clientes potenciais do Microsoft AppSource e do Azure Marketplace.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: b142e0ab1aaa242157e207ceecf958be51bb1721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133648"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789871"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Configurar o gerenciamento de cliente potencial no Marketo
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Use o Marketo para gerenciar clientes potenciais do Marketplace comercial
 
-Este artigo descreve como configurar seu sistema CRM do Marketo para processar os leads de vendas de sua oferta de Marketplace comercial.
+Este artigo descreve como configurar seu sistema CRM do Marketo para processar os leads de vendas de suas ofertas no Microsoft AppSource e no Azure Marketplace.
 
 ## <a name="set-up-your-marketo-crm-system"></a>Configurar seu sistema de CRM do Marketo
 
@@ -67,9 +67,11 @@ Este artigo descreve como configurar seu sistema CRM do Marketo para processar o
 
 Quando você estiver pronto para configurar as informações de gerenciamento de Lead para sua oferta no portal de publicação, siga estas etapas. 
 
-1. Vá para a página de **instalação da oferta** de sua oferta.
+1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. Selecione **conectar** na seção **Gerenciamento de leads** . 
+1. Selecione sua oferta e vá para a guia **instalação da oferta** .
+
+1. Na seção **Gerenciamento de leads** , selecione **conectar**. 
 
     ![Botão conectar da seção Gerenciamento de leads](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
@@ -86,6 +88,6 @@ Quando você estiver pronto para configurar as informações de gerenciamento de
 
 1. Selecione **OK**.
 
-   Para verificar se você se conectou com êxito a um destino de cliente potencial, selecione o botão **validar** . Se for bem-sucedido, você terá um líder de teste no destino do cliente potencial.
+   Para verificar se você se conectou com êxito a um destino de cliente potencial, selecione **validar**. Se for bem-sucedido, você terá um líder de teste no destino do cliente potencial.
 
    ![Janela pop-up detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

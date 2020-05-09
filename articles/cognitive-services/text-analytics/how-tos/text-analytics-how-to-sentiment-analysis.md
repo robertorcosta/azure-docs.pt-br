@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2020
+ms.date: 04/27/2020
 ms.author: aahi
-ms.openlocfilehash: b3c112876bfd2578e6ebaa95c6902aa9b8f832d9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 99a62daf6dced88efd9bda591a0ca44a8b259a75
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "79203450"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82195631"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como fazer: Detectar o sentimento usando a API de Análise de Texto
 
@@ -58,7 +58,9 @@ A Análise de Sentimento v3 classifica o texto com rótulos de sentimentos (desc
 
 ### <a name="sentiment-labeling"></a>Rotulação de sentimento
 
-A Análise de Sentimento v3 pode retornar pontuações e rótulos no nível do documento e da frase. As pontuações e os rótulos são `positive`, `negative` e `neutral`. No nível do documento, o rótulo de sentimento `mixed` também pode ser retornado sem uma pontuação. O sentimento do documento é determinado abaixo:
+A Análise de Sentimento v3 retorna rótulos de sentimentos em um nível de frase e documento (`positive`, `negative` e `neutral`) junto com pontuações de confiança. O rótulo de sentimento `mixed` também pode ser retornado no nível do documento. 
+
+O sentimento do documento é determinado abaixo:
 
 | Sentimento da frase                                                                            | Rótulo do documento retornado |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -111,7 +113,7 @@ Crie uma solicitação POST. Você pode [usar o Postman](text-analytics-how-to-c
 
 ---
 
-Defina o ponto de extremidade HTTPS para a Análise de Sentimento usando um recurso da Análise de Texto no Azure ou um [contêiner da Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. É necessário incluir a URL correta para a versão que você deseja usar. Por exemplo:
+Defina o ponto de extremidade HTTPS para a Análise de Sentimento usando um recurso da Análise de Texto no Azure ou um [contêiner da Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. É necessário incluir a URL correta para a versão que você deseja usar. Por exemplo: 
 
 > [!NOTE]
 > Você pode encontrar sua chave e ponto de extremidade para o recurso da Análise de Texto no portal do Azure. Eles estarão localizados na página de **Início rápido** do recurso, em **Gerenciamento de recursos**. 

@@ -1,6 +1,6 @@
 ---
-title: Executar pacotes do SSIS usando o agente de Instância Gerenciada do Banco de Dados SQL do Azure
-description: Saiba como executar pacotes do SSIS usando o Instância Gerenciada do Banco de Dados SQL do Azure Agent.
+title: Agendar execuções de pacote SSIS usando Instância Gerenciada do Banco de Dados SQL do Azure Agent
+description: Saiba como agendar execuções de pacote SSIS usando Instância Gerenciada do Banco de Dados SQL do Azure Agent.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,14 +9,17 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: fcbfeb5ab3a3a80fdb8f7e355f290451d4afe804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f230e4d33686b006b20e856d5e8033847e3f3d67
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144794"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628479"
 ---
-# <a name="run-ssis-packages-by-using-azure-sql-database-managed-instance-agent"></a>Executar pacotes do SSIS usando o agente de Instância Gerenciada do Banco de Dados SQL do Azure
+# <a name="schedule-ssis-package-executions-by-using-azure-sql-database-managed-instance-agent"></a>Agendar execuções de pacote SSIS usando Instância Gerenciada do Banco de Dados SQL do Azure Agent
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Este artigo descreve como executar um pacote SQL Server Integration Services (SSIS) usando o agente Instância Gerenciada do Banco de Dados SQL do Azure. Esse recurso fornece comportamentos semelhantes a quando você agenda pacotes do SSIS usando SQL Server Agent em seu ambiente local.
 
 Com esse recurso, você pode executar pacotes do SSIS armazenados no SSISDB em uma instância gerenciada do banco de dados SQL do Azure ou um sistema de arquivos como arquivos do Azure.
@@ -78,7 +81,7 @@ Neste procedimento, você usa Instância Gerenciada do Banco de Dados SQL do Azu
 
         ![Opções para tipo de origem de arquivo](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
       
-        O caminho do pacote é ** \\ <storage account name>.\<File.Core.Windows.net nome do compartilhamento \<de arquivos>nome do pacote>. dtsx**.
+        O caminho do pacote **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** é.
       
         Em **pacote de credenciais de acesso ao arquivo**, insira o nome da conta do arquivo do Azure e a chave de conta para acessar o arquivo do Azure. O domínio é definido como **Azure**.
 
@@ -89,11 +92,14 @@ Neste procedimento, você usa Instância Gerenciada do Banco de Dados SQL do Azu
         Insira o domínio, o nome de usuário e a senha correspondentes para acessar o arquivo do pacote de compartilhamento de rede.
    1. Se o arquivo de pacote for criptografado com uma senha, selecione **senha de criptografia** e insira a senha.
 1. Na guia **configurações** , insira o caminho do arquivo de configuração se você precisar de um arquivo de configuração para executar o pacote do SSIS.
+   Se você armazenar sua configuração nos arquivos do Azure, seu caminho de configuração **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`** será.
 1. Na guia **Opções de execução** , você pode escolher se deseja usar a **autenticação do Windows** ou o **tempo de execução de 32 bits** para executar o pacote SSIS.
-1. Na guia **log** , você pode escolher o caminho de log e a credencial de acesso de log correspondente para armazenar os arquivos de log. Por padrão, o caminho de log é o mesmo que o caminho da pasta do pacote, e a credencial de acesso ao log é a mesma que a credencial de acesso ao pacote.
+1. Na guia **log** , você pode escolher o caminho de log e a credencial de acesso de log correspondente para armazenar os arquivos de log. 
+   Por padrão, o caminho de log é o mesmo que o caminho da pasta do pacote, e a credencial de acesso ao log é a mesma que a credencial de acesso ao pacote.
+   Se você armazenar os logs nos arquivos do Azure, seu caminho de log **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`** será.
 1. Na guia **definir valores** , você pode inserir o valor e o caminho da propriedade para substituir as propriedades do pacote.
  
-   Por exemplo, para substituir o valor de sua variável de usuário, insira seu caminho no seguinte formato: **\package.Variables [User::<variable name>]. Valor**.
+   Por exemplo, para substituir o valor de sua variável de usuário, insira seu caminho no seguinte formato: **`\Package.Variables[User::<variable name>].Value`**.
 1. Selecione **OK** para salvar a configuração de trabalho do agente.
 1. Inicie o trabalho do Agent para executar o pacote do SSIS.
 

@@ -2,13 +2,13 @@
 title: Automatizar o Azure Application Insights com o PowerShell | Microsoft Docs
 description: Automatize a criação e o gerenciamento de recursos, alertas e testes de disponibilidade no PowerShell usando um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/02/2020
+ms.openlocfilehash: fba85981f32611164c328945e45de4032ad949eb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275874"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780480"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Gerenciar Application Insights recursos usando o PowerShell
 
@@ -21,10 +21,10 @@ A chave para criar esses recursos são os modelos de JSON para o [Gerenciador de
 ## <a name="one-time-setup"></a>Configuração única
 Se você nunca usou o PowerShell com sua assinatura do Azure:
 
-Instale o módulo do Azure Powershell no computador em que você deseja executar os scripts.
+Instale o módulo Azure PowerShell no computador em que você deseja executar os scripts:
 
 1. Instale o [Microsoft Web Platform Installer (v5 ou superior)](https://www.microsoft.com/web/downloads/platform.aspx).
-2. Use-o para instalar o Microsoft Azure PowerShell
+2. Use-o para instalar o Microsoft Azure PowerShell.
 
 Além de usar modelos do Resource Manager, há um conjunto avançado de [cmdlets Application insights PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), que facilitam a configuração de Application insights recursos de forma programática. Os recursos habilitados pelos cmdlets incluem:
 
@@ -229,7 +229,21 @@ As propriedades adicionais estão disponíveis por meio dos cmdlets:
 
 Consulte a [documentação detalhada](https://docs.microsoft.com/powershell/module/az.applicationinsights) para os parâmetros para esses cmdlets.  
 
-## <a name="set-the-data-retention"></a>Definir a retenção de dados 
+## <a name="set-the-data-retention"></a>Definir a retenção de dados
+
+Abaixo estão três métodos para definir programaticamente a retenção de dados em um recurso de Application Insights.
+
+### <a name="setting-data-retention-using-a-powershell-commands"></a>Configurando a retenção de dados usando comandos do PowerShell
+
+Aqui está um conjunto simples de comandos do PowerShell para definir a retenção de dados para seu recurso de Application Insights:
+
+```PS
+$Resource = Get-AzResource -ResourceType Microsoft.Insights/components -ResourceGroupName MyResourceGroupName -ResourceName MyResourceName
+$Resource.Properties.RetentionInDays = 365
+$Resource | Set-AzResource -Force
+```
+
+### <a name="setting-data-retention-using-rest"></a>Configurando a retenção de dados usando REST
 
 Para obter a retenção de dados atual para seu recurso de Application Insights, você pode usar a ferramenta OSS [ARMClient](https://github.com/projectkudu/ARMClient).  (Saiba mais sobre o ARMClient de artigos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Aqui está um exemplo usando `ARMClient`, para obter a retenção atual:
 
@@ -251,6 +265,8 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
        -retentionInDays 365 `
        -appName myApp
 ```
+
+### <a name="setting-data-retention-using-a-powershell-script"></a>Configurando a retenção de dados usando um script do PowerShell
 
 O script a seguir também pode ser usado para alterar a retenção. Copie este script para salvar como `Set-ApplicationInsightsRetention.ps1`.
 
