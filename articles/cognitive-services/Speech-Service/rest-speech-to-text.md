@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: yinhew
-ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82131293"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978613"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -51,8 +51,8 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 
 | Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Obrigatório |
-| `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem vários resultados com valores de confiança e quatro representações diferentes. A configuração padrão é `simple`. | Opcional |
+| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Necessária |
+| `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem quatro representações diferentes de texto de exibição. A configuração padrão é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked`, que substitui profanação por asteriscos, `removed`, que remove toda a profanação do resultado `raw`, ou, que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
 | `pronunciationScoreParams` | Especifica os parâmetros para mostrar as pontuações de pronúncia nos resultados de reconhecimento, que avaliam a qualidade de pronúncia da entrada de fala, com indicadores de precisão, fluência, integridade, etc. Esse parâmetro é um JSON codificado em base64 contendo vários parâmetros detalhados. Consulte [parâmetros de avaliação de pronúncia](#pronunciation-assessment-parameters) para saber como criar esse parâmetro. | Opcional |
 | `cid` | Ao usar o [portal de fala personalizada](how-to-custom-speech.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o `cid` argumento para o parâmetro de cadeia de caracteres de consulta. | Opcional |
@@ -65,7 +65,7 @@ Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de f
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
-| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obrigatório |
+| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessária |
 | `Transfer-Encoding` | Especifica que os dados de áudio em partes estão sendo enviados, em vez de um único arquivo. Use este cabeçalho somente se agrupar dados de áudio. | Opcional |
 | `Expect` | Se usar transferência em partes, envie `Expect: 100-continue`. O serviço de Fala reconhece a solicitação inicial e aguarda os dados adicionais.| Necessário se enviar dados de áudio em partes. |
 | `Accept` | Se fornecido, deve ser `application/json`. O serviço de fala fornece resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept`. | Opcional, mas recomendado. |
@@ -74,10 +74,10 @@ Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de f
 
 O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um dos formatos nesta tabela:
 
-| Formatar | Codec | Bitrate | Taxa de amostragem  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16-bit  | 16 kHz, mono |
-| OGG    | OPUS  | 16-bit  | 16 kHz, mono |
+| Formatar | Codec | Taxa de bits | Taxa de amostragem  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 kbps | 16 kHz, mono |
+| OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
 >Os formatos acima têm suporte por meio da API REST e do WebSocket no serviço de fala. O [SDK de fala](speech-sdk.md) atualmente dá suporte ao formato WAV com o codec PCM, bem como [outros formatos](how-to-use-codec-compressed-audio-input-streams.md).
@@ -88,7 +88,7 @@ Esta tabela lista os parâmetros obrigatórios e opcionais para avaliação de p
 
 | Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Obrigatório |
+| ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Necessária |
 | GradingSystem | O sistema de ponto para a calibragem de pontuação. Os valores aceitos são `FivePoint` e `HundredMark`. A configuração padrão é `FivePoint`. | Opcional |
 | Granularidade | A granularidade da avaliação. Os valores aceitos são `Phoneme`, que mostra a pontuação no nível de texto completo, Word e `Word`fonema,, que mostra a pontuação no texto completo e no nível `FullText`de palavra,, que mostra a pontuação somente no nível de texto completo. A configuração padrão é `Phoneme`. | Opcional |
 | Dimensão | Define os critérios de saída. Os valores aceitos são `Basic`, que mostram apenas a pontuação `Comprehensive` de precisão, mostra pontuações em mais dimensões (por exemplo, Pontuação fluência e pontuação de integridade no nível de texto completo, tipo de erro no nível de palavra). Verifique os [parâmetros de resposta](#response-parameters) para ver as definições de diferentes dimensões de Pontuação e tipos de erro do Word. A configuração padrão é `Basic`. | Opcional |
@@ -200,9 +200,10 @@ O `RecognitionStatus` campo pode conter estes valores:
 > [!NOTE]
 > Se o áudio consistir apenas em conteúdo ofensivo e o parâmetro de consulta `profanity` estiver definido como `remove`, o serviço não retornará um resultado de fala.
 
-O `detailed` formato inclui os mesmos dados que o `simple` formato, juntamente com `NBest`, uma lista de interpretações alternativas do mesmo resultado de reconhecimento. Esses resultados são classificados da maior probabilidade de menos provável. A primeira entrada é o mesmo que o resultado do reconhecimento principal.  Ao usar o formato `detailed`, `DisplayText` é fornecido como `Display` para cada resultado na lista `NBest`.
+O `detailed` formato inclui formulários adicionais de resultados reconhecidos.
+Ao usar o formato `detailed`, `DisplayText` é fornecido como `Display` para cada resultado na lista `NBest`.
 
-Cada objeto no `NBest` lista inclui:
+O objeto na `NBest` lista pode incluir:
 
 | Parâmetro | Descrição |
 |-----------|-------------|
@@ -244,13 +245,6 @@ Uma resposta típica para `detailed` reconhecimento:
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }
