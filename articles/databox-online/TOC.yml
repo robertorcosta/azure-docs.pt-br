@@ -48,7 +48,7 @@
         - name: Solucionar problemas
           href: data-box-gateway-troubleshoot.md
         - name: Contatar o Suporte da Microsoft
-          href: data-box-edge-contact-microsoft-support.md
+          href: azure-stack-edge-contact-microsoft-support.md
     - name: Notas de versão
       items:
         - name: 1911 – Atual
@@ -64,59 +64,59 @@
     - name: Visão geral
       items:
         - name: O que é o Azure Stack Edge?
-          href: data-box-edge-overview.md
+          href: azure-stack-edge-overview.md
     - name: Tutoriais
       items:
         - name: 1 – Preparar
-          href: data-box-edge-deploy-prep.md
+          href: azure-stack-edge-deploy-prep.md
         - name: 2 - Instalar
-          href: data-box-edge-deploy-install.md
+          href: azure-stack-edge-deploy-install.md
         - name: '3 – Conectar, configurar, ativar'
-          href: data-box-edge-deploy-connect-setup-activate.md
+          href: azure-stack-edge-deploy-connect-setup-activate.md
         - name: '4 – Adicionar, conectar para compartilhar'
-          href: data-box-edge-deploy-add-shares.md
+          href: azure-stack-edge-deploy-add-shares.md
         - name: 5A – Configurar computação (simples)
-          href: data-box-edge-deploy-configure-compute.md
+          href: azure-stack-edge-deploy-configure-compute.md
         - name: 5B – Configurar computação (avançado)
-          href: data-box-edge-deploy-configure-compute-advanced.md
+          href: azure-stack-edge-deploy-configure-compute-advanced.md
     - name: Conceitos
       items:
         - name: Examinar os requisitos
-          href: data-box-edge-system-requirements.md
+          href: azure-stack-edge-system-requirements.md
         - name: Entender os limites
-          href: data-box-edge-limits.md
+          href: azure-stack-edge-limits.md
         - name: Visão geral da segurança
-          href: data-box-edge-security.md
+          href: azure-stack-edge-security.md
         - name: Especificações de revisão
-          href: data-box-edge-technical-specifications-compliance.md
+          href: azure-stack-edge-technical-specifications-compliance.md
     - name: Como
       items:
         - name: 'Desenvolver um módulo C#'
-          href: data-box-edge-create-iot-edge-module.md
+          href: azure-stack-edge-create-iot-edge-module.md
         - name: Gerenciar
           items:
             - name: Azure Data Box Edge
-              href: data-box-edge-manage-compute.md
+              href: azure-stack-edge-manage-compute.md
             - name: Rede de computação de borda
-              href: data-box-edge-extend-compute-access-modules.md
+              href: azure-stack-edge-extend-compute-access-modules.md
             - name: Compartilhamentos
-              href: data-box-edge-manage-shares.md
+              href: azure-stack-edge-manage-shares.md
             - name: Usuários
-              href: data-box-edge-manage-users.md
+              href: azure-stack-edge-manage-users.md
             - name: Agenda da largura de banda
-              href: data-box-edge-manage-bandwidth-schedules.md
+              href: azure-stack-edge-manage-bandwidth-schedules.md
             - name: 'Potência, acesso, conectividade'
-              href: data-box-edge-manage-access-power-connectivity-mode.md
+              href: azure-stack-edge-manage-access-power-connectivity-mode.md
             - name: Via PowerShell
-              href: data-box-edge-connect-powershell-interface.md
+              href: azure-stack-edge-connect-powershell-interface.md
         - name: Solucionar problemas
-          href: data-box-edge-troubleshoot.md
+          href: azure-stack-edge-troubleshoot.md
         - name: Contatar o Suporte da Microsoft
-          href: data-box-edge-contact-microsoft-support.md
+          href: azure-stack-edge-contact-microsoft-support.md
         - name: Monitoramento
-          href: data-box-edge-monitor.md
+          href: azure-stack-edge-monitor.md
         - name: Retornar ou substituir o dispositivo
-          href: data-box-edge-return-device.md
+          href: azure-stack-edge-return-device.md
     - name: Notas de versão
       items:
         - name: 1911 – Atual

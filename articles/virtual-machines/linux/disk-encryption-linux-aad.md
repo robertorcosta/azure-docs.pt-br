@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970620"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792591"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Habilitar Azure Disk Encryption com o Azure AD em VMs do Linux (versão anterior)
 
@@ -158,7 +158,7 @@ A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos exis
 ## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Usar o recurso EncryptFormatAll para discos de dados em VMs IaaS do Linux
 O parâmetro EncryptFormatAll reduz o tempo de criptografia dos discos de dados do Linux. As partições que atendem a determinados critérios são formatadas (com o sistema de arquivos atual). Em seguida, eles são remontados de volta para onde estavam antes da execução do comando. Se desejar excluir um disco de dados que atenda aos critérios, você poderá desmontá-lo antes de executar o comando.
 
- Depois de executar esse comando, todas as unidades que foram montadas anteriormente são formatadas. Em seguida, a camada de criptografia começa na parte superior da unidade agora vazia. Quando essa opção é selecionada, o disco de recurso efêmero anexado à VM também é criptografado. Se a unidade efêmera for redefinida, ela será reformatada e criptografada novamente para a VM pela solução de Azure Disk Encryption na próxima oportunidade.
+ Depois de executar esse comando, todas as unidades que foram montadas anteriormente são formatadas. Em seguida, a camada de criptografia começa na parte superior da unidade agora vazia. Quando essa opção é selecionada, o disco temporário anexado à VM também é criptografado. Se a unidade efêmera for redefinida, ela será reformatada e criptografada novamente para a VM pela solução de Azure Disk Encryption na próxima oportunidade.
 
 >[!WARNING]
 > EncryptFormatAll não deve ser usado quando houver dados necessários nos volumes de dados de uma VM. Você pode excluir discos da criptografia desmontando-os. Experimente o parâmetro EncryptFormatAll em uma VM de teste primeiro para entender o parâmetro de recurso e sua implicação antes de experimentá-lo na VM de produção. A opção EncryptFormatAll formata o disco de dados, de modo que todos os dados nele serão perdidos. Antes de prosseguir, verifique se os discos que você deseja excluir estão desmontados corretamente. </br></br>

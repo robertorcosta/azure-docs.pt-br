@@ -1,5 +1,5 @@
 ---
-title: Administradores da assinatura clássica do Azure | Microsoft Docs
+title: Administradores da assinatura clássica do Azure
 description: Descreve como adicionar ou alterar as funções Administrador de Serviços e Coadministrador do Azure e como exibir o Administrador da Conta.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243478"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734851"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
-A Microsoft recomenda que você gerencie o acesso aos recursos do Azure usando o RBAC (controle de acesso baseado em função). No entanto, se você ainda estiver usando o modelo de implantação clássico, precisará usar uma função de administrador de assinatura clássica: administrador de serviços e coadministrador. Para obter mais informações, consulte [Azure Resource Manager versus implantação clássica](../azure-resource-manager/management/deployment-models.md).
+A Microsoft recomenda que você gerencie o acesso aos recursos do Azure usando o controle de acesso baseado em função do Azure (RBAC do Azure). No entanto, se você ainda estiver usando o modelo de implantação clássico, precisará usar uma função de administrador de assinatura clássica: administrador de serviços e coadministrador. Para obter mais informações, consulte [Azure Resource Manager versus implantação clássica](../azure-resource-manager/management/deployment-models.md).
 
 Este artigo descreve como adicionar ou alterar as funções Administrador de Serviços e Coadministrador e como exibir o Administrador da Conta.
 
@@ -71,9 +71,9 @@ Os usuários convidados que receberam a função de coadministrador podem ver al
 
 Você esperava que o usuário B pudesse gerenciar tudo. O motivo para essa diferença é que a conta da Microsoft é adicionada à assinatura como um usuário convidado, em vez de um usuário membro. Os usuários convidados têm permissões padrão diferentes no Azure AD em comparação com os usuários membros. Por exemplo, usuários membros podem ler outros usuários no Azure AD, e os usuários convidados não podem. Os usuários membros podem registrar novas entidades de serviço no Azure AD, e os usuários convidados não podem.
 
-Se houver a necessidade de um usuário convidado executar essas tarefas, uma solução possível é atribuir as funções de administrador específicas do Azure AD que o usuário convidado precisa. Por exemplo, no cenário anterior, você pode atribuir a função [Leitores de Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para ler outros usuários e atribuir a função [Desenvolvedor de Aplicativos](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para criar entidades de serviço. Para saber mais sobre os usuários membros e convidados e suas permissões, consulte [Quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Para obter mais informações sobre como conceder acesso para usuários convidados, consulte [gerenciar o acesso aos recursos do Azure para usuários convidados externos usando o RBAC](role-assignments-external-users.md).
+Se um usuário convidado precisar executar essas tarefas, uma solução possível é atribuir as funções específicas do Azure AD de que o usuário convidado precisa. Por exemplo, no cenário anterior, você pode atribuir a função [Leitores de Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para ler outros usuários e atribuir a função [Desenvolvedor de Aplicativos](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para criar entidades de serviço. Para saber mais sobre os usuários membros e convidados e suas permissões, consulte [Quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Para obter mais informações sobre como conceder acesso para usuários convidados, consulte [Adicionar ou remover atribuições de função do Azure para usuários convidados externos usando o portal do Azure](role-assignments-external-users.md).
 
-Observe que as [funções internas para recursos do Azure](../role-based-access-control/built-in-roles.md) são diferentes das [funções de administrador do Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). As funções internas não concedem acesso ao Azure AD. Para saber mais, consulte [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Observe que as [funções internas do Azure](../role-based-access-control/built-in-roles.md) são diferentes das funções do [Azure ad](../active-directory/users-groups-roles/directory-assign-admin-roles.md). As funções internas não concedem acesso ao Azure AD. Para saber mais, consulte [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Para obter informações que comparam usuários Membros e usuários convidados, consulte [quais são as permissões de usuário padrão no Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
@@ -150,6 +150,6 @@ Siga estas etapas para exibir o Administrador da Conta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Entender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+* [Entender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 * [Adicionar ou alterar administradores de assinatura do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)
