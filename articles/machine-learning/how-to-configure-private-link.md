@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411192"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891361"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning (versão prévia)
 
@@ -118,7 +118,7 @@ Para obter informações sobre como colocar a conta de armazenamento na rede vir
 
 Para proteger o Azure Key Vault usado pelo seu espaço de trabalho, você pode colocá-lo na rede virtual ou habilitar o link privado para ele.
 
-Para obter informações sobre como colocar o cofre de chaves na rede virtual, consulte [usar uma instância do Key Vault com seu espaço de trabalho](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
+Para obter informações sobre como colocar o cofre de chaves na rede virtual, consulte [usar uma instância do Key Vault com seu espaço de trabalho](how-to-enable-virtual-network.md#key-vault-instance).
 
 Para obter informações sobre como habilitar o link privado para o cofre de chaves, consulte [integrar Key Vault com o link privado do Azure](/azure/key-vault/private-link-service).
 
@@ -131,7 +131,7 @@ Para proteger os serviços Kubernetess do Azure usados pelo seu espaço de traba
 
 ## <a name="azure-container-registry"></a>Registro de Contêiner do Azure
 
-Para obter informações sobre como proteger o registro de contêiner do Azure dentro da rede virtual, consulte [usar o registro de contêiner do Azure](how-to-enable-virtual-network.md#use-azure-container-registry).
+Para obter informações sobre como proteger o registro de contêiner do Azure dentro da rede virtual, consulte [usar o registro de contêiner do Azure](how-to-enable-virtual-network.md#azure-container-registry).
 
 > [!IMPORTANT]
 > Se você estiver usando o link privado para seu espaço de trabalho Azure Machine Learning e colocar o registro de contêiner do Azure para seu espaço de trabalho em uma rede virtual, também deverá aplicar o seguinte modelo de Azure Resource Manager. Este modelo permite que seu espaço de trabalho se comunique com o ACR por meio do link privado.

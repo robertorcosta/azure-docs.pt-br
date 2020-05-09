@@ -2,43 +2,94 @@
 title: Indexar um conjunto de dados grandes usando indexadores internos
 titleSuffix: Azure Cognitive Search
 description: Estratégias para indexação de dados grandes ou indexação computacionalmente intensiva por meio do modo de lote, de origem e de técnicas para indexação agendada, paralela e distribuída.
-manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+manager: liamca
+author: dereklegenzoff
+ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 4ad5e961e390b60784355ff3bc72aca4a2f73e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190956"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925976"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados no Azure Pesquisa Cognitiva
+
+O Azure Pesquisa Cognitiva dá suporte a [duas abordagens básicas](search-what-is-data-import.md) para importar dados em um índice de pesquisa: *Enviar* seus dados para o índice programaticamente ou apontar um [indexador de pesquisa cognitiva do Azure](search-indexer-overview.md) em uma fonte de dados com suporte para efetuar *pull* dos dados.
 
 À medida que os volumes de dados crescem ou as necessidades de processamento mudam, você pode descobrir que as estratégias de indexação simples ou padrão não são mais práticas. Para o Azure Pesquisa Cognitiva, há várias abordagens para acomodar conjuntos de dados maiores, variando de como você estrutura uma solicitação de carregamento de dados, para usar um indexador específico de origem para cargas de trabalho agendadas e distribuídas.
 
 As mesmas técnicas também se aplicam a processos de execução longa. Em particular, as etapas descritas em [indexação paralela](#parallel-indexing) são úteis para indexação computacionalmente intensiva, como análise de imagem ou processamento de linguagem natural em um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md).
 
-As seções a seguir exploram três técnicas para indexar grandes quantidades de dados.
+As seções a seguir exploram técnicas para indexar grandes quantidades de dados usando a API de push e os indexadores.
 
-## <a name="option-1-pass-multiple-documents"></a>Opção 1: passar vários documentos
+## <a name="push-api"></a>API Push
 
-Um dos mecanismos mais simples para indexação de um conjunto de dados maior é enviar vários documentos ou registros em uma única solicitação. Como a carga inteira é menor que 16 MB, uma solicitação pode manipular até 1000 documentos em uma operação de upload em massa. Esses limites se aplicam se você estiver usando a [API REST de adicionar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ou o [método de índice](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) no SDK do .net. Para qualquer uma das APIs, você deve empacotar 1000 documentos no corpo de cada solicitação.
+Ao enviar dados por push a um índice, há várias considerações importantes que afetam as velocidades de indexação para a API de envio por push. Esses fatores são descritos na seção abaixo. 
 
-A indexação de lotes é implementada em solicitações individuais usando REST, .NET ou por meio de indexadores. Alguns indexadores operam sob limites diferentes. Especificamente, a indexação de BLOb do Azure define o tamanho do lote em 10 documentos ao reconhecer o maior tamanho médio do documento. Para indexadores com base em [Criar o indexador do API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer), pode-se definir o `BatchSize` argumento para personalizar essa configuração para corresponder melhor as características de seus dados. 
+Além das informações neste artigo, você também pode aproveitar os exemplos de código no [tutorial otimizando a indexação de velocidades](tutorial-optimize-indexing-push-api.md) para saber mais.
+
+### <a name="service-tier-and-number-of-partitionsreplicas"></a>Camada de serviço e número de partições/réplicas
+
+Adicionar partições ou aumentar a camada do serviço de pesquisa aumentará as velocidades de indexação.
+
+Adicionar réplicas adicionais também pode aumentar as velocidades de indexação, mas não é garantido. Por outro lado, as réplicas adicionais aumentarão o volume de consulta que o serviço de pesquisa pode manipular. As réplicas também são um componente fundamental para obter um [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
+Antes de adicionar partições/réplicas ou atualizar para uma camada superior, considere o tempo de alocação e o custo monetário. A adição de partições pode aumentar significativamente a velocidade de indexação, mas adicioná-las/removê-las pode levar de 15 minutos a várias horas. Para obter mais informações, consulte a documentação sobre [ajuste da capacidade](search-capacity-planning.md).
+
+### <a name="index-schema"></a>Esquema de índice
+
+O esquema do índice desempenha um papel importante na indexação de dados. A adição de campos e a adição de propriedades adicionais a esses campos (como *pesquisáveis*, *facetable*ou *filtráveis*) reduzem as velocidades de indexação.
+
+Em geral, recomendamos apenas adicionar propriedades adicionais a campos se você pretende usá-las.
 
 > [!NOTE]
 > Para manter o tamanho do documento inativo, evite adicionar dados não consultáveis a um índice. Imagens e outros dados binários não podem ser diretamente consultados e não devem ser armazenados no índice. Para integrar dados que não podem ser consultados aos resultados da pesquisa, defina um campo não pesquisável que armazene uma referência uma URL para o recurso.
 
-## <a name="option-2-add-resources"></a>Opção 2: adicionar recursos
+### <a name="batch-size"></a>Tamanho do lote
 
-Serviços que são provisionados em um dos [ tipos de preço Standard](search-sku-tier.md) geralmente têm subutilizado a capacidade para armazenamento e cargas de trabalho (consultas ou indexação), o que [aumenta as contagens de partição e réplica ](search-capacity-planning.md) uma solução óbvia para acomodar grandes conjuntos de dados. Para obter melhores resultados, ambos os recursos são necessários: partições para armazenamento e réplicas para o trabalho de ingestão de dados.
+Um dos mecanismos mais simples para indexação de um conjunto de dados maior é enviar vários documentos ou registros em uma única solicitação. Como a carga inteira é menor que 16 MB, uma solicitação pode manipular até 1000 documentos em uma operação de upload em massa. Esses limites se aplicam se você estiver usando a [API REST de adicionar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ou o [método de índice](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) no SDK do .net. Para qualquer uma das APIs, você deve empacotar 1000 documentos no corpo de cada solicitação.
 
-O aumento de réplicas e partições são eventos faturáveis que aumentam seu custo, mas, a menos que você esteja indexando continuamente sob a carga máxima, você pode adicionar escala para a duração do processo de indexação e ajustar os níveis de recursos novamente após a conclusão da indexação.
+O uso de lotes para indexar documentos melhorará significativamente o desempenho da indexação. Determinar o tamanho de lote ideal para seus dados é um componente-chave de otimização de velocidades de indexação. Os dois fatores principais que influenciam o tamanho de lote ideal são:
++ O esquema do índice
++ O tamanho dos seus dados
 
-## <a name="option-3-use-indexers"></a>Opção 3: usar indexadores
+Como o tamanho de lote ideal depende do índice e dos dados, a melhor abordagem é testar diferentes tamanhos de lote para determinar o que resulta nas velocidades de indexação mais rápidas para seu cenário. Este [tutorial](tutorial-optimize-indexing-push-api.md) fornece um código de exemplo para o teste de tamanhos de lote usando o SDK do .net. 
+
+### <a name="number-of-threadsworkers"></a>Número de threads/trabalhadores
+
+Para aproveitar ao máximo as velocidades de indexação do Azure Pesquisa Cognitiva, você provavelmente precisará usar vários threads para enviar solicitações de indexação do lote simultaneamente para o serviço.  
+
+O número ideal de threads é determinado por:
+
++ A camada do serviço de pesquisa
++ O número de partições
++ O tamanho de seus lotes
++ O esquema do índice
+
+Você pode modificar este exemplo e testar com contagens de threads diferentes para determinar a contagem de threads ideal para seu cenário. No entanto, desde que haja vários threads em execução simultânea, você poderá aproveitar a maioria dos ganhos de eficiência. 
+
+> [!NOTE]
+> À medida que você aumenta a camada do serviço de pesquisa ou aumenta as partições, também deve aumentar o número de threads simultâneos.
+
+Conforme você aumenta as solicitações atingindo o serviço de pesquisa, pode encontrar [códigos de status http](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) indicando que a solicitação não teve sucesso total. Durante a indexação, dois códigos de status HTTP comuns são:
+
++ **503 Serviço indisponível** -esse erro significa que o sistema está sob carga pesada e sua solicitação não pode ser processada no momento.
++ **207 vários status** -esse erro significa que alguns documentos foram bem-sucedidos, mas pelo menos um falhou.
+
+### <a name="retry-strategy"></a>Estratégia de repetição 
+
+Se ocorrer uma falha, as solicitações deverão ser repetidas usando uma [estratégia de repetição de retirada exponencial](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+
+O SDK do .NET do Pesquisa Cognitiva do Azure tenta automaticamente 503s e outras solicitações com falha, mas você precisará implementar sua própria lógica para tentar novamente o 207s. Ferramentas de código aberto, como [Polly](https://github.com/App-vNext/Polly) , também podem ser usadas para implementar uma estratégia de repetição.
+
+### <a name="network-data-transfer-speeds"></a>Velocidades de transferência de dados de rede
+
+As velocidades de transferência de dados de rede podem ser um fator limitante ao indexar dados. A indexação de dados de dentro de seu ambiente do Azure é uma maneira fácil de acelerar a indexação.
+
+## <a name="indexers"></a>Indexadores
 
 [Indexadores](search-indexer-overview.md) são usados para rastrear fontes de dados do Azure com suporte para conteúdo pesquisável. Enquanto não são especificamente destinados a indexação em larga escala, vários recursos do indexador são particularmente úteis para acomodar grandes conjuntos de dados:
 
@@ -48,6 +99,12 @@ O aumento de réplicas e partições são eventos faturáveis que aumentam seu c
 
 > [!NOTE]
 > Os indexadores são específicos da fonte de dados, portanto usar uma abordagem do indexador só é viável para fontes de dados selecionadas no Azure: banco de dados [SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [armazenamento de BLOBs](search-howto-indexing-azure-blob-storage.md), [armazenamento de tabelas](search-howto-indexing-azure-tables.md) [Cosmos DB](search-howto-index-cosmosdb.md).
+
+### <a name="batch-size"></a>Tamanho do lote
+
+Assim como acontece com a API de envio por push, os indexadores permitem que você configure o número de itens por lote. Para indexadores com base em [Criar o indexador do API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer), pode-se definir o `batchSize` argumento para personalizar essa configuração para corresponder melhor as características de seus dados. 
+
+Os tamanhos de lote padrão são específicos da fonte de dados. O banco de dados SQL do Azure e Azure Cosmos DB têm um tamanho de lote padrão de 1000. Por outro lado, a indexação de blob do Azure define o tamanho do lote em 10 documentos no reconhecimento do tamanho médio do documento maior. 
 
 ### <a name="scheduled-indexing"></a>Indexação agendada em
 

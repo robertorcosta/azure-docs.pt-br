@@ -1,22 +1,22 @@
 ---
-title: Ofertas privadas | Azure Marketplace
-description: Ofertas particulares no Azure Marketplace para editores de aplicativos e serviços.
+title: Ofertas privadas no Microsoft Commercial Marketplace
+description: Ofertas privadas no Microsoft Commercial Marketplace para Publicadores de aplicativos e serviços.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: dsindona
-ms.openlocfilehash: efda9fb66a65f1f2cd40de8bf32a8a3fa99aea7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e449f65ca65a679aa6c6823938fa561b84e38368
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681424"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872385"
 ---
-# <a name="private-offers"></a>Ofertas privadas
+# <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no Microsoft Commercial Marketplace
 
-As ofertas particulares no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) permitem que os editores criem SKUs visíveis apenas para clientes segmentados.
+As ofertas privadas no [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) permitem que os editores criem planos que só são visíveis para os clientes de destino. Neste artigo, você aprenderá sobre as opções e os benefícios das ofertas privadas.
 
 ## <a name="unlock-enterprise-deals-with-private-offers"></a>Desbloqueie acordos empresariais com ofertas privadas
 

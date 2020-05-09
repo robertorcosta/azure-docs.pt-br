@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 676b54e1d22712ac41534b67206e6d6931bcc9b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fbadfb63b9f575053feca87bda2c3ad2e64e91eb
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229690"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926027"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de token JWT em uma política personalizada do Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ O exemplo a seguir mostra um perfil técnico para `JwtIssuer`:
 ```XML
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
-  <Protocol Name="None" />
+  <Protocol Name="OpenIdConnect" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
   <Metadata>
     <Item Key="client_id">{service:te}</Item>
@@ -54,7 +54,7 @@ Os elementos **InputClaims**, **OutputClaims** e **PersistClaims** estão vazios
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessária | Descrição |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Sim | A declaração que deve ser usada como a declaração de identidade do usuário nos códigos de autorização OAuth2 e tokens de atualização. Por padrão, você deve defini-la como `objectId`, a menos que especifique um tipo de declaração SubjectNamingInfo diferente. |
 | SendTokenResponseBodyWithJsonNumbers | Não | Sempre defina como `true`. Para formatos herdados em que os valores numéricos são fornecidos como cadeias de caracteres em vez de números JSON, defina como `false`. Esse atributo é necessário para clientes que adotaram uma dependência em uma implementação anterior que retornou propriedades como cadeias de caracteres. |
@@ -71,7 +71,7 @@ Os elementos **InputClaims**, **OutputClaims** e **PersistClaims** estão vazios
 
 O elemento CryptographicKeys contém os seguintes atributos:
 
-| Atributo | Obrigatório | Descrição |
+| Atributo | Necessária | Descrição |
 | --------- | -------- | ----------- |
 | issuer_secret | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para assinar o token JWT. Essa é a `B2C_1A_TokenSigningKeyContainer` chave que você configura em introdução [às políticas personalizadas](custom-policy-get-started.md). |
 | issuer_refresh_token_key | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para criptografar o token de atualização. Você configurou a chave `B2C_1A_TokenEncryptionKeyContainer` em [Introdução às políticas personalizadas](custom-policy-get-started.md) |

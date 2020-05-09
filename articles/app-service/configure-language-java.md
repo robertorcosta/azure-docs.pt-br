@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: cebe5564767ee345c1aea96b6ac54b9398c3e9a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e42096e7ab950e5d8046ec6140c01b24643cb87
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733025"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891460"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar um aplicativo Java do Windows para o serviço Azure App
 
@@ -24,7 +24,7 @@ Este guia fornece os principais conceitos e instruções para desenvolvedores Ja
 
 ## <a name="deploying-your-app"></a>Implantação do aplicativo
 
-Você pode usar o [plug-in do aplicativo Web do Azure para Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implantar seus arquivos. War. A implantação com IDEs populares também tem suporte com [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) ou [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+Você pode usar o [plug-in do aplicativo Web do Azure para Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implantar seus arquivos. War. A implantação com IDEs populares também tem suporte com [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) ou [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Caso contrário, o método de implantação dependerá do tipo de arquivo morto:
 
@@ -72,7 +72,7 @@ Se o aplicativo usar [Logback](https://logback.qos.ch/) ou [Log4j](https://loggi
 
 O serviço de Azure App dá suporte ao ajuste e à personalização prontos para uso por meio do portal do Azure e da CLI. Examine os seguintes artigos para configuração de aplicativo Web não específica para Java:
 
-- [Definir configurações de aplicativo](configure-common.md#configure-app-settings)
+- [Definir configurações do aplicativo](configure-common.md#configure-app-settings)
 - [Configurar um domínio personalizado](app-service-web-tutorial-custom-domain.md)
 - [Configurar associações TLS](configure-ssl-bindings.md)
 - [Adicionar uma CDN](../cdn/cdn-add-to-web-app.md)

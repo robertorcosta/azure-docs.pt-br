@@ -1,6 +1,6 @@
 ---
-title: Listar definições de função no RBAC do Azure usando portal do Azure, Azure PowerShell, CLI do Azure ou API REST | Microsoft Docs
-description: Saiba como listar funções internas e personalizadas no RBAC do Azure usando portal do Azure, Azure PowerShell, CLI do Azure ou API REST.
+title: Listar definições de função do Azure-RBAC do Azure
+description: Saiba como listar funções personalizadas e internas do Azure usando portal do Azure, Azure PowerShell, CLI do Azure ou API REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e691e37a85604132a6b1c4b2af3501f2c8636e18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062995"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891264"
 ---
-# <a name="list-role-definitions-in-azure-rbac"></a>Listar definições de função no RBAC do Azure
+# <a name="list-azure-role-definitions"></a>Listar definições de função do Azure
 
-Uma definição de função é uma coleção de permissões que podem ser executadas, como leitura, gravação e exclusão. Normalmente ela é chamada apenas de função. O [RBAC (controle de acesso baseado em função) do Azure](overview.md) tem mais de 120 [funções internas](built-in-roles.md) ou você pode criar suas próprias funções personalizadas. Este artigo descreve como listar as funções internas e personalizadas que você pode usar para conceder acesso aos recursos do Azure.
+Uma definição de função é uma coleção de permissões que podem ser executadas, como leitura, gravação e exclusão. Normalmente ela é chamada apenas de função. O Azure [RBAC (controle de acesso baseado em função)](overview.md) tem mais de 120 [funções internas](built-in-roles.md) ou você pode criar suas próprias funções personalizadas. Este artigo descreve como listar as funções internas e personalizadas que você pode usar para conceder acesso aos recursos do Azure.
 
 Para ver a lista de funções de administrador para Azure Active Directory, consulte [permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
@@ -344,6 +344,55 @@ Para listar definições de função, use as [definições de função-lista](/r
     > | `$filter=atScopeAndBelow()` | Lista as definições de função para o escopo especificado e quaisquer Subescopos. |
     > | `$filter=type+eq+'{type}'` | Lista as definições de função do tipo especificado. O tipo de função pode `CustomRole` ser `BuiltInRole`ou. |
 
+A solicitação a seguir lista definições de função personalizadas no escopo da assinatura:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type+eq+'CustomRole'
+```
+
+O texto a seguir mostra um exemplo da saída:
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleName": "Billing Reader Plus",
+                "type": "CustomRole",
+                "description": "Read billing data and download invoices",
+                "assignableScopes": [
+                    "/subscriptions/{subscriptionId1}"
+                ],
+                "permissions": [
+                    {
+                        "actions": [
+                            "Microsoft.Authorization/*/read",
+                            "Microsoft.Billing/*/read",
+                            "Microsoft.Commerce/*/read",
+                            "Microsoft.Consumption/*/read",
+                            "Microsoft.Management/managementGroups/read",
+                            "Microsoft.CostManagement/*/read",
+                            "Microsoft.Billing/invoices/download/action",
+                            "Microsoft.CostManagement/exports/*"
+                        ],
+                        "notActions": [
+                            "Microsoft.CostManagement/exports/delete"
+                        ]
+                    }
+                ],
+                "createdOn": "2020-02-21T04:49:13.7679452Z",
+                "updatedOn": "2020-02-21T04:49:13.7679452Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId1}",
+            "type": "Microsoft.Authorization/roleDefinitions",
+            "name": "{roleDefinitionId1}"
+        }
+    ]
+}
+```
+
 ### <a name="list-a-role-definition"></a>Listar uma definição de função
 
 Para listar os detalhes de uma função específica, use as [definições de função-Get](/rest/api/authorization/roledefinitions/get) ou [definições de função-Get por ID](/rest/api/authorization/roledefinitions/getbyid) API REST.
@@ -372,9 +421,45 @@ Para listar os detalhes de uma função específica, use as [definições de fun
      
 1. Substitua *{roleDefinitionId}* pelo identificador de definição da função.
 
+A seguinte solicitação lista a definição de função de [leitor](built-in-roles.md#reader) :
+
+```http
+GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
+```
+
+O texto a seguir mostra um exemplo da saída:
+
+```json
+{
+    "properties": {
+        "roleName": "Reader",
+        "type": "BuiltInRole",
+        "description": "Lets you view everything, but not make any changes.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "*/read"
+                ],
+                "notActions": []
+            }
+        ],
+        "createdOn": "2015-02-02T21:55:09.8806423Z",
+        "updatedOn": "2019-02-05T21:24:35.7424745Z",
+        "createdBy": null,
+        "updatedBy": null
+    },
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+}
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Funções internas para recursos do Azure](built-in-roles.md)
-- [Funções personalizadas para recursos do Azure](custom-roles.md)
-- [Listar atribuições de função usando o RBAC do Azure e o portal do Azure](role-assignments-list-portal.md)
-- [Adicionar ou remover atribuições de função usando o RBAC do Azure e o portal do Azure](role-assignments-portal.md)
+- [Funções internas do Azure](built-in-roles.md)
+- [Funções personalizadas do Azure](custom-roles.md)
+- [Listar atribuições de função do Azure usando o portal do Azure](role-assignments-list-portal.md)
+- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)

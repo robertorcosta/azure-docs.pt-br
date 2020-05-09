@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 945a27da874071d22952207b7be5add79ce7e2ec
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79037619"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872630"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer do Azure Machine Learning (versão prévia)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -82,7 +82,7 @@ Um módulo pode ter um conjunto de parâmetros que você pode usar para configur
 
 ![Propriedades do módulo](./media/concept-designer/properties.png)
 
-Para obter ajuda para navegar pela biblioteca de algoritmos de aprendizado de máquina disponíveis, consulte [visão geral de referência do módulo & do algoritmo](algorithm-module-reference/module-reference.md)
+Para obter ajuda para navegar pela biblioteca de algoritmos de aprendizado de máquina disponíveis, consulte [visão geral de referência do módulo & do algoritmo](algorithm-module-reference/module-reference.md). Para obter ajuda para escolher um algoritmo, consulte a folha de consulta do [algoritmo de Azure Machine Learning](algorithm-cheat-sheet.md).
 
 ## <a name="compute-resources"></a><a name="compute"></a>Recursos de computação
 
@@ -91,9 +91,10 @@ Use os recursos de computação do seu espaço de trabalho para executar seu pip
 | Destino de computação | Treinamento | Implantação |
 | ---- |:----:|:----:|
 | Computação do Azure Machine Learning | ✓ | |
+| Instância de computação do Azure Machine Learning | ✓ | |
 | Serviço de Kubernetes do Azure | | ✓ |
 
-Os destinos de computação são anexados ao seu [espaço de trabalho do Azure Machine Learning](concept-workspace.md). Você gerencia seus destinos de computação em seu espaço de trabalho em [Azure Machine Learning Studio (clássico)](https://ml.azure.com).
+Os destinos de computação são anexados ao seu [espaço de trabalho do Azure Machine Learning](concept-workspace.md). Você gerencia seus destinos de computação em seu espaço de trabalho no [Azure Machine Learning Studio](https://ml.azure.com).
 
 ## <a name="deploy"></a>Implantar
 

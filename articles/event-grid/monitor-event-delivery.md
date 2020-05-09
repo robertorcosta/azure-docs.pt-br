@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722128"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890862"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da Grade de Eventos 
 
@@ -27,18 +27,21 @@ Para obter informações sobre a entrega de eventos e repetições, [Entrega e r
 
 O portal exibe a métrica do status de entrega das mensagens de evento.
 
-Para tópicos, as métricas são:
+Para tópicos, aqui estão algumas das métricas:
 
 * **Publicação bem-sucedida**: evento enviado com êxito para o tópico e processado com uma resposta 2xx.
 * **Falha na Publicação**: evento enviado para o tópico, mas rejeitado com um código de erro.
 * **Sem correspondência**: evento publicado com êxito para o tópico, mas não corresponde a uma assinatura de evento. O evento foi cancelado.
 
-Para assinaturas, as métricas são:
+Para assinaturas, aqui estão algumas das métricas:
 
 * **Entrega bem-sucedida**: evento entregue com êxito ao ponto de extremidade da assinatura e recebeu uma resposta de 2xx.
-* **Falha de entrega**: evento enviado ao ponto de extremidade da assinatura, mas recebeu uma resposta 4xx ou 5xx.
+* **Falha na entrega**: toda vez que o serviço tenta entregar e o manipulador de eventos não retorna um código de 2xx de sucesso, o contador de **falha de entrega** é incrementado. Se tentarmos entregar o mesmo evento várias vezes e falhar, o contador de **falha de entrega** será incrementado para cada falha.
 * **Eventos Expirados**: evento não foi entregue e todas as tentativas de repetição foram enviadas. O evento foi cancelado.
 * **Eventos correspondidos**: evento no tópico foi correspondido pela assinatura do evento.
+
+    > [!NOTE]
+    > Para obter a lista completa de métricas, consulte [métricas com suporte na grade de eventos do Azure](metrics.md).
 
 ## <a name="event-subscription-status"></a>Status da assinatura do evento
 

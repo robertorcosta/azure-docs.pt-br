@@ -3,19 +3,19 @@ title: Configurar um endereço IP de saída público para ISEs
 description: Saiba como configurar um único endereço IP de saída pública para ambientes do serviço de integração (ISEs) em aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191454"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927132"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurar um único endereço IP para um ou mais ambientes de serviço de integração nos aplicativos lógicos do Azure
 
-Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE ( *ambiente do serviço de integração* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicativos lógicos que precisam de acesso a recursos em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Quando você tem várias instâncias do ISE que precisam de acesso a outros pontos de extremidade que têm restrições de IP, implante um [Firewall do Azure](../firewall/overview.md) ou um [dispositivo de rede virtual](../virtual-network/virtual-networks-overview.md#filter-network-traffic) em sua rede virtual e roteie o tráfego de saída por meio desse firewall ou dispositivo de rede virtual. Você pode fazer com que todas as instâncias do ISE em sua rede virtual usem um único endereço IP público, estático e previsível para se comunicar com os sistemas de destino. Dessa forma, você não precisa configurar aberturas adicionais do firewall nesses sistemas de destino para cada ISE.
+Ao trabalhar com os aplicativos lógicos do Azure, você pode configurar um [ISE ( *ambiente do serviço de integração* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar aplicativos lógicos que precisam de acesso a recursos em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Quando você tem várias instâncias do ISE que precisam de acesso a outros pontos de extremidade que têm restrições de IP, implante um [Firewall do Azure](../firewall/overview.md) ou um [dispositivo de rede virtual](../virtual-network/virtual-networks-overview.md#filter-network-traffic) em sua rede virtual e roteie o tráfego de saída por meio desse firewall ou dispositivo de rede virtual. Você pode fazer com que todas as instâncias do ISE em sua rede virtual usem um único endereço IP público, estático e previsível para se comunicar com os sistemas de destino desejados. Dessa forma, você não precisa configurar aberturas adicionais do firewall nos sistemas de destino para cada ISE.
 
 Este tópico mostra como rotear o tráfego de saída por meio de um firewall do Azure, mas você pode aplicar conceitos semelhantes a uma solução de virtualização de rede, como um firewall de terceiros do Azure Marketplace. Embora este tópico se concentre na configuração de várias instâncias do ISE, você também pode usar essa abordagem para um único ISE quando seu cenário exigir a limitação do número de endereços IP que precisam de acesso. Considere se os custos adicionais para o firewall ou dispositivo de rede virtual fazem sentido para seu cenário. Saiba mais sobre os [preços do firewall do Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
@@ -52,10 +52,12 @@ Este tópico mostra como rotear o tráfego de saída por meio de um firewall do 
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome da rota** | <*nome de rota exclusiva*> | Um nome exclusivo para a rota na tabela de rotas |
-   | **Prefixo de endereço** | <*Endereço de destino*> | O endereço do sistema de destino no qual você deseja que o tráfego vá. Certifique-se de usar a [notação CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para esse endereço. |
+   | **Prefixo de endereço** | <*Endereço de destino*> | O prefixo de endereço do sistema de destino no qual você deseja que o tráfego de saída vá. Certifique-se de usar a [notação CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para esse endereço. Neste exemplo, esse prefixo de endereço é para um servidor SFTP, que é descrito na seção [Configurar regra de rede](#set-up-network-rule). |
    | **Tipo do próximo salto** | **Solução de virtualização** | O [tipo de salto](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) usado pelo tráfego de saída |
    | **Endereço do próximo salto** | <*firewall-privado-IP-address*> | O endereço IP privado para o firewall |
    |||
+
+<a name="set-up-network-rule"></a>
 
 ## <a name="set-up-network-rule"></a>Configurar regra de rede
 
@@ -65,7 +67,7 @@ Este tópico mostra como rotear o tráfego de saída por meio de um firewall do 
 
 1. Na coleção, adicione uma regra que permita o tráfego para o sistema de destino.
 
-   Por exemplo, suponha que você tenha um aplicativo lógico executado em um ISE e precise se comunicar com um sistema SFTP. Você cria uma coleção de regras de rede que `LogicApp_ISE_SFTP_Outbound`é nomeada, que contém uma regra `ISE_SFTP_Outbound`de rede denominada. Essa regra permite o tráfego do endereço IP de qualquer sub-rede na qual o ISE é executado em sua rede virtual para o sistema de destino SFTP usando o endereço IP privado do firewall.
+   Por exemplo, suponha que você tenha um aplicativo lógico executado em um ISE e precise se comunicar com um servidor SFTP. Você cria uma coleção de regras de rede que `LogicApp_ISE_SFTP_Outbound`é nomeada, que contém uma regra `ISE_SFTP_Outbound`de rede denominada. Essa regra permite o tráfego do endereço IP de qualquer sub-rede na qual o ISE é executado em sua rede virtual para o servidor de destino SFTP usando o endereço IP privado do firewall.
 
    ![Configurar regra de rede para o firewall](./media/connect-virtual-network-vnet-set-up-single-ip-address/set-up-network-rule-for-firewall.png)
 
@@ -85,7 +87,7 @@ Este tópico mostra como rotear o tráfego de saída por meio de um firewall do 
    | **Nome** | <*nome da regra de rede*> | O nome da regra de rede |
    | **Protocolo** | <*protocolos de conexão*> | Os protocolos de conexão a serem usados. Por exemplo, se você estiver usando regras NSG, selecione **TCP** e **UDP**, não apenas **TCP**. |
    | **Endereços de origem** | <*ISE-subnet-Addresses*> | Os endereços IP de sub-rede onde o ISE é executado e onde o tráfego do seu aplicativo lógico é originado |
-   | **Endereços de destino** | <*destino-IP-address*> | O endereço IP do sistema de destino no qual você deseja que o tráfego fique |
+   | **Endereços de destino** | <*destino-IP-address*> | O endereço IP do sistema de destino no qual você deseja que o tráfego de saída vá. Neste exemplo, esse endereço IP é para o servidor SFTP. |
    | **Portas de destino** | <*portas de destino*> | Todas as portas que o sistema de destino usa para comunicação de entrada |
    |||
 

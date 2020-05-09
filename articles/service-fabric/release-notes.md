@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 3e0f6c78b6e5dd066cbfbac6805bb3c42068e66a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28870a197af07e964a50a06ffeef08f3b71451f4
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729590"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891719"
 ---
 # <a name="service-fabric-releases"></a>Versões Service Fabric
 
@@ -36,8 +36,8 @@ Também publicamos atualizações na data de fim do suporte para versões princi
 Estamos empolgados para anunciar a próxima versão do Service Fabric. Esta versão é carregada com os principais recursos e aprimoramentos. Alguns dos principais recursos estão destacados abaixo:
 ## <a name="key-announcements"></a>Principais anúncios
 - **Disponibilidade geral** de [ **Service Fabric identidades gerenciadas para aplicativos Service Fabric**](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
-- [**Suporte para Ubuntu 1804**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
- - Versão [**prévia: VMSS de disco do sistema operacional efêmero**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)* *: os discos do sistema operacional efêmero são o armazenamento criado na máquina virtual local e não são salvos no armazenamento remoto do Azure. Eles são recomendados para todos os tipos de nó de Service Fabric (primário e secundário), porque comparados aos discos do sistema operacional persistente tradicional, discos do sistema operacional efêmero:
+- [**Suporte para Ubuntu 18, 4**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
+ - [**Visualização: conjunto de dimensionamento de máquinas virtuais suporte a disco do so efêmero**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)* *: os discos do sistema operacional efêmero são o armazenamento criado na máquina virtual local e não são salvos no armazenamento remoto do Azure. Eles são recomendados para todos os tipos de nó de Service Fabric (primário e secundário), porque comparados aos discos do sistema operacional persistente tradicional, discos do sistema operacional efêmero:
       -  Reduzir a latência de leitura/gravação para o disco do sistema operacional
       -  Habilitar operações de gerenciamento de nó de redefinição/recriação de imagem mais rápidas
       -  Reduzir os custos gerais (os discos são gratuitos e não incorrem nenhum custo de armazenamento adicional)
@@ -61,7 +61,7 @@ Estamos empolgados para anunciar a próxima versão do Service Fabric. Esta vers
        
  ### <a name="reliable-collections-improvements"></a>Aprimoramentos de coleções confiáveis
 
-- [**Na memória armazene apenas o suporte para serviços com estado usando coleções confiáveis**](https://docs.microsoft.com/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections): as coleções confiáveis voláteis permitem que os dados sejam persistidos em disco para durabilidade em caso de interrupções em grande escala, podem ser usados para cargas de trabalho como cache replicado, por exemplo, em que a perda de dados ocasional pode ser tolerada. Com base nas [limitações e restrições das coleções confiáveis voláteis](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections), recomendamos isso para cargas de trabalho que não precisam de persistência, para serviços que lidam com raras ocasiões de perda de quorum.
+- [**Na memória armazene apenas o suporte para serviços com estado usando coleções confiáveis**](https://docs.microsoft.com/azure/service-fabric/service-fabric-work-with-reliable-collections#volatile-reliable-collections): as coleções confiáveis voláteis permitem que os dados sejam persistidos em disco para durabilidade em caso de interrupções em grande escala, podem ser usados para cargas de trabalho como cache replicado, por exemplo, onde a perda de dados ocasional pode ser tolerada. Com base nas [limitações e restrições das coleções confiáveis voláteis](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines#volatile-reliable-collections), recomendamos isso para cargas de trabalho que não precisam de persistência, para serviços que lidam com raras ocasiões de perda de quorum.
 - Versão [**prévia: Service Fabric o Gerenciador de backup**](https://github.com/microsoft/service-fabric-backup-explorer): para facilitar o gerenciamento de backups de coleções confiáveis para Service Fabric aplicativos com estado, Service Fabric o Gerenciador de backup permite que os usuários
     - Auditar e examinar o conteúdo das coleções confiáveis,
     - Atualizar o estado atual para uma exibição consistente
@@ -89,7 +89,7 @@ Esta é a versão mais recente do Service Fabric e é carregada com os principai
   
 - [**Limites de recursos para serviços de usuário**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services): os usuários podem configurar limites de recursos para os serviços de usuário em um nó para evitar cenários como esgotamento de recursos dos serviços do sistema Service Fabric. 
   
-- [**Custo de movimentação de serviço muito alto**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) para um tipo de réplica. As réplicas com custo de movimentação muito alta serão movidas somente se houver uma violação de restrição no cluster que não possa ser corrigida de nenhuma outra maneira. Consulte os documentos para obter informações adicionais sobre quando o uso de um custo de movimentação "muito alto" é razoável e para considerações adicionais.
+- [**Custo de movimentação de serviço muito alto**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) para um tipo de réplica. As réplicas com custo de movimentação muito alta serão movidas somente se houver uma violação de restrição no cluster que não possa ser corrigida de nenhuma outra maneira. Consulte o documento vinculado para obter informações adicionais sobre quando o uso de um custo de movimentação "muito alto" é razoável e para considerações adicionais.
   
 -  **Verificações de segurança de cluster adicionais**: nesta versão, apresentamos uma verificação de segurança de quorum de nó de semente configurável. Isso permite que você personalize quantos nós de semente devem estar disponíveis durante cenários de gerenciamento e ciclo de vida do cluster. Operações que levam o cluster abaixo do valor configurado são bloqueadas. Hoje, o valor padrão é sempre um quorum dos nós de semente, por exemplo, se você tiver sete nós de semente, uma operação que o levaria abaixo de 5 nós de semente seria bloqueada por padrão. Com essa alteração, você pode tornar o valor de segurança mínimo 6, o que permitiria que apenas um nó de semente fique inativo por vez.
    

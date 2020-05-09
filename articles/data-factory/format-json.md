@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 05/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 7b554ea5c2868559574979c58697fd31f8d2a2c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e26a2ed81ed215d7ef2029123349b39e6e67d25
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686275"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890919"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ O formato JSON tem suporte para os seguintes conectores: [Amazon S3](connector-a
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo DataSet JSON.
 
-| Propriedade         | Descrição                                                  | Obrigatório |
+| Propriedade         | Descrição                                                  | Necessária |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | A propriedade Type do conjunto de conjuntos deve ser definida como **JSON**. | Sim      |
 | local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com `location`suporte em. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
@@ -70,7 +70,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 As propriedades a seguir têm suporte na seção *** \*origem\* *** da atividade de cópia.
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Necessária |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **jsonname**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com `storeSettings`suporte em. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
@@ -79,7 +79,7 @@ As propriedades a seguir têm suporte na seção *** \*origem\* *** da atividade
 
 As propriedades a seguir têm suporte na seção *** \*coletor\* *** de atividade de cópia.
 
-| Propriedade      | Descrição                                                  | Obrigatório |
+| Propriedade      | Descrição                                                  | Necessária |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **JSONSink**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela **configurações de gravação JSON** abaixo. | Não       |
@@ -87,19 +87,18 @@ As propriedades a seguir têm suporte na seção *** \*coletor\* *** de atividad
 
 **Configurações de gravação JSON** com `formatSettings`suporte em:
 
-| Propriedade      | Descrição                                                  | Obrigatório                                              |
+| Propriedade      | Descrição                                                  | Necessária                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | O tipo de formatSettings deve ser definido como **JsonWriteSettings**. | Sim                                                   |
-| filePattern |Indique o padrão de dados armazenados em cada arquivo JSON. Os valores permitidos são: **setOfObjects** e **arrayOfObjects**. O valor **padrão** é **setOfObjects**. Veja a seção [Padrões de arquivo JSON](#json-file-patterns) para obter detalhes sobre esses padrões. |Não |
+| filePattern |Indique o padrão de dados armazenados em cada arquivo JSON. Os valores permitidos são: **setOfObjects** (linhas JSON) e **arrayOfObjects**. O valor **padrão** é **setOfObjects**. Veja a seção [Padrões de arquivo JSON](#json-file-patterns) para obter detalhes sobre esses padrões. |Não |
 
 ### <a name="json-file-patterns"></a>Padrões de arquivo JSON
 
-A atividade de cópia pode detectar e analisar automaticamente os padrões de arquivos JSON a seguir. 
+Ao copiar dados de arquivos JSON, a atividade de cópia pode detectar e analisar automaticamente os padrões de arquivos JSON a seguir. Ao gravar dados em arquivos JSON, você pode configurar o padrão de arquivo no coletor de atividade de cópia.
 
 - **Tipo I: setOfObjects**
 
-    Cada arquivo contém um único objeto ou vários objetos concatenados/delimitados por linhas. 
-    Quando essa opção é escolhida no coletor da atividade de cópia, a atividade de cópia produz um único arquivo JSON com cada objeto por linha (delimitado por linha).
+    Cada arquivo contém um único objeto, linhas JSON ou objetos concatenados.
 
     * **Exemplo de JSON de objeto único**
 
@@ -114,7 +113,7 @@ A atividade de cópia pode detectar e analisar automaticamente os padrões de ar
         }
         ```
 
-    * **Exemplo de JSON delimitado por linha**
+    * **Linhas JSON (padrão para coletor)**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}

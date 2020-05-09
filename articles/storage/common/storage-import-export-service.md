@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282436"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872441"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço de Importação/exportação do Azure?
 
@@ -41,7 +41,7 @@ O serviço de importação/exportação usa os seguintes componentes:
 * **Ferramenta WAImportExport**: esta é uma ferramenta de linha de comando que faz o seguinte:
   * Prepara as unidades de disco que são enviadas para importação.
   * Facilita a cópia de seus dados para a unidade.
-  * Criptografa os dados na unidade com o BitLocker de 128 bits do AES. Você pode usar um protetor de chave externa para proteger sua chave do BitLocker.
+  * Criptografa os dados na unidade com o BitLocker de 256 bits do AES. Você pode usar um protetor de chave externa para proteger sua chave do BitLocker.
   * Gera os arquivos de diário da unidade usados durante a criação de importação.
   * Ajuda a identificar os números de unidades necessárias para trabalhos de exportação.
 
@@ -129,9 +129,9 @@ O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados
 |Centro-Sul dos Estados Unidos     | Oeste do Japão        |Coreia Central         | Alemanha Central        |
 |Centro-Oeste dos EUA     |  Leste do Japão       | Gov. dos EUA – Virgínia        | Nordeste da Alemanha        |
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
-Os dados na unidade são criptografados usando o AES 128-bit Criptografia de Unidade de Disco BitLocker. Essa criptografia protegerá os dados enquanto eles estiverem em trânsito.
+Os dados na unidade são criptografados usando o AES 256-bit Criptografia de Unidade de Disco BitLocker. Essa criptografia protegerá os dados enquanto eles estiverem em trânsito.
 
 Para trabalhos de importação, as unidades são criptografadas de duas maneiras.  
 
