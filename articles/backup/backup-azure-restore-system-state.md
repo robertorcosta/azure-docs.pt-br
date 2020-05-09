@@ -4,12 +4,12 @@ description: Explicação passo a passo para restaurar o estado do sistema do Wi
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77602455"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610778"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -89,7 +89,7 @@ A terminologia usada nessas etapas inclui:
 6. No painel Selecionar Servidor de Backup, selecione o *Computador de origem* na lista de computadores exibidos.
 7. No painel Selecionar Modo de Recuperação, escolha **Estado do Sistema** e clique em **Avançar**.
 
-    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No Calendário no painel **Selecionar Volume e Data**, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Depois de selecionar uma data, se vários pontos de recuperação estiverem disponíveis, escolha o ponto de recuperação específico no menu suspenso **hora** .
 
@@ -124,7 +124,7 @@ Uma vez você tiver recuperado o estado do sistema como arquivos usando o agente
 
 2. Após a reinicialização, abra o snap-in Backup do Windows Server. Se você não souber onde o snap-in foi instalado, pesquise **Backup do Windows Server** no computador ou servidor.
 
-    O aplicativo da área de trabalho aparece nos resultados da pesquisa.
+    O aplicativo da área de trabalho aparece nos resultados da pesquisa. Se ele não aparecer ou se você encontrar erros ao abrir o aplicativo, você deve instalar os **recursos de backup do Windows Server**e os componentes dependentes abaixo dele, que estão disponíveis no **Assistente para adicionar recursos** no **Gerenciador do servidor**.
 
 3. No snap-in, selecione **Backup Local**.
 

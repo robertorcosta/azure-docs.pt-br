@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 9488b96dda15b0ffb794f83826dc299a5f397b77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c3dd3e7e0bc899b87a16f66dc4d049a2876dbb4
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063995"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628360"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configurar um endereço de email como seu método de verificação
 
@@ -49,7 +49,7 @@ Dependendo das configurações de sua organização, você poderá usar seu ende
 
 ### <a name="to-set-up-your-email-address"></a>Para configurar seu endereço de email
 
-1. Entre em sua conta corporativa ou de estudante e vá para a página https://myprofile.microsoft.com/.
+1. Entre em sua conta corporativa ou de estudante e vá para a página https://myaccount.microsoft.com/.
 
     ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile-page.png)
 

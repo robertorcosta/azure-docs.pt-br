@@ -3,13 +3,12 @@ title: Monitorar desempenho dos serviços de aplicativos do Azure | Microsoft Do
 description: Monitoramento do desempenho de aplicativos para serviços de aplicativos do Azure. Tempo de resposta e carregamento do gráfico, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729800"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733435"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -71,7 +70,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 
     * Por exemplo, para alterar a porcentagem de amostragem inicial, você pode criar uma configuração de aplicativo `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` de: e um `100`valor de.
 
-    * Para obter a lista de configurações de processador de telemetria de amostragem adaptável com suporte, você pode consultar o [código](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) e a [documentação associada](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * Para obter a lista de configurações de processador de telemetria de amostragem adaptável com suporte, você pode consultar o [código](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) e a [documentação associada](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -399,7 +398,11 @@ Para obter as informações mais recentes sobre a extensão/agente de Applicatio
 
 ### <a name="php-and-wordpress-are-not-supported"></a>Não há suporte para PHP e WordPress
 
-Não há suporte para sites PHP e WordPress. Atualmente, não há um SDK/agente com suporte oficialmente para o monitoramento do lado do servidor dessas cargas de trabalho. No entanto, instrumentar manualmente as transações do lado do cliente em um site do PHP ou do WordPress adicionando o JavaScript do lado do cliente às suas páginas da Web pode ser feito usando o [SDK do JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
+Não há suporte para sites PHP e WordPress. Atualmente, não há um SDK/agente com suporte oficialmente para o monitoramento do lado do servidor dessas cargas de trabalho. No entanto, instrumentar manualmente as transações do lado do cliente em um site do PHP ou do WordPress adicionando o JavaScript do lado do cliente às suas páginas da Web pode ser feito usando o [SDK do JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+### <a name="connection-string-and-instrumentation-key"></a>Cadeia de conexão e chave de instrumentação
+
+Quando o monitoramento sem código está sendo usado, somente a cadeia de conexão é necessária. No entanto, ainda recomendamos definir a chave de instrumentação para preservar a compatibilidade com versões anteriores do SDK quando a instrumentação manual está sendo executada.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Executar o criador de perfil em seu aplicativo ativo](../app/profiler.md).
