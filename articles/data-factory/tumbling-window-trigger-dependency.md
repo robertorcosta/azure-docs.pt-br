@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418789"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870042"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de gatilho de janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,10 @@ ms.locfileid: "81418789"
 Este artigo fornece etapas para criar uma dependência em um gatilho de janela em cascata. Para obter informações gerais sobre gatilhos de Janela em Cascata, consulte [Como criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md).
 
 Para criar uma cadeia de dependência e certificar-se de que um gatilho executará somente após a execução com êxito de outro gatilho no data factory, use esse recurso avançado para criar uma dependência de janela em cascata.
+
+Para ver uma demonstração sobre como criar pipelines dependentes em seu Azure Data Factory usando o gatilho de janela em cascata, Assista ao vídeo a seguir:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Criar uma dependência na interface do usuário do Data Factory
 
@@ -75,18 +79,21 @@ Um gatilho de janela em cascata com uma dependência tem as seguintes propriedad
 
 A tabela a seguir fornece a lista de atributos necessários para definir uma dependência de Janela em Cascata.
 
-| **Nome da propriedade** | **Descrição**  | **Tipo** | **Necessário** |
+| **Nome da propriedade** | **Descrição**  | **Tipo** | **Necessária** |
 |---|---|---|---|
 | type  | Todos os gatilhos da janela em cascata existentes são exibidos neste menu suspenso. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
 | deslocamento | Deslocamento do gatilho de dependência. Forneça um valor no formato de intervalo de tempo e deslocamentos negativos e positivos são permitidos. Essa propriedade será obrigatória se o gatilho estiver dependendo de si mesmo e em todos os outros casos for opcional. A autodependência deverá sempre ser um deslocamento negativo. Se nenhum valor for especificado, a janela será igual ao próprio gatilho. | Timespan<br/>(hh:mm:ss) | Dependência automática: Sim<br/>Outro: não |
 | tamanho | Tamanho da janela em cascata de dependência. Forneça um valor de TimeSpan positivo. Essa propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
 
 > [!NOTE]
-> Um gatilho de janela em cascata pode depender de um máximo de dois outros gatilhos.
+> Um gatilho de janela em cascata pode depender de um máximo de cinco outros gatilhos.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Propriedades de autodependência de janela em cascata
 
-Em cenários em que o gatilho não deve prosseguir para a próxima janela até que a janela anterior seja concluída com êxito, crie uma autodependência. Um gatilho de dependência automática dependente do sucesso das execuções anteriores de si mesmo no RH anterior terá as propriedades abaixo:
+Em cenários em que o gatilho não deve prosseguir para a próxima janela até que a janela anterior seja concluída com êxito, crie uma autodependência. Um gatilho de dependência automática dependente do sucesso das execuções anteriores de si mesmo dentro da hora anterior terá as propriedades indicadas no código a seguir.
+
+> [!NOTE]
+> Se o pipeline disparado depender da saída de pipelines em janelas disparadas anteriormente, é recomendável usar apenas a janela em cascata disparará a autodependência. Para limitar as execuções de gatilho paralelo, defina a simultaneidade do gatilho maximimum.
 
 ```json
 {
@@ -147,10 +154,6 @@ Um trabalho de processamento diário de telemetria dependendo de outro trabalho 
 Um trabalho diário sem lacunas nos fluxos de saída do trabalho:
 
 ![Exemplo de dependência automática](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Exemplo de dependência automática")
-
-Para ver uma demonstração sobre como criar pipelines dependentes em seu Azure Data Factory usando o gatilho de janela em cascata, Assista ao vídeo a seguir:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Monitorar dependências
 
