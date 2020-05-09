@@ -3,12 +3,12 @@ title: Exibir dados dinâmicos (versão prévia) com Azure Monitor para contêin
 description: Este artigo descreve a exibição em tempo real de logs de kubernetes, eventos e métricas de Pod sem usar kubectl em Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216566"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872121"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como exibir logs de kubernetes, eventos e métricas de pod em tempo real
 
@@ -26,7 +26,7 @@ Para obter ajuda sobre como configurar ou solucionar problemas do recurso de dad
 
 ## <a name="live-data-preview-functionality-overview"></a>Visão geral da funcionalidade de dados dinâmicos (visualização)
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Search
 
 ![Exemplo de filtro do painel do console de dados dinâmicos](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -42,7 +42,7 @@ Para suspender o AutoScroll e controlar o comportamento do painel, permitindo qu
 >É recomendável suspender ou pausar o AutoScroll por um curto período de tempo, enquanto soluciona um problema. Essas solicitações podem afetar a disponibilidade e a limitação da API kubernetes no cluster. 
 
 >[!IMPORTANT]
->Nenhum dado é armazenado permanentemente durante a operação deste recurso. Todas as informações capturadas durante a sessão são excluídas quando você fecha o navegador ou navega para fora dela. Os dados permanecem presentes apenas para visualização dentro da janela de cinco minutos do recurso de métricas; todas as métricas com mais de cinco minutos também são excluídas. O buffer de dados dinâmicos (visualização) consulta dentro dos limites de uso de memória razoáveis (precisa ser mais específico aqui, o que é razoável?). 
+>Nenhum dado é armazenado permanentemente durante a operação deste recurso. Todas as informações capturadas durante a sessão são excluídas quando você fecha o navegador ou navega para fora dela. Os dados permanecem presentes apenas para visualização dentro da janela de cinco minutos do recurso de métricas; todas as métricas com mais de cinco minutos também são excluídas. O buffer de dados dinâmicos (visualização) consulta dentro dos limites de uso de memória razoáveis.
 
 ## <a name="view-logs"></a>Exibir logs
 

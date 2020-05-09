@@ -5,29 +5,29 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248444"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980806"
 ---
 # <a name="createuidefinition-functions"></a>Funções de CreateUiDefinition
 Esta seção contém as assinaturas para todas as funções com suporte de uma CreateUiDefinition.
 
-Para usar uma função, coloque a declaração entre colchetes. Por exemplo:
+Para usar uma função, coloque a chamada entre colchetes. Por exemplo: 
 
 ```json
 "[function()]"
 ```
 
-Cadeias de caracteres e outras funções podem ser referenciadas como parâmetros de uma função, mas as cadeias de caracteres devem estar entre aspas simples. Por exemplo:
+Cadeias de caracteres e outras funções podem ser referenciadas como parâmetros de uma função, mas as cadeias de caracteres devem estar entre aspas simples. Por exemplo: 
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Quando aplicável, referencie propriedades da saída de uma função usando o operador de ponto. Por exemplo:
+Quando aplicável, referencie propriedades da saída de uma função usando o operador de ponto. Por exemplo: 
 
 ```json
 "[func().prop1]"
@@ -461,7 +461,7 @@ O exemplo a seguir retorna `true`:
 "[or(equals(0, 0), greater(1, 2))]"
 ```
 
-### <a name="not"></a>não
+### <a name="not"></a>not
 Retorna `true` se o parâmetro é avaliado como `false`. Essa função dá suporte apenas a parâmetros do tipo booliano.
 
 O exemplo a seguir retorna `true`:
@@ -484,6 +484,45 @@ Suponha que `element1` e `element2` são indefinidos. O exemplo a seguir retorna
 ```json
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
+
+Essa função é especialmente útil no contexto de invocação opcional que ocorre devido a uma ação do usuário após o carregamento da página. Um exemplo é se as restrições colocadas em um campo na interface do usuário dependem do valor selecionado atualmente de outro campo **inicialmente não visível** . Nesse caso, `coalesce()` o pode ser usado para permitir que a função seja sintaticamente válida no tempo de carregamento da página e tenha o efeito desejado quando o usuário interage com o campo.
+
+Considere isso `DropDown`, que permite ao usuário escolher entre vários tipos diferentes de banco de dados:
+
+```
+{
+    "name": "databaseType",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Choose database type",
+    "toolTip": "Choose database type",
+    "defaultValue": "Oracle Database",
+    "visible": "[bool(steps('section_database').connectToDatabase)]"
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Azure Database for PostgreSQL",
+                "value": "postgresql"
+            },
+            {
+                "label": "Oracle Database",
+                "value": "oracle"
+            },
+            {
+                "label": "Azure SQL",
+                "value": "sqlserver"
+            }
+        ],
+        "required": true
+    },
+```
+
+Para condição da ação de outro campo no valor atual escolhido deste campo, use `coalesce()`, conforme mostrado aqui:
+
+```
+"regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
+```
+
+Isso é necessário porque o `databaseType` inicialmente não está visível e, portanto, não tem um valor. Isso faz com que a expressão inteira não seja avaliada corretamente.
 
 ## <a name="conversion-functions"></a>Funções de conversão
 Essas funções podem ser usadas para converter valores entre tipos de dados JSON e codificações.

@@ -1,5 +1,5 @@
 ---
-title: Disparar a execução de um pipeline de ML de um aplicativo lógico
+title: Disparar o pipeline ML para novos dados
 titleSuffix: Azure Machine Learning
 description: Saiba como disparar a execução de um pipeline de ML usando os aplicativos lógicos do Azure.
 services: machine-learning
@@ -10,12 +10,13 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 6bb976b8b310fb3eb4d0247a8d745599f688d7b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: contperfq4
+ms.openlocfilehash: 32b3e153a98ca7de91e0dd05258414780b39dec4
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77122851"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857965"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Disparar uma execução de um pipeline de Machine Learning de um aplicativo lógico
 
@@ -66,7 +67,7 @@ Depois que seu aplicativo lógico tiver sido provisionado, use estas etapas para
 
   Use as seguintes configurações para configurar sua ação:
 
-  | Configuração | Valor | 
+  | Setting | Valor | 
   |---|---|
   | Ação HTTP | POST |
   | URI |o ponto de extremidade para o pipeline publicado que você encontrou como um [pré-requisito](#prerequisites) |

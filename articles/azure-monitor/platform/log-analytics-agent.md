@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 08c80b0a37e21d53fc974bd878501b9326c9449b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: MT
+ms.openlocfilehash: e85e41796d0fc4fb9ac72b4032de3143b26d890f
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207217"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871059"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente de Log Analytics do Azure foi desenvolvido para gerenciamento abrangente em máquinas virtuais em qualquer nuvem, em máquinas locais e aquelas monitoradas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes do Windows e Linux enviam dados coletados de fontes diferentes para seu espaço de trabalho do Log Analytics no Azure Monitor, bem como quaisquer logs ou métricas exclusivos, conforme definido em uma solução de monitoramento. O agente de Log Analytics também dá suporte a informações e outros serviços em Azure Monitor como [Azure monitor para VMs](../insights/vminsights-enable-overview.md), [central de segurança do Azure](/azure/security-center/)e [automação do Azure](../../automation/automation-intro.md).
@@ -44,7 +44,7 @@ A tabela a seguir lista os tipos de dados que você pode configurar um espaço d
 | [Logs de eventos do Windows](data-sources-windows-events.md) | Informações enviadas ao sistema de registro de evento do Windows. |
 | [syslog](data-sources-syslog.md)                     | Informações enviadas para o sistema de log de eventos do Linux. |
 | [Desempenho](data-sources-performance-counters.md)  | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
-| [Logs do IIS](data-sources-iis-logs.md)                 | Informações de uso para sites do IIS em execução no sistema operacional convidado. |
+| [Logs IIS](data-sources-iis-logs.md)                 | Informações de uso para sites do IIS em execução no sistema operacional convidado. |
 | [Logs personalizados](data-sources-custom-logs.md)           | Eventos de arquivos de texto em computadores Windows e Linux. |
 
 ## <a name="data-destinations"></a>Destinos de dados
@@ -147,7 +147,7 @@ Para garantir a segurança dos dados em trânsito para Azure Monitor logs, é al
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Requisito de suporte à assinatura de código SHA-2 para Windows
-O agente do Windows começará a usar exclusivamente a assinatura SHA-2 em 18 de maio de 2020. Essa alteração afetará os clientes que usam o agente de Log Analytics em um sistema operacional herdado como parte de qualquer serviço do Azure (Azure Monitor, automação do Azure, Azure Gerenciamento de Atualizações, Azure Controle de Alterações, central de segurança do Azure, Azure Sentinel, Windows Defender ATP). A alteração não requer nenhuma ação do cliente, a menos que você esteja executando o agente em uma versão do sistema operacional herdada (Windows 7, Windows Server 2008 R2 e Windows Server 2008). Os clientes em execução em uma versão de sistema operacional herdada são necessários para executar as seguintes ações em suas máquinas antes de 18 de maio de 2020 ou seus agentes deixarão de enviar dados para seus espaços de trabalho de Log Analytics:
+O agente do Windows começará a usar exclusivamente a assinatura SHA-2 em 17 de agosto de 2020. Essa alteração afetará os clientes que usam o agente de Log Analytics em um sistema operacional herdado como parte de qualquer serviço do Azure (Azure Monitor, automação do Azure, Azure Gerenciamento de Atualizações, Azure Controle de Alterações, central de segurança do Azure, Azure Sentinel, Windows Defender ATP). A alteração não requer nenhuma ação do cliente, a menos que você esteja executando o agente em uma versão do sistema operacional herdada (Windows 7, Windows Server 2008 R2 e Windows Server 2008). Os clientes em execução em uma versão de sistema operacional herdada são necessários para executar as seguintes ações em suas máquinas antes de 17 de agosto de 2020 ou seus agentes deixarão de enviar dados para seus espaços de trabalho de Log Analytics:
 
 1. Instale o Service Pack mais recente para seu sistema operacional. As versões de service pack necessárias são:
     - Windows 7 SP1

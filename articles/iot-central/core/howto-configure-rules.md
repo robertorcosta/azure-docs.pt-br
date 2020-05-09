@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 509f9557a8128df12353ad02a7c7db02b7b42631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6e85ba5aafaad973d28f799a251b6f3aae548e3
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158431"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871948"
 ---
 # <a name="configure-rules"></a>Configurar regras
-
-
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
@@ -36,6 +34,12 @@ As condições são as regras disparadas. Atualmente, quando você adiciona vár
 Na captura de tela a seguir, as condições verificam quando a temperatura é&deg; maior que 70 F e a umidade é menor que 10. Quando ambas as instruções são true, a regra é avaliada como true e dispara uma ação.
 
 ![Condições](media/howto-configure-rules/conditions.png)
+
+### <a name="use-a-cloud-property-in-a-value-field"></a>Usar uma propriedade de nuvem em um campo de valor
+
+Você pode fazer referência a uma propriedade de nuvem do modelo de dispositivo no campo **valor** para uma condição. A propriedade de nuvem e o valor de telemetria devem ter tipos semelhantes. Por exemplo, se a **temperatura** for um Double, somente as propriedades de nuvem do tipo Double show as opções na lista suspensa **valor** .
+
+Se você escolher um valor de telemetria de tipo de evento, a lista suspensa **valor** incluirá a opção **qualquer**. A opção **any** significa que a regra é acionada quando seu aplicativo recebe um evento desse tipo, qualquer que seja a carga.
 
 ## <a name="use-aggregate-windowing"></a>Usar janelas agregadas
 

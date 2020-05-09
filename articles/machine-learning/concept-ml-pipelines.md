@@ -1,7 +1,6 @@
 ---
-title: O que são pipelines de ML
-titleSuffix: Azure Machine Learning
-description: Neste artigo, Aprenda as vantagens dos pipelines do ML (Machine Learning) que você pode criar com o SDK do Azure Machine Learning para Python. Pipelines de Machine Learning são usados por cientistas de dados para criar, otimizar e gerenciar seus fluxos de trabalho de aprendizado de máquina.
+title: O que são pipelines Azure Machine Learning
+description: Saiba mais sobre como os pipelines do ML (Machine Learning) ajudam você a criar, otimizar e gerenciar fluxos de trabalho de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +8,16 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79e9551650866e5f5fc28b123c1259e2a5fb6f20
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878571"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983441"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
-Azure Machine Learning pipelines permitem que você crie fluxos de trabalho em seus projetos do Machine Learning. Esses fluxos de trabalho têm vários benefícios: 
+Neste artigo, você pode aprender como Azure Machine Learning pipelines ajudam a criar, otimizar e gerenciar fluxos de trabalho de aprendizado de máquina. Esses fluxos de trabalho têm vários benefícios: 
 
 + Simplicidade
 + Velocidade
@@ -45,7 +44,6 @@ A nuvem do Azure fornece vários outros pipelines, cada um com uma finalidade di
 | Orquestração de modelo (Machine Learning) | Cientista de dados | Pipelines do Azure Machine Learning | Pipelines do Kubeflow | Modelo de > de dados | Distribuição, cache, primeiro código, reutilização | 
 | Orquestração de dados (preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Fluxo de ar do Apache | Dados > dados | Movimentação fortemente tipada. Atividades centradas em dados. |
 | Código & orquestração de aplicativo (CI/CD) | Desenvolvedor de aplicativos/Ops | [Pipelines do Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + modelo – aplicativo/serviço > | Mais suporte a atividades abertas e flexíveis, filas de aprovação, fases com a retenção | 
-
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>O que os pipelines do Azure ML podem fazer?
 

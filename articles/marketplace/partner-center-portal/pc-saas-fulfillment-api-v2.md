@@ -1,22 +1,22 @@
 ---
-title: API de preenchimento de SaaS v2 | Azure Marketplace
-description: Este artigo explica como criar e gerenciar uma oferta de SaaS no AppSource e no Azure Marketplace usando as APIs de cumprimento associado v2.
+title: APIs de cumprimento de SaaS V2 no Microsoft Commercial Marketplace
+description: Saiba como criar e gerenciar uma oferta de SaaS no Microsoft AppSource e no Azure Marketplace usando as APIs de preenchimento versão 2.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
-ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f452349c0d636bc74a3722e2526623c955093f7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275757"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854198"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>APIs de cumprimento de SaaS, versão 2 
+# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>APIs de preenchimento de SaaS versão 2 no Microsoft Commercial Marketplace
 
-Este artigo detalha as APIs que permitem que os parceiros vendam seus aplicativos SaaS no AppSource Marketplace e no Azure Marketplace. Essas APIs são um requisito para ofertas de SaaS transactáveis no AppSource e no Azure Marketplace.
+Este artigo detalha as APIs de preenchimento que permitem que os parceiros vendam seus aplicativos SaaS no Microsoft AppSource e no Azure Marketplace. Essas APIs são necessárias para ofertas de SaaS transactáveis.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gerenciando o ciclo de vida da assinatura SaaS
 
@@ -70,7 +70,7 @@ Esse estado indica que o pagamento de um cliente não foi recebido. Por polític
 As assinaturas atingem esse estado em resposta a uma solicitação de cliente explícita ou a não pagamento de dívidas. A expectativa do parceiro é que os dados do cliente sejam retidos para recuperação na solicitação por um determinado número de dias e, em seguida, excluídos. 
 
 
-## <a name="api-reference"></a>Reference API
+## <a name="api-reference"></a>Referência de API
 
 Esta seção documenta a *API da assinatura* SaaS e a *API de operações*.  O valor do parâmetro `api-version` para as APIs da versão 2 `2018-08-31`é.  
 
@@ -861,7 +861,7 @@ Em que o status pode ser um dos seguintes:
  - **InProgress** <br>
 - **Êxito** <br>
 - **Falha** <br>
-- **Conflito** <br>
+- **Houver** <br>
 
 Em uma notificação de webhook, os status acionáveis são **bem-sucedidos** e **falharam**. O ciclo de vida de uma operação é de não ser **iniciado** para um estado de terminal como **êxito**, **falha**ou **conflito**. Se você receber não **inicializado** ou estiver **inprogredindo**, continue solicitando o status por meio da API Get até que a operação alcance um estado terminal antes de tomar uma ação. 
 
