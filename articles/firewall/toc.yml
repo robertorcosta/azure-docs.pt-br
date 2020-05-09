@@ -23,6 +23,9 @@
     - name: Implantação com vários endereços
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
+    - name: Implantar com Zonas de Disponibilidade
+      displayName: Resource Manager
+      href: deploy-template.md
 - name: Exemplos
   items:
     - name: Azure PowerShell
@@ -61,8 +64,6 @@
       href: tutorial-hybrid-ps.md
     - name: Implantar usando a CLI do Azure
       href: deploy-cli.md
-    - name: Implantar usando um modelo
-      href: deploy-template.md
     - name: Implantar com vários IPs públicos
       href: deploy-multi-public-ip-powershell.md
     - name: Implantar com Zonas de Disponibilidade
@@ -75,6 +76,8 @@
       href: snat-private-range.md
     - name: Criar grupos de IPs
       href: create-ip-group.md
+    - name: Proteger a Área de Trabalho Virtual do Windows
+      href: protect-windows-virtual-desktop.md
 - name: Referência
   items:
     - name: CLI do Azure

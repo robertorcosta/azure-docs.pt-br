@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c8cc4c01b172cd11c13558cd195673d21499b41
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443492"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983900"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Laboratórios da sala de aula em Azure Lab Services – perguntas frequentes (FAQ)
 Obtenha respostas para algumas das perguntas mais comuns sobre os laboratórios de sala de aula em Azure Lab Services. 
@@ -58,13 +58,16 @@ Consulte [intervalos de IP do Azure e marcas de serviço – nuvem pública](htt
 
 Quando um administrador adiciona você como um criador de laboratório a uma conta de laboratório, você recebe as permissões para criar laboratórios. Mas, você não tem as permissões para editar as configurações dentro da conta do laboratório, incluindo a lista de imagens de máquina virtual habilitadas. Para habilitar imagens adicionais, entre em contato com o administrador da conta do laboratório para fazer isso ou peça ao administrador para adicioná-lo como uma função de colaborador à conta do laboratório. A função colaborador fornecerá as permissões para editar a lista de imagens da máquina virtual na conta do laboratório.
 
+### <a name="can-i-attach-additional-disks-to-a-virtual-machine"></a>Posso anexar discos adicionais a uma máquina virtual?
+Não. Não é possível anexar discos adicionais a uma VM em um laboratório de sala de aula. 
+
 ## <a name="users"></a>Usuários
 
 ### <a name="how-many-users-can-be-in-a-classroom-lab"></a>Quantos usuários podem estar em um laboratório de sala de aula?
 Você pode adicionar até 400 usuários a um laboratório de sala de aula. 
 
 ## <a name="blog-post"></a>Postagem no blog
-Assine o [blog do Azure Lab Services](https://azure.microsoft.com/blog/tag/azure-lab-services/).
+Assine o [blog do Azure Lab Services](https://aka.ms/azlabs-blog).
 
 ## <a name="update-notifications"></a>Notificações de atualização
 Assine [as atualizações do Lab Services](https://azure.microsoft.com/updates/?product=lab-services) para se manter informado sobre os novos recursos no Lab Services.

@@ -8,21 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476647"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580608"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modelo de série temporal na visualização Azure Time Series Insights
 
 Este artigo descreve o modelo de série temporal, os recursos e como começar a criar e atualizar seus próprios modelos no ambiente de visualização de Azure Time Series Insights.
 
 > [!TIP]
->  * Vá para o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) para obter um exemplo de modelo de série temporal em tempo real.
+>
+> * Vá para o ambiente de [demonstração do farm de vento da Contoso](https://insights.timeseries.azure.com/preview/samples) para obter um exemplo de modelo de série temporal em tempo real.
 > * Leia sobre o [Gerenciador de visualização Azure Time Series insights](time-series-insights-update-explorer.md) para saber como navegar pela interface do usuário do modelo de série temporal.
 > * Saiba [como trabalhar com o modelo de série temporal](time-series-insights-update-how-to-tsm.md) usando o time Series insights Web Explorer.
 
@@ -51,9 +52,9 @@ O **modelo de série temporal fornece uma solução conveniente** para muitos do
 
 [![Exemplo de gráfico de forno inteligente de modelo de série temporal](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* O modelo de série temporal exerce um papel vital em consultas e navegação porque ele contextualiza dados, permitindo que as comparações sejam desenhadas entre intervalos de tempo e entre os tipos de sensor e de dispositivo. (**A**) 
+* O modelo de série temporal exerce um papel vital em consultas e navegação porque ele contextualiza dados, permitindo que as comparações sejam desenhadas entre intervalos de tempo e entre os tipos de sensor e de dispositivo. (**A**)
 * Os dados são mais contextuais porque os dados persistentes no modelo de série temporal preservam as computações de consulta de série temporal como variáveis e as reutilizam no momento da consulta.
-* O modelo de série temporal organiza e agrega dados para recursos aprimorados de gerenciamento e visualização. (**B**) 
+* O modelo de série temporal organiza e agrega dados para recursos aprimorados de gerenciamento e visualização. (**B**)
 
 ### <a name="key-capabilities"></a>Principais recursos
 
@@ -102,7 +103,7 @@ As instâncias são definidas por **Timeseriesid**, **typeId**, **Name**, **Desc
 | Série temporal | O UUID da série temporal à qual a instância está associada. |
 | Identificação | O UUID do tipo de modelo de série temporal ao qual a instância está associada. Por padrão, todas as novas instâncias descobertas são associadas a um tipo padrão.
 | name | A propriedade **Name** é opcional e diferencia maiúsculas de minúsculas. Se o **nome** não estiver disponível, o padrão será **timeseriesid**. Se um nome for fornecido, **Timeseriesid** ainda estará disponível no [bem](time-series-insights-update-explorer.md#4-time-series-well). |
-| description | Uma descrição de texto da instância. |
+| descrição | Uma descrição de texto da instância. |
 | hierarchyIds | Define a quais hierarquias a instância pertence. |
 | instanceFields | As propriedades de uma instância e quaisquer dados estáticos que definem uma instância. Elas definem os valores das propriedades hierárquicas e não hierárquicas e também dão suporte à indexação para executar operações de pesquisa. |
 
@@ -241,7 +242,7 @@ Os tipos de modelo de série temporal são definidos por **ID**, **nome**, **Des
 | ---| ---|
 | id | O UUID para o tipo. |
 | name | Uma cadeia de caracteres usada para fornecer um nome para o tipo. |
-| description | Uma descrição de cadeia de caracteres para o tipo. |
+| descrição | Uma descrição de cadeia de caracteres para o tipo. |
 | variáveis | Especifique as variáveis associadas ao tipo. |
 
 Os tipos estão em conformidade com o seguinte exemplo de JSON:
@@ -290,7 +291,7 @@ Tipos de Time Series Insights podem ter muitas variáveis que especificam fórmu
 
 Cada variável pode ser um dos três *tipos*: *numeric*, *categórico*e *Aggregate*.
 
-* Os tipos **numéricos** funcionam com valores contínuos. 
+* Os tipos **numéricos** funcionam com valores contínuos.
 * Os tipos **categóricos** funcionam com um conjunto definido de valores discretos.
 * Valores de **agregação** combinam várias variáveis de um único tipo (todos numéricos ou todos categóricos).
 

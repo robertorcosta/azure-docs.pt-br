@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f7be4d01dd930e9ff421b2a163f1648f1793da9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230906"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927030"
 ---
 # <a name="azure-ad-b2c-session"></a>Sessão de Azure AD B2C
 
@@ -99,22 +99,20 @@ Após uma solicitação de saída, Azure AD B2C:
    - SAML-se os metadados do provedor de identidade `SingleLogoutService` contiverem o local.
 1. Opcionalmente, desconecta-se de outros aplicativos. Para obter mais informações, consulte a seção de [saída única](#single-sign-out) .
 
-> [!NOTE]
-> A saída limpa o estado de logon único do usuário com o Azure AD B2C, mas ele pode não desconectar o usuário da sessão do provedor de identidade social. Se o usuário selecionar o mesmo provedor de identidade durante uma entrada subsequente, ele poderá se autenticar sem inserir suas credenciais. Se um usuário quiser sair do aplicativo, isso não significa necessariamente que deseja sair de sua conta do Facebook. No entanto, se forem usadas contas locais, a sessão do usuário será encerrada corretamente.
+A saída limpa o estado de logon único do usuário com o Azure AD B2C, mas ele pode não desconectar o usuário da sessão do provedor de identidade social. Se o usuário selecionar o mesmo provedor de identidade durante uma entrada subsequente, ele poderá se autenticar sem inserir suas credenciais. Se um usuário quiser sair do aplicativo, isso não significa necessariamente que deseja sair de sua conta do Facebook. No entanto, se forem usadas contas locais, a sessão do usuário será encerrada corretamente.
 
-### <a name="single-sign-out"></a>Logout único
+### <a name="single-sign-out"></a>Logout único 
+
+
+> [!NOTE]
+> Esse recurso é limitado a [políticas personalizadas](custom-policy-overview.md).
 
 Quando você redireciona o usuário para o ponto de extremidade de saída do Azure AD B2C (para os protocolos OAuth2 e SAML), Azure AD B2C limpa a sessão do usuário do navegador. No entanto, o usuário ainda pode estar conectado a outros aplicativos que usam Azure AD B2C para autenticação. Para permitir que esses aplicativos desconectem o usuário simultaneamente, Azure AD B2C envia uma solicitação HTTP GET para o `LogoutUrl` registrado de todos os aplicativos aos quais o usuário está conectado no momento.
 
-Os aplicativos devem responder a essa solicitação, limpando as sessões que identificam o usuário e retornando uma resposta `200`. Se você quiser dar suporte ao logout único em seu aplicativo, deverá implementar um `LogoutUrl` no código do aplicativo. Você pode definir o `LogoutUrl` do Portal do Azure:
 
-1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Escolha o diretório ativo do B2C clicando em sua conta no canto superior direito da página.
-1. No painel de navegação à esquerda, escolha **Azure ad B2C**, selecione **registros de aplicativo**e, em seguida, selecione seu aplicativo.
-1. Selecione **configurações**, selecione **Propriedades**e, em seguida, localize a caixa de texto **URL de logout** . 
-
+Os aplicativos devem responder a essa solicitação, limpando as sessões que identificam o usuário e retornando uma resposta `200`. Se você quiser dar suporte ao logout único em seu aplicativo, deverá implementar um `LogoutUrl` no código do aplicativo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [Configurar o comportamento da sessão no fluxo do usuário](session-behavior.md).
-- Saiba como [Configurar o comportamento da sessão na política personalizada](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso).
+- Saiba como [Configurar o comportamento da sessão em políticas personalizadas](session-behavior-custom-policy.md).
