@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93015da810f163a48529704e69e1747ac1aec401
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231961"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889388"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
@@ -39,7 +39,7 @@ Este artigo ajuda você a encontrar e corrigir erros ou falhas que você pode en
 Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode encontrar ao trabalhar com o Azure Machine Learning.
 
 ## <a name="installation-and-import"></a>Instalação e importação
-
+                           
 * **Instalação de Pip: não há garantia de que as dependências sejam consistentes com a instalação de linha única**: 
 
    Essa é uma limitação conhecida do Pip, pois não tem um resolvedor de dependências em funcionamento quando você instala o como uma única linha. A primeira dependência exclusiva é a única que ela examina. 
@@ -56,7 +56,29 @@ Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode 
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-
+     
+* **Explicação pacote não guarateed a ser instalado ao instalar o azureml-Train-automl-Client:** 
+   
+   Ao executar uma automl remota executar com a explicação do modelo habilitada, você verá uma mensagem de erro dizendo "" Instale o azureml-explique-Package para obter explicações do modelo. " Esse é um problema conhecido e, como alternativa, siga uma das etapas abaixo:
+  
+  1. Instale o azureml-explique-Model localmente.
+   ```
+      pip install azureml-explain-model
+   ```
+  2. Desabilite inteiramente o recurso de explicação, passando model_explainability = false na configuração automl.
+   ```
+      automl_config = AutoMLConfig(task = 'classification',
+                             path = '.',
+                             debug_log = 'automated_ml_errors.log',
+                             compute_target = compute_target,
+                             run_configuration = aml_run_config,
+                             featurization = 'auto',
+                             model_explainability=False,
+                             training_data = prepped_data,
+                             label_column_name = 'Survived',
+                             **automl_settings)
+    ``` 
+    
 * **Erros do panda: normalmente vistos durante o experimento do AutoML:**
    
    Ao configurar manualmente seu environmnet usando Pip, você observará erros de atributo (especialmente de pandas) devido à instalação de versões de pacote sem suporte. Para evitar esses erros, [Instale o SDK do AutoML usando o automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
@@ -123,7 +145,7 @@ Saiba mais sobre as [cotas de recursos](how-to-manage-quotas.md) que você pode 
 
 * **Portal do Azure**: se você for diretamente para exibir seu espaço de trabalho em um link de compartilhamento no SDK ou no portal, você não poderá exibir a página de **visão geral** normal com as informações de assinatura na extensão. Você também não poderá alternar para outro workspace. Se você precisar exibir outro espaço de trabalho, vá diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquise o nome do espaço de trabalho.
 
-## <a name="set-up-your-environment"></a>Configurar seu ambiente
+## <a name="set-up-your-environment"></a>Configure seu ambiente
 
 * **Problemas ao criar AmlCompute**: há uma chance rara de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA talvez não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
 
@@ -214,7 +236,7 @@ Problemas conhecidos:
 
 Execute estas ações para os seguintes erros:
 
-|Erro do  | Resolução  |
+|Erro  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |

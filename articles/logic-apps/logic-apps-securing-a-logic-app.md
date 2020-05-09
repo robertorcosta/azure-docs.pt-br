@@ -5,23 +5,23 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/04/2020
-ms.openlocfilehash: ee8bee832e48dc7354b4136e25be9bcc43eb90c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: b00dae5c807cb8bec3b9e345c9b2af2c227139b7
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870550"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901153"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
-Para controlar o acesso e proteger os dados nos aplicativos lógicos do Azure, você pode configurar a segurança nessas áreas:
+Para controlar o acesso e proteger dados confidenciais em aplicativos lógicos do Azure, você pode configurar a segurança para essas áreas:
 
 * [Acesso a gatilhos baseados em solicitação](#secure-triggers)
 * [Acesso a operações de aplicativo lógico](#secure-operations)
 * [Acesso a entradas e saídas do histórico de execução](#secure-run-history)
 * [Acesso a entradas de parâmetro](#secure-action-parameters)
-* [Acesso a serviços e sistemas chamados de aplicativos lógicos](#secure-requests)
+* [Acesso a serviços e sistemas chamados de aplicativos lógicos](#secure-outbound-requests)
 
 <a name="secure-triggers"></a>
 
@@ -32,8 +32,9 @@ Se seu aplicativo lógico usa um gatilho baseado em solicitação, que recebe ch
 Aqui estão opções que podem ajudá-lo a proteger o acesso a esse tipo de gatilho:
 
 * [Gerar assinaturas de acesso compartilhado](#sas)
+* [Habilitar Azure Active Directory autenticação aberta (OAuth do Azure AD)](#enable-oauth)
 * [Restringir endereços IP de entrada](#restrict-inbound-ip-addresses)
-* [Adicionar Azure Active Directory OAuth ou outra segurança](#add-authentication)
+* [Adicionar Azure Active Directory autenticação aberta (Azure AD OAuth) ou outra segurança](#add-authentication)
 
 <a name="sas"></a>
 
@@ -76,7 +77,7 @@ Para gerar uma nova chave de acesso de segurança a qualquer momento, use a API 
 
 Se você compartilhar a URL do ponto de extremidade para um gatilho baseado em solicitação com outras partes, poderá gerar URLs de retorno de chamada que usam chaves específicas e têm datas de expiração. Dessa forma, você pode reverter as chaves ou restringir o acesso para disparar seu aplicativo lógico com base em um período de tempo específico. Para especificar uma data de validade para uma URL, use a [API REST dos aplicativos lógicos](https://docs.microsoft.com/rest/api/logic/workflowtriggers), por exemplo:
 
-``` http
+```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
@@ -88,11 +89,100 @@ No corpo, inclua a `NotAfter`propriedade usando uma cadeia de caracteres de data
 
 Ao gerar ou listar URLs de retorno de chamada para um gatilho baseado em solicitação, você pode especificar a chave a ser usada para assinar a URL. Para gerar uma URL que é assinada por uma chave específica, use a [API REST de aplicativos lógicos](https://docs.microsoft.com/rest/api/logic/workflowtriggers), por exemplo:
 
-``` http
+```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
 No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa propriedade retorna uma URL que é assinada pela chave de segurança especificada.
+
+<a name="enable-oauth"></a>
+
+### <a name="enable-azure-active-directory-oauth"></a>Habilitar Azure Active Directory OAuth
+
+Se seu aplicativo lógico começar com um gatilho de solicitação, você poderá habilitar [Azure Active Directory autenticação aberta](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) para autorizar chamadas de entrada para o gatilho de solicitação. Antes de habilitar essa autenticação, examine estas considerações:
+
+* Seu aplicativo lógico está limitado a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [declarações](../active-directory/develop/developer-glossary.md#claim). Para obter mais informações, consulte [limites e configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Uma política de autorização deve incluir pelo menos a declaração do **emissor** , que tem um valor que começa `https://sts.windows.net/` com como a ID do emissor do Azure AD.
+
+* Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou as [SAS (assinaturas de acesso compartilhado)](#sas).
+
+* Os tokens OAuth têm suporte apenas para o gatilho de solicitação.
+
+* Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens OAuth.
+
+Para habilitar o OAuth do Azure AD, siga estas etapas para adicionar uma ou mais políticas de autorização ao seu aplicativo lógico.
+
+1. Na [portal do Azure](https://portal.microsoft.com), localize e abra seu aplicativo lógico no designer de aplicativo lógico.
+
+1. No menu do aplicativo lógico, em **configurações**, selecione **autorização**. Depois que o painel autorização for aberto, selecione **Adicionar política**.
+
+   ![Selecione "autorização" > "Adicionar política"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Forneça informações sobre a política de autorização especificando os [tipos de declaração](../active-directory/develop/developer-glossary.md#claim) e os valores que seu aplicativo lógico espera no token de autenticação apresentado por cada chamada de entrada para o gatilho de solicitação:
+
+   ![Fornecer informações para a política de autorização](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Propriedade | Obrigatório | Descrição |
+   |----------|----------|-------------|
+   | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
+   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Platéia** <br>- **Assunto** <br>- **ID do JWT** (ID do token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com a `https://sts.windows.net/` ID do emissor do Azure AD. Para obter mais informações sobre esses tipos de declaração, consulte [declarações em tokens de segurança do Azure ad](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu próprio tipo e valor de declaração. |
+   |||
+
+1. Para adicionar outra declaração, selecione uma destas opções:
+
+   * Para adicionar outro tipo de declaração, selecione **Adicionar declaração padrão**, selecione o tipo de declaração e especifique o valor da declaração.
+
+   * Para adicionar sua própria declaração, selecione **Adicionar declaração personalizada**e especifique o valor da declaração personalizada.
+
+1. Para adicionar outra política de autorização, selecione **Adicionar política**. Repita as etapas anteriores para configurar a política.
+
+1. Quando terminar, selecione **Salvar**.
+
+Seu aplicativo lógico agora está configurado para usar o OAuth do Azure AD para autorizar solicitações de entrada. Quando seu aplicativo lógico recebe uma solicitação de entrada que inclui um token de autenticação, os aplicativos lógicos do Azure comparam as declarações do token com as declarações em cada política de autorização. Se houver uma correspondência entre as declarações do token e todas as declarações em pelo menos uma política, a autorização terá sucesso para a solicitação de entrada. O token pode ter mais declarações do que o número especificado pela política de autorização.
+
+Por exemplo, suponha que seu aplicativo lógico tenha uma política de autorização que exija dois tipos de declaração, emissor e público. Este [token de acesso](../active-directory/develop/access-tokens.md) decodificado de exemplo inclui ambos os tipos de declaração:
+
+```json
+{
+   "aud": "https://management.core.windows.net/",
+   "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
+   "iat": 1582056988,
+   "nbf": 1582056988,
+   "exp": 1582060888,
+   "_claim_names": {
+      "groups": "src1"
+   },
+   "_claim_sources": {
+      "src1": {
+         "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
+    }
+   },
+   "acr": "1",
+   "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
+   "amr": [
+      "rsa",
+      "mfa"
+   ],
+   "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
+   "appidacr": "2",
+   "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
+   "family_name": "Sophia Owen",
+   "given_name": "Sophia Owen (Fabrikam)",
+   "ipaddr": "167.220.2.46",
+   "name": "sophiaowen",
+   "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
+   "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
+   "puid": "1003000000098FE48CE",
+   "scp": "user_impersonation",
+   "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
+   "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "unique_name": "SophiaOwen@fabrikam.com",
+   "upn": "SophiaOwen@fabrikam.com",
+   "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
+   "ver": "1.0"
+}
+```
 
 <a name="restrict-inbound-ip"></a>
 
@@ -115,13 +205,13 @@ Junto com a SAS (assinatura de acesso compartilhado), talvez você queira limita
 Se você quiser que seu aplicativo lógico seja disparado apenas como um aplicativo lógico aninhado, na lista **endereços IP de entrada permitidos** , selecione **somente outros aplicativos lógicos**. Essa opção grava uma matriz vazia em seu recurso de aplicativo lógico. Dessa forma, somente chamadas do serviço de aplicativos lógicos (aplicativos lógicos pai) podem disparar o aplicativo lógico aninhado.
 
 > [!NOTE]
-> Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando `/triggers/<trigger-name>/run` por meio da API REST do Azure ou do Gerenciamento de API. No entanto, esse cenário ainda requer autenticação na API REST do Azure. Todos os eventos aparecem no log de auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
+> Independentemente do endereço IP, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando `/triggers/<trigger-name>/run` por meio da API REST do Azure ou do Gerenciamento de API. No entanto, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-scenarios.md) na API REST do Azure. Todos os eventos aparecem no log de auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP de entrada no modelo de Azure Resource Manager
 
 Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de IP usando `accessControl` a seção com `triggers` a seção na definição de recurso do aplicativo lógico, por exemplo:
 
-``` json
+```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
@@ -160,9 +250,9 @@ Se você [automatizar a implantação para aplicativos lógicos usando modelos d
 
 <a name="add-authentication"></a>
 
-### <a name="add-azure-active-directory-oauth-or-other-security"></a>Adicionar Azure Active Directory OAuth ou outra segurança
+### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Adicionar Azure Active Directory autenticação aberta ou outra segurança
 
-Para adicionar mais protocolos de autorização ao seu aplicativo lógico, considere usar o serviço de [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) . Esse serviço ajuda você a expor seu aplicativo lógico como uma API e oferece monitoramento, segurança, política e documentação avançados para qualquer ponto de extremidade. O gerenciamento de API pode expor um ponto de extremidade público ou privado para seu aplicativo lógico. Para autorizar o acesso a esse ponto de extremidade, você pode usar [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), [certificado de cliente](#client-certificate-authentication)ou outros padrões de segurança para autorizar o acesso a esse ponto de extremidade. Quando o Gerenciamento de API recebe uma solicitação, o serviço envia a solicitação ao aplicativo lógico, fazendo também quaisquer transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas o gerenciamento de API dispare seu aplicativo lógico, você pode usar as configurações de intervalo de IP de entrada do aplicativo lógico.
+Para adicionar mais protocolos de [autenticação](../active-directory/develop/authentication-scenarios.md) ao seu aplicativo lógico, considere usar o serviço de [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) . Esse serviço ajuda você a expor seu aplicativo lógico como uma API e oferece monitoramento, segurança, política e documentação avançados para qualquer ponto de extremidade. O gerenciamento de API pode expor um ponto de extremidade público ou privado para seu aplicativo lógico. Para autorizar o acesso a esse ponto de extremidade, você pode usar [Azure Active Directory autenticação aberta](#azure-active-directory-oauth-authentication) (Azure ad OAuth), [certificado de cliente](#client-certificate-authentication)ou outros padrões de segurança para autorizar o acesso a esse ponto de extremidade. Quando o Gerenciamento de API recebe uma solicitação, o serviço envia a solicitação ao aplicativo lógico, fazendo também quaisquer transformações ou restrições necessárias ao longo do caminho. Para permitir que apenas o gerenciamento de API dispare seu aplicativo lógico, você pode usar as configurações de intervalo de IP de entrada do aplicativo lógico.
 
 <a name="secure-operations"></a>
 
@@ -190,9 +280,9 @@ Para controlar o acesso às entradas e saídas no histórico de execução do ap
 
   Essa opção ajuda a proteger o acesso ao histórico de execução com base nas solicitações de um intervalo de endereços IP específico.
 
-* [Ocultar dados do histórico de execução usando ofuscação](#obfuscate).
+* [Proteja os dados no histórico de execução usando ofuscação](#obfuscate).
 
-  Em muitos gatilhos e ações, você pode ocultar suas entradas, saídas ou ambos do histórico de execução de um aplicativo lógico.
+  Em muitos gatilhos e ações, você pode proteger as entradas, saídas ou ambos no histórico de execução de um aplicativo lógico.
 
 <a name="restrict-ip"></a>
 
@@ -255,17 +345,17 @@ Se você [automatizar a implantação para aplicativos lógicos usando modelos d
 
 <a name="obfuscate"></a>
 
-### <a name="hide-data-from-run-history-by-using-obfuscation"></a>Ocultar dados do histórico de execução usando ofuscação
+### <a name="secure-data-in-run-history-by-using-obfuscation"></a>Proteger dados no histórico de execução usando ofuscação
 
-Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou ambos do histórico de execução de um aplicativo lógico. Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerations) ao usar essas configurações para ajudá-lo a proteger esses dados.
+Muitos gatilhos e ações têm configurações para proteger entradas, saídas ou ambos do histórico de execução de um aplicativo lógico. Antes de usar essas configurações para ajudá-lo a proteger esses dados, [examine essas considerações](#obfuscation-considerations).
 
-#### <a name="hide-inputs-and-outputs-in-the-designer"></a>Ocultar entradas e saídas no designer
+#### <a name="secure-inputs-and-outputs-in-the-designer"></a>Proteger entradas e saídas no designer
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
    ![Abrir o aplicativo lógico no designer de aplicativo lógico](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
-1. No gatilho ou na ação em que você deseja ocultar dados confidenciais, selecione o botão de reticências (**...**) e, em seguida, selecione **configurações**.
+1. No gatilho ou na ação em que você deseja proteger dados confidenciais, selecione o botão de reticências (**...**) e, em seguida, selecione **configurações**.
 
    ![Abrir configurações de gatilho ou ação](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
@@ -293,7 +383,7 @@ Muitos gatilhos e ações têm configurações para ocultar entradas, saídas ou
 
 <a name="secure-data-code-view"></a>
 
-#### <a name="hide-inputs-and-outputs-in-code-view"></a>Ocultar entradas e saídas na exibição de código
+#### <a name="secure-inputs-and-outputs-in-code-view"></a>Proteger entradas e saídas no modo de exibição de código
 
 Na definição de gatilho ou ação subjacente, adicione ou atualize a `runtimeConfiguration.secureData.properties` matriz com um ou ambos os valores:
 
@@ -322,19 +412,19 @@ Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerat
 
 <a name="obfuscation-considerations"></a>
 
-#### <a name="considerations-when-hiding-inputs-and-outputs"></a>Considerações ao ocultar entradas e saídas
+#### <a name="considerations-when-securing-inputs-and-outputs"></a>Considerações ao proteger entradas e saídas
 
 * Quando você obscurece as entradas ou saídas em um gatilho ou ação, os aplicativos lógicos não enviam os dados protegidos para o Azure Log Analytics. Além disso, você não pode adicionar [Propriedades rastreadas](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) a esse gatilho ou ação para monitoramento.
 
 * A [API dos aplicativos lógicos para manipular o histórico de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/) não retorna saídas seguras.
 
-* Para ocultar as saídas de uma ação que obscurece entradas ou oculta explicitamente as saídas, ative manualmente as **saídas seguras** nessa ação.
+* Para proteger as saídas de uma ação que obscurece entradas ou oculta explicitamente as saídas, ative manualmente as **saídas seguras** nessa ação.
 
 * Certifique-se de ativar **entradas seguras** ou **proteger as saídas** em ações de downstream em que você espera que o histórico de execução oculte esses dados.
 
   **Configuração de saídas seguras**
 
-  Quando você ativa manualmente as **saídas seguras** em um gatilho ou ação, os aplicativos lógicos protegem essas saídas no histórico de execuções. Se uma ação downstream usar explicitamente essas saídas protegidas como entradas, os aplicativos lógicos ocultarão as entradas dessa ação no histórico de execuções, mas *não habilitarão* a configuração de **entradas seguras** da ação.
+  Quando você ativa manualmente as **saídas seguras** em um gatilho ou ação, os aplicativos lógicos ocultam essas saídas no histórico de execuções. Se uma ação downstream usar explicitamente essas saídas protegidas como entradas, os aplicativos lógicos ocultarão as entradas dessa ação no histórico de execuções, mas *não habilitarão* a configuração de **entradas seguras** da ação.
 
   ![Saídas protegidas como entradas e impacto de downstream na maioria das ações](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
@@ -344,7 +434,7 @@ Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerat
 
   **Configuração de entradas seguras**
 
-  Quando você ativa manualmente as **entradas seguras** em um gatilho ou ação, os aplicativos lógicos protegem essas entradas no histórico de execuções. Se uma ação downstream usar explicitamente as saídas visíveis desse gatilho ou ação como entradas, os aplicativos lógicos ocultarão as entradas da ação downstream no histórico de execução, mas *não habilitarão* **entradas seguras** nessa ação e não ocultarão as saídas dessa ação.
+  Quando você ativa manualmente as **entradas seguras** em um gatilho ou uma ação, os aplicativos lógicos ocultam essas entradas no histórico de execuções. Se uma ação downstream usar explicitamente as saídas visíveis desse gatilho ou ação como entradas, os aplicativos lógicos ocultarão as entradas da ação downstream no histórico de execução, mas *não habilitarão* **entradas seguras** nessa ação e não ocultarão as saídas dessa ação.
 
   ![Entradas seguras e impacto de downstream na maioria das ações](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
@@ -358,7 +448,7 @@ Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerat
 
 Se você implantar em ambientes diferentes, considere a possibilidade de parametrização dos valores na definição do fluxo de trabalho que variam de acordo com esses ambientes. Dessa forma, você pode evitar dados embutidos em código usando um [modelo de Azure Resource Manager](../azure-resource-manager/templates/overview.md) para implantar seu aplicativo lógico, proteger dados confidenciais definindo parâmetros protegidos e passá-los como entradas separadas por meio dos [parâmetros do modelo](../azure-resource-manager/templates/template-parameters.md) usando um arquivo de [parâmetro](../azure-resource-manager/templates/parameter-files.md).
 
-Por exemplo, se você autenticar ações HTTP com [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), poderá definir e obscurecer os parâmetros que aceitam a ID do cliente e o segredo do cliente que são usados para autenticação. Para definir esses parâmetros em seu aplicativo lógico, use a `parameters` seção na definição de fluxo de trabalho do aplicativo lógico e no modelo do Resource Manager para implantação. Para ocultar os valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execução, defina os `securestring` parâmetros `secureobject` usando o tipo ou e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o tempo de `@parameters('<parameter-name>')` execução, use a expressão dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em tempo de execução e é descrita pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
+Por exemplo, se você autenticar ações HTTP com [Azure Active Directory autenticação aberta](#azure-active-directory-oauth-authentication) (Azure ad OAuth), poderá definir e obscurecer os parâmetros que aceitam a ID do cliente e o segredo do cliente que são usados para autenticação. Para definir esses parâmetros em seu aplicativo lógico, use a `parameters` seção na definição de fluxo de trabalho do aplicativo lógico e no modelo do Resource Manager para implantação. Para ajudar a proteger os valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execução, defina `securestring` os `secureobject` parâmetros usando o tipo ou e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o tempo de `@parameters('<parameter-name>')` execução, use a expressão dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em tempo de execução e é descrita pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Se você usar um parâmetro em um cabeçalho ou corpo de solicitação, esse parâmetro poderá ser visível quando você exibir o histórico de execução do aplicativo lógico e a solicitação HTTP de saída. Certifique-se de também definir suas políticas de acesso de conteúdo adequadamente. Você também pode usar [ofuscação](#obfuscate) para ocultar entradas e saídas em seu histórico de execução. Cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Portanto, se um segredo for usado lá, ele não será recuperável.
@@ -366,7 +456,7 @@ Por exemplo, se você autenticar ações HTTP com [Azure Active Directory OAuth]
 Para obter mais informações, consulte estas seções neste tópico:
 
 * [Proteger parâmetros em definições de fluxo de trabalho](#secure-parameters-workflow)
-* [Ocultar dados do histórico de execução usando ofuscação](#obfuscate)
+* [Proteger dados no histórico de execução usando ofuscação](#obfuscate)
 
 Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá definir [parâmetros de modelo](../azure-resource-manager/templates/template-parameters.md)protegidos, que são avaliados na implantação, `securestring` usando `secureobject` os tipos e. Para definir parâmetros de modelo, use a seção de nível `parameters` superior do modelo, que é separada e diferente da `parameters` seção de sua definição de fluxo de trabalho. Para fornecer os valores para parâmetros de modelo, use um [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md)separado.
 
@@ -562,7 +652,7 @@ Este modelo de exemplo que tem várias definições de parâmetros protegidas `s
 }
 ```
 
-<a name="secure-requests"></a>
+<a name="secure-outbound-requests"></a>
 
 ## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Acesso a serviços e sistemas chamados de aplicativos lógicos
 
@@ -570,7 +660,7 @@ Aqui estão algumas maneiras que você pode ajudar a proteger pontos de extremid
 
 * Adicionar autenticação a solicitações de saída.
 
-  Quando você trabalha com um gatilho ou uma ação baseada em HTTP que faz chamadas de saída, como HTTP, HTTP + Swagger ou webhook, você pode adicionar autenticação à solicitação enviada pelo seu aplicativo lógico. Por exemplo, você pode usar esses tipos de autenticação:
+  Quando você trabalha com um gatilho ou uma ação baseada em HTTP que faz chamadas de saída, como HTTP, HTTP + Swagger ou webhook, você pode adicionar autenticação à solicitação enviada pelo seu aplicativo lógico. Por exemplo, você pode selecionar estes tipos de autenticação:
 
   * [Autenticação básica](#basic-authentication)
 
@@ -622,7 +712,7 @@ Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autentica�
 
 Se a opção [básica](../active-directory-b2c/secure-rest-api.md) estiver disponível, especifique esses valores de propriedade:
 
-| Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Descrição |
+| Propriedade (Designer) | Property (JSON) | Necessária | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | Basic | O tipo de autenticação a ser usado |
 | **Nome de usuário** | `username` | Sim | <*nome do usuário*>| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
@@ -653,7 +743,7 @@ Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipu
 
 Se a opção de [certificado de cliente](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) estiver disponível, especifique esses valores de propriedade:
 
-| Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Descrição |
+| Propriedade (Designer) | Property (JSON) | Necessária | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Certificado do cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados de cliente TLS/SSL <p><p>**Observação**: embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para TLS/SSL. O conector HTTP não oferece suporte a certificados TLS/SSL intermediários. |
 | **Pfx** | `pfx` | Sim | <*Encoded-arquivo PFX-conteúdo*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) <p><p>Para converter o arquivo PFX em formato codificado em base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. converta o conteúdo do certificado usando `ToBase64String()` a função e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
@@ -688,15 +778,15 @@ Para obter mais informações sobre como proteger serviços usando a autenticaç
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-oauth-authentication"></a>Azure Active Directory Autenticação OAuth
+### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory a autenticação aberta
 
-Se a opção [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) estiver disponível, especifique esses valores de propriedade:
+Em gatilhos de solicitação, você pode usar [Azure Active Directory autenticação aberta](../active-directory/develop/about-microsoft-identity-platform.md) (Azure ad OAuth) para autenticar chamadas de entrada depois de [configurar as políticas de autorização do Azure ad](#enable-oauth) para seu aplicativo lógico. Para todos os outros gatilhos e ações que fornecem o Active Directory tipo de autenticação **OAuth** a ser selecionado, especifique estes valores de propriedade:
 
-| Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Descrição |
+| Propriedade (Designer) | Property (JSON) | Necessária | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Active Directory OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a ser usado. Os aplicativos lógicos atualmente seguem o [protocolo OAuth 2,0](../active-directory/develop/v2-overview.md). |
 | **Authority** | `authority` | Não | <*URL-para-Authority-token-emissor*> | A URL para a autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. |
-| **Locatário** | `tenant` | Sim | <*ID do locatário*> | A ID do locatário para o locatário do Azure AD |
+| **Vários** | `tenant` | Sim | <*ID do locatário*> | A ID do locatário para o locatário do Azure AD |
 | **Platéia** | `audience` | Sim | <*recurso a ser autorizado*> | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
 | **ID do Cliente** | `clientId` | Sim | <*ID do cliente*> | A ID do cliente para o aplicativo solicitando a autorização |
 | **Tipo de Credencial** | `credentialType` | Sim | Certificado <br>ou <br>Segredo | O tipo de credencial que o cliente usa para solicitar autorização. Essa propriedade e o valor não aparecem na definição subjacente do aplicativo lógico, mas determina as propriedades que aparecem para o tipo de credencial selecionado. |
@@ -746,7 +836,7 @@ Authorization: OAuth realm="Photos",
 
 No gatilho ou ação que dá suporte à autenticação bruta, especifique estes valores de propriedade:
 
-| Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Descrição |
+| Propriedade (Designer) | Property (JSON) | Necessária | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | Raw | O tipo de autenticação a ser usado |
 | **Valor** | `value` | Sim | <*autorização-cabeçalho-valor*> | O valor do cabeçalho de autorização a ser usado para autenticação |
@@ -773,7 +863,7 @@ Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipu
 
 ### <a name="managed-identity-authentication"></a>Autenticação de identidade gerenciada
 
-Se a opção de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível, seu aplicativo lógico poderá usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário criada manualmente para autenticar o acesso a recursos em outros locatários do Azure Active Directory (AD do Azure) sem entrar. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, porque você não precisa fornecer ou trocar segredos. Saiba mais sobre os [Serviços do Azure que dão suporte a identidades gerenciadas para autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Se a opção de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível, seu aplicativo lógico poderá usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário criada manualmente para autenticar o acesso a recursos em outros locatários do Azure Active Directory (AD do Azure) sem entrar. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais porque você não precisa fornecer ou girar segredos. Saiba mais sobre os [Serviços do Azure que dão suporte a identidades gerenciadas para autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Antes que seu aplicativo lógico possa usar uma identidade gerenciada, siga as etapas em [autenticar o acesso aos recursos do Azure usando identidades gerenciadas nos aplicativos lógicos do Azure](../logic-apps/create-managed-service-identity.md). Essas etapas habilitam a identidade gerenciada em seu aplicativo lógico e configuram o acesso da identidade ao recurso do Azure de destino.
 
@@ -781,11 +871,11 @@ Se a opção de [identidade gerenciada](../active-directory/managed-identities-a
 
 1. No gatilho ou na ação em que você deseja usar a identidade gerenciada, especifique estes valores de propriedade:
 
-   | Propriedade (Designer) | Property (JSON) | Obrigatório | Valor | Descrição |
+   | Propriedade (Designer) | Property (JSON) | Necessária | Valor | Descrição |
    |---------------------|-----------------|----------|-------|-------------|
    | **Autenticação** | `type` | Sim | **Identidade gerenciada** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a ser usado |
    | **Identidade gerenciada** | `identity` | Sim | * **Identidade gerenciada atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo usuário*> | A identidade gerenciada a ser usada |
-   | **Platéia** | `audience` | Sim | <*Target-Resource-ID*> | A ID de recurso para o recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` o torna os tokens de acesso para autenticação válidos para todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz `https://fabrikamstorageaccount.blob.core.windows.net` , como para uma conta de armazenamento específica. <p>**Observação**: a propriedade **Audience** pode estar oculta em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **público**. <p><p>**Importante**: Verifique se essa ID de recurso de destino *corresponde exatamente* ao valor esperado pelo Azure AD, incluindo as barras à direita necessárias. Portanto, a `https://storage.azure.com/` ID de recurso para todas as contas de armazenamento de BLOBs do Azure requer uma barra à direita. No entanto, a ID de recurso para uma conta de armazenamento específica não requer uma barra à direita. Para encontrar essas IDs de recurso, consulte [Serviços do Azure que dão suporte ao Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Platéia** | `audience` | Sim | <*Target-Resource-ID*> | A ID de recurso para o recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` o torna os [tokens de acesso](../active-directory/develop/access-tokens.md) para autenticação válidos para todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz `https://fabrikamstorageaccount.blob.core.windows.net` , como para uma conta de armazenamento específica. <p>**Observação**: a propriedade **Audience** pode estar oculta em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **público**. <p><p>**Importante**: Verifique se essa ID de recurso de destino *corresponde exatamente* ao valor esperado pelo Azure AD, incluindo as barras à direita necessárias. Portanto, a `https://storage.azure.com/` ID de recurso para todas as contas de armazenamento de BLOBs do Azure requer uma barra à direita. No entanto, a ID de recurso para uma conta de armazenamento específica não requer uma barra à direita. Para encontrar essas IDs de recurso, consulte [Serviços do Azure que dão suporte ao Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica `type` a `ManagedServiceIdentity` autenticação como e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:

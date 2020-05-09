@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
-ms.author: mezha
-ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: mazha
+ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67593385"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929121"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger ativos da CDN do Azure com autenticação de token
 
@@ -72,7 +72,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
       ```rand -hex <key length>```
 
-      Por exemplo:
+      Por exemplo: 
 
       ```OpenSSL> rand -hex 32``` 
 

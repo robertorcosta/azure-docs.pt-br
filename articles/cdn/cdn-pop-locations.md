@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 227aae23babbcd5d734a10821d9311f91532ea4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32b76687910b2bf028365cc6df2bc8272b393f32
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770973"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837457"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura do CDN do Azure por Metro 
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Este artigo lista os Metros atuais que contêm locais POP (ponto de presença), 
 | Região | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
 | América do Norte | Toronto, Canadá<br />Vancouver, Canadá<br />Montreal, Canadá<br />Querétaro, México<br />San Juan, Porto Rico<br />Ashburn, VA, EUA<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />Honolulu, HI, EUA<br />Houston, TX, EUA<br />Las Vegas, NV, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, EUA<br />Newark, NJ, EUA<br />Phoenix, AZ, EUA<br />Portland, ou EUA<br />San Antonio, TX, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA | Guadalajara, México<br />Cidade do México, México<br />Puebla, México<br />Querétaro, México<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />Detroit, MI, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, EUA<br />Filadélfia, PA, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA<br />Washington, D.C., EUA | Canada<br />México<br />EUA |
-| América do Sul | Campinas, Brasil<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Valparaíso, Chile<br />Bogotá, Colômbia<br />Barranquilla, Colômbia<br />Medellin, Colômbia<br />Quito, Equador<br />Lima, Peru | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
+| América do Sul | Campinas, Brasil<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Santiago, Chile<br />Bogotá, Colômbia<br />Buenos Aires, Argentina | Buenos Aires, Argentina<br />Rio de Janeiro, Brasil<br />São Paulo, Brasil<br />Valparaíso, Chile<br />Bogotá, Colômbia<br />Barranquilla, Colômbia<br />Medellin, Colômbia<br />Quito, Equador<br />Lima, Peru | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
 | Europa | Viena, Áustria<br />Bruxelas, Bélgica<br />Sófia, Bulgária<br />Zagreb, Croácia<br />Praga, República Tcheca<br />Copenhague, Dinamarca<br /> Helsinki, Finlândia<br /> Oslo, Noruega<br />Marseille, França<br />Paris, França<br />Berlim, Alemanha<br />Frankfurt, Alemanha<br />Atenas, Grécia<br />Budapeste, Hungria<br />Dublin, Irlanda<br />Milão, Itália<br />Amsterdã, Países Baixos<br />Varsóvia, Polônia<br />Lisboa, Portugal<br />Bucareste, Romênia<br />Barcelona, Espanha<br />Madri, Espanha<br />Estocolmo, Suécia<br />Zurique, Suíça<br />Londres, Reino Unido<br />Manchester, Reino Unido | Viena, Áustria<br />Copenhague, Dinamarca<br />Helsinki, Finlândia<br />Marseille, França<br />Paris, França<br />Frankfurt, Alemanha<br />Milão, Itália<br />Riga, Letônia<br />Amsterdã, Países Baixos<br />Varsóvia, Polônia<br />Madri, Espanha<br />Estocolmo, Suécia<br />Londres, Reino Unido | Áustria<br />Bulgária<br />Dinamarca<br />Finlândia<br />França<br />Alemanha<br />Grécia<br />Irlanda<br />Itália<br />Países Baixos<br />Polônia<br />Rússia<br />Espanha<br />Suécia<br />Suíça<br />United Kingdom |
 | África | Cidade do Cabo, África do Sul<br />Joanesburgo, África do Sul<br />Lagos, Nigéria<br />Nairóbi, Quênia | Joanesburgo, África do Sul | África do Sul |
 | Oriente Médio | Dubai, Emirados Árabes Unidos<br />Tel Aviv, Israel<br />Istambul, Turquia | Mascate, Omã<br />Fujirah, Emirados Árabes Unidos | Catar<br />Emirados Árabes Unidos |

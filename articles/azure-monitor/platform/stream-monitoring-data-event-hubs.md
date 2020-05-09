@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733095"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854612"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmitir dados de monitoramento do Azure para um hub de eventos
 O Azure Monitor fornece uma solução completa de monitoramento de pilha completa para aplicativos e serviços no Azure, em outras nuvens e no local. Além de usar Azure Monitor para analisar os dados e aproveitá-los para diferentes cenários de monitoramento, talvez seja necessário enviá-los para outras ferramentas de monitoramento em seu ambiente. O método mais eficaz para transmitir dados de monitoramento para ferramentas externas na maioria dos casos é usar os [hubs de eventos do Azure](/azure/event-hubs/). Este artigo fornece uma breve descrição de como você pode transmitir dados de monitoramento de fontes diferentes para um hub de eventos e links para orientações detalhadas.
@@ -23,7 +23,7 @@ O Azure Monitor fornece uma solução completa de monitoramento de pilha complet
 Antes de configurar o streaming para qualquer fonte de dados, você precisa [criar um namespace de hubs de eventos e um hub de eventos](../../event-hubs/event-hubs-create.md). Esse namespace e hub de eventos é o destino para todos os seus dados de monitoramento. Um namespace dos Hubs de Eventos é um agrupamento lógico de hubs de eventos que compartilham a mesma política de acesso, assim como uma conta de armazenamento tem blobs individuais dentro dessa conta de armazenamento. Considere os seguintes detalhes sobre o namespace de hubs de eventos e os hubs de eventos que você usa para streaming de dados de monitoramento:
 
 * O número de unidades de taxa de transferência permite aumentar a escala de taxa de transferência para os hubs de eventos. Em geral, apenas uma unidade de taxa de transferência é necessária. Se precisar escalar verticalmente conforme o uso do log aumentar, você poderá aumentar manualmente o número de unidades de produtividade para o namespace ou habilitar a inflação automática.
-* O número de partições permite paralelizar o consumo em muitos consumidores. Uma única partição pode dar suporte a até 20MBps ou aproximadamente 20.000 mensagens por segundo. Dependendo da ferramenta que consome os dados, poderá ou não dar suporte ao consumo de várias partições. Quatro partições são razoáveis para iniciar se você não tiver certeza se não tem certeza sobre o número de partições a serem definidas.
+* O número de partições permite paralelizar o consumo em muitos consumidores. Uma única partição pode dar suporte a até 20MBps ou aproximadamente 20.000 mensagens por segundo. Dependendo da ferramenta que consome os dados, poderá ou não dar suporte ao consumo de várias partições. Quatro partições são razoáveis para começar se você não tiver certeza sobre o número de partições a serem definidas.
 * Você define a retenção de mensagens em seu hub de eventos para pelo menos 7 dias. Se a ferramenta de consumo ficar inativa por mais de um dia, isso garantirá que a ferramenta possa escolher onde parou para eventos de até 7 dias.
 * Você deve usar o grupo de consumidores padrão para seu hub de eventos. Não é necessário criar outros grupos de consumidores ou utilizar um grupo de consumidores separado, exceto se você planejar ter duas ferramentas diferentes que consumam os mesmos dados do mesmo hub de eventos.
 * Para o log de atividades do Azure, você escolhe um namespace de hubs de eventos e Azure Monitor cria um hub de eventos dentro desse namespace chamado _insights-logs-Operational-logs_. Para outros tipos de log, você pode escolher um hub de eventos existente ou ter Azure Monitor criar um hub de eventos por categoria de log.

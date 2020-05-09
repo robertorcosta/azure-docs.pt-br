@@ -8,16 +8,21 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7be56fa48887e2ee500f1b253c078bde16d91e6
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460724"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891225"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto no Azure Pesquisa Cognitiva
 
 Um *analisador* é um componente do [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de caracteres de consulta e documentos indexados. Analisadores diferentes manipulam texto de maneiras diferentes, dependendo do cenário. Os analisadores de idioma processam texto usando regras linguísticas a fim de melhorar a qualidade da pesquisa, enquanto outros analisadores realizam tarefas mais básicas como conversão de caracteres em minúsculas, por exemplo. 
+
+O seguinte segmento de vídeo avança rapidamente para uma explicação de como funciona o processamento de texto no Azure Pesquisa Cognitiva.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
+
 
 Os analisadores de idioma são usados com mais frequência e há um analisador de idioma padrão atribuído a cada campo pesquisável em um índice de Pesquisa Cognitiva do Azure. As transformações de idioma a seguir são normais durante a análise de texto:
 
@@ -347,7 +352,7 @@ Crie um objeto [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 + [Configurar analisadores personalizados](index-add-custom-analyzers.md) para o mínimo de processamento ou processamento especializado em campos individuais.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
  [API REST para pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

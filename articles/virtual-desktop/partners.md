@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 05/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127579"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692222"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -82,6 +82,16 @@ Quando usado com a área de trabalho virtual do Windows, o ControlUp fornece rec
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Acesse o site do parceiro](https://www.controlup.com/solutions/ms_wvd/).
 
+## <a name="dell"></a>Dell
+
+![Logotipo da Dell](./media/partners/dell.png)
+
+Os clientes finos da Dell Technologies são otimizados para acessar Microsoft Azure e serviços de área de trabalho virtual do Windows. Capaz de atender às necessidades de profissionais de conhecimento colaborativos com usuários avançados com uso intensivo de gráficos, Wyse thin clients oferecem uma experiência de computação de alta qualidade para aproveitar ao máximo o número crescente de aplicativos e conteúdo. Ideal para ambientes com restrições de espaço, os clientes Wyse finos se adaptam à maneira como as pessoas trabalham com fatores forma versáteis e uma ampla gama de opções para a montagem de opção.
+
+Os clientes finos Wyse são projetados com a segurança em mente com a superfície de ataque limitada, suporte para padrões de conformidade de segurança e soluções avançadas de autenticação multifator. Implante clientes finos altamente seguros com Wyse ThinOS exclusivos da Dell ou experimente o acesso seguro a aplicativos de nuvem e espaços de trabalho virtuais do Wyse ThinLinux protegido com um design comprovado comercial e o Windows 10 IoT Enterprise com recursos de segurança adicionados pela Dell. Com comunicações seguras, baseadas em HTTPS e autenticação do Active Directory para administração baseada em funções, o Wyse Management Suite mantém os pontos de extremidade do Wyse sempre atualizados, e o aplicativo móvel para o WMS Pro permite que ele exiba alertas críticos e envie comandos em tempo real com um toque a qualquer momento.
+
+- [Acesse o site do parceiro](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
+
 ## <a name="devicetrust"></a>deviceTRUST
 
 ![Logotipo do deviceTRUST](./media/partners/devicetrust.png)
@@ -110,6 +120,7 @@ IGEL é um parceiro aprovado e verificado de Microsoft Azure e serviços de áre
  
 O sistema operacional IGEL dá suporte a todos os aplicativos virtuais populares, desktops e protocolos de cliente de espaço de trabalho de nuvem da Citrix, da Microsoft e do VMware. Ele inclui tecnologias integradas de 85 periféricos, interface e parceiros de protocolo para ajudar as organizações a adotar rapidamente os serviços de área de trabalho virtual do Windows em seus próprios ambientes de usuário exclusivos. O sistema operacional IGEL é um sistema operacional de ponto de extremidade modular somente leitura, que ajuda a protegê-lo contra violação. Ele agora também inclui uma "cadeia de confiança" completa que verifica a integridade de todos os principais processos de chave em execução no ponto de extremidade, do hardware do ponto de extremidade (alguns modelos selecionados) ou do processo UEFI até os serviços de área de trabalho de nuvem do Azure e Windows virtual. Com o IGEL OS, as empresas podem assinar a área de trabalho virtual do Windows da nuvem do Azure com total confiança na integridade, na segurança e na capacidade de gerenciamento dos dispositivos de ponto de extremidade dos usuários.
 
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviO).
 - [Acesse o site do parceiro](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
 ## <a name="ivanti"></a>Ivanti
@@ -191,6 +202,7 @@ O PolicyPak software é um parceiro de área de trabalho virtual do Windows que 
 
 Os principais casos de uso do PolicyPak são remover os direitos de administrador local e superar os prompts do UAC, bloquear ransomware, gerenciar vários navegadores, gerenciar os modos de compatibilidade e empresarial do Internet Explorer, reduzir o número de GPOs, gerenciar associações de arquivos do Windows 10, gerenciar o menu iniciar e a barra de tarefas do Windows 10 e gerenciar recursos opcionais e do Windows 10.  
 
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN).
 - [Acesse o site do parceiro](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
 
 ## <a name="printerlogic"></a>PrinterLogic
@@ -211,8 +223,8 @@ Printix é um provedor de serviços de valor agregado da área de trabalho virtu
 
 A impressão é uma tarefa fundamental em quase todos os escritórios e ambientes de pequenas empresas. Para aproveitar ao máximo a área de trabalho virtual do Windows e fornecer uma excelente experiência do usuário, é essencial garantir que os usuários possam se conectar a impressoras com esforço mínimo e máxima confiabilidade. Com o Printix, você pode obter o máximo da área de trabalho virtual do Windows por meio de SSO (logon único), configuração silenciosa, atualizações regulares e monitoramento contínuo de seu ambiente de impressão.
 
-- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
-- [Vá para o site do parceiro](https://www.printix.net/printix-for-windows-virtual-desktop)
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2).
+- [Acesse o site do parceiro](https://www.printix.net/printix-for-windows-virtual-desktop).
 
 ## <a name="rdpsoft"></a>RDPSoft
 
@@ -222,7 +234,7 @@ O RDPSoft é um parceiro de área de trabalho virtual do Windows que fornece sol
  
 As soluções Área de Trabalho Remota Commander do RDPSoft aprimoram a administração da área de trabalho virtual do Windows. Os recursos de gerenciamento Premium simplificam a delegação de tarefas de gerenciamento de área de trabalho virtual do Windows para suporte à equipe de desk fornecendo assistência remota, sessão de usuário e gerenciamento de processos. Ao mesmo tempo, o Área de Trabalho Remota Commander Suite coleta métricas avançadas sobre desempenho e carga por usuário, atividade e auditoria do usuário, qualidade de conexão da área de trabalho virtual do Windows (latência e largura de banda), licenciamento e segurança em uma instância central do banco de dados SQL do Azure para análise. Com o RDPSoft, os amplos relatórios históricos e os painéis abrangentes são apenas um clique.
 
-- [Vá para o site do parceiro](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+- [Acesse o site do parceiro](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
 
 ## <a name="sepago"></a>sepago
 
@@ -232,7 +244,8 @@ sepago foi fundada em 2002 por quatro amigos no Cologne. Hoje, a sepago é uma c
 
 o laboratório de inovação e desenvolvimento de sepago cria soluções inteligentes usando as tecnologias Big Data e ia. Essas soluções se concentram em melhorar o negócio, a experiência do usuário e as administrações de produtos de parceiros, como a área de trabalho virtual do Windows.
 
-- [Vá para o site do parceiro](https://www.sepago.de/wvd-value-add-tools/)
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
+- [Acesse o site do parceiro](https://www.sepago.de/wvd-value-add-tools/).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -263,7 +276,18 @@ os vastos limites, a empresa uberAgent, fornece visibilidade nas implantações 
 
 o uberAgent é um produto de monitoramento e análise projetado para computação de usuário final que não apenas coleta dados — fornece aos clientes as informações que são importantes. o uberAgent tem suas próprias métricas, cobrindo os principais aspectos da experiência do usuário, do desempenho do aplicativo e da segurança do ponto de extremidade, informando a você tudo o que você precisa saber sobre suas VMs de área de trabalho virtual do Windows sem afetar a densidade de usuário dos sistemas o uberAgent simplifica a solução de problemas, ajuda com o dimensionamento e fornece informações valiosas essenciais para a segurança das informações.
 
-- [Vá para o site do parceiro](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
+- [Acesse o site do parceiro](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop).
+
+## <a name="workspace-365"></a>Espaço de trabalho 365
+
+![Logotipo do espaço de trabalho 365](./media/partners/workspace-365.png)
+
+O espaço de trabalho 365 une todas as suas informações (dados de negócios, documentos, comunicação e micro aplicativos) e fornece acesso a qualquer aplicativo local, Web ou hospedado em um espaço de trabalho. Ele se adapta automaticamente à sua função, local, dispositivo, navegador e muito mais para fornecer um espaço de trabalho personalizado. Os usuários obtêm uma experiência simplificada e consistente, não importa qual tecnologia está abaixo da superfície. Você pode integrar suas soluções atuais, como RDP, Citrix e aplicativos herdados, e movê-las para a área de trabalho virtual do Windows, mantendo a mesma experiência do usuário. Além disso, você pode integrar todos os seus locais de arquivos, como SharePoint, OneDrive, equipes e servidores de arquivos, em um aplicativo de gerenciamento de documentos.
+
+Com o espaço de trabalho 365, os administradores de ti podem disponibilizar aplicativos habilitados para área de trabalho virtual do Windows para pessoas com base em permissões. O administrador pode então adicionar esses aplicativos a um grupo de aplicativos compartilhados. Quando o aplicativo de área de trabalho virtual do Windows estiver visível no espaço de trabalho 365, os usuários poderão abri-lo em seu espaço de trabalho sem precisar entrar novamente. 
+
+- [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vARh).
+- [Acesse o site do parceiro](https://workspace365.net/product-tour/hybrid-workspace-365/).
 
 ## <a name="workspot"></a>Workspot
 
@@ -279,4 +303,4 @@ Workspot estende o valor da área de trabalho virtual do Windows simplificando o
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre a área de trabalho virtual do Windows](overview.md).
-- [Crie um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
+- [Crie um locatário na área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

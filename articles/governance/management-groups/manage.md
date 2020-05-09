@@ -4,10 +4,10 @@ description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia d
 ms.date: 04/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: 423d1837c3d5710e24abb94f5411200319e8a8aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 05/01/2020
 ms.locfileid: "81381673"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
@@ -43,7 +43,7 @@ Você pode alterar o nome do grupo de gerenciamento usando o portal, o PowerShel
 
    :::image type="content" source="./media/rename_context.png" alt-text="Renomear painel de grupo para renomear grupo de gerenciamento" border="false":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="change-the-name-in-powershell"></a>Alterar o nome no PowerShell
 
@@ -253,7 +253,7 @@ Para ver quais permissões você tem no portal do Azure, selecione o grupo de ge
 
    :::image type="content" source="./media/move_small_context.png" alt-text="Mover painel para alterar grupo pai" border="false":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="move-subscriptions-in-powershell"></a>Mover assinaturas no PowerShell
 
@@ -302,7 +302,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
    :::image type="content" source="./media/add_context_MG.png" alt-text="Mover um grupo de gerenciamento para um grupo novo ou existente" border="false":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="move-management-groups-in-powershell"></a>Mover grupos de gerenciamento no PowerShell
 
