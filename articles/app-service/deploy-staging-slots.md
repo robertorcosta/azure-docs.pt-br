@@ -3,14 +3,14 @@ title: Configurar ambientes de preparo
 description: Saiba como implantar aplicativos em um slot que não seja de produção e o AutoSwap para produção. Aumente a confiabilidade e elimine o tempo de inatividade do aplicativo de implantações.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78300836"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597885"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -58,11 +58,11 @@ O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Is
    
     ![Título do slot de implantação](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    O slot de preparo tem uma página de gerenciamento como qualquer outro aplicativo do Serviço de Aplicativo. É possível alterar a configuração do slot. O nome do slot é mostrado na parte superior da página para lembrá-lo de que você está exibindo o slot de implantação.
+    O slot de preparo tem uma página de gerenciamento como qualquer outro aplicativo do Serviço de Aplicativo. É possível alterar a configuração do slot. Para lembrá-lo de que você está exibindo o slot de implantação, o nome do aplicativo é mostrado como ** \<nome do aplicativo>\</slot-Name>** e o tipo de aplicativo é serviço de **aplicativo (slot)**. Você também pode ver o slot como um aplicativo separado em seu grupo de recursos, com as mesmas designações.
 
 6. Selecione a URL do aplicativo na página de recursos do slot. O slot de implantação tem seu próprio nome de host e também é um aplicativo ativo. Para limitar o acesso público ao slot de implantação, consulte [Azure app restrições de IP do serviço](app-service-ip-restrictions.md).
 
-O novo slot de implantação não tem nenhum conteúdo, mesmo se as configurações são clonadas de outro slot. Por exemplo, você pode [publicar neste slot com o Git](app-service-deploy-local-git.md). É possível fazer uma implantação no slot de outro branch do repositório ou de outro repositório. 
+O novo slot de implantação não tem nenhum conteúdo, mesmo se as configurações são clonadas de outro slot. Por exemplo, você pode [publicar neste slot com o Git](app-service-deploy-local-git.md). É possível fazer uma implantação no slot de outro branch do repositório ou de outro repositório.
 
 <a name="AboutConfiguration"></a>
 
@@ -236,7 +236,7 @@ Para rotear o tráfego de produção automaticamente:
 
 1. Vá para a página de recursos do aplicativo e selecione **Slots de implantação**.
 
-2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Selecione **Salvar**.
+2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Clique em **Salvar**.
 
     ![Definindo um percentual de tráfego](./media/web-sites-staged-publishing/RouteTraffic.png)
 
@@ -272,7 +272,7 @@ Por padrão, novos slots recebem uma regra de `0%`roteamento, mostrada em cinza.
 
 ## <a name="delete-a-slot"></a>Excluir um slot
 
-Pesquise e selecione seu aplicativo. Selecione o slot dos **Slots** > *\<de implantação para excluir>*  >  **visão geral**. Selecione **excluir** na barra de comandos.  
+Pesquise e selecione seu aplicativo. Selecione o slot dos **Slots** > *\<de implantação para excluir>*  >  **visão geral**. O tipo de aplicativo é mostrado como **serviço de aplicativo (slot)** para lembrá-lo de que você está exibindo um slot de implantação. Selecione **excluir** na barra de comandos.  
 
 ![Excluir um slot de implantação](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

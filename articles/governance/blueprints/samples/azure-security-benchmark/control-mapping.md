@@ -3,16 +3,16 @@ title: Controles de exemplo de blueprint do Azure Security Benchmark
 description: Mapeamento de controle da amostra de blueprint do Azure Security Benchmark para o Azure Policy.
 ms.date: 04/16/2020
 ms.topic: sample
-ms.openlocfilehash: 0f2d24d7d8c9f7ce2568f11b15e65ed1fcd02afb
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: f80b72f06532adef28bf5e5afd1eb94c2e34ee2d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538658"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691298"
 ---
 # <a name="control-mapping-of-the-azure-security-benchmark-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do Azure Security Benchmark
 
-O artigo a seguir fornece detalhes sobre como o exemplo do blueprint do Azure Security Benchmark do Azure Blueprints é mapeado para os controles do Azure Security Benchmark. Para obter mais informações sobre os controles, confira [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview).
+O artigo a seguir fornece detalhes sobre como o exemplo do blueprint do Azure Security Benchmark do Azure Blueprints é mapeado para os controles do Azure Security Benchmark. Para obter mais informações sobre os controles, confira [Azure Security Benchmark](../../../../security/benchmarks/overview.md).
 
 Os mapeamentos a seguir são para os controles do **Azure Security Benchmark**. Use a navegação no lado direito para ir diretamente para um mapeamento de controle específico. Os controles mapeados são implementados com uma iniciativa do [Azure Policy](../../../policy/overview.md). Para examinar a iniciativa completa, abra **Política** no portal do Azure e selecione a página **Definições**. Em seguida, localize e selecione a iniciativa de política interna **\[Versão prévia\]: Auditar as recomendações do Azure Security Benchmark e implantar uma iniciativa de política interna de suporte específico das Extensões de VM**.
 

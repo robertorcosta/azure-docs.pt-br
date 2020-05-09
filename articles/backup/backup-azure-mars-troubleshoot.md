@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas de instalação e reg
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80421268"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598004"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -24,6 +24,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 - Verifique se o MARS está em execução (no console do serviço). Se você precisar, reinicie e repita a operação.
 - [Certifique-se de que 5% a 10% de espaço livre no volume esteja disponível no local da pasta de rascunho](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder).
 - [Verifique se outro processo ou software antivírus está interferindo com o backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
+- Se o trabalho de backup foi concluído com avisos, consulte [trabalhos de backup concluídos com aviso](#backup-jobs-completed-with-warning)
 - Se o backup agendado falhar, mas o backup manual funcionar, consulte [os backups não são executados de acordo com o agendamento](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule).
 - Verifique se o seu sistema operacional tem as atualizações mais recentes.
 - [Certifique-se de que unidades e arquivos sem suporte com atributos sem suporte sejam excluídos do backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup).
@@ -42,7 +43,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 | Causa | Ações recomendadas |
 | ---     | ---    |
 | **As credenciais do cofre não são válidas** <br/> <br/> Os arquivos de credencial do cofre podem estar corrompidos ou podem ter expirado. (Por exemplo, eles podem ter sido baixados mais de 48 horas antes do horário de registro.)| Baixe novas credenciais do cofre dos serviços de recuperação no portal do Azure. (Consulte a etapa 6 na seção [baixar o agente Mars](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) .) Em seguida, siga estas etapas, conforme apropriado: <ul><li> Se você já tiver instalado e registrado o MARS, abra o console do MMC do Backup do Microsoft Azure Agent e, em seguida, selecione **registrar servidor** no painel **ações** para concluir o registro com as novas credenciais. <br/> <li> Se a nova instalação falhar, Tente reinstalar com as novas credenciais.</ul> **Observação**: se vários arquivos de credencial de cofre tiverem sido baixados, somente o arquivo mais recente será válido nas próximas 48 horas. Recomendamos que você baixe um novo arquivo de credencial de cofre.
-| **O servidor proxy/firewall está bloqueando o registro** <br/>ou <br/>**Sem conectividade com a Internet** <br/><br/> Se o seu computador ou servidor proxy tiver conectividade limitada com a Internet e você não garantir o acesso às URLs necessárias, o registro falhará.| Siga estas etapas:<br/> <ul><li> Trabalhe com sua equipe de ti para garantir que o sistema tenha conectividade com a Internet.<li> Se você não tiver um servidor proxy, certifique-se de que a opção proxy não esteja selecionada quando você registrar o agente. [Verifique as configurações de proxy](#verifying-proxy-settings-for-windows).<li> Se você tiver um servidor de firewall/proxy, trabalhe com sua equipe de rede para garantir que essas URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Tente se registrar novamente depois de concluir as etapas de solução de problemas anteriores.<br></br> Se você estiver conectado por meio do Azure ExpressRoute, verifique se as configurações estão definidas conforme descrito em [suporte do Azure expressroute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
+| **O servidor proxy/firewall está bloqueando o registro** <br/>ou <br/>**Sem conectividade com a Internet** <br/><br/> Se o seu computador ou servidor proxy tiver conectividade limitada com a Internet e você não garantir o acesso às URLs necessárias, o registro falhará.| Siga estas etapas:<br/> <ul><li> Trabalhe com sua equipe de ti para garantir que o sistema tenha conectividade com a Internet.<li> Se você não tiver um servidor proxy, certifique-se de que a opção proxy não esteja selecionada quando você registrar o agente. [Verifique as configurações de proxy](#verifying-proxy-settings-for-windows).<li> Se você tiver um servidor de firewall/proxy, trabalhe com sua equipe de rede para garantir que essas URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Tente se registrar novamente depois de concluir as etapas de solução de problemas anteriores.<br></br> Se sua conexão for por meio do Azure ExpressRoute, verifique se as configurações estão definidas conforme descrito em [suporte do Azure expressroute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **O software antivírus está bloqueando o registro** | Se você tiver um software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação de antivírus para esses arquivos e pastas: <br/><ul> <li> CBengine.exe <li> CSC. exe<li> A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Recomendações adicionais
@@ -65,31 +66,57 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 ## <a name="unable-to-download-vault-credential-file"></a>Não é possível baixar o arquivo de credenciais do cofre
 
-| Erro do   | Ações recomendadas |
+| Erro   | Ações recomendadas |
 | ---     | ---    |
 |Falha ao baixar o arquivo de credenciais do cofre. (ID: 403) | <ul><li> Tente baixar as credenciais do cofre usando um navegador diferente ou execute estas etapas: <ul><li> Inicie o Internet Explorer. Selecione F12. </li><li> Vá para a guia **rede** e limpe o cache e os cookies. </li> <li> Atualize a página.<br></li></ul> <li> Verifique se a assinatura está desabilitada/expirada.<br></li> <li> Verifique se alguma regra de firewall está bloqueando o download. <br></li> <li> Verifique se você não esgotou o limite do cofre (50 máquinas por cofre).<br></li>  <li> Verifique se o usuário tem as permissões de backup do Azure que são necessárias para baixar as credenciais do cofre e registrar um servidor com o cofre. Consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação do backup do Azure](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>O Agente de Serviços de Recuperação do Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure
 
-| Erro do  | Causa possível | Ações recomendadas |
+| Erro  | Causa possível | Ações recomendadas |
 | ---     | ---     | ---    |
 | <br /><ul><li>O agente de serviço de recuperação Microsoft Azure não pôde se conectar ao Backup do Microsoft Azure. (ID: 100050) Verifique as configurações de rede e certifique-se de que você possa se conectar à Internet.<li>(407) Autenticação de Proxy Necessária. |Um proxy está bloqueando a conexão. |  <ul><li>No Internet Explorer, vá para **ferramentas** > **Internet opções** > **segurança** > **Internet**. Selecione **nível personalizado** e role para baixo até a seção **download de arquivo** . Selecione **Habilitar**.<p>Você também pode ter que adicionar [URLs e endereços IP](install-mars-agent.md#verify-internet-access) aos seus sites confiáveis no Internet Explorer.<li>Altere as configurações para usar um servidor proxy. Em seguida, forneça os detalhes do servidor proxy.<li> Se o seu computador tiver acesso limitado à Internet, verifique se as configurações de firewall no computador ou proxy permitem essas [URLs e endereços IP](install-mars-agent.md#verify-internet-access). <li>Se você tiver um software antivírus instalado no servidor, exclua esses arquivos da verificação antivírus: <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionado ao .NET Framework). Há um CSC. exe para cada versão de .NET Framework instalada no servidor. Exclua os arquivos CSC. exe para todas as versões do .NET Framework no servidor afetado. <li>A pasta de rascunho ou o local do cache. <br>O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
+## <a name="backup-jobs-completed-with-warning"></a>Trabalhos de backup concluídos com aviso
+
+- Quando o agente MARS itera sobre arquivos e pastas durante o backup, ele pode encontrar várias condições que podem fazer com que o backup seja marcado como concluído com avisos. Durante essas condições, um trabalho é mostrado como concluído com avisos. Isso é bom, mas significa que pelo menos um arquivo não pôde ser submetido a backup. Portanto, o trabalho ignorou esse arquivo, mas fez backup de todos os outros arquivos em questão na fonte de dados.
+
+  ![Trabalho de backup concluído com avisos](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
+
+- As condições que podem fazer com que os backups ignorem arquivos incluem:
+  - Atributos de arquivo sem suporte (por exemplo: em uma pasta do OneDrive, fluxo compactado, pontos de nova análise). Para obter a lista completa, consulte a [matriz de suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#supported-file-types-for-backup).
+  - Um problema do sistema de arquivos
+  - Outro processo está interferindo (por exemplo: o software antivírus que mantém os identificadores nos arquivos pode impedir que o agente MARS acesse os arquivos)
+  - Arquivos bloqueados por um aplicativo  
+
+- O serviço de backup Marcará esses arquivos como com falha no arquivo de log, com a seguinte convenção de nomenclatura: *LastBackupFailedFilesxxxx. txt* na pasta *C:\Program Files\Microsoft Azure Recovery Service Agent\temp*
+- Para resolver o problema, examine o arquivo de log para entender a natureza do problema:
+
+  | Código do erro             | Motivos                                             | Recomendações                                              |
+  | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+  | 0x80070570             | O arquivo ou diretório está corrompido e ilegível. | Execute **chkdsk** no volume de origem.                             |
+  | 0x80070002, 0x80070003 | O sistema não pode localizar o arquivo especificado.         | [Verifique se a pasta de rascunho não está cheia](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)  <br><br>  Verificar se o volume onde o espaço transitório está configurado existe (não excluído)  <br><br>   [Verifique se o agente MARS foi excluído do antivírus instalado no computador](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070005             | Acesso negado                                    | [Verificar se antivírus ou outros softwares de terceiros estão bloqueando o acesso](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
+  | 0x8007018b             | O acesso ao arquivo de nuvem foi negado.                | Arquivos do OneDrive, arquivos git ou outros arquivos que podem estar no estado offline no computador |
+
+- Você pode usar [adicionar regras de exclusão à política existente](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#add-exclusion-rules-to-existing-policy) para excluir arquivos sem suporte, ausentes ou excluídos de sua política de backup para garantir backups bem-sucedidos.
+
+- Evite excluir e recriar pastas protegidas com os mesmos nomes na pasta de nível superior. Isso pode resultar na conclusão do backup com avisos com o erro *uma inconsistência crítica foi detectada, portanto, as alterações não podem ser replicadas.*  Se você precisar excluir e recriar pastas, considere fazer isso em subpastas na pasta de nível superior protegida.
+
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Falha ao configurar a chave de criptografia para backups seguros
 
-| Erro do | Possíveis causas | Ações recomendadas |
+| Erro | Possíveis causas | Ações recomendadas |
 | ---     | ---     | ---    |
 | <br />Falha ao definir a chave de criptografia para backups seguros. A ativação não foi concluída com êxito, mas a senha de criptografia foi salva no arquivo a seguir. |<li>O servidor já está registrado com outro cofre.<li>Durante a configuração, a frase secreta foi corrompida.| Cancele o registro do servidor do cofre e registre-o novamente com uma nova senha.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>A ativação não foi concluída com êxito
 
-| Erro do  | Possíveis causas | Ações recomendadas |
+| Erro  | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
 |<br />A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contate o suporte da Microsoft.     | <li> A pasta de rascunho está localizada em um volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O arquivo OnlineBackup.KEK está ausente.         | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do agente Mars.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [perguntas comuns sobre como fazer backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>A frase secreta de criptografia não está configurada corretamente
 
-| Erro do  | Possíveis causas | Ações recomendadas |
+| Erro  | Possíveis causas | Ações recomendadas |
 |---------|---------|---------|
 | <br />Error 34506. A senha de criptografia armazenada neste computador não está configurada corretamente.    | <li> A pasta de rascunho está localizada em um volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O arquivo OnlineBackup.KEK está ausente.        | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do MARS Agent.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [perguntas comuns sobre como fazer backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Certifique-se de que o arquivo OnlineBackup.KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
@@ -121,7 +148,7 @@ Se os backups agendados não forem disparados automaticamente, mas os backups ma
  Get-ExecutionPolicy -List
 
 Set-ExecutionPolicy Unrestricted
-```
+ ```
 
 - Verifique se não há nenhum arquivo MSOnlineBackup de módulo do PowerShell ausente ou corrompido. Se houver arquivos ausentes ou corrompidos, siga estas etapas:
 
@@ -135,10 +162,9 @@ Set-ExecutionPolicy Unrestricted
 
 ## <a name="resource-not-provisioned-in-service-stamp"></a>Recurso não provisionado no carimbo de serviço
 
-Erro do | Possíveis causas | Ações recomendadas
+Erro | Possíveis causas | Ações recomendadas
 --- | --- | ---
 A operação atual falhou devido a um erro de serviço interno "recurso não provisionado no carimbo de serviço". Repita a operação após algum tempo. (ID: 230006) | O servidor protegido foi renomeado. | <li> Renomeie o servidor de volta para o nome original, conforme registrado no cofre. <br> <li> Registre novamente o servidor no cofre com o novo nome.
-
 
 ## <a name="troubleshoot-restore-problems"></a>Solucionar problemas de restauração
 
@@ -206,25 +232,25 @@ Esta seção aborda os erros comuns que você encontrar ao usar o agente MARS.
 
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
-Mensagem de erro | Ação recomendada |
+Mensagem de erro | Ação recomendada
 -- | --
 O agente de Serviços de Recuperação do Microsoft Azure não pôde acessar a soma de verificação de backup armazenada no local de rascunho | Para resolver esse problema, execute o seguinte e reinicie o servidor <br/> - [Verificar se há um antivírus ou outros processos bloqueando os arquivos de local de rascunho](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se o local de rascunho é válido e acessível ao agente Mars.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
-Mensagem de erro | Ação recomendada |
+Mensagem de erro | Ação recomendada
 -- | --
 O agente de Serviços de Recuperação do Microsoft Azure não pôde acessar a localização de rascunho para inicializar o VHD | Para resolver esse problema, execute o seguinte e reinicie o servidor <br/> - [Verificar se há um antivírus ou outros processos bloqueando os arquivos de local de rascunho](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Verifique se o local de rascunho é válido e acessível ao agente Mars.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
-Mensagem de erro | Ação recomendada |
+Mensagem de erro | Ação recomendada
 -- | --
 O backup falhou devido ao armazenamento insuficiente no volume em que a pasta de rascunho está localizada | Para resolver esse problema, verifique as etapas abaixo e repita a operação:<br/>- [Verifique se o agente MARS é mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verificar e resolver problemas de armazenamento que afetam o espaço transitório de backup](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
-Mensagem de erro | Ação recomendada |
+Mensagem de erro | Ação recomendada
 -- | --
 Não é possível encontrar as alterações em um arquivo. Isso pode ocorrer por vários motivos. Tente executar a operação novamente | Para resolver esse problema, verifique as etapas abaixo e repita a operação:<br/> - [Verifique se o agente MARS é mais recente](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verificar e resolver problemas de armazenamento que afetam o espaço transitório de backup](#prerequisites)
 
