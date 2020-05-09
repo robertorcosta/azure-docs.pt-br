@@ -1,22 +1,17 @@
 ---
-title: 'Autenticação de serviço a serviço: Armazenamento de Data Lake do Azure Gen1 com o Azure Active Directory | Microsoft Docs'
-description: Saiba como conseguir a autenticação de serviço a serviço com o Azure Data Lake Storage Gen1 usando o Active Directory do Azure
-services: data-lake-store
-documentationcenter: ''
+title: Autenticação serviço a serviço-Data Lake Storage Gen1-Azure
+description: Saiba como obter a autenticação serviço a serviço com Azure Data Lake Storage Gen1 usando Azure Active Directory.
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 74ad40eb7f7483bb010cf8eb002776893c50a256
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "66241366"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688192"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de serviço a serviço com o Azure Data Lake Storage Gen1 usando o Active Directory do Azure
 > [!div class="op_single_selector"]
@@ -73,7 +68,7 @@ Ao fazer logon por meio de programação, você precisa da ID para seu aplicativ
     ![Atribuir permissões ao grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Atribuir permissões ao grupo")
    
     Para obter mais informações sobre permissões no Data Lake armazenamento Gen1 e ACLs de acesso/padrão, consulte [controle de acesso no Data Lake armazenamento Gen1](data-lake-store-access-control.md).
-7. Na folha **Adicionar Acesso Personalizado**, clique em **OK**. O grupo recém-adicionado, com as permissões associadas, está listado na folha **Acesso**.
+7. Na folha **Adicionar Acesso Personalizado**, clique em **OK**. Os grupos adicionados recentemente, com as permissões associadas, são listados na folha **acesso** .
    
     ![Atribuir permissões ao grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Atribuir permissões ao grupo")
 

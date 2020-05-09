@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266371"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582920"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Active Directory
 
@@ -46,7 +46,7 @@ Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores p
 
 ## <a name="to-create-a-group-membership-rule"></a>Para criar uma regra de associação de grupo
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador do Intune ou administrador de usuários no locatário.
+1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador do Intune ou administrador de usuários na organização do Azure AD.
 1. Procure e selecione **grupos**.
 1. Selecione **Todos os grupos** e selecione **Novo grupo**.
 
@@ -66,7 +66,7 @@ Se a regra que você inseriu não for válida, uma explicação do motivo pelo q
 
 ## <a name="to-update-an-existing-rule"></a>Para atualizar uma regra existente
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador de grupo, administrador do Intune ou administrador de usuário no locatário.
+1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com uma conta que esteja na função administrador global, administrador de grupo, administrador do Intune ou administrador de usuário na organização do Azure AD.
 1. Selecione **grupos** > **todos os grupos**.
 1. Selecione um grupo para abrir seu perfil.
 1. Na página perfil do grupo, selecione regras de **associação dinâmica**. O construtor de regras dá suporte a até cinco expressões. Para adicionar mais de cinco expressões, você deve usar a caixa de texto.
@@ -102,7 +102,7 @@ As seguintes mensagens de status podem ser mostradas para o status da **Última 
 - **Em Andamento**: as atualizações estão em andamento no momento.
 - **Desconhecido**: a hora da última atualização não pode ser recuperada. O grupo pode ser novo.
 
-Se ocorrer um erro ao processar a regra de associação de um grupo específico, um alerta será mostrado na parte superior da **página Visão Geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada para todos os grupos dentro do locatário por mais de 24 horas, um alerta será mostrado na parte superior de **todos os grupos**.
+Se ocorrer um erro ao processar a regra de associação de um grupo específico, um alerta será mostrado na parte superior da **página Visão Geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada para todos os grupos dentro da organização por mais de 24 horas, um alerta será mostrado na parte superior de **todos os grupos**.
 
 ![Processando alertas de mensagens de erro](./media/groups-create-rule/processing-error.png)
 

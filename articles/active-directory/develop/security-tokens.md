@@ -9,26 +9,29 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: faaf4a9c4fe37bc184b9860390f1eb99eede035c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: HT
+ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584279"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926571"
 ---
 # <a name="security-tokens"></a>Tokens de segurança
 
 Um provedor de identidade centralizado é especialmente útil para aplicativos que têm usuários localizados em todo o mundo que não necessariamente se conectam da rede da empresa. A plataforma de identidade da Microsoft autentica os usuários e fornece tokens de segurança, como [token de acesso](developer-glossary.md#access-token), [token de atualização](developer-glossary.md#refresh-token)e [token de ID](developer-glossary.md#id-token), que permitem que um [aplicativo cliente](developer-glossary.md#client-application) acesse recursos protegidos em um [servidor de recursos](developer-glossary.md#resource-server).
 
-Um token de **acesso** é um token de segurança que é emitido por um [servidor de autorização](developer-glossary.md#authorization-server) como parte de um fluxo [OAuth 2,0](active-directory-v2-protocols.md) . Ele contém informações sobre o usuário e o aplicativo para o qual o token se destina; que pode ser usado para acessar APIs da Web e outros recursos protegidos. Para saber mais sobre como a plataforma de identidade da Microsoft emite tokens de acesso, consulte [tokens de acesso](access-tokens.md).
+Um **token de acesso** é um token de segurança que é emitido por um [servidor de autorização](developer-glossary.md#authorization-server) como parte de um fluxo do [OAuth 2,0](active-directory-v2-protocols.md) . Ele contém informações sobre o usuário e o aplicativo para o qual o token se destina; que pode ser usado para acessar APIs da Web e outros recursos protegidos. Para saber mais sobre como a plataforma de identidade da Microsoft emite tokens de acesso, consulte [tokens de acesso](access-tokens.md).
 
 Os tokens de acesso só são válidos por um curto período de tempo, portanto, os servidores de autorização, às vezes, emitirão um **token de atualização** ao mesmo tempo em que o token de acesso é emitido. O aplicativo cliente pode então trocar esse token de atualização para um novo token de acesso quando necessário. Para saber mais sobre como a plataforma de identidade da Microsoft usa tokens de atualização para revogar permissões, consulte [revogação de token](access-tokens.md#token-revocation).
 
 Os **tokens de ID** são enviados ao aplicativo cliente como parte de um fluxo do [OpenID Connect](v2-protocols-oidc.md) . Eles podem ser enviados com um token de acesso ou em vez de um, e são usados pelo cliente para autenticar o usuário. Para saber mais sobre como a plataforma de identidade da Microsoft emite tokens de ID, consulte [tokens de ID](id-tokens.md).
+
+> [!NOTE]
+> Este artigo discute os tokens de segurança para os protocolos OAuth2 e OpenID Connect. Muitos aplicativos empresariais usam SAML para autenticar usuários. Consulte [referência de token SAML do Azure ad](reference-saml-tokens.md) para obter informações sobre asserções SAML.
 
 ## <a name="validating-security-tokens"></a>Validando tokens de segurança
 
@@ -45,7 +48,7 @@ Tokens de acesso são passados para uma API da Web como o token de `Authorizatio
 
 A plataforma de identidade da Microsoft implementa tokens de segurança como **JWTs (tokens Web JSON)** que contêm **declarações**.
 
-Uma [declaração](developer-glossary.md#claim) fornece asserções sobre uma entidade, como um aplicativo cliente ou [proprietário do recurso](developer-glossary.md#resource-owner), para outra entidade, como um servidor de recursos.
+Uma [declaração](developer-glossary.md#claim) fornece asserções sobre uma entidade, como um aplicativo cliente ou [proprietário do recurso](developer-glossary.md#resource-owner), para outra entidade, como um servidor de recursos. Uma declaração também pode ser referida como uma declaração JWT ou uma declaração de token Web JSON.
 
 As declarações são pares de nome/valor que retransmitem fatos sobre o assunto do token. Por exemplo, uma declaração pode conter fatos sobre a entidade de segurança que foi autenticada pelo servidor de autorização. As declarações presentes em um determinado token dependem de muitas coisas, incluindo o tipo de token, o tipo de credencial usado para autenticar o assunto, a configuração do aplicativo e assim por diante.
 

@@ -1,33 +1,33 @@
 ---
-title: Criar uma oferta de contêiner do Azure no Partner Center-Azure Marketplace
-description: Este artigo descreve como criar e publicar uma oferta de contêiner para o Azure Marketplace.
+title: Criar uma oferta de contêiner do Azure-Azure Marketplace
+description: Este artigo explica como criar e publicar uma oferta de contêiner para o Azure Marketplace.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: 3170849955485c0d098ed9f39c22332456e46fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81867356"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791928"
 ---
-# <a name="create-an-azure-container-offer"></a>Criar uma oferta de Contêiner do Azure
+# <a name="create-an-azure-container-offer"></a>Criar uma oferta de contêiner do Azure
 
 > [!IMPORTANT]
 > Estamos movendo o gerenciamento de suas ofertas de contêiner do Azure de Portal do Cloud Partner para o Partner Center. Até que suas ofertas sejam migradas, siga as instruções em [contêineres](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) para Portal do Cloud Partner gerenciar suas ofertas.
 
-Este artigo descreve como criar e publicar uma oferta de contêiner para o Azure Marketplace. Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Este artigo descreve como criar e publicar uma oferta de contêiner para o Azure Marketplace. Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa comercial do Marketplace.
 
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
-1. Faça logon no [Partner Center](https://partner.microsoft.com/dashboard/home)e, no menu superior, selecione **painel**.
-2. No menu à esquerda, selecione **Marketplace comercial**e, em seguida, **visão geral**.
-3. Na página **visão geral** , selecione **+ nova oferta**e, em seguida, **contêiner do Azure**. A caixa de diálogo **nova oferta** é exibida.
+1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. No menu de navegação à esquerda, selecione > **visão geral**do **Marketplace comercial**.
+3. Na página Visão geral, selecione **+ novo** > **contêiner de oferta do Azure**.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-new-container.png" alt-text="Ilustração da página Visão geral no Partner Center. O botão nova oferta e a oferta de serviço de consultoria são realçados.":::
+    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > Depois que uma oferta for publicada, as edições feitas nela no Partner Center aparecerão somente em vitrines após a republicação da oferta. Certifique-se de sempre republicar depois de fazer alterações.
@@ -36,22 +36,22 @@ Este artigo descreve como criar e publicar uma oferta de contêiner para o Azure
 
 Insira uma **ID de oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
 
-- Essa ID pode ser vista por clientes no endereço da Web para a oferta do Marketplace e modelos de Azure Resource Manager, se aplicável.
+- Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e os modelos de Azure Resource Manager, se aplicável.
 - Use apenas letras minúsculas e números. Ele pode incluir hifens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se você inserir **Test-offer-1**, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - A ID da oferta não pode ser alterada depois que você seleciona **criar**.
 
-**Insira um alias de** **oferta**. Este é o nome usado para se referir à oferta no Partner Center.
+Insira um **alias de oferta**. Este é o nome usado para a oferta no Partner Center.
 
 - Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
 - Isso não pode ser alterado depois que você seleciona **criar**.
 
-Selecione **criar** antes de continuar.
+Selecione **criar** para gerar a oferta e continuar.
 
 ## <a name="offer-overview"></a>Visão geral da oferta
 
 A página **visão geral da oferta** mostra uma representação visual das etapas necessárias para publicar esta oferta (concluída e próxima) e quanto tempo cada etapa deve levar para ser concluída.
 
-Esta página mostra links diferentes com base no status atual da oferta. Por exemplo:
+Esta página mostra links diferentes com base no status atual da oferta. Por exemplo: 
 
 - Se a oferta for uma oferta de [rascunho de exclusão](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer) de rascunho
 - Se a oferta estiver em tempo real, [pare de vender a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -64,7 +64,7 @@ Siga estas etapas para configurar sua oferta.
 
 ### <a name="connect-lead-management--optional"></a>Gerenciamento de leads de conexão – opcional
 
-Ao publicar sua oferta no Marketplace com o Partner Center, você pode conectá-lo ao seu sistema CRM (gerenciamento de relacionamento com o cliente). Isso permite que você receba informações de contato do cliente assim que alguém expressar o interesse em ou usa seu produto.
+Ao publicar sua oferta no Marketplace comercial com o Partner Center, você pode conectá-lo ao seu sistema CRM (gerenciamento de relacionamento com o cliente). Isso permite que você receba informações de contato do cliente assim que alguém expressar o interesse em ou usa seu produto.
 
 1. **Selecione um destino de cliente potencial no qual você deseja que enviemos leads do cliente**. O Partner Center dá suporte aos seguintes sistemas CRM:
 
@@ -83,10 +83,10 @@ Aqui estão alguns recursos adicionais de gerenciamento de leads:
 
 - [Visão geral do gerenciamento de Lead](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Perguntas frequentes sobre gerenciamento de leads](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros comuns de configuração de leads](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Erros comuns de configuração de leads](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Visão geral do gerenciamento de Lead](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (verifique se o bloqueador de pop-ups está desativado)
 
-Selecione **salvar rascunho** antes de continuar para a próxima seção, propriedades.
+Selecione **salvar rascunho** antes de continuar.
 
 ### <a name="properties"></a>Propriedades
 
@@ -129,7 +129,7 @@ Esta página permite que você defina os detalhes da oferta que são exibidos no
 > [!NOTE]
 > Os detalhes da oferta não devem estar em inglês se a descrição da oferta começar com a frase "este aplicativo está disponível somente em [idioma diferente do inglês]". Também é conveniente fornecer um link útil para oferecer conteúdo em um idioma diferente daquele usado nos detalhes da listagem de ofertas.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que você digitar aqui será exibido como o título da sua oferta. Esse campo é preenchido previamente com o texto inserido na caixa alias de **oferta** quando você criou a oferta. Você pode alterar esse nome posteriormente.
 
@@ -257,7 +257,7 @@ Isso mostra os resultados da pesquisa no portal do Azure:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Ilustra os resultados da pesquisa em portal do Azure.":::
 
-## <a name="preview"></a>Visualização
+## <a name="preview"></a>Visualizar
 
 Na guia Visualização, você pode escolher um público- **alvo** limitado para validar sua oferta antes de publicá-la em tempo real.
 
