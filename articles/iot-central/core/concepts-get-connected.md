@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 28abf6fca0933158b067dda7ab54af93dac4b7d9
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872425"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930481"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -146,11 +146,11 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos usam tokens SAS 
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Conectar dispositivos que usam certificados X. 509 sem registro
 
-1. [Adicione e verifique um certificado X. 509 de raiz ou intermediário](#connect-devices-using-x509-certificates) ao seu aplicativo IOT central. (#connect-Devices-Using-X509-Certificates)
+1. [Adicione e verifique um certificado X. 509 de raiz ou intermediário](#connect-devices-using-x509-certificates) ao seu aplicativo IOT central.
 
 1. Gere os certificados de folha para seus dispositivos usando o certificado raiz ou intermediário que você adicionou ao seu aplicativo IoT Central. Use IDs de dispositivo em minúsculas como `CNAME` o nos certificados de folha.
 
-1. O OEM pisca cada dispositivo com uma ID de dispositivo, um certificado X. 509 esquerdo gerado e o valor de **escopo da ID** do aplicativo.
+1. O OEM pisca cada dispositivo com uma ID de dispositivo, um certificado de folha X. 509 gerado e o valor de **escopo da ID** do aplicativo.
 
 1. Quando você alterna um dispositivo, ele se conecta primeiro ao DPS para recuperar suas informações de registro IoT Central.
 

@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113173"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928271"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN virtual
 
@@ -99,6 +99,9 @@ As ramificações podem ser conectadas a um hub de WAN virtual do Azure usando c
 
 Essa opção permite que as empresas aproveitem o backbone do Azure para conectar branches. No entanto, embora esse recurso esteja disponível, você deve avaliar os benefícios de conectar branches pela WAN virtual do Azure versus usar uma WAN privada.  
 
+> [!NOTE]
+> Desabilitando a conectividade de ramificação para ramificação na WAN virtual-a WAN virtual pode ser configurada para desabilitar a conectividade entre ramificações. Esse configuração bloqueará a propagação de rota entre a VPN (S2S e P2S) e os sites conectados da rota expressa. Essa configuração não afetará a propagação e a conectividade de rota para vnet e vnet para vnet. Para definir essa configuração usando o portal do Azure: no menu configuração de WAN virtual, escolha configuração: ramificação para ramificação-desabilitada. 
+
 ### <a name="remote-user-to-vnet-c"></a>Usuário remoto para VNet (c)
 
 Você pode habilitar o acesso remoto direto e seguro ao Azure usando a conexão ponto a site de um cliente de usuário remoto para uma WAN virtual. Os usuários remotos da empresa não precisam mais hairpin-los para a nuvem usando uma VPN corporativa.
@@ -110,6 +113,15 @@ O caminho do usuário para a ramificação remota permite que usuários remotos 
 ### <a name="vnet-to-vnet-transit-e-and-vnet-to-vnet-cross-region-h"></a>Trânsito de VNet a VNet (e) e VNet para VNet entre regiões (h)
 
 O trânsito de VNet para VNet permite que o VNets se conecte entre si para interconectar aplicativos multicamadas que são implementados em vários VNets. Opcionalmente, você pode conectar o VNets entre si por meio do emparelhamento de VNet e isso pode ser adequado para alguns cenários em que o trânsito por meio do Hub VWAN não é necessário.
+
+
+## <a name="force-tunneling-and-default-route-in-azure-virtual-wan"></a><a name="DefaultRoute"></a>Túnel forçado e rota padrão na WAN virtual do Azure
+
+O túnel forçado pode ser habilitado Configurando o habilitar rota padrão em uma VPN, ExpressRoute ou conexão de rede virtual na WAN virtual.
+
+Um hub virtual propaga uma rota padrão aprendida para uma conexão VPN/ExpressRoute de rede virtual/site a site se habilitar sinalizador padrão for ' habilitado ' na conexão. 
+
+Esse sinalizador fica visível quando o usuário edita uma conexão de rede virtual, uma conexão VPN ou uma conexão ExpressRoute. Por padrão, esse sinalizador é desabilitado quando um site ou um circuito ExpressRoute é conectado a um hub. Ele é habilitado por padrão quando uma conexão de rede virtual é adicionada para conectar uma VNet a um hub virtual. A rota padrão não é originada no hub de WAN Virtual; a rota padrão é propagada se já foi aprendida pelo hub de WAN Virtual como resultado da implantação de um firewall no hub ou se a opção de túnel forçado está habilitada em outro site conectado.
 
 ## <a name="security-and-policy-control"></a><a name="security"></a>Segurança e controle de política
 
@@ -137,6 +149,24 @@ A VNet para a Internet ou o trânsito protegido de terceiros permite que o VNets
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Branch-to-Internet ou serviço de segurança de terceiros (j)
 A filial para a Internet ou o trânsito seguro de terceiros permite que as ramificações se conectem à Internet ou a serviços de segurança de terceiros com suporte por meio do firewall do Azure no Hub de WAN virtual.
+
+### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Como fazer habilitar a rota padrão (0.0.0.0/0) em um hub virtual protegido
+
+O Firewall do Azure implantado em um hub de WAN virtual (Secure virtual Hub) pode ser configurado como roteador padrão para a Internet ou para o provedor de segurança confiável para todos os branches (conectados por VPN ou rota expressa), spoke Vnets e usuários (conectados por meio de VPN P2S). Essa configuração deve ser feita usando o Gerenciador de firewall do Azure.  Consulte rotear o tráfego para o Hub para configurar todo o tráfego de ramificações (incluindo usuários), bem como Vnets à Internet por meio do firewall do Azure. 
+
+Essa é uma configuração de duas etapas:
+
+1. Configure o roteamento de tráfego de Internet usando o menu de configuração de rota do Hub virtual seguro. Configure Vnets e branches que podem enviar tráfego para a Internet por meio do firewall.
+
+2. Configure quais conexões (vnet e ramificação) podem rotear o tráfego para a Internet (0.0.0.0/0) por meio do FW do Azure no Hub ou provedor de segurança confiável. Essa etapa garante que a rota padrão seja propagada para as ramificações selecionadas e Vnets anexadas ao Hub de WAN virtual por meio das conexões. 
+
+### <a name="force-tunneling-traffic-to-on-premises-firewall-in-a-secured-virtual-hub"></a>Forçar o túnel de tráfego para o firewall local em um hub virtual protegido
+
+Se já houver uma rota padrão aprendida (via BGP) pelo Hub virtual a partir de um dos branches (sites VPN ou ER), essa rota padrão será substituída pela configuração rota padrão aprendida da definição do Gerenciador de firewall do Azure. Nesse caso, todo o tráfego que está entrando no Hub de Vnets e branches destinados à Internet será roteado para o Firewall do Azure ou provedor de segurança confiável.
+
+> [!NOTE]
+> Atualmente, não há nenhuma opção para selecionar firewall local ou firewall do Azure (e provedor de segurança confiável) para tráfego de Internet vinculado proveniente de Vnets, branches ou usuários. A rota padrão aprendida da configuração do Gerenciador de firewall do Azure é sempre preferida sobre a rota padrão aprendida de um dos branches.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
