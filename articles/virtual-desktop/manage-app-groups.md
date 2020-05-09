@@ -1,23 +1,29 @@
 ---
-title: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows – Azure
-description: Descreve como configurar locatários da Área de Trabalho Virtual do Windows no Azure Active Directory.
+title: Gerenciar grupos de aplicativos para o portal da Área de Trabalho Virtual do Windows – Azure
+description: Como gerenciar grupos de aplicativos da Área de Trabalho Virtual do Windows com o portal do Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9a9d92ea525c6b5a64fdf7cc74babdce6a97f923
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f072ed8a758173645c886cabf0b20f9e123cbbab
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79127817"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612094"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Tutorial: Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows
+# <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerenciar grupos de aplicativos com o portal do Azure
 
-O grupo de aplicativos padrão criado para um novo pool de hosts da Área de Trabalho Virtual do Windows também publica a área de trabalho completa. Além disso, você pode criar um ou mais grupos de aplicativos do RemoteApp para o pool de hosts. Siga este tutorial para criar um grupo de aplicativos do RemoteApp e publicar aplicativos individuais do menu **Iniciar**.
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O grupo de aplicativos padrão criado para um novo pool de hosts da Área de Trabalho Virtual do Windows também publica a área de trabalho completa. Além disso, você pode criar um ou mais grupos de aplicativos do RemoteApp para o pool de hosts. Siga este tutorial para criar um grupo de aplicativos do RemoteApp e publicar aplicativos individuais do menu Iniciar.
 
 Neste tutorial, você aprenderá a:
 
@@ -25,56 +31,109 @@ Neste tutorial, você aprenderá a:
 > * Criar um grupo do RemoteApp.
 > * Permitir acesso a programas do RemoteApps.
 
-Antes de começar, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usar na sessão do PowerShell, caso ainda não tenha feito isso. Depois disso, execute o seguinte cmdlet para entrar em sua conta:
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
 ## <a name="create-a-remoteapp-group"></a>Criar um grupo do RemoteApp
 
-1. Execute o seguinte cmdlet do PowerShell para criar um grupo de aplicativos vazio do RemoteApp.
+Se você já tiver criado um pool de host e VMs de host de sessão usando o portal do Azure ou o PowerShell, poderá adicionar grupos de aplicativos do portal do Azure com o seguinte processo:
 
-   ```powershell
-   New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
-   ```
+1.  Entre no [portal do Azure](https://portal.azure.com/).
 
-2. (Opcional) Para verificar se o grupo de aplicativos foi criado, execute o cmdlet a seguir para ver uma lista de todos os grupos de aplicativos para o pool de hosts.
+2.  Pesquise e selecione **Área de Trabalho Virtual do Windows**.
 
-   ```powershell
-   Get-RdsAppGroup <tenantname> <hostpoolname>
-   ```
+3.  Selecione **Grupos de aplicativos** no menu no lado esquerdo da página e, em seguida, selecione **+ Adicionar**.
 
-3. Execute o cmdlet a seguir para obter uma lista de aplicativos do menu **Iniciar** na imagem de máquina virtual do pool de hosts. Anote os valores de **FilePath**, **IconPath**, **IconIndex** e outras informações importantes do aplicativo que você deseja publicar.
+4. Na guia **Noções básicas**, selecione o grupo de assinaturas e o grupo de recursos para o qual você deseja criar o grupo de aplicativos. Você também pode optar por criar um grupo de recursos em vez de selecionar um existente.
 
-   ```powershell
-   Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
-   ```
+5. Selecione o pool de host que será associado ao grupo de aplicativos no menu suspenso ao lado de **Pool de host**.
+
+    >[!NOTE]
+    >Você deve selecionar o pool de host associado ao grupo de aplicativos. Os grupos de aplicativos têm aplicativos ou áreas de trabalho que são atendidos de um host de sessão e os hosts de sessão fazem parte dos pools de hosts. O grupo de aplicativos precisa ser associado a um pool de host durante a criação.
+
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da guia Noções Básicas no portal do Azure.](media/basics-tab.png)
+
+6. Se você quiser adicionar grupos de aplicativos ao seu pool de host, selecione **Pools de host** no menu no lado esquerdo da tela.
    
-4. Execute o cmdlet a seguir para instalar o aplicativo com base no `AppAlias`. O `AppAlias` fica visível quando você executa a saída da etapa 3.
+    Em seguida, selecione o nome do pool de host ao qual você deseja adicionar grupos de aplicativos.
+   
+    Depois disso, selecione **Grupos de aplicativos** no menu no lado esquerdo da tela e, em seguida, selecione **+ Adicionar**.
 
-   ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
-   ```
+    Por fim, selecione o grupo de assinaturas e o grupo de recursos para o qual você deseja criar o grupo de aplicativos. Você pode selecionar o nome de um grupo de recursos existente no menu suspenso ou selecionar **Criar** para criar um.
 
-5. (Opcional) Execute o cmdlet a seguir para publicar um novo programa RemoteApp no grupo de aplicativos criado na etapa 1.
+      >[!NOTE]
+      >Quando você adiciona grupos de aplicativos ao seu pool de host, o pool de host que está relacionado ao grupo de aplicativos já está selecionado porque você navegou dele.
+      > 
+      > [!div class="mx-imgBorder"]
+      >![Uma captura de tela da guia Noções Básicas com o pool de host pré-selecionado.](media/host-pool-selected.png)
 
-   ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
-   ```
+7. Selecione **RemoteApp** em tipo de grupo de aplicativos e insira um nome para o seu RemoteApp.
 
-6. Para verificar se o aplicativo foi publicado, execute o cmdlet a seguir.
+      > [!div class="mx-imgBorder"]
+      > ![Uma captura de tela dos campos de tipo de grupo de aplicativos. "RemoteApp" está realçado.](media/remoteapp-button.png)
 
-   ```powershell
-   Get-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname>
-   ```
+8.  Selecione a guia **Atribuições**.
 
-7. Repita as etapas 1 a 5 para cada aplicativo que deseja publicar para esse grupo de aplicativos.
-8. Execute o cmdlet a seguir para permitir aos usuários acesso aos programas RemoteApps no grupo de aplicativos.
+9.  Para publicar usuários individuais ou grupos de usuários no grupo de aplicativos, selecione **+Adicionar usuários ou grupos de usuários do Azure AD**.
 
-   ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
-   ```
+10.  Selecione o número de usuários aos quais você deseja adicionar os aplicativos. Você pode selecionar um ou vários usuários e grupos de usuários.
+
+     > [!div class="mx-imgBorder"]
+     > ![Uma captura de tela do menu de seleção de usuário.](media/select-users.png)
+
+11.  Selecione **Selecionar**.
+
+12.  Selecione a guia **Aplicativos** e, em seguida, selecione **+Adicionar aplicativos**.
+
+13.  Para adicionar um aplicativo do menu iniciar: 
+
+      - Acesse **Origem do aplicativo** e selecione **menu Iniciar** no menu suspenso. Em seguida, vá para **Aplicativo** e escolha o aplicativo no menu suspenso.
+
+     > [!div class="mx-imgBorder"]
+     > ![Uma captura de tela da tela Adicionar Aplicativo com o menu Iniciar selecionado.](media/add-app-start.png)
+
+      - Em **Nome de exibição**, insira o nome do aplicativo que será mostrado ao usuário em seu cliente.
+
+      - Deixe as outras opções no estado em que se encontram e selecione **Salvar**.
+
+14. Para adicionar um aplicativo de um caminho de arquivo específico:
+
+      - Acesse **Origem do aplicativo** e selecione **Caminho do arquivo** no menu suspenso.
+
+      - Insira o caminho para o aplicativo no host da sessão, registrado com o pool de host associado.
+
+      - Insira os detalhes do aplicativo nos campos **Nome do aplicativo**, **Nome de exibição**, **Caminho do ícone** e **Índice do ícone**.
+
+      - Clique em **Salvar**.
+
+     > [!div class="mx-imgBorder"]
+     > ![Uma captura de tela da página Adicionar Aplicativo com o caminho de arquivo selecionado.](media/add-app-file.png)
+
+     Repita esse processo para cada aplicativo que você deseja adicionar ao grupo de aplicativos.
+
+15.  Em seguida, selecione a guia **Workspace**.
+
+16.  Se você quiser registrar o grupo de aplicativos em um workspace, vá para **Registrar grupo de aplicativos** e selecione **Sim**. Se você preferir registrar o grupo de aplicativos depois, selecione **Não**.
+
+17.  Se você selecionar **Sim**, poderá selecionar um workspace existente para registrar seu grupo de aplicativos.
+       
+       >[!NOTE]
+       >Você só pode registrar o grupo de aplicativos em workspaces criados na mesma localização que o pool de host. Além disso, Se você tiver registrado anteriormente outro grupo de aplicativos do mesmo pool de host que o novo grupo de aplicativos em um workspace, ele será selecionado e você não poderá editá-lo. Todos os grupos de aplicativos de um pool de host devem ser registrados no mesmo workspace.
+
+     > [!div class="mx-imgBorder"]
+     > ![Uma captura de tela da página Registrar grupo de aplicativos para um workspace existente. O pool de host é pré-selecionado.](media/register-existing.png)
+
+18. Opcionalmente, se você quiser criar marcas para facilitar a organização do seu workspace, selecione a guia **Marcas** e insira os nomes das marcas.
+
+19. Ao terminar, selecione a guia **Examinar + criar**.
+
+20. Aguarde um pouco para que o processo de validação seja concluído. Ao terminar, selecione **Criar** para implantar seu grupo de aplicativos.
+
+O processo de implantação fará o seguinte para você:
+
+- Criar o grupo de aplicativos do RemoteApp.
+- Adicionar os aplicativos selecionados ao grupo de aplicativos.
+- Publicar o grupo de aplicativos publicado para usuários e grupos de usuários selecionados.
+- Registrar o grupo de aplicativos, se você optou por fazer isso.
+- Criar um link para um modelo de Azure Resource Manager com base em sua configuração que você pode baixar e salvar para mais tarde.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,34 +1,35 @@
 ---
-title: 'Início Rápido: Provisionar um dispositivo simulado X.509 ao Hub IoT do Azure usando Java'
-description: Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento de Dispositivos no Hub IoT. Este início rápido usa registros individuais.
+title: Provisionar um dispositivo simulado X.509 no Hub IoT do Azure usando Java
+description: Início Rápido do Azure – Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o DPS (Serviço de Provisionamento de Dispositivos no Hub IoT). Este início rápido usa registros individuais.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: eb7df108492d73e79b7f456a4c64063a2c6943de
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 5122726cbda2145d190e3dbeb10a3c5b4ae65947
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904821"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82588433"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Início Rápido: Criar e provisionar um dispositivo X.509 simulado usando o SDK do dispositivo Java para o Serviço de Provisionamento do Dispositivo Hub IoT
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Estas etapas mostram como simular um dispositivo X.509 no computador de desenvolvimento que executa o sistema operacional Windows e usam um exemplo de código para conectar este dispositivo simulado com o Serviço de Provisionamento do Dispositivo e o hub IoT. 
+Neste início rápido, você criará um dispositivo X.509 simulado em um computador Windows. Você usará um código Java de exemplo do dispositivo para conectar esse dispositivo simulado ao hub IoT usando um registro individual com o DPS (Serviço de Provisionamento de Dispositivos).
 
-Se você não estiver familiarizado com o processo de provisionamento automático, analise também os [Conceitos de provisionamento automático](concepts-auto-provisioning.md). Não se esqueça de concluir as etapas em [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o Portal do Azure](./quick-setup-auto-provision.md) antes de continuar. 
+## <a name="prerequisites"></a>Pré-requisitos
 
-O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
-- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
-- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
-
-Este artigo irá demonstrar registros individuais.
+- Análise dos [Conceitos de provisionamento automático](concepts-auto-provisioning.md).
+- Conclusão de [Configurar o Serviço de Provisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
+- Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks).
+- [Maven](https://maven.apache.org/install.html).
+- [Git](https://git-scm.com/download/).
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
@@ -65,8 +66,14 @@ Nesta seção, você usará um certificado X.509 autoassinado, é importante ter
 
 Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github.com/Azure/azure-iot-sdk-java.git) para criar o certificado a ser usado na entrada de registro individual do dispositivo simulado.
 
+O Serviço de Provisionamento de Dispositivos de IoT do Azure dá suporte a dois tipos de registros:
 
-1. Usando o prompt de comando das etapas anteriores, navegue até a pasta `target`, depois execute o arquivo jar criado na etapa anterior.
+- [Grupos de registros](concepts-service.md#enrollment-group): usados para inscrever vários dispositivos relacionados.
+- [Registros individuais](concepts-service.md#individual-enrollment): usados para inscrever um único dispositivo.
+
+Este artigo vai demonstrar o uso de registros individuais.
+
+1. Usando o prompt de comando das etapas anteriores, navegue até a pasta `target`, depois execute o arquivo .jar criado na etapa anterior.
 
     ```cmd/sh
     cd target
@@ -79,22 +86,22 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
 
 3. Crie um arquivo chamado **_X509individual.pem_** no computador Windows, abra-o em um editor de sua escolha e copie o conteúdo da área de transferência para o arquivo. Salve o arquivo e feche o editor.
 
-4. No prompt de comando, insira **N** para _Deseja inserir o Código de Verificação_ e mantenha a saída do programa aberta para consulta posterior no Início Rápido. Depois, copie os valores `Client Cert` e `Client Cert Private Key`, para uso na próxima seção.
+4. No prompt de comando, insira **N** para _Deseja inserir o Código de Verificação_ e mantenha a saída do programa aberta para consulta posterior no início rápido. Depois, copie os valores `Client Cert` e `Client Cert Private Key`, para uso na próxima seção.
 
-5. Entre no [Portal do Azure](https://portal.azure.com), clique no botão **Todos os recursos** no menu esquerdo e abra a instância do Serviço de Provisionamento de Dispositivos.
+5. Entre no [portal do Azure](https://portal.azure.com), selecione o botão **Todos os recursos** no menu esquerdo e abra a instância de Serviço de Provisionamento de Dispositivos.
 
-6. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e clique no botão **Adicionar registro individual** na parte superior. 
+6. No menu do Serviço de Provisionamento de Dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** e, em seguida, selecione o botão **Adicionar registro individual**, na parte superior. 
 
 7. No painel **Adicionar Registro**, insira as seguintes informações:
    - Selecione **X.509** como o *Mecanismo* de atestado de identidade.
-   - No *Arquivo .pem ou .cer de certificado primário*, clique em *Selecionar um arquivo* para selecionar o arquivo de certificado **X509individual.pem** criado na etapa anterior.  
+   - No *Arquivo .pem ou .cer de certificado primário*, escolha *Selecionar um arquivo* para selecionar o arquivo de certificado **X509individual.pem** criado na etapa anterior.  
    - Opcionalmente, você pode fornecer as seguintes informações:
      - Selecione um hub IoT vinculado com o serviço de provisionamento.
      - Insira uma ID de dispositivo exclusiva. Evite dados confidenciais ao nomear seu dispositivo. 
      - Atualize o **Estado inicial do dispositivo gêmeo** com a configuração inicial desejada para o dispositivo.
-     - Uma vez concluído, clique no botão **Salvar**. 
+     - Uma vez concluído, pressione o botão **Salvar**. 
 
-     [![Adicionar um registro individual para atestado de X.509 no portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![Adicionar um registro individual para atestado de X.509 no portal](./media/java-quick-create-simulated-device-x509/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Após o registro bem-sucedido, o dispositivo X.509 será exibido como **microsoftriotcore** na coluna *ID de Registro* na guia *Registros Individuais*. 
 
@@ -102,7 +109,7 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
 
 ## <a name="simulate-the-device"></a>Simular o dispositivo
 
-1. Na folha de resumo do Serviço de Provisionamento de Dispositivos, selecione **Visão Geral** e anote o _Escopo da ID_ e o _Ponto de Extremidade Global do Serviço de Provisionamento_.
+1. No menu do Serviço de Provisionamento de Dispositivos, selecione **Visão geral** e anote o _Escopo da ID_ e o _Ponto de Extremidade Global do Serviço de Provisionamento_.
 
     ![Informações de serviço](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -141,7 +148,7 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
             "-----END PRIVATE KEY-----\n";
       ```
 
-4. Compile o exemplo. Navegue até a pasta `target` e execute o arquivo jar criado.
+4. Compile o exemplo. Navegue até a pasta `target` e execute o arquivo .jar criado.
 
     ```cmd/sh
     mvn clean install
@@ -149,7 +156,7 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
     java -jar ./provisioning-x509-sample-{version}-with-deps.jar
     ```
 
-5. No Portal do Azure, navegue até o hub IoT vinculado ao seu serviço de provisionamento e abra a folha **Device Explorer**. Após o provisionamento bem-sucedido do dispositivo X.509 simulado para o hub, sua ID de dispositivo aparecerá na folha **Device Explorer** com o *STATUS* **habilitado**.  Talvez seja necessário clicar no botão **Atualizar** na parte superior, se você já tiver aberto a folha antes de executar o aplicativo de dispositivo de exemplo. 
+5. No Portal do Azure, navegue até o hub IoT vinculado ao seu serviço de provisionamento e abra a folha **Device Explorer**. Após o provisionamento bem-sucedido do dispositivo X.509 simulado para o hub, sua ID de dispositivo aparecerá na folha **Device Explorer** com o *STATUS***habilitado**.  Talvez seja necessário pressionar o botão **Atualizar**, na parte superior, se você já tiver aberto a folha antes de executar o aplicativo do dispositivo de exemplo. 
 
     ![Dispositivo é registrado no Hub IoT](./media/java-quick-create-simulated-device-x509/hubregistration.png) 
 
@@ -158,18 +165,18 @@ Você usará o código de exemplo do [SDK do Azure IoT para Java](https://github
 >
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você planeja continuar a trabalhar e explorar o dispositivo cliente de exemplo, não limpe os recursos criados neste Guia de Início Rápido. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este Guia de Início Rápido.
+Se planejar continuar a trabalhar e explorar o dispositivo cliente de exemplo, não limpe os recursos criados neste início rápido. Caso contrário, use as seguintes etapas para excluir todos os recursos criados por este início rápido.
 
 1. Feche a janela de saída de exemplo de dispositivo cliente em seu computador.
-2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e selecione o serviço de Provisionamento de Dispositivos. Abra a folha **Gerenciar Registros** de seu serviço e clique na guia **Registros Individuais**. Selecione *ID de REGISTRO* do dispositivo descrito no Guia de Início Rápido e clique no botão **Excluir** na parte superior. 
-3. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e selecione seu Hub IoT. Abra a folha **Dispositivos IoT** do hub, selecione *DEVICE ID* registrado nesse Guia de Início Rápido, e clique no botão **Excluir** na parte superior.
+2. No menu à esquerda no portal do Azure, selecione **Todos os recursos** e selecione o serviço de Provisionamento de Dispositivos. Abra a folha **Gerenciar Registros** do seu serviço e selecione a guia **Registros Individuais**. Marque a caixa de seleção ao lado da *ID DE REGISTRO* do dispositivo registrado neste início rápido e pressione o botão **Excluir**, na parte superior do painel. 
+3. No menu à esquerda no portal do Azure, selecione **Todos os recursos** e seu Hub IoT. Abra a folha **Dispositivos IoT** do hub, marque a caixa de seleção ao lado da *ID DO DISPOSITIVO* registrado neste início rápido e pressione o botão **Excluir**, na parte superior do painel.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste Início Rápido, você criou um dispositivo X.509 simulado em seu computador com Windows. Você configurou a inscrição em seu Serviço de Provisionamento de Dispositivos no Hub IoT do Azure e depois provisionou automaticamente o dispositivo em seu Hub IoT. Para saber como registrar seu dispositivo X.509 programaticamente, continue com o Guia de Início Rápido para registro programático de dispositivos X.509. 
+Neste início rápido, você criou um dispositivo X.509 simulado em seu computador com Windows. Você configurou a inscrição em seu Serviço de Provisionamento de Dispositivos no Hub IoT do Azure e depois provisionou automaticamente o dispositivo em seu Hub IoT. Para saber como registrar seu dispositivo X.509 programaticamente, continue com o início rápido do registro programático de dispositivos X.509. 
 
 > [!div class="nextstepaction"]
-> [Guia de Início Rápido do Azure – Registre dispositivos X.509 no Serviço de Provisionamento de Dispositivos do Hub IoT do Azure](quick-enroll-device-x509-java.md)
+> [Início rápido do Azure – Registrar dispositivos X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](quick-enroll-device-x509-java.md)

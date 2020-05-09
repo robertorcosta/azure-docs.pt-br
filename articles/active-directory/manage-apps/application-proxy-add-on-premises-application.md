@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73aa01ea08c8bab1395516c31bb46dbfd88045db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10d0f949fb2a5755512a30dcca011690d86a7e7b
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79481408"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597715"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
@@ -47,10 +47,12 @@ Para usar o Proxy de Aplicativo, você precisa de um Windows Server que executa 
 Para alta disponibilidade no seu ambiente de produção, é recomendável ter mais de um servidor Windows. Para este tutorial, um servidor Windows é suficiente.
 
 > [!IMPORTANT]
-> Se você estiver instalando o conector no Windows Server 2019, há uma limitação HTTP2. Uma solução alternativa para usar o conector nesta versão é adicionar a seguinte chave do registro e reiniciar o servidor. Observe que essa é uma chave de todo o registro do computador. 
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+> Se você estiver instalando o conector no Windows Server 2019, deverá desabilitar o suporte do protocolo HTTP2 no componente WinHttp. Isso é desabilitado por padrão em versões anteriores de sistemas operacionais compatíveis. Adicionar a chave do Registro a seguir e reiniciar o servidor a desabilitará no Windows Server 2019. Observe que essa é uma chave do Registro em todo o computador.
+>
+> ```
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> ```
+>
 
 #### <a name="recommendations-for-the-connector-server"></a>Recomendações para o servidor do conector
 

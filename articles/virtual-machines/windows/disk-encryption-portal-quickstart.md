@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 3a5fb354ab32dd560a94875dd84d891ce0b9d68c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2d1600a688af09515b069a3161d724bb8882596a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82081737"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791163"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Início Rápido: Criar e criptografar uma máquina virtual do Windows com o portal do Azure
 
@@ -34,8 +34,18 @@ Entre no [portal do Azure](https://portal.azure.com).
 1. Para **Região**, selecione a mesma região que você usou ao criar o cofre de chaves acima (por exemplo, *Leste dos EUA*).
 1. Verifique se o **Tamanho** é *Standard D2s v3*.
 1. Em **Conta do administrador**, selecione **Senha**. Digite um nome de usuário e uma senha.
-    ![Tela de criação ResourceGroup](../media/disk-encryption/portal-qs-windows-vm-creation.png)
-1. Selecione a guia "Gerenciamento" e verifique se você tem uma Conta de Armazenamento de Diagnóstico. Se você não tiver contas de armazenamento, selecione "Criar", dê um nome à nova conta e selecione "OK" ![Tela de criação ResourceGroup](../media/disk-encryption/portal-qs-vm-creation-storage.png)
+
+    :::image type="content" source="../media/disk-encryption/portal-qs-windows-vm-creation.png" alt-text="Tela de criação ResourceGroup":::
+
+    > [!WARNING]
+    > A guia "Discos" apresenta o campo "Tipo de Criptografia" em **Opções de disco**. Esse campo é usado para especificar as opções de criptografia dos [Managed Disks](managed-disks-overview.md) + CMK, não do Azure Disk Encryption. 
+    >
+    > Para evitar confusões, sugerimos que você ignore completamente a guia *Discos* ao seguir este tutorial. 
+
+1. Selecione a guia "Gerenciamento" e verifique se você tem uma Conta de Armazenamento de Diagnóstico. Se não tiver contas de armazenamento, selecione "Criar", dê um nome à nova conta e selecione "OK"
+
+    :::image type="content" source="../media/disk-encryption/portal-qs-vm-creation-storage.png" alt-text="Tela de criação ResourceGroup":::
+
 1. Clique em "Examinar + Criar".
 1. Na página **Criar uma máquina virtual**, você pode ver os detalhes sobre a VM que você está prestes a criar. Quando estiver pronto, selecione **Criar**.
 
@@ -47,19 +57,19 @@ Levará alguns minutos para que sua VM seja implantada. Quando a implantação f
 1. No lado esquerdo, selecione **Discos**.
 1. Na tela Discos, selecione **Criptografia**. 
 
-    ![seleção de discos e criptografia](../media/disk-encryption/portal-qs-disks-to-encryption.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-disks-to-encryption.png" alt-text="seleção de discos e criptografia":::
 
 1. Na tela criptografia, em **Discos para criptografar**, escolha **SO e discos de dados**.
 1. Em **Configurações de criptografia**, escolha **Selecionar um cofre de chaves e uma chave para criptografia**.
 1. Na tela **Selecionar chave no Azure Key Vault**, selecione **Criar**.
 
-    ![seleção de discos e criptografia](../media/disk-encryption/portal-qs-keyvault-create.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="seleção de discos e criptografia":::
 
 1. Na tela **Criar cofre de chaves**, verifique se o Grupo de Recursos é o mesmo usado para criar a VM.
 1. Dê um nome ao seu cofre de chaves.  Cada cofre de chaves no Azure deve ter um nome exclusivo.
 1. Na guia **Políticas de Acesso**, marque a caixa **Azure Disk Encryption para a criptografia de volume**.
 
-    ![seleção de discos e criptografia](../media/disk-encryption/portal-qs-keyvault-enable.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-enable.png" alt-text="seleção de discos e criptografia":::
 
 1. Selecione **Examinar + criar**.  
 1. Depois que o cofre de chaves passar na validação, selecione **Criar**. Isso retornará você para a tela **Selecionar chave no Azure Key Vault**.

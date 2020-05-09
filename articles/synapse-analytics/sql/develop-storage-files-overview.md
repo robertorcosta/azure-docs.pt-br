@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81676684"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691886"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consultar arquivos de armazenamento usando recursos de SQL sob demanda (versão prévia) no Synapse SQL
 
@@ -123,11 +123,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+Verifique se os [tipos de dados inferidos apropriados](best-practices-sql-on-demand.md#check-inferred-data-types) são usados para um desempenho ideal. 
+
 ### <a name="filename-function"></a>Função filename
 
-Essa função retorna o nome do arquivo de origem da linha.
+Essa função retorna o nome do arquivo de origem da linha. 
 
 Para consultar arquivos específicos, leia a seção Filename no artigo [Consultar arquivos específicos](query-specific-files.md#filename).
+
+O tipo de dados retornado é nvarchar (1024). Para obter um desempenho ideal, sempre converta o resultado da função filename para o tipo de dados apropriado. Se você usar o tipo de dados de caractere, use o comprimento apropriado.
 
 ### <a name="filepath-function"></a>Função filepath
 
@@ -137,6 +141,8 @@ Essa função retorna um caminho completo ou uma parte do caminho:
 - Quando chamada com parâmetro, ela retorna parte do caminho que corresponda ao curinga na posição especificada no parâmetro. Por exemplo, o valor de parâmetro 1 retornaria a parte do caminho que corresponde ao primeiro caractere curinga.
 
 Para obter informações adicionais, leia a seção Filepath do artigo [Consultar arquivos específicos](query-specific-files.md#filepath).
+
+O tipo de dados retornado é nvarchar (1024). Para obter um desempenho ideal, sempre converta o resultado da função filepath para o tipo de dados apropriado. Se você usar o tipo de dados de caractere, use o comprimento apropriado.
 
 ### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Trabalhar com tipos complexos e estruturas de dados aninhadas ou repetidas
 

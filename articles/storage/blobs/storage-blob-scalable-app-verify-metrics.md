@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68698982"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692433"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de taxa de transferência e de latência para uma conta de armazenamento
 
@@ -24,7 +24,7 @@ Na primeira parte da série, você aprende a:
 > * Configurar gráficos no portal do Azure
 > * Verificar as métricas de taxa de transferência e de latência
 
-[As métricas de armazenamento do Azure](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) usa o monitor do Azure para fornecer uma exibição unificada para o desempenho e a disponibilidade de sua conta de armazenamento.
+[As métricas de armazenamento do Azure](../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) usa o monitor do Azure para fornecer uma exibição unificada para o desempenho e a disponibilidade de sua conta de armazenamento.
 
 ## <a name="configure-metrics"></a>Configurar métricas
 
@@ -34,7 +34,7 @@ Escolha Blob na lista suspensa **SUB SERVIÇO**.
 
 Em **MÉTRICA**, selecione uma das métricas encontradas na tabela a seguir:
 
-As métricas a seguir dão uma ideia da latência e taxa de transferência do aplicativo. As métricas que você configurar no portal são em médias de 1 minuto. Se uma transação é concluída no meio de um minuto os dados do minuto serão divididos pela metade para a média. No aplicativo, as operações de upload e download foram cronometradas e lhe foi fornecido o resultado da quantidade real do tempo necessário para o upload e download dos arquivos. Essa Essas informações podem ser usadas em conjunto com as métricas do portal para entender completamente a taxa de transferência.
+As métricas a seguir dão uma ideia da latência e taxa de transferência do aplicativo. As métricas que você configurar no portal são em médias de 1 minuto. Se uma transação for concluída no meio de um minuto, os dados do minuto serão divididos pela metade para a média. No aplicativo, as operações de upload e download foram cronometradas e lhe foi fornecido o resultado da quantidade real do tempo necessário para o upload e download dos arquivos. Essa Essas informações podem ser usadas em conjunto com as métricas do portal para entender completamente a taxa de transferência.
 
 |Métrica|Definição|
 |---|---|
@@ -52,7 +52,7 @@ Os gráficos podem ter mais de uma métrica atribuída a eles, mas atribuir mais
 
 ## <a name="dimensions"></a>Dimensões
 
-As [Dimensões](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) são usadas para examinar mais profundamente os gráficos e obter informações mais detalhadas. Métricas diferentes têm diferentes dimensões. Uma dimensão que está disponível é a dimensão **nome da API**. Esta dimensão interrompe o gráfico em cada chamada de API separada. A primeira imagem abaixo mostra um gráfico de exemplo do total de transações para uma conta de armazenamento. A segunda imagem mostra o mesmo gráfico, mas com a API do nome de dimensão selecionada. Como você pode ver, cada transação é listada fornecendo mais detalhes para o número de chamadas feito pelo nome da API.
+As [Dimensões](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) são usadas para examinar mais profundamente os gráficos e obter informações mais detalhadas. Métricas diferentes têm diferentes dimensões. Uma dimensão que está disponível é a dimensão **nome da API**. Esta dimensão interrompe o gráfico em cada chamada de API separada. A primeira imagem abaixo mostra um gráfico de exemplo do total de transações para uma conta de armazenamento. A segunda imagem mostra o mesmo gráfico, mas com a API do nome de dimensão selecionada. Como você pode ver, cada transação é listada fornecendo mais detalhes para o número de chamadas feito pelo nome da API.
 
 ![Métricas da conta de armazenamento - transações sem uma dimensão](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 

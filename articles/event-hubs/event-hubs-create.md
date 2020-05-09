@@ -7,21 +7,21 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/11/2020
+ms.date: 05/04/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e80ab6d5ed0076e03f5378cbe975b15d0a28f47
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c678965048a6437deb8cbf39f38f12dc116d39ab
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79216104"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743941"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: criar um hub de eventos usando o portal do Azure
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos usando o portal do Azure
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
 
 Neste início rápido, você cria um hub de eventos usando o [portal do Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, verifique se você tem:
 
@@ -58,21 +58,27 @@ Um namespace de Hubs de Eventos fornece um contêiner de escopo exclusivo, refer
 
    ![Botão Adicionar](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Na página **Criar namespace**, execute as seguintes etapas:
-    1. Insira um **nome** para o namespace. O sistema imediatamente verifica para ver se o nome está disponível.
-    2. Escolha o **tipo de preço** (Básico ou Standard).
-    3. Observe que a opção **Habilitar o Kafka** é habilitada automaticamente. Hubs de Eventos do Azure fornecem um ponto de extremidade do Kafka. Esse ponto de extremidade permite que seu namespace de Hubs de eventos entenda nativamente a mensagem de protocolo [Kafka Apache](https://kafka.apache.org/intro) e as APIs. Com essa funcionalidade, você pode se comunicar com seus Hubs de eventos, como você faria com tópicos Kafka sem alterar seus clientes de protocolo ou seus próprio clusters em execução. Hubs de Eventos dão suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html) e posterior.
-    4. Selecione a **assinatura** na qual você deseja criar o namespace.
-    5. Selecione um **grupo de recursos** existente ou crie um grupo de recursos. 
-    4. Selecione uma **localização** para o namespace.
-    5. Selecione **Criar**. Talvez você precise aguardar alguns minutos para o sistema provisionar totalmente os recursos.
+    1. Selecione a **assinatura** na qual você deseja criar o namespace.
+    2. Selecione o **grupo de recursos** criado na etapa anterior. 
+    3. Insira um **nome** para o namespace. O sistema imediatamente verifica para ver se o nome está disponível.
+    4. Selecione uma **localização** para o namespace.    
+    5. Escolha o **tipo de preço** (Básico ou Standard).  
+    6. Não altere as configurações das **unidades de produtividade**. Para saber mais sobre as unidades de produtividade, confira [Escalabilidade dos Hubs de Eventos](event-hubs-scalability.md#throughput-units)  
+    5. Selecione **Examinar + Criar** na parte inferior da página.
 
        ![Criar um namespace do hub de eventos](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-5. Atualize a página **Hubs de Eventos** para ver o namespace do hub de eventos. Você pode verificar o status da criação do hub de eventos nos alertas. 
+   6. Na página **Examinar + Criar**, examine as configurações e selecione **Criar**. Aguarde até que a implantação seja concluída. 
 
-    ![Criar um namespace do hub de eventos](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
-6. Selecione o namespace. Você verá a home page do seu **Namespace de Hubs de Eventos** no portal. 
+       ![Página Examinar + criar](./media/event-hubs-quickstart-portal/review-create.png)
+   7. Na página **Implantação**, selecione **Ir para o recurso** para navegar até a página de seu namespace. 
 
-   ![Home page do namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)
+      ![Implantação concluída – Ir para o recurso](./media/event-hubs-quickstart-portal/deployment-complete.png)
+   8. Confirme que você vê a página **Namespace dos Hubs de Eventos** semelhante ao seguinte exemplo: 
+
+       ![Home page do namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
+
+       > [!NOTE]
+       > Hubs de Eventos do Azure fornecem um ponto de extremidade do Kafka. Esse ponto de extremidade permite que seu namespace de Hubs de eventos entenda nativamente a mensagem de protocolo [Kafka Apache](https://kafka.apache.org/intro) e as APIs. Com essa funcionalidade, você pode se comunicar com seus Hubs de eventos, como você faria com tópicos Kafka sem alterar seus clientes de protocolo ou seus próprio clusters em execução. Hubs de Eventos dão suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html) e posterior. Para obter mais informações, confira [Usar os Hubs de Eventos de aplicativos Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
     
 ## <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
@@ -88,8 +94,6 @@ Para criar um hub de eventos dentro do namespace, faça o seguinte:
 4. Você pode verificar o status da criação do hub de eventos em alertas. Depois que o hub de eventos for criado, você o verá na lista de Hubs de Eventos conforme mostrado na imagem a seguir:
 
     ![Hub de eventos criado](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
-Parabéns! Você usou o portal para criar um namespace de Hubs de eventos e um hub de eventos dentro desse namespace. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

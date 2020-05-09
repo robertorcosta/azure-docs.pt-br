@@ -1,21 +1,21 @@
 ---
 title: Tutorial de C# sobre a paginação de resultados da pesquisa
 titleSuffix: Azure Cognitive Search
-description: Este tutorial demostra a paginação dos resultados da pesquisa. Ele se baseia em um projeto de hotéis existente, com paginação usando os botões primeiro, próximo, anterior, último e de número. Um segundo sistema de paginação usa a rolagem infinita, acionada movendo uma barra de rolagem vertical até seu limite inferior.
+description: Adicione paginação e botões de navegação aos resultados da pesquisa, baseando-se em um projeto de hotéis existente para adicionar botões de primeira página, avançar, anterior, última página e botões numerados. Um segundo sistema de paginação usa a rolagem infinita, acionada movendo uma barra de rolagem vertical até seu limite inferior.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121510"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780565"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Tutorial do C#: Paginação dos resultados da pesquisa – Pesquisa Cognitiva do Azure
+# <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Adicionar paginação aos resultados da pesquisa usando o SDK do .NET
 
 Saiba como implementar dois sistemas de paginação diferentes, o primeiro baseado nos números de página e o segundo na rolagem infinita. Os dois sistemas de paginação são amplamente utilizados e selecionar o sistema certo depende da experiência do usuário que você deseja ter com os resultados. Este tutorial insere os sistemas de paginação no projeto criado no [Tutorial do C#: Criar seu primeiro aplicativo – Pesquisa Cognitiva do Azure](tutorial-csharp-create-first-app.md).
 

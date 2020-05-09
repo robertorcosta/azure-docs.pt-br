@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a29fd66cf264b09cc5e0db7ac1a329be3f297bb8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096326"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692416"
 ---
 # <a name="quickstart-using-synapse-studio-preview"></a>Início Rápido: Usando o Synapse Studio (versão prévia)
 
@@ -56,7 +56,7 @@ Você pode criar pastas e carregar arquivos usando os links na barra de ferramen
 
    ![Consultar arquivos no armazenamento](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
-3. Execute a consulta ou o notebook gerado para ver o conteúdo do arquivo:
+3. Execute a consulta ou o notebook gerado para ver o conteúdo do arquivo.
 
    ![Ver o conteúdo do arquivo](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
@@ -64,7 +64,7 @@ Você pode criar pastas e carregar arquivos usando os links na barra de ferramen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Permitir que os usuários do Azure AD consultem arquivos [atribuindo as permissões RBAC **Leitor de Dados do Blob de Armazenamento** ou **Colaborador de Dados do Blob de Armazenamento** no Armazenamento do Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
+- Permitir que os usuários do Azure AD consultem arquivos atribuindo as [permissões do RBAC de **Leitor de Dados do Blob de Armazenamento** ou **Colaborador de Dados do Blob de Armazenamento** no Armazenamento do Azure](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Consultar arquivos no Armazenamento do Azure usando o SQL sob demanda](sql/on-demand-workspace-overview.md)
-- [Criar Pool do Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Criar pool do Apache Spark usando o portal do Azure](quickstart-create-apache-spark-pool.md)
 - [Criar relatório do Power BI em arquivos armazenados no armazenamento do Azure](sql/tutorial-connect-power-bi-desktop.md)

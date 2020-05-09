@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Conceder ao usuário acesso aos recursos do Azure com o RBAC e o portal do Azure '
-description: Neste tutorial, saiba como conceder acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) no portal do Azure.
+title: 'Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o portal do Azure – RBAC do Azure'
+description: Neste tutorial, aprenda a conceder a um usuário acesso aos recursos do Azure usando o portal do Azure e o RBAC do Azure (controle de acesso baseado em função do Azure).
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e70a3a1eedbc56754ad46fd99dddc0c7a3a6cf2f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138088"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735837"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Permitir acesso a um usuário aos recursos do Azure usando o RBAC e o portal do Azure
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o portal do Azure
 
-O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste tutorial, você concede acesso a um usuário para criar e gerenciar máquinas virtuais em um grupo de recursos.
+O [Azure RBAC (controle de acesso baseado em função do Azure)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste tutorial, você concede acesso a um usuário para criar e gerenciar máquinas virtuais em um grupo de recursos.
 
 Neste tutorial, você aprenderá como:
 
@@ -58,7 +58,7 @@ Entre no Portal do Azure em https://portal.azure.com.
 
 ## <a name="grant-access"></a>Conceder acesso
 
-No RBAC, para conceder acesso, você cria uma atribuição de função.
+No RBAC do Azure, para conceder acesso, você cria uma atribuição de função.
 
 1. Na lista de **Grupos de recursos**, clique no novo grupo de recursos **rbac-resource-group**.
 
@@ -88,7 +88,7 @@ No RBAC, para conceder acesso, você cria uma atribuição de função.
 
 ## <a name="remove-access"></a>Remover acesso
 
-No RBAC, para remover o acesso, você deve remover uma atribuição de função.
+No RBAC do Azure, para remover o acesso, você deve remover uma atribuição de função.
 
 1. Na lista de atribuições de função, adicione uma marca de seleção ao lado do usuário com a função de Colaborador da Máquina Virtual.
 
@@ -115,4 +115,4 @@ No RBAC, para remover o acesso, você deve remover uma atribuição de função.
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Conceder a um usuário acesso aos recursos do Azure usando o Azure PowerShell](tutorial-role-assignments-user-powershell.md)

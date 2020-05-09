@@ -1,21 +1,21 @@
 ---
 title: Tutorial de C# sobre a ordenação de resultados
 titleSuffix: Azure Cognitive Search
-description: Este tutorial demostra como ordenar os resultados da pesquisa. Ele se baseia em um projeto de hotéis anterior, ordenando por propriedade primária, propriedade secundária, e inclui um perfil de pontuação para adicionar critérios de aumento.
+description: Este tutorial de C# demostra como ordenar os resultados da pesquisa. Ele se baseia em um projeto de hotéis anterior, ordenando por propriedade primária e secundária, bem como inclui um perfil de pontuação para adicionar critérios de aumento.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77121554"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780599"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Tutorial do C#: Ordenar os resultados – Pesquisa Cognitiva do Azure
+# <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Ordenar os resultados da pesquisa usando o SDK do .NET
 
 Até este ponto da série de tutoriais, os resultados são retornados e exibidos em uma ordem padrão. Essa pode ser a ordem na qual os dados estão localizados ou, possivelmente, foi definido um _perfil de pontuação_ padrão que será usado quando nenhum parâmetro de ordenação for especificado. Neste tutorial, mostraremos como ordenar os resultados conforme uma propriedade primária e, em seguida, para os resultados que têm a mesma propriedade primária, como ordenar essa seleção em uma propriedade secundária. Como alternativa à ordenação conforme valores numéricos, o último exemplo mostra como ordenar conforme um perfil de pontuação personalizado. Também mostraremos em um pouco mais de detalhes a exibição de _tipos complexos_.
 
@@ -114,7 +114,7 @@ Não é necessário modificar nenhum dos modelos para habilitar a ordenação. A
     ```
 
     >[!Tip]
-    >Os navegadores geralmente armazenam os arquivos css em cache e isso pode fazer um arquivo css antigo ser usado, ignorando suas edições. Uma boa maneira de contornar isso é adicionar uma cadeia de consulta com um parâmetro de versão ao link. Por exemplo:
+    >Os navegadores geralmente armazenam os arquivos css em cache e isso pode fazer um arquivo css antigo ser usado, ignorando suas edições. Uma boa maneira de contornar isso é adicionar uma cadeia de consulta com um parâmetro de versão ao link. Por exemplo: 
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />

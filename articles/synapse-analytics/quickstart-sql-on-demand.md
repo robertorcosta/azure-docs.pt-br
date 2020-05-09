@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d543abc88c1e45f2c1f5503473d8e92566fc582
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457375"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692164"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Início Rápido: Como usar o SQL sob demanda
 
-O Synapse SQL sob demanda (versão prévia) é um serviço de consulta sem servidor que permite executar as consultas SQL nos seus arquivos colocados no Armazenamento do Azure. Neste início rápido, você aprenderá a consultar vários tipos de arquivos usando o SQL sob demanda.
+O Synapse SQL sob demanda (versão prévia) é um serviço de consulta sem servidor que permite executar as consultas SQL em arquivos colocados no Armazenamento do Azure. Neste início rápido, você aprenderá a consultar vários tipos de arquivos usando o SQL sob demanda.
 
 Há suporte para os seguintes tipos de arquivo: JSON, CSV, Apache Parquet
 
@@ -26,7 +26,7 @@ Há suporte para os seguintes tipos de arquivo: JSON, CSV, Apache Parquet
 
 Escolha um cliente SQL para emitir consultas:
 
-- O [Azure Synapse Studio](quickstart-synapse-studio.md) é uma ferramenta da Web que pode ser usada para procurar arquivos no armazenamento e criar uma consulta SQL.
+- O [Azure Synapse Studio](quickstart-synapse-studio.md) é uma ferramenta da Web que pode ser usada para procurar arquivos no armazenamento e criar consultas SQL.
 - O [Azure Data Studio](sql/get-started-azure-data-studio.md) é uma ferramenta de cliente que permite executar consultas SQL e notebooks no banco de dados sob demanda.
 - O [SQL Server Management Studio](sql/get-started-ssms.md) é uma ferramenta de cliente que permite executar consultas SQL no banco de dados sob demanda.
 
@@ -41,19 +41,18 @@ Parâmetros para o início rápido:
 
 ## <a name="first-time-setup"></a>Configuração inicial
 
-Antes de usar as amostras:
+Antes de usar os exemplos:
 
 - Criar um banco de dados para as exibições (caso você queira usar exibições)
 - Criar credenciais a serem usadas pelo SQL sob demanda para acessar arquivos no armazenamento
 
 ### <a name="create-database"></a>Criar banco de dados
 
-Crie um banco de dados próprio para fins de demonstração. Esse é o banco de dados no qual você criará as exibições. Use-o nas consultas de exemplo deste artigo.
+Crie um banco de dados próprio para fins de demonstração. Você usará esse banco de dados para criar suas exibições e para as consultas de exemplo no artigo.
 
 > [!NOTE]
 > Os bancos de dados são usados apenas para os metadados de exibição, não para os dados reais.
->
-> Anote o nome do banco de dados usado para uso posterior no Início Rápido.
+>Anote o nome do banco de dados usado para uso posterior no Início Rápido.
 
 Use a seguinte consulta, alterando `mydbname` para um nome de sua escolha:
 
@@ -66,9 +65,15 @@ CREATE DATABASE mydbname
 Para executar consultas usando o SQL sob demanda, crie credenciais para uso pelo SQL sob demanda para acessar arquivos no armazenamento.
 
 > [!NOTE]
-> Observe que você precisará criar credenciais para acesso à conta de armazenamento. Embora o SQL sob demanda possa acessar armazenamentos de diferentes regiões, ter o armazenamento e o workspace do Azure Synapse na mesma região proporcionará uma experiência com melhor desempenho.
+> Para executar com êxito os exemplos desta seção, você precisa usar um token SAS.
+>
+> Para começar a usar tokens SAS, você precisa descartar o UserIdentity, que é explicado no [artigo](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through) a seguir.
+>
+> O SQL sob demanda sempre usa por padrão a passagem do AAD.
 
-Modifique o seguinte snippet de código para criar credenciais para contêineres CSV, JSON e Parquet:
+Para obter mais informações sobre como gerenciar o controle de acesso ao armazenamento, confira o artigo [Controlar o acesso à conta de armazenamento para o SQL sob demanda ](sql/develop-storage-files-storage-access-control.md).
+
+Execute o seguinte snippet de código para criar as credenciais usada nos exemplos nesta seção:
 
 ```sql
 -- create credentials for containers in our demo storage account
@@ -129,7 +134,7 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Encontre mais informações sobre [como consultar arquivos Parquet](sql/query-parquet-files.md)].
+Encontre mais informações sobre [como consultar arquivos parquet](sql/query-parquet-files.md).
 
 ## <a name="querying-json-files"></a>Como consultar arquivos JSON
 
@@ -177,11 +182,11 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> Estamos lendo o arquivo JSON inteiro como uma só linha/coluna, de modo que FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR sejam definidos como 0x0b, porque não esperamos encontrá-lo no arquivo.
+> Estamos lendo o arquivo JSON inteiro como uma só linha/coluna. Sendo assim, FIELDTERMINATOR, FIELDQUOTE e ROWTERMINATOR estão definidos como 0x0b porque não esperamos encontrá-los no arquivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você está pronto para começar com os seguintes artigos de Início Rápido:
+Agora, você está pronto para continuar com os seguintes artigos:
 
 - [Consultar um arquivo CSV individual](sql/query-single-csv-file.md)
 - [Consultar pastas e vários arquivos CSV](sql/query-folders-multiple-csv-files.md)
@@ -192,7 +197,4 @@ Agora você está pronto para começar com os seguintes artigos de Início Rápi
 - [Como criar e usar exibições](sql/create-use-views.md)
 - [Como criar e usar tabelas externas](sql/create-use-external-tables.md)
 - [Persistir o resultado da consulta no Armazenamento do Azure](sql/create-external-table-as-select.md)
-
-Avance para o próximo artigo para saber como consultar um arquivo CSV individual.
-> [!div class="nextstepaction"]
-> [Consultar um arquivo CSV individual](sql/query-single-csv-file.md)
+- [Consultar um arquivo CSV individual](sql/query-single-csv-file.md)

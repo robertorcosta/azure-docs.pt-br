@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 0cfe58ab0d161019d5f53d9135c65db7beff2bb4
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80397988"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691330"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -37,7 +37,7 @@ Para concluir este início rápido, é necessário ter:
 Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de exemplo. Siga as etapas a seguir para configurar o contêiner do Docker. Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> A Ferramenta de Rotulagem de Formulário OCR também está disponível como um projeto de software livre no GitHub. A ferramenta é um aplicativo Web criado com o React + Redux e escrito em TypeScript. Para saber mais ou contribuir, confira [Ferramenta de Rotulagem de Formulário OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> A Ferramenta de Rotulagem de Formulário OCR também está disponível como um projeto de software livre no GitHub. A ferramenta é um aplicativo Web TypeScript criado usando React + Redux. Para saber mais ou contribuir, confira o repositório [Ferramenta de Rotulagem de Formulário OCR](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application). Para experimentar a ferramenta online, acesse o [site do FOTT](https://fott.azurewebsites.net/).   
 
 1. Primeiro, instale o Docker em um computador host. Este guia mostrará como usar o computador local como um host. Se você quiser usar um serviço de hospedagem do Docker no Azure, confira o guia de instruções [Implantar a ferramenta de rótulos de exemplo](../deploy-label-tool.md). 
 
@@ -61,7 +61,7 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Ir para [http://localhost:3000](http://localhost:3000).
+   Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Ir para `http://localhost:3000`.
 
 > [!NOTE]
 > Você também pode rotular documentos e treinar modelos usando a API REST do Reconhecimento de Formulários. Para treinar e analisar com a API REST, confira [Treinar com rótulos usando a API REST e o Python](./python-labeled-data.md).
@@ -104,7 +104,7 @@ Preencha os campos com os valores a seguir:
 Na ferramenta de rótulo de exemplo, os projetos armazenam as suas configurações. Crie um projeto e preencha os campos com os valores a seguir:
 
 * **Nome de Exibição** – o nome de exibição do projeto
-* **Token de Segurança** – algumas configurações de projeto podem incluir valores confidenciais, como chaves de API ou outros segredos compartilhados. Cada projeto gerará um token de segurança que pode ser usado para criptografar/descriptografar configurações confidenciais de projeto. Os tokens de segurança podem ser encontrados nas configurações do aplicativo clicando no ícone de engrenagem no canto inferior da barra de navegação à esquerda.
+* **Token de Segurança** – algumas configurações de projeto podem incluir valores confidenciais, como chaves de API ou outros segredos compartilhados. Cada projeto gerará um token de segurança que pode ser usado para criptografar/descriptografar configurações confidenciais de projeto. Os tokens de segurança podem ser encontrados nas configurações do aplicativo clicando no ícone de engrenagem na parte inferior da barra de navegação à esquerda.
 * **Conexão de Origem** – a conexão do Armazenamento de Blobs do Azure que você criou na etapa anterior e que deseja usar para este projeto.
 * **Caminho da Pasta** (opcional) – se os formulários de origem estiverem localizados em uma pasta no contêiner de blob, especifique o nome da pasta aqui
 * **URI do serviço de Reconhecimento de Formulários** – URL do ponto de extremidade do Reconhecimento de Formulários.
@@ -130,9 +130,9 @@ Clique em **Executar o OCR em todos os arquivos** no painel esquerdo para obter 
 Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de texto que você deseja que o modelo reconheça.
 
 1. Primeiro, use o painel editor de marcas para criar as marcas que você deseja identificar.
-  1. Clique em **+** para criar uma marca.
-  1. Insira o nome da marca.
-  1. Pressione Enter para salvar a marca.
+   1. Clique em **+** para criar uma marca.
+   1. Insira o nome da marca.
+   1. Pressione Enter para salvar a marca.
 1. No editor principal, clique e arraste para selecionar uma ou várias palavras dos elementos de texto realçados.
 1. Clique na marca que você deseja aplicar ou pressione a tecla correspondente no teclado. As chaves de número são atribuídas como teclas de atalho para as 10 primeiras marcas. Você pode reordenar suas marcas usando os ícones de seta para cima e para baixo no painel do editor de marcas.
     > [!Tip]
@@ -144,15 +144,30 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
     > * Não inclua chaves nos campos marcados &mdash; apenas os valores.
     > * Os dados da tabela devem ser detectados automaticamente e estarão disponíveis no arquivo JSON de saída final. No entanto, se o modelo não detectar todos os dados da tabela, você também poderá marcar esses campos manualmente. Marque cada célula na tabela com um rótulo diferente. Se os formulários tiverem tabelas com números variados de linhas, marque pelo menos um formulário com a maior tabela possível.
 
-
-Siga as etapas acima para rotular cinco de seus formulários e, em seguida, passe para a próxima etapa.
-
 ![Janela principal do editor da ferramenta de rótulo de exemplo](../media/label-tool/main-editor.png)
 
+Siga as etapas acima para rotular pelo menos cinco de seus formulários.
+
+### <a name="specify-tag-value-types"></a>Especificar tipos de valor de marca
+
+Opcionalmente, você pode definir o tipo de dados esperado para cada marca. Abra o menu de contexto à direita de uma determinada marca e selecione um tipo no menu. Esse recurso permite que o algoritmo de detecção faça determinadas suposições que melhorarão a precisão da detecção de texto. Ele também garante que os valores detectados serão retornados em um formato padronizado na saída JSON final. 
+
+> [!div class="mx-imgBorder"]
+> ![Seleção de tipo de valor com a ferramenta de rotulagem de exemplo](../media/whats-new/formre-value-type.png)
+
+Os tipos de valor e as variações a seguir são compatíveis no momento:
+* `string`
+    * padrão, `no-whitespaces`, `alphanumeric`
+* `number`
+    * padrão, `currency`
+* `date` 
+    * padrão, `dmy`, `mdy`, `ymd`
+* `time`
+* `integer`
 
 ## <a name="train-a-custom-model"></a>Treinar um modelo personalizado
 
-Clique no ícone de treinamento (o vagão de trem) no painel esquerdo para abrir a página Treinamento. Em seguida, clique no botão **Treinar** para começar a treinar o modelo. Quando o processo de treinamento for concluído, você verá as seguintes informações:
+Clique no ícone Treinar no painel esquerdo para abrir a página Treinamento. Em seguida, clique no botão **Treinar** para começar a treinar o modelo. Quando o processo de treinamento for concluído, você verá as seguintes informações:
 
 * **ID do Modelo** – a ID do modelo que foi criado e treinado. Cada chamada de treinamento cria um novo modelo com sua própria ID. Copie esta cadeia de caracteres para um local seguro. Você precisará dela se quiser fazer chamadas de previsão por meio da API REST.
 * **Precisão Média** – a precisão média do modelo. Você pode aprimorar a precisão do modelo rotulando formulários adicionais e treinando novamente para criar outro modelo. É recomendável começar rotulando cinco formulários e adicionando mais formulários conforme necessário.
@@ -167,7 +182,7 @@ Após a conclusão do treinamento, examine o valor de **Precisão Média**. Se e
 
 ## <a name="analyze-a-form"></a>Analisar um formulário
 
-Clique no ícone Prever (retângulos) à esquerda para testar seu modelo. Carregue um documento de formulário que você não usou no processo de treinamento. Em seguida, clique no botão **Prever** à direita para obter previsões de chave-valor para o formulário. A ferramenta aplicará marcas nas caixas delimitadoras e relatará o nível de confiança de cada marca.
+Clique no ícone Prever (lâmpada) à esquerda para testar seu modelo. Carregue um documento de formulário que você não usou no processo de treinamento. Em seguida, clique no botão **Prever** à direita para obter previsões de chave-valor para o formulário. A ferramenta aplicará marcas nas caixas delimitadoras e relatará o nível de confiança de cada marca.
 
 > [!TIP]
 > Você também pode executar a API de Análise com uma chamada REST. Para saber como fazer isso, confira [treinar com rótulos usando o Python](./python-labeled-data.md).

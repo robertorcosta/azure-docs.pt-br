@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do C#: Indexar várias fontes de dados'
+title: Tutorial de C# sobre a indexação de várias fontes de dados do Azure
 titleSuffix: Azure Cognitive Search
 description: Saiba como importar dados de várias fontes de dados para um só índice do Azure Cognitive Search usando indexadores. Este tutorial e este código de exemplo estão em C#.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78271477"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780514"
 ---
-# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Tutorial: Indexar dados de várias fontes de dados em C#
+# <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Indexar de várias fontes de dados usando o SDK do .NET
 
 O Azure Cognitive Search pode importar, analisar e indexar dados de várias fontes de dados em um só índice de pesquisa consolidado. Isso dá suporte a situações em que os dados estruturados são agregados com os dados menos estruturados ou, até mesmo, de texto sem formatação de outras fontes, como texto, HTML ou documentos JSON.
 

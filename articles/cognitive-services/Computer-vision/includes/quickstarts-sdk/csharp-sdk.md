@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 522adc0f07f4ab21e391b952284dff97b089dccc
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: 5a2de6cb4c7de6f789041d8df7ca562e97ee0863
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81791691"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595246"
 ---
 <a name="HOLTop"></a>
 
@@ -23,7 +23,7 @@ ms.locfileid: "81791691"
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
-* A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* A versão mais recente do [SDK do .NET Core](https://dotnet.microsoft.com/download/).
 
 ## <a name="setting-up"></a>Configurando
 
@@ -42,13 +42,13 @@ Crie um novo aplicativo .NET Core em seu IDE ou editor preferido.
 
 Em uma janela de console (como cmd, PowerShell ou Bash), use o comando `dotnet new` para criar um novo aplicativo do console com o nome `computer-vision-quickstart`. Esse comando cria um projeto simples C# "Olá, Mundo" com um arquivo de origem único: *ComputerVisionQuickstart.cs*.
 
-```console
+```dotnetcli
 dotnet new console -n computer-vision-quickstart
 ```
 
 Altere o diretório para a pasta do aplicativo recém-criado. É possível criar o aplicativo com:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -74,7 +74,7 @@ Na classe **Program** do aplicativo, crie variáveis para a chave e o Ponto de E
 
 No diretório do aplicativo, instale a biblioteca de clientes da Pesquisa Visual Computacional para .NET com o seguinte comando:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
 ```
 
@@ -253,7 +253,7 @@ Adicione o código a seguir para analisar e exibir os dados de texto recuperados
 
 Execute o aplicativo do seu diretório de aplicativo com o comando `dotnet run`.
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 

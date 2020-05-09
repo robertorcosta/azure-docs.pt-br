@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Criar uma função personalizada para recursos do Azure com o Azure PowerShell'
-description: Comece a criar uma função personalizada para recursos do Azure usando o Azure PowerShell neste tutorial.
+title: 'Tutorial: Criar uma função personalizada do Azure com o Azure PowerShell – RBAC do Azure'
+description: Introdução à criação de uma função personalizada do Azure usando o Azure PowerShell e o RBAC do Azure (controle de acesso baseado em função do Azure) neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138273"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735582"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Criar uma função personalizada para recursos do Azure usando o Azure PowerShell
+# <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Tutorial: Criar uma função personalizada do Azure usando o Azure PowerShell
 
-Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando o Azure PowerShell. A função personalizada permite ao usuário exibir tudo no plano de gerenciamento de uma assinatura e também abrir tíquetes de suporte.
+Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar funções personalizadas próprias. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando o Azure PowerShell. A função personalizada permite ao usuário exibir tudo no plano de gerenciamento de uma assinatura e também abrir tíquetes de suporte.
 
 Neste tutorial, você aprenderá como:
 
@@ -73,7 +73,7 @@ A maneira mais fácil de criar uma função personalizada é começar com uma fu
 
 1. Abra o arquivo **ReaderSupportRole.json** em um editor.
 
-    O exemplo a seguir mostra a saída JSON. Para obter informações sobre as diversas propriedades, confira [Funções personalizadas](custom-roles.md).
+    O exemplo a seguir mostra a saída JSON. Para obter informações sobre as diversas propriedades, confira [Funções personalizadas do Azure](custom-roles.md).
 
     ```json
     {
@@ -277,4 +277,4 @@ Para atualizar a função personalizada, você pode atualizar o arquivo JSON ou 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar funções personalizadas para recursos do Azure usando o Azure PowerShell](custom-roles-powershell.md)
+> [Criar ou atualizar funções personalizadas do Azure usando o Azure PowerShell](custom-roles-powershell.md)

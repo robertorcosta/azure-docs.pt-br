@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Conceder ao usuário acesso aos recursos do Azure com o RBAC e o modelo do Resource Manager'
-description: Saiba como conceder acesso a um usuário aos recursos do Azure usando o RBAC (controle de acesso baseado em função) e modelo do Azure Resource Manager neste tutorial.
+title: 'Tutorial: Conceder a um usuário acesso a recursos do Azure usando um modelo do Azure Resource Manager – RBAC do Azure'
+description: Saiba como conceder acesso a um usuário aos recursos do Azure usando um modelo do Azure Resource Manager e o RBAC do Azure (controle de acesso baseado em função do Azure) neste tutorial.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f98b1e9c57cf9f624c5af3e59c8afd56d073dd28
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77138210"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735463"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Permitir a um usuário acesso a recursos do Azure usando RBAC e modelo do Resource Manager
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-an-azure-resource-manager-template"></a>Tutorial: Conceder a um usuário acesso a recursos do Azure usando um modelo do Azure Resource Manager
 
-O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste tutorial, você cria um grupo de recursos e permite acesso a um usuário para criar e gerenciar máquinas virtuais no grupo de recursos. Este tutorial aborda o processo de implantação de um modelo do Resource Manager para permitir o acesso. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.authorization/allversions
+O [Azure RBAC (controle de acesso baseado em função do Azure)](overview.md) é a maneira usada para gerenciar o acesso aos recursos no Azure. Neste tutorial, você cria um grupo de recursos e permite acesso a um usuário para criar e gerenciar máquinas virtuais no grupo de recursos. Este tutorial aborda o processo de implantação de um modelo do Resource Manager para permitir o acesso. Para obter mais informações sobre como desenvolver modelos do Resource Manager, confira [documentação do Resource Manager](/azure/azure-resource-manager/) e a [referência de modelo](/azure/templates/microsoft.authorization/allversions
 ).
 
 Neste tutorial, você aprenderá como:
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder acesso aos recursos do Azure para um usuário usando o RBAC e o Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutorial: Conceder a um usuário acesso aos recursos do Azure usando o Azure PowerShell](tutorial-role-assignments-user-powershell.md)

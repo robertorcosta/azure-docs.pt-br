@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Criar uma função personalizada para recursos do Azure com a CLI do Azure'
-description: Comece a criar uma função personalizada para recursos do Azure usando a CLI do Azure neste tutorial.
+title: 'Tutorial: Criar uma função personalizada do Azure com a CLI do Azure – RBAC do Azure'
+description: Introdução à criação de uma função personalizada do Azure usando a CLI do Azure e o RBAC do Azure (controle de acesso baseado em função do Azure) neste tutorial.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3efe9670d03a754cc90689c4b66d0843de4e275f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79224063"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735497"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutorial: Criar uma função personalizada para recursos do Azure usando a CLI do Azure
+# <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Tutorial: Criar uma função personalizada do Azure usando a CLI do Azure
 
-Se as [funções internas dos recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando a CLI do Azure. A função personalizada permite ao usuário exibir tudo no plano de gerenciamento de uma assinatura e também abrir tíquetes de suporte.
+Se as [funções internas do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar funções personalizadas próprias. Para este tutorial, crie uma função personalizada chamada Tíquetes de suporte do leitor usando a CLI do Azure. A função personalizada permite ao usuário exibir tudo no plano de gerenciamento de uma assinatura e também abrir tíquetes de suporte.
 
 Neste tutorial, você aprenderá como:
 
@@ -61,7 +61,7 @@ A maneira mais fácil de criar uma função personalizada é começar com um mod
 
 1. Abra ReaderSupportRole.json em um editor e adicione o JSON a seguir.
 
-    Para obter informações sobre as diversas propriedades, confira [Funções personalizadas para recursos do Azure](custom-roles.md).
+    Para obter informações sobre as diversas propriedades, confira [Funções personalizadas do Azure](custom-roles.md).
 
     ```json
     {
@@ -269,4 +269,4 @@ Para atualizar a função personalizada, atualize o arquivo JSON e, em seguida, 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar funções personalizadas para recursos do Azure usando a CLI do Azure](custom-roles-cli.md)
+> [Criar ou atualizar funções personalizadas do Azure usando a CLI do Azure](custom-roles-cli.md)

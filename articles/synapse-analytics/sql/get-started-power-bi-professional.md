@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0ce8f3a447f1896ae6d96d343782f8cdb44d4c6f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 4bedcc1f7375cb83131b00be93c785069a7d3e7d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425325"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692391"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conectar-se ao Synapse SQL com o Power BI Professional
 
@@ -26,7 +26,7 @@ ms.locfileid: "81425325"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-Neste tutorial, percorreremos as etapas de como conectar o Power BI Desktop ao SQL sob demanda (versão prévia).
+Neste tutorial, percorreremos as etapas para conectar o Power BI Desktop ao SQL sob demanda (versão prévia).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Parâmetros:
 | Endereço do ponto de extremidade de serviço do SQL sob demanda    | Será usado como o nome do servidor                                   |
 | Região do ponto de extremidade de serviço do SQL sob demanda     | Será usada para determinar qual armazenamento será usado nas amostras |
 | Nome de usuário e senha para acesso de ponto de extremidade | Será usado para acessar o ponto de extremidade                               |
-| O banco de dados que você usará para criar exibições     | Esse banco de dados será usado como ponto de partida em exemplos       |
+| Banco de dados que você usará para criar exibições     | Esse banco de dados será usado como ponto de partida em exemplos       |
 
 ## <a name="first-time-setup"></a>Configuração inicial
 
@@ -57,12 +57,12 @@ Há duas etapas antes de usar exemplos:
 
 ### <a name="create-database"></a>Criar banco de dados
 
-Já que você usará o ambiente de demonstração, deverá criar seu banco de dados para fins de demonstração. O banco de dados é necessário para que seja possível criar exibições nele. Você usará esse banco de dados em algumas das consultas de exemplo nesta documentação.
+Para este artigo de introdução, você deve criar um banco de dados próprio para utilizar como uma demonstração. Um banco de dados é necessário para a criação de exibições. Você usará esse banco de dados em algumas das consultas de exemplo desta documentação.
 
 > [!NOTE]
-> Observe que os bancos de dados são usados apenas para os metadados de exibição, não para os dados reais.
+> Bancos de dados são usados apenas para exibição de metadados, não para os dados reais.
 >
-> Anote o nome do banco de dados que você usar, você precisará dele mais tarde.
+> Anote o nome do banco de dados que você está usando, você precisará disso mais tarde.
 
 ```sql
 DROP DATABASE IF EXISTS demo;
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Criar credenciais
 
-Precisaremos criar credenciais antes que você possa executar consultas. Esta credencial será usada pelo serviço de SQL sob demanda para acessar arquivos no armazenamento.
+Precisaremos criar credenciais antes que você execute consultas. Esta credencial será usada pelo serviço de SQL sob demanda para acessar arquivos no armazenamento.
 
 > [!NOTE]
-> Observe que você precisará criar credenciais para acesso à conta de armazenamento. Embora o SQL sob demanda possa acessar armazenamentos de diferentes regiões, ter o armazenamento e o workspace do Azure Synapse na mesma região proporcionará uma experiência com melhor desempenho.
+> Você precisa criar credenciais de acesso à conta de armazenamento. Embora o SQL sob demanda possa acessar armazenamentos de diferentes regiões, ter o armazenamento e o workspace do Azure Synapse na mesma região proporcionará uma experiência com melhor desempenho.
 
 **Snippet de código sobre como criar credenciais para contêineres de dados do censo**, execute:
 
@@ -92,17 +92,18 @@ GO
 
 ## <a name="creating-power-bi-desktop-report"></a>Como criar um relatório do Power BI Desktop
 
-Abra o aplicativo Power BI Desktop e selecione a opção "Obter dados".
-![Abra o aplicativo Power BI Desktop e selecione Obter dados](./media/get-started-power-bi-professional/step-0-open-powerbi.png).
+Abra o aplicativo Power BI Desktop e selecione a opção **Obter dados**.
+
+![Abra o aplicativo Power BI Desktop e selecione Obter dados.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Etapa 1 – Selecionar fonte de dados
 
-Selecione "Azure" no menu e, em seguida, "Banco de Dados SQL do Azure".
+Selecione **Azure** no menu e, em seguida, **Banco de Dados SQL do Azure**.
 ![Selecione uma fonte de dados.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Etapa 2 – Selecionar banco de dados
 
-Escreva a URL para o banco de dados e o nome do banco de dados em que a exibição reside no momento.
+Grave a URL do banco de dados e o nome do banco de dados em que a exibição reside.
 ![Selecione o banco de dados no ponto de extremidade.](./media/get-started-power-bi-professional/step-2-db.png)
 
 ## <a name="next-steps"></a>Próximas etapas

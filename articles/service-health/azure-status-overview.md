@@ -3,12 +3,12 @@ title: Visão geral do status do Azure | Microsoft Docs
 description: Uma exibição global da integridade dos serviços do Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6e0813ad5fde19069662c13fcba7bd81b055de2a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78898334"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732543"
 ---
 # <a name="azure-status-overview"></a>Visão geral do status do Azure
 
@@ -24,9 +24,7 @@ A página de status do Azure é atualizada em tempo real conforme a integridade 
 
 ## <a name="azure-status-history"></a>Histórico de status do Azure
 
-Enquanto a página de status do Azure sempre mostra as informações de integridade mais recentes, você pode exibir os eventos mais antigos usando a [página de histórico de status do Azure](https://status.azure.com/status/history/).
-
-Começando com os eventos que foram publicados em novembro de 2019, a página de histórico de status mostra eventos de até 365 dias no passado, incluindo uma causa raiz preliminar, a mitigação e as próximas etapas para o Azure.
+Enquanto a página de status do Azure sempre mostra as informações de integridade mais recentes, você pode exibir os eventos mais antigos usando a [página de histórico de status do Azure](https://status.azure.com/status/history/). A página de histórico contém todos os RCAs para incidentes que ocorreram em 20 de novembro de 2019 ou depois e dessa data em diante. Forneça um histórico de RCA de 5 anos. RCAs anteriores a 20 de novembro de 2019 não estão disponíveis.
 
 ## <a name="rss-feed"></a>RSS Feed
 

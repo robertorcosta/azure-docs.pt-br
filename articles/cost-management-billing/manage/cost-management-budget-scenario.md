@@ -6,14 +6,14 @@ ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: a9e1d838e7d3322ddf218c5cbec40b652709b5d7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 633ca5cd16b8e730225900c30c575e74a0956ada
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586392"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791673"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerenciar os custos com os Orçamentos do Azure
 
@@ -273,7 +273,7 @@ Em seguida, você vai configurar o **Postman** para criar um orçamento chamando
 1. Defina o **Valor** para o token criado usando o ArmClient no final da última seção.
 1. Selecione a guia **Corpo** no Postman.
 1. Selecione a opção de botão **bruto**.
-1. Na caixa de texto, cole a definição de orçamento de exemplo abaixo. Porém, você precisará substituir os parâmetros **subscriptionID**, **budgetname** e **actiongroupname** pela ID de assinatura, por um nome exclusivo para o orçamento e pelo nome do grupo de ações criado na URL e no corpo da solicitação:
+1. Na caixa de texto, cole a definição de orçamento de exemplo abaixo. No entanto, você precisará substituir os parâmetros `subscriptionID`, `resourcegroupname` e `actiongroupname` pela ID da assinatura, por um nome exclusivo para o grupo de recursos e pelo nome do grupo de ações criado na URL e no corpo da solicitação:
 
     ```
         {

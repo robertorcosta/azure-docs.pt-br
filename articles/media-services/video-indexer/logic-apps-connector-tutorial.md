@@ -1,0 +1,128 @@
+---
+title: Tutorial dos conectores do Video Indexer com o Aplicativo Lógico e o Power Automate.
+description: Este tutorial mostra como aproveitar novas experiências e oportunidades de monetização dos conectores do Video Indexer com o Aplicativo Lógico e o Power Automate.
+author: anikaz
+manager: johndeu
+ms.author: anzaman
+ms.service: media-services
+ms.subservice: video-indexer
+ms.topic: tutorial
+ms.date: 05/01/2020
+ms.openlocfilehash: 932f52aa694c13fd3696d82872135304a4e41bdc
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801120"
+---
+# <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: usar o Video Indexer com o Aplicativo Lógico e o Power Automate
+
+A [API REST do Video Indexer v2](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Delete-Video?) dos Serviços de Mídia do Azure dá suporte à comunicação de servidor para servidor e de cliente para servidor, além de permitir que os usuários do Video Indexer integrem insights de áudio e vídeo facilmente à lógica do aplicativo, proporcionando novas experiências e oportunidades de monetização.
+
+Para facilitar ainda mais a integração, temos suporte para os conectores dos  [Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/) e do [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/) , que são compatíveis com nossa API. Você pode usar os conectores para configurar fluxos de trabalho personalizados a fim de indexar e extrair insights de uma grande quantidade de arquivos de vídeo e áudio, sem escrever uma só linha de código. Além disso, o uso dos conectores para sua integração proporciona melhor visibilidade da integridade do fluxo de trabalho e uma forma fácil de depurá-lo.  
+
+Para ajudar você a se familiarizar rapidamente com os conectores do Video Indexer, percorreremos um exemplo de uma solução do Aplicativo Lógico e do Power Automate que você pode configurar. 
+
+Neste tutorial, você aprenderá como:
+
+> [!div class="checklist"]
+> * Carregar e indexar seu vídeo automaticamente
+> * Configurar o fluxo de upload do arquivo
+> * Configurar o fluxo de extração JSON
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para começar, você também precisará de uma conta do Video Indexer e de acesso às APIs por meio da chave de API. 
+
+Você também precisará de uma conta de armazenamento do Azure. Anote a chave de acesso de sua conta de armazenamento. Crie dois contêineres – um para armazenar vídeos e outro para armazenar os insights gerados pelo Video Indexer.  
+
+Em seguida, você precisará abrir dois fluxos separados nos Aplicativos Lógicos ou no Power Automate (dependendo do que estiver usando).  
+
+## <a name="upload-and-index-your-video-automatically"></a>Carregar e indexar seu vídeo automaticamente 
+
+Este cenário é composto por dois fluxos diferentes que funcionam juntos. O primeiro fluxo é disparado quando um blob é adicionado ou modificado em uma conta de Armazenamento do Azure. Ele carrega o novo arquivo no Video Indexer com uma URL de retorno de chamada para enviar uma notificação após a conclusão da operação de indexação. O segundo fluxo é disparado com base na URL de retorno de chamada e salva os insights extraídos em um arquivo JSON no Armazenamento do Azure. Essa abordagem de dois fluxos é usada para dar suporte ao upload e à indexação assíncronos de arquivos maiores com eficiência. 
+
+### <a name="set-up-the-file-upload-flow"></a>Configurar o fluxo de upload do arquivo 
+
+O primeiro fluxo é disparado sempre que um blob é adicionado ao contêiner do Armazenamento do Azure. Uma vez disparado, ele cria um URI de SAS que você pode usar para carregar e indexar o vídeo no Video Indexer. Comece pela criação do fluxo a seguir. 
+
+![Fluxo de upload de arquivo](./media/logic-apps-connector-tutorial/file-upload-flow.png)
+
+Para configurar o primeiro fluxo, você precisará fornecer sua chave de API do Video Indexer e as credenciais do Armazenamento do Azure. 
+
+![Armazenamento do blob do Azure](./media/logic-apps-connector-tutorial/azure-blob-storage.png)
+
+![Nome de conexão e chave da API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
+
+Após se conectar a suas contas do Armazenamento do Azure e do Video Indexer, vá para o gatilho "Quando um blob é adicionado ou modificado" e selecione o contêiner no qual você colocará os arquivos de vídeo. 
+
+![Contêiner](./media/logic-apps-connector-tutorial/container.png)
+
+Em seguida, vá para a ação "Criar URI de SAS por caminho" e selecione Lista de Caminhos de Arquivos nas opções de conteúdo dinâmico.  
+
+![URI do SAS pelo caminho](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
+
+Informe [a Localização e a ID de sua conta](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) para obter o token da conta do Video Indexer.
+
+![Obter token de acesso da conta](./media/logic-apps-connector-tutorial/account-access-token.png)
+
+Para "Carregar vídeo e índice", preencha os parâmetros necessários e a URL do vídeo. Selecione “Adicionar novo parâmetro” e selecione URL de Retorno de chamada. 
+
+![Carregar e indexar](./media/logic-apps-connector-tutorial/upload-and-index.png)
+
+Você deixará a URL de retorno de chamada vazia por enquanto. Você a adicionará somente após concluir o segundo fluxo, em que a URL de retorno de chamada é criada. 
+
+Use o valor padrão para os outros parâmetros ou defina-os de acordo com suas necessidades. 
+
+Clique em "Salvar" e vamos configurar o segundo fluxo, a fim de extrair os insights depois que o upload e a indexação forem concluídos. 
+
+## <a name="set-up-the-json-extraction-flow"></a>Configurar o fluxo de extração JSON 
+
+A conclusão do upload e da indexação no primeiro fluxo envia uma solicitação HTTP com a URL de retorno de chamada correta para disparar o segundo fluxo. Em seguida, ele recupera os insights gerados pelo Video Indexer. Neste exemplo, ele armazena a saída de seu trabalho de indexação no Armazenamento do Azure.  No entanto, você decide o que deseja fazer com a saída.  
+
+Crie o segundo fluxo separado do primeiro. 
+
+![Fluxo de extração JSON](./media/logic-apps-connector-tutorial/json-extraction-flow.png)
+
+Para configurar esse fluxo, você precisará fornecer sua chave de API do Video Indexer e as credenciais do Armazenamento do Azure novamente. Você precisará atualizar os mesmos parâmetros que atualizou para o primeiro fluxo. 
+
+Para o gatilho, você verá um campo URL HTTP POST. A URL não será gerada até que você salve o fluxo. No entanto, você precisará dela em algum momento. Voltaremos a isso mais tarde. 
+
+Informe [a Localização e a ID de sua conta](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) para obter o token da conta do Video Indexer.  
+
+Vá para a ação "Obter Índice de Vídeo" e preencha os parâmetros necessários. Para a ID de Vídeo, insira a seguinte expressão: triggerOutputs()['queries']['id'] 
+
+![informações de ação do Video Indexer](./media/logic-apps-connector-tutorial/video-indexer-action-info.jpg)
+
+Essa expressão instrui o conector a obter a ID de Vídeo da saída do gatilho. Nesse caso, a saída do gatilho será a saída de "Carregar vídeo e índice" no primeiro gatilho. 
+
+Vá para a ação "Criar blob" e selecione o caminho para a pasta na qual você salvará os insights. Defina o nome do blob que você está criando. Para o conteúdo do Blob, insira a seguinte expressão: body(‘Get_Video_Index’) 
+
+![Ação Criar blob](./media/logic-apps-connector-tutorial/create-blob-action.jpg)
+
+Essa expressão usa a saída da ação "Obter Índice de Vídeo" deste fluxo. 
+
+Clique em “Salvar fluxo”. 
+
+Após o fluxo ser salvo, uma URL HTTP POST será criada no gatilho. Copie a URL do gatilho. 
+
+![Salvar gatilho de URL](./media/logic-apps-connector-tutorial/save-url-trigger.png)
+
+Agora, volte para o primeiro fluxo e cole a URL na ação "Carregar vídeo e índice" como o parâmetro de URL de retorno de chamada. 
+
+Verifique se os dois fluxos foram salvos e você está pronto! 
+
+Experimente nossa nova solução do Aplicativo Lógico ou do Power Automate adicionando um vídeo ao seu contêiner de BLOBS do Azure e volte alguns minutos mais tarde para ver se os insights aparecem na pasta de destino. 
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Depois de concluir este tutorial, fique à vontade para manter essa solução do Aplicativo Lógico ou do Power Automate em execução se necessário. No entanto, se não quiser mantê-la em execução e não quiser ser cobrado, desligue os dois fluxos se estiver usando o Power Automate. Desabilite os dois fluxos se estiver usando os Aplicativos Lógicos. 
+
+## <a name="next-steps"></a>Próximas etapas
+
+Este tutorial mostrou apenas um exemplo de conectores do Video Indexer. Você pode usar conectores do Video Indexer para qualquer chamada à API fornecida por ele. Por exemplo: carregar e recuperar insights, converter os resultados, obter widgets incorporáveis e até mesmo personalizar seus modelos. Além disso, você pode optar por disparar essas ações com base em fontes diferentes, como atualizações de repositórios de arquivos ou emails enviados. Você pode, então, optar por fazer com que os resultados sejam atualizados em nossa infraestrutura ou aplicativo relevante ou com que gerem qualquer número de itens de ação.  
+
+> [!div class="nextstepaction"]
+> [Usar a API do Video Indexer](video-indexer-use-apis.md)

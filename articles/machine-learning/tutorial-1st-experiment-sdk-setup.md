@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 820332b0692c0c863ed23912fe9913c419769155
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272994"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778984"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Introdução à criação de seu primeiro experimento de ML com o SDK de Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,11 +47,7 @@ Você cria um workspace pelo portal do Azure, um console baseado na Web para ger
 
 Este tutorial usa o servidor de notebook em nuvem em seu workspace para uma experiência pré-configurada e sem instalação. Use [seu próprio ambiente](how-to-configure-environment.md#local) se preferir ter controle sobre seu ambiente, pacotes e dependências.
 
-Acompanhe o tutorial com este vídeo ou use as etapas detalhadas abaixo para clonar e executar o tutorial em seu workspace. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ Use as etapas detalhadas abaixo para clonar e executar o tutorial em seu workspace. 
 
 ### <a name="clone-a-notebook-folder"></a>Clonar uma pasta do notebook
 
@@ -63,7 +59,7 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
 
 1. Selecione **Notebooks** à esquerda.
 
-1. Abra a pasta **samples**.
+1. Selecione a guia **Amostras** na parte superior.
 
 1. Abra a pasta **Python**.
 
@@ -71,26 +67,33 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
 
 1. Selecione o **"..."** à direita da pasta **tutorials** e, em seguida, selecione **Clonar**.
 
-    ![Clonar pasta](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Clonar a pasta tutoriais":::
 
 1. Uma lista de pastas exibe cada usuário que acessa o espaço de trabalho.  Selecione sua pasta para clonar a pasta **tutoriais** lá.
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Abra o bloco de anotações clonado
+### <a name="open-the-cloned-notebook"></a><a name="open"></a>Abrir o notebook clonado
 
-1. Em **Arquivos do Usuário**, abra a pasta e, em seguida, abra a pasta **tutorials** clonada.
-
-    ![Abrir a pasta tutorials](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Abra a pasta **tutoriais** que acabou de ser fechada na seção **Arquivos do usuário**.
 
     > [!IMPORTANT]
     > Você pode exibir notebooks na pasta **samples**, mas não pode executar um notebook partindo dela.  Para executar um notebook, abra a versão clonada do notebook na seção **Arquivos do Usuário**.
     
 1. Selecione o arquivo **tutorial-1st-experiment-sdk-train.ipynb** na pasta **tutorials/create-first-ml-experiment**.
 
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Abrir a pasta tutoriais":::
+
+
 1. Na barra superior, selecione uma instância de computação a ser usada para executar o notebook. Essas VMs são pré-configuradas com [tudo o que você precisa para executar Azure Machine Learning](concept-compute-instance.md#contents). 
 
 1. Se nenhuma VM for encontrada, selecione **+ Adicionar** para criar a VM da instância de computação. 
 
-    1. Ao criar uma VM, forneça um nome.  O nome da VM deve ter entre 2 e 16 caracteres. Os caracteres válidos são letras, dígitos e o caractere -, sendo que esse nome deve ser exclusivo na assinatura do Azure.
+    1. Ao criar uma VM, siga estas regras:  
+        + O nome é obrigatório e não pode ficar vazio.
+        + O nome precisa ser exclusivo (sem diferenciar maiúsculas de minúsculas) em todas as instâncias de computação existentes na região do Azure do workspace/da instância de computação. Você receberá um alerta se o nome escolhido não for exclusivo.
+        + Os caracteres válidos são letras maiúsculas e minúsculas, números (0 a 9) e caractere de traço (-).
+        + O nome precisa ter entre 3 e 24 caracteres.
+        + O nome deve começar com uma letra (não um número nem um caractere de traço).
+        + Se for usado o caractere de traço, ele precisará ser seguido por pelo menos uma letra após o traço. Exemplo: Teste-, Teste-0, Teste-01 são inválidos, enquanto que Teste-a0, Teste-0A são instâncias válidas.
 
     1.  Selecione o tamanho da máquina virtual nas opções disponíveis.
 

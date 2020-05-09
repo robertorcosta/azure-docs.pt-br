@@ -4,12 +4,12 @@ description: Saiba como criar, testar e implantar continuamente modelos do Azure
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: dacbdbcbebbbd696c14745e055ed9f7bd7905b1d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82084321"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731927"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines
 
@@ -57,7 +57,7 @@ Se você não tiver uma conta do GitHub, confira [Pré-requisitos](#prerequisite
 
 1. Selecione **Novo**, um botão verde.
 1. No **Nome do repositório**, insira um nome do repositório.  Por exemplo, **AzureRmPipeline-repo**. Substitua qualquer **AzureRmPipeline** pelo nome do projeto. É possível selecionar **público** ou **privado** para percorrer este tutorial. E, em seguida, selecione **Criar repositório**.
-1. Anote a URL. A URL do repositório está o seguinte formato: **https://github.com/ [NomeDaSuaConta]/[NomeDoSeuRepositorio]** .
+1. Anote a URL. A URL do repositório é o seguinte formato: **`https://github.com/[YourAccountName]/[YourRepositoryName]`** .
 
 Esse repositório é conhecido como um *repositório remoto*. Cada um dos desenvolvedores do mesmo projeto pode clonar seu próprio *repositório local* e mesclar as alterações no repositório remoto.
 
@@ -104,7 +104,7 @@ O azuredeploy.json foi adicionado ao repositório local. Em seguida, faça uploa
     ```
 
     Você pode receber um aviso sobre LF. É possível ignorá-lo. **master** é o branch mestre.  Normalmente, você cria um branch para cada atualização. Para simplificar o tutorial, use o branch mestre diretamente.
-1. Navegue até o repositório GitHub em um navegador.  A URL é **https://github.com/ [NomeDaSuaConta]/[RepositórioGitHub]** . Você deverá ver a pasta **CreateWebApp** e os três arquivos dentro dela.
+1. Navegue até o repositório GitHub em um navegador.  A URL é **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** . Você deverá ver a pasta **CreateWebApp** e os três arquivos dentro dela.
 1. Selecione **linkedStorageAccount.json** para abrir o modelo.
 1. Selecione a botão **Bruto**. A URL é iniciado com **raw.githubusercontent.com**.
 1. Faça uma cópia da URL.  Você precisará fornecer esse valor quando configurar o pipeline posteriormente no tutorial.

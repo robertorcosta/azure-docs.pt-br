@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391498"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609350"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Início Rápido: Criar e publicar uma definição de aplicativo gerenciado
 
@@ -290,7 +290,7 @@ Alguns dos parâmetros usados no exemplo anterior são:
 
 * **grupo de recursos**: o nome do grupo de recursos no qual a definição de aplicativo gerenciado é criada.
 * **nível de bloqueio**: o tipo de bloqueio colocado no grupo de recursos gerenciados. Ela impede que o cliente execute operações indesejáveis no grupo de recursos. Atualmente, ReadOnly é o único nível de bloqueio com suporte. Quando ReadOnly é especificado, o cliente pode ler somente os recursos presentes no grupo de recursos gerenciados. As identidades do publicador que concedem acesso ao grupo de recursos gerenciado são isentas de bloqueio.
-* **authorizations**: descreve a ID da entidade e a ID de definição de função que são usadas para conceder permissão ao grupo de recursos gerenciados. Ele é especificado no formato `<principalId>:<roleDefinitionId>`. Se for necessário mais de um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Os valores são separados por um espaço.
+* **authorizations**: descreve a ID da entidade e a ID de definição de função que são usadas para conceder permissão ao grupo de recursos gerenciados. Ele é especificado no formato `<principalId>:<roleDefinitionId>`. Se for necessário mais de um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Os valores são separados por uma vírgula.
 * **URI do arquivo de pacote**: o local de um pacote .zip que contém os arquivos necessários.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traga seu próprio armazenamento para a definição de aplicativo gerenciado

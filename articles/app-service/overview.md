@@ -3,14 +3,14 @@ title: Visão geral
 description: Saiba como o Serviço de Aplicativo do Azure o ajuda a desenvolver e hospedar aplicativos Web
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
-ms.date: 01/04/2017
+ms.date: 04/30/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 7db55a420a9789ef15a5296a6b0200d6b8910ec6
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535631"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597851"
 ---
 # <a name="app-service-overview"></a>Visão geral do Serviço de Aplicativo
 
@@ -25,6 +25,7 @@ Com o Serviço de Aplicativo, você paga pelos recursos de computação do Azure
 Veja alguns dos principais recursos do Serviço de Aplicativo:
 
 * **Variedade de linguagens e estruturas** – O Serviço de Aplicativo têm suporte de primeira classe para ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP ou Python. Você também pode executar o [PowerShell e outros scripts ou executáveis](webjobs-create.md) como serviços em segundo plano.
+* **Ambiente de produção gerenciado** – o Serviço de Aplicativo [automaticamente corrige e mantém as estruturas do sistema operacional e de idiomas](overview-patch-os-runtime.md) para você. Dedique seu tempo a escrever aplicativos incríveis e deixe o Azure se preocupar com a plataforma.
 * **Otimização de DevOps** – configure a [integração e implantação contínuas](deploy-continuous-deployment.md) com o Azure DevOps, o GitHub, o BitBucket, o Hub do Docker ou o Registro de Contêiner do Azure. Promova atualizações por meio de [ambientes de preparo e teste](deploy-staging-slots.md). Gerencie aplicativos no Serviço de Aplicativo usando o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI (interface de linha de comando de plataforma cruzada)](/cli/azure/install-azure-cli).
 * **Escala global com alta disponibilidade** - escale [verticalmente](manage-scale-up.md) ou [horizontalmente](../monitoring-and-diagnostics/insights-how-to-scale.md) de forma manual ou automática. Hospede os aplicativos em qualquer lugar na infraestrutura de datacenter global da Microsoft, e o [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) do Serviço de Aplicativo promete alta disponibilidade.
 * **Conexões com plataformas SaaS e dados locais** - escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas corporativos (como SAP), serviços de SaaS (como Salesforce) e serviços de Internet (como Facebook). Acesse dados locais usando [Conexões Híbridas](app-service-hybrid-connections.md) e [Redes Virtuais do Azure](web-sites-integrate-with-vnet.md).
