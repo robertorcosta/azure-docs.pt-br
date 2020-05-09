@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09dd4ea3cd039bcb91acc877e51fee7e40168ac3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303215"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612751"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar uma instância de cluster de failover SQL Server com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -47,7 +47,7 @@ Você também deve ter uma compreensão geral dessas tecnologias:
 > [!IMPORTANT]
 > Neste momento, SQL Server instâncias de cluster de failover em máquinas virtuais do Azure só têm suporte com o [modo de gerenciamento leve](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para alterar do modo de extensão completo para leve, exclua o recurso de **máquina virtual do SQL** para as VMs correspondentes e registre-as com o provedor de recursos de VM do SQL no modo leve. Ao excluir o recurso de **máquina virtual do SQL** usando o portal do Azure, **desmarque a caixa de seleção ao lado da máquina virtual correta**. A extensão completa oferece suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do Portal. Esses recursos não funcionarão para VMs do SQL depois que o agente for reinstalado no modo de gerenciamento leve.
 
-Os compartilhamentos de arquivos Premium fornecem IOPS e recursos que atenderão às necessidades de várias cargas de trabalho. Para cargas de trabalho com uso intensivo de e/s, considere [SQL Server instâncias de cluster de failover com espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md), com base em discos Premium gerenciados ou em discos ultraos.  
+Os compartilhamentos de arquivos Premium fornecem capacidade de IOPS e taxa de transferência que atenderão às necessidades de várias cargas de trabalho. Para cargas de trabalho com uso intensivo de e/s, considere [SQL Server instâncias de cluster de failover com espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md), com base em discos Premium gerenciados ou em discos ultraos.  
 
 Verifique a atividade de IOPS do seu ambiente e verifique se os compartilhamentos de arquivos Premium fornecerão o IOPS de que você precisa antes de iniciar uma implantação ou migração. Use os contadores de disco do monitor de desempenho do Windows para monitorar o IOPS total (transferências de disco/segundo) e a taxa de transferência (bytes de disco/segundo) necessários para dados de SQL Server, log e arquivos de BD temporários.
 
@@ -465,7 +465,7 @@ Em máquinas virtuais do Azure, o MSDTC não tem suporte no Windows Server 2016 
 - O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. No Windows Server 2016, se você criar um recurso MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo que o armazenamento esteja disponível. Esse problema foi corrigido no Windows Server 2019.
 - O balanceador de carga básico não lida com portas RPC.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Tecnologias de cluster do Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server instâncias de cluster de failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

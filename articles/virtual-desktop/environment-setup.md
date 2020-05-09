@@ -5,23 +5,25 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127909"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612360"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Ambiente da Área de Trabalho Virtual do Windows
 
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>
+> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 A área de trabalho virtual do Windows é um serviço que oferece aos usuários acesso fácil e seguro a seus desktops e RemoteApps virtualizados. Este tópico lhe dirá um pouco mais sobre a estrutura geral do ambiente de área de trabalho virtual do Windows.
-
-## <a name="tenants"></a>Locatários
-
-O locatário da área de trabalho virtual do Windows é a interface principal para gerenciar seu ambiente de área de trabalho virtual do Windows. Cada locatário da área de trabalho virtual do Windows deve ser associado ao Azure Active Directory que contém os usuários que entrarão no ambiente. No locatário da área de trabalho virtual do Windows, você pode começar a criar pools de hosts para executar cargas de trabalho dos usuários.
 
 ## <a name="host-pools"></a>Pools de hosts
 
@@ -45,12 +47,12 @@ Por padrão, um grupo de aplicativos de desktop (denominado "grupo de aplicativo
 
 Para publicar recursos para os usuários, você deve atribuí-los a grupos de aplicativos. Ao atribuir usuários a grupos de aplicativos, considere as seguintes coisas:
 
-- Um usuário não pode ser atribuído a um grupo de aplicativos de desktop e a um grupo de aplicativos do RemoteApp no mesmo pool de hosts.
+- Um usuário pode ser atribuído a um grupo de aplicativos de desktop e a um grupo de aplicativos do RemoteApp no mesmo pool de hosts. No entanto, os usuários só podem iniciar um tipo de grupo de aplicativos por sessão. Os usuários não podem iniciar os dois tipos de grupos de aplicativos ao mesmo tempo em uma única sessão.
 - Um usuário pode ser atribuído a vários grupos de aplicativos dentro do mesmo pool de hosts, e seu feed será um acúmulo de ambos os grupos de aplicativos.
 
-## <a name="tenant-groups"></a>Grupos de locatários
+## <a name="workspaces"></a>Workspaces
 
-Na área de trabalho virtual do Windows, o locatário da área de trabalho virtual do Windows é onde ocorre a maior parte da configuração e da configuração. O locatário da área de trabalho virtual do Windows contém os pools de hosts, grupos de aplicativos e atribuições de usuário do grupo de aplicativos. No entanto, pode haver algumas situações em que você precisa gerenciar vários locatários de área de trabalho virtual do Windows de uma vez, especialmente se você for um provedor de serviços de nuvem (CSP) ou um parceiro de hospedagem. Nessas situações, você pode usar um grupo personalizado de locatários da área de trabalho virtual do Windows para posicionar os locatários de área de trabalho virtual do Windows dos clientes e gerenciar o acesso centralmente. No entanto, se você estiver gerenciando apenas um único locatário da área de trabalho virtual do Windows, o conceito do grupo de locatários não se aplicará e você poderá continuar a operar e gerenciar seu locatário que existe no grupo de locatários padrão.
+Um espaço de trabalho é um agrupamento lógico de grupos de aplicativos na área de trabalho virtual do Windows. Cada grupo de aplicativos de área de trabalho virtual do Windows deve ser associado a um espaço de trabalho para que os usuários vejam os aplicativos e áreas de trabalho remotas publicados neles.  
 
 ## <a name="end-users"></a>Usuários finais
 
@@ -60,9 +62,12 @@ Depois de atribuir usuários aos seus grupos de aplicativos, eles podem se conec
 
 Saiba mais sobre o acesso delegado e como atribuir funções a usuários em [acesso delegado na área de trabalho virtual do Windows](delegated-access-virtual-desktop.md).
 
-Para saber como configurar seu locatário de área de trabalho virtual do Windows, confira [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
+Para saber como configurar o pool de hosts da área de trabalho virtual do Windows, confira [criar um pool de hosts com o portal do Azure](create-host-pools-azure-marketplace.md).
 
 Para saber como se conectar à área de trabalho virtual do Windows, consulte um dos seguintes artigos:
 
-- [Conectar-se do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
-- [Conectar-se de um navegador da Web](connect-web.md)
+- [Conectar-se com o Windows 10 ou o Windows 7](connect-windows-7-and-10.md)
+- [Conectar-se com um navegador da Web](connect-web.md)
+- [Conectar-se ao cliente Android](connect-android.md)
+- [Conectar-se ao cliente macOS](connect-macos.md)
+- [Conectar-se ao cliente iOS](connect-ios.md)

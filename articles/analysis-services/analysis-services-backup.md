@@ -4,15 +4,15 @@ description: Este artigo descreve como fazer backup e restaurar dados e metadado
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145448"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871304"
 ---
 # <a name="backup-and-restore"></a>Backup e restauração
 
@@ -24,7 +24,7 @@ O backup de bancos de dados de modelos tabulares no Azure Analysis Services é m
 > 
 
 > [!NOTE]
-> Se a conta de armazenamento estiver em uma região diferente, as configurações de firewall deverão ser configuradas para permitir o acesso de **todas as redes**. Não há suporte para as configurações de firewall definidas para redes selecionadas com endereços IP na lista de permissões e para permitir exceções confiáveis de serviços da Microsoft.
+> Se a conta de armazenamento estiver em uma região diferente, defina as configurações de firewall da conta de armazenamento para permitir o acesso de **redes selecionadas**. Em **intervalo de endereços**do firewall, especifique o intervalo de endereços IP para a região em que o servidor Analysis Services está. A definição de configurações de firewall da conta de armazenamento para permitir o acesso de todas as redes tem suporte, no entanto, escolher redes selecionadas e especificar um intervalo de endereços IP é preferencial. Para saber mais, consulte [perguntas frequentes sobre conectividade de rede](analysis-services-network-faq.md#backup-and-restore).
 
 Os backups são salvos com uma extensão. ABF. Para modelos tabular na memória, ambos os dados de modelo e metadados são armazenados. Para modelos tabulares do DirectQuery, somente os metadados do modelo são armazenados. Os backups podem ser compactados e criptografados, dependendo das opções escolhidas.
 
@@ -107,5 +107,5 @@ Use o cmdlet [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/s
 ## <a name="related-information"></a>Informações relacionadas
 
 [Contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md)  
-[Alta disponibilidade](analysis-services-bcdr.md)     
-[Gerenciar Azure Analysis Services](analysis-services-manage.md)
+[Alta disponibilidade](analysis-services-bcdr.md)      
+[Perguntas frequentes sobre conectividade de rede Analysis Services](analysis-services-network-faq.md)
