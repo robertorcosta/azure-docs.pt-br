@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7b1fd34824bec9641edc94ce278fa21a1b57b2c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74107667"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202733"
 ---
 # <a name="import-soap-api"></a>Importar a API SOAP
 
-Este artigo mostra como importar uma representação XML padrão da API SOAP. O artigo também mostra como testar a API do APIM.
+Este artigo mostra como importar uma representação XML padrão da API SOAP. O artigo também mostra como testar a API do Gerenciamento de API.
 
 Neste artigo, você aprenderá como:
 
@@ -30,15 +30,15 @@ Neste artigo, você aprenderá como:
 > * Testar a API no Portal do Azure
 > * Testar a API no Portal do desenvolvedor
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
+Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
-1. Selecione **APIs** em **GERENCIAMENTO DE API**.
+1. Navegue até o serviço de Gerenciamento de API no portal do Azure e selecione **APIs** no menu.
 2. Selecione **WSDL** na lista **Adicionar uma nova API**.
 
     ![API SOAP](./media/import-soap-api/wsdl-api.png)
@@ -48,17 +48,18 @@ Conclua o seguinte guia de início rápido: [Criar uma nova instância do servi�
     ![Passagem](./media/import-soap-api/pass-through.png)
 5. Pressione Tab.
 
-    Os seguintes campos são preenchidos com as informações da API SOAP: Nome de exibição, Nome, Descrição.
-6. Adicione um sufixo da URL da API. O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.
-9. Publica a API associando-a a um produto. Nesse caso, o produto "*Ilimitado*" é usado.  Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.
+    Os seguintes campos são preenchidos com as informações da API SOAP: Nome de exibição, nome, descrição.
+6. Adicione um sufixo da URL da API. O sufixo é um nome que identifica a API específica messa instância do Gerenciamento de API. Ele deve ser exclusivo nessa instância do Gerenciamento de API.
+7. Publica a API associando-a a um produto. Nesse caso, o produto "*Ilimitado*" é usado.  Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.
 
-    Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.
+    Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do Gerenciamento de API, você já é um administrador, portanto, está inscrito em cada produto, por padrão.
 
     Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web:
 
     * **Inicial**
     * **Ilimitado**   
-10. Selecione **Criar**.
+8. Insira outras configurações de API. Você pode definir os valores durante a criação ou configurá-los mais tarde, acessando a guia **Configurações**. As configurações são explicadas no tutorial [Importar e publicar sua primeira API](import-and-publish.md#-import-and-publish-a-backend-api).
+9. Selecione **Criar**.
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Testar a nova API no portal administrativo
 
@@ -68,7 +69,7 @@ As operações podem ser chamadas diretamente do portal administrativo, que forn
 2. Pressione a guia **Testar**.
 3. Selecione alguma operação.
 
-    A página exibe os campos dos parâmetros de consulta e os campos dos cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do APIM, já é um administrador e, portanto, a chave é preenchida automaticamente. 
+    A página exibe os campos dos parâmetros de consulta e os campos dos cabeçalhos. Um dos cabeçalhos é "Ocp-Apim-Subscription-Key", para a chave de assinatura do produto que está associado a essa API. Se você criou a instância do Gerenciamento de API, já é um administrador e, portanto, a chave é preenchida automaticamente. 
 1. Pressione **Enviar**.
 
     O back-end responde com **200 OK** e alguns dados.

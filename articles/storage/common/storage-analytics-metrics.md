@@ -8,12 +8,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03e5f1e888680f6020b45f51103e7b5cb6dc86ab
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268399"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692725"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas da análise de armazenamento do Azure (clássico)
 
@@ -23,7 +23,7 @@ A análise de armazenamento pode armazenar métricas que incluem estatísticas d
 
 > [!NOTE]
 > Análise de Armazenamento métricas estão disponíveis para os serviços BLOB, fila, tabela e arquivo.
-> As métricas de Análise de Armazenamento agora são métricas clássicas. A Microsoft recomenda o uso de [métricas de armazenamento em Azure monitor](storage-metrics-in-azure-monitor.md) em vez de análise de armazenamento métricas.
+> As métricas de Análise de Armazenamento agora são métricas clássicas. A Microsoft recomenda o uso de [métricas de armazenamento em Azure monitor](monitor-storage.md) em vez de análise de armazenamento métricas.
 
 ## <a name="transaction-metrics"></a>Métricas de transação  
  Um conjunto robusto de dados é registrado em intervalos de horas ou minutos para cada serviço de armazenamento e operações de API solicitadas, incluindo ingresso/egresso, disponibilidade, erros e percentuais da solicitação categorizados. Você pode ver uma lista completa dos detalhes da transação no tópico [Esquema da tabela de métricas da análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema) .  
@@ -70,7 +70,7 @@ Siga estas etapas para habilitar as métricas no [portal do Azure](https://porta
 1. O **Status** deve ser definido como **Ativado**.
 1. Selecione as métricas para os serviços que deseja monitorar.
 1. Especifica uma política de retenção para indicar por quanto tempo deve-se manter as métricas e os dados de log.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 O [portal do Azure](https://portal.azure.com) não permite atualmente configurar métricas de minuto em sua conta de armazenamento. Habilite a métrica de minutos usando o PowerShell ou programaticamente.
 
@@ -154,7 +154,7 @@ Você pode encontrar detalhes completos dos esquemas para essas tabelas no [Esqu
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
-|**PartitionKey**|**RowKey**|**Estampa**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilidade**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
+|**PartitionKey**|**RowKey**|**Timestamp**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilidade**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
 |20140522T1100|user;All|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
 |20140522T1100|usuário;QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
 |20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  

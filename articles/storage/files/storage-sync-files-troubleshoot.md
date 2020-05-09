@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 11942a08d46f4b46dc5478fca4b64796b9ce0a7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176117"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801308"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -807,12 +807,9 @@ Este erro ocorre devido a um problema interno com o banco de dados de sincroniza
 | **Cadeia de caracteres de erro** | ECS_E_INVALID_AAD_TENANT |
 | **Correção necessária** | Sim |
 
-Esse erro ocorre porque a Sincronização de Arquivos do Azure não oferece suporte para mover a assinatura para um locatário diferente do Azure Active Directory.
+Verifique se você tem o agente de Sincronização de Arquivos do Azure mais recente. A partir do agente v10, Sincronização de Arquivos do Azure dá suporte à movimentação da assinatura para um locatário Azure Active Directory diferente.
  
-Para resolver esse problema, escolha uma das seguintes opções:
-
-- **Opção 1 (recomendado)**: mover a assinatura de volta para o locatário de Azure Active Directory original
-- **Opção 2**: exclua e recrie o grupo de sincronização atual. Se as camadas estiverem habilitadas no ponto de extremidade do servidor, exclua o grupo de sincronização e execute as etapas documentadas na seção [Camada de nuvem]( https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) para remover os arquivos em camada órfãos antes de recriar os grupos de sincronização. 
+Depois de ter a versão mais recente do agente, você deve conceder ao aplicativo Microsoft. StorageSync acesso à conta de armazenamento (consulte [garantir que sincronização de arquivos do Azure tenha acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot#troubleshoot-rbac)).
 
 <a id="-2134364010"></a>**Falha na sincronização devido a uma exceção de firewall e rede virtual não configurada**  
 
@@ -1248,7 +1245,25 @@ Se você encontrar problemas com a Sincronização de arquivos do Azure em um se
 3. Verifique se que os drivers de filtro de sincronização de arquivos do Azure (storagesync. sys e storagesyncguard. sys) estão em execução:
     - Em um prompt de comandos com privilégios elevados, digite `fltmc`. Verifique se os drivers de filtro de sistema de arquivos StorageSync.sys e StorageSyncGuard.sys estão listados.
 
-Se o problema não for resolvido, execute a ferramenta de AFSDiag:
+Se o problema não for resolvido, execute a ferramenta AFSDiag e envie a saída do arquivo. zip para o engenheiro de suporte atribuído ao seu caso para diagnóstico adicional.
+
+Para a versão do agente v11 e posterior:
+
+1. Abra uma janela do PowerShell com privilégios elevados e execute os seguintes comandos (pressione Enter depois de cada comando):
+
+    > [!NOTE]
+    >O AFSDiag criará o diretório de saída e uma pasta temporária dentro dele antes de coletar logs e excluirá a pasta temporária após a execução. Especifique um local de saída que não contenha dados.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Reproduza o problema. Quando tiver terminado, clique em **D**.
+3. Um arquivo. zip que contém logs e arquivos de rastreamento é salvo no diretório de saída que você especificou. 
+
+Para a versão do agente V10 e anterior:
 1. Crie um diretório que será usado para salvar a saída da AFSDiag (por exemplo, C:\Output).
     > [!NOTE]
     >AFSDiag excluirá todo o conteúdo do diretório de saída antes de coletar logs. Especifique um local de saída que não contenha dados.

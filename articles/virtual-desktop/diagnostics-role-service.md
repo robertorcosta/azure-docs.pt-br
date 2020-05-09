@@ -5,153 +5,51 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce85fb70e1480ad285eee78fe20faa8d77b9a147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cffc6393ef6f5c1a33be615d9d5d4b8729ab711f
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254255"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611850"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identificar e diagnosticar problemas
 
-A área de trabalho virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. As funções de área de trabalho virtual do Windows registram uma atividade de diagnóstico sempre que um usuário interage com o sistema. Cada log contém informações relevantes, como as funções de área de trabalho virtual do Windows envolvidas na transação, mensagens de erro, informações de locatário e informações do usuário. As atividades de diagnóstico são criadas pelo usuário final e por ações administrativas e podem ser categorizadas em três buckets principais:
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).
+>
+> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-* Atividades de assinatura do feed: o usuário final dispara essas atividades sempre que tenta se conectar ao feed por meio de aplicativos Área de Trabalho Remota da Microsoft.
-* Atividades de conexão: o usuário final dispara essas atividades sempre que tenta se conectar a um desktop ou RemoteApp por meio de aplicativos Área de Trabalho Remota da Microsoft.
-* Atividades de gerenciamento: o administrador dispara essas atividades sempre que executam operações de gerenciamento no sistema, como a criação de pools de hosts, a atribuição de usuários a grupos de aplicativos e a criação de atribuições de função.
+A área de trabalho virtual do Windows oferece um recurso de diagnóstico que permite ao administrador identificar problemas por meio de uma única interface. Para saber mais sobre os recursos de diagnóstico da área de trabalho virtual do Windows, confira [usar o log Analytics para o recurso de diagnóstico](diagnostics-log-analytics.md).
   
 As conexões que não chegam à área de trabalho virtual do Windows não aparecerão nos resultados do diagnóstico porque o próprio serviço de função de diagnóstico faz parte da área de trabalho virtual do Windows. Problemas de conexão de área de trabalho virtual do Windows podem ocorrer quando o usuário final está enfrentando problemas de conectividade de rede.
-
-Para começar, [Baixe e importe o módulo do PowerShell de área de trabalho virtual do Windows](/powershell/windows-virtual-desktop/overview/) para usar em sua sessão do PowerShell, se ainda não tiver feito isso. Depois disso, execute o seguinte cmdlet para entrar em sua conta:
-
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-## <a name="diagnose-issues-with-powershell"></a>Diagnosticar problemas com o PowerShell
-
-O diagnóstico de área de trabalho virtual do Windows usa apenas um cmdlet do PowerShell, mas contém muitos parâmetros opcionais para ajudar a restringir e isolar problemas. As seções a seguir listam os cmdlets que você pode executar para diagnosticar problemas. A maioria dos filtros pode ser aplicada em conjunto. Os valores listados entre colchetes, como `<tenantName>`, devem ser substituídos pelos valores que se aplicam à sua situação.
-
->[!IMPORTANT]
->O recurso de diagnóstico é para a solução de problemas de usuário único. Todas as consultas que usam o PowerShell devem incluir os parâmetros *-username* ou *-ActivityId* . Para recursos de monitoramento, use Log Analytics. Consulte [usar log Analytics para o recurso de diagnóstico](diagnostics-log-analytics.md) para obter mais informações sobre como enviar dados de diagnóstico para seu espaço de trabalho. 
-
-### <a name="filter-diagnostic-activities-by-user"></a>Filtrar atividades de diagnóstico por usuário
-
-O parâmetro **-username** retorna uma lista de atividades de diagnóstico iniciadas pelo usuário especificado, conforme mostrado no cmdlet de exemplo a seguir.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN>
-```
-
-O parâmetro **-username** também pode ser combinado com outros parâmetros de filtragem opcionais.
-
-### <a name="filter-diagnostic-activities-by-time"></a>Filtrar atividades de diagnóstico por tempo
-
-Você pode filtrar a lista de atividades de diagnóstico retornada com os parâmetros **-StartTime** e **-EndTime** . O parâmetro **-StartTime** retornará uma lista de atividades de diagnóstico a partir de uma data específica, conforme mostrado no exemplo a seguir.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018"
-```
-
-O parâmetro **-EndTime** pode ser adicionado a um cmdlet com o parâmetro **-StartTime** para especificar um período de tempo específico para o qual você deseja receber resultados. O cmdlet de exemplo a seguir retornará uma lista de atividades de diagnóstico entre 1º de agosto e 10 de agosto.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -StartTime "08/01/2018" -EndTime "08/10/2018"
-```
-
-Os parâmetros **-StartTime** e **-EndTime** também podem ser combinados com outros parâmetros de filtragem opcionais.
-
-### <a name="filter-diagnostic-activities-by-activity-type"></a>Filtrar atividades de diagnóstico por tipo de atividade
-
-Você também pode filtrar atividades de diagnóstico por tipo de atividade com o parâmetro **-ActivityType** . O cmdlet a seguir retornará uma lista de conexões de usuário final:
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -ActivityType Connection
-```
-
-O cmdlet a seguir retornará uma lista de tarefas de gerenciamento do administrador:
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityType Management
-```
-
-Atualmente, o cmdlet **Get-RdsDiagnosticActivities** não dá suporte à especificação de feed como ActivityType.
-
-### <a name="filter-diagnostic-activities-by-outcome"></a>Filtrar atividades de diagnóstico por resultado
-
-Você pode filtrar a lista de atividades de diagnóstico retornada por resultado com o parâmetro **-Outcome** . O cmdlet de exemplo a seguir retornará uma lista de atividades de diagnóstico bem-sucedidas.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -UserName <UserUPN> -Outcome Success
-```
-
-O cmdlet de exemplo a seguir retornará uma lista de atividades de diagnóstico com falha.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
-```
-
-O parâmetro **-Outcome** também pode ser combinado com outros parâmetros de filtragem opcionais.
-
-### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Recuperar uma atividade de diagnóstico específica por ID da atividade
-
-O parâmetro **-ActivityId** retorna uma atividade de diagnóstico específica, se existir, conforme mostrado no cmdlet de exemplo a seguir.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
-```
-
-### <a name="view-error-messages-for-a-failed-activity-by-activity-id"></a>Exibir mensagens de erro para uma atividade com falha por ID da atividade
-
-Para exibir as mensagens de erro de uma atividade com falha, você deve executar o cmdlet com o parâmetro **-detailed** . Você pode exibir a lista de erros executando o cmdlet **Select-Object** .
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantname> -ActivityId <ActivityGuid> -Detailed | Select-Object -ExpandProperty Errors
-```
-
-### <a name="retrieve-detailed-diagnostic-activities"></a>Recuperar atividades de diagnóstico detalhadas
-
-O parâmetro **-detailed** fornece detalhes adicionais para cada atividade de diagnóstico retornada. O formato de cada atividade varia dependendo de seu tipo de atividade. O parâmetro **-detailed** pode ser adicionado a qualquer consulta **Get-RdsDiagnosticActivities** , conforme mostrado no exemplo a seguir.
-
-```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> -Detailed
-```
 
 ## <a name="common-error-scenarios"></a>Cenários de erro comuns
 
 Os cenários de erro são categorizados em interno ao serviço e externos à área de trabalho virtual do Windows.
 
-* Problema interno: especifica cenários que não podem ser mitigados pelo administrador de locatários e precisam ser resolvidos como um problema de suporte. Ao fornecer comentários por meio da [comunidade de tecnologia de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), inclua a ID da atividade e o período de tempo aproximado de quando o problema ocorreu.
-* Problema externo: relaciona-se a cenários que podem ser atenuados pelo administrador do sistema. Eles são externos à área de trabalho virtual do Windows.
+* Problema interno: especifica cenários que não podem ser mitigados pelo cliente e precisam ser resolvidos como um problema de suporte. Ao fornecer comentários por meio da [comunidade de tecnologia de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), inclua a ID de correlação e o período de tempo aproximado de quando o problema ocorreu.
+* Problema externo: relaciona-se a cenários que podem ser atenuados pelo cliente. Eles são externos à área de trabalho virtual do Windows.
 
 A tabela a seguir lista os erros comuns que seus administradores podem encontrar.
 
 >[!NOTE]
 >Essa lista inclui erros mais comuns e é atualizada em uma cadência regular. Para garantir que você tenha as informações mais atualizadas, certifique-se de verificar este artigo pelo menos uma vez por mês.
 
-### <a name="external-management-error-codes"></a>Códigos de erro de gerenciamento externo
+## <a name="management-errors"></a>Erros de gerenciamento
 
-|Código numérico|Código do erro|Solução sugerida|
-|---|---|---|
-|3|UnauthorizedAccess|O usuário que tentou executar o cmdlet administrador do PowerShell não tem permissões para fazer isso ou digitar seu nome de usuário indigitadamente.|
-|1000|TenantNotFound|O nome do locatário que você inseriu não corresponde a nenhum locatário existente. Examine o nome do locatário para erros de digitação e tente novamente.|
-|1006|TenantCannotBeRemovedHasSessionHostPools|Você não pode excluir um locatário desde que ele contenha objetos. Exclua primeiro os pools de hosts de sessão e tente novamente.|
-|2000|HostPoolNotFound|O nome do pool de hosts que você inseriu não corresponde a nenhum pool de hosts existente. Examine o nome do pool de hosts para erros de digitação e tente novamente.|
-|2005|HostPoolCannotBeRemovedHasApplicationGroups|Não é possível excluir um pool de hosts desde que ele contenha objetos. Primeiro remova todos os grupos de aplicativos no pool de hosts.|
-|2004|HostPoolCannotBeRemovedHasSessionHosts|Remova todos os hosts de sessões primeiro antes de excluir o pool de hosts de sessão.|
-|5001|SessionHostNotFound|O host de sessão que você consultou pode estar offline. Verifique o status do pool de hosts.|
-|5008|SessionHostUserSessionsExist |Você deve desconectar todos os usuários no host de sessão antes de executar a atividade de gerenciamento pretendida.|
-|6000|AppGroupNotFound|O nome do grupo de aplicativos que você inseriu não corresponde a nenhum grupo de aplicativos existente. Examine o nome do grupo de aplicativos para erros de digitação e tente novamente.|
-|6022|RemoteAppNotFound|O nome do RemoteApp que você inseriu não corresponde a nenhum RemoteApp. Examine o nome do RemoteApp para erros de digitação e tente novamente.|
-|6010|PublishedItemsExist|O nome do recurso que você está tentando publicar é o mesmo que um recurso que já existe. Altere o nome do recurso e tente novamente.|
-|7002|NameNotValidWhiteSpace|Não use o espaço em branco no nome.|
-|8000|InvalidAuthorizationRoleScope|O nome da função que você inseriu não corresponde aos nomes de função existentes. Revise o nome da função para erros de digitação e tente novamente. |
-|8001|UserNotFound |O nome de usuário que você inseriu não corresponde aos nomes de usuário existentes. Revise o nome para erros de digitação e tente novamente.|
-|8005|UserNotFoundInAAD |O nome de usuário que você inseriu não corresponde aos nomes de usuário existentes. Revise o nome para erros de digitação e tente novamente.|
-|8008|TenantConsentRequired|Siga as instruções [aqui](tenant-setup-azure-active-directory.md#grant-permissions-to-windows-virtual-desktop) para fornecer consentimento para seu locatário.|
+|Mensagem de erro|Solução sugerida|
+|---|---|
+|Falha ao criar a chave de registro |Não foi possível criar o token de registro. Tente criá-lo novamente com um tempo de expiração mais curto (entre 1 hora e 1 mês). |
+|Falha ao excluir a chave de registro|Não foi possível excluir o token de registro. Tente excluí-lo novamente. Se ainda não funcionar, use o PowerShell para verificar se o token ainda está lá. Se ele estiver lá, exclua-o com o PowerShell.|
+|Falha ao alterar o modo de descarga do host da sessão |Não foi possível alterar o modo de descarga na VM. Verifique o status da VM. Se a VM não estiver disponível, o modo de descarga não poderá ser alterado.|
+|Falha ao desconectar sessões de usuário |Não foi possível desconectar o usuário da VM. Verifique o status da VM. Se a VM não estiver disponível, a sessão de usuário não poderá ser desconectada. Se a VM estiver disponível, verifique o status da sessão do usuário para ver se ela está desconectada. |
+|Falha ao fazer logoff de todos os usuários no host da sessão |Não foi possível desconectar os usuários da VM. Verifique o status da VM. Se não estiver disponível, os usuários não poderão ser desconectados. Verifique o status da sessão de usuário para ver se eles já estão desconectados. Você pode forçar a desconexão com o PowerShell. |
+|Falha ao cancelar a atribuição do usuário do grupo de aplicativos|Não foi possível cancelar a publicação de um grupo de aplicativos para um usuário. Verifique se o usuário está disponível no Azure AD. Verifique se o usuário faz parte de um grupo de usuários no qual o grupo de aplicativos está publicado. |
+|Erro ao recuperar os locais disponíveis |Verifique o local da VM usado no Assistente para criar pool de hosts. Se a imagem não estiver disponível nesse local, adicione a imagem nesse local ou escolha um local de VM diferente. |
 
 ### <a name="external-connection-error-codes"></a>Códigos de erro de conexão externa
 
@@ -162,7 +60,7 @@ A tabela a seguir lista os erros comuns que seus administradores podem encontrar
 |-2146233088|ConnectionFailedClientDisconnect|Se você vir esse erro com frequência, verifique se o computador do usuário está conectado à rede.|
 |-2146233088|ConnectionFailedNoHealthyRdshAvailable|A sessão à qual o usuário do host tentou se conectar não está íntegra. Depure a máquina virtual.|
 |-2146233088|ConnectionFailedUserNotAuthorized|O usuário não tem permissão para acessar o aplicativo ou a área de trabalho publicada. O erro pode aparecer depois que o administrador removeu os recursos publicados. Peça ao usuário para atualizar o feed no aplicativo Área de Trabalho Remota.|
-|2|FileNotFound|O aplicativo que o usuário tentou acessar foi instalado incorretamente ou definido como um caminho incorreto.|
+|2|FileNotFound|O aplicativo que o usuário tentou acessar foi instalado incorretamente ou definido como um caminho incorreto.<br><br>Ao publicar novos aplicativos enquanto o usuário tem uma sessão ativa, o usuário não poderá acessar esse aplicativo. A sessão deve ser desligada e reiniciada para que o usuário possa acessar o aplicativo. |
 |3|InvalidCredentials|O nome de usuário ou a senha digitada pelo usuário não corresponde a nenhum nome de usuários ou senhas existentes. Examine as credenciais para erros de digitação e tente novamente.|
 |8|ConnectionBroken|A conexão entre o cliente e o gateway ou o servidor foi descartada. Nenhuma ação é necessária, a menos que ocorra inesperadamente.|
 |14|UnexpectedNetworkDisconnect|A conexão com a rede foi descartada. Peça ao usuário para se conectar novamente.|

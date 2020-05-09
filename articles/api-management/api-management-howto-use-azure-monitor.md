@@ -2,23 +2,20 @@
 title: Monitorar APIs publicadas no Gerenciamento de API do Azure | Microsoft Docs
 description: Siga as etapas deste tutorial para aprender a monitorar sua API no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: ''
 author: vladvino
 manager: cfowler
-editor: ''
 ms.service: api-management
 ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79221923"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82128839"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -28,7 +25,7 @@ Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Exibir logs de atividade
-> * Exibir logs de diagnóstico
+> * Exibir logs de recursos
 > * Exibir métricas da API 
 > * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas
 
@@ -36,10 +33,10 @@ O vídeo a seguir mostra como monitorar o Gerenciamento de API usando o Azure Mo
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -120,20 +117,20 @@ Para exibir logs de atividade:
 
 3. Selecione o escopo de filtragem desejado e clique em **Aplicar**.
 
-## <a name="diagnostic-logs"></a>Logs de Diagnóstico
+## <a name="resource-logs"></a>Logs de recursos
 
-Os logs de diagnóstico fornecem informações avançadas sobre operações e erros importantes para auditoria, bem como para fins de solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades. Os logs de atividades fornecem informações sobre as operações realizadas em seus recursos do Azure. Os Logs de Diagnóstico fornecem informações em operações que o recurso realizou.
+Os logs de recursos fornecem informações avançadas sobre operações e erros importantes para auditoria, bem como para fins de solução de problemas. Os logs de recursos são diferentes dos logs de atividades. Os logs de atividades fornecem informações sobre as operações realizadas em seus recursos do Azure. Os logs de recursos fornecem informações sobre operações que o recurso realizou.
 
-Para configurar logs de diagnóstico:
+Para configurar os logs de recursos:
 
 1. Selecione a instância de serviço do APIM.
 2. Clique em **Configurações do Diagnóstico**.
 
-    ![logs de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    ![logs de recursos](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Clique em **Ativar diagnóstico**. Você pode arquivar os logs de diagnóstico junto com as métricas em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para os logs do Azure Monitor. 
+3. Clique em **Ativar diagnóstico**. Você pode arquivar os logs de recursos junto com as métricas em uma conta de armazenamento, transmiti-los para um Hub de Eventos ou enviá-los para os logs do Azure Monitor. 
 
-No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por hora) sobre solicitações de API individuais em que cada entrada tem o seguinte esquema:
+No momento, o Gerenciamento de API oferece logs de recursos (agrupados por hora) sobre solicitações de API individuais em que cada entrada tem o seguinte esquema:
 
 ```json
 {  
@@ -180,7 +177,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 }  
 ```
 
-| Propriedade  | Type | DESCRIÇÃO |
+| Propriedade  | Type | Descrição |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
 | time | date-time | Carimbo de data/hora de quando o gateway começa a processar a solicitação |
@@ -190,7 +187,7 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | callerIpAddress | string | Endereço IP do chamador imediato do Gateway (pode ser um intermediário) |
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
 | local | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
-| httpStatusCodeCategory | string | Categoria do código de status de resposta HTTP: Bem-sucedida (301 ou menos ou 304 ou 307), Não autorizada (401, 403, 429), Com erro (400, entre 500 e 600), outros |
+| httpStatusCodeCategory | string | Categoria do código de status da resposta HTTP: Bem-sucedido (301 ou menos, 304 ou 307), Não Autorizado (401, 403 e 429) Incorreto (400, entre 500 e 600) e Outros |
 | resourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | objeto | Propriedades da solicitação atual |
 | method | string | Método HTTP da solicitação de entrada |
@@ -227,7 +224,7 @@ Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Exibir logs de atividade
-> * Exibir logs de diagnóstico
+> * Exibir logs de recursos
 > * Exibir métricas da API
 > * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas
 

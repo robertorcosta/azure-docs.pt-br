@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79300148"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857053"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança de rede para recursos da grade de eventos do Azure
 Este artigo descreve como usar os seguintes recursos de segurança com a grade de eventos do Azure: 
@@ -61,7 +61,7 @@ Quando você resolve o tópico ou a URL do ponto de extremidade do domínio de f
 | Nome                                          | Type      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<perfil do Gerenciador de tráfego do Azure\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Perfil do Gerenciador de tráfego do Azure\>
 
 Você pode negar ou controlar o acesso de um cliente fora da VNet por meio do ponto de extremidade público usando o [Firewall de IP](#ip-firewall). 
 
@@ -92,10 +92,9 @@ A tabela a seguir descreve os vários Estados da conexão de ponto de extremidad
 Para que a publicação seja bem-sucedida, o estado de conexão do ponto de extremidade privado deve ser **aprovado**. Se uma conexão for rejeitada, ela não poderá ser aprovada usando o portal do Azure. A única possibilidade é excluir a conexão e criar uma nova, em vez disso.
 
 ## <a name="pricing-and-quotas"></a>Preços e cotas
-Os **pontos de extremidade privados** só estão disponíveis com os tópicos e os domínios da camada Premium. A grade de eventos permite que até 64 conexões de ponto de extremidade privado sejam criadas por tópico ou domínio. Para atualizar da camada básica para a camada Premium, consulte o artigo [atualizar o tipo de preço](update-tier.md) .
+**Pontos de extremidade privados** estão disponíveis nas camadas básica e Premium da grade de eventos. A grade de eventos permite que até 64 conexões de ponto de extremidade privado sejam criadas por tópico ou domínio. 
 
 O recurso de **Firewall de IP** está disponível nas camadas básica e Premium da grade de eventos. Permitimos que até 16 regras de firewall IP sejam criadas por tópico ou domínio.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 Você pode configurar o firewall IP para o recurso de grade de eventos para restringir o acesso pela Internet pública de apenas um conjunto selecionado de endereços IP ou intervalos de endereços IP. Para obter as instruções passo a passo, consulte [Configurar o firewall de IP](configure-firewall.md).

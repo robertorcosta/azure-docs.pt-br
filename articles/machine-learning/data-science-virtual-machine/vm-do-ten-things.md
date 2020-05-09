@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6574ccd7616ac1442b1c8c69b6218431ad912ab3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 47663072be0931961d0f2fded938322027148d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204212"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929274"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -68,7 +68,7 @@ O Jupyter Notebook fornece um IDE baseado em navegador para exploração e model
 
 Para iniciar o Jupyter Notebook, selecione o ícone de **Jupyter Notebook** no menu **Iniciar** ou na área de trabalho. No prompt de comando do DSVM, você também pode executar o ```jupyter notebook``` comando do diretório em que você tem blocos de anotações existentes ou onde deseja criar novos blocos de anotações.  
 
-Depois de iniciar o Jupyter, você deverá ver um diretório que contém alguns notebooks de exemplo que são previamente empacotados no DSVM. Agora você pode:
+Depois de iniciar o Jupyter, navegue até `/notebooks` o diretório de blocos de anotações de exemplo que são previamente empacotados no DSVM. Agora você pode:
 
 * Selecione o bloco de anotações para ver o código.
 * Execute cada célula selecionando Shift + Enter.
@@ -134,7 +134,7 @@ IrisPredictor(3,2,3,4)
 > 
 
 ### <a name="build-and-operationalize-r-models"></a>Crie e operacionalize modelos de R
-Você pode implantar modelos de R criados no Máquina Virtual de Ciência de Dados ou em outro lugar no Azure Machine Learning de forma semelhante a como ele é feito para o Python. Siga estas etapas:
+Você pode implantar modelos de R criados no Máquina Virtual de Ciência de Dados ou em outro lugar no Azure Machine Learning de forma semelhante a como ele é feito para o Python. Estas são as etapas:
 
 1. Crie um arquivo Settings. JSON para fornecer a ID do espaço de trabalho e o token de autenticação. 
 2. Grave um wrapper para a função de previsão do modelo.

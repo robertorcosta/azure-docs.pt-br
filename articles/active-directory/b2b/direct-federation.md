@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b99a80a90df8fcfc5efe6dfa0c2cd7e8e5e04e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 474d2e0c31eed852ba96780ca996eca632bd5842
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050891"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926979"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (visualização)
 |     |
@@ -50,10 +50,13 @@ O domínio com o qual você deseja federar ***não*** deve ser verificado pelo D
 
 ### <a name="authentication-url"></a>URL de autenticação
 A Federação direta só é permitida para políticas em que o domínio da URL de autenticação corresponde ao domínio de destino ou onde a URL de autenticação é um desses provedores de identidade permitidos (essa lista está sujeita a alterações):
+
 -   accounts.google.com
 -   pingidentity.com
 -   login.pingone.com
 -   okta.com
+-   oktapreview.com
+-   okta-emea.com
 -   my.salesforce.com
 -   federation.exostar.com
 -   federation.exostartest.com
@@ -166,7 +169,7 @@ Em seguida, você configurará a Federação com o provedor de identidade config
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>Para configurar a Federação direta no Azure AD usando o PowerShell
 
 1. Instale a versão mais recente do módulo PowerShell for Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)) do Azure AD. (Se você precisar de etapas detalhadas, o início rápido para adicionar um usuário convidado incluirá a seção [instalar o módulo AzureADPreview mais recente](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module).) 
-2. Execute o seguinte comando: 
+2. Execute o comando a seguir: 
    ```powershell
    Connect-AzureAD
    ```
@@ -209,12 +212,12 @@ Você pode remover a configuração de Federação direta. Se você fizer isso, 
 
 Para remover a Federação direta com um provedor de identidade usando o PowerShell:
 1. Instale a versão mais recente do módulo PowerShell for Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)) do Azure AD.
-2. Execute o seguinte comando: 
+2. Execute o comando a seguir: 
    ```powershell
    Connect-AzureAD
    ```
 3. No prompt de entrada, entre com a conta de Administrador Global gerenciada. 
-4. Digite o seguinte comando:
+4. Insira o seguinte comando:
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```

@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 056e23f0f0cf1a3a1c70042cef3c92dd41f14f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23a5d2c0e52a22872a8b9a64503d61493018b611
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247003"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839157"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no armazenamento do Azure
 
@@ -42,7 +42,7 @@ A hospedagem de site estática é um recurso que você precisa habilitar na cont
 
    A página de erro padrão é exibida quando o usuário tenta navegar até uma página que não existe no site estático.
 
-7. Clique em **Salvar**. Agora, o portal do Azure exibe seu ponto de extremidade do site estático. 
+7. Clique em **Save** (Salvar). Agora, o portal do Azure exibe seu ponto de extremidade do site estático. 
 
     ![Habilitar a hospedagem de site estático para uma conta de armazenamento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -159,8 +159,11 @@ Carregue objetos no contêiner de *$Web* de um diretório de origem.
 Este exemplo pressupõe que você está executando comandos de Azure Cloud Shell sessão.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
+az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
 ```
+
+> [!NOTE] 
+> Se o navegador solicitar que os usuários baixem o arquivo em vez de renderizar o conteúdo, você `--content-type 'text/html; charset=utf-8'` poderá acrescentar ao comando. 
 
 * Substitua o valor de espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
@@ -178,11 +181,13 @@ Carregue objetos no contêiner de *$Web* de um diretório de origem.
 ```powershell
 # upload a file
 set-AzStorageblobcontent -File "<path-to-file>" `
--Properties @{ ContentType = "text/html; charset=utf-8";} `
 -Container `$web `
 -Blob "<blob-name>" `
 -Context $ctx
 ```
+
+> [!NOTE] 
+> Se o navegador solicitar que os usuários baixem o arquivo em vez de renderizar o conteúdo, você `-Properties @{ ContentType = "text/html; charset=utf-8";}` poderá acrescentar ao comando.
 
 * Substitua o `<path-to-file>` valor do espaço reservado pelo caminho totalmente qualificado para o arquivo que você deseja carregar (por exemplo: `C:\temp\index.html`).
 
