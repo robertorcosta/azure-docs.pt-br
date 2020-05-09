@@ -11,19 +11,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e7e1f91cd4b647472e1899c3485d038f25b5b24
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414387"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651812"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Use os pontos de extremidade e regras de serviço de rede virtual para os servidores do banco de dados
 
-As *regras da rede virtual* são um recurso de segurança do firewall que controla se o servidor do banco de dados para seus bancos de dados individuais e o pool elástico no [Banco de Dados SQL](sql-database-technical-overview.md) do Azure ou os bancos de dados no [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceitam comunicações enviadas de sub-redes particulares nas redes virtuais. Este artigo explica por que o recurso de regra da rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu Banco de Dados SQL do Azure e com o SQL Data Warehouse.
+*As regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de banco de dados para seus bancos de dado único e pool elástico no [banco de dados SQL](sql-database-technical-overview.md) do Azure ou em seus bancos de dados no [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual às vezes é a melhor opção para permitir a comunicação com segurança com o banco de dados SQL do Azure e a análise de Synapse do Azure.
 
 > [!IMPORTANT]
-> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL Database e SQL Data Warehouse criados no servidor SQL do Azure. Para simplificar, o banco de dados SQL é usado quando se refere ao Banco de Dados SQL e ao SQL Data Warehouse. Este artigo *não* se aplica a uma implantação de **instância gerenciada** no Banco de Dados SQL do Azure porque não tem um ponto de extremidade de serviço associado.
+> Este artigo se aplica ao SQL Server do Azure e aos bancos de dados SQL e do Azure Synapse Analytics criados no SQL Server do Azure. Para simplificar, o banco de dados SQL é usado ao fazer referência ao banco de dados SQL e ao Azure Synapse Analytics. Este artigo *não* se aplica a uma implantação de **instância gerenciada** no Banco de Dados SQL do Azure porque não tem um ponto de extremidade de serviço associado.
 
 Para criar uma regra da rede virtual, primeiro, é preciso que haja um [ponto de extremidade de serviço de rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra de referência.
 
@@ -105,11 +105,11 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto de usar pontos de extremidade de serviço de VNet com Armazenamento do Azure
 
-O Armazenamento do Azure implementou o mesmo recurso que permite que você limite a conectividade à sua conta de Armazenamento do Azure. Se optar por usar esse recurso com uma conta de Armazenamento do Azure que está sendo usada pelo Azure SQL Server, você poderá encontrar problemas. Em seguida, há uma lista e uma discussão dos recursos do Banco de Dados SQL do Azure e do SQL Data Warehouse do Azure afetados por isso.
+O Armazenamento do Azure implementou o mesmo recurso que permite que você limite a conectividade à sua conta de Armazenamento do Azure. Se optar por usar esse recurso com uma conta de Armazenamento do Azure que está sendo usada pelo Azure SQL Server, você poderá encontrar problemas. Veja a seguir uma lista e uma discussão sobre os recursos do banco de dados SQL do Azure e do Azure Synapse Analytics afetados por isso.
 
-### <a name="azure-sql-data-warehouse-polybase"></a>PolyBase do Armazém de Dados do Azure SQL
+### <a name="azure-synapse-analytics-polybase"></a>Polybase do Azure Synapse Analytics
 
-O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure de contas do Armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase com a conta será interrompida. Para habilitar cenários de importação e exportação do PolyBase com o SQL Data Warehouse do Azure que se conectam ao Armazenamento do Azure protegido para VNet, siga as etapas indicadas abaixo:
+O polybase é normalmente usado para carregar dados no Azure Synapse Analytics de contas de armazenamento do Azure. Se a conta de Armazenamento do Azure da qual você está carregando dados limitar o acesso somente a um conjunto de sub-redes de VNet, a conectividade do PolyBase com a conta será interrompida. Para habilitar os cenários de importação e exportação do polybase com o Azure Synapse Analytics conectando-se ao armazenamento do Azure que é protegido para VNet, siga as etapas indicadas abaixo:
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
@@ -122,7 +122,7 @@ O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure
 
 #### <a name="steps"></a>Etapas
 
-1. No PowerShell, **Registre seu SQL Server do Azure** hospedando sua instância do SQL data warehouse do azure com Azure Active Directory (AAD):
+1. No PowerShell, **Registre seu SQL Server do Azure** hospedando sua instância do Azure Synapse Analytics com Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -135,11 +135,11 @@ O PolyBase é comumente usado para carregar dados no SQL Data Warehouse do Azure
    > [!NOTE]
    > - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, confira este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-
-1. Em sua conta de armazenamento, navegue até **Controle de acesso (IAM)** e clique em **Adicionar atribuição de função**. Atribua a função de RBAC de **colaborador de dados de blob de armazenamento** à sua SQL Server do Azure hospedando sua SQL data warehouse do Azure que você registrou com Azure Active Directory (AAD) como na etapa 1.
+    
+1. Em sua conta de armazenamento, navegue até **controle de acesso (iam)** e selecione **Adicionar atribuição de função**. Selecione a função de RBAC do **colaborador de dados do blob de armazenamento** na lista suspensa. Para **atribuir acesso para** selecionar **usuário, grupo ou entidade de serviço do Azure ad**. Para **selecionar**, digite o nome do servidor do seu SQL Server do Azure (servidor lógico de sua data warehouse do Azure Synapse Analytics) que você registrou com Azure Active Directory (AAD) como na etapa 1. Use somente o nome do servidor, não o nome DNS totalmente qualificado (**ServerName** sem. Database.Windows.net)
 
    > [!NOTE]
-   > Somente membros com o privilégio Proprietário podem executar essa etapa. Para várias funções internas de recursos do Azure, confira este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Somente membros com privilégio de proprietário na conta de armazenamento podem executar esta etapa. Para várias funções internas de recursos do Azure, confira este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Conectividade do Polybase com a conta de Armazenamento do Azure:**
 

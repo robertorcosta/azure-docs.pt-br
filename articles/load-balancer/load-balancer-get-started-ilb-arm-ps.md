@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 485afaa4b7009731784cf5da6f8c28e0a787c1d9
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045478"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629415"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno usando o módulo do Azure Powershell
 
@@ -48,7 +48,7 @@ Para implantar um balanceador de carga, os seguintes objetos devem ser criados:
 * Configuração de investigação: Investigações do status de integridade das máquinas virtuais.
 * Regras NAT de entrada: As regras de porta para acesso direto às máquinas virtuais.
 
-Para obter mais informações sobre componentes do balanceador de carga, consulte [Azure Load Balancer Components](concepts-limitations.md#load-balancer-components).
+Para obter mais informações sobre componentes do balanceador de carga, consulte [Azure Load Balancer Components](components.md).
 
 As etapas a seguir explicam como configurar um balanceador de carga entre duas máquinas virtuais.
 
