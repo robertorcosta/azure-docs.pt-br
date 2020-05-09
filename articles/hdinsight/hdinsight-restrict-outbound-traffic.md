@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaf51f6778d38d236808c3fd809082bc3b2d54b2
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189374"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863426"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurar o tráfego de rede de saída para clusters do Azure HDInsight usando o firewall
 
 Este artigo fornece as etapas para proteger o tráfego de saída do seu cluster HDInsight usando o Firewall do Azure. As etapas a seguir pressupõem que você está configurando um firewall do Azure para um cluster existente. Se você estiver implantando um novo cluster atrás de um firewall, primeiro crie seu cluster e sub-rede HDInsight. Em seguida, siga as etapas neste guia.
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 Os clusters HDInsight normalmente são implantados em uma rede virtual. O cluster tem dependências em serviços fora dessa rede virtual.
 
@@ -69,13 +69,13 @@ Crie uma coleção de regras de aplicativo que permita que o cluster envie e rec
 
     **Seção de marcas de FQDN**
 
-    | Nome | Endereço de origem | Marca FQDN | Observações |
+    | Nome | Endereço de origem | Marca FQDN | Anotações |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate e HDInsight | Necessário para serviços HDIs |
 
     **Seção FQDNs de destino**
 
-    | Nome | Endereços de origem | `Protocol:Port` | FQDNS de destino | Observações |
+    | Nome | Endereços de origem | `Protocol:Port` | FQDNS de destino | Anotações |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Permite a atividade de logon do Windows |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Permite a atividade de logon do Windows |
@@ -103,7 +103,7 @@ Crie as regras de rede para configurar corretamente o cluster HDInsight.
 
     **Seção de endereços IP**
 
-    | Nome | Protocolo | Endereços de origem | Endereços de destino | Portas de destino | Observações |
+    | Nome | Protocolo | Endereços de origem | Endereços de destino | Portas de destino | Anotações |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Serviço de data/hora |
     | Rule_2 | Qualquer | * | DC_IP_Address_1, DC_IP_Address_2 | * | Se você estiver usando Enterprise Security Package (ESP), adicione uma regra de rede na seção endereços IP que permite a comunicação com o AAD-DS para clusters ESP. Você pode encontrar os endereços IP dos controladores de domínio na seção AAD-DS no portal |
@@ -112,7 +112,7 @@ Crie as regras de rede para configurar corretamente o cluster HDInsight.
 
     **Seção de marcas de serviço**
 
-    | Nome | Protocolo | Endereços de Origem | Marcas de serviço | Portas de destino | Observações |
+    | Nome | Protocolo | Endereços de Origem | Marcas de serviço | Portas de destino | Anotações |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure uma regra de rede na seção marcas de serviço para SQL que permitirá que você registre e audite o tráfego do SQL. A menos que você tenha configurado pontos de extremidade de serviço para SQL Server na sub-rede do HDInsight, o que irá ignorar o firewall. |
 
@@ -188,61 +188,7 @@ Depois de configurar o firewall com êxito, você pode usar o ponto de extremida
 
 Para usar o ponto de extremidade`https://CLUSTERNAME.azurehdinsight.net`público () ou o`CLUSTERNAME-ssh.azurehdinsight.net`ponto de extremidade SSH (), verifique se você tem as rotas certas na tabela de rotas e as regras NSG para evitar o problema de roteamento assimétrico explicado [aqui](../firewall/integrate-lb.md). Especificamente nesse caso, você precisa permitir o endereço IP do cliente nas regras de NSG de entrada e também adicioná-lo à tabela de rotas definida pelo usuário com o próximo salto definido como `internet`. Se o roteamento não estiver configurado corretamente, você verá um erro de tempo limite.
 
-## <a name="configure-another-network-virtual-appliance"></a>Configurar outra solução de virtualização de rede
-
-> [!Important]
-> As informações a seguir **só** serão necessárias se você quiser configurar uma solução de virtualização de rede (NVA) diferente do firewall do Azure.
-
-As instruções anteriores ajudam você a configurar o Firewall do Azure para restringir o tráfego de saída do seu cluster HDInsight. O Firewall do Azure é configurado automaticamente para permitir o tráfego para muitos dos cenários importantes comuns. Usar outra solução de virtualização de rede exigirá que você configure vários recursos adicionais. Lembre-se dos seguintes fatores ao configurar sua solução de virtualização de rede:
-
-* Os serviços compatíveis com o Ponto de Extremidade de Serviço devem ser configurados com pontos de extremidade de serviço.
-* As dependências de endereço IP são para tráfego não HTTP/S (tráfego TCP e UDP).
-* Os pontos de extremidade HTTP/HTTPS do FQDN podem ser colocados em seu dispositivo NVA.
-* Pontos de extremidade HTTP/HTTPS curinga são dependências que podem variar com base em vários qualificadores.
-* Atribua a tabela de rotas que você cria à sub-rede do HDInsight.
-
-### <a name="service-endpoint-capable-dependencies"></a>Dependências compatíveis com ponto de extremidade de serviço
-
-| **Ponto de extremidade** |
-|---|
-| SQL do Azure |
-| Armazenamento do Azure |
-| Azure Active Directory |
-
-#### <a name="ip-address-dependencies"></a>Dependências de endereço IP
-
-| **Ponto de extremidade** | **Detalhes** |
-|---|---|
-| \*:123 | Verificação do relógio do NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
-| IPs publicados [aqui](hdinsight-management-ip-addresses.md) | Esses IPs são o serviço do HDInsight |
-| Os IPs privados do AAD-DS para clusters ESP |
-| \*: 16800 para ativação do Windows KMS |
-| \*12000 para Log Analytics |
-
-#### <a name="fqdn-httphttps-dependencies"></a>Dependências de HTTP/HTTPS do FQDN
-
-> [!Important]
-> A lista a seguir fornece apenas alguns dos FQDNs mais importantes. Você pode obter FQDNs adicionais (principalmente o armazenamento do Azure e o barramento de serviço do Azure) para configurar seu NVA [neste arquivo](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
-
-| **Ponto de extremidade**                                                          |
-|---|
-| azure.archive.ubuntu.com:80                                           |
-| security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Arquitetura de rede virtual do Azure HDInsight](hdinsight-virtual-network-architecture.md)
+* [Configurar solução de virtualização de rede](./network-virtual-appliance.md)

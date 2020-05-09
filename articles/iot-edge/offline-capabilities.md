@@ -7,18 +7,18 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55512491121aee28404ab5f85b4223c67a2f0e1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 588926a90d9a40c00bca4914dc1d5ed08301ff75
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80236069"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780786"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Entender os recursos offline estendidos para dispositivos IoT Edge, módulos e dispositivos filho
 
 O Azure IoT Edge dá suporte a operações offline estendidas em seus dispositivos IoT Edge e habilita operações offline em dispositivos não IoT Edge filhos também. Desde que um dispositivo IoT Edge tenha uma oportunidade de se conectar ao Hub IoT, esse dispositivo e todos os dispositivos filho podem continuar a funcionar com a conexão intermitente ou sem a Internet.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Quando um dispositivo do IoT Edge entra em modo offline, o hub do IoT Edge assume três funções. Primeiro, ele armazena todas as mensagens que estão no sentido upstream e as salva até que o dispositivo se reconecte. Em segundo lugar, ele atua em nome do Hub IoT para autenticar dispositivos filho e módulos para que eles possam continuar a operar. Em terceiro lugar, ele permite a comunicação entre os dispositivos filho que normalmente passariam pelo Hub IoT.
 
@@ -108,7 +108,7 @@ Uma maneira de criar essa relação de confiança é descrita detalhadamente nos
 
 ## <a name="specify-dns-servers"></a>Especificar servidores de DNS
 
-Para melhorar a robustez, é altamente recomendável especificar os endereços do servidor DNS usados em seu ambiente. Para definir o servidor DNS para IoT Edge, consulte o módulo Resolution for [Edge Agent relata continuamente ' arquivo de configuração vazio ' e nenhum módulo inicia no dispositivo](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) no artigo de solução de problemas.
+Para melhorar a robustez, é altamente recomendável especificar os endereços do servidor DNS usados em seu ambiente. Para definir o servidor DNS para IoT Edge, consulte o módulo Resolution for [Edge Agent relata continuamente ' arquivo de configuração vazio ' e nenhum módulo inicia no dispositivo](troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device) no artigo de solução de problemas.
 
 ## <a name="optional-offline-settings"></a>Configurações offline opcionais
 

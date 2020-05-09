@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 1a760b4cedad5e43a2ef9f186162675aaf6d5ea5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234172"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864327"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no BD Cosmos do Azure
 
@@ -56,7 +56,7 @@ No entanto, se o contêiner for pequeno, provavelmente você não terá partiç�
 Se o contêiner puder aumentar para mais de algumas partições físicas, você deverá selecionar uma chave de partição que minimize as consultas entre partições. Seu contêiner exigirá mais do que algumas partições físicas quando qualquer uma das seguintes opções for verdadeira:
 
 * Seu contêiner terá mais de 30.000 RU provisionados
-* O contêiner armazenará mais de 100 GB de dados
+* Seu contêiner armazenará mais de 100 GB de dados
 
 ## <a name="using-item-id-as-the-partition-key"></a>Usando a ID do item como a chave de partição
 

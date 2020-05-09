@@ -2,31 +2,27 @@
 title: Entender como o provisionamento do Azure AD funciona | Microsoft Docs
 description: Entenda como funciona o provisionamento do Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884878"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593719"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
 O provisionamento automático refere-se à criação de identidades e funções de usuário nos aplicativos de nuvem aos quais os usuários precisam acessar. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Antes de iniciar uma implantação, você pode examinar este artigo para saber como o provisionamento do Azure AD funciona e obter recomendações de configuração. 
 
-O **serviço de provisionamento do Azure ad** provisiona usuários para aplicativos SaaS e outros sistemas conectando-se a um sistema para o ponto de extremidade da API de gerenciamento de usuário 2,0 do scim (gerenciamento de identidade entre domínios) fornecido pelo fornecedor do aplicativo. Esse ponto de extremidade SCIM permite que o Azure AD crie, atualize e remova programaticamente usuários. Para os aplicativos selecionados, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados à identidade, como grupos e funções. O canal usado para provisionamento entre o Azure AD e o aplicativo é criptografado usando a criptografia TLS HTTPS.
+O **serviço de provisionamento do Azure ad** provisiona usuários para aplicativos SaaS e outros sistemas conectando-se a um sistema para o ponto de extremidade da API de gerenciamento de usuário 2,0 do scim (gerenciamento de identidade entre domínios) fornecido pelo fornecedor do aplicativo. Esse ponto de extremidade SCIM permite que o Azure AD crie, atualize e remova programaticamente usuários. Para os aplicativos selecionados, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados à identidade, como grupos e funções. O canal usado para provisionamento entre o Azure AD e o aplicativo é criptografado usando a criptografia HTTPS TLS 1,2.
 
 
 ![Serviço](./media/how-provisioning-works/provisioning0.PNG)
