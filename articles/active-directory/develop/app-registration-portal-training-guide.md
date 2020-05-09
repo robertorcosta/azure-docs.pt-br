@@ -13,16 +13,16 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154586"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889990"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>A nova experiência de registro de aplicativo portal do Azure
 
-Há muitas melhorias na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver mais familiarizado com a experiência do apps.dev.microsoft.com (portal de registro de aplicativos) para registrar ou gerenciar aplicativos convergidos, chamados de experiência antiga, este guia de treinamento o ajudará a começar a usar a nova experiência.
+Há muitas melhorias na nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Se você estiver mais familiarizado com o apps.dev.microsoft.com (portal de registro de aplicativos) para registrar ou gerenciar aplicativos, mencionado aqui como a "experiência antiga", este guia ajudará você a começar a usar a nova experiência.
 
 ## <a name="whats-not-changing"></a>O que não está mudando?
 
@@ -37,7 +37,7 @@ Há muitas melhorias na nova experiência de [registros de aplicativo](https://g
 
 ## <a name="key-changes"></a>Principais alterações
 
--   Na experiência antiga, os aplicativos eram, por padrão, registrados como aplicativos convergidos que dão suporte a todas as contas organizacionais (multilocatário), bem como a contas pessoais da Microsoft. Isso não pode ser modificado com a experiência antiga, dificultando a criação de aplicativos que têm suporte apenas para contas organizacionais (multilocatário ou locatário único).
+-   Na experiência antiga, os aplicativos eram, por padrão, registrados como aplicativos *convergidos* – aplicativos que dão suporte a todas as contas organizacionais (multilocatário), bem como contas pessoais da Microsoft. Isso não pode ser modificado com a experiência antiga, dificultando a criação de aplicativos que têm suporte apenas para contas organizacionais (multilocatário ou locatário único).
     A nova experiência permite que você registre aplicativos que dão suporte a todas essas opções. [Saiba mais sobre os tipos de aplicativos](active-directory-v2-registration-portal.md).
 
 -   Na nova experiência, se sua conta Microsoft pessoal também estiver em um locatário do Azure AD, você verá três guias – todos os aplicativos no locatário, aplicativos de propriedade no locatário, bem como aplicativos de sua conta pessoal. Portanto, se você acreditar que os aplicativos registrados em seus conta Microsoft pessoais estão ausentes, verifique os **aplicativos na guia conta pessoal** .
@@ -52,28 +52,23 @@ Há muitas melhorias na nova experiência de [registros de aplicativo](https://g
 
 ## <a name="new-app-registration"></a>Registro de novo aplicativo
 
-Na antiga experiência, para registrar um aplicativo convergido, você só precisa fornecer um nome. Os aplicativos que foram criados foram registrados como aplicativos convergidos que dão suporte a todos os diretórios organizacionais (multilocatário), bem como a contas pessoais da Microsoft.  Isso não pode ser modificado com a experiência antiga, dificultando a criação de aplicativos que têm suporte apenas para contas organizacionais (multilocatário ou locatário único). [Saiba mais sobre os tipos de conta com suporte](v2-supported-account-types.md)
+Na experiência antiga, para registrar um aplicativo, você só precisa fornecer um nome. Os aplicativos que foram criados foram registrados como aplicativos *convergidos* – aplicativos que dão suporte a todos os diretórios organizacionais (multilocatário), bem como contas pessoais da Microsoft.  Isso não pode ser modificado com a experiência antiga, dificultando a criação de aplicativos que têm suporte apenas para contas organizacionais (de um ou de vários locatários). [Saiba mais sobre os tipos de conta com suporte](v2-supported-account-types.md)
 
 Na nova experiência, você deve fornecer um nome para o aplicativo e escolher os tipos de conta com suporte. Opcionalmente, você pode fornecer um URI de redirecionamento.
 Se você fornecer um URI de redirecionamento, será necessário especificar se ele é Web/público (nativo/móvel e área de trabalho). Para obter mais informações sobre como registrar um aplicativo usando a nova experiência de registros de aplicativo, consulte este guia de [início rápido](quickstart-register-app.md).
 
 ## <a name="app-management-page"></a>Página de gerenciamento de aplicativo
 
-A antiga experiência tinha uma única página de gerenciamento de aplicativo para aplicativos convergidos com as seguintes seções: Propriedades, segredos do aplicativo, plataformas, proprietários, Microsoft Graph permissões, perfil e opções avançadas.
+A antiga experiência tinha uma única página de gerenciamento de aplicativo para aplicativos com as seguintes seções: Propriedades, segredos do aplicativo, plataformas, proprietários, Microsoft Graph permissões, perfil e opções avançadas.
 
-A nova experiência no portal do Azure representa esses recursos em páginas separadas. Aqui está onde você pode encontrar a funcionalidade equivalente:
+A nova experiência no portal do Azure apresenta esses recursos em páginas separadas. Aqui está onde você pode encontrar a funcionalidade equivalente:
 
--   Propriedades-o nome e a ID do aplicativo estão na página Visão geral.
-
--   Os segredos do aplicativo estão na página certificados & segredos
-
--   A configuração de plataformas está na página de autenticação
-
--   Microsoft Graph permissões está na página permissões de API junto com outras permissões
-
--   O perfil está na página de identidade visual
-
--   Opção avançada – o suporte ao Live SDK está na página de autenticação.
+- Propriedades-o nome e a ID do aplicativo estão na página Visão geral.
+- Os segredos do aplicativo estão na página certificados & segredos
+- A configuração de plataformas está na página de autenticação
+- Microsoft Graph permissões está na página permissões de API junto com outras permissões
+- O perfil está na página de identidade visual
+- Opção avançada – o suporte ao Live SDK está na página de autenticação.
 
 ## <a name="application-secretscertificates--secrets"></a>Segredos/certificados do aplicativo & segredos
 
@@ -111,7 +106,7 @@ Há uma nova interface do usuário para propriedades que, anteriormente, só pod
 
 -   Os escopos definidos por essa API (oauth2Permissions) e preAuthorizedApplications (aplicativos cliente autorizados) podem ser configurados por meio da página expor uma API. Para obter mais informações sobre como configurar um aplicativo para ser uma API da Web e expor permissões/escopos, consulte este guia de [início rápido](quickstart-configure-app-expose-web-apis.md).
 
--   O domínio do Publicador (que é exibido para os usuários no [prompt de consentimento do aplicativo\'s](application-consent-experience.md)) pode ser encontrado na página da folha de identidade visual. Para obter mais informações sobre como configurar um domínio do Publicador, consulte [este "como](howto-configure-publisher-domain.md)".
+-   O domínio do Publicador (que é exibido para os usuários no [prompt de consentimento do aplicativo\'s](application-consent-experience.md)) pode ser encontrado na página de identidade visual. Para obter mais informações sobre como configurar um domínio do Publicador, consulte [este "como](howto-configure-publisher-domain.md)".
 
 ## <a name="limitations"></a>Limitações
 
@@ -125,3 +120,7 @@ A nova experiência tem as seguintes limitações:
 
    > [!NOTE]
    > Se você for um usuário de conta Microsoft pessoal no locatário do Azure AD e o administrador do locatário tiver restringido o acesso ao portal do Azure, você poderá obter um acesso negado. No entanto, se você vir o atalho digitando Registros de aplicativo na barra de pesquisa ou fixando-o, você poderá acessar a nova experiência.
+
+## <a name="next-steps"></a>Próximas etapas
+
+Para começar a usar a nova experiência de registro de aplicativo, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](quickstart-register-app.md).

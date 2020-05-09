@@ -8,37 +8,31 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73903658"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788971"
 ---
-## <a name="sign-in-to-azure"></a>Entrar no Azure 
-
-Entre no Portal do Azure em https://portal.azure.com.
-
-> [!NOTE]
-> Se você se registrou para usar galerias de imagens compartilhadas durante a visualização, talvez seja necessário `Microsoft.Compute` registrar novamente o provedor. Abra [Cloud Shell](https://shell.azure.com/bash) e digite:`az provider register -n Microsoft.Compute`
-
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 
 Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da Galeria não pode conter traços.  Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
 
 O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *myGalleryRG*.
 
-1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
+1. Entre no Portal do Azure em https://portal.azure.com.
 1. Use a **Galeria de imagens** de tipo compartilhado na caixa de pesquisa e selecione Galeria de **imagens compartilhadas** nos resultados.
-1. Na página **Galeria de imagens compartilhadas** , clique em **criar**.
-1. Selecione a assinatura correta.
+1. Na página **Galeria de imagens compartilhadas** , clique em **Adicionar**.
+1. Na página **criar galeria de imagens compartilhadas** , selecione a assinatura correta.
 1. Em **grupo de recursos**, selecione **criar novo** e digite *myGalleryRG* para o nome.
 1. Em **nome**, digite *myGallery* para o nome da galeria.
 1. Deixe o padrão para **região**.
 1. Você pode digitar uma breve descrição da galeria, como *minha galeria de imagens para teste.* e, em seguida, clique em **revisar + criar**.
 1. Depois que a validação for aprovada, selecione **criar**.
 1. Quando a implantação for concluída, selecione **ir para o recurso**.
-   
+
+
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
 Definições de imagem crie um agrupamento lógico para imagens. Eles são usados para gerenciar informações sobre as versões de imagem que são criadas dentro delas. Os nomes de definição de imagem podem ser compostos de letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos. Para obter mais informações sobre os valores que você pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
@@ -46,8 +40,9 @@ Definições de imagem crie um agrupamento lógico para imagens. Eles são usado
 Crie a definição de imagem da Galeria dentro da sua galeria. Neste exemplo, a imagem da galeria é denominada *myImageDefinition*.
 
 1. Na página da nova galeria de imagens, selecione **Adicionar uma nova definição de imagem** na parte superior da página. 
+1. Em **Adicionar nova definição de imagem à galeria de imagens compartilhadas**, para **região**, selecione *leste dos EUA*.
 1. Para **nome da definição da imagem**, digite *myImageDefinition*.
-1. Para **sistema operacional**, selecione a opção correta com base em sua VM de origem.
+1. Para **sistema operacional**, selecione a opção correta com base em sua VM de origem.  
 1. Para **geração de VM**, selecione a opção com base na VM de origem. Na maioria dos casos, essa será a *Gen 1*. Para obter mais informações, consulte [suporte para VMs de geração 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 1. Para **estado do sistema operacional**, selecione a opção com base na VM de origem. Para obter mais informações, consulte [generalizado e especializado](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. Para o **Publicador**, digite *mypublisher*. 
