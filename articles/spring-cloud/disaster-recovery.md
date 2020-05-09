@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8f32f574a4ff7be0cc3cc7915b8203b53824c63
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279149"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792319"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação de desastres na nuvem do Azure Spring
 
@@ -32,3 +32,32 @@ Garantir a alta disponibilidade e a proteção contra desastres exige que você 
 O [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) fornece balanceamento de carga de tráfego baseado em DNS e pode distribuir o tráfego de rede entre várias regiões.  Use o Gerenciador de tráfego do Azure para direcionar os clientes para a instância mais próxima do serviço de nuvem Spring do Azure para eles.  Para obter melhor desempenho e redundância, direcione todo o tráfego do aplicativo por meio do Gerenciador de tráfego do Azure antes de enviá-lo para o serviço de nuvem do Azure Spring.
 
 Se você tiver aplicativos do Azure Spring Cloud em várias regiões, use o Gerenciador de tráfego do Azure para controlar o fluxo de tráfego para seus aplicativos em cada região.  Defina um ponto de extremidade do Gerenciador de tráfego do Azure para cada serviço usando o IP do serviço. Os clientes devem se conectar a um nome DNS do Gerenciador de tráfego do Azure apontando para o serviço de nuvem Spring do Azure.  O Gerenciador de tráfego do Azure equilibra o tráfego entre os pontos de extremidade definidos.  Se um desastre ocorrer um data center, o Gerenciador de tráfego do Azure direcionará o tráfego dessa região para seu par, garantindo a continuidade do serviço.
+
+## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Criar o Gerenciador de tráfego do Azure para o Azure Spring Cloud
+
+1. Crie o Azure Spring Cloud em duas regiões diferentes.
+Você precisará de duas instâncias de serviço do Azure Spring Cloud implantadas em duas regiões diferentes (leste dos EUA e Europa Ocidental). Inicie um aplicativo existente do Azure Spring Cloud usando o portal do Azure para criar duas instâncias de serviço. Cada um servirá como ponto de extremidade primário e de failover para o tráfego. 
+
+**Duas informações de instâncias de serviço:**
+
+| Nome do Serviço | Local | Aplicativo |
+|--|--|--|
+| serviço-amostra-a | Leste dos EUA | Gateway/auth-Service/Account-Service |
+| serviço-amostra-b | Europa Ocidental | Gateway/auth-Service/Account-Service |
+
+2. Configurar o domínio personalizado para o serviço siga o [documento de domínio personalizado](spring-cloud-tutorial-custom-domain.md) para configurar o domínio personalizado para essas duas instâncias de serviço existentes. Após a configuração bem-sucedida, ambas as instâncias de serviço serão vinculadas ao domínio personalizado: bcdr-test.contoso.com
+
+3. Crie um Gerenciador de tráfego e dois pontos de extremidade: [crie um perfil do Gerenciador de tráfego usando o portal do Azure](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+
+Este é o perfil do Gerenciador de tráfego:
+* Nome DNS do Gerenciador de tráfego:http://asc-bcdr.trafficmanager.net
+* Perfis de ponto de extremidade: 
+
+| Perfil | Type | Destino | Prioridade | Configurações de cabeçalho personalizadas |
+|--|--|--|--|--|
+| Criar um perfil do ponto de extremidade | Ponto de extremidade externo | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
+| Perfil do ponto de extremidade B | Ponto de extremidade externo | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
+
+4. Crie um registro CNAME na zona DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+
+5. Agora, o ambiente está completamente configurado. Os clientes devem ser capazes de acessar o aplicativo via: bcdr-test.contoso.com

@@ -7,12 +7,12 @@ ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd18fd484ac456f0c38cd6d9b73a2395a08ad5d0
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672252"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883100"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
 A extensão de diagnóstico do Azure é um agente no Azure Monitor que coleta dados de monitoramento do sistema operacional convidado e cargas de trabalho de máquinas virtuais do Azure e outros recursos de computação. Este artigo fornece detalhes sobre como instalar e configurar a extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados no e na conta de armazenamento do Azure.
@@ -35,7 +35,7 @@ Você pode instalar e configurar a extensão de diagnóstico em uma máquina vir
 
 Você pode modificar a configuração padrão depois que a extensão de diagnóstico tiver sido habilitada. A tabela a seguir descreve as opções que podem ser modificadas nas guias diferentes. Algumas opções têm um comando **personalizado** que permite que você especifique uma configuração mais detalhada; consulte [esquema de extensão de diagnóstico do Windows](diagnostics-extension-schema-windows.md) para obter detalhes sobre configurações diferentes.
 
-| Guia | Descrição |
+| Tab | Descrição |
 |:---|:---|
 | Visão geral | Exibe a configuração atual com links para as outras guias. |
 | Contadores de desempenho | Selecione os contadores de desempenho a serem coletados e a taxa de amostragem para cada um.  |
@@ -124,28 +124,28 @@ A seguir, um exemplo mínimo de um arquivo de configuração que habilita a cole
     "PublicConfig": {
         "WadCfg": {
             "DiagnosticMonitorConfiguration": {
-                "overallQuotaInMB": 10000
-            },
-            "DiagnosticInfrastructureLogs": {
-                "scheduledTransferLogLevelFilter": "Error"
-            },
-            "PerformanceCounters": {
-                "scheduledTransferPeriod": "PT1M",
-                "PerformanceCounterConfiguration": [
-                    {
-                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                        "sampleRate": "PT3M",
-                        "unit": "percent"
-                    }
-                ]
-            },
-            "WindowsEventLog": {
-                "scheduledTransferPeriod": "PT1M",
-                    "DataSource": [
-                    {
-                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                    }
-                ]
+                "overallQuotaInMB": 10000,
+                "DiagnosticInfrastructureLogs": {
+                    "scheduledTransferLogLevelFilter": "Error"
+                },
+                "PerformanceCounters": {
+                    "scheduledTransferPeriod": "PT1M",
+                    "PerformanceCounterConfiguration": [
+                        {
+                            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                            "sampleRate": "PT3M",
+                            "unit": "percent"
+                        }
+                    ]
+                },
+                "WindowsEventLog": {
+                    "scheduledTransferPeriod": "PT1M",
+                        "DataSource": [
+                        {
+                            "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                        }
+                    ]
+                }
             }
         },
         "StorageAccount": "mystorageaccount",
@@ -177,7 +177,7 @@ A tabela a seguir lista os diferentes tipos de dados coletados da extensão de d
 | Personalizar | Blob | Um contêiner personalizado com base na configuração de diretórios que são monitorados pelo monitor de diagnóstico.  O nome desse contêiner de blob será especificado em WADDirectoriesTable. |
 
 ## <a name="tools-to-view-diagnostic-data"></a>Ferramentas para exibir dados de diagnóstico
-Várias ferramentas estão disponíveis para exibir os dados depois de serem transferidos para o armazenamento. Por exemplo:
+Várias ferramentas estão disponíveis para exibir os dados depois de serem transferidos para o armazenamento. Por exemplo: 
 
 * Gerenciador de Servidores no Visual Studio – Se tiver instalado as Ferramentas do Azure para o Microsoft Visual Studio, será possível usar o nó do Armazenamento do Azure no Gerenciador de Servidores para exibir os dados de tabela e de blob somente leitura de suas contas de armazenamento do Azure. Você pode exibir dados de conta do emulador de armazenamento local e também de contas de armazenamento que você criou para o Azure. Para obter mais informações, veja [Procurando e gerenciando recursos de armazenamento com o Gerenciador de Servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Gerenciamento de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite trabalhar facilmente com os dados de Armazenamento do Azure no Windows, OSX e Linux.

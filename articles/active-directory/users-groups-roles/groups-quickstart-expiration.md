@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74026893"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582852"
 ---
-# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Início rápido: configurar os grupos do Office 365 para expirar no Azure Active Directory
+# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Início Rápido: Configurar os grupos do Office 365 para expirar no Azure Active Directory
 
 Neste início rápido, você pode definir a política de expiração para os grupos do Office 365. Quando os usuários podem configurar seus próprios grupos, os grupos não utilizados podem multiplicar-se. Uma maneira de gerenciar os grupos não utilizados é definir esses grupos para expirar, para reduzir o trabalho de ter que exclui-los manualmente.
 
@@ -73,7 +73,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ### <a name="to-remove-the-expiration-policy"></a>Para remover a política de expiração
 
-1. Certifique-se de que você está conectado no [portal do Azure](https://portal.azure.com) com uma conta que seja de Administrador Global para o seu locatário.
+1. Certifique-se de que você está conectado no [portal do Azure](https://portal.azure.com) com uma conta que seja de Administrador Global para a sua organização do Azure AD.
 2. Selecione **Azure Active Directory** > **Grupos** > **Expiração**.
 3. Definir **Habilitar expiração para esses grupos do Office 365** para **Nenhum**.
 

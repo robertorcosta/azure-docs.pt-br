@@ -96,6 +96,10 @@
           href: soft-delete-powershell.md
     - name: Mover o Key Vault
       items:
+        - name: Mover o Key Vault para outro grupo de recursos
+          href: keyvault-moveresourcegroup.md
+        - name: Mover o Key Vault para outra assinatura
+          href: keyvault-move-subscription.md
         - name: Mover o Key Vault para outra região
           href: keyvault-moveregion.md
     - name: Solucionar problemas

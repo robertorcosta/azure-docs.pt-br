@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 4aa86b3619897c310473f12e1c28101185ebf3ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0db6c2c346a6eb6ef016340fcfc2974c85958e6c
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100984"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858101"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains-preview"></a>Configurar o firewall de IP para tópicos ou domínios da grade de eventos do Azure (versão prévia)
 Por padrão, o tópico e o domínio podem ser acessados pela Internet, desde que a solicitação venha com autenticação e autorização válidas. Com o firewall de IP, você pode restringir ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (roteamento entre domínios sem classificação)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Os Publicadores provenientes de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (proibido). Para obter mais informações sobre os recursos de segurança de rede com suporte na grade de eventos, consulte [segurança de rede para a grade de eventos](network-security.md).
@@ -258,7 +258,7 @@ Invoke-RestMethod -Method 'Get' `
     -Headers $Headers `
     | ConvertTo-Json -Depth 5
 
-# prepare the body for REST PUT method. Notice that it includes inbound IP rules now. This feature available in both basic and premium tiers.
+# prepare the body for REST PUT method. Notice that it includes inbound IP rules now. This feature is available in both basic and premium tiers.
 $body = @{"location"="<LOCATION>"; "sku"= @{"name"="basic"}; "properties"=@{"publicNetworkAccess"="enabled"; "inboundIpRules"=@(@{"ipmask"="<IP ADDR or CIDR MASK>";"action"="allow"}, @{"ipmask"="<IP ADDR or CIDR MASK>";"action"="allow"})}} | ConvertTo-Json -Depth 5
 
 # update the topic with inbound IP rules
