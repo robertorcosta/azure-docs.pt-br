@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9f9cc4c29b117c83595a36c4e28b1edb428c3cde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4b02039c86f43e6bebed58dfff475816f09a3da1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254116"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890136"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similaridade e pontuação no Azure Pesquisa Cognitiva
 
@@ -59,18 +59,11 @@ O Azure Pesquisa Cognitiva dá suporte a dois algoritmos de classificação de s
 
 Por enquanto, você pode especificar qual algoritmo de classificação de similaridade você gostaria de usar. Para obter mais informações, consulte [algoritmo de classificação](index-ranking-similarity.md).
 
-## <a name="watch-this-video"></a>Assista a este vídeo
+O seguinte segmento de vídeo avança rapidamente para uma explicação dos algoritmos de classificação usados no Azure Pesquisa Cognitiva. Você pode assistir ao vídeo completo para obter mais informações.
 
-Neste vídeo de 16 minutos, o engenheiro de software Raouf Merouche explica o processo de indexação, consulta e como criar perfis de pontuação. Ele oferece uma boa ideia do que está acontecendo nos bastidores enquanto seus documentos estão sendo indexados e recuperados.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2-3 minutos abrange a indexação: processamento de texto e análise lexical.
-+ 3-4 minutos abrange a indexação: índices invertidos.
-+ 4-6 minutos abrange consulta: recuperação e classificação.
-+ 7-16 minutos cobre os perfis de pontuação.
-
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
  [Scoring Profiles](index-add-scoring-profiles.md) [Referência da API REST](https://docs.microsoft.com/rest/api/searchservice/) dos perfis de Pontuação   
  [Pesquisar API de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)   

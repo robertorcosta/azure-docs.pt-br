@@ -1,50 +1,50 @@
 ---
-title: Perguntas frequentes sobre o modo de dimensionamento automático no Azure Cosmos DB
+title: Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
 description: Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático para bancos de dados Azure Cosmos DB e contêineres
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 413e9c71850b047172859c681cdbb422b7def032
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa4c2708f34a377a17914c7e6e5abdd709cbb5b1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196459"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791775"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
 
-Com a taxa de transferência provisionada no modo de dimensionamento automático, Azure Cosmos DB gerenciará e dimensionará automaticamente o RU/s do seu contêiner ou banco de dados com base no uso. Este artigo responde às perguntas mais frequentes sobre o dimensionamento automático.
+Com a taxa de transferência provisionada de dimensionamento automático, Azure Cosmos DB gerenciará e dimensionará automaticamente o RU/s do seu contêiner ou banco de dados com base no uso. Este artigo responde às perguntas mais frequentes sobre o dimensionamento automático.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="is-autoscale-mode-supported-for-all-apis"></a>O modo de dimensionamento automático tem suporte para todas as APIs?
-Sim, o modo de dimensionamento automático tem suporte para todas as APIs: Core (SQL), Gremlin, Table, Cassandra e API para MongoDB.
+### <a name="is-autoscale-supported-for-all-apis"></a>O dimensionamento automático tem suporte para todas as APIs?
+Sim, o dimensionamento automático tem suporte para todas as APIs: Core (SQL), Gremlin, Table, Cassandra e API para MongoDB.
 
-### <a name="is-autoscale-mode-supported-for-multi-master-accounts"></a>O modo de dimensionamento automático tem suporte para contas de vários mestres?
-Sim, o modo de dimensionamento automático tem suporte para contas de vários mestres. O máximo de RU/s está disponível em cada região que é adicionada à conta Cosmos. 
+### <a name="is-autoscale-supported-for-multi-master-accounts"></a>O dimensionamento automático tem suporte para contas de vários mestres?
+Sim, o dimensionamento automático tem suporte para contas de vários mestres. O máximo de RU/s está disponível em cada região que é adicionada à conta Cosmos. 
 
-### <a name="what-is-the-pricing-for-autoscale"></a>Qual é o preço do dimensionamento automático?
+### <a name="what-is-the-pricing-for-autoscale-"></a>Qual é o preço do dimensionamento automático?
 Consulte a página de [preços](https://azure.microsoft.com/pricing/details/cosmos-db/) do Azure Cosmos DB para obter detalhes. 
 
 ### <a name="how-do-i-enable-autoscale-for-my-containers-or-databases"></a>Como fazer habilitar o dimensionamento automático para meus contêineres ou bancos de dados?
-O modo de dimensionamento automático pode ser habilitado em novos contêineres e bancos de dados criados usando o portal do Azure. 
+O dimensionamento automático pode ser habilitado em novos contêineres e bancos de dados criados usando o portal do Azure.
 
-### <a name="is-there-cli-or-sdk-support-to-create-containers-or-databases-with-autoscale-mode"></a>Há suporte para CLI ou SDK para criar contêineres ou bancos de dados com o modo de dimensionamento automático?
-No momento, você só pode criar recursos com o modo de dimensionamento automático do portal do Azure. O suporte para CLI e SDK ainda não está disponível.
+### <a name="is-there-cli-or-sdk-support-to-create-containers-or-databases-with-autoscale-provisioned-throughput"></a>Há suporte para CLI ou SDK para criar contêineres ou bancos de dados com taxa de transferência provisionada de dimensionamento automático?
+No momento, você só pode criar recursos com a taxa de transferência provisionada de dimensionamento automático do portal do Azure. O suporte para CLI e SDK ainda não está disponível.
 
 ### <a name="can-i-enable-autoscale-on-an-existing-container-or-a-database"></a>Posso habilitar o dimensionamento automático em um contêiner ou banco de dados existente?
-No momento, você pode habilitar o dimensionamento automático em novos contêineres e bancos de dados ao criá-los. O suporte para habilitar o modo de dimensionamento automático em contêineres e bancos de dados existentes ainda não está disponível. Você pode migrar os contêineres existentes para um novo contêiner usando [Azure data Factory](../data-factory/connector-azure-cosmos-db.md) ou o [feed de alterações](change-feed.md). 
+No momento, você pode habilitar o dimensionamento automático em novos contêineres e bancos de dados ao criá-los. O suporte para habilitar o dimensionamento automático em contêineres e bancos de dados existentes ainda não está disponível. Você pode migrar os contêineres existentes para um novo contêiner usando [Azure data Factory](../data-factory/connector-azure-cosmos-db.md) ou o [feed de alterações](change-feed.md). 
 
-### <a name="can-i-turn-off-autoscale-mode-on-a-container-or-database"></a>Posso desativar o modo de dimensionamento automático em um contêiner ou banco de dados?
-Sim, você pode desativar o dimensionamento automático alternando para a opção ' manual ' para a taxa de transferência provisionada. Na versão atual, depois de alternar do modo de dimensionamento automático para o modo manual, você não pode habilitar o dimensionamento automático novamente para o mesmo recurso. 
+### <a name="can-i-turn-off-autoscale-on-a-container-or-database"></a>Posso desativar o dimensionamento automático em um contêiner ou banco de dados?
+Sim, você pode desativar o dimensionamento automático alternando para a opção ' padrão (manual) ' para a taxa de transferência provisionada. Na versão atual, depois de alternar do dimensionamento automático para a taxa de transferência provisionada padrão, você não pode habilitar o dimensionamento automático novamente para o mesmo recurso. 
 
-### <a name="is-autoscale-mode-supported-for-shared-throughput-databases"></a>O modo de dimensionamento automático tem suporte para bancos de dados de taxa de transferência compartilhada?
-Sim, o modo de dimensionamento automático tem suporte para bancos de dados de taxa de transferência compartilhada. Para habilitar esse recurso, selecione modo de dimensionamento automático e a opção **provisionar taxa de transferência** ao criar o banco de dados. 
+### <a name="is-autoscale-supported-for-shared-throughput-databases"></a>Há suporte para dimensionamento automático para bancos de dados de taxa de transferência compartilhada?
+Sim, o dimensionamento automático tem suporte para bancos de dados de taxa de transferência compartilhada. Para habilitar esse recurso, selecione dimensionamento automático e a opção **provisionar taxa de transferência** ao criar o banco de dados. 
 
 ### <a name="what-is-the-number-of-allowed-collections-per-shared-throughput-database-when-autoscale-is-enabled"></a>Qual é o número de coleções permitidas por banco de dados de taxa de transferência compartilhada quando o dimensionamento automático está habilitado?
-Para bancos de dados de produtividade compartilhada com o modo de dimensionamento automático habilitado, o número de coleções permitidas é: MIN (25, Max RU/s do banco de dados/1000). Por exemplo, se a taxa de transferência máxima do banco de dados for de 20.000 RU/s, o banco de dados poderá ter MIN (25, 20.000 RU/s/1000) = 20 coleções. 
+Para bancos de dados de taxa de transferência compartilhada com dimensionamento automático habilitado, o número de coleções permitidas é: MIN (25, Max RU/s do banco de dados/1000). Por exemplo, se a taxa de transferência máxima do banco de dados for de 20.000 RU/s, o banco de dados poderá ter MIN (25, 20.000 RU/s/1000) = 20 coleções. 
 
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Qual é o limite de armazenamento associado a cada opção máxima de RU/s?  
@@ -54,13 +54,13 @@ O limite de armazenamento em GB para cada máximo de RU/s é: máximo RU/s do ba
 Se o limite de armazenamento associado à taxa de transferência máxima do banco de dados ou contêiner for excedido, Azure Cosmos DB aumentará automaticamente a taxa de transferência máxima para a próxima camada mais alta que pode dar suporte a esse nível de armazenamento. Por exemplo, suponha que um banco de dados ou contêiner seja provisionado com a opção de taxa de transferência máxima de 4000 RU/s, que tem um limite de armazenamento de 50 GB. Se o armazenamento do recurso aumentar para 100 GB, o máximo de RU/s do banco de dados ou do contêiner será aumentado automaticamente para 20.000 RU/s, que pode dar suporte a até 200 GB. 
 
 ### <a name="how-quickly-will-autoscale-up-and-down-based-on-spikes-in-traffic"></a>Com que rapidez o dimensionamento automático será feito com base nos picos de tráfego?
-No modo de dimensionamento automático, você pode escalar ou reduzir verticalmente as RU/s no intervalo mínimo e máximo de RU/s, com base no tráfego de entrada. A cobrança é feita a uma granularidade de 1 hora, em que você é cobrado pelas RU/s mais altas em uma hora específica.
+Com o dimensionamento automático, você pode escalar ou reduzir verticalmente as RU/s no intervalo mínimo e máximo de RU/s, com base no tráfego de entrada. A cobrança é feita a uma granularidade de 1 hora, em que você é cobrado pelas RU/s mais altas em uma hora específica.
 
-### <a name="can-i-specify-a-custom-max-throughput-rus-value-for-autoscale-mode"></a>Posso especificar um valor de taxa de transferência máxima (RU/s) personalizado para o modo de dimensionamento automático?
+### <a name="can-i-specify-a-custom-max-throughput-rus-value-for-autoscale"></a>Posso especificar um valor de taxa de transferência máxima (RU/s) personalizado para dimensionamento automático?
 No momento, você pode selecionar entre [quatro opções](provision-throughput-autoscale.md#autoscale-limits) para taxa de transferência máxima (ru/s).
 
 ### <a name="can-i-increase-the-max-rus-move-to-a-higher-tier-on-the-database-or-container"></a>Posso aumentar o máximo de RU/s (mover para uma camada superior) no banco de dados ou no contêiner? 
-Sim. Na opção **dimensionar & configurações** para seu contêiner ou opção de **escala** para seu banco de dados, você pode selecionar um máximo de ru/s mais alto para o modo de dimensionamento automático. Essa é uma operação de expansão assíncrona que pode levar algum tempo para ser concluída (geralmente 4-6 horas, dependendo do RU/s selecionado), pois o serviço provisiona mais recursos para dar suporte à escala mais alta. 
+Sim. Na opção **dimensionar & configurações** para seu contêiner ou opção de **escala** para seu banco de dados, você pode selecionar um máximo de ru/s mais alto para dimensionamento automático. Essa é uma operação de expansão assíncrona que pode levar algum tempo para ser concluída (geralmente 4-6 horas, dependendo do RU/s selecionado), pois o serviço provisiona mais recursos para dar suporte à escala mais alta. 
 
 ### <a name="can-i-reduce-the-max-rus-move-to-a-lower-tier-on-the-database-or-container"></a>Posso reduzir o máximo de RU/s (mover para uma camada inferior) no banco de dados ou no contêiner?
 Sim. Contanto que o armazenamento atual do banco de dados ou do contêiner esteja abaixo do [limite de armazenamento](#what-is-the-storage-limit-associated-with-each-max-rus-option) associado à camada máxima de ru/s para a qual você deseja reduzir, reduza o máximo de ru/s para essa camada. Por exemplo, se você selecionou 20.000 RU/s como o máximo de RU/s, poderá reduzir verticalmente o máximo de RU/s para 4000 RU/s se tiver menos de 50 GB de armazenamento (o limite de armazenamento associado a 4000 RU/s).
@@ -86,5 +86,5 @@ Por exemplo, se você selecionar a opção de taxa de transferência máxima de 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [habilitar o dimensionamento automático em um contêiner ou banco de dados Cosmos do Azure](provision-throughput-autoscale.md#create-db-container-autoscale).
-* Saiba mais sobre os [benefícios da taxa de transferência provisionada no modo de dimensionamento automático](provision-throughput-autoscale.md#autoscale-benefits).
+* Saiba mais sobre os [benefícios da taxa de transferência provisionada com dimensionamento automático ](provision-throughput-autoscale.md#autoscale-benefits).
 * Saiba mais sobre [partições lógicas e físicas](partition-data.md).

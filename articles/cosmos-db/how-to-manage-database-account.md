@@ -4,14 +4,14 @@ description: Saiba como gerenciar recursos de Azure Cosmos DB usando os modelos 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247378"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82745020"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerenciar uma conta do Azure Cosmos
 
@@ -31,9 +31,9 @@ Consulte [criar uma conta de Azure Cosmos DB com CLI do Azure](manage-with-cli.m
 
 Consulte [criar uma conta de Azure Cosmos DB com o PowerShell](manage-with-powershell.md#create-account)
 
-### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modelo de Azure Resource Manager
+### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Modelo do Azure Resource Manager
 
-Este modelo de Azure Resource Manager criará uma conta do Azure Cosmos para a API do SQL configurada com duas regiões e opções para selecionar nível de consistência, failover automático e vários mestres. Para implantar esse modelo, clique em Implantar no Azure na página do arquivo Leiame, [Criar uma conta do Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
+Consulte [criar conta de Azure Cosmos DB com modelos de Azure Resource Manager](manage-sql-with-resource-manager.md)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Adicionar ou remover regiões de sua conta de banco de dados
 
@@ -153,7 +153,7 @@ A opção Failover automático permite que o Azure Cosmos DB faça failover para
 
 3. No painel **Failover Automático**, verifique se a opção **Habilitar Failover Automático** está definida como **ATIVADO**. 
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
    ![Menu do portal Failover automático](./media/how-to-manage-database-account/automatic-failover.png)
 
@@ -184,7 +184,7 @@ Depois que uma conta do Cosmos for configurada para failover automático, a prio
 
 4. Para modificar a prioridade de failover, arraste as regiões de leitura nos três pontos à esquerda da linha que aparecem quando o mouse é passado sobre ela.
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
    ![Menu do portal Failover automático](./media/how-to-manage-database-account/automatic-failover.png)
 

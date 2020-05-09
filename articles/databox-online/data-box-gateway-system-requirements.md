@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260183"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562433"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Gateway do Azure Data Box requisitos do sistema
 
-Este artigo descreve os requisitos de sistema importantes para a solução Gateway do Microsoft Azure Data Box e para os clientes que se conectam ao Azure Data Box Gateway. Recomendamos que você examine as informações com atenção antes de implantar o Data Box Gateway e consulte-as, quando necessário, durante a implantação e a subsequente operação.
+Este artigo descreve os requisitos de sistema importantes para a solução Gateway do Microsoft Azure Data Box e para os clientes que se conectam ao Azure Data Box Gateway. Recomendamos que você examine as informações com atenção antes de implantar o Data Box Gateway e consulte-as, quando necessário, durante a implantação e a subsequente operação. 
 
 Os requisitos de sistema para o dispositivo virtual Data Box Gateway incluem:
 
@@ -50,8 +50,8 @@ O sistema host subjacente para o Data Box Gateway é capaz de dedicar os seguint
 
 | **Sistema operacional/plataforma**  |**Versões**   |**Observações**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
-|VMware ESXi     | 6,0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
+|Hyper-v  |  2012 R2 <br> 2016 <br> 2019 |         |
+|VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |Não há suporte para as ferramentas do VMware.         |
 
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte

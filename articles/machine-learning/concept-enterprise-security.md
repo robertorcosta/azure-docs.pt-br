@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3aecaf45a04c1428968791a71abece783c7eb7c0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188388"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891312"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança corporativa para Azure Machine Learning
 
@@ -105,29 +105,9 @@ Azure Machine Learning cria um aplicativo adicional (o nome começa com `aml-` o
 
 Azure Machine Learning se baseia em outros serviços do Azure para recursos de computação. Os recursos de computação (destinos de computação) são usados para treinar e implantar modelos. Você pode criar esses destinos de computação em uma rede virtual. Por exemplo, você pode usar o Azure Máquina Virtual de Ciência de Dados para treinar um modelo e, em seguida, implantar o modelo no AKS.  
 
-Para obter mais informações, consulte [como executar experimentos e inferência em uma rede virtual](how-to-enable-virtual-network.md).
+Para obter mais informações, consulte [como executar experimentos e inferências com segurança em uma rede virtual isolada](how-to-enable-virtual-network.md).
 
 Você também pode habilitar o link privado do Azure para seu espaço de trabalho. O link privado permite restringir as comunicações ao seu espaço de trabalho a partir de uma rede virtual do Azure. Para obter mais informações, consulte [como configurar o link privado](how-to-configure-private-link.md).
-
-> [!TIP]
-> Você pode combinar a rede virtual e o link privado em conjunto para proteger a comunicação entre o espaço de trabalho e outros recursos do Azure. No entanto, algumas combinações exigem um espaço de trabalho Enterprise Edition. Use a tabela a seguir para entender quais cenários exigem a Enterprise Edition:
->
-> | Cenário | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | Nenhuma rede virtual ou link privado | ✔ | ✔ |
-> | Espaço de trabalho sem link privado. Outros recursos (exceto o registro de contêiner do Azure) em uma rede virtual | ✔ | ✔ |
-> | Espaço de trabalho sem link privado. Outros recursos com link privado | ✔ | |
-> | Espaço de trabalho com link privado. Outros recursos (exceto o registro de contêiner do Azure) em uma rede virtual | ✔ | ✔ |
-> | Espaço de trabalho e qualquer outro recurso com link privado | ✔ | |
-> | Espaço de trabalho com link privado. Outros recursos sem link privado ou rede virtual | ✔ | ✔ |
-> | Registro de contêiner do Azure em uma rede virtual | ✔ | |
-> | Chaves gerenciadas pelo cliente para o espaço de trabalho | ✔ | |
-> 
-
-> [!WARNING]
-> Não há suporte para a visualização de instâncias de computação Azure Machine Learning em um espaço de trabalho em que o link privado está habilitado.
-> 
-> Azure Machine Learning não dá suporte ao uso de um serviço kubernetes do Azure que tenha o link privado habilitado. Em vez disso, você pode usar o serviço kubernetes do Azure em uma rede virtual. Para obter mais informações, consulte [proteger trabalhos de experimentação e de inferência do Azure ml em uma rede virtual do Azure](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Criptografia de dados
 
@@ -265,7 +245,7 @@ Cada espaço de trabalho tem uma identidade gerenciada atribuída pelo sistema a
 
 A Microsoft pode coletar informações que não são de usuário, como nomes de recursos (por exemplo, o nome do conjunto de dados ou o nome do experimento do Machine Learning) ou variáveis de ambiente de trabalho para fins de diagnóstico. Todos esses dados são armazenados usando chaves gerenciadas pela Microsoft no armazenamento hospedado em assinaturas de propriedade da Microsoft e seguem [os padrões de política de privacidade padrão da Microsoft e de manipulação de dados](https://privacy.microsoft.com/privacystatement).
 
-A Microsoft também recomenda o não armazenamento de informações confidenciais (como segredos de chave de conta) em variáveis de ambiente. As variáveis de ambiente são registradas, criptografadas e armazenadas por nós. Da mesma forma, ao nomear [RunId](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evite incluir informações confidenciais, como nomes de usuário ou nomes de projetos secretos. Essas informações podem aparecer nos logs de telemetria acessíveis a engenheiros de Suporte da Microsoft.
+A Microsoft também recomenda o não armazenamento de informações confidenciais (como segredos de chave de conta) em variáveis de ambiente. As variáveis de ambiente são registradas, criptografadas e armazenadas por nós. Da mesma forma, ao nomear [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), evite incluir informações confidenciais, como nomes de usuário ou nomes de projetos secretos. Essas informações podem aparecer nos logs de telemetria acessíveis a engenheiros de Suporte da Microsoft.
 
 Você pode recusar os dados de diagnóstico que estão sendo coletados `hbi_workspace` definindo o `TRUE` parâmetro para ao provisionar o espaço de trabalho. Essa funcionalidade tem suporte ao usar o SDK Python do AzureML, a CLI, as APIs REST ou os modelos de Azure Resource Manager.
 
