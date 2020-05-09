@@ -5,17 +5,17 @@ description: Saiba mais sobre os dados e os recursos coletados para Azure Machin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
-ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187589"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856022"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Machine Learning
 
@@ -73,7 +73,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | MinimumNodeCount | Contagem mínima de nós do cluster |
 | MaximumNodeCount | Contagem máxima de nós do cluster |
 | NodeDeallocationOption | Como o nó deve ser desalocado |
-| Editor | Editor do tipo de cluster |
+| Publicador | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
 | Sku | SKU do nó/VM criado dentro do cluster |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -109,7 +109,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 | VmSize | Tamanho da VM do nó |
 | VmFamilyName | Família de VMs à qual o nó pertence |
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Editor | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
+| Publicador | Editor da imagem da VM, por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
 | Sku | SKU do nó/VM criado |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -126,7 +126,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 As tabelas a seguir listam as métricas de plataforma coletadas para Azure Machine Learning todas as métricas são armazenadas no namespace **Workspace do Azure Machine Learning**.
 
-**Deprecia**
+**Modelo**
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |

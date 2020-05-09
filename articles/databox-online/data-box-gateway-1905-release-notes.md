@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 345666b53336cc6959a65eefd4b0f2475bea8c80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2843623061e39e8c9c0ebc35b4916bf9bd3b186
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67078606"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561865"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Notas de versão do Azure Data Box Edge e Gateway do Azure Data Box 1905
 
@@ -21,7 +21,7 @@ ms.locfileid: "67078606"
 
 As notas de versão a seguir identificam os problemas críticos abertos e os problemas resolvidos para a versão 1905 para Azure Data Box Edge e Gateway do Azure Data Box.
 
-As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar seu Data Box Edge/Gateway do Data Box, examine atentamente as informações contidas nas notas de versão.
+As notas de versão são continuamente atualizadas e, à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar seu Data Box Edge/Gateway do Data Box, examine atentamente as informações contidas nas notas de versão. 
 
 Esta versão corresponde às versões de software:
 
@@ -33,7 +33,7 @@ Esta versão corresponde às versões de software:
 
 ## <a name="whats-new"></a>Novidades
 
-- **Aprimoramentos no log de FPGA (Reprogramable Gate Array)** – nesta versão, fizemos o log e os aprimoramentos de alerta relacionados ao FPGA. Essa é uma atualização necessária para Data Box Edge se você estiver usando o recurso de computação de borda com o FPGA. Para obter mais informações, consulte como [transformar dados com a computação de borda em seu data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Aprimoramentos no log de FPGA (Reprogramable Gate Array)** – nesta versão, fizemos o log e os aprimoramentos de alerta relacionados ao FPGA. Essa é uma atualização necessária para Data Box Edge se você estiver usando o recurso de computação de borda com o FPGA. Para obter mais informações, consulte como [transformar dados com a computação de borda em seu data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## <a name="known-issues-in-ga-release"></a>Problemas conhecidos na versão GA
 
@@ -43,4 +43,4 @@ Não foram observados novos problemas para esta versão. Toda a versão observou
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Preparar para implantar Gateway do Azure Data Box](data-box-gateway-deploy-prep.md)
-- [Preparar para implantar o Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Preparar para implantar o Azure Data Box Edge](azure-stack-edge-deploy-prep.md)

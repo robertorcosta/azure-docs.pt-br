@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632185"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856064"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -101,18 +101,18 @@ Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as se
 
    Você pode criar um UDR para enviar o tráfego 0.0.0.0/0 diretamente para a Internet. 
 
-  **Cenário 3**: UDR para o serviço kubernetes do Azure kubenet
+  **Cenário 3**: UDR para o serviço kubernetes do Azure com kubenet
 
-  Se você estiver usando o kubenet com o AKS (serviço kubernetes do Azure) e o AGIC (controlador de entrada do gateway de aplicativo), precisará configurar uma tabela de rotas para permitir que o tráfego enviado para o pods seja roteado para o nó correto. Isso não será necessário se você usar o CNI do Azure. 
+  Se você estiver usando o kubenet com o AKS (serviço kubernetes do Azure) e o AGIC (controlador de entrada do gateway de aplicativo), precisará de uma tabela de rotas para permitir que o tráfego enviado para o pods do gateway de aplicativo seja roteado para o nó correto. Isso não será necessário se você usar o CNI do Azure. 
 
-   Para configurar a tabela de rotas para permitir que o kubenet funcione, use as seguintes etapas:
+  Para usar a tabela de rotas para permitir que o kubenet funcione, siga as etapas abaixo:
 
-  1. Criar um recurso de tabela de rotas no Azure. 
-  2. Após a criação, vá para a página **rotas** . 
-  3. Adicionar uma nova rota:
+  1. Vá para o grupo de recursos criado por AKS (o nome do grupo de recursos deve começar com "MC_")
+  2. Localize a tabela de rotas criada por AKS nesse grupo de recursos. A tabela de rotas deve ser preenchida com as seguintes informações:
      - O prefixo de endereço deve ser o intervalo de IP do pods que você deseja alcançar no AKS. 
-     - O tipo do próximo salto deve ser **dispositivo virtual**. 
-     - O endereço do próximo salto deve ser o endereço IP do nó que hospeda o pods dentro do intervalo de IP definido no campo prefixo de endereço. 
+     - O tipo do próximo salto deve ser dispositivo virtual. 
+     - O endereço do próximo salto deve ser o endereço IP do nó que hospeda o pods.
+  3. Associe essa tabela de rotas à sub-rede do gateway de aplicativo. 
     
   **v2 cenários sem suporte**
 

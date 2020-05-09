@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbd8e03b1f8af7802133c35ae4860116aaea0c3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430559"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982693"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Ingerir dados em um pool do SQL
 
@@ -39,7 +39,7 @@ No Azure Synapse Analytics, um serviço vinculado é onde você define as inform
 
 ## <a name="create-pipeline"></a>Criar um pipeline
 
-Um pipeline contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta seção, você criará um pipeline que contém uma atividade de cópia que ingere dados do ADLS Gen 2 para um pool do SQL.
+Um pipeline contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta seção, você criará um pipeline que contém uma atividade de cópia que ingere dados de ADLS Gen2 em um pool do SQL.
 
 1. Vá para a guia **orquestrar** . Clique no ícone de adição ao lado do cabeçalho pipelines e selecione **pipeline**.
 1. Em **mover e transformar** no painel atividades, arraste **copiar dados** para a tela do pipeline.

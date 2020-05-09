@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408395"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854182"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory (visualização pública)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory
 
 Azure Active Directory pode fornecer informações de associação de grupo de usuários em tokens para uso em aplicativos.  Há suporte para dois padrões principais:
 
-- Grupos identificados por seu atributo de OID (identificador de objeto Azure Active Directory) (disponível para o público)
-- Grupos identificados por atributos sAMAccountName ou GroupId para grupos e usuários sincronizados com Active Directory (AD) (visualização pública)
+- Grupos identificados por seu atributo de OID (identificador de objeto Azure Active Directory)
+- Grupos identificados por atributos sAMAccountName ou GroupId para grupos e usuários sincronizados com Active Directory (AD)
 
 > [!IMPORTANT]
-> Há várias advertências a serem observadas para essa funcionalidade de visualização:
+> Há várias advertências a serem observadas para essa funcionalidade:
 >
 >- O suporte para o uso de atributos sAMAccountName e SID (identificador de segurança) sincronizados do local foi projetado para habilitar a movimentação de aplicativos existentes do AD FS e de outros provedores de identidade. Os grupos gerenciados no Azure AD não contêm os atributos necessários para emitir essas declarações.
 >- Em organizações maiores, o número de grupos de que um usuário é membro pode exceder o limite que Azure Active Directory será adicionado a um token. 150 grupos para um token SAML e 200 para um JWT. Isso pode levar a resultados imprevisíveis. Se os usuários tiverem um grande número de associações de grupo, é recomendável usar a opção para restringir os grupos emitidos em declarações para os grupos relevantes para o aplicativo.  
@@ -147,7 +147,7 @@ Os valores válidos são:
 | **"DirectoryRole** | Se o usuário tiver funções de diretório atribuídas, elas serão emitidas como uma declaração ' wids ' (a declaração de grupos não será emitida) |
 | **"The Application** | Emite apenas os grupos atribuídos explicitamente ao aplicativo e o usuário é um membro de |
 
-   Por exemplo:
+   Por exemplo: 
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

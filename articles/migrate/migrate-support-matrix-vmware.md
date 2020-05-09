@@ -3,12 +3,12 @@ title: Suporte de avaliação do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para a avaliação de VM VMware com a avaliação de servidor migrações para Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: d378ece1eda906a30ec33e2cf27ad59df473b5c7
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a0d05c56670c54aca25232a86b5a0e89d2f0bcfd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779902"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983645"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -53,7 +53,7 @@ Além de descobrir as máquinas, a avaliação do servidor pode descobrir aplica
 **vCenter Server** | Os computadores que você deseja descobrir e avaliar devem ser gerenciados por vCenter Server versão 5,5, 6,0, 6,5 ou 6,7.
 **Permissões (avaliação)** | vCenter Server conta somente leitura.
 **Permissões (descoberta de aplicativo)** | vCenter Server conta com acesso somente leitura e privilégios habilitados para **máquinas virtuais > operações de convidado**.
-**Permissões (visualização de dependência)** | Conta do servidor central com acesso somente leitura e privilégios habilitados para > **operações de convidado**de **máquinas virtuais**.
+**Permissões (visualização de dependência)** | vCenter Server conta com acesso somente leitura e privilégios habilitados para > **operações de convidado**de **máquinas virtuais**.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure

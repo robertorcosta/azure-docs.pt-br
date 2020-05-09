@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692623"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983203"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteger seu espaço de trabalho do Synapse (versão prévia)
 
@@ -145,7 +145,7 @@ O Synapse Studio se comportará de maneira diferente com base nas funções de u
 | Abrir o Synapse Studio | YES | YES | YES |
 | Exibir hub inicial | YES | YES | YES |
 | Exibir hub de dados | YES | YES | YES |
-| Hub de dados/consulte contêineres e contas ADLSGen2 vinculadas | SIM [1] | SIM [1] | SIM [1] |
+| Hub de dados/consulte contêineres e contas de ADLS Gen2 vinculadas | SIM [1] | SIM [1] | SIM [1] |
 | Hub de dados/consulte bancos | YES | YES | YES |
 | Hub de dados/consulte objetos em bancos | YES | YES | YES |
 | Dados de data Hub/acesso em bancos de dados de pool do SQL | YES   | Não   | YES   |
@@ -179,8 +179,8 @@ O Synapse Studio se comportará de maneira diferente com base nas funções de u
 
 
 > [!NOTE]
-> [1] o acesso a dados em contêineres depende do controle de acesso no ADLSGen2. </br>
-> [2] as tabelas OD do SQL e as tabelas do Spark armazenam seus dados no ADLSGen2 e o acesso requer as permissões apropriadas no ADLSGen2.
+> [1] o acesso a dados em contêineres depende do controle de acesso no ADLS Gen2. </br>
+> [2] as tabelas OD do SQL e as tabelas do Spark armazenam seus dados no ADLS Gen2 e o acesso requer as permissões apropriadas em ADLS Gen2.
 
 ## <a name="next-steps"></a>Próximas etapas
 

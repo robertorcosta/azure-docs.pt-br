@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1457549fef3a78356c8b1af6be620fdf30ddab46
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 2501f66c42360d3ec1626f5f4ee42e0212f1967b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420620"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792234"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview"></a>Início Rápido: Criar um Pool do Apache Spark (versão prévia)
 
@@ -25,16 +25,16 @@ Neste início rápido, você aprenderá a usar o portal do Azure para criar um P
 > [!IMPORTANT]
 > A cobrança das instâncias do Spark será proporcional por minuto, independentemente de elas estarem sendo usadas ou não. Desligue a instância do Spark depois de terminar de usá-la ou defina um tempo limite curto. Para saber mais, confira a seção **Recursos de limpeza** deste artigo.
 
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de começar](https:/azure.microsoft.com/free/).
+Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Assinatura do Azure - [criar uma gratuitamente](https:/azure.microsoft.com/free/)
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Workspace do Synapse Analytics](quickstart-create-workspace.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https:/portal.azure.com/)
+Entre no [Portal do Azure](https://portal.azure.com/)
 
 ## <a name="create-new-apache-spark-pool"></a>Criar um Pool do Apache Spark
 
@@ -92,5 +92,5 @@ Depois que o pool de SQL é criado, ele fica disponível no workspace para carre
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira [Início Rápido: Criar um Pool do Apache Spark no Synapse Studio usando ferramentas da Web](spark/apache-spark-notebook-create-spark-use-sql.md).
+- Confira [Início Rápido: Criar um notebook do Apache Spark](quickstart-apache-spark-notebook.md).
 - Confira [Início Rápido: Criar um pool de SQL do Synapse usando o portal do Azure](quickstart-create-sql-pool.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244804"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791979"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -88,7 +88,7 @@ Sim. É possível criar uma tabela de rota e associá-la a uma sub-rede. Para ob
 Não. Não há suporte para difusão ou multicast.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Quais protocolos posso usar nas redes virtuais?
-Você pode usar protocolos TCP, UDP e ICMP TCP/IP em redes virtuais. O Unicast tem suporte em VNets, com exceção do Protocolo DHCP via Unicast (porta de origem UDP/68 / porta de destino UDP/67). Pacotes encapsulados de IP em IP, multicast, difusão e pacotes de Encapsulamento de Roteamento Genérico (GRE) são bloqueados nas redes virtuais. 
+Você pode usar protocolos TCP, UDP e ICMP TCP/IP em redes virtuais. O unicast tem suporte em VNets, com exceção do protocolo DHCP via unicast (porta de origem UDP/68/porta de destino UDP/67) e da porta de origem UDP 65330 que está reservada para o host. Pacotes encapsulados de IP em IP, multicast, difusão e pacotes de Encapsulamento de Roteamento Genérico (GRE) são bloqueados nas redes virtuais. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Posso executar ping em meus roteadores padrão em uma rede virtual?
 Não.

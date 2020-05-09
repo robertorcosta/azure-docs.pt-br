@@ -1,36 +1,30 @@
 ---
-title: Criar uma oferta de módulo de Azure IoT Edge com o Partner Center-Azure Marketplace
-description: Saiba como criar uma oferta de módulo IoT Edge no Azure Marketplace usando o Partner Center
+title: Criar uma oferta de módulo de Azure IoT Edge com o Partner Center no Azure Marketplace
+description: Saiba como criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace usando o Partner Center
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: cca54e4e456fe766b190f64657cd1aca1d9520e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869141"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857659"
 ---
-# <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
+# <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Criar, configurar e publicar uma oferta de módulo IoT Edge no Azure Marketplace
 
-> [!IMPORTANT]
-> Estamos movendo o gerenciamento de suas ofertas de módulo IoT Edge do Portal do Cloud Partner para o Partner Center. Até que suas ofertas sejam migradas, siga as instruções no [módulo IOT Edge oferecer visão geral da publicação](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts) para Portal do Cloud Partner para gerenciar suas ofertas.
-
-Este artigo descreve como criar e publicar uma oferta de módulo de borda de Internet das Coisas (IoT) para o Azure Marketplace.
-
-Antes de criar uma oferta de módulo IoT Edge, você deve ter uma conta do Marketplace comercial no Partner Center. Se você ainda não tiver criado um, consulte [criar uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Este artigo descreve como criar e publicar uma oferta de módulo de borda de Internet das Coisas (IoT) para o Azure Marketplace. Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa comercial do Marketplace.
 
 ## <a name="create-a-new-offer"></a>Criar uma oferta
 
-1. Conecte-se ao Partner Center.
+1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. No menu de navegação à esquerda, selecione > **visão geral**do **Marketplace comercial**.
+3. Na página Visão geral, selecione **+ novo oferta** > **IOT Edge módulo**.
 
-    ![Ilustra o menu de navegação à esquerda.](./media/cs-menu-overview.png)
-
-3. Selecione **+ nova oferta** > **IOT Edge módulo**. A caixa de diálogo **nova oferta** é exibida.
+    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
 > Depois que uma oferta for publicada, as edições feitas nela no Partner Center aparecerão somente em vitrines após a republicação da oferta. Certifique-se de sempre republicar depois de fazer alterações.
@@ -41,20 +35,20 @@ Insira uma **ID de oferta**. Esse é um identificador exclusivo para cada oferta
 
 - Essa ID é visível para os clientes no endereço da Web para a oferta do Marketplace e os modelos de Azure Resource Manager, se aplicável.
 - Use apenas letras minúsculas e números. Ele pode incluir hifens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se você inserir **Test-offer-1**, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- A ID da oferta não pode ser alterada depois que você seleciona criar.
+- A ID da oferta não pode ser alterada depois que você seleciona **criar**.
 
-Insira um **alias de oferta**. Este é o nome usado para se referir à oferta no Partner Center.
+Insira um **alias de oferta**. Este é o nome usado para a oferta no Partner Center.
 
 - Esse nome não é usado no Marketplace e é diferente do nome da oferta e de outros valores mostrados aos clientes.
 - Isso não pode ser alterado depois que você seleciona **criar**.
 
-Depois de inserir esses dois valores, selecione **criar** antes de continuar para a próxima página, oferta visão geral.
+Selecione **criar** para gerar a oferta e continuar.
 
 ## <a name="offer-overview"></a>Visão geral da oferta
 
 A página **visão geral da oferta** mostra uma representação visual das etapas necessárias para publicar esta oferta (concluída e próxima) e quanto tempo cada etapa deve levar para ser concluída.
 
-Esta página inclui links para executar operações nessa oferta com base na seleção feita por você. Por exemplo:
+Esta página inclui links para executar operações nessa oferta com base na seleção feita por você. Por exemplo: 
 
 - Se a oferta for uma oferta de [rascunho de exclusão](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer) de rascunho
 - Se a oferta estiver em tempo real, [pare de vender a oferta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -86,10 +80,10 @@ Aqui estão alguns recursos adicionais de gerenciamento de leads:
 
 - [Visão geral do gerenciamento de Lead](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Perguntas frequentes sobre gerenciamento de leads](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Erros comuns de configuração de leads](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Erros comuns de configuração de leads](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Visão geral do gerenciamento de Lead](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (verifique se o bloqueador de pop-ups está desativado).
 
-Selecione **salvar rascunho** antes de continuar para a próxima seção, propriedades.
+Selecione **salvar rascunho** antes de continuar.
 
 ### <a name="properties"></a>Propriedades
 
@@ -161,7 +155,7 @@ Inclua um ou mais dos seguintes em sua descrição:
 - Oportunidades de compra no aplicativo
 - Todas as divulgações necessárias
 
-IoT Edge ofertas de módulo devem incluir um parágrafo de requisitos mínimos de hardware na parte inferior da descrição. Por exemplo:
+IoT Edge ofertas de módulo devem incluir um parágrafo de requisitos mínimos de hardware na parte inferior da descrição. Por exemplo: 
 
 *Requisitos mínimos de hardware: Linux x64 e arm32 OS, 1 GB de RAM, 500 MB de armazenamento*
 
@@ -268,7 +262,7 @@ Esta captura de tela mostra os resultados da pesquisa no portal do Azure.
 
 Selecione **salvar rascunho** antes de prosseguir para a próxima seção, versão prévia.
 
-## <a name="preview"></a>Visualização
+## <a name="preview"></a>Visualizar
 
 Na **guia Visualização**, você pode escolher um público- **alvo** limitado para validar sua oferta antes de publicá-la em tempo real para o público do Marketplace mais amplo.
 
