@@ -1,23 +1,17 @@
 ---
-title: Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure | Microsoft Docs
-description: Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure
-services: data-lake-store,data-catalog
-documentationcenter: ''
+title: Integrar Data Lake Storage Gen1 com o catálogo de dados do Azure
+description: Saiba como registrar dados de Azure Data Lake Storage Gen1 no catálogo de dados do Azure para tornar os dados detectáveis em sua organização.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 66191a52c6ef1f3d19afd2a47356487b07e9eff4
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60196466"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692331"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrar dados do Azure Data Lake Storage Gen1 no Catálogo de Dados do Azure
 Neste artigo, você aprenderá como integrar o Azure Data Lake Storage Gen1 com Catálogo de Dados do Azure para tornar os dados detectáveis em uma organização, integrando-os ao Catálogo de Dados. Para obter mais informações sobre a catalogação de dados, consulte [Catálogo de Dados do Azure](../data-catalog/data-catalog-what-is-data-catalog.md). Para compreender os cenários em que você pode usar o Catálogo de Dados, consulte [Cenários comuns do Catálogo de Dados do Azure](../data-catalog/data-catalog-common-scenarios.md).
@@ -27,7 +21,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilitar sua assinatura do Azure** para Data Lake Storage Gen1. Veja [instruções](data-lake-store-get-started-portal.md).
-* **Uma conta de data Lake Storage Gen1**. Siga as instruções em introdução [ao Azure data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Para este tutorial, criaremos uma conta do Data Lake Storage Gen1 chamada **datacatalogstore**.
+* **Uma conta de data Lake Storage Gen1**. Siga as instruções em [Introdução ao Azure Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-get-started-portal.md). Para este tutorial, criaremos uma conta do Data Lake Storage Gen1 chamada **datacatalogstore**.
 
     Depois de criar a conta, carregue um conjunto de dados de exemplo para ela. Para este tutorial, vamos carregar todos os arquivos .csv para na pasta **AmbulanceData** para o [Repositório Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Você pode usar vários clientes, como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/), para carregar dados em um contêiner de blob.
 * **Catálogo de dados do Azure**. Sua organização já deve ter um Catálogo de Dados do Azure criados para sua organização. É permitido somente um catálogo para cada organização.
@@ -56,7 +50,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
     b. A caixa **Objetos disponíveis** lista os arquivos e pastas na pasta **AmbulanceData**.
 
-    c. A caixa **Objetos a serem registrados** lista os arquivos e pastas que você deseja registrar no Catálogo de Dados do Azure.
+    c. A caixa **objetos a serem registrados** lista os arquivos e pastas que você deseja registrar no catálogo de dados do Azure.
 
     ![Exibir estrutura de dados](./media/data-lake-store-with-data-catalog/view-data-structure.png "Exibir estrutura de dados")
 1. Para este tutorial, você deve registrar todos os arquivos no diretório. Para fazer isso, clique no botão (![mover objetos](./media/data-lake-store-with-data-catalog/move-objects.png "Mover objetos")) para mover todos os arquivos para a caixa **Objetos a serem registrados** .
@@ -77,7 +71,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
     * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
     * [Documentar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Anotar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentar fontes de dados no Catálogo de Dados](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integrar Data Lake Storage Gen1 com outros serviço do Azure](data-lake-store-integrate-with-other-services.md)

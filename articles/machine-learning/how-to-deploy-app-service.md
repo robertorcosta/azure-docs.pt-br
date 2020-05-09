@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 3e6cfde20d9f4d56af836e06b0c9a84010dea47b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282810"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651922"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,14 +114,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. Quando o processo for concluído, a imagem terá sido criada no registro de contêiner do Azure para seu espaço de trabalho. Depois que a imagem tiver sido criada, o local no registro de contêiner do Azure será exibido. O local retornado está no formato `<acrinstance>.azurecr.io/package:<imagename>`. Por exemplo, `myml08024f78fd10.azurecr.io/package:20190827151241`.
+Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. Quando o processo for concluído, a imagem terá sido criada no registro de contêiner do Azure para seu espaço de trabalho. Depois que a imagem tiver sido criada, o local no registro de contêiner do Azure será exibido. O local retornado está no formato `<acrinstance>.azurecr.io/package@sha256:<imagename>`. Por exemplo, `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Salve as informações de local, pois elas são usadas durante a implantação da imagem.
 
 ## <a name="deploy-image-as-a-web-app"></a>Implantar imagem como um aplicativo Web
 
-1. Use o comando a seguir para obter as credenciais de logon para o registro de contêiner do Azure que contém a imagem. Substituir `<acrinstance>` pelo valor e retornado anteriormente de `package.location`:
+1. Use o comando a seguir para obter as credenciais de logon para o registro de contêiner do Azure que contém a imagem. Substituir `<acrinstance>` pelo valor retornado anteriormente de `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -162,7 +162,7 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
 1. Para criar o aplicativo Web, use o comando a seguir. Substituir `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` e `<imagename>` pelos valores de retornado `package.location` anteriormente:
 
     ```azurecli-interactive
-    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package@sha256:<imagename>
     ```
 
     Esse comando retorna informações semelhantes ao seguinte documento JSON:
@@ -191,7 +191,7 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
 1. Para fornecer ao aplicativo Web as credenciais necessárias para acessar o registro de contêiner, use o comando a seguir. Substituir `<app-name>` pelo nome que você deseja usar. Substitua `<acrinstance>` e `<imagename>` pelos valores de retornado `package.location` anteriormente. Substitua `<username>` e `<password>` pelas informações de logon do ACR recuperadas anteriormente:
 
     ```azurecli-interactive
-    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package@sha256:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
     ```
 
     Esse comando retorna informações semelhantes ao seguinte documento JSON:
@@ -220,7 +220,7 @@ Quando `show_output=True`, a saída do processo de Build do Docker é mostrada. 
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package@sha256:20190827195524"
     }
     ]
     ```

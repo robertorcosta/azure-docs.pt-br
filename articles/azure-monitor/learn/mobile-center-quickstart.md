@@ -8,12 +8,12 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: a59a6841a1db3cecfe52c54135b42f5b6a095ce3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: c31083c5e0591d5a49f878ba24a7fd2f0ef6c84d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77660284"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731944"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar seu aplicativo móvel com o App Center e o Application Insights
 
@@ -33,7 +33,7 @@ Para começar, crie uma conta e [inscreva-se com o App Center](https://appcenter
 
 ## <a name="onboard-to-app-center"></a>Integração ao App Center
 
-Antes de usar o Application Insights com seu aplicativo móvel, você precisa integrar o aplicativo ao [App Center](https://docs.microsoft.com/mobile-center/). O Application Insights não recebe telemetria diretamente do aplicativo móvel. Em vez disso, o aplicativo envia telemetria de evento personalizado para o App Center. Em seguida, o App Center exporta cópias desses eventos personalizados continuamente para o Application Insights conforme eles vão sendo recebidos. (Isso não se aplica ao [SDK do Application Insights JS](https://github.com/Microsoft/ApplicationInsights-JS) nem ao [plug-in React Native](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native) em que a telemetria é enviada diretamente para Application insights.)
+Antes de usar o Application Insights com seu aplicativo móvel, você precisa integrar o aplicativo ao [App Center](https://docs.microsoft.com/mobile-center/). O Application Insights não recebe telemetria diretamente do aplicativo móvel. Em vez disso, o aplicativo envia telemetria de evento personalizado para o App Center. Em seguida, o App Center exporta cópias desses eventos personalizados continuamente para o Application Insights conforme eles vão sendo recebidos. (Isso não se aplica ao [SDK do Application Insights JS](https://github.com/Microsoft/ApplicationInsights-JS) nem ao [plug-in React Native](https://github.com/Microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-react-native) em que a telemetria é enviada diretamente para Application insights.)
 
 Para integrar seu aplicativo, siga o guia de início rápido do App Center para cada plataforma com suporte pelo seu aplicativo. Crie instâncias do App Center separadas para cada plataforma:
 

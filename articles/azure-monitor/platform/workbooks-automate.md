@@ -7,18 +7,18 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658397"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731723"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerenciar pastas de trabalho programaticamente
 
-Os proprietários de recursos têm a opção de criar e gerenciar suas pastas de trabalho programaticamente por meio de modelos do Resource Manager. 
+Os proprietários de recursos têm a opção de criar e gerenciar suas pastas de trabalho programaticamente por meio de modelos do Resource Manager.
 
 Isso pode ser útil em cenários como:
 * Implantando relatórios de análise específicos da organização ou do domínio juntamente com implantações de recursos. Por exemplo, você pode implantar pastas de trabalho de desempenho e falha específicas da organização para seus novos aplicativos ou máquinas virtuais.
@@ -26,7 +26,98 @@ Isso pode ser útil em cenários como:
 
 A pasta de trabalho será criada no grupo de recursos/sub desejado e com o conteúdo especificado nos modelos do Resource Manager.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Modelo de Azure Resource Manager para implantar pastas de trabalho
+Há dois tipos de recursos de pasta de trabalho que podem ser gerenciados programaticamente:
+* [Modelos de pasta de trabalho](#azure-resource-manager-template-for-deploying-a-workbook-template)
+* [Instâncias da pasta de trabalho](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-template"></a>Modelo de Azure Resource Manager para implantar um modelo de pasta de trabalho
+
+1. Abra uma pasta de trabalho que você deseja implantar programaticamente.
+2. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
+3. Abra o _Editor avançado_ usando o _</>_ botão na barra de ferramentas.
+4. Verifique se você está na guia _modelo da Galeria_ .
+
+    ![Guia modelo da Galeria](./media/workbooks-automate/gallery-template.png)
+1. Copie o JSON no modelo da galeria para a área de transferência.
+2. Veja abaixo um modelo de Azure Resource Manager de exemplo que implanta um modelo de pasta de trabalho para Azure Monitor Galeria de pastas de trabalho. Cole o JSON que você copiou no lugar `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`de. Um modelo de referência Azure Resource Manager que cria um modelo de pasta de trabalho pode ser encontrado [aqui](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+
+    ```json
+          {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "resourceName": {
+                "type": "string",
+                "defaultValue": "my-workbook-template",
+                "metadata": {
+                    "description": "The unique name for this workbook template instance"
+                }
+            }
+        },
+        "resources": [
+            {
+                "name": "[parameters('resourceName')]",
+                "type": "microsoft.insights/workbooktemplates",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2019-10-17-preview",
+                "dependsOn": [],
+                "properties": {
+                    "galleries": [
+                        {
+                            "name": "A Workbook Template",
+                            "category": "Deployed Templates",
+                            "order": 100,
+                            "type": "workbook",
+                            "resourceType": "Azure Monitor"
+                        }
+                    ],
+                    "templateData": <PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>
+                }
+            }
+        ]
+    }
+    ```
+1. No `galleries` objeto, preencha as `name` chaves e `category` com seus valores. Saiba mais sobre os [parâmetros](#parameters) na próxima seção.
+2. Implante esse modelo de Azure Resource Manager usando a [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), a [interface de linha de comando](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell), etc.
+3. Abra o portal do Azure e navegue até a Galeria de pastas de trabalho escolhida no modelo de Azure Resource Manager. No modelo de exemplo, navegue até a Galeria de pastas de trabalho do Azure Monitor:
+    1. Abra o portal do Azure e navegue até Azure Monitor
+    2. Abrir `Workbooks` do Sumário
+    3. Localize seu modelo na Galeria, em categoria `Deployed Templates` (será um dos itens roxos).
+
+### <a name="parameters"></a>Parâmetros
+
+|Parâmetros                |Explicação                                                                                             |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------|
+| `name`                   | O nome do recurso de modelo de pasta de trabalho no Azure Resource Manager.                                  |
+|`type`                    | Sempre Microsoft. insights/workbooktemplates                                                            |
+| `location`               | O local do Azure em que a pasta de trabalho será criada.                                               |
+| `apiVersion`             | visualização de 2019-10-17                                                                                     |
+| `type`                   | Sempre Microsoft. insights/workbooktemplates                                                            |
+| `galleries`              | O conjunto de galerias para mostrar esse modelo de pasta de trabalho no.                                                |
+| `gallery.name`           | O nome amigável do modelo de pasta de trabalho na galeria.                                             |
+| `gallery.category`       | O grupo na galeria no qual o modelo será colocado.                                                     |
+| `gallery.order`          | Um número que decide a ordem para mostrar o modelo dentro de uma categoria na galeria. A ordem inferior implica prioridade mais alta. |
+| `gallery.resourceType`   | O tipo de recurso correspondente à galeria. Normalmente, essa é a cadeia de caracteres de tipo de recurso correspondente ao recurso (por exemplo, Microsoft. operationalinsights/Workspaces). |
+|`gallery.type`            | Conhecido como tipo de pasta de trabalho, essa é uma chave exclusiva que diferencia a Galeria dentro de um tipo de recurso. Application Insights, por exemplo, têm tipos `workbook` e `tsg` correspondem a galerias de pastas de trabalho diferentes. |
+
+### <a name="galleries"></a>Galerias
+
+| Galeria                                        | Tipo de recurso                                      | Tipo de pasta de trabalho |
+| :--------------------------------------------- |:---------------------------------------------------|:--------------|
+| Pastas de trabalho no Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
+| Informações de VM no Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
+| Pastas de trabalho no espaço de trabalho do log Analytics           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
+| Pastas de trabalho no Application Insights              | `microsoft.insights/component`                     | `workbook`    |
+| Guias de solução de problemas no Application Insights | `microsoft.insights/component`                     | `tsg`         |
+| Uso em Application Insights                  | `microsoft.insights/component`                     | `usage`       |
+| Pastas de trabalho no serviço kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
+| Pastas de trabalho em grupos de recursos                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
+| Pastas de trabalho no Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
+| Informações de VM em máquinas virtuais                | `microsoft.compute/virtualmachines`                | `insights`    |
+| Informações de VM em conjuntos de dimensionamento de máquinas virtuais                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Modelo de Azure Resource Manager para implantar uma instância de pasta de trabalho
+
 1. Abra uma pasta de trabalho que você deseja implantar programaticamente.
 2. Alterne a pasta de trabalho para o modo de edição clicando no item _Editar_ barra de ferramentas.
 3. Abra o _Editor avançado_ usando o _</>_ botão na barra de ferramentas.
@@ -124,4 +215,3 @@ Por um motivo técnico, esse mecanismo não pode ser usado para criar instância
 ## <a name="next-steps"></a>Próximas etapas
 
 Explore como as pastas de trabalho estão sendo usadas para capacitar a nova [Azure monitor de experiência de armazenamento](../insights/storage-insights-overview.md).
-

@@ -72,6 +72,9 @@
   items:
     - name: Exemplos do Barramento de Serviço
       href: service-bus-samples.md
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Mensagens premium

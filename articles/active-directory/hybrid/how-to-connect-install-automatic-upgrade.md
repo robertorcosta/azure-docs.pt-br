@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2019
+ms.date: 05/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae0632fbc3208befe197c15ffdbf2d9a4e7b2d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60349805"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926469"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a build [1.1.105.0 (lançada em fevereiro de 2016)](reference-connect-version-history.md#111050).  Esse recurso foi atualizado na [build 1.1.561](reference-connect-version-history.md#115610) e agora dá suporte a cenários adicionais que anteriormente não tinham suporte.
@@ -99,7 +99,6 @@ Esta é uma lista das mensagens mais comuns que você encontrará. Ela não list
 | UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |
 | UpgradeNotSupportedNonMsolAccount |O [conta do conector do AD DS](reference-connect-accounts-permissions.md#ad-ds-connector-account) não é mais a conta do msol _ padrão. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Ao configurar o AAD Connect, você escolheu *Não configurar* ao selecionar o método de entrada. |
-| UpgradeNotSupportedPtaSignInMethod | Você selecionou Autenticação de passagem como o método de entrada. |
 | UpgradeNotSupportedStagingModeEnabled |O servidor está definido como em [modo de preparo](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |Você habilitou o recurso [write-back de usuário](how-to-connect-preview.md#user-writeback) . |
 

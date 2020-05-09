@@ -1,26 +1,20 @@
 ---
-title: Analisar dados no Azure Data Lake Storage Gen1 usando Power BI | Microsoft Docs
-description: Usar Power BI para analisar dados armazenados no Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Analisar dados em Power BI de Azure Data Lake Storage Gen1
+description: Use Power BI para analisar os dados armazenados no Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65603198"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691665"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analisar dados no Azure Data Lake Storage Gen1 usando Power BI
-Neste artigo, você aprenderá como usar o Power BI Desktop para analisar e visualizar dados armazenados no Azure Data Lake Storage Gen1.
+Neste artigo, você aprenderá a usar Power BI Desktop para analisar e Visualizar dados armazenados no Azure Data Lake Storage Gen1.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
@@ -38,7 +32,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 4. Na caixa de diálogo **Azure Data Lake Store** forneça a URL para a conta do Data Lake Storage Gen1 e, em seguida, clique em **OK**.
    
     ![URL para Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL para Data Lake Storage Gen1")
-5. Na próxima caixa de diálogo, clique em **Entrar** para entrar na conta do Data Lake Storage Gen1. Você será redirecionado à página de logon de sua organização. Siga os prompts para entrar na conta.
+5. Na próxima caixa de diálogo, clique em **Entrar** para entrar na conta do Data Lake Storage Gen1. Você será redirecionado para a página de entrada da sua organização. Siga os prompts para entrar na conta.
    
     ![Entrar Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Entrar Data Lake Storage Gen1")
 6. Depois de entrar com sucesso, clique em **Conectar**.
@@ -96,6 +90,6 @@ Antes de começar este tutorial, você deve ter o seguinte:
 ## <a name="publish-report-to-power-bi-service"></a>Publicar o relatório no serviço Power BI
 Depois de criar as visualizações no Power BI Desktop, compartilhe-as com outras pessoas publicando-as no serviço Power BI. Para obter instruções sobre como fazer isso, confira [Publicar a partir do Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Analisar dados no Data Lake Storage Gen1 usando Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

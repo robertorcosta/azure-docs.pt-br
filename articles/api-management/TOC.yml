@@ -101,10 +101,12 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Provisionar um gateway auto-hospedado
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Implantar um gateway auto-hospedado no Serviço de Kubernetes do Azure
+          href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Implantar um gateway auto-hospedado no Kubernetes
-          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+          href: how-to-deploy-self-hosted-gateway-kubernetes.md
         - name: Implantar um gateway auto-hospedado no Docker
-          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+          href: how-to-deploy-self-hosted-gateway-docker.md
         - name: Configurar o domínio personalizado para o gateway auto-hospedado
           href: api-management-howto-configure-custom-domain-gateway.md
     - name: Cache
@@ -209,12 +211,20 @@
           href: api-management-transformation-policies.md
     - name: Gerenciar na produção
       items:
+        - name: Exportar APIs para o Power Platform
+          href: export-api-power-platform.md
         - name: Gerenciar grupos
           href: api-management-howto-create-groups.md
         - name: Recuperar endereços IP
           href: api-management-howto-ip-addresses.md
         - name: Registrar eventos nos Hubs de Eventos do Azure
           href: api-management-howto-log-event-hubs.md
+        - name: Registrar solicitações com o Application Insights do Azure
+          href: api-management-howto-app-insights.md
+        - name: Configurar logs e métricas de nuvem para o gateway auto-hospedado
+          href: how-to-configure-cloud-metrics-logs.md
+        - name: Configurar logs e métricas locais para o gateway auto-hospedado
+          href: how-to-configure-local-metrics-logs.md
         - name: Registrar solicitações com o Application Insights do Azure
           href: api-management-howto-app-insights.md
         - name: Configurar DR usando backup/restauração

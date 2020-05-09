@@ -1,23 +1,17 @@
 ---
-title: '.NET SDK: operações de gerenciamento de conta no Armazenamento de Data Lake do Azure Gen1 | Microsoft Docs'
-description: Use o SDK .NET do Armazenamento de Dados do Azure Data Lake Gen1 para executar operações de gerenciamento de contas no Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Gerenciar uma conta de Azure Data Lake Storage Gen1 com o .NET
+description: Saiba como usar o SDK do .NET para Azure Data Lake Storage Gen1 operações de gerenciamento de conta.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7ea2b7fffc4edff6cae895e08b955d2e21ff5f2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65900868"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692110"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações de gerenciamento de conta no Armazenamento de Data Lake do Azure Gen1 usando o .NET SDK
 > [!div class="op_single_selector"]
@@ -135,7 +129,7 @@ O snippet a seguir exclui a conta do Data Lake Storage Gen1 criada anteriormente
     // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Operações de FileSystem no Data Lake armazenamento Gen1 usando o SDK do .NET](data-lake-store-data-operations-net-sdk.md)
 * [Referência de SDK do .NET do Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 

@@ -1,5 +1,5 @@
 ---
-title: Configuração do driver GPU da série Azure N para Windows
+title: Configuração do driver NVIDIA GPU da série N do Azure para Windows
 description: Como configurar drivers de GPU NVIDIA para VMs da série N executando Windows Server ou Windows no Azure
 author: vikancha
 manager: jkabat
@@ -10,18 +10,18 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: vikancha
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc11937410bf0307a00895e0ebd1f01a58bd1b1b
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 0b00b2340445e7d103c78c1d8c1ea0e08ecabba5
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865773"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628105"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar drivers de GPU NVIDIA em VMs da série N que executam o Windows 
 
-Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows, é necessário instalar os drivers GPU NVIDIA. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como Azure PowerShell ou modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação.
+Para aproveitar os recursos de GPU das VMs da série N do Azure apoiadas por GPUs NVIDIA, você deve instalar os drivers NVIDIA GPU. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como Azure PowerShell ou modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-windows.md) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação.
 
-Se você optar por instalar os drivers de GPU manualmente, este artigo fornecerá os sistemas operacionais compatíveis, os drivers e as etapas de instalação e verificação. As informações de instalação manual de driver também estão disponíveis para [VMs do Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se você optar por instalar os drivers NVIDIA GPU manualmente, este artigo fornecerá os sistemas operacionais, drivers e etapas de instalação e verificação com suporte. As informações de instalação manual de driver também estão disponíveis para [VMs do Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para especificações básicas, capacidades de armazenamento e detalhes de disco, consulte [tamanhos de VM Windows da GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
@@ -37,7 +37,7 @@ Uma reinicialização é necessária após a instalação do driver de GRID em u
 
 ## <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 
-Observe que o painel Nvidia Control só está acessível com a instalação do driver GRID. Se você tiver instalado drivers CUDA, então o painel de controle Nvidia não estará visível.
+Observe que o painel de controle NVIDIA só está acessível com a instalação do driver de grade. Se você tiver instalado drivers CUDA, o painel de controle nvidia não estará visível.
 
 É possível verificar a instalação de drivers no Gerenciador de Dispositivos. O exemplo a seguir mostra uma configuração bem-sucedida da placa Tesla K80 em uma VM NC do Azure.
 

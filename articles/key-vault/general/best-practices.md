@@ -10,24 +10,24 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 923fb90f7f0e8eefec650515ed2a3b9b75d2ae77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf8d461485cefd37b9508031f5cce7ae0a070ef5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617918"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82653208"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Práticas recomendadas para usar Key Vault
 
 ## <a name="control-access-to-your-vault"></a>Controlar o acesso ao seu cofre
 
-O Azure Key Vault é um serviço de nuvem que protege segredos e chaves de criptografia, como certificados, cadeias de conexão e senhas. Como esses dados são confidenciais e comercialmente críticos, é necessário proteger o acesso aos seus cofres de chaves permitindo apenas aplicativos e usuários autorizados. Este [artigo](secure-your-key-vault.md)) fornece uma visão geral do modelo de acesso Key Vault. Explica a autenticação e a autorização e descreve como proteger o acesso ao seus cofres de chaves.
+O Azure Key Vault é um serviço de nuvem que protege segredos e chaves de criptografia, como certificados, cadeias de conexão e senhas. Como esses dados são confidenciais e comercialmente críticos, é necessário proteger o acesso aos seus cofres de chaves permitindo apenas aplicativos e usuários autorizados. Este [artigo](secure-your-key-vault.md) fornece uma visão geral do modelo de acesso Key Vault. Explica a autenticação e a autorização e descreve como proteger o acesso ao seus cofres de chaves.
 
 As sugestões ao controlar o acesso ao cofre são as seguintes:
 1. Bloquear o acesso à sua assinatura, grupo de recursos e cofres de chaves (RBAC)
 2. Criar políticas de acesso para cada cofre
 3. Use a entidade de acesso de privilégios mínimos para conceder acesso
-4. Ativar o firewall e os [pontos de extremidade de serviço de VNET](overview-vnet-service-endpoints.md))
+4. Ativar [pontos de extremidade de serviço de rede virtual](overview-vnet-service-endpoints.md) e firewall
 
 ## <a name="use-separate-key-vault"></a>Usar Key Vault separadas
 
@@ -39,9 +39,9 @@ Certifique-se de fazer backups regulares de seu [cofre](https://blogs.technet.mi
 
 ## <a name="turn-on-logging"></a>Ativar registro em log
 
-[Ativar registro em log](logging.md)) para seu cofre. Configure também alertas.
+[Ative o registro em log](logging.md) para seu cofre. Configure também alertas.
 
 ## <a name="turn-on-recovery-options"></a>Ativar opções de recuperação
 
-1. Ativar [exclusão reversível](overview-soft-delete.md)).
+1. Ative a [exclusão reversível](overview-soft-delete.md).
 2. Ative a proteção de limpeza se você quiser se proteger contra a exclusão forçada do segredo/cofre mesmo depois que a exclusão reversível estiver ativada.

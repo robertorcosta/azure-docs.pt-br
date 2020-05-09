@@ -11,7 +11,7 @@ ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 77af321b74a47306a7202c1fddf6e81edc0ee02a
 ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/08/2020
 ms.locfileid: "82926061"

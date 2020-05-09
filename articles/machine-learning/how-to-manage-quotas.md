@@ -9,20 +9,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 03/05/2020
-ms.openlocfilehash: 530647c3d32b62f0cac250795ccce580b182fa92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.custom: contperfq4
+ms.openlocfilehash: b8af654e14d8a5fa48c60ae62c590c4c99e66edb
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756596"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891527"
 ---
-# <a name="manage-and-request-quotas-for-azure-resources"></a>Gerenciar e solicitar cotas para recursos do Azure
+# <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar & aumentar cotas para recursos com Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este artigo fornece detalhes sobre os limites pré-configurados nos recursos do Azure para sua assinatura. Também estão incluídas instruções sobre como solicitar aprimoramentos de cota para cada tipo de recurso. Esses limites são estabelecidos para evitar estouros de orçamento devido a fraudes e respeitar as restrições de capacidade do Azure.
+Este artigo fornece [Azure Machine Learning](overview-what-is-azure-ml.md) usuários com detalhes sobre os limites pré-configurados nos recursos do Azure para sua assinatura. Também estão incluídas instruções sobre como solicitar aprimoramentos de cota para cada tipo de recurso. Esses limites são estabelecidos para evitar estouros de orçamento devido a fraudes e respeitar as restrições de capacidade do Azure.
 
-Assim como ocorre com outros serviços do Azure, há limites em determinados recursos associados a Azure Machine Learning. Esses limites variam de um limite no número de espaços de trabalho a limites na computação subjacente real que é usada para treinamento de modelo ou inferência/Pontuação. 
+Assim como ocorre com outros serviços do Azure, há limites em determinados recursos associados a Azure Machine Learning. Esses limites variam de um limite no número de [espaços de trabalho](concept-workspace.md) a limites na computação subjacente real que é usada para treinamento de modelo ou inferência/Pontuação. 
 
 Conforme você projeta e dimensiona seus recursos de Azure Machine Learning para cargas de trabalho de produção, considere esses limites. Por exemplo, se o cluster não alcançar o número de nós de destino, você poderá ter atingido um limite de núcleos de computação Azure Machine Learning para sua assinatura. Se você desejar aumentar o limite ou a cota acima do limite padrão, abra uma solicitação de suporte ao cliente online sem custo. Os limites não podem ser aumentados além do valor Limite Máximo mostrado nas tabelas a seguir devido a restrições de Capacidade do Azure. Se não houver nenhuma coluna Limite Máximo, o recurso não terá limites ajustáveis.
 
@@ -48,10 +49,10 @@ Os núcleos de máquina virtual têm um limite de total regional e um limite reg
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-Para obter uma lista mais detalhada e atualizada de limites de cota, confira o site de cota de todo o Azure [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Para obter uma lista mais detalhada e atualizada de limites de cota, verifique o [artigo cota de todo o Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
-Para a Computação do Azure Machine Learning, há um limite de cota padrão para o número de núcleos e o número de recursos de computação exclusivos permitidos por região em uma assinatura. Essa cota é separada da cota de núcleos de VM acima e os limites principais não são compartilhados entre os dois tipos de recurso, uma vez que AmlCompute é um serviço gerenciado que implanta recursos em um modelo hospedado em nome de.
+Para [Azure Machine Learning computação](concept-compute-target.md#azure-machine-learning-compute-managed), há um limite de cota padrão no número de núcleos e no número de recursos de computação exclusivos permitidos por região em uma assinatura. Essa cota é separada da cota de núcleos de VM acima e os limites principais não são compartilhados entre os dois tipos de recurso, uma vez que AmlCompute é um serviço gerenciado que implanta recursos em um modelo hospedado em nome de.
 
 Recursos disponíveis:
 + Os núcleos dedicados por região têm um limite padrão de 24-300, dependendo de seu tipo de oferta de assinatura com padrões mais altos para tipos de oferta EA e CSP.  O número de núcleos dedicados por assinatura pode ser aumentado e é diferente para cada família de VM. Determinadas famílias de VMs especializadas como NCv2, NCv3 ou ND Series começam com um padrão de zero núcleos. Entre em contato com o suporte do Azure gerando uma solicitação de cota para discutir as opções de aumento.
@@ -76,7 +77,7 @@ Recursos disponíveis:
 <sup>2</sup> os trabalhos em um nó de baixa prioridade poderiam ser admitidos sempre que houver uma restrição de capacidade. Recomendamos que você implemente o ponto de verificação em seu trabalho.
 
 ### <a name="azure-machine-learning-pipelines"></a>Pipelines do Azure Machine Learning
-Para Azure Machine Learning pipelines, há um limite de cota no número de etapas em um pipeline e no número de execuções baseadas em agendamento de pipelines publicados por região em uma assinatura.
+Para [Azure Machine Learning pipelines](concept-ml-pipelines.md), há um limite de cota no número de etapas em um pipeline e no número de execuções baseadas em agendamento de pipelines publicados por região em uma assinatura.
 - O número máximo de etapas permitidas em um pipeline é de 30.000
 - O número máximo da soma de execuções baseadas em agendamento e pulls de BLOB para agendamentos disparados por blog de pipelines publicados por assinatura por mês é de 100.000
 
@@ -97,7 +98,7 @@ Há um limite no número de contas de armazenamento por região também em uma d
 
 ## <a name="workspace-level-quota"></a>Cota de nível de espaço de trabalho
 
-Para gerenciar melhor as alocações de recursos para Amlcompute entre vários espaços de trabalho, apresentamos um recurso que permite distribuir cotas de nível de assinatura (por família de VM) e configurá-las no nível do espaço de trabalho. O comportamento padrão é que todos os espaços de trabalho têm a mesma cota que a cota de nível de assinatura para qualquer família de VMs. No entanto, à medida que o número de espaços de trabalho aumenta, e as cargas de trabalho de prioridade variável começam a compartilhar os mesmos recursos, os usuários desejam uma maneira de compartilhar melhor a capacidade e evitar problemas de contenção de recursos. O Azure Machine Learning fornece uma solução com sua oferta de computação gerenciada, permitindo que os usuários definam uma cota máxima para uma família de VMs específica em cada espaço de trabalho. Isso é análogo à distribuição de sua capacidade entre espaços de trabalho, e os usuários também podem optar por superalocar para aumentar a utilização máxima. 
+Para gerenciar melhor as alocações de recursos para Azure Machine Learning Amlcompute (destino de computação) entre vários [espaços de trabalho](concept-workspace.md), apresentamos um recurso que permite distribuir cotas de nível de assinatura (por família de VM) e configurá-las no nível do espaço de trabalho. O comportamento padrão é que todos os espaços de trabalho têm a mesma cota que a cota de nível de assinatura para qualquer família de VMs. No entanto, à medida que o número de espaços de trabalho aumenta, e as cargas de trabalho de prioridade variável começam a compartilhar os mesmos recursos, os usuários desejam uma maneira de compartilhar melhor a capacidade e evitar problemas de contenção de recursos. O Azure Machine Learning fornece uma solução com sua oferta de computação gerenciada, permitindo que os usuários definam uma cota máxima para uma família de VMs específica em cada espaço de trabalho. Isso é análogo à distribuição de sua capacidade entre espaços de trabalho, e os usuários também podem optar por superalocar para aumentar a utilização máxima. 
 
 Para definir cotas no nível do espaço de trabalho, acesse qualquer espaço de trabalho em sua assinatura e clique em **usos + cotas** no painel esquerdo. Em seguida, selecione a guia **configurar cotas** para exibir as cotas, expanda qualquer família de VMs e defina um limite de cota em qualquer espaço de trabalho listado nessa família de VMs. Lembre-se de que você não pode definir um valor negativo ou um valor maior que a cota de nível de assinatura. Além disso, como você observaria, por padrão, todos os espaços de trabalho recebem a cota de assinatura inteira para permitir a utilização total da cota alocada.
 
@@ -105,7 +106,7 @@ Para definir cotas no nível do espaço de trabalho, acesse qualquer espaço de 
 
 
 > [!NOTE]
-> Esse é apenas um recurso da Enterprise Edition. Se você tiver um espaço de trabalho básico e um Enterprise Edition em sua assinatura, poderá usá-lo para definir apenas cotas em seus espaços de trabalho corporativos. Seus espaços de trabalho básicos continuarão a ter a cota de nível de assinatura, que é o comportamento padrão.
+> Esse é apenas um recurso da Enterprise Edition. Se você tiver um espaço de trabalho [básico e um Enterprise Edition](overview-what-is-azure-ml.md#sku) em sua assinatura, poderá usá-lo para definir apenas cotas em seus espaços de trabalho corporativos. Seus espaços de trabalho básicos continuarão a ter a cota de nível de assinatura, que é o comportamento padrão.
 >
 > Você precisa de permissões de nível de assinatura para definir a cota no nível do espaço de trabalho. Isso é imposto para que os proprietários de espaços de trabalho individuais não editem ou aumentem suas cotas e iniciem o tranqüilamente em recursos separados para outro espaço de trabalho. Portanto, um administrador de assinatura é mais adequado para alocar e distribuir essas cotas entre espaços de trabalho.
 
@@ -136,9 +137,17 @@ Por meio do portal do Azure, é fácil exibir sua cota para vários recursos, co
 
 Se você quiser aumentar o limite ou a cota acima do limite padrão, [abra uma solicitação](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) de atendimento ao cliente online sem encargos.
 
-Os limites não podem ser aumentados acima do valor limite máximo mostrado nas tabelas. Se não houver limite máximo, então o recurso não terá limites ajustáveis. [Este](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) artigo aborda o processo de aumento da cota em mais detalhes.
+Os limites não podem ser aumentados acima do valor limite máximo mostrado nas tabelas. Se não houver limite máximo, então o recurso não terá limites ajustáveis. [Consulte as instruções passo a passo sobre como aumentar sua cota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 Ao solicitar um aumento da cota, é necessário selecionar o serviço com relação ao qual você está solicitando o aumento da cota, que poderiam ser serviços como a cota do serviço do Machine Learning, das instâncias de Contêiner ou da cota de Armazenamento. Além de Azure Machine Learning computação, você pode clicar no botão **solicitar cota** ao exibir a cota seguindo as etapas acima.
 
 > [!NOTE]
 > As [assinaturas de Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para os aumentos de cota ou limite. Se você tiver uma [assinatura de Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), você poderá atualizar para uma assinatura de [pagamento conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obter mais informações, consulte [Atualizar a Versão de Avaliação Gratuita do Azure para Pagamento Conforme o Uso](../billing/billing-upgrade-azure-subscription.md) e [Perguntas Frequentes sobre a assinatura de Avaliação Gratuita](https://azure.microsoft.com/free/free-account-faq).
+
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba mais com estes artigos:
+
++ [Planejar & gerenciar custos para Azure Machine Learning](concept-plan-manage-cost.md)
+
++ [Como aumentar sua cota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).

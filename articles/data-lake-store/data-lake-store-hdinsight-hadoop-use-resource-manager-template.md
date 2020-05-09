@@ -1,23 +1,17 @@
 ---
-title: Usar modelos do Azure para criar HDInsight com Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Use os modelos do Azure Resource Manager para criar e usar clusters HDInsight com Azure Data Lake Storage Gen1
-services: data-lake-store,hdinsight
-documentationcenter: ''
+title: Modelo – cluster HDInsight com Data Lake Storage Gen1
+description: Use modelos de Azure Resource Manager para criar e usar clusters do Azure HDInsight com Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 486809201db45e0f5bbeed870e24b1f63770e319
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66161382"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692040"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Criar um cluster HDInsight com Azure Data Lake Storage Gen1 usando o modelo do Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -30,7 +24,7 @@ ms.locfileid: "66161382"
 
 Saiba como usar o Azure PowerShell para configurar um cluster HDInsight com Azure Data Lake Storage Gen1, **como armazenamento adicional**.
 
-Para tipos de cluster com suporte, o Data Lake Storage Gen1 pode ser usado como armazenamento padrão ou conta de armazenamento adicional. Quando o Data Lake Storage Gen1 é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Azure Storage Blobs (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, enquanto os dados que você quer processar podem ser armazenados em uma conta do Data Lake Storage Gen1. Usar o Data Lake Storage Gen1 como uma conta de armazenamento adicional não afeta o desempenho nem a capacidade de leitura/gravação no armazenamento do cluster.
+Para tipos de cluster com suporte, Data Lake Storage Gen1 pode ser usado como um armazenamento padrão ou como uma conta de armazenamento adicional. Quando o Data Lake Storage Gen1 é usado como armazenamento adicional, a conta de armazenamento padrão para os clusters ainda será Azure Storage Blobs (WASB) e os arquivos relacionados ao cluster (como logs, etc.) ainda serão gravados no armazenamento padrão, enquanto os dados que você quer processar podem ser armazenados em uma conta do Data Lake Storage Gen1. Usar o Data Lake Storage Gen1 como uma conta de armazenamento adicional não afeta o desempenho nem a capacidade de leitura/gravação no armazenamento do cluster.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Usar o Data Lake Storage Gen1 para armazenamento de cluster HDInsight
 
@@ -40,7 +34,7 @@ Aqui estão algumas considerações importantes para usar HDInsight com Data Lak
 
 * A opção para criar clusters HDInsight com acesso ao Data Lake Storage Gen1 como armazenamento adicional está disponível para as versões 3.2, 3.4, 3.5 e 3.6 do HDInsight.
 
-Neste artigo, provisionamos um cluster Hadoop com o Data Lake Storage Gen1 como armazenamento adicional. Para obter instruções sobre como criar um cluster Hadoop com Data Lake Storage Gen1 como armazenamento padrão, consulte [Criar um cluster HDInsight com Data Lake Storage Gen1 usando o portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
+Neste artigo, provisionamos um cluster Hadoop com o Data Lake Storage Gen1 como armazenamento adicional. Para obter instruções sobre como criar um cluster Hadoop com Data Lake Storage Gen1 como armazenamento padrão, consulte [criar um cluster HDInsight com data Lake Storage Gen1 usando portal do Azure](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -88,7 +82,7 @@ Para certificar-se de que os dados de exemplo carregados estejam acessíveis no 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Executar trabalhos de teste no cluster HDInsight para usar Data Lake Storage Gen1
 Após configurar um cluster HDInsight, você poderá executar trabalhos de teste no cluster para testar se o cluster HDInsight pode acessar o Data Lake Storage Gen1. Para fazer isso, executaremos um exemplo de trabalho do Hive que cria uma tabela usando os dados de exemplo que você carregou anteriormente para a conta do Data Lake Storage Gen1.
 
-Nesta seção, você acessará um cluster Linux HDInsight por SSH e executará uma consulta Hive de exemplo. Se está usando um cliente Windows, recomendamos usar **PuTTY**, que pode ser baixado de [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta seção, você realizará o SSH em um cluster HDInsight Linux e executará a consulta do hive de exemplo. Se está usando um cliente Windows, recomendamos usar **PuTTY**, que pode ser baixado de [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para obter mais informações sobre o uso de PuTTY, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -105,7 +99,7 @@ Para obter mais informações sobre o uso de PuTTY, confira [Usar SSH com Hadoop
    SELECT * FROM vehicles LIMIT 10;
    ```
 
-   Você deverá ver um resultado semelhante ao seguinte:
+   Será exibida uma saída semelhante à seguinte:
 
    ```
    1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
@@ -124,7 +118,7 @@ Para obter mais informações sobre o uso de PuTTY, confira [Usar SSH com Hadoop
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Acessar o Data Lake Storage Gen1 usando os comandos do HDFS
 Após configurar o cluster HDInsight para usar o Data Lake Storage Gen1, você poderá usar os comandos do shell do HDFS para acessar o armazenamento.
 
-Nesta seção, você acessará um cluster Linux HDInsight por SSH e executará comandos do HDFS. Se está usando um cliente Windows, recomendamos usar **PuTTY**, que pode ser baixado de [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta seção, você SSH em um cluster HDInsight Linux e executa os comandos do HDFS. Se está usando um cliente Windows, recomendamos usar **PuTTY**, que pode ser baixado de [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para obter mais informações sobre o uso de PuTTY, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
