@@ -2,13 +2,13 @@
 title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
-ms.date: 04/20/2020
-ms.openlocfilehash: b68314a116b0d9da8baf5f61eeffeef2b30835c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: dd5844fb88234a5bdf5470a484f26cb08f719107
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732870"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890834"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -40,6 +40,7 @@ A tabela a seguir lista as versões do Service Fabric e suas datas de término d
 | 7.0.466.* | 6.4.664.* |Menor ou igual à versão 4,0|1º de agosto de 2020  |
 | 7.0.466.* | 6,5. * |Menor ou igual à versão 4,0|1º de agosto de 2020 |
 | 7.0.470.* | 7.0.466.* |Menor ou igual à versão 4,0 |1º de agosto de 2020  |
+| 7.0.472.* | 7.0.466.* |Menor ou igual à versão 4,0 |1º de agosto de 2020  |
 | 7.1.409.* | 7.0.466.* |Menor ou igual à versão 4,0 |Versão atual, portanto, sem data de término |
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
@@ -50,11 +51,12 @@ A tabela a seguir lista os sistemas operacionais com suporte para as versões de
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6,0 |
+| Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6,0 |
+| Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 18, 4 | 7.1 |
 
 ## <a name="supported-version-names"></a>Nomes de versão com suporte
 
@@ -107,4 +109,5 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | 7,0 CU2 | 7.0.464.9590 | 7.0.464.1 |
 | 7,0 CU3 | 7.0.466.9590 | 7.0.465.1 |
 | 7,0 CU4 | 7.0.470.9590 | 7.0.469.1 |
+| 7,0 CU6 | 7.0.472.9590 | 7.0.471.1 |
 | RTO DE 7,1 | 7.1.409.9590 | 7.1.410.1 |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 38c0d7d93d00d31a8efa508a635b471a73da0419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d8a10f81cd9a73b9b77e68f15f7bc7c98d60ac0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80123275"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891022"
 ---
 Você pode verificar os links nesta seção para obter mais informações sobre os serviços oferecidos por parceiros. Caso seu parceiro de dispositivo de branch não esteja listado na seção abaixo, peça que seu provedor de dispositivo branch entre em contato conosco. Ele pode entrar em contato conosco enviando um email para azurevirtualwan@microsoft.com.
 
@@ -29,6 +29,7 @@ Você pode verificar os links nesta seção para obter mais informações sobre 
 |[Redes Palo Alto](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |* |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|* |
 |[Prata-pico]( https://www.silver-peak.com/silver-peak-expands-integration-with-microsoft-cloud-services)|[Guia de integração da WAN virtual EdgeConnect e Microsoft Azure](https://www.silver-peak.com/documentation/edgeconnect-and-azure-vwan-integration-guide)|
+|[Velocloud – VMWare]( https://wan.velocloud.com/rs/098-RBR-178/images/sdwan-654-connect-azure-vwan-so-0819.pdf)|[Guia de implantação de Velocloud de WAN virtual do Azure](https://kb.vmware.com/s/article/79000)|
 | [Vice-versa](https://www.versa-networks.com/partners/microsoft-azure-virtual-WAN) | [Configurando o Versamento SD-WAN e o Microsoft Azure vWAN (disponível para clientes registrados)](https://docs.versa-networks.com/Versa_Director/Versa_Director_Configuration/Integrate_Director_and_Azure_Virtual_WAN) |
 
 *\*Link direto indisponível. Entre em contato com a empresa parceira para obter suporte.*

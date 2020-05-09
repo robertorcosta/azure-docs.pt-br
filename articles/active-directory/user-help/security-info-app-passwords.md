@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77619f7bc24943b2b7051ff51f92cf96d439775e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064063"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628411"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Criar senhas de aplicativo da página informações de segurança (versão prévia)
 
@@ -45,7 +45,7 @@ Se você usa a verificação em duas etapas com sua conta corporativa ou de estu
 
 ### <a name="to-create-a-new-app-password"></a>Criar uma nova senha de aplicativo
 
-1. Entre em sua conta corporativa ou de estudante e vá para a página https://myprofile.microsoft.com/.
+1. Entre em sua conta corporativa ou de estudante e vá para a página https://myaccount.microsoft.com/.
 
     ![Página Meu Perfil, com links para Informações de segurança em destaque](media/security-info/securityinfo-myprofile-page.png)
 

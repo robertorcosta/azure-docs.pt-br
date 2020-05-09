@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 5a8a58a3935b7cd5efb8565f7e3278ccaae4f4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf8fb383625ec2752264d6e5a70d8625f06689fc
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921429"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628292"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Solução de problemas de implantação de máquina virtual do Linux no Azure
 
@@ -56,13 +56,13 @@ No momento, o suporte ao GPU do Linux está disponível apenas em VMs NC do Azur
 
 ## <a name="my-drivers-are-missing-for-my-linux-n-series-vm"></a>Meus drivers estão ausentes para minha VM série N do Linux
 
-Drivers para VMs baseadas em Linux estão localizados [aqui](../linux/n-series-driver-setup.md). 
+As instruções para instalar drivers para VMs baseadas em Linux estão localizadas [aqui](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Não é possível localizar uma instância GPU em minha VM série N
 
-Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Windows Server 2016 ou o Windows Server 2012 R2, é necessário instalar os drivers gráficos NVIDIA em cada VM após a implantação. Também há informações de instalação de driver disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md) e [VMs do Linux](../linux/n-series-driver-setup.md).
+Para aproveitar os recursos de GPU das VMs da série N do Azure, você deve instalar os drivers gráficos em cada VM após a implantação. As informações de configuração do driver estão disponíveis [aqui](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
-## <a name="is-n-series-vms-available-in-my-region"></a>As VMs da série N estão disponíveis na minha região?
+## <a name="are-n-series-vms-available-in-my-region"></a>As VMs da série N estão disponíveis em minha região?
 
 Você pode verificar a disponibilidade em [Produtos disponíveis pela tabela de região](https://azure.microsoft.com/regions/services) e preços [aqui](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 
