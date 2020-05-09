@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80992208"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793118"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2 implementa um modelo de controle de acesso que dá 
 
 <a id="azure-role-based-access-control-rbac" />
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
 O RBAC usa atribuições de função para aplicar efetivamente conjuntos de permissões a *entidades de segurança*. Uma *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD) que está solicitando acesso aos recursos do Azure.
 
@@ -287,7 +287,7 @@ Se HNS estiver desativado, as regras de autorização do RBAC do Azure ainda se 
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Qual é a melhor maneira de aplicar ACLs?
 
-Sempre use grupos de segurança do Microsoft Azure Active Directory como o principal atribuído em ACLs. Resista a oportunidade de atribuir diretamente a usuários individuais ou entidades de serviço. Usar essa estrutura permitirá que você adicione e remova usuários ou entidades de serviço sem a necessidade de reaplicar as ACLs para uma estrutura de diretório inteiro. ) Em vez disso, você só precisa adicionar ou removê-lo do grupo de segurança do Azure Active Directory. Tenha em mente que as ACLs não são herdadas e então reaplicar as ACLs é necessário atualizar a ACL em cada arquivo e o subdiretório. 
+Sempre use grupos de segurança do Microsoft Azure Active Directory como o principal atribuído em ACLs. Resista a oportunidade de atribuir diretamente a usuários individuais ou entidades de serviço. Usar essa estrutura permitirá que você adicione e remova usuários ou entidades de serviço sem a necessidade de reaplicar as ACLs para uma estrutura de diretório inteiro. Em vez disso, você simplesmente precisa adicionar ou removê-los do grupo de segurança apropriado do Azure AD. Tenha em mente que as ACLs não são herdadas e então reaplicar as ACLs é necessário atualizar a ACL em cada arquivo e o subdiretório. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente um diretório e seu conteúdo?
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dd01b950435fadb96a961b6bb1c6b28ff436907a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81265766"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607275"
 ---
 # <a name="create-an-fslogix-profile-container-with-azure-files"></a>Criar um contêiner de perfil do FSLogix com os arquivos do Azure
 
@@ -73,7 +73,7 @@ Para atribuir permissões de acesso de usuários:
 
 6. Selecione um nome ou endereço de email para a identidade de Azure Active Directory de destino.
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 ## <a name="get-the-storage-account-access-key"></a>Obter a chave de acesso da conta de armazenamento
 
@@ -97,7 +97,7 @@ Para obter a chave de acesso da conta de armazenamento:
 
 6. Quando você tiver entrado na VM, execute um prompt de comando como administrador.
 
-7. Execute o seguinte comando:
+7. Execute o comando a seguir:
 
      ```cmd
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -108,7 +108,7 @@ Para obter a chave de acesso da conta de armazenamento:
     - Substitua `<share-name>` pelo nome do compartilhamento que você criou anteriormente.
     - Substitua `<storage-account-key>` pela chave da conta de armazenamento do Azure.
 
-    Por exemplo:  
+    Por exemplo:   
   
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -123,7 +123,7 @@ Para obter a chave de acesso da conta de armazenamento:
     - Substitua `<mounted-drive-letter>` pela letra da unidade que você deseja que o usuário use.
     - Substitua `<user-email>` pelo UPN do usuário que usará esse perfil para acessar as VMs do host de sessão.
 
-    Por exemplo:
+    Por exemplo: 
      
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
@@ -199,7 +199,7 @@ Para atribuir usuários:
 
     Como os cmdlets anteriores, certifique-se de `<your-wvd-tenant>`substituir `<wvd-pool>`, e `<user-principal>` pelos valores relevantes.
 
-    Por exemplo:
+    Por exemplo: 
 
      ```powershell
      $pool1 = "contoso"
@@ -219,7 +219,7 @@ Agora tudo o que você precisa fazer é verificar se o perfil criado existe e fu
 
 Para verificar seu perfil:
 
-1. Abra um navegador e vá para [o cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/webclient/index.html).
+1. Abra um navegador e vá para [o cliente Web da área de trabalho virtual do Windows](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Entre com a conta de usuário atribuída ao grupo de Área de Trabalho Remota.
 

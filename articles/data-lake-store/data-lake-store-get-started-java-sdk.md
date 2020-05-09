@@ -1,23 +1,17 @@
 ---
-title: 'SDK do Java: operações do sistema de arquivos no Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Use o SDK do Java do Azure Data Lake Storage Gen1 para executar operações do sistema de arquivos no Data Lake Storage Gen1, tais como criar pastas, etc.
-services: data-lake-store
-documentationcenter: ''
+title: SDK do Java-operações do sistema de arquivos no Data Lake Storage Gen1-Azure
+description: Use o SDK do Java para Azure Data Lake Storage Gen1 executar operações de sistema de arquivos em Data Lake Storage Gen1 como criar pastas e carregar e baixar arquivos de dados.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6f97443e4bcf6689f0bf49917774f662d5462566
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60877456"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691785"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de arquivos no Azure Data Lake Storage Gen1 usando o SDK do Java
 > [!div class="op_single_selector"]
@@ -58,7 +52,7 @@ O exemplo de código disponível [no GitHub](https://azure.microsoft.com/documen
           </dependency>
         </dependencies>
    
-    A primeira dependência é usar o SDK do Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) do repositório maven. A segunda dependência serve para especificar qual estrutura de registros (`slf4j-nop`) usar para o aplicativo. O SDK do Data Lake Storage Gen1 usa fachada de registros [slf4j](https://www.slf4j.org/), o que permite escolher entre uma série de estruturas de registros populares como log4j, registro do Java, logback, etc., ou nenhum registro. Para este exemplo, desabilitamos o registro em log, por isso, usamos a associação **slf4j-nop**. Para usar outras opções de log em seu aplicativo, veja [aqui](https://www.slf4j.org/manual.html#projectDep).
+    A primeira dependência é usar o SDK do Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) do repositório maven. A segunda dependência serve para especificar qual estrutura de registros (`slf4j-nop`) usar para o aplicativo. O SDK do Data Lake Storage Gen1 usa a fachada de log [SLF4J](https://www.slf4j.org/) , que permite que você escolha entre várias estruturas de log populares, como Log4J, log Java, Logback, etc., ou nenhum registro em log. Para este exemplo, desabilitamos o registro em log, por isso, usamos a associação **slf4j-nop**. Para usar outras opções de log em seu aplicativo, veja [aqui](https://www.slf4j.org/manual.html#projectDep).
 
 3. Adicione as seguintes instruções import ao seu aplicativo.
 

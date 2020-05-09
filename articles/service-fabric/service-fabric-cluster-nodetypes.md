@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 37d4c27d3033545c523cefc2f317073af531f095
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03076a711041812f7587aa1c388b0889b49725d2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78199709"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787126"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
 
@@ -26,7 +26,7 @@ A figura a seguir mostra um cluster que tem dois tipos de nó, chamados *fronten
 
 Conforme mostrado na figura anterior, as instâncias do conjunto de dimensionamento começam na instância 0 e, em seguida, aumentam em 1. A numeração é refletida nos nomes do nó. Por exemplo, o nó BackEnd_0 é a instância 0 do conjunto de dimensionamento de BackEnd. Esse conjunto de dimensionamento específico tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
 
-Quando você escala um conjunto de dimensionamento verticalmente, uma nova instância é criada. O novo nome da instância do conjunto de dimensionamento geralmente será o nome do conjunto de dimensionamento mais o número de instância seguinte. Em nosso exemplo, é BackEnd_5.
+Quando você escala horizontalmente um conjunto de dimensionamento, uma nova instância é criada. O novo nome da instância do conjunto de dimensionamento geralmente será o nome do conjunto de dimensionamento mais o número de instância seguinte. Em nosso exemplo, é BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mapear balanceadores de carga do conjunto de dimensionamento para tipos de nó e conjuntos de dimensionamento
 
@@ -74,19 +74,19 @@ A seguir estão as descrições de propriedade:
 
 | **Nome** | **Valores permitidos** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-| name | cadeia de caracteres | Nome exclusivo para a extensão |
+| name | string | Nome exclusivo para a extensão |
 | type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
 | editor | Microsoft. Azure. infabric | Nome do editor de extensão de Service Fabric |
-| clusterEndpont | cadeia de caracteres | URI: porta para ponto de extremidade de gerenciamento |
-| nodeTypeRef | cadeia de caracteres | Nome do nodeType |
+| clusterEndpont | string | URI: porta para ponto de extremidade de gerenciamento |
+| nodeTypeRef | string | Nome do nodeType |
 | durabilityLevel | bronze, prata, ouro, platina | Tempo permitido para pausar a infraestrutura imutável do Azure |
 | enableParallelJobs | true ou false | Habilitar computação ParallelJobs como remover VM e reinicializar VM no mesmo conjunto de dimensionamento em paralelo |
-| nicPrefixOverride | cadeia de caracteres | Prefixo de sub-rede como "10.0.0.0/24" |
+| nicPrefixOverride | string | Prefixo de sub-rede como "10.0.0.0/24" |
 | Osnames | string[] | Nomes comuns de certificados de cluster instalados |
-| x509StoreName | cadeia de caracteres | Nome do repositório onde o certificado de cluster instalado está localizado |
+| x509StoreName | string | Nome do repositório onde o certificado de cluster instalado está localizado |
 | typeHandlerVersion | 1,1 | Versão da extensão. 1,0 a versão clássica da extensão é recomendada para atualizar para o 1,1 |
-| Caminho | cadeia de caracteres | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
+| Caminho | string | Caminho para a unidade usada para salvar o estado de Service Fabric serviços do sistema e dados de aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

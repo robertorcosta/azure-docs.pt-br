@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee6df940dd36a325d3638c3ad29ebfd8dec713d8
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156048"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801698"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -75,14 +75,14 @@ Sim.
 
 O Backup do Azure dá suporte a esses sistemas operacionais para backup de arquivos e pastas, além de aplicativos protegidos usando o Servidor de Backup do Azure e o DPM.
 
-**SISTEMAS** | **SKU** | **Detalhes**
+**Sistema operacional** | **SKU** | **Detalhes**
 --- | --- | ---
 Estação de Trabalho | |
 Windows 10 de 64 bits | Enterprise, Pro, Home | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 8.1 de 64 bits | Enterprise, Pro | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 8 de 64 bits | Enterprise, Pro | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | As máquinas devem estar executando os pacotes e as atualizações de serviços mais recentes.
-Server (Servidor) | |
+Servidor | |
 Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
@@ -107,7 +107,7 @@ Windows 8 ou superior | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54.400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-VM do Azure | 16 discos de dados<br/> Para se inscrever para a versão prévia privada de VMs com mais de 16 discos (até 32 discos), escreva para nós em AskAzureBackupTeam@microsoft.com <br><br> Disco de dados de até 32 TB
+VM do Azure | 16 discos de dados<br/> Para se inscrever para a visualização limitada de VMs com mais de 16 discos (até 32 discos), escreva para nós emAskAzureBackupTeam@microsoft.com <br><br> Disco de dados de até 32 TB
 
 ### <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da fonte de dados?
 

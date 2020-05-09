@@ -122,8 +122,6 @@
       href: remotefx-graphics-performance-counters.md
 - name: Referência
   items:
-    - name: Melhores práticas de segurança
-      href: security-guide.md
     - name: Suporte para Linux
       href: linux-overview.md
     - name: Configurações de arquivo RDP com suporte

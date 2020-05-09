@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurepowershel
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 1e63a6e57e1dc929c78e5278df6ef0e4ab2a17d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 871b1ba81f672459378b23705ad5b96213667a73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230841"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609018"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-powershell"></a>Como fazer backup e restaurar um servidor no banco de dados do Azure para MySQL usando o PowerShell
+# <a name="how-to-back-up-and-restore-an-azure-database-for-mysql-server-using-powershell"></a>Como fazer backup e restaurar um banco de dados do Azure para o servidor MySQL usando o PowerShell
 
 O backup do banco de dados do Azure para servidores MySQL é feito periodicamente para habilitar os recursos de restauração. Com esse recurso de backup automático, você pode restaurar o servidor e todos os seus bancos de dados para um ponto anterior em um novo servidor.
 
@@ -120,7 +120,7 @@ O conjunto de parâmetros **Georestore** do `Restore-AzMySqlServer` cmdlet reque
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | O nome do grupo de recursos ao qual o novo servidor pertence.|
 |Nome | mydemoserver-georestored | O nome do novo servidor. |
-|Location | eastus | A localização do novo servidor. |
+|Local | eastus | A localização do novo servidor. |
 |UseGeoRestore | `<SwitchParameter>` | Use o modo geográfico para restaurar. |
 
 Ao criar um novo servidor usando a restauração geográfica, ele herda o mesmo tamanho de armazenamento e tipo de preço do servidor de origem, a menos que o parâmetro **SKU** seja especificado.
@@ -131,6 +131,5 @@ O novo servidor criado durante uma restauração não tem os pontos de extremida
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre os [backups](concepts-backup.md) do serviço
-- Saiba mais sobre [réplicas](concepts-read-replicas.md)
-- Saiba mais sobre as opções de [continuidade dos negócios](concepts-business-continuity.md)
+> [!div class="nextstepaction"]
+> [Personalizar parâmetros do servidor do banco de dados do Azure para MySQL usando o PowerShell](howto-configure-server-parameters-using-powershell.md)

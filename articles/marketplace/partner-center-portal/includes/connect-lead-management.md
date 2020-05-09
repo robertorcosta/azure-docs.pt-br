@@ -10,10 +10,10 @@ ms.date: 08/16/2019
 ms.author: dsindona
 ms.custom: include file
 ms.openlocfilehash: cf6a5730f92eba8f0a4e63bf40a4d2b50f76eb3a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131083"
 ---
 Ao publicar sua oferta no Marketplace por meio do Partner Center, você precisará conectar sua oferta ao sistema CRM. Dessa forma, você pode receber informações de contato do cliente imediatamente depois que um cliente expressar o interesse ou implantar seu produto.

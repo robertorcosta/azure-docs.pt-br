@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74849183"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562059"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
@@ -184,8 +184,8 @@ Os proxies leem todas as cadeias de caracteres de um arquivo JSON, usando \ como
 O objeto requestOverrides define as alterações feitas à solicitação quando o recurso de back-end é chamado. O objeto é definido pelas seguintes propriedades:
 
 * **backend.request.method**: O método HTTP que é usado para chamar o back-end.
-* **backend.request.querystring.\<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua * \<ParameterName\> * pelo nome do parâmetro que você deseja definir. Observe que, se a cadeia de caracteres vazia for fornecida, o parâmetro ainda estará incluído na solicitação de back-end.
-* **backend.Request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja definir. Se você fornecer a cadeia de caracteres vazia, o cabeçalho não será incluído na solicitação de back-end.
+* **backend.request.querystring.\<ParameterName\>**: Um parâmetro de cadeia de caracteres de consulta que pode ser definido para a chamada ao back-end. Substitua * \<ParameterName\> * pelo nome do parâmetro que você deseja definir. Observe que, se uma cadeia de caracteres vazia for fornecida, o parâmetro ainda será incluído na solicitação de back-end.
+* **backend.Request.headers.\<HeaderName\>**: Um cabeçalho que pode ser definido para a chamada ao back-end. Substitua * \<HeaderName\> * pelo nome do cabeçalho que você deseja definir. Observe que, se uma cadeia de caracteres vazia for fornecida, o parâmetro ainda será incluído na solicitação de back-end.
 
 Os valores podem referenciar as configurações do aplicativo e os parâmetros da solicitação original do cliente.
 

@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 11/20/2019
-ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 255c39eac2285a23403da2db893d9de8835f7d2c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417353"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891539"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,6 +61,10 @@ Esse conector do Dynamics é criado sobre as [Ferramentas do Dynamics xrm](https
 >[!TIP]
 >Para copiar dados de **Finanças e Operações do Dynamics 365**, você pode usar o [Conector do Dynamics AX](connector-dynamics-ax.md).
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para usar esse conector com a autenticação de entidade de serviço do AAD, você precisa configurar a autenticação de servidor para servidor (S2S) no Common Data Service ou Dynamics. Consulte [Este artigo](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) sobre etapas detalhadas.
+
 ## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -73,7 +77,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 e Dynamics CRM Online
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como **Dynamics**, **DynamicsCrm**ou **CommonDataServiceForApps**. | Sim |
 | deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"Online"** para o Dynamics online. | Sim |
@@ -170,7 +174,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 *Propriedades adicionais que comparam com o Dynamics online são "hostName" e "port".*
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como **Dynamics**, **DynamicsCrm**ou **CommonDataServiceForApps**. | Sim |
 | deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"OnPremisesWithIfd"** para o Dynamics local com IFD.| Sim |
@@ -216,7 +220,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de e para o Dynamics, há suporte para as propriedades a seguir.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type do conjunto de conjuntos deve ser definida como **DynamicsEntity**, **DynamicsCrmEntity**ou **CommonDataServiceForAppsEntity**. |Sim |
 | entityName | O nome lógico da entidade a ser recuperada. | Não para fonte (se "query" na fonte da atividade for especificada), Sim para coletor |
@@ -248,7 +252,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Dynamics, há suporte para as propriedades a seguir na seção **origem** da atividade de cópia.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type da fonte da atividade de cópia deve ser definida como **dynamicsname**, **DynamicsCrmSource**ou **CommonDataServiceForAppsSource**. | Sim |
 | Consulta | FetchXML é uma linguagem de consulta proprietária que é usada no Dynamics (online e local). Veja os exemplos a seguir. Para saber mais, consulte [criar consultas com FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se "entityName" no conjunto de dados for especificada) |
@@ -316,7 +320,7 @@ Para copiar dados do Dynamics, há suporte para as propriedades a seguir na seç
 
 Para copiar dados para o Dynamics, as propriedades a seguir têm suporte na seção **coletor** de atividade de cópia.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessária |
 |:--- |:--- |:--- |
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como **DynamicsSink**, **DynamicsCrmSink**ou **CommonDataServiceForAppsSink**. | Sim |
 | writeBehavior | O comportamento da operação de gravação.<br/>O valor permitido é **"Upsert"**. | Sim |
@@ -374,21 +378,21 @@ Configure o tipo de dados do Data Factory correspondente em uma estrutura do con
 | Tipo de dados do Dynamics | Tipo de dados provisório do Data Factory | Tem suporte como origem | Tem suporte como coletor |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booliano | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (com o único destino associado) |
-| AttributeType.ManagedProperty | Booliano | ✓ | |
-| AttributeType.Memo | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
