@@ -3,12 +3,12 @@ title: Melhorar a disponibilidade do aplicativo com o Assistente do Azure
 description: Use o Azure Advisor para melhorar a alta disponibilidade das implantações do Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e38a1fb5e07e3811c53e24a5e324575d6774a75
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443101"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788018"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade do aplicativo com o Assistente do Azure
 
@@ -28,6 +28,10 @@ Para oferecer redundância para o seu aplicativo, recomendamos que agrupe uma ou
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Usar o Managed Disks para melhorar a confiabilidade de dados
 
 Máquinas virtuais que estão em um conjunto de disponibilidade com discos que compartilham contas de armazenamento ou unidades de escala de armazenamento não são resilientes a falhas de unidade de escala de armazenamento únicas durante interrupções. O Assistente identificará esses conjuntos de disponibilidade e recomendará a migração para o Azure Managed Disks. Isso garantirá que os discos das diferentes máquinas virtuais no conjunto de disponibilidade estejam isolados o suficiente para evitar um ponto único de falha. 
+
+## <a name="known-issue-with-check-point-network-virtual-appliance-image-version"></a>Problema conhecido com a versão da imagem da solução de virtualização de rede do Check Point
+
+O Advisor pode identificar se sua máquina virtual pode estar executando uma versão da imagem do Check Point que foi conhecida por perder a conectividade de rede no caso de uma operação de manutenção de plataforma. A recomendação do Advisor ajudará você a atualizar para uma versão mais recente da imagem que resolve esse problema. Isso garantirá a continuidade dos negócios por meio de uma melhor conectividade de rede.
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Garantir tolerância a falhas de Gateway de Aplicativo
 
@@ -83,7 +87,7 @@ O assistente do Azure identificará Azure Cosmos DB contas que estão usando ver
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Atualizar o SDK do Java do Azure Cosmos DB para a versão mais recente do Maven
 
-O assistente do Azure identificará Azure Cosmos DB contas que estão usando versões antigas do SDK do Java e recomendará atualizar para a versão mais recente do Maven para as correções mais recentes, melhorias de desempenho e novos recursos de recurso. [Saiba mais sobre o SDK do Java Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+O assistente do Azure identificará Azure Cosmos DB contas que estão usando versões antigas do SDK do Java e recomendará atualizar para a versão mais recente do Maven para as correções mais recentes, melhorias de desempenho e novos recursos de recurso. [Saiba mais sobre o SDK do Java Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Atualizar o Conector do Spark do Azure Cosmos DB para a versão mais recente do Maven
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 780f2774cb37e3d6d43ed5137c29119c0f63fd0a
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617513"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743706"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminação de TLS com certificados de Key Vault
 
@@ -50,7 +50,21 @@ A integração do gateway de aplicativo com o Key Vault requer um processo de co
    Em seguida, importe um certificado existente ou crie um novo no cofre de chaves. O certificado será usado por aplicativos que são executados por meio do gateway de aplicativo. Nesta etapa, você também pode usar um segredo do Key Vault que é armazenado como um arquivo PFX codificado por senha, em base 64. É recomendável usar um tipo de certificado devido ao recurso de renovação automática disponível com objetos de tipo de certificado no cofre de chaves. Depois de criar um certificado ou um segredo, defina as políticas de acesso no cofre de chaves para permitir que a identidade *receba acesso ao* segredo.
    
    > [!NOTE]
-   > Se você implantar o gateway de aplicativo por meio de um modelo ARM, usando o CLI do Azure ou o PowerShell, ou por meio de um Aplicativo Azure implantado a partir do portal do Azure, o certificado SSL armazenado no cofre de chaves como um arquivo PFX codificado em base 64 **deve ser sem senha**. Além disso, você deve concluir as etapas em [usar Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). É particularmente importante definir `enabledForTemplateDeployment` como. `true`
+   > Se você implantar o gateway de aplicativo por meio de um modelo ARM, usando o CLI do Azure ou o PowerShell, ou por meio de um aplicativo do Azure implantado no portal do Azure, o certificado SSL será armazenado no cofre de chaves como um arquivo PFX codificado em base64. Você deve concluir as etapas em [usar Azure Key Vault para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). 
+   >
+   > É particularmente importante definir `enabledForTemplateDeployment` como. `true` O certificado pode ser com senha ou pode ter uma senha. No caso de um certificado com uma senha, o exemplo a seguir mostra uma configuração possível para a `sslCertificates` entrada no `properties` para a configuração do modelo ARM para um gateway de aplicativo. Os valores de `appGatewaySSLCertificateData` e `appGatewaySSLCertificatePassword` são pesquisados no cofre de chaves, conforme descrito na seção [segredos de referência com ID dinâmica](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Siga as referências para trás `parameters('secretName')` do para ver como a pesquisa ocorre. Se o certificado não tiver senha, omita a `password` entrada.
+   >   
+   > ```
+   > "sslCertificates": [
+   >     {
+   >         "name": "appGwSslCertificate",
+   >         "properties": {
+   >             "data": "[parameters('appGatewaySSLCertificateData')]",
+   >             "password": "[parameters('appGatewaySSLCertificatePassword')]"
+   >         }
+   >     }
+   > ]
+   > ```
 
 1. **Configurar o gateway de aplicativo**
 

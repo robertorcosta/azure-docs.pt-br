@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 6dd4db999cb130c9816ad023888a4333e968c224
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720377"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780429"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Falha na criação do cluster com InvalidNetworkConfigurationErrorCode no Azure HDInsight
 
@@ -54,7 +54,7 @@ A descrição do erro contém "falha ao se conectar à conta de armazenamento do
 
 ### <a name="cause"></a>Causa
 
-O armazenamento do Azure e o SQL não têm endereços IP fixos, portanto, precisamos permitir conexões de saída para todos os IPs para permitir o acesso a esses serviços. As etapas exatas de resolução dependem se você configurou um NSG (grupo de segurança de rede) ou UDR (regras definidas pelo usuário). Consulte a seção sobre como [controlar o tráfego de rede com o HDInsight com grupos de segurança de rede e rotas definidas pelo usuário](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) para obter detalhes sobre essas configurações.
+O armazenamento do Azure e o SQL não têm endereços IP fixos, portanto, precisamos permitir conexões de saída para todos os IPs para permitir o acesso a esses serviços. As etapas exatas de resolução dependem se você configurou um NSG (grupo de segurança de rede) ou UDR (regras definidas pelo usuário). Consulte a seção sobre como [controlar o tráfego de rede com o HDInsight com grupos de segurança de rede e rotas definidas pelo usuário](../control-network-traffic.md) para obter detalhes sobre essas configurações.
 
 ### <a name="resolution"></a>Resolução
 

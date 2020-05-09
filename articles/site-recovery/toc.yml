@@ -11,6 +11,9 @@
   items:
     - name: Replicar uma VM do Azure para outra região
       href: azure-to-azure-quickstart.md
+    - name: Criar um cofre – modelo do ARM
+      displayName: Resource Manager
+      href: quickstart-create-vault-template.md
 - name: Tutoriais
   items:
     - name: Recuperação de desastre da VM do Azure para o Azure
@@ -165,8 +168,6 @@
               href: azure-to-azure-about-networking.md
             - name: Personalizar as configurações de rede da VM do Azure de destino
               href: azure-to-azure-customize-networking.md
-            - name: Definir configurações de proxy do serviço de mobilidade
-              href: configure-mobility-service-proxy-settings.md
             - name: Configurar o mapeamento de rede e manter os endereços IP após o failover
               href: azure-to-azure-network-mapping.md
             - name: Exemplos para manter os endereços IP após o failover
@@ -191,6 +192,8 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Configurar a recuperação de desastres para VMs do Azure após a migração para o Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Habilitar a recuperação de desastre de zona para zona
+              href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Gerenciar
           items:
             - name: Atualizar o Serviço de Mobilidade para as VMs do Azure
@@ -241,7 +244,7 @@
               href: vmware-azure-set-up-replication.md
             - name: Implantar o serviço de Mobilidade
               items:
-                - name: Sobre a instalação do Serviço de Mobilidade
+                - name: Instalação e visão geral do serviço de mobilidade
                   href: vmware-physical-mobility-service-overview.md
                 - name: Preparar para a instalação por push
                   href: vmware-azure-install-mobility-service.md

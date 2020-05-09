@@ -5,20 +5,24 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 0af0fdfa1b0bcbb06d9424390e7ca8c8f406bcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8580b7e28c8a4860739efa0763ebb7c20a80585e
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619313"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780276"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar em uma máquina virtual: bastiões do Azure
 
 Este artigo ajuda você a copiar e colar texto de e para máquinas virtuais ao usar a bastiões do Azure. Antes de trabalhar com uma VM, certifique-se de ter seguido as etapas para [criar um host de bastiões](bastion-create-host-portal.md). Em seguida, conecte-se à VM com a qual você deseja trabalhar usando o [RDP](bastion-connect-vm-rdp.md) ou [SSH](bastion-connect-vm-ssh.md).
 
 Para navegadores que dão suporte ao acesso à API de área de transferência avançada, você pode copiar e colar o texto entre o dispositivo local e a sessão remota da mesma maneira que copia e cola entre aplicativos em seu dispositivo local. Para outros navegadores, você pode usar a paleta de ferramentas de acesso à área de transferência de bastiões.
+
+>[!NOTE]
+>No momento, só há suporte para copiar/colar texto.
+>
 
    ![Permitir área de transferência](./media/bastion-vm-manage/allow.png)
 
