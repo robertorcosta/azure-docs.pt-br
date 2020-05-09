@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 495877f1c839de2cf3583a37180054c91bd9f139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76907767"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731995"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorar o status de execução, examinar o histórico de gatilho e configurar alertas para aplicativos lógicos do Azure
 
@@ -19,7 +19,8 @@ Depois de [criar e executar um aplicativo lógico](../logic-apps/quickstart-crea
 
 Para monitoramento de eventos em tempo real e depuração mais avançada, configure o log de diagnóstico para seu aplicativo lógico usando [logs de Azure monitor](../azure-monitor/overview.md). Esse serviço do Azure ajuda a monitorar seus ambientes locais e de nuvem para que você possa manter a disponibilidade e o desempenho com mais facilidade. Em seguida, você pode localizar e exibir eventos, como eventos de gatilho, eventos de execução e eventos de ação. Ao armazenar essas informações em [logs de Azure monitor](../azure-monitor/platform/data-platform-logs.md), você pode criar [consultas de log](../azure-monitor/log-query/log-query-overview.md) que ajudam a localizar e analisar essas informações. Você também pode usar esses dados de diagnóstico com outros serviços do Azure, como o armazenamento do Azure e os hubs de eventos do Azure. Para obter mais informações, consulte [monitorar aplicativos lógicos usando Azure monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> Se seus aplicativos lógicos forem executados em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que foi criado para usar um [ponto de extremidade de acesso interno](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), você poderá exibir e acessar entradas e saídas do histórico de execuções do aplicativo lógico *somente de dentro de sua rede virtual*. Verifique se você tem conectividade de rede entre os pontos de extremidade privados e o computador do qual você deseja acessar o histórico de execuções. Por exemplo, o computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual conectada à rede virtual do ISE, por exemplo, por meio de emparelhamento ou de uma rede virtual privada. Para obter mais informações, consulte [ISE Endpoint Access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 

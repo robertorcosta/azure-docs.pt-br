@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67454133"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691327"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considerações de desempenho para o Azure NetApp Files
 
@@ -34,8 +34,6 @@ Considerações de desempenho de armazenamento típicas, incluindo a combinaçã
 A taxa de transferência máxima de empírica observada no teste é 4.500 MiB/s.  Na camada de armazenamento Premium, uma cota de volume de 70,31 TiB provisionará um limite de taxa de transferência que é alto o suficiente para atingir esse nível de desempenho.  
 
 Se você estiver considerando a atribuição de valores de cota de volume além de 70,31 TiB, a cota adicional pode ser atribuída a um volume para armazenar dados adicionais. No entanto, a cota adicionada não resultará em um aumento adicional na taxa de transferência real.  
-
-Consulte [benchmarks de desempenho para Azure NetApp files](azure-netapp-files-performance-benchmarks.md) para obter informações adicionais.
 
 ## <a name="overprovisioning-the-volume-quota"></a>Provisionando a cota de volume
 
@@ -64,4 +62,4 @@ Se seus requisitos de desempenho forem temporários por natureza ou se você tiv
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Níveis de serviço do Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Parâmetros de comparação de desempenho para o Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Parâmetros de comparação de desempenho para o Linux](performance-benchmarks-linux.md)

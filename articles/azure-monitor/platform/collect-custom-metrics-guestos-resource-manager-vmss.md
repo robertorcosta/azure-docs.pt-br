@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 24f83e4f6285d045e67bdaef431ebcff2345ef84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663885"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733238"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para um conjunto de dimensionamento de máquina virtual do Windows
 
@@ -245,14 +245,14 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. Crie um novo grupo de recursos para a VM sendo implantada. Execute o seguinte comando: 
+1. Crie um novo grupo de recursos para a VM sendo implantada. Execute o comando a seguir: 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
-   > Lembre-se de usar uma região do Azure ativada para métricas personalizadas. Lembre-se de usar uma região do [Azure ativada para métricas personalizadas](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-regions).
+   > Lembre-se de usar uma região do Azure ativada para métricas personalizadas. Lembre-se de usar uma região do [Azure ativada para métricas personalizadas](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
  
 1. Execute os seguintes comandos para implantar a VM:  
 
@@ -271,7 +271,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
 
 ## <a name="chart-your-metrics"></a>Fazer um gráfico das métricas 
 
-1. Entre no Portal do Azure. 
+1. Entre no portal do Azure. 
 
 1. No menu à esquerda, selecione **Monitor**. 
 
