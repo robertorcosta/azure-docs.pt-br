@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint da Base do CAF
 description: Visão geral e arquitetura do exemplo de blueprint do CAF (Cloud Adoption Framework) para o Azure Foundation.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 1f14b4d4811b9bdcb64f3860b2cf25b82825d5c4
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81458464"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901295"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Visão geral do exemplo de blueprint do Cloud Adoption Framework da Microsoft para o Azure Foundation
 
@@ -31,7 +31,7 @@ Essa implementação incorpora vários serviços do Azure usados para oferecer u
   - Região do Azure permitida para recursos e grupos de recursos
   - SKUs de conta de armazenamento permitidas (escolha durante a implantação)
   - SKUs de VM do Azure permitidas (escolha durante a implantação)
-  - Exigir que a inspeção de rede seja implantada 
+  - Exigir a implantação do Observador de Rede 
   - Exigir criptografia de transferência segura na Conta de Armazenamento do Microsoft Azure
   - Negar tipos de recursos (escolher durante a implantação)  
 - Iniciativas
