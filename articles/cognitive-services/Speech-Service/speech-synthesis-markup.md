@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b1c19ed556a55dec8c84686e80ec988bc593a7a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583215"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996040"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -57,9 +57,9 @@ Cada documento SSML é criado com elementos SSML (ou marcas). Esses elementos s�
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `version` | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Obrigatório |
-| `xml:lang` | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, `en`) ou o código de idioma e o país/região em maiúsculas ( `en-US`por exemplo,). | Obrigatório |
-| `xmlns` | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é http://www.w3.org/2001/10/synthesis. | Obrigatório |
+| `version` | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Necessária |
+| `xml:lang` | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, `en`) ou o código de idioma e o país/região em maiúsculas ( `en-US`por exemplo,). | Necessária |
+| `xmlns` | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é http://www.w3.org/2001/10/synthesis. | Necessária |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Escolha uma voz para conversão de texto em fala
 
@@ -100,7 +100,7 @@ Dentro do `speak` elemento, você pode especificar várias vozes para a saída d
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Obrigatório |
+| `name` | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Necessária |
 
 > [!IMPORTANT]
 > Várias vozes são incompatíveis com o recurso de limite de palavra. O recurso de limite de palavra precisa ser desabilitado para usar várias vozes.
@@ -118,7 +118,7 @@ speechConfig.SetProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="c"></a>[C](#tab/cpp)
+# <a name="c"></a>[C++](#tab/cpp)
 
 Para obter mais informações, <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
 
@@ -258,7 +258,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>none</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
+| `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhuma</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e`500` | Opcional |
 
 | Segurança                      | Descrição |
@@ -359,7 +359,10 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Usar o léxico personalizado para melhorar a pronúncia
 
-Às vezes, o TTS não pode pronunciar com precisão uma palavra, por exemplo, uma empresa ou um nome estrangeiro. Os desenvolvedores podem definir a leitura dessas entidades no SSML usando `phoneme` tag `sub` e, ou definir a leitura de várias entidades fazendo referência a um arquivo léxico personalizado usando `lexicon` a marca.
+Às vezes, o serviço de conversão de texto em fala não pode pronunciar uma palavra com precisão. Por exemplo, o nome de uma empresa ou um termo médico. Os desenvolvedores podem definir como as entidades únicas são lidas em `phoneme` SSML `sub` usando as marcas e. No entanto, se você precisar definir como várias entidades são lidas, poderá criar um léxico personalizado usando `lexicon` a marca.
+
+> [!NOTE]
+> O léxico personalizado atualmente dá suporte à codificação UTF-8. 
 
 **Sintaxe**
 
@@ -375,14 +378,10 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 **Usage**
 
-Etapa 1: definir o léxico personalizado 
-
-Você pode definir a leitura de entidades por uma lista de itens léxicos personalizados, armazenados como um arquivo. xml ou. pls.
-
-**Exemplo**
+Para definir como várias entidades são lidas, você pode criar um léxico personalizado, que é armazenado como um arquivo. xml ou. pls. Este é um arquivo. XML de exemplo.
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -400,39 +399,61 @@ Você pode definir a leitura de entidades por uma lista de itens léxicos person
 </lexicon>
 ```
 
-Cada `lexeme` elemento é um item léxico. `grapheme`contém o texto que descreve o `lexeme`orthograph de. O formulário de leitura pode ser `alias`fornecido como. A cadeia de caracteres de telefone `phoneme` pode ser fornecida no elemento.
+O `lexicon` elemento contém pelo menos um `lexeme` elemento. Cada `lexeme` elemento contém pelo menos um `grapheme` elemento e um ou mais `grapheme`elementos `alias`, e `phoneme` . O `grapheme` elemento contém texto que descreve <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">o <span class="docon docon-navigate-external x-hidden-focus"> </span>orthography </a>. Os `alias` elementos são usados para indicar a pronúncia de um acrônimo ou um termo abreviado. O `phoneme` elemento fornece texto que descreve como `lexeme` o é pronunciado.
 
-O `lexicon` elemento contém pelo menos um `lexeme` elemento. Cada `lexeme` elemento contém pelo menos um `grapheme` elemento e um ou mais `grapheme`elementos `alais`, e `phoneme` . O `grapheme` elemento contém texto que descreve <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">o <span class="docon docon-navigate-external x-hidden-focus"> </span>orthography </a>. Os `alias` elementos são usados para indicar a pronúncia de um acrônimo ou um termo abreviado. O `phoneme` elemento fornece texto que descreve como `lexeme` o é pronunciado.
+É importante observar que não é possível definir diretamente a pronúncia de uma palavra usando o léxico personalizado. Se você precisar definir a pronúncia para um, primeiro forneça um `alias`e, em seguida, `phoneme` associe o `alias`com isso. Por exemplo: 
 
-Para obter mais informações sobre o arquivo léxico personalizado, consulte [pls (especificação de léxico de pronúncia) versão 1,0](https://www.w3.org/TR/pronunciation-lexicon/) no site do W3C.
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>ScotlandMV</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme>ScotlandMV</grapheme> 
+    <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
 
-Etapa 2: carregar um arquivo léxico personalizado criado na etapa 1 online, você pode armazená-lo em qualquer lugar e sugerimos que você o armazene em Microsoft Azure, por exemplo, o [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+> [!IMPORTANT]
+> O `phoneme` elemento não pode conter espaços em branco ao usar IPA.
 
-Etapa 3: consulte o arquivo léxico personalizado no SSML
+Para obter mais informações sobre o arquivo léxico personalizado, consulte [pls (especificação de léxico de pronúncia) versão 1,0](https://www.w3.org/TR/pronunciation-lexicon/).
+
+Em seguida, publique seu arquivo léxico personalizado. Embora não tenhamos restrições sobre onde esse arquivo pode ser armazenado, recomendamos o uso [do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+Depois de publicar o léxico personalizado, você pode referenciá-lo de seu SSML.
+
+> [!NOTE]
+> O `lexicon` elemento deve estar dentro do `voice` elemento.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-<lexicon uri="http://www.example.com/customlexicon.xml"/>
-BTW, we will be there probably 8:00 tomorrow morning.
-Could you help leave a message to Robert Benigni for me?
+    <voice name="en-US-AriaRUS">
+        <lexicon uri="http://www.example.com/customlexicon.xml"/>
+        BTW, we will be there probably at 8:00 tomorrow morning.
+        Could you help leave a message to Robert Benigni for me?
+    </voice>
 </speak>
 ```
-"BTW" será lido como "a propósito". "Benignoi" será lido com o IPA fornecido "bɛ ˈ ni ː nji".  
 
-**Limitação**
+Ao usar esse léxico personalizado, "BTW" será lido como "a propósito". "Benignoi" será lido com o IPA fornecido "bɛ ˈ ni ː nji".  
+
+**Limitações**
 - Tamanho do arquivo: o limite máximo de tamanho de arquivo léxico personalizado é 100 KB, se além desse tamanho, a solicitação de síntese falhará.
 - Atualização do cache léxico: o léxico personalizado será armazenado em cache com o URI como chave no serviço de TTS quando ele for carregado pela primeira vez. O léxico com o mesmo URI não será recarregado dentro de 15 minutos, portanto, a alteração de léxico personalizada precisa esperar no máximo 15 minutos para entrar em vigor.
 
 **Conjuntos fonéticos do serviço de fala**
 
-No exemplo acima, estamos usando o alfabeto fonético internacional, também conhecido como o conjunto de telefone IPA. Sugerimos que os desenvolvedores usem o IPA, pois ele é o padrão internacional. Considerando que o IPA não é fácil de lembrar, o serviço de fala define um conjunto fonético para sete idiomas`en-US`( `fr-FR`, `de-DE` `es-ES` `ja-JP` `zh-CN`,,,, e `zh-TW`).
+No exemplo acima, estamos usando o alfabeto fonético internacional, também conhecido como o conjunto de telefone IPA. Sugerimos que os desenvolvedores usem o IPA, pois ele é o padrão internacional. Para alguns caracteres IPA, eles têm a versão ' precomposta ' e ' decomposto ' quando são representados com Unicode. O léxico personalizado só dá suporte aos Unicode decompostos.
+
+Considerando que o IPA não é fácil de lembrar, o serviço de fala define um conjunto fonético para sete idiomas`en-US`( `fr-FR`, `de-DE` `es-ES` `ja-JP` `zh-CN`,,,, e `zh-TW`).
 
 Você pode usar o `sapi` como o vale para o `alphabet` atributo com léxicos personalizados, conforme demonstrado abaixo:
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -469,7 +490,7 @@ Como os valores de atributo prosódico podem variar em um intervalo maior, o rec
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `pitch` | Indica o tom de linha de base para o texto. Você pode expressar o timbre como:<ul><li>Um valor absoluto, expresso como um número seguido por "Hz" (hertz). Por exemplo, 600 Hz.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "St", que especifica um valor para alterar a densidade. Por exemplo: + 80 Hz ou-2st. O "St" indica que a unidade de alteração é semitone, que é metade de um tom (uma metade) na escala diatonic padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>low</li><li>média</li><li>high</li><li>x-alto</li><li>default</li></ul></li></ul>. | Opcional |
-| `contour` |A delimitação agora dá suporte às vozes neural e Standard. A delimitação representa as alterações em pitch. Essas alterações são representadas como uma matriz de destinos em posições de tempo especificadas na saída de fala. Cada destino é definido por conjuntos de pares de parâmetros. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros Especifica o local da alteração de timbre como uma porcentagem da duração do texto. O segundo valor especifica o valor para aumentar ou diminuir a densidade, usando um valor relativo ou um valor de enumeração para pitch ( `pitch`consulte). | Opcional |
+| `contour` |A delimitação agora dá suporte às vozes neural e Standard. A delimitação representa as alterações em pitch. Essas alterações são representadas como uma matriz de destinos em posições de tempo especificadas na saída de fala. Cada destino é definido por conjuntos de pares de parâmetros. Por exemplo:  <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros Especifica o local da alteração de timbre como uma porcentagem da duração do texto. O segundo valor especifica o valor para aumentar ou diminuir a densidade, usando um valor relativo ou um valor de enumeração para pitch ( `pitch`consulte). | Opcional |
 | `range` | Um valor que representa o intervalo de timbre do texto. Você pode expressar `range` usando os mesmos valores absolutos, valores relativos ou valores de enumeração usados para `pitch`descrever. | Opcional |
 | `rate` | Indica a taxa de fala do texto. Você pode expressar `rate` como:<ul><li>Um valor relativo, expresso como um número que atua como um multiplicador do padrão. Por exemplo, um valor de *1* resulta em nenhuma alteração na taxa. Um valor de *0,5* resulta em uma metade da taxa. Um valor de *3* resulta em uma viagem da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>média</li><li>rápido</li><li>x-rápido</li><li>default</li></ul></li></ul> | Opcional |
 | `duration` | O período de tempo que deve decorrer enquanto o serviço de síntese de fala (TTS) lê o texto, em segundos ou milissegundos. Por exemplo, *2s* ou *1800ms*. | Opcional |
@@ -551,7 +572,7 @@ As alterações de timbre podem ser aplicadas a vozes padrão na palavra ou no n
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Obrigatório |
+| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Necessária |
 | `format` | Fornece informações adicionais sobre a formatação exata do texto do elemento para tipos de conteúdo que podem ter formatos ambíguos. O SSML define formatos para tipos de conteúdo que os usam (consulte a tabela abaixo). | Opcional |
 | `detail` | Indica o nível de detalhe a ser falado. Por exemplo, esse atributo pode solicitar que o mecanismo de síntese de fala pronuncia as marcas de pontuação. Não há valores padrão definidos para `detail`. | Opcional |
 
