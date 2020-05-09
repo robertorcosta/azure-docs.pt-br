@@ -3,12 +3,12 @@ title: Funções de modelo – recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 4038d95942805ae26b5e82d5b766a80a92ae11bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 508933cbea3e21fdec63907cef73102866732bb1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231298"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891017"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recurso para modelos ARM
 
@@ -36,10 +36,10 @@ Retorna a ID de recurso para um [recurso de extensão](../management/extension-r
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceId |Sim |cadeia de caracteres |A ID de recurso para o recurso ao qual o recurso de extensão é aplicado. |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não |cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| resourceId |Sim |string |A ID de recurso para o recurso ao qual o recurso de extensão é aplicado. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
@@ -114,8 +114,8 @@ A sintaxe dessa função varia de acordo com o nome das operações de lista. Ca
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia de caracteres |Identificador exclusivo para o recurso. |
-| apiVersion |Sim |cadeia de caracteres |Versão de API do estado de runtime do recurso. Normalmente, no formato **aaaa-mm-dd**. |
+| resourceName ou resourceIdentifier |Sim |string |Identificador exclusivo para o recurso. |
+| apiVersion |Sim |string |Versão de API do estado de runtime do recurso. Normalmente, no formato **aaaa-mm-dd**. |
 | functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para funções que dão suporte ao recebimento de um objeto com valores de parâmetro, como **listAccountSas** em uma conta de armazenamento. Um exemplo de passar valores de função é mostrado neste artigo. |
 
 ### <a name="valid-uses"></a>Usos válidos
@@ -168,9 +168,9 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft. EventGrid/domínios | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
-| Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub/namespaces/listkeys) |
-| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub/disasterrecoveryconfigs/listkeys) |
-| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub/eventhubs/listkeys) |
+| Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
+| Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft. Kusto/clusters/bancos de dados | [ListPrincipals](/rest/api/azurerekusto/databases/listprincipals) |
 | Microsoft. LabServices/usuários | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
@@ -360,8 +360,8 @@ Retorna informações sobre um provedor de recursos e seus tipos de recursos com
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sim |cadeia de caracteres |Namespace do provedor |
-| resourceType |Não |cadeia de caracteres |O tipo de recurso no namespace especificado. |
+| providerNamespace |Sim |string |Namespace do provedor |
+| resourceType |Não |string |O tipo de recurso no namespace especificado. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -435,9 +435,9 @@ Retorna um objeto que representa o estado de runtime de um recurso.
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceName ou resourceIdentifier |Sim |cadeia de caracteres |Nome ou identificador exclusivo de um recurso. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso implantado anteriormente ou quando o nome do recurso for ambíguo, forneça a ID do recurso. |
-| apiVersion |Não |cadeia de caracteres |Versão da API do recurso especificado. **Esse parâmetro é necessário quando o recurso não é provisionado no mesmo modelo.** Normalmente, no formato **aaaa-mm-dd**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
-| 'Full' |Não |cadeia de caracteres |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
+| resourceName ou resourceIdentifier |Sim |string |Nome ou identificador exclusivo de um recurso. Ao referenciar um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Ao fazer referência a um recurso implantado anteriormente ou quando o nome do recurso for ambíguo, forneça a ID do recurso. |
+| apiVersion |Não |string |Versão da API do recurso especificado. **Esse parâmetro é necessário quando o recurso não é provisionado no mesmo modelo.** Normalmente, no formato **aaaa-mm-dd**. Para obter as versões de API válidas para seu recurso, consulte [referência de modelo](/azure/templates/). |
+| 'Full' |Não |string |Valor que especifica se o objeto de recurso completo deve ser retornado. Se você não especificar `'Full'`, apenas o objeto de propriedades do recurso será retornado. O objeto completo inclui valores como a ID do recurso e o local. |
 
 ### <a name="return-value"></a>Valor retornado
 
@@ -524,7 +524,7 @@ Ao construir uma referência totalmente qualificada a um recurso, a ordem para c
 
 **{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
 
-Por exemplo:
+Por exemplo: 
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`está correto, `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
 
@@ -749,10 +749,10 @@ Retorna o identificador exclusivo de um recurso. Você pode usar essa função q
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |string (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. Forneça esse valor apenas ao implantar no escopo de um grupo de recursos ou assinatura. |
-| resourceGroupName |Não |cadeia de caracteres |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. Forneça esse valor apenas ao implantar no escopo de um grupo de recursos. |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não |cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| resourceGroupName |Não |string |O valor padrão é o grupo de recursos atual. Especifique esse valor quando você precisar recuperar um recurso em outro grupo de recursos. Forneça esse valor apenas ao implantar no escopo de um grupo de recursos. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
@@ -945,9 +945,9 @@ Retorna o identificador exclusivo de um recurso implantado no nível da assinatu
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Não |Cadeia de caracteres (no formato GUID) |O valor padrão é a assinatura atual. Especifique esse valor quando você precisar recuperar um recurso em outra assinatura. |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não |cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 
@@ -1026,9 +1026,9 @@ Retorna o identificador exclusivo de um recurso implantado no nível do locatár
 
 | Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
-| resourceType |Sim |cadeia de caracteres |Tipo de recurso, incluindo o namespace do provedor de recursos. |
-| resourceName1 |Sim |cadeia de caracteres |Nome do recurso. |
-| resourceName2 |Não |cadeia de caracteres |Próximo segmento de nome de recurso, se necessário. |
+| resourceType |Sim |string |Tipo de recurso, incluindo o namespace do provedor de recursos. |
+| resourceName1 |Sim |string |Nome do recurso. |
+| resourceName2 |Não |string |Próximo segmento de nome de recurso, se necessário. |
 
 Continue adicionando nomes de recursos como parâmetros quando o tipo de recurso incluir mais segmentos.
 

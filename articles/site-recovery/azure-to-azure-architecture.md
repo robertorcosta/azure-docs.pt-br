@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294108"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983322"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -55,15 +55,14 @@ Quando você habilita a replicação para uma VM, o Site Recovery oferece a opç
 Você pode gerenciar recursos de destino da seguinte maneira:
 
 - Modifique as configurações de destino quando habilitar a replicação.
-- Modifique as configurações de destino depois que a replicação já estiver funcionando. A exceção é o tipo de disponibilidade (instância única, conjunto ou zona). Para alterar essa configuração, você precisa desabilitar a replicação, modificar a configuração e, em seguida, habilitá-la novamente.
-
+- Modifique as configurações de destino depois que a replicação já estiver funcionando. Observe que o SKU padrão para a VM da região de destino é o mesmo que o SKU da VM de origem (ou a próxima melhor SKU disponível em comparação com o SKU da VM de origem). Semelhante a outros recursos, como o grupo de recursos de destino, o nome de destino e outros, o SKU da VM da região de destino também pode ser atualizado após a replicação estar em andamento. Um recurso que não pode ser atualizado é o tipo de disponibilidade (instância única, conjunto ou zona). Para alterar essa configuração, você precisa desabilitar a replicação, modificar a configuração e, em seguida, habilitá-la novamente. 
 
 
 ## <a name="replication-policy"></a>Política de replicação 
 
 Quando você habilita a replicação de VM do Azure, por padrão, o Site Recovery cria uma política de replicação com as configurações padrão resumidas na tabela.
 
-**Configuração de política** | **Detalhes** | **Padrão**
+**Configuração de política** | **Detalhes** | **Os**
 --- | --- | ---
 **Retenção do ponto de recuperação** | Especifica por quanto tempo o Site Recovery mantém os pontos de recuperação | 24 horas
 **Frequência de instantâneos consistentes com aplicativo** | A frequência com que o Site Recovery tira um instantâneo consistente com aplicativo. | A cada quatro horas
@@ -145,7 +144,7 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 
 #### <a name="source-region-rules"></a>Regras da região de origem
 
-**Régua** |  **Detalhes** | **Marca de serviço**
+**Regra** |  **Detalhes** | **Marca de serviço**
 --- | --- | --- 
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório. \<> de nome de região
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD)  | AzureActiveDirectory
@@ -156,7 +155,7 @@ Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao co
 
 #### <a name="target-region-rules"></a>Regras da região de destino
 
-**Régua** |  **Detalhes** | **Marca de serviço**
+**Regra** |  **Detalhes** | **Marca de serviço**
 --- | --- | --- 
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório. \<> de nome de região
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Azure AD  | AzureActiveDirectory

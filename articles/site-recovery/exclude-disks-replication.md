@@ -3,12 +3,12 @@ title: Excluir discos da replicação com o Azure Site Recovery
 description: Como excluir discos da replicação para o Azure com o Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abecc19cac57a4a95d01b7a7ec076259088b101b
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281841"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900274"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Excluir discos da recuperação de desastre
 
@@ -26,7 +26,7 @@ Você pode excluir discos da replicação conforme resumido na tabela.
 
 **Azure para o Azure** | **VMware no Azure** | **Hyper-V para Azure** 
 --- | --- | ---
-Sim (usando o PowerShell) | Sim | Sim 
+Sim | Sim | Sim 
 
 ## <a name="exclude-limitations"></a>Limitações de exclusão
 
@@ -35,7 +35,7 @@ Sim (usando o PowerShell) | Sim | Sim
 **Tipos de disco** | Você pode excluir discos básicos da replicação.<br/><br/> Não é possível excluir discos do sistema operacional ou discos dinâmicos. Os discos temporários são excluídos por padrão. | Você pode excluir discos básicos da replicação.<br/><br/> Não é possível excluir discos do sistema operacional ou discos dinâmicos. | Você pode excluir discos básicos da replicação.<br/><br/> Você não pode excluir os discos do sistema operacional. É recomendável que você não exclua discos dinâmicos. Site Recovery não pode identificar qual VHS é básico ou dinâmico na VM convidada. Se todos os discos de volume dinâmico dependentes não forem excluídos, o disco dinâmico protegido se tornará um disco com falha em uma VM de failover e os dados nesse disco não estarão acessíveis.
 **Replicando disco** | Você não pode excluir um disco que está replicando.<br/><br/> Desabilite e reabilite a replicação para a VM. |  Você não pode excluir um disco que está replicando. |  Você não pode excluir um disco que está replicando.
 **Serviço de mobilidade (VMware)** | Não relevante | Você pode excluir discos somente em VMs que têm o serviço de mobilidade instalado.<br/><br/> Isso significa que você precisa instalar manualmente o serviço de mobilidade nas VMs para as quais deseja excluir discos. Você não pode usar o mecanismo de instalação por push porque ele instala o serviço de mobilidade somente após a replicação ser habilitada. | Não relevante.
-**Adicionar/Remover** | Você pode adicionar e remover discos em VMs do Azure com discos gerenciados. | Você não pode adicionar ou remover discos depois que a replicação está habilitada. Desabilite e reabilite a replicação para adicionar um disco. | Você não pode adicionar ou remover discos depois que a replicação está habilitada. Desabilite e reabilite a replicação.
+**Adicionar/Remover** | Você pode adicionar discos gerenciados em VMs do Azure habilitadas para replicação com discos gerenciados. Não é possível remover discos em VMs do Azure habilitadas para replicação. | Você não pode adicionar ou remover discos depois que a replicação está habilitada. Desabilite e reabilite a replicação para adicionar um disco. | Você não pode adicionar ou remover discos depois que a replicação está habilitada. Desabilite e reabilite a replicação.
 **Failover** | Se um aplicativo precisar de um disco que você excluiu, após o failover, você precisará criar o disco manualmente para que o aplicativo replicado possa ser executado.<br/><br/> Como alternativa, você pode criar o disco durante o failover de VM, integrando a automação do Azure em um plano de recuperação. | Se você excluir um disco de que um aplicativo precisa, crie-o manualmente no Azure após o failover. | Se você excluir um disco de que um aplicativo precisa, crie-o manualmente no Azure após o failover.
 **Failback local-discos criados manualmente** | Não relevante | **VMs do Windows**: discos criados manualmente no Azure não fazem failback. Por exemplo, se você executar failover de três discos e criar dois discos diretamente em uma VM do Azure, somente os três discos que sofreram failover serão então submetidos a failback.<br/><br/> **VMs do Linux**: os discos criados manualmente no Azure sofrerão failback. Por exemplo, se você executar failover de três discos e criar dois discos em uma VM do Azure, todos os cinco serão submetidos a failback. Você não pode excluir do failback discos que foram criados manualmente. | Discos criados manualmente no Azure não fazem failback. Por exemplo, se você executar failover de três discos e criar dois discos diretamente em uma VM do Azure, somente três discos que sofreram failover serão submetidos a failback.
 **Discos excluídos por failback local** | Não relevante | Se você fizer failback para o computador original, a configuração de disco da VM de failback não incluirá os discos excluídos. Discos que foram excluídos da replicação do VMware para o Azure não estão disponíveis na VM de failback. | Quando o failback é para o local do Hyper-V original, a configuração de disco da VM de failback permanece a mesma do disco da VM de origem original. Os discos que foram excluídos do site do Hyper-V para replicação do Azure estão disponíveis na VM de failback.

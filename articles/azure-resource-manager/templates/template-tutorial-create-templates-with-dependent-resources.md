@@ -2,19 +2,19 @@
 title: Modelo com recursos dependentes
 description: Saiba como criar um modelo do Azure Resource Manager com vários recursos e como implantá-lo usando o portal do Azure
 author: mumian
-ms.date: 03/04/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5db2fb34a6d9330e745a9b4d1f5fed538e96c557
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: cf876d3c7c100f001ba81082d792e81a777c7315
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80239314"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82193030"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos do ARM com recursos dependentes
 
-Saiba como criar um modelo do ARM (Azure Resource Manager) para implantar vários recursos e configurar o pedido de implantação. Depois de criar o modelo, você pode implantá-lo usando o Cloud Shell no portal do Azure.
+Saiba como criar um modelo do ARM (Azure Resource Manager) para implantar vários recursos e configurar o pedido de implantação. Depois de criar o modelo, você poderá implantá-lo usando o Cloud Shell no portal do Azure.
 
 Neste tutorial, você criará uma conta de armazenamento, uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Alguns recursos não podem ser implantados até que outro recurso exista. Por exemplo, não é possível criar a máquina virtual enquanto a conta de armazenamento e o adaptador de rede não existirem. Defina essa relação marcando um recurso como dependente dos outros. O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Para obter mais informações, consulte [Definir a ordem de implantação dos recursos em modelos do ARM](./define-resource-dependency.md).
 
@@ -39,6 +39,7 @@ Para concluir este artigo, você precisa do seguinte:
     ```console
     openssl rand -base64 32
     ```
+
     O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do ARM](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
@@ -51,6 +52,7 @@ Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Escolha **Abrir** para abrir o arquivo.
 4. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
 
@@ -67,33 +69,43 @@ Ao explorar o modelo nesta seção, tente responder a essas perguntas:
 
     ![Modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
-    Há cinco recursos definidos pelo modelo:
+    Há seis recursos definidos pelo modelo:
 
-   * `Microsoft.Storage/storageAccounts`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * `Microsoft.Network/publicIPAddresses`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * `Microsoft.Network/virtualNetworks`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * `Microsoft.Network/networkInterfaces`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * `Microsoft.Compute/virtualMachines`. Consulte a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     É útil ter algumas noções básicas do modelo antes de personalizá-lo.
+     É útil examinar a referência do modelo antes de personalizar um modelo.
 
-2. Expanda o primeiro recurso. Trata-se de uma conta de armazenamento. Compare a definição de recurso com a [referência de modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+1. Expanda o primeiro recurso. Trata-se de uma conta de armazenamento. Compare a definição de recurso com a [referência de modelo](/azure/templates/Microsoft.Storage/storageAccounts).
 
     ![Definição da conta de armazenamento do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
-3. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição de recurso com a [referência de modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+1. Expanda o segundo recurso. O tipo de recurso é `Microsoft.Network/publicIPAddresses`. Compare a definição de recurso com a [referência de modelo](/azure/templates/microsoft.network/publicipaddresses).
 
     ![Definição do endereço IP do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`:
 
-    ![dependsOn dos modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+1. Expanda o terceiro recurso. O tipo de recurso é `Microsoft.Network/networkSecurityGroups`. Compare a definição de recurso com a [referência de modelo](/azure/templates/microsoft.network/networksecuritygroups).
 
-    O elemento dependsOn permite definir um recurso como dependente de um ou mais recursos. O recurso depende de dois outros recursos:
+    ![Definição de grupo de segurança de rede dos modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-network-security-group-definition.png)
+
+1. Expanda o quarto recurso. O tipo de recurso é `Microsoft.Network/virtualNetworks`:
+
+    ![dependsOn da rede virtual dos modelos do Azure Resource Manager no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
+
+    O elemento dependsOn permite definir um recurso como dependente de um ou mais recursos. O recurso depende de um outro recurso:
+
+    * `Microsoft.Network/networkSecurityGroups`
+
+1. Expanda o quinto recurso. O tipo de recurso é `Microsoft.Network/networkInterfaces`. O recurso depende de dois outros recursos:
 
     * `Microsoft.Network/publicIPAddresses`
     * `Microsoft.Network/virtualNetworks`
 
-5. Expanda o quinto recurso. Esse recurso é uma máquina virtual. Depende de dois outros recursos:
+1. Expanda o sexto recurso. Esse recurso é uma máquina virtual. Depende de dois outros recursos:
 
     * `Microsoft.Storage/storageAccounts`
     * `Microsoft.Network/networkInterfaces`
@@ -106,27 +118,41 @@ Ao especificar as dependências, o Gerenciador de Recursos implanta a solução 
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+1. Entrar no [Azure Cloud Shell](https://shell.azure.com)
 
-Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud Shell no portal do Azure.
+1. Escolha seu ambiente preferencial selecionando **PowerShell** ou **Bash** (para a CLI) no canto superior esquerdo.  Ao alternar, é necessário reiniciar o shell.
 
-1. Entrar no [Cloud Shell](https://shell.azure.com).
-1. Selecione **PowerShell** no canto superior esquerdo do Cloud Shell e, em seguida, selecione **Confirmar**.  Use o PowerShell neste tutorial.
-1. Selecione **Carregar arquivo** no Cloud Shell:
+    ![Carregar arquivo do Cloud Shell no portal do Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-    ![Cloud Shell no portal do Azure carregar arquivo](./media/template-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-1. Escolha o modelo que você salvou anteriormente no tutorial. O nome padrão é **azuredeploy.json**.  Se você tiver um arquivo com o mesmo nome de arquivo, o arquivo antigo será substituído sem nenhuma notificação.
+1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou anteriormente. Após carregar o arquivo, você pode usar o comando **ls** e o comando **cat** para verificar se o arquivo foi carregado com êxito.
 
-    Opcionalmente, você pode usar o comando **ls $HOME** e o comando **cat $HOME/azuredeploy.json** para verificar se os arquivos são carregados com êxito.
+1. Execute o script do PowerShell a seguir para implantar o modelo.
 
-1. No Cloud Shell, execute os seguintes comandos do PowerShell. Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Consulte [Pré-requisitos](#prerequisites).
+    # <a name="cli"></a>[CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    echo "Enter the virtual machine admin username:" &&
+    read adminUsername &&
+    echo "Enter the DNS label prefix:" &&
+    read dnsLabelPrefix &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location $location &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters adminUsername=$adminUsername dnsLabelPrefix=$dnsLabelPrefix
+    ```
+
+    # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
+    $resourceGroupName = "${projectName}rg"
 
     New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
@@ -135,18 +161,11 @@ Há muitos métodos para implantar modelos.  Neste tutorial, você usa o Cloud S
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile "$HOME/azuredeploy.json"
+
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Execute o seguinte comando do PowerShell para listar a máquina virtual criada recentemente:
-
-    ```azurepowershell
-    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
-    Write-Host "Press [ENTER] to continue ..."
-    ```
-
-    O nome da máquina virtual é codificado como **SimpleWinVM** dentro do modelo.
+    ---
 
 1. RDP para a máquina virtual para verificar se a máquina virtual foi criada com êxito.
 
@@ -156,7 +175,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 1. No portal do Azure, escolha **Grupos de recursos** do menu à esquerda.
 2. No campo **Filtrar por nome**, insira o nome do grupo de recursos.
-3. Selecione o nome do grupo de recursos.  Você deverá ver um total de seis recursos no grupo de recursos.
+3. Selecione o nome do grupo de recursos. Você verá um total de seis recursos no grupo de recursos.
 4. Escolha **Excluir grupo de recursos** no menu superior.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: HT
+ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801681"
+ms.locfileid: "82838477"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -93,12 +93,12 @@ Os seguintes recursos estão habilitados no modelo de implantação de instânci
 |[@queryparâmetro sem suporte no sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Abril de 2019|Sem solução| |
 |[A replicação transacional deve ser reconfigurada após o failover geográfico](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar de 2019|Sem solução| |
 |[O banco de dados temporário é usado durante a operação de restauração](#temporary-database-is-used-during-restore-operation)||Tem solução alternativa| |
-|[A estrutura TEMPDB e o conteúdo são recriados](#tempdb-structure-and-content-is-re-created)||Sem solução| |
-|[Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos](#exceeding-storage-space-with-small-database-files)||Tem solução alternativa| |
-|[Valores de GUID mostrados em vez de nomes de banco de dados](#guid-values-shown-instead-of-database-names)||Tem solução alternativa| |
+|[A estrutura TEMPDB e o conteúdo são recriados](#tempdb-structure-and-content-is-re-created)| |Sem solução| |
+|[Excedendo o espaço de armazenamento com arquivos de banco de dados pequenos](#exceeding-storage-space-with-small-database-files)| |Tem solução alternativa| |
+|[Valores de GUID mostrados em vez de nomes de banco de dados](#guid-values-shown-instead-of-database-names) ||Tem solução alternativa| |
 |[Os logs de erros não são persistentes](#error-logs-arent-persisted)||Sem solução| |
-|[O escopo da transação em dois bancos de dados na mesma instância não tem suporte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Tem solução alternativa|Mar de 2020|
-|[Os módulos CLR e os servidores vinculados às vezes não podem fazer referência a um endereço IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Tem solução alternativa| |
+|[Os módulos CLR e os servidores vinculados às vezes não podem fazer referência a um endereço IP local](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)| |Tem solução alternativa| |
+|[O escopo da transação em dois bancos de dados na mesma instância não tem suporte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)| |Resolvido|Mar de 2020|
 |Consistência do banco de dados não verificada usando DBCC CHECKDB após restaurar banco de dados do armazenamento de BLOBs do Azure.| |Resolvido|2019 de novembro|
 |A restauração de banco de dados pontual da camada de Comercialmente Crítico para Uso Geral não terá sucesso se o banco de dados de origem contiver objetos OLTP na memória.| |Resolvido|Outubro de 2019|
 |Database Mail recurso com servidores de email externos (não Azure) usando conexão segura| |Resolvido|Outubro de 2019|
