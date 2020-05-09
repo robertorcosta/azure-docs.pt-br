@@ -2,26 +2,21 @@
 title: Descubra quando um usuário específico poderá acessar um aplicativo
 description: Como saber quando um usuário extremamente importante é capaz de acessar um aplicativo que você configurou para o provisionamento do usuário com o Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48370e2806b70d550bce95ceff3857a79561f247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264135"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593906"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Verificar o status do provisionamento do usuário
 
@@ -35,7 +30,7 @@ Quando você configura o provisionamento automático pela primeira vez, a seçã
 - O tipo de ciclo de provisionamento (inicial ou incremental) que está em execução no momento ou foi concluído pela última vez.
 - Uma **barra de progresso** que mostra a porcentagem do ciclo de provisionamento que foi concluída. A porcentagem reflete a contagem de páginas provisionada. Observe que cada página pode conter vários usuários ou grupos, portanto, o percentual não se correlaciona diretamente com o número de usuários, grupos ou funções provisionados.
 - Um botão de **atualização** que você pode usar para manter a exibição atualizada.
-- O número de **usuários** e **grupos** no armazenamento de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao escopo do provisionamento. A contagem não será desativada se um usuário for excluído de forma reversível ou excluído com hardware, pois isso não remove o objeto do armazenamento de dados do conector. A contagem será recaculated a primeira sincronização depois que o CDS for [redefinido](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
+- O número de **usuários** e **grupos** no armazenamento de dados do conector. A contagem aumenta sempre que um objeto é adicionado ao escopo do provisionamento. A contagem não será desativada se um usuário for excluído de forma reversível ou excluído com hardware, pois isso não remove o objeto do armazenamento de dados do conector. A contagem será recalculada na primeira sincronização depois que o CDS for [redefinido](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
 - Um link **Exibir logs de auditoria** , que abre os logs de provisionamento do Azure ad para obter detalhes sobre todas as operações executadas pelo serviço de provisionamento de usuário, incluindo o status de provisionamento para usuários individuais (consulte a seção [usar logs de provisionamento](#use-provisioning-logs-to-check-a-users-provisioning-status) abaixo).
 
 Após a conclusão de um ciclo de provisionamento, a seção **estatísticas até a data** mostra os números cumulativos de usuários e grupos que foram provisionados até a data, junto com a data de conclusão e a duração do último ciclo. A **ID da atividade** identifica exclusivamente o ciclo de provisionamento mais recente. A **ID do trabalho** é um identificador exclusivo para o trabalho de provisionamento e é específica para o aplicativo em seu locatário.

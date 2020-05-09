@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: ab5dd716253875e4a992b94a4e143cb3e806a4b0
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509645"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888775"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
@@ -147,7 +147,7 @@ Para o esquema de entrada personalizada, use os campos de dados de evento (como 
 Os valores podem ser:
 
 * número
-* cadeia de caracteres
+* string
 * booleano
 * matriz
 
@@ -158,6 +158,7 @@ No entanto, o MakeCert tem as seguintes limitações:
 * Cinco filtros avançados por assinatura de Grade de Eventos
 * 512 caracteres por valor de cadeia de caracteres
 * Cinco valores para **em** e **não está nos** operadores
+* Chaves com ** `.` um caractere (ponto)** . Por exemplo: `http://schemas.microsoft.com/claims/authnclassreference` ou `john.doe@contoso.com`. No momento, não há suporte para caracteres de escape em chaves. 
 
 A mesma chave pode ser usada em mais de um filtro.
 

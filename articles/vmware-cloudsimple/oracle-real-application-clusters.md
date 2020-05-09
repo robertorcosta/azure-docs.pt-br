@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868071"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793033"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Otimize sua nuvem privada do CloudSimple para instalar o Oracle RAC
 
@@ -46,7 +46,7 @@ O exemplo a seguir usa os discos definidos na tabela a seguir.
 
 | Disco                                      | Finalidade                                       | Disco compartilhado |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| SO                                        | Disco do sistema operacional                         | Não          |
+| Sistema operacional                                        | Disco do sistema operacional                         | Não          |
 | GRADE                                      | Local de instalação do software de grade da Oracle     | Não          |
 | DATABASE                                  | Local de instalação do software de banco de dados Oracle | Não          |
 | ORAHOME                                   | Local base para binários do banco de dados Oracle    | Não          |
@@ -244,7 +244,7 @@ Repita as etapas 2 a 7 para todos os novos discos necessários para os dados, lo
 As regras de afinidade de VM para host garantem que a VM seja executada no host desejado.  Você pode definir regras no vCenter para garantir que a VM Oracle seja executada no host com recursos adequados e atenda a quaisquer requisitos de licenciamento específicos.
 
 1. No portal do CloudSimple, [Escale os privilégios](escalate-private-cloud-privileges.md) do usuário cloudowner.
-2. [Faça logon no cliente vSphere](https://docs.azure.cloudsimple.com/vsphere-access) da sua nuvem privada.
+2. Faça logon no cliente vSphere da sua nuvem privada.
 3. No cliente vSphere, selecione o cluster em que as VMs Oracle são implantadas e clique em **Configurar**.
 4. Em configurar, selecione **grupos de host/VM**.
 5. Clique em **+** .

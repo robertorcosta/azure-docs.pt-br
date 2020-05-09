@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295125"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690365"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurar uma política de acesso condicional no modo somente de relatório (visualização)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurar uma política de acesso condicional no modo somente de relatório
 
 Para configurar uma política de acesso condicional no modo somente de relatório:
 
@@ -42,7 +42,7 @@ Para exibir o resultado de uma política somente de relatório para uma entrada 
 1. Entre no **portal do Azure** como um leitor de relatórios, leitor de segurança, administrador de segurança ou administrador global.
 1. Navegue até **Azure Active Directory** > **entradas**.
 1. Selecione uma entrada ou adicione filtros para restringir os resultados.
-1. Na gaveta de **detalhes** , selecione a guia **somente relatório (visualização)** para exibir as políticas avaliadas durante a entrada.
+1. Na gaveta de **detalhes** , selecione a guia **somente de relatório** para exibir as políticas avaliadas durante a entrada.
 
 > [!NOTE]
 > Ao baixar os logs de entradas, escolha formato JSON para incluir acesso condicional somente para dados de resultados de relatório.
@@ -62,7 +62,7 @@ Depois de integrar os logs do Azure AD ao Azure Monitor, você poderá monitorar
 
 1. Entre no **portal do Azure** como um administrador de segurança ou administrador global.
 1. Navegue até **Azure Active Directory** > **pastas de trabalho**.
-1. Selecione **informações de acesso condicional (versão prévia)**.
+1. Selecione **informações de acesso condicional**.
 1. Selecione uma ou mais políticas na lista suspensa **política de acesso condicional** . Todas as políticas habilitadas são selecionadas por padrão.
 1. Selecione um intervalo de tempo (se o intervalo de tempo exceder o conjunto de dados disponível, o relatório mostrará todos os dados disponíveis). Depois de definir a **política de acesso condicional** e os parâmetros de **intervalo de tempo** , o relatório será carregado.
    1. Opcionalmente, pesquise por **usuários** ou **aplicativos** individuais para restringir o escopo do relatório.

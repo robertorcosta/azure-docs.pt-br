@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: a3eae08510e57227b91deeeb7a7a608a6652cb4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ca20f2c8cda84c241391f67ac542faa4a1f5ecd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535401"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594705"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usar a Versão 1 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 
@@ -118,17 +118,17 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Name | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| editor | Microsoft.OSTCExtensions | cadeia de caracteres |
-| type | CustomScriptForLinux | cadeia de caracteres |
+| editor | Microsoft.OSTCExtensions | string |
+| type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | INT |
-| fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | matriz |
-| commandToExecute (por exemplo) | python MyPythonScript.py \<my-param1\> | cadeia de caracteres |
+| fileUris (por exemplo) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matriz |
+| commandToExecute (por exemplo) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | booleano |
-| storageAccountName (por exemplo) | examplestorageacct | cadeia de caracteres |
-| storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia de caracteres |
+| storageAccountName (por exemplo) | examplestorageacct | string |
+| storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>Detalhes de valor de propriedade
 

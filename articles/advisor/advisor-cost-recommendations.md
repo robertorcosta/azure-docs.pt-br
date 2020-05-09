@@ -3,12 +3,12 @@ title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13e7b1d7c6b0fe342020c40e1bb4abeba97d18bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259689"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788086"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduza os custos de serviço usando o Assistente do Azure
 
@@ -49,6 +49,9 @@ Para economizar 60% do custo, é recomendável armazenar seus instantâneos no A
 
 ## <a name="utilize-lifecycle-management"></a>Utilizar o gerenciamento do ciclo de vida do dispositivo
 O Azure Advisor utilizará inteligência em relação à contagem de objetos do armazenamento de BLOBs do Azure, tamanho total e transações para detectar se uma ou mais de suas contas de armazenamento seriam mais adequadas para permitir o gerenciamento do ciclo de vida para dados de camadas. Ele solicitará que você crie regras de gerenciamento de ciclo de vida para hierarquizar seus dados automaticamente para frio ou arquivo para otimizar os custos de armazenamento e, ao mesmo tempo, manter seus dados no armazenamento de BLOBs do Azure para compatibilidade de aplicativos.
+
+## <a name="create-an-ephemeral-os-disk-recommendation"></a>Criar uma recomendação de disco do sistema operacional efêmero
+Com o [disco do sistema operacional efêmero](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks), os clientes obtêm estes benefícios: Economize no custo de armazenamento para o disco do sistema operacional. Obter latência de leitura/gravação inferior no disco do sistema operacional. Operação de reimagem de VM mais rápida redefinindo o sistema operacional (e disco temporário) para seu estado original. É mais preferível usar o disco do so efêmero para VMs IaaS de curta duração ou VMs com cargas de trabalho sem estado. O Advisor tem recomendação para recursos que podem tomar benefícios com o disco do sistema operacional efêmero. 
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Assistente do Azure
 

@@ -3,12 +3,12 @@ title: Índice de exemplos de blueprint
 description: Índice de exemplos padrão e de conformidade para implantar ambientes, políticas e fundamentos do Cloud Adoptions Framework com o Azure Blueprints.
 ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 745b16f8aff8fe003ec65449cdf3dc0d629ba6ff
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 582a4bbc1ec21e231d2a9f1feb1cfef34b3cce37
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383522"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594263"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -18,6 +18,7 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 
 |  |  |
 |---------|---------|
+| [PROTEÇÃO ISM do Governo Australiano](./ism-protected/control-mapping.md) | Fornece proteções para conformidade com a PROTEÇÃO ISM do Governo Australiano. |
 | [PBMM Federal do Canadá](./canada-federal-pbmm/index.md) | Fornece proteções para conformidade com o PBMM (B Protegido, Integridade Média, Disponibilidade Média) Federal do Canadá. |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Fornece um conjunto de políticas para ajudar a cumprir as recomendações do CIS Microsoft Azure Foundations Benchmark. |
 | [Nível de Impacto 4 do DoD](./dod-impact-level-4/index.md) | Fornece um conjunto de políticas para ajudar a manter a conformidade com o Nível de Impacto 4 do DoD. |

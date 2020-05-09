@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77189101"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734817"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Microsserviços da versão Canário com Vamp no cluster de DC/SO do Serviço de Contêiner do Azure
 
@@ -129,7 +129,7 @@ Agora que o Vamp está em execução, implante um serviço de um plano gráfico.
 
 Em sua forma mais simples, um [plano gráfico do Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) descreve os pontos de extremidade (gateways), clusters e serviços a implantar. O Vamp usa clusters para agrupar diferentes variantes do mesmo serviço em grupos lógicos para a versão canário ou teste A/B.  
 
-Esse cenário usa um aplicativo monolítico de exemplo chamado [**sava**](https://github.com/magneticio/sava), que está na versão 1.0. O monolito é empacotado em um contêiner do Docker, que está no Hub do Docker em magneticio/sava:1.0.0. O aplicativo normalmente é executado na porta 8080, mas você deseja expô-los na porta 9050 neste caso. Implante o aplicativo por meio do Vamp usando um plano gráfico simples.
+Esse cenário usa um aplicativo monolítico de exemplo chamado [**sava**](https://github.com/magneticio/sava-product), que está na versão 1.0. O monolito é empacotado em um contêiner do Docker, que está no Hub do Docker em magneticio/sava:1.0.0. O aplicativo normalmente é executado na porta 8080, mas você deseja expô-los na porta 9050 neste caso. Implante o aplicativo por meio do Vamp usando um plano gráfico simples.
 
 1. Acesse **Implantações**.
 
@@ -151,7 +151,7 @@ Esse cenário usa um aplicativo monolítico de exemplo chamado [**sava**](https:
               webport: 8080/http # cluster endpoint, used for canary releasing
    ```
 
-4. Clique em **Salvar**. O Vamp inicia a implantação.
+4. Clique em **Save** (Salvar). O Vamp inicia a implantação.
 
 A implantação é listada na página **Implantações**. Clique na implantação para monitorar seu status.
 
@@ -211,7 +211,7 @@ Para mesclar o novo serviço sava 1.1 com a implantação em execução:
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. Clique em **Salvar**. O plano gráfico é armazenado e listado na página **Planos gráficos**.
+3. Clique em **Save** (Salvar). O plano gráfico é armazenado e listado na página **Planos gráficos**.
 
 4. Abra o menu de ação no plano gráfico do sava: 1.1 e clique em **Mesclar para**.
 

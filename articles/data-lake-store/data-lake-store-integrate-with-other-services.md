@@ -1,23 +1,17 @@
 ---
-title: Integrando o Azure Data Lake Storage Gen1 com outros Serviços do Azure | Microsoft Docs
-description: Entenda como o armazenamento de dados do Azure Data Lake Gen1 se integra a outros serviços do Azure
-documentationcenter: ''
-services: data-lake-store
+title: Integrar Data Lake Storage Gen1 com outros serviço do Azure
+description: Entenda como você pode integrar Azure Data Lake Storage Gen1 com outros serviços do Azure.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 43024b63a355646f607adbb6623cc6c349374ea8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae27aba9fb6dc1421d224dab0c36373753acd5a2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535588"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690540"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrando o Azure Data Lake Storage Gen1 com outros serviços do Azure
 O Azure Data Lake Storage Gen1 pode ser usado em conjunto com outros serviços do Azure para permitir uma gama mais ampla de cenários. O artigo a seguir lista os serviços com os quais o Data Lake Storage Gen1 pode ser integrado.
@@ -65,7 +59,7 @@ Você pode usar o PolyBase para carregar dados do Data Lake Storage Gen1 no SQL 
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Use o Data Lake Storage Gen1 com os Hubs de Eventos do Azure
 Você pode usar o Armazenamento de Data Lake do Azure Gen1 para arquivar e capturar dados recebidos pelos Hubs de Eventos do Azure. Para obter mais informações, consulte [Usar o Data Lake Storage Gen1 com os Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Comece a usar o Data Lake Storage Gen1 usando o Portal](data-lake-store-get-started-portal.md)
 * [Introdução ao Data Lake Storage Gen1 usando o PowerShell](data-lake-store-get-started-powershell.md)  

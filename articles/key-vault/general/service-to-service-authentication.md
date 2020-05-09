@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686185"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857091"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -272,7 +272,7 @@ Usando CLI do Azure, defina a assinatura padrão como uma que tenha a conta que 
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>Acesso não autorizado, acesso negado, proibido ou erro semelhante
 
-O principal usado não tem acesso ao recurso que está tentando acessar. Conceda à sua conta de usuário ou ao MSI "colaborador" do serviço de aplicativo o acesso a um recurso. Qual delas depende se você está executando o exemplo em seu computador local ou implantado no Azure em seu serviço de aplicativo. Alguns recursos, como cofres de chaves, também têm suas próprias [políticas de acesso](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) que você usa para conceder acesso a entidades de segurança, como usuários, aplicativos e grupos.
+O principal usado não tem acesso ao recurso que está tentando acessar. Conceda à sua conta de usuário ou ao MSI "colaborador" do serviço de aplicativo o acesso a um recurso. Qual delas depende se você está executando o exemplo em seu computador local ou implantado no Azure em seu serviço de aplicativo. Alguns recursos, como cofres de chaves, também têm suas próprias [políticas de acesso](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) que você usa para conceder acesso a entidades de segurança, como usuários, aplicativos e grupos.
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problemas comuns quando implantados no serviço Azure App
 
