@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72b6c1f86b18df172994827ec78eb109fe82454e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75913792"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82147759"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -37,7 +37,7 @@ Os discos gerenciados são compatíveis com as [Zonas de Disponibilidade](../art
 
 ### <a name="azure-backup-support"></a>Suporte de Backup do Azure
 
-Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM fáceis à vontade. No momento, o Backup do Azure dá suporte a tamanhos de disco de até quatro TiB (tebibytes).  O Backup do Azure é compatível com o backup e a restauração de discos gerenciados. [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de backup da VM do Azure.
+Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM ou de disco gerenciado fáceis sempre que quiser. No momento, o Backup do Azure dá suporte a tamanhos de disco de até 32 TiB (tebibytes). [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de backup da VM do Azure.
 
 ### <a name="granular-access-control"></a>Controle de acesso granular
 

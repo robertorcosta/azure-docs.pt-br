@@ -7,14 +7,20 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8b675a78041b68210fa7583510582783c506c720
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aae3f8b1cfe224f0a948eb16bd6ee5120b19dde1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767033"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612071"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a área de trabalho virtual do Windows
+
+>[!IMPORTANT]
+>Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>
+> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A área de trabalho virtual do Windows dá suporte à renderização e codificação aceleradas por GPU para melhorar o desempenho e a escalabilidade do aplicativo. A aceleração de GPU é particularmente crucial para aplicativos com uso intensivo de gráficos.
 
@@ -26,7 +32,7 @@ O Azure oferece uma série de [tamanhos de máquina virtual otimizados para GPU]
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Criar um pool de hosts, provisionar sua máquina virtual e configurar um grupo de aplicativos
 
-Crie um novo pool de hosts usando uma VM do tamanho selecionado. Para obter instruções, consulte [tutorial: criar um pool de hosts com o Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Crie um novo pool de hosts usando uma VM do tamanho selecionado. Para obter instruções, consulte [tutorial: criar um pool de hosts com o portal do Azure](/azure/virtual-desktop/create-host-pools-azure-marketplace).
 
 A área de trabalho virtual do Windows dá suporte à renderização e codificação aceleradas por GPU nos seguintes sistemas operacionais:
 
@@ -39,7 +45,7 @@ Você também deve configurar um grupo de aplicativos ou usar o grupo de aplicat
 
 Para aproveitar os recursos de GPU das VMs da série N do Azure na área de trabalho virtual do Windows, você deve instalar os drivers gráficos apropriados. Siga as instruções em [sistemas operacionais e drivers com suporte](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) para instalar drivers do fornecedor de gráficos apropriado, seja manualmente ou usando uma extensão de VM do Azure.
 
-Somente os drivers distribuídos pelo Azure têm suporte para a área de trabalho virtual do Windows. Adicionalmente, para VMs do Azure com GPUs NVIDIA, somente os [Drivers NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) têm suporte na área de trabalho virtual do Windows.
+Somente os drivers distribuídos pelo Azure têm suporte para a área de trabalho virtual do Windows. Além disso, para VMs do Azure com GPUs NVIDIA, somente os [Drivers NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) têm suporte na área de trabalho virtual do Windows.
 
 Após a instalação do driver, é necessária uma reinicialização da VM. Use as etapas de verificação nas instruções acima para confirmar se os drivers gráficos foram instalados com êxito.
 

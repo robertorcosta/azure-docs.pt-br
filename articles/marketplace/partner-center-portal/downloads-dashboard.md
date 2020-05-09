@@ -1,5 +1,5 @@
 ---
-title: Painel de downloads na análise do Marketplace comercial no Partner Center
+title: Painel de downloads no Microsoft Commercial Marketplace Analytics no Partner Center
 description: Saiba como acessar solicitações de download para suas ofertas do Marketplace.
 author: dsindona
 ms.author: dsindona
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: f81b8ae927df6c95bbc34be7ad9916c88aeba03b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 136a65e47327007d7a28c2777051be61f475323e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251666"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732711"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Painel de downloads na análise do Marketplace comercial
 

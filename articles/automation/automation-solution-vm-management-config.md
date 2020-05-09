@@ -1,18 +1,18 @@
 ---
-title: Solução configurar VMs de início/parada em horários fora do horário de automação do Azure
+title: Solução de configuração de Iniciar/Parar VMs fora do horário comercial da automação do Azure
 description: Este artigo descreve como configurar a solução de Iniciar/Parar VMs fora do horário comercial para dar suporte a cenários ou casos de uso diferentes.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 4cceb0d5ada82de73bc74c0ed408f8eb988ea8ec
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604770"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864259"
 ---
-# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Como configurar a solução iniciar/parar VMs fora do horário comercial
+# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Como configurar a solução de Iniciar/Parar VMs fora do horário comercial
 
 Com a solução **iniciar/parar VMs fora do horário comercial** , você pode:
 
@@ -125,7 +125,7 @@ Quando você executa o runbook **AutoStop_CreateAlert_Parent** , ele verifica se
 
 ### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Para direcionar a ação de autostop para uma lista de VMs
 
-1. Crie um novo [agendamento](shared-resources/schedules.md#creating-a-schedule) e vincule-o ao runbook de **AutoStop_CreateAlert_Parent** , adicionando uma lista separada por vírgulas de nomes de `VMList` VM ao parâmetro.
+1. Crie um novo [agendamento](shared-resources/schedules.md#create-a-schedule) e vincule-o ao runbook de **AutoStop_CreateAlert_Parent** , adicionando uma lista separada por vírgulas de nomes de `VMList` VM ao parâmetro.
 
 2. Opcionalmente, se você quiser excluir algumas VMs do desligamento automático, poderá adicionar uma lista separada por vírgulas de nomes de VM à `External_ExcludeVMNames` variável.
 

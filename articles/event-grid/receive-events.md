@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60803764"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629585"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos em um ponto de extremidade HTTP
 
-Este artigo descreve como [validar um ponto de extremidade HTTP](security-authentication.md#webhook-event-delivery) para receber eventos de uma Assinatura de Evento e, em seguida, receber e desserializar os eventos. Este artigo usa uma função do Azure para fins de demonstração. No entanto, os mesmos conceitos se aplicam independentemente de onde o aplicativo está hospedado.
+Este artigo descreve como [validar um ponto de extremidade HTTP](webhook-event-delivery.md) para receber eventos de uma Assinatura de Evento e, em seguida, receber e desserializar os eventos. Este artigo usa uma função do Azure para fins de demonstração. No entanto, os mesmos conceitos se aplicam independentemente de onde o aplicativo está hospedado.
 
 > [!NOTE]
 > É **fortemente** recomendado que você use um [Gatilho da Grade de Eventos](../azure-functions/functions-bindings-event-grid.md) ao disparar uma função do Azure com a Grade de Eventos. O uso de um gatilho WebHook genérico aqui serve apenas como demonstração.
@@ -28,7 +28,7 @@ Este artigo descreve como [validar um ponto de extremidade HTTP](security-authen
 
 ## <a name="add-dependencies"></a>Adicionar dependências
 
-Se você estiver desenvolvendo em .NET, [adicione uma dependência](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à sua função do `Microsoft.Azure.EventGrid` [Pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Os exemplos neste artigo exigem a versão 1.4.0 ou posterior.
+Se você estiver desenvolvendo no .net, [adicione uma dependência](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) à sua função para o `Microsoft.Azure.EventGrid` [pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Os exemplos neste artigo exigem a versão 1.4.0 ou posterior.
 
 SDKs para outros idiomas estão disponíveis na referência [SDKs de Publicação](./sdk-overview.md#data-plane-sdks). Esses pacotes têm os modelos para tipos de eventos nativos, como `EventGridEvent`, `StorageBlobCreatedEventData` e `EventHubCaptureFileCreatedEventData`.
 
@@ -50,7 +50,7 @@ Clique no link "Exibir Arquivos" no Azure Functions (painel mais à direita no p
 
 ## <a name="endpoint-validation"></a>Validação do ponto de extremidade
 
-A primeira coisa a fazer é manipular eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Sempre que alguém assina um evento, a Grade de Eventos envia um evento de validação para o ponto de extremidade com um `validationCode` na carga de dados. O ponto de extremidade é necessário para ecoar no corpo da resposta a fim de [provar que o ponto de extremidade é válido e pertence a você](security-authentication.md#webhook-event-delivery). Se você estiver usando um [Gatilho da Grade de Eventos](../azure-functions/functions-bindings-event-grid.md), em vez de uma Função disparada por WebHook, a validação do ponto de extremidade será tratada para você. Se você usar um serviço de API de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), você não poderá ecoar programaticamente o código de validação. Para esses serviços, você pode validar manualmente a assinatura usando uma URL de validação que é enviada no evento de validação de assinatura. Copie essa URL na propriedade `validationUrl` e envie uma solicitação GET por meio de um cliente REST ou pelo navegador da web.
+A primeira coisa a fazer é manipular eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Sempre que alguém assina um evento, a Grade de Eventos envia um evento de validação para o ponto de extremidade com um `validationCode` na carga de dados. O ponto de extremidade é necessário para ecoar no corpo da resposta a fim de [provar que o ponto de extremidade é válido e pertence a você](webhook-event-delivery.md). Se você estiver usando um [Gatilho da Grade de Eventos](../azure-functions/functions-bindings-event-grid.md), em vez de uma Função disparada por WebHook, a validação do ponto de extremidade será tratada para você. Se você usar um serviço de API de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), você não poderá ecoar programaticamente o código de validação. Para esses serviços, você pode validar manualmente a assinatura usando uma URL de validação que é enviada no evento de validação de assinatura. Copie essa URL na propriedade `validationUrl` e envie uma solicitação GET por meio de um cliente REST ou pelo navegador da web.
 
 Em C#, a função `DeserializeEventGridEvents()` desserializa os eventos da Grade de Eventos. Essa função desserializa os dados do evento para o tipo apropriado como StorageBlobCreatedEventData. Use a classe `Microsoft.Azure.EventGrid.EventTypes` para obter tipos e nomes de eventos com suporte.
 

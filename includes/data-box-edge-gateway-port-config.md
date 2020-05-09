@@ -11,7 +11,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "67172362"
 ---
-| Nº da porta| Entrada ou saída | Escopo da porta| Obrigatório|   Anotações |   |
+| Nº da porta| Entrada ou saída | Escopo da porta| Necessária|   Anotações |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|Saída|WAN |Não|A porta de saída é usada para acesso à internet para recuperar atualizações. <br>O proxy Web de saída é configurável pelo usuário. |
 | TCP 443 (HTTPS)|Saída|WAN|Sim|A porta de saída é usada para acessar dados na nuvem.<br>O proxy Web de saída é configurável pelo usuário.|

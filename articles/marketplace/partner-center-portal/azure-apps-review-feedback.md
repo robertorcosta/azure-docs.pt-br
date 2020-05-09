@@ -1,20 +1,20 @@
 ---
-title: Lidando com comentários de revisão para a oferta de aplicativos do Azure no Marketplace comercial
-description: Como lidar com comentários de revisão para a oferta de aplicativos do Azure para listagem ou venda no Azure Marketplace, AppSource ou por meio do programa CSP (provedor de soluções na nuvem) usando o portal do Marketplace comercial no Microsoft Partner Center.
+title: Lidando com comentários de revisão para a oferta de aplicativos do Azure no Microsoft Commercial Marketplace
+description: Como lidar com comentários de revisão para a oferta de aplicativos do Azure para listar ou vender no Azure Marketplace, AppSource ou por meio do programa CSP (provedor de soluções na nuvem) usando o portal do Marketplace comercial no Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 3932f3fc71dc6427b6cdf93d3a7bc58534a9981c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464f4d5434c8c0b8615e24eb1a323ae66a52273c
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279786"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744880"
 ---
-# <a name="handling-review-feedback"></a>Tratar comentários de revisão
+# <a name="handling-review-feedback-for-azure-apps-offer-before-publishing-in-the-azure-marketplace"></a>Lidando com comentários de revisão para a oferta de aplicativos do Azure antes da publicação no Azure Marketplace
 
 Este artigo explica como acessar o ambiente do Azure DevOps utilizado pela equipe de revisão do Microsoft Azure Marketplace. Se problemas críticos forem localizados na oferta de aplicativo Azure durante a etapa de **revisão da Microsoft**, você poderá entrar nesse sistema para exibir informações detalhadas sobre esses problemas (revisar comentários). Após corrigir todos esses problemas, será necessário reenviar a oferta para continuar a publicá-la no Azure Marketplace. O diagrama a seguir ilustra como esse processo de comentários se relaciona com o processo de publicação.
 
