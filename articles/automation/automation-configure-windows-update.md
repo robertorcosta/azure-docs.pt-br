@@ -3,14 +3,14 @@ title: Definir configurações de Windows Update para trabalhar com o Azure Gere
 description: Este artigo descreve as configurações de Windows Update que você configura para trabalhar com o Gerenciamento de Atualizações do Azure.
 services: automation
 ms.subservice: update-management
-ms.date: 03/02/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279020"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779443"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Definir configurações de Windows Update para Gerenciamento de Atualizações
 
@@ -22,6 +22,8 @@ O Azure Gerenciamento de Atualizações conta com [Windows Update cliente](https
 - Editando o registro diretamente
 
 Gerenciamento de Atualizações respeita muitas das configurações especificadas para controlar o cliente de Windows Update. Se você usar configurações para habilitar atualizações não Windows, Gerenciamento de Atualizações também gerenciará essas atualizações. Se você quiser habilitar o download de atualizações antes que ocorra uma implantação de atualização, a implantação da atualização poderá ser mais rápida, mais eficiente e menos provável de exceder a janela de manutenção.
+
+Para obter recomendações adicionais sobre como configurar o WSUS em sua assinatura do Azure e manter suas máquinas virtuais do Windows com segurança, examine [planejar a implantação para atualizar as máquinas virtuais do Windows no Azure usando o WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>Atualizações de pré-download
 

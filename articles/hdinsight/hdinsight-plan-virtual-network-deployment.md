@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/21/2020
-ms.openlocfilehash: d421811c18ac63952432cd853a6928db7c81f3db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182422"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786607"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planejar uma rede virtual para o Azure HDInsight
 
@@ -44,7 +44,7 @@ Estas são as perguntas que você deve responder ao planejar a instalação do H
 
 * Você deseja restringir/redirecionar o tráfego de entrada ou de saída para o HDInsight?
 
-    O HDInsight deve ter comunicação irrestrita com endereços IP específicos no data center do Azure. Também há diversas portas que devem receber permissão por meio de firewalls para a comunicação do cliente. Para obter mais informações, consulte a seção [Controlando o tráfego de rede](#networktraffic).
+    O HDInsight deve ter comunicação irrestrita com endereços IP específicos no data center do Azure. Também há diversas portas que devem receber permissão por meio de firewalls para a comunicação do cliente. Para obter mais informações, consulte [controlar o tráfego de rede](./control-network-traffic.md).
 
 ## <a name="add-hdinsight-to-an-existing-virtual-network"></a><a id="existingvnet"></a>Adicionar o HDInsight uma rede virtual existente
 
@@ -201,57 +201,9 @@ Para se conectar ao Apache Ambari e outras páginas da Web por meio da rede virt
 
 2. Para determinar o nó e a porta nos quais um serviço está disponível, consulte o documento [Portas usadas pelos serviços do Hadoop no HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
 
-## <a name="controlling-network-traffic"></a><a id="networktraffic"></a> Controlando o tráfego de rede
-
-### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Técnicas para controlar o tráfego de entrada e de saída para clusters HDInsight
-
-O tráfego de rede em Redes Virtuais do Azure pode ser controlado com os seguintes métodos:
-
-* Os **NSGs** (grupos de segurança de rede) permitem filtrar o tráfego de entrada e de saída para a rede. Para obter mais informações, consulte o documento [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/security-overview.md).
-
-* NVA (soluções de **virtualização de rede** ) podem ser usadas somente com tráfego de saída. NVAs replicar a funcionalidade de dispositivos como firewalls e roteadores. Para obter mais informações, consulte o documento [Dispositivos de rede](https://azure.microsoft.com/solutions/network-appliances).
-
-Como um serviço gerenciado, o HDInsight requer acesso irrestrito aos serviços de integridade e gerenciamento do HDInsight para o tráfego de entrada e saída da VNET. Ao usar o NSGs, você deve garantir que esses serviços ainda possam se comunicar com o cluster HDInsight.
-
-![Diagrama de entidades do HDInsight criadas na VNET personalizada do Azure](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
-
-### <a name="hdinsight-with-network-security-groups"></a>HDInsight com grupos de segurança de rede
-
-Se você planeja usar **grupos de segurança de rede** para controlar o tráfego de rede, execute as seguintes ações antes de instalar o HDInsight:
-
-1. Identifique a região do Azure que você pretende usar para o HDInsight.
-
-2. Identifique as marcas de serviço exigidas pelo HDInsight para sua região. Para obter mais informações, consulte [marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight](hdinsight-service-tags.md).
-
-3. Crie ou modifique os grupos de segurança de rede para a sub-rede na qual você planeja instalar o HDInsight.
-
-    * __Grupos de segurança de rede__: permita o tráfego de __entrada__ na porta __443__ dos endereços IP. Isso garantirá que os serviços de gerenciamento do HDInsight possam acessar o cluster de fora da rede virtual.
-
-Para obter mais informações sobre grupos de segurança de rede, consulte a [visão geral dos grupos de segurança de rede](../virtual-network/security-overview.md).
-
-### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controlando o tráfego de saída de clusters HDInsight
-
-Para obter mais informações sobre como controlar o tráfego de saída de clusters HDInsight, consulte [Configurar a restrição de tráfego de rede de saída para clusters do Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
-
-#### <a name="forced-tunneling-to-on-premises"></a>Túnel forçado para local
-
-O túnel forçado é uma configuração de roteamento definido pelo usuário em que todo o tráfego de uma sub-rede é forçado para uma rede ou localização específica, como a rede local. __O HDInsight não dá__ suporte ao túnel forçado de tráfego para redes locais.
-
-## <a name="required-ip-addresses"></a><a id="hdinsight-ip"></a> Endereços IP obrigatórios
-
-Se você usar grupos de segurança de rede ou rotas definidas pelo usuário para controlar o tráfego, consulte [endereços IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
-
-## <a name="required-ports"></a><a id="hdinsight-ports"></a> Portas obrigatórias
-
-Se você pretende usar um **firewall** e acessar o cluster de fora em determinadas portas, será preciso permitir o tráfego nas portas necessárias para o seu cenário. Por padrão, nenhuma lista de permissões especial de portas é necessária, contanto que o tráfego de gerenciamento do Azure explicado na seção anterior tenha permissão para alcançar o cluster na porta 443.
-
-Para obter uma lista de portas para serviços específicos, consulte o documento [Portas usadas pelos serviços do Apache Hadoop no HDInsight](hdinsight-hadoop-port-settings-for-services.md).
-
-Para obter mais informações sobre as regras de firewall para soluções de virtualização, consulte o documento [Cenário de solução de virtualização](../virtual-network/virtual-network-scenario-udr-gw-nva.md).
-
 ## <a name="load-balancing"></a>Balanceamento de carga
 
-Quando você cria um cluster HDInsight, um balanceador de carga também é criado. O tipo desse balanceador de carga está no [nível de SKU básico](../load-balancer/concepts-limitations.md#skus), que tem determinadas restrições. Uma dessas restrições é que, se você tiver duas redes virtuais em regiões diferentes, não poderá se conectar aos balanceadores de carga básicos. Consulte [perguntas frequentes sobre redes virtuais: restrições em emparelhamento vnet global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), para obter mais informações.
+Quando você cria um cluster HDInsight, um balanceador de carga também é criado. O tipo desse balanceador de carga está no [nível de SKU básico](../load-balancer/skus.md), que tem determinadas restrições. Uma dessas restrições é que, se você tiver duas redes virtuais em regiões diferentes, não poderá se conectar aos balanceadores de carga básicos. Consulte [perguntas frequentes sobre redes virtuais: restrições em emparelhamento vnet global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -260,3 +212,4 @@ Quando você cria um cluster HDInsight, um balanceador de carga também é criad
 * Para obter mais informações sobre redes virtuais do Azure, consulte a [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
 * Para obter mais informações sobre os Grupos de Segurança de Rede, veja [Grupos de segurança de rede](../virtual-network/security-overview.md).
 * Para obter mais informações sobre rotas definidas pelo usuário, consulte [rotas definidas pelo usuário e encaminhamento de IP](../virtual-network/virtual-networks-udr-overview.md).
+* Para obter mais informações sobre como controlar o tráfego, consulte [controlar o tráfego de rede](./control-network-traffic.md).

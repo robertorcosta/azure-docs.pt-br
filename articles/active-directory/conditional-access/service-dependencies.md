@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 05/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 3b0d7816dc83a7c3536e44ff2461d85ea6178ff1
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74380022"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778474"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory acesso condicional? 
 
 Com as políticas de acesso condicional, você pode especificar os requisitos de acesso para sites e serviços. Por exemplo, seus requisitos de acesso podem incluir a exigência de autenticação multifator (MFA) ou de [dispositivos gerenciados](require-managed-devices.md). 
 
-Quando você acessa um site ou serviço diretamente, o impacto de uma política relacionada normalmente é fácil de avaliar. Por exemplo, se você tiver uma política que requer MFA para SharePoint Online configurado, a MFA será imposta para cada entrada no portal da Web do SharePoint. No entanto, nem sempre é um avanço direto para avaliar o impacto de uma política, pois há aplicativos de nuvem com dependências para outros aplicativos de nuvem. Por exemplo, o Microsoft Teams pode fornecer acesso a recursos no SharePoint Online. Portanto, ao acessar o Microsoft Teams em nosso cenário atual, você também está sujeito à política do SharePoint MFA.   
+Quando você acessa um site ou serviço diretamente, o impacto de uma política relacionada normalmente é fácil de avaliar. Por exemplo, se você tiver uma política que exija o MFA (autenticação multifator) para o SharePoint Online configurado, a MFA será imposta para cada entrada no portal da Web do SharePoint. No entanto, nem sempre é um avanço direto para avaliar o impacto de uma política, pois há aplicativos de nuvem com dependências para outros aplicativos de nuvem. Por exemplo, o Microsoft Teams pode fornecer acesso a recursos no SharePoint Online. Portanto, ao acessar o Microsoft Teams em nosso cenário atual, você também está sujeito à política do SharePoint MFA. 
 
 ## <a name="policy-enforcement"></a>Aplicação de políticas 
 
@@ -37,6 +37,8 @@ O diagrama a seguir ilustra as dependências do MS Teams Service. Setas sólidas
 
 Como prática recomendada, você deve definir políticas comuns entre aplicativos e serviços relacionados sempre que possível. Ter uma postura de segurança consistente fornece a melhor experiência do usuário. Por exemplo, a definição de uma política comum no Exchange Online, no SharePoint Online, no Microsoft Teams e no Skype for Business reduz significativamente as solicitações inesperadas que podem surgir de políticas diferentes sendo aplicadas aos serviços downstream. 
 
+Uma ótima maneira de fazer isso com aplicativos na pilha do Office é usar o [office 365 (versão prévia)](concept-conditional-access-cloud-apps.md#office-365-preview) em vez de direcionar aplicativos individuais.
+
 A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativos cliente devem satisfazer  
 
 | Aplicativos cliente         | Serviço downstream                          | Imposição |
@@ -44,7 +46,7 @@ A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativ
 | Azure Data Lake     | Gerenciamento de Microsoft Azure (portal e API) | Associação antecipada |
 | Sala de aula da Microsoft | Exchange                                    | Associação antecipada |
 |                     | SharePoint                                  | Associação antecipada |
-| Equipes da Microsoft     | Exchange                                    | Associação antecipada |
+| Microsoft Teams     | Exchange                                    | Associação antecipada |
 |                     | Planejador MS                                  | Associação tardia  |
 |                     | SharePoint                                  | Associação antecipada |
 |                     | Skype for Business Online                   | Associação antecipada |

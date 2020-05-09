@@ -2,16 +2,15 @@
 title: Azure Application Insights – coleta automática de dependência | Microsoft Docs
 description: O Application Insights coleta e visualiza dependências automaticamente
 ms.topic: reference
-author: nikmd23
-ms.author: nimolnar
-ms.date: 04/29/2019
-ms.reviewer: mbullwin
-ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/06/2020
+ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665809"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891604"
 ---
 # <a name="dependency-auto-collection"></a>Coleta automática de dependência
 
@@ -28,10 +27,15 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 | <b> Bibliotecas de comunicação</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
+| [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 – versão estável mais recente. (Veja a observação abaixo.)
 | [SDK do Cliente dos Hubs de Eventos](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
 | [SDK do Cliente do Barramento de Serviço](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Clientes de armazenamento</b>|  |
 | ADO.NET | 4.5+ |
+
+> [!NOTE]
+> Há um [problema conhecido](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) com versões mais antigas do Microsoft. Data. SqlClient. É recomendável usar o 1.1.0 ou posterior para atenuar esse problema. O Entity Framework Core não é fornecido necessariamente com a versão estável mais recente do Microsoft. Data. SqlClient, então aconselhamos a confirmação de que você está em pelo menos 1.1.0 para evitar esse problema.   
+
 
 ## <a name="java"></a>Java
 | Servidores de aplicativo | Versões |

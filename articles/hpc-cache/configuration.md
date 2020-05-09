@@ -4,14 +4,14 @@ description: Explica como definir configurações adicionais para o cache, como 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7938fcc0819fc3e5e0762cc8c3c2931594ed1c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195053"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871420"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Definir configurações adicionais de cache do HPC do Azure
 
@@ -42,13 +42,15 @@ Saiba mais sobre as configurações de MTU em redes virtuais do Azure lendo o [a
 ## <a name="configure-root-squash"></a>Configurar o comprimir raiz
 <!-- linked from troubleshoot -->
 
-A configuração **habilitar a raiz de comprimir** controla como o cache do HPC do Azure permite o acesso à raiz. O comprimir raiz ajuda a impedir o acesso em nível raiz de clientes não autorizados.
+A configuração **habilitar a raiz de comprimir** controla como o cache HPC do Azure trata as solicitações do usuário raiz em computadores cliente.
 
-Essa configuração permite que os usuários controlem o acesso à raiz no nível de cache, o que pode ``no_root_squash`` ajudar a compensar a configuração necessária para sistemas nas usados como destinos de armazenamento. (Leia mais sobre os [pré-requisitos de destino de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements).) Ele também pode melhorar a segurança quando usado com destinos do armazenamento de BLOBs do Azure.
+Quando o comprimir raiz está habilitado, os usuários raiz de um cliente são mapeados automaticamente para o usuário "ninguém" quando enviam solicitações por meio do cache do HPC do Azure. Ele também impede solicitações de cliente de usar bits de permissão set-UID.
+
+Se o comprimir raiz estiver desabilitado, uma solicitação do usuário raiz do cliente (UID 0) será passada para um sistema de armazenamento NFS de back-end como raiz. Essa configuração pode permitir o acesso impróprio a arquivos.
+
+A configuração de comprimir raiz no cache pode ajudar a compensar ``no_root_squash`` a configuração necessária em sistemas nas que são usados como destinos de armazenamento. (Leia mais sobre os [pré-requisitos de destino de armazenamento NFS](hpc-cache-prereqs.md#nfs-storage-requirements).) Ele também pode melhorar a segurança quando usado com destinos do armazenamento de BLOBs do Azure.
 
 A configuração padrão é **Sim**. (Os caches criados antes de abril de 2020 podem ter a configuração padrão **não**.)
-
-Quando habilitado, esse recurso também impede o uso de bits de permissão set-UID em solicitações de cliente para o cache.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Exibir instantâneos para destinos de armazenamento de BLOBs
 

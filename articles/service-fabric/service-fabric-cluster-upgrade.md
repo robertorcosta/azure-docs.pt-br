@@ -4,12 +4,12 @@ description: Saiba mais sobre como atualizar a versão ou a configuração de um
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.custom: sfrev
-ms.openlocfilehash: 6897854820339fc78dd9083c82147dce95ab68b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d92ac90e0e41d534231bafbe991a05764dbee07d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258649"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789548"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Azure Service Fabric
 
@@ -105,7 +105,7 @@ O aplicativo de orquestração de patch (POA) é um aplicativo do Service Fabric
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como personalizar algumas das [configurações de malha do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-up-down.md)
+* Saiba como [dimensionar o cluster para dentro e para fora](service-fabric-cluster-scale-in-out.md)
 * Saiba mais sobre [atualizações de aplicativos](service-fabric-application-upgrade.md)
 
 <!--Image references-->
