@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 06e5abe04ed1ec75dcbf1b216bfaab1a7458ce72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064046"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625945"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Alterar a senha da conta corporativa ou de estudante da página Alterar senha
 
@@ -27,7 +27,7 @@ A página **alterar senha** do portal **minha conta** ajuda a atualizar uma senh
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Atualizar uma senha da página Alterar senha
 
-1. Entre em sua conta corporativa ou de estudante, usando sua senha existente e vá para a página **minha conta** (https://myprofile.microsoft.com/) .
+1. Entre em sua conta corporativa ou de estudante, usando sua senha existente e vá para a página **minha conta** (https://myaccount.microsoft.com/) .
 
 2. Selecione **senha** no painel de navegação esquerdo ou selecione o link **alterar senha** do bloco de **senha** .
 

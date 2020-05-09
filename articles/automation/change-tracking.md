@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1208e08f7b85e893ba754bdbdf71a2da4f68c90a
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509051"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787168"
 ---
 # <a name="overview-of-change-tracking-and-inventory"></a>Visão geral de Controle de Alterações e inventário
 
@@ -23,10 +23,15 @@ Este artigo apresenta Controle de Alterações e inventário na automação do A
 - Serviços da Microsoft
 - Daemons Linux
 
-Controle de Alterações e inventário obtém seus dados do serviço de Azure Monitor na nuvem. O Azure envia alterações para software instalado, serviços da Microsoft, registro e arquivos do Windows e daemons do Linux em servidores monitorados para Azure Monitor para processamento. O serviço de nuvem aplica a lógica aos dados recebidos, registra-os e torna-os disponíveis. 
-
 > [!NOTE]
 > Para rastrear Azure Resource Manager alterações de propriedade, consulte o histórico de [alterações](../governance/resource-graph/how-to/get-resource-changes.md)do grafo de recursos do Azure.
+
+O Controle de Alterações e o inventário obtêm seus dados de Azure Monitor. As máquinas virtuais conectadas a espaços de trabalho do Log Analytics usam agentes de Log Analytics para coletar dados sobre alterações em softwares instalados, serviços da Microsoft, registro e arquivos do Windows e quaisquer daemons do Linux em servidores monitorados. Quando os dados estão disponíveis, os agentes os enviam para Azure Monitor para processamento. Azure Monitor aplica a lógica aos dados recebidos, registra-os e torna-os disponíveis. 
+
+O Controle de Alterações e o recurso de inventário habilita as áreas funcionais de inventário e controle de alterações na automação do Azure. Como ambas as áreas usam o mesmo agente de Log Analytics, o processo para adicionar uma VM é o mesmo em qualquer área funcional. 
+
+> [!NOTE]
+> Para usar o Controle de Alterações e o recurso de inventário, você deve localizar todas as suas VMs na mesma assinatura e região da conta de automação.
 
 O Controle de Alterações e o inventário atualmente não dão suporte aos seguintes itens:
 
@@ -38,7 +43,7 @@ O Controle de Alterações e o inventário atualmente não dão suporte aos segu
 Outras limitações:
 
 * Os valores e a coluna **Tamanho máximo de arquivo** não são utilizados na implementação atual.
-* Se você coletar mais de 2500 arquivos em um ciclo de coleta de 30 minutos, o desempenho da solução poderá ser degradado.
+* Se você coletar mais de 2500 arquivos em um ciclo de coleta de 30 minutos, o controle de alterações e o desempenho do inventário poderão ser degradados.
 * Quando o tráfego de rede é alto, os registros de alteração podem levar até seis horas para serem exibidos.
 * Se você modificar uma configuração enquanto um computador for desligado, o computador poderá postar alterações pertencentes à configuração anterior.
 
@@ -49,33 +54,7 @@ O Controle de Alterações e o inventário estão enfrentando os seguintes probl
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
-Controle de Alterações e inventário e os agentes de Log Analytics de Azure Monitor têm suporte nos sistemas operacionais Windows e Linux.
-
-### <a name="windows-operating-systems"></a>Sistemas operacionais Windows
-
-A versão do sistema operacional Windows com suporte oficialmente é o Windows Server 2008 R2 ou posterior.
-
-### <a name="linux-operating-systems"></a>Sistemas operacionais Linux
-
-As distribuições do Linux discutidas abaixo são oficialmente suportadas para o agente de Log Analytics para Linux. No entanto, o agente para Linux também pode ser executado em outras distribuições não listadas. Salvo indicação em contrário, todas as versões secundárias são compatíveis com cada versão principal listada.
-
-#### <a name="64-bit-linux-operating-systems"></a>sistemas operacionais Linux de 64 bits
-
-* CentOS 6 e 7
-* Amazon Linux 2017.09
-* Oracle Linux 6 e 7
-* Red Hat Enterprise Linux Server 6 e 7
-* Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
-* SUSE Linux Enterprise Server 12
-
-#### <a name="32-bit-linux-operating-systems"></a>sistemas operacionais Linux de 32 bits
-
-* CentOS 6
-* Oracle Linux 6
-* Red Hat Enterprise Linux Server 6
-* Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS and 16.04 LTS
+Controle de Alterações e inventário têm suporte em todos os sistemas operacionais que atendem aos requisitos do Log Analytics Agent. As versões do sistema operacional Windows com suporte oficialmente são o Windows Server 2008 SP1 ou posterior e o Windows 7 SP1 ou posterior. Também há suporte para vários sistemas operacionais Linux. Consulte [visão geral do agente de log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
@@ -83,14 +62,14 @@ O Controle de Alterações e o inventário exigem especificamente os endereços 
 
 |Público do Azure  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.Azure automation.us|
+|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
+|*.azure-automation.net | *.Azure automation.us|
 
 ## <a name="change-tracking-and-inventory-user-interface"></a>Interface do usuário de Controle de Alterações e inventário
 
-Use Controle de Alterações e inventário na portal do Azure para exibir o resumo das alterações de computadores monitorados. O recurso está disponível selecionando **controle de alterações** em **Gerenciamento de configuração** na sua conta de automação. 
+Use Controle de Alterações e inventário na portal do Azure para exibir o resumo das alterações de computadores monitorados. O recurso está disponível selecionando uma das opções Adicionar VMs para o **controle de alterações** ou o **inventário** em gerenciamento de **configuração** em sua conta de automação.  
 
 ![Painel do Controle de Alterações](./media/change-tracking/change-tracking-dash01.png)
 
@@ -186,7 +165,7 @@ A tabela a seguir mostra os limites de item acompanhados por computador para Con
 |Serviços|250|
 |Daemons|250|
 
-A média Log Analytics uso de dados para um computador usando Controle de Alterações e o inventário é de aproximadamente 40 MB por mês. Esse valor é somente uma aproximação e está sujeito a alterações com base em seu ambiente. É recomendável que você monitore seu ambiente para ver o uso exato que você tem.
+A média Log Analytics uso de dados para um computador usando Controle de Alterações e inventário é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Usando o recurso uso e custos estimados do espaço de trabalho Log Analytics, você pode exibir os dados ingeridos por Controle de Alterações e inventário em um gráfico de uso. Você pode usar essa exibição de dados para avaliar o uso de dados e determinar como ele está afetando sua fatura. Consulte [entender seu uso e estimar os custos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).  
 
 ### <a name="microsoft-service-data"></a>Dados de serviço da Microsoft
 

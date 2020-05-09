@@ -11,19 +11,19 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 75020b0dd58a80f989bd03eb92031d904ebf4c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb37efb796ddf41bd1d19e10d22f934590604274
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313702"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871730"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Parceiros de business intelligence do Azure Synapse Analytics
 
 Para criar sua solução de data warehouse completa usando o pool SQL do Synapse no Azure Synapse, você pode escolher entre uma ampla variedade de ferramentas líderes do setor.  Este artigo destaca as empresas parceiras da Microsoft com soluções de business intelligence oficial (BI) que dão suporte aos SQL Data Warehouse do Azure.
 
 ## <a name="our-business-intelligence-partners"></a>Nossos parceiros de business intelligence
-| Parceiro | Descrição | Link de site/produto |
+| Partner (parceiro) | Descrição | Link de site/produto |
 | ------- | ----------- | -------------------- |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst conecta toda a organização por meio de uma rede de instâncias de BI virtualizadas entrelaçadas na parte superior de uma malha analítica comum compartilhada|[Página do produto](https://www.birst.com/)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/birst/birst/)<br> |
 | ![ClearStory Data](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**Dados do ClearStory (percepções de negócios contínuas)**<br>Os dados do ClearStory permitem a análise de ciclo rápido em dados diferentes armazenados no pool SQL Synapse. O aplicativo de análise e a plataforma integrada com base em Spark ClearStory aceleram o acesso a dados e a harmonização de conjuntos de dados diferentes. Eles permitem uma exploração rápida e colaborativa que dá suporte a usuários empresariais a se autodependente de obter insights rápidos. |[Página do produto](https://www.clearstorydata.com/product/continuous-insights/)<br> |
@@ -38,7 +38,7 @@ Para criar sua solução de data warehouse completa usando o pool SQL do Synapse
 | ![SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**SiSense**<br>O SiSense é um software de Business Intelligence de pilha completa que contém as ferramentas de que uma empresa precisa para analisar e visualizar dados: um banco de dados analítico de alto desempenho, a capacidade de unir várias fontes, ETL (extração de dados simples) e visualização de dados baseada na Web. Comece a analisar e visualizar grandes conjuntos de dados com o BI e a análise da SiSense hoje mesmo. |[Página do produto](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>A análise de autoatendimento do tableau ajuda qualquer pessoa a ver e entender seus dados, em vários tipos de dados de arquivos simples para bancos de dado. O tableau tem um conector nativo e otimizado para Synapse pool de SQL que dá suporte a dados dinâmicos e a análise na memória. |[Página do produto](https://www.tableau.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/)<br>|
 | ![Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png) |**TARGIT (conjunto de decisões)**<br>O Targit Decision Suite é uma plataforma de BI e análise que proporciona painéis em tempo real, análise por autoatendimento, relatórios intuitivos, recursos móveis impressionantes e tecnologia simples de descoberta de dados em uma única soluções coesa. A Targit proporciona às empresas a coragem para agir. |[Página do produto](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/)<br> |
-| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>As empresas mais inovadoras do mundo usam o ThoughtSpot para capacitar cada pessoa em sua organização, do executivo C-Suite ao funcionário de front-line, com a capacidade de descobrir rapidamente informações controladas por dados. Com o ThoughtSpot, as pessoas de negócios podem digitar uma pesquisa simples para analisar instantaneamente bilhões de linhas de dados e aproveitar a inteligência artificial para obter informações relevantes e confiáveis enviadas por push para elas como respostas a milhares de perguntas que talvez não tenham pensado em fazer. O ThoughtSpot é simples o suficiente para qualquer pessoa de ti usar, porém eficiente o suficiente para lidar até mesmo com os maiores e mais complexos dados corporativos sem sacrificar a velocidade, a segurança ou a governança. É por isso que os clientes como Walmart, 7-11, BT, Daimler, Exxon, Hulu, Royal Bank do Canadá, o banco do oeste e a Nationwide Building Society passaram a ThoughtSpot para transformar suas culturas de tomada de decisão e a empresa de analistas, denominada ThoughtSpot um líder no quadrante de 2020 mágica. Fazendo com que as informações façam parte de todas as conversas e de todas as decisões, a ThoughtSpot está relembrando a função dos dados na criação de um mundo voltado para o fato. |[Página do produto](https://www.thoughtspot.com)<br>|
+| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Use a pesquisa para obter informações granulares de bilhões de linhas de dados ou deixe que o ia descubra informações de perguntas que você talvez não tenha pensado em fazer. O ThoughtSpot ajuda a businesspeople a encontrar informações ocultas em seus dados da empresa em segundos. Use a pesquisa para analisar seus dados e obter informações automatizadas quando precisar deles.|[Página do produto](https://www.thoughtspot.com)<br>|
 | ![Yellowfin](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>YellowFin é um fornecedor de BI de nuvem mais classificado para relatórios ad hoc e painéis por BARC; Pesquisa de BI. Conecte-se ao pool do SQL Synapse e crie e compartilhe belas relatórios e painéis com os premiados recursos de BI e inteligência de local. |[Página do produto](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->

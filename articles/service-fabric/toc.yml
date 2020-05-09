@@ -655,7 +655,7 @@
             - name: Escala
               items:
                 - name: Expansão manual
-                  href: service-fabric-cluster-scale-up-down.md
+                  href: service-fabric-cluster-scale-in-out.md
                 - name: Expansão por meio de programação
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Dimensionar o tipo de nó primário

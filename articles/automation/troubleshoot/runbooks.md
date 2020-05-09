@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08325c8163073c083e927f84fecbde9a9d104572
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 70f3c52adc10556c358ed75a75fd023ffb21a813
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652788"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855098"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Solucionar erros de runbook
 
@@ -49,7 +49,7 @@ Ao receber erros durante a execução do runbook na automação do Azure, você 
     * [Renove o webhook](../automation-webhooks.md#renew-a-webhook) se você estiver tentando usar um webhook expirado para iniciar o runbook.
     * [Verifique os status do trabalho](../automation-runbook-execution.md#job-statuses) para determinar os status atuais do runbook e algumas das possíveis causas do problema.
     * [Adicione uma saída adicional](../automation-runbook-output-and-messages.md#message-streams) ao runbook para identificar o que acontece antes de o runbook ser suspenso.
-    * [Manipule quaisquer exceções](../automation-runbook-execution.md#handling-exceptions) geradas pelo seu trabalho.
+    * [Manipule quaisquer exceções](../automation-runbook-execution.md#exceptions) geradas pelo seu trabalho.
 
 1. Execute esta etapa se o trabalho de runbook ou o ambiente em Hybrid Runbook Worker não responder.
 
@@ -234,7 +234,7 @@ O runbook não está usando o contexto correto durante a execução.
 
 ### <a name="resolution"></a>Resolução
 
-O contexto de assinatura pode ser perdido quando um runbook invoca vários runbooks. Para garantir que o contexto de assinatura seja passado para os runbooks, faça com que o runbook do cliente passe `Start-AzureRmAutomationRunbook` o contexto para `AzureRmContext` o cmdlet no parâmetro. Use o `Disable-AzureRmContextAutosave` cmdlet com o `Scope` parâmetro definido como `Process` para garantir que as credenciais especificadas sejam usadas somente para o runbook atual. Para obter mais informações, consulte [trabalhando com várias assinaturas](../automation-runbook-execution.md#working-with-multiple-subscriptions).
+O contexto de assinatura pode ser perdido quando um runbook invoca vários runbooks. Para garantir que o contexto de assinatura seja passado para os runbooks, faça com que o runbook do cliente passe `Start-AzureRmAutomationRunbook` o contexto para `AzureRmContext` o cmdlet no parâmetro. Use o `Disable-AzureRmContextAutosave` cmdlet com o `Scope` parâmetro definido como `Process` para garantir que as credenciais especificadas sejam usadas somente para o runbook atual. Para saber mais, confira [Assinaturas](../automation-runbook-execution.md#subscriptions).
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -634,7 +634,7 @@ Esse problema pode ocorrer porque as áreas restritas do Azure impedem o acesso 
 
 ### <a name="resolution"></a>Resolução
 
-Para obter detalhes sobre o uso de áreas restritas do Azure, consulte [execução de runbook na automação do Azure](../automation-runbook-execution.md#where-to-run-your-runbooks).
+Para obter detalhes sobre o uso de áreas restritas do Azure, consulte [ambiente de execução de runbook](../automation-runbook-execution.md#runbook-execution-environment).
 
 ## <a name="scenario-invalid-forbidden-status-code-when-using-key-vault-inside-a-runbook"></a>Cenário: código de status proibido inválido ao usar Key Vault dentro de um runbook
 

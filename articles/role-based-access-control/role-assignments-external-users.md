@@ -1,6 +1,6 @@
 ---
-title: Adicionar ou remover atribuições de função para usuários externos com RBAC e o portal do Azure
-description: Saiba como conceder acesso aos recursos do Azure para usuários externos a uma organização usando o RBAC (controle de acesso baseado em função) do Azure.
+title: Adicionar ou remover atribuições de função do Azure para usuários externos usando o portal do Azure-RBAC do Azure
+description: Saiba como conceder acesso aos recursos do Azure para usuários externos a uma organização usando o portal do Azure e o controle de acesso baseado em função do Azure (RBAC do Azure).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 568cb7602d9cb454685ef69e820288bcc68563c4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245636"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735752"
 ---
-# <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Adicionar ou remover atribuições de função para usuários convidados externos usando o Azure RBAC e o portal do Azure
+# <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Adicionar ou remover atribuições de função do Azure para usuários convidados externos usando o portal do Azure
 
-O [RBAC (controle de acesso baseado em função) do Azure](overview.md) permite melhor gerenciamento de segurança para grandes organizações e para empresas de pequeno e médio porte que trabalham com colaboradores externos, fornecedores ou freelanceres que precisam de acesso a recursos específicos em seu ambiente, mas não necessariamente a toda a infraestrutura ou a quaisquer escopos relacionados à cobrança. Você pode usar os recursos do [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar com usuários convidados externos e pode usar o RBAC para conceder apenas as permissões que os usuários convidados precisam em seu ambiente.
+O Azure [RBAC (controle de acesso baseado em função)](overview.md) do Azure permite um melhor gerenciamento de segurança para grandes organizações e para empresas de pequeno e médio porte que trabalham com colaboradores externos, fornecedores ou freelanceres que precisam de acesso a recursos específicos em seu ambiente, mas não necessariamente à infraestrutura inteira ou a quaisquer escopos relacionados à cobrança. Você pode usar os recursos do [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) para colaborar com usuários convidados externos e pode usar o RBAC do Azure para conceder apenas as permissões que os usuários convidados precisam em seu ambiente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +69,7 @@ Para obter mais informações sobre o processo de convite, consulte [Azure Activ
 
 ## <a name="add-a-role-assignment-for-a-guest-user"></a>Adicionar uma atribuição de função para um usuário convidado
 
-No RBAC, para conceder acesso, você atribui uma função. Para adicionar uma atribuição de função para um usuário convidado, siga [as mesmas etapas necessárias](role-assignments-portal.md#add-a-role-assignment) para um usuário membro, grupo, entidade de serviço ou identidade gerenciada. Siga estas etapas para adicionar uma atribuição de função para um usuário convidado em escopos diferentes.
+No RBAC do Azure, para conceder acesso, você atribui uma função. Para adicionar uma atribuição de função para um usuário convidado, siga [as mesmas etapas necessárias](role-assignments-portal.md#add-a-role-assignment) para um usuário membro, grupo, entidade de serviço ou identidade gerenciada. Siga estas etapas para adicionar uma atribuição de função para um usuário convidado em escopos diferentes.
 
 1. Na portal do Azure, clique em **todos os serviços**.
 
@@ -171,7 +171,7 @@ Antes de remover um usuário convidado de um diretório, primeiro você deve rem
 
 1. Na mensagem de exclusão exibida, clique em **Sim**.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="guest-user-cannot-browse-the-directory"></a>O usuário convidado não pode navegar no diretório
 

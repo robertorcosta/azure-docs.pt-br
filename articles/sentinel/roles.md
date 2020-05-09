@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587168"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744759"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -44,7 +44,7 @@ Além das funções RBAC dedicadas do Azure Sentinel, há funções do Azure e L
 > Log Analytics funções também concedem acesso de leitura em todos os recursos do Azure, mas só atribuirão permissões de gravação a recursos de Log Analytics.
 
 
-Por exemplo, um usuário atribuído com as funções **leitor do Azure Sentinel Reader** e **colaborador do Azure** (não o **colaborador do Azure Sentinel**) poderá editar dados no Azure Sentinel, embora eles tenham apenas permissões de **leitor de sentinela** . Portanto, se você quiser conceder permissões a apenas no Azure Sentinel, deverá remover cuidadosamente as permissões anteriores do usuário, certificando-se de não interromper nenhuma função de permissão necessária para outro recurso.
+Por exemplo, um usuário atribuído com as funções **leitor do Azure Sentinel Reader** e **colaborador do Azure** (não o **colaborador do Azure Sentinel**) poderá editar dados no Azure Sentinel, embora eles tenham apenas permissões de **leitor de sentinela** . Portanto, se você quiser conceder permissões a um usuário somente no Azure Sentinel, você deve remover cuidadosamente as permissões anteriores do usuário, certificando-se de não interromper nenhuma função de permissão necessária para outro recurso.
 
 > [!NOTE]
 >- O Azure Sentinel usa guias estratégicos para resposta automatizada contra ameaças. Os guias estratégicos aproveitam os aplicativos lógicos do Azure e são um recurso separado do Azure. Talvez você queira atribuir membros específicos de sua equipe de operações de segurança com a opção de usar aplicativos lógicos para operações de orquestração de segurança, automação e resposta (disparar). Você pode usar a função [colaborador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-contributor) ou a função [operador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-operator) para atribuir permissão explícita para usar guias estratégicos.

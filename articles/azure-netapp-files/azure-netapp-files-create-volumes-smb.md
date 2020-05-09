@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/30/2020
 ms.author: b-juche
-ms.openlocfilehash: c4e7566eeb28bc5709acd60ced9fcdffb7e8a725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668012"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625505"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -222,6 +222,23 @@ Essa configuração é definida no **Active Directory conexões** na **conta do 
     O volume que você criou aparece na página volumes. 
  
     Um volume herda a assinatura, grupo de recursos, atributos de localização de seu pool de capacidade. Para monitorar o status de implantação do volume, você pode usar a guia Notificações.
+
+## <a name="control-access-to-an-smb-volume"></a>Controlar o acesso a um volume SMB  
+
+O acesso a um volume SMB é gerenciado por meio de permissões.  
+
+### <a name="share-permissions"></a>Permissões de compartilhamento  
+
+Por padrão, um novo volume tem as permissões de compartilhamento **todos/controle total** . Os membros do grupo Admins. do domínio podem alterar as permissões de compartilhamento usando o gerenciamento do computador na conta do computador que é usada para o volume de Azure NetApp Files.
+
+![Caminho](../media/azure-netapp-files/smb-mount-path.png) 
+![de montagem do SMB definir permissões de compartilhamento](../media/azure-netapp-files/set-share-permissions.png) 
+
+### <a name="ntfs-file-and-folder-permissions"></a>Permissões de arquivo e pasta NTFS  
+
+Você pode definir permissões para um arquivo ou pasta usando a guia **segurança** das propriedades do objeto no cliente SMB do Windows.
+ 
+![Definir permissões de arquivo e pasta](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## <a name="next-steps"></a>Próximas etapas  
 
