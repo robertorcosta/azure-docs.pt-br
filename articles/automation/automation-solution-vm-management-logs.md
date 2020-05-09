@@ -1,20 +1,20 @@
 ---
-title: Como consultar logs da solução iniciar/parar VMs
-description: Este artigo descreve como consultar dados de log gerados pela solução iniciar/parar VMs de Azure Monitor.
+title: Como consultar logs de Iniciar/Parar VMs fora do horário comercial
+description: Este artigo descreve como consultar dados de log gerados pela solução de Iniciar/Parar VMs fora do horário comercial de Azure Monitor.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604738"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864225"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Como consultar logs da solução iniciar/parar VMs
+# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Como consultar logs de Iniciar/Parar VMs fora do horário comercial
 
-A automação do Azure encaminha dois tipos de registros para o espaço de trabalho Log Analytics vinculado: logs de trabalho e fluxos de trabalho. Esses dados estão disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Azure monitor.
+A automação do Azure encaminha dois tipos de registros para o espaço de trabalho Log Analytics vinculado: logs de trabalho e fluxos de trabalho. Este artigo revisa os dados disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Azure monitor.
 
 ## <a name="job-logs"></a>Logs de trabalho
 

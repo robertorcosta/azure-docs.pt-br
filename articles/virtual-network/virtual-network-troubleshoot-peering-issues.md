@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20580edb84a8c983c2342e6a5904c75a0986a3d7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521882"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801562"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solucionar problemas de emparelhamento de rede virtual
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Comece</a></span>a<span class="has-padding-small">resolver seu problema rapidamente usando nosso agente virtual para executar o <b>diagnóstico automatizado.</b> </span> <span class="has-padding-small"> <sub>Privacy Statement</sub> Política <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 
-Este guia de solução de problemas fornece etapas para ajudá-lo a resolver a maioria dos problemas de [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) .
+Este guia de solução de problemas fornece etapas para ajudá-lo a resolver a maioria dos problemas de [emparelhamento de rede virtual](virtual-network-peering-overview.md) .
 
 ![Diagrama de emparelhamento de rede virtual](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 
@@ -212,7 +213,7 @@ Para obter mais informações, consulte os [requisitos e as restrições](https:
 
 Para solucionar este problema:
 
-1. Entre no Portal do Azure. 
+1. Entre no portal do Azure. 
 1. No aplicativo Web, selecione **rede**e, em seguida, selecione **integração VNet**.
 1. Verifique se você pode ver a rede virtual remota. Insira manualmente o espaço de endereço de rede virtual remota (**rede de sincronização** e **adicionar rotas**).
 

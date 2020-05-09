@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
-ms.openlocfilehash: fcb837af85a54102e8c9eafc33249af9dba6b5ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631410"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982880"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interpretabilidade de modelo no Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -74,17 +74,17 @@ Saiba mais sobre técnicas de interpretação com suporte, modelos de aprendizad
 
 |Técnica de interpretação|Descrição|Type|
 |--|--|--------------------|
-|1. explicador da árvore SHAP| O explicador de árvore do [shap](https://github.com/slundberg/shap), que se concentra no algoritmo de estimativa de valor shap tempo polinomial rápido e específico para **árvores e conjuntos de árvores**.|Específico do modelo|
-|2. SHAP explicativo profundo| Com base na explicação do [shap](https://github.com/slundberg/shap), o profundo explicador "é um algoritmo de aproximação de alta velocidade para valores de shap em modelos de aprendizado profundo que se baseiam em uma conexão com o DeepLIFT descrito no [artigo shap Nips](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Há suporte para modelos **TensorFlow** e modelos **Keras** usando o back-end TensorFlow (também há suporte preliminar para PyTorch) ".|Específico do modelo|
-|3. explicador linear do SHAP| O explicador linear de [shap](https://github.com/slundberg/shap)computa valores de shap para um **modelo linear**, opcionalmente, para correlações entre recursos.|Específico do modelo|
-|4. explicador de kernel SHAP| O explicador do kernel do [shap](https://github.com/slundberg/shap)usa uma regressão linear local especialmente ponderada para estimar valores de shap para **qualquer modelo**.|Independente de modelo|
-|5. explicador de imitação (substituto global)| O explicador de imitação se baseia na ideia de treinar [modelos substitutos globais](https://christophm.github.io/interpretable-ml-book/global.html) para imitar modelos Blackbox. Um modelo substituto global é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de **qualquer modelo de caixa preta** o mais precisamente possível. Os cientistas de dados podem interpretar o modelo substituto para desenhar conclusões sobre o modelo de caixa preta. Você pode usar um dos seguintes modelos interpretáveis como seu modelo substituto: LightGBM (LGBMExplainableModel), regressão linear (LinearExplainableModel), estocástico gradiente descendente de modelo explicativo (SGDExplainableModel) e árvore de decisão (DecisionTreeExplainableModel).|Independente de modelo|
-|6. PFI (explicador de importância do recurso de permuta)| A importância do recurso de permuta é uma técnica usada para explicar os modelos de classificação e regressão inspirados pelo [documento de florestas aleatórias do Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte a seção 10). Em um alto nível, a maneira como ele funciona é por meio do embaralhamento de dados um recurso por vez para todo o DataSet e calcular quanto a métrica de desempenho de interesse muda. Quanto maior a alteração, mais importante é esse recurso. PFI pode explicar o comportamento geral de **qualquer modelo subjacente** , mas não explica previsões individuais. |Independente de modelo|
+|Explicador de árvore SHAP| O explicador de árvore do [shap](https://github.com/slundberg/shap), que se concentra no algoritmo de estimativa de valor shap tempo polinomial rápido e específico para **árvores e conjuntos de árvores**.|Específico do modelo|
+|Explicador profundo do SHAP| Com base na explicação do SHAP, o profundo explicador "é um algoritmo de aproximação de alta velocidade para valores de SHAP em modelos de aprendizado profundo que se baseiam em uma conexão com o DeepLIFT descrito no [artigo shap Nips](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Há suporte para modelos **TensorFlow** e modelos **Keras** usando o back-end TensorFlow (também há suporte preliminar para PyTorch) ".|Específico do modelo|
+|Explicador linear SHAP| O explicador linear de SHAP computa valores de SHAP para um **modelo linear**, opcionalmente, para correlações entre recursos.|Específico do modelo|
+|Explicador de kernel SHAP| O explicador do kernel do SHAP usa uma regressão linear local especialmente ponderada para estimar valores de SHAP para **qualquer modelo**.|Independente de modelo|
+|Explicador de imitação (substituto global)| O explicador de imitação se baseia na ideia de treinar [modelos substitutos globais](https://christophm.github.io/interpretable-ml-book/global.html) para imitar modelos Blackbox. Um modelo substituto global é um modelo intrinsecamente interpretável que é treinado para aproximar as previsões de **qualquer modelo de caixa preta** o mais precisamente possível. Os cientistas de dados podem interpretar o modelo substituto para desenhar conclusões sobre o modelo de caixa preta. Você pode usar um dos seguintes modelos interpretáveis como seu modelo substituto: LightGBM (LGBMExplainableModel), regressão linear (LinearExplainableModel), estocástico gradiente descendente de modelo explicativo (SGDExplainableModel) e árvore de decisão (DecisionTreeExplainableModel).|Independente de modelo|
+|Explicador de importância do recurso de permuta (PFI)| A importância do recurso de permuta é uma técnica usada para explicar os modelos de classificação e regressão inspirados pelo [documento de florestas aleatórias do Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consulte a seção 10). Em um alto nível, a maneira como ele funciona é por meio do embaralhamento de dados um recurso por vez para todo o DataSet e calcular quanto a métrica de desempenho de interesse muda. Quanto maior a alteração, mais importante é esse recurso. PFI pode explicar o comportamento geral de **qualquer modelo subjacente** , mas não explica previsões individuais. |Independente de modelo|
 
 
 
 
-Além das técnicas de interpretação descritas acima, damos suporte a outro [explicador baseado em Shap](https://github.com/slundberg/shap), chamado `TabularExplainer`. Dependendo do modelo, `TabularExplainer` o usa um dos explicadores de shap com suporte:
+Além das técnicas de interpretação descritas acima, damos suporte a outro explicador baseado em SHAP `TabularExplainer`, chamado. Dependendo do modelo, `TabularExplainer` o usa um dos explicadores de shap com suporte:
 
 * TreeExplainer para todos os modelos baseados em árvore
 * DeepExplainer para modelos de DNN
@@ -120,4 +120,6 @@ Você pode executar a explicação remotamente em Azure Machine Learning computa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja [como](how-to-machine-learning-interpretability-aml.md) habilitar a interpretabilidade para treinamento de modelos tanto localmente quanto em Azure Machine Learning recursos de computação remota. Consulte os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para cenários adicionais.
+- Veja [como](how-to-machine-learning-interpretability-aml.md) habilitar a interpretabilidade para treinamento de modelos tanto localmente quanto em Azure Machine Learning recursos de computação remota. 
+- Consulte os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para cenários adicionais. 
+- Se você estiver interessado em interpretar a interpretação de cenários de texto, consulte [interpretar o texto](https://github.com/interpretml/interpret-text), um repositório de código aberto relacionado para [interpretar a Comunidade](https://github.com/interpretml/interpret-community/), para obter técnicas de interpretação para NLP. `azureml.interpret`no momento, o pacote não dá suporte a essas técnicas, mas você pode começar com um [bloco de anotações de exemplo na classificação de texto](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).

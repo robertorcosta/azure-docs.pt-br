@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 74fec059bdffb91f5a7774d430e2f1897f0e863c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 553d6f716bbb6e98aa64ef07cb80d2d6cba370b6
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474451"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561605"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparar para implantar o Azure Data Box Gateway
 
@@ -51,8 +51,8 @@ Aqui você encontra os pré-requisitos de configuração para o recurso Data Box
 Antes de começar, verifique se:
 
 * Sua assinatura do Microsoft Azure está habilitada para um recurso do Azure Stack Edge. Use uma assinatura compatível, como [EA (Contrato Enterprise) da Microsoft](https://azure.microsoft.com/overview/sales-number/), [Programa do CSP (Provedor de Soluções na Nuvem)](https://docs.microsoft.com/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-* Você tem acesso de proprietário ou colaborador no nível do grupo de recursos aos recursos do Data Box Edge/Data Box Gateway, do Hub IoT e do Armazenamento do Azure.
-    - Para criar qualquer recurso do Data Box Edge/Data Box Gateway, você deverá ter permissões como um colaborador (ou superior) com escopo no nível do grupo de recursos. Você também precisará verificar se o provedor `Microsoft.DataBoxEdge` está registrado. Para obter informações sobre como realizar o registro, acesse [Registrar o provedor de recursos](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+* Você tem acesso de proprietário ou colaborador no nível do grupo de recursos aos recursos do Azure Stack Edge/Data Box Gateway, do Hub IoT e do Armazenamento do Azure.
+    - Para criar qualquer recurso do Azure Stack Edge/Data Box Gateway, você deverá ter permissões como um colaborador (ou superior) com escopo no nível do grupo de recursos. Você também precisará verificar se o provedor `Microsoft.DataBoxEdge` está registrado. Para obter informações sobre como realizar o registro, acesse [Registrar o provedor de recursos](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Para criar um recurso da conta de armazenamento, novamente, você precisará ter acesso de colaborador ou superior com escopo no nível do grupo de recursos. O Armazenamento do Azure é, por padrão, um provedor de recursos registrado.
 - Você tem acesso de administrador ou de usuário para a API do Microsoft Graph. Para obter mais informações, confira [Referência de permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 - Você tem sua conta de armazenamento do Microsoft Azure com credenciais de acesso.
@@ -91,8 +91,7 @@ Para criar um recurso do Data Box Gateway, execute as seguintes etapas no portal
 
     - No portal do Azure nesta URL: [https://portal.azure.com](https://portal.azure.com).
     - Ou no portal do Azure Governamental nesta URL: [https://portal.azure.us](https://portal.azure.us). Para obter mais detalhes, acesse [Conectar-se ao Azure Governamental usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
-
-2. No painel esquerdo, selecione **+ Criar um recurso**. Pesquise **Data Box Edge / Data Box Gateway**. Selecione Data Box Edge / Data Box Gateway. Selecione **Criar**.
+2. No painel esquerdo, selecione **+ Criar um recurso**. Pesquise **Azure Stack Edge/Data Box Gateway**. Selecione Azure Stack Edge / Data Box Gateway. Selecione **Criar**.
 3. Escolha a assinatura que deseja usar para o dispositivo do Data Box Gateway. Selecione a região na qual você deseja implantar o recurso Data Box Gateway. Para obter uma lista de todas as regiões em que o recurso Azure Stack Edge está disponível, confira [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo. Na opção **Data Box Gateway**, selecione **Criar**.
 
     ![Serviço de Data Box Gateway de pesquisa](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)

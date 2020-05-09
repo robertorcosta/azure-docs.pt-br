@@ -6,16 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d4618382c31f0b1f2efa42fe87a6efe4bc85319
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192826"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608244"
 ---
-# <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra para Azure Cosmos DB
+# <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB
 
-## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Quais são algumas das principais diferenças entre o Apache Cassandra e o API do Cassandra?
+Este artigo descreve as diferenças de funcionalidade entre o Apache Cassandra e o API do Cassandra no Azure Cosmos DB. Ele também fornece respostas para perguntas frequentes sobre o API do Cassandra no Azure Cosmos DB.
+
+## <a name="key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Principais diferenças entre o Apache Cassandra e o API do Cassandra
 
 - O Apache Cassandra recomenda um limite de 100 MB no tamanho de uma chave de partição. O API do Cassandra para Azure Cosmos DB permite até 20 GB por partição.
 - O Apache Cassandra permite que você desabilite confirmações duráveis. Você pode ignorar a gravação no log de confirmação e ir diretamente para o memtables. Isso pode levar à perda de dados se o nó falhar antes que memtables sejam liberados para SSTables no disco. Azure Cosmos DB sempre faz confirmações duráveis para ajudar a evitar a perda de dados.

@@ -5,27 +5,27 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dc218416e3b91998a6f06a62670ff8d2158d533
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509118"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779290"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerenciar Controle de Alterações e Inventário
 
 Quando você adiciona um novo arquivo ou chave do registro para acompanhar, a automação do Azure habilita-o para o recurso de [controle de alterações e inventário](change-tracking.md) . Este artigo inclui procedimentos para trabalhar com esse recurso.
 
-## <a name="enable-the-full-change-tracking-and-inventory-solution"></a>Habilitar a solução completa de Controle de Alterações e inventário
+## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Habilitar o recurso de Controle de Alterações e inventário completo
 
-Se você tiver habilitado o [fim (monitoramento de integridade de arquivo) da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), poderá usar a solução completa de controle de alterações e inventário, conforme descrito abaixo. Suas configurações não são removidas por esse processo.
+Se você tiver habilitado o [fim (monitoramento de integridade de arquivo) da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), poderá usar o recurso completo de controle de alterações e inventário, conforme descrito abaixo. Suas configurações não são removidas por esse processo.
 
 > [!NOTE]
-> Habilitar a solução completa de Controle de Alterações e inventário pode causar encargos adicionais. Consulte [preços de automação](https://azure.microsoft.com/pricing/details/automation/).
+> Habilitar o recurso de Controle de Alterações e inventário completo pode causar encargos adicionais. Consulte [preços de automação](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Remova a solução de monitoramento navegando até o espaço de trabalho e localizando-a na [lista de soluções de monitoramento instaladas](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Clique no nome da solução para abrir sua página de resumo e, em seguida, clique em **excluir**, conforme detalhado em [remover uma solução de monitoramento](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Para reabilitar a solução, navegue até a conta de automação e selecione **controle de alterações** em **Gerenciamento de configuração**.
+3. Para reabilitar Controle de Alterações e inventário, navegue até a conta de automação e selecione **controle de alterações** em **Gerenciamento de configuração**.
 4. Escolha o espaço de trabalho Log Analytics e a conta de automação, confirme as configurações do espaço de trabalho e clique em **habilitar**.
 
 ## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Carregar computadores para Controle de Alterações e inventário

@@ -9,13 +9,13 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/08/2020
+ms.openlocfilehash: 2161a9e4460526113aaf89609b72250a09fc6af3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857004"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891212"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planejar e gerenciar custos para Azure Machine Learning
 
@@ -63,7 +63,7 @@ Exiba os custos em gráficos e tabelas para intervalos de tempo diferentes. Algu
 
 Você não verá uma área de serviço separada para Machine Learning.  Em vez disso, você verá os vários recursos que adicionou aos seus espaços de trabalho do Machine Learning.
 
-## <a name="use-amlcompute"></a>Usar AmlCompute
+## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Usar Azure Machine Learning cluster de computação (AmlCompute)
 
 Com dados em constante mudança, você precisa de treinamento de modelo rápido e simplificado e retreinamento para manter modelos precisos. No entanto, o treinamento contínuo vem a um custo, especialmente para modelos de aprendizado profundo em GPUs. 
 
@@ -138,5 +138,7 @@ Azure Machine Learning computação dá suporte a instâncias reservadas inerent
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre como gerenciar custos com [análise de custo](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Saiba mais sobre [Azure Machine Learning computação](how-to-set-up-training-targets.md#amlcompute).
+Saiba mais sobre:
+* [Gerenciar e aumentar as cotas de recursos](how-to-manage-quotas.md)
+* [Gerenciando custos com [análise de custo](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Azure Machine Learning computação](how-to-set-up-training-targets.md#amlcompute).
