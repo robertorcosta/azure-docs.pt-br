@@ -8,13 +8,13 @@ ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.date: 12/05/2019
-ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 04/27/2020
+ms.openlocfilehash: d4e7077c338586298c5e7f0805c3d47b08a7a108
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77581542"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82184326"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
@@ -55,7 +55,7 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
 
    >[!NOTE] 
    > - Os workspaces padrão criados pela Central de Segurança do Azure não serão exibidos na lista. Você não pode instalar o Azure Sentinel neles.
-   > - O Azure Sentinel pode ser executado em workspace em qualquer [região de DG do Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), exceto nas regiões China, Alemanha e Azure Governamental. Os dados gerados pelo Azure Sentinel (como incidentes, indicadores e regras de alerta, que podem conter alguns dados de clientes provenientes desses workspaces) são salvos em Oeste da Europa (para workspaces localizados na Europa) ou Leste dos EUA (para todos os workspaces baseados nos EUA, bem como qualquer outra região, exceto Europa).
+   > - O Azure Sentinel pode ser executado em workspaces em qualquer [região de GA do Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), exceto nas regiões China e Alemanha (soberanas). Os dados gerados pelo Azure Sentinel (como incidentes, indicadores e regras de alerta, que podem conter alguns dados do cliente provenientes desses workspaces) são salvos na Europa (para workspaces localizados na Europa), na Austrália (para workspaces localizados na Austrália) ou no Leste dos EUA (para os workspaces localizados em qualquer outra região).
 
 1. Selecione **Adicionar o Azure Sentinel**.
   
@@ -64,7 +64,7 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
 
 O Azure Sentinel cria a conexão com serviços e aplicativos, conectando-se ao serviço e encaminhando os eventos e logs ao Azure Sentinel. Para computadores e máquinas virtuais, você pode instalar o agente do Azure Sentinel que coleta os logs e os encaminha para o Azure Sentinel. Para firewalls e proxies, o Azure Sentinel utiliza um servidor Syslog Linux. O agente é instalado nele e coleta os arquivos de log e os encaminha para o Azure Sentinel. 
  
-1. Clique em **Coleta de dados**.
+1. Clique em **Conectores de dados**.
 2. Há um bloco para cada fonte de dados a qual você pode se conectar.<br>
 Por exemplo, clique em **Azure Active Directory**. Se você conectar essa fonte de dados, transmitirá todos os logs do Azure AD para o Azure Sentinel. É possível selecionar quais tipos de log você quer obter: logs de entrada e/ou logs de auditoria. <br>
 Na parte inferior, o Azure Sentinel fornece recomendações das pastas de trabalho que você deve instalar para cada conector, assim você obtém imediatamente informações interessantes sobre seus dados. <br> Siga as instruções de instalação ou [consulte o guia de conexão relevante](connect-data-sources.md) para saber mais. Para saber mais sobre conectores de dados, confira [Conectar serviços da Microsoft](connect-data-sources.md).

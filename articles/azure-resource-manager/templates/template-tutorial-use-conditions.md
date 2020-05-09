@@ -2,15 +2,15 @@
 title: Usar condição em modelos
 description: Saiba como implantar recursos do Azure com base em condições. Mostra como implantar um novo recurso ou usar um recurso existente.
 author: mumian
-ms.date: 05/21/2019
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8f51c65489efeed1fa18e70bd75e7370a9e59903
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: b73598da2b34847a38485db9952302f7c5b33c98
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260609"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82185023"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Usar condição em modelos do ARM
 
@@ -134,37 +134,45 @@ Aqui está o procedimento para fazer as alterações:
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
-Siga as instruções em [Implantar o modelo](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir o Cloud Shell e carregar o modelo revisado e, em seguida, execute o script do PowerShell a seguir para implantar o modelo.
+1. Entrar no [Azure Cloud Shell](https://shell.azure.com)
 
-> [!IMPORTANT]
-> O nome da conta de armazenamento deve ser exclusivo no Azure. O nome deve ter apenas letras minúsculas ou números. Ele não pode ter mais de 24 caracteres. O nome de conta de armazenamento é o nome do projeto acrescentado de "store". Verifique se o nome do projeto e o nome da conta de armazenamento gerada atendem aos requisitos de nome da conta de armazenamento.
+1. Escolha seu ambiente preferencial selecionando **PowerShell** ou **Bash** (para a CLI) no canto superior esquerdo.  Ao alternar, é necessário reiniciar o shell.
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
-$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
-$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
-$vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
-$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+    ![Carregar arquivo do Cloud Shell no portal do Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-$resourceGroupName = "${projectName}rg"
-$storageAccountName = "${projectName}store"
+1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou na seção anterior. Após carregar o arquivo, você pode usar o comando **ls** e o comando **cat** para verificar se o arquivo foi carregado com êxito.
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin `
-    -adminPassword $vmPassword `
-    -dnsLabelPrefix $dnsLabelPrefix `
-    -storageAccountName $storageAccountName `
-    -newOrExisting $newOrExisting `
-    -TemplateFile "$HOME/azuredeploy.json"
+1. Execute o script do PowerShell a seguir para implantar o modelo.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    > [!IMPORTANT]
+    > O nome da conta de armazenamento deve ser exclusivo no Azure. O nome deve ter apenas letras minúsculas ou números. Ele não pode ter mais de 24 caracteres. O nome de conta de armazenamento é o nome do projeto acrescentado de "store". Verifique se o nome do projeto e o nome da conta de armazenamento gerada atendem aos requisitos de nome da conta de armazenamento.
 
-> [!NOTE]
-> A implantação falhará se **newOrExisting** for **new**, mas a conta de armazenamento com o nome da conta de armazenamento especificado já existir.
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name and resource names"
+    $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+    $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+    $vmAdmin = Read-Host -Prompt "Enter the admin username"
+    $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
+
+    $resourceGroupName = "${projectName}rg"
+    $storageAccountName = "${projectName}store"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -adminUsername $vmAdmin `
+        -adminPassword $vmPassword `
+        -dnsLabelPrefix $dnsLabelPrefix `
+        -storageAccountName $storageAccountName `
+        -newOrExisting $newOrExisting `
+        -TemplateFile "$HOME/azuredeploy.json"
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    > [!NOTE]
+    > A implantação falhará se **newOrExisting** for **new**, mas a conta de armazenamento com o nome da conta de armazenamento especificado já existir.
 
 Tente criar outra implantação com **newOrExisting** definido como “existing” e especifique uma conta de armazenamento existente. Para criar uma conta de armazenamento com antecedência, confira [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 

@@ -2,7 +2,7 @@
 title: Fluxo de credenciais do cliente OAuth 2,0 na plataforma Microsoft Identity | Azure
 description: Crie aplicativos Web usando a implementação da plataforma de identidade da Microsoft do protocolo de autenticação OAuth 2,0.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 12/17/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 36a5fdf990432e3a41cf8fc578fa20b4910250b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e25af1f629ea6fa7db14ce89dfffaa340486a989
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868450"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82689795"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0
 
@@ -107,10 +107,10 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode estar no formato de nome amigável ou de GUID. Se você não souber a qual locatário o usuário pertence e se quiser deixá-lo entrar com qualquer locatário, use `common`. |
-| `client_id` | Obrigatório | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `redirect_uri` | Obrigatório | O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, com exceção de que ele deve ser codificado por URL e podem ter mais segmentos de caminho. |
-| `state` | Recomendadas | Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| `tenant` | Necessária | O locatário do diretório para o qual você deseja solicitar permissão. Pode estar no formato de nome amigável ou de GUID. Se você não souber a qual locatário o usuário pertence e se quiser deixá-lo entrar com qualquer locatário, use `common`. |
+| `client_id` | Necessária | A **ID do aplicativo (cliente)** que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `redirect_uri` | Necessária | O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ele deve corresponder exatamente a um dos URIs de redirecionamento que você registrou no portal, com exceção de que ele deve ser codificado por URL e podem ter mais segmentos de caminho. |
+| `state` | Recomendado | Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 
 Neste ponto, o Azure AD impõe que apenas um administrador de locatários possa entrar para concluir a solicitação. O administrador deverá aprovar todas as permissões diretas do aplicativo que você solicitou para o aplicativo no portal de registro de aplicativos.
 
@@ -170,11 +170,11 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Obrigatório | O aplicativo de locatário do diretório planos operar, no formato de nome de domínio ou GUID. |
-| `client_id` | Obrigatório | A ID do aplicativo atribuído ao aplicativo. É possível localizar essas informações no portal onde você registrou o aplicativo. |
-| `scope` | Obrigatório | O valor transmitido ao parâmetro `scope` na solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso que você deseja, com o sufixo `.default`. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, o ponto de extremidade deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo `/.default`, confira [Documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Obrigatório | O segredo do cliente que você gerou para seu aplicativo no portal de registro do aplicativo. O segredo do cliente deve ser codificado por URL antes do envio. |
-| `grant_type` | Obrigatório | Deve ser definido como `client_credentials`. |
+| `tenant` | Necessária | O aplicativo de locatário do diretório planos operar, no formato de nome de domínio ou GUID. |
+| `client_id` | Necessária | A ID do aplicativo atribuído ao aplicativo. É possível localizar essas informações no portal onde você registrou o aplicativo. |
+| `scope` | Necessária | O valor transmitido ao parâmetro `scope` na solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso que você deseja, com o sufixo `.default`. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, o ponto de extremidade deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo `/.default`, confira [Documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
+| `client_secret` | Necessária | O segredo do cliente que você gerou para seu aplicativo no portal de registro do aplicativo. O segredo do cliente deve ser codificado por URL antes do envio. |
+| `grant_type` | Necessária | Deve ser definido como `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: Solicitação de token de acesso com um certificado
 
@@ -192,12 +192,12 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Obrigatório | O aplicativo de locatário do diretório planos operar, no formato de nome de domínio ou GUID. |
-| `client_id` | Obrigatório |A ID do aplicativo (cliente) atribuída ao seu aplicativo. |
-| `scope` | Obrigatório | O valor transmitido ao parâmetro `scope` na solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso que você deseja, com o sufixo `.default`. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, ele deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo `/.default`, confira [Documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
-| `client_assertion_type` | Obrigatório | O valor deve ser definido como `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obrigatório | Uma asserção (um token Web JSON) que você precisa criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Leia mais sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e saber sobre o formato da asserção.|
-| `grant_type` | Obrigatório | Deve ser definido como `client_credentials`. |
+| `tenant` | Necessária | O aplicativo de locatário do diretório planos operar, no formato de nome de domínio ou GUID. |
+| `client_id` | Necessária |A ID do aplicativo (cliente) atribuída ao seu aplicativo. |
+| `scope` | Necessária | O valor transmitido ao parâmetro `scope` na solicitação deve ser o identificador de recurso (URI de ID do aplicativo) do recurso que você deseja, com o sufixo `.default`. Para o exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. <br/>Esse valor informa ao ponto de extremidade da plataforma Microsoft Identity que de todas as permissões diretas do aplicativo que você configurou para seu aplicativo, ele deve emitir um token para aqueles associados ao recurso que você deseja usar. Para saber mais sobre o escopo `/.default`, confira [Documentação de consentimento](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Necessária | O valor deve ser definido como `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Necessária | Uma asserção (um token Web JSON) que você precisa criar e assinar com o certificado que você registrou como credenciais para seu aplicativo. Leia mais sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registrar seu certificado e saber sobre o formato da asserção.|
+| `grant_type` | Necessária | Deve ser definido como `client_credentials`. |
 
 Observe que os parâmetros são praticamente os mesmos como no caso da solicitação pelo segredo compartilhado, exceto pelo fato de o parâmetro client_secret ser substituído por dois parâmetros: um client_assertion_type e uma client_assertion.
 

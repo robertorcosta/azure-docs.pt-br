@@ -5,23 +5,23 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 00cde5255f9c9a2baa7c7042ae2a8f73448da0ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f55ebb3270fdd97a1fdbbf5a56f9703c08933f9f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679987"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855330"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerenciar pré-scripts e pós-scripts
 
 Pré-scripts e pós-scripts são runbooks a serem executados em sua conta de automação do Azure antes (antes da tarefa) e após (pós-tarefa) uma implantação de atualização. Pré-scripts e pós-scripts são executados no contexto do Azure, não localmente. Pré-scripts executados no início da implantação da atualização. Pós-scripts executados no final da implantação e após qualquer reinicialização configurada.
 
 >[!NOTE]
->Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo AZ no seu Hybrid Runbook Worker, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos de Azure PowerShell na automação do Azure](automation-update-azure-modules.md).
+>Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo Az no seu Hybrid Runbook Worker, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de Automação, você pode atualizar seus módulos para a versão mais recente usando [Como atualizar os módulos do Azure PowerShell na Automação do Azure](automation-update-azure-modules.md).
 
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos de pré e pós-script
 
-Para que um runbook seja usado como um pré-script ou um post-script, você deve importá-lo para sua conta de automação e [publicar o runbook](manage-runbooks.md#publishing-a-runbook).
+Para que um runbook seja usado como um pré-script ou um post-script, você deve importá-lo para sua conta de automação e [publicar o runbook](manage-runbooks.md#publish-a-runbook).
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parâmetros de pré e pós-script
 
@@ -246,7 +246,7 @@ $variable = Get-AutomationVariable -Name $runId
 ```
 
 > [!NOTE]
-> Para runbooks não gráficos do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de automação para as versões mais recentes. Talvez seja necessário atualizar seus módulos mesmo se você acabou de criar uma nova conta de automação.
+> Para runbooks não gráficos do PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` são aliases para [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Você pode usar esses cmdlets ou pode [atualizar seus módulos](automation-update-azure-modules.md) em sua conta de Automação para as versões mais recentes. Talvez você precise atualizar os módulos mesmo que você tenha acabado de criar uma conta de Automação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

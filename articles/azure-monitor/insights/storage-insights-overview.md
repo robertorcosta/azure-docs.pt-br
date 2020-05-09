@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662512"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691122"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Monitorando seu serviço de armazenamento com o Azure Monitor para armazenamento (versão prévia)
 
@@ -67,7 +67,7 @@ O bloco contador sob as listas suspensas acumula o número total de contas de ar
 Selecione um valor nas colunas **disponibilidade**, **latência E2E**, **latência do servidor**e **erros/tipo de erro de transação** direciona você a um relatório personalizado para o tipo específico de métricas de armazenamento que correspondem à coluna selecionada para essa conta de armazenamento. Para obter mais informações sobre as pastas de trabalho para cada categoria, consulte a seção [pastas de trabalho de armazenamento detalhadas](#detailed-storage-workbooks) abaixo. 
 
 >[!NOTE]
->Para obter detalhes sobre quais erros podem ser mostrados no relatório, consulte [esquema de tipo de resposta](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) e procure tipos de resposta, como **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais de três tipos de erros relatados, todos os outros erros serão representados sob a categoria de **outros**.
+>Para obter detalhes sobre quais erros podem ser mostrados no relatório, consulte [esquema de tipo de resposta](../../storage/common/monitor-storage-reference.md#metrics-dimensions) e procure tipos de resposta, como **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais de três tipos de erros relatados, todos os outros erros serão representados sob a categoria de **outros**.
 
 O limite de **disponibilidade** padrão é:
 

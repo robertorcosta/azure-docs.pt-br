@@ -1,23 +1,17 @@
 ---
-title: Diretrizes de ajuste de desempenho do Hive do Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Diretrizes de ajuste de desempenho do Hive do Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Ajuste de desempenho-Hive em Azure Data Lake Storage Gen1
+description: Diretrizes de ajuste de desempenho para o hive no HdInsight e Azure Data Lake Storage Gen1.
 author: stewu
-manager: amitkul
-editor: stewu
-ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 2e44332ddab9387c05a45d15101ccd2bdec3ada4
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61437269"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690516"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Diretrizes de ajuste de desempenho para o Hive no HDInsight e Azure Data Lake Storage Gen1
 
