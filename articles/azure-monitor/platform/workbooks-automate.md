@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731723"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982132"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gerenciar pastas de trabalho programaticamente
 
@@ -42,7 +42,7 @@ Há dois tipos de recursos de pasta de trabalho que podem ser gerenciados progra
 2. Veja abaixo um modelo de Azure Resource Manager de exemplo que implanta um modelo de pasta de trabalho para Azure Monitor Galeria de pastas de trabalho. Cole o JSON que você copiou no lugar `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`de. Um modelo de referência Azure Resource Manager que cria um modelo de pasta de trabalho pode ser encontrado [aqui](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
 
     ```json
-          {
+    {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -114,7 +114,7 @@ Há dois tipos de recursos de pasta de trabalho que podem ser gerenciados progra
 | Pastas de trabalho em grupos de recursos                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
 | Pastas de trabalho no Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
 | Informações de VM em máquinas virtuais                | `microsoft.compute/virtualmachines`                | `insights`    |
-| Informações de VM em conjuntos de dimensionamento de máquinas virtuais                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Informações de VM em conjuntos de dimensionamento de máquinas virtuais      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
 
 ## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Modelo de Azure Resource Manager para implantar uma instância de pasta de trabalho
 
@@ -203,7 +203,7 @@ Este modelo mostra como implantar uma pasta de trabalho simples que exibe um ' O
 ### <a name="workbook-types"></a>Tipos de pasta de trabalho
 Tipos de pasta de trabalho especifique a Galeria da pasta de trabalho na qual a nova instância da pasta de trabalho será exibida. As opções incluem:
 
-| Type | Localização da Galeria |
+| Digite | Localização da Galeria |
 | :------------- |:-------------|
 | `workbook` | O padrão usado na maioria dos relatórios, incluindo a Galeria de pastas de trabalho do Application Insights, Azure Monitor, etc.  |
 | `tsg` | A Galeria de guias de solução de problemas no Application Insights |

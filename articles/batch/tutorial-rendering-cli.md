@@ -1,20 +1,15 @@
 ---
-title: Renderizar uma cena na nuvem com o Lote do Azure
+title: Renderizar uma cena na nuvem
 description: 'Tutorial: como renderizar uma cena do Autodesk 3ds Max com Arnold usando o Serviço de Renderização do Lote e a CLI do Azure'
-services: batch
-author: LauraBrenner
-manager: evansma
-ms.service: batch
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: a415a74af654ef9cf56a37c1fca5ac6632ba4418
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78672989"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82117117"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o Lote do Azure 
 
@@ -96,7 +91,7 @@ az storage container create \
     --name scenefiles
 ```
 
-Baixe a cena `MotionBlur-Dragon-Flying.max` do [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) para um diretório de trabalho local. Por exemplo:
+Baixe a cena `MotionBlur-Dragon-Flying.max` do [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) para um diretório de trabalho local. Por exemplo: 
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -301,7 +296,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Exibir saída da tarefa
 
-A tarefa leva alguns minutos para ser executada. Use o comando [az batch task list](/cli/azure/batch/task#az-batch-task-list) para exibir o estado das tarefas. Por exemplo:
+A tarefa leva alguns minutos para ser executada. Use o comando [az batch task list](/cli/azure/batch/task#az-batch-task-list) para exibir o estado das tarefas. Por exemplo: 
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +304,7 @@ az batch task list \
     --output table
 ```
 
-Use o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para exibir os detalhes de tarefas específicas. Por exemplo:
+Use o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para exibir os detalhes de tarefas específicas. Por exemplo: 
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +312,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-As tarefas geram arquivos de saída denominados *dragon0002.jpg* - *dragon0007.jpg* nos nós de computação e os carregam no contêiner *job-myrenderjob* na sua conta de armazenamento. Para exibir a saída, baixe os arquivos para uma pasta no seu computador local usando o comando [az storage blob download-batch](/cli/azure/storage/blob). Por exemplo:
+As tarefas geram arquivos de saída denominados *dragon0002.jpg* - *dragon0007.jpg* nos nós de computação e os carregam no contêiner *job-myrenderjob* na sua conta de armazenamento. Para exibir a saída, baixe os arquivos para uma pasta no seu computador local usando o comando [az storage blob download-batch](/cli/azure/storage/blob). Por exemplo: 
 
 ```azurecli-interactive
 az storage blob download-batch \
