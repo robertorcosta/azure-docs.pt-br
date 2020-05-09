@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 04/03/2019
-ms.openlocfilehash: c0012b61cf43d01afd5e7f5f52948310b5eb8420
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34e9b40b0b6989edacd72eb23d357e2a84b6f8d8
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73828071"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891072"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas além da 1433 para ADO.NET 4.5
 
@@ -72,9 +72,9 @@ Esta seção explica os identificadores que se referem a versões do produto. El
 
 ## <a name="related-links"></a>Links relacionados
 
-* O ADO.NET 4.6 foi lançado em 20 de julho de 2015. Um comunicado do blog da equipe do .NET está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
-* O ADO.NET 4.5 foi lançado em 15 de agosto de 2012. Um comunicado do blog da equipe do .NET está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  * Uma postagem no blog sobre o ADO.NET 4.5.1 está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
+* O ADO.NET 4.6 foi lançado em 20 de julho de 2015. Um comunicado do blog da equipe do .NET está disponível [aqui](https://devblogs.microsoft.com/dotnet/announcing-net-framework-4-6/).
+* O ADO.NET 4.5 foi lançado em 15 de agosto de 2012. Um comunicado do blog da equipe do .NET está disponível [aqui](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/).
+  * Uma postagem no blog sobre o ADO.NET 4.5.1 está disponível [aqui](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/).
 
 * Microsoft® ODBC Driver 17 for SQL Server® – Windows, Linux e macOS https://www.microsoft.com/download/details.aspx?id=56567
 

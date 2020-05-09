@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 271770935cf4cb83d4abc6e82a4f4b13ffe865b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3378036c4800b274d879743abf937c7860e63ded
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295496"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926223"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Visão geral dos registros de alias do DNS do Azure
 
@@ -27,7 +27,7 @@ Um conjunto de registros de alias é suportado para os seguintes tipos de regist
 > [!NOTE]
 > Se você pretende usar um registro de alias para os tipos de registros A ou AAAA para apontar para um [perfil do Gerenciador de Tráfego do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md), verifique se o perfil do Gerenciador de Tráfego tem apenas [pontos de extremidade externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Você deve fornecer o endereço IPv4 ou IPv6 para pontos de extremidade externos no Gerenciador de Tráfego. Você não pode usar nomes de domínio totalmente qualificados (FQDNs) em pontos de extremidade. O ideal é usar endereços IP estáticos.
 
-## <a name="capabilities"></a>Funcionalidades
+## <a name="capabilities"></a>Capacidades
 
 - **Aponte para um recurso IP público de um conjunto de registros DNS A / AAAA.** Você pode criar um conjunto de registros A/AAAA e torná-lo um conjunto de registros de alias para apontar para um recurso de IP público (Standard ou Basic). O conjunto de registros DNS será alterado automaticamente se o endereço IP público for alterado ou excluído. Registros DNS pendentes que apontem para endereços IP incorretos são evitados.
 
@@ -66,7 +66,7 @@ Por exemplo, contoso.com e www\.contoso.com podem apontar para o mesmo perfil do
 
 Assim como um perfil do Gerenciador de tráfego, você também pode usar registros de alias para apontar o Apex da zona DNS para pontos de extremidade da CDN do Azure. Isso é útil quando você cria sites estáticos usando o armazenamento do Azure e a CDN do Azure. Em seguida, você pode acessar o site sem ter prependência "www" para seu nome DNS.
 
-Por exemplo, se seu site estático for nomeado `www.contoso.com, your users can access your site using contoso.com` sem a necessidade de colocar www no nome DNS.
+Por exemplo, se o seu site estático for `www.contoso.com`nomeado, os usuários poderão acessar seu site `contoso.com` usando sem a necessidade de colocar www no nome DNS.
 
 Conforme descrito anteriormente, os registros CNAME não têm suporte no Apex da zona. Portanto, você não pode usar um registro CNAME para apontar contoso.com para o ponto de extremidade da CDN. Em vez disso, você pode usar um registro de alias para apontar a zona Apex para um ponto de extremidade CDN diretamente.
 
