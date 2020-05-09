@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: f4379a5149fff020eb532f0e17cc1c37fbdcd694
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232420"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612785"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard para segurança aprimorada
 
@@ -49,9 +49,12 @@ Para obter a camada Standard:
 [![Preços da central de segurança](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> Para habilitar todos os recursos da central de segurança, incluindo recursos avançados de proteção contra ameaças, você deve aplicar o tipo de preço padrão à assinatura que contém as cargas de trabalho aplicáveis. A configuração de preços para um espaço de trabalho não permite o acesso just-in-time à VM, controles de aplicativos adaptáveis e detecções de rede para recursos do Azure. 
+> Para habilitar todos os recursos da central de segurança, incluindo recursos de proteção contra ameaças, você deve aplicar o tipo de preço padrão à assinatura que contém as cargas de trabalho aplicáveis. A configuração de preços para um espaço de trabalho não permite o acesso just-in-time à VM, controles de aplicativos adaptáveis e detecções de rede para recursos do Azure. 
 >
-> A proteção contra ameaças da central de segurança para contas de armazenamento e servidores SQL/MySQL/PG de PaaS atualmente são as únicas cargas de trabalho que podem ser habilitadas no nível de recurso para proteger cargas de trabalho de armazenamento/SQL individuais.
+> Você pode habilitar a proteção contra ameaças para **contas de armazenamento do Azure** no nível de assinatura ou nível de recurso.
+> Você pode habilitar a proteção contra ameaças para **SQL Servers do banco de dados SQL do Azure** no nível de assinatura ou no nível de recurso.
+> Você pode habilitar a proteção contra ameaças para o **banco de dados do Azure para MariaDB/MySQL/PostgreSQL** somente no nível de recurso.
+
 
 ## <a name="why-upgrade-to-standard"></a>Por que atualizar para o padrão?
 A Central de Segurança oferece maior segurança e proteção contra ameaças para suas cargas de trabalho de nuvem híbrida, incluindo:

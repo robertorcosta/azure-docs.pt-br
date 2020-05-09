@@ -3,12 +3,12 @@ title: Fazer backup de compartilhamentos de arquivo do Azure no portal do Azure
 description: Saiba como usar o portal do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101223"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82977933"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Fazer backup de compartilhamentos de arquivos do Azure em um cofre dos serviços de recuperação
 
@@ -50,35 +50,70 @@ Para modificar o tipo de replicação de armazenamento:
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Descobrir compartilhamentos de arquivos e configurar o backup
 
-1. No [portal do Azure](https://portal.azure.com/), abra o cofre dos serviços de recuperação que você deseja usar para fazer backup do compartilhamento de arquivos.
+1. No [portal do Azure](https://portal.azure.com/), abra o cofre dos serviços de recuperação que você deseja usar para configurar o backup para o compartilhamento de arquivos.
 
-1. No painel do **cofre dos serviços de recuperação** , selecione **+ backup**.
+1. No painel **cofre dos serviços de recuperação** , selecione o **+ backup** no menu na parte superior.
 
    ![Cofre dos Serviços de Recuperação](./media/backup-afs/recovery-services-vault.png)
 
-    a. Em **meta de backup**, defina **onde sua carga de trabalho está em execução? para o** **Azure**.
+    1. No painel **meta de backup** , defina **onde sua carga de trabalho está em execução?** no **Azure** , selecionando a opção **Azure** na lista suspensa.
 
-    ![Escolha o compartilhamento de arquivos do Azure como meta de backup](./media/backup-afs/backup-goal.png)
+          ![Escolher o Azure como carga de trabalho](./media/backup-afs/backup-goal.png)
 
-    b.  Em **o que você deseja fazer backup?**, selecione **compartilhamento de arquivos do Azure** na lista suspensa.
+    2. Em **o que você deseja fazer backup?**, selecione **compartilhamento de arquivos do Azure** na lista suspensa.
 
-    c.  Selecione **backup** para registrar a extensão de compartilhamento de arquivos do Azure no cofre.
+          ![Selecionar FileShare do Azure](./media/backup-afs/select-azure-file-share.png)
 
-    ![Selecione backup para associar o compartilhamento de arquivos do Azure ao cofre](./media/backup-afs/register-extension.png)
+    3. Selecione **backup** para registrar a extensão de compartilhamento de arquivos do Azure no cofre.
 
-1. Depois de selecionar **backup**, o painel **backup** é aberto e solicita que você selecione uma conta de armazenamento de uma lista de contas de armazenamento descobertos com suporte. Eles estão associados a este cofre ou estão presentes na mesma região que o cofre, mas ainda não estão associados a nenhum cofre de serviços de recuperação.
+          ![Selecione backup para associar o compartilhamento de arquivos do Azure ao cofre](./media/backup-afs/register-extension.png)
 
-1. Na lista de contas de armazenamento descobertas, selecione uma conta e selecione **OK**. O Azure pesquisa a conta de armazenamento para compartilhamentos de arquivos cujo backup pode ser feito. Se você adicionou recentemente os compartilhamentos de arquivos e não os vê na lista, aguarde algum tempo para que os compartilhamentos de arquivos apareçam.
+1. Depois de selecionar **backup**, o painel **backup** é aberto. Para selecionar a conta de armazenamento que hospeda o compartilhamento de arquivos que você deseja proteger, clique no texto **selecionar** link abaixo da caixa de texto **conta de armazenamento** .
 
-    ![Descobrindo compartilhamentos de arquivos](./media/backup-afs/discovering-file-shares.png)
+   ![Escolha o link Selecionar](./media/backup-afs/choose-select-link.png)
 
-1. Na lista **compartilhamentos de arquivos** , selecione um ou mais dos compartilhamentos de arquivos que você deseja fazer backup. Selecione **OK**.
+1. O **painel Selecionar conta de armazenamento** é aberto à direita, listando um conjunto de contas de armazenamento descobertos com suporte. Eles estão associados a este cofre ou estão presentes na mesma região que o cofre, mas ainda não estão associados a nenhum cofre de serviços de recuperação.
+
+1. Na lista de contas de armazenamento descobertas, selecione uma conta e selecione **OK**.
+
+   ![Selecionar entre as contas de armazenamento descobertas](./media/backup-afs/select-discovered-storage-account.png)
+
+1. A próxima etapa é selecionar os compartilhamentos de arquivos que você deseja fazer backup. Clique no botão **Adicionar** na seção **fileshares to backup** .
+
+   ![Selecione os compartilhamentos de arquivos para fazer backup](./media/backup-afs/select-file-shares-to-back-up.png)
+
+1. O painel de contexto **selecionar compartilhamentos de arquivos** é aberto à direita. O Azure pesquisa a conta de armazenamento para compartilhamentos de arquivos cujo backup pode ser feito. Se você adicionou recentemente os compartilhamentos de arquivos e não os vê na lista, aguarde algum tempo para que os compartilhamentos de arquivos apareçam.
+
+1. Na lista **selecionar compartilhamentos de arquivos** , selecione um ou mais dos compartilhamentos de arquivos que você deseja fazer backup. Selecione **OK**.
 
    ![Selecionar os compartilhamentos de arquivos](./media/backup-afs/select-file-shares.png)
 
-1. Depois de escolher os compartilhamentos de arquivos, o menu **backup** alterna para a **política de backup**. Nesse menu, selecione uma política de backup existente ou crie uma nova. Em seguida, selecione **habilitar backup**.
+1. Para escolher uma política de backup para o compartilhamento de arquivos, você tem três opções:
 
-    ![Selecionar a Política de backup](./media/backup-afs/select-backup-policy.png)
+   * Escolha a política padrão.<br>
+   Essa opção permite que você habilite o backup diário que será retido por 30 dias. Se você não tiver uma política de backup existente no cofre, o painel backup será aberto com as configurações de política padrão. Se você quiser escolher as configurações padrão, poderá clicar diretamente em **habilitar backup**.
+
+   * Criar uma nova política <br>
+
+      1. Para criar uma nova política de backup para o compartilhamento de arquivos, clique no texto do link abaixo da lista suspensa na seção **política de backup** .<br>
+
+         ![Criar nova política](./media/backup-afs/create-new-policy.png)
+
+      1. O painel contexto da **política de backup** é aberto à direita. Especifique um nome de política na caixa de texto e escolha o período de retenção de acordo com seu requisito. Somente a opção de retenção diária é habilitada por padrão. Se você quiser ter uma retenção semanal, mensal ou anual, marque a caixa de seleção correspondente e forneça o valor de retenção desejado.
+
+      1. Depois de especificar os valores de retenção e um nome de política válido, clique em OK.<br>
+
+         ![Fornecer o nome da política e os valores de retenção](./media/backup-afs/policy-name.png)
+
+   * Escolha uma das políticas de backup existentes <br>
+
+   Para escolher uma das políticas de backup existentes para configurar a proteção, selecione a política desejada na lista suspensa **política de backup** .<br>
+
+   ![Escolher política existente](./media/backup-afs/choose-existing-policy.png)
+
+1. Clique em **habilitar backup** para começar a proteger o compartilhamento de arquivos.
+
+   ![Escolha habilitar backup](./media/backup-afs/enable-backup.png)
 
 Depois de definir uma política de backup, um instantâneo dos compartilhamentos de arquivos é obtido no horário agendado. O ponto de recuperação também é mantido para o período escolhido.
 

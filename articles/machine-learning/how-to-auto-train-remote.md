@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79080404"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612309"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Treinar modelos com o aprendizado de máquina automatizado na nuvem
 
@@ -30,7 +30,9 @@ Neste artigo, você aprenderá a criar um modelo usando o ML automatizado com Am
 
 ## <a name="how-does-remote-differ-from-local"></a>Como remoto difere do local?
 
-O tutorial "[treinar um modelo de classificação com o Machine Learning automatizado](tutorial-auto-train-models.md)" ensina a usar um computador local para treinar um modelo com ml automatizado. O fluxo de trabalho durante o treinamento local também se aplica aos destinos remotos. No entanto, com a computação remota, as iterações de experimento de ML automatizado são executadas de maneira Assíncrona. Essa funcionalidade permite que você cancele uma iteração específica, observe o status da execução ou continue trabalhando em outras células no Jupyter Notebook. Para treinar remotamente, você primeiro cria um destino de computação remota, como AmlCompute. Em seguida, configura o recurso remoto e envia seu código para ele.
+Mais recursos estão disponíveis quando você usa um destino de computação remota.  Para obter mais detalhes, consulte [destinos de computação locais e remotos](concept-automated-ml.md#local-remote).
+
+O tutorial "[treinar um modelo de classificação com o Machine Learning automatizado](tutorial-auto-train-models.md)" ensina a usar um computador local para treinar um modelo com ml automatizado. O fluxo de trabalho durante o treinamento local também se aplica aos destinos remotos. Para treinar remotamente, você primeiro cria um destino de computação remota, como AmlCompute. Em seguida, configura o recurso remoto e envia seu código para ele.
 
 Este artigo mostra as etapas adicionais necessárias para executar um experimento de ML automatizado em um destino de AmlCompute remoto. O objeto de workspace, `ws`, do tutorial, é usado em todo o código aqui.
 

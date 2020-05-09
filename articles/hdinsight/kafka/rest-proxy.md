@@ -7,12 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 265e15713f8159e370ef22a197ffe931200a88f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: affdbfba125b7e9b3f3fe250a56af30e9efe816e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759002"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610999"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagir com clusters Apache Kafka no Azure HDInsight usando um proxy REST
 
@@ -22,7 +23,7 @@ O proxy REST do Kafka permite que você interaja com o cluster do Kafka por meio
 
 Para operações com suporte pela API REST do Kafka, consulte [referência da API de proxy REST do HDInsight Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 ![Design de proxy REST do Kafka](./media/rest-proxy/rest-proxy-architecture.png)
 
@@ -38,7 +39,7 @@ O acesso ao proxy REST do Kafka é gerenciado com Azure Active Directory grupos 
 
 Para solicitações de ponto de extremidade de proxy REST, os aplicativos cliente devem obter um token OAuth. O token é usado para verificar a associação de grupo de segurança. Encontre um [exemplo de aplicativo cliente](#client-application-sample) abaixo que mostra como obter um token OAuth. O aplicativo cliente passa o token OAuth na solicitação HTTP para o proxy REST.
 
-> [!NOTE]  
+> [!NOTE]
 > Consulte [gerenciar o acesso a aplicativos e recursos usando grupos de Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md)para saber mais sobre os grupos de segurança do AAD. Para obter mais informações sobre como os tokens OAuth funcionam, consulte [autorizar o acesso a Azure Active Directory aplicativos Web usando o fluxo de concessão de código oauth 2,0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos

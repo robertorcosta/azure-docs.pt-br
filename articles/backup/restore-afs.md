@@ -3,12 +3,12 @@ title: Restaurar compartilhamentos de arquivos do Azure
 description: Saiba como usar o portal do Azure para restaurar um compartilhamento de arquivos inteiro ou arquivos específicos de um ponto de restauração criado pelo backup do Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: c22078ebd89f5f6f8299e1424d4d9e21edce8b92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5668328637ae9b5a5dd3db02085a7f15de2a2456
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77586802"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980568"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar compartilhamentos de arquivos do Azure
 
@@ -50,22 +50,25 @@ Você pode usar essa opção de restauração para restaurar o compartilhamento 
 
    ![Selecione restaurar compartilhamento](./media/restore-afs/restore-share.png)
 
-1. Depois de selecionar **restaurar compartilhamento**, o painel **restaurar** é aberto com um menu de **ponto de restauração** que exibe uma lista de pontos de restauração disponíveis para o compartilhamento de arquivos selecionado.
+1. Depois de selecionar **restaurar compartilhamento**, o painel **restaurar** é aberto. Para selecionar o ponto de restauração que você deseja usar para executar a operação de restauração, clique na caixa de texto **selecionar** texto abaixo do **ponto de restauração** .
 
-1. Selecione o ponto de restauração que você deseja usar para executar a operação de restauração e selecione **OK**.
+    ![Selecione o ponto de restauração clicando em selecionar](./media/restore-afs/select-restore-point.png)
+
+1. O painel Selecionar contexto do **ponto de restauração** é aberto à direita, listando os pontos de restauração disponíveis para o compartilhamento de arquivos selecionado. Selecione o ponto de restauração que você deseja usar para executar a operação de restauração e selecione **OK**.
 
     ![Folha Selecionar ponto de restauração](./media/restore-afs/restore-point.png)
 
-1. Depois de selecionar **OK**, o menu do painel **restaurar** muda para o **local de restauração**. Em **local de restauração**, especifique onde ou como restaurar os dados. Selecione uma das duas opções a seguir:
+    >[!NOTE]
+    >Por padrão, o painel **selecionar ponto de restauração** lista os pontos de restauração dos últimos 30 dias. Se você quiser examinar os pontos de restauração criados durante uma duração específica, especifique o intervalo selecionando a **hora de início** e a **hora de término** apropriadas e clique no botão **Atualizar** .
+
+1. A próxima etapa é escolher o **local de restauração**. Na seção **destino de recuperação** , especifique onde ou como restaurar os dados. Selecione uma das duas opções a seguir usando o botão de alternância:
 
     * **Local original**: restaure o compartilhamento de arquivos completo para o mesmo local que a origem original.
     * **Local alternativo**: restaure o compartilhamento de arquivos completo para um local alternativo e mantenha o compartilhamento de arquivos original como está.
 
 #### <a name="restore-to-the-original-location"></a>Restaurar no local original
 
-1. Selecione **local original** como o **destino de recuperação**e selecione se deseja ignorar ou substituir se houver conflitos. Depois de fazer a seleção apropriada, selecione **OK**.
-
-    ![Selecionar local original](./media/restore-afs/original-location.png)
+1. Selecione **local original** como o **destino de recuperação**e selecione se deseja ignorar ou substituir se houver conflitos, escolhendo a opção apropriada na lista suspensa **no caso de conflitos** .
 
 1. Selecione **restaurar** para iniciar a operação de restauração.
 
@@ -78,13 +81,9 @@ Você pode usar essa opção de restauração para restaurar o compartilhamento 
 1. A lista suspensa **selecionar compartilhamento de arquivos** exibe os compartilhamentos de arquivos presentes na conta de armazenamento que você selecionou na etapa 2. Selecione o compartilhamento de arquivos no qual você deseja restaurar o conteúdo de backup.
 1. Na caixa **nome da pasta** , especifique um nome de pasta que você deseja criar no compartilhamento de arquivos de destino com o conteúdo restaurado.
 1. Selecione se deseja ignorar ou substituir se houver conflitos.
-1. Depois de inserir os valores apropriados em todas as caixas, selecione **OK**.
+1. Depois de inserir os valores apropriados em todas as caixas, selecione **restaurar** para iniciar a operação de restauração.
 
     ![Selecionar local alternativo](./media/restore-afs/alternate-location.png)
-
-1. Selecione **restaurar** para iniciar a operação de restauração.
-
-    ![Selecione restaurar para iniciar](./media/restore-afs/click-restore.png)
 
 ### <a name="item-level-recovery"></a>Recuperação em nível de item
 
@@ -94,39 +93,35 @@ Você pode usar essa opção de restauração para restaurar arquivos ou pastas 
 
     ![Selecionar recuperação de arquivo](./media/restore-afs/file-recovery.png)
 
-1. Depois de selecionar a **recuperação de arquivo**, o painel **restaurar** é aberto com um menu de ponto de **restauração** que exibe uma lista de pontos de restauração disponíveis para o compartilhamento de arquivos selecionado.
+1. Depois de selecionar a **recuperação de arquivo**, o painel **restaurar** é aberto. Para selecionar o ponto de restauração que você deseja usar para executar a operação de restauração, clique na caixa de texto **selecionar** texto abaixo do **ponto de restauração** .
 
-1. Selecione o ponto de restauração que você deseja usar para executar a operação de restauração e selecione **OK**.
+    ![Selecione o ponto de restauração clicando em selecionar](./media/restore-afs/select-restore-point.png)
+
+1. O painel Selecionar contexto do **ponto de restauração** é aberto à direita, listando os pontos de restauração disponíveis para o compartilhamento de arquivos selecionado. Selecione o ponto de restauração que você deseja usar para executar a operação de restauração e selecione **OK**.
 
     ![Folha Selecionar ponto de restauração](./media/restore-afs/restore-point.png)
 
-1. Depois de selecionar **OK**, o menu do painel restaurar muda para o **local de restauração**. Em **local de restauração**, especifique onde ou como restaurar os dados. Selecione uma das duas opções a seguir:
+1. A próxima etapa é escolher o **local de restauração**. Na seção **destino de recuperação** , especifique onde ou como restaurar os dados. Selecione uma das duas opções a seguir usando o botão de alternância:
 
     * **Local original**: restaure os arquivos ou pastas selecionados para o mesmo compartilhamento de arquivos que a origem original.
     * **Local alternativo**: restaure os arquivos ou pastas selecionados em um local alternativo e mantenha o conteúdo do compartilhamento de arquivos original como está.
 
 #### <a name="restore-to-the-original-location"></a>Restaurar no local original
 
-1. Selecione **local original** como o **destino de recuperação**e selecione se deseja ignorar ou substituir se houver conflitos.
+1. Selecione **local original** como o **destino de recuperação**e selecione se deseja ignorar ou substituir se houver conflitos, escolhendo a opção apropriada na lista suspensa **no caso de conflitos** .
 
     ![Local original para recuperação em nível de item](./media/restore-afs/original-location-item-level.png)
 
-1. Escolha **Selecionar arquivo** para selecionar os arquivos ou as pastas que você deseja restaurar.
+1. Para selecionar os arquivos ou pastas que você deseja restaurar, clique no botão **Adicionar arquivo** . Isso abrirá um painel de contexto à direita, exibindo o conteúdo do ponto de recuperação de compartilhamento de arquivos selecionado para restauração.
 
-    ![Escolha Selecionar arquivo](./media/restore-afs/select-file.png)
-
-1. Depois que você escolher **Selecionar arquivo**, um painel Compartilhamento de arquivos exibirá o conteúdo do ponto de recuperação de compartilhamento de arquivos selecionado para restauração.
+    ![Escolha Adicionar arquivo](./media/restore-afs/add-file.png)
 
 1. Marque a caixa de seleção que corresponde ao arquivo ou à pasta que você deseja restaurar e escolha **selecionar**.
 
     ![Selecionar arquivo ou pasta](./media/restore-afs/select-file-folder.png)
 
 1. Repita as etapas de 2 a 4 para selecionar vários arquivos ou pastas para restauração.
-1. Depois de selecionar todos os itens que deseja restaurar, selecione **OK**.
-
-    ![Depois de selecionar todos os itens a serem restaurados, selecione OK](./media/restore-afs/after-selecting-items.png)
-
-1. Selecione **restaurar** para iniciar a operação de restauração.
+1. Depois de selecionar todos os itens que deseja restaurar, selecione **restaurar** para iniciar a operação de restauração.
 
     ![Selecione restaurar para iniciar](./media/restore-afs/click-restore.png)
 
@@ -137,21 +132,18 @@ Você pode usar essa opção de restauração para restaurar arquivos ou pastas 
 1. A lista suspensa **selecionar compartilhamento de arquivos** exibe os compartilhamentos de arquivos presentes na conta de armazenamento que você selecionou na etapa 2. Selecione o compartilhamento de arquivos no qual você deseja restaurar o conteúdo de backup.
 1. Na caixa **nome da pasta** , especifique um nome de pasta que você deseja criar no compartilhamento de arquivos de destino com o conteúdo restaurado.
 1. Selecione se deseja ignorar ou substituir se houver conflitos.
-1. Escolha **Selecionar arquivo** para selecionar os arquivos ou as pastas que você deseja restaurar.
+1. Para selecionar os arquivos ou pastas que você deseja restaurar, clique no botão **Adicionar arquivo** . Isso abrirá um painel de contexto à direita, exibindo o conteúdo do ponto de recuperação de compartilhamento de arquivos selecionado para restauração.
 
     ![Selecionar itens para restaurar para o local alternativo](./media/restore-afs/restore-to-alternate-location.png)
 
-1. Quando você escolhe **Selecionar arquivo**, um painel Compartilhamento de arquivos exibe o conteúdo do ponto de recuperação de compartilhamento de arquivos selecionado para restauração.
 1. Marque a caixa de seleção que corresponde ao arquivo ou à pasta que você deseja restaurar e escolha **selecionar**.
 
     ![Selecionar destino de recuperação](./media/restore-afs/recovery-destination.png)
 
 1. Repita as etapas de 6 a 8 para selecionar vários arquivos ou pastas para restauração.
-1. Depois de selecionar todos os itens que deseja restaurar, selecione **OK**.
+1. Depois de selecionar todos os itens que deseja restaurar, selecione **restaurar** para iniciar a operação de restauração.
 
     ![Selecione OK depois de selecionar todos os arquivos](./media/restore-afs/after-selecting-all-items.png)
-
-1. Selecione **restaurar** para iniciar a operação de restauração.
 
 ## <a name="track-a-restore-operation"></a>Rastrear uma operação de restauração
 

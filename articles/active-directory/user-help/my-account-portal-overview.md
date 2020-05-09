@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 04/20/2020
 ms.author: curtand
-ms.openlocfilehash: 4c9d421fd9ac8305c27dfa798f2869e59a04f9fb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: fd22f3b9d365bfee543712f680d504bb134f24d7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77062448"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625690"
 ---
 # <a name="what-is-the-my-account-portal"></a>O que é o portal Minha Conta?
 
 No portal **Minha Conta**, você pode gerenciar sua conta corporativa ou de estudante configurando e gerenciando suas informações de segurança, gerenciando as organizações e dispositivos conectados e verificando como a organização usa seus dados.
 
-Acesse o portal **Minha Conta** (https://myprofile.microsoft.com), da versão atual de um dos seguintes navegadores:
+Acesse o portal **Minha Conta** (https://myaccount.microsoft.com), da versão atual de um dos seguintes navegadores:
 
 - Chrome
 - Microsoft Edge

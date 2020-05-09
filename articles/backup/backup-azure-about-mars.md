@@ -4,12 +4,12 @@ description: Saiba como o agente MARS dá suporte aos cenários de backup
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78673289"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611476"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Sobre o agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -39,19 +39,21 @@ O agente MARS dá suporte aos seguintes cenários de restauração:
 
 ## <a name="backup-process"></a>Processo de backup
 
-1. No portal do Azure, crie um [cofre dos serviços de recuperação](install-mars-agent.md#create-a-recovery-services-vault)e escolha arquivos, pastas e o estado do sistema de metas de backup.
+1. No portal do Azure, crie um [cofre dos serviços de recuperação](install-mars-agent.md#create-a-recovery-services-vault)e escolha arquivos, pastas e o estado do sistema de **metas de backup**.
 2. [Baixe as credenciais do cofre dos serviços de recuperação e o instalador do agente](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) em um computador local.
 
-    Para proteger o computador local selecionando a opção de backup, escolha arquivos, pastas e o estado do sistema e, em seguida, baixe o agente MARS.
-
-3. Preparar a infraestrutura:
-
-    a. Execute o instalador para [instalar o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent).
-
-    b. Use as credenciais do cofre baixado para registrar o computador no cofre dos serviços de recuperação.
-4. No console do agente no cliente, [Configure o backup](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy). Especifique a política de retenção de seus dados de backup para começar a protegê-lo.
+3. [Instale o agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) e use as credenciais do cofre baixado para registrar o computador no cofre dos serviços de recuperação.
+4. No console do agente no cliente, [Configure o backup](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) para especificar o que fazer backup, quando fazer backup (o agendamento), por quanto tempo os backups devem ser mantidos no Azure (a política de retenção) e começar a proteger.
 
 ![Diagrama do agente de backup do Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
+### <a name="additional-information"></a>Informações adicionais
+
+- O **backup inicial** (primeiro backup) é executado de acordo com as configurações de backup.  O agente MARS usa o VSS para fazer um instantâneo pontual dos volumes selecionados para backup. O agente usa apenas a operação do gravador de sistema do Windows para capturar o instantâneo. Ele não usa nenhum gravador VSS de aplicativo e não captura instantâneos consistentes com o aplicativo. Depois de tirar o instantâneo com o VSS, o agente MARS cria um VHD (disco rígido virtual) na pasta de cache que você especificou quando configurou o backup. O agente também armazena somas de verificação para cada bloco de dados.
+
+- Os **backups incrementais** (backups subsequentes) são executados de acordo com o agendamento especificado. Durante backups incrementais, os arquivos alterados são identificados e um novo VHD é criado. O VHD é compactado e criptografado e é enviado para o cofre. Após a conclusão do backup incremental, o novo VHD é mesclado com o VHD criado após a replicação inicial. Esse VHD mesclado fornece o estado mais recente a ser usado para comparação para o backup em andamento.
+
+- O agente MARS pode executar o trabalho de backup no **modo otimizado** usando o diário de alterações USN (número de sequência de atualização) ou, no **modo não otimizado** , verificando alterações em diretórios ou arquivos por meio da verificação de todo o volume. O modo não otimizado é mais lento porque o agente precisa verificar cada arquivo no volume e compará-lo com os metadados para determinar os arquivos alterados.  O **backup inicial** sempre será executado no modo não otimizado. Se o backup anterior tiver falhado, o próximo trabalho de backup agendado será executado no modo não otimizado.
 
 ### <a name="additional-scenarios"></a>Cenários adicionais
 

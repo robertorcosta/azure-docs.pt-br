@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro
+ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc96c94152b39cc70cfc4553690faaa5b9cb8d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a6fab618280f1383e3840c67d85136edc095b9a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77111579"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610081"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Habilitar acesso remoto ao Power BI Mobile com o Proxy de Aplicativo do Azure AD
 
-Este artigo discute como usar o Azure Proxy de Aplicativo do AD para habilitar o Power BI aplicativo móvel para se conectar ao Servidor de Relatórios do Power BI (PBIRS) e SQL Server Reporting Services (SSRS) 2016 e posterior. Por meio dessa integração, os usuários que estão fora da rede corporativa podem acessar seus relatórios de Power BI do aplicativo Power BI Mobile e ser protegidos pela autenticação do Azure AD. Essa proteção inclui [benefícios de segurança](application-proxy-security.md#security-benefits) como o acesso condicional e a autenticação multifator.  
+Este artigo discute como usar o Azure Proxy de Aplicativo do AD para habilitar o Power BI aplicativo móvel para se conectar ao Servidor de Relatórios do Power BI (PBIRS) e SQL Server Reporting Services (SSRS) 2016 e posterior. Por meio dessa integração, os usuários que estão fora da rede corporativa podem acessar seus relatórios de Power BI do aplicativo Power BI Mobile e ser protegidos pela autenticação do Azure AD. Essa proteção inclui [benefícios de segurança](application-proxy-security.md#security-benefits) como o acesso condicional e a autenticação multifator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você já implantou os serviços de relatório e o [proxy de aplicativo habilitado](application-proxy-add-on-premises-application.md).
 
-- Habilitar o proxy de aplicativo requer a instalação de um conector em um Windows Server e a conclusão dos [pré-requisitos](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) para que o conector possa se comunicar com os serviços do Azure AD.  
+- Habilitar o proxy de aplicativo requer a instalação de um conector em um Windows Server e a conclusão dos [pré-requisitos](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) para que o conector possa se comunicar com os serviços do Azure AD.
 - Ao publicar Power BI, recomendamos que você use os mesmos domínios internos e externos. Para saber mais sobre domínios personalizados, consulte [trabalhando com domínios personalizados no proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
 - Essa integração está disponível para o **Power bi Mobile aplicativo Ios e Android** .
 
@@ -68,7 +68,7 @@ Configure o KCD para que o serviço de Proxy de Aplicativo do AD do Azure possa 
 Para configurar o KCD, repita as seguintes etapas para cada computador do conector:
 
 1. Entre em um controlador de domínio como um administrador de domínio e, em seguida, abra **Active Directory usuários e computadores**.
-2. Encontre o computador em que o conector está em sendo executado.  
+2. Encontre o computador em que o conector está em sendo executado.
 3. Clique duas vezes no computador e selecione a guia **delegação** .
 4. Defina as configurações de delegação para **confiar neste computador para delegação somente para os serviços especificados**. Então, selecione **Usar qualquer protocolo de autenticação**.
 5. Selecione **Adicionar**e, em seguida, selecione **usuários ou computadores**.
@@ -95,7 +95,7 @@ Agora você está pronto para configurar o Azure Proxy de Aplicativo do AD.
 
    b. Para o **modo de logon único**, selecione **autenticação integrada do Windows**.
 
-   c. Defina o **SPN do Aplicativo Interno** para o valor que você definiu anteriormente.  
+   c. Defina o **SPN do Aplicativo Interno** para o valor que você definiu anteriormente.
 
    d. Escolha a **Identidade de Logon Delegada** para que o conector use em nome de seus usuários. Para obter mais informações, consulte [trabalhando com diferentes identidades locais e na nuvem](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
@@ -105,7 +105,7 @@ Para concluir a configuração do aplicativo, vá para **a seção usuários e g
 
 ## <a name="step-3-modify-the-reply-uris-for-the-application"></a>Etapa 3: modificar as URI de resposta para o aplicativo
 
-Antes que o aplicativo móvel Power BI possa se conectar e acessar os serviços de relatório, você deve configurar o registro do aplicativo que foi criado automaticamente para você na etapa 2. 
+Antes que o aplicativo móvel Power BI possa se conectar e acessar os serviços de relatório, você deve configurar o registro do aplicativo que foi criado automaticamente para você na etapa 2.
 
 1. Na página **visão geral** do Azure Active Directory, selecione **registros de aplicativo**.
 2. Na guia **todos os aplicativos** , pesquise o aplicativo criado na etapa 2.
@@ -117,11 +117,11 @@ Antes que o aplicativo móvel Power BI possa se conectar e acessar os serviços 
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
-   
+
    Ao configurar o aplicativo para Power BI Mobile **Android**, adicione os seguintes URIs de redirecionamento do tipo cliente público (Mobile & Desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
-   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D`
    - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
@@ -144,7 +144,7 @@ Você pode usar Microsoft Intune para gerenciar os aplicativos cliente que a for
 1. Vá para **Azure Active Directory** e, em seguida, **registros do aplicativo**.
 2. Selecione o aplicativo configurado na etapa 3 ao registrar seu aplicativo cliente nativo.
 3. Na página do aplicativo, selecione **permissões de API**.
-4. Clique em **Adicionar uma permissão**. 
+4. Clique em **Adicionar uma permissão**.
 5. Em **APIs que minha organização usa**, pesquise "gerenciamento de aplicativos móveis da Microsoft" e selecione-o.
 6. Adicione a permissão **DeviceManagementManagedApps. ReadWrite** ao aplicativo
 7. Clique em **conceder consentimento do administrador** para conceder a permissão de acesso ao aplicativo.

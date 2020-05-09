@@ -3,12 +3,12 @@ title: Referência de erro para verificações de integridade
 description: Códigos de erro e possíveis soluções para problemas encontrados ao executar o comando AZ ACR check-Health Diagnostic no registro de contêiner do Azure
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289134"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978307"
 ---
 # <a name="health-check-error-reference"></a>Referência de erro de verificação de integridade
 
@@ -58,7 +58,7 @@ Esse erro significa que o DNS do servidor de logon do registro fornecido foi pin
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Esse erro significa que o ponto de extremidade de desafio para o registro fornecido respondeu com um status HTTP 403 Proibido. Esse erro significa que os usuários não têm acesso ao registro, provavelmente devido a uma configuração de rede virtual. Para ver as regras de firewall configuradas `az acr show --query networkRuleSet --name <registry>`atualmente, execute.
+Esse erro significa que o ponto de extremidade de desafio para o registro fornecido respondeu com um status HTTP 403 Proibido. Esse erro significa que os usuários não têm acesso ao registro, provavelmente devido a uma configuração de rede virtual ou porque o acesso ao ponto de extremidade público do registro não é permitido. Para ver as regras de firewall configuradas `az acr show --query networkRuleSet --name <registry>`atualmente, execute.
 
 *Soluções potenciais*: Remova as regras de rede virtual ou adicione o endereço IP do cliente atual à lista de permissões.
 
