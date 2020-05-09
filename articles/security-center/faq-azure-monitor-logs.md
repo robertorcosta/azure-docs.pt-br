@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f6384c1e9e14e38b4c44c5ac79a674839b43b4ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436162"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612819"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Perguntas frequentes para clientes que já estão usando logs de Azure Monitor<a name="existingloganalyticscust"></a>
 
@@ -42,7 +42,7 @@ Quando a Central de Segurança identificar que uma VM já está conectada a um w
 ## <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Eu já tenho workspaces em meu ambiente, posso usá-los para coletar dados de segurança?
 Se uma VM já tiver o agente de Log Analytics instalado como uma extensão do Azure, a central de segurança usará o espaço de trabalho conectado existente. Uma solução da Central de Segurança será instalado no workspace, se ainda não estiver presente, e a solução será aplicada apenas às VMs relevantes por meio do [direcionamento de solução](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
-Quando a central de segurança instala o agente de Log Analytics em VMs, ela usa os espaços de trabalho padrão criados pela central de segurança.
+Quando a central de segurança instala o agente de Log Analytics em VMs, ela usa os espaços de trabalho padrão criados pela central de segurança se a central de segurança não for apontada para um espaço de trabalho existente.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Já tenho a solução de segurança em meus workspaces. Quais são as implicações de cobrança?
 A solução de auditoria de & de segurança é usada para habilitar recursos da camada Standard da central de segurança para VMs do Azure. Se a solução de Segurança e Auditoria já estiver instalada em um workspace, a Central de Segurança usará a solução existente. Não há nenhuma alteração na cobrança.

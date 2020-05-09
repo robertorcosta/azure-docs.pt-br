@@ -1,21 +1,25 @@
 ---
-title: Capturar uma imagem de uma VM do Linux usando CLI do Azure
-description: Capture uma imagem de uma VM do Azure a ser usada para implantações em massa usando a CLI do Azure.
+title: Capturar uma imagem gerenciada de uma VM do Linux usando CLI do Azure
+description: Capture uma imagem gerenciada de uma VM do Azure para usar em implantações em massa usando o CLI do Azure.
 author: cynthn
-ms.service: virtual-machines-linux
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: legacy
+ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250394"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792676"
 ---
-# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou de um VHD
+# <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerenciada de uma máquina virtual ou VHD
 
-Para criar várias cópias de uma máquina virtual (VM) para uso no Azure, capture uma imagem da VM ou do VHD do sistema operacional. Para criar uma imagem para implantação, você precisará remover informações pessoais da conta. Nas etapas a seguir, desprovisione uma VM existente, desaloque e crie uma imagem. Você pode usar essa imagem para criar VMs em qualquer grupo de recursos dentro da sua assinatura.
+Para criar várias cópias de uma VM (máquina virtual) para uso no Azure para desenvolvimento e teste, Capture uma imagem gerenciada da VM ou do VHD do sistema operacional. Para criar, armazenar e compartilhar imagens em escala, consulte [galerias de imagens compartilhadas](../shared-images-cli.md).
+
+Para criar uma imagem gerenciada, você precisará remover informações pessoais da conta. Nas etapas a seguir, desprovisione uma VM existente, desaloque e crie uma imagem. Você pode usar essa imagem para criar VMs em qualquer grupo de recursos dentro da sua assinatura.
 
 Para criar uma cópia da VM Linux existente para backup ou depuração ou então carregar um VHD Linux especializado de uma VM local, consulte [Carregar e criar uma VM Linux com base em uma imagem de disco personalizada](upload-vhd.md).  
 
@@ -131,11 +135,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode criar várias máquinas virtuais da sua imagem de VM de origem. Para fazer alterações em sua imagem: 
-
-- Crie uma VM usando sua imagem.
-- Faça quaisquer atualizações ou alterações de configuração.
-- Siga as etapas novamente para desprovisionar, desalocar, generalizar e criar uma imagem.
-- Use essa nova imagem para implantações futuras. Você pode excluir a imagem original.
-
-Para saber mais sobre como gerenciar suas VMs com a CLI, veja [CLI do Azure](/cli/azure).
+Para criar, armazenar e compartilhar imagens em escala, consulte [galerias de imagens compartilhadas](shared-images.md).

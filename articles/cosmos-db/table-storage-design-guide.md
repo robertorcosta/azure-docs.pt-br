@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246468"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611766"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de design da tabela de armazenamento de tabelas do Azure: tabelas escalonáveis e de alto desempenho
 
@@ -195,12 +195,12 @@ Os exemplos a seguir pressupõem que o armazenamento de tabela está armazenando
 
 | Nome da coluna | Tipo de dados |
 | --- | --- |
-| `PartitionKey`(Nome do departamento) |Cadeia de caracteres |
-| `RowKey`(ID do funcionário) |Cadeia de caracteres |
-| `FirstName` |Cadeia de caracteres |
-| `LastName` |Cadeia de caracteres |
+| `PartitionKey`(Nome do departamento) |String |
+| `RowKey`(ID do funcionário) |String |
+| `FirstName` |String |
+| `LastName` |String |
 | `Age` |Integer |
-| `EmailAddress` |Cadeia de caracteres |
+| `EmailAddress` |String |
 
 Aqui estão algumas diretrizes gerais para a criação de consultas de armazenamento de tabelas. A sintaxe de filtro usada nos exemplos a seguir é da API REST de armazenamento de tabela. Para obter mais informações, consulte [consultar entidades](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -208,7 +208,7 @@ Aqui estão algumas diretrizes gerais para a criação de consultas de armazenam
 * O segundo melhor é uma *consulta de intervalo*. Ele usa os `PartitionKey`filtros e em um intervalo de `RowKey` valores para retornar mais de uma entidade. O `PartitionKey` valor identifica uma partição específica e os `RowKey` valores identificam um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * A terceira melhor é uma *verificação de partição*. Ele usa os `PartitionKey`filtros e em outra propriedade que não seja de chave e pode retornar mais de uma entidade. O `PartitionKey` valor identifica uma partição específica e os valores de propriedade são selecionados para um subconjunto das entidades nessa partição. Por exemplo: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Uma *verificação de tabela* não inclui `PartitionKey`o e é ineficiente porque pesquisa todas as partições que compõem sua tabela para qualquer entidade correspondente. Ele executa uma verificação de tabela, independentemente de o filtro usar ou não `RowKey`. Por exemplo: `$filter=LastName eq 'Jones'`.  
-* As consultas de armazenamento de tabelas do Azure que retornam `PartitionKey` várias `RowKey` entidades as classificam e ordenam. Para evitar a reclassificação das entidades no cliente, escolha um `RowKey` que defina a ordem de classificação mais comum. Os resultados da consulta retornados pelo API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* As consultas de armazenamento de tabelas do Azure que retornam `PartitionKey` várias `RowKey` entidades as classificam e ordenam. Para evitar a reclassificação das entidades no cliente, escolha um `RowKey` que defina a ordem de classificação mais comum. Os resultados da consulta retornados pelo API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](table-api-faq.md#table-api-vs-table-storage).
 
 Usar um "**or**" para especificar um filtro com base `RowKey` em valores resulta em uma verificação de partição e não é tratado como uma consulta de intervalo. Portanto, evite consultas que usam filtros como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
@@ -250,7 +250,7 @@ Muitos designs devem atender aos requisitos para habilitar a pesquisa de entidad
 O armazenamento de tabela retorna os resultados da consulta classificados em ordem crescente `PartitionKey` , com base `RowKey`em e depois por.
 
 > [!NOTE]
-> Os resultados da consulta retornados pelo API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Os resultados da consulta retornados pelo API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](table-api-faq.md#table-api-vs-table-storage).
 
 As chaves no armazenamento de tabela são valores de cadeia de caracteres. Para garantir que os valores numéricos sejam classificados corretamente, converta-os em um comprimento fixo e os preencha com zeros. Por exemplo, se o valor de ID de funcionário que você `RowKey` usa como é um valor inteiro, você deve converter a ID de funcionário **123** para **00000123**. 
 
@@ -663,7 +663,7 @@ Em um banco de dados relacional, normalmente você normaliza dados para remover 
 ![Gráfico de entidade de departamento e entidade de funcionário][16]
 
 #### <a name="solution"></a>Solução
-Em vez de armazenar os dados em duas entidades separadas, desnormalize os dados e mantenha uma cópia dos detalhes do gerente na entidade de departamento. Por exemplo:  
+Em vez de armazenar os dados em duas entidades separadas, desnormalize os dados e mantenha uma cópia dos detalhes do gerente na entidade de departamento. Por exemplo:   
 
 ![Gráfico de entidade de departamento desnormalizado e combinado][17]
 
@@ -733,7 +733,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Recupere as entidades *n* adicionadas mais recentemente a uma partição usando um `RowKey` valor que classifica em ordem de data e hora inversa.  
 
 > [!NOTE]
-> Os resultados da consulta retornados pelo API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Portanto, embora esse padrão seja adequado para o armazenamento de tabelas, ele não é adequado para Azure Cosmos DB. Para obter uma lista detalhada das diferenças de recursos, consulte [diferenças entre API de tabela em Azure Cosmos DB e armazenamento de tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Os resultados da consulta retornados pelo API de Tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Portanto, embora esse padrão seja adequado para o armazenamento de tabelas, ele não é adequado para Azure Cosmos DB. Para obter uma lista detalhada das diferenças de recursos, consulte [diferenças entre API de tabela em Azure Cosmos DB e armazenamento de tabelas do Azure](table-api-faq.md#table-api-vs-table-storage).
 
 #### <a name="context-and-problem"></a>Contexto e problema
 Um requisito comum é conseguir recuperar as entidades criadas mais recentemente, por exemplo, as dez solicitações de despesas mais recentes enviadas por um funcionário. As consultas de tabela `$top` dão suporte a uma operação de consulta para retornar as primeiras *n* entidades de um conjunto. Não há nenhuma operação de consulta equivalente para retornar as últimas *n* entidades em um conjunto.  

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 20a82cbd7de4b5678648bac19ab9b59bf557b0ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128327"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612462"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar anexação de aplicativo MSIX
 
 > [!IMPORTANT]
 > A anexação do aplicativo MSIX está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este tópico explicará como configurar a anexação do aplicativo MSIX em um ambiente de área de trabalho virtual do Windows.
 
@@ -28,7 +28,7 @@ Este tópico explicará como configurar a anexação do aplicativo MSIX em um am
 Antes de começar, veja o que você precisa para configurar o anexo do aplicativo MSIX:
 
 - Acesso ao portal do Windows Insider para obter a versão do Windows 10 com suporte para as APIs de anexação do aplicativo MSIX.
-- Uma implantação de área de trabalho virtual do Windows funcional. Para obter informações, consulte [criar um locatário na área de trabalho virtual do Windows](tenant-setup-azure-active-directory.md).
+- Uma implantação de área de trabalho virtual do Windows funcional. Para obter informações, consulte [criar um locatário na área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 - A ferramenta de empacotamento MSIX
 - Um compartilhamento de rede em sua implantação de área de trabalho virtual do Windows em que o pacote MSIX será armazenado
 
@@ -186,7 +186,7 @@ Se seu aplicativo usa um certificado que não é confiável para o público ou f
 O MSIX app Attach tem quatro fases distintas que devem ser executadas na seguinte ordem:
 
 1. Estágio
-2. Registrar
+2. Registrar 
 3. Cancelar
 4. Despreparo
 

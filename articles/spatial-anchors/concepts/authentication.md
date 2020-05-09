@@ -8,12 +8,13 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: df27a77c202951a6c789703f12712e75bd8b5906
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: c2800dc361eb274eeef706556e09731da079ccab
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77656956"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611748"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais do Azure
 
@@ -251,7 +252,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
 Para ajudar a controlar o nível de acesso concedido a aplicativos, serviços ou usuários do Azure AD do seu serviço, as seguintes funções foram criadas para você atribuir conforme necessário em relação às suas contas de âncoras espaciais do Azure:
 

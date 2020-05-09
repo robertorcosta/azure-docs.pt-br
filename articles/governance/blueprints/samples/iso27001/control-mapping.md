@@ -4,10 +4,10 @@ description: Mapeamento de controles da amostra de blueprint da ISO 27001. Cada 
 ms.date: 01/13/2020
 ms.topic: sample
 ms.openlocfilehash: 501884491dbef85cdf8a29cb5fdcef44a68235a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75920565"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controles da amostra de blueprint ISO 27001

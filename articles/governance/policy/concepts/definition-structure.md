@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos do Azure em sua organização.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d4a86f4d9f74cf17229467f19a3afa8bebcf40f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187759"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613295"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -73,14 +73,14 @@ O **modo** é configurado dependendo de se a política tem como alvo uma proprie
 
 O **modo** determina quais tipos de recursos serão avaliados para uma política. Os modos suportados são:
 
-- `all`: avaliar grupos de recursos e todos os tipos de recursos
+- `all`: avaliar grupos de recursos, assinaturas e todos os tipos de recursos
 - `indexed`: avaliar apenas os tipos de recursos que oferecem suporte a marcas e local
 
 Por exemplo, o `Microsoft.Network/routeTables` recurso oferece suporte a marcas e local e é avaliado em ambos os modos. No entanto `Microsoft.Network/routeTables/routes` , o recurso não pode ser marcado `Indexed` e não é avaliado no modo.
 
 É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não incluir um valor **modo**, ela usará como padrão `all` no Azure PowerShell e `null` na CLI do Azure. Um modo `null` é o mesmo que usar `indexed` para dar suporte à compatibilidade com versões anteriores.
 
-`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que dão suporte a marcas, consulte [suporte a marcas para recursos do Azure](../../../azure-resource-manager/management/tag-support.md).
+`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são os **grupos de recursos** e as **assinaturas**. As políticas que impõem local ou marcas em um grupo de recursos ou **mode** assinatura devem `all` definir Mode como e `Microsoft.Resources/subscriptions/resourceGroups` direcionar especificamente o tipo ou `Microsoft.Resources/subscriptions` . Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que dão suporte a marcas, consulte [suporte a marcas para recursos do Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modos de provedor de recursos (visualização)
 
@@ -682,7 +682,7 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
 
 ### <a name="understanding-the--alias"></a>Noções básicas sobre o alias [*]
 
-Vários dos aliases que estão disponíveis têm uma versão que aparece como um nome ' normal ' e outro que foi ** \[ \* ** anexado a ele. Por exemplo:
+Vários dos aliases que estão disponíveis têm uma versão que aparece como um nome ' normal ' e outro que foi ** \[ \* ** anexado a ele. Por exemplo: 
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -4,12 +4,12 @@ description: Saiba como criar um cluster do AKS (serviço de kubernetes do Azure
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 87f52c5a749b531e5b0656e0b30ff0fe9c1a57bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0d702a213c4c34024c043edc50d25e6696cbc1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398063"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610931"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster particular do serviço kubernetes do Azure
 
@@ -101,7 +101,7 @@ Conforme mencionado, o emparelhamento VNet é uma maneira de acessar seu cluster
 ## <a name="limitations"></a>Limitações 
 * Os intervalos autorizados por IP não podem ser aplicados ao ponto de extremidade do servidor de API privada, eles se aplicam somente ao servidor de API pública
 * Atualmente, há suporte para Zonas de Disponibilidade em determinadas regiões, consulte o início deste documento 
-* As [limitações do serviço de vínculo privado do Azure][private-link-service] se aplicam a clusters privados, pontos de extremidade privados do Azure e pontos de extremidade de serviço de rede virtual, que atualmente não têm suporte na mesma rede virtual.
+* As [limitações do serviço de vínculo privado do Azure][private-link-service] se aplicam a clusters privados.
 * Não há suporte para nós virtuais em um cluster privado para girar ACI (instâncias de contêiner do Azure particulares) em uma rede virtual do Azure privada
 * Não há suporte para a integração do Azure DevOps pronta para uso com clusters privados
 * Para clientes que precisam habilitar o registro de contêiner do Azure para trabalhar com AKS particulares, a rede virtual do registro de contêiner deve ser emparelhada com a rede virtual do cluster do agente.
@@ -116,7 +116,7 @@ Conforme mencionado, o emparelhamento VNet é uma maneira de acessar seu cluster
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: /azure/private-link/private-link-service-overview
+[private-link-service]: /azure/private-link/private-link-service-overview#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md

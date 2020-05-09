@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76314752"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610965"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando Métricas de Armazenamento do Azure e Registro em Log, AzCopy e Analisador de Mensagem
 
@@ -161,7 +161,7 @@ O Analisador de Mensagem inclui ativos para o Armazenamento do Azure que ajudam 
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Baixe e instale o Analisador de Mensagem e os ativos de Armazenamento do Azure
 
-1. Baixe o [Analisador de Mensagem](https://www.microsoft.com/download/details.aspx?id=44226) no Centro de Download da Microsoft e execute o instalador.
+1. Baixe o [analisador de mensagem](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer).
 2. Inicie o Analisador de Mensagem.
 3. No menu **Ferramentas**, selecione **Gerenciador de Ativos**. Na caixa de diálogo **Gerenciador de Ativos**, escolha **Downloads** e filtre por **Armazenamento do Azure**. Você verá os ativos de Armazenamento do Azure, conforme mostrado na figura abaixo.
 4. Clique em **Sincronizar Todos os Itens Exibidos** para instalar os Ativos de Armazenamento do Azure. Os ativos disponíveis incluem:
@@ -319,10 +319,10 @@ Agora que você está familiarizado com o uso do Analisador de Mensagem para ana
 | Problema de autorização de SAS (Assinatura de Acesso Compartilhado) |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |Rede |
 | Mensagens HTTP 409 (Conflito) |HTTP.Response.StatusCode   == 409 |Rede |
 | 409 (todos) |*StatusCode   == 409 |Todos |
-| Baixo PercentSuccess ou as entradas de log analíticas têm operações com status de transação de ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Server (Servidor) |
-| Aviso Nagle |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Server (Servidor) |
+| Baixo PercentSuccess ou as entradas de log analíticas têm operações com status de transação de ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Servidor |
+| Aviso Nagle |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Servidor |
 | Intervalo de horas nos logs de Servidor e Rede |#Timestamp   >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 |Servidor, Rede |
-| Intervalo de horas nos logs de Servidor |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Server (Servidor) |
+| Intervalo de horas nos logs de Servidor |AzureStorageLog.Timestamp   >= 2014-10-20T16:36:38 e AzureStorageLog.Timestamp <=   2014-10-20T16:36:39 |Servidor |
 
 ## <a name="next-steps"></a>Próximas etapas
 
