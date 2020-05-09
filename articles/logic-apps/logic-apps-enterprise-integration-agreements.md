@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74790730"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612326"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerenciar contratos de parceiros comerciais em aplicativos lógicos do Azure
 
@@ -68,6 +68,14 @@ No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesqui
    | **Configurações de Recebimento** | Varia | Varia | Essas propriedades especificam como o parceiro host recebe todas as mensagens de entrada do parceiro convidado no contrato. Para obter mais informações, consulte o respectivo tipo de contrato: <p>- [Configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    | **Configurações de Envio** | Varia | Varia | Essas propriedades especificam como o parceiro host envia todas as mensagens de saída para o parceiro convidado no contrato. Para obter mais informações, consulte o respectivo tipo de contrato: <p>- [Configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    |||||
+
+   > [!IMPORTANT]
+   > A resolução de um contrato depende da correspondência desses itens definidos no parceiro e na mensagem de entrada:
+   >
+   > * O qualificador e o identificador do remetente
+   > * O qualificador e o identificador do destinatário
+   >
+   > Se esses valores mudarem para seu parceiro, certifique-se de atualizar o contrato também.
 
 1. Quando terminar de criar seu contrato, na página **Adicionar** , escolha **OK**e retorne à sua conta de integração.
 

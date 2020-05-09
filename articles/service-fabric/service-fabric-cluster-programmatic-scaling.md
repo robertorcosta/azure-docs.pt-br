@@ -5,16 +5,16 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458292"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787100"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric por meio de programação 
 
-Os clusters do Service Fabric em execução no Azure são criados sobre conjuntos de dimensionamento de máquinas virtuais.  O [Dimensionamento do cluster](./service-fabric-cluster-scale-up-down.md) descreve como os clusters do Service Fabric podem ser dimensionados manualmente ou com regras de dimensionamento automático. Este artigo descreve como gerenciar credenciais e reduzir horizontalmente e escalar horizontalmente um cluster usando o SDK de computação fluente do Azure, que é um cenário mais avançado. Para obter uma visão geral, leia [métodos programáticos de coordenação de operações de dimensionamento do Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+Os clusters do Service Fabric em execução no Azure são criados sobre conjuntos de dimensionamento de máquinas virtuais.  O [Dimensionamento do cluster](./service-fabric-cluster-scale-in-out.md) descreve como os clusters do Service Fabric podem ser dimensionados manualmente ou com regras de dimensionamento automático. Este artigo descreve como gerenciar credenciais e reduzir horizontalmente e escalar horizontalmente um cluster usando o SDK de computação fluente do Azure, que é um cenário mais avançado. Para obter uma visão geral, leia [métodos programáticos de coordenação de operações de dimensionamento do Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -119,6 +119,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 Para começar a implementar sua própria lógica de dimensionamento automático, familiarize-se com as APIs úteis e os conceitos abaixo:
 
-- [Dimensionar manualmente ou com regras de dimensionamento automático](./service-fabric-cluster-scale-up-down.md)
+- [Dimensionar manualmente ou com regras de dimensionamento automático](./service-fabric-cluster-scale-in-out.md)
 - [Bibliotecas do Gerenciamento do Azure para .NET fluentes](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (útil para interagir com conjuntos de dimensionamento de máquinas virtuais subjacentes a um cluster do Service Fabric)
 - [System.Fabric.FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (útil para interagir com um cluster do Service Fabric e seus nós)

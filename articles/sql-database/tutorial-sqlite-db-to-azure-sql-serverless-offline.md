@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2aed3a66f70864b3445418a51b0e79280e6884bd
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75780503"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629194"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Como migrar seu banco de dados SQLite para o banco de dados SQL sem servidor do Azure
-Para muitas pessoas, o SQLite fornece sua primeira experiência de bancos de dados e programação SQL. A inclusão em muitos sistemas operacionais e aplicativos populares torna o SQLite um dos mecanismos de banco de dados mais implantados e usados no mundo todo. E, como é provável que o primeiro mecanismo de banco de dados use muitas pessoas, muitas vezes isso pode acabar como uma parte central de projetos ou aplicativos. Nesses casos em que o projeto ou aplicativo ultrapassa a implementação inicial do SQLite, os desenvolvedores podem precisar migrar seus dados para um repositório de dados confiável e centralizado.
+Para muitas pessoas, o SQLite fornece sua primeira experiência de bancos de dados e programação SQL. Ele é incluído em muitos sistemas operacionais e aplicativos populares tornam o SQLite um dos mecanismos de banco de dados mais implantados e usados no mundo. E, como é provável que o primeiro mecanismo de banco de dados use muitas pessoas, muitas vezes isso pode acabar como uma parte central de projetos ou aplicativos. Nesses casos em que o projeto ou aplicativo ultrapassa a implementação inicial do SQLite, os desenvolvedores podem precisar migrar seus dados para um repositório de dados confiável e centralizado.
 
 O banco de dados SQL sem servidor do Azure é uma camada de computação para bancos únicos de dados que dimensionam automaticamente a computação com base na demanda da carga de trabalho e cobra pela quantidade de computação usada por segundo. A camada de computação sem servidor também pausa automaticamente os bancos de dados durante períodos inativos quando apenas o armazenamento é cobrado e retoma automaticamente os bancos de dados quando a atividade retorna.
 

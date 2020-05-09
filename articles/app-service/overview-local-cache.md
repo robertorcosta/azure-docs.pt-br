@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78227882"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628786"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "78227882"
 > O cache local não tem suporte em aplicativos de funções ou aplicativos de serviço de aplicativo em contêiner, como em [contêineres do Windows](app-service-web-get-started-windows-container.md) ou no [serviço de aplicativo no Linux](containers/app-service-linux-intro.md).
 
 
-O conteúdo do Serviço de Aplicativo do Azure é armazenado no Armazenamento do Microsoft Azure e exibido de forma duradoura como um compartilhamento de conteúdo. Esse design tem como objetivo trabalhar com vários aplicativos e tem os seguintes atributos:  
+Azure App conteúdo do serviço é armazenado no armazenamento do Azure e é exibido de maneira durável como um compartilhamento de conteúdo. Esse design tem como objetivo trabalhar com vários aplicativos e tem os seguintes atributos:  
 
 * O conteúdo é compartilhado entre várias instâncias de VM (máquina virtual) do aplicativo.
 * O conteúdo é duradouro e pode ser modificado pela execução dos aplicativos.
@@ -36,7 +36,7 @@ O recurso Cache Local do Serviço de Aplicativo do Azure fornece uma exibição 
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Como o cache local altera o comportamento do serviço de aplicativo
 * _D:\home_ aponta para o cache local, que é criado na instância da VM quando o aplicativo é inicializado. _D:\local_ continua apontando para o armazenamento temporário específico da VM.
-* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 300 MB por padrão, mas você pode aumentá-lo em até 2 GB. Se os arquivos copiados excederem o tamanho do cache local, o serviço de aplicativo ignorará silenciosamente o cache local e lerá do compartilhamento de arquivos remoto.
+* O cache local contém uma cópia única das pastas _/site_ e _/siteextensions_ do armazenamento de conteúdo compartilhado, em _D:\home\site_ e _D:\home\siteextensions_, respectivamente. Os arquivos são copiados para o cache local quando o aplicativo é iniciado. O tamanho das duas pastas para cada aplicativo é limitado a 1 GB por padrão, mas pode ser aumentado para 2 GB. Observe que, à medida que o tamanho do cache aumenta, levará mais tempo para carregar o cache. Se os arquivos copiados excederem o tamanho do cache local, o serviço de aplicativo ignorará silenciosamente o cache local e lerá do compartilhamento de arquivos remoto.
 * O cache local é de leitura/gravação. No entanto, qualquer modificação é descartada quando o aplicativo move as máquinas virtuais ou é reiniciado. Não use o cache local para aplicativos que armazenam dados de missão crítica no armazenamento de conteúdo.
 * _D:\home\LogFiles_ e _D:\home\Data_ contêm arquivos de log e dados do aplicativo. As duas subpastas são armazenadas localmente na instância da VM e são copiadas para o armazenamento de conteúdo compartilhado periodicamente. Os aplicativos podem manter arquivos e dados de log, gravando-os nessas pastas. No entanto, a cópia para o armazenamento de conteúdo compartilhado é melhor esforço, por isso, é possível que os arquivos de log e os dados sejam perdidos devido a uma falha súbita de uma instância de VM.
 * [ O fluxo de logs ](troubleshoot-diagnostic-logs.md#stream-logs) é afetado pela cópia de melhor esforço. Você pode observar até um atraso de um minuto nos logs transmitidos.
@@ -75,7 +75,7 @@ Habilitar o Cache Local com base em cada aplicativo Web usando esta configuraç�
 
     "properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
-        "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
+        "WEBSITE_LOCAL_CACHE_SIZEINMB": "1000"
     }
 }
 
@@ -83,7 +83,7 @@ Habilitar o Cache Local com base em cada aplicativo Web usando esta configuraç�
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Alterar a configuração de tamanho no Cache Local
-Por padrão, o tamanho do cache local é de **300 MB**. Isso inclui as pastas /site e /siteextensions que são copiadas do repositório de conteúdo, bem como as pastas de dados e de logs criadas localmente. Para aumentar esse limite, use a configuração do aplicativo `WEBSITE_LOCAL_CACHE_SIZEINMB`. Você pode aumentar o tamanho de até **2 GB** (2000 MB) por aplicativo.
+Por padrão, o tamanho do cache local é **1 GB**. Isso inclui as pastas /site e /siteextensions que são copiadas do repositório de conteúdo, bem como as pastas de dados e de logs criadas localmente. Para aumentar esse limite, use a configuração do aplicativo `WEBSITE_LOCAL_CACHE_SIZEINMB`. Você pode aumentar o tamanho de até **2 GB** (2000 MB) por aplicativo. Observe que levará mais tempo para carregar o cache local conforme o tamanho aumenta.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Práticas recomendadas para usar o Cache Local do Serviço de Aplicativo
 Recomendamos que você use o Cache Local em conjunto com o recurso [Ambientes de Preparo](../app-service/deploy-staging-slots.md) .

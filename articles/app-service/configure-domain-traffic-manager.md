@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8322c12669e41fc7c9aa88e99f95cf1b26ea87d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944102"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610234"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurar um nome de domínio personalizado no serviço de Azure App com a integração do Gerenciador de tráfego
 
@@ -66,12 +66,18 @@ Depois que o aplicativo do serviço de aplicativo estiver em um tipo de preço c
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Embora as especificidades de cada provedor de domínio variem, você mapeia a *partir* do nome de domínio personalizado (como **contoso.com**) *para* o nome de domínio do Traffic Manager (**contoso.trafficmanager.net**) que é integrado ao seu aplicativo.
+Embora as especificidades de cada provedor de domínio variem, você mapeia *de* um [nome de domínio personalizado não raiz](#what-about-root-domains) (como **www.contoso.com**) *para* o nome de domínio do Traffic Manager (**contoso.trafficmanager.net**) que é integrado ao seu aplicativo. 
 
 > [!NOTE]
 > Se um registro já está em uso e você precisa associar preventivamente seus aplicativos a ele, pode criar um registro CNAME adicional. Por exemplo, para ligar preemptivamente **o\.contoso.com da www** ao seu aplicativo, crie um registro CNAME de **awverify. www** para **contoso.trafficmanager.net**. Em seguida, você pode adicionar\."www contoso.com" ao seu aplicativo sem a necessidade de alterar o registro CNAME "www". Para obter mais informações, consulte [migrar um nome DNS ativo para Azure app serviço](manage-custom-dns-migrate-domain.md).
 
 Depois de terminar a adição ou a modificação de registros DNS no provedor de domínios, salve as alterações.
+
+### <a name="what-about-root-domains"></a>E quanto aos domínios raiz?
+
+Como o Gerenciador de tráfego só dá suporte ao mapeamento de domínio personalizado com registros CNAME, e como os padrões de DNS não dão suporte a registros CNAME para mapear domínios raiz (por exemplo, **contoso.com**), o Gerenciador de tráfego não dá suporte ao mapeamento para domínios raiz. Para contornar esse problema, use um redirecionamento de URL do no nível do aplicativo. Em ASP.NET Core, por exemplo, você pode usar a [regravação de URL](/aspnet/core/fundamentals/url-rewriting). Em seguida, use o Gerenciador de tráfego para balancear a carga do subdomínio (**www.contoso.com**).
+
+Para cenários de alta disponibilidade, você pode implementar uma configuração de DNS tolerante a falhas sem o Gerenciador de tráfego criando vários *registros a* que apontam do domínio raiz para o endereço IP de cada cópia de aplicativo. Em seguida, [mapeie o mesmo domínio raiz para todas as cópias de aplicativo](app-service-web-tutorial-custom-domain.md#map-an-a-record). Como o mesmo nome de domínio não pode ser mapeado para dois aplicativos diferentes na mesma região, essa configuração só funciona quando as cópias do aplicativo estão em regiões diferentes.
 
 ## <a name="enable-custom-domain"></a>Habilitar domínio personalizado
 Depois que os registros de seu nome de domínio forem propagados, use o navegador para verificar se o nome de domínio personalizado é resolvido para seu aplicativo do serviço de aplicativo.

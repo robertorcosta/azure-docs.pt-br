@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 09431a6690be751324bb796415d308d3b7727dad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c8a19fe338af14f97e0eb191d7b57e840c71e400
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254090"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612717"
 ---
-# <a name="auto-grow-storage-in-azure-database-for-mysql-storage-using-powershell"></a>Crescimento automático do armazenamento no banco de dados do Azure para o armazenamento MySQL usando o PowerShell
+# <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>Crescimento automático do armazenamento no banco de dados do Azure para servidor MySQL usando o PowerShell
 
 Este artigo descreve como você pode configurar um armazenamento de banco de dados do Azure para servidor MySQL para crescer sem afetar a carga de trabalho.
 
@@ -52,4 +52,5 @@ New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [como criar alertas sobre métricas](howto-alert-on-metric.md).
+> [!div class="nextstepaction"]
+> [Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o PowerShell](howto-read-replicas-powershell.md).

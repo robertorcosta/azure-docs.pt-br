@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 404052984cb99e37f7404a47f3ac374088d32d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e4de91034de0d036cd99e265949ba85a5939180
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393485"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629319"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Usar o esquema do CloudEvents v 1.0 com a grade de eventos
 Além de seu [esquema de evento padrão](event-schema.md), a grade de eventos do Azure oferece suporte nativo a eventos na [implementação JSON do CloudEvents v 1.0 e da Associação de](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) [protocolo http](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
@@ -139,7 +139,7 @@ New-AzureRmEventGridSubscription `
 
  ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validação de ponto de extremidade com CloudEvents v 1.0
 
-Se você já estiver familiarizado com a grade de eventos, talvez esteja ciente do handshake de validação do ponto de extremidade da grade de eventos para evitar abusos. O CloudEvents v 1.0 implementa sua própria [semântica de proteção de abuso](security-authentication.md#webhook-event-delivery) usando o método de opções http. Saiba mais sobre isso [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao usar o esquema CloudEvents para saída, a grade de eventos usa com a proteção de abuso do CloudEvents v 1.0 em vez do mecanismo de evento de validação da grade de eventos.
+Se você já estiver familiarizado com a grade de eventos, talvez esteja ciente do handshake de validação do ponto de extremidade da grade de eventos para evitar abusos. O CloudEvents v 1.0 implementa sua própria [semântica de proteção de abuso](webhook-event-delivery.md) usando o método de opções http. Saiba mais sobre isso [aqui](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Ao usar o esquema CloudEvents para saída, a grade de eventos usa com a proteção de abuso do CloudEvents v 1.0 em vez do mecanismo de evento de validação da grade de eventos.
 
 <a name="azure-functions"></a>
 
@@ -147,7 +147,7 @@ Se você já estiver familiarizado com a grade de eventos, talvez esteja ciente 
 
 A [associação da grade de eventos Azure Functions](../azure-functions/functions-bindings-event-grid.md) não dá suporte nativo a CloudEvents, portanto as funções disparadas por http são usadas para ler mensagens CloudEvents. Ao usar um gatilho HTTP para ler CloudEvents, você precisa escrever código para o que o gatilho de grade de eventos faz automaticamente:
 
-* Envie uma resposta de validação para [uma solicitação de validação de assinatura](../event-grid/security-authentication.md#webhook-event-delivery).
+* Envie uma resposta de validação para [uma solicitação de validação de assinatura](../event-grid/webhook-event-delivery.md).
 * Invoque a função uma vez por elemento da matriz de eventos contida no corpo da solicitação.
 
 Para obter informações sobre a URL a ser utilizada para invocar a função localmente ou quando for executada no Azure, consulte a [documentação de referência de associação de gatilho HTTP](../azure-functions/functions-bindings-http-webhook.md)

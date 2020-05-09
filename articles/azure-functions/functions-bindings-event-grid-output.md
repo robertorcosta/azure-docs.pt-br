@@ -6,16 +6,16 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e7a2611312ffc33703dd5cc9d0a2d7142ddb0532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368942"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627680"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Associação de saída da grade de eventos do Azure para Azure Functions
 
-Use a associação de saída da grade de eventos para gravar eventos em um tópico personalizado. Você deve ter uma [chave de acesso válida para o tópico personalizado](../event-grid/security-authentication.md#custom-topic-publishing).
+Use a associação de saída da grade de eventos para gravar eventos em um tópico personalizado. Você deve ter uma [chave de acesso válida para o tópico personalizado](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
 
 Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](./functions-bindings-event-grid.md).
 

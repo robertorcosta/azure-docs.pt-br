@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: mimart
-ms.reviewer: arvinh
-ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201679"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626183"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Usando o SCIM e o Microsoft Graph juntos para provisionar usuários e enriquecer seu aplicativo com os dados de que precisa
 
@@ -103,8 +103,8 @@ Meu aplicativo é integrado ao Microsoft Teams e se baseia em dados de mensagens
 Preciso ser capaz de controlar as alterações nas equipes e nas mensagens do Outlook e reagir a elas em tempo real. Como posso obter essas alterações enviadas por push para meu aplicativo?
 
 **Recomendação:** O Microsoft Graph fornece [notificações de alteração](https://docs.microsoft.com/graph/webhooks) e [controle de alterações](https://docs.microsoft.com/graph/delta-query-overview) para vários recursos. Observe as seguintes limitações de notificações de alteração:
-- Se um receptor de eventos reconhecer um evento, mas falhar em agir por algum motivo, o evento poderá ser perdido
-- Se um receptor de eventos reconhecer um evento, mas falhar em agir por algum motivo, o evento poderá ser perdido
+- Se um receptor de eventos reconhecer um evento, mas falhar em agir por qualquer motivo, o evento poderá ser perdido.
+- A ordem na qual as alterações são recebidas não tem garantia de ser cronológica.
 - As notificações de alteração nem sempre contêm os [dados do recurso](https://docs.microsoft.com/graph/webhooks-with-resource-data) pelos motivos acima, os desenvolvedores geralmente usam notificações de alteração junto com o controle de alterações para cenários de sincronização. 
 
 ## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>Cenário 6: provisionar usuários e grupos no Azure AD

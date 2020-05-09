@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b9b27bb142cb729536a3b7a561ed8b8ff5e0ccf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2c2a1d817dbe88bebc36f66b441e609b5faea2a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731315"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629347"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK do dispositivo IoT do Azure para C
 
@@ -88,7 +88,7 @@ A ferramenta Gerenciador de Dispositivos usa as bibliotecas de serviço IoT do A
 
 Caso você não esteja familiarizado com a ferramenta Gerenciador de Dispositivos, o procedimento a seguir descreve como usá-la para adicionar um dispositivo e obter uma cadeia de conexão de dispositivo.
 
-1. Para instalar a ferramenta Gerenciador de Dispositivos, consulte [Como usar o Gerenciador de Dispositivos para dispositivos Hub IoT](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+1. Para instalar a ferramenta Gerenciador de Dispositivos, consulte [Como usar o Gerenciador de Dispositivos para dispositivos Hub IoT](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/).
 
 1. Ao executar o programa, você verá esta interface:
 

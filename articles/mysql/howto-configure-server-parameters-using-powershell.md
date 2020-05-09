@@ -1,0 +1,71 @@
+---
+title: Configurar parâmetros do servidor-Azure PowerShell-banco de dados do Azure para MySQL
+description: Este artigo descreve como configurar os parâmetros de serviço no banco de dados do Azure para MySQL usando o PowerShell.
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.devlang: azurepowershell
+ms.topic: conceptual
+ms.date: 4/29/2020
+ms.openlocfilehash: 0de816d25bbc1563885413d8dbd52dc7bda7d538
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82615078"
+---
+# <a name="customize-azure-database-for-mysql-server-parameters-using-powershell"></a>Personalizar parâmetros do servidor do banco de dados do Azure para MySQL usando o PowerShell
+
+Você pode listar, mostrar e atualizar parâmetros de configuração para um servidor de banco de dados do Azure para MySQL usando o PowerShell. Um subconjunto de configurações de mecanismo é exposto no nível do servidor e pode ser modificado.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este guia de instruções, você precisa:
+
+- O [módulo AZ PowerShell](/powershell/azure/install-az-ps) instalado localmente ou [Azure cloud Shell](https://shell.azure.com/) no navegador
+- Um [banco de dados do Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
+
+> [!IMPORTANT]
+> Enquanto o módulo do PowerShell AZ. MySql está em versão prévia, você deve instalá-lo separadamente do módulo AZ PowerShell usando o seguinte `Install-Module -Name Az.MySql -AllowPrerelease`comando:.
+> Depois que o módulo AZ. MySql PowerShell estiver disponível, ele se tornará parte das versões futuras do módulo do PowerShell AZ e estará disponível nativamente em Azure Cloud Shell.
+
+Se você optar por usar o PowerShell localmente, conecte-se à sua conta do Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Listar os parâmetros de configuração de servidor para o Banco de Dados do Azure para MySQL
+
+Para listar todos os parâmetros modificáveis em um servidor e seus valores, `Get-AzMySqlConfiguration` execute o cmdlet.
+
+O exemplo a seguir lista os parâmetros de configuração do servidor para o **mydemoserver** do servidor no grupo de recursos **MyResource**Group.
+
+```azurepowershell-interactive
+Get-AzMySqlConfiguration -ResourceGroupName myresourcegroup -ServerName mydemoserver
+```
+
+Para obter a definição de cada um dos parâmetros listados, consulte a seção de referência do MySQL em [Variáveis do Sistema do Servidor](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
+
+## <a name="show-server-configuration-parameter-details"></a>Mostrar detalhes do parâmetro de configuração do servidor
+
+Para mostrar detalhes sobre um parâmetro de configuração específico para um servidor, execute `Get-AzMySqlConfiguration` o cmdlet e especifique o parâmetro de **nome** .
+
+Este exemplo mostra detalhes do parâmetro de configuração do servidor de **log de consulta\_\_lenta** para o servidor **mydemoserver** em grupo de recursos **MyResource**Group.
+
+```azurepowershell-interactive
+Get-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver
+```
+
+## <a name="modify-a-server-configuration-parameter-value"></a>Modificar um valor do parâmetro de configuração do servidor
+
+Você também pode modificar o valor de determinados parâmetros de configuração, que atualiza o valor da configuração subjacente para o mecanismo do servidor MySQL. Para atualizar a configuração, use o `Update-AzMySqlConfiguration` cmdlet.
+
+Para atualizar o parâmetro de configuração do servidor **log de consulta\_\_lenta** do servidor **mydemoserver** em grupo de recursos **MyResource**Group.
+
+```azurepowershell-interactive
+Update-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On
+```
+
+## <a name="next-steps"></a>Próximas etapas
+
+> [!div class="nextstepaction"]
+> [Crescimento automático do armazenamento no banco de dados do Azure para servidor MySQL usando o PowerShell](howto-auto-grow-storage-powershell.md).
