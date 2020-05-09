@@ -4,12 +4,12 @@ description: Conheça os recursos do serviço de Lote e suas APIs do ponto de vi
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: c983588bd3d135729541bf6bf51e5dc9d979ca84
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509186"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994259"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -46,7 +46,7 @@ Alguns dos recursos a seguir - contas, nó de computação, pool, trabalhos e ta
 
 * [Conta](#account)
 * [Nó de computação](#compute-node)
-* [pool](#pool)
+* [Pool](#pool)
 * [Trabalho](#job)
   * [Agendas de trabalho](#scheduled-jobs)
 * [Tarefa](#task)
@@ -429,7 +429,7 @@ Uma fórmula de dimensionamento pode basear-se nas seguintes métricas:
 * **métricas do recurso** são baseadas nos usos da CPU, da largura de banda e da memória, e no número de nós.
 * As **métricas de tarefa** são baseadas no estado da tarefa, como *Ativa* (na fila), *Em execução* ou *Concluída*.
 
-Quando o dimensionamento automático diminui o número de nós de computação em um pool, você deve considerar como lidar com as tarefas em execução no momento da operação de redução. Para acomodar isso, o lote fornece uma [*opção de desalocação de nó*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que você pode incluir em suas fórmulas. Por exemplo, você pode especificar que as tarefas em execução sejam interrompidas imediatamente e colocadas novamente na fila para execução em outro nó ou concluídas antes que o nó seja removido do pool. Observe que definir a opção de desalocação `taskcompletion` de `retaineddata` nó como ou impedirá operações de redimensionamento de pool até que todas as tarefas sejam concluídas ou que todos os períodos de a retenção de tarefa tenham expirado, respectivamente.
+Quando o dimensionamento automático diminui o número de nós de computação em um pool, você deve considerar como lidar com as tarefas em execução no momento da operação de redução. Para acomodar isso, o lote fornece uma [*opção de desalocação de nó*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que você pode incluir em suas fórmulas. Por exemplo, você pode especificar que as tarefas em execução sejam interrompidas imediatamente e colocadas novamente na fila para execução em outro nó ou concluídas antes que o nó seja removido do pool. Observe que definir a opção de desalocação `taskcompletion` de `retaineddata` nó como ou impedirá operações de redimensionamento de pool até que todas as tarefas sejam concluídas ou que todos os períodos de retenção de tarefa tenham expirado, respectivamente.
 
 Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [Dimensionar automaticamente nós de computação em um pool do Lote do Azure](batch-automatic-scaling.md).
 
@@ -586,4 +586,4 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
+[vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1

@@ -6,18 +6,15 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 7e85175cbee53bd5984a38a587a90b98eaf8dcad
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/08/2020
+ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791894"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994346"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
-
-> [!IMPORTANT]
-> Estamos movendo o gerenciamento de suas ofertas de serviço de consultoria de Portal do Cloud Partner para o Partner Center. Até que suas ofertas sejam migradas, siga as instruções em [oferta do serviço de consultoria do Dynamics 365 e do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) para Portal do Cloud Partner gerenciar suas ofertas.
 
 Este artigo descreve como publicar uma oferta de serviço de consultoria para [Microsoft AppSource](https://appsource.microsoft.com/) ou o [Azure Marketplace](https://azuremarketplace.microsoft.com/). Liste as ofertas do serviço de consultoria com base no Microsoft [Dynamics 365](https://dynamics.microsoft.com/) e no Power Platform no AppSource. Listar ofertas de serviço de consultoria com base em Microsoft Azure no Azure Marketplace. Antes de começar, [crie uma conta do Marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) se você ainda não tiver feito isso. Verifique se sua conta está inscrita no programa comercial do Marketplace.
 
@@ -99,10 +96,10 @@ Esta página permite que você defina o produto principal que seu serviço de co
     - **Prova de conceito:** uma implementação de escopo limitado para determinar se uma solução atende aos requisitos do cliente.
     - **Workshop**: um engajamento interativo realizado nos locais de um cliente. Ele pode envolver treinamentos, resumos, avaliações ou demonstrações criados nos dados ou no ambiente do cliente.
 
-1. Se você selecionou um produto principal do **Azure**, selecione até três **áreas de solução**. Isso facilita para os clientes do Azure Marketplace encontrarem sua oferta. Se você não escolheu o Azure, pule esta etapa.
-2. Se você selecionou um produto primário _diferente_ do Azure, selecione até três **produtos aplicáveis**. Isso facilita para os clientes do AppSource a localização de sua oferta. Para obter detalhes, consulte [diretrizes de listagem de serviço de consultoria do Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
-3. Selecione até seis **setores** aos quais sua oferta se aplica. Isso facilitará para os clientes a localização de sua oferta.
-4. Adicione até três **competências** que sua empresa obteve para exibir em sua listagem de ofertas de serviços de consultoria. Pelo menos uma competência é necessária, exceto para o especialista do Azure MSPs e o MSPs de rede do Azure.
+3. Se você selecionou um produto principal do **Azure**, selecione até três **áreas de solução**. Isso facilita para os clientes do Azure Marketplace encontrarem sua oferta. Se você não escolheu o Azure, pule esta etapa.
+4. Se você selecionou um produto primário _diferente_ do Azure, selecione até três **produtos aplicáveis**. Isso facilita para os clientes do AppSource a localização de sua oferta. Para obter detalhes, consulte [diretrizes de listagem de serviço de consultoria do Microsoft AppSource](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
+5. Selecione até seis **setores** aos quais sua oferta se aplica. Isso facilitará para os clientes a localização de sua oferta.
+6. Adicione até três **competências** que sua empresa obteve para exibir em sua listagem de ofertas de serviços de consultoria. Pelo menos uma competência é necessária, exceto para o especialista do Azure MSPs e o MSPs de rede do Azure.
 
 Selecione **salvar rascunho** antes de continuar.
 

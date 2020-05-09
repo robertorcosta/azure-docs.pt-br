@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 4c9e7b6d93fb4bbc3e3b05d9346ec84197665a55
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652805"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995298"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Solucionar problemas com a configuração de estado da automação do Azure
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Solucionar problemas de configuração de estado da automação do Azure
 
 Este artigo fornece informações sobre como solucionar problemas que surgem enquanto você compila ou implanta configurações na configuração de estado da automação do Azure.
-
->[!NOTE]
->Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo Az no seu Hybrid Runbook Worker, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente seguindo as etapas em [como atualizar os módulos de Azure PowerShell na automação do Azure](../automation-update-azure-modules.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnosticar um problema
 
@@ -112,7 +109,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Causa
 
-Esse problema é causado por um certificado insatisfatório ou expirado. Consulte [expiração e registro de certificado](../automation-dsc-onboarding.md#re-registering-a-node).
+Esse problema é causado por um certificado insatisfatório ou expirado. Consulte [registrar novamente um nó](../automation-dsc-onboarding.md#re-register-a-node).
 
 Esse problema também pode ser causado por uma configuração de proxy que não permite o acesso a ***. Azure-Automation.net**. Para obter mais informações, consulte [configuração de redes privadas](../automation-dsc-overview.md#network-planning). 
 
@@ -239,11 +236,11 @@ Você usou uma credencial em uma configuração, mas não forneceu `Configuratio
 
 Certifique-se de transmitir o apropriado `ConfigurationData` para definir `PSDscAllowPlainTextPassword` como true para cada configuração de nó mencionada na configuração. Consulte [compilando configurações de DSC na configuração de estado da automação do Azure](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Cenário: erro de "extensão de processamento de falha" ao realizar a integração de uma extensão de DSC
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Cenário: erro de "extensão de processamento de falha" ao habilitar um computador de uma extensão de DSC
 
 ### <a name="issue"></a>Problema
 
-Quando você se integra usando uma extensão de DSC, ocorre uma falha que contém o erro:
+Quando você habilita um computador usando uma extensão de DSC, ocorre uma falha que contém o erro:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -256,7 +253,7 @@ Esse erro normalmente ocorre quando o nó recebe um nome de configuração de n�
 ### <a name="resolution"></a>Resolução
 
 * Certifique-se de que você está atribuindo o nó com um nome que corresponda exatamente ao nome no serviço.
-* Você pode optar por não incluir o nome da configuração do nó, o que resulta na integração do nó, mas não à atribuição de uma configuração de nó.
+* Você pode optar por não incluir o nome da configuração do nó, o que resulta na habilitação do nó, mas não na atribuição de uma configuração de nó.
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Cenário: erro "ocorreu um ou mais erros" ao registrar um nó usando o PowerShell
 
@@ -274,10 +271,10 @@ Esse erro ocorre quando você tenta registrar um nó em uma assinatura separada 
 
 ### <a name="resolution"></a>Resolução
 
-Trate o nó de assinatura cruzada como se ele estivesse definido para uma nuvem separada ou localmente. Registre o nó usando uma dessas opções de integração:
+Trate o nó de assinatura cruzada como se ele estivesse definido para uma nuvem separada ou localmente. Registre o nó usando uma destas opções para habilitar computadores:
 
-* Windows: [máquinas físicas/virtuais do Windows locais ou em uma nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux: [máquinas Linux físicas/virtuais locais ou em uma nuvem diferente do Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Windows: [máquinas físicas/virtuais do Windows locais ou em uma nuvem diferente do Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
+* Linux: [máquinas Linux físicas/virtuais locais ou em uma nuvem diferente do Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Cenário: mensagem de erro "o provisionamento falhou"
 

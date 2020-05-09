@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: aa3733b1231b92f30f5fd36dab64794129e62b07
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983683"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995331"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTPS em aplicativos lógicos do Azure
 
@@ -140,17 +140,19 @@ Por padrão, o gatilho de solicitação espera uma solicitação POST. Você pod
 
    ![Selecionar o método de solicitação esperado pelo gatilho](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-## <a name="accept-parameters-in-endpoint-url"></a>Aceitar parâmetros na URL do ponto de extremidade
+<a name="endpoint-url-parameters"></a>
 
-Quando desejar que a URL do ponto de extremidade aceite valores de parâmetro por meio da URL do ponto de extremidade, você terá estas opções:
+## <a name="pass-parameters-through-endpoint-url"></a>Passar parâmetros por meio da URL do ponto de extremidade
+
+Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de extremidade, terá estas opções:
 
 * [Aceite valores por meio de parâmetros Get](#get-parameters) ou parâmetros de URL.
 
-  Esses valores são passados como pares de nome-valor ao enviar a solicitação para a URL do ponto de extremidade. Para essa opção, você precisa usar o método GET em seu gatilho de solicitação. Em uma ação subsequente, você pode obter os valores de parâmetro como saídas do gatilho usando `triggerOutputs()` a função em uma expressão.
+  Esses valores são passados como pares de nome-valor na URL do ponto de extremidade. Para essa opção, você precisa usar o método GET em seu gatilho de solicitação. Em uma ação subsequente, você pode obter os valores de parâmetro como saídas do gatilho usando `triggerOutputs()` a função em uma expressão.
 
 * [Aceite valores por meio de um caminho relativo](#relative-path) para parâmetros em seu gatilho de solicitação.
 
-  Esses valores são passados ao enviar a solicitação para a URL do ponto de extremidade. Você também precisa selecionar explicitamente [o método](#select-method) esperado pelo gatilho. Em uma ação subsequente, você pode obter os valores de parâmetro como saídas do gatilho referenciando essas saídas diretamente.
+  Esses valores são passados por meio de um caminho relativo na URL do ponto de extremidade. Você também precisa selecionar explicitamente [o método](#select-method) esperado pelo gatilho. Em uma ação subsequente, você pode obter os valores de parâmetro como saídas do gatilho referenciando essas saídas diretamente.
 
 <a name="get-parameters"></a>
 

@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0ac0352fbca73aca7cc8c19a851dad9149af14a1
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: fc5d2b8f7673488169ee3ae393efcb74ef0a27a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872088"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996461"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurar e usar destinos de computação para treinamento de modelo 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Com o Azure Machine Learning, você pode treinar seu modelo em uma variedade de recursos ou ambientes, coletivamente chamados de [__destinos de computação__](concept-azure-machine-learning-architecture.md#compute-targets). Um destino de computação pode ser um computador local ou um recurso de nuvem, como Computação do Azure Machine Learning, Azure HDInsight ou uma máquina virtual remota.  Você também pode criar destinos de computação para a implantação de modelo conforme descrito em ["em que local e como implantar seus modelos"](how-to-deploy-and-where.md).
+Com o Azure Machine Learning, você pode treinar seu modelo em uma variedade de recursos ou ambientes, coletivamente chamados de [__destinos de computação__](concept-azure-machine-learning-architecture.md#compute-targets). Um destino de computação pode ser um computador local ou um recurso de nuvem, como um Azure Machine Learning computação, Azure HDInsight ou uma máquina virtual remota.  Você também pode criar destinos de computação para a implantação de modelo conforme descrito em ["em que local e como implantar seus modelos"](how-to-deploy-and-where.md).
 
 Você pode criar e gerenciar um destino de computação usando a extensão Azure Machine Learning SDK, Azure Machine Learning Studio, CLI do Azure ou Azure Machine Learning VS Code. Se você tiver destinos de computação criados por meio de outro serviço (por exemplo, um cluster HDInsight), poderá usá-los anexando-os ao seu espaço de trabalho do Azure Machine Learning.
  
@@ -36,7 +36,7 @@ Neste artigo, você aprende a usar vários destinos de computação para treinam
 
 ## <a name="compute-targets-for-training"></a>Destinos de computação para treinamento
 
-Azure Machine Learning tem suporte variado em diferentes destinos de computação. Um ciclo de vida de desenvolvimento de modelo típico começa com experimentação/desenvolvimento em uma pequena quantidade de dados. Nessa fase, é recomendável usar um ambiente local. Por exemplo, o computador local ou uma VM baseada em nuvem. Na medida em que você aumenta o treinamento em conjuntos de dados maiores ou faz treinamento distribuído, é recomendável usar a Computação do Azure Machine Learning para criar um cluster de vários nós, ou de nó único, que dimensionará automaticamente sempre que você enviar uma execução. Também é possível anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar conforme detalhado abaixo:
+Azure Machine Learning tem suporte variado em diferentes destinos de computação. Um ciclo de vida de desenvolvimento de modelo típico começa com experimentação/desenvolvimento em uma pequena quantidade de dados. Nessa fase, é recomendável usar um ambiente local. Por exemplo, o computador local ou uma VM baseada em nuvem. À medida que você aumenta seu treinamento em conjuntos de dados maiores ou realiza um treinamento distribuído, é recomendável usar Azure Machine Learning computação para criar um cluster único ou de vários nós que seja dimensionado em escala cada vez que você enviar uma execução. Também é possível anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar conforme detalhado abaixo:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -64,7 +64,7 @@ Para obter mais informações, consulte [treinar modelos de ml com estimadores](
 
 Com pipelines de ML, você pode otimizar seu fluxo de trabalho com simplicidade, velocidade, portabilidade e reutilização. Ao criar pipelines com Azure Machine Learning, você pode se concentrar em sua experiência, aprendizado de máquina, em vez de infraestrutura e automação.
 
-Os pipelines ML são construídos a partir de várias **etapas**, que são unidades computacionais distintas no pipeline. Cada etapa pode ser executada de forma independente e usar recursos de computação isolados. Isso permite que vários cientistas de dados funcionem no mesmo pipeline ao mesmo tempo sem sobrecarregar recursos de computação, além de facilitar o uso de diferentes tipos/tamanhos de computação para cada etapa.
+Os pipelines ML são construídos a partir de várias **etapas**, que são unidades computacionais distintas no pipeline. Cada etapa pode ser executada de forma independente e usar recursos de computação isolados. Essa abordagem permite que vários cientistas de dados trabalhem no mesmo pipeline ao mesmo tempo sem sobrecarregar recursos de computação, além de facilitar o uso de diferentes tipos/tamanhos de computação para cada etapa.
 
 > [!TIP]
 > Os pipelines ML podem usar a configuração de execução ou os estimadores ao treinar modelos.
@@ -100,10 +100,11 @@ A Computação do Machine Learning do Azure é uma infraestrutura de computaçã
 A Computação do Machine Learning do Azure tem limites padrão como o número de núcleos que podem ser alocados. Para obter mais informações, consulte [Gerenciar e solicitar cotas para recursos do Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
 
 > [!TIP]
-> Os clusters geralmente podem ser dimensionados para até 100 nós, desde que você tenha uma cota suficiente para o número de núcleos necessários. Por padrão, os clusters são configurados com a comunicação entre nós habilitada entre os nós do cluster para dar suporte a trabalhos MPI, por exemplo. No entanto, você pode dimensionar seus clusters para milhares de nós simplesmente [gerando um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)e solicitando à lista de permissões sua assinatura, ou espaço de trabalho, ou um cluster específico para desabilitar a comunicação entre nós. 
->
+> Os clusters geralmente podem ser escalados para até 100 nós, desde que você tenha uma cota suficiente para o número de núcleos necessários. Por padrão, os clusters são configurados com a comunicação entre nós habilitada entre os nós do cluster para dar suporte a trabalhos MPI, por exemplo. No entanto, você pode dimensionar seus clusters para milhares de nós simplesmente [gerando um tíquete de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)e solicitando à lista de permissões sua assinatura, ou espaço de trabalho, ou um cluster específico para desabilitar a comunicação entre nós. 
 
-Azure Machine Learning computação pode ser reutilizada em execuções. A computação pode ser compartilhada com outros usuários no espaço de trabalho e é mantida entre as execuções, Dimensionando automaticamente os nós para cima ou para baixo com base no número de execuções enviadas e o max_nodes definido no cluster.
+Azure Machine Learning computação pode ser reutilizada em execuções. A computação pode ser compartilhada com outros usuários no espaço de trabalho e é mantida entre as execuções, Dimensionando automaticamente os nós para cima ou para baixo com base no número de execuções enviadas e o max_nodes definido no cluster. A configuração min_nodes controla os nós mínimos disponíveis.
+
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
 
 1. **Criar e anexar**: para criar um recurso de computação persistente Azure Machine Learning em Python, especifique as propriedades **vm_size** e **max_nodes** . O Azure Machine Learning usará padrões inteligentes para o restante das propriedades. A computação é reduzida automaticamente até zero nó quando não é usada.   VMs dedicadas são criadas para executar seus trabalhos conforme necessário.
     
@@ -483,7 +484,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Observe a seção *argumentos* em runconfig e o *espaço de parâmetro* em hyperdrive config. Eles contêm os argumentos de linha de comando a serem passados para o script de treinamento. O valor em runconfig permanece o mesmo para cada iteração, enquanto o intervalo na configuração de HyperDrive é iterado. Não especifique o mesmo argumento em ambos os arquivos.
 
-Para obter mais detalhes sobre ```az ml``` esses comandos da CLI e conjunto completo de argumentos, consulte [a documentação de referência](reference-azure-machine-learning-cli.md).
+Para obter mais detalhes sobre ```az ml``` esses comandos da CLI, consulte [a documentação de referência](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

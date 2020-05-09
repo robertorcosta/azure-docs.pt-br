@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/07/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 601f1c224d6e1d756c27dc2478951682ce6bb4fd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: a2df89bc18ea5d0098ac5ebb0bc06b9df6728705
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854753"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993755"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
@@ -72,9 +72,9 @@ Os encargos do Log Analytics são adicionadas à sua fatura do Azure. É possív
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Exibindo o uso de Log Analytics em sua fatura do Azure 
 
-O Azure fornece uma grande funcionalidade útil no gerenciamento de [custos do Azure +](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) Hub de cobrança. Por exemplo, a funcionalidade de "análise de custo" permite que você exiba seus gastos para os recursos do Azure. A adição de um filtro por tipo de recurso (para Microsoft. operationalinsights/Workspace para Log Analytics) permitirá que você acompanhe seus gastos.
+O Azure fornece uma grande funcionalidade útil no gerenciamento de [custos do Azure +](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) Hub de cobrança. Por exemplo, a funcionalidade de "análise de custo" permite que você exiba seus gastos para os recursos do Azure. Primeiro, adicione um filtro por "tipo de recurso" (para Microsoft. operationalinsights/espaço de trabalho para Log Analytics e Microsoft. operationalinsights/espaço de trabalho para clusters Log Analytics) permitirá que você acompanhe seus Log Analytics gastos. Em seguida, para "Agrupar por", selecione "categoria do medidor" ou "medidor".  Observe que outros serviços, como a central de segurança do Azure e o Azure Sentinel, também cobram seu uso em relação a Log Analytics recursos de espaço de trabalho. Para ver o mapeamento para o nome do serviço, você pode selecionar a exibição de tabela em vez de um gráfico. 
 
-Mais informações sobre seu uso podem ser obtidas [baixando seu uso do portal do Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso por recurso do Azure (por exemplo, Log Analytics espaço de trabalho) por dia. Nesta planilha do Excel, o uso de seus espaços de trabalho do Log Analytics pode ser encontrado primeiro filtrando a coluna "categoria do medidor" para mostrar "insights e análises" (usado por alguns dos tipos de preço herdados) e "Log Analytics" e, em seguida, adicionar um filtro na coluna "ID da instância", que é "contém espaço de trabalho". O uso é mostrado na coluna "quantidade consumida" e a unidade de cada entrada é mostrada na coluna "unidade de medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender sua fatura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Mais informações sobre seu uso podem ser obtidas [baixando seu uso do portal do Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso por recurso do Azure (por exemplo, Log Analytics espaço de trabalho) por dia. Nesta planilha do Excel, o uso de seus espaços de trabalho do Log Analytics pode ser encontrado primeiro filtrando a coluna "categoria do medidor" para mostrar "Log Analytics", "informações e análises" (usadas por alguns dos tipos de preço herdados) e "Azure Monitor" (usados por tipos de preço de reserva de capacidade) e, em seguida, adição de um filtro na coluna "ID da instância", que é "contém espaço de trabalho" ou "contém cluster" (o último a incluir Log Analytics uso do cluster). O uso é mostrado na coluna "quantidade consumida" e a unidade de cada entrada é mostrada na coluna "unidade de medida".  Mais detalhes estão disponíveis para ajudá-lo a [entender sua fatura de Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 ## <a name="changing-pricing-tier"></a>Alterando o tipo de preço
 
@@ -108,7 +108,7 @@ Mais detalhes sobre as limitações do tipo de preço estão disponíveis [aqui]
 
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados
 
-As etapas a seguir descrevem como configurar por quanto tempo os dados de log são mantidos no workspace. A retenção de dados pode ser configurada de 30 a 730 dias (2 anos) para todos os espaços de trabalho, a menos que eles estejam usando o tipo de preço gratuito herdado. 
+As etapas a seguir descrevem como configurar por quanto tempo os dados de log são mantidos no workspace. A retenção de dados pode ser configurada de 30 a 730 dias (2 anos) para todos os espaços de trabalho, a menos que eles estejam usando o tipo de preço gratuito herdado. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços para a retenção de dados mais longa. 
 
 ### <a name="default-retention"></a>Retenção padrão
 
@@ -253,7 +253,7 @@ union withsource = tt *
 ```
 
 > [!TIP]
-> Use essas `union withsource = tt *` consultas com moderação, pois as verificações entre os tipos de dados são [intensivas em recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) para serem executadas. Essa consulta substitui a maneira antiga de consultar informações por computador com o tipo de dados de uso.  
+> Use essas `union *` consultas com moderação, pois as verificações entre os tipos de dados são [intensivas em recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) para serem executadas. Se você não precisar de resultados **por computador** , consulte o tipo de dados de uso (veja abaixo).
 
 ## <a name="understanding-ingested-data-volume"></a>Compreendendo o volume de dados ingeridos
 
@@ -322,7 +322,7 @@ union withsource = tt *
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
-A `_IsBillable` [Propriedade](log-standard-properties.md#_isbillable) especifica se os dados ingeridos incorrerão em encargos.
+A `_IsBillable` [Propriedade](log-standard-properties.md#_isbillable) especifica se os dados ingeridos incorrerão em encargos. 
 
 Para ver a **contagem** de eventos faturáveis ingeridos por computador, use 
 
@@ -333,6 +333,10 @@ union withsource = tt *
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  | sort by eventCount nulls last
 ```
+
+> [!TIP]
+> Use essas `union  *` consultas com moderação, pois as verificações entre os tipos de dados são [intensivas em recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) para serem executadas. Se você não precisar de resultados **por computador** , consulte o tipo de dados de uso.
+
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recurso do Azure, grupo de recursos ou assinatura
 
@@ -357,6 +361,9 @@ union withsource = tt *
 ```
 
 A `subscriptionId` alteração `resourceGroup` para mostrará o volume de dados ingeridos Faturável pelo grupo de recursos do Azure. 
+
+> [!TIP]
+> Use essas `union  *` consultas com moderação, pois as verificações entre os tipos de dados são [intensivas em recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) para serem executadas. Se você não precisar de resultados por assinatura, por grupo de recursos ou por nome de recurso, consulte o tipo de dados de uso.
 
 > [!WARNING]
 > Alguns dos campos do tipo de dados Uso, ainda no esquema, foram reprovados e seus valores não serão mais preenchidos. Estes são **Computador**, bem como campos relacionados à ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
@@ -454,24 +461,34 @@ Para ver o número de nós de automação distintos, use a consulta:
 
 A decisão de saber se os espaços de trabalho com acesso ao tipo de preço herdado **por nó** estão melhor nessa camada ou em uma camada de **reserva de capacidade** **paga conforme o uso** ou em geral é difícil para os clientes avaliarem.  Isso envolve entender a compensação entre o custo fixo por nó monitorado no tipo de preço por nó e sua alocação de dados incluída de 500 MB/nó/dia e o custo de apenas pagar por dados ingeridos na camada pago pelo uso (por GB). 
 
-Para facilitar essa avaliação, a consulta a seguir pode ser usada para fazer uma recomendação para o tipo de preço ideal com base nos padrões de uso de um espaço de trabalho.  Essa consulta examina os nós monitorados e os dados ingeridos em um espaço de trabalho nos últimos 7 dias e, para cada dia, avalia qual tipo de preço seria ideal. Para usar a consulta, você precisa especificar se o espaço de trabalho está usando a central de segurança `workspaceHasSecurityCenter` do `true` Azure `false`definindo como ou e, em seguida (opcionalmente) atualizando os preços por nó e por GB que seu Organizaiton recebe. 
+Para facilitar essa avaliação, a consulta a seguir pode ser usada para fazer uma recomendação para o tipo de preço ideal com base nos padrões de uso de um espaço de trabalho.  Essa consulta examina os nós monitorados e os dados ingeridos em um espaço de trabalho nos últimos 7 dias e, para cada dia, avalia qual tipo de preço seria ideal. Para usar a consulta, você precisa especificar
+
+1. Se o espaço de trabalho estiver usando a central de `workspaceHasSecurityCenter` segurança `true` do `false`Azure definindo como ou, 
+2. Atualize os preços se você tiver descontos específicos e
+3. Especifique o número de dias a serem examinados e analisados `daysToEvaluate`pela configuração. Isso será útil se a consulta estiver demorando muito tempo tentando examinar 7 dias de dados. 
+
+Aqui está a consulta de recomendação de tipo de preço:
 
 ```kusto
 // Set these parameters before running query
 let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
-let PerGBPrice = 2.30; // Enter your price per GB 
+let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
+let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
+let daysToEvaluate = 7; // Enter number of previous days look at (reduce if the query is taking too long)
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
+let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
+let EndDate = startofday(now());
 union withsource = tt * 
-| where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+| where TimeGenerated >= StartDate and TimeGenerated < EndDate
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
 | join kind=leftouter (
     Heartbeat 
-    | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
+    | where TimeGenerated >= StartDate and TimeGenerated < EndDate
     | where Computer != ""
     | summarize ASCnodesPerHour = dcount(Computer) by bin(TimeGenerated, 1h) 
     | extend ASCnodesPerHour = iff(workspaceHasSecurityCenter, ASCnodesPerHour, 0)
@@ -479,8 +496,7 @@ union withsource = tt *
 ) on day
 | join (
     Usage 
-    | where TimeGenerated > ago(8d)
-    | where StartTime >= startofday(now(-7d)) and EndTime < startofday(now())
+    | where TimeGenerated >= StartDate and TimeGenerated < EndDate
     | where IsBillable == true
     | extend NonSecurityData = iff(DataType !in (SecurityDataTypes), Quantity, 0.)
     | extend SecurityData = iff(DataType in (SecurityDataTypes), Quantity, 0.)
@@ -493,15 +509,18 @@ union withsource = tt *
 | extend OverageGB = iff(workspaceHasSecurityCenter, 
              max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
              max_of(DataGB - 0.5*nodesPerDay, 0.))
-| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerGBPrice
+| extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerNodeOveragePrice
 | extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
              iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
 | project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
-| project day, Recommendation // Comment this line to see details
+//| project day, Recommendation // Comment this line to see details
 | sort by day asc
 ```
 
 Essa consulta não é uma replicação exata de como o uso é calculado, mas funcionará para fornecer recomendações de tipo de preço na maioria dos casos.  
+
+> [!NOTE]
+> Para usar os direitos provenientes da aquisição de OMS E1 Suite, OMS E2 Suite OMS ou Complemento do OMS para System Center, escolha o tipo de preço *Por Nó* do Log Analytics.
 
 ## <a name="create-an-alert-when-data-collection-is-high"></a>Criar um alerta quando a coleta de dados estiver alta
 

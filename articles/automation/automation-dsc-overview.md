@@ -1,6 +1,6 @@
 ---
 title: Visão geral da Configuração de Estado da Automação do Azure
-description: Uma visão geral da DSC (configuração de estado da automação) do Azure, seus termos e problemas conhecidos
+description: Uma visão geral da configuração de estado da automação do Azure, seus termos e problemas conhecidos
 keywords: powershell dsc, configuração de estado desejada, powershell dsc azure
 services: automation
 ms.service: automation
@@ -10,20 +10,34 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afceb11180662416aa4953b8b58ef03ffaa70eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbe617e6614eb69f0a7f6e31c89c1f645804fe1b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406178"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993863"
 ---
-# <a name="state-configuration-overview"></a>Visão geral de State Configuration
+# <a name="azure-automation-state-configuration-overview"></a>Visão geral da Configuração de Estado da Automação do Azure
 
-A configuração de estado da automação do Azure é um serviço do Azure que permite que você grave, gerencie e compile [configurações](/powershell/scripting/dsc/configurations/configurations)de DSC (configuração de estado desejado) do PowerShell. O serviço também importa [recursos de DSC](/powershell/scripting/dsc/resources/resources)e atribui configurações aos nós de destino, tudo na nuvem.
+A configuração de estado de automação do Azure é um serviço de gerenciamento de configuração do Azure que permite que você grave, gerencie e compile [configurações](/powershell/scripting/dsc/configurations/configurations) de DSC (configuração de estado desejado) do PowerShell para nós em qualquer datacenter local ou na nuvem. O serviço também importa [recursos de DSC](/powershell/scripting/dsc/resources/resources)e atribui configurações aos nós de destino, tudo na nuvem. Você pode acessar a configuração de estado da automação do Azure no portal do Azure selecionando **configuração de estado (DSC)** em **Gerenciamento de configuração**. 
+
+Você pode usar a configuração de estado da automação do Azure para gerenciar uma variedade de máquinas:
+
+- Máquinas Virtuais do Azure
+- Máquinas virtuais do Azure (clássico)
+- Máquinas físicas/virtuais do Windows locais ou em uma nuvem diferente do Azure (incluindo instâncias AWS EC2)
+- Máquinas físicas/virtuais locais do Linux, no Azure, ou em uma nuvem diferente do Azure
+
+Se você não estiver pronto para gerenciar a configuração da máquina na nuvem, poderá usar a configuração de estado da automação do Azure como um ponto de extremidade somente de relatório. Esse recurso permite definir (enviar por push) configurações por meio de DSC e exibir detalhes de relatório na automação do Azure.
+
+> [!NOTE]
+> O gerenciamento de VMs do Azure com a configuração de estado de automação do Azure é incluído sem custo adicional se a versão da extensão de configuração de estado desejado da VM do Azure for maior que 2,70. Para obter mais informações, consulte a [**página de preços de automação**](https://azure.microsoft.com/pricing/details/automation/).
 
 ## <a name="why-use-azure-automation-state-configuration"></a>Por que usar a Configuração de Estado da Automação do Azure?
 
-A Configuração do Estado de Automação do Azure oferece várias vantagens a usar o DSC fora do Azure.
+A configuração de estado da automação do Azure fornece várias vantagens em relação ao uso de DSC fora do Azure. Esse serviço permite a escalabilidade entre milhares de computadores de forma rápida e fácil a partir de um local central e seguro. Você pode facilmente habilitar computadores, atribuir a eles configurações declarativas e exibir relatórios mostrando a conformidade de cada computador com o estado desejado especificado.
+
+O serviço de configuração de estado da automação do Azure é para DSC quais runbooks de automação do Azure são para scripts do PowerShell. Em outras palavras, da mesma forma que a Automação do Azure ajuda você a gerenciar os scripts do PowerShell, ela também ajuda a gerenciar configurações do DSC. 
 
 ### <a name="built-in-pull-server"></a>Servidor de pull interno
 
@@ -41,7 +55,7 @@ Nós gerenciados com a Configuração do Estado de Automação do Azure enviam d
 
 ## <a name="prerequisites-for-using-azure-automation-state-configuration"></a>Pré-requisitos para usar a configuração de estado da automação do Azure
 
-Considere os seguintes requisitos ao usar a configuração de estado de automação do Azure para DSC.
+Considere os requisitos nesta seção ao usar a configuração de estado da automação do Azure.
 
 ### <a name="operating-system-requirements"></a>Requisitos do sistema operacional
 
@@ -63,9 +77,9 @@ Para nós que executam o Linux, a extensão de DSC do Linux dá suporte a todas 
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
-Para todos os nós do Windows em execução no Azure, o [WMF 5,1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) é instalado durante a integração. Para nós que executam o Windows Server 2012 e o Windows 7, o [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) está habilitado.
+Para todos os nós do Windows em execução no Azure, o [WMF 5,1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) é instalado quando os computadores são habilitados. Para nós que executam o Windows Server 2012 e o Windows 7, o [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) está habilitado.
 
-Para todos os nós do Linux em execução no Azure, o [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) é instalado durante a integração.
+Para todos os nós do Linux em execução no Azure, o [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) é instalado quando os computadores são habilitados.
 
 ### <a name="configuration-of-private-networks"></a><a name="network-planning"></a>Configuração de redes privadas
 
@@ -80,7 +94,7 @@ Se você estiver usando recursos de DSC que se comunicam entre nós, como os [re
 
 #### <a name="proxy-support"></a>Suporte a proxy
 
-O suporte de proxy para o agente DSC está disponível no Windows versão 1809 e posterior. Essa opção é habilitada definindo os valores de `ProxyURL` e `ProxyCredential` no [script de metaconfiguração](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) usado para registrar nós.
+O suporte de proxy para o agente DSC está disponível no Windows versão 1809 e posterior. Essa opção é habilitada definindo os valores de `ProxyURL` e `ProxyCredential` no [script de metaconfiguração](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) usado para registrar nós.
 
 >[!NOTE]
 >A configuração de estado da automação do Azure não fornece suporte a proxy de DSC para versões anteriores do Windows.
@@ -121,9 +135,9 @@ Os usuários do Azure ExpressRoute devem observar que esse arquivo é usado para
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para começar a usar o DSC na configuração de estado da automação do Azure, consulte [introdução à configuração de estado da automação do Azure](automation-dsc-getting-started.md).
-- Para saber como integrar nós, confira [máquinas de integração para o gerenciamento pela configuração de estado da automação do Azure](automation-dsc-onboarding.md).
+- Para saber como habilitar os nós, consulte [habilitar máquinas para gerenciamento pela configuração de estado da automação do Azure](automation-dsc-onboarding.md).
 - Para saber mais sobre como compilar configurações de DSC para que você possa atribuí-las aos nós de destino, consulte [compilando configurações na configuração de estado de automação do Azure](automation-dsc-compile.md).
-- Para obter uma referência de cmdlet do PowerShell, consulte [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+- Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Para obter informações sobre preços, consulte [preços de configuração do estado de automação do Azure](https://azure.microsoft.com/pricing/details/automation/).
 - Para ver um exemplo de como usar a configuração de estado de automação do Azure em um pipeline de implantação contínua, consulte [implantação contínua usando configuração de estado de automação do Azure e Chocolatey](automation-dsc-cd-chocolatey.md).

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc12cc9a4828404e960aee239bd388af5b1ea3b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 854a489f6381514f80f16665f89042a0e8ed7470
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431898"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995754"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)
 
@@ -30,8 +30,6 @@ Para obter mais informações, confira o [Esquema de eventos do Key Vault](../..
 
 > [!WARNING]
 > Os eventos de notificação são disparados apenas sobre novas versões de segredos, chaves e certificados. Você precisará primeiro assinar o evento no cofre de chaves para receber essas notificações.
-> 
-> Você receberá eventos de notificação sobre certificados somente quando o certificado for renovado automaticamente de acordo com a política especificada para o certificado.
 
 ## <a name="practices-for-consuming-events"></a>Práticas para consumo de eventos
 
@@ -46,7 +44,7 @@ Os aplicativos que manipulam eventos do Key Vault devem seguir algumas práticas
 
 - [Visão geral do Azure Key Vault](overview.md)
 - [Visão geral da Grade de Eventos do Azure](../../event-grid/overview.md)
-- Como fazer: [Rotear eventos do Key Vault para o runbook de automação (versão prévia)](event-grid-tutorial.md).
+- Como: [rotear eventos de Key Vault para o runbook de automação (visualização)](event-grid-tutorial.md).
 - Como fazer: [Receber emails quando o status do cofre de chaves secreto é alterado](event-grid-logicapps.md)
 - [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault (versão prévia)](../../event-grid/event-schema-key-vault.md)
 - [Visão geral da Automação do Azure](../../automation/index.yml)

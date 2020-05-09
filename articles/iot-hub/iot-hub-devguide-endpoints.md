@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730302"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996949"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - Pontos de extremidade do Hub IoT
 
@@ -54,9 +54,9 @@ A lista a seguir descreve os pontos de extremidade:
 
   * *Receber solicitações de métodos diretos*. Um dispositivo usa esse ponto de extremidade para escutar as solicitações do [método direto](iot-hub-devguide-direct-methods.md).
 
-    Esses pontos de extremidade são expostos usando os protocolos [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 e [AMQP 1.0](https://www.amqp.org/). O AMQP também está disponível sobre [WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
+    Esses pontos de extremidade são expostos usando os protocolos [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 e [AMQP 1.0](https://www.amqp.org/). AMQP e MQTT também estão disponíveis sobre [WebSockets](https://tools.ietf.org/html/rfc6455) na porta 443.
 
-* **Pontos de extremidade de serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade para que o seu back-end da sua solução se comunique com os seus dispositivos. Com uma exceção, esses pontos de extremidade só são expostos usando o protocolo [AMQP](https://www.amqp.org/). O ponto de extremidade de invocação de método é exposto através do protocolo HTTPS.
+* **Pontos de extremidade de serviço**. Cada Hub IoT expõe um conjunto de pontos de extremidade para que o seu back-end da sua solução se comunique com os seus dispositivos. Com uma exceção, esses pontos de extremidade são expostos apenas usando os protocolos [AMQP](https://www.amqp.org/) e AMQP sobre WebSockets. O ponto de extremidade de invocação de método direto é exposto pelo protocolo HTTPS.
   
   * *Receber mensagens do dispositivo para a nuvem*. Esse ponto de extremidade é compatível com [Hubs de Eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Um serviço de back-end pode usá-lo para ler as [mensagens do dispositivo para nuvem](iot-hub-devguide-messages-d2c.md) enviadas por seus dispositivos. Você pode criar pontos de extremidade personalizados em seu hub IoT, além desse ponto de extremidade interno.
   

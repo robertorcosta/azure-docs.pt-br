@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a9a503fd566c9b50f1503e0955bf12f69ac9960
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 1933688459cd02ee4da448d2e83b0a7a92a1d2c8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927914"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994736"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -68,7 +68,7 @@ Seus runbooks devem incluir lógica para lidar com [recursos](https://docs.micro
 
 ## <a name="security"></a>Segurança
 
-A automação do Azure usa a [ASC (central de segurança do Azure)](https://docs.microsoft.com/azure/security-center/security-center-introAzure) para fornecer segurança para seus recursos e detectar o comprometimento em sistemas Linux. A segurança é fornecida em suas cargas de trabalho, independentemente de os recursos estarem no Azure ou não. Consulte [introdução à autenticação na automação do Azure](automation-security-overview.md).
+A automação do Azure usa a [ASC (central de segurança do Azure)](../security-center/security-center-intro.md) para fornecer segurança para seus recursos e detectar o comprometimento em sistemas Linux. A segurança é fornecida em suas cargas de trabalho, independentemente de os recursos estarem no Azure ou não. Consulte [introdução à autenticação na automação do Azure](automation-security-overview.md).
 
 O ASC coloca restrições em usuários que podem executar qualquer script, assinado ou não assinado, em uma VM. Se você for um usuário com acesso de raiz a uma VM, deverá configurar explicitamente a máquina com uma assinatura digital ou desativá-la. Caso contrário, você só poderá executar um script para aplicar as atualizações do sistema operacional depois de criar uma conta de automação e habilitar o recurso apropriado.
 

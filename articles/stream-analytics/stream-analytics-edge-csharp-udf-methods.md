@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598140"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994480"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver .NET Standard funções definidas pelo usuário para trabalhos de Azure Stream Analytics (versão prévia)
 
@@ -48,10 +48,10 @@ Para Azure Stream Analytics valores a serem usados em C#, eles precisam ser empa
 |---------|---------|
 |BIGINT | long |
 |FLOAT | double |
-|nvarchar(max) | Cadeia de caracteres |
+|nvarchar(max) | string |
 |DATETIME | Datetime |
 |Record | Cadeia\<de caracteres de dicionário,> de objeto |
-|Array | >\<de objeto de matriz |
+|Array | Objeto [] |
 
 O mesmo é verdadeiro quando os dados precisam ser empacotados de C# para Azure Stream Analytics, o que acontece no valor de saída de um UDF. A tabela a seguir mostra quais tipos têm suporte:
 
@@ -59,11 +59,11 @@ O mesmo é verdadeiro quando os dados precisam ser empacotados de C# para Azure 
 |---------|---------|
 |long  |  BIGINT   |
 |double  |  FLOAT   |
-|Cadeia de caracteres  |  nvarchar(max)   |
+|string  |  nvarchar(max)   |
 |Datetime  |  dateTime   |
 |struct  |  Record   |
 |objeto  |  Record   |
-|>\<de objeto de matriz  |  Array   |
+|Objeto []  |  Array   |
 |Cadeia\<de caracteres de dicionário,> de objeto  |  Record   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -130,7 +130,7 @@ Para configurar o caminho do assembly no arquivo de configuração de trabalho, 
 
 Expanda o **a configuração de código definidos pelo usuário** seção e, em seguida, preencha a configuração com os seguintes valores sugeridos:
 
-   |**Configuração**|**Valor sugerido**|
+   |**Configuração**|**Valor Sugerido**|
    |-------|---------------|
    |Recurso de Configurações de Armazenamento Global|Escolha fonte de dados da conta atual|
    |Assinatura de Configurações de Armazenamento Global| <sua assinatura>|
@@ -140,6 +140,43 @@ Expanda o **a configuração de código definidos pelo usuário** seção e, em 
    |Contêiner de Configurações de Armazenamento de Código Personalizado|<seu contêiner de armazenamento>|
    |Origem do assembly de código personalizado|Pacotes de assembly existentes da nuvem|
    |Origem do assembly de código personalizado|UserCustomCode. zip|
+
+## <a name="user-logging"></a>Registro de usuário
+O mecanismo de registro em log permite que você capture informações personalizadas enquanto um trabalho está em execução. Você pode usar dados de log para depurar ou avaliar a exatidão do código personalizado em tempo real.
+
+A `StreamingContext` classe permite que você publique informações de diagnóstico `StreamingDiagnostics.WriteError` usando a função. O código a seguir mostra a interface exposta por Azure Stream Analytics.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext`é passado como um parâmetro de entrada para o método UDF e pode ser usado no UDF para publicar informações de log personalizadas. No exemplo a seguir, `MyUdfMethod` define uma entrada de **dados** , que é fornecida pela consulta e uma entrada de **contexto** como a `StreamingContext`, fornecida pelo mecanismo de tempo de execução. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+O `StreamingContext` valor não precisa ser passado pela consulta SQL. Azure Stream Analytics fornecerá um objeto de contexto automaticamente se um parâmetro de entrada estiver presente. O uso do não `MyUdfMethod` é alterado, conforme mostrado na seguinte consulta:
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+Você pode acessar mensagens de log por meio dos [logs de diagnóstico](data-errors.md).
 
 ## <a name="limitations"></a>Limitações
 A versão prévia da UDF atualmente possui as seguintes limitações:

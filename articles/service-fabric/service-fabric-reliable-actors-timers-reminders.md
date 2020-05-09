@@ -1,16 +1,14 @@
 ---
 title: Reliable Actors temporizadores e lembretes
 description: Introdução a temporizadores e lembretes para Service Fabric Reliable Actors, incluindo diretrizes sobre quando usar cada um deles.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75639608"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996365"
 ---
 # <a name="actor-timers-and-reminders"></a>Lembretes e temporizadores de ator
 Os atores podem agendar o trabalho periódico neles mesmos ao registrarem temporizadores ou lembretes. Este artigo mostra como usar temporizadores e lembretes e explica as diferenças entre eles.
@@ -122,12 +120,17 @@ O período seguinte do temporizador é iniciado depois que o retorno de chamada 
 
 O runtime dos Atores salva as alterações feitas ao Gerenciador de Estado do ator quando o retorno de chamada é concluído. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada.
 
+Ao contrário dos [lembretes](#actor-reminders), os temporizadores não podem ser atualizados. Se `RegisterTimer` for chamado novamente, um novo temporizador será registrado.
+
 Todos os temporizadores são interrompidos quando o ator é desativado como parte da coleta de lixo. Nenhum retorno de chamada de temporizador é chamado depois disso. Além disso, o runtime de atores não retém todas as informações sobre os temporizadores que estavam em execução antes de desativação. Cabe ao ator registrar todos os temporizadores necessários quando ele for reativado no futuro. Para obter mais informações, consulte a seção sobre [coleta de lixo de ator](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Lembretes de ator
-Os lembretes são um mecanismo para disparar chamadas de retorno persistentes em um ator em horários específicos. Sua funcionalidade é semelhante à dos temporizadores. Mas, ao contrário dos temporizadores, os lembretes são acionados em todas as circunstâncias até que o ator cancele o registro deles explicitamente ou até que o ator seja explicitamente excluído. Especificamente, os lembretes são acionados em todas as desativações e failovers ator porque o runtime de atores retém as informações sobre os lembretes do ator usando o provedor de estado do ator. Observe que a confiabilidade de lembretes está associada às garantias de confiabilidade de estado fornecidas pelo provedor de estado de ator. Isso significa que para os atores cuja persistência de estado é definida como Nenhuma, os lembretes não serão acionado após um failover. 
+Os lembretes são um mecanismo para disparar chamadas de retorno persistentes em um ator em horários específicos. Sua funcionalidade é semelhante à dos temporizadores. Mas, ao contrário dos temporizadores, os lembretes são acionados em todas as circunstâncias até que o ator cancele o registro deles explicitamente ou até que o ator seja explicitamente excluído. Especificamente, os lembretes são acionados em todas as desativações e failovers ator porque o runtime de atores retém as informações sobre os lembretes do ator usando o provedor de estado do ator. Além disso, ao contrário dos temporizadores, os lembretes existentes podem ser atualizados chamando`RegisterReminderAsync`o método de registro () novamente usando o mesmo *remindername*.
 
-Para registrar um lembrete, um ator chama o método `RegisterReminderAsync` fornecido na classe base, como mostrado no exemplo a seguir:
+> [!NOTE]
+> A confiabilidade dos lembretes está vinculada às garantias de confiabilidade de estado fornecidas pelo provedor de estado do ator. Isso significa que para os atores cuja persistência de estado está definida como *nenhum*, os lembretes não serão acionados após um failover.
+
+Para registrar um lembrete, um ator chama [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) o método fornecido na classe base, conforme mostrado no exemplo a seguir:
 
 ```csharp
 protected override async Task OnActivateAsync()

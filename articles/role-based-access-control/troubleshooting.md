@@ -15,12 +15,12 @@ ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735549"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996589"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -28,7 +28,7 @@ Este artigo responde a algumas perguntas comuns sobre o controle de acesso basea
 
 ## <a name="azure-role-assignments-limit"></a>Limite de atribuições de função do Azure
 
-O Azure dá suporte a até **2.000** atribuições de função por assinatura. Se você receber a mensagem de erro "não é possível criar mais atribuições de função (código: RoleAssignmentLimitExceeded)" ao tentar atribuir uma função, tente reduzir o número de atribuições de função na assinatura.
+O Azure dá suporte a até **2.000** atribuições de função por assinatura. Esse limite inclui atribuições de função na assinatura, no grupo de recursos e nos escopos de recursos. Se você receber a mensagem de erro "não é possível criar mais atribuições de função (código: RoleAssignmentLimitExceeded)" ao tentar atribuir uma função, tente reduzir o número de atribuições de função na assinatura.
 
 > [!NOTE]
 > O limite de atribuições de função **2000** por assinatura é fixo e não pode ser aumentado.

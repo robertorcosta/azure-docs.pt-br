@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 72a40363edf0e83eea26ee697ce992226da0db4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f291bdea2df67e07b1aca2dcc6326c3c9864ad2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392285"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995790"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
-Este artigo mostra como criar uma conta da Automação do Azure no portal do Azure. Você pode usar a conta de automação do portal para avaliar e saber mais sobre a automação sem usar soluções de gerenciamento adicionais ou integração com logs de Azure Monitor. Você pode adicionar essas soluções de gerenciamento ou integrá-las a logs de Azure Monitor para monitoramento avançado de trabalhos de runbook em qualquer ponto no futuro.
+Este artigo mostra como criar uma conta da Automação do Azure no portal do Azure. Você pode usar a conta de automação do portal para avaliar e saber mais sobre a automação sem usar recursos de gerenciamento adicionais ou a integração com os logs de Azure Monitor. Você pode adicionar recursos de gerenciamento ou integrar com Azure Monitor logs para monitoramento avançado de trabalhos de runbook em qualquer momento no futuro.
 
 Com uma conta de Automação, você pode autenticar runbooks gerenciando recursos no Azure Resource Manager ou no modelo de implantação clássico. Uma Conta de Automação pode gerenciar recursos em todas as regiões e assinaturas para determinado locatário.
 
@@ -40,7 +40,7 @@ Se um usuário for adicionado à função de administrador global/coadministrado
 Para verificar as funções de usuário:
 
 1. No portal do Azure, acesse o painel Azure Active Directory.
-1. Selecione **usuários e grupos**.
+1. Selecione **Usuários e grupos**.
 1. Selecione **todos os usuários**.
 1. Depois de selecionar um usuário específico, selecione **Perfil**. O valor do atributo **Tipo de usuário** no perfil do usuário não deve ser igual a **Convidado**.
 
@@ -105,9 +105,9 @@ As contas Executar como clássicas não são mais criadas por padrão quando voc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre a criação gráfica, consulte [criação gráfica na automação do Azure](automation-graphical-authoring-intro.md).
+* Para saber mais sobre a criação gráfica, consulte [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
 * Para começar a usar os runbooks do PowerShell, consulte [meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md).
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, consulte [meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
 * Para começar com runbooks do Python 2, consulte [meu primeiro runbook do Python2](automation-first-runbook-textual-python2.md).
-* Para obter uma referência de cmdlet do PowerShell, consulte [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

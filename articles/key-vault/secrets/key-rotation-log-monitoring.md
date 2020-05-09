@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2981495a256ce5fb8f8f3584e68ac91541f9d62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430247"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995955"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurar o Azure Key Vault com a rotação de chaves e auditoria
 
@@ -85,23 +85,35 @@ Primeiro, você deve registrar seu aplicativo com Azure Active Directory. Em seg
 > [!NOTE]
 > O aplicativo deve ser criado no mesmo locatário do Azure Active Directory que o cofre de chaves.
 
-1. Abra **Azure Active Directory**.
-2. Selecione **registros de aplicativo**. 
-3. Selecione **novo registro de aplicativo** para adicionar um aplicativo a Azure Active Directory.
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito. Defina sua sessão do portal para o locatário do Azure AD desejado.
+1. Pesquise **Azure Active Directory** e selecione-o. Em **Gerenciar**, selecione **Registros de aplicativo**.
+1. Selecione **Novo registro**.
+1. Em **Registrar um aplicativo**, insira um nome de aplicativo significativo para exibir aos usuários.
+1. Especifique quem pode usar o aplicativo, da seguinte maneira:
 
-    ![Abrir os aplicativos no Azure Active Directory](../media/keyvault-keyrotation/azure-ad-application.png)
+    | Tipos de conta com suporte | Descrição |
+    |-------------------------|-------------|
+    | **Contas somente neste diretório organizacional** | Selecione esta opção se você está criando um aplicativo de linha de negócios (LOB). Essa opção não estará disponível se você não estiver registrando o aplicativo em um diretório.<br><br>Essa opção mapeia para o único locatário somente do Azure AD.<br><br>Essa é a opção padrão, a menos que você esteja registrando o aplicativo fora de um diretório. Quando o aplicativo é registrado fora de um diretório, o padrão é contas da Microsoft pessoais e de vários locatários do Azure AD. |
+    | **Contas em qualquer diretório organizacional** | Selecione essa opção se você deseja direcionar para todos os clientes comerciais e educacionais.<br><br>Essa opção mapeia para vários locatários somente do Azure AD.<br><br>Se você registrou o aplicativo como único locatário somente do Azure AD, pode atualizá-lo para ser multilocatário e voltar a ser locatário único na página **Autenticação**. |
+    | **Contas em qualquer diretório organizacional e contas pessoais da Microsoft** | Selecione essa opção a fim de direcionar para o conjunto mais amplo de clientes.<br><br>Essa opção mapeia para contas da Microsoft pessoais e multilocatário do Azure AD.<br><br>Se você registrou o aplicativo como contas da Microsoft pessoais e multilocatário do Azure AD, não poderá alterar essa configuração na interface do usuário. Em vez disso, use o editor de manifesto do aplicativo para alterar os tipos de conta com suporte. |
 
-4. Em **criar**, deixe o tipo de aplicativo como **aplicativo Web/API** e dê um nome ao seu aplicativo. Dê ao seu aplicativo uma **URL de logon**. Essa URL pode ser qualquer coisa que você desejar para esta demonstração.
+1. Em **URI de redirecionamento (opcional)** , selecione o tipo de aplicativo que você está criando: **Web** ou **Cliente público (móvel e desktop)** . EM seguida, insira o URI de redirecionamento ou a URL de resposta para seu aplicativo.
 
-    ![Criar registro de aplicativo](../media/keyvault-keyrotation/create-app.png)
+    * Para aplicativos Web, informe a URL base do aplicativo. Por exemplo, `https://localhost:31544` pode ser uma URL para um aplicativo Web em execução no seu computador local. Os usuários usariam essa URL para entrar em um aplicativo cliente Web.
+    * Para aplicativos cliente públicos, informe o URI usado pelo Azure AD para retornar respostas de token. Insira um valor específico para o aplicativo, por exemplo, `myapp://auth`.
 
-5. Depois que o aplicativo for adicionado ao Azure Active Directory, a página do aplicativo será aberta. Selecione **configurações**e selecione **Propriedades**. Copie o valor de **ID do Aplicativo**. Você precisará dela em etapas posteriores.
+1. Ao terminar, selecione **Registrar**.
 
-Em seguida, gere uma chave para seu aplicativo para que ele possa interagir com Azure Active Directory. Para criar uma chave, selecione **chaves** em **configurações**. Anote a chave recém-gerado para seu aplicativo Azure Active Directory. Ela será necessária em uma etapa posterior. A chave não estará disponível depois que você sair desta seção. 
+    ![Mostra a tela para registrar um novo aplicativo no portal do Azure](../media/new-app-registration.png)
 
-![Azure Active Directory chaves de aplicativo](../media/keyvault-keyrotation/create-key.png)
+O Azure AD atribui um aplicativo ou uma ID de cliente exclusiva ao seu aplicativo. O portal abre a página de **Visão geral** do seu aplicativo. Observe o valor da **ID do aplicativo (cliente)** .
 
-Antes de estabelecer qualquer chamada do seu aplicativo no cofre de chaves, você deve informar ao cofre de chaves sobre seu aplicativo e suas permissões. O comando a seguir usa o nome do cofre e a ID do aplicativo do seu aplicativo Azure Active Directory para conceder ao aplicativo **obter** acesso ao seu cofre de chaves.
+Para adicionar funcionalidades ao aplicativo, você pode selecionar outras opções de configuração, incluindo identidade visual, certificados e segredos, permissões de API e muito mais.
+
+![Exemplo da página de visão geral de um aplicativo registrado recentemente](../media//new-app-overview-page-expanded.png)
+
+Antes de estabelecer qualquer chamada do seu aplicativo no cofre de chaves, você deve informar ao cofre de chaves sobre seu aplicativo e suas permissões. O comando a seguir usa o nome do cofre e a **ID do aplicativo (cliente)** do seu aplicativo Azure Active Directory para conceder ao aplicativo **obter** acesso ao cofre de chaves.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

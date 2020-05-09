@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 19aee9d5fdf3f4a3d74484bb7cb2e609bc2807b4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 949b07a16b2c2b08891d721e46948481cfe572b2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927847"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996094"
 ---
 # <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Criar uma conta de automação usando um modelo de Azure Resource Manager
 
@@ -22,7 +22,7 @@ Você pode usar [modelos de Azure Resource Manager](../azure-resource-manager/te
 * Automatiza a criação de uma conta de automação do Azure.
 * Vincula a conta de automação ao espaço de trabalho Log Analytics.
 
-O modelo não automatiza a integração de máquinas virtuais ou soluções do Azure ou não Azure. 
+O modelo não automatiza a habilitação de máquinas virtuais do Azure ou não do Azure. 
 
 >[!NOTE]
 >Não há suporte para a criação da conta Executar como de automação quando você está usando um modelo de Azure Resource Manager. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [gerenciar contas Executar como](manage-runas-account.md).
