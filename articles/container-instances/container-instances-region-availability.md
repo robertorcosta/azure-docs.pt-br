@@ -2,14 +2,14 @@
 title: Disponibilidade de recursos por região
 description: Disponibilidade de recursos de computação e de memória para o serviço de Instâncias de Contêiner do Azure em diferentes regiões do Azure.
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 04/27/2020
 ms.author: danlep
-ms.openlocfilehash: c84ab7833f7c90d5d4b3c340c268fd9f75e20da9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 119c1202fe59e02a1b6ff802e3dbdc4d52133abe
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399393"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583884"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para Instâncias de Contêiner do Azure nas regiões do Azure
 
@@ -26,7 +26,7 @@ Para obter informações sobre cotas e outros limites em suas implantações, co
 
 As seguintes regiões e recursos máximos estão disponíveis para grupos de contêineres com Linux e contêineres com [suporte](container-instances-faq.md#what-windows-base-os-images-are-supported) do Windows Server 2016.
 
-| Regiões | SO | CPU máxima | Memória máxima (GB) | Armazenamento (GB) |
+| Regiões | Sistema operacional | CPU máxima | Memória máxima (GB) | Armazenamento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Sul do Brasil, Canadá central, Índia central, EUA Central, Ásia Oriental, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Europa Ocidental, oeste dos EUA, oeste dos EUA 2 | Linux | 4 | 16 | 50 |
 | Leste da Austrália, Leste do Japão | Linux | 2 | 8 | 50 |
@@ -39,7 +39,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 
 As seguintes regiões e recursos máximos estão disponíveis para grupos de contêineres com contêineres baseados no Windows Server 2019 (versão prévia).
 
-| Regiões | SO | CPU máxima | Memória máxima (GB) | Armazenamento (GB) |
+| Regiões | Sistema operacional | CPU máxima | Memória máxima (GB) | Armazenamento (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Leste da Austrália, sul do Brasil, centro-Canadá, Índia central, EUA Central, Ásia Oriental, leste dos EUA, leste do Japão, norte EUA Central, Europa Setentrional, Sul EUA Central, Sudeste Asiático, sul da Índia, Sul do Reino Unido, Europa Ocidental | Windows | 4 | 16 | 20 |
 | Leste dos EUA 2, oeste dos EUA 2 | Windows | 2 | 3,5 | 20 |

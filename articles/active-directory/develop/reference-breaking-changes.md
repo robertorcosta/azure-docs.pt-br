@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a60b927f7239818b582ffcd85ddb4b7d69594482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535954"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871527"
 ---
 # <a name="whats-new-for-authentication"></a>Quais são as novidades para autenticação?
 
@@ -37,13 +37,31 @@ O sistema de autenticação altera e adiciona recursos em uma base contínua par
 
 Nenhum agendado neste momento.  Veja abaixo as alterações que estão no ou que estão chegando à produção.
 
+## <a name="may-2020"></a>Maio de 2020
+
+### <a name="azure-government-endpoints-are-changing"></a>Os pontos de extremidade do Azure governamental estão mudando
+
+**Data de efetivação**: maio de 5 (concluindo em junho de 2020) 
+
+**Pontos de extremidade afetados**: todos
+
+**Protocolo afetado**: todos os fluxos
+
+Em 1 de junho de 2018, a autoridade de Azure Active Directory oficial (AAD) para o `https://login-us.microsoftonline.com` Azure `https://login.microsoftonline.us`governamental mudou de para. Essa alteração também é aplicada a Microsoft 365 GCC High e DoD, que o AAD do Azure governamental também Services. Se você possui um aplicativo dentro de um locatário do governo dos EUA, você deve atualizar seu aplicativo para conectar usuários `.us` no ponto de extremidade.  
+
+A partir de 1º de maio, o Azure AD começará a impor a alteração do ponto de extremidade, bloqueando os usuários do governo de entrar em aplicativos hospedados em locatários do governo dos EUA usando o ponto de extremidade público (`microsoftonline.com`).  Os aplicativos impactados começarão a ver `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`um erro. Esse erro indica que o aplicativo está tentando entrar em um usuário do governo dos EUA no ponto de extremidade de nuvem pública. Se seu aplicativo estiver em um locatário de nuvem pública e pretende oferecer suporte a usuários do governo dos EUA, você precisará [atualizar seu aplicativo para dar suporte a eles explicitamente](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Isso pode exigir a criação de um novo registro de aplicativo na nuvem do governo dos EUA. 
+
+A imposição dessa alteração será feita usando uma distribuição gradual com base na frequência com que os usuários da nuvem do governo dos EUA entram na assinatura dos aplicativos de aplicativo em usuários do governo dos EUA que raramente verão a aplicação primeiro, e os aplicativos frequentemente usados pelos usuários do governo dos EUA terão a aplicação aplicada. Esperamos que a imposição seja concluída em todos os aplicativos em junho de 2020. 
+
+Para obter mais detalhes, consulte a [postagem no blog do Azure governamental nesta migração](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/). 
+
 ## <a name="march-2020"></a>Março de 2020
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>As senhas de usuário serão restritas a 256 caracteres.
 
 **Data de efetivação**: 13 de março de 2020
 
-**Pontos de extremidade afetados**: v1.0 e v2.0
+**Pontos de extremidade afetados**: todos
 
 **Protocolo afetado**: todos os fluxos de usuário.
 

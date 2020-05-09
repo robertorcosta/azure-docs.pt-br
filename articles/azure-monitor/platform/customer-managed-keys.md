@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/07/2020
-ms.openlocfilehash: 068752b01170c2f0c6411ee470d32f3dfb887dea
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: c78d8d603b6686d382ec7edcccc24d5dacc4745a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901025"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982217"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor chave gerenciada pelo cliente 
 
@@ -25,7 +25,7 @@ Recomendamos que você revise as [limitações e restrições](#limitations-and-
 
 - A implantação do CMK descrita neste artigo é fornecida em qualidade de produção e tem suporte como tal, embora seja um recurso de acesso antecipado.
 
-- O recurso CMK é fornecido em um cluster de Log Analytics dedicado, que é um cluster físico e armazenamento de dados que é adequado para clientes que enviam 1 TB por dia ou mais
+- O recurso CMK é fornecido em um cluster de Log Analytics dedicado, que é um cluster físico e um armazenamento de dados que é adequado para clientes que enviam 1 TB por dia ou mais
 
 - O modelo de preços do CMK não está disponível no momento e não é abordado neste artigo. Um modelo de preços para o cluster de Log Analytics dedicado é esperado no segundo trimestre do ano civil (CY) 2020 e será aplicado a qualquer implantação existente do CMK.
 
@@ -74,7 +74,7 @@ As seguintes regras se aplicam:
 
 1. Lista de permissões da assinatura--isso é necessário para este recurso de acesso antecipado
 2. Criando Azure Key Vault e armazenando a chave
-3. Criando um recurso de *cluster* – ele provisiona um cluster de log Analytics dedicado, que é um cluster físico e um armazenamento de dados
+3. Criando um recurso de *cluster*
 5. Concedendo permissões ao seu Key Vault
 6. Associando espaços de trabalho Log Analytics
 
@@ -179,7 +179,8 @@ A propriedade *billtype* determina a atribuição de cobrança para o recurso de
 - *cluster* (padrão)--a cobrança é atribuída à assinatura que hospeda o recurso de *cluster*
 - *espaços de trabalho* – a cobrança é atribuída às assinaturas que hospedam seus espaços de trabalho proporcionalmente 
 
-> [! INFORMAÇÕES] depois de criar o recurso de *cluster* , você pode atualizá-lo com *SKU*, *keyvaultproperties* ou *billtype* usando a solicitação REST de patch.
+> [!NOTE]
+> Depois de criar o recurso de *cluster* , você pode atualizá-lo com *SKU*, *keyvaultproperties* ou *billtype* usando a solicitação REST do patch.
 
 **Criar**
 
@@ -278,7 +279,8 @@ Atualize o Resource Vaultproperties do recurso de *cluster* com os detalhes do i
 
 Essa solicitação do Resource Manager é uma operação assíncrona ao atualizar detalhes do identificador de chave, enquanto é síncrona ao atualizar o valor da capacidade.
 
-> [! INFORMATION] você pode fornecer corpo parcial no recurso de *cluster* para atualizar um *SKU*, *keyvaultproperties* ou *billtype*.
+> [!Note]
+> Você pode fornecer corpo parcial no recurso de *cluster* para atualizar um *SKU*, *keyvaultproperties* ou *billtype*.
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -299,7 +301,7 @@ Content-type: application/json
        KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
        KeyName: "<key-name>",
        KeyVersion: "<current-version>"
-       },
+       }
    },
    "location":"<region-name>"
 }
@@ -328,10 +330,10 @@ Uma resposta para a solicitação GET no recurso de *cluster* deve ser parecida 
     "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
     },
   "properties": {
-    "KeyVaultProperties": {
-      KeyVaultUri: "https://key-vault-name.vault.azure.net",
-      KeyName: "key-name",
-      KeyVersion: "current-version"
+    "keyVaultProperties": {
+      keyVaultUri: "https://key-vault-name.vault.azure.net",
+      kyName: "key-name",
+      keyVersion: "current-version"
       },
     "provisioningState": "Succeeded",
     "clusterType": "LogAnalytics", 
@@ -435,7 +437,7 @@ Todos os seus dados podem ser acessados após a operação de rotação de chave
 
 - O número máximo de recursos de *cluster* por região e assinatura é 2
 
-- Você pode associar e desassociar espaços de trabalho em seu recurso de *cluster* . O número de associações de espaço de trabalho em um limite de 2 por 30 dias
+- Você pode associar um espaço de trabalho ao recurso de *cluster* e, em seguida, desassociá-lo quando o CMK para seus dados não for mais necessário ou qualquer outro motivo. O número de associações de espaço de trabalho que você pode executar em um espaço de trabalho em um período de 30 dias é limitado a 2
 
 - A associação de espaço de trabalho ao recurso de *cluster* deve ser executada somente depois que você tiver verificado que o provisionamento de cluster log Analytics dedicado foi concluído. Os dados enviados ao seu espaço de trabalho antes da conclusão serão removidos e não serão recuperáveis.
 
@@ -453,26 +455,9 @@ Todos os seus dados podem ser acessados após a operação de rotação de chave
 - A associação de espaço de trabalho ao recurso de *cluster* falhará se estiver associada a outro recurso de *cluster*
 
 
-## <a name="troubleshooting-and-management"></a>Solução de problemas e gerenciamento
+## <a name="management"></a>Gerenciamento
 
-- Considerações sobre disponibilidade de Key Vault
-    - Em operação normal--caches de armazenamento AEK por curtos períodos de tempo e volta para Key Vault para desfazer o encapsulamento periodicamente.
-    
-    - Erros de conexão transitórios – o armazenamento trata erros transitórios (tempos limite, falhas de conexão, problemas de DNS), permitindo que as chaves permaneçam no cache por um curto tempo e isso supera qualquer blips pequena em disponibilidade. Os recursos de consulta e ingestão continuam sem interrupção.
-    
-    - Site ativo--a indisponibilidade de aproximadamente 30 minutos fará com que a conta de armazenamento fique indisponível. A funcionalidade de consulta não está disponível e os dados ingeridos são armazenados em cache por várias horas usando a chave da Microsoft para evitar a perda de dados. Quando o acesso a Key Vault é restaurado, a consulta fica disponível e os dados temporários armazenados em cache são ingeridos no armazenamento de dados e criptografados com CMK.
-
-- Se você criar um recurso de *cluster* e especificar o keyvaultproperties imediatamente, a operação poderá falhar, pois a política de acesso não poderá ser definida até que a identidade do sistema seja atribuída ao recurso de *cluster* .
-
-- Se você atualizar o recurso de *cluster* existente com keyvaultproperties e a política de acesso à chave ' Get ' estiver ausente no Key Vault, a operação falhará.
-
-- Se você tentar excluir um recurso de *cluster* associado a um espaço de trabalho, a operação de exclusão falhará.
-
-- Se você receber um erro de conflito ao criar um recurso de *cluster* , pode ser que você tenha excluído o recurso de *cluster* nos últimos 14 dias e esteja em um período de exclusão reversível. O nome do recurso de *cluster* permanece reservado durante o período de exclusão reversível e você não pode criar um novo cluster com esse nome. O nome é liberado após o período de exclusão reversível quando o recurso de *cluster* é excluído permanentemente.
-
-- Se você atualizar o recurso de *cluster* enquanto uma operação estiver em andamento, a operação falhará.
-
-- Obter todos os recursos de *cluster* para um grupo de recursos:
+- **Obter todos os recursos de *cluster* para um grupo de recursos**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -515,7 +500,7 @@ Todos os seus dados podem ser acessados após a operação de rotação de chave
   }
   ```
 
-- Obter todos os recursos de *cluster* para uma assinatura:
+- **Obter todos os recursos de *cluster* para uma assinatura**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -526,9 +511,38 @@ Todos os seus dados podem ser acessados após a operação de rotação de chave
     
   A mesma resposta que para ' recursos de*cluster* para um grupo de recursos ', mas no escopo da assinatura.
 
-- Atualizar a *reserva de capacidade* no recurso de *cluster* – quando o volume de dados para seus espaços de trabalho associados forem alterados e você quiser atualizar o nível de reserva de capacidade para considerações de cobrança, siga o [recurso atualizar *cluster* ](#update-cluster-resource-with-key-identifier-details) e forneça seu novo valor de capacidade. O nível de reserva de capacidade pode estar no intervalo de 1.000 a 2.000 GB por dia e em etapas de 100. Para um nível superior a 2.000 GB por dia, acesse o contato da Microsoft para habilitá-lo.
+- **Atualizar *reserva de capacidade* no recurso de *cluster***
 
-- Desassociar espaço de trabalho--você precisa de permissões de ' gravação ' no espaço de trabalho e no recurso de *cluster* para executar esta operação. Você pode desassociar um espaço de trabalho do recurso de *cluster* a qualquer momento. Novos dados ingeridos após a operação de desassociação são armazenados em Log Analytics armazenamento e criptografados com a chave da Microsoft. Você pode consultar os dados que foram ingeridos em seu espaço de trabalho antes e depois da desassociação sem interrupções, desde que o recurso de *cluster* seja provisionado e configurado com uma chave de Key Vault válida.
+  Quando o volume de dados para seus espaços de trabalho associados é alterado ao longo do tempo e você deseja atualizar o nível de reserva de capacidade adequadamente. Siga o [recurso atualizar *cluster* ](#update-cluster-resource-with-key-identifier-details) e forneça seu novo valor de capacidade. Ele pode estar no intervalo de 1.000 a 2.000 GB por dia e em etapas de 100. Para um nível superior a 2.000 GB por dia, acesse o contato da Microsoft para habilitá-lo. Observe que você não precisa fornecer o corpo da solicitação REST completa e deve incluir o SKU:
+
+  ```json
+  {
+    "sku": {
+      "name": "capacityReservation",
+      "Capacity": 1000
+    }
+  }
+  ``` 
+
+- **Atualizar o *billtype* no recurso de *cluster***
+
+  A propriedade *billtype* determina a atribuição de cobrança para o recurso de *cluster* e seus dados:
+  - *cluster* (padrão)--a cobrança é atribuída à assinatura que hospeda o recurso de cluster
+  - *espaços de trabalho* – a cobrança é atribuída às assinaturas que hospedam seus espaços de trabalho proporcionalmente
+  
+  Siga o [recurso atualizar *cluster* ](#update-cluster-resource-with-key-identifier-details) e forneça o novo valor de billtype. Observe que você não precisa fornecer o corpo da solicitação REST completa e deve incluir o *billtype*:
+
+  ```json
+  {
+    "properties": {
+      "billingType": "cluster",
+      }  
+  }
+  ``` 
+
+- **Desassociar espaço de trabalho**
+
+  Você precisa de permissões de ' gravação ' no espaço de trabalho e no recurso de *cluster* para executar esta operação. Você pode desassociar um espaço de trabalho do recurso de *cluster* a qualquer momento. Novos dados ingeridos após a operação de desassociação são armazenados em Log Analytics armazenamento e criptografados com a chave da Microsoft. Você pode consultar os dados que foram ingeridos em seu espaço de trabalho antes e depois da desassociação sem interrupções, desde que o recurso de *cluster* seja provisionado e configurado com uma chave de Key Vault válida.
 
   Essa solicitação do Gerenciador de recursos é uma operação assíncrona.
 
@@ -545,7 +559,10 @@ Todos os seus dados podem ser acessados após a operação de rotação de chave
   1. Copie o valor da URL Azure-AsyncOperation da resposta e siga a [verificação de status de operações assíncronas](#asynchronous-operations-and-status-check).
   2. Enviar [espaços de trabalho – obter](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) solicitação e observar a resposta, o espaço de trabalho de não associado não terá o *clusterResourceId* em *recursos*.
 
-- Excluir o recurso de *cluster* – você precisa de permissões de ' gravação ' no recurso de *cluster* para executar esta operação. Uma operação de exclusão reversível é executada para permitir a recuperação de seu recurso de *cluster* , incluindo seus dados dentro de 14 dias, se a exclusão foi acidental ou intencional. O nome do recurso de *cluster* permanece reservado durante o período de exclusão reversível e você não pode criar um novo cluster com esse nome. Após o período de exclusão reversível, o nome do recurso de *cluster* é liberado, o recurso de *cluster* e os dados são excluídos permanentemente e não são recuperáveis. Qualquer espaço de trabalho associado é desassociado do recurso de *cluster* na operação de exclusão. Novos dados ingeridos são armazenados em Log Analytics armazenamento e criptografados com a chave da Microsoft. A operação de associação de espaços de trabalho é assíncrona e pode levar até 90 minutos para ser concluída.
+
+- **Excluir o recurso de *cluster***
+
+  Você precisa de permissões de ' gravação ' no recurso de *cluster* para executar esta operação. Uma operação de exclusão reversível é executada para permitir a recuperação de seu recurso de *cluster* , incluindo seus dados dentro de 14 dias, se a exclusão foi acidental ou intencional. O nome do recurso de *cluster* permanece reservado durante o período de exclusão reversível e você não pode criar um novo cluster com esse nome. Após o período de exclusão reversível, o nome do recurso de *cluster* é liberado, o recurso de *cluster* e os dados são excluídos permanentemente e não são recuperáveis. Qualquer espaço de trabalho associado é desassociado do recurso de *cluster* na operação de exclusão. Novos dados ingeridos são armazenados em Log Analytics armazenamento e criptografados com a chave da Microsoft. A operação de associação de espaços de trabalho é assíncrona e pode levar até 90 minutos para ser concluída.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -556,4 +573,25 @@ Todos os seus dados podem ser acessados após a operação de rotação de chave
 
   200 OK
 
-- Recupere o recurso de *cluster* e seus dados--um recurso de *cluster* que foi excluído nos últimos 14 dias está no estado de exclusão reversível e pode ser recuperado. Isso é executado manualmente pelo grupo de produtos no momento. Use seu canal da Microsoft para solicitações de recuperação.
+- **Recuperar o recurso de *cluster* e seus dados** 
+  
+  Um recurso de *cluster* que foi excluído nos últimos 14 dias está no estado de exclusão reversível e pode ser recuperado. Isso é executado manualmente pelo grupo de produtos no momento. Use seu canal da Microsoft para solicitações de recuperação.
+
+
+## <a name="troubleshooting"></a>Solução de problemas
+- Comportamento com disponibilidade de Key Vault
+  - Em operação normal--caches de armazenamento AEK por curtos períodos de tempo e volta para Key Vault para desfazer o encapsulamento periodicamente.
+    
+  - Erros de conexão transitórios – o armazenamento trata erros transitórios (tempos limite, falhas de conexão, problemas de DNS), permitindo que as chaves permaneçam no cache por um curto tempo e isso supera qualquer blips pequena em disponibilidade. Os recursos de consulta e ingestão continuam sem interrupção.
+    
+  - Site ativo--a indisponibilidade de aproximadamente 30 minutos fará com que a conta de armazenamento fique indisponível. A funcionalidade de consulta não está disponível e os dados ingeridos são armazenados em cache por várias horas usando a chave da Microsoft para evitar a perda de dados. Quando o acesso a Key Vault é restaurado, a consulta fica disponível e os dados temporários armazenados em cache são ingeridos no armazenamento de dados e criptografados com CMK.
+
+- Se você criar um recurso de *cluster* e especificar o keyvaultproperties imediatamente, a operação poderá falhar, pois a política de acesso não poderá ser definida até que a identidade do sistema seja atribuída ao recurso de *cluster* .
+
+- Se você atualizar o recurso de *cluster* existente com keyvaultproperties e a política de acesso à chave ' Get ' estiver ausente no Key Vault, a operação falhará.
+
+- Se você tentar excluir um recurso de *cluster* associado a um espaço de trabalho, a operação de exclusão falhará.
+
+- Se você receber um erro de conflito ao criar um recurso de *cluster* , pode ser que você tenha excluído o recurso de *cluster* nos últimos 14 dias e esteja em um período de exclusão reversível. O nome do recurso de *cluster* permanece reservado durante o período de exclusão reversível e você não pode criar um novo cluster com esse nome. O nome é liberado após o período de exclusão reversível quando o recurso de *cluster* é excluído permanentemente.
+
+- Se você atualizar o recurso de *cluster* enquanto uma operação estiver em andamento, a operação falhará.

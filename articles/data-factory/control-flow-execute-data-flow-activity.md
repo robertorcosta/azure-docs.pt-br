@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/25/2020
-ms.openlocfilehash: 78ef749f36e9ffd3aae510d201b0700e5e197065
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: a2e80b9320509144456663672ac5ae03f522459a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183289"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735378"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Atividade de fluxo de dados no Azure Data Factory
 
@@ -54,10 +54,10 @@ Use a atividade fluxo de dados para transformar e mover dados por meio de fluxos
 
 ## <a name="type-properties"></a>Propriedades de tipo
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessária
 -------- | ----------- | -------------- | --------
 Flow | A referência ao fluxo de dados que está sendo executado | DataFlowReference | Sim
-integrationRuntime | O ambiente de computação no qual o fluxo de dados é executado. Se não for especificado, o Azure Integration Runtime de resolução automática será usado | IntegrationRuntimeReference | Não
+integrationRuntime | O ambiente de computação no qual o fluxo de dados é executado. Se não for especificado, a solução de tempo de execução de integração do Azure será usada automaticamente. Há suporte apenas para os tempos de execução de integração de resolução automática de região. | IntegrationRuntimeReference | Não
 Compute. coreCount | O número de núcleos usados no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | 8, 16, 32, 48, 80, 144, 272 | Não
 Compute. computetype | O tipo de computação usado no cluster do Spark. Só poderá ser especificado se a resolução automática do tempo de execução de integração do Azure for usada | "Geral", "ComputeOptimized", "MemoryOptimized" | Não
 preparo. linkedService | Se você estiver usando uma fonte ou coletor do SQL DW, a conta de armazenamento usada para preparo do polybase | LinkedServiceReference | Somente se o fluxo de dados lê ou grava em um SQL DW
@@ -75,13 +75,13 @@ As propriedades de tipo de computação e contagem de núcleo podem ser definida
 
 ### <a name="data-flow-integration-runtime"></a>Tempo de execução de integração de fluxo de dados
 
-Escolha qual Integration Runtime usar para a execução da atividade de fluxo de dados. Por padrão, Data Factory usará a solução de tempo de execução de integração do Azure automaticamente com quatro núcleos de trabalho e nenhuma TTL (vida útil). Esse IR tem um tipo de computação de uso geral e é executado na mesma região que a sua fábrica. Você pode criar seus próprios tempos de execução de integração do Azure que definem regiões específicas, tipo de computação, contagens de núcleos e TTL para a execução da atividade de fluxo de dados.
+Escolha qual Integration Runtime usar para a execução da atividade de fluxo de dados. Por padrão, Data Factory usará a solução de tempo de execução de integração do Azure automaticamente com quatro núcleos de trabalho e nenhuma TTL (vida útil). Esse IR tem um tipo de computação de uso geral e é executado na mesma região que a sua fábrica. Você pode criar seus próprios tempos de execução de integração do Azure que definem regiões específicas, tipo de computação, contagens de núcleos e TTL para a execução da atividade de fluxo de dados. Neste momento, somente os tempos de execução de integração de reresolução automática de região têm suporte na atividade fluxo de dados.
 
 Para execuções de pipeline, o cluster é um cluster de trabalho, que leva vários minutos para ser iniciado antes do início da execução. Se nenhum TTL for especificado, esse tempo de inicialização será necessário em cada execução de pipeline. Se você especificar um TTL, um pool de clusters quente permanecerá ativo durante o tempo especificado após a última execução, resultando em tempos de inicialização mais curtos. Por exemplo, se você tiver um TTL de 60 minutos e executar um fluxo de dados nele uma vez por hora, o pool de clusters permanecerá ativo. Para obter mais informações, consulte [tempo de execução de integração do Azure](concepts-integration-runtime.md).
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
-> [!NOTE]
+> [!IMPORTANT]
 > A seleção de Integration Runtime na atividade de fluxo de dados só se aplica a *execuções disparadas* de seu pipeline. A depuração do pipeline com fluxos de dados é executada no cluster especificado na sessão de depuração.
 
 ### <a name="polybase"></a>PolyBase
@@ -98,9 +98,7 @@ Se o fluxo de dados usar conjuntos de dados com parâmetros, defina os valores d
 
 ### <a name="parameterized-data-flows"></a>Fluxos de dados com parâmetros
 
-Se o fluxo de dados for parametrizado, defina os valores dinâmicos dos parâmetros de fluxo de dados na guia **parâmetros** . Você pode usar a linguagem de expressão de pipeline do ADF ou a linguagem de expressão de fluxo de dados para atribuir valores de parâmetro dinâmicos ou literais. Para obter mais informações, consulte [parâmetros de fluxo de dados](parameters-data-flow.md). Se você quiser incluir propriedades de pipeline como parte de sua expressão para passar para um parâmetro de fluxo de dados, escolha expressões de pipeline.
-
-![Exemplo do parâmetro executar fluxo de dados](media/data-flow/parameter-example.png "Exemplo de parâmetro")
+Se o fluxo de dados for parametrizado, defina os valores dinâmicos dos parâmetros de fluxo de dados na guia **parâmetros** . Você pode usar a linguagem de expressão de pipeline do ADF ou a linguagem de expressão de fluxo de dados para atribuir valores de parâmetro dinâmicos ou literais. Para obter mais informações, consulte [parâmetros de fluxo de dados](parameters-data-flow.md).
 
 ### <a name="parameterized-compute-properties"></a>Propriedades de computação parametrizadas.
 

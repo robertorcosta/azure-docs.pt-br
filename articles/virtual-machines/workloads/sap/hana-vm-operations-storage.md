@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0d8228586c0e20e4314331339aa2f2c46a38c9a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255610"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792149"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -281,7 +281,7 @@ Os [limites de taxa de transferência de Azure NetApp files](https://docs.micros
 - Camada de armazenamento ultra-128 MiB/s  
 
 > [!IMPORTANT]
-> Independentemente da capacidade que você implanta em um único volume NFS, a taxa de transferência é esperada para limite no intervalo de largura de banda de 1,2 a 1,4 GB/s utilizada por um consumidor em uma máquina virtual. Isso tem a ver com a arquitetura subjacente da oferta de seja e limites de sessão do Linux relacionados em relação ao NFS. Os números de desempenho e taxa de transferência, conforme documentado no artigo [resultados do teste de desempenho de benchmark para Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) foram realizados em um volume NFS compartilhado com várias VMs cliente e como resultado com várias sessões. Esse cenário é diferente para o cenário que medimos no SAP. Onde medimos a taxa de transferência de uma única VM em um volume NFS. hospedado em seja.
+> Independentemente da capacidade que você implanta em um único volume NFS, a taxa de transferência é esperada para limite no intervalo de largura de banda de 1,2 a 1,4 GB/s utilizada por um consumidor em uma máquina virtual. Isso tem a ver com a arquitetura subjacente da oferta de seja e limites de sessão do Linux relacionados em relação ao NFS. Os números de desempenho e taxa de transferência, conforme documentado no artigo [resultados do teste de desempenho de benchmark para Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) foram realizados em um volume NFS compartilhado com várias VMs cliente e como resultado com várias sessões. Esse cenário é diferente para o cenário que medimos no SAP. Onde medimos a taxa de transferência de uma única VM em um volume NFS. hospedado em seja.
 
 Para atender aos requisitos de taxa de transferência mínima do SAP para dados e log, e de `/hana/shared`acordo com as diretrizes para, os tamanhos recomendados seriam semelhantes a:
 
