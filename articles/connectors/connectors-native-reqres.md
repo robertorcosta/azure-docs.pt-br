@@ -3,20 +3,20 @@ title: Receber e responder a chamadas usando HTTPS
 description: Manipular solicitações HTTPS de entrada de serviços externos usando aplicativos lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900943"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978562"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos aplicativos lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a ação de resposta ou gatilho de solicitação interna, você pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem a solicitações HTTPS de entrada. Por exemplo, você pode ter seu aplicativo lógico:
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a ação de resposta e o gatilho de solicitação interna, você pode criar tarefas automatizadas e fluxos de trabalho que recebem e respondem a solicitações HTTPS de entrada. Por exemplo, você pode ter seu aplicativo lógico:
 
 * Receber e responder a uma solicitação HTTPS para dados em um banco de dado local.
 * Disparar um fluxo de trabalho quando ocorrer um evento de webhook externo.
@@ -49,11 +49,11 @@ O gatilho de solicitação dá suporte a [Azure Active Directory autenticação 
 
 ## <a name="add-request-trigger"></a>Adicionar gatilho de solicitação
 
-Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode receber *somente* solicitações HTTPS de entrada. Quando esse evento acontece, o gatilho é acionado e executa o aplicativo lógico.
+Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode receber *somente* solicitações HTTPS de entrada. Quando esse evento acontece, o gatilho é acionado e executa o aplicativo lógico. Para obter mais informações sobre a definição de JSON subjacente do gatilho e como chamar esse gatilho, consulte o [tipo de gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTPS em aplicativos lógicos do Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
-1. Depois que o designer de aplicativo lógico for aberto, na caixa de pesquisa, digite "solicitação HTTP" como filtro. Na lista de gatilhos, selecione o gatilho **quando uma solicitação HTTP é recebida** , que é a primeira etapa no fluxo de trabalho do aplicativo lógico.
+1. Depois que o designer de aplicativo lógico for aberto, na caixa `http request` de pesquisa, insira como seu filtro. Na lista de gatilhos, selecione o gatilho **quando uma solicitação HTTP é recebida** , que é a primeira etapa no fluxo de trabalho do aplicativo lógico.
 
    ![Selecionar gatilho de solicitação](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -254,7 +254,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
    | Nome da propriedade | Nome da propriedade JSON | Necessária | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Código de status** | `statusCode` | Sim | O código de status a ser retornado na resposta |
-   | **headers** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos a serem incluídos na resposta |
+   | **Conector** | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos a serem incluídos na resposta |
    | **Conteúdo** | `body` | Não | O corpo da resposta |
    |||||
 

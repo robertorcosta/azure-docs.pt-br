@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: ace701a6c19f4fe3af1c9ae6f5e63097dd59d405
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 1a9a503fd566c9b50f1503e0955bf12f69ac9960
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871683"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927914"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 
@@ -46,7 +46,7 @@ Você também pode usar um [Hybrid runbook Worker](automation-hybrid-runbook-wor
 
 A tabela a seguir lista algumas tarefas de execução de runbook com o ambiente de execução recomendado listado para cada uma.
 
-|Tarefa|Recomendação|Anotações|
+|Tarefa|Recomendação|Observações|
 |---|---|---|
 |Integração com serviços do Azure|Área restrita do Azure|Hospedado no Azure, a autenticação é mais simples. Se você estiver usando uma Hybrid Runbook Worker em uma VM do Azure, poderá [usar a autenticação de runbook com identidades gerenciadas](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Obter o desempenho ideal para gerenciar recursos do Azure|Área restrita do Azure|O script é executado no mesmo ambiente, que tem menos latência.|
@@ -86,7 +86,7 @@ A automação do Azure usa o [Azure monitor](https://docs.microsoft.com/azure/az
 
 ### <a name="log-analytics-agent-for-windows"></a>Agente do Log Analytics para Windows
 
-O [agente do log Analytics para Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windowsmonitor) funciona com Azure monitor para gerenciar VMs do Windows e computadores físicos. Os computadores podem ser executados no Azure ou em um ambiente não Azure, como um datacenter local. Você deve configurar o agente para relatar para um ou mais espaços de trabalho do Log Analytics. 
+O [agente do log Analytics para Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) funciona com Azure monitor para gerenciar VMs do Windows e computadores físicos. Os computadores podem ser executados no Azure ou em um ambiente não Azure, como um datacenter local. Você deve configurar o agente para relatar para um ou mais espaços de trabalho do Log Analytics. 
 
 >[!NOTE]
 >O agente Log Analytics para Windows era conhecido anteriormente como Microsoft Monitoring Agent (MMA).
