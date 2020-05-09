@@ -11,23 +11,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409065"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927355"
 ---
-# <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning usando a atividade de atualização de recursos
+# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Atualizar modelos do ML Studio (clássico) v usando atualizar atividade de recurso
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este.
+Este artigo complementa o principal artigo de integração Azure Data Factory-ML Studio (clássico): [criar pipelines preditivas usando Azure Machine Learning e Azure data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este.
 
 ## <a name="overview"></a>Visão geral
-Como parte do processo de operacionalização de modelos do Azure Machine Learning, o modelo é treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis.
+Como parte do processo de operacionalização de modelos ML Studio (clássico), seu modelo é treinado e salvo. Em seguida, será possível utilizá-lo para criar um serviço Web preditivo. O serviço Web pode ser consumido nos sites, painéis e aplicativos móveis.
 
-Os modelos que você cria usando o Machine Learning geralmente não são estáticos. Conforme novos dados ficam disponíveis ou quando o consumidor da API tem seus próprios dados, o modelo precisa ser readaptado. Consulte [Treinar novamente um modelo do Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) para obter detalhes de como você pode treinar novamente um modelo do Azure Machine Learning.
+Os modelos que você cria usando o Machine Learning geralmente não são estáticos. Conforme novos dados ficam disponíveis ou quando o consumidor da API tem seus próprios dados, o modelo precisa ser readaptado. 
 
 A readaptação pode ocorrer com frequência. Com a atividade de execução em lotes e a atividade de atualização de recursos, você pode operacionalizar o modelo do Azure Machine Learning, trainando novamente e atualizando o serviço Web de previsão usando o Data Factory.
 
@@ -35,9 +35,9 @@ A figura a seguir descreve a relação entre os serviços Web de treinamento e p
 
 ![SERVIÇOS WEB](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Atividade de atualização de recursos do Azure Machine Learning
+## <a name="ml-studio-classic-update-resource-activity"></a>Atividade de recurso de atualização ML Studio (clássica)
 
-O snippet JSON a seguir define uma atividade de execução em lotes do Azure Machine Learning.
+O trecho JSON a seguir define uma atividade de execução de lote ML Studio (clássica).
 
 ```json
 {

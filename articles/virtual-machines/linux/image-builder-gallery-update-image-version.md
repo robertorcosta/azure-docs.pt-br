@@ -3,17 +3,17 @@ title: Criar uma nova versão de imagem de VM de uma versão de imagem existente
 description: Crie uma nova versão de imagem de VM com base em uma versão de imagem existente usando o construtor de imagens do Azure.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
-ms.topic: article
+ms.date: 05/05/2020
+ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-manager: gwallace
-ms.openlocfilehash: 5766e91dc6a17d50c46d396dd8a68d17081e0926
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: danis
+ms.openlocfilehash: 2b65dee27bf31a3cf49b59ddf982834b86dca4de
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80246799"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872135"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Visualização: criar uma nova versão de imagem de VM de uma versão de imagem existente usando o construtor de imagens do Azure
 
@@ -39,7 +39,8 @@ Verifique seu registro.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -47,7 +48,8 @@ Se não disser registrado, execute o seguinte:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
 
@@ -55,8 +57,6 @@ az provider register -n Microsoft.Storage
 ## <a name="set-variables-and-permissions"></a>Definir variáveis e permissões
 
 Se você usou [criar uma imagem e distribuir para uma galeria de imagens compartilhadas](image-builder-gallery.md) para criar sua galeria de imagens compartilhadas, você já criou algumas das variáveis que precisamos. Caso contrário, configure algumas variáveis a serem usadas para este exemplo.
-
-Para visualização, o Image Builder dará suporte apenas à criação de imagens personalizadas no mesmo grupo de recursos que a imagem gerenciada de origem. Atualize o nome do grupo de recursos neste exemplo para ser o mesmo grupo de recursos que a imagem gerenciada de origem.
 
 
 ```console
@@ -90,16 +90,15 @@ sigDefImgVersionId=$(az sig image-version list \
    --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
 ```
 
-
-Se você já tiver sua própria galeria de imagens compartilhadas e não seguir o exemplo anterior, será necessário atribuir permissões para que o Image Builder acesse o grupo de recursos, para que possa acessar a galeria.
-
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Criar uma identidade atribuída pelo usuário e definir permissões no grupo de recursos
+Como você definiu a identidade do usuário no exemplo anterior, só precisa obter a ID do recurso, e então ela será anexada ao modelo.
 
 ```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
+#get identity used previously
+imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
+
+Se você já tiver sua própria galeria de imagens compartilhadas e não seguir o exemplo anterior, será necessário atribuir permissões para que o Image Builder acesse o grupo de recursos, para que possa acessar a galeria. Examine as etapas no exemplo [criar uma imagem e distribuir para uma galeria de imagens compartilhadas](image-builder-gallery.md) .
 
 
 ## <a name="modify-helloimage-example"></a>Modificar exemplo de helloImage
@@ -118,6 +117,7 @@ sed -i -e "s%<sigDefImgVersionId>%$sigDefImgVersionId%g" helloImageTemplateforSI
 sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIGfromSIG.json
 ```
 
 ## <a name="create-the-image"></a>Criar a imagem

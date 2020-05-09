@@ -1,14 +1,14 @@
 ---
 title: Entender a ordem da sequência de implantação
 description: Saiba mais sobre a ordem padrão em que os artefatos de Blueprint são implantados durante uma atribuição de Blueprint e como personalizar a ordem de implantação.
-ms.date: 08/22/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677572"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864514"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 
@@ -47,8 +47,7 @@ Ao compor grandes definições de Blueprint, pode ser necessário que os recurso
 A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A definição do Blueprint, para grupos de recursos e objetos de artefato dão suporte a essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
 
 > [!NOTE]
-> Ao criar objetos BluePrints, cada recurso de artefato obtém seu nome do nome de arquivo, se estiver usando o [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)ou o ponto de extremidade de URL, se estiver usando a [API REST](/rest/api/blueprints/artifacts/createorupdate).
-> as referências de _resourcegroup_ em artefatos devem corresponder àquelas definidas na definição do Blueprint.
+> Ao criar objetos BluePrints, cada recurso de artefato obtém seu nome do nome de arquivo, se estiver usando o [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)ou o ponto de extremidade de URL, se estiver usando a [API REST](/rest/api/blueprints/artifacts/createorupdate). as referências de _resourcegroup_ em artefatos devem corresponder àquelas definidas na definição do Blueprint.
 
 ### <a name="example---ordered-resource-group"></a>Exemplo-grupo de recursos ordenados
 
@@ -137,7 +136,8 @@ O artefato do modelo de nível de assinatura, dependendo do grupo de recursos **
 
 Durante o processo de criação, uma classificação topológica é usada para criar o gráfico de dependência dos artefatos de blueprints. A verificação assegura que cada nível de dependência entre grupos de recursos e artefatos seja suportado.
 
-Se uma dependência de artefato for declarada que não alteraria a ordem padrão, nenhuma alteração será feita. Um exemplo é um grupo de recursos que depende de uma política no nível da assinatura. Outro exemplo é uma atribuição de política filho 'standard-rg' do grupo de recursos que depende da atribuição de função filho 'standard-rg' do grupo de recursos. Em ambos os casos, o `dependsOn` não teria alterado a ordem de sequenciamento padrão e nenhuma alteração seria feita.
+Se uma dependência de artefato for declarada que não alteraria a ordem padrão, nenhuma alteração será feita.
+Um exemplo é um grupo de recursos que depende de uma política no nível da assinatura. Outro exemplo é uma atribuição de política filho 'standard-rg' do grupo de recursos que depende da atribuição de função filho 'standard-rg' do grupo de recursos. Em ambos os casos, o `dependsOn` não teria alterado a ordem de sequenciamento padrão e nenhuma alteração seria feita.
 
 ## <a name="next-steps"></a>Próximas etapas
 

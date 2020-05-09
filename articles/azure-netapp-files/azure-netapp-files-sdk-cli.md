@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: b-juche
-ms.openlocfilehash: fba762a53ec562bdbd52468716ce6e44eb717aaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93d51681a703258477baa81cc8737fefd4955e82
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73887184"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731671"
 ---
 # <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDKs do Azure NetApp Files e ferramentas da CLI
 
@@ -34,7 +34,7 @@ A tabela a seguir lista os SDKs com suporte.  Você pode encontrar detalhes sobr
 |    .NET  |    [Azure/Azure-SDK-para-rede](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/netapp)    |
 |    Python  |  [Azure/Azure-SDK-para-Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/netapp)    |
 |    Go    |    [Azure/Azure-SDK-para-go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/netapp)       |
-|    Java |     [Azure/Azure-SDK-para-Java](https://github.com/Azure/azure-sdk-for-java/tree/master/netapp/resource-manager) |
+|    Java |     [Azure/Azure-SDK-para-Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/netapp) |
 |    JavaScript    |    [Azure/Azure-SDK-para-JS](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/netapp/arm-netapp)    |
 |    Ruby   |    [Azure/Azure-SDK-para-Ruby](https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_netapp)    |
 

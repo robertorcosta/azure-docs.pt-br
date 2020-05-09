@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 363dc4d469d912c14f5f89ef6ff433a2243587e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6a0a84050cb8f1b3ad0c04aa66c5b3797282f2e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428895"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983220"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Criar um ponto de extremidade privado gerenciado para sua fonte de dados (versão prévia)
 
@@ -30,17 +30,17 @@ No Azure Synapse Studio, selecione a guia **gerenciar** na navegação à esquer
 
 ## <a name="step-3-select-the-data-source-type"></a>Etapa 3: selecionar o tipo de fonte de dados
 
-Selecione o tipo de fonte de dados. Nesse caso, a fonte de dados de destino é uma conta do ADLS Gen2. Selecione **Continuar**.
+Selecione o tipo de fonte de dados. Nesse caso, a fonte de dados de destino é uma conta de ADLS Gen2. Selecione **Continuar**.
 ![Selecionar um tipo de fonte de dados de destino](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-3.png)
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Etapa 4: inserir informações sobre a fonte de dados
 
-Na próxima janela, insira informações sobre a fonte de dados. Neste exemplo, estamos criando um ponto de extremidade privado gerenciado para uma conta do ADLS Gen2. Insira um **nome** para o ponto de extremidade privado gerenciado. Forneça uma **assinatura do Azure** e um **nome de conta de armazenamento**. Selecione **Criar**.
+Na próxima janela, insira informações sobre a fonte de dados. Neste exemplo, estamos criando um ponto de extremidade privado gerenciado para uma conta de ADLS Gen2. Insira um **nome** para o ponto de extremidade privado gerenciado. Forneça uma **assinatura do Azure** e um **nome de conta de armazenamento**. Selecione **Criar**.
 ![Inserir detalhes da fonte de dados de destino](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-4.png)
 
 ## <a name="step-5-verify-that-your-managed-private-endpoint-was-successfully-created"></a>Etapa 5: verificar se o ponto de extremidade privado gerenciado foi criado com êxito
 
-Depois de enviar a solicitação, você verá seu status. Para verificar se a criação bem-sucedida de seu ponto de extremidade privado gerenciado foi criada, verifique seu *estado de provisionamento*. Talvez seja necessário aguardar 1 minuto e selecionar **Atualizar** para atualizar o estado de provisionamento. Você pode ver que o ponto de extremidade privado gerenciado para a conta ADLS Gen2 foi criado com êxito.
+Depois de enviar a solicitação, você verá seu status. Para verificar se a criação bem-sucedida de seu ponto de extremidade privado gerenciado foi criada, verifique seu *estado de provisionamento*. Talvez seja necessário aguardar 1 minuto e selecionar **Atualizar** para atualizar o estado de provisionamento. Você pode ver que o ponto de extremidade privado gerenciado para a conta de ADLS Gen2 foi criado com êxito.
 
 Você também pode ver que o *estado de aprovação* está *pendente*. O proprietário do recurso de destino pode aprovar ou negar a solicitação de conexão de ponto de extremidade privado. Se o proprietário aprovar a solicitação de conexão de ponto de extremidade privada, um link privado será estabelecido. Se negado, um link privado não é estabelecido.
 ![Status da solicitação de criação de ponto de extremidade privado gerenciado](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-5.png)

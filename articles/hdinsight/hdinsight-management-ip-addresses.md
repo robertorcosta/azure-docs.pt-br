@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271829"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778253"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Endereços IP de gerenciamento do HDInsight
 
@@ -82,7 +82,7 @@ Permita o tráfego dos endereços IP listados para os serviços de integridade e
 
 Para obter informações sobre os endereços IP a serem usados para o Azure Governamental, consulte o documento [Inteligência + Análise do Azure Governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).
 
-Para obter mais informações, consulte a seção [controlando o tráfego de rede](hdinsight-plan-virtual-network-deployment.md#networktraffic) .
+Para obter mais informações, consulte [controlar o tráfego de rede](./control-network-traffic.md).
 
 Se você estiver usando UDRs (rotas definidas pelo usuário), deverá especificar uma rota e permitir o tráfego de saída da rede virtual para os IPs acima com o próximo salto definido como "Internet".
 

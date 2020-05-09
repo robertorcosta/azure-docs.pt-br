@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3fb5f1df0eb4473483c9298cdbf36909b75065e7
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79370637"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927200"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos dispositivos de fala?
 
@@ -49,7 +49,7 @@ O aplicativo é compilado com o pacote do SDK de Fala e o Java IDE do Eclipse (v
 Para o Linux, o aplicativo de exemplo é fornecido como um aplicativo Java de plataforma cruzada. Baixe a versão mais recente do [SDK de dispositivos de fala do JRE](https://aka.ms/sdsdk-download-JRE).
 O aplicativo é criado com o pacote do SDK de fala e o eclipse Java IDE (v4) no Linux de 64 bits (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9, RHEL 8, CentOS 8). Ele é executado em um JRE (Java Runtime Environment) 8 de 64 bits.
 
-Binários adicionais são fornecidos para dar suporte a dispositivos futuros, [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter)e [palestrante GGEC](https://aka.ms/sdsdk-download-speaker).
+Binários adicionais são fornecidos para dar suporte a dispositivos futuros, [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter), [GGEC palestrante](https://aka.ms/sdsdk-download-speaker), [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32)e [Linux ARM64](https://aka.ms/sdsdk-download-linux-arm64).
 
 ## <a name="next-steps"></a>Próximas etapas
 
