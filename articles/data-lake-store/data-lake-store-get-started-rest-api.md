@@ -1,23 +1,17 @@
 ---
-title: 'API REST: Conta operações de gerenciamento no Azure Data Lake armazenamento Gen1 | Microsoft Docs'
-description: Use o Armazenamento de Dados do Azure Data Lake Gen1 e a API REST do WebHDFS para executar operações de gerenciamento de contas na conta do Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
+title: Gerenciar uma conta de Azure Data Lake Storage Gen1 com REST
+description: Use a API REST do amWebHDFS para executar operações de gerenciamento de conta em uma conta de Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a106b55fb90f320b90c81216a205dd10a9bf934
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60877092"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692085"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operações de gerenciamento de conta no Azure Data Lake Storage Gen1 usando a API REST
 > [!div class="op_single_selector"]
@@ -74,7 +68,7 @@ Você deverá algo semelhante ao seguinte snippet:
 ## <a name="next-steps"></a>Próximas etapas
 * [Operações de FileSystem no Data Lake armazenamento Gen1 usando a API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Referência da API REST do Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Aplicativos de Big Data de software livre com Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 
