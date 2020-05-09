@@ -8,23 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f2887ab23dd89f1a3e1e3112ce3713ef1139de8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4aa9f4839c8bfc04cee4bb03ea0eac98cb8b25c0
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229673"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926112"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gerenciamento de sessão de logon único no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O gerenciamento de [sessão de SSO (logon único)](session-overview.md) no Azure Active Directory B2C (Azure ad B2C) permite que um administrador controle a interação com um usuário depois que o usuário já tiver se autenticado. Por exemplo, o administrador pode controlar se a seleção de provedores de identidade é exibida ou se os detalhes da conta precisam ser inseridos novamente. Este artigo descreve como definir as configurações de SSO para o Azure AD B2C.
-
-O gerenciamento de sessão de SSO usa a mesma semântica que qualquer outro perfil técnico em políticas personalizadas. Quando uma etapa de orquestração é executada, o perfil técnico associado à etapa é consultado quanto a uma referência `UseTechnicalProfileForSessionManagement`. Se existir uma, o provedor de sessão de SSO referenciado será verificado para ver se o usuário é um participante da sessão. Se sim, o provedor de sessão de SSO será usado para popular novamente a sessão. Da mesma forma, quando a execução de uma etapa de orquestração for concluída, o provedor será usado para armazenar informações na sessão se um provedor de sessão de SSO tiver sido especificado.
+O gerenciamento de [sessão de logon único (SSO)](session-overview.md) usa a mesma semântica que qualquer outro perfil técnico em políticas personalizadas. Quando uma etapa de orquestração é executada, o perfil técnico associado à etapa é consultado quanto a uma referência `UseTechnicalProfileForSessionManagement`. Se existir uma, o provedor de sessão de SSO referenciado será verificado para ver se o usuário é um participante da sessão. Se sim, o provedor de sessão de SSO será usado para popular novamente a sessão. Da mesma forma, quando a execução de uma etapa de orquestração for concluída, o provedor será usado para armazenar informações na sessão se um provedor de sessão de SSO tiver sido especificado.
 
 O Azure AD B2C definiu vários provedores de sessão de SSO que podem ser usados:
 
@@ -123,7 +121,7 @@ Esse provedor é usado para suprimir a tela "escolher provedor de identidade" e 
 
 #### <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição|
+| Atributo | Necessária | Descrição|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | Não | Não usado no momento, pode ser ignorado. |
 
@@ -165,7 +163,7 @@ O perfil `SM-Saml-issuer` técnico a seguir é usado pelo [perfil técnico do em
 
 #### <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | Descrição|
+| Atributo | Necessária | Descrição|
 | --- | --- | --- |
 | IncludeSessionIndex | Não | Não usado no momento, pode ser ignorado.|
 | RegisterServiceProviders | Não | Indica que o provedor deve registrar todos os provedores de serviço SAML que emitiram uma declaração. Valores possíveis: `true` (padrão) ou `false`.|
@@ -174,3 +172,4 @@ O perfil `SM-Saml-issuer` técnico a seguir é usado pelo [perfil técnico do em
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [Azure ad B2C sessão](session-overview.md).
+- Saiba como [Configurar o comportamento da sessão em políticas personalizadas](session-behavior-custom-policy.md).

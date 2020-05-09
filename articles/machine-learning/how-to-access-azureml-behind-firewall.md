@@ -1,7 +1,7 @@
 ---
-title: Usar Azure Machine Learning atrás de um firewall
+title: Usar um firewall
 titleSuffix: Azure Machine Learning
-description: Use com segurança Azure Machine Learning por trás do firewall do Azure. Saiba mais sobre os hosts que você deve permitir por meio do firewall para que Azure Machine Learning funcionem corretamente.
+description: Controle o acesso a espaços de trabalho do Azure Machine Learning com firewalls do Azure. Saiba mais sobre os hosts que você deve permitir por meio do firewall para que Azure Machine Learning funcionem corretamente.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 2c5fe9d46ef408775cc4b99d4820a652a91683c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196316"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981958"
 ---
-# <a name="use-azure-machine-learning-workspace-behind-azure-firewall"></a>Usar Azure Machine Learning espaço de trabalho por trás do firewall do Azure
+# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Usar o espaço de trabalho por trás do firewall do Azure para Azure Machine Learning
 
-Este artigo contém informações sobre como configurar o Firewall do Azure para uso com o Azure Machine Learning.
+Neste artigo, saiba como configurar o Firewall do Azure para uso com um espaço de trabalho Azure Machine Learning.
 
 O Firewall do Azure pode ser usado para controlar o acesso ao seu espaço de trabalho do Azure Machine Learning e à Internet pública. Se não estiver configurado corretamente, o firewall poderá causar problemas ao usar seu espaço de trabalho.
 
@@ -36,7 +36,7 @@ No firewall, crie uma regra de rede permitindo o tráfego de e para os endereço
 
 Os hosts nesta seção são de propriedade da Microsoft e fornecem os serviços necessários para o funcionamento adequado do seu espaço de trabalho.
 
-| **Nome do host** | **Objetivo** |
+| **Nome do host** | **Finalidade** |
 | ---- | ---- |
 | **\*. batchai.core.windows.net** | Clusters de treinamento |
 | **ml.azure.com** | Azure Machine Learning Studio |
@@ -55,7 +55,7 @@ Os hosts nesta seção são de propriedade da Microsoft e fornecem os serviços 
 
 Os hosts nesta seção são usados para instalar pacotes do Python. Eles são necessários durante o desenvolvimento, o treinamento e a implantação. 
 
-| **Nome do host** | **Objetivo** |
+| **Nome do host** | **Finalidade** |
 | ---- | ---- |
 | **anaconda.com** | Usado ao instalar pacotes do Conda |
 | **pypi.org** | Usado ao instalar pacotes Pip |
@@ -67,7 +67,7 @@ Os hosts nesta seção são usados para instalar pacotes do R. Eles são necess�
 > [!IMPORTANT]
 > Internamente, o SDK do R para Azure Machine Learning usa pacotes do Python. Portanto, você também deve permitir hosts Python por meio do firewall.
 
-| **Nome do host** | **Objetivo** |
+| **Nome do host** | **Finalidade** |
 | ---- | ---- |
 | **cloud.r-project.org** | Usado ao instalar pacotes do CRAN. |
 

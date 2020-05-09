@@ -2,25 +2,20 @@
 title: Provisionar aplicativos com filtros de escopo | Microsoft Docs
 description: Saiba como usar filtros de escopo para impedir que objetos em aplicativos que dão suporte a provisionamento automatizado do usuário sejam provisionados caso um objeto não atenda às suas necessidades de negócios.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: mimart
-ms.custom: H1Hack27Feb2017
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71c2e3a83c3d63d375935294a25a369ca7e54d80
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138528"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593737"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo com base em atributo com filtros de escopo
 O objetivo deste artigo é explicar como usar filtros de escopo para definir regras baseadas em atributo que determinam quais usuários serão provisionados a um aplicativo.

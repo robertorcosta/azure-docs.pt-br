@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: efe2c96c619aaf92efc5b4abf76b6b89c96ebd37
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 56a2246b4f1da51d9b18a34279eff04264530ef5
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80878027"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82160078"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
 
 Este tutorial mostra como habilitar o protocolo HTTPS para um domínio personalizado que está associado ao seu Front Door na seção hosts de front-end. Usando o protocolo HTTPS em seu domínio personalizado (por exemplo, https:\//www.contoso.com), você garante que seus dados confidenciais são fornecidos com segurança por meio da criptografia TLS/SSL quando ele são enviada pela Internet. Quando seu navegador da Web é conectado a um site da Web via HTTPS, ele valida o certificado de segurança do site da Web e verifica se ele é emitido por uma autoridade de certificação legítima. Esse processo oferece segurança e protege seus aplicativos Web contra ataques.
 
-O Azure Front Door dá suporte a HTTPS em um nome do host padrão do Front Door, por padrão. Por exemplo, se você criar um Front Door (como https:\//contoso.azurefd.net), o HTTPS será habilitado automaticamente para solicitações feitas a https://contoso.azurefd.net. No entanto, depois de integrar o domínio personalizado 'www.contoso.com', será necessário habilitar adicionalmente o HTTPS para esse host de front-end.   
+O Azure Front Door dá suporte a HTTPS em um nome do host padrão do Front Door, por padrão. Por exemplo, se você criar um Front Door (como `https://contoso.azurefd.net`), o HTTPS será habilitado automaticamente para solicitações feitas a `https://contoso.azurefd.net`. No entanto, depois de integrar o domínio personalizado 'www.contoso.com', será necessário habilitar adicionalmente o HTTPS para esse host de front-end.   
 
 Alguns dos principais atributos do recurso HTTPS são:
 

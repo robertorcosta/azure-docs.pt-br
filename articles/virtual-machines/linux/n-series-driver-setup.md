@@ -9,18 +9,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
-ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cb2d5c43b8c04829dd6830126b7bc01bee07133b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944569"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628185"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
-Para aproveitar as funcionalidades de GPU das VMs da série N do Azure que executam o Linux, instale os drivers de GPU NVIDIA. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como a CLI do Azure ou os modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) para saber quais são as distribuições compatíveis e as etapas de implantação.
+Para aproveitar os recursos de GPU das VMs da série N do Azure apoiadas por GPUs NVIDIA, você deve instalar os drivers NVIDIA GPU. A [Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como a CLI do Azure ou os modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) para saber quais são as distribuições compatíveis e as etapas de implantação.
 
-Se você optar por instalar os drivers de GPU manualmente, este artigo fornecerá as distribuições compatíveis, os drivers e as etapas de instalação e verificação. Também há informações de As informações de instalação manual de driver também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se você optar por instalar os drivers NVIDIA GPU manualmente, este artigo fornecerá as distribuições, drivers e etapas de instalação e verificação com suporte. Também há informações de As informações de instalação manual de driver também estão disponíveis para [VMs do Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Para obter as especificações de VMs da série N, as capacidades de armazenamento e os detalhes de disco, consulte [Tamanhos de VM Linux para GPU](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -151,7 +151,7 @@ Se o driver estiver instalado, você verá uma saída parecida com a mostrada a 
 
 ## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
 
-A conectividade de rede RDMA pode ser habilitada em VMs da série N compatível com RDMA, como NC24r implantado no mesmo conjunto de disponibilidade ou em um único grupo de posicionamento em um conjunto de dimensionamento de VM. A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com Intel MPI 5.x ou uma versão posterior. Requisitos adicionais são listados a seguir:
+A conectividade de rede RDMA pode ser habilitada em VMs da série N compatíveis com RDMA, como o NC24r implantado no mesmo conjunto de disponibilidade ou em um grupo de posicionamento único em um conjunto de dimensionamento de VM (virtual Machiine). A rede RDMA dá suporte ao tráfego da Interface de transmissão de mensagens (MPI) para aplicativos executados com Intel MPI 5.x ou uma versão posterior. Requisitos adicionais são listados a seguir:
 
 ### <a name="distributions"></a>Distribuições
 
@@ -356,7 +356,7 @@ Em seguida, crie uma entrada para o seu script de atualização em `/etc/rc.d/rc
 ## <a name="troubleshooting"></a>Solução de problemas
 
 * Você pode definir o modo de persistência usando `nvidia-smi`, de modo que o resultado do comando seja mais rápido quando você precisar consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Observe que, se a VM for reiniciada, a configuração do modo desaparecerá. Você sempre pode gerar um script da configuração de modo para ser executada na inicialização.
-* Se você tiver atualizado os drivers NVIDIA CUDA para a versão mais recente e encontrar o RDMA connectivcity não estiver mais funcionando, [reinstale os drivers RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) em reistablish com conectividade. 
+* Se você atualizou os drivers NVIDIA CUDA para a versão mais recente e encontrar a conectividade RDMA não está mais funcionando, [reinstale os drivers RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) para restabelecer essa conectividade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

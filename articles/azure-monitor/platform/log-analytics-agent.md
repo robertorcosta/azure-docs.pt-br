@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: e85e41796d0fc4fb9ac72b4032de3143b26d890f
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: 658543dc96f23fc86ea50f64d7a3265ba64150e7
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871059"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982200"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente de Log Analytics do Azure foi desenvolvido para gerenciamento abrangente em máquinas virtuais em qualquer nuvem, em máquinas locais e aquelas monitoradas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes do Windows e Linux enviam dados coletados de fontes diferentes para seu espaço de trabalho do Log Analytics no Azure Monitor, bem como quaisquer logs ou métricas exclusivos, conforme definido em uma solução de monitoramento. O agente de Log Analytics também dá suporte a informações e outros serviços em Azure Monitor como [Azure monitor para VMs](../insights/vminsights-enable-overview.md), [central de segurança do Azure](/azure/security-center/)e [automação do Azure](../../automation/automation-intro.md).
@@ -174,7 +174,6 @@ A tabela a seguir lista as informações de configuração de proxy e firewall n
 |*.oms.opinsights.azure.com |Porta 443 |Entrada e saída|Sim |  
 |*.blob.core.windows.net |Porta 443 |Entrada e saída|Sim |
 |*.azure-automation.net |Porta 443 |Entrada e saída|Sim |
-|*.azure.com |Porta 443|Entrada e saída|Sim |
 
 Para obter informações de firewall necessárias para o Azure governamental, consulte [Gerenciamento do Azure governamental](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
