@@ -59,6 +59,11 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 - Fazer upgrade do cluster
       href: tutorial-kubernetes-upgrade-cluster.md
+- name: Exemplos
+  items:
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Clusters e cargas de trabalho

@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: e818de4885d3859199108d7d88e4cbcb215dc4cc
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204195"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780735"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -107,7 +107,7 @@ O Hub de IoT Edge é otimizado para desempenho por padrão, portanto, ele tenta 
 
 Quando **OptimizeForPerformance** é definido como **true**, o MQTT Protocol Head usa o PooledByteBufferAllocator, que tem melhor desempenho, mas aloca mais memória. O alocador não funciona bem em sistemas operacionais de 32 bits ou em dispositivos com pouca memória. Além disso, quando otimizado para desempenho, o RocksDb aloca mais memória para sua função como o provedor de armazenamento local.
 
-Para obter mais informações, consulte [Problemas de estabilidade em dispositivos restritos por recursos](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+Para obter mais informações, consulte [problemas de estabilidade em dispositivos menores](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
 #### <a name="disable-unused-protocols"></a>Desabilitar protocolos não utilizados
 
@@ -200,7 +200,7 @@ Em seguida, certifique-se de atualizar as referências de imagem no arquivo Depl
 
 ### <a name="review-outboundinbound-configuration"></a>Revisar configuração de entrada/saída
 
-Os canais de comunicação entre o Hub IoT e o IoT Edge são sempre configurados para serem enviados. Para a maioria dos cenários do IoT Edge, apenas três conexões são necessárias. O mecanismo de contêiner precisa se conectar ao registro do contêiner (ou registros) que contém as imagens do módulo. O runtime do IoT Edge precisa se conectar ao Hub IoT para recuperar informações de configuração do dispositivo e enviar mensagens e telemetria. E, se você usar o provisionamento automático, o daemon do IoT Edge precisará se conectar ao Serviço de provisionamento de dispositivos. Para obter mais informações, consulte [Regras de configuração de firewall e porta](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
+Os canais de comunicação entre o Hub IoT e o IoT Edge são sempre configurados para serem enviados. Para a maioria dos cenários do IoT Edge, apenas três conexões são necessárias. O mecanismo de contêiner precisa se conectar ao registro do contêiner (ou registros) que contém as imagens do módulo. O runtime do IoT Edge precisa se conectar ao Hub IoT para recuperar informações de configuração do dispositivo e enviar mensagens e telemetria. E, se você usar o provisionamento automático, o daemon do IoT Edge precisará se conectar ao Serviço de provisionamento de dispositivos. Para obter mais informações, consulte [Regras de configuração de firewall e porta](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### <a name="allow-connections-from-iot-edge-devices"></a>Permitir conexões de dispositivos IoT Edge
 
@@ -278,7 +278,7 @@ O mecanismo de contêiner deve ser reiniciado para que as alterações entrem em
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>Opção: ajustar as configurações de log para cada módulo de contêiner
 
-Você pode fazer isso em **criaroptions** de cada módulo. Por exemplo:
+Você pode fazer isso em **criaroptions** de cada módulo. Por exemplo: 
 
 ```yml
 "createOptions": {
