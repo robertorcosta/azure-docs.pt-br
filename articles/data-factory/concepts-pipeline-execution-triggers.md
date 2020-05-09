@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418347"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562195"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 
@@ -283,10 +283,10 @@ A tabela a seguir fornece uma visão geral de alto nível dos principais element
 
 | Propriedade JSON | Tipo | Necessária | Valor padrão | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | cadeia de caracteres | Sim | Nenhum | Data/hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | string | Sim | Nenhum | Data/hora ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **Recurrence** | objeto | Sim | Nenhum | Um objeto de recorrência | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervalo** | número | Não | 1 | 1 a 1000 | `"interval":10` |
-| **Final** | cadeia de caracteres | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **Final** | string | Sim | Nenhum | Um valor de Data/Hora que representa uma hora no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **agendamento** | objeto | Não | Nenhum | Um objeto do agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propriedade startTime
@@ -326,6 +326,9 @@ A seguinte tabela descreve elementos **schedule** em detalhes:
 Os gatilhos de janela em cascata são um tipo de gatilho acionado em um intervalo de tempo periódico a partir de uma hora de início especificada, enquanto mantém o estado. As janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não sobrepostos e contíguos.
 
 Para obter mais informações sobre gatilhos de janela em cascata e, para obter exemplos, consulte [criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md).
+
+> [!NOTE]
+> A janela em cascata do gatilho de execução *espera que a execução do pipeline* disparado seja concluída. Seu estado de execução reflete o estado da execução do pipeline disparado. Por exemplo, se uma execução de pipeline disparada for cancelada, a execução do gatilho da janela em cascata correspondente será marcada como cancelada. Isso é diferente do comportamento "acionar e esquecer" do gatilho de agendamento, que é marcado com êxito desde que uma execução de pipeline seja iniciada.
 
 ## <a name="event-based-trigger"></a>Gatilho baseado em eventos
 

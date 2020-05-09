@@ -13,81 +13,82 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 828357ef9dcb6a59534ede2a2843fc2cb5eaed5e
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
-ms.translationtype: HT
+ms.openlocfilehash: 7a017f9485ec847c0a2c045e4c511b6a68db0cb2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598327"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889941"
 ---
-# <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard"></a>Atualizar para pacotes de conformidade dinâmica em seu painel de conformidade regulatória
+# <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizando o conjunto de padrões em seu painel de conformidade regulatória
 
 A central de segurança do Azure compara continuamente a configuração de seus recursos com os requisitos de padrões, regulamentos e benchmarks do setor. O **painel de conformidade regulatória** fornece informações sobre sua postura de conformidade com base em como você está atendendo a requisitos e controles de conformidade específicos.
 
-Com o recurso de **pacotes de conformidade dinâmicos** , a central *de segurança aprimora automaticamente sua cobertura de padrões do setor ao longo do tempo*. 
 
-Um padrão para o qual você pode acompanhar sua postura de conformidade é o [Azure cis 1.1.0](https://www.cisecurity.org/benchmark/azure/) (mais formalmente, o "cis Microsoft Azure Foundations benchmark versão 1.1.0"). A representação do Azure CIS que aparece inicialmente em seu painel de conformidade depende de um conjunto estático de regras incluído na central de segurança.
+## <a name="overview-of-compliance-packages"></a>Visão geral dos pacotes de conformidade
 
-Os pacotes de conformidade são essencialmente iniciativas definidas em Azure Policy. Eles podem ser atribuídos ao escopo selecionado (assinatura, grupo de gerenciamento e assim por diante). Para ver os dados de conformidade mapeados como avaliações no seu painel, adicione um pacote de conformidade ao seu grupo de gerenciamento ou assinatura de dentro da política de segurança. Adicionar um pacote de conformidade efetivamente atribui a iniciativa de conformidade regulatória ao escopo selecionado. Dessa forma, você pode controlar as iniciativas regulatórias publicadas recentemente como padrões de conformidade em seu painel. Quando a Microsoft lança novo conteúdo para a iniciativa (novas políticas que são mapeadas para mais controles no padrão), o conteúdo adicional é exibido automaticamente em seu painel.
+Os padrões do setor, os padrões regulatórios e os parâmetros de comparação são representados na central de segurança como *pacotes de conformidade*.  Cada pacote é uma iniciativa definida em Azure Policy. Para ver os dados de conformidade mapeados como avaliações no seu painel, adicione um pacote de conformidade ao seu grupo de gerenciamento ou assinatura de dentro da página de **política de segurança** . (Saiba mais sobre Azure Policy e iniciativas em [trabalhando com políticas de segurança](tutorial-security-policy.md).)
 
-O pacote de conformidade dinâmica para o parâmetro de comparação de CIS do Azure, **Azure cis 1.1.0 (novo)**, melhora a versão *estática* original por:
+Quando você tiver integrado um padrão ou um parâmetro de comparação ao escopo selecionado, o padrão aparecerá em seu painel de conformidade regulatória com todos os dados de conformidade associados mapeados como avaliações. Você também pode baixar relatórios de resumo para qualquer um dos padrões que foram integrados.
 
-* Incluindo mais políticas
-* Atualizando automaticamente com a nova cobertura à medida que ela é adicionada 
+A Microsoft também acompanha os padrões regulatórios e aprimora automaticamente sua cobertura em alguns dos pacotes ao longo do tempo. Quando a Microsoft lança novo conteúdo para a iniciativa (novas políticas que são mapeadas para mais controles no padrão), o conteúdo adicional é exibido automaticamente em seu painel.
 
-Atualize para o novo pacote dinâmico, conforme descrito abaixo.
+> [!TIP]
+> Um padrão que melhora ao longo do tempo à medida que a Microsoft lança um novo conteúdo é o **Azure cis 1.1.0 (novo)** (mais formalmente, o [cis Microsoft Azure Foundations benchmark versão 1.1.0](https://www.cisecurity.org/benchmark/azure/)). Você precisará adicioná-lo ao seu painel junto com "Azure CIS 1.1.0", a representação do CIS do Azure que está configurada por padrão em todos os ambientes da central de segurança. Esse pacote depende de um conjunto estático de regras. O pacote mais recente inclui mais políticas e será atualizado automaticamente com o passar do tempo. Atualize para o novo pacote dinâmico, conforme descrito abaixo.
 
-## <a name="adding-a-dynamic-compliance-package"></a>Adicionando um pacote de conformidade dinâmica
 
-As etapas a seguir explicam como adicionar o pacote dinâmico para monitorar sua conformidade com o benchmark do Azure CIS v 1.1.0.   
+## <a name="available-packages"></a>Pacotes disponíveis
 
-### <a name="update-to-the-azure-cis-110-new-dynamic-compliance-package"></a>Atualizar para o pacote de conformidade dinâmica do Azure CIS 1.1.0 (novo) 
+Você pode adicionar padrões como NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official e UK NHS, Canadá Federal PBMM e Azure CIS 1.1.0 (novo) – uma representação mais completa do Azure CIS 1.1.0. 
+
+Além disso, você pode adicionar o **benchmark de segurança do Azure**, as diretrizes de criação da Microsoft e específicas do Azure para práticas recomendadas de segurança e conformidade baseadas em estruturas de conformidade comuns. ([Saiba mais sobre o benchmark de segurança do Azure](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
+
+Padrões adicionais terão suporte no painel à medida que forem disponibilizados. 
+
+
+## <a name="adding-a-regulatory-standard-to-your-dashboard"></a>Adicionando um padrão normativo ao seu painel
+
+As etapas a seguir explicam como adicionar um pacote para monitorar sua conformidade com um dos padrões regulatórios com suporte.
+
+> [!NOTE]
+> Somente os usuários que são proprietário ou colaborador de política têm as permissões necessárias para adicionar padrões de conformidade. 
 
 1. Na barra lateral da central de segurança, selecione **conformidade regulatória** para abrir o painel conformidade regulatória. Aqui, você pode ver os padrões de conformidade atualmente atribuídos às assinaturas atualmente selecionadas.   
 
-1. Na parte superior da página, selecione **gerenciar políticas de conformidade**. Isso abre a página Gerenciamento de política.
+1. Na parte superior da página, selecione **gerenciar políticas de conformidade**. A página Gerenciamento de política é exibida.
 
 1. Selecione a assinatura ou grupo de gerenciamento para o qual você deseja gerenciar a postura de conformidade regulatória. 
 
     > [!TIP]
     > É recomendável selecionar o escopo mais alto para o qual o padrão é aplicável para que os dados de conformidade sejam agregados e acompanhados para todos os recursos aninhados. 
 
-1. Na seção padrões regulatórios do setor &, você verá que o Azure CIS 1.1.0 pode ser atualizado para novo conteúdo. Clique em **Atualizar agora**. 
+1. Para adicionar os padrões relevantes à sua organização, clique em **adicionar mais padrões**. 
 
-1. Opcionalmente, clique em **adicionar mais padrões** para abrir a página **Adicionar padrões de conformidade regulatória** . Lá, você pode pesquisar manualmente para os pacotes do **Azure cis 1.1.0 (novo)** e para outros padrões de conformidade, como:
+1. Na página **Adicionar padrões de conformidade regulatória** , você pode pesquisar pacotes para qualquer um dos padrões disponíveis. Alguns dos padrões disponíveis são:
 
-    - **Benchmark de segurança do Azure** ([detalhes aqui](https://docs.microsoft.com/azure/security/benchmarks/introduction))
+    - **Azure Security Benchmark**
     - **NIST SP 800-53 R4**
     - **CSCF do CSP SWIFT-v2020**
     - **UKO e NHS do Reino Unido**
     - **PBMM do Canadá**
     
-    > [!TIP]
-    > Somente os usuários que são proprietário ou colaborador de política têm as permissões necessárias para adicionar padrões de conformidade. 
-
     ![Adicionando pacotes regulatórios ao painel de conformidade regulatória da central de segurança do Azure](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
-
 1. Na barra lateral da central de segurança, selecione **conformidade regulatória** novamente para voltar ao painel de conformidade regulatória.
-    * O **Azure cis 1.1.0 (novo)** agora aparece em sua lista de padrões de regulamentação & setor. 
-    * A exibição *estática* original da sua conformidade do Azure cis 1.1.0 também permanecerá junto com ele. Ele pode ser removido automaticamente no futuro.
+    * O novo padrão é exibido na sua lista de padrões de regulamentação do setor &. 
+    * Se você adicionou o **Azure cis 1.1.0 (novo)**, a exibição *estática* original da sua conformidade do Azure cis 1.1.0 também permanecerá junto com ele. Ele pode ser removido automaticamente no futuro.
 
     > [!NOTE]
     > Pode levar algumas horas para que um padrão recém-adicionado apareça no painel de conformidade.
 
-
-    [![Painel de conformidade regulatória mostrando o Azure CIS antigo e novo](media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-cis-old-and-new.png)](media/update-regulatory-compliance-packages/security-center-dynamic-regulatory-compliance-cis-old-and-new.png#lightbox)
-
+    [![Painel de conformidade regulatória mostrando o Azure CIS antigo e novo](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu que:
-
-* Como **atualizar os padrões** mostrados em seu painel de conformidade regulatória para os novos pacotes *dinâmicos*
-* Como **adicionar pacotes de conformidade** para monitorar sua conformidade com padrões adicionais. 
+Neste artigo, você aprendeu a **adicionar pacotes de conformidade** para monitorar sua conformidade com padrões adicionais. 
 
 Para obter outros materiais relacionados, consulte os seguintes artigos: 
 
+- [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction)
 - [Painel de conformidade regulatória da central de segurança](security-center-compliance-dashboard.md)
 - [Trabalhando com políticas de segurança](tutorial-security-policy.md)
-- [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como usar as recomendações da Central de Segurança do Azure para ajudar a proteger seus recursos do Azure.
