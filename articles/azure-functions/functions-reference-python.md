@@ -3,12 +3,12 @@ title: Referência de desenvolvedor do Python para o Azure Functions
 description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 936d6455f448e0243c7d4de2b9f1b88673a32798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea128fc7c68b49fc14d796e9a3b91a9dbddd9b26
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185975"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780038"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -22,7 +22,7 @@ Azure Functions espera que uma função seja um método sem estado em seu script
 
 Os dados de gatilhos e associações são associados à função por meio de atributos de `name` método usando a propriedade definida no arquivo *Function. JSON* . Por exemplo, a _Function. JSON_ abaixo descreve uma função simples disparada por uma solicitação `req`http denominada:
 
-:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
 Com base nessa definição, o `__init__.py` arquivo que contém o código da função pode ser semelhante ao exemplo a seguir:
 
@@ -77,6 +77,7 @@ A estrutura de pastas recomendada para um projeto de funções do Python é seme
  | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
+ | - Dockerfile
  tests
 ```
 A pasta principal do projeto\_\_(\_\_aplicativo) pode conter os seguintes arquivos:
@@ -86,6 +87,7 @@ A pasta principal do projeto\_\_(\_\_aplicativo) pode conter os seguintes arquiv
 * *host. JSON*: contém opções de configuração global que afetam todas as funções em um aplicativo de funções. Esse arquivo é publicado do Azure. Nem todas as opções têm suporte ao serem executadas localmente. Para saber mais, consulte [host. JSON](functions-host-json.md).
 * *. funcignore*: (opcional) declara os arquivos que não devem ser publicados no Azure.
 * *. gitignore*: (opcional) declara os arquivos que são excluídos de um repositório git, como local. Settings. JSON.
+* *Dockerfile*: (opcional) usado ao publicar seu projeto em um [contêiner personalizado](functions-create-function-linux-custom-image.md).
 
 Cada função possui seu próprio arquivo de código e arquivo de configuração de associação (function.json). 
 
@@ -334,7 +336,7 @@ O FUNCTIONS_WORKER_PROCESS_COUNT se aplica a cada host que o Functions cria ao e
 
 Para obter o contexto de invocação de uma função durante a execução, [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) inclua o argumento em sua assinatura. 
 
-Por exemplo:
+Por exemplo: 
 
 ```python
 import azure.functions

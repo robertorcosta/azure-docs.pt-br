@@ -3,12 +3,12 @@ title: Descobrir aplicativos, funções e recursos em servidores locais com as m
 description: Saiba como descobrir aplicativos, funções e recursos em servidores locais com a avaliação de servidor de migrações para Azure.
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: e8ce279afc845ebf37ad4ab8b2ce7236cb18137a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9f5489b513cd1405e6b093d7537e4cbcead041
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79453575"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744627"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Descobrir aplicativos, funções e recursos de computador
 
@@ -30,17 +30,47 @@ Descoberta de aplicativos usando migrações para Azure: a avaliação do servid
 5. Verifique os [requisitos](migrate-appliance.md) para implantar o dispositivo de migrações para Azure.
 6. [Verifique o suporte e os requisitos](migrate-support-matrix-vmware.md#application-discovery) para a descoberta de aplicativos.
 
-## <a name="prepare-for-app-discovery"></a>Preparar para a descoberta de aplicativos
 
-1. [Prepare-se para a implantação do dispositivo](tutorial-prepare-vmware.md). A preparação inclui a verificação das configurações do dispositivo e a configuração de uma conta que será usada pelo dispositivo para acessar vCenter Server.
-2. Verifique se você tem uma conta de usuário (uma para servidores Windows e Linux) com permissões de administrador para computadores nos quais você deseja descobrir aplicativos, funções e recursos.
-3. [Implante o dispositivo de migrações para Azure](how-to-set-up-appliance-vmware.md) para iniciar a descoberta. Para implantar o dispositivo, você baixa e importa um modelo OVA no VMware para criar o dispositivo como uma VM VMware. Você configura o dispositivo e o registra com as migrações para Azure.
-2. Ao implantar o dispositivo, para iniciar a descoberta contínua, especifique o seguinte:
+
+## <a name="deploy-the-azure-migrate-appliance"></a>Implantar o dispositivo de migrações para Azure
+
+1. [Examine](migrate-appliance.md#appliance---vmware) os requisitos para implantar o dispositivo de migrações para Azure.
+2. Examine as URLs do Azure que o dispositivo precisará acessar nas nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais](migrate-appliance.md#government-cloud-urls).
+3. [Examine os dados](migrate-appliance.md#collected-data---vmware) que o dispositivo coleta durante a descoberta e a avaliação.
+4. [Observe](migrate-support-matrix-vmware.md#port-access) os requisitos de acesso da porta para o dispositivo.
+5. [Implante o dispositivo de migrações para Azure](how-to-set-up-appliance-vmware.md) para iniciar a descoberta. Para implantar o dispositivo, você baixa e importa um modelo OVA no VMware para criar o dispositivo como uma VM VMware. Você configura o dispositivo e o registra com as migrações para Azure.
+6. Ao implantar o dispositivo, para iniciar a descoberta contínua, especifique o seguinte:
     - O nome do vCenter Server ao qual você deseja se conectar.
     - Credenciais que você criou para o dispositivo se conectar ao vCenter Server.
     - As credenciais de conta que você criou para o dispositivo se conectar a VMs do Windows/Linux.
 
 Depois que o dispositivo é implantado e você forneceu credenciais, o dispositivo inicia a descoberta contínua de metadados de VM e dados de desempenho, juntamente com a descoberta de aplicativos, recursos e funções.  A duração da descoberta de aplicativos depende de quantas VMs você tem. Normalmente leva uma hora para a descoberta de aplicativos de 500 VMs.
+
+## <a name="prepare-a-user-account"></a>Preparar uma conta de usuário
+
+Crie uma conta a ser usada para descoberta e adicione-a ao dispositivo.
+
+### <a name="create-a-user-account-for-discovery"></a>Criar uma conta de usuário para descoberta
+
+Configure uma conta de usuário para que a avaliação do servidor possa acessar a VM para descoberta. [Saiba mais](migrate-support-matrix-vmware.md#application-discovery) sobre os requisitos da conta.
+
+
+### <a name="add-the-user-account-to-the-appliance"></a>Adicionar a conta de usuário ao dispositivo
+
+Adicione a conta de usuário ao dispositivo.
+
+1. Abra o aplicativo de gerenciamento de dispositivo. 
+2. Navegue até o painel **fornecer detalhes do vCenter** .
+3. Em **descobrir aplicativo e dependências em VMs**, clique em **Adicionar credenciais**
+3. Escolha o **sistema operacional**, forneça um nome amigável para a conta e a**senha** do **nome**/de usuário
+6. Clique em **Save** (Salvar).
+7. Clique em **salvar e iniciar descoberta**.
+
+    ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+
+
+
+
 
 ## <a name="review-and-export-the-inventory"></a>Revisar e exportar o inventário
 
