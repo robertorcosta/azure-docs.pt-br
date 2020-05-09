@@ -14,16 +14,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 73a878d791997169b0823bb949e78bdced77cae6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 5d36ba05d2138a06ebb2ef4e49aadb6032b62b92
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509679"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627034"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas
 
-Os tamanhos de VM otimizados para GPU são máquinas virtuais especializadas disponíveis com um ou vários GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho de visualização e com muita computação e muitos gráficos. Este artigo fornece informações sobre o número e o tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda de rede também são incluídos para cada tamanho neste agrupamento.
+Os tamanhos de VM otimizadas para GPU são máquinas virtuais especializadas disponíveis com GPUs únicas, múltiplas ou fracionárias. Esses tamanhos são projetados para cargas de trabalho de visualização e com muita computação e muitos gráficos. Este artigo fornece informações sobre o número e o tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda de rede também são incluídos para cada tamanho neste agrupamento.
 
 - Os tamanhos da série [NC](nc-series.md), [NCv2](ncv2-series.md)e [NCv3](ncv3-series.md) são otimizados para aplicativos e algoritmos com uso intensivo de computação e rede. Alguns exemplos são aplicativos baseados em CUDA e OpenCL e simulações, ia e aprendizado profundo. A série NCv3 concentra-se em cargas de trabalho de computação de alto desempenho com a tecnologia das GPUs Tesla V100 da NVIDIA. A série NC usa o processador Intel Xeon E5-2690 v3 2,60 GHz (Haswell) e as VMs da série NCv2 e NCv3 usam o processador Intel Xeon E5-2690 V4 (Broadwell).
 
@@ -37,11 +37,11 @@ Os tamanhos de VM otimizados para GPU são máquinas virtuais especializadas dis
 
 Para aproveitar os recursos de GPU das VMs da série N do Azure, os drivers NVIDIA ou AMD GPU devem ser instalados.
 
-A [Extensão de Driver de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala drivers CUDA ou GRID NVIDIA apropriados em VMs da série N. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como Azure PowerShell ou modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação. Para obter informações gerais sobre extensões de VM, confira [Recursos e extensões de máquina virtual do Azure](/azure/virtual-machines/extensions/overview).
+- Para VMs apoiadas por GPUs NVIDIA, a [extensão de Driver Nvidia GPU](/azure/virtual-machines/extensions/hpccompute-gpu-windows) instala drivers NVIDIA CUDA ou Grid apropriados. Instale ou gerencie a extensão usando o portal do Azure ou ferramentas, como Azure PowerShell ou modelos do Azure Resource Manager. Confira a [documentação da Extensão de Driver de GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) para saber quais são os sistemas operacionais compatíveis e as etapas de implantação. Para obter informações gerais sobre extensões de VM, confira [Recursos e extensões de máquina virtual do Azure](/azure/virtual-machines/extensions/overview).
 
-Se você optar por instalar manualmente os drivers NVIDIA GPU, consulte [configuração do driver GPU da série n para Windows](/azure/virtual-machines/windows/n-series-driver-setup) ou [instalação do driver de GPU da série n para Linux](/azure/virtual-machines/linux/n-series-driver-setup) para sistemas operacionais, Drivers, instalação e etapas de verificação com suporte.
+   Como alternativa, você pode instalar os drivers NVIDIA GPU manualmente. Confira [instalar drivers NVIDIA GPU em VMs da série n executando o Windows](/azure/virtual-machines/windows/n-series-driver-setup) ou [instalar drivers NVIDIA GPU em VMs da série n executando o Linux](/azure/virtual-machines/linux/n-series-driver-setup) para sistemas operacionais, Drivers, instalação e etapas de verificação com suporte.
 
-Para instalar manualmente os drivers do AMD GPU, consulte [configuração do driver da GPU AMD da série N para Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) para sistemas operacionais, Drivers, instalação e etapas de verificação com suporte.
+- Para VMs apoiadas por GPUs AMD, consulte [instalar drivers AMD GPU em VMs da série N executando o Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) para sistemas operacionais, Drivers, instalação e etapas de verificação com suporte.
 
 ## <a name="deployment-considerations"></a>Considerações de implantação
 

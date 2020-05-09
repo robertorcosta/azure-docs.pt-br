@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 8c2ef8d174e8449b88f2257074bee69c3f45c6d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 590ad6a52d768c7e59d8d97691e146205e43cadd
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181932"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628701"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Políticas de segurança de dados e privacidade para o Google Connectors em aplicativos lógicos do Azure
 
@@ -34,7 +34,7 @@ Se você tiver aplicativos lógicos que usam o conector do Gmail, receberá um e
 
 Nessa política, quando você usa uma conta de consumidor do Gmail, você pode usar o conector do Gmail com apenas serviços específicos do Google aprovados, que estão sujeitos a alterações. Nossas equipes de engenharia continuam trabalhando com o Google para adicionar mais serviços a essa lista. Por enquanto, aqui estão os gatilhos, as ações e os conectores aprovados pelo Google que você pode usar no mesmo fluxo de trabalho do aplicativo lógico com o conector do gmail ao usar uma conta de consumidor do Gmail:
 
-* Gatilhos e ações internos de aplicativos lógicos: lote, controle, operações de dados, data e hora, arquivo simples, HTTP, Liquid, solicitação, agenda, variáveis e XML
+* Gatilhos e ações internos de aplicativos lógicos: lote, controle, operações de dados, data e hora, arquivo simples, Liquid, solicitação, agendamento, variáveis e XML
 
 * Serviços do Google: gmail, Google Agenda, contatos do Google, Google Drive, Google sheets e tarefas do Google
 

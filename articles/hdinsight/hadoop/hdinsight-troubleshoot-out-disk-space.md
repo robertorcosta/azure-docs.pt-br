@@ -1,18 +1,18 @@
 ---
 title: O nó do cluster fica sem espaço em disco no Azure HDInsight
 description: Solução de problemas de Apache Hadoop de espaço em disco do nó de cluster no Azure HDInsight.
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/05/2019
-ms.openlocfilehash: fbfd82473b68f5032d19834ac809191d498a5a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 04/30/2020
+ms.openlocfilehash: ead79ca0a37a270f03a305064c80426553db59ca
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894121"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628530"
 ---
 # <a name="scenario-cluster-node-runs-out-of-disk-space-in-azure-hdinsight"></a>Cenário: o nó de cluster é executado sem espaço em disco no Azure HDInsight
 
@@ -36,7 +36,17 @@ O cache de aplicativos Apache yarn pode ter consumido todo o espaço em disco di
 
 1. Para atenuar o problema, encerre o aplicativo, que liberará o espaço em disco usado por esse aplicativo.
 
-1. Para resolver o problema por fim, Otimize seu aplicativo.
+1. Se o problema ocorrer frequentemente nos nós de trabalho, você poderá ajustar as configurações de cache local YARN no cluster.
+
+    Abra a interface do usuário do Ambari navegue até YARN--> configurações--> avançado.  
+    Adicione as duas propriedades a seguir à seção Custom yarn-site. xml e salve:
+
+    ```
+    yarn.nodemanager.localizer.cache.target-size-mb=2048
+    yarn.nodemanager.localizer.cache.cleanup.interval-ms=300000
+    ```
+
+1. Se a acima não corrigir permanentemente o problema, Otimize seu aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
