@@ -9,18 +9,18 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: a0d5bf795e4759a105b9a235770f37aa10bd6751
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385539"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995033"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Treinamento distribuído com o Azure Machine Learning
 
 Neste artigo, você aprenderá sobre o treinamento distribuído e como Azure Machine Learning dá suporte a ele para modelos de aprendizado profundo. 
 
-No treinamento distribuído, a carga de trabalho para treinar um modelo é dividida e compartilhada entre vários mini processadores, chamados de nós de trabalho. Esses nós de trabalho funcionam em paralelo para acelerar o treinamento de modelo. O treinamento distribuído pode ser usado para modelos de ML tradicionais, mas é mais adequado para tarefas intensivas de computação e tempo, como [aprendizado profundo](concept-deep-learning-vs-machine-learning.md) para o treinamento de redes neurais profundas.
+No treinamento distribuído, a carga de trabalho para treinar um modelo é dividida e compartilhada entre vários mini processadores, chamados de nós de trabalho. Esses nós de trabalho funcionam em paralelo para acelerar o treinamento de modelo. O treinamento distribuído pode ser usado para modelos de ML tradicionais, mas é mais adequado para tarefas intensivas de computação e tempo, como [aprendizado profundo](concept-deep-learning-vs-machine-learning.md) para o treinamento de redes neurais profundas. 
 
 ## <a name="deep-learning-and-distributed-training"></a>Aprendizado avançado e treinamento distribuído 
 
@@ -36,7 +36,9 @@ Para modelos de ML que não exigem treinamento distribuído, consulte [treinar m
 
 O paralelismo de dados é o mais fácil de implementar as duas abordagens de treinamento distribuídas e é suficiente para a maioria dos casos de uso.
 
-Nessa abordagem, os dados são divididos em partições, em que o número de partições é igual ao número total de nós disponíveis, no cluster de computação. O modelo é copiado em cada um desses nós de trabalho, e cada operador opera em seu próprio subconjunto dos dados. Tenha em mente que cada nó precisa ter a capacidade de dar suporte ao modelo que está sendo treinado, ou seja, o modelo precisa se ajustar totalmente a cada nó.
+Nessa abordagem, os dados são divididos em partições, em que o número de partições é igual ao número total de nós disponíveis, no cluster de computação. O modelo é copiado em cada um desses nós de trabalho, e cada operador opera em seu próprio subconjunto dos dados. Tenha em mente que cada nó precisa ter a capacidade de dar suporte ao modelo que está sendo treinado, ou seja, o modelo precisa se ajustar totalmente a cada nó. O diagrama a seguir fornece uma demonstração visual dessa abordagem.
+
+![Paralelismo de dados-conceito-diagrama](./media/concept-distributed-training/distributed-training.svg)
 
 Cada nó computa de forma independente os erros entre suas previsões para seus exemplos de treinamento e as saídas rotuladas. Por sua vez, cada nó atualiza seu modelo com base nos erros e deve comunicar todas as suas alterações aos outros nós para atualizar seus modelos correspondentes. Isso significa que os nós de trabalho precisam sincronizar os parâmetros do modelo, ou gradientes, no final da computação do lote para garantir que eles estejam treinando um modelo consistente. 
 

@@ -4,17 +4,17 @@ description: Saiba como treinar um modelo, convertê-lo em ONNX, implantá-lo na
 keywords: implantar borda do banco de dados SQL
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 04/23/2020
-ms.openlocfilehash: aa2bf5473bf5bd76cfdad39310ce793ab3921652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de1f7db9ca9b8e8d4228ec822a92d43e9b7853f8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129289"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996090"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Implantar e fazer previsões com um modelo ONNX na visualização de borda do banco de dados SQL
 
