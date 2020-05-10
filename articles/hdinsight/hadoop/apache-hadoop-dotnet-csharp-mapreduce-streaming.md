@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: c8c4e35fb14d834721a29037c9ac12d8160507d9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 28817489af535ee45a6cc06cc5fe9d4fde9da8eb
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209087"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996828"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com fluxo de MapReduce no Apache Hadoop no HDInsight
 
@@ -23,7 +23,7 @@ Apache Hadoop streaming permite executar trabalhos MapReduce usando um script ou
 
 ## <a name="net-on-hdinsight"></a>.NET no HDInsight
 
-Os clusters HDInsight usam [monohttps://mono-project.com) (](https://mono-project.com) para executar aplicativos .net. A versão 4.2.1 do Mono está incluída no HDInsight versão 3.6. Para obter mais informações sobre a versão do mono incluída com o HDInsight, consulte [Apache Hadoop componentes disponíveis com diferentes versões do HDInsight](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+Os clusters HDInsight usam [monohttps://mono-project.com) (](https://mono-project.com) para executar aplicativos .net. A versão 4.2.1 do Mono está incluída no HDInsight versão 3.6. Para obter mais informações sobre a versão do mono incluída com o HDInsight, consulte [Apache Hadoop componentes disponíveis com diferentes versões do HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).
 
 Para obter mais informações sobre compatibilidade de Mono com versões do .NET Framework, consulte [Compatibilidade de Mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -175,7 +175,7 @@ Em seguida, você precisa carregar o *mapeador* e os aplicativos *redutor* no ar
 
 O procedimento a seguir descreve como executar um trabalho MapReduce usando uma sessão SSH:
 
-1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando a seguir substituindo CLUSTERname pelo nome do cluster e, em seguida, digite o comando:
+1. Use o [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) para se conectar ao cluster. Edite o comando abaixo substituindo CLUSTERNAME pelo nome do cluster e, em seguida, insira o comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net

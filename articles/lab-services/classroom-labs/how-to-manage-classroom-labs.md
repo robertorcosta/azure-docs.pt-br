@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: ed1c2f14ca5a791743a95cc50e5af0c29c74fefe
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 126a6f2f26d8eaaf6ea1a85f029e56bc8f4432f3
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983305"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996771"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -40,7 +40,7 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 
         Se você tiver entrado usando credenciais do proprietário da conta do laboratório, verá uma opção para habilitar mais imagens para o laboratório. Para obter mais informações, consulte [Habilitar imagens no momento da criação do laboratório](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     4. Examine o **preço total por hora** exibido na página. 
-    6. Selecione **Salvar**.
+    6. Clique em **Salvar**.
 
         ![Janela Novo laboratório](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 
@@ -104,14 +104,15 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
 | Pequena | 2 | 3,5 GB | Esse tamanho é mais adequado para linha de comando, abertura de navegador da Web, servidores Web de tráfego baixo, bancos de dados pequenos a médios. |
 | Médio | 4 | 7 GB | Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise | 
 | Médio (virtualização aninhada) | 4 | 16 GB | Esse tamanho é mais adequado para bancos de dados relacionais, cache na memória e análise. Esse tamanho também dá suporte à virtualização aninhada. <p>Esse tamanho pode ser usado em cenários em que cada aluno precisa de várias VMs. Os professores podem usar a virtualização aninhada para configurar algumas máquinas virtuais aninhadas de pequeno tamanho dentro da máquina virtual. </p> |
-| GPU pequena (computação) | 6 | 56 GB | Esse tamanho é mais adequado para aplicativos com uso intensivo de computação e rede, como inteligência artificial e aplicativos de aprendizado profundo. | 
+| GPU pequena (computação) | 6 | 56 GB | <p>Esse tamanho é mais adequado para aplicativos com uso intensivo de computação e rede, como inteligência artificial e aplicativos de aprendizado profundo.</p><p>Azure Lab Services instala e configura automaticamente os drivers de GPU necessários para você quando você cria um laboratório com imagens de GPU. </p> | 
 | GPU pequena (visualização) | 6 | 56 GB | Esse tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando estruturas como OpenGL e DirectX. | 
 | grande | 8 | 16 GB | Esse tamanho é mais adequado para aplicativos que precisam de CPUs mais rápidas, melhor desempenho de disco local, bancos de dados grandes, caches de memória grande. |
 | Grande (virtualização aninhada) | 8 | 32 GB | Esse tamanho é mais adequado para aplicativos que precisam de CPUs mais rápidas, melhor desempenho de disco local, bancos de dados grandes, caches de memória grande. Esse tamanho também dá suporte à virtualização aninhada. |  
 | GPU média (visualização) | 12 | 112 GB | Esse tamanho é mais adequado para visualização remota, streaming, jogos, codificação usando estruturas como OpenGL e DirectX. | 
 
 > [!NOTE]
-> Azure Lab Services instala e configura automaticamente os drivers de GPU necessários para você quando você cria um laboratório com imagens de GPU.  
+> Talvez você não veja alguns desses tamanhos de VM na lista ao criar um laboratório de sala de aula. A lista é preenchida com base na capacidade atual do local do laboratório. Se o criador da conta de laboratório [permitir que os criadores de laboratório escolham um local para o laboratório](allow-lab-creator-pick-lab-location.md), você poderá tentar escolher um local diferente para o laboratório e ver se o tamanho da VM está disponível. 
+
 
 ## <a name="view-all-classroom-labs"></a>Exibir todos os laboratórios de sala de aula
 1. Navegue até [Portal do Azure Lab Services](https://labs.azure.com).

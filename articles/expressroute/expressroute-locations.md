@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 63226089a0a87660f0796cdfef2b729070ca01e3
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: d7af6bd0f36f5a1fc11acbd7906088d7d5c17d32
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837848"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996794"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -43,7 +43,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Região geopolítica** | **Regiões do Azure** | **Locais do ExpressRoute** |
 | --- | --- | --- |
 | **Governo da Austrália** |Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
-| **Europa** | França central, sul da França, Norte da Alemanha, Centro-oeste da Alemanha, Europa Setentrional, EUA, leste da Noruega, oeste da Noruega, Norte da Suíça, Oeste da Suíça, oeste do Reino Unido, sul do Reino Unido, Europa Ocidental |Amsterdã, Amsterdam2, Berlim, Copenhague, Dublin, Frankfurt, Geneva, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
+| **Ocidental** | França central, sul da França, Norte da Alemanha, Centro-oeste da Alemanha, Europa Setentrional, EUA, leste da Noruega, oeste da Noruega, Norte da Suíça, Oeste da Suíça, oeste do Reino Unido, sul do Reino Unido, Europa Ocidental |Amsterdã, Amsterdam2, Berlim, Copenhague, Dublin, Frankfurt, Geneva, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
 | **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova York, San Antonio, Seattle, vale do silício, silício Valley2, Washington DC, Washington DC2, Montreal, cidade de Quebec, Toronto, Vancouver |
 | **Ásia** | Leste da Ásia, Sudeste Asiático | Bancoc, Hong Kong, Hong Kong2, Jacarta, Kuala Lumpur, Cingapura, Cingapura2, Taipé |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -92,7 +92,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Com suporte |Com suporte |Amsterdam2, Chicago, Frankfurt, Hong Kong, Las Vegas, London2, Nova York, Paris, San Antonio, vale do silício, Tóquio, Toronto, Washington, Washington, D.c. DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Com suporte |Com suporte |Hong Kong, Taipé |
 | **China Mobile International** |Com suporte |Com suporte | Singapura |
-| **China Telecom Global** |Com suporte |Com suporte |RAE de Hong Kong |
+| **China Telecom Global** |Com suporte |Com suporte |Hong Kong, Hong Kong2 |
 | **Unicom global da China** |Com suporte |Com suporte | Cingapura2 |
 | **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Com suporte |Com suporte |Taipé |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Com suporte |Com suporte |Chicago, Dallas, Montreal, Toronto, Vancouver, Washington, D.c. |
@@ -336,9 +336,9 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 
 | **Integrador de Sistema** | **Continente** |
 | --- | --- |
-| **[Altogee](https://altogee.be/diensten/express-route/)** | Europa |
+| **[Altogee](https://altogee.be/diensten/express-route/)** | Ocidental |
 | **[Avanade Inc.](https://www.avanade.com/)** | Ásia, Europa, América do Norte, América do Sul |
-| **[Bright Skies GmbH](https://bskies.io/expressroute)** | Europa
+| **[Bright Skies GmbH](https://bskies.io/expressroute)** | Ocidental
 | **[Ensyst](https://www.ensyst.com.au)** | Ásia
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | América do Norte |
 | **[FlexManage](https://www.flexmanage.com/cloud)** | América do Norte |
@@ -346,13 +346,13 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 | **[O grupo de consultoria de TI](https://itconsult.com.au/)** | Austrália |
 | **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Austrália |
 | **[Serviços de Mensagem](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europa (Alemanha) |
-| **[Nelite](https://www.exakis-nelite.com/offres/)** | Europa |
-| **[Nova Assinatura](https://newsignature.com/technologies/express-route/)** | Europa |
+| **[Nelite](https://www.exakis-nelite.com/offres/)** | Ocidental |
+| **[Nova Assinatura](https://newsignature.com/technologies/express-route/)** | Ocidental |
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Ásia |
-| **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europa |
+| **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Ocidental |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | América do Norte |
 | **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | América do Norte |
-| **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europa |
+| **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Ocidental |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | América do Sul |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Austrália |
 

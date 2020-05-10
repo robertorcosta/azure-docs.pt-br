@@ -1,27 +1,29 @@
 ---
-title: Tutorial – um exemplo de aplicativo de API do SQL assíncrono de ponta a ponta com o feed de alterações
-description: Este tutorial descreve um aplicativo Java simples de API do SQL que insere documentos em um contêiner do Azure Cosmos DB, mantendo uma exibição materializada do contêiner usando o feed de alterações.
+title: Criar um exemplo de aplicativo do SDK do Java de ponta a ponta Azure Cosmos DB usando o feed de alterações
+description: Este guia de instruções o orienta através de um aplicativo simples de API do SQL Java que insere documentos em um contêiner Azure Cosmos DB, mantendo uma exibição materializada do contêiner usando o feed de alterações.
 author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: tutorial
-ms.date: 04/01/2020
+ms.topic: conceptual
+ms.date: 05/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5eab523dde2a13a85b0c8ff5bcbb3ecb5912e78e
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
-ms.translationtype: HT
+ms.openlocfilehash: 9e28eb4f766677ebbd5cfcc5f61fe54e53a45523
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80587213"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996505"
 ---
-# <a name="tutorial---an-end-to-end-async-java-sql-api-application-sample-with-change-feed"></a>Tutorial – um exemplo de aplicativo de API do SQL assíncrono de ponta a ponta com o feed de alterações
+# <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Como criar um aplicativo Java que usa Azure Cosmos DB API do SQL e o processador do feed de alterações
 
-Este tutorial descreve um aplicativo Java simples de API do SQL que insere documentos em um contêiner do Azure Cosmos DB, mantendo uma exibição materializada do contêiner usando o feed de alterações.
+> [!IMPORTANT]  
+> Para obter mais informações sobre Azure Cosmos DB SDK do Java v4, consulte as notas de versão do Azure Cosmos DB SDK do Java v4, o [repositório do Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), a Azure Cosmos DB [dicas de desempenho](performance-tips-java-sdk-v4-sql.md)do SDK do Java v4 e Azure Cosmos DB guia de [solução de problemas](troubleshoot-java-sdk-v4-sql.md)do SDK do Java v4.
+>
+
+Este guia de instruções o orienta através de um aplicativo Java simples que usa a API do SQL Azure Cosmos DB para inserir documentos em um contêiner de Azure Cosmos DB, mantendo uma exibição materializada do contêiner usando o feed de alterações e o processador do feed de alterações. O aplicativo Java se comunica com a API do SQL Azure Cosmos DB usando Azure Cosmos DB SDK do Java v4.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-* PC
 
 * O URI e a chave da sua conta do Azure Cosmos DB
 
@@ -45,8 +47,6 @@ Caso ainda não tenha feito isso, clone o repositório de exemplo do aplicativo:
 git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example.git
 ```
 
-> Você tem a opção de trabalhar neste Início Rápido com o SDK do Java 4.0 ou o SDK do Java 3.7.0. **Caso deseje usar o SDK do Java 3.7.0, no terminal, digite ```git checkout SDK3.7.0```** . Caso contrário, permaneça no branch ```master```, que usa como padrão o SDK do Java 4.0.
-
 Abra um terminal no diretório do repositório. Crie o aplicativo executando
 
 ```bash
@@ -55,7 +55,7 @@ mvn clean package
 
 ## <a name="walkthrough"></a>Passo a passo
 
-1. Como uma primeira verificação, você deve ter uma conta do Azure Cosmos DB. Abra o **portal do Azure** no navegador, acesse a sua conta do Azure Cosmos DB e, no painel esquerdo, navegue até **Data Explorer**.
+1. Como uma primeira verificação, você deve ter uma conta do Azure Cosmos DB. Abra o **portal do Azure** no navegador, vá para sua conta do Azure Cosmos DB e, no painel esquerdo, navegue até **Data Explorer**.
 
     ![Conta do Azure Cosmos DB](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
 
@@ -71,7 +71,7 @@ mvn clean package
     Press enter to create the grocery store inventory system...
     ```
 
-    e, em seguida, volte ao portal do Azure Data Explorer no navegador. Você verá que um banco de dados **GroceryStoreDatabase** foi adicionado com três contêineres vazios: 
+    em seguida, retorne ao portal do Azure Data Explorer no navegador. Você verá que um banco de dados **GroceryStoreDatabase** foi adicionado com três contêineres vazios: 
 
     * **InventoryContainer**: o registro de inventário do nosso supermercado de exemplo, particionado no item ```id```, que é um UUID.
     * **InventoryContainer-pktype**: uma exibição materializada do registro de inventário, otimizada para consultas no item ```type```
@@ -89,8 +89,8 @@ mvn clean package
 
     Pressione ENTER. Agora, o seguinte bloco de código executará e inicializará o processador do feed de alterações em outro thread: 
 
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>API assíncrona do SDK do Java V4 (Maven com. Azure:: Azure-Cosmos)
 
-    **SDK do Java 4.0**
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
     changeFeedProcessorInstance.start()
@@ -103,28 +103,16 @@ mvn clean package
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start
     ```
 
-    **SDK do Java 3.7.0**
-    ```java
-    changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
-    changeFeedProcessorInstance.start()
-        .subscribeOn(Schedulers.elastic())
-        .doOnSuccess(aVoid -> {
-            isProcessorRunning.set(true);
-        })
-        .subscribe();
-
-    while (!isProcessorRunning.get()); //Wait for Change Feed processor start    
-    ```
-
     ```"SampleHost_1"``` é o nome do trabalho do processador do feed de alterações. ```changeFeedProcessorInstance.start()``` é o que realmente inicia o processador do feed de alterações.
 
-    Volte ao portal do Azure Data Explorer no navegador. No contêiner **InventoryContainer-concessões**, clique em **items** para ver o conteúdo. Você verá que o processador do feed de alterações preencheu o contêiner de concessão, ou seja, o processador atribuiu ao trabalho ```SampleHost_1``` uma concessão em algumas partições do **InventoryContainer**.
+    Retorne ao portal do Azure Data Explorer no navegador. No contêiner **InventoryContainer-concessões**, clique em **items** para ver o conteúdo. Você verá que o processador do feed de alterações preencheu o contêiner de concessão, ou seja, o processador atribuiu ao trabalho ```SampleHost_1``` uma concessão em algumas partições do **InventoryContainer**.
 
     ![Concessões](media/create-sql-api-java-changefeed/cosmos_leases.JPG)
 
 1. Pressione ENTER novamente no terminal. Isso disparará dez documentos a serem inseridos no **InventoryContainer**. Cada inserção de documento é exibida no feed de alterações como JSON; o seguinte código de retorno de chamada processa esses eventos espelhando os documentos JSON em uma exibição materializada:
 
-    **SDK do Java 4.0**
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>API assíncrona do SDK do Java V4 (Maven com. Azure:: Azure-Cosmos)
+
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosAsyncContainer feedContainer, CosmosAsyncContainer leaseContainer) {
         ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
@@ -150,33 +138,7 @@ mvn clean package
     }
     ```
 
-    **SDK do Java 3.7.0**
-    ```java
-    public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosContainer feedContainer, CosmosContainer leaseContainer) {
-        ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
-        cfOptions.feedPollDelay(Duration.ofMillis(100));
-        cfOptions.startFromBeginning(true);
-        return ChangeFeedProcessor.Builder()
-            .options(cfOptions)
-            .hostName(hostName)
-            .feedContainer(feedContainer)
-            .leaseContainer(leaseContainer)
-            .handleChanges((List<CosmosItemProperties> docs) -> {
-                for (CosmosItemProperties document : docs) {
-                        //Duplicate each document update from the feed container into the materialized view container
-                        updateInventoryTypeMaterializedView(document);
-                }
-
-            })
-            .build();
-    }
-
-    private static void updateInventoryTypeMaterializedView(CosmosItemProperties document) {
-        typeContainer.upsertItem(document).subscribe();
-    }    
-    ```
-
-1. Permita que o código seja executado de 5 a 10 segundos. Em seguida, volte ao portal do Azure Data Explorer e navegue até **InventoryContainer > items**. Você deverá ver que os itens estão sendo inseridos no contêiner de inventário; observe a chave de partição (```id```).
+1. Permita que o código seja executado de 5 a 10 segundos. Em seguida, retorne ao portal do Azure Data Explorer e navegue até **InventoryContainer > itens**. Você deverá ver que os itens estão sendo inseridos no contêiner de inventário; observe a chave de partição (```id```).
 
     ![Contêiner do feed](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
@@ -184,41 +146,14 @@ mvn clean package
 
     ![Exibição materializada](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
 
-1. Vamos excluir um documento de **InventoryContainer** e de **InventoryContainer-pktype** usando apenas uma só chamada ```upsertItem()```. Primeiro, dê uma olhada no portal do Azure Data Explorer. Excluiremos o documento para o qual ```/type == "plums"```; ele é circulado em vermelho abaixo
+1. Vamos excluir um documento de **InventoryContainer** e de **InventoryContainer-pktype** usando apenas uma só chamada ```upsertItem()```. Primeiro, dê uma olhada portal do Azure Data Explorer. Excluiremos o documento para o qual ```/type == "plums"```; ele é circulado em vermelho abaixo
 
     ![Exibição materializada](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
 
     Pressione ENTER novamente para chamar a função ```deleteDocument()``` no código de exemplo. Essa função, mostrada abaixo, faz upsert de uma nova versão do documento com ```/ttl == 5```, que define a TTL (vida útil) do documento como 5 segundos. 
     
-    **SDK do Java 4.0**
-    ```java
-    public static void deleteDocument() {
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>API assíncrona do SDK do Java V4 (Maven com. Azure:: Azure-Cosmos)
 
-        String jsonString =    "{\"id\" : \"" + idToDelete + "\""
-                + ","
-                + "\"brand\" : \"Jerry's\""
-                + ","
-                + "\"type\" : \"plums\""
-                + ","
-                + "\"quantity\" : \"50\""
-                + ","
-                + "\"ttl\" : 5"
-                + "}";
-
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode document = null;
-
-        try {
-            document = mapper.readTree(jsonString);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
-    }    
-    ```
-
-    **SDK do Java 3.7.0**
     ```java
     public static void deleteDocument() {
 

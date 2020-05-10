@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983016"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996654"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
 
@@ -54,7 +54,7 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Clique na assinatura da qual você deseja listar os proprietários.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Atribuições de funções** para visualizar todas as atribuições de função para essa assinatura.
 
@@ -68,7 +68,7 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Clique no recurso específico.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Atribuições de função** para visualizar todas as atribuições de função nesse escopo.
 
@@ -84,7 +84,7 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
 
 1. Clique no recurso específico.
 
-1. Clique em **controle de acesso (iam)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Verificar acesso**.
 
@@ -130,7 +130,7 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
 
 ## <a name="list-number-of-role-assignments"></a>Listar número de atribuições de função
 
-Você pode ter até **2000** atribuições de função em cada assinatura. Para ajudá-lo a manter o controle desse limite, a guia **atribuições de função** inclui um gráfico que lista o número de atribuições de função para a assinatura atual.
+Você pode ter até **2000** atribuições de função em cada assinatura. Esse limite inclui atribuições de função na assinatura, no grupo de recursos e nos escopos de recursos. Para ajudá-lo a manter o controle desse limite, a guia **atribuições de função** inclui um gráfico que lista o número de atribuições de função para a assinatura atual.
 
 ![Controle de acesso – número do gráfico de atribuições de função](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927965"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997024"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Solucionar problemas do agente de atualização do Linux
 
@@ -82,14 +82,14 @@ Essa verificação determina se o agente está se comunicando com vários worksp
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-Essa verificação verifica se o agente de Log Analytics para Linux tem o pacote Hybrid Runbook Worker. Este pacote é necessário para o Gerenciamento de Atualizações trabalhar.
+Essa verificação verifica se o agente de Log Analytics para Linux tem o pacote Hybrid Runbook Worker. Este pacote é necessário para o Gerenciamento de Atualizações trabalhar. Para saber mais, consulte [o agente de log Analytics para Linux não está em execução](hybrid-runbook-worker.md#oms-agent-not-running).
+
+Gerenciamento de Atualizações baixa Hybrid Runbook Worker pacotes do ponto de extremidade de operações. Portanto, se o Hybrid Runbook Worker não estiver em execução e o [ponto de extremidade de operações](#operations-endpoint) falhar, a atualização poderá falhar.
 
 ### <a name="hybrid-runbook-worker-status"></a>Status do Hybrid Runbook Worker
 
-Essa verificação garante que o Hybrid Runbook Worker esteja em execução no computador. Os processos a seguir devem estar presentes se o Hybrid Runbook Worker estiver sendo executado corretamente. Para saber mais, confira [solução de problemas do agente de log Analytics para Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+Essa verificação garante que o Hybrid Runbook Worker esteja em execução no computador. Os processos no exemplo abaixo devem estar presentes se o Hybrid Runbook Worker estiver sendo executado corretamente.
 
-> [!NOTE]
-> Se o Hybrid Runbook Worker não estiver em execução e o ponto de extremidade de operações tiver falhado, a atualização poderá falhar. Gerenciamento de Atualizações baixa os pacotes de trabalho híbrido do ponto de extremidade de operações.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -107,13 +107,13 @@ Essa verificação garante que o computador tenha acesso à internet.
 
 Essa verificação determina se o Hybrid Runbook Worker pode se comunicar corretamente com a automação do Azure no espaço de trabalho Log Analytics.
 
-As configurações de proxy e firewall devem permitir que o agente do Hybrid Runbook Worker se comunique com o ponto de extremidade de registro. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
+As configurações de proxy e firewall devem permitir que o agente do Hybrid Runbook Worker se comunique com o ponto de extremidade de registro. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Ponto de extremidade de operações
 
-Essa verificação determina se o agente pode se comunicar corretamente com o Serviço de Dados de Runtime do Trabalho.
+Essa verificação determina se o agente de Log Analytics pode se comunicar corretamente com o serviço de dados de tempo de execução de trabalho.
 
-As configurações de proxy e firewall devem permitir que o agente do Hybrid Runbook Worker se comunique com o Serviço de Dados de Runtime do Trabalho. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede para Hybrid Workers](../automation-hybrid-runbook-worker.md#network-planning).
+As configurações de proxy e firewall devem permitir que o agente do Hybrid Runbook Worker se comunique com o Serviço de Dados de Runtime do Trabalho. Para obter uma lista de endereços e portas a serem abertas, consulte [planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="log-analytics-endpoint-1"></a>Ponto de extremidade do Log Analytics 1
 
