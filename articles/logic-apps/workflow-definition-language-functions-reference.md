@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: e1ebc0257082ecfacc708352ba0a68e38e10717f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 05/12/2020
+ms.openlocfilehash: 56bf1898eb00d74fe92934ca8cd7d9d2848c2f1f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607785"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005906"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para usar funções em expressões para aplicativos lógicos do Azure e automatizar energia
 
@@ -29,9 +29,6 @@ Por exemplo, você pode calcular valores usando funções matemáticas, como a f
 ||||
 
 Para localizar funções [com base em sua finalidade geral](#ordered-by-purpose), examine as tabelas a seguir. Ou, para obter informações detalhadas sobre cada função, consulte a [lista alfabética](#alphabetical-list).
-
-> [!NOTE]
-> Na sintaxe das definições de parâmetro, um ponto de interrogação (?) exibido após um parâmetro significa que ele é opcional. Por exemplo, consulte [getFutureTime()](#getFutureTime).
 
 ## <a name="functions-in-expressions"></a>Funções em expressões
 
@@ -51,8 +48,7 @@ Estas são algumas outras maneiras de usar funções em expressões:
 | 1. Obtenha o resultado de *FunctionName*. </br>2. Considerando que o resultado é um objeto com property *PropertyName*, obtenha o valor dessa propriedade. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
 |||
 
-Por exemplo, a função `concat()` pode usar dois ou mais valores de cadeia de caracteres como parâmetros. Essa função combina essas cadeias de caracteres em uma única cadeia de caracteres.
-Você pode transmitir literais de cadeia de caracteres, por exemplo, "Sophia" e "Owen", para obter uma cadeia de caracteres combinada, "SophiaOwen":
+Por exemplo, a função `concat()` pode usar dois ou mais valores de cadeia de caracteres como parâmetros. Essa função combina essas cadeias de caracteres em uma única cadeia de caracteres. Você pode transmitir literais de cadeia de caracteres, por exemplo, "Sophia" e "Owen", para obter uma cadeia de caracteres combinada, "SophiaOwen":
 
 ```json
 "customerName": "@concat('Sophia', 'Owen')"
@@ -66,7 +62,13 @@ Ou pode obter valores de cadeia de caracteres usando parâmetros. Este exemplo u
 
 De qualquer forma, os dois exemplos atribuem o resultado à propriedade `customerName`.
 
-Aqui são apresentadas as funções disponíveis ordenadas pelo uso geral ou é possível navegar pelas funções com base na [ordem alfabética](#alphabetical-list).
+Aqui estão algumas outras observações sobre as funções em expressões:
+
+* Os parâmetros de função são avaliados da esquerda para a direita.
+
+* Na sintaxe das definições de parâmetro, um ponto de interrogação (?) exibido após um parâmetro significa que ele é opcional. Por exemplo, consulte [getFutureTime()](#getFutureTime).
+
+As seções a seguir organizam funções com base em sua finalidade geral, ou você pode procurar essas funções em [ordem alfabética](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
@@ -2270,8 +2272,7 @@ E retorna este resultado: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 ### <a name="if"></a>if
 
-Verificar se uma expressão é verdadeira ou falsa.
-Com base no resultado, retornar um valor especificado.
+Verificar se uma expressão é verdadeira ou falsa. Com base no resultado, retornar um valor especificado. Os parâmetros são avaliados da esquerda para a direita.
 
 ```
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
@@ -2998,7 +2999,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-### <a name="not"></a>não
+### <a name="not"></a>not
 
 Verificar se uma expressão é falsa.
 Retornará true quando a expressão for falsa ou retornará false quando for verdadeira.

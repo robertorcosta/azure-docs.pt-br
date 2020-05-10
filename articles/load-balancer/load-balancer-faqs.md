@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3648bb102d539156067cdc259c1cf9b6e73d6a49
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884482"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005146"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ## <a name="what-types-of-load-balancer-exist"></a>Quais tipos de Load Balancer existem?
-Balanceadores de carga internos que equilibram o tráfego em uma VNET e balanceadores de carga externos que balanceam o tráfego de e para um ponto de extremidade conectado à Internet. Para obter mais informações, consulte [Load Balancer types]https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-types)(. 
+Balanceadores de carga internos que equilibram o tráfego em uma VNET e balanceadores de carga externos que balanceam o tráfego de e para um ponto de extremidade conectado à Internet. Para obter mais informações, consulte [tipos de Load Balancer](components.md#frontend-ip-configurations). 
 
-Para ambos os tipos, o Azure oferece uma SKU básica e uma SKU standard que têm diferentes recursos funcionais, de desempenho, de segurança e de controle de integridade. Essas diferenças são explicadas em nossa [comparação de SKUhttps://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus) ] (artigo.
+Para ambos os tipos, o Azure oferece uma SKU básica e uma SKU standard que têm diferentes recursos funcionais, de desempenho, de segurança e de controle de integridade. Essas diferenças são explicadas em nosso artigo de [comparação de SKU](skus.md) .
 
  ## <a name="how-can-i-upgrade-from-a-basic-to-a-standard-load-balancer"></a>Como posso atualizar de um básico para um Standard Load Balancer?
 Consulte o artigo [Atualizar do básico para o padrão](upgrade-basic-standard.md) para um script automatizado e orientação sobre como atualizar um SKU Load Balancer.

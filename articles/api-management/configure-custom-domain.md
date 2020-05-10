@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4587909ad6fca6cdf21d54d11d89f797bbb29833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335845"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004739"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado
 
@@ -71,12 +71,12 @@ Para executar as etapas descritas neste artigo, você precisa ter:
     > Os nomes de domínio curinga, `*.contoso.com` por exemplo, têm suporte em todas as camadas, exceto a camada de consumo.
 
     > [!TIP]
-    > É recomendável usar Azure Key Vault para gerenciar certificados e defini-los para rotação automática.
+    > É recomendável usar [Azure Key Vault para gerenciar certificados](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) e defini-los para renovar.
     > Se você usar Azure Key Vault para gerenciar o certificado TLS/SSL de domínio personalizado, verifique se o certificado foi inserido no Key Vault [como um _certificado_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), não como um _segredo_.
     >
     > Para buscar um certificado TLS/SSL, o gerenciamento de API deve ter a lista e obter permissões de segredos no Azure Key Vault que contém o certificado. Ao usar portal do Azure todas as etapas de configuração necessárias serão concluídas automaticamente. Ao usar as ferramentas de linha de comando ou a API de gerenciamento, essas permissões devem ser concedidas manualmente. Isso é feito em duas etapas. Primeiro, use a página identidades gerenciadas na instância de gerenciamento de API para garantir que a identidade gerenciada esteja habilitada e anote a ID da entidade de segurança mostrada nessa página. Em segundo lugar, dê à lista de permissões e obtenha permissões de segredos para essa ID de entidade de segurança no Azure Key Vault que contém o certificado.
     >
-    > Se o certificado for definido para rotação automática, o gerenciamento de API selecionará a versão mais recente automaticamente sem nenhum tempo de inatividade para o serviço (se sua camada de gerenciamento de API tiver SLA-i. e. em todas as camadas, exceto a camada de desenvolvedor).
+    > Se o certificado for definido para renovação automática, o gerenciamento de API selecionará a versão mais recente automaticamente sem nenhum tempo de inatividade para o serviço (se sua camada de gerenciamento de API tiver SLA-i. e. em todas as camadas, exceto a camada de desenvolvedor).
 
 1. Clique em Aplicar.
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 03/25/2020
+ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74786904"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004588"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Agendar e executar tarefas para dados contíguos usando o gatilho de janela deslizante nos aplicativos lógicos do Azure
 
@@ -19,9 +19,9 @@ Para executar tarefas, processos ou trabalhos regularmente que devem lidar com d
 
 Aqui estão alguns padrões aos quais esse gatilho dá suporte:
 
-* Executar imediatamente e repetir a cada *n* números de segundos, minutos ou horas.
+* Executar imediatamente e repetir a cada *n* número de segundos, minutos, horas, dias, semanas ou meses.
 
-* Inicie em uma data e hora específicas, em seguida, execute e repita a cada *n* número de segundos, minutos ou horas. Com esse gatilho, você pode especificar uma hora de início no passado, que executa todas as recorrências anteriores.
+* Inicie em uma data e hora específicas, em seguida, execute e repita a cada *n* número de segundos, minutos, horas, dias, semanas ou meses. Com esse gatilho, você pode especificar uma hora de início no passado, que executa todas as recorrências anteriores.
 
 * Retardar cada recorrência por uma duração específica antes da execução.
 
@@ -40,7 +40,7 @@ Para obter as diferenças entre esse gatilho e o gatilho de recorrência ou para
 
 1. Entre no [portal do Azure](https://portal.azure.com). Criar um aplicativo lógico em branco.
 
-1. Depois que o designer de aplicativo lógico aparecer, na caixa de pesquisa, digite "janela deslizante" como filtro. Na lista de gatilhos, selecione este gatilho como a primeira etapa no fluxo de trabalho do aplicativo lógico: **janela deslizante**
+1. Depois que o designer do aplicativo lógico for exibido, na caixa de `sliding window` pesquisa, insira como seu filtro. Na lista de gatilhos, selecione o gatilho de **janela deslizante** como a primeira etapa no fluxo de trabalho do aplicativo lógico.
 
    ![Selecione o gatilho "janela deslizante"](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
@@ -48,16 +48,15 @@ Para obter as diferenças entre esse gatilho e o gatilho de recorrência ou para
 
    ![Definir o intervalo e a frequência](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Propriedade | Obrigatório | Nome JSON | Type | Descrição |
+   | Propriedade | Nome JSON | Obrigatório | Type | Descrição |
    |----------|----------|-----------|------|-------------|
-   | **Intervalo** | Sim | intervalo | Integer | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "hora", a recorrência será a cada 6 horas. |
-   | **Frequência** | Sim | frequência | String | A unidade de tempo para a recorrência: **segundo**, **minuto**ou **hora** |
+   | **Intervalo** | `interval` | Sim | Integer | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses <br>-Semana: 1-71 semanas <br>–Dia: 1 a 500 dias <br>– Hora: 1 a 12.000 horas <br>– Minuto: 1 a 72.000 minutos <br>– Segundo: 1 a 9.999.999 segundos <p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. |
+   | **Frequência** | `frequency` | Sim | String | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** |
    ||||||
 
    ![Opções de recorrência avançadas](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
 
-   Para obter mais opções de recorrência, abra a lista **Adicionar novo parâmetro** . 
-   As opções que você selecionar aparecerão no gatilho após a seleção.
+   Para obter mais opções de recorrência, abra a lista **Adicionar novo parâmetro** . As opções que você selecionar aparecerão no gatilho após a seleção.
 
    | Propriedade | Obrigatório | Nome JSON | Type | Descrição |
    |----------|----------|-----------|------|-------------|

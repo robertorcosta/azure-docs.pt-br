@@ -7,15 +7,15 @@ author: njray
 manager: edprice
 editor: edprice
 ms.author: larryme
-ms.date: 04/02/2019
+ms.date: 05/09/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: cf02ff7078fe5d33f220c0abc2d941d483e5c125
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07234e5f456a5467adde4d899341a6124d128567
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76293497"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006115"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Cargas de trabalho de mainframe com suporte no Azure
 
@@ -25,20 +25,24 @@ Para obter mais ajuda com a emulação e os serviços de mainframe, consulte o [
 
 ## <a name="migrate-mainframe-closer-to-azure"></a>Migre o mainframe mais próximo do Azure
 
+- [Asna Visual RPG for .net](https://asna.com/us/products/visual-rpg) Compiler para o .NET Framework por meio do plug-in do Visual Studio.
+- Ambiente de desenvolvimento [COBOL ASYSCO AMT](https://www.asysco.com/cobol/) (Unisys, mainframes IBM e outros dialetos COBOL, como o COBOL de micro Focus).
+- [ASYSCO AMT ir](https://www.asysco.com/amt-go/) para a arquitetura de implantação baseada em nuvem para cargas de trabalho de ponta.
+- [Transformação de AMT Asysco](https://www.asysco.com/amt-transform/) para converter dados, código, script, segurança, interfaces e outros artefatos de mainframe.
+- Ferramentas de desenvolvimento e integração do [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) .
 - Ferramentas de desenvolvimento e integração do [Visual COBOL do micro Focus](https://www.microfocus.com/products/visual-cobol/) .
 - Compilador herdado [pl/i do micro Focus](https://www.microfocus.com/campaign/download/pli-modernization/) para a plataforma .net, suporte a sintaxe de pl/i de mainframe, tipos de dados e comportamento.
 - Plataforma de integração [do micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe.
-- Ferramentas de desenvolvimento e integração do [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) .
+- Ferramentas de desenvolvimento e integração de [sistemas modernos CTU (COBOL-to-Universal)](https://modernsystems.com/automatic-cobol-to-java-conversion/) .
 - Ferramentas de desenvolvimento e integração do [NTT data Enterprise COBOL](https://us.nttdata.com/en/digital/application-development-and-modernization) .
 - A [NTT Open pl/i](https://us.nttdata.com/en/digital/application-development-and-modernization) Legacy Compiler para a plataforma .net, com suporte a sintaxe de pl/i de mainframe, tipos de dados e comportamento.
 - Ferramentas de desenvolvimento e integração do [compilador RAINCODE COBOL](https://www.raincode.com/products/cobol/) .
 - O [compilador RAINCODE pl/i](https://www.raincode.com/products/pli/) para a plataforma .net dá suporte a sintaxe de mainframe pl/i, tipos de dados e comportamento.
 - [Compilador RAINCODE ASM370](https://www.raincode.com/technical-landscape/asm370/) para o mainframe assembler 370 e a sintaxe HLASM.
-- [Asna Visual RPG for .net](https://asna.com/us/products/visual-rpg) Compiler para o .NET Framework por meio do plug-in do Visual Studio.
-- Ferramentas de desenvolvimento e integração de [sistemas modernos CTU (COBOL-to-Universal)](https://modernsystems.com/automatic-cobol-to-java-conversion/) .
 
 ## <a name="deploy-an-emulation-environment-for-online-and-batch-processing"></a>Implantar um ambiente de emulação para processamento online e em lotes
 
+- Arquitetura de implantação do [ASYSCO AMT go](https://www.asysco.com/amt-go/) com suporte para CICS, IMS, Tip, HVTIP e outros ambientes de mainframe comuns.
 - Plataforma de integração [do micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) mainframe.
 - Ambiente de desenvolvimento de transação nativa de [rehospedagem de mainframe de dados NTT](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) .
 - BPE ( [ambiente de processamento em lote de dados de NTT](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) ), incluindo recursos de transação do JCL.
@@ -47,10 +51,11 @@ Para obter mais ajuda com a emulação e os serviços de mainframe, consulte o [
 
 ## <a name="code-conversion"></a>Conversão de código
 
-- Conversão de código-fonte [Asysco](https://www.asysco.com/azure-cloud/) .
-- Contêiner de software gerenciado por [mainframe definido pelo LzLabs software](https://www.lzlabs.com/) para migrar aplicativos de mainframe para computadores Linux ou ambientes de nuvem privada, pública e híbrida.
+- Tecnologia de conversão do sistema [Asysco](https://www.asysco.com/azure-cloud/) que abrange código-fonte, dados, lote, agendamento, monitores TP, interfaces, segurança, gerenciamento e muito mais.
+- Serviços de [ASYSCO AMT serviços](https://www.asysco.com/migration-services/) de ponta a ponta para projetos de migração, incluindo inventário e análise, treinamento de design, reparos de cômoda, suporte de ativação e pós-migração.
 - Ferramentas do [Blu age](https://www.bluage.com/) para a digitalização de bancos de dados e aplicativos de negócios herdados.
 - Serviços de [computação heirloom](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) para converter mainframe COBOL, CICS e VSAM para Java.
+- Contêiner de software gerenciado por [mainframe definido pelo LzLabs software](https://www.lzlabs.com/) para migrar aplicativos de mainframe para computadores Linux ou ambientes de nuvem privada, pública e híbrida.
 
 ## <a name="modernization-services"></a>Serviços de modernização
 

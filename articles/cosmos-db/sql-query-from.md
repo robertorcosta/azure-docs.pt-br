@@ -4,22 +4,22 @@ description: Saiba mais sobre a sintaxe SQL e o exemplo da cláusula FROM para A
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587678"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005866"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Cláusula FROM em Azure Cosmos DB
 
 A cláusula FROM`FROM <from_specification>`() é opcional, a menos que a fonte seja filtrada ou projetada posteriormente na consulta. Uma consulta como `SELECT * FROM Families` enumera em todo `Families` o contêiner. Você também pode usar a raiz do identificador especial para o contêiner em vez de usar o nome do contêiner.
 
-A cláusula FROM impõe as seguintes regras por consulta:
+A `FROM` cláusula impõe as seguintes regras por consulta:
 
-* O contêiner pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` está o alias para `Families`. Como é uma palavra-chave opcional para [alias](sql-query-aliasing.md) do identificador.  
+* O contêiner pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` está o alias para `Families`. Como é uma palavra-chave opcional para [alias](sql-query-working-with-json.md#aliasing) do identificador.  
 
 * Depois de alias, o nome de origem original não pode ser associado. Por exemplo, `SELECT Families.id FROM Families f` é sintaticamente inválido porque o identificador `Families` tem um alias e não pode mais ser resolvido.  
 
@@ -30,15 +30,15 @@ A cláusula FROM impõe as seguintes regras por consulta:
 ```sql  
 FROM <from_specification>  
   
-<from_specification> ::=   
+<from_specification> ::=
         <from_source> {[ JOIN <from_source>][,...n]}  
   
-<from_source> ::=   
+<from_source> ::=
           <container_expression> [[AS] input_alias]  
         | input_alias IN <container_expression>  
   
-<container_expression> ::=   
-        ROOT   
+<container_expression> ::=
+        ROOT
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
@@ -51,9 +51,9 @@ FROM <from_specification>
   
   Especifica uma fonte de dados, com ou sem um alias. Se o alias não for especificado, ele será inferido de `<container_expression>` usando as seguinte regras:  
   
-  -  Se a expressão for um container_name, o container_name será usado como um alias.  
+-  Se a expressão for um container_name, o container_name será usado como um alias.  
   
-  -  Se a expressão for `<container_expression>`, property_name e, em seguida, property_name serão usados como alias. Se a expressão for um container_name, o container_name será usado como um alias.  
+-  Se a expressão for `<container_expression>`, property_name e, em seguida, property_name serão usados como alias. Se a expressão for um container_name, o container_name será usado como um alias.  
   
 - AS `input_alias`  
   
@@ -99,9 +99,9 @@ Se uma expressão de contêiner acessar propriedades ou elementos da matriz e o 
   
 Uma expressão contêiner pode ter escopo no contêiner ou no escopo do documento:  
   
--   Uma expressão será contida no contêiner, se a origem subjacente da expressão do contêiner for ROOT ou `container_name`. Essa expressão representa um conjunto de documentos recuperados diretamente do contêiner e não depende do processamento de outras expressões de contêiner.  
+- Uma expressão será contida no contêiner, se a origem subjacente da expressão do contêiner for ROOT ou `container_name`. Essa expressão representa um conjunto de documentos recuperados diretamente do contêiner e não depende do processamento de outras expressões de contêiner.  
   
--   Uma expressão terá escopo de documento, se a fonte subjacente da expressão de contêiner for `input_alias` introduzido anteriormente na consulta. Essa expressão representa um conjunto de documentos obtidos pela avaliação da expressão contêiner no escopo de cada documento pertencente ao conjunto associado ao contêiner de alias.  O conjunto resultante será uma união de conjuntos obtidos pela avaliação da expressão do contêiner para cada um dos documentos no conjunto subjacente. 
+- Uma expressão terá escopo de documento, se a fonte subjacente da expressão de contêiner for `input_alias` introduzido anteriormente na consulta. Essa expressão representa um conjunto de documentos obtidos pela avaliação da expressão contêiner no escopo de cada documento pertencente ao conjunto associado ao contêiner de alias. O conjunto resultante será uma união de conjuntos obtidos pela avaliação da expressão do contêiner para cada um dos documentos no conjunto subjacente.
 
 ## <a name="examples"></a>Exemplos
 

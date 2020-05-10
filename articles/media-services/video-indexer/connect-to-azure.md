@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 2093132abaa7aed06113b1856c85ac54fd7ae60d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995708"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005940"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
 
@@ -23,7 +23,7 @@ Ao criar uma conta de Video Indexer, você pode escolher uma conta de avaliaçã
 
 Este artigo mostra como criar uma conta do Video Indexer vinculada a uma assinatura do Azure e uma conta dos Serviços de Mídia do Azure. O tópico fornece etapas para conectar o Azure usando o fluxo automático (padrão). Também mostra como conectar o Azure manualmente (avançado).
 
-Se você estiver mudando de uma *versão de avaliação* para conta de video indexer *paga* , poderá optar por copiar todos os vídeos e a personalização do modelo para a nova conta, conforme discutido em [importar o conteúdo da conta de avaliação](#import-your-content-from-the-trial-account).
+Se você estiver mudando de uma *versão de avaliação* para conta de video indexer *paga* , poderá optar por copiar todos os vídeos e a personalização do modelo para a nova conta, conforme discutido na seção [importar o conteúdo da conta de avaliação](#import-your-content-from-the-trial-account) .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

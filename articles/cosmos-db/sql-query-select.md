@@ -1,35 +1,34 @@
 ---
 title: Cláusula SELECT no Azure Cosmos DB
 description: Saiba mais sobre a cláusula SQL SELECT para Azure Cosmos DB. Use SQL como uma linguagem de consulta JSON Azure Cosmos DB.
-author: ginarobinson
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: girobins
-ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.author: tisande
+ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77469928"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005944"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT no Azure Cosmos DB
 
-Cada consulta consiste em uma cláusula SELECT e em cláusulas opcional from e [Where](sql-query-where.md) , por padrões [de](sql-query-from.md) SQL ANSI. Normalmente, a origem na cláusula FROM é enumerada e a cláusula WHERE aplica um filtro na origem para recuperar um subconjunto de itens JSON. Em seguida, a cláusula SELECT projeta os valores JSON solicitados na lista de seleção.
+Cada consulta consiste em uma `SELECT` cláusula [e em cláusulas opcional e](sql-query-from.md) [Where](sql-query-where.md) , por padrões SQL ANSI. Normalmente, a origem na `FROM` cláusula é enumerada e a `WHERE` cláusula aplica um filtro na origem para recuperar um subconjunto de itens JSON. Em `SELECT` seguida, a cláusula projeta os valores JSON solicitados na lista de seleção.
 
 ## <a name="syntax"></a>Sintaxe
 
 ```sql
 SELECT <select_specification>  
 
-<select_specification> ::=   
-      '*'   
-      | [DISTINCT] <object_property_list>   
+<select_specification> ::=
+      '*'
+      | [DISTINCT] <object_property_list>
       | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
-<object_property_list> ::=   
+<object_property_list> ::=
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
-  
 ```  
   
 ## <a name="arguments"></a>Argumentos
@@ -49,7 +48,7 @@ SELECT <select_specification>
 - `VALUE`  
 
   Especifica que o valor JSON deve ser recuperado em vez do objeto JSON completo. Isso, ao contrário de `<property_list>`, não encapsula o valor projetado em um objeto.  
- 
+
 - `DISTINCT`
   
   Especifica que duplicatas de propriedades projetadas devem ser removidas.  
@@ -96,122 +95,6 @@ Os resultados são:
         "city": "Seattle"
       }
     }]
-```
-
-### <a name="quoted-property-accessor"></a>Acessador de propriedade entre aspas
-Você pode acessar as propriedades usando o operador de propriedade entre aspas []. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais ou tem o mesmo nome que uma palavra-chave SQL ou reservada.
-
-```sql
-    SELECT f["lastName"]
-    FROM Families f
-    WHERE f["id"] = "AndersenFamily"
-```
-
-### <a name="nested-properties"></a>Propriedades aninhadas
-
-O exemplo a seguir projeta duas propriedades `f.address.state` aninhadas `f.address.city`e.
-
-```sql
-    SELECT f.address.state, f.address.city
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-Os resultados são:
-
-```json
-    [{
-      "state": "WA",
-      "city": "Seattle"
-    }]
-```
-### <a name="json-expressions"></a>Expressões JSON
-
-A projeção também oferece suporte a expressões JSON, conforme mostrado no exemplo a seguir:
-
-```sql
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-Os resultados são:
-
-```json
-    [{
-      "$1": {
-        "state": "WA",
-        "city": "Seattle",
-        "name": "AndersenFamily"
-      }
-    }]
-```
-
-No exemplo anterior, a cláusula SELECT precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome `$1`da variável de argumento implícito. A consulta a seguir retorna duas variáveis de argumento `$1` implícitas: e `$2`.
-
-```sql
-    SELECT { "state": f.address.state, "city": f.address.city },
-           { "name": f.id }
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-Os resultados são:
-
-```json
-    [{
-      "$1": {
-        "state": "WA",
-        "city": "Seattle"
-      }, 
-      "$2": {
-        "name": "AndersenFamily"
-      }
-    }]
-```
-## <a name="reserved-keywords-and-special-characters"></a>Palavras-chave reservadas e caracteres especiais
-
-Se seus dados contiverem Propriedades com os mesmos nomes de palavras-chave reservadas, como "Order" ou "Group", as consultas nesses documentos resultarão em erros de sintaxe. Você deve incluir explicitamente a propriedade no `[]` caractere para executar a consulta com êxito.
-
-Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma propriedade `price($)` que contém caracteres especiais:
-
-```json
-{
-  "id": "AndersenFamily",
-  "order": [
-     {
-         "orderId": "12345",
-         "productId": "A17849",
-         "price($)": 59.33
-     }
-  ],
-  "creationDate": 1431620472,
-  "isRegistered": true
-}
-```
-
-Se você executar uma consulta que inclui a `order` propriedade ou `price($)` Propriedade, receberá um erro de sintaxe.
-
-```sql
-SELECT * FROM c where c.order.orderid = "12345"
-```
-```sql
-SELECT * FROM c where c.order.price($) > 50
-```
-O resultado é:
-
-`
-Syntax error, incorrect syntax near 'order'
-`
-
-Você deve reescrever as mesmas consultas abaixo:
-
-```sql
-SELECT * FROM c WHERE c["order"].orderId = "12345"
-```
-
-```sql
-SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

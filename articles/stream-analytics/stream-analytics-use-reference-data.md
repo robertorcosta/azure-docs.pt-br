@@ -7,16 +7,27 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b3808524706b13761dd8eccffa301c602d08f481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267281"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006161"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 
 Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza, usados para executar uma pesquisa ou para aumentar seus fluxos de dados. Por exemplo, em um cenário de IoT, você pode armazenar metadados sobre sensores (que não são alterados com frequência) em dados de referência e uni-los a fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para fazer uso de dados de referência em seu trabalho de Azure Stream Analytics, você geralmente usará uma [junção de dados de referência](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. 
+
+## <a name="example"></a>Exemplo  
+ Se um veículo comercial é registrado com a empresa Toll Company, eles podem passar pelo pedágio sem ser parado para inspeção. Usaremos uma tabela de pesquisa de registro de veículo comercial para identificar todos os veículos comerciais com o registro expirado.  
+  
+```SQL  
+SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
+FROM Input1 I1 TIMESTAMP BY EntryTime  
+JOIN Registration R  
+ON I1.LicensePlate = R.LicensePlate  
+WHERE R.Expired = '1'
+```  
 
 O Stream Analytics dá suporte ao Armazenamento de Blobs do Azure e ao Banco de Dados SQL do Azure como a camada de armazenamento para dados de referência. Você também pode transformar e/ou copiar os dados de referência para o Armazenamento de Blobs do Azure Data Factory para usar [qualquer número de armazenamentos de dados locais e baseados em nuvem](../data-factory/copy-activity-overview.md).
 
@@ -34,7 +45,7 @@ Para configurar os dados de referência, você primeiro precisa criar uma entrad
 |Conta de Armazenamento   | O nome da conta de armazenamento onde estão localizados os blobs. Se estiver na mesma assinatura que o trabalho do Stream Analytics, você pode selecioná-lo na lista suspensa.   |
 |Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. É preenchida automaticamente se a conta de armazenamento estiver na mesma assinatura que o trabalho do Stream Analytics.   |
 |Contêiner de armazenamento   | Os contêineres fornecem um agrupamento lógico de blobs armazenados no serviço Blob do Microsoft Azure. Quando você carrega um blob no serviço Blob, você deve especificar um contêiner para aquele blob.   |
-|Padrão de caminho   | O caminho usado para localizar seus blobs no contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das duas variáveis a seguir:<BR>{data}, {hora}<BR>Exemplo 1: products/{data}/{hora}/product-list.csv<BR>Exemplo 2: products/{data}/product-list.csv<BR>Exemplo 3: product-list.csv<BR><br> Se o blob não existir no caminho especificado, o trabalho do Stream Analytics aguardará indefinidamente que o blob fique disponível.   |
+|Padrão de caminho   | Essa é uma propriedade necessária que é usada para localizar seus BLOBs dentro do contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das duas variáveis a seguir:<BR>{data}, {hora}<BR>Exemplo 1: products/{data}/{hora}/product-list.csv<BR>Exemplo 2: products/{data}/product-list.csv<BR>Exemplo 3: product-list.csv<BR><br> Se o blob não existir no caminho especificado, o trabalho do Stream Analytics aguardará indefinidamente que o blob fique disponível.   |
 |Formato de data [opcional]   | Se você tiver usado {data} no padrão de caminho que você especificou, você pode selecionar o formato de data no qual os blobs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: AAAA/MM/DD, MM/DD/AAAA etc.   |
 |Formato de hora [opcional]   | Se você tiver usado {hora} no padrão de caminho que você especificou, você pode selecionar o formato de hora no qual os blobs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: HH, HH/mm ou HH-mm  |
 |Formato de serialização do evento   | Para verificar se as consultas funcionam da maneira esperada, o Stream Analytics precisa saber qual formato de serialização você está usando para os fluxos de dados de entrada. Para dados de referência, os formatos com suporte são CSV e JSON.  |
@@ -90,7 +101,7 @@ Você pode usar [instância gerenciada do banco de dados SQL do Azure](https://d
 |**Nome da propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.|
-|Assinatura|Escolha sua assinatura|
+|Subscription|Escolha sua assinatura|
 |Banco de dados|O Banco de Dados SQL do Azure que contém os dados de referência. Por Instância Gerenciada do Banco de Dados SQL do Azure, é necessário especificar a porta 3342. Por exemplo, *sampleserver. Public. Database. Windows. net, 3342*|
 |Nome de Usuário|O nome de usuário associado ao Banco de Dados SQL do Azure.|
 |Senha|A senha associada ao Banco de Dados SQL do Azure.|
@@ -110,7 +121,24 @@ O Stream Analytics suporta dados de referência com ** tamanho máximo de 300 MB
 
 O aumento do número de Unidades de Streaming contínuo de um trabalho além de 6 não aumenta o tamanho máximo suportado dos dados de referência.
 
-O suporte para a compactação não está disponível para os dados de referência. 
+O suporte para a compactação não está disponível para os dados de referência.
+
+## <a name="joining-multiple-reference-datasets-in-a-job"></a>Unindo vários conjuntos de itens de referência em um trabalho
+Você pode unir apenas uma entrada de fluxo com uma entrada de dados de referência em uma única etapa de sua consulta. No entanto, você pode unir vários conjuntos de datareferences dividindo sua consulta em várias etapas. Um exemplo é mostrado abaixo.
+
+```SQL  
+With Step1 as (
+    --JOIN input stream with reference data to get 'Desc'
+    SELECT streamInput.*, refData1.Desc as Desc
+    FROM    streamInput
+    JOIN    refData1 ON refData1.key = streamInput.key 
+)
+--Now Join Step1 with second reference data
+SELECT *
+INTO    output 
+FROM    Step1
+JOIN    refData2 ON refData2.Desc = Step1.Desc 
+``` 
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

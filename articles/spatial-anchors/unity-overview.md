@@ -8,16 +8,17 @@ services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: df28fc6b5e3a1ddd9813919c8afbf21f65d731b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d76207d9991d496c36fa8f9db3911a62d003fafe
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79471079"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006141"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Criando no Unity com âncoras espaciais do Azure
 
-Os desenvolvedores podem escolher o Unity para criar e implantar aplicativos de realidade misturada que usam âncoras espaciais do Azure. Há suporte para as seguintes plataformas:
+Os desenvolvedores podem escolher o Unity para criar e implantar aplicativos de realidade misturada que usam âncoras espaciais do Azure.
+Há suporte para as seguintes plataformas:
 
 **Unity para HoloLens**
 
