@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: e24684063e73b8f8b659304987f46632f3601e8c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426115"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732318"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Acessar o Cofre de Chaves do Azure por trás de um firewall
 
@@ -25,7 +25,7 @@ Para acessar um cofre de chaves, o aplicativo de cliente do cofre de chaves prec
 
 * Autenticação via Azure AD (Azure Active Directory)
 * Gerenciamento do Cofre de Chaves do Azure. Isso inclui criar, ler, atualizar, excluir e definir políticas de acesso por meio do Azure Resource Manager.
-* O acesso e o gerenciamento de objetos (chaves e segredos) armazenados no cofre de chaves em si passa pelo ponto de extremidade específico do cofre de chaves (por exemplo, [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
+* O acesso e o gerenciamento de objetos (chaves e segredos) armazenados no Key Vault em si passa pelo ponto de extremidade específico do Key Vault (por exemplo, `https://yourvaultname.vault.azure.net`).  
 
 Dependendo do ambiente e configuração, há algumas variações.
 
@@ -39,8 +39,8 @@ Os aplicativos cliente do cofre de chaves precisarão acessar os pontos de extre
 
 | Tipo de entidade | Ponto de extremidade:porta |
 | --- | --- |
-| Usuário usando a conta da Microsoft<br> (por exemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Governo dos EUA:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br> login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
-| Usuário ou entidade de serviço que usa uma conta corporativa ou de estudante com o Azure AD (por exemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Governo dos EUA:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br> login.microsoftonline.de:443 |
+| Usuário usando a conta da Microsoft<br> (por exemplo, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Governo dos EUA:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br>  login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
+| Usuário ou entidade de serviço que usa uma conta corporativa ou de estudante com o Azure AD (por exemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure Governo dos EUA:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br>  login.microsoftonline.de:443 |
 | Usuário ou entidade de serviço que usa uma conta corporativa ou de estudante, além de AD FS (Serviços de Federação do Active Directory) ou outro ponto de extremidade federado (por exemplo, user@contoso.com) |Todos os pontos de extremidade de uma conta corporativa ou de estudante, além do AD FS ou outros pontos de extremidade federados |
 
 Há outros cenários complexos possíveis. Confira [Fluxo de autenticação do Azure Active Directory](../../active-directory/develop/authentication-scenarios.md), [Integrar aplicativos com o Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) e [Protocolos de autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) para saber mais.  
@@ -51,7 +51,7 @@ Para o gerenciamento do Cofre de Chaves (CRUD e configuração de política de a
 
 | Tipo de operação | Ponto de extremidade:porta |
 | --- | --- |
-| Operações do plano de controle do cofre de chaves<br> por meio do Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 |
+| Operações do plano de controle do cofre de chaves<br>  por meio do Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br>  management.microsoftazure.de:443 |
 | API do Microsoft Graph |**Global:**<br> graph.microsoft.com:443<br><br> **Azure China:**<br> graph.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> graph.microsoft.com:443<br><br> **Azure Alemanha:**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Operações do cofre de chaves
@@ -64,7 +64,13 @@ Para todas as operações de criptografia e gerenciamento de objetos (chaves e s
 
 ## <a name="ip-address-ranges"></a>Intervalos de endereços IP
 
-O serviço de Cofre de Chaves usa outros recursos do Azure, como infraestrutura PaaS. Portanto, não é possível fornecer um intervalo específico de endereços IP que pontos de extremidade do serviço de Cofre de Chaves terão em determinado momento. Se o firewall dá suporte apenas a intervalos de endereços IP, confira o documento [Intervalos IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Autenticação e identidade (Azure Active Directory) é um serviço global e pode fazer failover para outras regiões ou mover o tráfego sem aviso prévio. Nesse cenário, todos os intervalos IP listados em [Endereços IP de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) devem ser adicionados ao firewall.
+O serviço de Cofre de Chaves usa outros recursos do Azure, como infraestrutura PaaS. Portanto, não é possível fornecer um intervalo específico de endereços IP que pontos de extremidade do serviço de Cofre de Chaves terão em determinado momento. Se o firewall der suporte apenas a intervalos de endereços IP, confira os documentos sobre os Intervalos de IPs do Microsoft Azure Datacenter disponíveis em:
+* [Pública](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+* [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
+* [Alemanha](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
+* [China](https://www.microsoft.com/en-us/download/details.aspx?id=57062)
+
+Autenticação e identidade (Azure Active Directory) é um serviço global e pode fazer failover para outras regiões ou mover o tráfego sem aviso prévio. Nesse cenário, todos os intervalos IP listados em [Endereços IP de autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) devem ser adicionados ao firewall.
 
 ## <a name="next-steps"></a>Próximas etapas
 
