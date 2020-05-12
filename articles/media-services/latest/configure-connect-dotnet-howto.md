@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269803"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201126"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectar-se à API dos serviços de mídia v3-.NET
 
@@ -35,15 +36,15 @@ Este artigo mostra como se conectar ao SDK do .NET dos serviços de mídia do Az
 ## <a name="create-a-console-application"></a>Criar um aplicativo de console
 
 1. Inicie o Visual Studio. 
-1. No menu **arquivo** , clique em **novo** > **projeto**. 
+1. No menu **arquivo** , clique em **novo**  >  **projeto**. 
 1. Crie um aplicativo de console do **.NET Core** .
 
-O aplicativo de exemplo neste tópico, targets `netcoreapp2.0`. O código usa ' async Main ', que está disponível a partir do C# 7,1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para obter mais detalhes.
+O aplicativo de exemplo neste tópico, targets `netcoreapp2.0` . O código usa ' async Main ', que está disponível a partir do C# 7,1. Consulte este [blog](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) para obter mais detalhes.
 
 ## <a name="add-required-nuget-packages"></a>Adicionar os pacotes NuGet necessários
 
-1. No Visual Studio, selecione **ferramentas** > **Gerenciador** > de pacotes NuGet**console do Gerenciador do NuGet**.
-2. Na janela do **console do Gerenciador** de pacotes `Install-Package` , use o comando para adicionar os seguintes pacotes NuGet. Por exemplo, `Install-Package Microsoft.Azure.Management.Media`.
+1. No Visual Studio, selecione **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **console do Gerenciador do NuGet**.
+2. Na janela do **console do Gerenciador de pacotes** , use `Install-Package` o comando para adicionar os seguintes pacotes NuGet. Por exemplo, `Install-Package Microsoft.Azure.Management.Media`.
 
 |Pacote|Descrição|
 |---|---|
@@ -57,7 +58,7 @@ O aplicativo de exemplo neste tópico, targets `netcoreapp2.0`. O código usa ' 
 
 ### <a name="create-appsettingsjson"></a>Criar appSettings. JSON
 
-1. Ir para o**arquivo de texto** **geral** > .
+1. Ir para **General**o  >  **arquivo de texto**geral.
 1. Nomeie-o como "appSettings. JSON".
 1. Defina a propriedade "copiar para o diretório de saída" do arquivo. JSON como "copiar se for mais recente" (para que o aplicativo possa acessá-lo quando publicado).
 
@@ -70,7 +71,7 @@ Execute o `az ams account sp create` comando conforme descrito em [APIs de acess
 Para sua conveniência, adicione um arquivo de configuração que seja responsável por ler valores de "appSettings. JSON".
 
 1. Adicione uma nova classe. cs ao seu projeto. Nomeie-o `ConfigWrapper`. 
-1. Cole o código a seguir neste arquivo (Este exemplo pressupõe que você tem o namespace `ConsoleApp1`).
+1. Cole o código a seguir neste arquivo (Este exemplo pressupõe que você tem o namespace `ConsoleApp1` ).
 
 ```csharp
 using System;
@@ -240,7 +241,7 @@ namespace ConsoleApp1
 - [Criar filtros com os Serviços de Mídia – .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Exemplos de vídeos sob demanda avançados do Azure Functions v2 com Serviços de Mídia v3](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Referência do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * Para obter mais exemplos de código, consulte o repositório de [exemplos do SDK do .net](https://github.com/Azure-Samples/media-services-v3-dotnet) .

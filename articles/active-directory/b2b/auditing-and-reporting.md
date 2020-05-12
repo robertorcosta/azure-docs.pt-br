@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74d2473d37dcf0d435ab61763e72a64111845956
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67b543bd46b195a0944959f3f462a2bdc7d150ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74273282"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199471"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios de um usuário de colaboração B2B
 Com usuários convidados, você conta com funcionalidades de auditoria semelhantes àquelas dos usuários membros. 
 
 ## <a name="access-reviews"></a>Análises de acesso
-É possível usar as revisões de acesso para verificar periodicamente se usuários convidados ainda precisam acessar os recursos. O recurso **Revisões de acesso** está disponível no **Azure Active Directory** em **Gerenciar** > **Relações Organizacionais**. (Você também pode Pesquisar "revisões de acesso" de **todos os serviços** no portal do Azure.) Para saber como usar as revisões de acesso, consulte [gerenciar o acesso de convidado com as revisões de acesso do Azure ad](../governance/manage-guest-access-with-access-reviews.md).
+É possível usar as revisões de acesso para verificar periodicamente se usuários convidados ainda precisam acessar os recursos. O recurso de **revisões de acesso** está disponível em **Azure Active Directory** em análises de acesso de **relações organizacionais**  >  **Access reviews** (ou revisões de acesso de **identidades externas**  >  **Access reviews** ). Você também pode procurar por "revisões de acesso" de **todos os serviços** no portal do Azure. Para saber como usar as revisões de acesso, consulte [Gerenciar acesso de convidado com revisões de acesso do Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ## <a name="audit-logs"></a>Logs de auditoria
 

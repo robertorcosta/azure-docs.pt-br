@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a1a33404982b16e458e97aaf9959ff5dd52d1cce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692159"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198894"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Práticas recomendadas para SQL sob demanda (versão prévia) no Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Depois que a limitação é detectada, o SQL sob demanda tem manipulação inter
 
 Se possível, você pode preparar arquivos para melhorar o desempenho:
 
-- Converta CSV em parquet-parquet é o formato de coluna. Como ele está compactado, seus tamanhos de arquivo são menores do que arquivos CSV com os mesmos dados. O SQL sob demanda precisará de menos tempo e solicitações de armazenamento para lê-lo.
+- Converta CSV e JSON em parquet-parquet é o formato de coluna. Como ele está compactado, seus tamanhos de arquivo são menores do que arquivos CSV ou JSON com os mesmos dados. O SQL sob demanda precisará de menos tempo e solicitações de armazenamento para lê-lo.
 - Se uma consulta tiver como alvo um único arquivo grande, você se beneficiará de dividi-lo em vários arquivos menores.
 - Tente manter o tamanho do arquivo CSV abaixo de 10 GB.
 - É melhor ter arquivos igualmente dimensionados para um único caminho OPENROWSET ou um local de tabela externa.
@@ -118,7 +118,14 @@ Para obter mais informações, verifique as funções [filename](develop-storage
 > [!TIP]
 > Sempre converta o resultado das funções FilePath e FileInfo para os tipos de dados apropriados. Se você usar tipos de dados de caractere, certifique-se de que comprimento apropriado seja usado.
 
+> [!NOTE]
+> Atualmente, não há suporte para funções usadas para eliminação de partição, FilePath e FileInfo, para tabelas externas diferentes daquelas criadas automaticamente para cada tabela criada no Synapse Spark.
+
 Se os dados armazenados não estiverem particionados, considere particioná-los para que você possa usar essas funções para otimizar as consultas direcionadas a esses arquivos. Ao [consultar tabelas do Spark particionadas](develop-storage-files-spark-tables.md) do SQL sob demanda, a consulta será automaticamente direcionada somente aos arquivos necessários.
+
+## <a name="use-parser_version-20-for-querying-csv-files"></a>Usar PARSER_VERSION 2,0 para consultar arquivos CSV
+
+Você pode usar o analisador otimizado para desempenho ao consultar arquivos CSV. Verifique [PARSER_VERSION](develop-openrowset.md) para obter detalhes.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Use o CETAS para aprimorar o desempenho e as junções de consulta
 
@@ -127,6 +134,12 @@ O [CETAS](develop-tables-cetas.md) é um dos recursos mais importantes disponív
 Você pode usar CETAS para armazenar partes usadas com frequência de consultas, como tabelas de referência Unidas, em um novo conjunto de arquivos. Em seguida, você pode unir a esta única tabela externa em vez de repetir junções comuns em várias consultas.
 
 Como CETAS gera arquivos parquet, as estatísticas serão criadas automaticamente quando a primeira consulta for direcionada a essa tabela externa, resultando em um desempenho aprimorado.
+
+## <a name="aad-pass-through-performance"></a>Desempenho de passagem do AAD
+
+O SQL sob demanda permite que você acesse arquivos no armazenamento usando as credenciais de passagem ou de SAS do AAD. Você pode enfrentar um desempenho mais lento com a comparação de passagem do AAD com a SAS. 
+
+Se você precisar de um melhor desempenho, tente as credenciais SAS para acessar o armazenamento até que o desempenho de passagem do AAD seja melhorado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

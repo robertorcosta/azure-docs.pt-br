@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061770"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198567"
 ---
 # <a name="automated-backups"></a>Backups automatizados
 
@@ -61,6 +61,8 @@ Você pode experimentar algumas dessas operações usando os seguintes exemplos:
 O banco de dados SQL dá suporte a autoatendimento para PITR (restauração pontual) criando automaticamente backups completos, backups diferenciais e backups de log de transações. Backups de banco de dados completos são criados semanalmente e backups de banco de dados diferenciais geralmente são criados a cada 12 horas. Os backups de log de transações geralmente são criados a cada 5 a 10 minutos. A frequência dos backups de log de transações é baseada no tamanho da computação e na quantidade de atividade do banco de dados. 
 
 O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Esse backup geralmente é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados é grande. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema. Você não pode alterar ou desabilitar os trabalhos de backup.
+
+### <a name="default-backup-retention-period"></a>Período de retenção de backup padrão
 
 Os backups do PITR são protegidos com armazenamento com redundância geográfica. Para mais informações, confira [Redundância do Armazenamento do Microsoft Azure](../storage/common/storage-redundancy.md).
 
@@ -156,7 +158,7 @@ Se o banco de dados for criptografado com TDE, os backups serão criptografados 
 
 Em uma base contínua, a equipe de engenharia do banco de dados SQL do Azure testa automaticamente a restauração de backups automatizados de banco de dados de bancos de dados colocados em servidores lógicos e pools de bancos elásticos. (Esse teste não está disponível na instância gerenciada.) Na restauração pontual, os bancos de dados também recebem verificações de integridade do DBCC CHECKDB.
 
-A instância gerenciada usa o backup `CHECKSUM` inicial automático com bancos de dados restaurados `RESTORE` com o comando nativo ou com o serviço de migração de data do Azure após a conclusão da migração.
+A instância gerenciada usa o backup inicial automático com `CHECKSUM` bancos de dados restaurados com o `RESTORE` comando nativo ou com o serviço de migração de data do Azure após a conclusão da migração.
 
 Os problemas encontrados durante a verificação de integridade resultarão em um alerta para a equipe de engenharia. Para obter mais informações, consulte [integridade de dados no banco de dados SQL do Azure](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 

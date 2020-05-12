@@ -4,17 +4,17 @@ description: Conectar-se de forma privada a um aplicativo Web usando o ponto de 
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 05/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756286"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198811"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure (versão prévia)
 
@@ -63,13 +63,21 @@ Nos logs HTTP da Web do seu aplicativo Web, você encontrará o IP de origem do 
 ## <a name="dns"></a>DNS
 
 Como esse recurso está em versão prévia, não alteramos a entrada DNS durante a visualização. Você mesmo precisa gerenciar a entrada DNS no seu servidor DNS privado ou na zona privada do DNS do Azure.
-Se você precisar usar um nome DNS personalizado, deverá adicionar o nome personalizado em seu aplicativo Web. Durante a visualização, o nome personalizado deve ser validado como qualquer nome personalizado, usando a resolução de DNS público. Consulte [validação de DNS personalizada][dnsvalidation] para obter mais informações.
+Se você precisar usar um nome DNS personalizado, deverá adicionar o nome personalizado em seu aplicativo Web. Durante a visualização, o nome personalizado deve ser validado como qualquer nome personalizado, usando a resolução de DNS público. Para obter mais informações, consulte [validação de DNS personalizado][dnsvalidation].
+
+Se você precisar usar o console do kudu ou a API REST do kudu (implantação com agentes do Azure DevOps auto-hospedados, por exemplo), será necessário criar dois registros na zona privada do DNS do Azure ou no servidor DNS personalizado. 
+- PrivateEndpointIP yourwebappname.azurewebsites.net 
+- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
 ## <a name="pricing"></a>Preços
 
 Para obter detalhes de preço, confira [Preço do Link Privado do Azure][pricing].
 
 ## <a name="limitations"></a>Limitações
+
+Quando você usa o Azure function no plano Premium elástico com o ponto de extremidade privado, para executar ou executar a função no portal da Web do Azure, você deve ter acesso direto à rede ou receberá um erro HTTP 403. Em outras palavras, seu navegador deve ser capaz de acessar o ponto de extremidade privado para executar a função no portal da Web do Azure. 
+
+Durante a visualização, apenas o slot de produção é exposto por trás do ponto de extremidade privado, outros slots podem ser acessados somente pelo ponto de extremidade público.
 
 Estamos melhorando o recurso de link privado e o ponto de extremidade privado regularmente. consulte [Este artigo][pllimitations] para obter informações atualizadas sobre as limitações.
 

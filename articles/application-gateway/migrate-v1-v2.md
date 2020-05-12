@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57a49f9e1473f33eceba14591815415338aeecf4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312042"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198810"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar Aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2
 
@@ -53,15 +53,15 @@ Há duas opções para você dependendo da configuração e das preferências do
 * Se você não tiver os módulos AZ do Azure instalados ou não se lembrar de desinstalar os módulos AZ do Azure, a melhor opção é usar a `Install-Script` opção para executar o script.
 * Se você precisar manter os módulos AZ do Azure, sua melhor aposta é baixar o script e executá-lo diretamente.
 
-Para determinar se você tem os módulos AZ do Azure instalados, `Get-InstalledModule -Name az`execute. Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
+Para determinar se você tem os módulos AZ do Azure instalados, execute `Get-InstalledModule -Name az` . Se você não vir nenhum módulo AZ instalado, poderá usar o `Install-Script` método.
 
 ### <a name="install-using-the-install-script-method"></a>Instalar usando o método Install-Script
 
 Para usar essa opção, você não deve ter os módulos AZ do Azure instalados no seu computador. Se eles estiverem instalados, o comando a seguir exibirá um erro. Você pode desinstalar os módulos AZ do Azure ou usar a outra opção para baixar o script manualmente e executá-lo.
   
-Execute o script com o seguinte comando:
+Execute o script com o seguinte comando para obter a versão mais recente:
 
-`Install-Script -Name AzureAppGWMigration`
+`Install-Script -Name AzureAppGWMigration -Force`
 
 Esse comando também instala os módulos AZ necessários.  
 
@@ -101,7 +101,7 @@ Para executar o script:
 
    * **subnetAddressRange: [String]: Required** -este é o espaço de endereço IP que você alocou (ou deseja alocar) para uma nova sub-rede que contém o novo gateway v2. Isso deve ser especificado na notação CIDR. Por exemplo: 10.0.0.0/24. Você não precisa criar essa sub-rede com antecedência. O script o criará para você se ele não existir.
    * **appgwName: [String]: opcional**. Essa é uma cadeia de caracteres que você especifica para usar como o nome para o novo Standard_v2 ou WAF_v2 gateway. Se esse parâmetro não for fornecido, o nome do gateway v1 existente será usado com o sufixo *_v2* acrescentado.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: opcional**.  Uma lista separada por vírgulas de objetos PSApplicationGatewaySslCertificate que você cria para representar os certificados TLS/SSL do seu gateway v1 deve ser carregada para o novo gateway v2. Para cada um dos certificados TLS/SSL configurados para seu gateway Standard v1 ou WAF v1, você pode criar um novo objeto PSApplicationGatewaySslCertificate por `New-AzApplicationGatewaySslCertificate` meio do comando mostrado aqui. Você precisa do caminho para seu arquivo de certificado TLS/SSL e a senha.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: opcional**.  Uma lista separada por vírgulas de objetos PSApplicationGatewaySslCertificate que você cria para representar os certificados TLS/SSL do seu gateway v1 deve ser carregada para o novo gateway v2. Para cada um dos certificados TLS/SSL configurados para seu gateway Standard v1 ou WAF v1, você pode criar um novo objeto PSApplicationGatewaySslCertificate por meio do `New-AzApplicationGatewaySslCertificate` comando mostrado aqui. Você precisa do caminho para seu arquivo de certificado TLS/SSL e a senha.
 
      Esse parâmetro só será opcional se você não tiver ouvintes HTTPS configurados para seu gateway v1 ou WAF. Se você tiver pelo menos uma instalação de ouvinte HTTPS, deverá especificar esse parâmetro.
 
@@ -162,7 +162,7 @@ Aqui estão alguns cenários em que o gateway de aplicativo atual (Standard) pod
 
   * Se você usar endereços IP públicos no seu gateway de aplicativo, poderá fazer uma migração detalhada e granular usando um perfil do Gerenciador de tráfego para rotear incrementalmente o tráfego (método de roteamento de tráfego ponderado) para o novo gateway v2.
 
-    Você pode fazer isso adicionando os rótulos de DNS dos gateways de aplicativo v1 e v2 ao perfil do [Gerenciador de tráfego](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)e CNAME do registro DNS personalizado (por exemplo, `www.contoso.com`) para o domínio do Traffic Manager (por exemplo, contoso.trafficmanager.net).
+    Você pode fazer isso adicionando os rótulos de DNS dos gateways de aplicativo v1 e v2 ao perfil do [Gerenciador de tráfego](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)e CNAME do registro DNS personalizado (por exemplo, `www.contoso.com` ) para o domínio do Traffic Manager (por exemplo, contoso.trafficmanager.net).
   * Ou então, você pode atualizar seu registro DNS de domínio personalizado para apontar para o rótulo DNS do novo gateway de aplicativo v2. Dependendo do TTL configurado em seu registro DNS, pode levar algum tempo para que todo o tráfego do cliente migre para o novo gateway v2.
 * **Seus clientes se conectam ao endereço IP de front-end do seu gateway de aplicativo**.
 
@@ -196,7 +196,7 @@ Não. Atualmente, o script não oferece suporte a certificados no keyvault. No e
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Ocorreu alguns problemas com o uso desse script. Como posso obter ajuda?
   
-Você pode enviar um email para appgwmigrationsup@microsoft.como, abrir um caso de suporte com o suporte do Azure ou fazer ambos.
+Você pode entrar em contato com o suporte do Azure no tópico "configuração e configuração/migração para o SKU v2". Saiba mais sobre o [suporte do Azure aqui](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

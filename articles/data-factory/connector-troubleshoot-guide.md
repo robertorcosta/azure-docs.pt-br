@@ -8,12 +8,13 @@ ms.topic: troubleshooting
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 62ad337646cf3fc0bbe4305dccad5adb56f8ee15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 50f76d9b4f3061e6e9a1e4a0b510146dbded422a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410223"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199002"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solucionar problemas de conectores do Azure Data Factory
 
@@ -30,7 +31,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: problema de impacto na operação do armazenamento de BLOBs.
 
-- **Recomendação**: Verifique o erro em detalhes. Consulte o documento de ajuda de https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codesblob:. Contate a equipe de armazenamento se precisar de ajuda.
+- **Recomendação**: Verifique o erro em detalhes. Consulte o documento de ajuda de blob: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes . Contate a equipe de armazenamento se precisar de ajuda.
 
 
 ### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>Código de erro: AzureBlobServiceNotReturnExpectedDataLength
@@ -134,7 +135,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: quando a mensagem de erro contém ' proibido ', a entidade de serviço ou a identidade gerenciada que você usa pode não ter permissão suficiente para acessar o ADLS Gen2.
 
-- **Recomendação**: consulte o documento de ajuda: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
+- **Recomendação**: consulte o documento de ajuda: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication .
 
 - **Causa**: quando a mensagem de erro contém ' InternalServerError ', o erro é retornado por ADLS Gen2.
 
@@ -198,11 +199,11 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: se a mensagem de erro contiver "SqlException", o banco de dados SQL lançará o erro indicando que uma operação específica falhou.
 
-- **Recomendação**: Pesquise por código de erro do SQL neste documento de referência para obter mais https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errorsdetalhes:. Se precisar de mais ajuda, entre em contato com o suporte do Azure SQL.
+- **Recomendação**: Pesquise por código de erro do SQL neste documento de referência para obter mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Se precisar de mais ajuda, entre em contato com o suporte do Azure SQL.
 
 - **Causa**: se a mensagem de erro contiver "cliente com endereço IP"... " Não tem permissão para acessar o servidor ", e você está tentando se conectar ao banco de dados SQL do Azure, geralmente ele é causado pelo problema do firewall do banco de dados SQL do Azure.
 
-- **Recomendação**: na configuração do firewall do SQL Server do Azure, habilite a opção "permitir que os serviços e recursos do Azure acessem este servidor". Documento de referência https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure:.
+- **Recomendação**: na configuração do firewall do SQL Server do Azure, habilite a opção "permitir que os serviços e recursos do Azure acessem este servidor". Documento de referência: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure .
 
 
 ### <a name="error-code--sqloperationfailed"></a>Código de erro: SqlOperationFailed
@@ -211,8 +212,8 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: se a mensagem de erro contiver "SqlException", o banco de dados SQL lançará o erro indicando que uma operação específica falhou.
 
-- **Recomendação**: se o erro de SQL não for claro, tente alterar o banco de dados para o nível de compatibilidade mais recente ' 150 '. Ele pode gerar erros de SQL da versão mais recente. Veja o documento de detalhes: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
-        Para solucionar problemas de SQL, pesquise por código de erro do SQL neste documento de referência para obter https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errorsmais detalhes:. Se precisar de mais ajuda, entre em contato com o suporte do Azure SQL.
+- **Recomendação**: se o erro de SQL não for claro, tente alterar o banco de dados para o nível de compatibilidade mais recente ' 150 '. Ele pode gerar erros de SQL da versão mais recente. Veja o documento de detalhes: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat .
+        Para solucionar problemas de SQL, pesquise por código de erro do SQL neste documento de referência para obter mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Se precisar de mais ajuda, entre em contato com o suporte do Azure SQL.
 
 - **Causa**: se a mensagem de erro contiver "PdwManagedToNativeInteropException", geralmente ela é causada por incompatibilidade entre os tamanhos de coluna de origem e de coletor.
 
@@ -220,7 +221,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: se a mensagem de erro contiver "InvalidOperationException", geralmente ela será causada por dados de entrada inválidos.
 
-- **Recomendação**: para identificar qual linha encontra o problema, habilite o recurso de tolerância a falhas na atividade de cópia, que pode redirecionar as linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Documento de referência https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance:.
+- **Recomendação**: para identificar qual linha encontra o problema, habilite o recurso de tolerância a falhas na atividade de cópia, que pode redirecionar as linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Documento de referência: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Código de erro: SqlUnauthorizedAccess
@@ -323,7 +324,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: falha na cópia em massa do SQL devido ao recebimento de um comprimento de coluna inválido do cliente bcp.
 
-- **Recomendação**: para identificar qual linha encontra o problema, habilite o recurso de tolerância a falhas na atividade de cópia, que pode redirecionar as linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Documento de referência https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance:.
+- **Recomendação**: para identificar qual linha encontra o problema, habilite o recurso de tolerância a falhas na atividade de cópia, que pode redirecionar as linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Documento de referência: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance .
 
 
 ### <a name="error-code--sqlconnectionisclosed"></a>Código de erro: SqlConnectionIsClosed
@@ -545,7 +546,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: o formato parquet não tem suporte no Azure data Factory.
 
-- **Recomendação**: Verifique os dados de origem. Consulte o documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+- **Recomendação**: Verifique os dados de origem. Consulte o documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs .
 
 
 ### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Código de erro: ParquetMissedDecimalPrecisionScale
@@ -581,7 +582,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: os dados não podem ser convertidos no tipo especificado em mapeamentos. origem
 
-- **Recomendação**: Verifique os dados de origem ou especifique o tipo de dados correto para essa coluna no mapeamento de coluna da atividade de cópia. Consulte o documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs.
+- **Recomendação**: Verifique os dados de origem ou especifique o tipo de dados correto para essa coluna no mapeamento de coluna da atividade de cópia. Consulte o documento: https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs .
 
 
 ### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Código de erro: ParquetDataCountNotMatchColumnCount

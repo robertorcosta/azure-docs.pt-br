@@ -4,19 +4,19 @@ description: Saiba como se conectar ao banco de dados SQL, à instância gerenci
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
+ms.custom: azure-synapse, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: 0e244ea185011bbb7d9f0facad399bb9b577bbc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60a1b0deda75c1fc30a9e3b8255106d2809856ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419884"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198605"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerenciar autenticação do Azure Active Directory com SQL
 
@@ -187,8 +187,8 @@ Como prática recomendada para os administradores existentes do Azure AD para MI
 
 ### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Problemas conhecidos com o logon do Azure AD GA para MI
 
-- Se um logon do Azure AD existir no banco de dados mestre para MI, criado usando o comando `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`T-SQL, ele não poderá ser configurado como um administrador do Azure ad para mi. Você terá um erro ao definir o logon como um administrador do Azure AD usando os comandos portal do Azure, PowerShell ou CLI para criar o logon do Azure AD.
-  - O logon deve ser removido no banco de dados mestre usando o `DROP LOGIN [myaadaccount]`comando, antes que a conta possa ser criada como um administrador do Azure AD.
+- Se um logon do Azure AD existir no banco de dados mestre para MI, criado usando o comando T-SQL `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER` , ele não poderá ser configurado como um administrador do Azure ad para mi. Você terá um erro ao definir o logon como um administrador do Azure AD usando os comandos portal do Azure, PowerShell ou CLI para criar o logon do Azure AD.
+  - O logon deve ser removido no banco de dados mestre usando o comando `DROP LOGIN [myaadaccount]` , antes que a conta possa ser criada como um administrador do Azure AD.
   - Configure a conta de administrador do Azure AD no portal do Azure após o `DROP LOGIN` sucesso. 
   - Se você não puder configurar a conta de administrador do Azure AD, faça check-in do banco de dados mestre da instância gerenciada para o logon. Use o seguinte comando: `SELECT * FROM sys.server_principals`
   - Configurar um administrador do Azure AD para MI criará automaticamente um logon no banco de dados mestre para essa conta. Remover o administrador do Azure AD removerá automaticamente o logon do banco de dados mestre.
@@ -366,7 +366,7 @@ Para obter mais informações sobre comandos da CLI, consulte [AZ SQL Server](/c
 
 Em todos os computadores cliente, dos quais seus aplicativos ou usuários se conectam ao banco de dados SQL do Azure ou ao Azure Synapse usando identidades do Azure AD, você deve instalar o seguinte software:
 
-- .NET Framework 4,6 ou posterior de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+- .NET Framework 4,6 ou posterior de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
 - Azure Active Directory biblioteca de autenticação para SQL Server (*Adal. DLL*). Abaixo estão os links de download para instalar o driver SSMS, ODBC e OLE DB mais recente que contém a *Adal. *Biblioteca de dll.
     1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
     1. [ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
@@ -471,7 +471,7 @@ Use este método para autenticar no banco de forma SQL ou MI com usuários de id
 
 1. Inicie o Management Studio ou o Data Tools e, na caixa de diálogo **conectar ao servidor** (ou **conectar ao mecanismo de banco de dados**), na caixa **autenticação** , selecione **Azure Active Directory-senha**.
 
-2. Na caixa **nome de usuário** , digite o nome de usuário do Azure Active Directory no **formato\@nome**de usuário Domain.com. Os nomes de usuário devem ser uma conta de Azure Active Directory ou uma conta de um domínio gerenciado ou federado com Azure Active Directory.
+2. Na caixa **nome de usuário** , digite o nome de usuário do Azure Active Directory no formato nome de usuário ** \@ Domain.com**. Os nomes de usuário devem ser uma conta de Azure Active Directory ou uma conta de um domínio gerenciado ou federado com Azure Active Directory.
 
 3. Na caixa **senha** , digite sua senha de usuário para a conta de Azure Active Directory ou para a conta de domínio gerenciado/federado.
 
@@ -498,7 +498,7 @@ Para usar a autenticação integrada do Windows, o Active Directory do seu domí
 
 Seu aplicativo cliente (ou um serviço) conectando-se ao banco de dados deve estar em execução em um computador ingressado no domínio sob as credenciais de domínio de um usuário.
 
-Para se conectar a um banco de dados usando a autenticação integrada e uma identidade do Azure AD, a palavra-chave Authentication na cadeia `Active Directory Integrated`de conexão do banco de dados deve ser definida como. O exemplo de código em C# a seguir usa ADO .NET.
+Para se conectar a um banco de dados usando a autenticação integrada e uma identidade do Azure AD, a palavra-chave Authentication na cadeia de conexão do banco de dados deve ser definida como `Active Directory Integrated` . O exemplo de código em C# a seguir usa ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -510,7 +510,7 @@ Para a conexão ao Banco de Dados SQL do Azure, não há suporte para a palavra-
 
 ### <a name="active-directory-password-authentication"></a>Autenticação de senha do Active Directory
 
-Para se conectar a um banco de dados usando contas de usuário de identidade somente na nuvem do Azure AD ou aqueles que usam identidades híbridas do Azure AD `Active Directory Password`, a palavra-chave de autenticação deve ser definida como. A cadeia de conexão deve conter valores e palavras-chave de ID/UID de Usuário e Senha/PWD. O exemplo de código em C# a seguir usa ADO .NET.
+Para se conectar a um banco de dados usando contas de usuário de identidade somente na nuvem do Azure AD ou aqueles que usam identidades híbridas do Azure AD, a palavra-chave de autenticação deve ser definida como `Active Directory Password` . A cadeia de conexão deve conter valores e palavras-chave de ID/UID de Usuário e Senha/PWD. O exemplo de código em C# a seguir usa ADO .NET.
 
 ```csharp
 string ConnectionString =

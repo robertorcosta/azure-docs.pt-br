@@ -3,12 +3,12 @@ title: Matriz de suporte para backup de VM do Azure
 description: Fornece um resumo de configurações compatíveis e limitações ao fazer backup de VMs do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 86141532e0db80f75c6e79277b36060ecb939a53
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: b7201972811c5b9cc8187b671c9e688236667860
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801426"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199875"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -112,7 +112,7 @@ Pontos de recuperação no disco do DPM/MABS | 64 para servidores de arquivos e 
 
 ## <a name="support-for-file-level-restore"></a>Suporte para restauração no nível de arquivos
 
-**Restaurar** | **Porta**
+**Restaurar** | **Com suporte**
 --- | ---
 Restaurar arquivos entre sistemas operacionais | Você pode restaurar os arquivos de qualquer máquina que tenha o mesmo sistema operacional (ou compatível) que a VM do backup. Consulte a [tabela de so compatível](backup-azure-restore-files-from-vm.md#system-requirements).
 Restaurar arquivos de VMs criptografadas | Não há suporte.
@@ -125,7 +125,7 @@ Restaurar arquivos com configurações de rede especiais | Não há suporte para
 
 A tabela a seguir resume o suporte para backup durante as tarefas de gerenciamento de VM, como adicionar ou substituir discos de VM.
 
-**Restaurar** | **Porta**
+**Restaurar** | **Com suporte**
 --- | ---
 Restaure em região/assinatura/zona. | Não há suporte.
 Restaurar uma VM existente | Use a opção para substituir disco.
@@ -158,7 +158,7 @@ VMs Gen2 | Com suporte <br> O backup do Azure dá suporte ao backup e à restaur
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados de VM do Azure | Faça backup de uma VM com 16 ou menos discos de dados.<BR> Para se inscrever para a visualização limitada de VMs com mais de 16 discos (até 32 discos), escreva para nós emAskAzureBackupTeam@microsoft.com
+Discos de dados de VM do Azure | O suporte para backup de VMs do Azure com até 32 discos está em visualização pública nessas [regiões](#backup-of-azure-virtual-machines-with-up-to-32-disks).<br><br> O suporte para backup de VMs do Azure com discos não gerenciados ou VMs clássicas é de até 16 discos.
 Tamanho do disco de dados | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 Tipo de armazenamento | HDD Standard, SSD Standard SSD Premium.
 Discos gerenciados |  Com suporte.
@@ -169,6 +169,13 @@ Adicionar o disco à VM protegida |  Com suporte.
 Redimensionar o disco em uma VM protegida |  Com suporte.
 Armazenamento compartilhado| Não há suporte para o backup de VMs usando Volume Compartilhado Clusterizado (CSV) ou Servidor de Arquivos de Escalabilidade Horizontal. Os gravadores de CSV provavelmente falharão durante o backup. Na restauração, os discos que contêm volumes CSV podem não vir.
 [Discos compartilhados](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Não há suporte.
+
+### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Backup de máquinas virtuais do Azure com até 32 discos
+
+O backup do Azure agora dá suporte ao backup de VMs do Azure com até 32 discos anexados.  Esse recurso está em visualização pública no EUA Central ocidental.  Se você estiver interessado nesse recurso em outras regiões, Inscreva-se para a versão prévia limitada escrevendo para nós em AskAzureBackupTeam@microsoft.com .  
+
+>[!NOTE]
+>O backup do Azure só dá suporte a até 16 discos para VMs do Azure com discos não gerenciados ou VMs clássicas.
 
 ## <a name="vm-network-support"></a>Suporte de rede de VM
 
