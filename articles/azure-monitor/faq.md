@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
-ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/11/2020
+ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732029"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117777"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -196,11 +196,15 @@ O designer de exibição só está disponível para usuários atribuídos com pe
 * [Diagnóstico do Azure](platform/diagnostics-extension-to-application-insights.md)
 * [Aplicativo Web Java](app/java-troubleshoot.md)
 
-*Não recebo qualquer valor de meu servidor*
+*Não obtenho dados do meu servidor:*
 
 * [Definir exceções de firewall](app/ip-addresses.md)
 * [Configurar um servidor ASP.NET](app/monitor-performance-live-website-now.md)
 * [Configurar um servidor Java](app/java-agent.md)
+
+*Quantos Application Insights devo implantar?*
+
+* [Como projetar sua implantação de Application Insights: uma versus muitos recursos de Application Insights?](app/separate-resources.md)
 
 ### <a name="can-i-use-application-insights-with-"></a>É possível usar o Application Insights com...?
 
@@ -247,7 +251,7 @@ Os detalhes dependem do tipo de projeto. Para um aplicativo Web:
 * Insere itens em:
   * Web.config
   * packages.config
-* (Somente novos projetos – se você [adicionar Application insights a um projeto existente][start], precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra views/Shared\_/layout. cshtml
+* (Somente novos projetos – se você [adicionar Application insights a um projeto existente][start], precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra views/Shared/ \_ layout. cshtml
 
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Como atualizar de versões anteriores do SDK?
 Consulte as [notas de versão](app/release-notes.md) para o SDK adequado ao seu tipo de aplicativo.
@@ -515,7 +519,7 @@ Esses são processos não-contêineres que são executados no seu nó.
 
 Como calculamos isso?
 
-**Outros processos** = o*uso total do* - uso de CAdvisor*do processo em contêineres*
+**Outros processos**  =  *Uso total de CAdvisor*  -  *Uso de processo em contêineres*
 
 Os **outros processos** incluem:
 
@@ -565,7 +569,7 @@ ContainerLog
 
 Reabilitar a coleção para essas propriedades para cada linha de log de contêiner.
 
-Se a primeira opção não for conveniente devido a alterações de consulta envolvidas, você poderá reabilitar a coleta desses campos habilitando a ```log_collection_settings.enrich_container_logs``` configuração no mapa de configuração do agente, conforme descrito nas [definições de configuração de coleta de dados](insights/container-insights-agent-config.md).
+Se a primeira opção não for conveniente devido a alterações de consulta envolvidas, você poderá reabilitar a coleta desses campos habilitando a configuração ```log_collection_settings.enrich_container_logs``` no mapa de configuração do agente, conforme descrito nas [definições de configuração de coleta de dados](insights/container-insights-agent-config.md).
 
 > [!NOTE]
 > A segunda opção não é recomendada com clusters grandes que têm mais de 50 nós porque ele gera chamadas de servidor de API de cada nó no cluster para executar esse enriquecimento. Essa opção também aumenta o tamanho dos dados para cada linha de log coletada.
@@ -628,7 +632,7 @@ Para obter uma visão detalhada do problema, examine o [link do GitHub](https://
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Como fazer resolver erros do Azure AD quando habilito logs dinâmicos? 
 
-Você pode ver o seguinte erro: **a URL de resposta especificada na solicitação não corresponde às URLs de resposta configuradas para o aplicativo: ' <\>ID do aplicativo '**. A solução para solucioná-lo pode ser encontrada no artigo [como exibir dados de contêiner em tempo real com Azure monitor para contêineres](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
+Você pode ver o seguinte erro: **a URL de resposta especificada na solicitação não corresponde às URLs de resposta configuradas para o aplicativo: ' <ID do aplicativo \> '**. A solução para solucioná-lo pode ser encontrada no artigo [como exibir dados de contêiner em tempo real com Azure monitor para contêineres](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Por que não posso atualizar o cluster após a integração?
 
