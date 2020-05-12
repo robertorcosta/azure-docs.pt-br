@@ -1,17 +1,20 @@
 ---
 title: Controles de segurança para conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Uma lista de verificação de controles de segurança para avaliar os conjuntos de dimensionamento de máquinas virtuais do Azure
-ms.service: virtual-machine-scale-sets
-author: msmbaldwin
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: security
 ms.date: 09/05/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 030e2c23d68a3fbbc96dd7591583cb27b650d011
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190601"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200005"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Controles de segurança para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -21,7 +24,7 @@ Este artigo documenta os controles de segurança criados nos conjuntos de dimens
 
 ## <a name="network"></a>Rede
 
-| Controle de segurança | Sim/Não | Anotações |
+| Controle de segurança | Sim/Não | Observações |
 |---|---|--|
 | Suporte ao ponto de extremidade de serviço| Sim | |
 | Suporte à injeção de VNet| Sim | |
@@ -30,7 +33,7 @@ Este artigo documenta os controles de segurança criados nos conjuntos de dimens
 
 ## <a name="monitoring--logging"></a>Monitorando & log
 
-| Controle de segurança | Sim/Não | Anotações|
+| Controle de segurança | Sim/Não | Observações|
 |---|---|--|
 | Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Consulte [monitorar e atualizar uma máquina virtual Linux no Azure](/azure/virtual-machines/linux/tutorial-monitoring) e [monitorar e atualizar uma máquina virtual do Windows no Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 | Registro e auditoria do plano de gerenciamento e controle| Sim |  |
@@ -38,14 +41,14 @@ Este artigo documenta os controles de segurança criados nos conjuntos de dimens
 
 ## <a name="identity"></a>Identidade
 
-| Controle de segurança | Sim/Não | Anotações|
+| Controle de segurança | Sim/Não | Observações|
 |---|---|--|
 | Autenticação| Sim |  |
 | Autorização| Sim |  |
 
 ## <a name="data-protection"></a>Proteção de dados
 
-| Controle de segurança | Sim/Não | Anotações |
+| Controle de segurança | Sim/Não | Observações |
 |---|---|--|
 | Criptografia no lado do servidor em repouso: chaves gerenciadas pela Microsoft | Sim | Consulte [Azure Disk Encryption para conjuntos de dimensionamento de máquinas virtuais](disk-encryption-overview.md). |
 | Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | As máquinas virtuais do Azure dão suporte à criptografia de [ExpressRoute](/azure/expressroute) e VNet. Consulte [criptografia em trânsito em VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
@@ -55,7 +58,7 @@ Este artigo documenta os controles de segurança criados nos conjuntos de dimens
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração
 
-| Controle de segurança | Sim/Não | Anotações|
+| Controle de segurança | Sim/Não | Observações|
 |---|---|--|
 | Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim |  | 
 

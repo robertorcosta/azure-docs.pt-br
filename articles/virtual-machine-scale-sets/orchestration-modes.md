@@ -1,18 +1,20 @@
 ---
 title: Saiba mais sobre os modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure
 description: Saiba mais sobre modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure.
-author: shandilvarun
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 10/23/2019
-ms.author: vashan
-ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279055"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198399"
 ---
 # <a name="orchestration-mode-preview"></a>Modo de orquestração (versão prévia)
 
@@ -39,7 +41,7 @@ Os conjuntos de dimensionamento de máquinas virtuais oferecerão suporte a dois
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modelo de configuração de VM      | Nenhum                                       | Obrigatório |
+| Modelo de configuração de VM      | Não                                       | Necessária |
 | Adicionando Nova VM ao conjunto de dimensionamento  | As VMs são adicionadas explicitamente ao conjunto de dimensionamento quando a VM é criada. | As VMs são criadas implicitamente e adicionadas ao conjunto de dimensionamento com base nas regras modelo de configuração de VM, contagem de instâncias e dimensionamento automático | |
 | Excluir VM                   | As VMs precisam ser excluídas individualmente, o conjunto de dimensionamento não será excluído se tiver alguma VM nela. | As VMs podem ser excluídas individualmente, a exclusão do conjunto de dimensionamento excluirá todas as instâncias de VM.  |
 | Anexar/desanexar VMs           | Sem suporte                              | Sem suporte |

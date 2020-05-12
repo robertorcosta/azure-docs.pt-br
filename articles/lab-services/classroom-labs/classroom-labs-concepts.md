@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a34af2ef779a41c19d4bfb831360948af1a66724
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77526222"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115040"
 ---
 # <a name="classroom-labs-concepts"></a>Conceitos dos laboratórios de sala de aula
 
@@ -50,7 +50,7 @@ Este artigo descreve os diferentes perfis de usuário no Azure Lab Services.
 
 ### <a name="lab-account-owner"></a>Proprietário da conta do laboratório
 
-Normalmente, e o administrador de TI dos recursos de nuvem da organização, que tem a assinatura do Azure atua como um proprietário de conta de laboratório e realiza as seguintes tarefas:
+Normalmente, um administrador de ti dos recursos de nuvem da organização, que é proprietário da assinatura do Azure, atua como um proprietário de conta de laboratório e realiza as seguintes tarefas:
 
 - Define uma conta de laboratório para sua organização.
 - Gerencia e configura as políticas em todos os laboratórios.

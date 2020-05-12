@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ee6df940dd36a325d3638c3ad29ebfd8dec713d8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801698"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196276"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -107,7 +107,7 @@ Windows 8 ou superior | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54.400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-VM do Azure | 16 discos de dados<br/> Para se inscrever para a visualização limitada de VMs com mais de 16 discos (até 32 discos), escreva para nós emAskAzureBackupTeam@microsoft.com <br><br> Disco de dados de até 32 TB
+VM do Azure | Consulte a [matriz de suporte para backup de VM do Azure](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>Como é determinado o tamanho da fonte de dados?
 

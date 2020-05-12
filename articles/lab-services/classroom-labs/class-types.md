@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 27619a69a1f7fbded8ce6430afc2b8e9a8b4a00c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45043718664eb1b3b6b865821b3f6b2a51199194
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79296720"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115023"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classes – Azure Lab Services
 
@@ -61,6 +61,10 @@ Você pode configurar um laboratório nos Serviços de Laboratório do Azure par
 
 Para obter informações detalhadas sobre como configurar esse tipo de laboratório, confira [Configurar um laboratório para ensinar o desenvolvimento de aplicativos móveis com o Android Studio](class-type-mobile-dev-android-studio.md).
 
+## <a name="big-data-analytics"></a>Análise de Big Data
+Você pode configurar um laboratório para ensinar uma classe de análise de Big Data. Com esse tipo de classe, os alunos aprendem como lidar com grandes volumes de dados e aplicam algoritmos de aprendizado estatísticos e de máquina para gerar informações de dados. Um objetivo fundamental para os alunos é aprender a usar as ferramentas de análise de dados, como o pacote de software livre Apache Hadoop, que fornece ferramentas para armazenar, gerenciar e processar Big Data. 
+
+Para obter informações detalhadas sobre como configurar esse tipo de laboratório, consulte [configurar um laboratório para Big data Analytics usando a implantação do Docker da plataforma de dados do HortonWorks](class-type-big-data-analytics.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
