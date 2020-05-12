@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7f3eaa54ecb39922a155e2ea65e15d38f2b138e4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615299"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117420"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do host da sessão
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver tentando gerenciar Azure Resource Manager objetos da área de trabalho virtual do Windows introduzidos na atualização do Spring 2020, consulte [Este artigo](../troubleshoot-vm-configuration.md).
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver tentando gerenciar objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager introduzidos na atualização Spring 2020, confira [este artigo](../troubleshoot-vm-configuration.md).
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 
@@ -84,7 +84,7 @@ A maneira recomendada para provisionar VMs é usar a Azure Resource Manager **cr
 
 Siga estas instruções para confirmar se os componentes estão instalados e para verificar se há mensagens de erro.
 
-1. Confirme se os dois componentes estão instalados marcando em **painel** > de controle**programas** > programas**e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
+1. Confirme se os dois componentes estão instalados marcando em **painel de controle**  >  **programas**programas  >  **e recursos**. Se o **agente de área de trabalho virtual do Windows** e o carregador de inicialização do **Windows Virtual Desktop Agent** não estiverem visíveis, eles não serão instalados na VM.
 2. Abra o **Explorador de arquivos** e navegue até **C:\Windows\Temp\ScriptLog.log**. Se o arquivo estiver ausente, isso indica que a DSC do PowerShell que instalou os dois componentes não pôde ser executada no contexto de segurança fornecido.
 3. Se o arquivo **C:\Windows\Temp\ScriptLog.log** estiver presente, abra-o e verifique se há mensagens de erro.
 
@@ -237,7 +237,7 @@ A VM usada para executar a correção deve estar na mesma sub-rede e domínio qu
 Siga estas instruções para executar a correção da mesma sub-rede e domínio:
 
 1. Conecte-se com o protocolo RDP padrão (RDP) à VM de onde a correção será aplicada.
-2. Baixe o PsExec https://docs.microsoft.com/sysinternals/downloads/psexecde.
+2. Baixe o PsExec de https://docs.microsoft.com/sysinternals/downloads/psexec .
 3. Descompacte o arquivo baixado.
 4. Inicie o prompt de comando como administrador local.
 5. Navegue até a pasta em que o PsExec foi descompactado.
@@ -313,7 +313,7 @@ Se você vir uma dessas mensagens, isso significa que a imagem não tem as atual
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desabilitar a configuração de política de grupo do modo de licenciamento Área de Trabalho Remota
 
-Verifique a configuração da política de grupo abrindo o editor de política de grupo na VM e navegando até **modelos administrativos** > **componentes** > do Windows**serviços de área de trabalho remota** > **host da sessão da área de trabalho remota** > **Licenciamento** > **defina o modo de licenciamento área de trabalho remota**. Se a configuração política de grupo estiver **habilitada**, altere-a para **desabilitado**. Se ele já estiver desabilitado, deixe-o como está.
+Verifique a configuração da política de grupo abrindo o editor de política de grupo na VM e navegando até **modelos administrativos**  >  **componentes do Windows**  >  **serviços de área de trabalho remota**  >  **host da sessão da área de trabalho remota**  >  **Licenciamento**  >  **defina o modo de licenciamento área de trabalho remota**. Se a configuração política de grupo estiver **habilitada**, altere-a para **desabilitado**. Se ele já estiver desabilitado, deixe-o como está.
 
 >[!NOTE]
 >Se você definir a política de grupo por meio de seu domínio, desabilite essa configuração em políticas direcionadas a essas VMs de várias sessões do Windows 10 Enterprise.
@@ -338,6 +338,12 @@ Se o seu número de versão diz "1809", instale [a atualização do KB4516077](h
 ### <a name="version-1903"></a>Versão 1903
 
 Reimplante o sistema operacional do host com a versão mais recente da imagem do Windows 10, versão 1903 da galeria do Azure.
+
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>Não foi possível conectar ao computador remoto devido a um erro de segurança
+
+Se os usuários veem um erro que diz "não foi possível conectar-se ao computador remoto devido a um erro de segurança. Se isso continuar acontecendo, peça ao administrador ou suporte técnico para obter ajuda "validar as políticas existentes que alteram as permissões de RDP padrão. Uma política que pode causar esse erro aparece é "permitir logon por meio de Serviços de Área de Trabalho Remota política de segurança".
+
+Para saber mais sobre essa política, consulte [Permitir logon por meio de serviços de área de trabalho remota](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
 ## <a name="next-steps"></a>Próximas etapas
 

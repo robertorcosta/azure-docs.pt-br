@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1199bca9e2ab7c85ccf5c90879fe5141a55a7bb5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443543"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115057"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurar um laboratório para ensinar scripts de Shell no Linux
 Este artigo mostra como configurar um laboratório para ensinar o script de Shell no Linux. O script é uma parte útil da administração do sistema que permite aos administradores evitar tarefas repetitivas. Neste cenário de exemplo, a classe abrange scripts do Bash tradicionais e scripts avançados. Scripts avançados são scripts que combinam comandos do Bash e o Ruby. Essa abordagem permite que o Ruby passe os dados e que os comandos do Bash interajam com o shell. 
@@ -32,19 +32,19 @@ Depois de criar a conta de laboratório, habilite as seguintes configurações n
 
 | Configuração de conta do laboratório | Instruções |
 | ----------- | ------------ |  
-| Imagens do Marketplace | Habilite a imagem do [Ubuntu Server 18, 4 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) para uso em sua conta de laboratório. Para obter mais informações, consulte [especificar imagens do Marketplace disponíveis para criadores de laboratório](specify-marketplace-images.md). | 
+| Imagens do Marketplace | Habilite a imagem do Ubuntu Server 18, 4 LTS para uso em sua conta de laboratório. Para obter mais informações, consulte [especificar imagens do Marketplace disponíveis para criadores de laboratório](specify-marketplace-images.md). | 
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e aplicar as seguintes configurações:
 
 | Configurações do laboratório | Valor/instruções | 
 | ------------ | ------------------ |
 | Tamanho da VM (máquina virtual) | Pequena  |
-| Imagem da VM | [Ubuntu Server 18, 4 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
+| Imagem da VM | Ubuntu Server 18, 4 LTS |
 | Habilitar conexão de área de trabalho remota | Habilitar. <p>Habilitar essa configuração permitirá que professores e alunos se conectem às suas VMs usando a área de trabalho remota (RDP). Para obter mais informações, consulte [habilitar a área de trabalho remota para máquinas virtuais Linux em um laboratório no Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Instalar o desktop e o xrdp
-A imagem do [Ubuntu Server 18, 4 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) não tem o servidor de área de trabalho remota instalado por padrão. Siga as instruções no artigo [instalar e configurar área de trabalho remota para se conectar a uma VM do Linux no Azure](../../virtual-machines/linux/use-remote-desktop.md) para instalar os pacotes necessários no computador de modelo para se conectar via protocolo de área de trabalho remota.
+A imagem do Ubuntu Server 18, 4 LTS não tem o servidor de área de trabalho remota instalado por padrão. Siga as instruções no artigo [instalar e configurar área de trabalho remota para se conectar a uma VM do Linux no Azure](../../virtual-machines/linux/use-remote-desktop.md) para instalar os pacotes necessários no computador de modelo para se conectar via protocolo de área de trabalho remota.
 
 ## <a name="install-ruby"></a>Instalar Ruby
 O Ruby é uma linguagem dinâmica de software livre que pode ser combinada com scripts bash. Esta seção mostra como usar `apt-get` o para instalar a versão mais recente do [Ruby](https://www.ruby-lang.org/).

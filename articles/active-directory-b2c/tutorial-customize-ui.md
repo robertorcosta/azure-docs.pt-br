@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e023e9c8c4c6f0021eabccad8783c27eba98d0d5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186243"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116519"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: personalizar a interface de experiências do usuário no Azure Active Directory B2C
 
@@ -64,14 +64,14 @@ Embora você possa armazenar seus arquivos de várias maneiras, para este tutori
 
 1. No menu, selecione **CORS**.
 2. Para **origens permitidas**, insira `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Você precisa usar todas as letras minúsculas ao digitar o nome do seu locatário.
-3. Para **métodos permitidos**, selecione `GET`,`PUT`e `OPTIONS`.
+3. Para **métodos permitidos**, selecione `GET` , `PUT` e `OPTIONS` .
 4. Para **cabeçalhos permitidos**, digite um asterisco (*).
 5. Para **cabeçalhos expostos**, digite um asterisco (*).
 6. Para **Idade máxima de**, insira 200.
 
     ![Página de configuração do CORS no armazenamento de BLOBs do Azure no portal do Azure](./media/tutorial-customize-ui/enable-cors.png)
 
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 ### <a name="create-the-customization-files"></a>Criar os arquivos de personalização
 
@@ -166,4 +166,4 @@ Neste artigo, você aprendeu a:
 > * Testar a interface do usuário personalizada
 
 > [!div class="nextstepaction"]
-> [Personalização de idioma no Azure Active Directory B2C](user-flow-language-customization.md)
+> [Personalizar a interface do usuário no Azure Active Directory B2C](customize-ui-overview.md)

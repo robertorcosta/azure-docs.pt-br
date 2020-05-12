@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe3ee79318ab9fdc9f2c0e9585051439b76b5cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617150"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117200"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de failover de recuperação de desastre
 
@@ -34,7 +34,7 @@ Há dois casos a serem considerados ao fazer failover para um local de recupera�
 >[!NOTE]
 >As etapas a seguir devem ser feitas na unidade de instância grande do HANA, que representa a unidade de recuperação de desastre. 
  
-Para restaurar os instantâneos de armazenamento replicados mais recentemente, siga as etapas em "executar failover de recuperação de desastre completo-azure_hana_dr_failover" em [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+Para restaurar os instantâneos de armazenamento replicados mais recentemente, siga as etapas em "executar failover de recuperação de desastre completo-azure_hana_dr_failover" em [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf). 
 
 Se você quiser ter várias instâncias de SAP HANA com failover, execute o comando azure_hana_dr_failover várias vezes. Quando solicitado, insira o SAP HANA SID que você deseja que o failover e a restauração. 
 
@@ -115,7 +115,7 @@ Siga estas etapas:
 
 ## <a name="monitor-disaster-recovery-replication"></a>Monitorar a replicação de recuperação de desastre
 
-Para monitorar o status de seu progresso de replicação de armazenamento, execute `azure_hana_replication_status`o script. Esse comando deve ser executado de uma unidade que é executada no local de recuperação de desastre para funcionar conforme o esperado. O comando funciona não importa se a replicação está ativa. O comando pode ser executado para cada unidade de instância grande do HANA do seu locatário no local de recuperação de desastre. Ele não pode ser usado para obter detalhes sobre o volume de inicialização. 
+Para monitorar o status de seu progresso de replicação de armazenamento, execute o script `azure_hana_replication_status` . Esse comando deve ser executado de uma unidade que é executada no local de recuperação de desastre para funcionar conforme o esperado. O comando funciona não importa se a replicação está ativa. O comando pode ser executado para cada unidade de instância grande do HANA do seu locatário no local de recuperação de desastre. Ele não pode ser usado para obter detalhes sobre o volume de inicialização. 
 
 Para obter mais informações sobre o comando e sua saída, consulte "Get DR Replication status-azure_hana_replication_status" em [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
 

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926571"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115788"
 ---
 # <a name="security-tokens"></a>Tokens de segurança
 
@@ -31,7 +31,7 @@ Os tokens de acesso só são válidos por um curto período de tempo, portanto, 
 Os **tokens de ID** são enviados ao aplicativo cliente como parte de um fluxo do [OpenID Connect](v2-protocols-oidc.md) . Eles podem ser enviados com um token de acesso ou em vez de um, e são usados pelo cliente para autenticar o usuário. Para saber mais sobre como a plataforma de identidade da Microsoft emite tokens de ID, consulte [tokens de ID](id-tokens.md).
 
 > [!NOTE]
-> Este artigo discute os tokens de segurança para os protocolos OAuth2 e OpenID Connect. Muitos aplicativos empresariais usam SAML para autenticar usuários. Consulte [referência de token SAML do Azure ad](reference-saml-tokens.md) para obter informações sobre asserções SAML.
+> Este artigo discute os tokens de segurança usados pelos protocolos OAuth2 e OpenID Connect. Muitos aplicativos empresariais usam SAML para autenticar usuários. Consulte [referência de token SAML do Azure ad](reference-saml-tokens.md) para obter informações sobre asserções SAML.
 
 ## <a name="validating-security-tokens"></a>Validando tokens de segurança
 
@@ -42,11 +42,11 @@ Os tokens são válidos somente por uma quantidade limitada de tempo. Normalment
 * Um token de acesso para acessar o aplicativo ou recurso protegido e
 * Um token de atualização usado para atualizar o token de acesso quando o token de acesso está perto de expirar.
 
-Tokens de acesso são passados para uma API da Web como o token de `Authorization` portador no cabeçalho. Um aplicativo pode fornecer um token de atualização para o STS e, se o acesso do usuário ao aplicativo não tiver sido revogado, ele obterá um novo token de acesso e um novo token de atualização. É assim que o cenário de alguém que sai da empresa é tratado. Quando o STS receber o token de atualização, ele não emitirá outro token de acesso válido se o usuário não estiver mais autorizado.
+Tokens de acesso são passados para uma API da Web como o token de portador no `Authorization` cabeçalho. Um aplicativo pode fornecer um token de atualização para o STS e, se o acesso do usuário ao aplicativo não tiver sido revogado, ele obterá um novo token de acesso e um novo token de atualização. É assim que o cenário de alguém que sai da empresa é tratado. Quando o STS receber o token de atualização, ele não emitirá outro token de acesso válido se o usuário não estiver mais autorizado.
 
 ## <a name="json-web-tokens-jwts-and-claims"></a>JWTs (tokens Web JSON) e declarações
 
-A plataforma de identidade da Microsoft implementa tokens de segurança como **JWTs (tokens Web JSON)** que contêm **declarações**.
+A plataforma de identidade da Microsoft implementa tokens de segurança como **JWTs (tokens Web JSON)** que contêm **declarações**. Como JWTs são usados como tokens de segurança, essa forma de autenticação, às vezes, é chamada de **autenticação JWT**.
 
 Uma [declaração](developer-glossary.md#claim) fornece asserções sobre uma entidade, como um aplicativo cliente ou [proprietário do recurso](developer-glossary.md#resource-owner), para outra entidade, como um servidor de recursos. Uma declaração também pode ser referida como uma declaração JWT ou uma declaração de token Web JSON.
 
@@ -82,7 +82,7 @@ Dependendo de como o cliente é criado, ele pode usar um (ou vários) dos fluxos
 |[Fluxo em nome de](v2-oauth2-on-behalf-of-flow.md) | o token de acesso| x| x| x| |
 |[Credenciais de cliente](v2-oauth2-client-creds-grant-flow.md) | | | x (somente de aplicativo)| | |
 
-Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador `response_mode` por `query` meio `fragment`da URL (onde é ou).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm `groups` declarações `wids` ou.
+Tokens emitidos por meio do modo implícito têm uma limitação de comprimento devido a ser passado de volta para o navegador por meio da URL (onde `response_mode` é `query` ou `fragment` ).  Alguns navegadores têm um limite no tamanho da URL que pode ser colocado na barra do navegador e falham quando é muito longo.  Portanto, esses tokens não têm `groups` `wids` declarações ou.
 
 ## <a name="next-steps"></a>Próximas etapas
 

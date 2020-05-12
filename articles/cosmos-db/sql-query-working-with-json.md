@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: a8f32ad69d32844305c1cc785afc9f1df3c102b8
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006346"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117012"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Trabalhando com JSON no Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Na API do SQL (núcleo) do Azure Cosmos DB, os itens são armazenados como JSON.
 
 Vamos resumir alguns aspectos importantes do trabalho com JSON:
 
-- Objetos JSON sempre começam com uma `{` chave esquerda e terminam com `}` uma chave direita
+- Objetos JSON sempre começam com uma `{` chave esquerda e terminam com uma `}` chave direita
 - Você pode ter propriedades JSON [aninhadas](#nested-properties) entre si
 - Os valores de propriedade JSON podem ser matrizes
 - Os nomes de propriedade JSON diferenciam maiúsculas de minúsculas
@@ -45,9 +45,9 @@ Aqui está um documento com JSON aninhado:
 }
 ```
 
-Nesse caso, as propriedades `state`, `country`e `city` são todas aninhadas dentro da `address` propriedade.
+Nesse caso, as `state` Propriedades, `country` e `city` são todas aninhadas dentro da `address` propriedade.
 
-O exemplo a seguir projeta duas propriedades `f.address.state` aninhadas `f.address.city`: e.
+O exemplo a seguir projeta duas propriedades aninhadas: `f.address.state` e `f.address.city` .
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -141,7 +141,7 @@ WHERE EXISTS(
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Palavras-chave reservadas e caracteres especiais em JSON
 
-Você pode acessar as propriedades usando o operador `[]`de propriedade entre aspas. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais ou tem o mesmo nome que uma palavra-chave SQL ou reservada.
+Você pode acessar as propriedades usando o operador de propriedade entre aspas `[]` . Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais ou tem o mesmo nome que uma palavra-chave SQL ou reservada.
 
 Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma propriedade `price($)` que contém caracteres especiais:
 
@@ -160,7 +160,7 @@ Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma p
 }
 ```
 
-Se você executar uma consulta que inclui a `order` propriedade ou `price($)` Propriedade, receberá um erro de sintaxe.
+Se você executar uma consulta que inclui a `order` propriedade ou `price($)` propriedade, receberá um erro de sintaxe.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -208,7 +208,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, a `SELECT` cláusula precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome `$1`da variável de argumento implícito. A consulta a seguir retorna duas variáveis de argumento `$1` implícitas: e `$2`.
+No exemplo anterior, a `SELECT` cláusula precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome da variável de argumento implícito `$1` . A consulta a seguir retorna duas variáveis de argumento implícitas: `$1` e `$2` .
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -237,7 +237,7 @@ Você pode explicitamente alias de valores em consultas. Se uma consulta tiver d
 
 ### <a name="examples"></a>Exemplos
 
-A `AS` palavra-chave usada para alias é opcional, conforme mostrado no exemplo a seguir ao projetar o segundo valor como `NameInfo`:
+A `AS` palavra-chave usada para alias é opcional, conforme mostrado no exemplo a seguir ao projetar o segundo valor como `NameInfo` :
 
 ```sql
     SELECT
@@ -270,7 +270,7 @@ Aqui está um exemplo:
 ```sql
     SELECT
            {"JSON expression with a space": { "state": f.address.state, "city": f.address.city }},
-           { "JSON expression with a special character": { "name": f.id }}
+           {"JSON expression with a special character!": { "name": f.id }}
     FROM Families f
     WHERE f.id = "AndersenFamily"
 ```

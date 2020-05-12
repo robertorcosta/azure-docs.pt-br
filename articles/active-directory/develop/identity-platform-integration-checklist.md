@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 56975cebbfe4f6dd6452c850c338d431faea27bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7c26780cdba37a2bddc201928dbcbd5f86e0170
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050488"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115890"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Práticas recomendadas e recomendações da plataforma Microsoft Identity
 
@@ -26,6 +26,9 @@ Este artigo destaca as práticas recomendadas, recomendações e supervisões co
 Se você estiver apenas começando, confira a [documentação da plataforma de identidade da Microsoft](index.yml) para saber mais sobre noções básicas de autenticação, cenários de aplicativos na plataforma de identidade da Microsoft e muito mais.
 
 Use a seguinte lista de verificação para garantir que seu aplicativo seja efetivamente integrado à [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
+
+> [!TIP]
+> O *Assistente de integração* no portal do Azure pode ajudá-lo a aplicar muitas dessas práticas recomendadas e recomendações. Selecione qualquer um dos seus [registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) no portal do Azure e, em seguida, selecione o item de menu assistente de **integração (versão prévia)** para começar a usar o assistente.
 
 ## <a name="basics"></a>Noções básicas
 
@@ -56,7 +59,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 |   |   |
 |---|---|
-| ![caixa de seleção](./media/active-directory-integration-checklist/checkbox-two.svg) | Gerencie seus URIs de redirecionamento: <ul><li>Mantenha a propriedade de todos os URIs de redirecionamento e mantenha os registros DNS para eles atualizados.</li><li>Não use caracteres curinga (*) em seus URIs.</li><li>Para aplicativos Web, verifique se todos os URIs estão seguros e criptografados (por exemplo, usando esquemas HTTPS).</li><li>Para clientes públicos, use URIs de redirecionamento específicos da plataforma, se aplicável (principalmente para iOS e Android). Caso contrário, use URIs de redirecionamento com uma grande quantidade de aleatoriedade para evitar colisões ao chamar de volta para seu aplicativo.</li><li>Se seu aplicativo estiver sendo usado de um agente Web isolado, você poderá usar `https://login.microsoftonline.com/common/oauth2/nativeclient`o.</li><li>Revise e corte todos os URIs de redirecionamento não utilizados ou desnecessários regularmente.</li></ul> |
+| ![caixa de seleção](./media/active-directory-integration-checklist/checkbox-two.svg) | Gerencie seus URIs de redirecionamento: <ul><li>Mantenha a propriedade de todos os URIs de redirecionamento e mantenha os registros DNS para eles atualizados.</li><li>Não use caracteres curinga (*) em seus URIs.</li><li>Para aplicativos Web, verifique se todos os URIs estão seguros e criptografados (por exemplo, usando esquemas HTTPS).</li><li>Para clientes públicos, use URIs de redirecionamento específicos da plataforma, se aplicável (principalmente para iOS e Android). Caso contrário, use URIs de redirecionamento com uma grande quantidade de aleatoriedade para evitar colisões ao chamar de volta para seu aplicativo.</li><li>Se seu aplicativo estiver sendo usado de um agente Web isolado, você poderá usar o `https://login.microsoftonline.com/common/oauth2/nativeclient` .</li><li>Revise e corte todos os URIs de redirecionamento não utilizados ou desnecessários regularmente.</li></ul> |
 | ![caixa de seleção](./media/active-directory-integration-checklist/checkbox-two.svg) | Se seu aplicativo estiver registrado em um diretório, minimize e monitore manualmente a lista de proprietários de registro de aplicativo. |
 | ![caixa de seleção](./media/active-directory-integration-checklist/checkbox-two.svg) | Não habilite o suporte para o [fluxo de concessão implícita OAuth2](v2-oauth2-implicit-grant-flow.md) , a menos que seja explicitamente necessário. Saiba mais sobre o cenário válido [aqui](v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![caixa de seleção](./media/active-directory-integration-checklist/checkbox-two.svg) | Mover para além do nome de usuário/senha. Não use o [ROPC (fluxo de credenciais de senha) do proprietário do recurso](v2-oauth-ropc.md), que lida diretamente com as senhas dos usuários. Esse fluxo requer um alto grau de confiança e exposição do usuário e deve ser usado somente quando outros fluxos mais seguros não podem ser usados. Esse fluxo ainda é necessário em alguns cenários (como DevOps), mas lembre-se de que seu uso imporá restrições ao aplicativo.  Para abordagens mais modernas, leia [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md).|

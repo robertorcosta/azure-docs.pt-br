@@ -2,20 +2,20 @@
 title: Exportando uma API hospedada no Azure para o PowerApps e o Microsoft Flow
 description: Visão geral de como expor uma API hospedada no serviço de aplicativo ao PowerApps e ao Microsoft Flow
 ms.topic: conceptual
-ms.date: 12/15/2017
+ms.date: 04/28/2020
 ms.reviewer: sunayv
-ms.openlocfilehash: 632818bf82e41e6be0a96d30cc1c4fa631718a3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ded1c5fba902adeaeb883894452c00c4ae1d617
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74233085"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115806"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportando uma API hospedada no Azure para o PowerApps e o Microsoft Flow
 
 O [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) é um serviço para a criação e utilização de aplicativos comerciais personalizados que se conectam aos seus dados e trabalham entre plataformas. O [Microsoft Flow](/learn/modules/get-started-with-flow/index) facilita a automação de fluxos de trabalho e processos de negócios entre seus aplicativos e serviços favoritos. O PowerApps e o Microsoft Flow vêm com uma variedade de conectores integrados para fontes de dados como Office 365, Dynamics 365, Salesforce e muito mais. Em alguns casos, construtores de aplicativo e fluxo também querem se conectar a fontes de dados e APIs criados por sua organização.
 
-Da mesma forma, os desenvolvedores que desejam expor suas APIs mais amplamente dentro da organização podem querer disponibilizá-las para construtores de aplicativos e fluxos. Este tópico mostra como exportar uma API criada com o [Azure Functions](../azure-functions/functions-overview.md) ou o [Serviço de Aplicativo do Azure](../app-service/overview.md). A API exportada torna-se um *conector personalizado*, usado no PowerApps e no Microsoft Flow, assim como um conector interno.
+Da mesma forma, os desenvolvedores que desejam expor suas APIs mais amplamente dentro da organização podem querer disponibilizá-las para construtores de aplicativos e fluxos. Este artigo mostra como exportar uma API criada com [Azure Functions](../azure-functions/functions-overview.md) ou [serviço Azure app](../app-service/overview.md). A API exportada torna-se um *conector personalizado*, usado no PowerApps e no Microsoft Flow, assim como um conector interno.
 
 > [!IMPORTANT]
 > A funcionalidade de definição de API mostrada neste artigo só tem suporte para [a versão 1. x dos aplicativos de tempo de execução de Azure Functions](functions-versions.md#creating-1x-apps) e serviços de aplicativos. A versão 2. x das funções integra-se ao gerenciamento de API para criar e manter definições de OpenAPI. Para saber mais, confira [criar uma definição de openapi para uma função com o gerenciamento de API do Azure](functions-openapi-definition.md). 
@@ -28,25 +28,21 @@ Antes de exportar uma API, é necessário descrevê-la usando uma definição Op
 
 Para exportar a definição de API, siga estas etapas:
 
-1. No [Portal do Azure](https://portal.azure.com), navegue até o aplicativo Azure Functions ou outro aplicativo de Serviço de Aplicativo.
+1. No [portal do Azure](https://portal.azure.com), navegue até seu aplicativo de funções ou um aplicativo do serviço de aplicativo.
 
-    Se utilizar o Azure Functions, selecione seu aplicativo de funções, escolha **Recursos de plataforma** e, em seguida, **Definição de API**.
+    No menu à esquerda, em **API**, selecione **definição de API**.
 
-    ![Definição da API do Azure Functions](media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png)
+    :::image type="content" source="media/app-service-export-api-to-powerapps-and-flow/api-definition-function.png" alt-text="Definição da API do Azure Functions":::
 
-    Se usar o Serviço de Aplicativo do Azure, selecione **definição de API** da lista de configurações.
-
-    ![Definição da API do Serviço de Aplicativo](media/app-service-export-api-to-powerapps-and-flow/api-definition-app.png)
-
-2. O botão **Exportar para o PowerApps e para o Microsoft Flow** deve estar disponível (se não estiver, crie uma definição de OpenAPI primeiro). Clique neste botão para iniciar o processo de exportação.
+2. O botão **Exportar para o PowerApps e para o Microsoft Flow** deve estar disponível (se não estiver, crie uma definição de OpenAPI primeiro). Selecione este botão para iniciar o processo de exportação.
 
     ![Botão Exportar para o PowerApps e para o Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
 3. Selecione o **modo de exportação**:
 
-    **Expresso** permite que você crie o conector personalizado a partir do portal do Azure. É necessário estar conectado ao PowerApps ou ao Microsoft Flow e ter permissão para criar conectores no ambiente de destino. Essa é a abordagem recomendada se esses dois requisitos puderem ser atendidos. Se estiver utilizando esse modo, siga as instruções de [Exportação de expresso](#express) abaixo.
+    **Expresso** permite que você crie o conector personalizado a partir do portal do Azure. É necessário estar conectado ao PowerApps ou ao Microsoft Flow e ter permissão para criar conectores no ambiente de destino. Essa abordagem é recomendada se esses dois requisitos puderem ser atendidos. Se estiver utilizando esse modo, siga as instruções de [Exportação de expresso](#express) abaixo.
 
-    **Manual** permite exportar a definição de API, que depois pode ser importada utilizando os portais do PowerApps e Microsoft Flow. Essa é a abordagem recomendada se o usuário do Azure e o usuário com permissão para criar conectores forem pessoas diferentes ou se o conector precisar ser criado em outro locatário do Azure. Se estiver utilizando esse modo, siga as instruções de [Exportação manual](#manual) abaixo.
+    **Manual** permite exportar a definição de API, que depois pode ser importada utilizando os portais do PowerApps e Microsoft Flow. Essa abordagem é recomendada se o usuário do Azure e o usuário com permissão para criar conectores forem pessoas diferentes ou se o conector precisar ser criado em outro locatário do Azure. Se estiver utilizando esse modo, siga as instruções de [Exportação manual](#manual) abaixo.
 
     ![Modo de exportação](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 
@@ -81,7 +77,7 @@ Para concluir a exportação no modo **Manual**, siga estas etapas:
  
     ![Exportação manual para o PowerApps e para o Microsoft Flow](media/app-service-export-api-to-powerapps-and-flow/export-manual.png)
  
-2. Se a definição de API incluir quaisquer definições de segurança, elas serão chamadas na etapa n° 2. Durante a importação, o PowerApps e o Microsoft Flow as detectam e solicitam informações de segurança. Reúna as credenciais relacionadas a cada definição para uso na próxima seção. Para obter mais informações, consulte [Especificar tipo de autenticação](#auth) abaixo.
+2. Se sua definição de API incluir definições de segurança, essas definições serão chamadas na etapa #2. Durante a importação, o PowerApps e o Microsoft Flow detectam essas definições e solicitam informações de segurança. Reúna as credenciais relacionadas a cada definição para uso na próxima seção. Para obter mais informações, consulte [Especificar tipo de autenticação](#auth) abaixo.
 
     ![Segurança para exportação manual](media/app-service-export-api-to-powerapps-and-flow/export-manual-security.png)
 
@@ -107,7 +103,7 @@ Para importar a definição de API para o PowerApps e o Microsoft Flow, siga est
 
 4. Na guia **Geral**, revise as informações provenientes da definição de OpenAPI.
 
-5. Na guia **Segurança**, se for solicitado que você forneça detalhes de autenticação, insira os valores corretos para o tipo de autenticação. Clique em **Continuar**.
+5. Na guia **Segurança**, se for solicitado que você forneça detalhes de autenticação, insira os valores corretos para o tipo de autenticação. Clique em **Continue**.
 
     ![Guia Segurança](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 
@@ -157,15 +153,15 @@ Para obter mais informações, consulte os exemplos de registro do Azure AD para
 Os valores de configuração a seguir são necessários:
 - **ID do cliente** – a ID do cliente do seu registro do Azure AD do conector
 - **Segredo do cliente** – o segredo do cliente do seu registro do Azure AD do conector
-- **URL de logon** – URL básica para o Azure AD. No Azure, isso é normalmente `https://login.windows.net`.
-- **ID do locatário** - o ID do locatário a ser usado para o logon. Isso deve ser "comum" ou a ID do locatário em que o conector é criado.
+- **URL de logon** – URL básica para o Azure AD. No Azure, normalmente `https://login.windows.net` .
+- **ID do locatário** - o ID do locatário a ser usado para o logon. Essa ID deve ser "comum" ou a ID do locatário no qual o conector é criado.
 - **URL de recurso** – URL de recurso do seu registro do Azure AD da sua API
 
 > [!IMPORTANT]
 > Caso outro indivíduo importe a definição de API para o PowerApps e o Microsoft Flow como parte do fluxo manual, será necessário fornecer a ID do cliente e o segredo do cliente do *registro do conector*, assim como o URL de recurso da sua API. Certifique-se de que esses segredos sejam gerenciados com segurança. **Não compartilhe as credenciais de segurança da API, propriamente dita.**
 
 ### <a name="generic-oauth-20"></a>OAuth 2.0 genérico
-Ao usar o OAuth 2.0 genérico, é possível integrar com qualquer provedor de OAuth 2.0. Isso permite que você trabalhe com provedores personalizados sem suporte nativo.
+Ao usar o OAuth 2.0 genérico, é possível integrar com qualquer provedor de OAuth 2.0. Isso permite que você trabalhe com provedores personalizados que não têm suporte nativo.
 
 Os valores de configuração a seguir são necessários:
 - **ID do Cliente** - o ID do cliente do OAuth 2.0

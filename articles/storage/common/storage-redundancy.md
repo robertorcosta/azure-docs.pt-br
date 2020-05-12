@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 65d898112396755bb2518cade0ac94c21bc52685
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872003"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117709"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -102,7 +102,7 @@ O GZRS (armazenamento com redundância de zona geográfica) combina a alta dispo
 
 Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também são duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável. O GZRS foi projetado para fornecer pelo menos a durabilidade de objetos de 99.99999999999999% (16 9) em um determinado ano.
 
-Somente as contas de armazenamento de uso geral v2 dão suporte a GZRS e RA-GZRS. Para obter mais informações sobre os tipos de conta de armazenamento, consulte [Visão geral da conta de armazenamento do Azure](storage-account-overview.md). GZRS e RA-GZRS dão suporte a blobs de blocos, blobs de páginas (exceto discos VHD), arquivos, tabelas e filas. GZRS e RA-GZRS estão disponíveis em todas as regiões do Azure.
+Somente as contas de armazenamento de uso geral v2 dão suporte a GZRS e RA-GZRS. Para obter mais informações sobre os tipos de conta de armazenamento, consulte [Visão geral da conta de armazenamento do Azure](storage-account-overview.md). GZRS e RA-GZRS dão suporte a blobs de blocos, blobs de páginas (exceto discos VHD), arquivos, tabelas e filas.
 
 Há suporte para GZRS e RA-GZRS nas seguintes regiões:
 
@@ -126,7 +126,7 @@ O armazenamento com redundância geográfica (com GRS ou GZRS) Replica seus dado
 
 Se sua conta de armazenamento estiver configurada para acesso de leitura à região secundária, você poderá projetar seus aplicativos para alternar diretamente para a leitura de dados da região secundária se a região primária ficar indisponível por qualquer motivo. A região secundária está sempre disponível para acesso de leitura, de modo que você pode testar seu aplicativo para certificar-se de que ele será lido do secundário no caso de uma interrupção. Para obter mais informações sobre como projetar seus aplicativos para alta disponibilidade, consulte [usar redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md).
 
-Quando o acesso de leitura ao secundário está habilitado, seus dados podem ser lidos do ponto de extremidade secundário, bem como do ponto de extremidade primário para sua conta de armazenamento. O ponto de extremidade secundário acrescenta o sufixo *– secundário* ao nome da conta. Por exemplo, se o ponto de extremidade primário para o `myaccount.blob.core.windows.net`armazenamento de BLOBs for, `myaccount-secondary.blob.core.windows.net`o ponto de extremidade secundário será. As chaves de acesso da conta para sua conta de armazenamento são as mesmas para os pontos de extremidade primários e secundários.
+Quando o acesso de leitura ao secundário está habilitado, seus dados podem ser lidos do ponto de extremidade secundário, bem como do ponto de extremidade primário para sua conta de armazenamento. O ponto de extremidade secundário acrescenta o sufixo *– secundário* ao nome da conta. Por exemplo, se o ponto de extremidade primário para o armazenamento de BLOBs for `myaccount.blob.core.windows.net` , o ponto de extremidade secundário será `myaccount-secondary.blob.core.windows.net` . As chaves de acesso da conta para sua conta de armazenamento são as mesmas para os pontos de extremidade primários e secundários.
 
 ### <a name="check-the-last-sync-time-property"></a>Verificar a propriedade Horário da Última Sincronização
 
@@ -166,7 +166,7 @@ Para obter informações sobre preços para cada opção de redundância, consul
 
 O armazenamento do Azure verifica regularmente a integridade dos dados armazenados usando verificações de redundância cíclica (CRCs). Se a corrupção de dados for detectada, ela será reparada usando dados redundantes. O armazenamento do Azure também calcula somas de verificação em todo o tráfego de rede para detectar corrupção de pacotes de dados ao armazenar ou recuperar dados.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md)
 - [Alterar a opção de redundância para uma conta de armazenamento](redundancy-migration.md)

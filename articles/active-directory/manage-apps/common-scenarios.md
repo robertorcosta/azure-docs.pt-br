@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1874a2f2cf96aaa905616bddcc6cb83c60c1d279
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261033"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115601"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar o gerenciamento de aplicativos com o Azure AD
 
@@ -53,7 +53,7 @@ A maioria dos aplicativos exige que um usuário seja provisionado no aplicativo 
 
 |Recurso  |Descrição|Recomendação |
 |---------|---------|---------|
-|Provisionamento do SCIM|[Scim](https://aka.ms/SICMOverview) é uma prática recomendada do setor para automatizar o provisionamento de usuários. Qualquer aplicativo compatível com SCIM pode ser integrado ao Azure AD. Crie, atualize e exclua automaticamente as contas de usuário sem precisar manter arquivos CSV, scripts personalizados ou soluções locais.|Confira a lista crescente de aplicativos [previamente integrados](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) na Galeria de aplicativos do Azure AD|
+|Provisionamento do SCIM|[Scim](https://aka.ms/SCIMOverview) é uma prática recomendada do setor para automatizar o provisionamento de usuários. Qualquer aplicativo compatível com SCIM pode ser integrado ao Azure AD. Crie, atualize e exclua automaticamente as contas de usuário sem precisar manter arquivos CSV, scripts personalizados ou soluções locais.|Confira a lista crescente de aplicativos [previamente integrados](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) na Galeria de aplicativos do Azure AD|
 |Microsoft Graph|Aproveite a respire e a profundidade dos dados que o Azure AD tem para enriquecer seu aplicativo com os dados de que precisa.|Aproveite o [Microsoft Graph](https://developer.microsoft.com/graph/) para obter dados de todo o ecossistema da Microsoft. |
 
 
@@ -63,7 +63,7 @@ Identidade é o pivô de segurança. Se uma identidade for comprometida, é incr
 |Recurso  |Descrição| Recomendação |
 |---------|---------| ---------|
 |MFA do Azure|A Autenticação Multifator do Azure é uma solução de verificação em duas etapas da Microsoft. Usando métodos de autenticação aprovados pelo administrador, o Azure MFA ajuda a proteger o acesso aos seus dados e aplicativos, ao mesmo tempo em que atende à demanda por um processo de entrada simples.| [Habilite a MFA](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124) para seus usuários.  |
-|Acesso condicional|Com o acesso condicional, você pode implementar decisões de controle de acesso automatizadas para quem pode acessar seus aplicativos de nuvem, com base em condições.| Examine os [padrões de segurança](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) e [as políticas comuns](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common) que os clientes estão usando. | 
+|Acesso Condicional|Com o acesso condicional, você pode implementar decisões de controle de acesso automatizadas para quem pode acessar seus aplicativos de nuvem, com base em condições.| Examine os [padrões de segurança](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) e [as políticas comuns](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common) que os clientes estão usando. | 
 |Identity Protection|O Identity Protection usa os aprendizados que a Microsoft adquiriu com sua posição em organizações com o Azure AD, com o espaço do consumidor com as contas Microsoft e com os jogos do Xbox para proteger seus usuários. A Microsoft analisa 6,5 trilhões de sinais por dia para identificar e proteger os clientes contra ameaças.|Habilite as [políticas de proteção de identidade padrão](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-policies) fornecidas pelo nosso serviço. | 
 
 ## <a name="scenario-4-govern-access-to-your-applications"></a>Cenário 4: controlar o acesso aos seus aplicativos
@@ -86,7 +86,7 @@ A identidade só poderá ser seu plano de controle se puder conectar tudo em apl
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-- [Gerenciamento de aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
+- [Gerenciamento de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Provisionamento de aplicativo](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
 - [Acesso seguro híbrido](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
 - [Governança de identidade](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)

@@ -8,21 +8,25 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 28e76a93e309112d965c49f25be232ced789ad66
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983186"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117386"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Dimensionar hosts de sessão usando a automação do Azure
 
 >[!IMPORTANT]
->Esse conteúdo se aplica à versão 2019 do outono que não dá suporte a Azure Resource Manager objetos da área de trabalho virtual do Windows.
+>Esse conteúdo se aplica à versão Outono 2019 que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 
 Você pode reduzir o custo total de implantação de área de trabalho virtual do Windows dimensionando suas VMs (máquinas virtuais). Isso significa desligar e desalocar VMs de host de sessão fora do horário de pico de uso, ligá-las novamente e realocá-las durante horários de pico.
 
 Neste artigo, você aprenderá sobre a ferramenta de dimensionamento criada com a automação do Azure e com o aplicativo lógico do Azure que dimensionará automaticamente as máquinas virtuais do host de sessão no seu ambiente de área de trabalho virtual do Windows. Para saber como usar a ferramenta de dimensionamento, pule para os [pré-requisitos](#prerequisites).
+
+## <a name="report-issues"></a>Relatar problemas
+
+Os relatórios de problemas da ferramenta de dimensionamento estão sendo tratados atualmente no GitHub em vez de Suporte da Microsoft. Se você encontrar algum problema com a ferramenta de dimensionamento, poderá relatá-las em Bu, abrindo um problema do GitHub rotulado "4a-WVD-Scaling-logicapps" na [página do GitHub do RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Como funciona a ferramenta de dimensionamento
 
@@ -43,7 +47,7 @@ Durante o tempo de uso de pico, o trabalho verifica o número atual de sessões 
 
 Durante o tempo de uso fora de pico, o trabalho determina quais VMs de host de sessão devem ser desligadas com base no parâmetro *MinimumNumberOfRDSH* . O trabalho definirá as VMs do host da sessão para o modo de descarga para evitar novas sessões se conectando aos hosts. Se você definir o parâmetro *LimitSecondsToForceLogOffUser* para um valor positivo diferente de zero, o trabalho notificará qualquer usuário conectado no momento para salvar seu trabalho, aguardará a quantidade de tempo configurada e, em seguida, forçará os usuários a se desconectarem. Depois que todas as sessões de usuário na VM host de sessão forem desconectadas, o trabalho desligará a VM.
 
-Se você definir o parâmetro *LimitSecondsToForceLogOffUser* como zero, o trabalho permitirá que a definição de configuração de sessão em políticas de grupo especificadas manipule a assinatura de sessões de usuário. Para ver essas políticas de grupo, vá **para configuração** > do computador**políticas** > **modelos administrativos** > **componentes** > do Windows**Serviços** > de terminal**Terminal Server** > **limites de tempo de sessão**. Se houver sessões ativas em uma VM host de sessão, o trabalho deixará a VM host de sessão em execução. Se não houver nenhuma sessão ativa, o trabalho desligará a VM do host da sessão.
+Se você definir o parâmetro *LimitSecondsToForceLogOffUser* como zero, o trabalho permitirá que a definição de configuração de sessão em políticas de grupo especificadas manipule a assinatura de sessões de usuário. Para ver essas políticas de grupo, vá para **configuração do computador**  >  **políticas**  >  **modelos administrativos**  >  **componentes do Windows**  >  **serviços de terminal**  >  **Terminal Server**  >  **limites de tempo de sessão**. Se houver sessões ativas em uma VM host de sessão, o trabalho deixará a VM host de sessão em execução. Se não houver nenhuma sessão ativa, o trabalho desligará a VM do host da sessão.
 
 O trabalho é executado periodicamente com base em um intervalo de recorrência definido. Você pode alterar esse intervalo com base no tamanho do seu ambiente de área de trabalho virtual do Windows, mas lembre-se de que iniciar e desligar máquinas virtuais pode levar algum tempo, portanto, lembre-se de considerar o atraso. É recomendável definir o intervalo de recorrência para a cada 15 minutos.
 
@@ -258,6 +262,3 @@ Navegue até o runbook (o nome padrão é WVDAutoScaleRunbook) em seu grupo de r
 
 ![Uma imagem da janela de saída da ferramenta de dimensionamento.](../media/tool-output.png)
 
-## <a name="report-issues"></a>Relatar problemas
-
-Se você encontrar problemas com a ferramenta de dimensionamento, poderá relatá-los na [página do GitHub do RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
