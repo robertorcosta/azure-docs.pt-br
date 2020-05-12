@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 489f241453436190213b99cb4e7be0688a8b6237
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1d818957daa53efc856a345a4886e814fdaab6f3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214934"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858131"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Início Rápido: Criar um aplicativo Java para gerenciar os dados de API de SQL do Azure Cosmos DB
 
@@ -81,6 +81,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
 Esta etapa é opcional. Se você estiver interessado em aprender como os recursos de banco de dados são criados no código, poderá examinar os snippets de código a seguir. Caso contrário, você poderá seguir para [Executar o aplicativo](#run-the-app). 
 
+
+# <a name="sync-api"></a>[API síncrona](#tab/sync)
+
 ### <a name="managing-database-resources-using-the-synchronous-sync-api"></a>Gerenciar recursos de banco de dados usando a API síncrona
 
 * Inicialização de `CosmosClient`. O `CosmosClient` fornece a representação lógica do lado do cliente para o serviço de banco de dados do Azure Cosmos. Esse cliente é usado para configurar e executar solicitações no serviço.
@@ -106,6 +109,8 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 * As consultas SQL em JSON são executadas usando o método `queryItems`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
+
+# <a name="async-api"></a>[API assíncrona](#tab/async)
 
 ### <a name="managing-database-resources-using-the-asynchronous-async-api"></a>Gerenciar recursos de banco de dados usando a API assíncrona
 
@@ -134,6 +139,8 @@ Esta etapa é opcional. Se você estiver interessado em aprender como os recurso
 * Assim como acontece com a API síncrona, as consultas SQL em JSON são executadas usando o método `queryItems`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
+
+---
 
 ## <a name="run-the-app"></a>Executar o aplicativo
 

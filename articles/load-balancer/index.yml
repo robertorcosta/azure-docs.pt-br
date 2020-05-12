@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 12/05/2019
-  ms.openlocfilehash: 46afc139f240b46b9512360e79411a5bc8b03ec4
-  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+  ms.date: 05/07/2020
+  ms.openlocfilehash: 73d36c795ca4be905ac6e9bab31cfe00374bfa13
+  ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/03/2020
-  ms.locfileid: "82732981"
+  ms.lasthandoff: 05/08/2020
+  ms.locfileid: "82930617"
 landingContent:
 - title: Sobre o Load Balancer
   linkLists:
@@ -28,11 +28,13 @@ landingContent:
       url: concepts.md
     - text: Componentes do Load Balancer
       url: components.md
+    - text: SKUs do Load Balancer
+      url: skus.md
 - title: Introdução
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Criar um Standard Load Balancer para balancear a carga de VMs
+    - text: Criar um Load Balancer para balancear a carga de VMs
       url: quickstart-load-balancer-standard-public-portal.md
   - linkListType: tutorial
     links:
@@ -54,25 +56,27 @@ landingContent:
       url: load-balancer-multivip-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Configurar regras de saída e de balanceamento de carga no Standard Load Balancer usando a CLI do Azure
+    - text: Configurar regras de saída e de balanceamento de carga no Load Balancer (CLI do Azure)
       url: configure-load-balancer-outbound-cli.md
-    - text: Criar um balanceador de carga para a Internet com IPv6 usando o PowerShell
+    - text: Criar um balanceador de carga para a Internet com IPv6 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: Configurar o modo de distribuição
       url: load-balancer-distribution-mode.md
+    - text: Atualizar de Básico para Standard
+      url: upgrade-basic-standard.md
 - title: Implantar
   linkLists:
   - linkListType: concept
     links:
     - text: Load Balancer Standard e Zonas de Disponibilidade
       url: load-balancer-standard-availability-zones.md
-    - text: Balanceador de Carga com Redefinição de TCP quando ocioso (Versão Prévia Pública)
+    - text: Load Balancer com Redefinição de TCP quando ocioso
       url: load-balancer-tcp-reset.md
   - linkListType: how-to-guide
     links:
-    - text: Criar um Standard Load Balancer com front-end com redundância de zona
+    - text: Criar um Load Balancer com front-end com redundância de zona
       url: load-balancer-get-started-internet-az-portal.md
-    - text: Criar um Standard Load Balancer com front-end zonal
+    - text: Criar um Load Balancer com front-end de zona
       url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
     - text: Balanceamento de carga em várias configurações de IP
       url: load-balancer-multiple-ip.md
@@ -94,3 +98,7 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
     - text: CLI do Azure
       url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+    - text: Modelos de ARM
+      url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+    - text: Perguntas frequentes sobre o Load Balancer
+      url: load-balancer-faqs.md
