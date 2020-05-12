@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: a84f0a92703d1b626710cfc4dcfa2820bc58bda6
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 3929ffa81a8b558d8cb0dbd74135acc9cf1ea47b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673168"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82876064"
 ---
 ## <a name="configure-your-local-environment"></a>Configurar o ambiente local
 
@@ -24,7 +24,7 @@ Antes de começar, você deverá ter o seguinte:
 + As versões 3.6 e 3.7 do Python requerem o [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) versão 2.7.1846 ou uma versão 2.x posterior. O Python 3.8 requer a [versão 3.x](../articles/azure-functions/functions-run-local.md#v2) do Core Tools.
 ::: zone-end
 
-+ A [CLI do Azure](/cli/azure/install-azure-cli) versão 2.0.76 ou posterior. 
++ A [CLI do Azure](/cli/azure/install-azure-cli) versão 2.4 ou posterior. 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), versões Active LTS e Maintenance LTS (8.11.1 e 10.14.1 recomendadas).
 ::: zone-end

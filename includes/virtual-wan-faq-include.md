@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204586"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006451"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O usuário precisa ter hub e spoke com dispositivos SD-WAN/VPN para usar a WAN virtual do Azure?
 
@@ -49,7 +49,7 @@ Há duas opções para adicionar servidores DNS aos clientes do P2S.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Para VPN de usuário (ponto a site) – há suporte para quantos clientes?
 
-Cada gateway P2S VPN de usuário tem duas instâncias e cada instância é compatível com até um número de usuários determinado à medida que a unidade de escala muda. A unidade de escala 1-3 é compatível com 500 conexões, a unidade de escala 4-6 é compatível com 1 mil conexões, a unidade de escala 7-12 é compatível com 5 mil conexões e a unidade de escala 13-20 é compatível com até 10 mil conexões. Como exemplo, digamos que o usuário escolha uma unidade de escala. Cada unidade de escala implica um gateway ativo-ativo implantado, e cada uma das instâncias (neste caso, 2) seria compatível com até 500 conexões. Como você pode obter 500 conexões * 2 por gateway, isso não significa que você planeja 1.000, em vez de 500, para essa unidade de escala, pois as instâncias podem precisar ser atendidas, e durante esse tempo a conectividade para as 500 extras poderá ser interrompida se você ultrapassar a contagem de conexões recomendada.
+Cada gateway P2S VPN de usuário tem duas instâncias e cada instância é compatível com até um número de usuários determinado à medida que a unidade de escala muda. A unidade de escala 1-3 é compatível com 500 conexões, a unidade de escala 4-6 é compatível com 1 mil conexões, a unidade de escala 7-12 é compatível com 5 mil conexões e a unidade de escala 13-20 é compatível com até 10 mil conexões. Como exemplo, digamos que o usuário escolha uma unidade de escala. Cada unidade de escala implica um gateway ativo-ativo implantado, e cada uma das instâncias (neste caso, 2) seria compatível com até 500 conexões. Como você pode obter 500 conexões * 2 por gateway, isso não significa que você planeja 1.000, em vez de 500, para essa unidade de escala, pois as instâncias podem precisar ser atendidas, e durante esse tempo a conectividade para as 500 extras poderá ser interrompida se você ultrapassar a contagem de conexões recomendada. Além disso, não se esqueça de planejar o tempo de inatividade caso você decida escalar ou reduzir verticalmente na unidade de escala ou alterar a configuração de ponto a site no gateway de VPN.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um gateway de VPN da WAN Virtual do Azure?
 
@@ -190,8 +190,8 @@ A taxa de transferência total do VPN de um hub é de até 20 Gbps com base na u
 Navegue até o gateway de VPN dentro de um hub no portal e clique na unidade de escala para alterá-la para a configuração apropriada.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>A WAN Virtual permite que o dispositivo local utilize vários ISPs em paralelo ou sempre será um único túnel VPN?
+As soluções de dispositivo local podem aplicar políticas de tráfego para direcionar o tráfego entre vários túneis para o Azure.
 
-Uma conexão que chega a uma VPN de WAN Virtual é sempre um túnel ativo/ativo (para garantir a resiliência dentro do mesmo hub/região) usando um link disponível no branch. Esse link pode ser um link do ISP no branch local. A WAN Virtual 'VPNSite' fornece a capacidade de adicionar informações de link ao site. Se você tiver vários ISPs na ramificação e cada um dos ISPs tiver fornecido um link, essas informações poderão ser configuradas nas informações do site de VPN no Azure. No entanto, o gerenciamento de failover entre ISPs na ramificação é, definitivamente, uma operação de roteamento centrada em ramificações.
 
 ### <a name="what-is-global-transit-architecture"></a>O que é a arquitetura de trânsito global?
 

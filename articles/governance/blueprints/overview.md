@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Blueprint
 description: Entenda como o serviço do Azure Blueprints permite criar, definir e implantar artefatos no seu ambiente do Azure.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80677406"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864497"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -21,12 +21,11 @@ O Blueprints é uma maneira declarativa de orquestrar a implementação de vári
 - Modelos do Azure Resource Manager
 - Grupos de recursos
 
-O serviço do Azure BluePrint é apoiado pelo [Azure Cosmos DB](../../cosmos-db/introduction.md) distribuído globalmente.
-Objetos de blueprint são replicados para várias regiões do Azure. Essa replicação oferece baixa latência, alta disponibilidade e acesso consistente a seus objetos de blueprint, independentemente de em qual região o Azure Blueprints implanta seus recursos.
+O serviço do Azure BluePrint é apoiado pelo [Azure Cosmos DB](../../cosmos-db/introduction.md) distribuído globalmente. Objetos de blueprint são replicados para várias regiões do Azure. Essa replicação oferece baixa latência, alta disponibilidade e acesso consistente a seus objetos de blueprint, independentemente de em qual região o Azure Blueprints implanta seus recursos.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Como ele difere dos modelos do Resource Manager
 
-O serviço foi projetado para ajudá-lo na _configuração do ambiente_. Essa configuração geralmente consiste em um conjunto de grupos de recursos, políticas, atribuições de função e implantações de modelo do Resource Manager. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote - inclusive por meio de um pipeline de CI / CD. Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
+O serviço foi projetado para ajudá-lo na _configuração do ambiente_. Essa configuração geralmente consiste em um conjunto de grupos de recursos, políticas, atribuições de função e implantações de modelo do Resource Manager. Um blueprint é um pacote para reunir cada um desses _artefatos_ e permitir que você componha e versione esse pacote, inclusive por meio de um pipeline de CI/CD. Por fim, cada um é atribuído a uma assinatura em uma única operação que pode ser auditada e rastreada.
 
 Quase tudo o que você deseja incluir na implantação no Azure Blueprints pode ser feito com um modelo do Resource Manager. No entanto, um modelo do Resource Manager é um documento que não existe nativamente no Azure. Cada um está armazenado localmente ou no controle do código-fonte. O modelo é usado para implantações de um ou mais recursos do Azure, mas, quando esses recursos são implantados, não há relação ou conexão ativa com o modelo.
 
@@ -48,7 +47,7 @@ Uma política pode ser incluída como um dos muitos _artefatos_ em uma definiç�
 
 Um plano gráfico é composto por _artefatos_. O Azure Blueprints atualmente dá suporte aos seguintes recursos como artefatos:
 
-|Recurso  | Opções de hierarquia| DESCRIÇÃO  |
+|Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
 |Grupos de recursos | Subscription | Crie um novo grupo de recursos para uso por outros artefatos no blueprint.  Esses grupos de recursos de espaço reservado permitem que você organize os recursos exatamente da maneira que você deseja que eles sejam estruturados e fornece um limitador de escopo para os artefatos de atribuição de diretivas e funções incluídos, além dos modelos do Azure Resource Manager. |
 |Modelo do Azure Resource Manager | Assinatura, Grupo de Recursos | Modelos, incluindo aninhados e vinculados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, uma configuração de estado da Automação do Azure ou um espaço de trabalho do Log Analytics. |
@@ -106,7 +105,7 @@ Para atribuir ou desatribuir um plano gráfico, sua conta precisa das seguintes 
 
 As seguintes funções internas estão disponíveis:
 
-|Função RBAC | DESCRIÇÃO |
+|Função RBAC | Descrição |
 |-|-|
 |[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, inclui todas as permissões relacionadas ao Azure Blueprint. |
 |[Colaborador](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, pode criar e excluir definições de blueprint, mas não tem permissões de atribuição de blueprint. |
