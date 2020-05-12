@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: fee7c8eb73fe0bb7c9fd0bd9de9aa57bd8c40215
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77580644"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891548"
 ---
 # <a name="what-is-azure-cognitive-search"></a>O que é a Pesquisa Cognitiva do Azure?
 
@@ -154,11 +154,6 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 
 Os mecanismos de pesquisa são os drivers comuns de recuperação de informações nos aplicativos móveis, na Web e nos armazenamentos de dados corporativos. A Pesquisa Cognitiva do Azure fornece ferramentas para criar uma experiência de pesquisa semelhante aos grandes sites comerciais.
 
-Neste vídeo de 9 minutos com o gerente de programa Liam Cavanagh, saiba como a integração de um mecanismo de pesquisa pode trazer vantagens para seu aplicativo. As demonstrações breves abrangem os principais recursos da Pesquisa Cognitiva do Azure e a aparência de um fluxo de trabalho típico. 
+Neste vídeo de 15 minutos, o Gerenciador de programas Luis Cabrera apresenta o Azure Cognitive Search. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ O vídeo de 0-3 minutos aborda os principais recursos e casos de uso.
-+ O vídeo de 3-4 minutos aborda o provisionamento de serviços. 
-+ O vídeo de 4-6 minutos aborda o Assistente para Importar Dados usado para criar um índice com o conjunto de dados interno de imóveis.
-+ O vídeo de 6 a 9 minutos aborda o Gerenciador de pesquisa e várias consultas.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]
