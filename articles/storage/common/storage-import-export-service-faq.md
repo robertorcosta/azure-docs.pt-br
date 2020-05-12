@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8af4cafb2c7ab4d39a591f5972803161c2aa0f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519478"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120378"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação do Microsoft Azure: perguntas frequentes
 
@@ -109,7 +109,7 @@ Depois que o upload for concluído, o processo para retornar as unidades para um
 
 Os requisitos dependem das restrições específicas do datacenter do Azure.
 
-- Há alguns sites, como Austrália, Alemanha e Sul do Reino Unido, que exigem que um número de ID de entrada do datacenter da Microsoft seja gravado na remessa por motivos de segurança. Antes de enviar suas unidades ou discos para o datacenter, entre em contato com oadbops@microsoft.comAzure data Box Operations () para obter esse número. Sem esse número, o pacote será rejeitado.
+- Há alguns sites, como Austrália, Alemanha e Sul do Reino Unido, que exigem que um número de ID de entrada do datacenter da Microsoft seja gravado na remessa por motivos de segurança. Antes de enviar suas unidades ou discos para o datacenter, entre em contato com o Azure data Box Operations ( adbops@microsoft.com ) para obter esse número. Sem esse número, o pacote será rejeitado.
 - Os data centers na Índia exigem os detalhes pessoais do driver, como o cartão de ID do governo ou prova de não. (por exemplo, PAN, AADHAR, DL), nome, contato e número da chapa do carro para obter uma passagem de entrada de portão. Para evitar atrasos de entrega, informe a sua operadora sobre esses requisitos.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>Ao criar um trabalho, o endereço para entrega é um local diferente do local da minha conta de armazenamento. O que devo fazer?
@@ -153,7 +153,7 @@ Não. A ferramenta WAImportExport só é compatível com o sistema de operaciona
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>A Importação/Exportação do Microsoft Azure tem suporte para criptografia AES-256?
 
-Não. O serviço de importação/exportação do Azure usa a criptografia BitLocker AES-128.
+Sim. O serviço de importação/exportação do Azure usa a criptografia BitLocker AES-256.
 
 ## <a name="next-steps"></a>Próximas etapas
 

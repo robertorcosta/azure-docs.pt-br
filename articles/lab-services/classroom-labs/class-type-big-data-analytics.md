@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/15/2020
 ms.author: nicolela
-ms.openlocfilehash: c499b7a0f1cd16bf57fef21742b01bda71249916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3035b9debdd46c1a8ba246882312e28d1a2087e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538772"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118423"
 ---
 # <a name="set-up-a-lab-to-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Configurar um laboratório para Big Data análise usando a implantação do Docker da plataforma de dados HortonWorks
 
@@ -102,7 +102,7 @@ Nesta seção, você implantará a área restrita do HDP e acessará também a �
 1. Depois que os contêineres do Docker para a área restrita do HDP são implantados e executados, você pode acessar o ambiente iniciando o navegador e seguindo as instruções do Cloudera para abrir a [página inicial da área restrita](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) e iniciar o painel do HDP.
 
     > [!NOTE] 
-    > Essas instruções pressupõem que você primeiro mapeou o endereço IP local do ambiente de área restrita para o sandbox-hdp.hortonworks.com no arquivo de host em sua VM de modelo.  Se você **não** fizer esse mapeamento, poderá acessar a página de boas-vindas da área [http://localhost:8080](http://localhost:8080)restrita navegando até.
+    > Essas instruções pressupõem que você primeiro mapeou o endereço IP local do ambiente de área restrita para o sandbox-hdp.hortonworks.com no arquivo de host em sua VM de modelo.  Se você **não** fizer esse mapeamento, poderá acessar a página de boas-vindas da área restrita navegando até `http://localhost:8080` .
 
 ### <a name="automatically-start-docker-containers-when-students-log-in"></a>Iniciar automaticamente os contêineres do Docker quando os alunos fizerem logon
 

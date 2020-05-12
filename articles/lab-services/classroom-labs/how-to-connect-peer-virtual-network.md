@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e53b6bdb041bfac5a82ed607b75b25ab0513f57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d8f2c747a4bc0ab2119c92e61188e3c57f2b212
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187997"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118355"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conecte a rede do seu laboratório a uma rede virtual de mesmo nível no Azure Lab Services
 
@@ -48,7 +48,7 @@ Durante a criação da nova [conta de laboratório](tutorial-setup-lab-account.m
 
 Também há uma opção para fornecer um **intervalo de endereços** para máquinas virtuais para os laboratórios.  A propriedade **intervalo de endereços** se aplica somente se a **rede virtual par** estiver habilitada para o laboratório.  Se o intervalo de endereços for fornecido, todas as máquinas virtuais nos laboratórios na conta do laboratório serão criadas nesse intervalo de endereços. O intervalo de endereços deve estar na notação CIDR (por exemplo, 10.20.0.0/20) e não se sobreponha a nenhum intervalo de endereços existente.  Ao fornecer um intervalo de endereços, é importante pensar no número de *laboratórios* que serão criados e fornecer um intervalo de endereços para acomodá-lo. Os serviços de laboratório assumem um máximo de 512 máquinas virtuais por laboratório.  Por exemplo, um intervalo de IP com '/23 ' pode criar apenas um laboratório.  Um intervalo com um '/21 ' permitirá a criação de quatro laboratórios.
 
-Se o **intervalo de endereços** não for especificado, os serviços de laboratório usarão o intervalo de endereços padrão fornecido a ele pelo Azure ao criar a rede virtual a ser emparelhada com sua rede virtual.  O intervalo geralmente é algo como 10. x. 0,0/16.  Isso pode levar à sobreposição de intervalo de IP, portanto, certifique-se de especificar e endereçar o intervalo nas configurações do laboratório ou verificar o intervalo de endereços de sua rede virtual que está sendo emparelhado.
+Se o **intervalo de endereços** não for especificado, os serviços de laboratório usarão o intervalo de endereços padrão fornecido a ele pelo Azure ao criar a rede virtual a ser emparelhada com sua rede virtual.  O intervalo geralmente é algo como 10. x. 0,0/16.  Isso pode levar à sobreposição de intervalo de IP, portanto, certifique-se de especificar um intervalo de endereços nas configurações do laboratório ou verificar o intervalo de endereços de sua rede virtual que está sendo emparelhado.
 
 ## <a name="configure-after-the-lab-is-created"></a>Configurar após a criação do laboratório
 

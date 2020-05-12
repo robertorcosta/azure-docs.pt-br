@@ -4,12 +4,12 @@ description: Saiba como configurar a rede (avançada) CNI do Azure no AKS (Servi
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 17778c367eb731a7e41f5017c3ae630dc152454e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 592376c1ff1686429d71496099f55c5009e07f20
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207489"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120922"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -22,7 +22,7 @@ Este artigo mostra como usar a rede *CNI do Azure* para criar e usar uma sub-red
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A rede virtual do cluster do AKS deve permitir conectividade com a Internet de saída.
-* Os clusters AKs não podem `169.254.0.0/16`usar `172.30.0.0/16`, `172.31.0.0/16`, ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes.
+* Os clusters AKs não podem usar `169.254.0.0/16` ,, `172.30.0.0/16` `172.31.0.0/16` ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes.
 * A entidade de serviço usada pelo cluster do AKS deve ter pelo menos permissões de [Colaborador de Rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede na rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de Colaborador de Rede interna, as seguintes permissões serão necessárias:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -67,7 +67,9 @@ O número máximo de pods por nó em um cluster AKS é de 250. O número máximo
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar o máximo - novos clusters
 
-Você é capaz de configurar o número máximo de pods por nó *somente no momento da implantação do cluster*. Se você implantar com o CLI do Azure ou com um modelo do Resource Manager, poderá definir o valor máximo de pods por nó como alto que 250.
+Você pode configurar o número máximo de pods por nó no tempo de implantação do cluster ou ao adicionar novos pools de nós. Se você implantar com o CLI do Azure ou com um modelo do Resource Manager, poderá definir o valor máximo de pods por nó como alto que 250.
+
+Se você não especificar maxPods ao criar novos pools de nós, você receberá um valor padrão de 30 para o Azure CNI.
 
 Um valor mínimo para máximo de pods por nó é imposto para garantir o espaço para o pods crítico do sistema para a integridade do cluster. O valor mínimo que pode ser definido para o pods máximo por nó é 10 se e somente se a configuração de cada pool de nós tiver espaço para um mínimo de 30 pods. Por exemplo, definir o máximo de pods por nó para o mínimo de 10 exige que cada pool de nós individual tenha um mínimo de 3 nós. Esse requisito se aplica a cada novo pool de nós criado também; portanto, se 10 for definido como um pods máximo por nó, cada pool de nós subsequente adicionado deverá ter pelo menos 3 nós.
 
@@ -85,7 +87,7 @@ Um valor mínimo para máximo de pods por nó é imposto para garantir o espaço
 
 ### <a name="configure-maximum---existing-clusters"></a>Configurar o máximo - clusters existentes
 
-Não é possível alterar os pods máximos por nó em um cluster do AKS existente. O número poderá ser ajustado somente quando você implantar inicialmente o cluster.
+A configuração maxPod por nó pode ser definida quando você cria um novo pool de nós. Se você precisar aumentar a configuração de maxPod por nó em um cluster existente, adicione um novo pool de nós com a nova contagem de maxPod desejada. Depois de migrar o pods para o novo pool, exclua o pool mais antigo. Para excluir qualquer pool mais antigo em um cluster, verifique se você está definindo os modos de pool de nós conforme definido no [sistema de documentos do pool de nós do sistema[-node-pools].
 
 ## <a name="deployment-parameters"></a>Parâmetros de implantação
 
@@ -100,7 +102,7 @@ Quando você cria um cluster do AKS, os seguintes parâmetros são configurávei
 * Não deve estar dentro do intervalo de endereços IP da rede virtual do cluster
 * Não deve se sobrepor a nenhuma outra rede virtual com a qual a rede virtual do cluster está emparelhada
 * Não deve sobrepor IPs locais
-* Não deve estar dentro dos intervalos `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`ou`192.0.2.0/24`
+* Não deve estar dentro dos intervalos `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` ou`192.0.2.0/24`
 
 Embora seja tecnicamente possível especificar um intervalo de endereço de serviço na mesma rede virtual do cluster, isso não é recomendado. Um comportamento imprevisível pode ocorrer se forem usados intervalos de IP sobrepostos. Para mais informações, consulte a seção [FAQ](#frequently-asked-questions) deste artigo. Para obter mais informações sobre os serviços do Kubernetes, consulte [Serviços][services] na documentação do Kubernetes.
 
@@ -212,3 +214,4 @@ Clusters de Kubernetes criados com Mecanismo do AKS dão suporte aos plug-ins [k
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
+[pools de nó do sistema]: use-system-pools.md

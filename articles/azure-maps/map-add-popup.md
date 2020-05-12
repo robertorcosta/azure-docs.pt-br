@@ -1,20 +1,20 @@
 ---
 title: Adicionar um pop-up a um ponto em um mapa | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a adicionar um pop-up a um ponto usando o SDK da Web do Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cf6424d2a6cbcfb7c5052201b5a9190c81fddaff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7ca2f07e4568257baf72f2f298631b86f776c2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80055945"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119265"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adicionar um pop-up ao mapa
 
@@ -22,7 +22,7 @@ Este artigo mostra como adicionar um pop-up para um ponto em um mapa.
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-O código a seguir adiciona um recurso de ponto, `name` que `description` tem e propriedades, ao mapa usando uma camada de símbolo. Uma instância da [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) é criada, mas não exibida. Os eventos do mouse são adicionados à camada de símbolo para disparar abertura e fechamento do Popup. Quando o símbolo de marcador é focalizado, a propriedade `position` do popup é atualizada com a posição do marcador e a `content` opção é atualizada com algum HTML que encapsula as `name` Propriedades e `description` do recurso de ponto que está sendo focalizado. Em seguida, o popup é exibido no mapa usando `open` sua função.
+O código a seguir adiciona um recurso de ponto, que tem `name` e `description` Propriedades, ao mapa usando uma camada de símbolo. Uma instância da [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) é criada, mas não exibida. Os eventos do mouse são adicionados à camada de símbolo para disparar abertura e fechamento do Popup. Quando o símbolo de marcador é focalizado, a propriedade do Popup `position` é atualizada com a posição do marcador e a `content` opção é atualizada com algum HTML que encapsula as `name` Propriedades e `description` do recurso de ponto que está sendo focalizado. Em seguida, o popup é exibido no mapa usando sua `open` função.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -94,12 +94,12 @@ Há casos em que a melhor abordagem é criar um pop-up e reutilizá-lo. Por exem
 
 ## <a name="customizing-a-popup"></a>Personalizando um pop-up
 
-Por padrão, o pop-up tem um plano de fundo branco, uma seta de ponteiro na parte inferior e um botão fechar no canto superior direito. O exemplo a seguir altera a cor do plano de fundo `fillColor` para preto usando a opção do pop-up. O botão fechar é removido definindo a `CloseButton` opção como false. O conteúdo HTML do pop-up usa preenchido com 10 pixels das bordas do pop-up. O texto é tornado branco e, portanto, aparece bem no plano de fundo preto.  
+Por padrão, o pop-up tem um plano de fundo branco, uma seta de ponteiro na parte inferior e um botão fechar no canto superior direito. O exemplo a seguir altera a cor do plano de fundo para preto usando a `fillColor` opção do pop-up. O botão fechar é removido definindo a `CloseButton` opção como false. O conteúdo HTML do pop-up usa preenchido com 10 pixels das bordas do pop-up. O texto é tornado branco e, portanto, aparece bem no plano de fundo preto.  
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Pop-up personalizado" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte o <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>Popup personalizado</a> da caneta pelo Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() em <a href='https://codepen.io'>CodePen</a>.
+Consulte o <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>Popup personalizado</a> da caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="add-popup-templates-to-the-map"></a>Adicionar modelos pop-up ao mapa
@@ -110,18 +110,18 @@ Os modelos de pop-up facilitam a criação de layouts controlados por dados para
 > Por padrão, todo o conteúdo renderizado usar o modelo pop-up será colocado em área restrita dentro de um iframe como um recurso de segurança. No entanto, há limitações:
 >
 > - Todos os scripts, formulários, bloqueio de ponteiro e funcionalidade de navegação superior estão desabilitados. Os links podem ser abertos em uma nova guia quando clicado. 
-> - Os navegadores mais antigos que `srcdoc` não suportam o parâmetro em IFrames serão limitados a renderizar uma pequena quantidade de conteúdo.
+> - Os navegadores mais antigos que não suportam o `srcdoc` parâmetro em IFrames serão limitados a renderizar uma pequena quantidade de conteúdo.
 > 
-> Se você confiar nos dados que estão sendo carregados nos pop-ups e potencialmente desejar que esses scripts carregados em pop-ups possam acessar seu aplicativo, você pode desabilitar isso definindo a opção `sandboxContent` de modelos pop-up como false. 
+> Se você confiar nos dados que estão sendo carregados nos pop-ups e potencialmente desejar que esses scripts carregados em pop-ups possam acessar seu aplicativo, você pode desabilitar isso definindo a opção de modelos pop-up `sandboxContent` como false. 
 
 ### <a name="string-template"></a>Modelo de cadeia de caracteres
 
-O modelo de cadeia de caracteres substitui espaços reservados com valores das propriedades do recurso. As propriedades do recurso não precisam receber um valor do tipo cadeia de caracteres. Por exemplo, `value1` contém um inteiro. Esses valores são passados para a propriedade content do `popupTemplate`. 
+O modelo de cadeia de caracteres substitui espaços reservados com valores das propriedades do recurso. As propriedades do recurso não precisam receber um valor do tipo cadeia de caracteres. Por exemplo, `value1` contém um inteiro. Esses valores são passados para a propriedade content do `popupTemplate` . 
 
-A `numberFormat` opção especifica o formato do número a ser exibido. Se o `numberFormat` não for especificado, o código usará o formato de data de modelos pop-up. A `numberFormat` opção formata os números usando a função [Number. toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) . Para formatar números grandes, considere usar a `numberFormat` opção com funções de [NumberFormat. Format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). Por exemplo, o trecho de código a `maximumFractionDigits` seguir usa para limitar o número de dígitos de fração a dois.
+A `numberFormat` opção especifica o formato do número a ser exibido. Se o `numberFormat` não for especificado, o código usará o formato de data de modelos pop-up. A `numberFormat` opção formata os números usando a função [Number. toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) . Para formatar números grandes, considere usar a `numberFormat` opção com funções de [NumberFormat. Format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). Por exemplo, o trecho de código a seguir usa `maximumFractionDigits` para limitar o número de dígitos de fração a dois.
 
 > [!Note]
-> Há apenas uma maneira na qual o modelo de cadeia de caracteres pode renderizar imagens. Primeiro, o modelo de cadeia de caracteres precisa ter uma marca de imagem. O valor que está sendo passado para a marca de imagem deve ser uma URL para uma imagem. Em seguida, o modelo de cadeia de `isImage` caracteres precisa ter definido como `HyperLinkFormatOptions`true no. A `isImage` opção especifica que o hiperlink é para uma imagem e o hiperlink será carregado em uma marca de imagem. Quando o hiperlink for clicado, a imagem será aberta.
+> Há apenas uma maneira na qual o modelo de cadeia de caracteres pode renderizar imagens. Primeiro, o modelo de cadeia de caracteres precisa ter uma marca de imagem. O valor que está sendo passado para a marca de imagem deve ser uma URL para uma imagem. Em seguida, o modelo de cadeia de caracteres precisa ter `isImage` definido como true no `HyperLinkFormatOptions` . A `isImage` opção especifica que o hiperlink é para uma imagem e o hiperlink será carregado em uma marca de imagem. Quando o hiperlink for clicado, a imagem será aberta.
 
 ```javascript
 var templateOptions = {
@@ -148,9 +148,9 @@ var popup = new atlas.Popup({
 
 ### <a name="propertyinfo-template"></a>Modelo PropertyInfo
 
-O modelo PropertyInfo exibe as propriedades disponíveis do recurso. A `label` opção especifica o texto a ser exibido para o usuário. Se `label` não for especificado, o hiperlink será exibido. E, se o hiperlink for uma imagem, o valor atribuído à marca "Alt" será exibido. `dateFormat` Especifica o formato da data e, se o formato de data não for especificado, a data será renderizada como uma cadeia de caracteres. A `hyperlinkFormat` opção renderiza links clicáveis, da mesma forma, `email` a opção pode ser usada para renderizar endereços de email clicáveis.
+O modelo PropertyInfo exibe as propriedades disponíveis do recurso. A `label` opção especifica o texto a ser exibido para o usuário. Se `label` não for especificado, o hiperlink será exibido. E, se o hiperlink for uma imagem, o valor atribuído à marca "Alt" será exibido. `dateFormat`Especifica o formato da data e, se o formato de data não for especificado, a data será renderizada como uma cadeia de caracteres. A `hyperlinkFormat` opção renderiza links clicáveis, da mesma forma, a `email` opção pode ser usada para renderizar endereços de email clicáveis.
 
-Antes que o modelo PropertyInfo exiba as propriedades para o usuário final, ele verifica recursivamente que as propriedades são definidas de fato para esse recurso. Ele também ignora a exibição de propriedades de estilo e título. Por exemplo, `color`ele não exibirá `size`, `anchor`, `strokeOpacity`, e `visibility`. Assim, quando a verificação do caminho da propriedade for concluída no back-end, o modelo PropertyInfo mostrará o conteúdo em um formato de tabela.
+Antes que o modelo PropertyInfo exiba as propriedades para o usuário final, ele verifica recursivamente que as propriedades são definidas de fato para esse recurso. Ele também ignora a exibição de propriedades de estilo e título. Por exemplo, ele não exibirá `color` , `size` , `anchor` , `strokeOpacity` e `visibility` . Assim, quando a verificação do caminho da propriedade for concluída no back-end, o modelo PropertyInfo mostrará o conteúdo em um formato de tabela.
 
 ```javascript
 var templateOptions = {
@@ -246,13 +246,13 @@ var popup = new atlas.Popup({
 
 ### <a name="points-without-a-defined-template"></a>Pontos sem um modelo definido
 
-Quando o modelo pop-up não está definido como um modelo de cadeia de caracteres, um modelo de PropertyInfo ou uma combinação de ambos, ele usa as configurações padrão. Quando `title` e `description` são as únicas propriedades atribuídas, o modelo pop-up mostra um plano de fundo branco, um botão fechar no canto superior direito. E, em telas pequenas e médias, ele mostra uma seta na parte inferior. As configurações padrão são exibidas dentro de uma tabela para todas as propriedades `title` que não `description`sejam o e o. Mesmo ao fazer fallback para as configurações padrão, o modelo pop-up ainda pode ser manipulado programaticamente. Por exemplo, os usuários podem desativar a detecção de hiperlink e as configurações padrão ainda se aplicam a outras propriedades.
+Quando o modelo pop-up não está definido como um modelo de cadeia de caracteres, um modelo de PropertyInfo ou uma combinação de ambos, ele usa as configurações padrão. Quando `title` e `description` são as únicas propriedades atribuídas, o modelo pop-up mostra um plano de fundo branco, um botão fechar no canto superior direito. E, em telas pequenas e médias, ele mostra uma seta na parte inferior. As configurações padrão são exibidas dentro de uma tabela para todas as propriedades que não sejam o `title` e o `description` . Mesmo ao fazer fallback para as configurações padrão, o modelo pop-up ainda pode ser manipulado programaticamente. Por exemplo, os usuários podem desativar a detecção de hiperlink e as configurações padrão ainda se aplicam a outras propriedades.
 
 Clique nos pontos no mapa no CodePen. Há um ponto no mapa para cada um dos seguintes modelos pop-up: modelo de cadeia de caracteres, modelo de PropertyInfo e vários modelos de conteúdo. Há também três pontos para mostrar como os modelos são renderizados usando as configurações padrão.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> de caneta por mapas do<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> de caneta por mapas do Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="reuse-popup-template"></a>Reutilizar modelo pop-up
@@ -261,7 +261,7 @@ Semelhante a reutilizar o Popup, você pode reutilizar os modelos de pop-up. Ess
 
 <br/>
 
-<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplate</a> de caneta por mapas do<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplate</a> de caneta por mapas do Azure ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="popup-events"></a>Eventos pop-up
@@ -271,7 +271,7 @@ Os pop-ups podem ser abertos, fechados e arrastados. A classe Popup fornece even
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Eventos pop-up" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte os <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>eventos de pop-up</a> de caneta<a href='https://codepen.io/azuremaps'>@azuremaps</a>pelo Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte os <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>eventos de pop-up</a> de caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Próximas etapas

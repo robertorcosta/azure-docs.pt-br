@@ -14,24 +14,28 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebda7ecec363abc1b58cdc3fc6c0799ca879adcc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501921"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118389"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como acessar um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como se registrar em um laboratório de sala de aula, exibir todos os laboratórios que você pode acessar, iniciar/interromper uma VM no laboratório e se conectar a ela. 
 
 ## <a name="register-to-the-lab"></a>Registrar-se no laboratório
 
-1. Navegue até a **URL de registro** que você recebeu do professor/educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, use a [https://labs.azure.com](https://labs.azure.com)URL:. Ainda não há suporte para o Internet Explorer 11. 
+1. Navegue até a **URL de registro** que você recebeu do professor/educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, use a URL: [https://labs.azure.com](https://labs.azure.com) . Ainda não há suporte para o Internet Explorer 11. 
+
+    ![Registrar-se no laboratório](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Entre no serviço usando sua conta da escola para concluir o registro. 
 
     > [!NOTE]
     > Uma conta Microsoft é necessária para usar o Azure Lab Services. Se estiver tentando usar sua conta não Microsoft, como as contas do Yahoo ou do Google, para entrar no portal, siga as instruções para criar uma conta Microsoft que será vinculada à sua conta não Microsoft. Em seguida, siga as etapas para concluir o processo de registro. 
 1. Depois de registrado, confirme que consegue ver a máquina virtual do laboratório ao qual você tem acesso. 
+
+    ![VMs acessíveis](../media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
 1. Aguarde até a máquina virtual ficar pronta. No bloco da VM, observe os seguintes campos:
     1. Na parte superior do bloco, você verá o **nome do laboratório**.
     1. À direita, você verá o ícone que representa o **SO (sistema operacional)** da VM. Neste exemplo, é o sistema operacional Windows. 

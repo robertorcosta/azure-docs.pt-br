@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: ba268e623a2858c2863ffc86eacfe25284a1e37a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722954"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118151"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do armazenamento do Azure
 
@@ -35,7 +35,7 @@ O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure M
 | ------------------- | ----------------- |
 | UsedCapacity | A quantidade de armazenamento utilizada pela conta de armazenamento. Para contas de armazenamento Standard, é a soma da capacidade usada por blob, tabela, arquivo e fila. Para contas de armazenamento Premium e contas de armazenamento de Blob, é o mesmo que Capacidade de Blob. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
-#### <a name="blob-storage"></a>Armazenamento de Blobs
+#### <a name="blob-storage"></a>Armazenamento de blob
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
@@ -95,7 +95,7 @@ O Armazenamento do Azure oferece suporte às seguintes dimensões para métricas
 | **BlobTier** | O armazenamento do Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objeto de BLOB da maneira mais econômica. Veja mais na [camada de blob do armazenamento do Azure](../blobs/storage-blob-storage-tiers.md). Os valores com suporte incluem: <br/> <li>**Quente**: camada quente</li> <li>**Legal**: camada fria</li> <li>**Arquivo morto**: camada de arquivamento</li> <li>**Premium**: camada Premium para blob de blocos</li> <li>**P4/P6/P10/P15/P20/p30/P40/P50/P60**: tipos de camada para o blob de páginas Premium</li> <li>**Standard**: tipo de camada para o blob de páginas padrão</li> <li>Não em **camadas**: tipo de camada para conta de armazenamento v1 de uso geral</li> |
 | **GeoType** | Transação de cluster primário ou secundário. Os valores disponíveis incluem **primário** e **secundário**. Aplica-se ao acesso de leitura ao armazenamento com redundância geográfica (RA-GRS) ao ler objetos de um locatário secundário. |
 | **ResponseType** | Tipo de resposta da transação. Os valores disponíveis incluem: <br/><br/> <li>**ServerOtherError**: todos os outros erros do lado do servidor, exceto os descritos </li> <li>**ServerBusyError**: solicitação autenticada que retornou um código de status HTTP 503. </li> <li>**ServerTimeoutError**: solicitação autenticada com tempo limite que retornou um código de status http 500. O tempo limite foi ultrapassado devido a um erro no servidor. </li> <li>**AuthorizationError**: solicitação autenticada que falhou devido a acesso não autorizado de dados ou uma falha de autorização. </li> <li>**NetworkError**: solicitação autenticada que falhou devido a erros de rede. Geralmente ocorre quando um cliente fecha prematuramente uma conexão antes da expiração do tempo limite. </li><li>**ClientAccountBandwidthThrottlingError**: a solicitação é limitada na largura de banda para exceder [os limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: a solicitação é limitada na taxa de solicitação para exceder [os limites de escalabilidade da conta de armazenamento](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: outro erro de limitação do lado do cliente. ClientAccountBandwidthThrottlingError e ClientAccountRequestThrottlingError são excluídos.</li> <li>**ClientTimeoutError**: solicitação autenticada com tempo limite que retornou um código de status http 500. Se o tempo limite de rede do cliente ou o tempo limite da solicitação for definido como um valor menor do que o esperado pelo serviço de armazenamento, ele é considerado um tempo limite esperado. Caso contrário, ele será relatado como um ServerTimeoutError. </li> <li>**ClientOtherError**: todos os outros erros do lado do cliente, exceto os descritos. </li> <li>**Êxito**: solicitação bem-sucedida</li> <li> **SuccessWithThrottling**: solicitação bem-sucedida quando um cliente SMB é limitado na primeira tentativa (s), mas é bem-sucedido após novas tentativas.</li> |
-| **ApiName** | O nome da operação. Por exemplo:  <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Para saber todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **ApiName** | O nome da operação. Por exemplo: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Para saber todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **Autenticação** | Tipo de autenticação usado em transações. Os valores disponíveis incluem: <br/> <li>**AccountKey**: a transação é autenticada com a chave da conta de armazenamento.</li> <li>**SAS**: a transação é autenticada com assinaturas de acesso compartilhado.</li> <li>**OAuth**: a transação é autenticada com tokens de acesso OAuth.</li> <li>**Anônimo**: a transação é solicitada anonimamente. Ele não inclui solicitações de simulação.</li> <li>**AnonymousPreflight**: a transação é uma solicitação de simulação.</li> |
 
 Para saber as dimensões de métricas com suporte, você precisa especificar o valor da dimensão para exibir os valores correspondentes das métricas. Por exemplo, se você pesquisar o valor de **Transações** para respostas com sucesso, você precisa filtrar a dimensão **ResponseType** por **Sucesso**. Ou se você pesquisar o valor de **BlobCount** para o Blob de Blocos, você precisa filtrar a dimensão **BlobType** por **BlockBlob**.
@@ -131,18 +131,18 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 |:--- |:---|
 |**time** | A hora da hora universal coordenada (UTC) quando a solicitação foi recebida pelo armazenamento. Por exemplo: `2018/11/08 21:09:36.6900118`.|
 |**resourceId** | A ID de recurso da conta de armazenamento. Por exemplo: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
-|**category** | A categoria da operação solicitada. Por exemplo: `StorageRead`, `StorageWrite`ou `StorageDelete`.|
+|**category** | A categoria da operação solicitada. Por exemplo: `StorageRead` , `StorageWrite` ou `StorageDelete` .|
 |**operationName** | O tipo de operação REST que foi executada. <br> Para obter uma lista completa de operações, consulte [análise de armazenamento tópico operações registradas e mensagens de status](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 |**operationVersion** | A versão do serviço de armazenamento que foi especificada quando a solicitação foi feita. Isso é equivalente ao valor do cabeçalho **x-MS-Version** . Por exemplo: `2017-04-17`.|
 |**schemaVersion** | A versão do esquema do log. Por exemplo: `1.0`.|
-|**statusCode** | O código de status HTTP da solicitação. Se a solicitação for interrompida, esse valor poderá ser definido `Unknown`como. <br> Por exemplo: `206` |
-|**statusText** | O status da operação solicitada.  Para obter uma lista completa de mensagens de status, consulte [análise de armazenamento tópico operações registradas e mensagens de status](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Na versão 2017-04-17 e posteriores, a mensagem `ClientOtherError` de status não é usada. Em vez disso, esse campo contém um código de erro. Por exemplo: `SASSuccess`  |
+|**statusCode** | O código de status HTTP da solicitação. Se a solicitação for interrompida, esse valor poderá ser definido como `Unknown` . <br> Por exemplo: `206` |
+|**statusText** | O status da operação solicitada.  Para obter uma lista completa de mensagens de status, consulte [análise de armazenamento tópico operações registradas e mensagens de status](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). Na versão 2017-04-17 e posteriores, a mensagem de status `ClientOtherError` não é usada. Em vez disso, esse campo contém um código de erro. Por exemplo: `SASSuccess`  |
 |**durationMs** | O tempo total, expresso em milissegundos, para executar a operação solicitada. Isso inclui o tempo para ler a solicitação de entrada e enviar a resposta ao solicitante. Por exemplo: `12`.|
 |**callerIpAddress** | O endereço IP do solicitante, incluindo o número da porta. Por exemplo: `192.100.0.102:4362`. |
 |**correlationId** | A ID usada para correlacionar os logs entre os recursos. Por exemplo: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**local** | O local da conta de armazenamento. Por exemplo: `North Europe`. |
-|**protocol**|O protocolo que é usado na operação. Por exemplo: `HTTP`, `HTTPS`, `SMB`ou`NFS`|
-| **URI** | Identificador de recurso uniforme que é solicitado. Por exemplo: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
+|**protocol**|O protocolo que é usado na operação. Por exemplo: `HTTP` , `HTTPS` , `SMB` ou`NFS`|
+| **URI** | Identificador de recurso uniforme que é solicitado. Por exemplo: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>Campos que descrevem como a operação foi autenticada
 
@@ -177,7 +177,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 
 | Propriedade | Descrição |
 |:--- |:---|
-|**identidade/tipo** | O tipo de autenticação que foi usado para fazer a solicitação. Por exemplo: `OAuth`, `SAS Key`, `Account Key`ou`Anonymous` |
+|**identidade/tipo** | O tipo de autenticação que foi usado para fazer a solicitação. Por exemplo: `OAuth` , `SAS Key` , `Account Key` ou`Anonymous` |
 |**identidade/tokenHash**|Este campo é reservado somente para uso interno. |
 |**autorização/ação** | A ação que é atribuída à solicitação. Por exemplo: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 |**autorização/roleAssignmentId** | A ID de atribuição de função. Por exemplo: `4e2521b7-13be-4363-aeda-111111111111`.|
@@ -240,7 +240,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 |**ETag** | O identificador ETag para o objeto retornado, entre aspas. Por exemplo: `0x8D101F7E4B662C4`.  |
 |**serverLatencyMs** | O tempo total expresso em milissegundos para executar a operação solicitada. Esse valor não inclui a latência de rede (o tempo para ler a solicitação de entrada e enviar a resposta para o solicitante). Por exemplo: `22`. |
 |**serviceType** | O serviço associado a esta solicitação. Por exemplo: `blob`, `table`, `files` ou `queue`. |
-|**operationCount** | O número de cada operação registrada que está envolvida na solicitação. Essa contagem começa com um índice de `0`. Algumas solicitações exigem mais de uma operação, como uma solicitação para copiar um blob. A maioria das solicitações executa apenas uma operação. Por exemplo: `1`. |
+|**operationCount** | O número de cada operação registrada que está envolvida na solicitação. Essa contagem começa com um índice de `0` . Algumas solicitações exigem mais de uma operação, como uma solicitação para copiar um blob. A maioria das solicitações executa apenas uma operação. Por exemplo: `1`. |
 |**requestHeaderSize** | O tamanho do cabeçalho de solicitação expresso em bytes. Por exemplo: `578`. <br>Se uma solicitação não for bem-sucedida, esse valor poderá estar vazio. |
 |**requestBodySize** | O tamanho dos pacotes de solicitação, expresso em bytes, que são lidos pelo serviço de armazenamento. <br> Por exemplo: `0`. <br>Se uma solicitação não for bem-sucedida, esse valor poderá estar vazio.  |
 |**responseHeaderSize** | O tamanho do cabeçalho de resposta expresso em bytes. Por exemplo: `216`. <br>Se uma solicitação não for bem-sucedida, esse valor poderá estar vazio.  |
@@ -262,7 +262,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 |**smbCommandMajor UInt32** | Valor no **SMB2_HEADER. Command**. Atualmente, esse é um número entre 0 e 18, inclusive. Por exemplo: `0x6` |
 |**smbCommandMinor** | A subclasse de **SmbCommandMajor**, quando apropriado. Por exemplo: `DirectoryCloseAndDelete` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - Consulte [monitoramento do armazenamento do Azure](monitor-storage.md) para obter uma descrição do monitoramento do armazenamento do Azure.
 - Consulte [monitorando recursos do Azure com Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre como monitorar recursos do Azure.

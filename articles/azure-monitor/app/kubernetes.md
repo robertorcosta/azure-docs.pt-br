@@ -5,19 +5,18 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3b2b4e8868b73e22706c684d94371fe37885b9a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132355"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119252"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Monitoramento de aplicativo de instrumentação zero para aplicativos hospedados kubernetes
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Monitoramento de aplicativo de instrumentação zero para aplicativos hospedados kubernetes com İSTİO-preterido
 
 > [!IMPORTANT]
-> Essa funcionalidade está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa funcionalidade está sendo preterida no momento e não terá mais suporte após 1º de agosto de 2020.
+> A versão recomendada atualmente funciona apenas para [Java por meio do agente autônomo](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
 O Azure Monitor agora aproveita a tecnologia de malha de serviço em seu cluster kubernetes para fornecer monitoramento de aplicativo pronto para qualquer aplicativo kubernetes hospedado. Com os recursos padrão do Application Insight, como o [mapa do aplicativo](../../azure-monitor/app/app-map.md) , para modelar suas dependências, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) para monitoramento em tempo real, poderosas visualizações com o [painel padrão](../../azure-monitor/app/overview-dashboard.md), o [Gerenciador de métricas](../../azure-monitor/platform/metrics-getting-started.md)e as [pastas de trabalho](../../azure-monitor/app/usage-workbooks.md). Esse recurso ajudará os usuários a identificar gargalos de desempenho e hotspots de falha em todas as suas cargas de trabalho kubernetes dentro de um namespace kubernetes selecionado. Ao aproveitar os investimentos existentes em malha de serviço com tecnologias como o İSTİO, Azure Monitor habilita o monitoramento de aplicativo instrumentado automaticamente sem nenhuma modificação no código do aplicativo.
 
@@ -35,7 +34,7 @@ O Azure Monitor agora aproveita a tecnologia de malha de serviço em seu cluster
 
 Ao usar o monitoramento de aplicativos de instrumentação zero para aplicativos hospedados do kubernetes, você poderá usar:
 
-- [Mapa de aplicativo](../../azure-monitor/app/app-map.md)
+- [Mapa do aplicativo](../../azure-monitor/app/app-map.md)
 - [Métricas de Live Stream](../../azure-monitor/app/live-stream.md)
 - [Painéis](../../azure-monitor/app/overview-dashboard.md)
 - [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md)

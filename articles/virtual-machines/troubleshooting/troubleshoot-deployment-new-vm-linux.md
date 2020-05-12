@@ -3,7 +3,7 @@ title: Solução de problemas de implantação de VM do Linux | Microsoft Docs
 description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Linux no Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
-ms.author: cjiang
-ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: f85389d8fc2269b346df22854bb7ddce08844a88
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981413"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118206"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -50,7 +50,7 @@ Para iniciar a solução de problemas, colete os logs de atividades para identif
 
 **N<sup>2</sup>:** se o sistema operacional for Linux especializado e ele for carregado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais.
 
-**Solução:**
+**Resolução:**
 
 Para resolver esses dois erros, carregue o VHD original, disponível no local, com a mesma configuração do sistema operacional (generalizado/especializado). Para carregar como generalizado, lembre-se de executar -deprovision primeiro.
 
@@ -60,7 +60,7 @@ Para resolver esses dois erros, carregue o VHD original, disponível no local, c
 
 **N<sup>4</sup>:** se o sistema operacional for Linux especializado e ele for capturado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais. Além disso, a VM original não será utilizável, já que estará marcada como especializada.
 
-**Solução:**
+**Resolução:**
 
 Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
 
@@ -74,7 +74,7 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
 * Repita a solicitação com um tamanho de VM menor.
 * Se o tamanho da VM solicitada não puder ser alterado:
   * Pare todas as VMs no conjunto de disponibilidade.
-    Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina* > virtual**parar**.
+    Clique em **grupos**  >  *de recursos seu grupo de recursos*  >  **recursos**  >  *seu conjunto de disponibilidade*  >  **máquinas virtuais**  >  *sua máquina virtual*  >  **parar**.
   * Depois de parar todas as máquinas virtuais, crie a nova VM no tamanho desejado.
   * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
 

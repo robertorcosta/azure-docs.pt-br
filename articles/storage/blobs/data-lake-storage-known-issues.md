@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: e80d1a05765d224dc4682c6f64faccc8c81f8ebd
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007467"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119885"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -65,7 +65,6 @@ Não há suporte para discos de VM não gerenciados em contas que têm um namesp
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Suporte ao sistema de arquivos em SDKs, PowerShell e CLI do Azure
 
 - As operações obter e definir ACL não são recursivas no momento.
-- [CLI do Azure](data-lake-storage-directory-file-acl-cli.md) suporte está em visualização pública.
 
 
 ## <a name="lifecycle-management-policies"></a>Políticas de gerenciamento do ciclo de vida
@@ -112,7 +111,7 @@ Se o [acesso de leitura anônimo](storage-manage-access-to-resources.md) tiver s
 
 ### <a name="diagnostic-logs"></a>Logs de diagnóstico
 
-Os logs de diagnóstico ainda não podem ser habilitados usando o portal do Azure. Você pode habilitá-los usando o PowerShell. Por exemplo: 
+Os logs de diagnóstico ainda não podem ser habilitados usando o portal do Azure. Você pode habilitá-los usando o PowerShell. Por exemplo:
 
 ```powershell
 #To login

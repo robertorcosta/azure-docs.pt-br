@@ -1,20 +1,20 @@
 ---
 title: Adicionar um marcador HTML ao mapa | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a adicionar um marcador HTML a um mapa usando o SDK da Web do Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2700d42c25d58911fb275ad9ce6c5610cd22624d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30d9cf9848a8d99505bf9f9c97bef5aaa31065ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536761"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119289"
 ---
 # <a name="add-html-markers-to-the-map"></a>Adicionar marcadores HTML ao mapa
 
@@ -28,9 +28,9 @@ Este artigo mostra como adicionar um HTML personalizado, como um arquivo de imag
 
 ## <a name="add-an-html-marker"></a>Adicionar um marcador HTML
 
-A classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) tem um estilo padrão. É possível personalizar o marcador, definindo as opções de cor e texto do marcador. O estilo padrão da classe de marcador HTML é um modelo SVG que tem um `{color}` espaço `{text}` reservado e. Defina as propriedades de cor e texto nas opções de marcador HTML para uma personalização rápida. 
+A classe [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) tem um estilo padrão. É possível personalizar o marcador, definindo as opções de cor e texto do marcador. O estilo padrão da classe de marcador HTML é um modelo SVG que tem um `{color}` `{text}` espaço reservado e. Defina as propriedades de cor e texto nas opções de marcador HTML para uma personalização rápida. 
 
-O código a seguir cria um marcador HTML e define a Propriedade Color como "DodgerBlue" e a propriedade Text como "10". Um popup é anexado ao marcador e `click` o evento é usado para alternar a visibilidade do pop-up.
+O código a seguir cria um marcador HTML e define a Propriedade Color como "DodgerBlue" e a propriedade Text como "10". Um popup é anexado ao marcador e o `click` evento é usado para alternar a visibilidade do pop-up.
 
 ```javascript
 //Create an HTML marker and add it to the map.
@@ -82,7 +82,7 @@ Um dos benefícios dos marcadores HTML é que há muitas ótimas personalizaçõ
 
 ## <a name="draggable-html-markers"></a>Marcadores HTML arrastáveis
 
-Esse exemplo mostra como tornar um marcador HTML arrastável. Os marcadores de HTML `drag`dão `dragstart`suporte a `dragend` eventos, e.
+Esse exemplo mostra como tornar um marcador HTML arrastável. Os marcadores de HTML dão suporte a `drag` `dragstart` eventos, e `dragend` .
 
 <br/>
 

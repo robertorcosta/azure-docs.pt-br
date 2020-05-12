@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 307ca08e733417efc9496415a09a0898fe10393e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af69b9105d55749267e6c54a6584566b499b4097
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183459"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118457"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Guia do Azure Lab Services do administrador
 Os administradores de ti (tecnologia da informação) que gerenciam os recursos de nuvem de uma Universidade normalmente são responsáveis por configurar a conta de laboratório para sua escola. Quando uma conta de laboratório é configurada, os administradores ou educadores criam laboratórios de sala de aula que estão contidos na conta do laboratório. Este artigo fornece uma visão geral de alto nível dos recursos do Azure envolvidos e as diretrizes para criá-los.
@@ -124,16 +124,16 @@ Ao começar a usar o Azure Lab Services, recomendamos que você estabeleça conv
 
 | Tipo de recurso | Função | Padrão sugerido | Exemplos |
 | ------------- | ---- | ----------------- | -------- | 
-| Resource group | Contém uma ou mais contas de laboratório e uma ou mais galerias de imagens compartilhadas | \<\>-\<ambiente\>de nome curto da organização-RG<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte</li><li>O **ambiente** identifica o ambiente para o recurso, como piloto ou produção</li><li>**RG** significa o tipo de recurso: grupo de recursos.</li></ul> | contosouniversitylabs-RG<br/>contosouniversitylabs-Pilot-RG<br/>contosouniversitylabs-prod-RG |
-| Conta de laboratório | Contém um ou mais laboratórios | \<\>-\<ambiente\>de nome curto da organização-la<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte</li><li>O **ambiente** identifica o ambiente para o recurso, como piloto ou produção</li><li>**La** significa o tipo de recurso: conta de laboratório.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-piloto-la<br/>sciencedeptlabs-prod-la |
-| Laboratório de sala de aula | Contém uma ou mais VMs |\<\>-nome\<da classe identificador\>-\<do professor do período de tempo\><ul><li>**Nome da classe** identifica o nome da classe à qual o laboratório dá suporte.</li><li>**Período de tempo** identifica o período de tempo no qual a classe é oferecida.</li>O **identificador de educação** identifica o educador que possui o laboratório.</li></ul> | CS1234-fall2019-davibarros<br/>CS1234-spring2019-davibarros |
-| Galeria de imagens compartilhadas | Contém uma ou mais versões de imagem de VM | \<Galeria de nomes\>curtos da organização | contosouniversitylabsgallery |
+| Resource group | Contém uma ou mais contas de laboratório e uma ou mais galerias de imagens compartilhadas | \<ambiente de nome curto da organização \> - \< \> -RG<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte</li><li>O **ambiente** identifica o ambiente para o recurso, como piloto ou produção</li><li>**RG** significa o tipo de recurso: grupo de recursos.</li></ul> | contosouniversitylabs-RG<br/>contosouniversitylabs-Pilot-RG<br/>contosouniversitylabs-prod-RG |
+| Conta de laboratório | Contém um ou mais laboratórios | \<ambiente de nome curto da organização \> - \< \> -la<ul><li>**Nome curto da organização** identifica o nome da organização à qual o grupo de recursos dá suporte</li><li>O **ambiente** identifica o ambiente para o recurso, como piloto ou produção</li><li>**La** significa o tipo de recurso: conta de laboratório.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-piloto-la<br/>sciencedeptlabs-prod-la |
+| Laboratório de sala de aula | Contém uma ou mais VMs |\<nome da classe \> - \< \> - \< identificador do professor do período de tempo\><ul><li>**Nome da classe** identifica o nome da classe à qual o laboratório dá suporte.</li><li>**Período de tempo** identifica o período de tempo no qual a classe é oferecida.</li>O **identificador de educação** identifica o educador que possui o laboratório.</li></ul> | CS1234-fall2019-davibarros<br/>CS1234-spring2019-davibarros |
+| Galeria de imagens compartilhadas | Contém uma ou mais versões de imagem de VM | \<Galeria de nomes curtos da organização \> | contosouniversitylabsgallery |
 
 Para obter mais informações sobre como nomear outros recursos do Azure, consulte [convenções de nomenclatura para recursos do Azure](/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="regionslocations"></a>Regions\locations
 
-Ao configurar os recursos do Azure Lab Services, você precisa fornecer uma região (ou local) do data center que hospedará o recurso. Aqui estão mais detalhes sobre como a região afeta cada uma das origens envolvidas na configuração de um laboratório.
+Ao configurar os recursos do Azure Lab Services, você precisa fornecer uma região (ou local) do data center que hospedará o recurso. Aqui estão mais detalhes sobre como a região afeta cada um dos recursos envolvidos na configuração de um laboratório.
 
 ### <a name="resource-group"></a>Resource group
 

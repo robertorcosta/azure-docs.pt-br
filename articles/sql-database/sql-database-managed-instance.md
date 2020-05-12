@@ -11,16 +11,16 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 65bce50665b6dd99662e99ca57569f906f3af208
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cce871d2f38d7871bd1ba9c5cb7b086e514a6913
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598531"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120786"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>O que é a instância gerenciada do banco de dados SQL do Azure?
 
-A instância gerenciada é uma nova opção de implantação do Banco de Dados SQL do Azure, fornecendo quase 100% de compatibilidade com o mais recente Mecanismo de Banco de Dados do SQL Server (Enterprise Edition) local, fornecendo uma implementação de [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) nativa que aborda questões de segurança comuns e um [modelo corporativo](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes do SQL Server local. O modelo de implantação de instância gerenciada permite que os clientes do SQL Server existentes façam lift-and-shift dos aplicativos locais para a nuvem com alterações mínimas do banco de dados e aplicativo. Ao mesmo tempo, a opção de implantação da instância gerenciada preserva todas as funcionalidades de PaaS (aplicação automática de patches e atualizações de versão, [backups automatizados](sql-database-automated-backups.md), [alta disponibilidade](sql-database-high-availability.md) ), reduzindo drasticamente a sobrecarga de gerenciamento e TCO.
+A instância gerenciada é uma nova opção de implantação do Banco de Dados SQL do Azure, fornecendo quase 100% de compatibilidade com o mais recente Mecanismo de Banco de Dados do SQL Server (Enterprise Edition) local, fornecendo uma implementação de [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) nativa que aborda questões de segurança comuns e um [modelo corporativo](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes do SQL Server local. O modelo de implantação de instância gerenciada permite que os clientes do SQL Server existentes façam lift-and-shift dos aplicativos locais para a nuvem com alterações mínimas do banco de dados e aplicativo. Ao mesmo tempo, a opção de implantação de instância gerenciada preserva todos os recursos operacionais de PaaS em relação às atualizações automáticas de patches e versões, [backups automatizados](sql-database-automated-backups.md)e [alta disponibilidade](sql-database-high-availability.md), que reduz drasticamente a sobrecarga de gerenciamento e o TCO.
 
 > [!IMPORTANT]
 > Para obter uma lista de regiões em que a opção de implantação de instância gerenciada está disponível no momento, veja [regiões com suporte](sql-database-managed-instance-resource-limits.md#supported-regions).

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/10/2020
+ms.date: 05/11/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 50c1d7e35b1c4e92664d810836fe1213183fbf83
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5099cc2ce2228bcdbf49d3484e488e7373883ec0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927336"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119050"
 ---
 # <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Proteja seus ciclos de vida de aprendizado de máquina com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,8 +29,9 @@ Neste artigo, você aprenderá a isolar trabalhos de experimentação/treinament
 > - Interface do usuário para o aprendizado de máquina automatizado
 > - Interface do usuário para rotulagem de dados
 > - Interface do usuário para conjuntos de dados
+> - Notebooks
 > 
->  Se você tentar, receberá um erro ao Visualizar dados de uma conta de armazenamento dentro de uma rede virtual semelhante a:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+> Se você tentar, receberá uma mensagem semelhante ao seguinte erro:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## <a name="what-is-a-vnet"></a>O que é uma VNET?
 
@@ -133,8 +134,8 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 - Negue a conexão de Internet de saída usando as regras NSG.
 
 - Para uma __instância de computação__ ou um __cluster de computação__, limite o tráfego de saída para os seguintes itens:
-   - Armazenamento do Azure, usando a __marca de serviço__ de __Storage. RegionName__. Em `{RegionName}` que é o nome de uma região do Azure.
-   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry. RegionName__. Em `{RegionName}` que é o nome de uma região do Azure.
+   - Armazenamento do Azure, usando a __marca de serviço__ de __Storage. RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
+   - Registro de contêiner do Azure, usando a __marca de serviço__ de __AzureContainerRegistry. RegionName__. Em que `{RegionName}` é o nome de uma região do Azure.
    - Azure Machine Learning, usando a __marca de serviço__ de __AzureMachineLearning__
    - Azure Resource Manager, usando a __marca de serviço__ de __AzureResourceManager__
    - Azure Active Directory, usando a __marca de serviço__ de __AzureActiveDirectory__
@@ -176,7 +177,7 @@ Se você estiver usando o túnel forçado com o Computação do Machine Learning
 
 * Estabeleça um UDR para cada endereço IP usado pelo serviço de lote do Azure na região onde os recursos existem. Esses UDRs permitem que o serviço de lote se comunique com nós de computação para o agendamento de tarefas. Além disso, adicione o endereço IP para o serviço de Azure Machine Learning em que os recursos existem, pois isso é necessário para acessar instâncias de computação. Para obter uma lista de endereços IP do serviço de lote e do serviço de Azure Machine Learning, use um dos seguintes métodos:
 
-    * Baixe os [intervalos de IP e as marcas de serviço do Azure](https://www.microsoft.com/download/details.aspx?id=56519) e `BatchNodeManagement.<region>` pesquise `AzureMachineLearning.<region>`o arquivo `<region>` e, em que é sua região do Azure.
+    * Baixe os [intervalos de IP e as marcas de serviço do Azure](https://www.microsoft.com/download/details.aspx?id=56519) e pesquise o arquivo `BatchNodeManagement.<region>` e `AzureMachineLearning.<region>` , em que `<region>` é sua região do Azure.
 
     * Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para baixar as informações. O exemplo a seguir baixa as informações de endereço IP e filtra as informações para a região leste dos EUA 2:
 
@@ -185,7 +186,7 @@ Se você estiver usando o túnel forçado com o Computação do Machine Learning
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
 
-* O tráfego de saída para o armazenamento do Azure não deve ser bloqueado pelo dispositivo de rede local. Especificamente, as URLs estão no formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`e. `<account>.blob.core.windows.net`
+* O tráfego de saída para o armazenamento do Azure não deve ser bloqueado pelo dispositivo de rede local. Especificamente, as URLs estão no formato `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net` .
 
 Ao adicionar o UDRs, defina a rota para cada prefixo de endereço IP do lote relacionado e defina o __tipo do próximo salto__ como __Internet__. A imagem a seguir mostra um exemplo desse UDR no portal do Azure:
 
@@ -201,7 +202,7 @@ Para criar um cluster Computação do Machine Learning, use as seguintes etapas:
 
 1. Selecione __Computação__ à esquerda.
 
-1. Selecione __clusters de treinamento__ no centro e selecione __+__.
+1. Selecione __clusters de treinamento__ no centro e selecione __+__ .
 
 1. Na caixa de diálogo __novo cluster de treinamento__ , expanda a seção __Configurações avançadas__ .
 
@@ -309,7 +310,7 @@ Para adicionar o AKS (serviço kubernetes do Azure) em uma rede virtual ao seu e
 
 1. Selecione __Computação__ à esquerda.
 
-1. Selecione __clusters de inferência__ no centro e, em __+__ seguida, selecione.
+1. Selecione __clusters de inferência__ no centro e, em seguida, selecione __+__ .
 
 1. Na caixa de diálogo __novo cluster de inferência__ , selecione __avançado__ em __configuração de rede__.
 
@@ -330,7 +331,7 @@ Para adicionar o AKS (serviço kubernetes do Azure) em uma rede virtual ao seu e
 
    [![Uma regra de segurança de entrada](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
-Também é possível usar o SDK do Azure Machine Learning para adicionar o Serviço de Kubernetes do Azure a uma rede virtual. Se você já tiver um cluster AKS em uma rede virtual, anexe-o ao espaço de trabalho conforme descrito em [como implantar no AKs](how-to-deploy-and-where.md). O código a seguir cria uma nova instância AKS na `default` sub-rede de uma rede virtual chamada `mynetwork`:
+Também é possível usar o SDK do Azure Machine Learning para adicionar o Serviço de Kubernetes do Azure a uma rede virtual. Se você já tiver um cluster AKS em uma rede virtual, anexe-o ao espaço de trabalho conforme descrito em [como implantar no AKs](how-to-deploy-and-where.md). O código a seguir cria uma nova instância AKS na `default` sub-rede de uma rede virtual chamada `mynetwork` :
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -439,9 +440,9 @@ Para usar o ACI em uma rede virtual para seu espaço de trabalho, use as seguint
 1. Para habilitar a delegação de sub-rede em sua rede virtual, use as informações no artigo [Adicionar ou remover uma delegação de sub-rede](../virtual-network/manage-subnet-delegation.md) . Você pode habilitar a delegação ao criar uma rede virtual ou adicioná-la a uma rede existente.
 
     > [!IMPORTANT]
-    > Ao habilitar a delegação, `Microsoft.ContainerInstance/containerGroups` use como o valor da __sub-rede delegar para o serviço__ .
+    > Ao habilitar a delegação, use `Microsoft.ContainerInstance/containerGroups` como o valor da __sub-rede delegar para o serviço__ .
 
-2. Implante o modelo usando [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use os `vnet_name` parâmetros `subnet_name` e. Defina esses parâmetros como o nome da rede virtual e a sub-rede em que você habilitou a delegação.
+2. Implante o modelo usando [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use os `vnet_name` `subnet_name` parâmetros e. Defina esses parâmetros como o nome da rede virtual e a sub-rede em que você habilitou a delegação.
 
 ## <a name="azure-firewall"></a>Firewall do Azure
 
@@ -558,7 +559,7 @@ Para usar Data Lake Storage Gen 2 dentro da rede virtual do seu espaço de traba
 
 Ao usar Azure Machine Learning com Data Lake Storage Gen 2 dentro de uma rede virtual, use as seguintes diretrizes:
 
-* Se você usar o __SDK para criar um conjunto de um__e o sistema que executa o código __não estiver na rede virtual__, use `validate=False` o parâmetro. Esse parâmetro ignora a validação, o que falhará se o sistema não estiver na mesma rede virtual que a conta de armazenamento. Para obter mais informações, consulte o método [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
+* Se você usar o __SDK para criar um conjunto de um__e o sistema que executa o código __não estiver na rede virtual__, use o `validate=False` parâmetro. Esse parâmetro ignora a validação, o que falhará se o sistema não estiver na mesma rede virtual que a conta de armazenamento. Para obter mais informações, consulte o método [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
 
 * Ao usar Azure Machine Learning instância de computação ou cluster de computação para treinar um modelo usando o conjunto de um, ele deve estar na mesma rede virtual que a conta de armazenamento.
 
@@ -607,7 +608,7 @@ Para obter informações específicas sobre como usar Azure Databricks com uma r
 
 Para usar uma máquina virtual ou um cluster do Azure HDInsight em uma rede virtual com seu espaço de trabalho, use as seguintes etapas:
 
-1. Crie uma VM ou um cluster HDInsight usando o portal do Azure ou o CLI do Azure e coloque o cluster em uma rede virtual do Azure. Para obter mais informações, consulte os seguintes artigos:
+1. Crie uma VM ou um cluster HDInsight usando o portal do Azure ou o CLI do Azure e coloque o cluster em uma rede virtual do Azure. Para obter mais informações, confira os seguintes artigos:
     * [Criar e gerenciar redes virtuais do Azure para VMs do Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Estender HDInsight usando uma rede virtual do Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
@@ -618,7 +619,7 @@ Para usar uma máquina virtual ou um cluster do Azure HDInsight em uma rede virt
 
     * Na lista suspensa __marca de serviço de origem__ , selecione __AzureMachineLearning__.
 
-    * Na lista suspensa __intervalos de portas de origem__ , selecione. __*__
+    * Na lista suspensa __intervalos de portas de origem__ , selecione __*__ .
 
     * Na lista suspensa __destino__ , selecione __qualquer__.
 

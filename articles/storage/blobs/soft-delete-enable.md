@@ -1,24 +1,30 @@
 ---
-title: Habilitar exclusão reversível para BLOBs
+title: Habilitar e gerenciar a exclusão reversível para BLOBs
 titleSuffix: Azure Storage
 description: Habilite a exclusão reversível para objetos de BLOB para recuperar seus dados com mais facilidade quando eles forem modificados ou excluídos erroneamente.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26a16d0eeb81c12faede1c00bdf5a0d724f7a6c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884677"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120089"
 ---
-# <a name="enable-soft-delete-for-blobs"></a>Habilitar exclusão reversível para BLOBs
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitar e gerenciar a exclusão reversível para BLOBs
 
-As etapas a seguir mostram como começar a usar a exclusão reversível.
+A exclusão reversível protege dados de blob de serem modificados ou excluídos acidentalmente ou erroneamente. Quando a exclusão reversível está habilitada para uma conta de armazenamento, BLOBs, versões de BLOB (versão prévia) e instantâneos na conta de armazenamento podem ser recuperados após serem excluídos, dentro de um período de retenção especificado por você.
+
+Se houver uma possibilidade de que seus dados possam ser acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, a Microsoft recomenda a ativação da exclusão reversível.
+
+Este artigo mostra como começar a usar a exclusão reversível.
+
+## <a name="enable-soft-delete"></a>Habilitar exclusão reversível
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -71,6 +77,7 @@ Set-AzContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+
 É possível verificar se a exclusão reversível foi ativada usando o comando a seguir:
 
 ```powershell
@@ -174,3 +181,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
+## <a name="next-steps"></a>Próximas etapas
+
+- [Exclusão reversível para armazenamento de BLOBs](soft-delete-overview.md)
+- [Controle de versão de BLOB (visualização)](versioning-overview.md)

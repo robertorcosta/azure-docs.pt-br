@@ -5,18 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559679"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120905"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Use a rede do kubenet com seus próprios intervalos de endereços IP no Serviço de Kubernetes do Azure (AKS)
 
 Por padrão, os clusters do AKS usam o [kubenet][kubenet], e uma rede virtual e uma sub-rede do Azure são criadas para você. Com o *kubenet*, os nós obtêm um endereço IP de uma sub-rede da rede virtual do Azure. Os pods recebem um endereço IP de um espaço de endereço logicamente diferente da sub-rede da rede virtual do Azure dos nós. A NAT (conversão de endereços de rede), então, é configurada para que os pods possam acessar recursos na rede virtual do Azure. O endereço IP de origem do tráfego é configurado via NAT como o endereço IP primário do nó. Essa abordagem reduz muito o número de endereços IP que você precisa reservar no espaço de rede para uso dos pods.
 
-Com a [CNI (Interface de Rede de Contêiner) do Azure][cni-networking], cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP devem ser exclusivos em todo o seu espaço de rede e devem ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem exige mais planejamento e, muitas vezes, leva à exaustão do endereço IP ou à necessidade de recriar os clusters em uma sub-rede maior conforme as demandas de aplicativo aumentam.
+Com a [CNI (Interface de Rede de Contêiner) do Azure][cni-networking], cada pod obtém um endereço IP da sub-rede e pode ser acessado diretamente. Esses endereços IP devem ser exclusivos em todo o seu espaço de rede e devem ser planejados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods aos quais ele dá suporte. O número equivalente de endereços IP por nó é então reservado com antecedência para esse nó. Essa abordagem exige mais planejamento e, muitas vezes, leva à exaustão do endereço IP ou à necessidade de recriar os clusters em uma sub-rede maior conforme as demandas de aplicativo aumentam. Você pode configurar o máximo de pods implantar para um nó em tempo de criação de cluster ou ao criar novos pools de nós. Se você não especificar maxPods ao criar novos pools de nós, você receberá um valor padrão de 110 para kubenet.
 
 Este artigo mostra como usar a rede *kubenet* para criar e usar uma sub-rede da rede virtual de um cluster do AKS. Para saber mais sobre opções de rede e considerações, confira [Conceitos de rede para o Kubernetes e o AKS][aks-network-concepts].
 
@@ -24,7 +24,7 @@ Este artigo mostra como usar a rede *kubenet* para criar e usar uma sub-rede da 
 
 * A rede virtual do cluster do AKS deve permitir conectividade com a Internet de saída.
 * Não crie mais de um cluster do AKS na mesma sub-rede.
-* Os clusters AKs não podem `169.254.0.0/16`usar `172.30.0.0/16`, `172.31.0.0/16`, ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes.
+* Os clusters AKs não podem usar `169.254.0.0/16` ,, `172.30.0.0/16` `172.31.0.0/16` ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes.
 * A entidade de serviço usada pelo cluster AKS deve ter pelo menos a função de [colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede em sua rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de Colaborador de Rede interna, as seguintes permissões serão necessárias:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -139,7 +139,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Agora, atribua a entidade de serviço para suas permissões de *Colaborador* do cluster do AKS na rede virtual usando o comando [criação de função de atribuição az][az-role-assignment-create]. Forneça sua própria * \<AppID>* conforme mostrado na saída do comando anterior para criar a entidade de serviço:
+Agora, atribua a entidade de serviço para suas permissões de *Colaborador* do cluster do AKS na rede virtual usando o comando [criação de função de atribuição az][az-role-assignment-create]. Forneça sua própria * \< AppID>* conforme mostrado na saída do comando anterior para criar a entidade de serviço:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -147,7 +147,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster do AKS na rede virtual
 
-Agora você criou uma rede virtual e uma sub-rede, e criou e atribuiu permissões para que uma entidade de serviço use esses recursos de rede. Agora crie um cluster do AKS na sua rede virtual e sub-rede usando o comando [az aks create][az-aks-create]. Defina sua própria>de * \<AppID* de entidade de serviço e * \<>de senha *, conforme mostrado na saída do comando anterior para criar a entidade de serviço.
+Agora você criou uma rede virtual e uma sub-rede, e criou e atribuiu permissões para que uma entidade de serviço use esses recursos de rede. Agora crie um cluster do AKS na sua rede virtual e sub-rede usando o comando [az aks create][az-aks-create]. Defina sua própria>de * \< AppID* de entidade de serviço e * \<>de senha *, conforme mostrado na saída do comando anterior para criar a entidade de serviço.
 
 Os seguintes intervalos de endereços IP também são definidos como parte do processo de criação de cluster:
 
