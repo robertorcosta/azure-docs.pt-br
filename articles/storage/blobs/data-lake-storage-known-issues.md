@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e80d1a05765d224dc4682c6f64faccc8c81f8ebd
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767966"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007467"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -43,7 +43,7 @@ Esta seção descreve problemas e limitações com o uso de APIs de BLOB e Data 
 
 * Você não pode usar as APIs de BLOB e as APIs de Data Lake Storage para gravar na mesma instância de um arquivo. Se você gravar em um arquivo usando APIs Data Lake Storage Gen2, os blocos desse arquivo não ficarão visíveis para chamadas para a API de BLOB da [lista de blocos Get](https://docs.microsoft.com/rest/api/storageservices/get-block-list) . Você pode substituir um arquivo usando APIs Data Lake Storage Gen2 ou APIs de BLOB. Isso não afetará as propriedades do arquivo.
 
-* Quando você usa a operação [listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sem especificar um delimitador, os resultados incluirão diretórios e blobs. Se você optar por usar um delimitador, use apenas uma barra`/`(). Esse é o único delimitador com suporte.
+* Quando você usa a operação [listar BLOBs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sem especificar um delimitador, os resultados incluirão diretórios e blobs. Se você optar por usar um delimitador, use apenas uma barra ( `/` ). Esse é o único delimitador com suporte.
 
 * Se você usar a API [excluir blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) para excluir um diretório, esse diretório será excluído somente se estiver vazio. Isso significa que você não pode usar a API de BLOB para excluir diretórios recursivamente.
 
@@ -70,12 +70,11 @@ Não há suporte para discos de VM não gerenciados em contas que têm um namesp
 
 ## <a name="lifecycle-management-policies"></a>Políticas de gerenciamento do ciclo de vida
 
-* Ainda não há suporte para a exclusão de instantâneos de BLOB.  
+Ainda não há suporte para a exclusão de instantâneos de BLOB. 
 
 ## <a name="archive-tier"></a>Camada de arquivo morto
 
 Atualmente, há um bug que afeta a camada de acesso de arquivamento.
-
 
 ## <a name="blobfuse"></a>Blobfuse
 
@@ -91,7 +90,7 @@ Use apenas a versão mais recente do AzCopy ([AzCopy V10](https://docs.microsoft
 
 ## <a name="azure-storage-explorer"></a>Gerenciador de Armazenamento do Azure
 
-Use apenas versões `1.6.0` ou superiores.
+Use apenas versões  `1.6.0`   ou superiores.
 
 <a id="explorer-in-portal" />
 
@@ -108,6 +107,39 @@ Aplicativos de terceiros que usam APIs REST para trabalhar continuarão a funcio
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>ACLs (listas de controle de acesso) e acesso de leitura anônimo
 
 Se o [acesso de leitura anônimo](storage-manage-access-to-resources.md) tiver sido concedido a um contêiner, as ACLs não terão nenhum efeito nesse contêiner ou nos arquivos desse contêiner.
+
+## <a name="premium-performance-block-blob-storage-accounts"></a>Premium-contas de armazenamento de blobs de blocos de desempenho
+
+### <a name="diagnostic-logs"></a>Logs de diagnóstico
+
+Os logs de diagnóstico ainda não podem ser habilitados usando o portal do Azure. Você pode habilitá-los usando o PowerShell. Por exemplo: 
+
+```powershell
+#To login
+Connect-AzAccount
+
+#Set default block blob storage account.
+Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+
+#Enable logging
+Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
+```
+
+### <a name="lifecycle-management-policies"></a>Políticas de gerenciamento do ciclo de vida
+
+- Políticas de gerenciamento de ciclo de vida ainda não têm suporte em contas de armazenamento de blob de blocos Premium. 
+
+- Os dados não podem ser movidos da camada Premium para as camadas inferiores. 
+
+- Atualmente, não há suporte para a ação **excluir blob** . 
+
+### <a name="hdinsight-support"></a>Suporte do HDInsight
+
+Ao criar um cluster n do HDInsight, você ainda não pode selecionar uma conta de armazenamento de blobs de blocos que tenha o recurso de namespace hierárquico habilitado nele. No entanto, você pode anexar a conta ao cluster depois de criá-la.
+
+### <a name="dremio-support"></a>Suporte do Dremio
+
+O Dremio ainda não se conecta a uma conta de armazenamento de blobs de blocos que tem o recurso de namespace hierárquico habilitado nele. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Driver do Windows Azure Storage Blob (WASB) (sem suporte com Data Lake Storage Gen2)
 
