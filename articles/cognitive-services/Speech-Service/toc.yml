@@ -557,6 +557,20 @@
       items:
         - name: Notas sobre a versão do SDK de dispositivos de Fala
           href: devices-sdk-release-notes.md
+- name: Ferramentas
+  items:
+    - name: SPX
+      items:
+        - name: O que é SPX?
+          href: spx-overview.md
+        - name: Noções básicas do SPX
+          href: spx-basics.md
+    - name: Estúdio de Fala
+      items:
+        - name: O que é o Estúdio de Fala?
+          href: 'https://speech.microsoft.com'
+        - name: Criar um aplicativo de comandos personalizados com o Estúdio de Fala
+          href: quickstart-custom-speech-commands-create-new.md
 - name: Migração
   items:
     - name: Da Fala do Bing

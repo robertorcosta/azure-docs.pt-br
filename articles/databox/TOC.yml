@@ -56,6 +56,8 @@
               href: data-box-portal-admin.md
             - name: Gerenciar via interface do usuário da Web local
               href: data-box-local-web-ui-admin.md
+            - name: Habilitar chave gerenciada pelo cliente
+              href: data-box-customer-managed-encryption-key-portal.md
             - name: Mover dados para uma camada de blob
               href: data-box-how-to-set-data-tier.md
             - name: Cabear o dispositivo
@@ -173,6 +175,8 @@
               href: data-box-portal-admin.md
             - name: Gerenciar via interface do usuário da Web local
               href: data-box-local-web-ui-admin.md
+            - name: Habilitar chave gerenciada pelo cliente
+              href: data-box-customer-managed-encryption-key-portal.md
             - name: Solucionar problemas de dispositivos
               href: data-box-troubleshoot.md
             - name: Mover dados para uma camada de blob

@@ -129,6 +129,8 @@
           href: scale-cluster.md
         - name: Atualizar um cluster AKS
           href: upgrade-cluster.md
+        - name: Usar o SLA de Tempo de Atividade
+          href: uptime-sla.md
         - name: Atualizações do SO para nó do processo
           href: node-updates-kured.md
         - name: Configurar um cluster do AKS
@@ -231,7 +233,7 @@
         - name: Habilitar integração do Azure Active Directory
           items:
             - name: Integrar Azure AD (versão prévia)
-              href: azure-ad-v2.md
+              href: managed-aad.md
             - name: Usar a CLI do Azure
               href: azure-ad-integration-cli.md
             - name: Use o Portal do Azure

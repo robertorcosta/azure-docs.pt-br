@@ -12,6 +12,8 @@
           href: security-center-services.md
         - name: Cobertura de recursos para recursos de PaaS do Azure
           href: features-paas.md
+    - name: Quais são as novidades na Central de Segurança?
+      href: release-notes.md
     - name: Recomendações de segurança
       href: recommendations-reference.md
     - name: Alertas de segurança e a cadeia de eliminação de intenção
@@ -188,7 +190,9 @@
           href: faq-vms.md
         - name: Usuários existentes do Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Notas de versão
+    - name: Arquivos de novidades na Central de Segurança?
+      href: release-notes-archive.md
+    - name: Blog do Roteiro do Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Recursos e desativação da API (julho de 2019)
       href: security-center-features-retirement-july2019.md

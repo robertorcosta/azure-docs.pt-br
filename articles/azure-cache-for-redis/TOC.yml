@@ -7,18 +7,26 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Aplicativo do ASP.NET
-      href: cache-web-app-howto.md
-    - name: Aplicativo do .NET Core
-      href: cache-dotnet-core-quickstart.md
-    - name: Aplicativo .NET
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Aplicativo Java
-      href: cache-java-get-started.md
-    - name: Aplicativo Node.js
-      href: cache-nodejs-get-started.md
-    - name: Aplicativo Python
-      href: cache-python-get-started.md
+    - name: Criar um cache
+      items:
+        - name: 'Camadas Básica, Standard e Premium'
+          href: quickstart-create-redis.md
+        - name: Camadas Enterprise
+          href: quickstart-create-redis-enterprise.md
+    - name: Usar um cache
+      items:
+        - name: Aplicativo do ASP.NET
+          href: cache-web-app-howto.md
+        - name: Aplicativo do .NET Core
+          href: cache-dotnet-core-quickstart.md
+        - name: Aplicativo .NET
+          href: cache-dotnet-how-to-use-azure-redis-cache.md
+        - name: Aplicativo Java
+          href: cache-java-get-started.md
+        - name: Aplicativo Node.js
+          href: cache-nodejs-get-started.md
+        - name: Aplicativo Python
+          href: cache-python-get-started.md
 - name: Tutoriais
   items:
     - name: Usar o cache com placar de líderes

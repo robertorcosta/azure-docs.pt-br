@@ -15,7 +15,7 @@
       href: tutorial-enable-sspr-writeback.md
     - name: Configurar listas de senhas banidas personalizadas
       href: tutorial-configure-custom-password-protection.md
-    - name: Integrar o Azure Identity Protection
+    - name: Habilitar proteção de conexão baseada em risco
       href: tutorial-risk-based-sspr-mfa.md
 - name: Conceitos
   expanded: true
