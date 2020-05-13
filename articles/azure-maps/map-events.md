@@ -1,20 +1,20 @@
 ---
 title: Manipular eventos de mapa | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a criar um mapa de SDK da Web interativo com eventos de mapa usando o SDK da Web do Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b97371d1b63ad4abfe1635e426df1449ab5f3f14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79534891"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123999"
 ---
 # <a name="interact-with-the-map"></a>Interagir com o mapa
 
@@ -57,9 +57,9 @@ A tabela a seguir lista todos os eventos de classe de mapa com suporte.
 | `close`             | Acionado quando o popup é fechado manualmente ou programaticamente.|
 | `contextmenu`       | Acionado quando o botão direito do mouse é clicado.|
 | `data`              | Acionado quando os dados do mapa são carregados ou alterados. |
-| `dataadded`         | Acionado quando formas são adicionadas `DataSource`ao.|
-| `dataremoved`       | Acionado quando as formas são removidas do `DataSource`.|
-| `datasourceupdated` | Acionado quando `DataSource` o objeto é atualizado.|
+| `dataadded`         | Acionado quando formas são adicionadas ao `DataSource` .|
+| `dataremoved`       | Acionado quando as formas são removidas do `DataSource` .|
+| `datasourceupdated` | Acionado quando o `DataSource` objeto é atualizado.|
 | `dblclick`          | Acionado quando um dispositivo apontador é clicado duas vezes no mesmo ponto no mapa.|
 | `drag`              | Acionado repetidamente durante uma interação "arrastar para panorâmica" no marcador de mapa, pop-up ou HTML.|
 | `dragend`           | Acionado quando uma interação "arrastar para a panorâmica" termina no marcador de mapa, pop-up ou HTML.|
@@ -94,8 +94,8 @@ A tabela a seguir lista todos os eventos de classe de mapa com suporte.
 | `rotatestart`       | Acionado quando uma interação "arrastar para girar" é iniciada.|
 | `shapechanged`      | Acionado quando uma propriedade de objeto de forma é alterada.|
 | `sourcedata`        | Acionado quando uma das fontes do mapa é carregada ou alterada, incluindo se um bloco que pertence a uma origem carrega ou altera. |
-| `sourceadded`       | Acionado quando `DataSource` um `VectorTileSource` ou é adicionado ao mapa.|
-| `sourceremoved`     | Acionado quando `DataSource` um `VectorTileSource` ou é removido do mapa.|
+| `sourceadded`       | Acionado quando um `DataSource` ou `VectorTileSource` é adicionado ao mapa.|
+| `sourceremoved`     | Acionado quando um `DataSource` ou `VectorTileSource` é removido do mapa.|
 | `styledata`         | Acionado quando o estilo do mapa é carregado ou alterado.|
 | `styleimagemissing` | Acionado quando uma camada tenta carregar uma imagem da imagem Sprite que não existe |
 | `tokenacquired`     | Acionado quando um token de acesso do AAD é obtido.|

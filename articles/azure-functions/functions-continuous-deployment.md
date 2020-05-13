@@ -4,12 +4,12 @@ description: Use os recursos de implantação contínua do serviço de Azure App
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: cc1e100a0c2e652ab081869409fd24dbf88017a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277018"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123645"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implantação contínua para Azure Functions
 
@@ -36,46 +36,30 @@ Para que a implantação contínua seja realizada com sucesso, sua estrutura de 
 
 Para configurar a implantação contínua para um aplicativo de funções existente, conclua estas etapas. As etapas demonstram a integração com um repositório GitHub, mas etapas semelhantes se aplicam para Azure Repos ou outros repositórios de código-fonte.
 
-1. Em seu aplicativo de funções no [portal do Azure](https://portal.azure.com), selecione **Platform features** > **centro de implantação**de recursos de plataforma.
+1. Em seu aplicativo de funções no [portal do Azure](https://portal.azure.com), selecione **centro de implantação**, selecione **GitHub**e, em seguida, selecione **autorizar**. Se você já tiver autorizado o GitHub, selecione **continuar** e ignore a próxima etapa. 
 
-    ![Abrir o centro de implantação](./media/functions-continuous-deployment/platform-features.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Centro de implantação de serviço Azure App":::
 
-2. Na **central de implantação**, selecione **GitHub**e, em seguida, selecione **autorizar**. Se você já tiver autorizado o GitHub, selecione **continuar**. 
+3. No GitHub, selecione **autorizar AzureAppService**.
 
-    ![Centro de implantação de serviço Azure App](./media/functions-continuous-deployment/github.png)
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Autorizar serviço Azure App":::
 
-3. No GitHub, selecione o botão **autorizar AzureAppService** . 
-
-    ![Autorizar serviço Azure App](./media/functions-continuous-deployment/authorize.png)
-    
-    Na **central de implantação** no portal do Azure, selecione **continuar**.
+    Insira sua senha do GitHub e selecione **continuar**.
 
 4. Selecione um dos seguintes provedores de compilação:
 
     * **Serviço de compilação do serviço de aplicativo**: melhor quando você não precisa de uma compilação ou se precisa de uma compilação genérica.
     * **Azure pipelines (visualização)**: melhor quando você precisa de mais controle sobre a compilação. Este provedor está em visualização no momento.
 
-    ![Selecionar um provedor de compilação](./media/functions-continuous-deployment/build.png)
+    Selecione **Continuar**.
 
 5. Configure informações específicas para a opção de controle do código-fonte que você especificou. Para o GitHub, você deve inserir ou selecionar valores para **organização**, **repositório**e **ramificação**. Os valores se baseiam no local do seu código. Em seguida, selecione **continuar**.
 
-    ![Configurar o GitHub](./media/functions-continuous-deployment/github-specifics.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Configurar o GitHub":::
 
 6. Examine todos os detalhes e, em seguida, selecione **concluir** para concluir a configuração da implantação.
 
-    ![Resumo](./media/functions-continuous-deployment/summary.png)
-
 Quando o processo for concluído, todo o código da origem especificada será implantado em seu aplicativo. Nesse ponto, as alterações na origem da implantação disparam uma implantação dessas alterações em seu aplicativo de funções no Azure.
-
-## <a name="deployment-scenarios"></a>Cenários de implantação
-
-<a name="existing"></a>
-
-### <a name="move-existing-functions-to-continuous-deployment"></a>Mover as funções existentes para implantação contínua
-
-Se você já escreveu funções no [portal do Azure](https://portal.azure.com) e deseja baixar o conteúdo do seu aplicativo antes de alternar para a implantação contínua, vá para a guia **visão geral** do seu aplicativo de funções. Selecione o botão **baixar conteúdo do aplicativo** .
-
-![Baixar o conteúdo do aplicativo](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
 > Depois de configurar a integração contínua, você não poderá mais editar seus arquivos de origem no portal do functions.

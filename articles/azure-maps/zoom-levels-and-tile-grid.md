@@ -1,19 +1,19 @@
 ---
 title: Níveis de zoom e grade de bloco | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá sobre níveis de zoom e grade de blocos em mapas de Microsoft Azure.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530284"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123897"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Níveis de zoom e grade lado a lado
 
@@ -140,12 +140,12 @@ Aqui está a grade de zoom para o nível de zoom 1:
 
 ## <a name="quadkey-indices"></a>Índices de Quadkey
 
-Algumas plataformas de mapeamento usam `quadkey` uma Convenção de nomenclatura de indexação que combina as coordenadas do bloco ZY em uma cadeia `quadtree` de caracteres `quadkeys` de uma dimensão chamada chaves ou de forma abreviada. Cada `quadkey` um identifica exclusivamente um único bloco em um nível específico de detalhes e pode ser usado como uma chave em índices de árvore B de banco de dados comuns. Os SDKs do mapas do Azure dão suporte à sobreposição de camadas `quadkey` de bloco que usam a Convenção de nomenclatura, além de outras convenções de nomenclatura, conforme documentado no documento [Adicionar uma camada de peça](map-add-tile-layer.md) .
+Algumas plataformas de mapeamento usam uma `quadkey` Convenção de nomenclatura de indexação que combina as coordenadas do bloco ZY em uma cadeia de caracteres de uma dimensão chamada `quadtree` chaves ou `quadkeys` de forma abreviada. Cada `quadkey` um identifica exclusivamente um único bloco em um nível específico de detalhes e pode ser usado como uma chave em índices de árvore B de banco de dados comuns. Os SDKs do mapas do Azure dão suporte à sobreposição de camadas de bloco que usam `quadkey` a Convenção de nomenclatura, além de outras convenções de nomenclatura, conforme documentado no documento [Adicionar uma camada de peça](map-add-tile-layer.md) .
 
 > [!NOTE]
 > A `quadkeys` Convenção de nomenclatura só funciona para níveis de zoom de um ou mais. O SDK do Azure Maps dá suporte ao nível de zoom 0, que é um único bloco de mapa para todo o mundo. 
 
-Para converter coordenadas de bloco em `quadkey`um, os bits das coordenadas Y e X são intercalados e o resultado é interpretado como um número de base 4 (com zeros à esquerda mantidos) e convertido em uma cadeia de caracteres. Por exemplo, as coordenadas XY de bloco dadas de (3, 5) no nível 3 `quadkey` , o é determinado da seguinte maneira:
+Para converter coordenadas de bloco em um `quadkey` , os bits das coordenadas Y e X são intercalados e o resultado é interpretado como um número de base 4 (com zeros à esquerda mantidos) e convertido em uma cadeia de caracteres. Por exemplo, as coordenadas XY de bloco dadas de (3, 5) no nível 3, o `quadkey` é determinado da seguinte maneira:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -155,13 +155,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`ter várias propriedades interessantes. Primeiro, o comprimento de um `quadkey` (o número de dígitos) é igual ao nível de zoom do bloco correspondente. Em segundo lugar `quadkey` , o de qualquer bloco começa `quadkey` com o de seu bloco pai (o bloco contido no nível anterior). Conforme mostrado no exemplo abaixo, o bloco 2 é o pai dos blocos de 20 a 23:
+`Qquadkeys`ter várias propriedades interessantes. Primeiro, o comprimento de um `quadkey` (o número de dígitos) é igual ao nível de zoom do bloco correspondente. Em segundo lugar, o `quadkey` de qualquer bloco começa com o `quadkey` de seu bloco pai (o bloco contido no nível anterior). Conforme mostrado no exemplo abaixo, o bloco 2 é o pai dos blocos de 20 a 23:
 
 <center>
 
 ![Pirâmide do bloco Quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Por fim `quadkeys` , forneça uma chave de índice unidimensional que geralmente preserva a proximidade dos blocos no espaço XY. Em outras palavras, dois blocos que têm coordenadas XY próximas geralmente têm `quadkeys` que são relativamente próximos juntos. Isso é importante para otimizar o desempenho do banco de dados, pois os blocos vizinhos geralmente são solicitados em grupos, e é desejável manter esses blocos nos mesmos blocos de disco, a fim de minimizar o número de leituras de disco.
+Por fim, `quadkeys` forneça uma chave de índice unidimensional que geralmente preserva a proximidade dos blocos no espaço XY. Em outras palavras, dois blocos que têm coordenadas XY próximas geralmente têm `quadkeys` que são relativamente próximos juntos. Isso é importante para otimizar o desempenho do banco de dados, pois os blocos vizinhos geralmente são solicitados em grupos, e é desejável manter esses blocos nos mesmos blocos de disco, a fim de minimizar o número de leituras de disco.
 
 ## <a name="tile-math-source-code"></a>Código-fonte de matemática do bloco
 

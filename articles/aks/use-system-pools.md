@@ -4,12 +4,12 @@ description: Saiba como criar e gerenciar pools de nós do sistema no serviço k
 services: container-service
 ms.topic: article
 ms.date: 04/28/2020
-ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790551"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125240"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerenciar pools de nós do sistema no serviço kubernetes do Azure (AKS)
 
@@ -50,6 +50,7 @@ Você pode executar as seguintes operações com pools de nós:
 * Excluir pools de nós de usuário.
 * Você pode excluir pools de nós do sistema, desde que você tenha outro pool de nós do sistema para assumir seu lugar no cluster AKS.
 * Um cluster AKS pode ter vários pools de nó de sistema e requer pelo menos um pool de nós do sistema.
+* Se você quiser alterar várias configurações imutáveis em pools de nós existentes, poderá criar novos pools de nós para substituí-los. Um exemplo é adicionar um novo pool de nós com uma nova configuração maxPods e excluir o pool de nós antigo.
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Criar um novo cluster AKS com um pool de nós do sistema
 

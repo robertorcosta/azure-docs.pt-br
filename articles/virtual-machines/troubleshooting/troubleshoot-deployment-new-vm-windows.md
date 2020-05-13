@@ -3,7 +3,7 @@ title: Solucionar problemas de implantação da VM Windows no Azure| Microsoft D
 description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981399"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120956"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solucionar problemas de implantação ao criar uma nova VM Windows no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -75,7 +75,7 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
 * Repita a solicitação com um tamanho de VM menor.
 * Se o tamanho da VM solicitada não puder ser alterado:
   * Pare todas as VMs no conjunto de disponibilidade.
-    Clique **em grupos** > *de recursos seu grupo* > de recursos**recursos** > *seu conjunto* > de disponibilidade**máquinas** > virtuais*sua máquina* > virtual**parar**.
+    Clique em **grupos**  >  *de recursos seu grupo de recursos*  >  **recursos**  >  *seu conjunto de disponibilidade*  >  **máquinas virtuais**  >  *sua máquina virtual*  >  **parar**.
   * Depois de parar todas as máquinas virtuais, crie a nova VM no tamanho desejado.
   * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
 

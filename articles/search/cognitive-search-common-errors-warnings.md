@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086599"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125087"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -21,7 +21,7 @@ Este artigo fornece informações e soluções para erros comuns e avisos que vo
 
 A indexação é interrompida quando a contagem de erros excede [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
-Se você quiser que os indexadores ignorem esses erros (e pulem de "documentos com falha") `maxFailedItems` , `maxFailedItemsPerBatch` considere atualizar o e conforme descrito [aqui](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+Se você quiser que os indexadores ignorem esses erros (e pulem de "documentos com falha"), considere atualizar o `maxFailedItems` e `maxFailedItemsPerBatch` conforme descrito [aqui](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
 > Cada documento com falha junto com sua chave de documento (quando disponível) será exibido como um erro no status de execução do indexador. Você pode utilizar a [API de índice](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para carregar manualmente os documentos posteriormente se tiver definido o indexador para tolerar falhas.
@@ -30,14 +30,14 @@ As informações de erro neste artigo podem ajudá-lo a resolver erros, permitin
 
 Os avisos não param de indexação, mas indicam condições que podem resultar em resultados inesperados. Se você tomar uma ação ou não depende dos dados e do seu cenário.
 
-A partir da versão `2019-05-06`da API, os erros e avisos do indexador em nível de item são estruturados para fornecer maior clareza em relação às causas e às próximas etapas. Elas contêm as seguintes propriedades:
+A partir da versão da API `2019-05-06` , os erros e avisos do indexador em nível de item são estruturados para fornecer maior clareza em relação às causas e às próximas etapas. Elas contêm as seguintes propriedades:
 
 | Propriedade | Descrição | Exemplo |
 | --- | --- | --- |
-| chave | A ID do documento do documento impactado pelo erro ou aviso. | https:\//coromsearch.blob.Core.Windows.net/JFK-1K/DocId-32112954.pdf |
+| chave | A ID do documento do documento impactado pelo erro ou aviso. | https: \/ /coromsearch.blob.Core.Windows.net/JFK-1K/DocId-32112954.pdf |
 | name | O nome da operação que descreve onde ocorreu o erro ou o aviso. Isso é gerado pela seguinte estrutura: [Category]. [subcategoria]. [resourceType]. Source | DocumentExtraction. azureblob. myBlobContainerName enriquecetion. WebApiSkill. myskillname Projetion. SearchIndex. OutputFieldMapping. myOutputFieldName Projetion. SearchIndex. MergeOrUpload. myindexname Projetion. KnowledgeStore. Table. mytablename |
 | mensagem | Uma descrição de alto nível do erro ou aviso. | Não foi possível executar a habilidade porque a solicitação da API Web falhou. |
-| detalhes | Todos os detalhes adicionais que podem ser úteis para diagnosticar o problema, como a resposta WebApi, se a execução de uma habilidade personalizada falharem. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origem, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... restante do rastreamento de pilha... |
+| detalhes | Todos os detalhes adicionais que podem ser úteis para diagnosticar o problema, como a resposta WebApi, se a execução de uma habilidade personalizada falharem. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 origem, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... restante do rastreamento de pilha... |
 | documentationLink | Um link para a documentação relevante com informações detalhadas para depurar e resolver o problema. Esse link geralmente apontará para uma das seções abaixo nesta página. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -48,7 +48,7 @@ O indexador não pôde ler o documento a partir da fonte de dados. Isso pode aco
 
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| Tipos de campo inconsistentes em diferentes documentos | "O tipo de valor tem uma incompatibilidade com o tipo de coluna. Não foi `'{47.6,-122.1}'` possível armazenar na coluna autores.  O tipo esperado é JArray. "  "Erro ao converter o tipo de dados nvarchar em float."  "Falha na conversão ao converter o valor nvarchar ' 12 meses ' no tipo de dados int."  "Erro de estouro aritmético ao converter a expressão em dados tipo int". | Verifique se o tipo de cada campo é o mesmo em documentos diferentes. Por exemplo, se o primeiro campo `'startTime'` de documento for um DateTime e, no segundo documento, for uma cadeia de caracteres, esse erro será atingido. |
+| Tipos de campo inconsistentes em diferentes documentos | "O tipo de valor tem uma incompatibilidade com o tipo de coluna. Não foi possível armazenar `'{47.6,-122.1}'` na coluna autores.  O tipo esperado é JArray. "  "Erro ao converter o tipo de dados nvarchar em float."  "Falha na conversão ao converter o valor nvarchar ' 12 meses ' no tipo de dados int."  "Erro de estouro aritmético ao converter a expressão em dados tipo int". | Verifique se o tipo de cada campo é o mesmo em documentos diferentes. Por exemplo, se o primeiro campo de documento `'startTime'` for um DateTime e, no segundo documento, for uma cadeia de caracteres, esse erro será atingido. |
 | erros do serviço subjacente da fonte de dados | (de Cosmos DB)`{"Errors":["Request rate is large"]}` | Verifique sua instância de armazenamento para garantir que ela esteja íntegra. Talvez seja necessário ajustar o dimensionamento/particionamento. |
 | problemas transitórios | ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: provedor TCP, erro: 0-uma conexão existente foi fechada forçosamente pelo host remoto | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
@@ -59,7 +59,7 @@ O indexador com uma fonte de dados de BLOB não pôde extrair o conteúdo ou os 
 
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| o blob está acima do limite de tamanho | O documento `'150441598'` é de bytes, o que excede `'134217728'` o tamanho máximo de bytes para extração de documentos para sua camada de serviço atual. | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| o blob está acima do limite de tamanho | O documento é de `'150441598'` bytes, o que excede o tamanho máximo `'134217728'` de bytes para extração de documentos para sua camada de serviço atual. | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | o blob tem um tipo de conteúdo sem suporte | O documento tem um tipo de conteúdo sem suporte`'image/png'` | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | o blob está criptografado | Não foi possível processar o documento-ele pode estar criptografado ou protegido por senha. | Você pode ignorar o blob com [as configurações de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | problemas transitórios | "Erro ao processar o blob: a solicitação foi anulada: a solicitação foi cancelada". "O documento atingiu o tempo limite durante o processamento." | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
@@ -73,8 +73,13 @@ O indexador lê o documento da fonte de dados, mas houve um problema ao converte
 | --- | --- | --- |
 | A chave do documento está ausente | A chave do documento não pode estar ausente ou vazia | Garantir que todos os documentos tenham chaves de documento válidas |
 | A chave do documento é inválida | A chave do documento não pode ter mais de 1024 caracteres | Modifique a chave do documento para atender aos requisitos de validação. |
-| Não foi possível aplicar o mapeamento de campo a um campo | Não foi possível aplicar a `'functionName'` função de `'fieldName'`mapeamento ao campo. A matriz não pode ser nula. Nome do parâmetro: bytes | Verifique os [mapeamentos de campo](search-indexer-field-mappings.md) definidos no indexador e compare com os dados do campo especificado do documento com falha. Pode ser necessário modificar os mapeamentos de campo ou os dados do documento. |
-| Não foi possível ler o valor do campo | Não foi possível ler o valor da `'fieldName'` coluna no `'fieldIndex'`índice. ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: Provedor TCP, erro: 0 – Uma conexão existente foi fechada forçadamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
+| Não foi possível aplicar o mapeamento de campo a um campo | Não foi possível aplicar `'functionName'` a função de mapeamento ao campo `'fieldName'` . A matriz não pode ser nula. Nome do parâmetro: bytes | Verifique os [mapeamentos de campo](search-indexer-field-mappings.md) definidos no indexador e compare com os dados do campo especificado do documento com falha. Pode ser necessário modificar os mapeamentos de campo ou os dados do documento. |
+| Não foi possível ler o valor do campo | Não foi possível ler o valor da coluna `'fieldName'` no índice `'fieldIndex'` . ocorreu um erro de nível de transporte ao receber os resultados do servidor. (provedor: Provedor TCP, erro: 0 – Uma conexão existente foi fechada forçadamente pelo host remoto.) | Esses erros normalmente são devido a problemas de conectividade inesperados com o serviço subjacente da fonte de dados. Tente executar o documento por meio do indexador novamente mais tarde. |
+
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+
+## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>Erro: não foi possível mapear o campo de saída ' `xyz` ' para pesquisar o índice devido ao problema de desserialização ao aplicar a função de mapeamento ' `abc` '
+O mapeamento de saída pode ter falhado porque os dados de saída estão no formato incorreto para a função de mapeamento que você está usando. Por exemplo, aplicar a função de mapeamento Base64Encode em dados binários geraria esse erro. Para resolver o problema, execute o indexador novamente sem especificar a função de mapeamento ou certifique-se de que a função de mapeamento seja compatível com o tipo de dados do campo de saída. Consulte [mapeamento de campo de saída](cognitive-search-output-field-mapping.md) para obter detalhes.
 
 <a name="could-not-execute-skill"/>
 
@@ -110,7 +115,7 @@ Muitas das habilidades cognitivas internas, como detecção de idioma, reconheci
 Se você continuar a ver esse erro no mesmo documento para uma habilidade cognitiva interna, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para obter assistência, pois isso não é esperado.
 
 ### <a name="custom-skills"></a>Habilidades personalizadas
-Se você encontrar um erro de tempo limite com uma habilidade personalizada que você criou, há algumas coisas que você pode experimentar. Primeiro, examine sua habilidade personalizada e verifique se ela não está ficando presa em um loop infinito e se está retornando um resultado consistentemente. Depois de confirmar que é o caso, determine qual é o tempo de execução da sua habilidade. Se você não definiu explicitamente `timeout` um valor em sua definição de habilidade personalizada, o `timeout` padrão será 30 segundos. Se 30 segundos não for longo o suficiente para que sua habilidade seja executada, você poderá especificar `timeout` um valor mais alto em sua definição de habilidade personalizada. Aqui está um exemplo de uma definição de habilidade personalizada em que o tempo limite é definido como 90 segundos:
+Se você encontrar um erro de tempo limite com uma habilidade personalizada que você criou, há algumas coisas que você pode experimentar. Primeiro, examine sua habilidade personalizada e verifique se ela não está ficando presa em um loop infinito e se está retornando um resultado consistentemente. Depois de confirmar que é o caso, determine qual é o tempo de execução da sua habilidade. Se você não definiu explicitamente um `timeout` valor em sua definição de habilidade personalizada, o padrão `timeout` será 30 segundos. Se 30 segundos não for longo o suficiente para que sua habilidade seja executada, você poderá especificar um valor mais alto `timeout` em sua definição de habilidade personalizada. Aqui está um exemplo de uma definição de habilidade personalizada em que o tempo limite é definido como 90 segundos:
 
 ```json
   {
@@ -134,11 +139,11 @@ Se você encontrar um erro de tempo limite com uma habilidade personalizada que 
       }
 ```
 
-O valor máximo que você pode definir para o `timeout` parâmetro é 230 segundos.  Se sua habilidade personalizada não puder ser executada de forma consistente em 230 segundos, você poderá considerar `batchSize` a redução da sua habilidade personalizada para que ela tenha menos documentos para ser processada em uma única execução.  Se você já tiver definido o `batchSize` como 1, precisará reescrever a habilidade para poder executar em menos de 230 segundos ou dividi-la em várias habilidades personalizadas para que o tempo de execução de qualquer habilidade personalizada seja de, no máximo, 230 segundos. Examine a [documentação de habilidades personalizadas](cognitive-search-custom-skill-web-api.md) para obter mais informações.
+O valor máximo que você pode definir para o `timeout` parâmetro é 230 segundos.  Se sua habilidade personalizada não puder ser executada de forma consistente em 230 segundos, você poderá considerar a redução da `batchSize` sua habilidade personalizada para que ela tenha menos documentos para ser processada em uma única execução.  Se você já tiver definido o `batchSize` como 1, precisará reescrever a habilidade para poder executar em menos de 230 segundos ou dividi-la em várias habilidades personalizadas para que o tempo de execução de qualquer habilidade personalizada seja de, no máximo, 230 segundos. Examine a [documentação de habilidades personalizadas](cognitive-search-custom-skill-web-api.md) para obter mais informações.
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"/>
 
-## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Erro: não foi possível`MergeOrUpload`' ' | documento`Delete`' ' para o índice de pesquisa
+## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Erro: não foi possível ' `MergeOrUpload` ' | `Delete`documento ' ' para o índice de pesquisa
 
 O documento foi lido e processado, mas o indexador não pôde adicioná-lo ao índice de pesquisa. Isso pode acontecer devido a:
 
@@ -146,7 +151,7 @@ O documento foi lido e processado, mas o indexador não pôde adicioná-lo ao í
 | --- | --- | --- |
 | Um campo contém um termo muito grande | Um termo no documento é maior que o [limite de 32 KB](search-limits-quotas-capacity.md#api-request-limits) | Você pode evitar essa restrição garantindo que o campo não esteja configurado como filtrável, facetable ou classificável.
 | O documento é muito grande para ser indexado | Um documento é maior que o [tamanho máximo de solicitação de API](search-limits-quotas-capacity.md#api-request-limits) | [Como indexar grandes conjuntos de dados](search-howto-large-index.md)
-| O documento contém muitos objetos na coleção | Uma coleção em seu documento excede o [máximo de elementos em todas as coleções complexas limite](search-limits-quotas-capacity.md#index-limits) "o documento `'1000052'` com `'4303'` chave tem objetos em coleções (matrizes JSON). No máximo `'3000'` , os objetos podem estar em coleções em todo o documento. Remova objetos de coleções e tente indexar o documento novamente. " | É recomendável reduzir o tamanho da coleção complexa no documento para abaixo do limite e evitar a alta utilização do armazenamento.
+| O documento contém muitos objetos na coleção | Uma coleção em seu documento excede o [máximo de elementos em todas as coleções complexas limite](search-limits-quotas-capacity.md#index-limits) "o documento com chave `'1000052'` tem `'4303'` objetos em coleções (matrizes JSON). No máximo, `'3000'` os objetos podem estar em coleções em todo o documento. Remova objetos de coleções e tente indexar o documento novamente. " | É recomendável reduzir o tamanho da coleção complexa no documento para abaixo do limite e evitar a alta utilização do armazenamento.
 | Problemas de conexão com o índice de destino (que persiste após novas tentativas) porque o serviço está em outra carga, como consulta ou indexação. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está sob carga pesada. | [Escalar verticalmente seu serviço de pesquisa](search-capacity-planning.md)
 | O serviço de pesquisa está sendo corrigido para atualização de serviço ou está no meio de uma reconfiguração de topologia. | Falha ao estabelecer conexão para atualizar índice. O serviço de pesquisa está inoperante no momento/o serviço de pesquisa está passando por uma transição. | Configure o serviço com pelo menos 3 réplicas para a documentação de 99,9% de disponibilidade por [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Falha no recurso de computação/rede subjacente (raro) | Falha ao estabelecer conexão para atualizar índice. Ocorreu uma falha desconhecida. | Configure os indexadores para serem [executados em uma agenda](search-howto-schedule-indexers.md) para captar de um estado de falha.
@@ -186,9 +191,9 @@ Esse erro ocorre quando o indexador está tentando [projetar dados em um reposit
 
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| Não foi possível atualizar o `'blobUri'` blob de projeção no contêiner`'containerName'` |O contêiner especificado não existe. | O indexador verificará se o contêiner especificado foi criado anteriormente e o criará, se necessário, mas ele só executará essa verificação uma vez por execução de indexer. Esse erro significa que algo excluiu o contêiner após esta etapa.  Para resolver esse erro, tente: Deixe as informações da conta de armazenamento sozinhas, aguarde até que o indexador seja concluído e execute novamente o indexador. |
-| Não foi possível atualizar o `'blobUri'` blob de projeção no contêiner`'containerName'` |Não é possível gravar dados na conexão de transporte: uma conexão existente foi fechada forçosamente pelo host remoto. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
-| Não foi possível atualizar `'projectionRow'` a linha na tabela`'tableName'` | O servidor está ocupado. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
+| Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner`'containerName'` |O contêiner especificado não existe. | O indexador verificará se o contêiner especificado foi criado anteriormente e o criará, se necessário, mas ele só executará essa verificação uma vez por execução de indexer. Esse erro significa que algo excluiu o contêiner após esta etapa.  Para resolver esse erro, tente: Deixe as informações da conta de armazenamento sozinhas, aguarde até que o indexador seja concluído e execute novamente o indexador. |
+| Não foi possível atualizar o blob de projeção `'blobUri'` no contêiner`'containerName'` |Não é possível gravar dados na conexão de transporte: uma conexão existente foi fechada forçosamente pelo host remoto. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
+| Não foi possível atualizar a linha `'projectionRow'` na tabela`'tableName'` | O servidor está ocupado. | Espera-se que essa seja uma falha transitória com o armazenamento do Azure e, portanto, deve ser resolvida executando novamente o indexador. Se você encontrar esse erro consistentemente, registre um [tíquete de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) para que ele possa ser investigado mais detalhadamente.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
@@ -197,13 +202,13 @@ Uma entrada para a habilidade estava ausente, o tipo errado ou é inválido. A m
 1) Não foi possível executar a habilidade
 2) Habilidade executada, mas pode ter resultados inesperados
 
-As habilidades cognitivas têm entradas e entradas opcionais necessárias. Por exemplo, a [habilidade de extração de frases](cognitive-search-skill-keyphrases.md) - `text`chave `languageCode`tem duas entradas necessárias, e nenhuma entrada opcional. As entradas de habilidades personalizadas são consideradas entradas opcionais.
+As habilidades cognitivas têm entradas e entradas opcionais necessárias. Por exemplo, a [habilidade de extração de frases-chave](cognitive-search-skill-keyphrases.md) tem duas entradas necessárias `text` , `languageCode` e nenhuma entrada opcional. As entradas de habilidades personalizadas são consideradas entradas opcionais.
 
 Se quaisquer entradas necessárias estiverem ausentes ou se qualquer entrada não for do tipo correto, a habilidade será ignorada e gerará um aviso. As habilidades ignoradas não geram saídas, portanto, se outras habilidades usarem saídas da habilidade ignorada, elas poderão gerar avisos adicionais.
 
 Se uma entrada opcional estiver ausente, a habilidade ainda será executada, mas poderá produzir uma saída inesperada devido à entrada ausente.
 
-Em ambos os casos, esse aviso pode ser esperado devido à forma de seus dados. Por exemplo, se você tiver um documento que contém informações sobre pessoas com os `firstName`campos `middleName`, e `lastName`, você pode ter alguns documentos que não têm uma entrada para `middleName`o. Se você passar `middleName` como uma entrada para uma habilidade no pipeline, espera-se que essa entrada de habilidade esteja sem algum tempo. Você precisará avaliar seus dados e cenário para determinar se alguma ação é necessária ou não como resultado desse aviso.
+Em ambos os casos, esse aviso pode ser esperado devido à forma de seus dados. Por exemplo, se você tiver um documento que contém informações sobre pessoas com os campos, `firstName` `middleName` e `lastName` , você pode ter alguns documentos que não têm uma entrada para o `middleName` . Se você passar `middleName` como uma entrada para uma habilidade no pipeline, espera-se que essa entrada de habilidade esteja sem algum tempo. Você precisará avaliar seus dados e cenário para determinar se alguma ação é necessária ou não como resultado desse aviso.
 
 Se você quiser fornecer um valor padrão no caso de entrada ausente, poderá usar a [habilidade condicional](cognitive-search-skill-conditional.md) para gerar um valor padrão e, em seguida, usar a saída da [habilidade condicional](cognitive-search-skill-conditional.md) como a entrada de habilidade.
 
@@ -223,18 +228,18 @@ Se você quiser fornecer um valor padrão no caso de entrada ausente, poderá us
 
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| A entrada de habilidade é do tipo errado | "A entrada de habilidade necessária não era do tipo `String`esperado. Nome: `text`, origem: `/document/merged_content`. "  "A entrada de habilidade necessária não estava no formato esperado. Nome: `text`, origem: `/document/merged_content`. "  "Não é possível iterar em `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`não matriz."  "Não é possível `0` selecionar em não matriz `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Determinadas habilidades esperam entradas de tipos específicos, por exemplo, a habilidade `text` de [sentimentos](cognitive-search-skill-sentiment.md) espera ser uma cadeia de caracteres. Se a entrada especificar um valor que não seja de cadeia de caracteres, a habilidade não será executada e não gerará nenhuma saída. Verifique se o conjunto de dados tem valores de entrada uniformes no tipo ou use uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md) para pré-processar a entrada. Se você estiver Iterando a habilidade em uma matriz, verifique o contexto de habilidade e `*` a entrada têm as posições corretas. Geralmente, o contexto e a fonte de entrada devem `*` terminar com o para matrizes. |
-| A entrada da habilidade está ausente | "A entrada de habilidade necessária está ausente. Nome: `text`, origem: `/document/merged_content`"" valor `/document/normalized_images/0/imageTags`ausente ".  "Não é possível `0` selecionar na `/document/pages` matriz de `0`comprimento." | Se todos os documentos obtiverem esse aviso, provavelmente haverá um erro de digitação nos caminhos de entrada e você deverá verificar a maiúsculas e minúsculas `*` do nome da propriedade, extra ou ausente no caminho e certificar-se de que os documentos da fonte de dados forneçam as entradas necessárias. |
-| A entrada do código do idioma da habilidade é inválida | A entrada `languageCode` de habilidades tem os seguintes `X,Y,Z`códigos de idioma, pelo menos um dos quais é inválido. | Veja mais detalhes [abaixo](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
+| A entrada de habilidade é do tipo errado | "A entrada de habilidade necessária não era do tipo esperado `String` . Nome: `text` , origem: `/document/merged_content` . "  "A entrada de habilidade necessária não estava no formato esperado. Nome: `text` , origem: `/document/merged_content` . "  "Não é possível iterar em não matriz `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ."  "Não é possível selecionar `0` em não matriz `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` " | Determinadas habilidades esperam entradas de tipos específicos, por exemplo, a [habilidade de sentimentos](cognitive-search-skill-sentiment.md) espera `text` ser uma cadeia de caracteres. Se a entrada especificar um valor que não seja de cadeia de caracteres, a habilidade não será executada e não gerará nenhuma saída. Verifique se o conjunto de dados tem valores de entrada uniformes no tipo ou use uma [habilidade de API Web personalizada](cognitive-search-custom-skill-web-api.md) para pré-processar a entrada. Se você estiver Iterando a habilidade em uma matriz, verifique o contexto de habilidade e a entrada têm `*` as posições corretas. Geralmente, o contexto e a fonte de entrada devem terminar com o `*` para matrizes. |
+| A entrada da habilidade está ausente | "A entrada de habilidade necessária está ausente. Nome: `text` , origem: `/document/merged_content` "" valor ausente `/document/normalized_images/0/imageTags` ".  "Não é possível selecionar `0` na matriz `/document/pages` de comprimento `0` ." | Se todos os documentos obtiverem esse aviso, provavelmente haverá um erro de digitação nos caminhos de entrada e você deverá verificar a maiúsculas e minúsculas do nome da propriedade, extra ou ausente `*` no caminho e certificar-se de que os documentos da fonte de dados forneçam as entradas necessárias. |
+| A entrada do código do idioma da habilidade é inválida | A entrada de habilidades `languageCode` tem os seguintes códigos de idioma `X,Y,Z` , pelo menos um dos quais é inválido. | Veja mais detalhes [abaixo](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Aviso: a entrada de habilidade ' languageCode ' tem os seguintes códigos de idioma ' X, Y, Z ', pelo menos um dos quais é inválido.
-Não há suporte para um ou mais valores passados para `languageCode` a entrada opcional de uma habilidade de downstream. Isso pode ocorrer se você estiver passando a saída do [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) para as habilidades subsequentes e a saída consistir em mais idiomas do que o suportado nessas habilidades de downstream.
+Não há suporte para um ou mais valores passados para a `languageCode` entrada opcional de uma habilidade de downstream. Isso pode ocorrer se você estiver passando a saída do [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) para as habilidades subsequentes e a saída consistir em mais idiomas do que o suportado nessas habilidades de downstream.
 
-Se você souber que o conjunto de dados está todos em um idioma, deverá remover o [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e a `languageCode` entrada de habilidade e usar `defaultLanguageCode` o parâmetro de habilidade para essa habilidade, supondo que a linguagem tenha suporte para essa habilidade.
+Se você souber que o conjunto de dados está todos em um idioma, deverá remover o [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e a `languageCode` entrada de habilidade e usar o `defaultLanguageCode` parâmetro de habilidade para essa habilidade, supondo que a linguagem tenha suporte para essa habilidade.
 
-Se você souber que o conjunto de dados contém vários idiomas e, portanto, [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) precisar do `languageCode` LanguageDetectionSkill e da entrada, considere adicionar um [ConditionalSkill](cognitive-search-skill-conditional.md) para filtrar o texto com idiomas que não têm suporte antes de passar o texto para a habilidade de downstream.  Aqui está um exemplo de como seria o EntityRecognitionSkill:
+Se você souber que o conjunto de dados contém vários idiomas e, portanto, precisar do [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) e da `languageCode` entrada, considere adicionar um [ConditionalSkill](cognitive-search-skill-conditional.md) para filtrar o texto com idiomas que não têm suporte antes de passar o texto para a habilidade de downstream.  Aqui está um exemplo de como seria o EntityRecognitionSkill:
 
 ```json
 {
@@ -259,7 +264,7 @@ Aqui estão algumas referências para os idiomas com suporte no momento para cad
 ## <a name="warning-skill-input-was-truncated"></a>Aviso: a entrada da habilidade foi truncada
 Habilidades cognitivas têm limites para o comprimento do texto que pode ser analisado de uma só vez. Se a entrada de texto dessas habilidades estiver acima desse limite, truncaremos o texto para atender ao limite e, em seguida, executaremos o enriquecimento nesse texto truncado. Isso significa que a habilidade é executada, mas não sobre todos os seus dados.
 
-No exemplo LanguageDetectionSkill abaixo, o campo `'text'` de entrada pode disparar esse aviso se estiver acima do limite de caracteres. Você pode encontrar os limites de entrada de habilidades na [documentação de habilidades](cognitive-search-predefined-skills.md).
+No exemplo LanguageDetectionSkill abaixo, o `'text'` campo de entrada pode disparar esse aviso se estiver acima do limite de caracteres. Você pode encontrar os limites de entrada de habilidades na [documentação de habilidades](cognitive-search-predefined-skills.md).
 
 ```json
  {
@@ -289,7 +294,7 @@ Esse aviso ocorre apenas para Cosmos DB fontes de dados.
 
 O progresso incremental durante a indexação garante que, se a execução do indexador é interrompida por falhas transitórias ou limite de tempo de execução, o indexador pode escolher onde ela parou próxima vez que ele é executado, em vez de toda a coleção de zero de índice novamente. Isso é especialmente importante durante a indexação de coleções grandes.
 
-A capacidade de retomar um trabalho de indexação não concluído é o predicado em ter documentos `_ts` ordenados pela coluna. O indexador usa o carimbo de data/hora para determinar qual documento deve ser selecionado em seguida. Se a `_ts` coluna estiver ausente ou se o indexador não puder determinar se uma consulta personalizada foi ordenada por ela, o indexador será iniciado no início e você verá esse aviso.
+A capacidade de retomar um trabalho de indexação não concluído é o predicado em ter documentos ordenados pela `_ts` coluna. O indexador usa o carimbo de data/hora para determinar qual documento deve ser selecionado em seguida. Se a `_ts` coluna estiver ausente ou se o indexador não puder determinar se uma consulta personalizada foi ordenada por ela, o indexador será iniciado no início e você verá esse aviso.
 
 É possível substituir esse comportamento, permitindo o progresso incremental e suprimindo esse aviso usando a propriedade de `assumeOrderByHighWatermarkColumn` configuração.
 
@@ -311,7 +316,12 @@ Para obter mais informações, consulte [limites do indexador](search-limits-quo
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Aviso: não foi possível mapear o campo de saída ' X ' para o índice de pesquisa
-Os mapeamentos de campo de saída que referenciam dados não existentes/nulos produzirão avisos para cada documento e resultarão em um campo de índice vazio. Para solucionar esse problema, verifique novamente os caminhos de origem de mapeamento de campo de saída para possíveis erros de digitação ou defina um valor padrão usando a [habilidade condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Os mapeamentos de campo de saída que referenciam dados não existentes/nulos produzirão avisos para cada documento e resultarão em um campo de índice vazio. Para solucionar esse problema, verifique novamente os caminhos de origem de mapeamento de campo de saída para possíveis erros de digitação ou defina um valor padrão usando a [habilidade condicional](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Consulte [mapeamento de campo de saída](cognitive-search-output-field-mapping.md) para obter detalhes.
+
+| Motivo | Detalhes/exemplo | Resolução |
+| --- | --- | --- |
+| Não é possível iterar em não matriz | "Não é possível iterar em não matriz `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ." | Esse erro ocorre quando a saída não é uma matriz. Se você considerar que a saída deve ser uma matriz, verifique se há erros no caminho do campo de origem de saída indicado. Por exemplo, você pode ter um ausente ou extra `*` no nome do campo de origem. Também é possível que a entrada para essa habilidade seja nula, resultando em uma matriz vazia. A seção localizar detalhes semelhantes na [entrada de habilidades era inválida](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .    |
+| Não é possível selecionar `0` em não matriz | "Não é possível selecionar `0` em não matriz `/document/pages` ." | Isso pode acontecer se a saída de habilidades não produzir uma matriz e o nome do campo de origem de saída tiver índice de matriz ou `*` em seu caminho. Verifique novamente os caminhos fornecidos nos nomes de campo de origem de saída e o valor do campo para o nome do campo indicado. A seção localizar detalhes semelhantes na [entrada de habilidades era inválida](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 

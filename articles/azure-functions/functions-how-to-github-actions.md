@@ -3,14 +3,14 @@ title: Usar ações do GitHub para fazer atualizações de código no Azure Func
 description: Saiba como usar ações do GitHub para definir um fluxo de trabalho para criar e implantar Azure Functions projetos no GitHub.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 04/16/2020
 ms.author: cshoe
-ms.openlocfilehash: 54010269e5b61ebf28a29dd3165c4310f3472817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dedca6912fd9d9e7b6f5089d02de9e4020e4e0ef
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878197"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122317"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -18,7 +18,7 @@ As [ações do GitHub](https://github.com/features/actions) permitem definir um 
 
 Em ações do GitHub, um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo do Functions no GitHub. 
 
-Um fluxo de trabalho é definido por um arquivo YAML (. yml) `/.github/workflows/` no caminho em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho. 
+Um fluxo de trabalho é definido por um arquivo YAML (. yml) no `/.github/workflows/` caminho em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho. 
 
 Para um fluxo de trabalho Azure Functions, o arquivo tem três seções: 
 
@@ -46,22 +46,24 @@ Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinat
 
 ## <a name="download-the-publishing-profile"></a>Baixar o perfil de publicação
 
-Você pode baixar o perfil de publicação do seu aplicativo de funções, acessando a página **visão geral** do seu aplicativo e clicando em **obter perfil de publicação**.
+Para baixar o perfil de publicação do seu aplicativo de funções:
 
-   ![Baixar perfil de publicação](media/functions-how-to-github-actions/get-publish-profile.png)
+1. Selecione a página **visão geral** do aplicativo de funções e, em seguida, selecione **obter perfil de publicação**.
 
-Copie o conteúdo do arquivo.
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Baixar perfil de publicação":::
+
+1. Salve e copie o conteúdo do arquivo de configurações de publicação.
 
 ## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
 
-1. No [GitHub](https://github.com), navegue até o repositório, selecione **configurações** > **segredos** > **Adicionar um novo segredo**.
+1. No [GitHub](https://github.com), navegue até o repositório, selecione **configurações**  >  **segredos**  >  **Adicionar um novo segredo**.
 
-   ![Adicionar segredo](media/functions-how-to-github-actions/add-secret.png)
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Adicionar segredo":::
 
 1. Adicione um novo segredo.
 
-   * Se você estiver usando a entidade de serviço que você criou usando o CLI do Azure, use `AZURE_CREDENTIALS` para o **nome**. Em seguida, Cole a saída do objeto JSON copiado para o **valor**e selecione **Adicionar segredo**.
-   * Se você estiver usando um perfil de publicação, `SCM_CREDENTIALS` use para o **nome**. Em seguida, use o conteúdo do arquivo do perfil de publicação para **valor**e selecione **Adicionar segredo**.
+   * Se você estiver usando a entidade de serviço que você criou usando o CLI do Azure, use `AZURE_CREDENTIALS` para o **nome**. Em seguida, Cole a saída do objeto JSON copiado quanto a **valor**e selecione **Adicionar segredo**.
+   * Se você estiver usando um perfil de publicação, use `SCM_CREDENTIALS` para o **nome**. Em seguida, use o conteúdo do arquivo do perfil de publicação para **valor**e selecione **Adicionar segredo**.
 
 O GitHub agora pode se autenticar no seu aplicativo de funções no Azure.
 
@@ -71,7 +73,7 @@ A configuração do ambiente é feita usando uma ação de instalação de publi
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra a parte do fluxo de trabalho que `actions/setup-node` usa a ação para configurar o ambiente:
+O exemplo a seguir mostra a parte do fluxo de trabalho que usa a `actions/setup-node` ação para configurar o ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -86,7 +88,7 @@ O exemplo a seguir mostra a parte do fluxo de trabalho que `actions/setup-node` 
 
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir mostra a parte do fluxo de trabalho que `actions/setup-python` usa a ação para configurar o ambiente:
+O exemplo a seguir mostra a parte do fluxo de trabalho que usa a `actions/setup-python` ação para configurar o ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -101,7 +103,7 @@ O exemplo a seguir mostra a parte do fluxo de trabalho que `actions/setup-python
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo a seguir mostra a parte do fluxo de trabalho que `actions/setup-dotnet` usa a ação para configurar o ambiente:
+O exemplo a seguir mostra a parte do fluxo de trabalho que usa a `actions/setup-dotnet` ação para configurar o ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -116,7 +118,7 @@ O exemplo a seguir mostra a parte do fluxo de trabalho que `actions/setup-dotnet
 
 # <a name="java"></a>[Java](#tab/java)
 
-O exemplo a seguir mostra a parte do fluxo de trabalho que `actions/setup-java` usa a ação para configurar o ambiente:
+O exemplo a seguir mostra a parte do fluxo de trabalho que usa a `actions/setup-java` ação para configurar o ambiente:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -205,7 +207,7 @@ Para implantar seu código em um aplicativo de funções, será necessário usar
 |_**nome do slot**_ | Adicional O nome do [slot de implantação](functions-deployment-slots.md) no qual você deseja implantar. O slot já deve estar definido em seu aplicativo de funções. |
 
 
-O exemplo a seguir usa a `functions-action`versão 1 do:
+O exemplo a seguir usa a versão 1 do `functions-action` :
 
 ```yaml
     - name: 'Run Azure Functions Action'
@@ -217,7 +219,7 @@ O exemplo a seguir usa a `functions-action`versão 1 do:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para exibir um Workflow. YAML completo, consulte um dos arquivos no repositório de [exemplos de fluxo de trabalho de ações do Azure GitHub](https://aka.ms/functions-actions-samples) que têm `functionapp` no nome. Você pode usar esses exemplos em um ponto de partida para seu fluxo de trabalho.
+Para exibir um arquivo Workflow. YAML completo, consulte um dos arquivos no repositório de [exemplos de fluxo de trabalho de ações do Azure GitHub](https://aka.ms/functions-actions-samples) que têm `functionapp` no nome. Você pode usar esses exemplos em um ponto de partida para seu fluxo de trabalho.
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as ações do GitHub](https://help.github.com/en/articles/about-github-actions)

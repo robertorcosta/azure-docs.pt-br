@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dsindona
-ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e65f2041cdb2e25341bfd63783c70ec09c1216b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80280347"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124696"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Instruções de gerenciamento de Lead para armazenamento de tabelas
 
@@ -98,7 +98,7 @@ No próximo conjunto de etapas, você se conecta à tabela de armazenamento e co
 
    - **Consulta de filtro**: quando você seleciona esse campo, o ícone **obter hora passada** é exibido em uma janela pop-up. Selecione **última hora** para usar esse valor como um carimbo de data/hora para filtrar a consulta. Ou, você pode colar a seguinte função no campo:
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![Configurar a função de consulta de filtro](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

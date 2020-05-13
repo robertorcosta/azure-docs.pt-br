@@ -3,14 +3,14 @@ title: Gerenciar recursos locais remotos usando funções do PowerShell
 description: Saiba como configurar Conexões Híbridas na retransmissão do Azure para conectar um aplicativo de funções do PowerShell a recursos locais, que podem ser usados para gerenciar remotamente o recurso local.
 author: eamono
 ms.topic: conceptual
-ms.date: 9/5/2019
+ms.date: 04/26/2020
 ms.author: eamono
-ms.openlocfilehash: 36fc4c873dccfe9fa814bddccd829ed04207f095
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 6034d1327d263eda49881af5eedf94ae06495128
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74226929"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122073"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Gerenciando ambientes híbridos com o PowerShell no Azure Functions e no serviço de aplicativo Conexões Híbridas
 
@@ -50,31 +50,47 @@ cmd.exe /C $Cmd
 
 O recurso de Conexões Híbridas do serviço de aplicativo está disponível apenas nos planos de preços básico, padrão e isolado. Ao criar o aplicativo de funções com o PowerShell, crie ou selecione um desses planos.
 
-1. Na [portal do Azure](https://portal.azure.com), selecione **+ criar um recurso** no menu à esquerda e, em seguida, selecione **aplicativo de funções**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 
-1. Para o **plano de hospedagem**, selecione plano do serviço de **aplicativo**e, em seguida, selecione **plano/local do serviço de aplicativo**.
+1. Na página **Novo**, selecione **Computação** > **Aplicativo de Funções**.
 
-1. Selecione **criar novo**, digite um nome de **plano do serviço de aplicativo** , escolha um **local** em uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam e selecione **tipo de preço**.
+1. Na página **Informações Básicas**, use as configurações do aplicativo de funções especificadas na tabela a seguir.
 
-1. Escolha o plano padrão S1 e, em seguida, selecione **aplicar**.
-
-1. Selecione **OK** para criar o plano e, em seguida, defina as configurações de **aplicativo de funções** restantes conforme especificado na tabela imediatamente após a captura de tela a seguir:
-
-    ![Aplicativo de funções do PowerShell Core](./media/functions-hybrid-powershell/create-function-powershell-app.png)  
-
-    | Configuração      | Valor sugerido  | Descrição                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Nome do aplicativo** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z`, `0-9` e `-`.  | 
+    | Configuração      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. |
-    | **Grupo de recursos** |  myResourceGroup | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. Você também pode usar o valor sugerido. |
-    | **Sistema operacional** | Sistema operacional preferencial | Selecione Windows. |
+    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
+    | **Nome do aplicativo de funções** | Nome globalmente exclusivo | Nome que identifica seu novo aplicativo de funções. Os caracteres válidos são `a-z` (não diferencia maiúsculas de minúsculas), `0-9` e `-`.  |
+    |**Publicar**| Código | Opção para publicar arquivos de código ou um contêiner do Docker. |
     | **Pilha de runtime** | Linguagem preferencial | Escolha PowerShell Core. |
-    | **Armazenamento** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes de conta de armazenamento devem ter de 3 a 24 caracteres de comprimento e podem conter apenas números e letras minúsculas. Você também pode usar uma conta existente.
-    | **Application Insights** | Padrão | Cria um recurso do Application Insights do mesmo *nome do aplicativo* na região com suporte mais próxima. Ao expandir essa configuração, você pode alterar o **nome do novo recurso** ou escolher um **local** diferente em uma região de [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) onde você deseja armazenar seus dados. |
+    |**Versão**| Número de versão | Escolha a versão do seu runtime instalado.  |
+    |**Região**| Região preferencial | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 
-1. Depois que as configurações forem validadas, selecione **criar**.
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-basics.png" alt-text="Crie uma função-noções básicas do aplicativo." border="true":::
 
-1. Selecione o ícone de **notificação** no canto superior direito do portal e aguarde a mensagem "implantação bem-sucedida".
+1. Selecione **Avançar: Hospedagem**. Na página **Hospedagem**, insira as configurações a seguir.
+
+    | Configuração      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
+    | **[Conta de armazenamento](../storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](../azure-functions/functions-scale.md#storage-account-requirements). |
+    |**Sistema operacional**| Sistema operacional preferencial | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. |
+    | **[Tipo de plano](../azure-functions/functions-scale.md)** | **Plano do serviço de aplicativo** | Escolha **plano do serviço de aplicativo**. Quando você executa em um Plano do Serviço de Aplicativo, deve gerenciar o [dimensionamento do aplicativo de funções](../azure-functions/functions-scale.md).  |
+
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-hosting.png" alt-text="Crie uma função-Hospedagem de aplicativos." border="true":::
+
+1. Selecione **Avançar: Monitoramento**. Na página **Monitoramento**, insira as configurações a seguir.
+
+    | Configuração      | Valor sugerido  | Descrição |
+    | ------------ | ---------------- | ----------- |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | Padrão | Cria um recurso do Application Insights do mesmo *nome do aplicativo* na região com suporte mais próxima. Ao expandir essa configuração ou selecionar **criar nova**, você pode alterar o nome da Application insights ou escolher uma região diferente em uma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) onde você deseja armazenar seus dados. |
+
+    :::image type="content" source="./media/functions-hybrid-powershell/function-app-create-monitoring.png" alt-text="Crie uma função de monitoramento de aplicativo." border="true":::
+
+1. Selecione **Examinar + criar** para examinar as seleções de configuração do aplicativo.
+
+1. Na página **Examinar + criar**, examine as configurações e, em seguida, selecione **Criar** para provisionar e implantar o aplicativo de funções.
+
+1. Selecione o ícone **notificações** no canto superior direito do portal e observe a mensagem **implantação bem-sucedida** .
 
 1. Selecione **Ir para recursos** para exibir o novo aplicativo de funções. Você também pode selecionar **Fixar no painel**. A fixação torna mais fácil retornar a esse recurso de aplicativo de função no seu painel.
 
@@ -82,42 +98,53 @@ O recurso de Conexões Híbridas do serviço de aplicativo está disponível ape
 
 As conexões híbridas são configuradas na seção rede do aplicativo de funções:
 
-1. Selecione a guia **recursos da plataforma** no aplicativo de funções e, em seguida, selecione **rede**. 
-   ![Visão geral do aplicativo para rede de plataforma](./media/functions-hybrid-powershell/app-overview-platform-networking.png)  
+1. Em **configurações** no aplicativo de funções que você acabou de criar, selecione **rede**. 
 1. Selecione **configurar seus pontos de extremidade de conexões híbridas**.
-   ![Rede](./media/functions-hybrid-powershell/select-network-feature.png)  
+   
+    :::image type="content" source="./media/functions-hybrid-powershell/configure-hybrid-connection-endpoint.png" alt-text="Configure os pontos de extremidade de conexão híbrida." border="true":::
+
 1. Selecione **Adicionar conexão híbrida**.
-   ![Conexão híbrida](./media/functions-hybrid-powershell/hybrid-connection-overview.png)  
+   
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-overview.png" alt-text="Adicione uma conexão híbrida." border="true":::
+
 1. Insira informações sobre a conexão híbrida conforme mostrado logo após a captura de tela a seguir. Você tem a opção de fazer com que a configuração de **host do ponto de extremidade** corresponda ao nome do host do servidor local para facilitar a memorização do servidor mais tarde, quando você estiver executando comandos remotos. A porta corresponde à porta padrão do serviço de gerenciamento remoto do Windows que foi definida no servidor anteriormente.
-  ![Incluir Conexão Híbrida](./media/functions-hybrid-powershell/add-hybrid-connection.png)  
+  
+      :::image type="content" source="./media/functions-hybrid-powershell/add-hybrid-connection.png" alt-text="Adicionar conexão híbrida." border="true":::
 
-    **Nome da conexão híbrida**: ContosoHybridOnPremisesServer
-    
-    **Host do ponto de extremidade**: finance1
-    
-    **Porta do ponto de extremidade**: 5986
-    
-    **Namespace do ServiceBus**: criar novo
-    
-    **Local**: escolha um local disponível
-    
-    **Nome**: contosopowershellhybrid
+    | Configuração      | Valor sugerido  |
+    | ------------ | ---------------- |
+    | **Nome da conexão híbrida** | ContosoHybridOnPremisesServer |
+    | **Host de ponto de extremidade** | finance1 |
+    | **Porta do ponto de extremidade** | 5986 |
+    | **Namespace do ServiceBus** | Criar Novo |
+    | **Localidade** | Escolha um local disponível |
+    | **Nome** | contosopowershellhybrid | 
 
-5. Selecione **OK** para criar a conexão híbrida.
+1. Selecione **OK** para criar a conexão híbrida.
 
 ## <a name="download-and-install-the-hybrid-connection"></a>Baixar e instalar a conexão híbrida
 
-1. Selecione **baixar Gerenciador de conexões** para salvar o arquivo. msi localmente no seu computador.
-![Baixe o instalador](./media/functions-hybrid-powershell/download-hybrid-connection-installer.png)  
-1. Copie o arquivo. msi do seu computador local para o servidor no local.
+1. Selecione **baixar Gerenciador de conexões** para salvar o arquivo *. msi* localmente no seu computador.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/download-hybrid-connection-installer.png" alt-text="Baixe o instalador." border="true":::
+
+1. Copie o arquivo *. msi* do seu computador local para o servidor no local.
 1. Execute o instalador do Gerenciador de Conexões Híbridas para instalar o serviço no servidor local.
-![Instalar conexão híbrida](./media/functions-hybrid-powershell/hybrid-installation.png)  
+
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-installation.png" alt-text="Instale a conexão híbrida." border="true":::
+
 1. No portal, abra a conexão híbrida e copie a cadeia de conexão do gateway para a área de transferência.
-![Copiar cadeia de conexão híbrida](./media/functions-hybrid-powershell/copy-hybrid-connection.png)  
+
+    :::image type="content" source="./media/functions-hybrid-powershell/copy-hybrid-connection.png" alt-text="Copie a cadeia de conexão híbrida." border="true":::
+
 1. Abra a interface do usuário do Gerenciador de Conexões Híbridas no servidor local.
-![Abrir interface do usuário de conexão híbrida](./media/functions-hybrid-powershell/hybrid-connection-ui.png)  
-1. Selecione o botão **inserir manualmente** e cole a cadeia de conexão da área de transferência.
-![Colar conexão](./media/functions-hybrid-powershell/enter-manual-connection.png)  
+
+    :::image type="content" source="./media/functions-hybrid-powershell/hybrid-connection-ui.png" alt-text="Abra a interface do usuário de conexão híbrida." border="true":::
+
+1. Selecione **inserir manualmente** e cole a cadeia de conexão da área de transferência.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/enter-manual-connection.png" alt-text="Cole a conexão híbrida." border="true":::
+
 1. Reinicie o Gerenciador de Conexões Híbridas do PowerShell se ele não for exibido como conectado.
     ```powershell
     Restart-Service HybridConnectionManager
@@ -125,19 +152,33 @@ As conexões híbridas são configuradas na seção rede do aplicativo de funç�
 
 ## <a name="create-an-app-setting-for-the-password-of-an-administrator-account"></a>Criar uma configuração de aplicativo para a senha de uma conta de administrador
 
-1. Selecione a guia **recursos da plataforma** no aplicativo de funções.
-1. Em **configurações gerais**, selecione **configuração**.
-![Selecionar configuração de plataforma](./media/functions-hybrid-powershell/select-configuration.png)  
-1. Expanda **nova configuração de aplicativo** para criar uma nova configuração para a senha.
-1. Nomeie a configuração _ContosoUserPassword_e insira a senha.
-1. Selecione **OK** e, em seguida, salvar para armazenar a senha no aplicativo de funções.
-![Adicionar configuração de aplicativo para senha](./media/functions-hybrid-powershell/add-appsetting-password.png)  
+1. Em **configurações** para seu aplicativo de funções, selecione **configuração**. 
+1. Selecione **+ nova configuração de aplicativo**.
 
-## <a name="create-a-function-http-trigger-to-test"></a>Criar um gatilho http de função para teste
+    :::image type="content" source="./media/functions-hybrid-powershell/select-configuration.png" alt-text="Configure uma senha para a conta de administrador." border="true":::
 
-1. Crie uma nova função de gatilho HTTP do aplicativo de funções.
-![Criar novo gatilho HTTP](./media/functions-hybrid-powershell/create-http-trigger-function.png)  
-1. Substitua o código do PowerShell do modelo pelo código a seguir:
+1. Nomeie a configuração **ContosoUserPassword**e insira a senha. Selecione **OK**.
+1. Selecione **salvar** para armazenar a senha no aplicativo de funções.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/save-administrator-password.png" alt-text="Salve a senha da conta de administrador." border="true":::
+
+## <a name="create-a-function-http-trigger"></a>Criar um gatilho HTTP function
+
+1. Em seu aplicativo de funções, selecione **funções**e, em seguida, selecione **+ Adicionar**.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/create-http-trigger-function.png" alt-text="Criar novo gatilho HTTP." border="true":::
+
+1. Selecione o modelo de **gatilho http** .
+
+    :::image type="content" source="./media/functions-hybrid-powershell/select-http-trigger-template.png" alt-text="Selecione o modelo de gatilho HTTP." border="true":::
+
+1. Nomeie a nova função e selecione **criar função**.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/create-new-http-function.png" alt-text="Nomeie e crie a nova função de gatilho HTTP." border="true":::
+
+## <a name="test-the-function"></a>Testar a função
+
+1. Na nova função, selecione **código + teste**. Substitua o código do PowerShell do modelo pelo código a seguir:
 
     ```powershell
     # Input bindings are passed in via param block.
@@ -172,8 +213,13 @@ As conexões híbridas são configuradas na seção rede do aplicativo de funç�
                    -SessionOption (New-PSSessionOption -SkipCACheck)
     ```
 
-3. Selecione **salvar** e **executar** para testar a função.
-![Testar o aplicativo de funções](./media/functions-hybrid-powershell/test-function-hybrid.png)  
+1. Selecione **Salvar**.
+
+    :::image type="content" source="./media/functions-hybrid-powershell/save-http-function.png" alt-text="Altere o código do PowerShell e salve a função de gatilho HTTP." border="true":::
+
+ 1. Selecione **teste**e, em seguida, selecione **executar** para testar a função. Examine os logs para verificar se o teste foi bem-sucedido.
+
+     :::image type="content" source="./media/functions-hybrid-powershell/test-function-hybrid.png" alt-text="Testar a função do gatilho HTTP." border="true":::
 
 ## <a name="managing-other-systems-on-premises"></a>Gerenciando outros sistemas locais
 

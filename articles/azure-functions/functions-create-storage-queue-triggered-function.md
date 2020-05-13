@@ -1,26 +1,22 @@
 ---
 title: Criar uma função no Azure disparada por mensagens na fila
-description: Use o Azure Functions para criar uma função sem servidor que é invocada por uma mensagem enviada para uma fila do Armazenamento do Azure.
+description: Use Azure Functions para criar uma função sem servidor que é invocada por uma mensagem enviada para uma fila no Azure.
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 98f0290aad9971bdb0c0b265d96e96d8ac34b99d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4c20579f2306b61741f3c6ab1549285271435a3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756509"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123144"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função disparada pelo Armazenamento de Filas do Azure
 
 Saiba como criar uma função que é disparada quando as mensagens são enviadas para uma fila do Armazenamento do Azure.
 
-![Exiba a mensagem nos logs.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
-
-## <a name="prerequisites"></a>Prerequisites
-
-- Baixe e instale o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/).
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -28,7 +24,7 @@ Saiba como criar uma função que é disparada quando as mensagens são enviadas
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![Aplicativo de funções criado com êxito.](./media/functions-create-first-azure-function/function-app-create-success.png)
+   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-create-success.png" alt-text="Aplicativo de funções criado com êxito.." border="true":::
 
 Em seguida, crie uma nova função no novo aplicativo de funções.
 
@@ -36,69 +32,70 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 ## <a name="create-a-queue-triggered-function"></a>Criar uma função disparada por Filas
 
-1. Expanda seu aplicativo de funções e clique no botão **+** ao lado de **Functions**. Se essa for a primeira função em seu aplicativo de funções, selecione **No portal** e depois **Continuar**. Caso contrário, vá para a etapa três.
+1. Selecione **funções**e, em seguida, selecione **+ Adicionar** para adicionar uma nova função.
 
-   ![Página de início rápido de funções no portal do Azure](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
+   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-app-quickstart-choose-template.png" alt-text="Escolha um modelo de função no portal do Azure." border="true":::
 
-1. Escolha **Mais modelos** e, em seguida, **Concluir e exibir modelos**.
-
-    ![Início Rápido do Functions, escolher mais modelos](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
-
-1. No campo de pesquisa, digite `queue` e escolha o modelo **Gatilho de fila**.
-
-1. Se solicitado, selecione **Instalar** para instalar a extensão do Armazenamento do Azure e as dependências no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
-
-    ![Instalar extensões de associação](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+1. Escolha o modelo de **gatilho do armazenamento de filas do Azure** .
 
 1. Use as configurações conforme especificado na tabela abaixo da imagem.
 
-    ![Configure a função disparada da fila de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="Nomeie e configure a função disparada pelo armazenamento de filas." border="true":::
 
-    | Configuração | Valor sugerido | DESCRIÇÃO |
+
+    | Configuração | Valor sugerido | Descrição |
     |---|---|---|
     | **Nome** | Exclusivo no aplicativo de funções | O nome dessa função disparada por filas. |
     | **Nome da fila**   | myqueue-items    | Nome da fila à qual se conectar em sua conta de armazenamento. |
     | **Conexão da conta de armazenamento** | AzureWebJobsStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |    
 
-1. Clique em **Criar** para criar a função.
+1. Selecione **criar função** para criar sua função.
 
-Em seguida, você pode se conectar à sua conta de armazenamento do Azure e criar a fila de armazenamento **myqueue-items**.
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-3.png" alt-text="Crie a função disparada pelo armazenamento de filas." border="true":::
+
+Em seguida, você se conecta à sua conta de armazenamento do Azure e cria a fila de armazenamento **MyQueue-Items** .
 
 ## <a name="create-the-queue"></a>Criar a fila
 
-1. Em sua função, clique em **Integrar**, expanda **Documentação**e copie **Nome da conta** e **Chave de conta**. Você usa essas credenciais para conectar-se à conta de armazenamento no Gerenciador de Armazenamento do Microsoft Azure. Se você já tiver se conectado à conta de armazenamento, vá para a etapa 4.
+1. Em sua função, na página **visão geral** , selecione o grupo de recursos.
 
-    ![Obtenha as credenciais de conexão da conta de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-resource-group.png" alt-text="Selecione seu grupo de recursos portal do Azure." border="true":::
 
-1. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/), clique no ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e clique em **Avançar**.
+1. Localize e selecione a conta de armazenamento do grupo de recursos.
 
-    ![Execute a ferramenta Gerenciador de Conta de Armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-account-access.png" alt-text="Acesse a conta de armazenamento." border="true":::
 
-1. Insira o **Nome da conta** e **Chave de conta** da etapa 1, clique em **Avançar** e em **Conectar**.
+1. Escolha **filas**e, em seguida, escolha **+ fila**. 
 
-    ![Insira as credenciais de armazenamento e conecte-se.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-add-queue.png" alt-text="Adicione uma fila à sua conta de armazenamento no portal do Azure." border="true":::
 
-1. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **Filas**, clique em **Criar Fila**, digite `myqueue-items` e pressione enter.
+1. No campo **nome** , digite `myqueue-items` e, em seguida, selecione **criar**.
 
-    ![Crie uma fila de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-name-queue.png" alt-text="Nomeie o contêiner de armazenamento de fila." border="true":::
 
 Agora que você tem uma fila de armazenamento, você pode testar a função adicionando uma mensagem à fila.
 
 ## <a name="test-the-function"></a>Testar a função
 
-1. De volta ao Portal do Azure, navegue até sua função, expanda os **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
+1. De volta ao portal do Azure, navegue até sua função expanda os **logs** na parte inferior da página e verifique se o streaming de log não está pausado.
 
-1. No Gerenciador de Armazenamento, expanda sua conta de armazenamento, **Filas** e **myqueue-items** e, em seguida, clique em **Adicionar Mensagem**.
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-queue-storage-log-expander.png" alt-text="Expanda o log na portal do Azure." border="true":::
 
-    ![Adicione uma mensagem à fila.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
+1. Em uma janela separada do navegador, vá para o grupo de recursos na portal do Azure e selecione a conta de armazenamento.
 
-1. Digite sua mensagem "Olá, Mundo!" em **Texto da mensagem** e clique em **OK**.
+1. Selecione **filas**e, em seguida, selecione o contêiner **MyQueue-Items** .
+
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue.png" alt-text="Vá para a fila MyQueue-Items na portal do Azure." border="true":::
+
+1. Selecione **Adicionar mensagem**e digite "Olá, mundo!" em **texto da mensagem**. Selecione **OK**.
+
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Vá para a fila MyQueue-Items na portal do Azure." border="true":::
 
 1. Aguarde alguns segundos, depois volte para seus logs de função e verifique se a nova mensagem foi lida da fila.
 
-    ![Exiba a mensagem nos logs.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png" alt-text="Exiba a mensagem nos logs." border="true":::
 
-1. No Gerenciador de Armazenamento, clique em **Atualizar** e verifique se a mensagem foi processada e se não está mais na fila.
+1. De volta à sua fila de armazenamento, selecione **Atualizar** e verifique se a mensagem foi processada e se não está mais na fila.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

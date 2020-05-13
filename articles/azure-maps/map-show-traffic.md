@@ -1,20 +1,20 @@
 ---
 title: Mostrar o tráfego em um mapa | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá como exibir dados de tráfego em um mapa usando o SDK da Web do Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9bd5ae462013924a46a3da8400719e83abae3424
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c17c3cc22d478d81ed3c2b2ae9f61c173aad6cd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79534807"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123914"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
@@ -50,7 +50,7 @@ A ferramenta a seguir permite alternar entre as diferentes configurações de so
 <br/>
 
 <iframe height="700" style="width: 100%;" scrolling="no" title="Opções de sobreposição de tráfego" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobreposição de tráfego</a> de caneta<a href='https://codepen.io/azuremaps'>@azuremaps</a>pelo Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobreposição de tráfego</a> de caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -58,7 +58,7 @@ Consulte as <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opções de sobr
 Saiba mais sobre as classes e métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapeada](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [Trafficoptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)

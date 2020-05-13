@@ -6,20 +6,20 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
-ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.date: 5/11/2020
+ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006161"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124067"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 
 Os dados de referência (também conhecidos como uma tabela de pesquisa) são um conjunto de dados finito estático ou com alteração lenta por natureza, usados para executar uma pesquisa ou para aumentar seus fluxos de dados. Por exemplo, em um cenário de IoT, você pode armazenar metadados sobre sensores (que não são alterados com frequência) em dados de referência e uni-los a fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para fazer uso de dados de referência em seu trabalho de Azure Stream Analytics, você geralmente usará uma [junção de dados de referência](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) em sua consulta. 
 
 ## <a name="example"></a>Exemplo  
- Se um veículo comercial é registrado com a empresa Toll Company, eles podem passar pelo pedágio sem ser parado para inspeção. Usaremos uma tabela de pesquisa de registro de veículo comercial para identificar todos os veículos comerciais com o registro expirado.  
+Você pode ter um fluxo em tempo real de eventos gerados quando carros passarem um estande de chamada. O estande de chamada pode capturar a placa de licença em tempo real e ingressar com um conjunto de informações estático que tem detalhes de registro para identificar as placas de licença que expiraram.  
   
 ```SQL  
 SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
@@ -57,14 +57,14 @@ Se os dados de referência não forem alterados, em seguida, então o suporte pa
 
 ### <a name="generate-reference-data-on-a-schedule"></a>Gerar dados de referência de acordo com um agendamento
 
-Se os seus dados de referência são um conjunto de dados de alteração lenta, o suporte para atualização de dados de referência é habilitado especificando, na configuração de entrada, um padrão de caminho usando os tokens de substituição {date} e {time}. O Stream Analytics separa as definições de dados de referência baseadas nesse padrão de caminho. Por exemplo, um padrão de `sample/{date}/{time}/products.csv` com um formato de data **"aaaa-mm-dd"** e um formato de hora **"HH-mm"** instrui Stream Analytics a pegar o blob `sample/2015-04-16/17-30/products.csv` atualizado às 5:30, em 16 de abril, 2015 fuso horário UTC.
+Se os seus dados de referência são um conjunto de dados de alteração lenta, o suporte para atualização de dados de referência é habilitado especificando, na configuração de entrada, um padrão de caminho usando os tokens de substituição {date} e {time}. O Stream Analytics separa as definições de dados de referência baseadas nesse padrão de caminho. Por exemplo, um padrão de `sample/{date}/{time}/products.csv` com um formato de data **"aaaa-mm-dd"** e um formato de hora **"hh-mm"** instrui Stream Analytics a pegar o blob atualizado `sample/2015-04-16/17-30/products.csv` às 5:30, em 16 de abril, 2015 fuso horário UTC.
 
 O Azure Stream Analytics verifica automaticamente os blobs de dados de referência atualizados em um intervalo de um minuto. Se um blob com carimbo de data/hora 10:30:00 for carregado com um pequeno atraso (por exemplo, 10:30:30), você observará um pequeno atraso no trabalho Stream Analytics referenciando esse BLOB. Para evitar esses cenários, é recomendável carregar o blob antes do tempo efetivo de destino (10:30:00 neste exemplo) para permitir que o trabalho de Stream Analytics tempo suficiente para descobri-lo e carregá-lo na memória e executar operações. 
 
 > [!NOTE]
 > Atualmente os trabalhos do Stream Analytics procuram pela atualização de blob somente quando a hora do computador avança até a hora codificada no nome do blob. Por exemplo o trabalho irá procurar `sample/2015-04-16/17-30/products.csv` assim que possível, mas não antes das 17:30 UTC do dia 16 de abril de 2015. Ele *nunca* procurará um blob com uma hora codificada anterior ao último que foi descoberto.
 > 
-> Por exemplo, uma vez que o trabalho Encontre `sample/2015-04-16/17-30/products.csv` o blob, ele ignorará todos os arquivos com uma data codificada anterior a 5:30 pm 16 de abril de `sample/2015-04-16/17-25/products.csv` 2015, portanto, se um blob chegando em atraso for criado no mesmo contêiner, o trabalho não o usará.
+> Por exemplo, uma vez que o trabalho Encontre o blob `sample/2015-04-16/17-30/products.csv` , ele ignorará todos os arquivos com uma data codificada anterior a 5:30 pm 16 de abril de 2015, portanto, se um blob chegando em atraso for `sample/2015-04-16/17-25/products.csv` criado no mesmo contêiner, o trabalho não o usará.
 > 
 > Da mesma forma, se `sample/2015-04-16/17-30/products.csv` só é produzido às 22:03 do dia 16 de abril de 2015, mas nenhum blob com uma data anterior está presente no contêiner, o trabalho usa esse arquivo começando às 22:03 do dia 16 de abril de 2015 e usando os dados de referência anteriores.
 > 
@@ -111,15 +111,13 @@ Você pode usar [instância gerenciada do banco de dados SQL do Azure](https://d
 
 ## <a name="size-limitation"></a>Limitação de tamanho
 
-O Stream Analytics suporta dados de referência com ** tamanho máximo de 300 MB**. O limite de 300 MB de tamanho máximo de dados de referência é alcançável apenas com consultas simples. À medida que a complexidade da consulta aumenta para incluir o processamento com estado, como agregações de janela, junções temporais e funções analíticas temporais, é esperado que o tamanho máximo compatível dos dados de referência diminua. Se o Azure Stream Analytics não pode carregar os dados de referência e realize operações complexas, o trabalho executará fora da memória e falhará. Nesses casos, a % de SU Métrica de utilização alcançará 100%    
+É recomendável usar conjuntos de valores de referência que sejam menores que 300 MB para obter o melhor desempenho. Há suporte para o uso de dados de referência com mais de 300 MB em trabalhos com 6 SUs ou mais. Essa funcionalidade está em versão prévia e não deve ser usada na produção. O uso de dados de referência muito grandes pode afetar o desempenho do seu trabalho. À medida que a complexidade da consulta aumenta para incluir o processamento com estado, como agregações de janela, junções temporais e funções analíticas temporais, é esperado que o tamanho máximo compatível dos dados de referência diminua. Se o Azure Stream Analytics não pode carregar os dados de referência e realize operações complexas, o trabalho executará fora da memória e falhará. Nesses casos, a % de SU Métrica de utilização alcançará 100%    
 
-|**Número de unidades de streaming**  |**Tamanho máximo aprox. suportado (em MB)**  |
+|**Número de unidades de streaming**  |**Tamanho recomendado**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 e além   |300   |
-
-O aumento do número de Unidades de Streaming contínuo de um trabalho além de 6 não aumenta o tamanho máximo suportado dos dados de referência.
+|1   |50 MB ou mais baixo   |
+|3   |150 MB ou mais baixo   |
+|6 e além   |300 MB ou inferior. O uso de dados de referência com mais de 300 MB tem suporte na versão prévia e pode afetar o desempenho do seu trabalho.    |
 
 O suporte para a compactação não está disponível para os dados de referência.
 

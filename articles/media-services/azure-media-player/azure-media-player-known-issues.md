@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
-ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692252"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124628"
 ---
 # <a name="known-issues"></a>Problemas conhecidos #
 
@@ -41,6 +41,7 @@ A versão atual tem os seguintes problemas conhecidos:
 
 - Os anúncios podem ter problemas inseridos (sob demanda ou ao vivo) quando um bloqueador de AD é instalado no navegador
 - Os dispositivos móveis podem ter problemas para reproduzir anúncios.
+- Atualmente, os anúncios Midroll MP4 não têm suporte pelo Player de Mídia do Azure.
 
 ## <a name="azurehtml5js"></a>AzureHtml5JS ##
 
@@ -62,7 +63,7 @@ A versão atual tem os seguintes problemas conhecidos:
 
 - Recursos ausentes
 - Falhas de Tech e http (como tempos limite de rede 404), o Player levará mais tempo para ser recuperado do que outros técnicos.
-- O Safari e o Firefox na reprodução de Mac com o `"http://` Silverlight `https://` exigem a definição explícita ou para a origem.
+- O Safari e o Firefox na reprodução de Mac com o Silverlight exigem a definição explícita `"http://` ou `https://` para a origem.
 - Se uma API estiver ausente para essa tecnologia, ela geralmente retornará NULL.
 - Se o usuário tiver o Flash instalado, mas não conceder permissão para carregá-lo no site, poderá ocorrer a rotação infinita. Isso ocorre porque o Player pensa que o plug-in está instalado e disponível e pensa que o plug-in está executando o conteúdo. O código JavaScript foi enviado, mas as configurações do navegador bloquearam a execução do plug-in até que o usuário aceite o prompt para permitir o plug-in. Isso pode ocorrer em todos os navegadores.  
 

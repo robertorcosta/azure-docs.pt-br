@@ -3,14 +3,14 @@ title: Definir configurações do aplicativo de funções no Azure
 description: Saiba como definir configurações de aplicativos do Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 662a04dbcc39f3fa95b0098eb8fe556b18b3495b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276940"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122283"
 ---
 # <a name="manage-your-function-app"></a>Gerenciar seu aplicativo de funções 
 
@@ -27,9 +27,11 @@ Este artigo descreve como configurar e gerenciar seus aplicativos de funções.
 
 ## <a name="get-started-in-the-azure-portal"></a>Introdução ao portal do Azure
 
-Acesse o [portal do Azure] e entre usando sua conta do Azure. Na barra de pesquisa na parte superior do portal, digite o nome de seu aplicativo de funções e selecione-o na lista. Depois de selecionar o aplicativo de funções, você deverá ver esta página:
+1. Acesse o [portal do Azure] e entre usando sua conta do Azure. Na barra de pesquisa na parte superior do portal, insira o nome do seu aplicativo de funções e selecione-o na lista. 
 
-![Visão geral do aplicativo de funções no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+2. Em **configurações** no painel esquerdo, selecione **configuração**.
+
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Visão geral do aplicativo de funções no portal do Azure":::
 
 Você pode navegar até tudo o que precisa para gerenciar seu aplicativo de funções na página Visão geral, em particular as **[configurações do aplicativo](#settings)** e os **[recursos da plataforma](#platform-features)**.
 
@@ -52,7 +54,7 @@ az functionapp config appsettings list --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-O [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando adiciona ou atualiza uma configuração de aplicativo. O exemplo a seguir cria uma configuração com uma chave `CUSTOM_FUNCTION_APP_SETTING` chamada e um valor `12345`de:
+O [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) comando adiciona ou atualiza uma configuração de aplicativo. O exemplo a seguir cria uma configuração com uma chave chamada `CUSTOM_FUNCTION_APP_SETTING` e um valor de `12345` :
 
 
 ```azurecli-interactive
@@ -69,9 +71,7 @@ Ao desenvolver um aplicativo de funções localmente, você deve manter cópias 
 
 ## <a name="platform-features"></a>Recursos da plataforma
 
-![Guia Recursos da plataforma do aplicativo de funções.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
-
-Aplicativos de funções executados e mantidos pela plataforma de Serviço de Aplicativo do Azure. Dessa forma, seus aplicativos de funções têm acesso à maioria dos recursos da principal plataforma de hospedagem na Web do Azure. Na guia **Recursos da plataforma** você acessa vários recursos da plataforma de Serviço de Aplicativo para uso em seus aplicativos de funções. 
+Os aplicativos de funções são executados no e são mantidos pelo, a plataforma de serviço Azure App. Dessa forma, seus aplicativos de funções têm acesso à maioria dos recursos da principal plataforma de hospedagem na Web do Azure. O painel esquerdo é onde você acessa os vários recursos da plataforma do serviço de aplicativo que você pode usar em seus aplicativos de funções. 
 
 > [!NOTE]
 > Nem todos os recursos do Serviço de Aplicativo estão disponíveis quando um aplicativo de funções é executado no plano de hospedagem de Consumo.
@@ -120,11 +120,11 @@ Para evitar a execução de código mal-intencionado no cliente, os navegadores 
 
 #### <a name="portal"></a>Portal
 
-Quando você configura a lista de **origens permitidas** para seu aplicativo de `Access-Control-Allow-Origin` funções, o cabeçalho é automaticamente adicionado a todas as respostas de pontos de extremidade http em seu aplicativo de funções. 
+Quando você configura a lista de **origens permitidas** para seu aplicativo de funções, o `Access-Control-Allow-Origin` cabeçalho é automaticamente adicionado a todas as respostas de pontos de extremidade http em seu aplicativo de funções. 
 
 ![Configurar lista CORS do aplicativo de funções](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
-Quando o curinga (`*`) é usado, todos os outros domínios são ignorados. 
+Quando o curinga ( `*` ) é usado, todos os outros domínios são ignorados. 
 
 Use o [`az functionapp cors add`](/cli/azure/functionapp/cors#az-functionapp-cors-add) comando para adicionar um domínio à lista de origens permitidas. O exemplo a seguir adiciona o domínio contoso.com:
 

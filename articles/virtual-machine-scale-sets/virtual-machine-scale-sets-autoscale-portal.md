@@ -2,18 +2,19 @@
 title: Dimensionamento automático de conjuntos de dimensionamento de máquinas virtuais no portal do Azure
 description: Como criar regras de dimensionamento automático para conjuntos de dimensionamento de máquinas virtuais no portal do Azure
 author: ju-shim
-tags: azure-resource-manager
-ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: 1915b144aec5a5447504c70d18dbf420d255a08e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms:service: virtual-machine-scale-sets
+ms.subservice: autoscale
+ms.date: 05/29/2018
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: ea9d243e46aace9030c25222217ac3ad09a31c38
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010283"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124934"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
@@ -47,7 +48,7 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
     | *Estatística de intervalo de agregação* | Define como as métricas coletadas em cada intervalo de agregação devem ser agregadas para análise.                             | Média        |
     | *Operador*             | Operador usado para comparar os dados da métrica com o limite.                                                     | Maior que   |
     | *Os*            | A porcentagem que faz com que a regra de dimensionamento automático dispare uma ação.                                                 | 70             |
-    | *Permanência*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
+    | *Duration*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
     | *Operação*            | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica e qual o incremento                        | Aumentar porcentagem em |
     | *Contagem de instâncias*       | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                            | 20             |
     | *Tempo de resfriamento (minutos)*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos      |

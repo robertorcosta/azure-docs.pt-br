@@ -2,13 +2,13 @@
 title: Publicação de Funções Duráveis para a Grade de Eventos do Azure (visualização)
 description: Saiba como configurar a publicação automática da Grade de Eventos do Azure para Funções Duráveis.
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/25/2020
+ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535478"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124209"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publicação de Funções Duráveis para a Grade de Eventos do Azure (visualização)
 
@@ -30,7 +30,7 @@ A seguir, alguns cenários em que esse recurso é útil:
 
 ## <a name="create-a-custom-event-grid-topic"></a>Criar um tópico de Grade de Eventos personalizado
 
-Crie um tópico de Grade de Eventos para enviar eventos a partir de Funções Duráveis. As instruções a seguir mostram como criar um tópico usando a CLI do Azure. Você também pode fazer isso [usando o PowerShell](../../event-grid/custom-event-quickstart-powershell.md) ou [usando o portal do Azure](../../event-grid/custom-event-quickstart-portal.md).
+Crie um tópico de Grade de Eventos para enviar eventos a partir de Funções Duráveis. As instruções a seguir mostram como criar um tópico usando a CLI do Azure. Você também pode criar o tópico [usando o PowerShell](../../event-grid/custom-event-quickstart-powershell.md) ou [usando o portal do Azure](../../event-grid/custom-event-quickstart-portal.md).
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -83,7 +83,7 @@ Adicione `eventGridTopicEndpoint` e `eventGridKeySettingName` em uma propriedade
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2. x
 
-Adicione uma `notifications` seção à `durableTask` Propriedade do arquivo, substituindo `<topic_name>` pelo nome escolhido. Se as `durableTask` propriedades `extensions` ou não existirem, crie-as como este exemplo:
+Adicione uma `notifications` seção à `durableTask` Propriedade do arquivo, substituindo `<topic_name>` pelo nome escolhido. Se as `durableTask` `extensions` Propriedades ou não existirem, crie-as como este exemplo:
 
 ```json
 {
@@ -101,7 +101,7 @@ Adicione uma `notifications` seção à `durableTask` Propriedade do arquivo, su
 }
 ```
 
-As propriedades de configuração da grade de eventos do Azure possíveis podem ser encontradas na [documentação do host. JSON](../functions-host-json.md#durabletask). Depois de configurar o `host.json` arquivo, seu aplicativo de funções envia eventos de ciclo de vida para o tópico da grade de eventos. Isso funciona quando você executa seu aplicativo de funções localmente e no Azure.
+As propriedades de configuração da grade de eventos do Azure possíveis podem ser encontradas na [documentação do host. JSON](../functions-host-json.md#durabletask). Depois de configurar o `host.json` arquivo, seu aplicativo de funções envia eventos de ciclo de vida para o tópico da grade de eventos. Essa ação é iniciada quando você executa seu aplicativo de funções localmente e no Azure.
 
 Defina a configuração do aplicativo para a chave do tópico no Aplicativo de Funções e `local.settings.json`. O JSON a seguir é um exemplo do `local.settings.json` para depuração local. Substitua `<topic_key>` pela chave do tópico.  
 
@@ -118,7 +118,7 @@ Defina a configuração do aplicativo para a chave do tópico no Aplicativo de F
 
 Se você estiver usando o [emulador de armazenamento](../../storage/common/storage-use-emulator.md) (somente Windows), verifique se ele está funcionando. É recomendável executar o comando `AzureStorageEmulator.exe clear all` antes da execução.
 
-Se você estiver usando uma conta de armazenamento do Azure existente `UseDevelopmentStorage=true` , `local.settings.json` substitua por pela sua cadeia de conexão.
+Se você estiver usando uma conta de armazenamento do Azure existente, substitua `UseDevelopmentStorage=true` `local.settings.json` por pela sua cadeia de conexão.
 
 ## <a name="create-functions-that-listen-for-events"></a>Criar funções que escutam eventos
 
@@ -126,52 +126,65 @@ Usando o portal do Azure, crie outro aplicativo de funções para escutar evento
 
 ### <a name="create-an-event-grid-trigger-function"></a>Criar uma função de gatilho de Grade de Eventos
 
-Crie uma função para receber os eventos de ciclo de vida. Selecione **Função Personalizada**.
+1. Em seu aplicativo de funções, selecione **funções**e, em seguida, selecione **+ Adicionar** 
 
-![Selecione Criar uma função personalizada.](./media/durable-functions-event-publishing/functions-portal.png)
+   :::image type="content" source="./media/durable-functions-event-publishing/function-add-function.png" alt-text="Adicione uma função no portal do Azure." border="true":::
 
-Escolha gatilho de grade de eventos e selecione um idioma.
+1. Pesquise a **grade de eventos**e selecione o modelo de **gatilho de grade de eventos do Azure** . 
 
-![Selecione o Gatilho de Grade de Eventos.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Selecione o modelo de gatilho de grade de eventos na portal do Azure." border="true":::
 
-Digite o nome da função e selecione `Create`.
+1. Nomeie o novo gatilho e, em seguida, selecione **criar função**.
 
-![Crie o Gatilho de Grade de Eventos.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Nomeie o gatilho de grade de eventos na portal do Azure." border="true":::
 
-Uma função com o código a seguir é criada:
 
-# <a name="c-script"></a>[Script do C#](#tab/csharp-script)
+    Uma função com o código a seguir é criada:
 
-```csharp
-#r "Newtonsoft.Json"
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
+    # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-public static void Run(JObject eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-}
-```
+    ```csharp
+    #r "Newtonsoft.Json"
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+    public static void Run(JObject eventGridEvent, ILogger log)
+    {
+        log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+    }
+    ```
 
-```javascript
-module.exports = async function(context, eventGridEvent) {
-    context.log(typeof eventGridEvent);
-    context.log(eventGridEvent);
-}
-```
+   # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+   ```javascript
+   module.exports = async function(context, eventGridEvent) {
+       context.log(typeof eventGridEvent);
+       context.log(eventGridEvent);
+   }
+   ```
 
 ---
 
-Selecione `Add Event Grid Subscription`. Essa operação adiciona uma assinatura de Grade de Eventos para o tópico de Grade de Eventos que você criou. Para obter mais informações, consulte [Conceitos na Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/concepts)
+### <a name="add-an-event-grid-subscription"></a>Adicionar uma assinatura da grade de eventos
 
-![Selecione o link do Gatilho de Grade de Eventos.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+Agora você pode adicionar uma assinatura de grade de eventos para o tópico da grade de eventos que você criou. Para obter mais informações, consulte [conceitos na grade de eventos do Azure](https://docs.microsoft.com/azure/event-grid/concepts).
 
-Selecione `Event Grid Topics` para **Tipo de Tópico**. Selecione o grupo de recursos que você criou para o tópico de Grade de Eventos. Em seguida, selecione a instância do tópico de Grade de Eventos. Pressione `Create`.
+1. Em sua nova função, selecione **integração** e, em seguida, selecione **gatilho de grade de eventos (eventGridEvent)**. 
 
-![Criar uma assinatura na Grade de Eventos.](./media/durable-functions-event-publishing/eventsubscription.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Selecione o link do Gatilho de Grade de Eventos." border="true":::
+
+1. Selecione **criar descrição da grade de eventos**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Crie a assinatura da grade de eventos." border="true":::
+
+1. Nomeie sua assinatura de evento e selecione o tipo de tópico **Tópicos da grade de eventos** . 
+
+1. Selecione a assinatura. Em seguida, selecione o grupo de recursos e o recurso que você criou para o tópico da grade de eventos. 
+
+1. Selecione **Criar**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Crie uma assinatura de grade de eventos." border="true":::
 
 Agora, você está pronto para receber eventos de ciclo de vida.
 

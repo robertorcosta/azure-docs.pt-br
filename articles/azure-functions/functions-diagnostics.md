@@ -6,37 +6,36 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 41acc5703f6b6e5cdeedf2afd0dc61b23bc579c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb329273d442c023233fee2e7e01aabe5f5bff8c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75834045"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122351"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Visão geral do diagnóstico de Azure Functions
 
-Quando você estiver executando um aplicativo de funções, você deseja estar preparado para quaisquer problemas que possam surgir, de erros de 4xx para disparar falhas. O diagnóstico de Azure Functions é uma experiência inteligente e interativa para ajudá-lo a solucionar problemas do seu aplicativo de funções sem nenhuma configuração ou custo adicional. Quando você tiver problemas com seu aplicativo de funções, o diagnóstico de Azure Functions indicará o que há de errado para orientá-lo sobre as informações corretas para solucionar problemas e resolver o problema com mais facilidade e rapidez. Este artigo mostra as noções básicas de como usar o diagnóstico de Azure Functions para diagnosticar e resolver mais rapidamente problemas comuns do aplicativo de funções.
+Quando você estiver executando um aplicativo de funções, você deseja estar preparado para quaisquer problemas que possam surgir, de erros de 4xx para disparar falhas. O diagnóstico de Azure Functions é uma experiência inteligente e interativa para ajudá-lo a solucionar problemas do seu aplicativo de funções sem nenhuma configuração ou custo adicional. Quando você encontrar problemas com seu aplicativo de funções, Azure Functions diagnósticos indicará o que está errado. Ele orienta você às informações certas para solucionar problemas e resolver o problema com mais facilidade e rapidez. Este artigo mostra as noções básicas de como usar o diagnóstico de Azure Functions para diagnosticar e resolver mais rapidamente problemas comuns do aplicativo de funções.
 
 ## <a name="start-azure-functions-diagnostics"></a>Iniciar o diagnóstico de Azure Functions
 
-Para acessar o diagnóstico de Azure Functions:
+Para iniciar o diagnóstico de Azure Functions:
 
 1. Navegue até seu aplicativo de funções no [portal do Azure](https://portal.azure.com).
-2. Selecione a guia **recursos da plataforma** .
-3. Selecione **diagnosticar e solucionar problemas** no **Gerenciamento de recursos**, que abre o diagnóstico de Azure functions.
-4. Escolha uma categoria que melhor descreva o problema do seu aplicativo de funções usando as palavras-chave no bloco Home Page. Você também pode digitar uma palavra-chave que melhor descreva seu problema na barra de pesquisa. Por exemplo, você pode digitar `execution` para ver uma lista de relatórios de diagnóstico relacionados à sua execução de aplicativo de funções e abri-los diretamente da Home Page.
+1. Selecione **diagnosticar e resolver problemas** para abrir o diagnóstico de Azure functions.
+1. Escolha uma categoria que melhor descreva o problema do seu aplicativo de funções usando as palavras-chave no bloco Home Page. Você também pode digitar uma palavra-chave que melhor descreva seu problema na barra de pesquisa. Por exemplo, você pode digitar `execution` para ver uma lista de relatórios de diagnóstico relacionados à sua execução de aplicativo de funções e abri-los diretamente da Home Page.
 
-![Home page](./media/functions-diagnostics/homepage.png)
+   :::image type="content" source="./media/functions-diagnostics/functions-app-search-azure-functions-diagnostics.png" alt-text="Procure Azure Functions Diagnostics." border="true":::
 
 ## <a name="use-the-interactive-interface"></a>Usar a interface interativa
 
-Depois de selecionar uma categoria de Home Page que melhor se alinha com o problema do seu aplicativo de funções, a interface interativa do Azure Functions Diagnostics, o gênio, pode orientá-lo no diagnóstico e na resolução do problema de seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo gênio para exibir o relatório de diagnóstico completo da categoria do problema em que você está interessado. Os atalhos de bloco fornecem uma maneira direta de acessar suas métricas de diagnóstico.
+Depois de selecionar uma categoria de Home Page que melhor se alinha com o problema do seu aplicativo de funções, a interface interativa do Azure Functions Diagnostics, chamada gênio, pode orientá-lo no diagnóstico e na resolução do problema de seu aplicativo. Você pode usar os atalhos de bloco fornecidos pelo gênio para exibir o relatório de diagnóstico completo da categoria do problema em que você está interessado. Os atalhos de bloco fornecem uma maneira direta de acessar suas métricas de diagnóstico.
 
-![Gênio](./media/functions-diagnostics/genie.png)
+:::image type="content" source="./media/functions-diagnostics/genie.png" alt-text="Gênio é a interface do Azure Functions Diagnostics." border="false":::
 
-Depois de selecionar um bloco, você poderá ver uma lista de tópicos relacionados ao problema descrito no bloco. Esses tópicos fornecem trechos de informações notáveis do relatório completo. Você pode selecionar qualquer um desses tópicos para investigar ainda mais os problemas. Além disso, você pode selecionar **Exibir relatório completo** para explorar todos os tópicos em uma única página.
+Depois de selecionar um bloco, você poderá ver uma lista de tópicos relacionados ao problema descrito no bloco. Esses tópicos fornecem trechos de informações notáveis do relatório completo. Selecione qualquer um desses tópicos para investigar mais os problemas. Além disso, você pode selecionar **Exibir relatório completo** para explorar todos os tópicos em uma única página.
 
-![Visualização do relatório de diagnóstico](./media/functions-diagnostics/preview-of-diagnostic-report.png)
+:::image type="content" source="./media/functions-diagnostics/preview-of-diagnostic-report.png" alt-text="Visualização do relatório de diagnóstico" border="false":::
 
 ## <a name="view-a-diagnostic-report"></a>Exibir um relatório de diagnóstico
 
@@ -44,15 +43,15 @@ Depois de escolher um tópico, você pode exibir um relatório de diagnóstico e
 
 ## <a name="find-the-problem-code"></a>Localizar o código do problema
 
-Para funções baseadas em script, você pode usar a **execução de função e erros** em **aplicativo de funções ou relatar erros** para restringir a linha de código causando exceções ou erros. Esse recurso pode ser uma ferramenta útil para chegar à causa raiz e corrigir problemas de uma linha de código específica. Essa opção não está disponível para funções pré-compiladas C# e Java.
+Para funções baseadas em script, você pode usar a **execução de função e erros** em **aplicativo de funções ou relatar erros** para restringir a linha de código causando exceções ou erros. Você pode usar essa ferramenta para obter a causa raiz e corrigir problemas de uma linha de código específica. Essa opção não está disponível para funções pré-compiladas C# e Java.
 
-![Relatório de diagnóstico sobre erros de execução de função](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
+:::image type="content" source="./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png" alt-text="Relatório de diagnóstico sobre erros de execução de função" border="false":::
 
-![Exceção de função](./media/functions-diagnostics/function-exception.png)
+:::image type="content" source="./media/functions-diagnostics/function-exception.png" alt-text="Exibição dos detalhes da exceção." border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode fazer perguntas ou fornecer comentários sobre o diagnóstico de Azure Functions no [UserVoice](https://feedback.azure.com/forums/355860-azure-functions). Inclua `[Diag]` no título dos seus comentários.
+Você pode fazer perguntas ou fornecer comentários sobre o diagnóstico de Azure Functions no [UserVoice](https://feedback.azure.com/forums/355860-azure-functions). Inclua `[Diag]` no título de seus comentários.
 
 > [!div class="nextstepaction"]
 > [Monitorar seus aplicativos de funções](functions-monitoring.md)

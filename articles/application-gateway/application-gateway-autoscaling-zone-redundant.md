@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 74af3d14512018abc216b288a27dc54ed806d8c9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207234"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125223"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2 
 
@@ -132,8 +133,16 @@ Preço total = $267.84 + $85.71 = $353.55
 
 O gateway de aplicativo e o WAF podem ser configurados para dimensionar em dois modos:
 
-- **Dimensionamento** automático-com o dimensionamento automático habilitado, os SKUs do gateway de aplicativo e do WAF v2 são escalados verticalmente com base nos requisitos de tráfego do aplicativo. Esse modo oferece maior elasticidade ao seu aplicativo e elimina a necessidade de adivinhar o tamanho do gateway de aplicativo ou a contagem de instâncias. Esse modo também permite que você economize custos não exigindo que o gateway seja executado no pico de capacidade provisionada para carga de tráfego máxima prevista. Você deve especificar uma contagem mínima e opcional máxima de instâncias. A capacidade mínima garante que o gateway de aplicativo e o WAF v2 não fiquem abaixo da contagem mínima de instâncias especificada, mesmo na ausência de tráfego. Cada instância conta como 10 unidades de capacidade reservadas adicionais. Zero não significa capacidade reservada e é puramente autodimensionamento por natureza. Observe que nenhuma instância mínima adicional ainda garante a alta disponibilidade do serviço, que é sempre incluído com o preço fixo. Opcionalmente, você também pode especificar uma contagem máxima de instâncias, o que garante que o gateway de aplicativo não seja dimensionado além do número especificado de instâncias. Você continuará sendo cobrado pela quantidade de tráfego servida pelo Gateway. As contagens de instâncias podem variar de 0 a 125. O valor padrão para contagem máxima de instâncias é 20, se não for especificado.
+- **Dimensionamento** automático-com o dimensionamento automático habilitado, os SKUs do gateway de aplicativo e do WAF v2 são escalados verticalmente com base nos requisitos de tráfego do aplicativo. Esse modo oferece maior elasticidade ao seu aplicativo e elimina a necessidade de adivinhar o tamanho do gateway de aplicativo ou a contagem de instâncias. Esse modo também permite que você economize custos não exigindo que o gateway seja executado no pico de capacidade provisionada para carga de tráfego máxima prevista. Você deve especificar uma contagem mínima e opcional máxima de instâncias. A capacidade mínima garante que o gateway de aplicativo e o WAF v2 não fiquem abaixo da contagem mínima de instâncias especificada, mesmo na ausência de tráfego. Cada instância é aproximadamente equivalente a 10 unidades de capacidade reservadas adicionais. Zero não significa capacidade reservada e é puramente autodimensionamento por natureza. Opcionalmente, você também pode especificar uma contagem máxima de instâncias, o que garante que o gateway de aplicativo não seja dimensionado além do número especificado de instâncias. Você será cobrado apenas pela quantidade de tráfego servida pelo Gateway. As contagens de instâncias podem variar de 0 a 125. O valor padrão para contagem máxima de instâncias é 20, se não for especificado.
 - **Manual** -você também pode escolher o modo manual em que o gateway não fará o dimensionamento automático. Nesse modo, se houver mais tráfego do que o gateway de aplicativo ou o WAF pode manipular, isso poderá resultar em perda de tráfego. Com o modo manual, especificar a contagem de instâncias é obrigatório. A contagem de instâncias pode variar de 1 a 125 instâncias.
+
+## <a name="autoscaling-and-high-availability"></a>Dimensionamento automático e alta disponibilidade
+
+Aplicativo Azure gateways são sempre implantados de maneira altamente disponível. O serviço é composto de várias instâncias que são criadas como configuradas (se o dimensionamento automático estiver desabilitado) ou exigido pela carga do aplicativo (se o dimensionamento automático estiver habilitado). Observe que, da perspectiva do usuário, você não tem necessariamente visibilidade sobre as instâncias individuais, mas apenas no serviço do gateway de aplicativo como um todo. Se uma determinada instância tiver um problema e parar de funcionar, Aplicativo Azure gateway criará de forma transparente uma nova instância.
+
+Observe que, mesmo se você configurar o dimensionamento automático com instâncias mínimas sem zero, o serviço ainda estará altamente disponível, o que sempre é incluído com o preço fixo.
+
+No entanto, a criação de uma nova instância pode levar algum tempo (cerca de seis ou sete minutos). Portanto, se você não quiser lidar com esse tempo de inatividade, poderá configurar uma contagem de instâncias mínima de 2, idealmente com suporte à zona de disponibilidade. Dessa forma, você terá pelo menos duas instâncias dentro do seu gateway de Aplicativo Azure em circunstâncias normais, portanto, se uma delas tivesse um problema, a outra tentará lidar com o tráfego, durante o tempo em que uma nova instância está sendo criada. Observe que uma instância de gateway Aplicativo Azure pode dar suporte a cerca de 10 unidades de capacidade, portanto, dependendo da quantidade de tráfego que você normalmente tem, convém configurar a configuração de dimensionamento automático de instância mínima para um valor maior que 2.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparação de recursos entre SKU v1 e SKU v2
 

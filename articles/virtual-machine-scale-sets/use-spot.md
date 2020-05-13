@@ -2,17 +2,19 @@
 title: Criar um conjunto de dimensionamento que usa VMs de ponto do Azure
 description: Saiba como criar conjuntos de dimensionamento de máquinas virtuais do Azure que usam VMs pontuais para economizar em custos.
 author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: spot
+ms.date: 03/25/2020
+ms.reviewer: jagaveer
+ms.custom: jagaveer
+ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545930"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125019"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs pontuais do Azure para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -26,7 +28,7 @@ A quantidade de capacidade disponível pode variar com base no tamanho, região,
 O preço para instâncias especiais é variável, com base na região e SKU. Para obter mais informações, consulte preços para [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-Com o preço variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765`seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como `-1`, a instância não será removida com base no preço. O preço da instância será o preço atual para o ponto ou o preço de uma instância padrão, o que nunca é menor, desde que haja capacidade e cota disponível.
+Com o preço variável, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se você definir o preço máximo como `-1` , a instância não será removida com base no preço. O preço da instância será o preço atual para o ponto ou o preço de uma instância padrão, o que nunca é menor, desde que haja capacidade e cota disponível.
 
 ## <a name="eviction-policy"></a>Política de remoção
 
@@ -49,12 +51,12 @@ Para implantar VMs pontuais em conjuntos de dimensionamento, você pode definir 
 
 ## <a name="portal"></a>Portal
 
-O processo para criar um conjunto de dimensionamento que usa VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-portal.md). Ao implantar um conjunto de dimensionamento, você pode optar por definir o sinalizador de spot e a política de remoção: ![criar um conjunto de dimensionamento com VMs Spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+O processo para criar um conjunto de dimensionamento que usa VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-portal.md). Ao implantar um conjunto de dimensionamento, você pode optar por definir o sinalizador de spot e a política de remoção: ![ criar um conjunto de dimensionamento com VMs Spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-O processo para criar um conjunto de dimensionamento com VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Basta adicionar o '--priority spot ' e adicionar `--max-price`. Neste exemplo, usamos `-1` para `--max-price` que a instância não seja removida com base no preço.
+O processo para criar um conjunto de dimensionamento com VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-cli.md). Basta adicionar o '--priority spot ' e adicionar `--max-price` . Neste exemplo, usamos `-1` para `--max-price` que a instância não seja removida com base no preço.
 
 ```azurecli
 az vmss create \
@@ -71,7 +73,7 @@ az vmss create \
 ## <a name="powershell"></a>PowerShell
 
 O processo para criar um conjunto de dimensionamento com VMs pontuais é o mesmo detalhado no [artigo de introdução](quick-create-powershell.md).
-Basta adicionar '-priority spot ' e fornecer `-max-price` a a [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+Basta adicionar '-priority spot ' e fornecer a a `-max-price` [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -87,7 +89,7 @@ $vmssConfig = New-AzVmssConfig `
 
 O processo para criar um conjunto de dimensionamento que usa VMs pontuais é o mesmo detalhado no artigo de introdução para [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). 
 
-Para implantações de modelo Spot`"apiVersion": "2019-03-01"` , use ou posterior. Adicione as `priority`propriedades `evictionPolicy` e `billingProfile` à `"virtualMachineProfile":` seção em seu modelo: 
+Para implantações de modelo Spot, use `"apiVersion": "2019-03-01"` ou posterior. Adicione as `priority` `evictionPolicy` Propriedades e `billingProfile` à `"virtualMachineProfile":` seção em seu modelo: 
 
 ```json
                 "priority": "Spot",
@@ -97,7 +99,7 @@ Para implantações de modelo Spot`"apiVersion": "2019-03-01"` , use ou posterio
                 }
 ```
 
-Para excluir a instância depois que ela tiver sido removida, altere `evictionPolicy` o parâmetro `Delete`para.
+Para excluir a instância depois que ela tiver sido removida, altere o `evictionPolicy` parâmetro para `Delete` .
 
 ## <a name="faq"></a>Perguntas frequentes
 
@@ -123,12 +125,12 @@ Para excluir a instância depois que ela tiver sido removida, altere `evictionPo
 
 **P:** Posso converter conjuntos de dimensionamento existentes para identificar conjuntos de dimensionamento?
 
-**R:** Não, a definição `Spot` do sinalizador só tem suporte no momento da criação.
+**R:** Não, a definição do `Spot` sinalizador só tem suporte no momento da criação.
 
 
 **P:** Se eu estava usando `low` para conjuntos de dimensionamento de baixa prioridade, preciso começar a usar `Spot` em vez disso?
 
-**R:** Por enquanto, o `low` e `Spot` o funcionarão, mas você deve começar a fazer a `Spot`transição para o usando o.
+**R:** Por enquanto, o `low` e o `Spot` funcionarão, mas você deve começar a fazer a transição para o usando o `Spot` .
 
 
 **P:** Posso criar um conjunto de dimensionamento com VMs regulares e detectar VMs?
@@ -157,7 +159,7 @@ Para excluir a instância depois que ela tiver sido removida, altere `evictionPo
 | Contrato Enterprise         | Sim                               |
 | Pago Conforme o Uso                | Sim                               |
 | Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Vantagens                     | Não disponível                     |
+| Benefícios                     | Não disponível                     |
 | Patrocinado                    | Não disponível                     |
 | Avaliação gratuita                   | Não disponível                     |
 

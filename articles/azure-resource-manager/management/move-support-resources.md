@@ -3,12 +3,12 @@ title: Mover o suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 45450b21b1cd3236712043629f433c2c5fe20f80
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 81d545066ea6bcc1d3e2eecd884671324155d796
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900970"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124679"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 Este artigo lista se um tipo de recurso do Azure é compatível com a operação de movimentação. Ele também fornece informações sobre condições especiais a serem consideradas ao mover um recurso.
@@ -46,7 +46,7 @@ Ir para um namespace do provedor de recursos:
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
 > - [Microsoft. cognição](#microsoftcognition)
 > - [Microsoft. Cognitivaservices](#microsoftcognitiveservices)
-> - [Microsoft. Compute](#microsoftcompute)
+> - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Consumption](#microsoftconsumption)
 > - [Microsoft.Container](#microsoftcontainer)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
@@ -1253,8 +1253,7 @@ Ir para um namespace do provedor de recursos:
 
 > [!IMPORTANT]
 > Certifique-se de que a mudança para uma nova assinatura não exceda as [cotas de assinatura](azure-subscription-service-limits.md#azure-monitor-limits).
-
-> [!IMPORTANT]
+> 
 > Espaços de trabalho que têm uma conta de automação vinculada não podem ser movidos. Antes de iniciar uma operação de movimentação, não se esqueça de desvincular as contas de automação.   
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
@@ -1677,8 +1676,8 @@ Ir para um namespace do provedor de recursos:
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | account | Não | Não |
-> | conta/extensão | Sim | Sim |
-> | conta/projeto | Sim | Sim |
+> | conta/extensão | Não | Não |
+> | conta/projeto | Não | Não |
 
 > [!IMPORTANT]
 > Para alterar a assinatura do Azure DevOps, consulte [alterar a assinatura do Azure usada para cobrança](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
@@ -1705,8 +1704,8 @@ Ir para um namespace do provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | contas | Sim | Sim |
-> | planos | Sim | Sim |
+> | contas | Não | Não |
+> | planos | Não | Não |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 

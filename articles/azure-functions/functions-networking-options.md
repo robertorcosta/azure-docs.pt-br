@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419579"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121331"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -50,7 +50,7 @@ Para saber mais, consulte [Azure app restrições de acesso estático do serviç
 Acesso ao site privado refere-se a tornar seu aplicativo acessível somente de uma rede privada, como uma rede virtual do Azure.
 
 * O acesso ao site privado está disponível nos planos [Premium](./functions-premium-plan.md), [consumo](functions-scale.md#consumption-plan)e [serviço de aplicativo](functions-scale.md#app-service-plan) quando os pontos de extremidade de serviço são configurados.
-    * Os pontos de extremidade de serviço podem ser configurados em uma base por aplicativo em **recursos** > da plataforma**rede** > **Configurar restrições** > de acesso**Adicionar regra**. As redes virtuais agora podem ser selecionadas como um tipo de regra.
+    * Os pontos de extremidade de serviço podem ser configurados em uma base por aplicativo em **recursos da plataforma**  >  **rede**  >  **Configurar restrições de acesso**  >  **Adicionar regra**. As redes virtuais agora podem ser selecionadas como um tipo de regra.
     * Para obter mais informações, consulte [Pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
     * Tenha em mente que, com os pontos de extremidade de serviço, sua função ainda tem acesso total de saída à Internet, mesmo com a integração de rede virtual configurada.
 * O acesso ao site privado também está disponível em um Ambiente do Serviço de Aplicativo configurado com um balanceador de carga interno (ILB). Para obter mais informações, consulte [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
@@ -102,9 +102,9 @@ No momento, você pode usar funções de gatilho não HTTP de dentro de uma rede
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plano Premium com gatilhos de rede virtual
 
-Ao executar um plano Premium, você pode conectar funções de gatilho não HTTP a serviços que são executados dentro de uma rede virtual. Para fazer isso, você deve habilitar o suporte ao gatilho de rede virtual para seu aplicativo de funções. A configuração de **suporte do gatilho de rede virtual** é encontrada no [portal do Azure](https://portal.azure.com) em configurações do **aplicativo de funções**.
+Ao executar um plano Premium, você pode conectar funções de gatilho não HTTP a serviços que são executados dentro de uma rede virtual. Para fazer isso, você deve habilitar o suporte ao gatilho de rede virtual para seu aplicativo de funções. A configuração de **suporte a gatilho de rede virtual** é encontrada no [portal do Azure](https://portal.azure.com) em configurações de tempo de execução da função de **configuração**  >  **Function runtime settings**.
 
-![Alternância de rede virtual](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 Você também pode habilitar gatilhos de rede virtual usando o seguinte comando de CLI do Azure:
 
@@ -146,7 +146,7 @@ Para saber mais, confira a [documentação do serviço de aplicativo para conex�
 
 As restrições de IP de saída estão disponíveis em um plano Premium, plano do serviço de aplicativo ou Ambiente do Serviço de Aplicativo. Você pode configurar as restrições de saída para a rede virtual em que sua Ambiente do Serviço de Aplicativo está implantada.
 
-Quando você integra um aplicativo de funções em um plano Premium ou um plano do serviço de aplicativo com uma rede virtual, o aplicativo ainda pode fazer chamadas de saída para a Internet por padrão. Ao adicionar a configuração `WEBSITE_VNET_ROUTE_ALL=1`de aplicativo, você força todo o tráfego de saída a ser enviado para sua rede virtual, em que as regras do grupo de segurança de rede podem ser usadas para restringir o tráfego.
+Quando você integra um aplicativo de funções em um plano Premium ou um plano do serviço de aplicativo com uma rede virtual, o aplicativo ainda pode fazer chamadas de saída para a Internet por padrão. Ao adicionar a configuração de aplicativo `WEBSITE_VNET_ROUTE_ALL=1` , você força todo o tráfego de saída a ser enviado para sua rede virtual, em que as regras do grupo de segurança de rede podem ser usadas para restringir o tráfego.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

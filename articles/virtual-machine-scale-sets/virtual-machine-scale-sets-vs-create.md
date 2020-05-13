@@ -1,21 +1,20 @@
 ---
 title: Implantar um conjunto de escala de máquina virtual usando o Visual Studio
 description: Implantar um conjunto de escala de máquina virtual usando o Visual Studio e um modelo do Resource Manager
-ms.custom: vs-azure, H1Hack27Feb2017
-ms.workload: azure-vs
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: visual-studio
 ms.date: 09/09/2019
-ms.author: mimckitt
-ms.openlocfilehash: adc91d5f4f79be8a85dfed7d10a882493f6427b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273334"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124356"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
 
@@ -65,7 +64,7 @@ O balanceador de carga permite que você se conecte às instâncias de máquina 
 
 Implante o modelo de Azure Resource Manager para criar o recurso de conjunto de dimensionamento de máquinas virtuais:
 
-1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e escolha **implantar** > **novo**.
+1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e escolha **implantar**  >  **novo**.
 
     ![Implante o seu projeto](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
@@ -85,7 +84,7 @@ Implante o modelo de Azure Resource Manager para criar o recurso de conjunto de 
 
 ## <a name="explore-your-virtual-machine-scale-set"></a>Explore o conjunto de dimensionamento de máquinas virtuais<a name="exploring-your-virtual-machine-scale-set"></a>
 
-Selecione **Exibir** > **Gerenciador de nuvem** para exibir o novo conjunto de dimensionamento de máquinas virtuais. Use **atualizar tudo**, se necessário.
+Selecione **Exibir**  >  **Gerenciador de nuvem** para exibir o novo conjunto de dimensionamento de máquinas virtuais. Use **atualizar tudo**, se necessário.
 
 ![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 
@@ -95,4 +94,4 @@ O **Cloud Explorer** permite que você gerencie recursos do Azure no Visual Stud
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de implantar com êxito os conjuntos de dimensionamento de máquinas virtuais por meio do Visual Studio, você pode personalizar ainda mais seu projeto de acordo com os requisitos do aplicativo. Por exemplo, configure o dimensionamento automático adicionando um recurso de **informações** . Você pode adicionar a infraestrutura ao modelo, como máquinas virtuais autônomas, ou implantar aplicativos usando a extensão de script personalizado. Bons modelos de exemplo podem ser encontrados no repositório GitHub de [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) . Pesquise `vmss`.
+Depois de implantar com êxito os conjuntos de dimensionamento de máquinas virtuais por meio do Visual Studio, você pode personalizar ainda mais seu projeto de acordo com os requisitos do aplicativo. Por exemplo, configure o dimensionamento automático adicionando um recurso de **informações** . Você pode adicionar a infraestrutura ao modelo, como máquinas virtuais autônomas, ou implantar aplicativos usando a extensão de script personalizado. Bons modelos de exemplo podem ser encontrados no repositório GitHub de [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) . Pesquise por `vmss`.

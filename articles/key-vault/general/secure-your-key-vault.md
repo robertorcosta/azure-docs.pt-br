@@ -2,20 +2,20 @@
 title: Proteger o acesso ao cofre de chaves – Azure Key Vault | Microsoft Docs
 description: Gerencie permissões de acesso para Azure Key Vault, chaves e segredos. Abrange o modelo de autenticação e autorização do Key Vault e descreve como proteger o cofre de chaves.
 services: key-vault
-author: amitbapat
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: ambapat
-ms.openlocfilehash: 0ae1b26bb2e01d388f3f91d94134bb9723a5a305
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 6a838455bfda47dee55e8726e5eab071d2dfe4f7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432015"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121143"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -54,7 +54,7 @@ A tabela a seguir mostra os pontos de extremidade para os planos de gerenciament
 
 | Plano de&nbsp;acesso | Pontos de extremidade de acesso | Operações | Mecanismo de controle de&nbsp;acesso |
 | --- | --- | --- | --- |
-| Plano de gerenciamento | **Global:**<br> management.azure.com:443<br><br> **21Vianet do Azure na China:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> management.microsoftazure.de:443 | Criar, ler, atualizar e excluir cofres de chaves<br><br>Definir políticas de acesso do Key Vault<br><br>Definir marcas do Key Vault | RBAC do Azure Resource Manager |
+| Plano de gerenciamento | **Global:**<br> management.azure.com:443<br><br> **21Vianet do Azure na China:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br>  management.microsoftazure.de:443 | Criar, ler, atualizar e excluir cofres de chaves<br><br>Definir políticas de acesso do Key Vault<br><br>Definir marcas do Key Vault | RBAC do Azure Resource Manager |
 | Plano de dados | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **21Vianet do Azure na China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Governo dos EUA:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Chaves: descriptografar, criptografar,<br> desencapsular, encapsular, verificar, assinar,<br> obter, listar, atualizar, criar,<br> importar, excluir, fazer backup, restaurar<br><br> Segredos: obter, listar, definir, excluir | Política de acesso ao cofre de chaves |
 
 ## <a name="management-plane-and-rbac"></a>RBAC e o plano de gerenciamento
@@ -127,15 +127,15 @@ A tabela a seguir resume as permissões de acesso para as funções e o aplicati
 | Função | Permissões do plano de gerenciamento | Permissões do plano de dados |
 | --- | --- | --- |
 | Equipe de segurança | Colaborador do Key Vault | Chaves: fazer backup, criar, excluir, obter, importar, listar, restaurar<br>Segredos: todas as operações |
-| Desenvolvedores e&nbsp;operadores | Permissão para implantar o Key Vault<br><br> **Observação**: essa permissão permite que as VMs implantadas busquem segredos de um cofre de chaves. | Nenhum |
-| Auditores | Nenhum | Chaves: lista<br>Segredos: lista<br><br> **Observação**: essa permissão permite que auditores inspecionem atributos (marcas, datas de ativação, datas de expiração) para chaves e segredos não emitidos nos logs. |
-| Aplicativo | Nenhum | Chaves: assinar<br>Segredos: obter |
+| Desenvolvedores e&nbsp;operadores | Permissão para implantar o Key Vault<br><br> **Observação**: essa permissão permite que as VMs implantadas busquem segredos de um cofre de chaves. | Não |
+| Auditores | Não | Chaves: lista<br>Segredos: lista<br><br> **Observação**: essa permissão permite que auditores inspecionem atributos (marcas, datas de ativação, datas de expiração) para chaves e segredos não emitidos nos logs. |
+| Aplicativo | Não | Chaves: assinar<br>Segredos: obter |
 
 As três funções da equipe precisam ter acesso a outros recursos e a permissões do Key Vault. Para implantar VMs (ou o recurso de Aplicativos Web do Serviço de Aplicativo do Azure), os desenvolvedores e operadores precisam de acesso `Contributor` a esses tipos de recursos. Os auditores precisam de acesso de leitura para a Conta de armazenamento em que os logs do Key Vault estão armazenados.
 
 Para saber mais sobre como implantar certificados, chaves de acesso e segredos via programação, consulte estes recursos:
 - Saiba como [implantar certificados em VMs de um cofre de chaves gerenciado pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) (postagem de blog).
-- Baixe os [exemplos de cliente Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45343). Este conteúdo ilustra como usar um certificado de inicialização para autenticação no Microsoft Azure AD a fim de acessar um cofre de chaves.
+- Exiba os [exemplos de cliente do Azure Key Vault](https://docs.microsoft.com/samples/browse/?term=Key%20Vault). Este conteúdo ilustra como usar um certificado de inicialização para autenticação no Microsoft Azure AD a fim de acessar um cofre de chaves.
 
 É possível conceder a maioria das permissões de acesso usando o portal do Azure. Para conceder permissões granulares, você pode usar o Azure PowerShell ou a CLI do Azure.
 
@@ -217,7 +217,7 @@ Este exemplo descreve um cenário simples. Os cenários da vida real podem ser m
 
 * [Key Vault APIs REST](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-* [Controle de acesso à chave](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
+* [Controle de acesso a chave](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
 
 * [Controle de acesso a segredo](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
 

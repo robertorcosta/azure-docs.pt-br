@@ -12,16 +12,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131200"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124577"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
->Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando esta URL `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` : em seu leitor de RSS feed.
+>Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` em seu leitor de RSS feed.
 
 Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
@@ -34,9 +34,9 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 
 ### <a name="new-widget-parameters-capabilities"></a>Novos recursos de parâmetros de widget
 
-O widget **insights** inclui novos parâmetros: `language` e `control`.
+O widget **insights** inclui novos parâmetros: `language` e `control` .
 
-O widget **Player** tem um novo `locale` parâmetro. Os `locale` parâmetros `language` e são controlados pelo idioma do jogador.
+O widget **Player** tem um novo `locale` parâmetro. Os `locale` `language` parâmetros e são controlados pelo idioma do jogador.
 
 Para obter mais informações, consulte a seção [tipos de widget](video-indexer-embed-widgets.md#widget-types) . 
 
@@ -53,19 +53,19 @@ Uma nova aparência do jogador iniciada com o design atualizado.
     * [Get-accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
     * [Get-accounts-com-token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
  
-    O objeto de conta tem `Url` um campo que aponta para o local do [Video indexer site](https://www.videoindexer.ai/).
+    O objeto de conta tem um `Url` campo que aponta para o local do [Video indexer site](https://www.videoindexer.ai/).
 Para contas pagas `Url` , o campo está atualmente apontando para uma URL interna em vez do site público.
 Nas próximas semanas, iremos alterá-la e retornar o Video Indexer URL do [site](https://www.videoindexer.ai/) para todas as contas (avaliação e paga).
 
     Não use as URLs internas, você deve estar usando as [APIs públicas do video indexer](https://api-portal.videoindexer.ai/).
-* Se você estiver inserindo Video Indexer URLs em seus aplicativos e as URLs não estiverem apontando para o [site do video indexer](https://www.videoindexer.ai/) ou o [ponto de extremidade da API do video indexer](https://api.videoindexer.ai) , mas sim para um `https://wus2.videoindexer.ai`ponto de extremidade regional (por exemplo,), gere novamente as URLs.
+* Se você estiver inserindo Video Indexer URLs em seus aplicativos e as URLs não estiverem apontando para o [site do video indexer](https://www.videoindexer.ai/) ou o ponto de extremidade da API do video indexer ( `https://api.videoindexer.ai` ), mas sim para um ponto de extremidade regional (por exemplo, `https://wus2.videoindexer.ai` ), gere novamente as URLs.
 
    Você pode fazer isso por meio de:
 
     * Substituindo a URL por uma URL apontando para as APIs do widget de Video Indexer (por exemplo, o [widget insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Usando o site Video Indexer para gerar uma nova URL inserida:
          
-         Pressione **reproduzir** para ir para a página do vídeo-> clique no ** &lt; / &gt; botão Inserir** – > copiar a URL para seu aplicativo:
+         Pressione **reproduzir** para ir para a página do vídeo-> clique no botão ** &lt; / &gt; Inserir** – > copiar a URL para seu aplicativo:
    
     As URLs regionais não têm suporte e serão bloqueadas nas próximas semanas.
 
@@ -73,7 +73,7 @@ Nas próximas semanas, iremos alterá-la e retornar o Video Indexer URL do [site
  
 ### <a name="custom-language-support-for-additional-languages"></a>Suporte a idiomas personalizados para idiomas adicionais
 
-O video indexer agora dá suporte a modelos `ar-SY` de `en-UK`linguagem personalizados `en-AU` para, e (somente API).
+O Video Indexer agora dá suporte a modelos de linguagem personalizados para `ar-SY` , `en-UK` e `en-AU` (somente API).
  
 ### <a name="delete-account-timeframe-action-update"></a>Excluir a atualização da ação do período de tempo da conta
 
@@ -127,7 +127,7 @@ O código de status 409 agora será retornado de [reindexação de vídeo](https
  
 * Suporte aos modelos de idioma personalizado coreano
 
-    O video indexer agora dá suporte a modelos de linguagem`ko-KR`personalizados em coreano () tanto na API quanto no Portal. 
+    O video indexer agora dá suporte a modelos de linguagem personalizados em coreano ( `ko-KR` ) tanto na API quanto no Portal. 
 * Novos idiomas com suporte para conversão de fala em texto (STT)
 
     Video Indexer APIs agora dão suporte a STT em árabe Levantine (ar-SY), dialeto inglês do Reino Unido (en-GB) e dialeto australiano inglês (en-AU).

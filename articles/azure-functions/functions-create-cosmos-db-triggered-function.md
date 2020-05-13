@@ -3,20 +3,20 @@ title: Criar uma função disparada pelo Azure Cosmos DB
 description: Use o Azure Functions para criar uma função sem servidor que seja invocada quando são adicionados dados a um banco de dados no Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 10/02/2018
+ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754203"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123714"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
 
 Saiba como criar uma função disparada quando dados são adicionados ou alterados no Azure Cosmos DB. Para obter mais informações sobre o Azure Cosmos DB, consulte [Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions](../cosmos-db/serverless-computing-database.md).
 
-![Exiba a mensagem nos logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Código de Azure Cosmos DB":::
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -26,6 +26,9 @@ Para concluir este tutorial:
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
+## <a name="sign-in-to-azure"></a>Entrar no Azure
+Entre no [portal do Azure](https://portal.azure.com/) com sua conta do Azure.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
@@ -43,35 +46,33 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Criar gatilho do Azure Cosmos DB
 
-1. Expanda seu aplicativo de funções e clique no botão **+** ao lado de **Functions**. Se essa for a primeira função em seu aplicativo de funções, selecione **No portal** e depois **Continuar**. Caso contrário, vá para a etapa três.
+1. Em seu aplicativo de funções, selecione **funções** no menu à esquerda e, em seguida, selecione **Adicionar** no menu superior. 
 
-   ![Página de início rápido de funções no portal do Azure](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
+1. Na página **nova função** , insira `cosmos` no campo de pesquisa e escolha o modelo de **gatilho Azure Cosmos DB** .
 
-1. Escolha **Mais modelos** e, em seguida, **Concluir e exibir modelos**.
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Página de funções no portal do Azure":::
 
-    ![Início Rápido do Functions, escolher mais modelos](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-1. No campo de pesquisa, digite `cosmos` e escolha o modelo **Gatilho do Azure Cosmos DB**.
+1. Configure o novo gatilho com as configurações conforme especificado na tabela a seguir:
 
-1. Se solicitado, selecione **Instalar** para instalar a extensão do Azure Cosmos DB no aplicativo de funções. Após a instalação ser bem-sucedida, selecione **Continuar**.
-
-    ![Instalar extensões de associação](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
-
-1. Configure o novo gatilho com as configurações conforme especificado na tabela abaixo da imagem.
-
-    ![Criar a função acionada do Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
-
-    | Configuração      | Valor sugerido  | DESCRIÇÃO                                |
+    | Configuração      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nome** | Padrão | Use o nome da função padrão sugerido pelo modelo.|
-    | **Conexão de conta do Azure Cosmos DB** | Nova configuração | Selecione **Novo** e depois escolha sua **Assinatura**, a **Conta de banco de dados** criada anteriormente e **Selecionar**. Isso cria uma configuração de aplicativo para sua conexão de conta. Essa configuração é usada pela associação para conexão com o banco de dados. |
-    | **Nome do contêiner** | Itens | Nome do contêiner a ser monitorado. |
-    | **Crie o contêiner de concessão se ele não existir** | Verificado | O contêiner ainda não existe. Portanto, crie-o. |
-    | **Nome do banco de dados** | Tarefas | Nome do banco de dados com o contêiner a ser monitorado. |
+    | **Nova função** | Aceite o nome padrão | O nome da função. |
+    | **Conexão da conta do Cosmos DB** | Aceitar o novo nome padrão | Selecione **novo**, a **conta de banco de dados** que você criou anteriormente e, em seguida, **OK**. Essa ação cria uma configuração de aplicativo para sua conexão de conta. Essa configuração é usada pela associação para conexão com o banco de dados. |
+    | **Nome do banco de dados** | Tarefas | Nome do banco de dados que inclui a coleção a ser monitorada. |
+    | **Nome da coleção** | Itens | Nome da coleção a ser monitorada. |
+    | **Nome da coleção para concessões** | leases | Nome da coleção para armazenar as concessões. |
+    | **Criar coleção de concessão se ela não existir** | Sim | Verifica a existência da coleção de concessão e a cria automaticamente. |
 
-1. Clique em **Criar** para criar o banco de dados da função disparada do Azure Cosmos DB. Depois que a função for criada, o código de função baseado em modelo será exibido.  
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Criar a função acionada do Azure Cosmos DB":::
 
-    ![Modelo de função do Cosmos DB em C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
+1. Selecione **criar função**. 
+
+    O Azure cria a função de gatilho Cosmos DB.
+
+1. Para exibir o código de função baseado em modelo, selecione **código + teste**.
+
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modelo de função do Cosmos DB em C#":::
 
     Esse modelo de função grava o número de documentos e a primeira ID de documento para os logs.
 
@@ -95,7 +96,7 @@ Em seguida, você se conecta à sua conta do Azure Cosmos DB e cria o contêiner
 
     ![Definir o contêiner Tarefas](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
-    | Configuração|Valor sugerido|DESCRIÇÃO |
+    | Configuração|Valor sugerido|Descrição |
     | ---|---|--- |
     | **ID do banco de dados** | Tarefas |O nome do novo banco de dados. Isso deve corresponder ao nome definido na sua associação de função. |
     | **ID do contêiner** | Itens | O nome do novo contêiner. Isso deve corresponder ao nome definido na sua associação de função.  |
@@ -110,7 +111,7 @@ Depois que o contêiner especificado na associação de função existir, você 
 
 1. Expanda o novo contêiner **Itens** no Data Explorer, escolha **Itens** e selecione **Novo Item**.
 
-    ![Criar um item no contêiner Itens](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Criar um item no contêiner Itens":::
 
 1. Substitua o conteúdo do novo item pelo conteúdo a seguir e então escolha **Salvar**.
 

@@ -1,18 +1,20 @@
 ---
 title: Usar extensão de integridade do aplicativo com conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba como usar a extensão de integridade do aplicativo para monitorar a integridade de seus aplicativos implantados em conjuntos de dimensionamento de máquina virtual.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 05/06/2020
-ms.author: mimckitt
-ms.openlocfilehash: 30f68d22a228e6de596e6999490ea7789ab21547
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864361"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124101"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Usando a extensão do Application Health com os conjuntos de dimensionamento de máquinas virtuais
 O monitoramento de integridade do seu aplicativo é um sinal importante para gerenciar e atualizar sua implantação. Os conjuntos de dimensionamento de máquinas virtuais do Azure fornecem suporte para [atualizações sem interrupção](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) incluindo [atualizações automáticas de imagem do sistema operacional](virtual-machine-scale-sets-automatic-upgrade.md), que dependem do monitoramento de integridade das instâncias individuais para atualizar sua implantação. Você também pode usar a extensão de integridade para monitorar a integridade do aplicativo de cada instância em seu conjunto de dimensionamento e executar reparos de instância usando [reparos automáticos de instância](virtual-machine-scale-sets-automatic-instance-repairs.md).
@@ -67,8 +69,8 @@ O JSON a seguir mostra o esquema para a extensão para VM do Application Health.
 | Nome | Valor/Exemplo | Tipo de Dados
 | ---- | ---- | ----
 | protocolo | `http` ou `https` ou `tcp` | string |
-| porta | Opcional quando o protocolo `http` é `https`ou, obrigatório quando o protocolo é`tcp` | INT |
-| requestPath | Obrigatório quando o protocolo `http` está `https`ou não é permitido quando o protocolo é`tcp` | string |
+| porta | Opcional quando o protocolo é `http` ou `https` , obrigatório quando o protocolo é`tcp` | INT |
+| requestPath | Obrigatório quando o protocolo está `http` ou `https` não é permitido quando o protocolo é`tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Implantar a Extensão de Integridade do Aplicativo
 Há várias maneiras de implantar a integridade da extensão do Application Health para o dimensionamento conforme detalhado nos exemplos a seguir.

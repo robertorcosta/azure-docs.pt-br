@@ -5,21 +5,21 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 94ec85ae658ca6012cd1f1594b431d12bb73013d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612462"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121058"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurar anexação de aplicativo MSIX
 
 > [!IMPORTANT]
 > A anexação do aplicativo MSIX está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este tópico explicará como configurar a anexação do aplicativo MSIX em um ambiente de área de trabalho virtual do Windows.
 
@@ -41,7 +41,7 @@ Primeiro, você precisa obter a imagem do sistema operacional que usará para o 
      >[!NOTE]
      >Você deve ser membro do programa Windows Insider para acessar o portal do Windows Insider. Para saber mais sobre o programa Windows Insider, Confira nossa [documentação do Windows Insider](/windows-insider/at-home/).
 
-2. Role para baixo até a seção **selecionar edição** e selecione **Windows 10 Insider Preview Enterprise (rápido) – Build 19035** ou posterior.
+2. Role para baixo até a seção **selecionar edição** e selecione **Windows 10 Insider Preview Enterprise (rápido) – Build 19041** ou posterior.
 
 3. Selecione **confirmar**e, em seguida, selecione o idioma que deseja usar e, em seguida, selecione **confirmar** novamente.
     
@@ -73,6 +73,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+
+Depois de desabilitar as atualizações automáticas, você deve habilitar o Hyper-V porque usará o comando arremessador-VHD para preparar e desmontar-VHD para desprepará-lo. 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>Essa alteração exigirá que você reinicie a máquina virtual.
 
 Em seguida, prepare o VHD de VM para o Azure e carregue o disco VHD resultante no Azure. Para saber mais, consulte [preparar e personalizar uma imagem mestre VHD](set-up-customize-master-image.md).
 
@@ -211,7 +219,7 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
 
 5.  Abra um prompt de comando e insira **Mountvol**. Esse comando exibirá uma lista de volumes e seus GUIDs. Copie o GUID do volume em que a letra da unidade corresponde à unidade na qual você montou o VHD na etapa 2.
 
-    Por exemplo, neste exemplo de saída para o comando mountvol, se você montou o VHD para a unidade C, você desejará copiar o valor `C:\`acima:
+    Por exemplo, neste exemplo de saída para o comando mountvol, se você montou o VHD para a unidade C, você desejará copiar o valor acima `C:\` :
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -257,7 +265,7 @@ Antes de atualizar os scripts do PowerShell, verifique se você tem o GUID do vo
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 

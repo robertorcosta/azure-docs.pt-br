@@ -4,12 +4,12 @@ description: Saiba como usar Aplicativo Azure insights com Azure Functions para 
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 9997a44d14f5b4ca4de4e5b135efc453b12bff01
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 0b4d0f43d00a919c589a11c81df2818f3a058ed8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202406"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121504"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -29,7 +29,7 @@ A lista completa de recursos de Application Insights disponíveis para seu aplic
 
 Com a [integração do Application insights habilitada](#enable-application-insights-integration), você pode exibir dados de telemetria na guia **monitorar** .
 
-1. Na página do aplicativo de funções, selecione uma função que tenha sido executada pelo menos uma vez depois que Application Insights foi configurada. Em seguida, selecione a guia **Monitor** . Selecione **Atualizar** periodicamente, até que a lista de invocações de função seja exibida.
+1. Na página do aplicativo de funções, selecione uma função que tenha sido executada pelo menos uma vez depois que Application Insights foi configurada. Em seguida, selecione **Monitor** no painel esquerdo. Selecione **Atualizar** periodicamente, até que a lista de invocações de função seja exibida.
 
    ![Lista de invocações](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -40,9 +40,9 @@ Com a [integração do Application insights habilitada](#enable-application-insi
 
    ![Detalhes da Invocação](media/functions-monitoring/invocation-details-ai.png)
 
-1. Escolha o link **executar no Application insights** para exibir a origem da consulta que recupera os dados de log de Azure monitor no log do Azure se esta for a primeira vez que o Azure log Analytics em sua assinatura, você será solicitado a habilitar o para.
+1. Escolha **executar em Application insights** para exibir a origem da consulta que recupera os dados de log de Azure monitor no log do Azure. Se esta for a primeira vez que você usa o Azure Log Analytics em sua assinatura, você será solicitado a habilitá-la.
 
-1. Quando você escolher esse link e optar por habilitar o log analítico. a consulta a seguir é exibida. Você pode ver que os resultados da consulta são limitados aos últimos 30 dias (`where timestamp > ago(30d)`). Além disso, os resultados mostram no máximo 20 linhas (`take 20`). Por outro lado, a lista de detalhes de invocação para sua função é para os últimos 30 dias sem limite.
+1. Depois de habilitar Log Analytics, a consulta a seguir é exibida. Você pode ver que os resultados da consulta são limitados aos últimos 30 dias ( `where timestamp > ago(30d)` ). Além disso, os resultados mostram no máximo 20 linhas ( `take 20` ). Por outro lado, a lista de detalhes de invocação para sua função é para os últimos 30 dias sem limite.
 
    ![Lista de invocações de Análise do Application Insights](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -50,7 +50,7 @@ Para obter mais informações, consulte [Dados de telemetria da consulta](#query
 
 ## <a name="view-telemetry-in-application-insights"></a>Exibir a telemetria no Application Insights
 
-Para abrir Application Insights de um aplicativo de funções no portal do Azure, vá para a página **visão geral** do aplicativo de funções. Em **recursos configurados**, selecione **Application insights**.
+Para abrir Application Insights de um aplicativo de funções no portal do Azure, selecione **Application insights** em **configurações** na página esquerda. Se esta for a primeira vez que você usa Application Insights com sua assinatura, você será solicitado a habilitá-la: selecione **ativar Application insights**e, em seguida, selecione **aplicar** na próxima página.
 
 ![Abrir Application Insights na página Visão geral do aplicativo de funções](media/functions-monitoring/ai-link.png)
 
@@ -104,7 +104,7 @@ traces
 | where customDimensions.LogLevel == "Error"
 </pre>
 
-O tempo de execução `customDimensions.LogLevel` fornece `customDimensions.Category` os campos e. Você pode fornecer campos adicionais nos logs que você escreve em seu código de função. Consulte [Registro em log estruturado](#structured-logging) mais adiante neste artigo.
+O tempo de execução fornece os `customDimensions.LogLevel` `customDimensions.Category` campos e. Você pode fornecer campos adicionais nos logs que você escreve em seu código de função. Consulte [Registro em log estruturado](#structured-logging) mais adiante neste artigo.
 
 ## <a name="configure-categories-and-log-levels"></a>Configurar categorias e níveis de log
 
@@ -121,11 +121,11 @@ O agente do Azure Functions inclui uma *categoria* para cada log. A categoria in
 
 Todos os logs para categorias diferentes deles estão disponíveis na tabela de **rastreamentos** em Application insights.
 
-Todos os logs com categorias que começam `Host` com são gravados pelo tempo de execução do functions. A **função iniciada** e os logs de **função concluídos** têm categoria `Host.Executor`. Para execuções bem-sucedidas, esses logs `Information` são de nível. As exceções são registradas no `Error` nível. O runtime também cria logs de nível `Warning`, por exemplo: mensagens de fila enviadas para a fila de suspeita.
+Todos os logs com categorias que começam com `Host` são gravados pelo tempo de execução do functions. A **função iniciada** e os logs de **função concluídos** têm categoria `Host.Executor` . Para execuções bem-sucedidas, esses logs são de `Information` nível. As exceções são registradas no `Error` nível. O runtime também cria logs de nível `Warning`, por exemplo: mensagens de fila enviadas para a fila de suspeita.
 
-O tempo de execução do Functions cria logs com uma categoria que começa com "host". Na versão 1. x, os `function started`logs `function executed`, e `function completed` têm a categoria `Host.Executor`. A partir da versão 2. x, esses logs têm a `Function.<YOUR_FUNCTION_NAME>`categoria.
+O tempo de execução do Functions cria logs com uma categoria que começa com "host". Na versão 1. x, os `function started` `function executed` logs, e `function completed` têm a categoria `Host.Executor` . A partir da versão 2. x, esses logs têm a categoria `Function.<YOUR_FUNCTION_NAME>` .
 
-Se você gravar logs em seu código de função, a categoria será `Function.<YOUR_FUNCTION_NAME>.User` e poderá ser qualquer nível de log. Na versão 1. x do tempo de execução do functions, `Function`a categoria é.
+Se você gravar logs em seu código de função, a categoria será `Function.<YOUR_FUNCTION_NAME>.User` e poderá ser qualquer nível de log. Na versão 1. x do tempo de execução do functions, a categoria é `Function` .
 
 ### <a name="log-levels"></a>Níveis de log
 
@@ -135,11 +135,11 @@ O agente de Azure Functions também inclui um *nível de log* com cada log. [Log
 |------------|---|
 |Trace       | 0 |
 |Depurar       | 1 |
-|Informações do | 2 |
+|Informações | 2 |
 |Aviso     | 3 |
 |Erro       | 4 |
 |Crítico    | 5 |
-|Nenhum        | 6 |
+|Não        | 6 |
 
 Nível de log `None` é explicado na próxima seção. 
 
@@ -184,13 +184,13 @@ A versão v2. x e versões posteriores do tempo de execução do Functions usam 
 
 Este exemplo configura as seguintes regras:
 
-* Para logs com categoria `Host.Results` ou `Function`, envie somente `Error` o nível e acima para Application insights. Os logs para o nível `Warning` e abaixo são ignorados.
+* Para logs com categoria `Host.Results` ou `Function` , envie somente o `Error` nível e acima para Application insights. Os logs para o nível `Warning` e abaixo são ignorados.
 * Para logs com a categoria `Host.Aggregator`, enviar todos os logs para o Application Insights. O `Trace` nível de log é o mesmo que o que chamo de alguns agentes `Verbose`, mas usar `Trace` no [host. JSON] arquivo.
 * Para todos os outros logs, envie somente o nível `Information` e acima ao Application Insights.
 
-O valor de categoria em [host.json] controla o registro em log para todas as categorias que começam com o mesmo valor. `Host`no [host. JSON] controla o registro `Host.General`em `Host.Executor`log `Host.Results`para,, e assim por diante.
+O valor de categoria em [host.json] controla o registro em log para todas as categorias que começam com o mesmo valor. `Host`no [host. JSON] controla o registro em log para `Host.General` , `Host.Executor` , `Host.Results` e assim por diante.
 
-Se [host.json] incluir várias categorias que comecem com a mesma cadeia de caracteres, será feito primeiro a correspondência com as mais longas. Suponha que você deseja tudo do tempo de `Host.Aggregator` execução, exceto `Error` para fazer logon no nível `Host.Aggregator` , mas deseja fazer `Information` logon no nível:
+Se [host.json] incluir várias categorias que comecem com a mesma cadeia de caracteres, será feito primeiro a correspondência com as mais longas. Suponha que você deseja tudo do tempo de execução, exceto `Host.Aggregator` para fazer logon no `Error` nível, mas deseja `Host.Aggregator` fazer logon no `Information` nível:
 
 ### <a name="version-2x-and-later"></a>Versão 2. x e posterior
 
@@ -281,9 +281,9 @@ Você pode gravar logs no seu código de função que apareçam como rastreament
 
 ### <a name="ilogger"></a>ILogger
 
-Use um parâmetro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) em funções, em vez de um parâmetro `TraceWriter`. Logs criados usando `TraceWriter` o go to Application insights, mas `ILogger` permite que você faça o [registro em log estruturado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Use um parâmetro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) em funções, em vez de um parâmetro `TraceWriter`. Logs criados usando o `TraceWriter` go to Application insights, mas `ILogger` permite que você faça o [registro em log estruturado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Com um objeto `ILogger`, você chama os `Log<level>` [ métodos de extensão no ILogger ](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para criar logs. O código a seguir `Information` grava logs com a categoria "Function. <YOUR_FUNCTION_NAME>. Usuário. "
+Com um objeto `ILogger`, você chama os `Log<level>` [ métodos de extensão no ILogger ](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) para criar logs. O código a seguir grava `Information` logs com a categoria "function. <YOUR_FUNCTION_NAME>. Usuário. "
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -305,7 +305,7 @@ Se você mantiver a mesma cadeia de caracteres de mensagem e inverter a ordem do
 
 Os espaços reservados são tratados dessa forma para que você possa fazer registro em log estruturado. Application Insights armazena os pares nome-valor do parâmetro e a cadeia de caracteres da mensagem. O resultado é que os argumentos da mensagem tornam-se campos que você pode consultar.
 
-Se a chamada do método de agente for parecida com o exemplo anterior, você poderá `customDimensions.prop__rowKey`consultar o campo. O `prop__` prefixo é adicionado para garantir que não haja colisões entre os campos que o tempo de execução adiciona e os campos que o código de função adiciona.
+Se a chamada do método de agente for parecida com o exemplo anterior, você poderá consultar o campo `customDimensions.prop__rowKey` . O `prop__` prefixo é adicionado para garantir que não haja colisões entre os campos que o tempo de execução adiciona e os campos que o código de função adiciona.
 
 Você também pode consultar a cadeia de caracteres da mensagem original referenciando o campo `customDimensions.prop__{OriginalFormat}`.  
 
@@ -342,7 +342,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="custom-metrics-logging"></a>Log de métricas personalizadas
 
-Quando você está executando na [versão 1. x](functions-versions.md#creating-1x-apps) do tempo de execução do functions, as funções do Node `context.log.metric` . js podem usar o método para criar métricas personalizadas no Application insights. Atualmente, esse método não tem suporte na versão 2. x e posterior. Aqui está um exemplo de chamada de método:
+Quando você está executando na [versão 1. x](functions-versions.md#creating-1x-apps) do tempo de execução do functions, as funções do node. js podem usar o `context.log.metric` método para criar métricas personalizadas no Application insights. Atualmente, esse método não tem suporte na versão 2. x e posterior. Aqui está um exemplo de chamada de método:
 
 ```javascript
 context.log.metric("TestMetric", 1234);
@@ -374,7 +374,7 @@ Os exemplos de C# a seguir usam a [API de telemetria personalizada](../azure-mon
 
 ### <a name="version-2x-and-later"></a>Versão 2. x e posterior
 
-A versão 2. x e versões posteriores do tempo de execução usam recursos mais recentes no Application Insights para correlacionar automaticamente a telemetria com a operação atual. Não é necessário definir manualmente os campos de operação `Id`, `ParentId`ou `Name` .
+A versão 2. x e versões posteriores do tempo de execução usam recursos mais recentes no Application Insights para correlacionar automaticamente a telemetria com a operação atual. Não é necessário definir manualmente os campos de operação `Id` , `ParentId` ou `Name` .
 
 ```cs
 using System;
@@ -529,7 +529,7 @@ namespace functionapp0915
 
 Não chame `TrackRequest` ou `StartOperation<RequestTelemetry>` porque você verá solicitações duplicadas para uma invocação de função.  O runtime do Functions controla automaticamente as solicitações.
 
-Não definir `telemetryClient.Context.Operation.Id`. Essa configuração global causa correlação incorreta quando muitas funções são executadas simultaneamente. Em vez disso, crie uma nova instância de telemetria (`DependencyTelemetry`, `EventTelemetry`) e modifique a propriedade `Context`. Em seguida, passe a instância de telemetria `Track` para o `TelemetryClient` método`TrackDependency()`correspondente `TrackEvent()`em `TrackMetric()`(,,). Esse método garante que a telemetria tenha os detalhes de correlação corretos para a invocação de função atual.
+Não definir `telemetryClient.Context.Operation.Id`. Essa configuração global causa correlação incorreta quando muitas funções são executadas simultaneamente. Em vez disso, crie uma nova instância de telemetria (`DependencyTelemetry`, `EventTelemetry`) e modifique a propriedade `Context`. Em seguida, passe a instância de telemetria para o `Track` método correspondente em `TelemetryClient` ( `TrackDependency()` , `TrackEvent()` , `TrackMetric()` ). Esse método garante que a telemetria tenha os detalhes de correlação corretos para a invocação de função atual.
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Telemetria personalizada em funções JavaScript
 
@@ -605,7 +605,7 @@ Para examinar a Application Insights recurso que está sendo criado, selecione-o
 
 ![Habilitar o Application Insights ao criar um aplicativo de funções](media/functions-monitoring/enable-ai-new-function-app.png)
 
-Quando você escolhe **criar**, um recurso de Application insights é criado com seu aplicativo de funções, que `APPINSIGHTS_INSTRUMENTATIONKEY` tem o conjunto nas configurações do aplicativo. Tudo está pronto para começar.
+Quando você escolhe **criar**, um recurso de Application insights é criado com seu aplicativo de funções, que tem o `APPINSIGHTS_INSTRUMENTATIONKEY` conjunto nas configurações do aplicativo. Tudo está pronto para começar.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Adicionar a um aplicativo de funções existente 

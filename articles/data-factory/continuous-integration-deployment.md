@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 87cb7c57aab048e1b7acf211d58c850a41afa5a2
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 54ff58735b6831bb45a9477360ffca3439d2f6b4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628207"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124713"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -88,7 +88,7 @@ Veja a seguir um guia para configurar uma versão Azure Pipelines que automatiza
 
 1.  Na caixa **nome do estágio** , digite o nome do seu ambiente.
 
-1.  Selecione **Adicionar artefato**e, em seguida, selecione o repositório git configurado com seu data Factory de desenvolvimento. Selecione a [ramificação de publicação](source-control.md#configure-publishing-settings) do repositório para a **ramificação padrão**. Por padrão, esse Branch de publicação `adf_publish`é. Para a **versão padrão**, selecione **mais recente do Branch padrão**.
+1.  Selecione **Adicionar artefato**e, em seguida, selecione o repositório git configurado com seu data Factory de desenvolvimento. Selecione a [ramificação de publicação](source-control.md#configure-publishing-settings) do repositório para a **ramificação padrão**. Por padrão, esse Branch de publicação é `adf_publish` . Para a **versão padrão**, selecione **mais recente do Branch padrão**.
 
     ![Adicionar um artefato](media/continuous-integration-deployment/continuous-integration-image7.png)
 
@@ -228,14 +228,14 @@ Ao exportar um modelo do Resource Manager, o Data Factory lê esse arquivo de qu
 Veja a seguir algumas diretrizes a serem seguidas ao criar o arquivo de parâmetros personalizados, **ARM-template-Parameters-Definition. JSON**. O arquivo consiste em uma seção para cada tipo de entidade: gatilho, pipeline, serviço vinculado, conjunto de dados, tempo de execução de integração e fluxo de arquivos.
 
 * Insira o caminho da propriedade sob o tipo de entidade relevante.
-* Definir um nome de propriedade `*` para indicar que você deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer exceções a essa configuração.
-* Definir o valor de uma propriedade como uma cadeia de caracteres indica que você deseja parametrizar a propriedade. Use o formato `<action>:<name>:<stype>`.
+* Definir um nome de propriedade para  `*` indicar que você deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer exceções a essa configuração.
+* Definir o valor de uma propriedade como uma cadeia de caracteres indica que você deseja parametrizar a propriedade. Use o formato  `<action>:<name>:<stype>` .
    *  `<action>` pode ser um destes caracteres:
       * `=` significa manter o valor atual como o valor padrão para o parâmetro.
       * `-` significa que não mantenha o valor padrão para o parâmetro.
       * `|` é um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
-   * `<name>` é o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um `-` caractere, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzido para `AzureStorage1_connectionString`.
-   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo padrão `string`será. Valores com suporte `string`: `bool`, `number` `object`,, e `securestring`.
+   * `<name>` é o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um `-` caractere, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzido para `AzureStorage1_connectionString` .
+   * `<stype>` é o tipo de parâmetro. Se  `<stype>`   estiver em branco, o tipo padrão será `string` . Valores com suporte:,,, `string` `bool` `number` `object` e `securestring` .
 * A especificação de uma matriz no arquivo de definição indica que a propriedade correspondente no modelo é uma matriz. Data Factory itera por todos os objetos na matriz usando a definição especificada no objeto de tempo de execução de integração da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usada como o nome do parâmetro para cada iteração.
 * Uma definição não pode ser específica para uma instância de recurso. Qualquer definição se aplica a todos os recursos desse tipo.
 * Por padrão, todas as cadeias de caracteres seguras, como segredos de Key Vault e cadeias de caracteres seguras, como cadeias de conexão, chaves e tokens, são parametrizadas.
@@ -307,27 +307,27 @@ Aqui está uma explicação de como o modelo anterior é construído, dividido p
 
 #### <a name="pipelines"></a>Pipelines
     
-* Qualquer propriedade no caminho `activities/typeProperties/waitTimeInSeconds` é parametrizada. Qualquer atividade em um pipeline que tenha uma propriedade de nível de código `waitTimeInSeconds` chamada (por exemplo, `Wait` a atividade) é parametrizada como um número, com um nome padrão. Mas ele não terá um valor padrão no modelo do Resource Manager. Será uma entrada obrigatória durante a implantação do Gerenciador de recursos.
-* Da mesma forma, uma `headers` propriedade chamada (por exemplo, `Web` em uma atividade) é parametrizada `object` com tipo (JObject). Ele tem um valor padrão, que é o mesmo valor da fábrica de origem.
+* Qualquer propriedade no caminho `activities/typeProperties/waitTimeInSeconds` é parametrizada. Qualquer atividade em um pipeline que tenha uma propriedade de nível de código chamada `waitTimeInSeconds` (por exemplo, a `Wait` atividade) é parametrizada como um número, com um nome padrão. Mas ele não terá um valor padrão no modelo do Resource Manager. Será uma entrada obrigatória durante a implantação do Gerenciador de recursos.
+* Da mesma forma, uma propriedade chamada `headers` (por exemplo, em uma `Web` atividade) é parametrizada com tipo `object` (JObject). Ele tem um valor padrão, que é o mesmo valor da fábrica de origem.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Todas as propriedades no caminho `typeProperties` são parametrizadas com seus respectivos valores padrão. Por exemplo, há duas propriedades em `IntegrationRuntimes` Propriedades de tipo: `computeProperties` e `ssisProperties`. Ambos os tipos de propriedade são criados com seus respectivos valores e tipos padrão (objeto).
+* Todas as propriedades no caminho `typeProperties` são parametrizadas com seus respectivos valores padrão. Por exemplo, há duas propriedades em `IntegrationRuntimes` Propriedades de tipo: `computeProperties` e `ssisProperties` . Ambos os tipos de propriedade são criados com seus respectivos valores e tipos padrão (objeto).
 
 #### <a name="triggers"></a>Gatilhos
 
-* Em `typeProperties`, duas propriedades são parametrizadas. O primeiro é `maxConcurrency`, que é especificado para ter um valor padrão e é do tipo`string`. Ele tem o nome `<entityName>_properties_typeProperties_maxConcurrency`de parâmetro padrão.
-* A `recurrence` Propriedade também é parametrizada. Sob ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a `interval` Propriedade, que é parametrizada como tipo `number`. O nome do parâmetro é sufixado com `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma `freq` , a propriedade é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto `freq` , a propriedade é parametrizada sem um valor padrão. O nome é reduzido e sufixado. Por exemplo, `<entityName>_freq`.
+* Em `typeProperties` , duas propriedades são parametrizadas. O primeiro é `maxConcurrency` , que é especificado para ter um valor padrão e é do tipo `string` . Ele tem o nome de parâmetro padrão `<entityName>_properties_typeProperties_maxConcurrency` .
+* A `recurrence` propriedade também é parametrizada. Sob ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a `interval` propriedade, que é parametrizada como tipo `number` . O nome do parâmetro é sufixado com `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . Da mesma forma, a `freq` propriedade é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, a `freq` propriedade é parametrizada sem um valor padrão. O nome é reduzido e sufixado. Por exemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Os serviços vinculados são exclusivos. Como os serviços vinculados e os conjuntos de linhas têm uma ampla gama de tipos, você pode fornecer personalização específica de tipo. Neste exemplo, para todos os serviços vinculados do `AzureDataLakeStore`tipo, um modelo específico será aplicado. Para todos os outros ( `*`via), um modelo diferente será aplicado.
-* A `connectionString` propriedade será parametrizada como um `securestring` valor. Ele não terá um valor padrão. Ele terá um nome de parâmetro abreviado com `connectionString`sufixo.
+* Os serviços vinculados são exclusivos. Como os serviços vinculados e os conjuntos de linhas têm uma ampla gama de tipos, você pode fornecer personalização específica de tipo. Neste exemplo, para todos os serviços vinculados do tipo `AzureDataLakeStore` , um modelo específico será aplicado. Para todos os outros (via `*` ), um modelo diferente será aplicado.
+* A `connectionString` propriedade será parametrizada como um `securestring` valor. Ele não terá um valor padrão. Ele terá um nome de parâmetro abreviado com sufixo `connectionString` .
 * A propriedade `secretAccessKey` é um `AzureKeyVaultSecret` (por exemplo, em um serviço vinculado do Amazon S3). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
 
 #### <a name="datasets"></a>Conjunto de dados
 
-* Embora a personalização específica de tipo esteja disponível para conjuntos de informações, você pode fornecer a configuração sem \*ter explicitamente uma configuração de nível. No exemplo anterior, todas as propriedades de DataSet `typeProperties` em são parametrizadas.
+* Embora a personalização específica de tipo esteja disponível para conjuntos de informações, você pode fornecer a configuração sem ter explicitamente uma \* configuração de nível. No exemplo anterior, todas as propriedades de DataSet em `typeProperties` são parametrizadas.
 
 ### <a name="default-parameterization-template"></a>Modelo de parametrização padrão
 
@@ -443,7 +443,7 @@ Veja abaixo o modelo de parametrização padrão atual. Se você precisar adicio
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Exemplo: parametrizando uma ID de cluster interativa de Azure Databricks existente
 
-O exemplo a seguir mostra como adicionar um único valor ao modelo de parametrização padrão. Queremos apenas adicionar uma ID de cluster interativa de Azure Databricks existente para um serviço vinculado do databricks ao arquivo de parâmetros. Observe que esse arquivo é o mesmo que o arquivo anterior, exceto para a adição `existingClusterId` de sob o campo propriedades `Microsoft.DataFactory/factories/linkedServices`de.
+O exemplo a seguir mostra como adicionar um único valor ao modelo de parametrização padrão. Queremos apenas adicionar uma ID de cluster interativa de Azure Databricks existente para um serviço vinculado do databricks ao arquivo de parâmetros. Observe que esse arquivo é o mesmo que o arquivo anterior, exceto para a adição de `existingClusterId` sob o campo Propriedades de `Microsoft.DataFactory/factories/linkedServices` .
 
 ```json
 {
@@ -569,6 +569,26 @@ Para usar modelos vinculados em vez do modelo completo do Resource Manager, atua
 Lembre-se de adicionar os scripts do Data Factory no pipeline de CI/CD antes e depois a tarefa de implantação.
 
 Se você não tiver o Git configurado, poderá acessar os modelos vinculados por meio do **modelo de ARM de exportação** na lista de modelos do **ARM** .
+
+## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Excluir tempos de execução de integração do Azure-SSIS de CI/CD
+
+Se sua fábrica de desenvolvimento tiver o tempo de execução de integração do Azure-SSIS, você poderá excluir todos os tempos de execução de integração do Azure-SSIS do processo de CI/CD no cenário abaixo:
+
+- Azure-SSIS IR infraestrutura é complexa e varia em cada ambiente.  
+- Azure-SSIS IR é configurado manualmente para cada ambiente com o mesmo nome. Caso contrário, a publicação falhará se houver atividade, dependendo do Azure-SSIS IR.
+
+Para excluir o tempo de execução de integração do Azure-SSIS:
+
+1. Adicione um arquivo publish_config. JSON à pasta raiz no Branch de colaboração, se não existir.
+1. Adicione a configuração abaixo a publish_config. JSON: 
+
+```json
+{
+    " excludeIRs": "true"
+}
+```
+
+Ao publicar da ramificação de colaboração, os tempos de execução de integração do Azure-SSIS serão excluídos do modelo do Resource Manager gerado.
 
 ## <a name="hotfix-production-branch"></a>Branch de produção de hotfix
 

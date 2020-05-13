@@ -1,18 +1,20 @@
 ---
 title: Usar o sequenciamento de extensão com conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba como sequenciar o provisionamento de extensões durante a implantação de várias extensões em conjuntos de dimensionamento de máquinas virtuais.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 01/30/2019
-ms.author: mimckitt
-ms.openlocfilehash: 737040699dd62d722b9a9ad4d8915ccb270c2d06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273742"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121024"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Sequenciar o provisionamento de extensões em conjuntos de dimensionamento de máquinas virtuais
 As extensões de máquina virtual do Azure fornecem funcionalidades como a configuração após a implantação e gerenciamento, monitoramento, segurança e muito mais. Implantações de produção normalmente usam uma combinação de várias extensões configuradas para as instâncias de VM para obter os resultados desejados.

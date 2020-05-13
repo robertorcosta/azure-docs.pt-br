@@ -3,19 +3,19 @@ title: Personalizar um ponto de extremidade HTTP no Azure Functions
 description: Saiba como personalizar um ponto de extremidade de gatilho HTTP no Azure Functions
 author: mattchenderson
 ms.topic: conceptual
-ms.date: 05/04/2017
+ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 61b930eec1385b8c4054f9c202547a82e61e55e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5607a737fa4616d4eda3d174144c1717125f4181
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769261"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122759"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizar um ponto de extremidade HTTP no Azure Functions
 
-Neste artigo, você aprende como Azure Functions permite que você crie APIs altamente escalonáveis. O Azure Functions vem com uma coleção de gatilhos e associações HTTP internos, que facilitam o autor de um ponto de extremidade em uma variedade de linguagens, incluindo node. js, C# e muito mais. Neste artigo, você personalizará um gatilho HTTP para manipular ações específicas em seu design de API. Você também preparará a expansão de sua API integrando-a aos Proxies do Azure Functions e configurando APIs de simulação. Tudo isso é realizado no ambiente de computação sem servidor do Functions, portanto você não precisa se preocupar com o dimensionamento de recursos, você pode se concentrar apenas na lógica de sua API.
+Neste artigo, você aprende como Azure Functions permite que você crie APIs altamente escalonáveis. O Azure Functions vem com uma coleção de gatilhos e associações HTTP internos, que facilitam o autor de um ponto de extremidade em uma variedade de linguagens, incluindo node. js, C# e muito mais. Neste artigo, você personalizará um gatilho HTTP para manipular ações específicas em seu design de API. Você também se prepara para aumentar sua API integrando-a com Proxies do Azure Functions e configurando APIs fictícias. Essas tarefas são realizadas sobre o ambiente de computação sem servidor do functions, para que você não precise se preocupar com o dimensionamento de recursos. você pode se concentrar apenas na lógica da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -23,47 +23,54 @@ Neste artigo, você aprende como Azure Functions permite que você crie APIs alt
 
 A função resultante será usada para o restante deste artigo.
 
-### <a name="sign-in-to-azure"></a>Entrar no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Abra o portal do Azure. Para fazer isso, entre no [https://portal.azure.com](https://portal.azure.com) com sua conta do Azure.
+Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 
 ## <a name="customize-your-http-function"></a>Personalizar sua função HTTP
 
-Por padrão, sua função disparada por HTTP é configurada para aceitar qualquer método HTTP. Também há uma URL padrão no formato `http://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>`. Se você seguiu o guia de início rápido, `<funcname>` provavelmente se parece com algo como "HttpTriggerJS1". Nesta seção, você modificará a função para responder apenas a solicitações GET na rota `/api/hello`. 
+Por padrão, a função de gatilho HTTP é configurada para aceitar qualquer método HTTP. Você também pode usar a URL padrão, `http://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>` . Nesta seção, você modifica a função para responder somente a solicitações GET com `/api/hello` . 
 
-1. Navegue até sua função no Portal do Azure. Selecione **Integrar** no painel de navegação esquerdo.
+1. Navegue até sua função no Portal do Azure. Selecione **integração** no menu à esquerda e, em seguida, selecione **http (req)** em **gatilho**.
 
-    ![Personalizar uma função HTTP](./media/functions-create-serverless-api/customizing-http.png)
+    :::image type="content" source="./media/functions-create-serverless-api/customizing-http.png" alt-text="Personalizar uma função HTTP":::
 
-1. Use as configurações do gatilho HTTP conforme especificado na tabela.
+1. Use as configurações de gatilho HTTP conforme especificado na tabela a seguir.
 
     | Campo | Valor de exemplo | Descrição |
     |---|---|---|
-    | Métodos HTTP selecionados | Métodos selecionados | Determina quais métodos HTTP podem ser usados para chamar essa função |
-    | Métodos HTTP selecionados | GET | Permite que apenas os métodos HTTP selecionados possam ser usados para chamar essa função |
     | Modelo de rota | /hello | Determina qual rota pode ser usada para chamar essa função |
     | Nível de autorização | Anônima | Opcional: torna sua função acessível sem uma chave de API |
+    | Métodos HTTP selecionados | GET | Permite que apenas os métodos HTTP selecionados possam ser usados para chamar essa função |
 
-    > [!NOTE] 
-    > Observe que você não incluiu o prefixo de caminho base `/api` no modelo de rota, pois isso é tratado por uma configuração global.
+    Você não incluiu o `/api` prefixo de caminho base no modelo de rota, pois ele é manipulado por uma configuração global.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
-Você pode aprender mais sobre a personalização de funções HTTP em [Associações de HTTP do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
+Para obter mais informações sobre como personalizar funções HTTP, consulte [Azure Functions associações http](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### <a name="test-your-api"></a>Testar sua API
 
-Em seguida, teste sua função para vê-la funcionando com a nova superfície de API.
-1. Navegue de volta para a página de desenvolvimento clicando no nome da função no painel de navegação esquerdo.
-1. Clique em **Obter URL de função** e copie a URL. Você verá que agora ela usa a rota `/api/hello`.
-1. Copie a URL em uma nova guia do navegador ou o cliente REST preferencial. Navegadores usarão GET por padrão.
-1. Adicione parâmetros à cadeia de consulta na URL, por exemplo, `/api/hello/?name=John`
-1. Pressione “Enter” para confirmar se ela está funcionando. Você deverá ver a resposta “*Hello John*”
-1. Você também pode tentar chamar o ponto de extremidade com outro método HTTP para confirmar a não execução da função. Para isso, será necessário usar um cliente REST, como cURL, Postman ou Fiddler.
+Em seguida, teste sua função para ver como ela funciona com a nova superfície de API:
+1. Na página função, selecione **código + teste** no menu à esquerda.
+
+1. Selecione **obter URL da função** no menu superior e copie a URL. Confirme se ele agora usa o `/api/hello` caminho.
+ 
+1. Copie a URL em uma nova guia do navegador ou o cliente REST preferencial. 
+
+   Os navegadores usam GET por padrão.
+ 
+1. Adicione parâmetros à cadeia de caracteres de consulta em sua URL. 
+
+   Por exemplo, `/api/hello/?name=John`.
+ 
+1. Pressione Enter para confirmar que está funcionando. Você deve ver a resposta "*Olá, João*".
+
+1. Você também pode tentar chamar o ponto de extremidade com outro método HTTP para confirmar que a função não foi executada. Para fazer isso, use um cliente REST, como ondulação, postmaster ou Fiddler.
 
 ## <a name="proxies-overview"></a>Visão geral dos proxies
 
-Na próxima seção, você mostrará sua API através de um proxy. Os Proxies do Azure Functions permitem o encaminhamento de solicitações para outros recursos. Defina um ponto de extremidade HTTP, como com o gatilho HTTP, mas em vez de escrever um código para executar durante a chamada para o ponto de extremidade, forneça uma URL para uma implementação remota. Isso permite a composição de várias fontes de API em uma única superfície de API, o que é fácil para os clientes usarem. Isso é particularmente útil se você quiser criar sua API como microsserviços.
+Na próxima seção, você pausará a API por meio de um proxy. Os Proxies do Azure Functions permitem o encaminhamento de solicitações para outros recursos. Você define um ponto de extremidade HTTP, assim como com o gatilho HTTP. No entanto, em vez de escrever código para executar quando esse ponto de extremidade é chamado, você fornece uma URL para uma implementação remota. Fazer isso permite compor várias fontes de API em uma única superfície de API, o que é fácil para os clientes consumirem, o que é útil se você quiser criar sua API como microservices.
 
 Um proxy pode apontar para qualquer recurso HTTP, como:
 - Funções do Azure 
@@ -75,52 +82,53 @@ Para saber mais sobre proxies, confira [Trabalhar com Proxies do Azure Functions
 
 ## <a name="create-your-first-proxy"></a>Criar seu primeiro proxy
 
-Nesta seção, você criará um novo proxy que servirá como um front-end para sua API geral. 
+Nesta seção, você cria um novo proxy, que serve como um front-end para sua API geral. 
 
 ### <a name="setting-up-the-frontend-environment"></a>Configurar o ambiente front-end
 
-Repita as etapas para [Criar um aplicativo de função](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) a fim de criar um novo aplicativo de função no qual você criará o proxy. A URL desse novo aplicativo funcionará como o front-end de nossa API e o aplicativo de função que você estava editando anteriormente funcionará como um back-end.
+Repita as etapas para [Criar um aplicativo de função](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) a fim de criar um novo aplicativo de função no qual você criará o proxy. A URL do novo aplicativo serve como o front-end para nossa API, e o aplicativo de funções que você estava editando anteriormente funciona como um back-end.
 
 1. Navegue até seu novo aplicativo de função front-end no portal.
 1. Selecione **Recursos de Plataforma** e escolha **Configurações de Aplicativo**.
-1. Role para baixo até **Configurações de aplicativo**, em que os pares chave/valor são armazenados e crie uma nova configuração com a chave “HELLO_HOST”. Defina o valor dela como o host de seu aplicativo de função de back-end, como `<YourBackendApp>.azurewebsites.net`. Isso faz parte da URL que você copiou anteriormente ao testar sua função HTTP. Você fará referência a essa configuração mais adiante na configuração.
+1. Role para baixo até **configurações do aplicativo**, onde os pares chave/valor são armazenados e crie uma nova configuração com a chave `HELLO_HOST` . Defina o valor dela como o host de seu aplicativo de função de back-end, como `<YourBackendApp>.azurewebsites.net`. Esse valor é parte da URL que você copiou anteriormente ao testar sua função HTTP. Você fará referência a essa configuração mais adiante na configuração.
 
     > [!NOTE] 
     > As configurações do aplicativo são recomendadas para a configuração do host a fim de evitar uma dependência do ambiente embutida no código para o proxy. Usar configurações do aplicativo significa que você pode mover a configuração do proxy entre ambientes, e as configurações de aplicativo específicas ao ambiente serão aplicadas.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>Criar um proxy no front-end
 
-1. Navegue novamente até seu aplicativo de função front-end no portal.
-1. No painel de navegação esquerdo, clique no sinal '+' ao lado de "Proxies".
-    ![Criação de um proxy](./media/functions-create-serverless-api/creating-proxy.png)
-1. Use as configurações de proxy conforme especificado na tabela. 
+1. Navegue de volta para seu aplicativo de funções de front-end no Portal.
+
+1. No menu à esquerda, selecione **proxies**e, em seguida, selecione **Adicionar**. 
+
+1. Na página **novo proxy** , use as configurações na tabela a seguir e, em seguida, selecione **criar**.
 
     | Campo | Valor de exemplo | Descrição |
     |---|---|---|
     | Nome | HelloProxy | Um nome amigável usado apenas para gerenciamento |
     | Modelo de rota | /api/remotehello | Determina qual rota pode ser usada para chamar esse proxy |
     | URL do back-end | https://%HELLO_HOST%/api/hello | Especifica o ponto de extremidade ao qual a solicitação deve ser transmitida por proxy |
+
     
-1. Observe que os Proxies não fornecem o prefixo de caminho base `/api`, e ele deve ser incluído no modelo de rota.
-1. A sintaxe `%HELLO_HOST%` fará referência a configuração do aplicativo que você criou anteriormente. A URL resolvida apontará para sua função original.
-1. Clique em **Criar**.
-1. Você pode testar seu novo proxy copiando a URL do Proxy e o testando no navegador ou com seu cliente HTTP favorito.
-    1. Para uma função anônima, use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
-    1. Para uma função com autorização, use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Criação de um proxy":::
+
+    Proxies do Azure Functions não fornece o `/api` prefixo de caminho base, que deve ser incluído no modelo de rota. A `%HELLO_HOST%` sintaxe faz referência à configuração do aplicativo que você criou anteriormente. A URL resolvida apontará para sua função original.
+
+1. Experimente seu novo proxy copiando a URL do proxy e testando-a no navegador ou com seu cliente HTTP favorito:
+    - Para uma função anônima, use: `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"` .
+    - Para uma função com autorização, use: `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"` .
 
 ## <a name="create-a-mock-api"></a>Criar uma API de simulação
 
-Em seguida, você usará um proxy para criar uma API de simulação para sua solução. Isso permite o progresso do desenvolvimento do cliente, sem a necessidade de implementar totalmente o back-end. Posteriormente no desenvolvimento, você poderá criar um novo aplicativo de função que oferece suporte a essa lógica e redirecionar seu proxy até ele.
+Em seguida, você usará um proxy para criar uma API fictícia para sua solução. Esse proxy permite que o desenvolvimento de clientes seja progredido, sem a necessidade de um back-end totalmente implementado. Posteriormente, no desenvolvimento, você pode criar um novo aplicativo de funções, que oferece suporte a essa lógica e redirecionar o proxy para ele.
 
-Para criar essa API de simulação, criaremos um novo proxy, dessa vez usando o [Editor do Serviço de Aplicativo](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Para começar, navegue até seu aplicativo de função no portal. Selecione **Recursos de plataforma** e, em **Ferramentas de Desenvolvimento**, encontre **Editor do Serviço de Aplicativo**. Clique nele para abrir o Editor de Serviço de Aplicativo em uma nova guia.
+Para criar essa API fictícia, criaremos um novo proxy, desta vez usando o [Editor do serviço de aplicativo](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Para começar, navegue até seu aplicativo de função no portal. Selecione **recursos de plataforma**e, em **ferramentas de desenvolvimento** , localize **Editor do serviço de aplicativo**. O Editor do Serviço de Aplicativo é aberto em uma nova guia.
 
-Selecione `proxies.json` no painel de navegação esquerdo. Este é o arquivo que armazena a configuração de todos os seus proxies. Se você usar um dos [métodos de implantação do Functions](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), esse será o arquivo mantido no controle de origem. Para saber mais sobre esse arquivo, confira [Configuração avançada de proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
+Selecione `proxies.json` no painel de navegação esquerdo. Esse arquivo armazena a configuração de todos os seus proxies. Se você usar um dos [métodos de implantação de funções](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), você manterá esse arquivo no controle do código-fonte. Para saber mais sobre esse arquivo, confira [Configuração avançada de proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
-Se você acompanhou até agora, o proxies.json deve ser semelhante ao seguinte:
+Se você seguiu até agora, seu proxys. JSON deve ser semelhante ao seguinte:
 
 ```json
 {
@@ -136,7 +144,7 @@ Se você acompanhou até agora, o proxies.json deve ser semelhante ao seguinte:
 }
 ```
 
-Em seguida, você adicionará sua API de simulação. Substitua o arquivo proxies.json pelo seguinte:
+Em seguida, você adicionará sua API de simulação. Substitua seu arquivo proxies. JSON pelo código a seguir:
 
 ```json
 {
@@ -172,7 +180,7 @@ Em seguida, você adicionará sua API de simulação. Substitua o arquivo proxie
 }
 ```
 
-Isso adiciona um novo proxy "GetUserByName", sem a propriedade backendUri. Em vez de chamar outro recurso, ele modifica a resposta padrão dos Proxies usando uma substituição de resposta. Substituições de solicitação e resposta também podem ser usadas em conjunto com uma URL de back-end. Isso é particularmente útil ao fazer o proxy para um sistema herdado, onde talvez seja necessário modificar cabeçalhos, parâmetros de consulta, etc. Para saber mais sobre substituições de solicitação e resposta, consulte [modificando solicitações e respostas em proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+Esse código adiciona um novo proxy, `GetUserByName` , sem a `backendUri` propriedade. Em vez de chamar outro recurso, ele modifica a resposta padrão dos Proxies usando uma substituição de resposta. Substituições de solicitação e resposta também podem ser usadas em conjunto com uma URL de back-end. Essa técnica é particularmente útil ao fazer o proxy para um sistema herdado, onde talvez seja necessário modificar cabeçalhos, parâmetros de consulta e assim por diante. Para saber mais sobre as substituições de solicitação e resposta, Confira [Modificar solicitações e respostas em Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Teste sua API de simulação chamando o ponto de extremidade `<YourProxyApp>.azurewebsites.net/api/users/{username}` usando um navegador ou seu cliente REST favorito. Não deixe de substituir _{username}_ por um valor de cadeia de caracteres que represente um nome de usuário.
 

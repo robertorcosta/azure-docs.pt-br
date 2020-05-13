@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fa28e07c28c36c03ab9e85d8436e3f1a2b36ad1c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993955"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123829"
 ---
 # <a name="blob-versioning-preview"></a>Controle de versão de BLOB (visualização)
 
@@ -167,7 +167,7 @@ O diagrama a seguir mostra o que acontece quando você tira um instantâneo de u
 Você pode autorizar o acesso a versões de BLOB usando uma das seguintes abordagens:
 
 - Usando o RBAC (controle de acesso baseado em função) para conceder permissões a uma entidade de segurança do Azure Active Directory (Azure AD). A Microsoft recomenda usar o Azure AD para segurança superior e facilidade de uso. Para obter mais informações sobre como usar o Azure AD com operações de BLOB, consulte [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](../common/storage-auth-aad.md).
-- Usando uma SAS (assinatura de acesso compartilhado) para delegar o acesso a versões de BLOB. Especifique a ID da versão para o tipo `bv`de recurso assinado, que representa uma versão de BLOB, para criar um token SAS para operações em uma versão específica. Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).
+- Usando uma SAS (assinatura de acesso compartilhado) para delegar o acesso a versões de BLOB. Especifique a ID da versão para o tipo de recurso assinado `bv` , que representa uma versão de BLOB, para criar um token SAS para operações em uma versão específica. Para obter mais informações sobre assinaturas de acesso compartilhado, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).
 - Usando as chaves de acesso da conta para autorizar operações em versões de blob com chave compartilhada. Para obter mais informações, consulte [Autorizar com Chave Compartilhada](/rest/api/storageservices/authorize-with-shared-key).
 
 O controle de versão de blob foi projetado para proteger seus dados contra exclusão acidental ou mal-intencionada. Para aprimorar a proteção, a exclusão de uma versão de blob requer permissões especiais. As seções a seguir descrevem as permissões necessárias para excluir uma versão de BLOB.
@@ -183,7 +183,7 @@ A tabela a seguir mostra quais ações do RBAC dão suporte à exclusão de um B
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parâmetros de assinatura de acesso compartilhado (SAS)
 
-O recurso assinado para uma versão de blob `bv`é. Para obter mais informações, consulte [criar uma SAS de serviço](/rest/api/storageservices/create-service-sas) ou [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-user-delegation-sas).
+O recurso assinado para uma versão de blob é `bv` . Para obter mais informações, consulte [criar uma SAS de serviço](/rest/api/storageservices/create-service-sas) ou [criar uma SAS de delegação de usuário](/rest/api/storageservices/create-user-delegation-sas).
 
 A tabela a seguir mostra a permissão necessária em uma SAS para excluir uma versão de BLOB.
 
@@ -224,9 +224,10 @@ Para se registrar na visualização de controle de versão do blob, use o PowerS
 Para se registrar no PowerShell, chame o comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
 ```powershell
+# Register for blob versioning (preview)
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-    
+
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
@@ -308,11 +309,11 @@ No cenário 3, o blob foi atualizado, mas a versão não. O bloco 3 foi substitu
 
 #### <a name="scenario-4"></a>Cenário 4
 
-No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada por todos os oito blocos &mdash; exclusivos quatro no blob de base e quatro na versão anterior. Esse cenário pode ocorrer se você estiver gravando em um blob com a operação Put Blob, pois ele substitui todo o conteúdo do blob de base.
+No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada por todos os oito blocos exclusivos &mdash; quatro no blob de base e quatro na versão anterior. Esse cenário pode ocorrer se você estiver gravando em um blob com a operação Put Blob, pois ele substitui todo o conteúdo do blob de base.
 
 ![Recursos de Armazenamento do Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Habilitar controle de versão de blob](versioning-enable.md)
 - [Criando um instantâneo de um blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
