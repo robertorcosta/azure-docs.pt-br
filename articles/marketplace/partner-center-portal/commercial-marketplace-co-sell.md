@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80517934"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201444"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta na Central de Parceiros
 
@@ -22,11 +22,11 @@ A opção de venda conjunta no Partner Center está disponível no momento para 
 
 | **Tipo de oferta** | **Página de co-venda disponível no Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| SaaS (software como serviço) |     Disponibilidade geral de abril de 2020      |
+| SaaS (software como serviço) |      Disponível agora      |
 | Dynamics 365 para compromisso com o cliente & PowerApps      |     Disponível agora      |
 | Dynamics 365 for Operations     |     Disponível agora       |
-| Dynamics 365 Business Central      |  Disponibilidade geral de abril de 2020     |
-| Aplicativo do Azure     |     Disponibilidade geral de abril de 2020     |
+| Dynamics 365 Business Central      |   Disponível agora     |
+| Aplicativo do Azure     |      Disponível agora     |
 | Máquina Virtual do Azure      |     A ser anunciado       |
 | Contêiner do Azure     |     A ser anunciado       |
 | Serviço de consultoria      |     A ser anunciado       |
@@ -58,7 +58,7 @@ Os tipos de solução ajudam a definir os cenários para os quais sua oferta foi
 
 As áreas de solução ajudam a definir ainda mais sua solução.
 
-Você pode adicionar até três áreas de solução para sua oferta. Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use `Ctrl` a chave (no Windows) ou a tecla de comando (em Mac os).
+Você pode adicionar até três áreas de solução para sua oferta. Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use a `Ctrl` chave (no Windows) ou a tecla de comando (em Mac os).
 
 ## <a name="documents"></a>Documentos
 
