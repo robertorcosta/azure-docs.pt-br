@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2ca3bde0cfee97adee8bb875df1522e95b1f53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 752df34c263563cdb970cadb59f92f2811af378e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263498"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199518"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar usuários de colaboração B2B do Azure Active Directory no Portal do Azure
 
@@ -42,9 +42,6 @@ Para adicionar usuários de colaboração B2B ao diretório, siga estas etapas:
 
    ![Mostra onde o novo usuário convidado está na interface do usuário](./media/add-users-administrator/new-guest-user-in-all-users.png) 
  
-   > [!NOTE]
-   > A opção **Novo usuário convidado** também está disponível na página **Relações organizacionais**. No **Azure Active Directory**, em **Gerenciar**, selecione **Relações organizacionais**.
-
 5. Na página **Novo usuário**, selecione **Convidar usuário** e adicione as informações do usuário convidado. 
 
     > [!NOTE]

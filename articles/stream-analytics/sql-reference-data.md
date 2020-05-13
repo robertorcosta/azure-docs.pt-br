@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6feca8cc87eadb2be5f43cafaa82195a18c3c75
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426492"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200377"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usar dados de referência de um banco de dado SQL para um trabalho Azure Stream Analytics
 
@@ -147,7 +147,7 @@ Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados
    ```
 2. Crie a consulta de instantâneo. 
 
-   Use o ** \@parâmetro SnapshotTime** para instruir o tempo de execução do Stream Analytics a obter o conjunto de dados de referência da tabela temporal do banco de dado SQL válida na hora do sistema. Se não fornecer esse parâmetro, você corre o risco de obter um conjunto impreciso de dados de referência de base devido à defasagem de horário. Veja a seguir um exemplo de uma consulta completa de instantâneo:
+   Use o parâmetro ** \@ SnapshotTime** para instruir o tempo de execução do Stream Analytics a obter o conjunto de dados de referência da tabela temporal do banco de dado SQL válida na hora do sistema. Se não fornecer esse parâmetro, você corre o risco de obter um conjunto impreciso de dados de referência de base devido à defasagem de horário. Veja a seguir um exemplo de uma consulta completa de instantâneo:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,16 +156,16 @@ Ao usar a consulta delta, são recomendadas [tabelas temporais no Banco de Dados
  
 2. Crie a consulta delta. 
    
-   Essa consulta recupera todas as linhas no banco de dados SQL que foram inseridas ou excluídas em uma hora de início, ** \@deltaStartTime**e uma hora ** \@** de término deltaEndTime. A consulta delta terá de retornar as mesmas colunas como a consulta de instantâneo, bem como a coluna **_operação_**. Esta coluna define se a linha é inserida ou excluída entre ** \@deltaStartTime** e ** \@deltaEndTime**. As linhas resultantes são sinalizadas como **1**, se os registros foram inseridos, ou **2** se excluídos. 
+   Essa consulta recupera todas as linhas no banco de dados SQL que foram inseridas ou excluídas em uma hora de início, ** \@ deltaStartTime**e uma hora de término ** \@ deltaEndTime**. A consulta delta terá de retornar as mesmas colunas como a consulta de instantâneo, bem como a coluna **_operação_**. Esta coluna define se a linha é inserida ou excluída entre ** \@ deltaStartTime** e ** \@ deltaEndTime**. As linhas resultantes são sinalizadas como **1**, se os registros foram inseridos, ou **2** se excluídos. A consulta também deve adicionar uma **marca-d ' água** do lado do SQL Server para garantir que todas as atualizações no período Delta sejam capturadas adequadamente. Usar a consulta Delta sem **marca d' água** pode resultar em um conjunto de resultados de referência incorreto.  
 
    Quanto aos registros que foram atualizados, a tabela temporal faz a contabilidade, capturando uma operação de inserção e exclusão. O runtime do Stream Analytics aplicará os resultados da consulta delta para o instantâneo anterior a fim de manter os dados de referência atualizados. Veja a seguir um exemplo de consulta delta:
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as watermark 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as watermark 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```

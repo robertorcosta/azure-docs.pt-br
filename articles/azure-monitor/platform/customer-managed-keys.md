@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/07/2020
-ms.openlocfilehash: c78d8d603b6686d382ec7edcccc24d5dacc4745a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2838051d8e75ffbe3b7ecc9fbc655f24b57199e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982217"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198675"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor chave gerenciada pelo cliente 
 
@@ -20,10 +20,6 @@ Este artigo fornece informações básicas e etapas para configurar chaves geren
 Recomendamos que você revise as [limitações e restrições](#limitations-and-constraints) abaixo antes da configuração.
 
 ## <a name="disclaimers"></a>Avisos de Isenção de Responsabilidade
-
-- Azure Monitor CMK é um recurso de acesso antecipado e está habilitado para assinaturas registradas.
-
-- A implantação do CMK descrita neste artigo é fornecida em qualidade de produção e tem suporte como tal, embora seja um recurso de acesso antecipado.
 
 - O recurso CMK é fornecido em um cluster de Log Analytics dedicado, que é um cluster físico e um armazenamento de dados que é adequado para clientes que enviam 1 TB por dia ou mais
 
@@ -42,7 +38,7 @@ Os dados ingeridos nos últimos 14 dias também são mantidos no cache quente (c
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Como o CMK funciona em Azure Monitor
 
-Azure Monitor utiliza a identidade gerenciada atribuída pelo sistema para conceder acesso ao seu Azure Key Vault.A identidade gerenciada atribuída pelo sistema só pode ser associada a um único recurso do Azure. A identidade do cluster de Log Analytics dedicado tem suporte no nível do cluster e isso determina que o recurso CMK seja entregue no cluster de Log Analytics dedicado. Para dar suporte a CMK em vários espaços de trabalho, um novo recurso de *Cluster* log Analytics é executado como uma conexão de identidade intermediária entre seu Key Vault e seus espaços de trabalho do log Analytics. Esse conceito mantém a identidade entre o cluster Log Analytics dedicado e o recurso de *cluster* log Analytics, enquanto os dados de espaços de trabalho associados são protegidos com sua chave de Key Vault. O armazenamento de cluster Log Analytics dedicado usa a identidade gerenciada que\'os s associados ao recurso de *cluster* para autenticar e acessar seus Azure Key Vault via Azure Active Directory.
+Azure Monitor utiliza a identidade gerenciada atribuída pelo sistema para conceder acesso ao seu Azure Key Vault.A identidade gerenciada atribuída pelo sistema só pode ser associada a um único recurso do Azure. A identidade do cluster de Log Analytics dedicado tem suporte no nível do cluster e isso determina que o recurso CMK seja entregue no cluster de Log Analytics dedicado. Para dar suporte a CMK em vários espaços de trabalho, um novo recurso de *Cluster* log Analytics é executado como uma conexão de identidade intermediária entre seu Key Vault e seus espaços de trabalho do log Analytics. Esse conceito mantém a identidade entre o cluster Log Analytics dedicado e o recurso de *cluster* log Analytics, enquanto os dados de espaços de trabalho associados são protegidos com sua chave de Key Vault. O armazenamento de cluster Log Analytics dedicado usa a identidade gerenciada que \' os s associados ao recurso de *cluster* para autenticar e acessar seus Azure Key Vault via Azure Active Directory.
 
 ![Visão geral do CMK](media/customer-managed-keys/cmk-overview-8bit.png)
 1.    Key Vault do cliente.
@@ -72,7 +68,7 @@ As seguintes regras se aplicam:
 
 ## <a name="cmk-provisioning-procedure"></a>Procedimento de provisionamento do CMK
 
-1. Lista de permissões da assinatura--isso é necessário para este recurso de acesso antecipado
+1. Lista de permissões da assinatura--para garantir que tenhamos a capacidade necessária em sua região para o cluster de Log Analytics dedicado, precisamos verificar e colocar sua assinatura na lista de permissões antecipadamente
 2. Criando Azure Key Vault e armazenando a chave
 3. Criando um recurso de *cluster*
 5. Concedendo permissões ao seu Key Vault
@@ -83,7 +79,7 @@ O procedimento não tem suporte na interface do usuário no momento e o processo
 > [!IMPORTANT]
 > Qualquer solicitação de API deve incluir um token de autorização de portador no cabeçalho da solicitação.
 
-Por exemplo: 
+Por exemplo:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -173,7 +169,7 @@ Essas configurações estão disponíveis por meio da CLI e do PowerShell:
 
 Esse recurso é usado como uma conexão de identidade intermediária entre seu Key Vault e seus espaços de trabalho do Log Analytics. Depois de receber a confirmação de que suas assinaturas foram colocadas na lista de permissões, crie um Log Analytics recurso de *cluster* na região em que os espaços de trabalho estão localizados.
 
-Você deve especificar o nível de *reserva de capacidade* (SKU) ao criar um recurso de *cluster* . O nível de *reserva de capacidade* pode estar no intervalo de 1.000 a 2.000 GB por dia e você pode atualizá-lo em etapas de 100 mais tarde. Se você precisar de um nível de reserva de capacidade superior a 2.000 GB por dia LAIngestionRate@microsoft.com, entre em contato conosco em. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+Você deve especificar o nível de *reserva de capacidade* (SKU) ao criar um recurso de *cluster* . O nível de *reserva de capacidade* pode estar no intervalo de 1.000 a 2.000 GB por dia e você pode atualizá-lo em etapas de 100 mais tarde. Se você precisar de um nível de reserva de capacidade superior a 2.000 GB por dia, entre em contato conosco em LAIngestionRate@microsoft.com . [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
     
 A propriedade *billtype* determina a atribuição de cobrança para o recurso de *cluster* e seus dados:
 - *cluster* (padrão)--a cobrança é atribuída à assinatura que hospeda o recurso de *cluster*
@@ -420,16 +416,17 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## <a name="cmk-kek-revocation"></a>Revogação de CMK (KEK)
 
-Você pode revogar o acesso aos seus dados desabilitando sua chave ou excluindo a política de acesso ao recurso de *cluster* em seu Key Vault. Azure Monitor armazenamento sempre respeitará as alterações nas permissões de chave em uma hora, normalmente antes e o armazenamento ficará indisponível. Todos os dados ingeridos em espaços de trabalho associados ao recurso de *cluster* serão eliminados e as consultas falharão. Os dados anteriormente ingeridos permanecem inacessíveis no armazenamento Azure Monitor, desde que você seja o recurso de *cluster* e seus espaços de trabalho não sejam excluídos. Os dados inacessíveis são regidos pela política de retenção de dados e serão limpos quando a retenção for atingida. 
+Você pode revogar o acesso aos dados desabilitando sua chave ou excluindo a política de acesso ao recurso de *cluster* em seu Key Vault. O armazenamento de cluster dedicado Log Analytics sempre respeitará as alterações nas permissões de chave dentro de uma hora ou antes, e o armazenamento ficará indisponível. Todos os dados ingeridos em espaços de trabalho associados ao recurso de *cluster* são eliminados e as consultas falharão. Os dados anteriormente ingeridos permanecem inacessíveis no armazenamento enquanto o recurso de *cluster* e seus espaços de trabalho não são excluídos. Os dados inacessíveis são regidos pela política de retenção de dados e serão limpos quando a retenção for atingida. 
 
-Os dados ingeridos nos últimos 14 dias também são mantidos no cache quente (com suporte SSD) para uma operação eficiente do mecanismo de consulta. Esses dados permanecem criptografados com chaves da Microsoft, independentemente da configuração de CMK, mas são excluídos na operação de revogação de chave e se tornam inacessíveis também.
+Os dados ingeridos nos últimos 14 dias também são mantidos no cache quente (com suporte SSD) para uma operação eficiente do mecanismo de consulta. Isso é excluído na operação de revogação de chave e se torna inacessível também.
 
-O armazenamento sonda periodicamente seu Key Vault para tentar desencapsular a chave de criptografia e, depois de acessado, a ingestão de dados e a retomada de consulta dentro de 30 minutos.
+O armazenamento pesquisa periodicamente seu Key Vault para tentar desencapsular a chave de criptografia e, depois de acessado, a ingestão de dados e a retomada de consulta dentro de 30 minutos.
 
 ## <a name="cmk-kek-rotation"></a>Rotação de CMK (KEK)
 
-A rotação de CMK requer uma atualização explícita do recurso de *cluster* com a nova versão de chave no Azure Key Vault. Para atualizar Azure Monitor com a nova versão de chave, siga as instruções na etapa "atualizar recurso de *cluster* com detalhes do identificador de chave". Se você atualizar a versão de chave em Key Vault e não atualizar os novos detalhes do identificador de chave no recurso de *cluster* , o armazenamento de Azure monitor continuará usando sua chave anterior.
-Todos os seus dados podem ser acessados após a operação de rotação de chaves, incluindo dados ingeridos antes da rotação e depois dele, já que todos os dados permanecem criptografados pela AEK (chave de criptografia da conta) enquanto o AEK agora está sendo criptografado pela nova versão de KEK (chave de criptografia de chave).
+A rotação de CMK requer atualização explícita para o recurso de *cluster* com a nova versão de chave no Azure Key Vault. Siga as instruções na etapa "atualizar recurso de *cluster* com detalhes do identificador de chave". Se você não atualizar os novos detalhes do identificador de chave no recurso de *cluster* , o armazenamento de cluster dedicado log Analytics continuará usando sua chave anterior.
+
+Todos os seus dados permanecem acessíveis após a operação de rotação de chaves, incluindo dados ingeridos antes da rotação e depois dele, já que os dados sempre criptografados com AEK (chave de criptografia de conta) enquanto o AEK agora estão sendo criptografados com a nova versão de KEK (chave de criptografia de chave) no Key Vault.
 
 ## <a name="limitations-and-constraints"></a>Limitações e restrições
 
@@ -575,8 +572,7 @@ Todos os seus dados podem ser acessados após a operação de rotação de chave
 
 - **Recuperar o recurso de *cluster* e seus dados** 
   
-  Um recurso de *cluster* que foi excluído nos últimos 14 dias está no estado de exclusão reversível e pode ser recuperado. Isso é executado manualmente pelo grupo de produtos no momento. Use seu canal da Microsoft para solicitações de recuperação.
-
+  Um recurso de *cluster* que foi excluído nos últimos 14 dias está no estado de exclusão reversível e pode ser recuperado com seus dados. Como todos os espaços de trabalho foram desassociados do recurso de *cluster* na exclusão, você precisa associar novamente os espaços de trabalho após a recuperação para criptografia CMK. A operação de recuperação é executada manualmente pelo grupo de produtos no momento. Use seu canal da Microsoft para solicitações de recuperação.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 - Comportamento com disponibilidade de Key Vault
@@ -595,3 +591,10 @@ Todos os seus dados podem ser acessados após a operação de rotação de chave
 - Se você receber um erro de conflito ao criar um recurso de *cluster* , pode ser que você tenha excluído o recurso de *cluster* nos últimos 14 dias e esteja em um período de exclusão reversível. O nome do recurso de *cluster* permanece reservado durante o período de exclusão reversível e você não pode criar um novo cluster com esse nome. O nome é liberado após o período de exclusão reversível quando o recurso de *cluster* é excluído permanentemente.
 
 - Se você atualizar o recurso de *cluster* enquanto uma operação estiver em andamento, a operação falhará.
+
+- Se você não implantar o recurso de *cluster* , verifique se o Azure Key Vault, o recurso de *cluster*   e os espaços de trabalho de log Analytics associados estão na mesma região. O pode estar em assinaturas diferentes.
+
+- Se você atualizar a versão de chave no Key Vault e não atualizar os novos detalhes do identificador de chave no recurso de *cluster* , o cluster de log Analytics continuará usando sua chave anterior e seus dados ficarão inacessíveis. Atualize os novos detalhes do identificador de chave no recurso de *cluster* para retomar a ingestão de dados e a capacidade de consultar dados.
+
+- Para obter suporte e ajuda relacionados à chave gerenciada pelo cliente, use seus contatos na Microsoft.
+

@@ -12,12 +12,13 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512820"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197864"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planejar uma implantação de logon único
 
@@ -236,11 +237,11 @@ Sempre use a função com o mínimo de permissões disponíveis para realizar a 
 
 | Persona| Funções | Função do Azure AD (se necessário) |
 |--------|-------|-----------------------------|
-| Administrador de assistência técnica | Suporte da camada 1 | Nenhum |
+| Administrador de assistência técnica | Suporte da camada 1 | Não |
 | Administrador de identidade | Configurar e depurar quando os problemas afetam o Azure AD | Administrador global |
-| Administrador do aplicativo | Atestado de usuário no aplicativo, configuração de usuários com permissões | Nenhum |
+| Administrador do aplicativo | Atestado de usuário no aplicativo, configuração de usuários com permissões | Não |
 | Administradores de infraestrutura | Proprietário da substituição do certificado | Administrador global |
-| Proprietário da empresa/participante | Atestado de usuário no aplicativo, configuração de usuários com permissões | Nenhum |
+| Proprietário da empresa/participante | Atestado de usuário no aplicativo, configuração de usuários com permissões | Não |
 
 Recomendamos o uso de [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) para gerenciar suas funções para fornecer auditoria adicional, controle e revisão de acesso para usuários com permissões de diretório.
 

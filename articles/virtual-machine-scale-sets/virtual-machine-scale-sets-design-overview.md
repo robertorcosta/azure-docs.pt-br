@@ -3,19 +3,19 @@ title: Considerações de design para conjuntos de dimensionamento de máquinas 
 description: Saiba mais sobre as considerações de design para seus conjuntos de dimensionamento de máquinas virtuais do Azure. Compare os recursos dos conjuntos de dimensionamento com recursos de VM.
 keywords: máquina virtual linux, conjuntos de dimensionamento de máquina virtual
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
-ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: vm-linux
-ms.topic: conceptual
-ms.date: 06/01/2017
 ms.author: mimckitt
-ms.openlocfilehash: 20f6cb08781c7c6aca7a4022e75a7be8640ef18a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 06/01/2017
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 0676a7d31d141e0c264119a54b77ec29a527374b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273759"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200191"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerações de design para conjuntos de dimensionamento
 Este artigo discute considerações de design para Conjuntos de Dimensionamento de Máquinas Virtuais. Para obter informações sobre o que são Conjuntos de Escala de Máquina Virtual, confira [Conjuntos de Dimensionamento de Máquina Virtual - Visão Geral](virtual-machine-scale-sets-overview.md).

@@ -3,12 +3,12 @@ title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
 description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537569"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200682"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -26,9 +26,10 @@ Entre no [portal do Azure](https://portal.azure.com)e crie um recurso de Applica
 
    | Configurações        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor exclusivo | Nome que identifica o aplicativo que você está monitorando. |
-   | **Grupo de recursos**     | myResourceGroup      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |
-   | **Local** | Leste dos EUA | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
+   | **Nome**      | `Unique value` | Nome que identifica o aplicativo que você está monitorando. |
+   | **Grupo de recursos**     | `myResourceGroup`      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |
+   | **Região** | `East US` | Escolha uma localização perto de você ou de onde seu aplicativo está hospedado. |
+   | **Modo de recurso** | `Classic` ou `Workspace-based` | Os recursos baseados em espaço de trabalho estão atualmente em visualização pública e permitem que você envie sua telemetria de Application Insights para um espaço de trabalho Log Analytics comum. Para obter mais informações, consulte o [artigo sobre recursos baseados em espaço de trabalho](create-workspace-resource.md).
 
 > [!NOTE]
 > Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) , pois ele simplifica a sintaxe necessária.
@@ -96,7 +97,7 @@ Para obter a documentação completa do PowerShell para esse cmdlet e saber como
 
 ### <a name="azure-cli-preview"></a>CLI do Azure (versão prévia)
 
-Para acessar a visualização Application Insights CLI do Azure comandos que você precisa primeiro executar:
+Para acessar a visualização Application Insights CLI do Azure comandos, primeiro você precisa executar:
 
 ```azurecli
  az extension add -n application-insights

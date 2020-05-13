@@ -13,20 +13,18 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1be7ceb9b0560b87d0917fdb57b2c21e0b050db9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839089"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199575"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
-Este artigo lista as operações disponíveis para cada provedor de recursos do Azure Resource Manager. Essas operações podem ser usadas em [funções personalizadas do Azure](custom-roles.md) para fornecer controle de acesso granular aos recursos no Azure. As cadeias de caracteres de operação `{Company}.{ProviderName}/{resourceType}/{action}`têm o seguinte formato:. Para obter uma lista de como os namespaces do provedor de recursos são mapeados para os serviços do Azure, consulte [corresponder provedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md).
+Este artigo lista as operações disponíveis para cada provedor de recursos do Azure Resource Manager. Essas operações podem ser usadas em [funções personalizadas do Azure](custom-roles.md) para fornecer controle de acesso granular aos recursos no Azure. As cadeias de caracteres de operação têm o seguinte formato: `{Company}.{ProviderName}/{resourceType}/{action}` . Para obter uma lista de como os namespaces do provedor de recursos são mapeados para os serviços do Azure, consulte [corresponder provedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 As operações do provedor de recursos estão sempre em evolução. Para obter as operações mais recentes, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
@@ -52,7 +50,7 @@ Serviço do Azure: [Azure Active Directory Domain Services](../active-directory-
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
-Active Directory do Azure
+Azure Active Directory
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de ação | Operação | Descrição |
@@ -2137,7 +2135,7 @@ Serviço do Azure: [Serviços cognitivas](../cognitive-services/index.yml)
 > | DataAction | Microsoft. Cognitivaservices/contas/verificação ortográfica/verificação ortográfica/ação | Obtenha o resultado de uma consulta de verificação ortográfica por meio de GET ou POST. |
 > |  | **contas/textanalytics** |  |
 > | DataAction | Microsoft. Cognitivaservices/accounts/textanalytics/Languages/Action | A API retorna o idioma detectado e uma pontuação numérica entre 0 e 1. Classificações próximas a 1 indicam 100% de certeza de que o idioma identificado é verdadeiro. Há 120 idiomas com suporte no total. |
-> | DataAction | Microsoft. Cognitivaservices/contas/textanalytics/entidades/ação | A API retorna uma lista de entidades conhecidas e entidades nomeadas gerais\"(\"pessoa \",\"local \",\" organização etc.) em um determinado documento. |
+> | DataAction | Microsoft. Cognitivaservices/contas/textanalytics/entidades/ação | A API retorna uma lista de entidades conhecidas e entidades nomeadas gerais ( \" pessoa \" , \" local \" , \" organização \" etc.) em um determinado documento. |
 > | DataAction | Microsoft. Cognitivaservices/accounts/xmlanalytics/keyfrases/ação | A API retorna uma lista de cadeias de caracteres representando os principais pontos de discussão no texto de entrada. |
 > | DataAction | Microsoft. Cognitivaservices/accounts/textanalytics/sentimentos/Action | A API retorna uma pontuação numérica entre 0 e 1.<br>Classificações próximas de 1 indicam sentimento positivo, enquanto as classificações próximas de 0 indicam sentimento negativo.<br>Uma pontuação de 0,5 indica a falta de sentimentos (por exemplo,<br>uma instrução factoname). |
 > |  | **contas/VideoSearch** |  |

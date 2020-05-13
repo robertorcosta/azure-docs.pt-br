@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7917b63b86e4d103061a902f74c368dfd6c123b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160726"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199499"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate do convite de colaboração do Azure Active Directory B2B
 
@@ -42,9 +42,9 @@ Como alternativa ao email de convite, você pode dar a um convidado um link dire
 
 > [!IMPORTANT]
 > O link direto deve ser específico do locatário. Em outras palavras, ele deve incluir uma ID de locatário ou um domínio verificado para que o convidado possa ser autenticado em seu locatário, onde o aplicativo compartilhado está localizado. Uma URL comum como https://myapps.microsoft.com não funcionará para um convidado porque será redirecionada para seu locatário inicial para autenticação. Aqui estão alguns exemplos de links diretos com o contexto do locatário:
- > - Painel de acesso de https://myapps.microsoft.com/?tenantid=&ltaplicativos:; ID do locatário&gt; 
- > - Painel de acesso de aplicativos para um domínio https://myapps.microsoft.com/&ltverificado:; domínio verificado&gt;
- > - Portal do Azure: https://portal.azure.com/&lt; ID do locatário&gt;
+ > - Painel de acesso de aplicativos: https://myapps.microsoft.com/?tenantid=&lt ; ID do locatário&gt; 
+ > - Painel de acesso de aplicativos para um domínio verificado: https://myapps.microsoft.com/&lt ; domínio verificado&gt;
+ > - Portal do Azure: https://portal.azure.com/&lt ; ID do locatário&gt;
  > - Aplicativo individual: consulte como usar um [link de logon direto](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Há alguns casos em que o email de convite é recomendado em um link direto. Se esses casos especiais forem importantes para sua organização, recomendamos que você convide os usuários usando métodos que ainda enviam o email de convite:
@@ -99,7 +99,7 @@ Quando um convidado entra para acessar recursos em uma organização parceira pe
 
    ![Captura de tela mostrando os novos termos de uso](media/redemption-experience/terms-of-use-accept.png) 
 
-   Você pode configurar Ver [termos de uso](../governance/active-directory-tou.md) em **gerenciar** > **relações** > organizacionais**termos de uso**.
+   Você pode configurar os [termos de uso](../governance/active-directory-tou.md) em **relações organizacionais** (ou **identidades externas**) > **termos de uso**.
 
 3. A menos que especificado de outra forma, o convidado é redirecionado para o painel de acesso de aplicativos, que lista os aplicativos que o convidado pode acessar.
 
@@ -109,7 +109,7 @@ No seu diretório, o valor de **convite aceito** do convidado muda para **Sim**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 - [Adicionar usuários de colaboração B2B do Azure Active Directory no Portal do Azure](add-users-administrator.md)
 - [Como os operadores de informação adicionam usuários de colaboração B2B ao Azure Active Directory?](add-users-information-worker.md)
 - [Adicionar usuários de colaboração B2B do Azure Active Directory usando o PowerShell](customize-invitation-api.md#powershell)

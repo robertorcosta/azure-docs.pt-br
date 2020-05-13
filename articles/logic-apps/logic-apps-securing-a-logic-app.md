@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: b00dae5c807cb8bec3b9e345c9b2af2c227139b7
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 7979d1288cd99f8e28a421663383a930e0346357
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901153"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199598"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -44,7 +44,7 @@ Cada ponto de extremidade de solicitação em um aplicativo lógico tem uma [ass
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
-Cada URL contém o `sp`parâmetro `sv`de consulta `sig` , e, conforme descrito nesta tabela:
+Cada URL contém o `sp` `sv` parâmetro de consulta, e, `sig` conforme descrito nesta tabela:
 
 | Parâmetro de consulta | Descrição |
 |-----------------|-------------|
@@ -81,7 +81,7 @@ Se você compartilhar a URL do ponto de extremidade para um gatilho baseado em s
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-No corpo, inclua a `NotAfter`propriedade usando uma cadeia de caracteres de data JSON. Essa propriedade retorna uma URL de retorno de chamada válida somente até a data e hora `NotAfter`.
+No corpo, inclua a `NotAfter` propriedade usando uma cadeia de caracteres de data JSON. Essa propriedade retorna uma URL de retorno de chamada válida somente até a data e hora `NotAfter`.
 
 <a name="primary-secondary-key"></a>
 
@@ -103,7 +103,7 @@ Se seu aplicativo lógico começar com um gatilho de solicitação, você poder�
 
 * Seu aplicativo lógico está limitado a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [declarações](../active-directory/develop/developer-glossary.md#claim). Para obter mais informações, consulte [limites e configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Uma política de autorização deve incluir pelo menos a declaração do **emissor** , que tem um valor que começa `https://sts.windows.net/` com como a ID do emissor do Azure AD.
+* Uma política de autorização deve incluir pelo menos a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` como a ID do emissor do Azure AD.
 
 * Uma chamada de entrada para seu aplicativo lógico pode usar apenas um esquema de autorização, o OAuth do Azure AD ou as [SAS (assinaturas de acesso compartilhado)](#sas).
 
@@ -125,7 +125,7 @@ Para habilitar o OAuth do Azure AD, siga estas etapas para adicionar uma ou mais
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
-   | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
+   | **Nome de política** | Sim | O nome que você deseja usar para a política de autorização |
    | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Platéia** <br>- **Assunto** <br>- **ID do JWT** (ID do token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com a `https://sts.windows.net/` ID do emissor do Azure AD. Para obter mais informações sobre esses tipos de declaração, consulte [declarações em tokens de segurança do Azure ad](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu próprio tipo e valor de declaração. |
    |||
 
@@ -196,7 +196,7 @@ Junto com a SAS (assinatura de acesso compartilhado), talvez você queira limita
 
 1. No menu do aplicativo lógico, em **Configurações**, selecione **Configurações de fluxo de trabalho**.
 
-1. Em **configuração** > de controle de acesso**permitidos endereços IP de entrada**, selecione **intervalos de IP específicos**.
+1. Em **configuração de controle de acesso**  >  **permitidos endereços IP de entrada**, selecione **intervalos de IP específicos**.
 
 1. Em **Intervalos de IP para gatilhos**, especifique os intervalos de endereço IP que aceitam o gatilho.
 
@@ -209,7 +209,7 @@ Se você quiser que seu aplicativo lógico seja disparado apenas como um aplicat
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP de entrada no modelo de Azure Resource Manager
 
-Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de IP usando `accessControl` a seção com `triggers` a seção na definição de recurso do aplicativo lógico, por exemplo:
+Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode especificar os intervalos de IP no formato x. x. x *. x/* x ou x. x *-x.* x. x. x.x.x. usando a seção e `accessControl` incluindo as `triggers` `actions` seções e na definição de recurso do aplicativo lógico, por exemplo:
 
 ```json
 {
@@ -227,20 +227,24 @@ Se você [automatizar a implantação para aplicativos lógicos usando modelos d
          },
          "apiVersion": "2016-06-01",
          "properties": {
-            "definition": {<workflow-definition>},
-            "parameters": {},
+            "definition": {
+               <workflow-definition>
+            },
+            "parameters": {
+            },
             "accessControl": {
                "triggers": {
                   "allowedCallerIpAddresses": [
                      {
                         "addressRange": "192.168.12.0/23"
-                     },
-                     {
-                        "addressRange": "2001:0db8::/64"
                      }
                   ]
+               },
+               "actions": {
+                  "allowedCallerIpAddresses:" : []
                }
-            }
+            },
+            "endpointsConfiguration": {}
          }
       }
    ],
@@ -288,7 +292,7 @@ Para controlar o acesso às entradas e saídas no histórico de execução do ap
 
 ### <a name="restrict-access-by-ip-address-range"></a>Restringir o acesso por intervalo de endereços IP
 
-Você pode limitar o acesso às entradas e saídas no histórico de execução do aplicativo lógico para que somente as solicitações de intervalos de endereços IP específicos possam exibir esses dados. Por exemplo, para impedir que qualquer pessoa acesse entradas e saídas, especifique um intervalo de endereços `0.0.0.0-0.0.0.0`IP, como. Somente uma pessoa com permissões de administrador pode remover essa restrição, que fornece a possibilidade de acesso "Just-in-time" aos dados do seu aplicativo lógico. Você pode especificar os intervalos de IP para restringir usando o portal do Azure ou em um modelo de Azure Resource Manager que você usa para a implantação de aplicativo lógico.
+Você pode limitar o acesso às entradas e saídas no histórico de execução do aplicativo lógico para que somente as solicitações de intervalos de endereços IP específicos possam exibir esses dados. Por exemplo, para impedir que qualquer pessoa acesse entradas e saídas, especifique um intervalo de endereços IP, como `0.0.0.0-0.0.0.0` . Somente uma pessoa com permissões de administrador pode remover essa restrição, que fornece a possibilidade de acesso "Just-in-time" aos dados do seu aplicativo lógico. Você pode especificar os intervalos de IP para restringir usando o portal do Azure ou em um modelo de Azure Resource Manager que você usa para a implantação de aplicativo lógico.
 
 #### <a name="restrict-ip-ranges-in-azure-portal"></a>Restringir intervalos de IP no portal do Azure
 
@@ -296,7 +300,7 @@ Você pode limitar o acesso às entradas e saídas no histórico de execução d
 
 1. No menu do aplicativo lógico, em **Configurações**, selecione **Configurações de fluxo de trabalho**.
 
-1. Em **configuração** > de controle de acesso**permitidos endereços IP de entrada**, selecione **intervalos de IP específicos**.
+1. Em **configuração de controle de acesso**  >  **permitidos endereços IP de entrada**, selecione **intervalos de IP específicos**.
 
 1. Em **intervalos IP para conteúdo**, especifique os intervalos de endereços IP que podem acessar o conteúdo de entradas e saídas. 
 
@@ -304,7 +308,7 @@ Você pode limitar o acesso às entradas e saídas no histórico de execução d
 
 #### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP no modelo de Azure Resource Manager
 
-Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de IP usando `accessControl` a seção com `contents` a seção na definição de recurso do aplicativo lógico, por exemplo:
+Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de IP usando a `accessControl` seção com a `contents` seção na definição de recurso do aplicativo lógico, por exemplo:
 
 ``` json
 {
@@ -448,7 +452,7 @@ Aqui estão algumas [considerações a serem examinadas](#obfuscation-considerat
 
 Se você implantar em ambientes diferentes, considere a possibilidade de parametrização dos valores na definição do fluxo de trabalho que variam de acordo com esses ambientes. Dessa forma, você pode evitar dados embutidos em código usando um [modelo de Azure Resource Manager](../azure-resource-manager/templates/overview.md) para implantar seu aplicativo lógico, proteger dados confidenciais definindo parâmetros protegidos e passá-los como entradas separadas por meio dos [parâmetros do modelo](../azure-resource-manager/templates/template-parameters.md) usando um arquivo de [parâmetro](../azure-resource-manager/templates/parameter-files.md).
 
-Por exemplo, se você autenticar ações HTTP com [Azure Active Directory autenticação aberta](#azure-active-directory-oauth-authentication) (Azure ad OAuth), poderá definir e obscurecer os parâmetros que aceitam a ID do cliente e o segredo do cliente que são usados para autenticação. Para definir esses parâmetros em seu aplicativo lógico, use a `parameters` seção na definição de fluxo de trabalho do aplicativo lógico e no modelo do Resource Manager para implantação. Para ajudar a proteger os valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execução, defina `securestring` os `secureobject` parâmetros usando o tipo ou e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o tempo de `@parameters('<parameter-name>')` execução, use a expressão dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em tempo de execução e é descrita pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
+Por exemplo, se você autenticar ações HTTP com [Azure Active Directory autenticação aberta](#azure-active-directory-oauth-authentication) (Azure ad OAuth), poderá definir e obscurecer os parâmetros que aceitam a ID do cliente e o segredo do cliente que são usados para autenticação. Para definir esses parâmetros em seu aplicativo lógico, use a `parameters` seção na definição de fluxo de trabalho do aplicativo lógico e no modelo do Resource Manager para implantação. Para ajudar a proteger os valores de parâmetro que você não deseja mostrar ao editar seu aplicativo lógico ou exibir o histórico de execução, defina os parâmetros usando o `securestring` `secureobject` tipo ou e use a codificação conforme necessário. Parâmetros que têm esse tipo não são retornados com a definição de recurso e não são acessíveis ao exibir o recurso após a implantação. Para acessar esses valores de parâmetro durante o tempo de execução, use a `@parameters('<parameter-name>')` expressão dentro de sua definição de fluxo de trabalho. Essa expressão é avaliada apenas em tempo de execução e é descrita pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Se você usar um parâmetro em um cabeçalho ou corpo de solicitação, esse parâmetro poderá ser visível quando você exibir o histórico de execução do aplicativo lógico e a solicitação HTTP de saída. Certifique-se de também definir suas políticas de acesso de conteúdo adequadamente. Você também pode usar [ofuscação](#obfuscate) para ocultar entradas e saídas em seu histórico de execução. Cabeçalhos de autorização nunca são visíveis por meio de entradas ou saídas. Portanto, se um segredo for usado lá, ele não será recuperável.
@@ -458,7 +462,7 @@ Para obter mais informações, consulte estas seções neste tópico:
 * [Proteger parâmetros em definições de fluxo de trabalho](#secure-parameters-workflow)
 * [Proteger dados no histórico de execução usando ofuscação](#obfuscate)
 
-Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá definir [parâmetros de modelo](../azure-resource-manager/templates/template-parameters.md)protegidos, que são avaliados na implantação, `securestring` usando `secureobject` os tipos e. Para definir parâmetros de modelo, use a seção de nível `parameters` superior do modelo, que é separada e diferente da `parameters` seção de sua definição de fluxo de trabalho. Para fornecer os valores para parâmetros de modelo, use um [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md)separado.
+Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá definir [parâmetros de modelo](../azure-resource-manager/templates/template-parameters.md)protegidos, que são avaliados na implantação, usando os `securestring` `secureobject` tipos e. Para definir parâmetros de modelo, use a seção de nível superior do modelo `parameters` , que é separada e diferente da seção de sua definição de fluxo de trabalho `parameters` . Para fornecer os valores para parâmetros de modelo, use um [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md)separado.
 
 Por exemplo, se você usar segredos, poderá definir e usar parâmetros de modelo protegidos que recuperem esses segredos de [Azure Key Vault](../key-vault/general/overview.md) na implantação. Em seguida, você pode fazer referência ao cofre de chaves e ao segredo em seu arquivo de parâmetro. Para saber mais, consulte esses tópicos:
 
@@ -469,7 +473,7 @@ Por exemplo, se você usar segredos, poderá definir e usar parâmetros de model
 
 ### <a name="secure-parameters-in-workflow-definitions"></a>Proteger parâmetros em definições de fluxo de trabalho
 
-Para proteger informações confidenciais na definição de fluxo de trabalho do aplicativo lógico, use parâmetros protegidos para que essas informações não fiquem visíveis depois que você salvar seu aplicativo lógico. Por exemplo, suponha que você tenha uma ação HTTP requer autenticação básica, que usa um nome de usuário e senha. Na definição de fluxo de trabalho `parameters` , a seção `basicAuthPasswordParam` define `basicAuthUsernameParam` os parâmetros e usando `securestring` o tipo. Em seguida, a definição de ação faz referência `authentication` a esses parâmetros na seção.
+Para proteger informações confidenciais na definição de fluxo de trabalho do aplicativo lógico, use parâmetros protegidos para que essas informações não fiquem visíveis depois que você salvar seu aplicativo lógico. Por exemplo, suponha que você tenha uma ação HTTP requer autenticação básica, que usa um nome de usuário e senha. Na definição de fluxo de trabalho, a `parameters` seção define os `basicAuthPasswordParam` `basicAuthUsernameParam` parâmetros e usando o `securestring` tipo. Em seguida, a definição de ação faz referência a esses parâmetros na `authentication` seção.
 
 ```json
 "definition": {
@@ -515,22 +519,22 @@ Para proteger informações confidenciais na definição de fluxo de trabalho do
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Proteger parâmetros em modelos de Azure Resource Manager
 
-Um [modelo do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) para um aplicativo lógico tem `parameters` várias seções. Para proteger senhas, chaves, segredos e outras informações confidenciais, defina parâmetros protegidos no nível do modelo e nível de definição de fluxo de trabalho `securestring` usando `secureobject` o tipo ou. Em seguida, você pode armazenar esses valores em [Azure Key Vault](../key-vault/general/overview.md) e usar o [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md) para fazer referência ao cofre de chaves e ao segredo. Em seguida, o modelo recupera essas informações na implantação. Para obter mais informações, consulte [passar valores confidenciais na implantação usando Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
+Um [modelo do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) para um aplicativo lógico tem várias `parameters` seções. Para proteger senhas, chaves, segredos e outras informações confidenciais, defina parâmetros protegidos no nível do modelo e nível de definição de fluxo de trabalho usando o `securestring` `secureobject` tipo ou. Em seguida, você pode armazenar esses valores em [Azure Key Vault](../key-vault/general/overview.md) e usar o [arquivo de parâmetro](../azure-resource-manager/templates/parameter-files.md) para fazer referência ao cofre de chaves e ao segredo. Em seguida, o modelo recupera essas informações na implantação. Para obter mais informações, consulte [passar valores confidenciais na implantação usando Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
 Aqui estão mais informações sobre estas `parameters` seções:
 
 * No nível superior do modelo, uma `parameters` seção define os parâmetros para os valores que o modelo usa na *implantação*. Por exemplo, esses valores podem incluir cadeias de conexão para um ambiente de implantação específico. Você pode armazenar esses valores em um arquivo de [parâmetro](../azure-resource-manager/templates/parameter-files.md)separado, o que torna a alteração desses valores mais fácil.
 
-* Dentro da definição de recurso do aplicativo lógico, mas fora de sua definição de `parameters` fluxo de trabalho, uma seção especifica os valores para os parâmetros da definição de fluxo de trabalho. Nesta seção, você pode atribuir esses valores usando expressões de modelo que fazem referência aos parâmetros do modelo. Essas expressões são avaliadas na implantação.
+* Dentro da definição de recurso do aplicativo lógico, mas fora de sua definição de fluxo de trabalho, uma `parameters` seção especifica os valores para os parâmetros da definição de fluxo de trabalho. Nesta seção, você pode atribuir esses valores usando expressões de modelo que fazem referência aos parâmetros do modelo. Essas expressões são avaliadas na implantação.
 
-* Dentro de sua definição de fluxo `parameters` de trabalho, uma seção define os parâmetros que seu aplicativo lógico usa no tempo de execução. Em seguida, você pode fazer referência a esses parâmetros dentro do fluxo de trabalho do aplicativo lógico usando expressões de definição de fluxo de trabalho, que são avaliadas no tempo de execução.
+* Dentro de sua definição de fluxo de trabalho, uma `parameters` seção define os parâmetros que seu aplicativo lógico usa no tempo de execução. Em seguida, você pode fazer referência a esses parâmetros dentro do fluxo de trabalho do aplicativo lógico usando expressões de definição de fluxo de trabalho, que são avaliadas no tempo de execução.
 
-Este modelo de exemplo que tem várias definições de parâmetros protegidas `securestring` que usam o tipo:
+Este modelo de exemplo que tem várias definições de parâmetros protegidas que usam o `securestring` tipo:
 
 | Nome do parâmetro | Descrição |
 |----------------|-------------|
-| `TemplatePasswordParam` | Um parâmetro de modelo que aceita uma senha que é passada para o parâmetro da `basicAuthPasswordParam` definição de fluxo de trabalho |
-| `TemplateUsernameParam` | Um parâmetro de modelo que aceita um nome de usuário que é passado para o parâmetro `basicAuthUserNameParam` da definição de fluxo de trabalho |
+| `TemplatePasswordParam` | Um parâmetro de modelo que aceita uma senha que é passada para o parâmetro da definição de fluxo de trabalho `basicAuthPasswordParam` |
+| `TemplateUsernameParam` | Um parâmetro de modelo que aceita um nome de usuário que é passado para o parâmetro da definição de fluxo de trabalho `basicAuthUserNameParam` |
 | `basicAuthPasswordParam` | Um parâmetro de definição de fluxo de trabalho que aceita a senha para autenticação básica em uma ação HTTP |
 | `basicAuthUserNameParam` | Um parâmetro de definição de fluxo de trabalho que aceita o nome de usuário para autenticação básica em uma ação HTTP |
 |||
@@ -664,7 +668,7 @@ Aqui estão algumas maneiras que você pode ajudar a proteger pontos de extremid
 
   * [Autenticação básica](#basic-authentication)
 
-  * [Autenticação de certificado de cliente](#client-certificate-authentication)
+  * [Autenticação de certificado do cliente](#client-certificate-authentication)
 
   * [Active Directory Autenticação OAuth](#azure-active-directory-oauth-authentication)
 
@@ -699,7 +703,7 @@ Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autentica�
 
 | Tipo de autenticação | Com suporte por |
 |---------------------|--------------|
-| [Basic](#basic-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, HTTP, HTTP + Swagger, webhook HTTP |
+| [Básico](#basic-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, HTTP, HTTP + Swagger, webhook HTTP |
 | [Certificado do cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, HTTP, HTTP + Swagger, webhook HTTP |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
 | [Recebem](#raw-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, HTTP + Swagger, webhook HTTP |
@@ -714,12 +718,12 @@ Se a opção [básica](../active-directory-b2c/secure-rest-api.md) estiver dispo
 
 | Propriedade (Designer) | Property (JSON) | Necessária | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autenticação** | `type` | Sim | Basic | O tipo de autenticação a ser usado |
+| **Autenticação** | `type` | Sim | Básico | O tipo de autenticação a ser usado |
 | **Nome de usuário** | `username` | Sim | <*nome do usuário*>| O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
 | **Senha** | `password` | Sim | <*la*> | A senha para autenticar o acesso ao ponto de extremidade de serviço de destino |
 ||||||
 
-Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica `type` a `Basic` autenticação como e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
+Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica a autenticação `type` como `Basic` e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
 
 ```json
 "HTTP": {
@@ -746,11 +750,11 @@ Se a opção de [certificado de cliente](../active-directory/authentication/acti
 | Propriedade (Designer) | Property (JSON) | Necessária | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Certificado do cliente** <br>ou <br>`ClientCertificate` | O tipo de autenticação a ser usado para certificados de cliente TLS/SSL <p><p>**Observação**: embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para TLS/SSL. O conector HTTP não oferece suporte a certificados TLS/SSL intermediários. |
-| **Pfx** | `pfx` | Sim | <*Encoded-arquivo PFX-conteúdo*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) <p><p>Para converter o arquivo PFX em formato codificado em base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. converta o conteúdo do certificado usando `ToBase64String()` a função e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Pfx** | `pfx` | Sim | <*Encoded-arquivo PFX-conteúdo*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) <p><p>Para converter o arquivo PFX em formato codificado em base64, você pode usar o PowerShell seguindo estas etapas: <p>1. Salve o conteúdo do certificado em uma variável: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. converta o conteúdo do certificado usando a `ToBase64String()` função e salve esse conteúdo em um arquivo de texto: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Senha** | `password`| Não | <*senha para arquivo PFX*> | A senha para acessar o arquivo PFX |
 |||||
 
-Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica `type` a `ClientCertificate` autenticação como e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
+Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica a autenticação `type` como `ClientCertificate` e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
 
 ```json
 "HTTP": {
@@ -786,7 +790,7 @@ Em gatilhos de solicitação, você pode usar [Azure Active Directory autentica�
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **Active Directory OAuth** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a ser usado. Os aplicativos lógicos atualmente seguem o [protocolo OAuth 2,0](../active-directory/develop/v2-overview.md). |
 | **Authority** | `authority` | Não | <*URL-para-Authority-token-emissor*> | A URL para a autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. |
-| **Vários** | `tenant` | Sim | <*ID do locatário*> | A ID do locatário para o locatário do Azure AD |
+| **Locatário** | `tenant` | Sim | <*ID do locatário*> | A ID do locatário para o locatário do Azure AD |
 | **Platéia** | `audience` | Sim | <*recurso a ser autorizado*> | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
 | **ID do Cliente** | `clientId` | Sim | <*ID do cliente*> | A ID do cliente para o aplicativo solicitando a autorização |
 | **Tipo de Credencial** | `credentialType` | Sim | Certificado <br>ou <br>Segredo | O tipo de credencial que o cliente usa para solicitar autorização. Essa propriedade e o valor não aparecem na definição subjacente do aplicativo lógico, mas determina as propriedades que aparecem para o tipo de credencial selecionado. |
@@ -795,7 +799,7 @@ Em gatilhos de solicitação, você pode usar [Azure Active Directory autentica�
 | **Senha** | `password` | Sim, mas somente para o tipo de credencial "certificado" | <*senha para arquivo PFX*> | A senha para acessar o arquivo PFX |
 |||||
 
-Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica `type` a `ActiveDirectoryOAuth`autenticação como, o tipo `Secret`de credencial como e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
+Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica a autenticação `type` como `ActiveDirectoryOAuth` , o tipo de credencial como `Secret` e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
 
 ```json
 "HTTP": {
@@ -842,7 +846,7 @@ No gatilho ou ação que dá suporte à autenticação bruta, especifique estes 
 | **Valor** | `value` | Sim | <*autorização-cabeçalho-valor*> | O valor do cabeçalho de autorização a ser usado para autenticação |
 ||||||
 
-Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica `type` a `Raw`autenticação como e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
+Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica a autenticação `type` como `Raw` e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
 
 ```json
 "HTTP": {
@@ -875,10 +879,10 @@ Se a opção de [identidade gerenciada](../active-directory/managed-identities-a
    |---------------------|-----------------|----------|-------|-------------|
    | **Autenticação** | `type` | Sim | **Identidade gerenciada** <br>ou <br>`ManagedServiceIdentity` | O tipo de autenticação a ser usado |
    | **Identidade gerenciada** | `identity` | Sim | * **Identidade gerenciada atribuída ao sistema** <br>ou <br>`SystemAssigned` <p><p>* <*nome de identidade atribuído pelo usuário*> | A identidade gerenciada a ser usada |
-   | **Platéia** | `audience` | Sim | <*Target-Resource-ID*> | A ID de recurso para o recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` o torna os [tokens de acesso](../active-directory/develop/access-tokens.md) para autenticação válidos para todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz `https://fabrikamstorageaccount.blob.core.windows.net` , como para uma conta de armazenamento específica. <p>**Observação**: a propriedade **Audience** pode estar oculta em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **público**. <p><p>**Importante**: Verifique se essa ID de recurso de destino *corresponde exatamente* ao valor esperado pelo Azure AD, incluindo as barras à direita necessárias. Portanto, a `https://storage.azure.com/` ID de recurso para todas as contas de armazenamento de BLOBs do Azure requer uma barra à direita. No entanto, a ID de recurso para uma conta de armazenamento específica não requer uma barra à direita. Para encontrar essas IDs de recurso, consulte [Serviços do Azure que dão suporte ao Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Platéia** | `audience` | Sim | <*Target-Resource-ID*> | A ID de recurso para o recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` o torna os [tokens de acesso](../active-directory/develop/access-tokens.md) para autenticação válidos para todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz, como `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Observação**: a propriedade **Audience** pode estar oculta em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **público**. <p><p>**Importante**: Verifique se essa ID de recurso de destino *corresponde exatamente* ao valor esperado pelo Azure AD, incluindo as barras à direita necessárias. Portanto, a `https://storage.azure.com/` ID de recurso para todas as contas de armazenamento de BLOBs do Azure requer uma barra à direita. No entanto, a ID de recurso para uma conta de armazenamento específica não requer uma barra à direita. Para encontrar essas IDs de recurso, consulte [Serviços do Azure que dão suporte ao Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
-   Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica `type` a `ManagedServiceIdentity` autenticação como e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
+   Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo de Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em tempo de execução. Esta definição de ação HTTP de exemplo especifica a autenticação `type` como `ManagedServiceIdentity` e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
 
    ```json
    "HTTP": {

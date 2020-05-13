@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266501"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199385"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes sobre os relatórios do Azure Active Directory
 
@@ -29,7 +29,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ## <a name="getting-started"></a>Introdução 
 
-**P: atualmente uso as APIs `https://graph.windows.net/<tenant-name>/reports/` de ponto de extremidade para extrair relatórios de uso de aplicativos integrados e auditoria do Azure AD em nossos sistemas de relatórios de forma programática. O que devo mudar?**
+**P: atualmente uso as `https://graph.windows.net/<tenant-name>/reports/` APIs de ponto de extremidade para extrair relatórios de uso de aplicativos integrados e auditoria do Azure AD em nossos sistemas de relatórios de forma programática. O que devo mudar?**
 
 **R:** Consulte a [Referência de API](https://developer.microsoft.com/graph/) para saber como é possível [usar as APIs para acessar os relatórios de atividades](concept-reporting-api.md). Esse ponto de extremidade tem dois relatórios (**Auditoria** e **Entradas**) que fornecem todos os dados que você obteve no ponto de extremidade de API antigo. Esse novo ponto de extremidade também tem um relatório de entradas com a licença do Azure AD Premium que você pode usar para obter informações de uso de aplicativo uso de dispositivo e conexão do usuário.
 
@@ -37,7 +37,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: atualmente uso as `https://graph.windows.net/<tenant-name>/reports/` APIs de ponto de extremidade para efetuar pull de relatórios de segurança do Azure AD (tipos específicos de detecções, como credenciais vazadas ou entradas de endereços IP anônimos) em nossos sistemas de relatórios programaticamente. O que devo mudar?**
 
-**R:** Você pode usar a [API](../identity-protection/graph-get-started.md) de detecções de risco da proteção de identidade para acessar as detecções de segurança por meio do Microsoft Graph. Esse novo formato oferece maior flexibilidade na forma como você pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e padroniza as detecções de risco em um tipo para uma integração mais fácil em SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa o Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que é o padrão da Microsoft para essas APIs, como O365 ou Azure AD. Portanto, o trabalho necessário pode estender seus investimentos atuais de Microsoft Graph ou ajudá-lo a começar sua transição para essa nova plataforma padrão.
+**R:** Você pode usar a [API de detecções de risco da proteção de identidade](../identity-protection/graph-get-started.md)   para acessar as detecções de segurança por meio do Microsoft Graph. Esse novo formato oferece maior flexibilidade na forma como você pode consultar dados, com filtragem avançada, seleção de campo e muito mais, e padroniza as detecções de risco em um tipo para uma integração mais fácil em SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa o Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que é o padrão da Microsoft para essas APIs, como O365 ou Azure AD. Portanto, o trabalho necessário pode estender seus investimentos atuais de Microsoft Graph ou ajudá-lo a começar sua transição para essa nova plataforma padrão.
 
 ---
 
@@ -71,13 +71,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **P: O que é a retenção de dados para logs de atividade (de entradas e de auditoria) no Portal do Azure?** 
 
-**R:** A tabela a seguir lista o período de retenção de dados para logs de atividades. Para obter mais informações, consulte as [políticas de retenção de dados para relatórios do Azure AD](reference-reports-data-retention.md).
-
-| Relatório                 | AD do Azure Gratuito | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Logs de auditoria             | 7 dias        | 30 dias             | 30 dias             |
-| Entradas               | N/D           | 30 dias             | 30 dias             |
-| Uso do MFA do Azure        | 30 dias       | 30 dias             | 30 dias             |
+**R:** Para obter mais informações, consulte [políticas de retenção de dados para relatórios do Azure ad](reference-reports-data-retention.md).
 
 ---
 

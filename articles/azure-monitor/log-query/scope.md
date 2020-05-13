@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
-ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249588"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199020"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Escopo de consulta de log e intervalo de tempo em Azure Monitor Log Analytics
 Quando você executa uma [consulta de log](log-query-overview.md) em [log Analytics no portal do Azure](get-started-portal.md), o conjunto de dados avaliado pela consulta depende do escopo e do intervalo de tempo que você selecionar. Este artigo descreve o escopo e o intervalo de tempo e como você pode definir cada um dependendo de seus requisitos. Ele também descreve o comportamento de diferentes tipos de escopos.
@@ -25,6 +25,9 @@ O escopo é sempre exibido na parte superior esquerda da janela de Log Analytics
 ![Escopo](media/scope/scope.png)
 
 O escopo é determinado pelo método usado para iniciar Log Analytics e, em alguns casos, você pode alterar o escopo clicando nele. A tabela a seguir lista os diferentes tipos de escopo usados e detalhes diferentes para cada um.
+
+> [!IMPORTANT]
+> Se você estiver usando o APM 2,1, os aplicativos Application Insights serão armazenados em um espaço de trabalho Log Analytics com todos os outros dados de log e o escopo de Application Insights não estará disponível. Se você selecionar **logs** no menu Application insights, ele agirá da mesma forma que o **outro escopo de recursos do Azure** e somente os dados partir o aplicativo nas tabelas Application insights estarão disponíveis.
 
 | Escopo da consulta | Registros no escopo | Como selecionar | Alterando o escopo |
 |:---|:---|:---|:---|
@@ -72,7 +75,7 @@ O intervalo de tempo especifica o conjunto de registros que são avaliados para 
 
 Defina o intervalo de tempo selecionando-o no seletor de tempo na parte superior da janela de Log Analytics.  Você pode selecionar um período predefinido ou selecionar **personalizado** para especificar um intervalo de tempo específico.
 
-![Seletor de tempo](media/scope/time-picker.png)
+![Seletor de hora](media/scope/time-picker.png)
 
 Se você definir um filtro na consulta que usa a propriedade hora padrão, conforme mostrado na tabela acima, o seletor de tempo será alterado para **definido em consulta**e o seletor de hora será desabilitado. Nesse caso, é mais eficiente colocar o filtro na parte superior da consulta para que qualquer processamento subsequente só precise trabalhar com os registros filtrados.
 

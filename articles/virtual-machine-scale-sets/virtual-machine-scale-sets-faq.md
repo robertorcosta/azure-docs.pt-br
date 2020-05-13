@@ -2,18 +2,19 @@
 title: Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Obtenha respostas para as perguntas mais frequentes sobre conjuntos de dimensionamento de máquinas virtuais no Azure.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: faq
+ms.date: 05/24/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611391"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200155"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -233,7 +234,7 @@ Para obter um exemplo, consulte [o modelo de início rápido do GitHub 101-vm-ss
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Quando executo `Update-AzVmss` depois de adicionar mais de um certificado no mesmo cofre de chaves, posso ver a seguinte mensagem:
 
->Update-AzVmss: a lista secreta contém instâncias repetidas\<de/subscriptions/My-Subscription-ID>/resourcegroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, que não é permitido.
+>Update-AzVmss: a lista secreta contém instâncias repetidas de/subscriptions/ \< My-subscription-id>/resourcegroups/Internal-RG-dev/Providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, que não é permitido.
 
 Isso poderá ocorrer se você tentar adicionar novamente o mesmo cofre, em vez de usar um novo certificado de cofre para o cofre de origem existente. O comando `Add-AzVmssSecret` não funcionará corretamente se você estiver adicionando segredos adicionais.
 

@@ -1,5 +1,5 @@
 ---
-title: SD-arquitetura de conectividade de WAN
+title: Arquitetura de conectividade SD-WAN
 titleSuffix: Azure Virtual WAN
 description: Saiba mais sobre a interconexão de um SD-WAN privado com a WAN virtual do Azure
 services: virtual-wan
@@ -8,16 +8,16 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 15e44b9c048f167935fe8660228581e5bac0f43d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 34b2282421b9c95ad99ad040cb11847a30d3b52c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006255"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199990"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Arquitetura de conectividade SD-WAN com a WAN virtual do Azure
 
-A WAN virtual do Azure é um serviço de rede que reúne muitos serviços de segurança e conectividade em nuvem com uma única interface operacional. Esses serviços incluem ramificação (via VPN site a site), usuário remoto (VPN ponto a site), conectividade privada (ExpressRoute), bem como conectividade transitiva entre nuvem para Vnets, VPN e ExpressRoute interconectividade, roteamento, firewall do Azure e criptografia para conectividade privada.
+A WAN virtual do Azure é um serviço de rede que reúne muitos serviços de segurança e conectividade em nuvem com uma única interface operacional. Esses serviços incluem ramificação (via VPN site a site), usuário remoto (VPN ponto a site), conectividade privada (ExpressRoute), conectividade transitiva dentro da nuvem para Vnets, VPN e ExpressRoute interconectividade, roteamento, firewall do Azure e criptografia para conectividade privada.
 
 Embora a própria WAN virtual do Azure seja uma WAN definida pelo software (SD-WAN), ela também foi projetada para permitir a interconexão direta com as tecnologias e os serviços do SD-WAN baseados no local. Muitos desses serviços são oferecidos por nosso ecossistema [virtual Wan](virtual-wan-locations-partners.md) e parceiros de serviços gerenciados de rede do Azure [(MSPs)](../networking/networking-partners-msp.md). As empresas que estão transformando sua WAN privada para SD-WAN têm opções ao interconectar seu SD-WAN privado com a WAN virtual do Azure. As empresas podem escolher entre essas opções:
 
@@ -39,7 +39,7 @@ O SD-WAN CPE continua sendo o local onde a otimização de tráfego, bem como a 
 
 Nesse modelo, uma otimização de tráfego proprietário do fornecedor com base em características de tráfego em tempo real pode não ter suporte, pois a conectividade com a WAN virtual é sobre IPsec e a VPN IPsec é encerrada no gateway de VPN de WAN virtual. Por exemplo, a seleção de caminho dinâmico na ramificação CPE é viável porque o dispositivo de ramificação está trocando várias informações de pacote de rede com outro nó SD-WAN, portanto, identificando o melhor link a ser usado para vários tráfegos priorizados dinamicamente na ramificação. Esse recurso pode ser útil em áreas em que a otimização da última quilometragem (Branch para o POP da Microsoft mais próximo) é necessária.
 
-Com a WAN virtual, os usuários podem obter a seleção de caminho do Azure, que é a seleção de caminho baseada em políticas entre vários links de ISP da ramificação de CPE para gateways VPN de WAN virtual. A WAN virtual permite a configuração de vários links (caminhos) para o mesmo SD-WAN Branch CPE, cada link terminando em uma interface IP pública diferente do SD-WAN CPE. Os fornecedores de SD-WAN podem aproveitar esse recurso para selecionar o caminho ideal para o Azure, com base nas políticas de tráfego específicas para esses caminhos.
+Com a WAN virtual, os usuários podem obter a seleção de caminho do Azure, que é a seleção de caminho baseada em políticas entre vários links de ISP da ramificação de CPE para gateways VPN de WAN virtual. A WAN virtual permite a configuração de vários links (caminhos) do mesmo SD-WAN Branch CPE; cada link representa uma conexão de túnel duplo de um IP público exclusivo do SD-WAN CPE para duas instâncias diferentes do gateway de VPN de WAN virtual do Azure. Os fornecedores de SD-WAN podem implementar o caminho ideal para o Azure, com base nas políticas de tráfego definidas pelo mecanismo de política nos links de CPE.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Modelo de interconexão indireta
 

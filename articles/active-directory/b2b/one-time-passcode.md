@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263368"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199477"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação por senha avulsa por email (versão prévia)
 
@@ -56,7 +56,7 @@ Quando um usuário convidado resgata um convite ou usa um link para um recurso q
 
 No momento do convite, não há nenhuma indicação de que o usuário que você está convidando usará a autenticação de senha avulsa. Mas quando o usuário convidado entrar, a autenticação de senha avulsa será o método de fallback se nenhum outro método de autenticação puder ser usado. 
 
-Você pode exibir os usuários convidados que se autenticam com senhas de uso único no portal do Azure acessando **Azure Active Directory** > usuários de > **relações organizacionais****de outras organizações**.
+Você pode exibir os usuários convidados que se autenticam com senhas de uso único no portal do Azure acessando **Azure Active Directory**  >  **usuários**.
 
 ![Captura de tela mostrando um usuário de senha de uso único com o valor de origem de OTP](media/one-time-passcode/otp-users.png)
 
@@ -72,8 +72,7 @@ Pode levar alguns minutos para que a ação de aceitação entre em vigor. Depoi
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Para aceitar usando o portal do Azure AD
 1.  Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
 2.  No painel de navegação, selecione **Azure Active Directory**.
-3.  Em **Gerenciar**, selecione **Relações Organizacionais**.
-4.  Selecione **Configurações**.
+3.  Selecione Configurações de **relações organizacionais**  >  **Settings** (ou selecione **identidades externas**  >  **configurações de colaboração externas**).
 5.  Em **Habilitar Senha Avulsa por Email para convidados (Versão Prévia)**, selecione **Sim**.
  
 ### <a name="to-opt-in-using-powershell"></a>Para aceitar usando o PowerShell
@@ -139,8 +138,7 @@ Pode levar alguns minutos para que a ação de recusa entre em vigor. Se você d
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Para desativar a versão prévia usando o portal do Azure AD
 1.  Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
 2.  No painel de navegação, selecione **Azure Active Directory**.
-3.  Em **Gerenciar**, selecione **Relações Organizacionais**.
-4.  Selecione **Configurações**.
+3.  Selecione Configurações de **relações organizacionais**  >  **Settings** (ou selecione **identidades externas**  >  **configurações de colaboração externas**).
 5.  Em **Habilitar Senha Avulsa por Email para convidados (Versão Prévia)**, selecione **Não**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desativar a versão prévia usando o PowerShell

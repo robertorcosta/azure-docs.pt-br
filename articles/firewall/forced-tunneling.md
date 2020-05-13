@@ -5,23 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 05/11/2020
 ms.author: victorh
-ms.openlocfilehash: e51f6de370a5340082f64a0ca15c61583f75962b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 463bccb29d59f06e7381d7d7123946029223a93a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597262"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199727"
 ---
-# <a name="azure-firewall-forced-tunneling-preview"></a>Túnel forçado do firewall do Azure (visualização)
+# <a name="azure-firewall-forced-tunneling"></a>Túnel forçado do firewall do Azure
 
 Você pode configurar o Firewall do Azure para rotear todo o tráfego vinculado à Internet para um próximo salto designado em vez de ir diretamente para a Internet. Por exemplo, você pode ter um firewall de borda local ou outra solução de virtualização de rede (NVA) para processar o tráfego de rede antes que ele seja passado para a Internet.
-
-> [!IMPORTANT]
-> O túnel forçado do firewall do Azure está atualmente em visualização pública.
->
-> Essa versão prévia pública é fornecida sem um SLA e não deve ser usada para cargas de trabalho de produção. Talvez alguns recursos não tenham suporte, tenham recursos restritos ou não estejam disponíveis em todos os locais do Azure. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Por padrão, o túnel forçado não é permitido no firewall do Azure para garantir que todas as suas dependências de saída do Azure sejam atendidas. As configurações de UDR (rota definida pelo usuário) no *AzureFirewallSubnet* que têm uma rota padrão que não vai diretamente para a Internet estão desabilitadas.
 

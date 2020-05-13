@@ -1,24 +1,24 @@
 ---
 title: Adicionar uma camada de polígono a um mapa | Mapas do Microsoft Azure
 description: Neste artigo, você aprenderá a renderizar um polígono e vários polígonos em um mapa no SDK da Web do Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9191f054ca3c7374bcbc7bec46573289a512612c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91d6ed24c85d08c4b3358204980498d64e1b36ba
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535045"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124033"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Adicionar uma camada de polígono ao mapa
 
-Este artigo mostra como renderizar as áreas do e `Polygon` `MultiPolygon` as geometrias de recursos no mapa usando uma camada de polígono. O SDK da Web do Azure Maps também dá suporte à criação de geometrias de círculo, conforme definido no [esquema geojson estendido](extend-geojson.md#circle). Esses círculos são transformados em polígonos quando renderizados no mapa. Todas as geometrias de recursos podem ser facilmente atualizadas quando encapsuladas com o [Atlas. ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest)Classe de forma.
+Este artigo mostra como renderizar as áreas do `Polygon` e as `MultiPolygon` geometrias de recursos no mapa usando uma camada de polígono. O SDK da Web do Azure Maps também dá suporte à criação de geometrias de círculo, conforme definido no [esquema geojson estendido](extend-geojson.md#circle). Esses círculos são transformados em polígonos quando renderizados no mapa. Todas as geometrias de recursos podem ser facilmente atualizadas quando encapsuladas com o [Atlas. ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest)Classe de forma.
 
 ## <a name="use-a-polygon-layer"></a>Usar uma camada de polígono 
 
@@ -63,12 +63,12 @@ Uma camada de linha é usada para renderizar o contorno de polígonos. O exemplo
 
 ## <a name="fill-a-polygon-with-a-pattern"></a>Preencher um polígono com um padrão
 
-Além de preencher um polígono com uma cor, você pode usar um padrão de imagem para preencher o polígono. Carregue um padrão de imagem na imagem de mapas recursos de Sprite e, em seguida, `fillPattern` faça referência a essa imagem com a propriedade da camada de polígono.
+Além de preencher um polígono com uma cor, você pode usar um padrão de imagem para preencher o polígono. Carregue um padrão de imagem na imagem de mapas recursos de Sprite e, em seguida, faça referência a essa imagem com a `fillPattern` propriedade da camada de polígono.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Padrão de preenchimento do polígono" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte o <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>padrão de preenchimento do polígono</a> da caneta pelo<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () em <a href='https://codepen.io'>CodePen</a>.
+Consulte o <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>padrão de preenchimento do polígono</a> da caneta pelo Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -88,7 +88,7 @@ A camada de polígono tem apenas algumas opções de estilo. Aqui está uma ferr
 
 ## <a name="add-a-circle-to-the-map"></a>Adicionar um círculo ao mapa
 
-O Azure Maps usa uma versão estendida do esquema geojson que fornece uma definição para círculos, conforme observado [aqui](extend-geojson.md#circle). Um círculo é renderizado no mapa criando um `Point` recurso. Isso `Point` tem uma `subType` Propriedade com um valor de `"Circle"` e uma `radius` Propriedade com um número que representa o raio em metros. 
+O Azure Maps usa uma versão estendida do esquema geojson que fornece uma definição para círculos, conforme observado [aqui](extend-geojson.md#circle). Um círculo é renderizado no mapa criando um `Point` recurso. Isso `Point` tem uma `subType` propriedade com um valor de `"Circle"` e uma `radius` propriedade com um número que representa o raio em metros. 
 
 ```javascript
 {
@@ -104,7 +104,7 @@ O Azure Maps usa uma versão estendida do esquema geojson que fornece uma defini
 }  
 ```
 
-O SDK da Web do Azure Maps `Point` converte esses `Polygon` recursos em recursos. Em seguida, esses recursos são renderizados no mapa usando as camadas de polígono e de linha, conforme mostrado no exemplo de código a seguir.
+O SDK da Web do Azure Maps converte esses `Point` recursos em `Polygon` recursos. Em seguida, esses recursos são renderizados no mapa usando as camadas de polígono e de linha, conforme mostrado no exemplo de código a seguir.
 
 <br/>
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: fb6092b7ccb3d1a4214f8d26119d9dc50b0ed317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81482059"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125750"
 ---
 # <a name="topic-filters-and-actions"></a>Ações e filtros de tópico
 
@@ -29,7 +29,7 @@ O Barramento de Serviço dá suporte a três condições de filtro:
 
 -   *Filtros boolianos* – o **TrueFilter** e **FalseFilter** fazem com que todas as mensagens recebidas (**true**) ou nenhuma das mensagens recebidas (**false**) seja selecionada para a assinatura.
 
--   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto de idiomas SQL para filtrar condições](service-bus-messaging-sql-filter.md) testa a existência de Propriedades (`EXISTS`), valores nulos (`IS NULL`), não lógicos e/ou operadores relacionais, aritmética de numérico simples e correspondência de padrão de texto simples `LIKE`com.
+-   *Filtros SQL* – um **SqlFilter** contém uma expressão condicional do tipo SQL que é avaliada no agente em relação às propriedades do sistema e propriedades definidas pelo usuário das mensagens recebidas. Todas as propriedades de sistema devem ser prefixadas com `sys.` na expressão condicional. O [subconjunto de idiomas SQL para filtrar condições](service-bus-messaging-sql-filter.md) testa a existência de Propriedades ( `EXISTS` ), valores nulos ( `IS NULL` ), não lógicos e/ou operadores relacionais, aritmética de numérico simples e correspondência de padrão de texto simples com `LIKE` .
 
 -   *Filtros de correlação* – um **CorrelationFilter** contém um conjunto de condições que são comparadas com uma ou mais das propriedades do sistema e do usuário de uma mensagem recebida. Um uso comum é fazer a correspondência com a propriedade **CorrelationId** , mas o aplicativo também pode optar por corresponder às seguintes propriedades:
 
@@ -71,8 +71,6 @@ Consulte os seguintes exemplos:
 
 - [.NET-tutorial de envio e recebimento básico com filtros](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
 - [.NET-filtros de tópico](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/javascript/advanced/topicFilters.js)
-- [Script de tipo](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/topicFilters.ts)
 - [Modelo do Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 

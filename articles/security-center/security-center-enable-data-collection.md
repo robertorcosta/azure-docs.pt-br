@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1edb0791e80a8503e5ecba3154d7b421206272c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189813"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198607"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A central de segurança coleta dados de suas VMs (máquinas virtuais) do Azure, conjuntos de dimensionamento de máquinas virtuais, contêineres de IaaS e computadores não Azure (incluindo locais) para monitorar vulnerabilidades de segurança e ameaças. Os dados são coletados usando o agente do Log Analytics, que lê uma variedade de configurações e logs de eventos relacionados à segurança do computador e copia os dados para o seu workspace visando a análise. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O agente de Log Analytics também copia arquivos de despejo de memória para seu espaço de trabalho.
@@ -25,7 +25,7 @@ Este artigo descreve como instalar um agente de Log Analytics e definir um espa�
 > [!NOTE]
 > - A coleta de dados só é necessária para recursos de computação (VMs, conjuntos de dimensionamento de máquinas virtuais, contêineres de IaaS e computadores não Azure). Você pode aproveitar a Central de Segurança do Azure mesmo se não provisionar agentes, no entanto, a segurança será limitada e as funcionalidades listadas acima não terão suporte.  
 > - Para ver a lista das plataformas compatíveis, consulte [Plataformas compatíveis com a Central de Segurança do Azure](security-center-os-coverage.md).
-> - O armazenamento de dados em Log Analytics, independentemente de você usar um espaço de trabalho novo ou existente, pode incorrer em encargos adicionais para o armazenamento de dados. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+> - O armazenamento de dados em Log Analytics, independentemente de você usar um espaço de trabalho novo ou existente, pode incorrer em encargos adicionais para o armazenamento de dados. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Habilitar o provisionamento automático do agente de Log Analytics<a name="auto-provision-mma"></a>
 
@@ -42,7 +42,7 @@ Para habilitar o provisionamento automático do agente de Log Analytics:
 
 3. Selecione a **coleta de dados**.
 4. Em **Provisionamento Automático**, selecione **Ativar** para habilitar o provisionamento automático.
-5. Clique em **Salvar**. O agente será implantado em todas as VMs dentro de 15 minutos. 
+5. Selecione **Salvar**. O agente será implantado em todas as VMs dentro de 15 minutos. 
 
 >[!TIP]
 > Se um espaço de trabalho precisar ser provisionado, a instalação do agente poderá levar até 25 minutos.
@@ -70,7 +70,7 @@ Para selecionar um workspace criados pela Central de Segurança:
 1. Em **Configuração do workspace padrão**, selecione Usar workspaces criados pela Central de Segurança.
    ![Selecione o tipo de preço][10] 
 
-1. Clique em **Salvar**.<br>
+1. Clique em **Save** (Salvar).<br>
     A Central de Segurança criará um novo grupo de recursos e um workspace padrão nessa geolocalização e conectará o agente a esse workspace. A convenção de nomenclatura para o grupo de recursos e o workspace é:<br>
    ** Área de trabalho: DefaultWorkspace- [subscription-ID] - [geo] <br>Grupo de recursos: DefaultResourceGroup- [geo]**
 
@@ -79,7 +79,7 @@ Para selecionar um workspace criados pela Central de Segurança:
 
 > [!NOTE]
 > O tipo de preço do Log Analytics para workspaces criados pela Central de Segurança não afeta a cobrança da Central de Segurança. A cobrança da Central de Segurança sempre se baseia na sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace. Para a Camada gratuita, a Central de Segurança instala a solução *SecurityCenterFree* no workspace padrão. Para a Camada Standard, a Central de Segurança habilita a solução *Security* no workspace padrão.
-> O armazenamento de dados no Log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+> O armazenamento de dados no Log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para obter mais informações sobre contas existentes do log Analytics, consulte [clientes existentes do log Analytics](./faq-azure-monitor-logs.md).
 
@@ -91,7 +91,7 @@ Para usar o espaço de trabalho do Log Analytics existente, você precisará ter
 
 > [!NOTE]
 > Soluções habilitadas no workspace existente serão aplicadas às VMs do Azure que estão conectados a ele. Para soluções pagas, isso pode resultar em cobranças adicionais. Por questões de considerações de privacidade de dados, verifique se seu workspace selecionado está na região geográfica correta.
-> O armazenamento de dados no log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+> O armazenamento de dados no log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para selecionar um espaço de trabalho do Log Analytics existente:
 
@@ -106,7 +106,7 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
    >
    >
 
-3. Clique em **Salvar**.
+3. Selecione **Salvar**.
 4. Após selecionar **Salvar**, será perguntado se você deseja reconfigurar as VMs monitoradas que estavam conectadas ao workspace padrão anteriormente.
 
    - Selecione **não** se você quiser que as novas configurações de espaço de trabalho sejam aplicadas somente a novas VMS. As novas configurações de espaço de trabalho se aplicam somente a novas instalações de agente; VMs recém-descobertas que não têm o agente de Log Analytics instalado.
@@ -139,7 +139,7 @@ Ao selecionar um workspace para armazenar os dados, todos os workspaces em todas
 ## <a name="data-collection-tier"></a>Camada de coleta de dados
 A seleção de uma camada de coleta de dados na Central de Segurança do Azure afetará apenas o armazenamento de eventos de segurança no espaço de trabalho do Log Analytics. O agente de Log Analytics ainda coletará e analisará os eventos de segurança necessários para a proteção contra ameaças da central de segurança do Azure, independentemente da camada de eventos de segurança que você escolher armazenar em seu espaço de trabalho Log Analytics (se houver). A escolha de armazenar eventos de segurança no seu workspace permitirá investigar, pesquisar e auditar esses eventos no workspace. 
 > [!NOTE]
-> O armazenamento de dados no log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+> O armazenamento de dados no log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/security-center/).
 > 
 > É possível escolher a diretiva de filtragem correta para assinaturas e workspaces de quatro conjuntos de eventos a serem armazenados no workspace: 
 
@@ -166,7 +166,7 @@ Aqui está um detalhamento completo das IDs de eventos de Segurança e do AppLoc
 
 | Camada de dados | Indicadores de eventos coletados |
 | --- | --- |
-| Mínimo | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
+| Minimal | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
 | Comum | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
@@ -184,7 +184,7 @@ Aqui está um detalhamento completo das IDs de eventos de Segurança e do AppLoc
 
 Para escolher a política de filtragem:
 1. Na página **coleta de dados** , selecione a política de filtragem em **eventos de segurança**.
-2. Clique em **Salvar**.
+2. Selecione **Salvar**.
 
    ![Escolher a política de filtragem][5]
 
@@ -217,15 +217,14 @@ A central de segurança instalará a extensão do agente de Log Analytics lado a
 1. Retorne ao menu principal da Central de Segurança e selecione a Política de segurança.
 2. Clique em **Editar configurações** na linha da assinatura para a qual você deseja desabilitar o provisionamento automático.
 3. Na página **política de segurança – coleta de dados** , em **provisionamento automático** , selecione **desativado**.
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
    ![Desabilitar o provisionamento automático][6]
 
 Quando o provisionamento automático está desabilitado (desativado), a seção de configuração do workspace padrão não é exibida.
 
-Se você desativar o provisionamento automático que estava ativado anteriormente:
--   Os agentes não serão provisionados em novas VMs.
--   A Central de Segurança interromperá a coleta de dados do workspace padrão.
+Se você desativar o provisionamento automático depois que ele estava anteriormente, os agentes não serão provisionados em novas VMs.
+
  
 > [!NOTE]
 >  Desabilitar o provisionamento automático não remove o agente de Log Analytics das VMs do Azure em que o agente foi provisionado. Para obter informações sobre como remover a extensão do OMS, consulte [Como fazer para remover extensões OMS instaladas pela Central de Segurança](faq-data-collection-agents.md#remove-oms).

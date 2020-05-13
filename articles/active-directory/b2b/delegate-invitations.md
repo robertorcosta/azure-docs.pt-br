@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272892"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199426"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a colaboração externa B2B e gerenciar quem pode convidar convidados
 
@@ -36,11 +36,9 @@ Por padrão, todos os usuários, incluindo convidados, podem convidar usuários 
 ### <a name="to-configure-external-collaboration-settings"></a>Para definir configurações de colaboração externas:
 
 1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de locatários.
-2. Selecione **Azure Active Directory** > **configurações de usuário****dos usuários** > .
-3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
-   > [!NOTE]
-   > As **configurações de colaboração externa** também estão disponíveis na página **Relações organizacionais**. No Azure Active Directory, em **Gerenciar**, acesse **Relações organizacionais** > **Configurações**.
-4. Na página **configurações de colaboração externas** , escolha as políticas que você deseja habilitar.
+2. Selecione **Azure Active Directory**.
+3. Selecione Configurações de **relações organizacionais**  >  **Settings** (ou selecione **identidades externas**  >  **configurações de colaboração externas**).
+6. Na página **configurações de colaboração externas** , escolha as políticas que você deseja habilitar.
 
    ![Configuração de colaboração externa](./media/delegate-invitations/control-who-to-invite.png)
 
@@ -65,7 +63,7 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 Consulte os seguintes artigos na colaboração B2B do Azure AD:
 
-- [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 - [Adicionar usuários convidados da colaboração B2B sem um convite](add-user-without-invite.md)
 - [Adicionar um usuário de colaboração B2B a uma função](add-guest-to-role.md)
 

@@ -12,12 +12,13 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: has-adal-ref
+ms.openlocfilehash: bc3c572aeb72328bc4708d27052756623ccd7701
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981979"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200966"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de lançamento de versão
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -87,9 +88,9 @@ Esse hotfix Build corrige um problema com o Build 1.5.18.0 se você tiver o recu
 > Se você tiver clonado a regra de sincronização interna **do AD-Group Join** e não tiver clonado a regra de sincronização **comum interna do AD-Group** e planejar a atualização, conclua as seguintes etapas como parte da atualização:
 > 1. Durante a atualização, desmarque a opção **iniciar o processo de sincronização quando a configuração for concluída**.
 > 2. Edite a regra de sincronização de junção clonada e adicione as duas transformações a seguir:
->     - Defina o fluxo `objectGUID` direto `sourceAnchorBinary`como.
->     - Defina o fluxo `ConvertToBase64([objectGUID])` de `sourceAnchor`expressão como.     
-> 3. Habilite o Agendador `Set-ADSyncScheduler -SyncCycleEnabled $true`usando.
+>     - Defina o fluxo direto `objectGUID` como `sourceAnchorBinary` .
+>     - Defina o fluxo `ConvertToBase64([objectGUID])` de expressão como `sourceAnchor` .     
+> 3. Habilite o Agendador usando `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 
 
@@ -209,7 +210,7 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 >[!IMPORTANT]
 >Há um problema conhecido com a atualização de Azure AD Connect de uma versão anterior para 1.3.21.0 em que o portal do O365 não reflete a versão atualizada, mesmo que Azure AD Connect atualizado com êxito.
 >
-> Para resolver isso, você precisa importar o módulo **AdSync** e, em seguida`Set-ADSyncDirSyncConfiguration` , executar o cmdlet do PowerShell no servidor de Azure ad Connect.  Você pode usar as seguintes etapas:
+> Para resolver isso, você precisa importar o módulo **AdSync** e, em seguida, executar o `Set-ADSyncDirSyncConfiguration` cmdlet do PowerShell no servidor de Azure ad Connect.  Você pode usar as seguintes etapas:
 >
 >1. Abra o PowerShell no modo administrador.
 >2. Execute `Import-Module "ADSync"`.
@@ -566,7 +567,7 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Digite     | Nome                          | Acesso               | Aplica-se A
+Tipo     | Nome                          | Acesso               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Allow    | SYSTEM                        | Controle total         | Este objeto  |
 Allow    | Administrador corporativo             | Controle total         | Este objeto  |
@@ -940,8 +941,8 @@ CBool(
 #### <a name="issues-fixed"></a>Problemas corrigidos
 
 * As seguintes URLs são novos pontos de extremidade do Web Services Federation, introduzidos pelo Azure AD para aumentar a resiliência contra interrupção de autenticação e serão adicionadas à configuração de confiança da entidade de replicação do AD FS local:
-  * https:\//ests.login.microsoftonline.com/login.srf
-  * https:\//stamp2.login.microsoftonline.com/login.srf
+  * https: \/ /ests.login.microsoftonline.com/login.srf
+  * https: \/ /stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   
