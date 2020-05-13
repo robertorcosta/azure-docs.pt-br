@@ -1,21 +1,21 @@
 ---
-title: Monitorar Azure Cosmos DB com Azure Monitor para Cosmos DB (versão prévia) | Microsoft Docs
+title: Monitorar Azure Cosmos DB com Azure Monitor para Cosmos DB | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para Cosmos DB recurso que fornece aos Cosmos DB proprietários uma rápida compreensão dos problemas de desempenho e utilização com suas contas do CosmosDB.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/27/2019
-ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.openlocfilehash: 68b1b8c92b5119da400b0ada0fe792c855dd1f33
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250669"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195408"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Explorar Azure Monitor para Azure Cosmos DB (versão prévia)
+# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorar Azure Monitor para Azure Cosmos DB
 
-Azure Monitor para Azure Cosmos DB (versão prévia) fornece uma visão do desempenho geral, falhas, capacidade e integridade operacional de todos os seus Azure Cosmos DB recursos em uma experiência interativa unificada. Este artigo o ajudará a entender os benefícios dessa nova experiência de monitoramento e como você pode modificar e adaptar a experiência para atender às necessidades exclusivas de sua organização.   
+Azure Monitor para Azure Cosmos DB fornece uma visão do desempenho geral, das falhas, da capacidade e da integridade operacional de todos os seus Azure Cosmos DB recursos em uma experiência interativa unificada. Este artigo o ajudará a entender os benefícios dessa nova experiência de monitoramento e como você pode modificar e adaptar a experiência para atender às necessidades exclusivas de sua organização.   
 
 ## <a name="introduction"></a>Introdução
 
@@ -44,7 +44,7 @@ Para exibir a utilização e o desempenho de suas contas de armazenamento em tod
 
     ![Caixa de pesquisa com a palavra "Monitor" e uma lista suspensa que diz aos serviços "Monitor" com uma imagem de estilo velocímetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Selecione **Cosmos dB (versão prévia)**.
+3. Selecione **Cosmos DB**.
 
     ![Captura de tela da pasta de trabalho de visão geral Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
@@ -92,7 +92,7 @@ Assim como acontece com a pasta de trabalho Visão geral, a seleção da lista s
 
 Selecione **operações** na parte superior da página e a parte de **operações** do modelo da pasta de trabalho será aberta. Ele oferece a capacidade de ver suas solicitações divididas pelo tipo de solicitações feitas. 
 
-Assim, no exemplo abaixo, você verá `eastus-billingint` que está recebendo as solicitações de leitura predominantemente, mas com um pequeno número de solicitações Upsert e Create. Enquanto `westeurope-billingint` é somente leitura de uma perspectiva de solicitação, pelo menos nas últimas quatro horas em que a pasta de trabalho está atualmente com escopo por meio de seu parâmetro de intervalo de tempo.
+Assim, no exemplo abaixo, você verá que `eastus-billingint` está recebendo as solicitações de leitura predominantemente, mas com um pequeno número de solicitações Upsert e Create. Enquanto `westeurope-billingint` é somente leitura de uma perspectiva de solicitação, pelo menos nas últimas quatro horas em que a pasta de trabalho está atualmente com escopo por meio de seu parâmetro de intervalo de tempo.
 
 ![Pasta de trabalho de operações](./media/cosmosdb-insights-overview/operation.png) 
 
@@ -110,9 +110,9 @@ Para expandir ou recolher todas as exibições suspensas na pasta de trabalho, s
 
 ![Ícone expandir pasta de trabalho](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Personalizar Azure Monitor para Azure Cosmos DB (versão prévia)
+## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Personalizar Azure Monitor para Azure Cosmos DB
 
-Como essa experiência é criada sobre os modelos de pasta de trabalho Azure monitor, você tem a capacidade de **Personalizar** > **Editar** e **salvar** uma cópia da sua versão modificada em uma pasta de trabalho personalizada. 
+Como essa experiência é criada sobre os modelos de pasta de trabalho Azure monitor, você tem a capacidade de **Personalizar**  >  **Editar** e **salvar** uma cópia da sua versão modificada em uma pasta de trabalho personalizada. 
 
 ![Personalizar barra](./media/cosmosdb-insights-overview/customize.png)
 

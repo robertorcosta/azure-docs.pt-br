@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676929"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197577"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
@@ -34,7 +34,7 @@ Por exemplo, se o otimizador estimar que a data em que a consulta está filtrand
 
 ### <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
 
-O pool SQL analisará as consultas de usuário recebidas quanto a estatísticas ausentes quando a `ON`opção de AUTO_CREATE_STATISTICS do banco de dados for definida como.  Se as estatísticas estiverem ausentes, o otimizador de consulta criará estatísticas em colunas individuais no predicado de consulta ou condição de junção. Essa função é usada para melhorar as estimativas de cardinalidade para o plano de consulta.
+O pool SQL analisará as consultas de usuário recebidas quanto a estatísticas ausentes quando a opção de AUTO_CREATE_STATISTICS do banco de dados for definida como `ON` .  Se as estatísticas estiverem ausentes, o otimizador de consulta criará estatísticas em colunas individuais no predicado de consulta ou condição de junção. Essa função é usada para melhorar as estimativas de cardinalidade para o plano de consulta.
 
 > [!IMPORTANT]
 > Criação automática de estatísticas está atualmente ativada por padrão.
@@ -239,7 +239,7 @@ Para criar um objeto de estatísticas de várias colunas, use os exemplos anteri
 > [!NOTE]
 > O histograma, que é usado para estimar o número de linhas no resultado da consulta, está disponível apenas para a primeira coluna listada na definição do objeto estatístico.
 
-Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas *na\_categoria do produto* e *sub_category do produto\_*:
+Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas *na \_ categoria do produto* e * \_ sub_category do produto*:
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -248,7 +248,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Como existe uma correlação entre *a\_categoria de produto* e a *\_\_subcategoria de produto*, um objeto de estatísticas de várias colunas poderá ser útil se essas colunas forem acessadas ao mesmo tempo.
+Como existe uma correlação entre *a \_ categoria de produto* e a * \_ \_ subcategoria de produto*, um objeto de estatísticas de várias colunas poderá ser útil se essas colunas forem acessadas ao mesmo tempo.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Criar estatísticas em todas as coluna em uma tabela
 
@@ -423,7 +423,7 @@ A instrução UPDATE STATISTICs é fácil de usar. Apenas lembre-se de que ele a
 > [!NOTE]
 > Ao atualizar todas as estatísticas em uma tabela, o pool do SQL faz uma verificação para obter uma amostra da tabela para cada objeto de estatísticas. Se a tabela for grande e tiver muitas colunas e muitas estatísticas, talvez seja mais eficiente atualizar estatísticas individuais com base na necessidade.
 
-Para obter uma implementação de `UPDATE STATISTICS` um procedimento, consulte [tabelas temporárias](develop-tables-temporary.md). O método de implementação é ligeiramente diferente do procedimento anterior `CREATE STATISTICS`, mas o resultado é o mesmo.
+Para obter uma implementação de um `UPDATE STATISTICS` procedimento, consulte [tabelas temporárias](develop-tables-temporary.md). O método de implementação é ligeiramente diferente do procedimento anterior `CREATE STATISTICS`, mas o resultado é o mesmo.
 Para obter a sintaxe completa, consulte [atualizar estatísticas](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="statistics-metadata"></a>Metadados de estatísticas
@@ -497,7 +497,7 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS() mostra os dados contidos em um objeto de estatísticas. Esses dados estão divididos em três partes:
 
-- Cabeçalho
+- parâmetro
 - Vetor de densidade
 - Histograma
 
@@ -611,6 +611,8 @@ Os exemplos a seguir mostram como usar várias opções para criar estatísticas
 
 > [!NOTE]
 > Você pode criar estatísticas de coluna única somente neste momento.
+>
+> O procedimento sp_create_file_statistics será renomeado para sp_create_openrowset_statistics. A função de servidor público tem a permissão administrar operações em massa concedida enquanto a função de banco de dados pública tem permissões de execução em sp_create_file_statistics e sp_drop_file_statistics. Isso pode ser alterado no futuro.
 
 O procedimento armazenado a seguir é usado para criar estatísticas:
 
@@ -618,7 +620,7 @@ O procedimento armazenado a seguir é usado para criar estatísticas:
 sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 ```
 
-Arguments: @stmt [=] N ' statement_text '-especifica uma instrução TRANSACT-SQL que retornará valores de coluna a serem usados para estatísticas. Você pode usar TABLESAMPLE para especificar exemplos de dados a serem usados. Se TABLESAMPLE não for especificado, FULLSCAN será usado.
+Arguments: [ @stmt =] N ' statement_text '-especifica uma instrução Transact-SQL que retornará valores de coluna a serem usados para estatísticas. Você pode usar TABLESAMPLE para especificar exemplos de dados a serem usados. Se TABLESAMPLE não for especificado, FULLSCAN será usado.
 
 ```syntaxsql
 <tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
@@ -696,7 +698,10 @@ Para atualizar as estatísticas, você precisa descartar e criar estatísticas. 
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
 
-Arguments: @stmt [=] N ' statement_text '-especifica a mesma instrução TRANSACT-SQL usada quando as estatísticas foram criadas.
+> [!NOTE]
+> O procedimento sp_drop_file_statistics será renomeado para sp_drop_openrowset_statistics. A função de servidor público tem a permissão administrar operações em massa concedida enquanto a função de banco de dados pública tem permissões de execução em sp_create_file_statistics e sp_drop_file_statistics. Isso pode ser alterado no futuro.
+
+Arguments: [ @stmt =] N ' statement_text '-especifica a mesma instrução Transact-SQL usada quando as estatísticas foram criadas.
 
 Para atualizar as estatísticas da coluna year no DataSet, que se baseia no arquivo. csv de população, você precisa descartar e criar estatísticas:
 

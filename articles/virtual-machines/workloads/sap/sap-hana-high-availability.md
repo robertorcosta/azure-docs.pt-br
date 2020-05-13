@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/22/2020
+ms.date: 05/11/2020
 ms.author: radeltch
-ms.openlocfilehash: e04b37d0c95f2176581c7d13f3641a13ecddfd8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101205"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196860"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidade do SAP HANA nas VMs do Azure no SUSE Linux Enterprise Server
 
@@ -277,7 +277,7 @@ As etapas nesta seção usam os seguintes prefixos:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Criar os volumes lógicos. Um volume linear é criado quando você usa `lvcreate` sem a opção `-i`. Sugerimos que você crie um volume distribuído para melhorar o desempenho de e/s e alinhe os tamanhos de distribuição aos valores documentados em [SAP Hana configurações de armazenamento de VM](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). O `-i` argumento deve ser o número de volumes físicos subjacentes e o `-I` argumento é o tamanho da distribuição. Neste documento, dois volumes físicos são usados para o volume de dados, portanto, o argumento da chave `-i` é definido com **2**. O tamanho da distribuição para o volume de dados é **256KiB**. Um volume físico é usado para o volume de log, portanto `-i` , `-I` não ou opções são explicitamente usadas para os comandos de volume de log.  
+   Criar os volumes lógicos. Um volume linear é criado quando você usa `lvcreate` sem a opção `-i`. Sugerimos que você crie um volume distribuído para melhorar o desempenho de e/s e alinhe os tamanhos de distribuição aos valores documentados em [SAP Hana configurações de armazenamento de VM](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). O `-i` argumento deve ser o número de volumes físicos subjacentes e o `-I` argumento é o tamanho da distribuição. Neste documento, dois volumes físicos são usados para o volume de dados, portanto, o argumento da chave `-i` é definido com **2**. O tamanho da distribuição para o volume de dados é **256KiB**. Um volume físico é usado para o volume de log, portanto, não `-i` ou `-I` opções são explicitamente usadas para os comandos de volume de log.  
 
    > [!IMPORTANT]
    > Use a opção `-i` e defina-a para o número do volume físico subjacente quando você usar mais de um volume físico para cada volume de dados, log ou compartilhado. Use a `-I` opção para especificar o tamanho da distribuição ao criar um volume distribuído.  
@@ -407,14 +407,14 @@ As etapas nesta seção usam os seguintes prefixos:
 
    Se você estiver usando o SAP HANA 2.0 ou o MDC, crie um banco de dados de locatário para o sistema SAP NetWeaver. Substitua **NW1** pelo SID do seu sistema SAP.
 
-   Execute o seguinte comando como <hanasid\>ADM:
+   Execute o seguinte comando como <hanasid \> ADM:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** configurar a replicação do sistema no primeiro nó:
 
-   Faça backup dos bancos de dados como <ADM\>hanasid:
+   Faça backup dos bancos de dados como <\> ADM hanasid:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -434,7 +434,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[2]** Configure a Replicação de Sistema no segundo nó:
     
-   Registre o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando como <hanasid\>ADM:
+   Registre o segundo nó para iniciar a replicação de sistema. Execute o seguinte comando como <hanasid \> ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -481,7 +481,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[1]** Configure a Replicação de Sistema no primeiro nó.
 
-   Crie o site primário como <ADM\>hanasid:
+   Crie o site primário como <\> ADM hanasid:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -489,7 +489,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[2]** Configure a Replicação de Sistema no nó secundário.
 
-   Registre o site secundário como <ADM\>hanasid:
+   Registre o site secundário como <\> ADM hanasid:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -547,7 +547,8 @@ sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr
   op monitor interval="10s" timeout="20s" \
   params ip="<b>10.0.0.13</b>"
 
-sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b>
+sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b> \
+  meta resource-stickiness=0
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
 
@@ -759,7 +760,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-dB-0:
+   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-dB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -800,7 +801,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-DB-1:
+   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -841,7 +842,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-dB-0:
+   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-dB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -882,7 +883,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-DB-1:
+   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1025,7 +1026,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-DB-1:
+   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1062,7 +1063,7 @@ OBSERVAÇÃO: os testes a seguir foram projetados para serem executados em sequ�
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Execute os comandos a seguir como <\>hanasid ADM no nó hn1-DB-1:
+   Execute os comandos a seguir como <hanasid \> ADM no nó hn1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 555ba9a55a135bd38dcc46e1ff7a3d751083d47e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271685"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196425"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemas comuns com a verificação de dois fatores e sua conta corporativa ou de estudante
 
@@ -32,7 +32,7 @@ Há alguns problemas comuns de verificação de dois fatores que parecem ocorrer
 >[!Important]
 >Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure AD na [documentação do Azure ad](https://docs.microsoft.com/azure/active-directory).
 >
->Esse conteúdo também destina-se apenas ao uso com sua conta corporativa ou de estudante, que é a conta fornecida por sua organização (por exemplo, alain@contoso.com). Se você estiver tendo problemas com a verificação de dois fatores e seu conta Microsoft pessoal, que é uma conta que você configurou para si mesmo (por danielle@outlook.comexemplo,), consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Esse conteúdo também destina-se apenas ao uso com sua conta corporativa ou de estudante, que é a conta fornecida por sua organização (por exemplo, alain@contoso.com ). Se você estiver tendo problemas com a verificação de dois fatores e seu conta Microsoft pessoal, que é uma conta que você configurou para si mesmo (por exemplo, danielle@outlook.com ), consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Eu não tenho meu dispositivo móvel comigo
 
@@ -99,9 +99,9 @@ As senhas de aplicativo substituem sua senha normal para aplicativos de área de
 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Não posso ativar a verificação de dois fatores
 
-Se você estiver usando a verificação de dois fatores com sua conta corporativa ou de estudante (por alain@contoso.comexemplo,), provavelmente significa que sua organização decidiu que você deve usar esse recurso de segurança adicionado. Como sua organização decidiu que você deve usar esse recurso, não há como desativá-lo individualmente. No entanto, se você estiver usando a verificação de dois fatores com uma conta pessoal alain@outlook.com, como, você tem a capacidade de ativar e desativar o recurso. Para obter instruções sobre como controlar a verificação de dois fatores para suas contas pessoais, consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+Se você estiver usando a verificação de dois fatores com sua conta corporativa ou de estudante (por exemplo, alain@contoso.com ), provavelmente significa que sua organização decidiu que você deve usar esse recurso de segurança adicionado. Como sua organização decidiu que você deve usar esse recurso, não há como desativá-lo individualmente. No entanto, se você estiver usando a verificação de dois fatores com uma conta pessoal, como alain@outlook.com , você tem a capacidade de ativar e desativar o recurso. Para obter instruções sobre como controlar a verificação de dois fatores para suas contas pessoais, consulte [Ativar ou desativar a verificação de dois fatores para seu conta Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-Se você não puder desativar a verificação de dois fatores, isso também poderá ser devido aos padrões de segurança que foram aplicados no nível da organização. Para obter mais informações sobre padrões de segurança, consulte [o que são segurança defulta?](../fundamentals/concept-fundamentals-security-defaults.md)
+Se você não puder desativar a verificação de dois fatores, isso também poderá ser devido aos padrões de segurança que foram aplicados no nível da organização. Para obter mais informações sobre os padrões de segurança, consulte [o que são os padrões de segurança?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrei uma resposta para o meu problema
 

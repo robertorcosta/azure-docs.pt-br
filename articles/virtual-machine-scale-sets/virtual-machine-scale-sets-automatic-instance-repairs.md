@@ -2,20 +2,19 @@
 title: Reparos automáticos de instância com conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba como configurar a política de reparos automáticos para instâncias de VM em um conjunto de dimensionamento
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603675"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197030"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparos automáticos de instância para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -57,7 +56,7 @@ Atualmente, não há suporte para este recurso em conjuntos de dimensionamento d
 
 O recurso de reparo automático de instância depende do monitoramento de integridade de instâncias individuais em um conjunto de dimensionamento. As instâncias de VM em um conjunto de dimensionamento podem ser configuradas para emitir o status de integridade do aplicativo usando a [extensão de integridade do aplicativo](./virtual-machine-scale-sets-health-extension.md) ou as investigações de integridade do [balanceador de carga](../load-balancer/load-balancer-custom-probe-overview.md). Se uma instância for considerada não íntegra, o conjunto de dimensionamento executará a ação de reparo excluindo a instância não íntegra e criando uma nova para substituí-la. O modelo de conjunto de dimensionamento de máquinas virtuais mais recente é usado para criar a nova instância. Esse recurso pode ser habilitado no modelo do conjunto de dimensionamento de máquinas virtuais usando o objeto *automaticRepairsPolicy* .
 
-### <a name="batching"></a>Separação em lotes
+### <a name="batching"></a>Envio em lote
 
 As operações automáticas de reparo de instância são executadas em lotes. Em um determinado momento, não mais do que 5% das instâncias no conjunto de dimensionamento são reparadas por meio da política de reparos automáticas. Isso ajuda a evitar a exclusão simultânea e a recriação de um grande número de instâncias, se elas não estiverem íntegras ao mesmo tempo.
 
@@ -154,7 +153,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 O exemplo acima usa um balanceador de carga e uma investigação de integridade existentes para monitorar o status de integridade do aplicativo de instâncias. Se preferir usar uma extensão de integridade do aplicativo para monitoramento em vez disso, você pode criar um conjunto de dimensionamento, configurar a extensão de integridade do aplicativo e habilitar a política de reparos de instância automática usando a *atualização AZ vmss*, conforme explicado na próxima seção.
@@ -217,7 +216,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Exibindo e atualizando o estado do serviço da política de reparos automáticos da instância

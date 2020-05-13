@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/12/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2df89bc18ea5d0098ac5ebb0bc06b9df6728705
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ea289dbdf22f76c8ea716acf87b0b1a2da6ef0f9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993755"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196588"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs de Azure Monitor
 
@@ -40,15 +40,15 @@ O preço padrão para Log Analytics é um modelo **pago conforme o uso** com bas
   
 Além do modelo pago conforme o uso, Log Analytics tem camadas de **reserva de capacidade** que permitem que você economize até 25% em comparação com o preço pago conforme o uso do. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. As camadas de reserva de capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, você pode alterar para uma camada de reserva de capacidade de nível superior (que reiniciará o período de compromisso de 31 dias), mas não poderá voltar para o pré-pago ou para uma camada de reserva de capacidade mais baixa até que o período de compromisso seja concluído. A cobrança para as camadas de reserva de capacidade é feita diariamente. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre o log Analytics preços pagos conforme o uso e de reserva de capacidade. 
 
-Em todos os tipos de preço, o volume de dados é calculado a partir de uma representação de cadeia de caracteres dos dados conforme eles são preparados para serem armazenados. Várias [Propriedades comuns a todos os tipos de dados](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) não são incluídas no cálculo do tamanho do evento, `_ResourceId`incluindo `_ItemId`, `_IsBillable` e `_BilledSize`.
+Em todos os tipos de preço, o volume de dados é calculado a partir de uma representação de cadeia de caracteres dos dados conforme eles são preparados para serem armazenados. Várias [Propriedades comuns a todos os tipos de dados](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) não são incluídas no cálculo do tamanho do evento, `_ResourceId` incluindo `_ItemId` , `_IsBillable` e `_BilledSize` .
 
 Além disso, observe que algumas soluções, como a [central de segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), o [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) e o [Gerenciamento de configuração](https://azure.microsoft.com/pricing/details/automation/) têm seus próprios modelos de preços. 
 
-### <a name="log-analytics-clusters"></a>Clusters Log Analytics
+### <a name="log-analytics-dedicated-clusters"></a>Log Analytics clusters dedicados
 
-Clusters de Log Analytics são coleções de espaços de trabalho em um único cluster gerenciado do Azure Data Explorer para dar suporte a cenários avançados, como [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Log Analytics clusters dão suporte a apenas um modelo de preços de reserva de capacidade a partir de 1000 GB/dia com um desconto de 25% em comparação com o preço pago conforme o uso. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. A reserva de capacidade do cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas pode ser aumentado a qualquer momento. Saiba mais sobre como [criar log Analytics clusters](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e [associar espaços de trabalho a ele](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
+Log Analytics clusters dedicados são coleções de espaços de trabalho em um único cluster gerenciado do Azure Data Explorer para dar suporte a cenários avançados, como [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Log Analytics clusters dedicados dão suporte a apenas um modelo de preços de reserva de capacidade a partir de 1000 GB/dia com um desconto de 25% em comparação com o preço pago conforme o uso. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. A reserva de capacidade do cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas pode ser aumentado a qualquer momento. Saiba mais sobre como [criar log Analytics clusters](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) e [associar espaços de trabalho a ele](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
 
-O nível de reserva de capacidade do cluster é configurado por meio de `Capacity` programação com `Sku`Azure Resource Manager usando o parâmetro em. O `Capacity` é especificado em unidades de GB e pode ter valores de 1000 GB/dia ou mais em incrementos de 100 GB/dia. Isso é detalhado [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Se o cluster precisar de uma reserva acima de 2000 GB/dia, [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)entre em contato conosco em.
+O nível de reserva de capacidade do cluster é configurado por meio de programação com Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . O `Capacity` é especificado em unidades de GB e pode ter valores de 1000 GB/dia ou mais em incrementos de 100 GB/dia. Isso é detalhado [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Se o cluster precisar de uma reserva acima de 2000 GB/dia, entre em contato conosco em [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
 Como a cobrança de dados ingeridos é feita no nível do cluster, os espaços de trabalho associados a um cluster não têm mais um tipo de preço. As quantidades de dados ingeridos de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. Observe que as alocações por nó da central de [segurança do Azure](https://docs.microsoft.com/azure/security-center/) são aplicadas no nível do espaço de trabalho antes dessa agregação de dados agregados em todos os espaços de trabalho no cluster. A retenção de dados ainda é cobrada no nível do espaço de trabalho. Observe que a cobrança do cluster começa quando o cluster é criado, independentemente de os espaços de trabalho estarem associados ao cluster. 
 
@@ -88,7 +88,7 @@ Para alterar o tipo de preço Log Analytics do seu espaço de trabalho,
 
 3. Depois de examinar os custos estimados com base nos últimos 31 dias de uso, se você decidir alterar o tipo de preço, clique em **selecionar**.  
 
-Você também pode [definir o tipo de preço por meio](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) de `sku` Azure Resource Manager usando`pricingTier` o parâmetro (no modelo Azure Resource Manager). 
+Você também pode [definir o tipo de preço por meio de Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o `sku` parâmetro ( `pricingTier` no modelo Azure Resource Manager). 
 
 ## <a name="legacy-pricing-tiers"></a>Tipos de preço legados
 
@@ -122,10 +122,12 @@ Para definir a retenção padrão para seu espaço de trabalho,
 
 Quando a retenção é reduzida, há um período de carência de vários dias antes que os dados mais antigos sejam removidos. 
     
-A retenção também pode ser [definida por meio](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) de Azure Resource Manager `retentionInDays` usando o parâmetro. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos `immediatePurgeDataOn30Days` usando o parâmetro, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade só é exposta por meio de Azure Resource Manager. 
+A retenção também pode ser [definida por meio de Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o `retentionInDays` parâmetro. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o `immediatePurgeDataOn30Days` parâmetro, o que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade só é exposta por meio de Azure Resource Manager. 
 
-Dois tipos de dados- `Usage` - `AzureActivity` e--são retidos por 90 dias por padrão, e não há nenhum custo para essa retenção de 90 dias. Esses tipos de dados também são gratuitos de encargos de ingestão de dados. 
 
+Dois tipos de dados-- `Usage` e `AzureActivity` --são retidos por 90 dias por padrão, e não há nenhum custo para essa retenção de 90 dias. Esses tipos de dados também são gratuitos de encargos de ingestão de dados. 
+
+Os tipos de dados dos recursos de Application insights baseados no espaço de trabalho (,,,,,, `AppAvailabilityResults` `AppBrowserTimings` ,, `AppDependencies` `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` e `AppTraces` ) também são retidos por 90 dias por padrão, e não há nenhum custo para essa retenção de 90 dias. Sua retenção pode ser ajustada usando a funcionalidade de retenção por tipo de dados. 
 
 
 ### <a name="retention-by-data-type"></a>Retenção por tipo de dados
@@ -160,9 +162,9 @@ Para definir a retenção de um tipo de dados específico (neste exemplo, Securi
     }
 ```
 
-Os valores válidos `retentionInDays` para são de 30 a 730.
+Os valores válidos para `retentionInDays` são de 30 a 730.
 
-Os `Usage` tipos `AzureActivity` de dados e não podem ser definidos com retenção personalizada. Eles terão o máximo de retenção de espaço de trabalho padrão ou de 90 dias. 
+Os `Usage` `AzureActivity` tipos de dados e não podem ser definidos com retenção personalizada. Eles terão o máximo de retenção de espaço de trabalho padrão ou de 90 dias. 
 
 Uma ótima ferramenta para se conectar diretamente ao Azure Resource Manager definir a retenção por tipo de dados é a ferramenta OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Saiba mais sobre o ARMclient de artigos de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) e [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Aqui está um exemplo usando ARMClient, definindo os dados de SecurityEvent para uma retenção de 730 dias:
 
@@ -261,7 +263,7 @@ Na página **Uso e custos estimados**, o gráfico *Ingestão de dados por soluç
 
 ### <a name="data-volume-for-specific-events"></a>Volume de dados para eventos específicos
 
-Para examinar o tamanho dos dados ingeridos de um determinado conjunto de eventos, você pode consultar a tabela específica (neste exemplo `Event`) e, em seguida, restringir a consulta aos eventos de interesse (neste exemplo, ID do evento 5145 ou 5156):
+Para examinar o tamanho dos dados ingeridos de um determinado conjunto de eventos, você pode consultar a tabela específica (neste exemplo `Event` ) e, em seguida, restringir a consulta aos eventos de interesse (neste exemplo, ID do evento 5145 ou 5156):
 
 ```kusto
 Event
@@ -285,7 +287,7 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), Solution | render barchart
 ```
 
-A cláusula WITH `TimeGenerated` é apenas para garantir que a experiência de consulta no portal do Azure seja exibida fora do padrão 24 horas. Ao usar o tipo de dados de `StartTime` uso `EndTime` e representar os buckets de tempo para os quais os resultados são apresentados. 
+A cláusula WITH `TimeGenerated` é apenas para garantir que a experiência de consulta no portal do Azure seja exibida fora do padrão 24 horas. Ao usar o tipo de dados de uso `StartTime` e `EndTime` representar os buckets de tempo para os quais os resultados são apresentados. 
 
 ### <a name="data-volume-by-type"></a>Volume de dados por tipo
 
@@ -312,7 +314,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>Volume de dados por computador
 
-O `Usage` tipo de dados não inclui informações no nível do computador. Para ver o **tamanho** dos dados ingeridos por computador, use `_BilledSize` a [Propriedade](log-standard-properties.md#_billedsize), que fornece o tamanho em bytes:
+O `Usage` tipo de dados não inclui informações no nível do computador. Para ver o **tamanho** dos dados ingeridos por computador, use a `_BilledSize` [Propriedade](log-standard-properties.md#_billedsize), que fornece o tamanho em bytes:
 
 ```kusto
 union withsource = tt * 
@@ -337,7 +339,6 @@ union withsource = tt *
 > [!TIP]
 > Use essas `union  *` consultas com moderação, pois as verificações entre os tipos de dados são [intensivas em recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) para serem executadas. Se você não precisar de resultados **por computador** , consulte o tipo de dados de uso.
 
-
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recurso do Azure, grupo de recursos ou assinatura
 
 Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos dados ingeridos __por computador__, usar a [Propriedade](log-standard-properties.md#_resourceid)_ResourceId, que fornece o caminho completo para o recurso:
@@ -349,7 +350,7 @@ union withsource = tt *
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos dados ingeridos __por assinatura do Azure__, analisar a `_ResourceId` Propriedade como:
+Para dados de nós hospedados no Azure, você pode obter o **tamanho** dos dados ingeridos __por assinatura do Azure__, analisar a `_ResourceId` propriedade como:
 
 ```kusto
 union withsource = tt * 
@@ -360,7 +361,7 @@ union withsource = tt *
 | summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
-A `subscriptionId` alteração `resourceGroup` para mostrará o volume de dados ingeridos Faturável pelo grupo de recursos do Azure. 
+`subscriptionId`A alteração para `resourceGroup` mostrará o volume de dados ingeridos Faturável pelo grupo de recursos do Azure. 
 
 > [!TIP]
 > Use essas `union  *` consultas com moderação, pois as verificações entre os tipos de dados são [intensivas em recursos](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) para serem executadas. Se você não precisar de resultados por assinatura, por grupo de recursos ou por nome de recurso, consulte o tipo de dados de uso.
@@ -368,10 +369,13 @@ A `subscriptionId` alteração `resourceGroup` para mostrará o volume de dados 
 > [!WARNING]
 > Alguns dos campos do tipo de dados Uso, ainda no esquema, foram reprovados e seus valores não serão mais preenchidos. Estes são **Computador**, bem como campos relacionados à ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
 
+
 ### <a name="querying-for-common-data-types"></a>Consultando tipos de dados comuns
 
 Para aprofundar a fonte de dados de um determinado tipo de dados, aqui estão algumas consultas de exemplo úteis:
 
++ Recursos **de Application insights baseados em espaço de trabalho**
+  - Saiba mais [aqui](https://docs.microsoft.com/azure/azure-monitor/app/pricing#data-volume-for-workspace-based-application-insights-resources)
 + Solução de **Segurança**
   - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + Solução do **Gerenciamento de log**
@@ -463,9 +467,9 @@ A decisão de saber se os espaços de trabalho com acesso ao tipo de preço herd
 
 Para facilitar essa avaliação, a consulta a seguir pode ser usada para fazer uma recomendação para o tipo de preço ideal com base nos padrões de uso de um espaço de trabalho.  Essa consulta examina os nós monitorados e os dados ingeridos em um espaço de trabalho nos últimos 7 dias e, para cada dia, avalia qual tipo de preço seria ideal. Para usar a consulta, você precisa especificar
 
-1. Se o espaço de trabalho estiver usando a central de `workspaceHasSecurityCenter` segurança `true` do `false`Azure definindo como ou, 
+1. Se o espaço de trabalho estiver usando a central de segurança do Azure definindo `workspaceHasSecurityCenter` como `true` ou `false` , 
 2. Atualize os preços se você tiver descontos específicos e
-3. Especifique o número de dias a serem examinados e analisados `daysToEvaluate`pela configuração. Isso será útil se a consulta estiver demorando muito tempo tentando examinar 7 dias de dados. 
+3. Especifique o número de dias a serem examinados e analisados pela configuração `daysToEvaluate` . Isso será útil se a consulta estiver demorando muito tempo tentando examinar 7 dias de dados. 
 
 Aqui está a consulta de recomendação de tipo de preço:
 

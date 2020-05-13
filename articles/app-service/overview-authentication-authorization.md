@@ -5,15 +5,13 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 04/15/2020
 ms.reviewer: mahender
-ms.custom:
-- seodec18
-- fasttrack-edit
-ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457851"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196447"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no serviço Azure App e Azure Functions
 
@@ -33,7 +31,7 @@ A autenticação e autorização seguras exigem um profundo entendimento de segu
 
 Para informações específicas sobre aplicativos móveis nativos, consulte [Autenticação e autorização de usuários para aplicativos móveis com Serviço de Aplicativo do Azure ](../app-service-mobile/app-service-mobile-auth.md).
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como funciona
 
 O módulo de autenticação e autorização executa na mesma caixa restrita que o código do aplicativo. Quando habilitado, toda solicitação HTTP de entrada passa por ele antes de ser manipulada pelo código do aplicativo.
 
@@ -52,7 +50,7 @@ O módulo executa separadamente do código do aplicativo e é configurado usando
 
 Para todas as estruturas de linguagem, o serviço de aplicativo faz as declarações no token de entrada (seja por meio de um usuário final autenticado ou um aplicativo cliente) disponíveis para seu código injetando-as nos cabeçalhos de solicitação. Para aplicativos ASP.NET 4.6, o Serviço de Aplicativo preenche [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as declarações do usuário autenticado, de modo que seja possível seguir o padrão de código .NET Standard, incluindo o atributo `[Authorize]`. Da mesma forma, para aplicativos PHP, o Serviço de Aplicativo preenche a variável `_SERVER['REMOTE_USER']`. Para aplicativos Java, as declarações podem [ser acessadas do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
-Por [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` o não é populado para o código .net, mas você ainda pode encontrar as declarações do usuário nos cabeçalhos da `ClaimsPrincipal` solicitação ou obter o objeto do contexto da solicitação ou mesmo por meio de um parâmetro de associação. Consulte [trabalhando com identidades de cliente](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) para obter mais informações.
+Por [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` o não é populado para o código .net, mas você ainda pode encontrar as declarações do usuário nos cabeçalhos da solicitação ou obter o `ClaimsPrincipal` objeto do contexto da solicitação ou mesmo por meio de um parâmetro de associação. Consulte [trabalhando com identidades de cliente](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) para obter mais informações.
 
 Para mais informações, consulte [Acessar declarações de usuário](app-service-authentication-how-to.md#access-user-claims).
 
@@ -142,9 +140,9 @@ Com essa opção, você não precisa gravar nenhum código de autenticação no 
 
 [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](containers/tutorial-auth-aad.md)  
-[Personalizar a autenticação e a autorização no serviço](app-service-authentication-how-to.md)
-[de aplicativo integração do .NET Core do Azure AppService EasyAuth (terceiros)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-[obtendo Azure app autenticação do serviço trabalhando com o .NET Core (terceiros)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+[Personalizar a autenticação e a autorização no serviço](app-service-authentication-how-to.md) 
+ de aplicativo [Integração do .NET Core do Azure AppService EasyAuth (terceiros)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
+ [Obtendo Azure app a autenticação do serviço funcionando com o .NET Core (terceiros)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Guias de instruções específicas do provedor:
 

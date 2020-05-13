@@ -1,18 +1,18 @@
 ---
-title: Separando telemetria no Aplicativo Azure insights
+title: Como projetar sua implantação de Application Insights – um versus muitos recursos?
 description: Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 05/11/2020
+ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562144"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125682"
 ---
-# <a name="separating-telemetry-from-development-test-and-production"></a>Separação da telemetria de desenvolvimento, teste e produção
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Application Insights devo implantar
 
-Ao desenvolver a próxima versão de um aplicativo Web, não é bom misturar as telemetrias do da nova versão e da versão já lançada do [Application Insights](../../azure-monitor/app/app-insights-overview.md). Para evitar confusão, envie a telemetria de diferentes estágios de desenvolvimento a fim de separar os recursos do Application Insights, com chaves de instrumentação separadas (ikeys). Para facilitar a alteração da chave de instrumentação, quando uma versão muda de um estágio para outro, pode ser útil definir a ikey no código em vez de no arquivo de configuração. 
+Ao desenvolver a próxima versão de um aplicativo Web, não é bom misturar as telemetrias do da nova versão e da versão já lançada do [Application Insights](../../azure-monitor/app/app-insights-overview.md). Para evitar confusão, envie a telemetria de diferentes estágios de desenvolvimento a fim de separar os recursos do Application Insights, com chaves de instrumentação separadas (ikeys). Para facilitar a alteração da chave de instrumentação, quando uma versão muda de um estágio para outro, pode ser útil definir a ikey no código em vez de no arquivo de configuração.
 
 (Se o sistema for um Serviço de Nuvem do Azure, haverá [outro método de configuração de ikeys separados](../../azure-monitor/app/cloudservices.md).)
 
@@ -22,7 +22,7 @@ Ao configurar o monitoramento do Application Insights para seu aplicativo Web, v
 
 Cada recurso de Application Insights vem com métricas que estão disponíveis fora de caixa. Se os componentes completamente separados reportarem para o mesmo recurso de Application Insights, essas métricas talvez não façam sentido para o painel/alerta.
 
-### <a name="use-a-single-application-insights-resource"></a>Usar um único recurso de Application Insights
+### <a name="when-to-use-a-single-application-insights-resource"></a>Quando usar um único recurso de Application Insights
 
 -   Para componentes de aplicativos que são implantados juntos. Normalmente desenvolvido por uma única equipe, gerenciada pelo mesmo conjunto de usuários DevOps/ITOps.
 -   Se fizer sentido agregar KPIs (indicadores chave de desempenho), como durações de resposta, taxas de falha no painel, etc., em todos eles por padrão (você pode optar por segmentar por nome de função na experiência de Metrics Explorer).

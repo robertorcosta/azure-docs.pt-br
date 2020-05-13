@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733238"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125767"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas do sistema operacional convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para um conjunto de dimensionamento de máquina virtual do Windows
 
@@ -252,7 +252,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Lembre-se de usar uma região do Azure ativada para métricas personalizadas. Lembre-se de usar uma região do [Azure ativada para métricas personalizadas](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
+   > Lembre-se de usar uma região do Azure ativada para métricas personalizadas. Lembre-se de usar uma região do [Azure ativada para métricas personalizadas](./metrics-custom-overview.md#supported-regions).
  
 1. Execute os seguintes comandos para implantar a VM:  
 
@@ -285,7 +285,7 @@ Para implantar o modelo do Resource Manager, use o Azure PowerShell:
 
 1. No menu suspenso namespaces, selecione **azure.vm.windows.guest**. 
 
-1. No menu suspenso métricas, selecione **memória\%bytes confirmados em uso**.  
+1. No menu suspenso métricas, selecione **memória \% bytes confirmados em uso**.  
 
 Você também pode optar por usar as dimensões nessa métrica para traçar uma VM específica ou plotar cada VM no conjunto de escala. 
 

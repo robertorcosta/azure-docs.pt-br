@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928271"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195673"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN virtual
 
@@ -145,10 +145,10 @@ O trânsito seguro de VNet para VNet permite que o VNets se conecte entre si por
 
 ### <a name="vnet-to-internet-or-third-party-security-service-i"></a>VNet a Internet ou serviço de segurança de terceiros (i)
 
-A VNet para a Internet ou o trânsito protegido de terceiros permite que o VNets se conecte à Internet ou a serviços de segurança de terceiros com suporte por meio do firewall do Azure no Hub de WAN virtual.
+A rede virtual para a Internet permite que o VNets se conecte à Internet por meio do firewall do Azure no Hub de WAN virtual. O tráfego para a Internet por meio de serviços de segurança de terceiros com suporte não flui pelo firewall do Azure. Você pode configurar o caminho da vnet para a Internet por meio de um serviço de segurança de terceiros com suporte usando o Gerenciador de firewall do Azure.  
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Branch-to-Internet ou serviço de segurança de terceiros (j)
-A filial para a Internet ou o trânsito seguro de terceiros permite que as ramificações se conectem à Internet ou a serviços de segurança de terceiros com suporte por meio do firewall do Azure no Hub de WAN virtual.
+A ramificação para a Internet permite que branches se conectem à Internet por meio do firewall do Azure no Hub de WAN virtual. O tráfego para a Internet por meio de serviços de segurança de terceiros com suporte não flui pelo firewall do Azure. Você pode configurar o caminho da ramificação para a Internet por meio do serviço de segurança de terceiros com suporte usando o Gerenciador de firewall do Azure. 
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Como fazer habilitar a rota padrão (0.0.0.0/0) em um hub virtual protegido
 

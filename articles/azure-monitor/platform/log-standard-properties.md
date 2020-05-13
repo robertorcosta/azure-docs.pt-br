@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
-ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274470"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196228"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriedades padrão em logs de Azure Monitor
 Os dados em logs de Azure Monitor são [armazenados como um conjunto de registros em um espaço de trabalho log Analytics ou Application insights aplicativo](../log-query/logs-structure.md), cada um com um tipo de dados específico que tem um conjunto exclusivo de propriedades. Muitos tipos de dados terão propriedades padrão comuns a vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como você pode usá-las em consultas.
+
+> [!IMPORTANT]
+> Se você estiver usando o APM 2,1, os aplicativos Application Insights serão armazenados em um espaço de trabalho Log Analytics com todos os outros dados de log. As tabelas foram renomeadas e reestruturadas, mas têm as mesmas informações que as tabelas no aplicativo Application Insights. Essas novas tabelas têm as mesmas propriedades padrão que outras tabelas no espaço de trabalho Log Analytics.
 
 > [!NOTE]
 > Algumas das propriedades padrão não serão mostradas na exibição de esquema ou no IntelliSense em Log Analytics e não serão mostradas nos resultados da consulta, a menos que você especifique explicitamente a propriedade na saída.
@@ -46,7 +49,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_De recebimento
-A ** \_Propriedade timereceberd** contém a data e a hora em que o registro foi recebido pelo ponto de ingestão Azure monitor na nuvem do Azure. Isso pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de rede causando um atraso com os dados enviados de um agente. Confira [tempo de ingestão de dados de log no Azure monitor](data-ingestion-time.md) para obter mais detalhes.
+A propriedade ** \_ timereceberd** contém a data e a hora em que o registro foi recebido pelo ponto de ingestão Azure monitor na nuvem do Azure. Isso pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de rede causando um atraso com os dados enviados de um agente. Confira [tempo de ingestão de dados de log no Azure monitor](data-ingestion-time.md) para obter mais detalhes.
 
 A consulta a seguir fornece a latência média por hora para registros de eventos de um agente. Isso inclui o tempo do agente para a nuvem e o tempo total para que o registro esteja disponível para consultas de log.
 
@@ -60,7 +63,7 @@ Event
 ``` 
 
 ## <a name="type-and-itemtype"></a>Digite e itemType
-As propriedades **Type** (log Analytics Workspace) e **ItemType** (Application insights Application) mantêm o nome da tabela da qual o registro foi recuperado, que também pode ser considerado como o tipo de registro. Essa propriedade é útil em consultas que combinam registros de várias tabelas, como aqueles que usam o operador `search`, para distinguir entre registros de tipos diferentes. **$table** pode ser usado no lugar de **Type** em alguns locais.
+As propriedades **Type** (log Analytics Workspace) e **ItemType** (Application insights Application) mantêm o nome da tabela da qual o registro foi recuperado, que também pode ser considerado como o tipo de registro. Essa propriedade é útil em consultas que combinam registros de várias tabelas, como aquelas que usam o `search` operador, para distinguir entre os registros de tipos diferentes. **$table** pode ser usado no lugar de **Type** em alguns locais.
 
 ### <a name="examples"></a>Exemplos
 A consulta a seguir retorna a contagem de registros por tipo coletados na última hora.
@@ -72,11 +75,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ItemId
-A ** \_propriedade ItemId** mantém um identificador exclusivo para o registro.
+A propriedade ** \_ ItemId** mantém um identificador exclusivo para o registro.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-A ** \_Propriedade ResourceId** contém um identificador exclusivo para o recurso ao qual o registro está associado. Isso lhe dá uma propriedade padrão a ser usada para definir o escopo de sua consulta apenas aos registros de um recurso específico, ou para unir dados relacionados em várias tabelas.
+A propriedade ** \_ ResourceId** contém um identificador exclusivo para o recurso ao qual o registro está associado. Isso lhe dá uma propriedade padrão a ser usada para definir o escopo de sua consulta apenas aos registros de um recurso específico, ou para unir dados relacionados em várias tabelas.
 
 Para recursos do Azure, o valor de **_ResourceId** é a [URL de ID de recurso do Azure](../../azure-resource-manager/templates/template-functions-resource.md). Atualmente, a propriedade está limitada aos recursos do Azure, mas será estendida a recursos fora do Azure, como em computadores locais.
 
@@ -122,7 +125,7 @@ union withsource = tt *
 Use estas consultas `union withsource = tt *` com moderação como verificações em tipos de dados que são caros para executar.
 
 ## <a name="_isbillable"></a>\_IsBillable
-A ** \_Propriedade isbillable** especifica se os dados ingeridos são faturáveis. Os dados com ** \_isbillable** igual a _false_ são coletados gratuitamente e não são faturados para sua conta do Azure.
+A propriedade ** \_ isbillable** especifica se os dados ingeridos são faturáveis. Os dados com ** \_ isbillable** igual a `false` são coletados gratuitamente e não são cobrados em sua conta do Azure.
 
 ### <a name="examples"></a>Exemplos
 Para obter uma lista de computadores que estão enviando os tipos de dados cobrados, use a seguinte consulta:
@@ -149,7 +152,7 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-A ** \_Propriedade BilledSize** especifica o tamanho em bytes de dados que serão cobrados em sua conta do Azure se ** \_isbillble** for true.
+A propriedade ** \_ BilledSize** especifica o tamanho em bytes de dados que serão cobrados em sua conta do Azure se ** \_ isbillble** for true.
 
 
 ### <a name="examples"></a>Exemplos

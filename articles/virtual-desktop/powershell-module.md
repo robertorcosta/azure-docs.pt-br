@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 54501e7e00ba8a28dd7cb421232b9a9587604338
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653128"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195123"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Configurar o módulo do PowerShell para área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows.
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O módulo do PowerShell da área de trabalho virtual do Windows é integrado ao módulo Azure PowerShell. Este artigo lhe dirá como configurar o módulo do PowerShell para que você possa executar cmdlets para a área de trabalho virtual do Windows.
@@ -46,7 +46,7 @@ Em seguida, execute o seguinte cmdlet para se conectar ao Azure:
 Connect-AzAccount
 ```
 
-Entrar em sua conta do Azure requer um código que é gerado quando você executa o cmdlet Connect. Para entrar, vá para <https://microsoft.com/devicelogin>, insira o código e, em seguida, entre usando suas credenciais de administrador do Azure.
+Entrar em sua conta do Azure requer um código que é gerado quando você executa o cmdlet Connect. Para entrar, vá para <https://microsoft.com/devicelogin> , insira o código e, em seguida, entre usando suas credenciais de administrador do Azure.
 
 ```powershell
 Account SubscriptionName TenantId Environment
@@ -63,7 +63,7 @@ Isso conectará você diretamente à assinatura que é padrão para suas credenc
 Se você quiser alterar a assinatura padrão depois de entrar, execute este cmdlet:
 
 ```powershell
-Select-AzureSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
 ```
 
 Quando você seleciona uma nova assinatura a ser usada, não é necessário especificar a ID da assinatura nos cmdlets executados posteriormente. Por exemplo, o seguinte cmdlet recupera um host de sessão específico sem precisar da ID de assinatura:

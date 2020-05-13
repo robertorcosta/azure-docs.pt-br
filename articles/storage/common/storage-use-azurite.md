@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e20271e381f2e7023dca3c3382c9f329a5149a62
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872602"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195953"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Usar o emulador azurite para desenvolvimento e teste do armazenamento local do Azure (versão prévia)
 
@@ -70,7 +70,7 @@ Há suporte para as seguintes configurações:
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Instalar e executar o azurite usando o NPM
 
-Esse método de instalação requer que você tenha o [node. js versão 8,0 ou posterior](https://nodejs.org) instalado. O Gerenciador de pacotes de nó (NPM) é a ferramenta de gerenciamento de pacotes incluída em cada instalação do node. js. Depois de instalar o Node. js, execute `npm` o comando a seguir para instalar o azurite.
+Esse método de instalação requer que você tenha o [node. js versão 8,0 ou posterior](https://nodejs.org) instalado. O Gerenciador de pacotes de nó (NPM) é a ferramenta de gerenciamento de pacotes incluída em cada instalação do node. js. Depois de instalar o Node. js, execute o comando a seguir `npm` para instalar o azurite.
 
 ```console
 npm install -g azurite
@@ -150,7 +150,7 @@ Esta seção detalha as opções de linha de comando disponíveis ao iniciar o a
 
 ### <a name="help"></a>Ajuda
 
-**Opcional** -Obtenha ajuda de linha de comando usando a `-h` opção `--help` ou.
+**Opcional** -Obtenha ajuda de linha de comando usando a `-h` `--help` opção ou.
 
 ```console
 azurite -h
@@ -239,7 +239,7 @@ A porta em uso é exibida durante a inicialização do azurite.
 
 ### <a name="workspace-path"></a>Caminho do espaço de trabalho
 
-**Opcional** -azurite armazena dados no disco local durante a execução. Use a `-l` opção `--location` ou para especificar um caminho como o local do espaço de trabalho. Por padrão, o diretório de trabalho do processo atual será usado. Observe o ' L' minúsculo.
+**Opcional** -azurite armazena dados no disco local durante a execução. Use a `-l` `--location` opção ou para especificar um caminho como o local do espaço de trabalho. Por padrão, o diretório de trabalho do processo atual será usado. Observe o ' L' minúsculo.
 
 ```console
 azurite -l c:\azurite
@@ -248,7 +248,7 @@ azurite --location c:\azurite
 
 ### <a name="access-log"></a>Log de acesso
 
-**Opcional** – por padrão, o log de acesso é exibido na janela do console. Desabilite a exibição do log de acesso usando a `-s` opção `--silent` ou.
+**Opcional** – por padrão, o log de acesso é exibido na janela do console. Desabilite a exibição do log de acesso usando a `-s` `--silent` opção ou.
 
 ```console
 azurite -s
@@ -256,7 +256,7 @@ azurite --silent
 ```
 ### <a name="debug-log"></a>Log de depuração
 
-**Opcional** -o log de depuração inclui informações detalhadas sobre cada solicitação e rastreamento de pilha de exceção. Habilite o log de depuração fornecendo um caminho de arquivo local válido `-d` para `--debug` a opção ou.
+**Opcional** -o log de depuração inclui informações detalhadas sobre cada solicitação e rastreamento de pilha de exceção. Habilite o log de depuração fornecendo um caminho de arquivo local válido para a `-d` `--debug` opção ou.
 
 ```console
 azurite -d path/debug.log
@@ -284,13 +284,13 @@ azurite --version
 
 **Opcional** – por padrão, azurite usa o protocolo http. Habilite o modo HTTPS fornecendo um caminho para um arquivo de certificado Privacy Enhanced Mail (. pem) ou [troca de informações pessoais (. pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) para o `--cert` comutador.
 
-Quando `--cert` é fornecido para um arquivo PEM, você deve fornecer um comutador correspondente `--key` .
+Quando `--cert` é fornecido para um arquivo PEM, você deve fornecer um `--key` comutador correspondente.
 
 ```console
 azurite --cert path/server.pem --key path/key.pem
 ```
 
-Quando `--cert` é fornecido para um arquivo PFX, você deve fornecer um comutador correspondente `--pwd` .
+Quando `--cert` é fornecido para um arquivo PFX, você deve fornecer um `--pwd` comutador correspondente.
 
 ```console
 azurite --cert path/server.pfx --pwd pfxpassword
@@ -300,22 +300,22 @@ Para obter informações detalhadas sobre como criar arquivos PEM e PFX, consult
 
 ### <a name="oauth-configuration"></a>Configuração do OAuth
 
-**Opcional** -habilite a autenticação OAuth para azurite usando `--oauth` a opção.
+**Opcional** -habilite a autenticação OAuth para azurite usando a `--oauth` opção.
 
 ```console
 azurite --oauth basic --cert path/server.pem --key path/key.pem
 ```
 
 > [!NOTE]
-> O OAuth requer um ponto de extremidade HTTPS. Certifique-se de que HTTPS esteja `--cert` habilitado fornecendo switch juntamente `--oauth` com a opção.
+> O OAuth requer um ponto de extremidade HTTPS. Certifique-se de que HTTPS esteja habilitado fornecendo `--cert` switch juntamente com a `--oauth` opção.
 
-O azurite dá suporte à autenticação básica `basic` especificando o parâmetro `--oauth` para o comutador. Azurite fará a autenticação básica, como validar o token de portador de entrada, verificar o emissor, o público e a expiração. Azurite não verificará a assinatura ou as permissões do token.
+O azurite dá suporte à autenticação básica especificando o `basic` parâmetro para o `--oauth` comutador. Azurite fará a autenticação básica, como validar o token de portador de entrada, verificar o emissor, o público e a expiração. Azurite não verificará a assinatura ou as permissões do token.
 
 ## <a name="authorization-for-tools-and-sdks"></a>Autorização para ferramentas e SDKs
 
 Conecte-se ao azurite de SDKs ou ferramentas do armazenamento do Azure, como [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), usando qualquer estratégia de autenticação. A autenticação é necessária. O azurite dá suporte à autorização com OAuth, chave compartilhada e SAS (assinaturas de acesso compartilhado). O azurite também dá suporte ao acesso anônimo a contêineres públicos.
 
-Se você estiver usando os SDKs do Azure, inicie o azurite `--oauth basic and --cert --key/--pwd` com as opções.
+Se você estiver usando os SDKs do Azure, inicie o azurite com as `--oauth basic and --cert --key/--pwd` opções.
 
 ### <a name="well-known-storage-account-and-key"></a>Chave e conta de armazenamento bem conhecidas
 
@@ -326,7 +326,7 @@ O azurite aceita a mesma conta e chave conhecidas usados pelo emulador de armaze
 
 ### <a name="custom-storage-accounts-and-keys"></a>Chaves e contas de armazenamento personalizadas
 
-O azurite dá suporte a chaves e nomes de conta de `AZURITE_ACCOUNTS` armazenamento personalizados, definindo a variável de `account1:key1[:key2];account2:key1[:key2];...`ambiente no seguinte formato:.
+O azurite dá suporte a chaves e nomes de conta de armazenamento personalizados, definindo a `AZURITE_ACCOUNTS` variável de ambiente no seguinte formato: `account1:key1[:key2];account2:key1[:key2];...` .
 
 Por exemplo, use uma conta de armazenamento personalizada que tenha uma chave:
 
@@ -351,7 +351,7 @@ export AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 O azurite atualiza nomes de conta e chaves personalizadas da variável de ambiente a cada minuto, por padrão. Com esse recurso, você pode girar dinamicamente a chave de conta ou adicionar novas contas de armazenamento sem reiniciar o azurite.
 
 > [!NOTE]
-> A conta `devstoreaccount1` de armazenamento padrão é desabilitada quando você define contas de armazenamento personalizadas.
+> A `devstoreaccount1` conta de armazenamento padrão é desabilitada quando você define contas de armazenamento personalizadas.
 
 ### <a name="connection-strings"></a>Cadeias de conexão
 
@@ -461,20 +461,22 @@ Você pode usar Gerenciador de Armazenamento para exibir os dados armazenados em
 
 Em Gerenciador de Armazenamento, conecte-se ao azurite seguindo estas etapas:
 
- 1. Selecione **o ícone Adicionar uma conta**
+ 1. Selecione o ícone **gerenciar contas**
+ 1. Selecione **Adicionar uma conta**
  1. Selecione **anexar a um emulador local**
  1. Selecione **Avançar**.
+ 1. Edite o campo **nome de exibição** para um nome de sua escolha
  1. Selecione **Avançar** novamente
  1. Selecione **conectar**
 
 #### <a name="connect-to-azurite-using-https"></a>Conectar-se ao azurite usando HTTPS
 
-Por padrão Gerenciador de Armazenamento não abrirá um ponto de extremidade HTTPS que usa um certificado autoassinado. Se você estiver executando o azurite com HTTPS, provavelmente está usando um certificado autoassinado. Em Gerenciador de armazenamento, importe certificados SSL por meio da caixa de diálogo **Editar** -> **certificados de importação** de**certificados** -> SSL.
+Por padrão Gerenciador de Armazenamento não abrirá um ponto de extremidade HTTPS que usa um certificado autoassinado. Se você estiver executando o azurite com HTTPS, provavelmente está usando um certificado autoassinado. Em Gerenciador de armazenamento, importe certificados SSL por meio da caixa de diálogo **Editar**  ->  certificados de importação de**certificados SSL**  ->  **Import Certificates** .
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Importar certificado para Gerenciador de Armazenamento
 
 1. Localize o certificado no computador local.
-1. Em Gerenciador de armazenamento, vá para **Editar** -> **certificados** -> SSL**importar certificados** e importar seu certificado.
+1. Em Gerenciador de armazenamento, vá para **Editar**  ->  **certificados SSL**  ->  **importar certificados** e importar seu certificado.
 
 Se você não importar um certificado, obterá um erro:
 

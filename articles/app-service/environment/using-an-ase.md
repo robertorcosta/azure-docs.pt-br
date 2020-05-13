@@ -4,15 +4,15 @@ description: Saiba como criar, publicar e dimensionar aplicativos em um Ambiente
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 3/26/2020
+ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80586127"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125801"
 ---
 # <a name="use-an-app-service-environment"></a>Usar um Ambiente do Serviço de Aplicativo
 
@@ -36,7 +36,7 @@ Se você não tiver um ASE, poderá criar um seguindo as instruções em [criar 
 
 Para criar um aplicativo em um ASE:
 
-1. Selecione **criar um recurso** > **Web + celular** > **aplicativo Web**.
+1. Selecione **criar um recurso**  >  **Web + celular**  >  **aplicativo Web**.
 
 1. Insira um nome do aplicativo. Se você já tiver selecionado um plano do serviço de aplicativo em um ASE, o nome de domínio do aplicativo refletirá o nome de domínio do ASE:
 
@@ -104,14 +104,14 @@ Os recursos do front-end são o ponto de extremidade HTTP/HTTPS do ASE. Com a co
 
 ## <a name="app-access"></a>Acesso ao aplicativo
 
-Em um ASE externo, o sufixo de domínio usado para a criação do aplicativo é *.&lt; asename&gt;. p.azurewebsites.net*. Se seu ASE for chamado de _ase externo_ e você hospedar um aplicativo chamado _contoso_ nesse ASE, você o alcançará nessas URLs:
+Em um ASE externo, o sufixo de domínio usado para a criação do aplicativo é *. &lt; asename &gt; . p.azurewebsites.net*. Se seu ASE for chamado de _ase externo_ e você hospedar um aplicativo chamado _contoso_ nesse ASE, você o alcançará nessas URLs:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
 Para obter informações sobre como criar um ASE externo, consulte [criar um ambiente do serviço de aplicativo][MakeExternalASE].
 
-Em um ASE ILB, o sufixo de domínio usado para a criação do aplicativo é *.&lt; asename&gt;. appserviceenvironment.net*. Se seu ASE se chamar _ILB-ase_ e você hospedar um aplicativo chamado _contoso_ nesse ASE, você o alcançará nessas URLs:
+Em um ASE ILB, o sufixo de domínio usado para a criação do aplicativo é *. &lt; asename &gt; . appserviceenvironment.net*. Se seu ASE se chamar _ILB-ase_ e você hospedar um aplicativo chamado _contoso_ nesse ASE, você o alcançará nessas URLs:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
@@ -122,19 +122,26 @@ A URL do SCM é usada para acessar o console do kudu ou para publicar seu aplica
 
 ### <a name="dns-configuration"></a>Configuração de DNS 
 
-Quando você usa um ASE externo, os aplicativos feitos em seu ASE são registrados com o DNS do Azure. Com um ASE ILB, você deve gerenciar seu próprio DNS. 
+Quando você usa um ASE externo, os aplicativos feitos em seu ASE são registrados com o DNS do Azure. Não há etapas adicionais em um ASE externo para que seus aplicativos estejam publicamente disponíveis. Com um ASE ILB, você deve gerenciar seu próprio DNS. Você pode fazer isso em seu próprio servidor DNS ou em zonas privadas do DNS do Azure.
 
-Para configurar o DNS com seu ASE ILB:
+Para configurar o DNS em seu próprio servidor DNS com o ASE ILB:
 
-    create a zone for <ASE name>.appserviceenvironment.net
-    create an A record in that zone that points * to the ILB IP address
-    create an A record in that zone that points @ to the ILB IP address
-    create a zone in <ASE name>.appserviceenvironment.net named scm
-    create an A record in the scm zone that points * to the ILB IP address
+1. criar uma zona para <ASE name> . appserviceenvironment.net
+1. crie um registro A nessa zona que aponte * para o endereço IP do ILB
+1. crie um registro A nessa zona que aponte @ para o endereço IP do ILB
+1. criar uma zona em <ASE name> . appserviceenvironment.net chamada SCM
+1. crie um registro A na zona scm que aponte * para o endereço IP do ILB
 
-As configurações de DNS para o sufixo de domínio padrão do ASE não restringem seus aplicativos a serem acessados apenas por esses nomes. Você pode definir um nome de domínio personalizado sem qualquer validação em seus aplicativos em um ASE ILB. Se você quiser criar uma zona chamada *contoso.net*, poderá fazer isso e apontar para o endereço IP ILB. O nome de domínio personalizado funciona para solicitações de aplicativo, mas não para o site do SCM. O site do SCM está disponível somente * &lt;em&gt;AppName. SCM&lt; . asename&gt;. appserviceenvironment.net*. 
+Para configurar o DNS nas zonas privadas do DNS do Azure:
 
-A zona chamada *.&lt; asename&gt;. appserviceenvironment.net* é globalmente exclusivo. Antes de 2019 de maio, os clientes conseguiram especificar o sufixo de domínio do ASE ILB. Se você quisesse usar *. contoso.com* para o sufixo de domínio, você poderia fazer isso e isso incluiria o site do SCM. Há desafios com esse modelo, incluindo; Gerenciamento do certificado SSL padrão, falta de logon único com o site do SCM e a necessidade de usar um certificado curinga. O processo de atualização de certificado padrão do ASE ILB também foi interrompido e causou a reinicialização do aplicativo. Para resolver esses problemas, o comportamento do ASE ILB foi alterado para usar um sufixo de domínio com base no nome do ASE e com um sufixo de propriedade da Microsoft. A alteração no comportamento do ASE ILB afeta apenas o ILB ASEs feito após 2019 de maio. ILB ASEs preexistente ainda deve gerenciar o certificado padrão do ASE e sua configuração de DNS.
+1. Crie uma zona privada de DNS do Azure chamada <ASE name> . appserviceenvironment.net
+1. crie um registro A nessa zona que aponte * para o endereço IP do ILB
+1. crie um registro A nessa zona que aponte @ para o endereço IP do ILB
+1. Crie um registro A nessa zona que aponte para *. SCM para o endereço IP ILB
+
+As configurações de DNS para o sufixo de domínio padrão do ASE não restringem seus aplicativos a serem acessados apenas por esses nomes. Você pode definir um nome de domínio personalizado sem qualquer validação em seus aplicativos em um ASE ILB. Se você quiser criar uma zona chamada *contoso.net*, poderá fazer isso e apontar para o endereço IP ILB. O nome de domínio personalizado funciona para solicitações de aplicativo, mas não para o site do SCM. O site do SCM está disponível somente em * &lt; AppName &gt; . SCM. &lt; asename &gt; . appserviceenvironment.net*. 
+
+A zona chamada *. &lt; asename &gt; . appserviceenvironment.net* é globalmente exclusivo. Antes de 2019 de maio, os clientes conseguiram especificar o sufixo de domínio do ASE ILB. Se você quisesse usar *. contoso.com* para o sufixo de domínio, você poderia fazer isso e isso incluiria o site do SCM. Há desafios com esse modelo, incluindo; Gerenciamento do certificado SSL padrão, falta de logon único com o site do SCM e a necessidade de usar um certificado curinga. O processo de atualização de certificado padrão do ASE ILB também foi interrompido e causou a reinicialização do aplicativo. Para resolver esses problemas, o comportamento do ASE ILB foi alterado para usar um sufixo de domínio com base no nome do ASE e com um sufixo de propriedade da Microsoft. A alteração no comportamento do ASE ILB afeta apenas o ILB ASEs feito após 2019 de maio. ILB ASEs preexistente ainda deve gerenciar o certificado padrão do ASE e sua configuração de DNS.
 
 ## <a name="publishing"></a>Publicação
 
@@ -152,11 +159,11 @@ Com um ASE ILB, os pontos de extremidade de publicação só estão disponíveis
 
 Sem alterações adicionais, os sistemas de CI baseados na Internet, como GitHub e Azure DevOps, não funcionam com um ASE ILB porque o ponto de extremidade de publicação não é acessível pela Internet. Você pode habilitar a publicação em um ASE ILB do Azure DevOps instalando um agente de liberação auto-hospedado na rede virtual que contém o ASE ILB. Como alternativa, você também pode usar um sistema de CI que usa um modelo de pull, como o dropbox.
 
-Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o domínio com o qual o ASE ILB foi criado. Você pode vê-lo no perfil de publicação do aplicativo e no painel do portal do aplicativo (em **visão geral** > **Essentials** e também em **Propriedades**).
+Os pontos de extremidade de publicação para aplicativos em um ASE ILB usam o domínio com o qual o ASE ILB foi criado. Você pode vê-lo no perfil de publicação do aplicativo e no painel do portal do aplicativo (em **visão geral**  >  **Essentials** e também em **Propriedades**).
 
 ## <a name="storage"></a>Armazenamento
 
-Um ASE tem 1 TB de armazenamento para todos os aplicativos no ASE. Um plano do serviço de aplicativo no SKU de preços isolado tem um limite de 250 GB por padrão. Se você tiver cinco ou mais planos do serviço de aplicativo, tenha cuidado para não exceder o limite de 1 TB do ASE. Se você precisar de mais do que o limite de 250 GB em um plano do serviço de aplicativo, entre em contato com o suporte para ajustar o limite do plano do serviço de aplicativo para um máximo de 1 TB. Quando o limite do plano é ajustado, ainda há um limite de 1 TB em todos os planos do serviço de aplicativo no ASE.
+Um ASE tem 1 TB de armazenamento para todos os aplicativos no ASE. Um plano do serviço de aplicativo no SKU de preços isolado tem um limite de 250 GB. Em um ASE, 250 GB de armazenamento são adicionados por plano do serviço de aplicativo até o limite de 1 TB. Você pode ter mais planos do serviço de aplicativo do que apenas quatro, mas não há mais armazenamento adicionado além do limite de 1 TB.
 
 ## <a name="logging"></a>Registrando em log
 
@@ -164,16 +171,16 @@ Você pode integrar seu ASE com Azure Monitor para enviar logs sobre o ASE para 
 
 | Ocorrer | Mensagem |
 |---------|----------|
-| O ASE não está íntegro | O ASE especificado não está íntegro devido a uma configuração de rede virtual inválida. O ASE será suspenso se o estado não íntegro continuar. Verifique se as diretrizes definidas aqui são seguidas: https://docs.microsoft.com/azure/app-service/environment/network-info. |
-| A sub-rede do ASE está quase sem espaço | O ASE especificado está em uma sub-rede que está quase sem espaço. Há endereços {0} restantes. Depois que esses endereços forem esgotados, o ASE não será capaz de dimensionar.  |
-| O ASE está se aproximando do limite de instância total | O ASE especificado está se aproximando do limite de instância total do ASE. Atualmente, ele {0} contém instâncias do plano do serviço de aplicativo de um máximo de 201 instâncias. |
-| O ASE não consegue alcançar uma dependência | O ASE especificado não é capaz de alcançar {0}.  Verifique se as diretrizes definidas aqui são seguidas: https://docs.microsoft.com/azure/app-service/environment/network-info. |
+| O ASE não está íntegro | O ASE especificado não está íntegro devido a uma configuração de rede virtual inválida. O ASE será suspenso se o estado não íntegro continuar. Verifique se as diretrizes definidas aqui são seguidas: https://docs.microsoft.com/azure/app-service/environment/network-info . |
+| A sub-rede do ASE está quase sem espaço | O ASE especificado está em uma sub-rede que está quase sem espaço. Há {0} endereços restantes. Depois que esses endereços forem esgotados, o ASE não será capaz de dimensionar.  |
+| O ASE está se aproximando do limite de instância total | O ASE especificado está se aproximando do limite de instância total do ASE. Atualmente, ele contém {0} instâncias do plano do serviço de aplicativo de um máximo de 201 instâncias. |
+| O ASE não consegue alcançar uma dependência | O ASE especificado não é capaz de alcançar {0} .  Verifique se as diretrizes definidas aqui são seguidas: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | ASE suspenso | O ASE especificado está suspenso. A suspensão do ASE pode ser devido a uma deficiência de conta ou uma configuração de rede virtual inválida. Resolva a causa raiz e retome o ASE para continuar a fornecer tráfego. |
 | A atualização do ASE foi iniciada | Uma atualização de plataforma para o ASE especificado foi iniciada. Espera-se atrasos nas operações de dimensionamento. |
 | A atualização do ASE foi concluída | Uma atualização de plataforma para o ASE especificado foi concluída. |
-| Operações de escala iniciadas | Um plano do serviço de{0}aplicativo () começou a ser dimensionado. Estado desejado: {1} I{2} Workers.
-| Operações de escala concluídas | Um plano do serviço de{0}aplicativo () concluiu o dimensionamento. Estado atual: {1} I{2} Workers. |
-| Falha nas operações de escala | Um plano do serviço de{0}aplicativo () falhou ao ser dimensionado. Estado atual: {1} I{2} Workers. |
+| Operações de escala iniciadas | Um plano do serviço de aplicativo ( {0} ) começou a ser dimensionado. Estado desejado: {1} I {2} Workers.
+| Operações de escala concluídas | Um plano do serviço de aplicativo ( {0} ) concluiu o dimensionamento. Estado atual: {1} I {2} Workers. |
+| Falha nas operações de escala | Um plano do serviço de aplicativo ( {0} ) falhou ao ser dimensionado. Estado atual: {1} I {2} Workers. |
 
 Para habilitar o registro em log em seu ASE:
 
@@ -200,16 +207,16 @@ Para criar um alerta em seus logs, siga as instruções em [criar, exibir e gere
 
 ## <a name="upgrade-preference"></a>Preferência de atualização
 
-Se você tiver vários ASEs, talvez queira que alguns ASEs sejam atualizados antes de outros. No objeto do **Gerenciador de recursos de HostingEnvironment** do ase, você pode definir um valor para **upgradePreference**. A configuração **upgradePreference** pode ser configurada usando um modelo, ARMClient ou https://resources.azure.com. Os três valores possíveis são:
+Se você tiver vários ASEs, talvez queira que alguns ASEs sejam atualizados antes de outros. No objeto do **Gerenciador de recursos de HostingEnvironment** do ase, você pode definir um valor para **upgradePreference**. A configuração **upgradePreference** pode ser configurada usando um modelo, ARMClient ou https://resources.azure.com . Os três valores possíveis são:
 
 - **Nenhum**: o Azure atualizará seu ASE em nenhum lote específico. Esse valor é o padrão.
 - **Antecipadamente**: seu ase será atualizado na primeira metade das atualizações do serviço de aplicativo.
 - **Tarde**: seu ase será atualizado na segunda metade das atualizações do serviço de aplicativo.
 
-Se você estiver usando https://resources.azure.como, siga estas etapas para definir o valor de **upgradePreferences** :
+Se você estiver usando https://resources.azure.com o, siga estas etapas para definir o valor de **upgradePreferences** :
 
 1. Acesse resources.azure.com e entre com sua conta do Azure.
-1. Percorra os\/\[recursos para assinaturas nome\]\/da\/\[assinatura resourceGroups nome do grupo\]\/de recursos\/provedores Microsoft.\/Web hostingenvironments\/\[ase\]nome.
+1. Percorra os recursos para assinaturas nome da \/ \[ assinatura \] \/ resourceGroups nome \/ \[ do grupo de recursos \] \/ provedores \/ Microsoft. Web \/ hostingenvironments \/ \[ ase nome \] .
 1. Selecione **leitura/gravação** na parte superior.
 1. Selecione **Editar**.
 1. Defina **upgradePreference** para qualquer um dos três valores desejados.

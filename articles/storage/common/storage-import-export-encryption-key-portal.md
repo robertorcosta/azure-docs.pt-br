@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 71426d131cdd46b176c387a31e3dc2ca66ae3761
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871169"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195250"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Usar chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação
 
@@ -99,9 +99,10 @@ Se você receber erros relacionados à chave gerenciada pelo cliente, use a tabe
 
 | Código do erro     |Detalhes     | Recuperado?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevoked | Aplicou uma chave gerenciada pelo cliente, mas o acesso à chave está atualmente revogado. Para obter mais informações, consulte como [habilitar o acesso à chave](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Sim, verifique se: <ol><li>O cofre de chaves ainda tem o MSI na política de acesso.</li><li>A política de acesso fornece permissões para obter, encapsular, desencapsular.</li><li>Se o Key Vault estiver em uma vNet por trás do firewall, verifique se **permitir que os serviços confiáveis da Microsoft** estejam habilitados.</li></ol>                                                                                            |
-| CmkErrorKeyDisabled      | Uma chave gerenciada pelo cliente foi aplicada, mas a chave está desabilitada. Para obter mais informações, consulte como [habilitar a chave](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Sim, habilitando a versão de chave     |
-| CmkErrorKeyNotFound      | Uma chave gerenciada pelo cliente foi aplicada, mas não foi possível localizar o cofre de chaves associado à chave.<br>Se você excluiu o cofre de chaves, não é possível recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um locatário diferente, consulte [alterar uma ID de locatário do cofre de chaves após a movimentação de uma assinatura](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   Se você excluiu o cofre de chaves:<ol><li>Sim, se estiver na duração da proteção de limpeza, usando as etapas em [recuperar um cofre de chaves](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Não, se estiver além da duração da proteção de limpeza.</li></ol><br>Caso contrário, se o cofre de chaves sofreu uma migração de locatário, sim, ele poderá ser recuperado usando uma das etapas a seguir: <ol><li>Reverter o cofre de chaves de volta para o locatário antigo.</li><li>Defina `Identity = None` e, em seguida, defina o `Identity = SystemAssigned`valor de volta para. Isso exclui e recria a identidade depois que a nova identidade é criada. `Get`Habilite `Wrap`as permissões `Unwrap` , e para a nova identidade na política de acesso do Key Vault.</li></ol>|
+| CmkErrorAccessRevoked | O acesso à chave gerenciada pelo cliente é revogado.                                                       | Sim, verifique se: <ol><li>O cofre de chaves ainda tem o MSI na política de acesso.</li><li>A política de acesso tem as permissões obter, encapsular e desencapsular habilitadas.</li><li>Se o Key Vault estiver em uma VNet por trás do firewall, verifique se **permitir que os serviços confiáveis da Microsoft** estejam habilitados.</li><li>Verifique se o MSI do recurso de trabalho foi redefinido para `None` usar APIs.<br>Em caso afirmativo, defina o valor de volta para `Identity = SystemAssigned` . Isso recria a identidade para o recurso de trabalho.<br>Depois que a nova identidade tiver sido criada, habilite `Get` , `Wrap` e `Unwrap` permissões para a nova identidade na política de acesso do Key Vault</li></ol>                                                                                            |
+| CmkErrorKeyDisabled      | A chave gerenciada pelo cliente está desabilitada.                                         | Sim, habilitando a versão de chave     |
+| CmkErrorKeyNotFound      | Não é possível localizar a chave gerenciada pelo cliente. | Sim, se a chave tiver sido excluída, mas ainda estiver dentro da duração da limpeza, usando [desfazer remoção da chave do cofre de chaves](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Restante <ol><li>Sim, se o cliente tiver o backup da chave e o restaurar.</li><li>Não, caso contrário.</li></ol>
+| CmkErrorVaultNotFound |Não é possível localizar o cofre de chaves da chave gerenciada pelo cliente. |   Se o cofre de chaves tiver sido excluído:<ol><li>Sim, se estiver na duração da proteção de limpeza, usando as etapas em [recuperar um cofre de chaves](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Não, se estiver além da duração da proteção de limpeza.</li></ol><br>Caso contrário, se o cofre de chaves tiver sido migrado para um locatário diferente, sim, ele poderá ser recuperado usando uma das etapas a seguir:<ol><li>Reverter o cofre de chaves de volta para o locatário antigo.</li><li>Defina `Identity = None` e, em seguida, defina o valor de volta para `Identity = SystemAssigned` . Isso exclui e recria a identidade depois que a nova identidade é criada. Habilite `Get` `Wrap` `Unwrap` as permissões, e para a nova identidade na política de acesso do Key Vault.</li></ol>|
 
 ## <a name="next-steps"></a>Próximas etapas
 

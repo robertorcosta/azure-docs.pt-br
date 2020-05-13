@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99a9e68a2e0c39364cc5105f230b00ffb90d867d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888806"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195916"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usar Log Analytics para o recurso de diagnóstico
 
 >[!IMPORTANT]
->Este conteúdo se aplica à atualização do Spring 2020 com Azure Resource Manager objetos da área de trabalho virtual do Windows. Se você estiver usando a área de trabalho virtual do Windows, a versão 2019 sem Azure Resource Manager objetos, consulte [Este artigo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
+>Este conteúdo se aplica à atualização da Spring 2020 com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows na versão 2019, sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 >
-> A atualização 2020 de área de trabalho virtual do Windows está em visualização pública no momento. Esta versão de visualização é fornecida sem um contrato de nível de serviço e não é recomendável usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
+> A atualização 2020 da Área de Trabalho Virtual do Windows está em versão prévia pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. 
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A área de trabalho virtual do Windows usa [Azure monitor](../azure-monitor/overview.md) para monitoramento e alertas como muitos outros serviços do Azure. Isso permite que os administradores identifiquem problemas por meio de uma única interface. O serviço cria logs de atividade para ações administrativas e de usuário. Cada log de atividades se enquadra nas seguintes categorias:  
@@ -85,7 +85,7 @@ Para configurar Log Analytics para um novo objeto:
 
 5. Insira um nome para a configuração de configurações e, em seguida, selecione **Enviar para log Analytics**. O nome que você usa não deve ter espaços e deve estar em conformidade com as [convenções de nomenclatura do Azure](../azure-resource-manager/management/resource-name-rules.md). Como parte dos logs, você pode selecionar todas as opções que deseja adicionar à sua Log Analytics, como ponto de verificação, erro, gerenciamento e assim por diante.
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 >[!NOTE]
 >Log Analytics oferece a opção de transmitir dados para os [hubs de eventos](../event-hubs/event-hubs-about.md) ou arquivá-los em uma conta de armazenamento. Para saber mais sobre esse recurso, confira [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) e [arquivar logs de recursos do Azure para a conta de armazenamento](../azure-monitor/platform/resource-logs-collect-storage.md). 
@@ -124,9 +124,9 @@ Os eventos de diagnóstico são enviados para Log Analytics quando concluídos.
 
 Log Analytics apenas os relatórios nesses Estados intermediários para atividades de conexão:
 
-- Started (iniciado)
-- Conectado
-- Concluído
+- Iniciado: quando um usuário seleciona e se conecta a um aplicativo ou área de trabalho no cliente Área de Trabalho Remota.
+- Conectado: quando o usuário se conecta com êxito à VM onde o aplicativo ou a área de trabalho está hospedada.
+- Concluído: quando o usuário ou servidor desconecta a sessão, a atividade ocorreu.
 
 ## <a name="example-queries"></a>Consultas de exemplo
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: reference
-ms.openlocfilehash: 9bb8818d2bb91c14eafc272774e0b633c51e58e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe684d15e2ce9b8d302db4eb6bd31dd1416abf21
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617875"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196542"
 ---
 # <a name="network-requirements"></a>Requisitos de rede
 
@@ -20,7 +20,7 @@ Uma conexão de rede estável e de baixa latência com uma data center do Azure 
 
 Os requisitos de rede exatos dependem do seu caso de uso específico, como o número e a frequência de modificações no grafo de cena remota, bem como a complexidade da exibição renderizada, mas há várias diretrizes para garantir que sua experiência seja a mais boa possível:
 
-* Sua conectividade com a Internet precisa dar suporte a pelo menos **50 Mbps downstream** e **10 Mbps upstream** de forma consistente para uma única sessão de usuário da renderização remota do Azure, supondo que não haja tráfego de concorrência na rede. Recomendamos taxas mais altas para melhores experiências. Com mais usuários na mesma rede, esses requisitos são dimensionados de forma correspondente.
+* Sua conectividade com a Internet precisa dar suporte a pelo menos **40 Mbps downstream** e **5 Mbps upstream** de forma consistente para uma única sessão de usuário da renderização remota do Azure, supondo que não haja tráfego de concorrência na rede. Recomendamos taxas mais altas para melhores experiências. Com mais usuários na mesma rede, esses requisitos são dimensionados de forma correspondente.
 * Usar a **banda Wi-Fi de 5 GHz** geralmente produzirá resultados melhores do que a banda Wi-fi de 2,4 GHz, embora ambas devam funcionar.
 * Se houver outras redes Wi-Fi próximas, evite usar canais Wi-Fi em uso por essas outras redes. Você pode usar ferramentas de verificação de rede como [WifiInfoView](https://www.nirsoft.net/utils/wifi_information_view.html) para verificar se os canais que sua rede Wi-Fi usa, estão livres de tráfego de concorrência.
 * Evite, estritamente, o **uso de repetidores Wi-Fi** ou encaminhamento de LAN over-Powerline.

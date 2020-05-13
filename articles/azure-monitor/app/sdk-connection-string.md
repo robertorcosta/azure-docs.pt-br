@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410623"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125699"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
 
@@ -64,10 +64,10 @@ A cadeia de conexão consiste em uma lista de configurações representadas como
 - `EndpointSuffix`(ex: applicationinsights.azure.cn) Definir o sufixo do ponto de extremidade instruirá o SDK ao qual a nuvem do Azure se conectará. O SDK montará o restante do ponto de extremidade para serviços individuais.
 - Pontos de extremidade explícitos.
   Qualquer serviço pode ser explicitamente substituído na cadeia de conexão.
-   - `IngestionEndpoint`Estendihttps://dc.applicationinsights.azure.com)
-   - `LiveEndpoint`Estendihttps://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint`Estendihttps://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint`Estendihttps://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint`(ex: `https://dc.applicationinsights.azure.com` )
+   - `LiveEndpoint`(ex: `https://live.applicationinsights.azure.com` )
+   - `ProfilerEndpoint`(ex: `https://profiler.applicationinsights.azure.com` )
+   - `SnapshotEndpoint`(ex: `https://snapshot.applicationinsights.azure.com` )
 
 #### <a name="endpoint-schema"></a>Esquema de ponto de extremidade
 
@@ -106,10 +106,10 @@ Neste exemplo, somente a chave de instrumentação foi definida.
 - O esquema de autorização assume como padrão "iKey" 
 - Chave de instrumentação: 00000000-0000-0000-0000-000000000000
 - Os URIs de serviço regional baseiam-se nos [padrões do SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e se conectarão ao Azure global público:
-   - Ingestãohttps://dc.services.visualstudio.com/
-   - Métricas ao vivo:https://rt.services.visualstudio.com/
-   - Profilerhttps://agent.azureserviceprofiler.net/
-   - Depuradorhttps://agent.azureserviceprofiler.net/  
+   - Ingestão`https://dc.services.visualstudio.com/`
+   - Métricas ao vivo:`https://rt.services.visualstudio.com/`
+   - Profiler`https://agent.azureserviceprofiler.net/`
+   - Depurador`https://agent.azureserviceprofiler.net/`
 
 
 
@@ -122,10 +122,10 @@ Neste exemplo, essa cadeia de conexão especifica o sufixo do ponto de extremida
 - O esquema de autorização assume como padrão "iKey" 
 - Chave de instrumentação: 00000000-0000-0000-0000-000000000000
 - Os URIs de serviço regional se baseiam no sufixo de ponto de extremidade fornecido: 
-   - Ingestãohttps://dc.ai.contoso.com
-   - Métricas ao vivo:https://live.ai.contoso.com
-   - Profilerhttps://profiler.ai.contoso.com 
-   - Depuradorhttps://snapshot.ai.contoso.com   
+   - Ingestão`https://dc.ai.contoso.com`
+   - Métricas ao vivo:`https://live.ai.contoso.com`
+   - Profiler`https://profiler.ai.contoso.com`
+   - Depurador`https://snapshot.ai.contoso.com`  
 
 
 
@@ -138,10 +138,10 @@ Neste exemplo, essa cadeia de conexão especifica substituições explícitas pa
 - O esquema de autorização assume como padrão "iKey" 
 - Chave de instrumentação: 00000000-0000-0000-0000-000000000000
 - Os URIs de serviço regional baseiam-se nos valores de substituição explícitos: 
-   - Ingestão: https:\//Custom.com:111/
-   - Métricas ao vivo: https\/:/Custom.com:222/
-   - Criador de perfil:\/https:/Custom.com:333/ 
-   - Depurador: https:\//Custom.com:444/   
+   - Ingestão`https://custom.com:111/`
+   - Métricas ao vivo:`https://custom.com:222/`
+   - Profiler`https://custom.com:333/`
+   - Depurador`https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Como definir uma cadeia de conexão

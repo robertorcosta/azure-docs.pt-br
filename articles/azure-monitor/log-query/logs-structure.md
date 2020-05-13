@@ -5,19 +5,22 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/22/2019
-ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.date: 05/09/2020
+ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738075"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196281"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estrutura de logs de Azure Monitor
 A capacidade de obter informações rapidamente sobre seus dados usando uma consulta de [log](log-query-overview.md) é um recurso poderoso de Azure monitor. Para criar consultas eficientes e úteis, você deve entender alguns conceitos básicos, como onde estão localizados os dados desejados e como eles são estruturados. Este artigo fornece os conceitos básicos de que você precisa para começar.
 
 ## <a name="overview"></a>Visão geral
 Os dados em logs de Azure Monitor são armazenados em um espaço de trabalho Log Analytics ou em um aplicativo Application Insights. Ambos são fornecidos pelo [Azure data Explorer](/azure/data-explorer/) significando que eles aproveitam seu poderoso mecanismo de dados e linguagem de consulta.
+
+> [!IMPORTANT]
+> Se você estiver usando um [recurso de Application insights baseado em espaço de trabalho](../app/create-workspace-resource.md), a telemetria será armazenada em um espaço de trabalho log Analytics com todos os outros dados de log. As tabelas foram renomeadas e reestruturadas, mas têm as mesmas informações que as tabelas no aplicativo Application Insights.
 
 Os dados em espaços de trabalho e aplicativos são organizados em tabelas, cada um dos quais armazena diferentes tipos de dados e tem seu próprio conjunto exclusivo de propriedades. A maioria das [fontes de dados](../platform/data-sources.md) será gravada em suas próprias tabelas em um espaço de trabalho log Analytics, enquanto Application insights será gravado em um conjunto predefinido de tabelas em um aplicativo Application insights. As consultas de log são muito flexíveis, permitindo que você combine facilmente os dados de várias tabelas e até mesmo use uma consulta entre recursos para combinar dados de tabelas em vários espaços de trabalho ou para escrever consultas que combinam dados de espaço de trabalho e de aplicativo.
 
@@ -48,23 +51,26 @@ Consulte a documentação para cada fonte de dados para obter detalhes das tabel
 Consulte [criando uma implantação de logs de Azure monitor](../platform/design-logs-deployment.md) para entender a estratégia de controle de acesso e as recomendações para fornecer acesso aos dados em um espaço de trabalho. Além de conceder acesso ao próprio espaço de trabalho, você pode limitar o acesso a tabelas individuais usando o [RBAC de nível de tabela](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Application Insights aplicativo
+
+> [!IMPORTANT]
+> Se você estiver usando uma telemetria [de recursos Application insights baseada no espaço de trabalho](../app/create-workspace-resource.md) será armazenada em um espaço de trabalho log Analytics com todos os outros dados de log. As tabelas foram renomeadas e reestruturadas, mas têm as mesmas informações que as tabelas em um recurso de Application Insights clássico.
+
 Quando você cria um aplicativo no Application Insights, um aplicativo correspondente é criado automaticamente em logs de Azure Monitor. Nenhuma configuração é necessária para coletar dados e o aplicativo irá gravar dados de monitoramento automaticamente, como exibições de página, solicitações e exceções.
 
 Ao contrário de um espaço de trabalho Log Analytics, um aplicativo Application Insights tem um conjunto fixo de tabelas. Você não pode configurar outras fontes de dados para gravar no aplicativo, portanto, nenhuma tabela adicional pode ser criada. 
 
 | Tabela | Descrição | 
 |:---|:---|
-| availabilityResults   | Dados de resumo dos testes de disponibilidade.
-| browserTimings      |     Dados sobre o desempenho do cliente, como o tempo necessário para processar os dados de entrada.
-| customEvents        | Eventos personalizados criados pelo seu aplicativo.
-| customMetrics       | Métricas personalizadas criadas pelo seu aplicativo.
-| dependências        | Chamadas do aplicativo para outros componentes (incluindo componentes externos) registrados por meio de TrackDependency () – por exemplo, chamadas para API REST, banco de dados ou sistema de arquivos. 
-| exceções            | As exceções geradas pelo tempo de execução do aplicativo capturam as exceções do lado do servidor e do lado do cliente (navegadores).
-| pageViews           | Dados sobre cada exibição do site com informações do navegador.
-| performanceCounters   | Medições de desempenho dos recursos de computação que dão suporte ao aplicativo, por exemplo, contadores de desempenho do Windows.
-| solicitações            | Solicitações recebidas pelo seu aplicativo. Por exemplo, um registro de solicitação separado é registrado para cada solicitação HTTP que o aplicativo Web recebe. 
-| traces                | Logs detalhados (rastreamentos) emitidos por meio de estruturas de log/código do aplicativo gravados por meio de TrackTrace ().
-
+| availabilityResults | Dados de resumo dos testes de disponibilidade. |
+| browserTimings      | Dados sobre o desempenho do cliente, como o tempo necessário para processar os dados de entrada. |
+| customEvents        | Eventos personalizados criados pelo seu aplicativo. |
+| customMetrics       | Métricas personalizadas criadas pelo seu aplicativo. |
+| dependências        | Chamadas do aplicativo para outros componentes (incluindo componentes externos) registrados por meio de TrackDependency () – por exemplo, chamadas para API REST, banco de dados ou sistema de arquivos. |
+| exceções          | As exceções geradas pelo tempo de execução do aplicativo capturam as exceções do lado do servidor e do lado do cliente (navegadores).|
+| pageViews           | Dados sobre cada exibição do site com informações do navegador. |
+| performanceCounters | Medições de desempenho dos recursos de computação que dão suporte ao aplicativo, por exemplo, contadores de desempenho do Windows. |
+| solicitações            | Solicitações recebidas pelo seu aplicativo. Por exemplo, um registro de solicitação separado é registrado para cada solicitação HTTP que o aplicativo Web recebe.  |
+| traces              | Logs detalhados (rastreamentos) emitidos por meio de estruturas de log/código do aplicativo gravados por meio de TrackTrace (). |
 
 Você pode exibir o esquema para cada tabela na guia **esquema** em log Analytics para o aplicativo.
 
@@ -76,7 +82,7 @@ Embora cada tabela em logs de Azure Monitor tenha seu próprio esquema, há prop
 | Espaço de trabalho do Log Analytics | Application Insights aplicativo | Descrição |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | Data e hora em que o registro foi criado. |
-| Type          | itemType   | Nome da tabela da qual o registro foi recuperado. |
+| Tipo          | itemType   | Nome da tabela da qual o registro foi recuperado. |
 | _ResourceId   |            | Identificador exclusivo do recurso ao qual o registro está associado. |
 | _IsBillable   |            | Especifica se os dados ingeridos são faturáveis. |
 | _BilledSize   |            | Especifica o tamanho em bytes de dados que serão cobrados. |

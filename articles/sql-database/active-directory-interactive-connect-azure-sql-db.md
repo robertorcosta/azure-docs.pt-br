@@ -4,19 +4,19 @@ description: Exemplo de código em C#, com explicações, para se conectar ao Ba
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: active directory
+ms.custom: active directory, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi, vanto
 ms.date: 10/11/2019
-ms.openlocfilehash: 5e7d58e5e0fc79e407e77ae9d73314a1d5d22666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc597881d15dbd534b36109fc653ffbc671f1f4d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73692308"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197090"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Conectar-se ao banco de dados SQL do Azure com a autenticação multifator do Azure
 
@@ -26,7 +26,7 @@ Para obter mais informações sobre o suporte à autenticação multifator para 
 
 ## <a name="multi-factor-authentication-for-azure-sql-database"></a>Autenticação multifator para o banco de dados SQL do Azure
 
-A partir do .NET Framework versão 4.7.2, a [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) enumeração tem um novo valor `ActiveDirectoryInteractive`:. Em um programa C# cliente, o valor de enumeração direciona o sistema para usar o modo interativo Azure Active Directory (AD do Azure) que dá suporte à autenticação multifator para se conectar a um banco de dados SQL do Azure. O usuário que executa o programa verá as seguintes caixas de diálogo:
+A partir do .NET Framework versão 4.7.2, a enumeração [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) tem um novo valor: `ActiveDirectoryInteractive` . Em um programa C# cliente, o valor de enumeração direciona o sistema para usar o modo interativo Azure Active Directory (AD do Azure) que dá suporte à autenticação multifator para se conectar a um banco de dados SQL do Azure. O usuário que executa o programa verá as seguintes caixas de diálogo:
 
 * Uma caixa de diálogo que exibe um nome de usuário do Azure AD e solicita a senha do usuário.
 
@@ -45,7 +45,7 @@ Para capturas de tela dessas caixas de diálogo, consulte [configurar autentica�
 > [!TIP]
 > Você pode pesquisar .NET Framework APIs com a [página de ferramentas do navegador de API do .net](https://docs.microsoft.com/dotnet/api/).
 >
-> Você também pode pesquisar diretamente com o [parâmetro de valor&gt; de&lt;pesquisa opcional? Term =](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod).
+> Você também pode pesquisar diretamente com o [ &lt; &gt; parâmetro de valor de pesquisa opcional? Term =](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod).
 
 ## <a name="configure-your-c-application-in-the-azure-portal"></a>Configurar seu aplicativo C# no portal do Azure
 
@@ -59,7 +59,7 @@ A conclusão de um registro de aplicativo gera e exibe uma **ID de aplicativo**.
 
 Para registrar e definir as permissões necessárias para seu aplicativo:
 
-1. Na portal do Azure, selecione **Azure Active Directory** > **registros de aplicativo** > **novo registro**.
+1. Na portal do Azure, selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro**.
 
     ![Registro do aplicativo](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -67,7 +67,7 @@ Para registrar e definir as permissões necessárias para seu aplicativo:
 
     ![ID do aplicativo exibida](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Selecione **permissões** > **de API adicionar uma permissão**.
+2. Selecione **permissões**  >  **de API adicionar uma permissão**.
 
     ![Configurações de permissões do aplicativo registrado](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
@@ -75,7 +75,7 @@ Para registrar e definir as permissões necessárias para seu aplicativo:
 
     ![Adicionar acesso à API para o Banco de Dados SQL do Azure](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4.  > Selecione **permissões delegadas****user_impersonation** > **adicionar permissões**.
+4. Selecione **permissões delegadas**  >  **user_impersonation**  >  **adicionar permissões**.
 
     ![Delegar permissões à API para o Banco de Dados SQL do Azure](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
@@ -83,7 +83,7 @@ Para registrar e definir as permissões necessárias para seu aplicativo:
 
 Para que o programa C# seja executado, um administrador do SQL Server do Azure precisa atribuir um administrador do Azure AD ao servidor do banco de dados SQL. 
 
-Na página **SQL Server** , selecione **Active Directory** > admin**definir administrador**.
+Na página **SQL Server** , selecione **Active Directory**admin  >  **definir administrador**.
 
 Para obter mais informações sobre administradores e usuários do Azure AD para o banco de dados SQL do Azure, consulte as capturas de tela em [configurar e gerenciar a autenticação de Azure Active Directory com o banco de dados SQL](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
@@ -97,7 +97,7 @@ Para obter mais informações, confira [Usar a Autenticação do Azure Active Di
 
 ## <a name="new-authentication-enum-value"></a>Novo valor de enumeração de autenticação
 
-O exemplo de C# depende do [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) namespace. De interesse especial para a autenticação multifator é a `SqlAuthenticationMethod`enumeração, que tem os seguintes valores:
+O exemplo de C# depende do [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) namespace. De interesse especial para a autenticação multifator é a enumeração `SqlAuthenticationMethod` , que tem os seguintes valores:
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
@@ -117,11 +117,11 @@ Para o programa C# ser executado com êxito, você precisará atribuir os valore
 
 | Nome do campo estático | Valor de exemplo | Onde encontrar no portal do Azure |
 | :---------------- | :------------ | :-------------------- |
-| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL servers** > **Filtro de servidores SQL por nome** |
-| AzureAD_UserID | "auser\@ABC.onmicrosoft.com" | **Azure Active Directory** > **User** > **novo usuário convidado** do usuário |
-| Initial_DatabaseName | "myDatabase" | **SQL servers** > **Bancos de dados SQL** de SQL Servers |
-| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App registrations**registros de aplicativo > **Pesquisar por nome** > **ID do aplicativo** |
-| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **registros de aplicativo** > **Settings** > **RedirectURIs** **Search by name** > *[Your-App-registration]* Pesquisar por nome [seu-app-Registration] Configurações RedirectURIs > <br /><br />Para este artigo, qualquer valor válido é adequado para RedirectUri, pois ele não é usado aqui. |
+| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **Servidores SQL**  >  **Filtrar por nome** |
+| AzureAD_UserID | "auser \@ ABC.onmicrosoft.com" | **Azure Active Directory**  >  **Usuário**  >  do **Novo usuário convidado** |
+| Initial_DatabaseName | "myDatabase" | **Servidores SQL**  >  **Bancos de dados SQL** |
+| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory**  >  **Registros de aplicativo**  >  **Pesquisar por nome**  >  **ID do aplicativo** |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory**  >  **Registros de aplicativo**  >  **Pesquisar por nome**  >  *[Seu-app-Registration]*  >  **Configurações**  >  do **RedirectURIs**<br /><br />Para este artigo, qualquer valor válido é adequado para RedirectUri, pois ele não é usado aqui. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>Verificar com SQL Server Management Studio
@@ -139,13 +139,13 @@ Execute o SSMS novamente, dessa vez com a **Autenticação** definida como **Act
 Para obter mais informações, consulte [Configurar a autenticação multifator para o SSMS e o Azure ad](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
-> Se você for um usuário convidado no banco de dados, também precisará fornecer o nome de domínio do Azure ad para o banco de dados: selecione **Opções** > **nome de domínio do AD ou ID do locatário**. Para localizar o nome de domínio no portal do Azure, selecione **Azure Active Directory** > **nomes de domínio personalizados**. No programa C# de exemplo, não é necessário fornecer um nome de domínio.
+> Se você for um usuário convidado no banco de dados, também precisará fornecer o nome de domínio do Azure ad para o banco de dados: selecione **Opções**  >  **nome de domínio do AD ou ID do locatário**. Para localizar o nome de domínio no portal do Azure, selecione **Azure Active Directory**  >  **nomes de domínio personalizados**. No programa C# de exemplo, não é necessário fornecer um nome de domínio.
 
 ## <a name="c-code-example"></a>Exemplo de código C#
 
 O programa C# de exemplo depende do assembly DLL [*Microsoft.IdentityModel.Clients.ActiveDirectory*](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory).
 
-Para instalar esse pacote, no Visual Studio, selecione **projeto** > **gerenciar pacotes NuGet**. Pesquise e instale **Microsoft.IdentityModel.Clients.ActiveDirectory**.
+Para instalar esse pacote, no Visual Studio, selecione **projeto**  >  **gerenciar pacotes NuGet**. Pesquise e instale **Microsoft.IdentityModel.Clients.ActiveDirectory**.
 
 Este é um exemplo de código-fonte C#.
 

@@ -11,12 +11,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309203"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196383"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueando a autenticação herdada
  
@@ -31,10 +32,10 @@ Hoje, a maioria de todas as tentativas de entrada comprometentes vêm da autenti
 
 Antes de poder bloquear a autenticação herdada em seu diretório, primeiro você precisa entender se os usuários têm aplicativos que usam autenticação herdada e como ele afeta o diretório geral. Os logs de entrada do Azure AD podem ser usados para entender se você está usando a autenticação herdada.
 
-1. Navegue até o **portal do Azure** > **Azure Active Directory** > **entradas**.
-1. Adicione a coluna **aplicativo cliente** se ela não for exibida clicando em **colunas** > **aplicativo cliente**.
-1. Filtrar por **aplicativo**   cliente> verificar todas as opções de **clientes de autenticação herdadas** apresentadas.
-1. Filtrar por **status** > de**êxito**. 
+1. Navegue até o **portal do Azure**   >  **Azure Active Directory**   >  **entradas**.
+1. Adicione a coluna **aplicativo cliente** se ela não for exibida clicando em **colunas**   >  **aplicativo cliente**.
+1. Filtrar por **aplicativo cliente**  > verificar todas as opções de **clientes de autenticação herdadas** apresentadas.
+1. Filtrar por **status**de  >  **êxito**. 
 1. Expanda seu intervalo de datas, se necessário, usando o filtro de **Data** .
 
 A filtragem mostrará apenas as tentativas de entrada bem-sucedidas feitas pelos protocolos de autenticação herdados selecionados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. A coluna aplicativo cliente ou o campo aplicativo cliente na guia informações básicas, depois de selecionar uma linha individual de dados, indicará qual protocolo de autenticação herdado foi usado. Esses logs indicarão quais usuários ainda estão dependendo da autenticação herdada e quais aplicativos estão usando protocolos herdados para fazer solicitações de autenticação. Para usuários que não aparecem nesses logs e são confirmados para não usar a autenticação herdada, implemente uma política de acesso condicional ou habilite a política de linha de base: bloquear a autenticação herdada somente para esses usuários.
@@ -49,8 +50,8 @@ Esta seção fornece uma visão geral passo a passo sobre como atualizar seu amb
 
 A primeira etapa para habilitar a autenticação moderna é verificar se o diretório dá suporte à autenticação moderna. A autenticação moderna é habilitada por padrão para diretórios criados em ou após 1º de agosto de 2017. Se seu diretório foi criado antes dessa data, você precisará habilitar manualmente a autenticação moderna para seu diretório usando as seguintes etapas:
 
-1. Verifique se o diretório já dá suporte à autenticação moderna executando `Get-CsOAuthConfiguration` no módulo do [PowerShell do Skype for Business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Se o comando retornar uma propriedade `OAuthServers` vazia, a autenticação moderna será desabilitada. Atualize a configuração para habilitar a autenticação moderna `Set-CsOAuthConfiguration`usando. Se sua `OAuthServers` Propriedade contiver uma entrada, você estará pronto para começar.
+1. Verifique se o diretório já dá suporte à autenticação moderna executando  `Get-CsOAuthConfiguration`   no módulo do [PowerShell do Skype for Business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Se o comando retornar uma  `OAuthServers`   Propriedade vazia, a autenticação moderna será desabilitada. Atualize a configuração para habilitar a autenticação moderna usando  `Set-CsOAuthConfiguration` . Se sua  `OAuthServers`   Propriedade contiver uma entrada, você estará pronto para começar.
 
 Certifique-se de concluir esta etapa antes de prosseguir. É essencial que suas configurações de diretório sejam alteradas primeiro porque ditam qual protocolo será usado por todos os clientes do Office. Mesmo se você estiver usando clientes do Office que dão suporte à autenticação moderna, eles usarão como padrão os protocolos herdados se a autenticação moderna estiver desabilitada em seu diretório.
 
@@ -58,7 +59,7 @@ Certifique-se de concluir esta etapa antes de prosseguir. É essencial que suas 
 
 Depois de habilitar a autenticação moderna em seu diretório, você pode iniciar a atualização de aplicativos habilitando a autenticação moderna para clientes do Office. Os clientes do Office 2016 ou posterior dão suporte à autenticação moderna por padrão. Nenhuma etapa extra é necessária.
 
-Se você estiver usando clientes Windows do Office 2013 ou mais antigo, recomendamos atualizar para o Office 2016 ou posterior. Mesmo depois de concluir a etapa anterior de habilitar a autenticação moderna em seu diretório, os aplicativos mais antigos do Office continuarão a usar protocolos de autenticação herdados. Se você estiver usando clientes do Office 2013 e não puder atualizar imediatamente para o Office 2016 ou posterior, siga as etapas no artigo a seguir para [habilitar a autenticação moderna para o office 2013 em dispositivos Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Para ajudar a proteger sua conta enquanto você estiver usando a autenticação herdada, é recomendável usar senhas fortes em seu diretório. Confira a  [proteção de senha do Azure ad](../authentication/concept-password-ban-bad.md)para proibir senhas fracas em seu diretório.
+Se você estiver usando clientes Windows do Office 2013 ou mais antigo, recomendamos atualizar para o Office 2016 ou posterior. Mesmo depois de concluir a etapa anterior de habilitar a autenticação moderna em seu diretório, os aplicativos mais antigos do Office continuarão a usar protocolos de autenticação herdados. Se você estiver usando clientes do Office 2013 e não puder atualizar imediatamente para o Office 2016 ou posterior, siga as etapas no artigo a seguir para [habilitar a autenticação moderna para o office 2013 em dispositivos Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Para ajudar a proteger sua conta enquanto você estiver usando a autenticação herdada, é recomendável usar senhas fortes em seu diretório. Confira a [proteção de senha do Azure ad](../authentication/concept-password-ban-bad.md)   para proibir senhas fracas em seu diretório.
 
 O Office 2010 não oferece suporte à autenticação moderna. Será necessário atualizar todos os usuários com o Office 2010 para uma versão mais recente do Office. É recomendável atualizar para o Office 2016 ou posterior, pois ele bloqueia a autenticação herdada por padrão.
 

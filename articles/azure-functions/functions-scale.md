@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b000776c04550e1deb883039d94deeb735061ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40d6768b528d132b3d238227098d4340fce37cca
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985874"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125784"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -109,7 +109,7 @@ Mesmo com Always On habilitado, o tempo limite de execução para funções indi
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinar o plano de Hospedagem de um aplicativo existente
 
-Para determinar o plano de hospedagem usado pelo aplicativo de funções, consulte **plano do Serviço de Aplicativo/tipo de preço** na guia **Visão geral** do aplicativo de funções no [portal do Azure](https://portal.azure.com). Para planos do Serviço de Aplicativo, o tipo de preço também é indicado.
+Para determinar o plano de hospedagem usado pelo seu aplicativo de funções, consulte **plano do serviço de aplicativo** na guia **visão geral** do aplicativo de funções no [portal do Azure](https://portal.azure.com). Para ver o tipo de preço, selecione o nome do **plano do serviço de aplicativo**e, em seguida, selecione **Propriedades** no painel esquerdo.
 
 ![Exibir o plano de dimensionamento no portal](./media/functions-scale/function-app-overview-portal.png)
 
@@ -120,11 +120,11 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-Quando a saída desse comando for `dynamic`, o aplicativo de funções estará no plano de Consumo. Quando a saída desse comando for `ElasticPremium`, seu aplicativo de funções estará no plano Premium. Todos os outros valores indicam diferentes camadas de um plano do serviço de aplicativo.
+Quando a saída desse comando for `dynamic`, o aplicativo de funções estará no plano de Consumo. Quando a saída desse comando for `ElasticPremium` , seu aplicativo de funções estará no plano Premium. Todos os outros valores indicam diferentes camadas de um plano do serviço de aplicativo.
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Em qualquer plano, um aplicativo de funções requer uma conta de armazenamento do Azure geral, que dá suporte ao blob do Azure, à fila, aos arquivos e ao armazenamento de tabelas. Isso ocorre porque o Functions depende do Armazenamento do Microsoft Azure para operações como o gerenciamento de gatilhos e execuções de funções de registro em log, mas algumas contas de armazenamento não dão suporte a filas e tabelas. Essas contas, que incluem contas de armazenamento somente blob (incluindo armazenamento Premium) e contas de armazenamento para uso geral com replicação de armazenamento com redundância de zona, são filtradas das seleções da **Conta de Armazenamento** existente quando você cria um aplicativo de funções.
+Em qualquer plano, um aplicativo de funções requer uma conta de armazenamento do Azure geral, que dá suporte ao blob do Azure, à fila, aos arquivos e ao armazenamento de tabelas. Isso ocorre porque Azure Functions se baseia no armazenamento do Azure para operações como gerenciar gatilhos e registrar execuções de função, mas algumas contas de armazenamento não dão suporte a filas e tabelas. Essas contas, que incluem contas de armazenamento somente blob (incluindo armazenamento Premium) e contas de armazenamento para uso geral com replicação de armazenamento com redundância de zona, são filtradas das seleções da **Conta de Armazenamento** existente quando você cria um aplicativo de funções.
 
 A mesma conta de armazenamento usada por seu aplicativo de funções também pode ser usada por seus gatilhos e associações para armazenar os dados do aplicativo. No entanto, para operações com uso intensivo de armazenamento, você deve usar uma conta de armazenamento separada.  
 
@@ -162,7 +162,7 @@ O dimensionamento pode variar em uma série de fatores e ser diferente com base 
 
 Há muitos aspectos de um aplicativo de funções que afetarão a qualidade da escala, incluindo a configuração do host, o espaço de runtime e a eficiência dos recursos.  Para obter mais informações, consulte a [seção de escalabilidade do artigo sobre considerações de desempenho](functions-best-practices.md#scalability-best-practices). Adicionalmente, é necessário que você saiba como as conexões se comportam na medida em que o aplicativo de funções é dimensionado. Para saber mais, confira [Como gerenciar conexões no Azure Functions](manage-connections.md).
 
-Para obter informações adicionais sobre o dimensionamento em Python e node. js, consulte [Azure Functions guia do desenvolvedor do Python – dimensionamento e simultaneidade](functions-reference-python.md#scaling-and-concurrency) e [Azure Functions guia do desenvolvedor do node. js – dimensionamento e simultaneidade](functions-reference-node.md#scaling-and-concurrency).
+Para obter mais informações sobre o dimensionamento em Python e node. js, consulte [Azure Functions guia do desenvolvedor do Python – dimensionamento e simultaneidade](functions-reference-python.md#scaling-and-concurrency) e [Azure Functions guia do desenvolvedor do node. js – dimensionamento e simultaneidade](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modelo de cobrança
 

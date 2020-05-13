@@ -1,20 +1,20 @@
 ---
 title: Criar um conjunto de dimensionamento do Azure que usa Zonas de Disponibilidade
 description: Saiba como criar conjunto de dimensionamento de máquinas virtuais do Azure que usam Zonas de Disponibilidade para aumentar a redundância contra interrupções
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 08/08/2018
-ms.author: jushiman
-ms.openlocfilehash: a23164215376bee291c07d49c88bd9e916d710bf
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: daa469bef999f33feb44983e3b5a7073b4df655e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207829"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197363"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Criar um conjunto de dimensionamento de máquinas virtuais que use Zonas de Disponibilidade
 

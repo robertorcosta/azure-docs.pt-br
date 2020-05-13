@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 658543dc96f23fc86ea50f64d7a3265ba64150e7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0a29ee1536c7c808fe7d15c0abe26f27042bc962
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982200"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196254"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente de Log Analytics
 O agente de Log Analytics do Azure foi desenvolvido para gerenciamento abrangente em máquinas virtuais em qualquer nuvem, em máquinas locais e aquelas monitoradas pelo [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Os agentes do Windows e Linux enviam dados coletados de fontes diferentes para seu espaço de trabalho do Log Analytics no Azure Monitor, bem como quaisquer logs ou métricas exclusivos, conforme definido em uma solução de monitoramento. O agente de Log Analytics também dá suporte a informações e outros serviços em Azure Monitor como [Azure monitor para VMs](../insights/vminsights-enable-overview.md), [central de segurança do Azure](/azure/security-center/)e [automação do Azure](../../automation/automation-intro.md).
@@ -115,11 +115,11 @@ Começando com versões lançadas depois de agosto de 2018, estamos fazendo as s
 >Se você estiver usando uma distribuição ou versão que não é suportada no momento e não se alinha ao nosso modelo de suporte, recomendamos que você distribua esse repositório, reconhecendo que o suporte da Microsoft não fornecerá assistência com as versões do agente bifurcado.
 
 * Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x86 x64) e 7 (x64)  
-* Oracle Linux 6 e 7 (x86 x64) 
-* Red Hat Enterprise Linux Server 6 (x86 x64) e 7 (x64)
-* Debian GNU/Linux 8 e 9 (x86 x64)
-* Ubuntu 14.04 18.04 LTS (x64), 16.04 LTS (x86 x64) e LTS (x86 x64)
+* CentOS Linux 6 (x64) e 7 (x64)  
+* Oracle Linux 6 e 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64) e 8 (x64)
+* Debian GNU/Linux 8 e 9 (x64)
+* Ubuntu 14, 4 LTS (x86/x64), 16, 4 LTS (x64) e 18, 4 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) e 15 (x64)
 
 >[!NOTE]
@@ -201,7 +201,7 @@ Para o agente Linux, o servidor proxy pode ser especificado durante a instalaç�
 Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Se você usar caracteres especiais como "\@" em sua senha, receberá um erro de conexão de proxy porque o valor é analisado incorretamente.  Para contornar esse problema, codifique a senha na URL usando uma ferramenta como [URLDecode](https://www.urldecoder.org/).  
+> Se você usar caracteres especiais como " \@ " em sua senha, receberá um erro de conexão de proxy porque o valor é analisado incorretamente.  Para contornar esse problema, codifique a senha na URL usando uma ferramenta como [URLDecode](https://www.urldecoder.org/).  
 
 
 

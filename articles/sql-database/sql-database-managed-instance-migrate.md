@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeee7558aeeb0c1a3de291abc66578d7d955d842
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100270"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196191"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de uma Instância do SQL Server para uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -43,9 +43,7 @@ Em um nível alto, o processo de migração de banco de dados se parece com:
 
 Primeiro, determine se a instância gerenciada é compatível com os requisitos de banco de dados do aplicativo. A opção de implantação de instância gerenciada foi projetada para fornecer migração lift-and-shift fácil para a maioria dos aplicativos existentes que usam o SQL Server local ou em máquinas virtuais. No entanto, às vezes você pode exigir recursos ou funcionalidades que ainda não têm suporte e o custo da implementação de uma solução alternativa é muito alto.
 
-Utilize o [DMA (Assistente de Migração de Dados)](https://docs.microsoft.com/sql/dma/dma-overview) para detectar possíveis problemas de compatibilidade que afetam a funcionalidade do banco de dados no Banco de Dados SQL do Azure. O AMD ainda não dá suporte à instância gerenciada como destino de migração, mas é recomendável executar a avaliação no Banco de Dados SQL do Azure e examinar atentamente a lista de problemas de compatibilidade e paridade de recursos relatados em relação à documentação do produto. Confira [Recursos do Banco de Dados SQL do Azure](sql-database-features.md) para verificar se há problemas de bloqueio relatados que não bloqueiam a instância gerenciada, porque a maioria dos problemas de bloqueio que impedem uma migração para o Banco de Dados SQL do Azure foi removida com a instância gerenciada. Por exemplo, recursos como consultas entre banco de dados, transações entre banco de dados na mesma instância, servidor vinculado a outras fontes do SQL, CLR, tabelas temporárias globais, exibições em nível de instância, Service Broker e similares estão disponíveis nas instâncias gerenciadas.
-
-Se houver problemas de bloqueio relatados que não foram removidos com a opção de implantação de instância gerenciada, talvez seja preciso considerar uma opção alternativa, como o [SQL Server em Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estes são alguns exemplos:
+Utilize o [DMA (Assistente de Migração de Dados)](https://docs.microsoft.com/sql/dma/dma-overview) para detectar possíveis problemas de compatibilidade que afetam a funcionalidade do banco de dados no Banco de Dados SQL do Azure. Se houver alguns problemas de bloqueio relatados, talvez seja necessário considerar uma opção alternativa, como [SQL Server em máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Veja alguns exemplos:
 
 - Se você precisar de acesso direto ao sistema operacional ou ao sistema de arquivos, por exemplo, para instalar agentes personalizados ou de terceiros na mesma máquina virtual com o SQL Server.
 - Se você tiver uma dependência estrita de recursos que ainda não têm suporte, como transações entre instâncias, PolyBase e FileStream/FileTable.
@@ -53,6 +51,7 @@ Se houver problemas de bloqueio relatados que não foram removidos com a opção
 - Se os requisitos de computação forem muito menores do que o oferecido pela instância gerenciada (um vCore, por exemplo) e a fusão de banco de dados não for uma opção aceitável.
 
 Se você tiver resolvido todos os bloqueadores de migração identificados e continuar a migração para Instância Gerenciada, observe que algumas das alterações podem afetar o desempenho da carga de trabalho:
+
 - O modelo de recuperação completa obrigatório e o agendamento de backup automatizado regular podem afetar o desempenho de suas ações de carga de trabalho ou de manutenção/ETL se você tiver usado periodicamente um modelo simples/bulk-logged ou backups interrompidos sob demanda.
 - Diferentes configurações de nível de servidor ou banco de dados, como sinalizadores de rastreamento ou níveis de compatibilidade
 - Os novos recursos que você está usando como TDE (criptografia de banco de dados transparente) ou grupos de failover automático podem afetar o uso de CPU e e/s.
