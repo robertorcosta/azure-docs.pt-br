@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: Documentação da Retransmissão do Azure
+summary: Saiba como o serviço Retransmissão do Azure permite que você exponha com segurança os serviços executados na sua rede corporativa para a nuvem pública.
+metadata:
+  title: Documentação da Retransmissão do Azure
+  description: Saiba como o serviço Retransmissão do Azure permite que você exponha com segurança os serviços executados na sua rede corporativa para a nuvem pública.
+  services: service-bus-relay
+  ms.service: service-bus-relay
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 09/06/2019
+  ms.openlocfilehash: f4d186169998aad628dc8efa4781dc55f457edd4
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83202907"
+landingContent:
+- title: Sobre a Retransmissão do Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é Retransmissão do Azure?
+      url: relay-what-is-it.md
+- title: Conexões Híbridas
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Enviar e receber mensagens usando WebSockets – .NET
+      url: relay-hybrid-connections-dotnet-get-started.md
+    - text: Enviar e receber mensagens usando HTTP – .NET
+      url: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - text: Enviar e receber mensagens usando WebSockets – Node.js
+      url: relay-hybrid-connections-node-get-started.md
+    - text: Enviar e receber mensagens usando HTTP – Node.js
+      url: relay-hybrid-connections-http-requests-node-get-started.md
+  - linkListType: download
+    links:
+    - text: Exemplos no GitHub
+      url: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+- title: Retransmissão de WCF
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Expor um serviço WCF local a um aplicativo Web na nuvem
+      url: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - text: Expor um serviço WCF local a um serviço WCF fora da rede
+      url: service-bus-relay-tutorial.md
+    - text: Expor um serviço de REST do WCF local a um cliente fora da rede
+      url: service-bus-relay-rest-tutorial.md
+  - linkListType: download
+    links:
+    - text: Exemplos no GitHub
+      url: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+- title: Referências de API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.relay?view=azure-dotnet
+    - text: REST
+      url: /rest/api/relay/

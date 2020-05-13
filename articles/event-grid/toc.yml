@@ -106,6 +106,8 @@
           items:
             - name: Configuração de Aplicativo do Azure
               href: event-schema-app-configuration.md
+            - name: Serviço de aplicativo do Azure
+              href: event-schema-app-service.md
             - name: Armazenamento do Blobs do Azure
               href: event-schema-blob-storage.md
             - name: Registro de Contêiner do Azure
