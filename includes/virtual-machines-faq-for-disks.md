@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e87b6ee4739818e25ee069986e299f8205d44a2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595233"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343296"
 ---
 Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks e os discos Azure Premium SSD.
 
@@ -25,15 +25,15 @@ Managed Disks é um recurso que simplifica o gerenciamento de disco para VMs Iaa
 
 **Se eu criar um disco gerenciado standard com base em um VHD existente que tem 80 GB, quanto isso custará?**
 
-Um disco gerenciado standard criado com base em um VHD de 80 GB é tratado como o próximo tamanho de disco standard disponível, um disco S10. Você será cobrado de acordo com o preço do disco S10. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Um disco gerenciado standard criado com base em um VHD de 80 GB é tratado como o próximo tamanho de disco standard disponível, um disco S10. Você será cobrado de acordo com o preço do disco S10. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/storage).
 
 **Existem custos de transação de discos gerenciados standard?**
 
-Sim. Você é cobrado por cada transação. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Sim. Você é cobrado por cada transação. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/storage).
 
 **Para um disco gerenciado standard, eu serei cobrado pelo tamanho real dos dados no disco ou pela capacidade provisionada do disco?**
 
-Você é cobrado com base na capacidade provisionada do disco. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Você é cobrado com base na capacidade provisionada do disco. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/storage).
 
 **O preço dos discos premium gerenciados é diferente do preço dos discos não gerenciados?**
 
@@ -178,7 +178,7 @@ Somente SSDs Premium que são P15 ou superior dão suporte a discos compartilhad
 
 **Se eu tiver um SSD Premium existente, posso habilitar discos compartilhados nele?**
 
-Todos os discos gerenciados criados com a versão de API 2019-07-01 ou superior podem habilitar discos compartilhados. Para fazer isso, você precisa desmontar o disco de todas as VMs às quais ele está anexado. Em seguida, edite a `maxShares` Propriedade no disco.
+Todos os discos gerenciados criados com a versão de API 2019-07-01 ou superior podem habilitar discos compartilhados. Para fazer isso, você precisa desmontar o disco de todas as VMs às quais ele está anexado. Em seguida, edite a `maxShares` propriedade no disco.
 
 **Se eu não quiser mais usar um disco no modo compartilhado, como posso desabilitá-lo?**
 
@@ -257,32 +257,6 @@ Todas as regiões do Azure agora oferecem suporte a discos SSD Standard.
 **O Backup do Azure está disponível ao usar SSDs Standard?**
 Sim, o Backup do Azure agora está disponível.
 
-**Como criar discos SSD padrão?**
-Você pode criar SSD Standard discos usando modelos de Azure Resource Manager, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo do Gerenciador de Recursos para criar discos SSD padrão:
-
-* *apiVersion* para Microsoft.Compute deve ser definido como `2018-04-01` (ou posterior)
-* Especifique *managedDisk.storageAccountType* como `StandardSSD_LRS`
-
-A exemplo a seguir mostra a seção *properties.storageProfile.osDisk* de uma VM que usa discos SSD padrão:
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-Para obter um exemplo de modelo completo de como criar um disco SSD padrão com um modelo, consulte [Criar uma máquina virtual a partir de uma imagem do Windows com discos de dados padrão SSD](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
-
-**Posso converter discos existentes em SDD padrão?**
- Sim, pode. Para obter as diretrizes gerais de conversão do serviço Managed Disks, confira o artigo [Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Use o valor a seguir para atualizar o tipo de disco como SDD padrão.
--AccountType StandardSSD_LRS
-
 **O que é a vantagem de usar discos SSD padrão em vez de HDD?**
 SSD Standard discos oferecem melhor latência, consistência, disponibilidade e confiabilidade em comparação com discos de HDD. As cargas de trabalho de aplicativos são executadas muito mais suavemente no SSD padrão por causa disso. Observe que os discos SSD premium são a solução recomendada para a maioria das cargas de trabalho de produção com uso intenso de I / O.
 
@@ -332,9 +306,9 @@ Sim
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e Criptografia de Serviço de Armazenamento
 
-**A Criptografia do Serviço de Armazenamento do Azure fica habilitada por padrão quando crio um disco gerenciado?**
+**A criptografia do lado do servidor é habilitada por padrão quando eu crio um disco gerenciado?**
 
-Sim.
+Sim. Managed Disks são criptografadas com criptografia do lado do servidor com chaves gerenciadas pela plataforma. 
 
 **O volume de inicialização é criptografado por padrão em um disco gerenciado?**
 
@@ -342,30 +316,27 @@ Sim. Por padrão, todos os discos gerenciados são criptografados, incluindo o d
 
 **Quem gerencia as chaves de criptografia?**
 
-A Microsoft gerencia as chaves de criptografia.
+As chaves gerenciadas pela plataforma são gerenciadas pela Microsoft. Você também pode usar e gerenciar suas próprias chaves armazenadas no Azure Key Vault. 
 
-**Posso desabilitar a Criptografia do Serviço de Armazenamento para meus discos gerenciados?**
+**Posso desabilitar a criptografia do lado do servidor para meus discos gerenciados?**
 
 Não.
 
-**A Criptografia do Serviço de Armazenamento só está disponível em regiões específicas?**
+**A criptografia do lado do servidor está disponível somente em regiões específicas?**
 
-Não. Ele está disponível em todas as regiões em que os Discos Gerenciados estão disponíveis. O Managed Disks está disponível em todas as regiões públicas e na Alemanha. O serviço está disponível também na China, no entanto apenas para Chaves Gerenciadas da Microsoft, mas não para Chaves Gerenciadas do Cliente.
+Não. A criptografia do lado do servidor com a plataforma e as chaves gerenciadas pelo cliente estão disponíveis em todas as regiões nas quais Managed Disks estão disponíveis. 
 
-**Como posso descobrir se o disco gerenciado está criptografado?**
+**O Azure Site Recovery oferece suporte à criptografia do lado do servidor com chave gerenciada pelo cliente para o Azure e cenários de recuperação de desastre do Azure para o Azure?**
 
-Você pode descobrir a data em que um disco gerenciado foi criado no portal do Azure, na CLI do Azure e no PowerShell. Se a data é posterior a 9 de junho de 2017, o disco está criptografado.
+Sim. 
 
-**Como faço para criptografar meus discos existentes que foram criados antes de 10 de junho de 2017?**
+**Posso fazer backup Managed Disks criptografado com a criptografia do lado do servidor com a chave gerenciada pelo cliente usando o serviço de backup do Azure?**
 
-A partir de 10 de junho de 2017, os novos dados gravados em discos gerenciados existentes serão criptografados automaticamente. Nós também estamos planejando criptografar os dados existentes e a criptografia ocorrerá assincronamente em segundo plano. Se você precisar criptografar os dados existentes agora, crie uma cópia do disco. Os novos discos serão criptografados.
-
-* [Copiar discos gerenciados usando a CLI do Azure](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copiar discos gerenciados usando o PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Sim.
 
 **Os instantâneos gerenciados e as imagens são criptografados?**
 
-Sim. Todos os instantâneos e imagens criados após 9 de junho de 2017 são criptografados automaticamente. 
+Sim. Todos os instantâneos e imagens gerenciados são criptografados automaticamente. 
 
 **Posso converter máquinas virtuais com discos não gerenciados que estão localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
 
@@ -391,7 +362,7 @@ Um disco de dados premium criado com base em um VHD de 80 GB é tratado como o p
 
 **Existem custos de transação para usar os Discos Premium SSD?**
 
-Há um custo fixo para cada tamanho de disco, que vem provisionado com limites específicos de IOPS e taxa de transferência. Os outros custos são largura de banda de saída e recurso de instantâneos, caso aplicável. Para obter mais informações, consulte a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Há um custo fixo para cada tamanho de disco, que vem provisionado com limites específicos de IOPS e taxa de transferência. Os outros custos são largura de banda de saída e recurso de instantâneos, caso aplicável. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/storage).
 
 **Quais são os limites de IOPS e taxa de transferência que posso obter do cache de disco?**
 

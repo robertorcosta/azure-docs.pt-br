@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11a9b8609218a6cf56a789b18094d048e26d4af8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419207"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343330"
 ---
 As imagens de VM (máquina virtual) padronizadas permitem que as organizações migrem para a nuvem e garantam a consistência nas implantações. As imagens normalmente incluem configurações predefinidas de segurança e configuração e software necessário. Configurar seu próprio pipeline de geração de imagens requer tempo, infraestrutura e configuração, mas com o construtor de imagem de VM do Azure, basta fornecer uma configuração simples que descreva sua imagem, enviá-la ao serviço, e a imagem seja criada e distribuída.
  
@@ -30,7 +30,7 @@ Para a versão prévia, há suporte para esses recursos:
 - A integração com a Galeria de imagens compartilhadas do Azure permite distribuir, apresentar e dimensionar imagens globalmente e fornece um sistema de gerenciamento de imagens.
 - Integração com pipelines de Build de imagem existentes, basta chamar o Image Builder de seu pipeline ou usar a tarefa Simple DevOps do Azure Image Builder.
 - Migre um pipeline de personalização de imagem existente para o Azure. Use seus scripts, comandos e processos existentes para personalizar imagens.
-- Criação de imagens no formato VHD.
+- Criação de imagens no formato VHD para dar suporte a Azure Stack.
  
 
 ## <a name="regions"></a>Regiões
@@ -55,9 +55,8 @@ O AIB dará suporte a imagens do sistema operacional base do Azure Marketplace:
 - Windows 2016
 - Windows 2019
 
-O suporte do RHEL ISOs está sendo preterido. Examine a documentação do modelo para obter mais detalhes.
-
-## <a name="how-it-works"></a>Como ele funciona
+Não há mais suporte para o suporte do RHEL ISOs.
+## <a name="how-it-works"></a>Como funciona
 
 
 ![Desenho conceitual do construtor de imagens do Azure](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -71,40 +70,28 @@ O construtor de imagens do Azure é um serviço do Azure totalmente gerenciado q
 ![Desenho conceitual do processo do construtor de imagem do Azure](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. Crie o modelo de imagem como um arquivo. JSON. Esse arquivo. JSON contém informações sobre a origem, as personalizações e a distribuição da imagem. Há vários exemplos no [repositório GitHub do Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
-1. Enviá-lo para o serviço; isso criará um artefato de modelo de imagem no grupo de recursos que você especificar. Em segundo plano, o Image Builder baixará a imagem de origem ou a ISO e os scripts, conforme necessário. Eles são armazenados em um grupo de recursos separado que é criado automaticamente em sua assinatura, no formato: IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. Depois que o modelo de imagem for criado, você poderá criar a imagem. No construtor de imagem de plano de fundo usa o modelo e os arquivos de origem para criar uma VM (tamanho padrão: Standard_D1_v2), rede, IP público, NSG e\<armazenamento no\<IT_ DestinationResourceGroup>_ TemplateName> grupo de recursos.
-1. Como parte da criação da imagem, o Image Builder distribui a imagem de acordo com o modelo e, em seguida, exclui os recursos adicionais\<no IT_\<DestinationResourceGroup>_ TemplateName> grupo de recursos que foi criado para o processo.
+1. Enviá-lo para o serviço; isso criará um artefato de modelo de imagem no grupo de recursos que você especificar. Em segundo plano, o Image Builder baixará a imagem de origem ou a ISO e os scripts, conforme necessário. Eles são armazenados em um grupo de recursos separado que é criado automaticamente em sua assinatura, no formato: IT_ \< DestinationResourceGroup>_ \< TemplateName>. 
+1. Depois que o modelo de imagem for criado, você poderá criar a imagem. No construtor de imagem de plano de fundo usa o modelo e os arquivos de origem para criar uma VM (tamanho padrão: Standard_D1_v2), rede, IP público, NSG e armazenamento no IT_ \< DestinationResourceGroup>_ \< TemplateName> grupo de recursos.
+1. Como parte da criação da imagem, o Image Builder distribui a imagem de acordo com o modelo e, em seguida, exclui os recursos adicionais no IT_ \< DestinationResourceGroup>_ \< TemplateName> grupo de recursos que foi criado para o processo.
 
 
 ## <a name="permissions"></a>Permissões
+Quando você se registra no (AIB), isso concede permissão de serviço AIB para criar, gerenciar e excluir um grupo de recursos de preparo (IT_ *) e ter direitos para adicionar recursos a ele, que são necessários para a compilação da imagem. Isso é feito por um SPN (nome da entidade de serviço) do AIB que está sendo disponibilizado em sua assinatura durante um registro bem-sucedido.
 
-Para permitir que o construtor de imagens de VM do Azure distribua imagens para as imagens gerenciadas ou para uma galeria de imagens compartilhadas, você precisará fornecer permissões de ' colaborador ' para o serviço "Construtor de imagem de máquina virtual do Azure" (ID do aplicativo: cf32a0cc-373c-47c9-9156-0db11f6a6dfc) nos grupos de recursos. 
+Para permitir que o construtor de imagens de VM do Azure distribua imagens para as imagens gerenciadas ou para uma galeria de imagens compartilhadas, você precisará criar uma identidade atribuída pelo usuário do Azure que tenha permissões para ler e gravar imagens. Se você estiver acessando o armazenamento do Azure, isso precisará de permissões para ler contêineres privados.
 
-Se você estiver usando uma imagem gerenciada personalizada ou uma versão de imagem existente, o construtor de imagens do Azure precisará de, no mínimo, o acesso de "leitor" a esses grupos de recursos.
+Inicialmente, você deve criar a documentação de [identidade gerenciada atribuída pelo usuário do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) sobre como criar uma identidade.
 
-Você pode atribuir acesso usando o CLI do Azure:
+Depois que você tiver a identidade necessária para conceder permissões de ti, poderá usar uma definição de função personalizada do Azure e atribuir a identidade gerenciada atribuída pelo usuário para usar a definição de função personalizada.
 
-```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
-```
+As permissões são explicadas em mais detalhes [aqui](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)e os exemplos mostram como isso é implementado.
 
-Você pode atribuir acesso usando o PowerShell:
-
-```azurePowerShell-interactive
-New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName> -RoleDefinitionName Contributor
-```
-
-
-Se a conta de serviço não for encontrada, isso pode significar que a assinatura em que você está adicionando a atribuição de função ainda não foi registrada para o provedor de recursos.
-
+> [Observação!] Anteriormente, com o AIB, você usaria o SPN do AIB e concede as permissões de SPN aos grupos de recursos de imagem. Estamos mudando desse modelo para permitir futuros recursos. De 1º de junho de 2020, o Image Builder não aceitará modelos que não tenham uma identidade atribuída pelo usuário, os modelos existentes precisarão ser reenviados para o serviço com uma [identidade de usuário](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). Os exemplos aqui já mostram como você pode criar uma identidade atribuída pelo usuário e adicioná-las a um modelo.
 
 ## <a name="costs"></a>Custos
 Você incorrerá em alguns custos de computação, rede e armazenamento ao criar, criar e armazenar imagens com o Azure Image Builder. Esses custos são semelhantes aos custos incorridos na criação manual de imagens personalizadas. Para os recursos, você será cobrado com suas tarifas do Azure. 
 
-Durante o processo de criação de imagem, os arquivos são baixados `IT_<DestinationResourceGroup>_<TemplateName>` e armazenados no grupo de recursos, o que incorrerá em um pequeno custo de armazenamento. Se você não quiser mantê-los, exclua o **modelo de imagem** após a criação da imagem.
+Durante o processo de criação de imagem, os arquivos são baixados e armazenados no `IT_<DestinationResourceGroup>_<TemplateName>` grupo de recursos, o que incorrerá em um pequeno custo de armazenamento. Se você não quiser mantê-los, exclua o **modelo de imagem** após a criação da imagem.
  
 O Image Builder cria uma VM usando um tamanho de VM D1v2 e o armazenamento e a rede necessários para a VM. Esses recursos durarão por último a duração do processo de compilação e serão excluídos assim que o construtor de imagem terminar de criar a imagem. 
  
@@ -113,5 +100,4 @@ O construtor de imagens do Azure distribuirá a imagem para as regiões escolhid
 ## <a name="next-steps"></a>Próximas etapas 
  
 Para experimentar o construtor de imagens do Azure, consulte os artigos para criar imagens do [Linux](../articles/virtual-machines/linux/image-builder.md) ou do [Windows](../articles/virtual-machines/windows/image-builder.md) .
- 
  

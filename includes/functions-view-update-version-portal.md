@@ -8,25 +8,23 @@ ms.topic: include
 ms.date: 11/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d06bda1826964b019edb156375885c7f389ca6ec
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: aa9a715fdafc143a116458691965087b016dec1f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67172571"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343347"
 ---
 Use o procedimento a seguir para exibir e atualizar a versão de runtime usada no momento por um aplicativo de funções.
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o aplicativo de funções.
 
-1. Em **Recursos Configurados**, escolha **Configurações do aplicativo de funções**.
+1. Em **configurações**, escolha **configuração**. Na guia **configurações de tempo de execução de função** , localize a **versão de tempo de execução**. Observe a versão de tempo de execução específica. No exemplo a seguir, a versão é definida como `~3`.
 
-    ![Selecionar as configurações do aplicativo de funções](./media/functions-view-update-version-portal/add-update-app-setting.png)
-
-1. Na guia **Configurações do aplicativo de funções**, localize a **Versão de runtime**. Observe a versão de runtime específica e a versão principal solicitada. No exemplo a seguir, a versão é definida como `~2`.
-
-   ![Selecionar as configurações do aplicativo de funções](./media/functions-view-update-version-portal/function-app-view-version.png)
+    :::image type="content" source="./media/functions-view-update-version-portal/functions-view-runtime-version.png" alt-text="Exiba a versão de tempo de execução." border="true":::
 
 1. Para fixar o aplicativo de funções no runtime de versão 1.x, escolha **~1** em **Versão de runtime**. Essa opção estará desabilitada quando houver funções no aplicativo.
 
 1. Ao alterar a versão de runtime, retorne à guia **Visão geral** e escolha **Reiniciar** para reiniciar o aplicativo.  O aplicativo de funções reinicia a execução no runtime de versão 1.x e os modelos de versão 1.x são usados quando você cria funções.
+
+    :::image type="content" source="./media/functions-view-update-version-portal/functions-restart-function-app.png" alt-text="Reinicie seu aplicativo de funções." border="true":::
