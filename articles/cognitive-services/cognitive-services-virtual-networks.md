@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79371215"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202071"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de serviços cognitivas do Azure
 
@@ -55,7 +55,7 @@ O suporte de rede virtual para serviços cognitivas listados abaixo é limitado 
 
 O suporte de rede virtual para serviços cognitivas listados abaixo é limitado às regiões *EUA Central EUAP*, *Sul EUA Central*, *leste dos EUA*, *oeste dos EUA 2*, *global*e *US gov-Virgínia* Azure.
 > [!div class="checklist"]
-> * [Conversor de Texto](./translator/index.yml)
+> * [Conversor de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Marcas de serviço
 Além de dar suporte a pontos de extremidade de serviço de rede virtual para os serviços acima, os serviços cognitivas também dão suporte a uma marca de serviço para a configuração de regras de rede de saída. Os serviços a seguir estão incluídos na marca de serviço do CognitiveServicesManagement.
@@ -339,12 +339,12 @@ Você pode gerenciar regras de rede virtual para recursos de serviços cognitiva
 
 Você pode configurar recursos de serviços cognitivas para permitir o acesso de intervalos de endereços IP de Internet pública específicos. Essa configuração concede acesso a serviços específicos e redes locais, bloqueando efetivamente o tráfego geral da Internet.
 
-Forneça intervalos de endereços de Internet permitidos usando a [notação CIDR](https://tools.ietf.org/html/rfc4632) no formato `16.17.18.0/24` ou como endereços `16.17.18.19`IP individuais como.
+Forneça intervalos de endereços de Internet permitidos usando a [notação CIDR](https://tools.ietf.org/html/rfc4632) no formato `16.17.18.0/24` ou como endereços IP individuais como `16.17.18.19` .
 
    > [!Tip]
    > Os intervalos de endereços pequenos usando o prefixo "/31" ou "/32" não têm suporte. Esses intervalos devem ser configurados usando regras de endereço IP individuais.
 
-As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**. Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com `10.*`, `172.16.*`  -  `172.31.*`e `192.168.*`.
+As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**. Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com `10.*` , `172.16.*`  -  `172.31.*` e `192.168.*` .
 
    > [!NOTE]
    > As regras de rede IP não têm nenhum efeito em solicitações provenientes da mesma região do Azure que o recurso serviços cognitivas. Use [regras de rede virtual](#grant-access-from-a-virtual-network) para permitir solicitações de mesma região.
@@ -369,11 +369,11 @@ Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por
 
 1. Certifique-se de que você optou por permitir o acesso de **Redes selecionadas**.
 
-1. Para conceder acesso a um intervalo IP da Internet, insira o endereço IP ou o intervalo de endereços (no [formato CIDR](https://tools.ietf.org/html/rfc4632)) em**intervalo de endereços**do **Firewall** > . Somente endereços IP públicos válidos (não reservados) são aceitos.
+1. Para conceder acesso a um intervalo IP da Internet, insira o endereço IP ou o intervalo de endereços (no [formato CIDR](https://tools.ietf.org/html/rfc4632)) em intervalo de endereços do **Firewall**  >  **Address Range**. Somente endereços IP públicos válidos (não reservados) são aceitos.
 
    ![Adicionar intervalo de IP](media/vnet/virtual-network-add-ip-range.png)
 
-1. Para remover uma regra de rede IP, selecione o <span class="docon docon-delete x-hidden-focus"></span> ícone de Lixeira ao lado do intervalo de endereços.
+1. Para remover uma regra de rede IP, selecione o ícone de lixeira <span class="docon docon-delete x-hidden-focus"></span> ao lado do intervalo de endereços.
 
    ![Excluir intervalo de IP](media/vnet/virtual-network-delete-ip-range.png)
 
