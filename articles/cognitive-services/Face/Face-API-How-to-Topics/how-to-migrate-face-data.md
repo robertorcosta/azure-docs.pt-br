@@ -3,19 +3,19 @@ title: Migre seus dados de rosto entre assinaturas-face
 titleSuffix: Azure Cognitive Services
 description: Este guia mostra como migrar os dados de face armazenados de uma assinatura facial para outra.
 services: cognitive-services
-author: lewlu
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.author: lewlu
-ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: nitinme
+ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76169803"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120803"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar seus dados de detecção facial para uma assinatura diferente de Detecção Facial
 
@@ -62,7 +62,7 @@ Preencha os valores de chave de assinatura e as URLs de ponto de extremidade par
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Preparar um PersonGroup para migração
 
-Você precisa da ID do PersonGroup na sua assinatura de origem para migrá-la para a assinatura de destino. Use o método [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) para recuperar uma lista de seus objetos Person. Em seguida, obtenha a propriedade [Person. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Esse processo é diferente com base em quais objetos do Person você tem. Neste guia, a ID da pessoa de origem é armazenada `personGroupId`em.
+Você precisa da ID do PersonGroup na sua assinatura de origem para migrá-la para a assinatura de destino. Use o método [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) para recuperar uma lista de seus objetos Person. Em seguida, obtenha a propriedade [Person. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Esse processo é diferente com base em quais objetos do Person você tem. Neste guia, a ID da pessoa de origem é armazenada em `personGroupId` .
 
 > [!NOTE]
 > O [código de exemplo](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) cria e treina um novo Person para migrar. Na maioria dos casos, você já deve ter um Person para usar.
@@ -85,14 +85,14 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperar a ID do instantâneo
 
-O método usado para tirar instantâneos é assíncrono, portanto, você deve aguardar sua conclusão. As operações de instantâneo não podem ser canceladas. Nesse código, o `WaitForOperation` método monitora a chamada assíncrona. Ele verifica o status a cada 100 ms. Após a conclusão da operação, recupere uma ID de operação analisando `OperationLocation` o campo. 
+O método usado para tirar instantâneos é assíncrono, portanto, você deve aguardar sua conclusão. As operações de instantâneo não podem ser canceladas. Nesse código, o `WaitForOperation` método monitora a chamada assíncrona. Ele verifica o status a cada 100 ms. Após a conclusão da operação, recupere uma ID de operação analisando o `OperationLocation` campo. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
 var operationStatus = await WaitForOperation(FaceClientEastAsia, takeOperationId);
 ```
 
-Um valor `OperationLocation` típico tem esta aparência:
+Um `OperationLocation` valor típico tem esta aparência:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
@@ -127,13 +127,13 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-Depois que o status da `Succeeded`operação for exibido, obtenha a ID do instantâneo `ResourceLocation` analisando o campo da instância OperationStatus retornada.
+Depois que o status da operação for exibido `Succeeded` , obtenha a ID do instantâneo analisando o `ResourceLocation` campo da instância OperationStatus retornada.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 ```
 
-Um valor `resourceLocation` típico tem esta aparência:
+Um `resourceLocation` valor típico tem esta aparência:
 
 ```csharp
 "/snapshots/e58b3f08-1e8b-4165-81df-aa9858f233dc"
@@ -158,7 +158,7 @@ Uma solicitação de aplicação de instantâneo retorna outra ID de operação.
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-O processo do aplicativo de instantâneo também é assíncrono, portanto `WaitForOperation` , novamente use para aguardar sua conclusão.
+O processo do aplicativo de instantâneo também é assíncrono, portanto, novamente use `WaitForOperation` para aguardar sua conclusão.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);

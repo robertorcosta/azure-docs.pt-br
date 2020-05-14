@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/11/2020
 ms.author: dapine
-ms.openlocfilehash: c86d806c408c2e8226e632a0b15e1e8729c987f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fa0ad8c7f75a977e1a39ff6ffd6fee08d977f57a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80131530"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202004"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança de serviços cognitivas do Azure
 
-A segurança deve ser considerada uma prioridade principal ao desenvolver qualquer e todos os aplicativos. Com o início de aplicativos habilitados para inteligência artificial, a segurança é ainda mais importante. Neste artigo, vários aspectos da segurança dos serviços cognitivas do Azure são descritos, como o uso da segurança da camada de transporte, a autenticação e a configuração segura de dados confidenciais.
+A segurança deve ser considerada uma prioridade principal ao desenvolver qualquer e todos os aplicativos. Com o início de aplicativos habilitados para inteligência artificial, a segurança é ainda mais importante. Neste artigo, vários aspectos da segurança dos serviços cognitivas do Azure são descritos, como o uso da segurança da camada de transporte, autenticação, configuração segura de dados confidenciais e Sistema de Proteção de Dados do Cliente para acesso a dados do cliente.
 
 ## <a name="transport-layer-security-tls"></a>Protocolo TLS
 
@@ -28,13 +28,13 @@ Todos os pontos de extremidade de serviços cognitivas expostos por HTTP impõem
 * A linguagem (e a plataforma) usada para fazer a chamada HTTP precisar especificar o TLS 1,2 como parte da solicitação
   * Dependendo do idioma e da plataforma, a especificação do TLS é feita implicitamente ou explicitamente
 
-Para usuários do .NET, considere as <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">práticas <span class="docon docon-navigate-external x-hidden-focus"> </span>recomendadas de segurança da camada de transporte </a>.
+Para usuários do .NET, considere as <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">práticas <span class="docon docon-navigate-external x-hidden-focus"></span> recomendadas de segurança da camada de transporte </a>.
 
 ## <a name="authentication"></a>Autenticação
 
-Ao discutir a autenticação, há várias concepções comuns. A autenticação e a autorização geralmente são confusas entre si. A identidade também é um componente importante na segurança. Uma identidade é uma coleção de informações sobre uma <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidade <span class="docon docon-navigate-external x-hidden-focus"> </span>de segurança </a>. Os IdP (provedores de identidade) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um usuário. Autorização é a especificação de direitos de acesso e privilégios para recursos para uma determinada identidade. Várias ofertas de serviços cognitivas incluem o RBAC (controle de acesso baseado em função). O RBAC poderia ser usado para simplificar parte da cerimônia envolvida com o gerenciamento manual de entidades. Para obter mais detalhes, consulte [controle de acesso baseado em função para recursos do Azure](../role-based-access-control/overview.md).
+Ao discutir a autenticação, há várias concepções comuns. A autenticação e a autorização geralmente são confusas entre si. A identidade também é um componente importante na segurança. Uma identidade é uma coleção de informações sobre uma <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidade <span class="docon docon-navigate-external x-hidden-focus"></span> de segurança </a>. Os IdP (provedores de identidade) fornecem identidades aos serviços de autenticação. A autenticação é o ato de verificar a identidade de um usuário. Autorização é a especificação de direitos de acesso e privilégios para recursos para uma determinada identidade. Várias ofertas de serviços cognitivas incluem o RBAC (controle de acesso baseado em função). O RBAC poderia ser usado para simplificar parte da cerimônia envolvida com o gerenciamento manual de entidades. Para obter mais detalhes, consulte [controle de acesso baseado em função para recursos do Azure](../role-based-access-control/overview.md).
 
-Para obter mais informações sobre autenticação com chaves de assinatura, tokens de acesso e Azure Active Directory (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autenticar<span class="docon docon-navigate-external x-hidden-focus"></span>solicitações para serviços cognitivas do Azure</a>.
+Para obter mais informações sobre autenticação com chaves de assinatura, tokens de acesso e Azure Active Directory (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autenticar <span class="docon docon-navigate-external x-hidden-focus"></span> solicitações para serviços cognitivas do Azure</a>.
 
 ## <a name="environment-variables-and-application-configuration"></a>Variáveis de ambiente e configuração de aplicativo
 
@@ -48,7 +48,7 @@ As variáveis de ambiente são pares de nome-valor, armazenadas em um ambiente e
 
 ### <a name="set-environment-variable"></a>Definir variável de ambiente
 
-Para definir variáveis de ambiente, use um dos comandos a seguir, `ENVIRONMENT_VARIABLE_KEY` em que o é a `value` chave nomeada e é o valor armazenado na variável de ambiente.
+Para definir variáveis de ambiente, use um dos comandos a seguir, em que o `ENVIRONMENT_VARIABLE_KEY` é a chave nomeada e `value` é o valor armazenado na variável de ambiente.
 
 # <a name="command-line"></a>[Linha de comando](#tab/command-line)
 
@@ -108,11 +108,11 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 
 ### <a name="get-environment-variable"></a>Obter variável de ambiente
 
-Para obter uma variável de ambiente, ele deve ser lido na memória. Dependendo do idioma que você estiver usando, considere os trechos de código a seguir. Esses trechos de código demonstram como obter a variável de `ENVIRONMENT_VARIABLE_KEY` ambiente dada ao e atribuir a `value`uma variável chamada.
+Para obter uma variável de ambiente, ele deve ser lido na memória. Dependendo do idioma que você estiver usando, considere os trechos de código a seguir. Esses trechos de código demonstram como obter a variável de ambiente dada ao `ENVIRONMENT_VARIABLE_KEY` e atribuir a uma variável chamada `value` .
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```csharp
 using static System.Environment;
@@ -131,7 +131,7 @@ class Program
 
 # <a name="c"></a>[C](#tab/cpp)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```cpp
 #include <stdlib.h>
@@ -146,7 +146,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para obter mais informações, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 import java.lang.*;
@@ -163,7 +163,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Para obter mais informações, <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
+Para obter mais informações, confira <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -173,7 +173,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para obter mais informações, <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```python
 import os
@@ -184,7 +184,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Para obter mais informações, <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>consulte.
+Para obter mais informações, confira <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -193,6 +193,21 @@ NSString* value =
 ```
 
 ---
+
+## <a name="customer-lockbox"></a>Sistema de Proteção de Dados do Cliente
+
+[Sistema de proteção de dados do cliente para Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) fornece uma interface para os clientes revisarem e aprovarem ou rejeitarem solicitações de acesso a dados do cliente. Ele é usado nos casos em que um engenheiro da Microsoft precisa acessar os dados do cliente durante uma solicitação de suporte. Para obter informações sobre como Sistema de Proteção de Dados do Cliente solicitações são iniciadas, controladas e armazenadas para revisões e auditorias posteriores, consulte [sistema de proteção de dados do cliente](../security/fundamentals/customer-lockbox-overview.md). 
+
+Sistema de Proteção de Dados do Cliente está disponível para este serviço cognitiva:
+
+* Tradutor
+
+Por Reconhecimento vocal, os engenheiros da Microsoft não acessarão nenhum dado do cliente na SKU E0. Para solicitar a capacidade de usar o SKU E0, preencha e envie o [formulário de solicitação de serviço Luis](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o SKU E0 com LUIS, você precisará criar um novo recurso de Reconhecimento vocal da portal do Azure e selecionar E0 como o tipo de preço. Os usuários não poderão atualizar do F0 para o novo SKU E0.
+
+No momento, o serviço de fala não oferece suporte a Sistema de Proteção de Dados do Cliente. No entanto, os dados do cliente podem ser armazenados usando BYOS, permitindo que você obtenha controles de dados semelhantes para [sistema de proteção de dados do cliente](../security/fundamentals/customer-lockbox-overview.md). Tenha em mente que os dados do serviço de fala permanecem e são processados na região em que o recurso de fala foi criado. Isso se aplica a quaisquer dados em repouso e dados em trânsito. Ao usar recursos de personalização, como Fala Personalizada e voz personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região em que seu BYOS (se usado) e o recurso de serviço de fala residem.
+
+> [!IMPORTANT]
+> A Microsoft **não** usa dados do cliente para melhorar seus modelos de fala. Além disso, se o log do ponto de extremidade estiver desabilitado e nenhuma personalização for usada, nenhum dado do cliente será armazenado. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

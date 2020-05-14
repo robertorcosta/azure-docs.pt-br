@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 3ccc9820f38a8c32d0b390663eb6b4430b42e8f0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372354"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198663"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Criptografia do serviço de fala de dados em repouso
 
@@ -42,13 +42,10 @@ Para solicitar acesso para trazer seu próprio armazenamento, preencha e envie o
 > [!IMPORTANT]
 > Se você desabilitar as identidades gerenciadas atribuídas pelo sistema, o acesso à conta de armazenamento será removido. Isso fará com que as partes do serviço de fala que exigem acesso à conta de armazenamento parem de funcionar.  
 
-## <a name="regional-availability"></a>Disponibilidade regional
+No momento, o serviço de fala não oferece suporte a Sistema de Proteção de Dados do Cliente. No entanto, os dados do cliente podem ser armazenados usando BYOS, permitindo que você obtenha controles de dados semelhantes para [sistema de proteção de dados do cliente](../../security/fundamentals/customer-lockbox-overview.md). Tenha em mente que os dados do serviço de fala permanecem e são processados na região em que o recurso de fala foi criado. Isso se aplica a quaisquer dados em repouso e dados em trânsito. Ao usar recursos de personalização, como Fala Personalizada e voz personalizada, todos os dados do cliente são transferidos, armazenados e processados na mesma região em que seu BYOS (se usado) e o recurso de serviço de fala residem.
 
-O BYOS está disponível atualmente nestas regiões:
-
-* Centro-Sul dos EUA
-* Oeste dos EUA 2
-* Leste dos EUA
+> [!IMPORTANT]
+> A Microsoft **não** usa dados do cliente para melhorar seus modelos de fala. Além disso, se o log do ponto de extremidade estiver desabilitado e nenhuma personalização for usada, nenhum dado do cliente será armazenado. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
