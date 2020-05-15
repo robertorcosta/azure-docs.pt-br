@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 206200f3ba0757cd738439b58c8b94874cf5a938
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: ee29d1c45896583ef5aa5837e8383159db855d52
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727493"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124611"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria de Plug-ins do Player de Mídia do Azure #
 
@@ -26,7 +26,7 @@ ms.locfileid: "81727493"
 | Taxa de quadros e calculadora de código de tempo | [Demonstração](http://mconvertitest001.blob.core.windows.net/public/example.html)                        | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Esse plug-in calcula a taxa de quadros de vídeo com base nas caixas `tfhd`/`trun` de MP4 do primeiro fragmento de vídeo MPEG-DASH, analisa o valor de escala de tempo do manifesto do cliente MPEG-DASH e também fornece uma forma de gerar o código de tempo para um determinado período absoluto do Player (bem como fornece o tempo absoluto do player, desde que o código de tempo seja fornecido) |
 | <strike>Velocidade de reprodução</strike>                      | [Demonstração](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Esse plug-in permite que os visualizadores controlem a velocidade do vídeo. *Observe que essa funcionalidade está automaticamente disponível no AMP v2.0.0 ou posterior, mas desabilitada por padrão.* Para saber como habilitá-la, confira nossos exemplos [aqui](https://github.com/Azure-Samples/azure-media-player-samples) |
 | Dica de Tempo ao Focalizar                      | [Demonstração](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Exibe uma dica de tempo sobre a barra de progresso ao focalizar com o mouse para busca precisa de tempo. *Observação: Esse plug-in já está integrado ao AMP*, mas se você estiver interessado em ver como ele é programado, sinta-se livre para dar uma olhada.                                                                                                                       |
-| Sobreposição de Título                       | [Demonstração](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin/")                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Sobrepõe título de vídeo configurável na tela |
+| Sobreposição de Título                       | [Demonstração](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Sobrepõe título de vídeo configurável na tela |
 | Marcadores de Linha do Tempo                    | [Demonstração](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timelinemarkers/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-timeline-markers-plugin)                     | Esse plug-in usa uma matriz de tempos e sobrepõe pequenos marcadores na barra de progresso nesses tempos específicos. |
 | Análise                           | | | |
 | Application Insights                | [Postagem no blog](https://azure.microsoft.com/blog/player-analytics-azure-media-player-plugin/)                   | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-application-insights-plugin)                     | Plug-in que controla suas métricas do player e faz a portabilidade delas para o Power BI para uma representação gráfica intuitiva da experiência que seus visualizadores têm com o player. |
