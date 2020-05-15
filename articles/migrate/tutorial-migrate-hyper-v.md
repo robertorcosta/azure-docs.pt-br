@@ -6,12 +6,12 @@ ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 3b68531319e83eece11833dba475020060e280b6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 87f746108599928d3e1b4a022abc1b3a3779ef29
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583325"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853546"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs do Hyper-V para o Azure 
 
@@ -56,7 +56,7 @@ Antes de iniciar este tutorial, você deverá:
 
 Adicionar a ferramenta de Migração de Servidor das Migrações para Azure.
 
-- Se você seguiu o segundo tutorial para [avaliar VMs do VMware](/tutorial-assess-hyper-v.md), significa que já configurou um projeto de Migrações para Azure e pode adicionar a ferramenta agora.
+- Se você seguiu o segundo tutorial para [avaliar VMs do VMware](tutorial-assess-hyper-v.md), significa que já configurou um projeto de Migrações para Azure e pode adicionar a ferramenta agora.
 - Se você não seguiu o segundo tutorial[, siga estas instruções](how-to-add-tool-first-time.md) para configurar um projeto de Migrações para Azure. Você adiciona a ferramenta de Migração de Servidor das Migrações para Azure ao criar o projeto.
 
 Se você tiver um projeto configurado, adicione a ferramenta da seguinte maneira:

@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de servidores 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81535274"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901419"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para a avaliação e a migração de servidores físicos para o Azure
 
@@ -105,10 +105,9 @@ Prepare o Azure para migrar servidores físicos usando a Migração de Servidor.
 ### <a name="assign-azure-account-permissions"></a>Atribuir permissões de conta do Azure
 
 Atribua a função Colaborador da Máquina Virtual à conta do Azure. Isso fornece permissões para:
-
-    - Criar uma VM no grupo de recursos selecionado.
-    - Criar uma VM na rede virtual selecionada.
-    - Gravar em um disco gerenciado do Azure. 
+  - Criar uma VM no grupo de recursos selecionado.
+  - Criar uma VM na rede virtual selecionada.
+  - Gravar em um disco gerenciado do Azure. 
 
 ### <a name="create-an-azure-network"></a>Criar uma rede do Azure
 

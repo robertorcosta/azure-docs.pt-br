@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/22/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ee156c8118a67061d0a000867ee64fe1f3ebd18c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f664f5fa4219a8bcc32230b352e90cc2516faceb
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181878"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890373"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa---msaljs-20"></a>Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript – MSAL.js 2.0
 
@@ -282,7 +282,7 @@ Agora você tem um servidor simples para atender ao seu SPA. A estrutura de past
 
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
-Siga as [instruções para registrar um novo aplicativo de página única](https://docs.microsoft.com/zure/active-directory/develop/scenario-spa-app-registration).
+Siga as [instruções para registrar um novo aplicativo de página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration).
 
 #### <a name="set-a-redirect-url-for-nodejs"></a>Configurar a URL de redirecionamento para o Node.js
 
