@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Treinar e implantar um modelo usando a extensão do Visual Studio Code'
+title: 'Tutorial: Treinar e implantar modelos: Código VS'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar e implantar um modelo de classificação de imagem usando o TensorFlow e a extensão do Azure Machine Learning para Visual Studio Code
 services: machine-learning
@@ -9,12 +9,13 @@ ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 04/13/2020
-ms.openlocfilehash: f793f8c4cb84f821c098cc5ce98e693d272e725f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.custom: contperfq4
+ms.openlocfilehash: 05857641df22e03362eeee1590fef62fa3a45530
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272723"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857719"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Treinar e implantar um modelo do TensorFlow de classificação de imagem usando a extensão do Azure Machine Learning para Visual Studio Code
 

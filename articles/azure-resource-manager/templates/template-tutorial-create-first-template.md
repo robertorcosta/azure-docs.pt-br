@@ -2,15 +2,15 @@
 title: Tutorial – criar e implantar um modelo
 description: Criar seu primeiro modelo do Azure Resource Manager. No tutorial, você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 05/12/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: c07f587b8b200a6f9d686c77e5ffefa399c6e179
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411718"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199917"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Criar e implantar seu primeiro modelo do ARM
 
@@ -92,6 +92,24 @@ az login
 ```
 
 ---
+
+Se você tiver várias assinaturas do Azure, selecione a que deseja usar:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Select-AzSubscription [SubscriptionID/SubscriptionName]
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+```azurecli
+az account set --subscription [SubscriptionID/SubscriptionName]
+```
+
+---
+
+
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
 Ao implantar um modelo, você especificará um grupo de recursos que conterá os recursos. Antes de executar o comando de implantação, crie o grupo de recursos com a CLI do Azure ou o Azure PowerShell. Selecione as guias na seção de código a seguir para escolher entre o Azure PowerShell e a CLI do Azure. Os exemplos de CLI neste artigo são escritos para o shell do Bash.
@@ -125,7 +143,7 @@ $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile 
+  -TemplateFile $templateFile
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)

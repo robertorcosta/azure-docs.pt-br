@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra de blueprint do UK OFFICIAL e do UK NHS
 description: Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74851359"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005608"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle das amostras de blueprint do UK OFFICIAL e do UK NHS
 
@@ -27,9 +27,6 @@ O blueprint ajuda você a garantir que a transferência de informações com os 
 - A transferência segura para contas de armazenamento deve ser habilitada
 - Mostrar os resultados da auditoria dos servidores Web do Windows que não estão usando protocolos de comunicação segura
 - Implantar pré-requisitos para auditar os servidores Web do Windows que não estão usando protocolos de comunicação segura
-- A última versão do TLS deve ser usada no aplicativo de API
-- A última versão do TLS deve ser usada no aplicativo Web
-- A última versão do TLS deve ser usada no aplicativo de funções
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Proteção de dados em repouso
 
@@ -129,8 +126,8 @@ Esse blueprint também ajuda você a controlar o acesso aos recursos do Azure po
 
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que têm contas sem senhas
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
-- \[Versão Prévia\]: Auditar as VMs do Linux que têm contas sem senhas
-- \[Versão Prévia\]: Auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
 - As contas de armazenamento devem ser migradas para os novos recursos do Azure Resource Manager
 - As máquinas virtuais devem ser migradas para os novos recursos do Azure Resource Manager
 - Auditar VMs que não usam discos gerenciados
@@ -141,12 +138,10 @@ Além de usar mais de 25 políticas para o gerenciamento seguro de usuários apr
 
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - Os controles de aplicativos adaptáveis devem ser habilitados em máquinas virtuais
-- As regras NSGs para aplicativos Web em IaaS devem ser protegidas
 - O acesso pelo ponto de extremidade para a Internet deve ser restrito
-- As regras do grupo de segurança de rede para máquinas virtuais para a Internet devem ser protegidas
+- As recomendações da Proteção de Rede Adaptável devem ser aplicadas nas máquinas virtuais para a Internet
 - A solução de proteção de ponto de extremidade deve ser instalada nos conjuntos de dimensionamento de máquinas virtuais
 - O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais
-- Auditar o acesso irrestrito à rede para contas de armazenamento
 - A depuração remota deve ser desativada para o aplicativo de funções
 - Depuração remota deve ser desativada para o aplicativo da Web
 - A depuração remota deve ser desligada para o aplicativo de API
@@ -179,13 +174,13 @@ Esse blueprint também atribui definições do Azure Policy para auditar as cont
 
 Esse blueprint também atribui uma definição do Azure Policy que audita as permissões de arquivo de senha da VM do Linux para alertar se elas estão definidas incorretamente. Esse design permite que você tome uma ação corretiva para garantir que os autenticadores não sejam comprometidos.
 
-- \[Versão Prévia\]: Auditar que as permissões do arquivo/etc/passwd de VM Linux estejam definidas para 0644
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 
 ## <a name="13-audit-information-for-users"></a>13 Informações de auditoria para usuários
 
 Este blueprint ajuda você a garantir que os eventos do sistema sejam registrados em log por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam as configurações do log de auditoria em recursos do Azure. Uma política atribuída também audita se as máquinas virtuais não estão enviando logs para um workspace especificado do Log Analytics.
 
-- A auditoria deve ser habilitada nas configurações de segurança de dados avançada no SQL Server
+- A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - Configuração de diagnóstico de auditoria
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows

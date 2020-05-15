@@ -1,21 +1,20 @@
 ---
 title: Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure
 description: Saiba mais sobre as diferentes maneiras para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais do Azure com base no desempenho ou em uma agenda fixa
-author: ju-shim
-tags: azure-resource-manager
-ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
+author: avirishuv
+ms.author: avverma
+ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 05/29/2018
-ms.author: jushiman
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b3af40de107fd9273ec50425c58afc9772ea426
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 90777b8303f2d31168e489c8e2a7ca3a779a11e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010334"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124951"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure
 Um conjunto de dimensionamento de máquinas virtuais do Azure pode aumentar ou diminuir automaticamente o número de instâncias de VM que executam o aplicativo. Esse comportamento automatizado e elástico reduz a sobrecarga de gerenciamento para monitorar e otimizar o desempenho do aplicativo. Você cria regras que definem o desempenho aceitável para uma experiência de cliente positiva. Quando esses limites definidos são atendidos, as regras de dimensionamento automático atuam para ajustar a capacidade do seu conjunto de dimensionamento. Você também pode agendar eventos para aumentar ou diminuir a capacidade do conjunto de dimensionamento automaticamente em horas fixas. Este artigo fornece uma visão geral das métricas disponíveis e de quais ações o dimensionamento automático pode executar.
@@ -30,7 +29,7 @@ Quando essas instâncias de VM forem criadas e os aplicativos implantados, o con
 
 
 ## <a name="use-host-based-metrics"></a>Usar métricas baseadas em host
-Você pode criar regras de dimensionamento automático que incorporam métricas de host disponíveis nas suas instâncias de VM. As métricas de host dão visibilidade ao desempenho das instâncias de VM em um conjunto de dimensionamento sem a necessidade de instalar ou configurar outros agentes e coletas de dados. As regras de dimensionamento automático que usam essas métricas podem expandir o número de instâncias de VM em resposta ao uso da CPU, à demanda por memória ou ao acesso ao disco.
+Você pode criar regras de dimensionamento automático que incorporam métricas de host disponíveis nas suas instâncias de VM. As métricas de host dão visibilidade ao desempenho das instâncias de VM em um conjunto de dimensionamento sem a necessidade de instalar ou configurar outros agentes e coletas de dados. As regras de dimensionamento automático que usam essas métricas podem escalar horizontalmente o número de instâncias de VM em resposta ao uso da CPU, à demanda por memória ou ao acesso ao disco.
 
 As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
 
@@ -124,7 +123,7 @@ Também é possível criar regras de dimensionamento automático baseadas em age
 
 Os exemplos a seguir são cenários que podem se beneficiar com o uso de regras de dimensionamento automático com base em agendamento:
 
-- Dimensione automaticamente o número de instâncias de VM no início do dia de trabalho, quando a demanda do cliente aumenta. No final do dia de trabalho, dimensione automaticamente o número de instâncias de VM para minimizar os custos de recursos durante a noite, quando o uso do aplicativo é baixo.
+- Escale horizontamente de modo automático o número de instâncias de VM no início do dia de trabalho, quando a demanda do cliente aumenta. No final do dia de trabalho, dimensione automaticamente o número de instâncias de VM para minimizar os custos de recursos durante a noite, quando o uso do aplicativo é baixo.
 - Se um departamento usa um aplicativo com frequência em determinadas épocas do mês ou ciclo fiscal, dimensione automaticamente o número de instâncias de VM para acomodar essas exigências adicionais.
 - Quando há um evento de marketing, uma promoção ou vendas em datas comemorativas, é possível dimensionar automaticamente o número de instâncias de VM para antecipar essa demanda. 
 
@@ -136,7 +135,7 @@ Você pode criar regras de dimensionamento automático que usam métricas basead
 - [CLI do Azure](tutorial-autoscale-cli.md)
 - [Modelo do Azure](tutorial-autoscale-template.md)
 
-Esta visão geral detalhou como usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [autoescala vertical com conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Esta visão geral detalhou como usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

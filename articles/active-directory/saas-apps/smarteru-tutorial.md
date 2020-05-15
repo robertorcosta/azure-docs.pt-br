@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com o SmarterU | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory ao SmarterU | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SmarterU.
 services: active-directory
 documentationCenter: na
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9e44aecc5015986079afb3190101cdaabc4a6874
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76549284"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981928"
 ---
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: Integração do Azure Active Directory ao SmarterU
+
 > [!NOTE]
 > O processo de integração do SmarterU com o Azure Active Directory também é documentado e mantido no [sistema de ajuda do SmarterU](https://help.smarteru.com/ID2053086).
-
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: integração do Azure Active Directory com o SmarterU
 
 Neste tutorial, você aprenderá a integrar o SmarterU ao Azure AD (Azure Active Directory).
 A integração do SmarterU ao Azure AD oferece os seguintes benefícios:
@@ -37,7 +37,7 @@ A integração do SmarterU ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o SmarterU, você precisa dos seguintes itens:
 
@@ -217,7 +217,7 @@ Para que os usuários do Azure AD posam entrar no SmarterU, eles precisam ser pr
 
     a. Clique em **+Usuário**.
 
-    b. Digite os valores de atributo relacionados da conta de usuário do Azure AD nas seguintes caixas de texto: **Email Principal**, **ID do Funcionário**, **Senha**, **Verificar Senha**, **Nome Dado**, **Sobrenome**.
+    b. Digite os valores dos atributos relacionados da conta de usuário do Azure Active Directory nas seguintes caixas de texto: **Email Principal**, **ID do Funcionário**, **Senha**, **Verificar senha**, **Nome**, **Sobrenome**.
 
     c. Clique em **Ativo**.
 
@@ -238,4 +238,4 @@ Ao clicar no bloco do SmarterU no Painel de Acesso, você será conectado automa
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -6,13 +6,13 @@ ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
-ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 05/06/2020
+ms.openlocfilehash: 24f5a671076a44db382ac37e2f6532e5f0f2a3ae
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73606166"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930379"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>O que são Conjuntos de dados abertos do Azure e como você pode usá-los?
 
@@ -24,6 +24,8 @@ Os conjuntos de dados incluem dados de domínio público de clima, censo, feriad
 
 ## <a name="curated-prepared-datasets"></a>Coletados, conjuntos de dados preparados
 Os conjuntos de dados públicos abertos coletados nos Conjuntos de dados abertos do Azure são otimizados para consumo em fluxos de trabalho de aprendizado de máquina. 
+
+Para ver todos os conjuntos de itens disponíveis, acesse o [Catálogo do Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/).
 
 Os cientistas de dados geralmente gastam a maior parte do tempo limpando e preparando os dados para análise avançada. Os conjuntos de dados abertos são copiados para a nuvem do Azure e pré-processados para economizar tempo. Em intervalos regulares, os dados são extraídos das fontes, como por uma conexão de FTP para a NOAA (National Oceanic and Atmospheric Administration). Em seguida, os dados são analisados em um formato estruturado e aprimorados conforme apropriado com recursos como CEP ou local da estação meteorológica mais próxima.
 
@@ -57,5 +59,5 @@ Se você não pode localizar os dados desejados, envie um email para nós para [
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Exemplo de notebook](samples.md)
-* [Tutorial: Modelagem de regressão com os dados de táxi de Nova York](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
+* [Tutorial: Modelagem de regressão com os dados de táxi de Nova York](/azure/machine-learning/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [SDK do Python para conjuntos de dados abertos](/python/api/azureml-opendatasets/?view=azure-ml-py)

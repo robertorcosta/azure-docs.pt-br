@@ -1,14 +1,14 @@
 ---
 title: Controles da amostra exemplo de blueprint do CIS Microsoft Azure Foundations Benchmark
 description: Mapeamento de recomendação da amostra de blueprint do CIS Microsoft Azure Foundations Benchmark para o Azure Policy.
-ms.date: 11/04/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 2163162f52eb4ad7f580c01d6539c242bd332645
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656963"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863953"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Mapeamento de recomendação da amostra de blueprint do CIS Microsoft Azure Foundations Benchmark
 
@@ -25,7 +25,7 @@ Muitas das recomendações mapeadas são implementadas com uma iniciativa do [Az
 Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a monitorar quando a autenticação multifator não está habilitada em contas com privilégios do Azure Active Directory.
 
 - O MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura
-- O MFA deve ser habilitado em contas com permissões de gravação em sua assinatura
+- A MFA deve ser habilitada nas contas com permissões de gravação na sua assinatura
 
 ## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1.2 Garantir que a autenticação multifator esteja habilitada para todos os usuários não privilegiados
 
@@ -37,9 +37,9 @@ Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overvie
 
 Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a monitorar as contas convidado que podem precisar ser removidas.
 
-- As contas externas com permissões de proprietário devem ser removidas de sua assinatura
 - As contas externas com permissões de leitura devem ser removidas de sua assinatura
 - As contas externas com permissões de gravação devem ser removidas de sua assinatura
+- As contas externas com permissões de proprietário devem ser removidas de sua assinatura
 
 ## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 Garantir que nenhuma função personalizada de proprietário de assinatura seja criada
 
@@ -51,7 +51,7 @@ Este blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 
 Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a monitorar redes e máquinas virtuais em que a camada Standard da Central de Segurança não está habilitada.
 
- - O tipo de preço Standard da Central de Segurança deve ser selecionado
+- O tipo de preço Standard da Central de Segurança deve ser selecionado
 
 ## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2.2 Verificar se 'Provisionamento automático do agente de monitoramento' está definido como 'Ativo'
 
@@ -87,20 +87,14 @@ Esse blueprint atribui uma definição de política do [Azure Policy](../../../p
 
 Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a proteger máquinas virtuais voltadas à Internet.
 
-- As regras do grupo de segurança de rede para máquinas virtuais para a Internet devem ser protegidas
-
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2.8 Garantir que a configuração padrão da política do ASC "Monitorar o Firewall do Aplicativo Web" não esteja "Desabilitada"
-
-Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a proteger máquinas virtuais executando aplicativos Web.
-
-- As regras NSGs para aplicativos Web em IaaS devem ser protegidas
+- As recomendações da Proteção de Rede Adaptável devem ser aplicadas nas máquinas virtuais para a Internet
 
 ## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2.9 Garantir que a configuração de política padrão do ASC "Habilitar Monitoramento de NGFW (Firewall de Próxima Geração)" não esteja "Desabilitada"
 
 Esse blueprint atribui definições de política do [Azure Policy](../../../policy/overview.md) que, restringindo o acesso, ajudam a proteger sub-redes e máquinas virtuais contra ameaças. A política da Central de Segurança referenciada por esta recomendação do CIS Microsoft Azure Foundations Benchmark foi substituída por duas novas recomendações. As políticas referenciadas abaixo abordam as novas recomendações.
 
 - As sub-redes devem ser associadas a um Grupo de Segurança de Rede
-- Máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede
+- As máquinas virtuais para a Internet devem ser protegidas com Grupos de Segurança de Rede
 
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2.10 Garantir que a configuração padrão da política do ASC "Monitorar Avaliação de Vulnerabilidade" não esteja "Desabilitada"
 
@@ -128,7 +122,7 @@ Esse blueprint atribui uma definição de política do [Azure Policy](../../../p
 
 Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a auditoria de SQL Server esteja habilitada.
 
-- A auditoria deve ser habilitada nas configurações de segurança de dados avançada no SQL Server
+- A auditoria no SQL Server deve ser habilitada
 
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2.15 Garantir que a configuração padrão da política do ASC "Monitorar a Criptografia do SQL" não esteja "Desabilitada"
 
@@ -182,7 +176,7 @@ Esse blueprint também atribui uma definição do [Azure Policy](../../../policy
 
 Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a auditoria de SQL Server esteja habilitada. 
 
-- A auditoria deve ser habilitada nas configurações de segurança de dados avançada no SQL Server
+- A auditoria no SQL Server deve ser habilitada
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4.2 Garantir que "AuditActionGroups" na política de "auditoria" de um SQL Server esteja definido corretamente
 
@@ -200,8 +194,8 @@ Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overvie
 
 Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que a segurança de dados avançada seja habilitada em SQL Servers e instâncias gerenciadas do SQL.
 
-- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
+- A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas do SQL
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4.5 Garantir que 'Tipos de Detecção de Ameaças' esteja definido como 'Todos'
 
@@ -214,15 +208,15 @@ Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 
 Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as notificações da Segurança de Dados Avançada estejam habilitadas adequadamente.
 
-- As configurações da Segurança de Dados Avançada para a instância gerenciada do SQL devem conter um endereço de email para receber alertas de segurança
 - As configurações da Segurança de Dados Avançada para o SQL Server devem conter um endereço de email para receber alertas de segurança
+- As configurações da Segurança de Dados Avançada para a instância gerenciada do SQL devem conter um endereço de email para receber alertas de segurança
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4.7 Garantir que 'Serviço de email e coadministradores' esteja 'Habilitado'
 
 Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as notificações da Segurança de Dados Avançada estejam habilitadas adequadamente.
 
-- As notificações por email para administradores e proprietários de assinatura devem ser habilitadas nas configurações da Segurança de Dados Avançada da instância gerenciada do SQL
 - As notificações por email para os administradores e proprietários de assinaturas devem ser habilitadas nas configurações da Segurança de Dados Avançada do SQL Server
+- As notificações por email para administradores e proprietários de assinatura devem ser habilitadas nas configurações da Segurança de Dados Avançada da instância gerenciada do SQL
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4.8 Garantir que o administrador do Azure Active Directory esteja configurado
 
@@ -240,8 +234,8 @@ Esse blueprint atribui uma definição de política do [Azure Policy](../../../p
 
 Esse blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que o protetor de TDE para SQL Servers e instâncias gerenciadas do SQL seja criptografado com sua própria chave.
 
-- O protetor TDE da instância gerenciada do SQL deve ser criptografado com sua própria chave
 - O protetor TDE do SQL Server deve ser criptografado com sua própria chave
+- O protetor TDE da instância gerenciada do SQL deve ser criptografado com sua própria chave
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4.11 Garantir que a opção 'Impor conexão SSL' esteja definida para 'HABILITADO' para o servidor de banco de dados MySQL
 
@@ -315,11 +309,83 @@ Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overvie
 
 - O Azure Monitor deve coletar os logs de atividades de todas as regiões
 
+## <a name="516-ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>5.1.6 Garanta que a conta de armazenamento que tem o contêiner com logs de atividades seja criptografada com BYOK (Bring Your Own Key)
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as contas de armazenamento que contêm logs de atividade sejam criptografadas com BYOK.
+
+- A conta de armazenamento que tem o contêiner com os logs de atividade deve ser criptografada com BYOK
+
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 Garantir que o log do Azure Key Vault esteja 'Habilitado'
 
 Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que os logs de diagnóstico estejam habilitados para cofres de chaves.
 
 - Os logs de diagnóstico no Key Vault deve estar habilitados
+
+## <a name="521-ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>5.2.1 Verifique se o alerta do log de atividades existe para criar atribuição de política
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para Operações de política específicas
+
+## <a name="522-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>5.2.2 Verifique se o alerta do log de atividades existe para criar ou atualizar o Grupo de Segurança de Rede
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para Operações administrativas específicas
+
+## <a name="523-ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>5.2.3 Verifique se o alerta do log de atividades existe para excluir o grupo de segurança de rede
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para Operações administrativas específicas
+
+## <a name="524-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>5.2.4 Verifique se o alerta do log de atividades existe para criar ou atualizar a regra do grupo de segurança de rede
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para Operações administrativas específicas
+
+## <a name="525-ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>5.2.5 Verifique se o alerta do log de atividades existe para excluir a regra do grupo de segurança de rede
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para Operações administrativas específicas
+
+## <a name="526-ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>5.2.6 Verifique se o alerta do log de atividades existe para criar ou atualizar a solução de segurança
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para operações de segurança específicas
+
+## <a name="527-ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>5.2.7 Verifique se o alerta do log de atividades existe para excluir a solução de segurança
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para operações de segurança específicas
+
+## <a name="528-ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>5.2.8 Verifique se o alerta do log de atividades existe para criar ou atualizar ou excluir a regra de firewall do SQL Server
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para Operações administrativas específicas
+
+## <a name="529-ensure-that-activity-log-alert-exists-for-update-security-policy"></a>5.2.9 Verifique se o alerta do log de atividades existe para atualizar a política de segurança
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que existam alertas específicos do log de atividades.
+
+- Um alerta do log de atividades deve existir para operações de segurança específicas
+
+## <a name="61-ensure-that-rdp-access-is-restricted-from-the-internet"></a>6.1 Verifique se o acesso SSH está restrito da Internet
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o acesso RDP seja restrito.
+
+- O acesso ao RDP da Internet deve ser bloqueado
+
+## <a name="62-ensure-that-ssh-access-is-restricted-from-the-internet"></a>6.2 Garantir que o acesso SSH seja restrito da Internet
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o acesso SSH seja restrito.
+
+- O acesso ao SSH da Internet deve ser bloqueado
 
 ## <a name="65-ensure-that-network-watcher-is-enabled"></a>6.5 Garantir que o Observador de Rede esteja 'Habilitado'
 
@@ -349,7 +415,7 @@ Esse blueprint atribui uma definição de política do [Azure Policy](../../../p
 
 Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que apenas extensões de máquina virtual aprovadas sejam instaladas. Essa política requer uma matriz de parâmetros que especifica todas as extensões de máquina virtual aprovadas. Essa definição de iniciativa de política contém padrões sugeridos que os clientes devem validar. 
 
- - Somente as extensões aprovadas da VM devem ser instaladas
+- Somente as extensões aprovadas da VM devem ser instaladas
 
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7.5 Garantir que os Patches de SO mais recentes para todas as máquinas virtuais sejam aplicados
 
@@ -373,7 +439,15 @@ Esse blueprint atribui uma definição de política do [Azure Policy](../../../p
 
 Esse blueprint atribui uma definição de política do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que o controle de acesso baseado em função seja usado para permissões gerenciadas em clusters do serviço do Kubernetes
 
-- \[Versão Prévia\]: O RBAC (controle de acesso baseado em função) deve ser usado nos Serviços de Kubernetes
+- O RBAC (controle de acesso baseado em função) deve ser usado nos Serviços de Kubernetes
+
+## <a name="91-ensure-app-service-authentication-is-set-on-azure-app-service"></a>9.1 Garantir que a autenticação do serviço de aplicativo esteja definida no Serviço de Aplicativo do Azure
+
+Este blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda a garantir que as solicitações para aplicativos do serviço de aplicativo sejam autenticadas.
+
+- A autenticação deve ser habilitada em seu aplicativo de API
+- A autenticação deve ser habilitada em seu aplicativo de funções
+- A autenticação deve ser habilitada em seu aplicativo Web
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9.2 Garantir que o aplicativo Web redirecione todo o tráfego HTTP para HTTPS no Serviço de Aplicativo do Azure
 
@@ -434,7 +508,7 @@ Este blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que ajudam você a garantir que os aplicativos Web estejam usando a última versão do Java.
 
 - Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo de API
-- Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo de funções
+- Garantir que a "versão do Java" seja a mais recente, se usada como parte do aplicativo de funções
 - Garantir que a 'versão do Java' seja a última, se usada como parte do aplicativo Web
 
 ## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 Garantir que a 'versão do HTTP' seja a última, se usada para executar o aplicativo Web
@@ -444,7 +518,6 @@ Este blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de API
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo de funções
 - Garantir que a 'Versão do HTTP' seja a última, se usada para executar o aplicativo Web
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
