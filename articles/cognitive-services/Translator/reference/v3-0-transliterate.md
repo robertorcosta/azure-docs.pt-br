@@ -1,7 +1,7 @@
 ---
-title: Método de Transliteração de API de Tradução de Texto
+title: Método transliterate do Tradutor
 titleSuffix: Azure Cognitive Services
-description: Converta o texto em um idioma de um script para outro com o método transliterate API de Tradução de Texto.
+description: Converter texto em um idioma de um script para outro com o método de conversão do tradutor.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: e6bb1541b2b668796b352bebc68d59b4ade143e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b811c57eb163931c39a311418ac9f1513e9393a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837274"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592246"
 ---
-# <a name="translator-text-api-30-transliterate"></a>API de Tradução de Texto 3.0: transliteração
+# <a name="translator-30-transliterate"></a>Tradutor 3,0: transliteração
 
 Converte texto em um idioma de um script em outro script.
 
-## <a name="request-url"></a>URL de Solicitação
+## <a name="request-url"></a>URL da solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -57,7 +57,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
@@ -114,7 +114,7 @@ Um exemplo de resposta JSON é:
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
     <td>X-RequestId</td>
@@ -131,11 +131,11 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   <th>Descrição</th>
   <tr>
     <td>200</td>
-    <td>Sucesso.</td>
+    <td>Êxito.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está ausente ou é inválido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
+    <td>Um dos parâmetros de consulta está ausente ou não é válido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -159,7 +159,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   </tr>
 </table> 
 
-Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns que podem ser encontrados na [página de referência da API de Tradução de Texto v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemplos
 

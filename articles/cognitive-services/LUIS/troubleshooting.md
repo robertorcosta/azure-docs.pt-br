@@ -2,14 +2,14 @@
 title: Perguntas frequentes – LUIS
 description: Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal).
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101103"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592841"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -66,7 +66,7 @@ Para transferir um aplicativo de LUIS para uma assinatura do Azure diferente, ex
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade predefinida é marcada em um exemplo de expressão em vez de minha entidade personalizada. Como fazer corrigir isso?
 
-No portal do LUIS, você pode rotular o texto para a entidade exata que você está interessado em extrair. Se o portal do LUIS não estiver mostrando a previsão de entidade correta, talvez seja necessário adicionar mais declarações e rotular a entidade dentro do texto ou adicionar um descritor (como um recurso).
+No portal do LUIS, você pode rotular o texto para a entidade exata que você está interessado em extrair. Se o portal do LUIS não estiver mostrando a previsão de entidade correta, talvez seja necessário adicionar mais declarações e rotular a entidade dentro do texto ou adicionar um recurso.
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um arquivo de aplicativo ou de versão, mas recebi um erro, o que aconteceu?
 
@@ -82,7 +82,7 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Ponto de extremidade
+## <a name="endpoint"></a>Ponto de Extremidade
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como corrigi-la?
 

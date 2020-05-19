@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690834"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592178"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres de serviços cognitivas do Azure
 
@@ -22,16 +22,7 @@ ms.locfileid: "82690834"
 
 **P: o que está disponível?**
 
-**R: o** [suporte de contêiner nos serviços cognitivas do Azure](../cognitive-services-container-support.md) permite que os desenvolvedores usem as mesmas APIs inteligentes que estão disponíveis no Azure, mas com os [benefícios](../cognitive-services-container-support.md#features-and-benefits) da Containerização. Atualmente, o suporte a contêiner está disponível em versão prévia para um subconjunto de serviços cognitivas do Azure, incluindo partes do:
-
-> [!div class="checklist"]
-> * [Detector de Anomalias][ad-containers]
-> * [Visual Computacional][cv-containers]
-> * [Face][fa-containers]
-> * [Reconhecimento de Formulários][fr-containers]
-> * [Reconhecimento Vocal (LUIS)][lu-containers]
-> * [API do Serviço de Fala][sp-containers]
-> * [Análise de texto][ta-containers]
+**R:** Os contêineres de serviços cognitivas do Azure permitem que os desenvolvedores usem as mesmas APIs inteligentes disponíveis no Azure, mas com os [benefícios](../cognitive-services-container-support.md#features-and-benefits) da Containerização. Alguns contêineres estão disponíveis como uma [Visualização restrita](../cognitive-services-gating-process.md), o que pode exigir que um aplicativo acesse. Outros contêineres estão publicamente disponíveis como uma visualização não restrita ou estão geralmente disponíveis. Você pode encontrar uma lista completa de contêineres e sua disponibilidade no artigo [suporte a contêineres no Azure cognitiva Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
 
 **P: há alguma diferença entre a nuvem de serviços cognitivas e os contêineres?**
 
@@ -62,7 +53,7 @@ Infelizmente, os contêineres de serviços cognitivas *não* têm suporte nativo
 
 **P: como os contêineres são atualizados para a versão mais recente?**
 
-**R:** Os clientes podem escolher quando atualizar os contêineres implantados. Os contêineres serão marcados com [marcas](https://docs.docker.com/engine/reference/commandline/tag/) padrão do Docker `latest` , como, para indicar a versão mais recente. Incentivamos os clientes a efetuar pull da versão mais recente dos contêineres à medida que eles são lançados, fazer check-in [do registro de contêiner do Azure](../../container-registry/container-registry-webhook.md) para obter detalhes sobre como ser notificado quando uma imagem for atualizada.
+**R:** Os clientes podem escolher quando atualizar os contêineres implantados. Os contêineres serão marcados com [marcas padrão do Docker](https://docs.docker.com/engine/reference/commandline/tag/) , como, `latest` para indicar a versão mais recente. Incentivamos os clientes a efetuar pull da versão mais recente dos contêineres à medida que eles são lançados, fazer check-in [do registro de contêiner do Azure](../../container-registry/container-registry-webhook.md) para obter detalhes sobre como ser notificado quando uma imagem for atualizada.
  
 **P: quais versões terão suporte?**
 
@@ -80,7 +71,7 @@ Infelizmente, os contêineres de serviços cognitivas *não* têm suporte nativo
 
 **P: esses contêineres são compatíveis com o OpenShift?** 
 
-Não testamos contêineres com OpenShift, mas, em geral, os contêineres de serviços cognitivas devem ser executados em qualquer plataforma que ofereça suporte a imagens do Docker. Se você estiver usando o OpenShift, é recomendável executar os `root-user`contêineres como.
+Não testamos contêineres com OpenShift, mas, em geral, os contêineres de serviços cognitivas devem ser executados em qualquer plataforma que ofereça suporte a imagens do Docker. Se você estiver usando o OpenShift, é recomendável executar os contêineres como `root-user` .
 
 **P: Como fazer fornecer comentários sobre o produto e recomendações de recursos?**
 
@@ -112,12 +103,12 @@ Explore as seguintes marcas para obter possíveis perguntas e respostas que se a
 **R:** Os clientes são cobrados com base no consumo, de forma semelhante à nuvem de serviços cognitivas. Os contêineres precisam ser configurados para enviar dados de medição para o Azure e as transações serão cobradas de acordo. Os recursos usados nos serviços hospedados e locais serão adicionados a uma única cota com preços em camadas, contando com ambos os usos. Para obter mais detalhes, consulte a página de preços da oferta correspondente.
 
 * [Detector de Anomalias][ad-containers-billing]
-* [Visual Computacional][cv-containers-billing]
-* [Face][fa-containers-billing]
+* [Pesquisa Visual Computacional][cv-containers-billing]
+* [Detecção Facial][fa-containers-billing]
 * [Reconhecimento de Formulários][fr-containers-billing]
 * [Reconhecimento Vocal (LUIS)][lu-containers-billing]
 * [API do Serviço de Fala][sp-containers-billing]
-* [Análise de texto][ta-containers-billing]
+* [Análise de Texto][ta-containers-billing]
 
 > [!IMPORTANT]
 > Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres dos Serviços Cognitivos não enviam dados do cliente para a Microsoft.
@@ -139,12 +130,12 @@ Explore as seguintes marcas para obter possíveis perguntas e respostas que se a
 **R:** Os contêineres de serviços cognitivas são contêineres baseados em x64 que podem executar qualquer nó do Linux compatível, VM e dispositivo de borda que dá suporte a contêineres do Docker do Linux x64. Todos eles exigem processadores de CPU. As configurações mínimas e recomendadas para cada oferta de contêiner estão disponíveis abaixo:
 
 * [Detector de Anomalias][ad-containers-recommendations]
-* [Visual Computacional][cv-containers-recommendations]
-* [Face][fa-containers-recommendations]
+* [Pesquisa Visual Computacional][cv-containers-recommendations]
+* [Detecção Facial][fa-containers-recommendations]
 * [Reconhecimento de Formulários][fr-containers-recommendations]
 * [Reconhecimento Vocal (LUIS)][lu-containers-recommendations]
 * [API do Serviço de Fala][sp-containers-recommendations]
-* [Análise de texto][ta-containers-recommendations]
+* [Análise de Texto][ta-containers-recommendations]
  
 **P: atualmente, há suporte para esses contêineres no Windows?**
 

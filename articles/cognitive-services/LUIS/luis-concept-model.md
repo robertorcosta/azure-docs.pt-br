@@ -1,136 +1,48 @@
 ---
 title: Criar com modelos-LUIS
-titleSuffix: Azure Cognitive Services
 description: A compreensão da linguagem fornece vários tipos de modelos. Alguns modelos podem ser usados de mais de uma maneira.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.author: diberry
-ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/30/2020
+ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219990"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591872"
 ---
-# <a name="design-with-intent-and-entity-models"></a>Design com modelos de intenção e entidade 
+# <a name="design-with-intent-and-entity-models"></a>Design com modelos de intenção e entidade
 
-A compreensão da linguagem fornece vários tipos de modelos. Alguns modelos podem ser usados de mais de uma maneira. 
+A compreensão da linguagem fornece dois tipos de modelos para você definir o esquema do aplicativo. O esquema do aplicativo determina quais informações você recebe da previsão de um novo usuário expressão.
 
-## <a name="v3-authoring-uses-machine-teaching"></a>A criação v3 usa o ensino de máquina
+O esquema do aplicativo é criado a partir de modelos criados usando o [ensinando de máquina](#authoring-uses-machine-teaching):
+* [Tentativas](#intents-classify-utterances) de classificação do usuário declarações
+* [Entidades](#entities-extract-data) extraem dados do expressão
 
-O LUIS permite que as pessoas ensinem conceitos a um computador com facilidade. Em seguida, o computador pode criar modelos (aproximações funcionais de conceitos, como classificadores e extratores) que podem ser usados para alimentar aplicativos inteligentes. Embora o LUIS seja alimentado pelo Machine Learning, a compreensão do aprendizado de máquina não é necessária para usá-lo. Em vez disso, os professores de máquina comunicam conceitos ao LUIS mostrando exemplos positivos e negativos do conceito e explicando como um conceito deve ser modelado usando outros conceitos relacionados. Os professores também podem melhorar o modelo do LUIS interativamente identificando e corrigindo os erros de previsão. 
+## <a name="authoring-uses-machine-teaching"></a>A criação usa o ensino de máquina
 
-## <a name="v3-authoring-model-decomposition"></a>Decomposição de modelo de criação v3
+A metodologia de ensino de máquina do LUIS permite que você ensine facilmente conceitos a um computador. Entender o _aprendizado de máquina_ não é necessário para usar o Luis. Em vez disso, você como professor, comunica um conceito ao LUIS fornecendo exemplos do conceito e explicando como um conceito deve ser modelado usando outros conceitos relacionados. Você, como professor, também pode melhorar o modelo de LUIS interativamente identificando e corrigindo erros de previsão.
 
-O LUIS dá suporte à _decomposição de modelo_ com as APIs de criação v3, dividindo o modelo em partes menores. Isso permite que você crie seus modelos com confiança em como as várias partes são construídas e previstas.
-
-A decomposição do modelo tem as seguintes partes:
-
-* [tentativas](#intents-classify-utterances)
-    * [descritores](#descriptors-are-features) fornecidos pelos recursos
-* [entidades aprendidas por computador](#machine-learned-entities)
-    * [Subcomponentes](#entity-subcomponents-help-extract-data) (também entidades aprendidas por máquina)
-        * [descritores](#descriptors-are-features) fornecidos pelos recursos 
-        * [restrições](#constraints-are-text-rules) fornecidas por entidades não aprendidas por computador, como expressões regulares e listas
-
-## <a name="v2-authoring-models"></a>Modelos de criação v2
-
-O LUIS dá suporte a entidades compostas com as APIs de criação v2. Isso fornece a decomposição de modelo semelhante, mas não é o mesmo que a decomposição de modelo v3. A arquitetura de modelo recomendada é mudar para a decomposição de modelo nas APIs de criação v3. 
+<a name="v3-authoring-model-decomposition"></a>
 
 ## <a name="intents-classify-utterances"></a>Tentativas de classificação declarações
 
 Uma intenção classifica o exemplo declarações para ensinar LUIS sobre a intenção. Os declarações de exemplo em uma intenção são usados como exemplos positivos de expressão. Esses mesmos declarações são usados como exemplos negativos em todas as outras intenções.
 
-Considere um aplicativo que precisa determinar a intenção de um usuário para solicitar um livro e um aplicativo que precise do endereço de envio para o cliente. Este aplicativo tem duas intenções: `OrderBook` e. `ShippingLocation`
+Considere um aplicativo que precisa determinar a intenção de um usuário para solicitar um livro e um aplicativo que precise do endereço de envio para o cliente. Este aplicativo tem duas intenções: `OrderBook` e `ShippingLocation` .
 
-O expressão a seguir é um **exemplo positivo** para `OrderBook` a intenção e um **exemplo negativo** para `ShippingLocation` as `None` tentativas e: 
+O expressão a seguir é um **exemplo positivo** para a `OrderBook` intenção e um **exemplo negativo** para as `ShippingLocation` tentativas e `None` :
 
 `Buy the top-rated book on bot architecture.`
 
-O resultado de tentativas bem projetadas, com seus declarações de exemplo, é uma previsão de alta intenção. 
-
 ## <a name="entities-extract-data"></a>Dados de extração de entidades
 
-Uma entidade representa uma unidade de dados que você deseja extrair do expressão. 
-
-### <a name="machine-learned-entities"></a>Entidades aprendidas por computador
-
-Uma entidade aprendida por máquina é uma entidade de nível superior que contém subcomponentes, que também são entidades aprendidas por computador. 
-
-**Use uma entidade aprendida por máquina**:
-
-* Quando os subcomponentes são necessários para o aplicativo cliente
-* para ajudar o algoritmo de aprendizado de máquina decompor entidades
-
-Cada Subcomponente pode ter:
-
-* subcomponentes
-* restrições (entidade de expressão regular ou entidade de lista)
-* Descritores (recursos como uma lista de frases) 
+Uma entidade representa uma unidade de dados que você deseja extrair do expressão. Uma entidade aprendida por máquina é uma entidade de nível superior que contém subentidades, que também são entidades aprendidas por computador.
 
 Um exemplo de uma entidade aprendida por máquina é uma ordem para um tíquete de plano. Conceitualmente, essa é uma única transação com muitas unidades menores de dados, como data, hora, quantidade de estações, tipo de assento, como primeira classe, local de origem, local de destino e escolha de refeição.
 
-
-### <a name="entity-subcomponents-help-extract-data"></a>Os subcomponentes de entidade ajudam a extrair dados
-
-Um subcomponente é uma entidade filho aprendida por computador em uma entidade pai aprendida por computador. 
-
-**Use o subcomponente para**:
-
-* decompor as partes da entidade aprendida pela máquina (entidade pai).
-
-O seguinte representa uma entidade aprendida por computador com todas essas partes de dados separadas:
-
-* TravelOrder (entidade aprendida por computador)
-    * DateTime (datetimeV2 predefinido)
-    * Local (entidade aprendida por computador)
-        * Origem (função encontrada por meio de contexto `from`, como)
-        * Destino (função encontrada por meio de contexto `to`, como)
-    * Assentos (entidade aprendida por computador)
-        * Quantidade (número predefinido)
-        * Qualidade (entidade aprendida por computador com descritor de lista de frases)
-    * Refeições (entidade aprendida por máquina com restrição de entidade de lista como opções de alimentos)
-
-Alguns desses dados, como o local de origem e o local de destino, devem ser aprendidos no contexto do expressão, talvez com tais palavras como `from` e. `to` Outras partes de dados podem ser extraídas com correspondências exatas de cadeias de caracteres (`Vegan`) `Seattle` ou `Cairo`entidades predefinidas (geographyV2 de e). 
-
-Você cria como os dados são correspondidos e extraídos por quais modelos você escolhe e como você os configura.
-
-### <a name="constraints-are-text-rules"></a>As restrições são regras de texto
-
-Uma restrição é uma regra de correspondência de texto, fornecida por uma entidade não aprendida por computador, como a entidade de expressão regular ou uma entidade de lista. A restrição é aplicada no momento da previsão para limitar a previsão e fornecer a resolução de entidade necessária para o aplicativo cliente. Você define essas regras ao criar o subcomponente. 
-
-**Usar uma restrição**:
-* Quando você souber o texto exato a ser extraído.
-
-As restrições incluem:
-
-* entidades de [expressão regular](reference-entity-regular-expression.md)
-* [listar](reference-entity-list.md) entidades 
-* entidades [predefinidas](luis-reference-prebuilt-entities.md)
-
-Continuando com o exemplo do tíquete de plano, os códigos de aeroporto podem estar em uma entidade de lista para correspondências exatas de texto. 
-
-Para uma lista de aeroportos, a entrada de lista para Seattle é o nome `Seattle` da cidade e os sinônimos de Seattle incluem o código do aeroporto para Seattle junto com cidades e cidades ao redor:
-
-|`Seattle`Listar sinônimos de entidade|
-|--|
-|`Sea`|
-|`seatac`|
-|`Bellevue`|
-
-Se você quiser reconhecer apenas 3 códigos de letra para códigos de aeroportos, use uma expressão regular como restrição. 
-
-`/^[A-Z]{3}$/`
-
 ## <a name="intents-versus-entities"></a>Tentativas versus entidades
 
-Uma intenção é o resultado desejado de _todo_ o expressão, enquanto as entidades são partes dos dados extraídos do expressão. Geralmente, as intenções são vinculadas a ações que o aplicativo cliente deve tomar e as entidades são informações necessárias para executar essa ação. De uma perspectiva de programação, uma intenção dispararia uma chamada de método e as entidades seriam usadas como parâmetros para essa chamada de método.
+Uma intenção é o resultado desejado de _todo_ o expressão, enquanto as entidades são partes dos dados extraídos do expressão. Geralmente, as intenções são vinculadas a ações, que o aplicativo cliente deve executar. As entidades são informações necessárias para executar esta ação. De uma perspectiva de programação, uma intenção dispararia uma chamada de método e as entidades seriam usadas como parâmetros para essa chamada de método.
 
 Este expressão _deve_ ter uma intenção e _pode_ ter entidades:
 
@@ -145,16 +57,36 @@ Este expressão _pode_ ter várias entidades:
 * Locais de Seattle (origem) e Cairo (destino)
 * A quantidade de um único tíquete
 
-## <a name="descriptors-are-features"></a>Os descritores são recursos
+## <a name="entity-model-decomposition"></a>Decomposição de modelo de entidade
 
-Um descritor é um recurso aplicado a um modelo no tempo de treinamento, incluindo listas de frases e entidades. 
+O LUIS dá suporte à _decomposição de modelo_ com as APIs de criação, dividindo um conceito em partes menores. Isso permite que você crie seus modelos com confiança em como as várias partes são construídas e previstas.
 
-**Use um descritor quando desejar**:
+A decomposição do modelo tem as seguintes partes:
 
-* aumentar a significância de palavras e frases identificadas pelo descritor
-* fazer com que o LUIS recomende novo texto ou frases para recomendar para o descritor
-* corrigir um erro nos dados de treinamento
+* [tentativas](#intents-classify-utterances)
+    * [Features](#features)
+* [entidades aprendidas por computador](reference-entity-machine-learned-entity.md)
+    * subentidades (também entidades aprendidas por máquina)
+        * [Features](#features)
+            * [lista de frases](luis-concept-feature.md)
+            * [entidades não aprendidas por computador](luis-concept-feature.md) , como [expressões regulares](reference-entity-regular-expression.md), [listas](reference-entity-list.md)e [entidades predefinidas](luis-reference-prebuilt-entities.md)
+
+<a name="entities-extract-data"></a>
+<a name="machine-learned-entities"></a>
+
+## <a name="features"></a>Recursos
+
+Um [recurso](luis-concept-feature.md) é uma característica ou atributo diferenciado dos dados que seu sistema observa. Os recursos de aprendizado de máquina fornecem indicações LUISs importantes para onde procurar coisas que irão distinguir um conceito. Elas são dicas que o LUIS pode usar, mas não as regras difíceis. Essas dicas são usadas em conjunto com os rótulos para localizar os dados.
+
+## <a name="patterns"></a>Padrões
+
+[Padrões](luis-concept-patterns.md) são projetados para melhorar a precisão quando várias declarações são muito semelhantes. Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais.
+
+## <a name="extending-the-app-at-runtime"></a>Estendendo o aplicativo em tempo de execução
+
+O esquema do aplicativo (modelos e recursos) é treinado e publicado no ponto de extremidade de previsão. Você pode [passar novas informações](schema-change-prediction-runtime.md), junto com o expressão do usuário, para o ponto de extremidade de previsão para aumentar a previsão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Entenda as [intenções](luis-concept-intent.md) e as [entidades](luis-concept-entity-types.md). 
+* Entenda as [intenções](luis-concept-intent.md) e as [entidades](luis-concept-entity-types.md).
+* Saiba mais sobre os [recursos](luis-concept-feature.md)

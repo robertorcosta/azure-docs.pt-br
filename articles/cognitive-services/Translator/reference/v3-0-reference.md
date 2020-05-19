@@ -1,7 +1,7 @@
 ---
-title: Referência da API de texto do tradutor V3.0
+title: Referência do tradutor V 3.0
 titleSuffix: Azure Cognitive Services
-description: Documentação de referência para a API de texto do tradutor V3.0. A versão 3 do API de tradução de texto fornece uma API de Web modernos baseados em JSON.
+description: Documentação de referência para o tradutor V 3.0. A versão 3 do tradutor fornece uma API da Web moderna baseada em JSON.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857303"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592263"
 ---
-# <a name="translator-text-api-v30"></a>API de Tradução de Texto v3.0
+# <a name="translator-v30"></a>Tradutor v 3.0
 
-## <a name="whats-new"></a>Novidades
+## <a name="whats-new"></a>Quais são as novidades?
 
-A versão 3 do API de tradução de texto fornece uma API de Web modernos baseados em JSON. Ela melhora o uso e o desempenho por meio da consolidação dos recursos existentes em menos operações, além de fornecer novos recursos.
+A versão 3 do tradutor fornece uma API da Web moderna baseada em JSON. Ela melhora o uso e o desempenho por meio da consolidação dos recursos existentes em menos operações, além de fornecer novos recursos.
 
  * Transliteração para converter texto em um idioma de um script para outro script.
  * Tradução para vários idiomas em uma solicitação.
@@ -37,7 +37,7 @@ O Microsoft Translator é distribuído a partir de vários locais de datacenter.
 * **Pacífico Asiático:** Sul da Coreia, leste do Japão, Sudeste Asiático e leste da Austrália
 * **Europa:** Europa Setentrional e Europa Ocidental
 
-As solicitações para a API de Tradução de Texto da Microsoft são na maioria dos casos, tratadas pelo datacenter mais próximo que originou a solicitação. No caso de uma falha de datacenter, a solicitação pode ser roteada para fora da geografia do Azure.
+As solicitações para o Microsoft Translator estão na maioria dos casos manipulados pelo datacenter mais próximo de onde a solicitação foi originada. No caso de uma falha de datacenter, a solicitação pode ser roteada para fora da geografia do Azure.
 
 Para forçar a manipulação da solicitação por uma geografia do Azure específica, altere o ponto de extremidade global na solicitação de API para o ponto de extremidade regional desejado:
 
@@ -45,18 +45,18 @@ Para forçar a manipulação da solicitação por uma geografia do Azure especí
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
-|Azure|Ocidental|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Pacífico Asiático|    api-apc.cognitive.microsofttranslator.com|
 
 ## <a name="authentication"></a>Autenticação
 
-Assine API de Tradução de Texto ou [Serviços cognitivas multiatendimento](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivas do Azure e use sua chave de assinatura (disponível no portal do Azure) para autenticar. 
+Assine o tradutor ou [Serviços cognitivas multiatendimento](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivas do Azure e use sua chave de assinatura (disponível no portal do Azure) para autenticar. 
 
 Há três cabeçalhos que você pode usar para autenticar sua assinatura. Esta tabela descreve como cada um é usado:
 
-|headers|Descrição|
+|Cabeçalhos|Descrição|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*Use com a assinatura dos Serviços Cognitivos se você estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure da sua assinatura para a API de Tradução de Texto.|
+|Ocp-Apim-Subscription-Key|*Use com a assinatura dos Serviços Cognitivos se você estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure para sua assinatura do tradutor.|
 |Autorização|*Use com a assinatura dos Serviços Cognitivos se você estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Use com o recurso de autoatendimento e do tradutor de serviços cognitivas.*<br/>O valor é a região do recurso de multiatendimento ou do tradutor regional. Esse valor é opcional ao usar um recurso de Tradutor global.|
 
@@ -65,13 +65,13 @@ A primeira opção é autenticar usando o cabeçalho `Ocp-Apim-Subscription-Key`
 
 #### <a name="authenticating-with-a-global-resource"></a>Autenticando com um recurso global
 
-Ao usar um [recurso de Tradutor global](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), você precisa incluir um cabeçalho para chamar a API do tradutor.
+Ao usar um [recurso de Tradutor global](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), você precisa incluir um cabeçalho para chamar o tradutor.
 
-|headers|Descrição|
+|Cabeçalhos|Descrição|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| O valor é a chave secreta do Azure da sua assinatura para a API de Tradução de Texto.|
+|Ocp-Apim-Subscription-Key| O valor é a chave secreta do Azure para sua assinatura do tradutor.|
 
-Aqui está um exemplo de solicitação para chamar a API do tradutor usando o recurso do tradutor global
+Aqui está um exemplo de solicitação para chamar o tradutor usando o recurso de Tradutor global
 
 ```curl
 // Pass secret key using headers
@@ -84,14 +84,14 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 #### <a name="authenticating-with-a-regional-resource"></a>Autenticando com um recurso regional
 
 Quando você usa um [recurso de Tradutor regional](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-Há dois cabeçalhos necessários para chamar a API do tradutor.
+Há dois cabeçalhos de que você precisa para chamar o tradutor.
 
-|headers|Descrição|
+|Cabeçalhos|Descrição|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| O valor é a chave secreta do Azure da sua assinatura para a API de Tradução de Texto.|
+|Ocp-Apim-Subscription-Key| O valor é a chave secreta do Azure para sua assinatura do tradutor.|
 |Ocp-Apim-Subscription-Region| O valor é a região do recurso do tradutor. |
 
-Aqui está um exemplo de solicitação para chamar a API do tradutor usando o recurso do tradutor regional
+Aqui está um exemplo de solicitação para chamar o tradutor usando o recurso de Tradutor regional
 
 ```curl
 // Pass secret key and region using headers
@@ -106,16 +106,16 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 Quando você usa um recurso de serviço de vários serviços cognitivas. Isso permite que você use uma única chave secreta para autenticar solicitações para vários serviços. 
 
-Ao usar uma chave secreta de vários serviços, você deve incluir dois cabeçalhos de autenticação com sua solicitação. Há dois cabeçalhos necessários para chamar a API do tradutor.
+Ao usar uma chave secreta de vários serviços, você deve incluir dois cabeçalhos de autenticação com sua solicitação. Há dois cabeçalhos de que você precisa para chamar o tradutor.
 
-|headers|Descrição|
+|Cabeçalhos|Descrição|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| O valor é a chave secreta do Azure para o recurso de vários serviços.|
 |Ocp-Apim-Subscription-Region| O valor é a região do recurso de vários serviços. |
 
 A região é necessária para a assinatura de API de texto de vários serviços. A região selecionada é a única região que você pode usar para a tradução de texto ao usar a chave de assinatura de vários serviços e deve ser a mesma região que você selecionou quando se inscreveu para sua assinatura de vários serviços por meio do portal do Azure.
 
-As regiões disponíveis `australiaeast`são `brazilsouth`, `canadacentral` `centralindia` `centralus` `centraluseuap` `westus` `westus2` `southafricanorth` `westeurope` `southeastasia` `uksouth` `westcentralus` `southcentralus` `koreacentral` `northcentralus` `northeurope` `japanwest` `eastus2` `francecentral` `japaneast`,,,,, `eastus`,,,,,,,,,,,,,,, e. `eastasia`
+As regiões disponíveis são,,,,,,, `australiaeast` `brazilsouth` `canadacentral` `centralindia` `centralus` `centraluseuap` `eastasia` `eastus` , `eastus2` , `francecentral` , `japaneast` ,,,, `japanwest` ,, `koreacentral` `northcentralus` `northeurope` `southcentralus` `southeastasia` ,,,,, `uksouth` `westcentralus` `westeurope` `westus` `westus2` e `southafricanorth` .
 
 Se você passar a chave secreta na cadeia de caracteres de consulta com o parâmetro `Subscription-Key`, então você deverá especificar a região com o parâmetro de consulta `Subscription-Region`.
 
@@ -143,22 +143,22 @@ Uma solicitação bem-sucedida retorna o token de acesso codificado como texto s
 Authorization: Bearer <Base64-access_token>
 ```
 
-Um token de autenticação é válido por 10 minutos. O token deve ser reutilizado ao fazer várias chamadas para as APIs do tradutor. No entanto, se o seu programa fizer solicitações para a API do tradutor durante um longo período de tempo, o programa deverá solicitar um novo token de acesso em intervalos regulares (por exemplo, a cada 8 minutos).
+Um token de autenticação é válido por 10 minutos. O token deve ser reutilizado ao fazer várias chamadas para o tradutor. No entanto, se o seu programa fizer solicitações ao Tradutor durante um longo período de tempo, o programa deverá solicitar um novo token de acesso em intervalos regulares (por exemplo, a cada 8 minutos).
 
 ## <a name="virtual-network-support"></a>Suporte para Rede Virtual
 
-O serviço Tradutor agora está disponível com recursos de rede virtual em regiões`WestUS2`limitadas `SouthCentralUS`( `WestUS`, `CentralUSEUAP` `EastUS`, `global`,,,). Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+O serviço Tradutor agora está disponível com recursos de rede virtual em regiões limitadas (,,,, `WestUS2` `EastUS` `SouthCentralUS` `WestUS` `CentralUSEUAP` , `global` ). Para habilitar a rede virtual, consulte [Configurando redes virtuais de serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
-Depois de ativar esse recurso, você deve usar o ponto de extremidade personalizado para chamar a API do tradutor. Você não pode usar o ponto de extremidade do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um token de acesso.
+Depois de ativar esse recurso, você deve usar o ponto de extremidade personalizado para chamar o tradutor. Você não pode usar o ponto de extremidade do tradutor global ("api.cognitive.microsofttranslator.com") e não pode autenticar com um token de acesso.
 
 Você pode encontrar o ponto de extremidade personalizado depois de criar o [recurso de Tradutor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 
-|headers|Descrição|
+|Cabeçalhos|Descrição|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| O valor é a chave secreta do Azure da sua assinatura para a API de Tradução de Texto.|
+|Ocp-Apim-Subscription-Key| O valor é a chave secreta do Azure para sua assinatura do tradutor.|
 |Ocp-Apim-Subscription-Region| O valor é a região do recurso do tradutor. Esse valor será opcional se o recurso for`global`|
 
-Aqui está um exemplo de solicitação para chamar a API do tradutor usando o ponto de extremidade personalizado
+Aqui está um exemplo de solicitação para chamar o tradutor usando o ponto de extremidade personalizado
 
 ```curl
 // Pass secret key and region using headers
@@ -218,7 +218,7 @@ O código de erro é um número de 6 dígitos que combina o código de status HT
 | 400079| O sistema personalizado solicitado para tradução entre e para o idioma não existe.|
 | 400080| A transliteração não tem suporte para o idioma ou o script.|
 | 401000| A solicitação não está autorizada porque as credenciais estão ausentes ou são inválidas.|
-| 401015| "As credenciais fornecidas são para a Speech API. Esta solicitação requer credenciais para a API de texto. Use uma assinatura para API de Tradução de Texto ".|
+| 401015| "As credenciais fornecidas são para a Speech API. Esta solicitação requer credenciais para a API de texto. Use uma assinatura para o tradutor. "|
 | 403000| A operação não é permitida.|
 | 403001| A operação não é permitida porque a assinatura excedeu sua cota gratuita.|
 | 405000| O método de solicitação não é suportado para o recurso solicitado.|

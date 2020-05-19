@@ -2,19 +2,17 @@
 title: Testar o aplicativo no portal do LUIS
 description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar seu reconhecimento vocal.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/07/2020
+ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219814"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591855"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
 [O teste](luis-concept-test.md) de um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso não sejam, faça atualizações ao aplicativo de LUIS, treine e teste novamente.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -24,13 +22,16 @@ ms.locfileid: "79219814"
 
 ## <a name="train-before-testing"></a>Treinar antes do teste
 
-Para testar a versão mais recente do aplicativo ativo, selecione **treinar** no menu superior, antes de testar.
+1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
+1. Para testar a versão mais recente do aplicativo ativo, selecione **treinar** no menu superior, antes de testar.
 
 ## <a name="test-an-utterance"></a>Testar uma declaração
 
 O expressão de teste não deve ser exatamente o mesmo que qualquer declarações de exemplo no aplicativo. O expressão de teste deve incluir a opção de palavra, o comprimento da frase e o uso da entidade que você espera para um usuário.
 
-1. Acesse seu aplicativo selecionando seu nome na página **Meus Aplicativos**.
+1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 
 1. Para acessar o painel de deslizamento de **teste** , selecione **teste** no painel superior do seu aplicativo.
 

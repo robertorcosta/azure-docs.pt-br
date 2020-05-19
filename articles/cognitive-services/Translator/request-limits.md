@@ -1,7 +1,7 @@
 ---
-title: Solicitar limites – API de Tradução de Texto
+title: Limites de solicitação-Tradutor
 titleSuffix: Azure Cognitive Services
-description: Este artigo lista os limites de solicitação para a API de Tradução de Texto. Cobranças são incorridas com base na contagem de caracteres, não a frequência de solicitação com um limite de 5.000 caracteres por solicitação. Limites de caractere são assinatura com base com F0 limitado a 2 milhões de caracteres por hora.
+description: Este artigo lista os limites de solicitação para o tradutor. Cobranças são incorridas com base na contagem de caracteres, não a frequência de solicitação com um limite de 5.000 caracteres por solicitação. Limites de caractere são assinatura com base com F0 limitado a 2 milhões de caracteres por hora.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d26efec2783d6f121c319e46b1b505b6e1b1e09
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 386f34e001457da4c5ae0e170ab2c090725ad5b7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79498940"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592229"
 ---
-# <a name="request-limits-for-translator-text"></a>Limites de solicitação para a Tradução de Texto
+# <a name="request-limits-for-translator"></a>Limites de solicitação para o tradutor
 
-Este artigo fornece limites de limitação para a API de Tradução de Texto. Os serviços incluem tradução, transliteração, detecção de comprimento de frase, detecção de idioma e traduções alternativas.
+Este artigo fornece limites de limitação para o tradutor. Os serviços incluem tradução, transliteração, detecção de comprimento de frase, detecção de idioma e traduções alternativas.
 
 ## <a name="character-and-array-limits-per-request"></a>Limites de caracteres e de matriz por solicitação
 
 Cada solicitação de conversão é limitada a 5.000 caracteres, em todos os idiomas de destino para os quais você está convertendo. Por exemplo, o envio de uma solicitação de conversão de 1.500 caracteres para traduzir para três idiomas diferentes resulta em um tamanho de solicitação de 1, 500x3 = 4.500 caracteres, o que atende ao limite da solicitação. Você é cobrado por personagem, não pelo número de solicitações. É recomendável enviar solicitações mais curtas.
 
-A tabela a seguir lista os limites de elemento e de caracteres de matriz para cada operação do API de Tradução de Texto.
+A tabela a seguir lista os limites de elemento e de caracteres de matriz para cada operação do tradutor.
 
 | Operação | Tamanho máximo do elemento de matriz |   Número máximo de elementos da matriz |  Tamanho máximo da solicitação (caracteres) |
 |:----|:----|:----|:----|
@@ -38,7 +38,7 @@ A tabela a seguir lista os limites de elemento e de caracteres de matriz para ca
 
 ## <a name="character-limits-per-hour"></a>Limites de caractere por hora
 
-Seu limite de caractere por hora baseia-se em sua camada de assinatura de Tradução de Texto. 
+O limite de caracteres por hora é baseado na camada de assinatura do tradutor. 
 
 A cota por hora deve ser consumida uniformemente durante a hora. Por exemplo, no limite da camada F0 de 2 milhões caracteres por hora, os caracteres devem ser consumidos não mais rápido do que aproximadamente 33.300 caracteres por minuto janela deslizante (2 milhões caracteres divididos por 60 minutos).
 
@@ -58,13 +58,13 @@ Esses limites são restritos aos modelos de tradução padrão da Microsoft. Os 
 
 ## <a name="latency"></a>Latency
 
-A API de Tradução de Texto tem uma latência máxima de 15 segundos usando modelos padrão e 120 segundos ao usar modelos personalizados. Normalmente, as respostas *de texto dentro de 100 caracteres* são retornadas em 150 milissegundos a 300 milissegundos. Os modelos de Tradutor personalizados têm características de latência semelhantes na taxa de solicitação sustentada e podem ter uma latência mais alta quando a taxa de solicitação é intermitente. Os tempos de resposta variam de acordo com o tamanho da solicitação e do par de idiomas. Se você não receber uma conversão ou uma [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) dentro desse período, verifique seu código, sua conexão de rede e tente novamente. 
+O tradutor tem uma latência máxima de 15 segundos usando modelos padrão e 120 segundos ao usar modelos personalizados. Normalmente, as respostas *de texto dentro de 100 caracteres* são retornadas em 150 milissegundos a 300 milissegundos. Os modelos de Tradutor personalizados têm características de latência semelhantes na taxa de solicitação sustentada e podem ter uma latência mais alta quando a taxa de solicitação é intermitente. Os tempos de resposta variam de acordo com o tamanho da solicitação e do par de idiomas. Se você não receber uma conversão ou uma [resposta de erro](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) dentro desse período, verifique seu código, sua conexão de rede e tente novamente. 
 
 ## <a name="sentence-length-limits"></a>Limites de duração de sentença
 
 Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), o comprimento da sentença é limitado a 275 caracteres. Existem exceções para esses idiomas:
 
-| Linguagem | Código | Limite de caracteres |
+| Idioma | Código | Limite de caracteres |
 |----------|------|-----------------|
 | Chinês | zh | 132 |
 | Alemão | de | 290 |
@@ -82,4 +82,4 @@ Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-se
 
 * [Preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Disponibilidade regional](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [Referência da API de Tradução de Texto v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [referência de Tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 44bb223dbc944be1b8769aa2572f1b88b916528b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372233"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590886"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Criptografia do tradutor de dados em repouso
 
@@ -41,7 +41,7 @@ Também há uma opção para gerenciar sua assinatura com suas próprias chaves.
 
 Siga estas etapas para habilitar chaves gerenciadas pelo cliente para o Tradutor:
 
-1. Crie seu novo Tradução de Texto regional ou recurso de serviços cognitivas regionais. Isso não funcionará com um recurso global.
+1. Crie seu novo tradutor regional ou recurso de serviços de cognitiva regional. Isso não funcionará com um recurso global.
 2. Habilitou a identidade gerenciada no portal do Azure e adicione as informações de chave gerenciada pelo cliente.
 3. Crie um novo espaço de trabalho no Tradutor personalizado e associe essas informações de assinatura.
 

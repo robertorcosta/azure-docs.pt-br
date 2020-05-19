@@ -1,7 +1,7 @@
 ---
-title: Retornar N-melhores conversões-Tradução de Texto
+title: Retornar N-melhores traduções-tradutor
 titleSuffix: Azure Cognitive Services
-description: Retornar N-melhores conversões usando o API de Tradução de Texto.
+description: Retornar N-melhores conversões usando o tradutor.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
-ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837251"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592671"
 ---
 # <a name="how-to-return-n-best-translations"></a>Como retornar traduções N-Best
 
 > [!NOTE]
-> Esse método é preterido. Ele não está disponível na versão V3.0 da API de Tradução de Texto.
+> Esse método é preterido. Ele não está disponível em V 3.0 do tradutor.
 
-Os métodos GetTranslations() e GetTranslationsArray() da API do Microsoft Translator incluem um sinalizador Booliano "IncludeMultipleMTAlternatives" opcional.
+Os métodos gettranslas () e GetTranslationsArray () do tradutor incluem um sinalizador booliano opcional "IncludeMultipleMTAlternatives".
 O método retornará até maxTranslations alternativas em que o delta é fornecido na lista N-Best do mecanismo tradutor.
 
 A assinatura é:
@@ -39,7 +39,7 @@ A assinatura é:
 | Parâmetro | Descrição |
 |:---|:---|
 | appId | **Obrigatório** Se o cabeçalho de Autorização for usado, deixe o campo appid vazio, caso contrário, especifique uma cadeia de caracteres contendo "token de portador" + " " + token de acesso.|
-| text | **Necessário** Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder dez mil caracteres.|
+| texto | **Necessário** Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho do texto não deve exceder dez mil caracteres.|
 | de | **Necessário** Uma cadeia de caracteres que representa o código de idioma do texto a ser traduzido. |
 | para | **Necessário** Uma cadeia de caracteres que representa o código de idioma para o qual o texto será traduzido. |
 | maxTranslations | **Necessário** Um inteiro que representa o número máximo de traduções para retornar. |

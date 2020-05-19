@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80744151"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591039"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -24,13 +24,13 @@ LUIS tem uma variedade de recursos dentro do serviço. Nem todos os recursos est
 
 ## <a name="multi-language-luis-apps"></a>Aplicativos LUIS com vários idiomas
 
-Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um chatbot, terá algumas opções. Se o LUIS der suporte a todos os idiomas, desenvolva um aplicativo LUIS para cada idioma. Cada aplicativo LUIS tem uma ID de aplicativo exclusiva e um log de ponto de extremidade. Se você precisa fornecer o reconhecimento de idioma para um idioma ao qual o LUIS não oferece suporte, use a [API de Tradução da Microsoft](../Translator/translator-info-overview.md) para traduzir a declaração para um idioma com suporte, envie a declaração para o ponto de extremidade do LUIS e receba as pontuações resultantes.
+Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um chatbot, terá algumas opções. Se o LUIS der suporte a todos os idiomas, desenvolva um aplicativo LUIS para cada idioma. Cada aplicativo LUIS tem uma ID de aplicativo exclusiva e um log de ponto de extremidade. Se você precisar fornecer um entendimento de linguagem para um idioma LUIS não oferecer suporte, você pode usar o [serviço de Tradutor](../Translator/translator-info-overview.md) para converter o expressão em um idioma com suporte, enviar o expressão para o ponto de extremidade do Luis e receber as pontuações resultantes.
 
 ## <a name="languages-supported"></a>Idiomas compatíveis
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Linguagem |Local  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Idioma |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
@@ -84,7 +84,7 @@ Os idiomas híbridos combinam palavras de duas culturas, como inglês e chinês.
 ## <a name="tokenization"></a>Geração de tokens
 Para executar o aprendizado de máquina, o LUIS divide uma declaração em [tokens](luis-glossary.md#token) com base na cultura.
 
-|Linguagem|  cada espaço ou caractere especial | nível do caractere|palavras compostas
+|Idioma|  cada espaço ou caractere especial | nível do caractere|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||
@@ -113,10 +113,10 @@ As seguintes culturas têm versões de criador personalizadas:
 
 |Cultura|Versão|Finalidade|
 |--|--|--|
-|Alemão<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele será ativado `Ich fahre einen kranken wagen`. Permitir a marcação de `kranken` e `wagen` de forma independente como entidades diferentes.|
-|Alemão<br>`de-de`|1.0.2|Cria tokens palavras dividindo-as em espaços.<br> Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele permanecerá como um único token. Portanto `krankenwagen` , é marcado como uma única entidade. |
-|Holandês<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ik ga naar de kleuterschool` como um expressão, ele será ativado `Ik ga naar de kleuter school`. Permitir a marcação de `kleuter` e `school` de forma independente como entidades diferentes.|
-|Holandês<br>`de-de`|1.0.1|Cria tokens palavras dividindo-as em espaços.<br> Se um usuário inserir `Ik ga naar de kleuterschool` como um expressão, ele permanecerá como um único token. Portanto `kleuterschool` , é marcado como uma única entidade. |
+|Alemão<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele será ativado `Ich fahre einen kranken wagen` . Permitir a marcação de `kranken` e de `wagen` forma independente como entidades diferentes.|
+|Alemão<br>`de-de`|1.0.2|Cria tokens palavras dividindo-as em espaços.<br> Se um usuário inserir `Ich fahre einen krankenwagen` como um expressão, ele permanecerá como um único token. Portanto, `krankenwagen` é marcado como uma única entidade. |
+|Holandês<br>`de-de`|1.0.0|Cria tokens palavras dividindo-as usando um criador baseado em Machine Learning que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário inserir `Ik ga naar de kleuterschool` como um expressão, ele será ativado `Ik ga naar de kleuter school` . Permitir a marcação de `kleuter` e de `school` forma independente como entidades diferentes.|
+|Holandês<br>`de-de`|1.0.1|Cria tokens palavras dividindo-as em espaços.<br> Se um usuário inserir `Ik ga naar de kleuterschool` como um expressão, ele permanecerá como um único token. Portanto, `kleuterschool` é marcado como uma única entidade. |
 
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrando entre versões do criador

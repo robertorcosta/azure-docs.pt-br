@@ -2,13 +2,13 @@
 title: Bom exemplo de declarações-LUIS
 description: Enunciados são entradas do usuário que seu aplicativo precisa interpretar. Colete frases que você acredita que os usuários vão inserir. Inclua enunciados que tenham o mesmo significado, mas sejam construídos de modo diferente em termos de comprimento e posicionamento de palavras.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382285"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592858"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
@@ -68,11 +68,27 @@ O LUIS constrói modelos eficazes com enunciados que são cuidadosamente selecio
 
 ## <a name="utterance-normalization"></a>Normalização de expressão
 
-A normalização de expressão é o processo de ignorar os efeitos de Pontuação e sinais diacríticos durante o treinamento e a previsão. Use [as configurações do aplicativo](luis-reference-application-settings.md) para controlar como a normalização de expressão afeta as previsões do expressão.
+A normalização de expressão é o processo de ignorar os efeitos de tipos de texto, como pontuação e sinais diacríticos, durante o treinamento e a previsão.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalização de expressão para sinais diacríticos e Pontuação
+As configurações de normalização de expressão são desativadas por padrão. Essas configurações incluem:
 
-A normalização de expressão é definida quando você cria ou importa o aplicativo porque ele é uma configuração no arquivo JSON do aplicativo. As configurações de normalização de expressão são desativadas por padrão.
+* Formulários do Word
+* Diacríticos
+* Pontuação
+
+Se você ativar uma configuração de normalização, as pontuações no painel de **teste** , nos testes de lote e nas consultas de ponto de extremidade serão alteradas para todas as declarações para essa configuração de normalização.
+
+Quando você clona uma versão no portal do LUIS, as configurações de versão continuam para a nova versão clonada.
+
+Defina as configurações de versão por meio do portal do LUIS, na seção **gerenciar** , na página **configurações do aplicativo** ou na [API atualizar configurações da versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Saiba mais sobre essas alterações de normalização na [referência](luis-reference-application-settings.md).
+
+### <a name="word-forms"></a>Formulários do Word
+
+A normalização de **formas de palavras** ignora as diferenças em palavras que se expandem além da raiz. Por exemplo, as palavras `run` , `running` e `runs` mudam com base no verbo conjugação.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### <a name="diacritics"></a>Diacríticos
 
 Os sinais diacríticos são marcas ou sinais dentro do texto, como:
 
@@ -80,24 +96,8 @@ Os sinais diacríticos são marcas ou sinais dentro do texto, como:
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Se o aplicativo ativar a normalização, as pontuações no painel de **teste** , nos testes de lote e nas consultas de ponto de extremidade serão alterados para todos os declarações usando sinais diacríticos ou pontuação.
-
-Ative a `settings` normalização de expressão para diacríticos ou pontuação em seu arquivo de aplicativo JSON Luis no parâmetro.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
-
-A normalização da **Pontuação** significa que, antes que seus modelos sejam treinados e antes de suas consultas de ponto de extremidade serem previstas, a pontuação será removida do declarações.
-
-Normalizar **diacríticos** substitui os caracteres por sinais diacríticos em declarações por caracteres normais. Por exemplo: `Je parle français` torna `Je parle francais`-se.
-
-A normalização não significa que você não verá Pontuação e sinais diacríticos em seu exemplo de declarações ou respostas de previsão, apenas que eles serão ignorados durante o treinamento e a previsão.
-
 ### <a name="punctuation-marks"></a>Marcas de pontuação
+A normalização da **Pontuação** significa que, antes que seus modelos sejam treinados e antes de suas consultas de ponto de extremidade serem previstas, a pontuação será removida do declarações.
 
 Pontuação é um token separado no LUIS. Um expressão que contém um ponto no final versus um expressão que não contém um ponto no final são dois declarações separados e pode obter duas previsões diferentes.
 
@@ -109,9 +109,11 @@ Se a pontuação não tiver um significado específico em seu aplicativo cliente
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorando palavras e pontuação
 
-Se você quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe de _ignorar_ entre colchetes, `[]`.
+Se você quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe de _ignorar_ entre colchetes, `[]` .
 
-## <a name="training-utterances"></a>Treinando enunciados
+<a name="training-utterances"></a>
+
+## <a name="training-with-all-utterances"></a>Treinamento com todos os declarações
 
 O treinamento geralmente não é determinístico: a previsão de enunciado pode variar ligeiramente entre versões ou aplicativos.
 É possível remover o treinamento não determinístico, atualizando a API de [configurações de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o par de nome/valor `UseAllTrainingData` para usar todos os dados de treinamento.

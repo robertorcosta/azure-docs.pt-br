@@ -10,19 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: dcdc942999e45eb779e54cd5f92432c54d65fc6a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 62236b472aa5c4812cd62af44a15b805b5326271
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561974"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592552"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Início rápido: síntese assíncrona para áudio de forma longa em Python (versão prévia)
 
 Neste guia de início rápido, você usará a API de áudio longo para converter de forma assíncrona o texto em fala e recuperará a saída de áudio de um URI fornecido pelo serviço. Essa API REST é ideal para provedores de conteúdo que precisam sintetizar áudio de texto maior que 5.000 caracteres (ou mais de 10 minutos de comprimento). Para obter mais informações, consulte [longa API de áudio](../../long-audio-api.md).
 
-> [!NOTE]
-> A síntese assíncrona para áudio de forma longa só pode ser usada com [vozes neurais personalizadas](../../how-to-custom-voice.md#custom-neural-voices).
+A síntese assíncrona para áudio de forma longa pode ser usada com [vozes neurais públicas](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) e [vozes neurais personalizadas](../../how-to-custom-voice.md#custom-neural-voices), cada uma delas com suporte a um idioma e dialeto específicos. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +33,7 @@ Este início rápido requer:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos necessários
 
-Crie um novo projeto Python usando seu IDE ou editor favorito. Em seguida, copie esse trecho de código em `voice_synthesis_client.py`um arquivo chamado.
+Crie um novo projeto Python usando seu IDE ou editor favorito. Em seguida, copie esse trecho de código em um arquivo chamado `voice_synthesis_client.py` .
 
 ```python
 import argparse
@@ -56,7 +55,7 @@ Esses módulos são usados para analisar argumentos, construir a solicitação H
 
 ## <a name="get-a-list-of-supported-voices"></a>Obter uma lista de vozes com suporte
 
-Esse código obtém uma lista de vozes disponíveis que você pode usar para converter conversão de texto em fala. Adicione o código a `voice_synthesis_client.py`:
+Esse código permite obter uma lista completa de vozes para uma região/um ponto de extremidade específico que você pode usar. Verifique a [região/ponto de extremidade com suporte](../../long-audio-api.md). Adicione o código a `voice_synthesis_client.py` :
 
 ```python
 parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
@@ -83,7 +82,7 @@ if args.voices:
 Vamos testar o que você fez até agora. Você precisará atualizar algumas coisas na solicitação abaixo:
 
 * Substitua `<your_key>` por sua chave de assinatura do Serviço de Fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
-* Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo `eastus` : `westus`ou). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+* Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus` ). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
 
 Execute este comando:
 
@@ -100,13 +99,15 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
+Se o parâmetro **PublicVoice** for **true**, a voz será uma voz neural pública. Caso contrário, será uma voz neural personalizada. 
+
 ## <a name="prepare-input-files"></a>Preparar arquivos de entrada
 
 Prepare um arquivo de texto de entrada. Pode ser texto sem formatação ou de SSML. Para os requisitos de arquivo de entrada, consulte como [preparar o conteúdo para síntese](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis).
 
 ## <a name="convert-text-to-speech"></a>Converter texto em fala
 
-Depois de preparar o arquivo de texto de entrada, adicione este código para `voice_synthesis_client.py`que a síntese de fala:
+Depois de preparar o arquivo de texto de entrada, adicione este código para que a síntese de fala `voice_synthesis_client.py` :
 
 > [!NOTE]
 > ' concatenateResult ' é um parâmetro opcional. Se esse parâmetro não estiver definido, as saídas de áudio serão geradas por parágrafo. Você também pode concatenar os áudios em 1 saída definindo o parâmetro. Por padrão, a saída de áudio é definida como riff-16kHz-16 bits-mono-PCM. Para obter mais informações sobre as saídas de áudio com suporte, consulte [formatos de saída de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
@@ -175,7 +176,7 @@ if args.submit:
 Vamos fazer uma solicitação para sintetizar o texto usando seu arquivo de entrada como a origem. Você precisará atualizar algumas coisas na solicitação abaixo:
 
 * Substitua `<your_key>` por sua chave de assinatura do Serviço de Fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
-* Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo `eastus` : `westus`ou). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+* Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus` ). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
 * Substitua `<input>` pelo caminho para o arquivo de texto que você preparou para conversão de texto em fala.
 * Substituir `<locale>` pela localidade de saída desejada. Para obter mais informações, consulte [suporte a idiomas](../../language-support.md#neural-voices).
 * Substitua `<voice_guid>` pela voz de saída desejada. Use uma das vozes retornadas por [obter uma lista de vozes com suporte](#get-a-list-of-supported-voices).
@@ -215,7 +216,7 @@ O resultado contém o texto de entrada e os arquivos de saída de áudio gerados
 
 O servidor manterá até **20.000** solicitações para cada conta de assinatura do Azure. Se o valor da solicitação exceder essa limitação, remova as solicitações anteriores antes de fazer as novas. Se você não remover as solicitações existentes, receberá uma notificação de erro.
 
-Adicione o código a `voice_synthesis_client.py`:
+Adicione o código a `voice_synthesis_client.py` :
 
 ```python
 parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
@@ -251,7 +252,7 @@ if args.delete:
 Agora, vamos verificar para ver quais solicitações você enviou anteriormente. Antes de continuar, você precisará atualizar algumas coisas nesta solicitação:
 
 * Substitua `<your_key>` por sua chave de assinatura do Serviço de Fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
-* Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo `eastus` : `westus`ou). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+* Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus` ). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
 
 Execute este comando:
 
@@ -271,7 +272,7 @@ ID : xxx , Name : xxx : Succeeded
 Agora, vamos remover uma solicitação enviada anteriormente. Você precisará atualizar algumas coisas no código abaixo:
 
 * Substitua `<your_key>` por sua chave de assinatura do Serviço de Fala. Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
-* Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo `eastus` : `westus`ou). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
+* Substituir `<region>` pela região em que o recurso de fala foi criado (por exemplo: `eastus` ou `westus` ). Essas informações estão disponíveis na guia **visão geral** do recurso na [portal do Azure](https://aka.ms/azureportal).
 * Substituir `<synthesis_id>` pelo valor retornado na solicitação anterior.
 
 > [!NOTE]

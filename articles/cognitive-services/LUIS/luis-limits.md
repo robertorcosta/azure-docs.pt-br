@@ -2,13 +2,13 @@
 title: Limites-LUIS
 description: Este artigo contém os limites conhecidos do LUIS (Reconhecimento vocal) dos Serviços Cognitivos do Azure. LUIS tem várias áreas limites. O limite de modelo controla as intenções, as entidades e os recursos no LUIS. Limites de cota com base no tipo de chave. A combinação de teclado controla o site do LUIS.
 ms.topic: reference
-ms.date: 04/02/2020
-ms.openlocfilehash: 0a734091ad2c9812f079d77c97c22872717aa7c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82103587"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593232"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
 LUIS tem várias áreas de limite. O primeiro é o [limite do modelo](#model-limits), que controla as intenções, as entidades e os recursos no Luis. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. Uma terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site Luis. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS.
@@ -28,8 +28,8 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 | Entidades externas | sem limites |
 | [Intenções][intents]|500 por aplicativo: 499 tentativas personalizadas e a intenção _nenhuma_ necessária.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem fontes de expedição 500 correspondentes.|
 | [Entidades de lista](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
-| [Entidades e funções aprendidas por computador](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade com a finalidade desse limite. Um exemplo é uma composição com uma entidade simples, que tem duas funções: 1 composição + 1 simples + 2 funções = 4 das entidades 330.<br>Os subcomponentes podem ser aninhados em até 5 níveis.|
-|Modelo como um recurso| Número máximo de modelos que podem ser usados como um descritor (recurso) para um modelo específico para ter 10 modelos. O número máximo de listas de frases usadas como um descritor (recurso) para um modelo específico ter 10 listas de frases.|
+| [Entidades e funções aprendidas por computador](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade com a finalidade desse limite. Um exemplo é uma composição com uma entidade simples, que tem duas funções: 1 composição + 1 simples + 2 funções = 4 das entidades 330.<br>As subentidades podem ser aninhadas até 5 níveis.|
+|Modelo como um recurso| Número máximo de modelos que podem ser usados como um recurso para um modelo específico para ter 10 modelos. O número máximo de listas de frases usadas como um recurso para um modelo específico ter 10 listas de frases.|
 | [Visualização-entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~ 1K por solicitação de ponto de extremidade de previsão de consulta|
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicativo.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 entidades Pattern.any por padrão<br>Máximo de 2 textos opcionais aninhados no padrão|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicativo, 3 entidades pattern.any por padrão |
@@ -40,7 +40,7 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 | [Enunciado][utterances] | 500 caracteres|
 | [Declarações][utterances] | 15.000 por aplicativo – não há limite para o número de declarações por tentativa|
 | [Versões](luis-concept-version.md)| 100 versões por aplicativo |
-| [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restritos a alfanuméricos e ponto (.) |
+| [Nome da versão][luis-how-to-manage-versions] | 128 caracteres |
 
 *O máximo de caracteres padrão é 50 caracteres.
 
@@ -48,18 +48,14 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 
 ## <a name="name-uniqueness"></a>Exclusividade do nome
 
-Use as regras de exclusividade de nomenclatura a seguir.
+Os nomes de objeto devem ser exclusivos quando comparados a outros objetos do mesmo nível.
 
-O seguinte deve ser exclusivo em um aplicativo LUIS:
-
-* nome da versão
-* intenção
-* entidade
-* roles
-
-O seguinte deve ser exclusivo dentro do escopo aplicado:
-
-* lista de frases
+|Objetos|Restrições|
+|--|--|
+|Intenção, entidade|Todos os nomes de intenção e entidade devem ser exclusivos em uma versão de um aplicativo.|
+|Componentes de entidade ML|Todos os componentes de entidade aprendidos por máquina (entidades filho) devem ser exclusivos, dentro dessa entidade para componentes no mesmo nível.|
+|Recursos | Todos os recursos nomeados, como listas de frases, devem ser exclusivos em uma versão de um aplicativo.|
+|Funções de entidade|Todas as funções em um componente entidade ou entidade devem ser exclusivas quando estiverem no mesmo nível de entidade (pai, filho, neto, etc.).|
 
 ## <a name="object-naming"></a>Nomenclatura de objeto
 
@@ -78,7 +74,7 @@ O entendimento da linguagem tem recursos separados, um tipo para a criação e u
 
 ### <a name="authoring-resource-limits"></a>Limites de recursos de criação
 
-Use o _tipo_, `LUIS.Authoring`, ao filtrar recursos no portal do Azure. LUIS limita 500 aplicativos por recurso de criação do Azure.
+Use o _tipo_, `LUIS.Authoring` , ao filtrar recursos no portal do Azure. LUIS limita 500 aplicativos por recurso de criação do Azure.
 
 |Recurso de criação|Criação de TPS|
 |--|--|
@@ -91,7 +87,7 @@ Use o _tipo_, `LUIS.Authoring`, ao filtrar recursos no portal do Azure. LUIS lim
 
 ### <a name="query-prediction-resource-limits"></a>Limites de recursos de previsão de consulta
 
-Use o _tipo_, `LUIS`, ao filtrar recursos no portal do Azure. O recurso de ponto de extremidade de previsão de consulta LUIS, usado no tempo de execução, só é válido para consultas de ponto de extremidade.
+Use o _tipo_, `LUIS` , ao filtrar recursos no portal do Azure. O recurso de ponto de extremidade de previsão de consulta LUIS, usado no tempo de execução, só é válido para consultas de ponto de extremidade.
 
 |Recurso de previsão de consulta|Consulta TPS|
 |--|--|

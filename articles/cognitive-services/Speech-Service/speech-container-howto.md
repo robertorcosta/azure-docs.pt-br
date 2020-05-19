@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: efca7eceae74416945c568268edfe0b13a21861a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: dc11d9d7dfa7ededa19e11c9e1bc38e1eaaec93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856420"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591006"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar contêineres do serviço de fala (versão prévia)
 
@@ -26,7 +26,7 @@ Os contêineres de fala permitem que os clientes criem uma arquitetura de aplica
 > [!IMPORTANT]
 > Atualmente, todos os contêineres de fala são oferecidos como parte de uma [Visualização pública "restrita"](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Um comunicado será feito quando os contêineres de fala progredirem para disponibilidade geral (GA).
 
-| Função | Recursos | Última |
+| Função | Recursos | Mais Recente |
 |--|--|--|
 | Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.2.0 |
 | Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.2.0 |
@@ -39,7 +39,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
-| Obrigatório | Finalidade |
+| Necessária | Finalidade |
 |--|--|
 | Mecanismo Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
@@ -47,7 +47,7 @@ Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao Registro de contêiner
 
-Preencha e envie o [formulário de solicitação de contêineres de fala dos serviços cognitivas](https://aka.ms/speechcontainerspreview/) para solicitar acesso ao contêiner. 
+Preencha e envie o [formulário de solicitação de contêineres de serviços cognitivas](https://aka.ms/cognitivegate) para solicitar acesso ao contêiner.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -75,25 +75,25 @@ A tabela a seguir descreve a alocação mínima e recomendada de recursos para c
 
 # <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de texto em fala | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
 # <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 
@@ -180,7 +180,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 ```
 
 > [!NOTE]
-> O `locale` e `voice` o para contêineres de fala personalizados são determinados pelo modelo personalizado ingerido pelo contêiner.
+> O `locale` e o `voice` para contêineres de fala personalizados são determinados pelo modelo personalizado ingerido pelo contêiner.
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
@@ -193,7 +193,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> A `latest` marca extrai a localidade `en-US` e `jessarus` a voz. Para localidades adicionais, consulte [localidades de conversão de texto em fala](#text-to-speech-locales).
+> A `latest` marca extrai a `en-US` localidade e a `jessarus` voz. Para localidades adicionais, consulte [localidades de conversão de texto em fala](#text-to-speech-locales).
 
 #### <a name="text-to-speech-locales"></a>Localidades de conversão de texto em fala
 
@@ -212,7 +212,7 @@ A marca a seguir é um exemplo do formato:
 Para todas as localidades com suporte e as vozes correspondentes do contêiner de **conversão de texto em fala** , confira [marcas de imagem de texto em fala](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Ao construir um HTTP POST *padrão de conversão de texto em fala* , a mensagem de [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md) requer um `voice` elemento com um `name` atributo. O valor é a localidade de contêiner correspondente e voz, também conhecido como ["nome curto"](language-support.md#standard-voices). Por exemplo, a `latest` marca teria um nome de voz de `en-US-JessaRUS`.
+> Ao construir um HTTP POST *padrão de conversão de texto em fala* , a mensagem de [linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md) requer um `voice` elemento com um `name` atributo. O valor é a localidade de contêiner correspondente e voz, também conhecido como ["nome curto"](language-support.md#standard-voices). Por exemplo, a `latest` marca teria um nome de voz de `en-US-JessaRUS` .
 
 # <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
@@ -225,7 +225,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 ```
 
 > [!NOTE]
-> O `locale` e `voice` o para contêineres de fala personalizados são determinados pelo modelo personalizado ingerido pelo contêiner.
+> O `locale` e o `voice` para contêineres de fala personalizados são determinados pelo modelo personalizado ingerido pelo contêiner.
 
 ***
 
@@ -238,7 +238,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 ## <a name="run-the-container-with-docker-run"></a>Executar o contêiner com `docker run`
 
-Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. Consulte [coletando parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os `{Endpoint_URI}` valores `{API_Key}` e. [Exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais do `docker run` comando também estão disponíveis.
+Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. Consulte [coletando parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os `{Endpoint_URI}` `{API_Key}` valores e. [Exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais do `docker run` comando também estão disponíveis.
 
 # <a name="speech-to-text"></a>[Conversão de fala em texto](#tab/stt)
 
@@ -262,7 +262,7 @@ Esse comando:
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analisar o sentimentos na saída de fala para texto 
 
-A partir do v 2.2.0 do contêiner de fala a texto, você pode chamar a [API da análise de opiniões v3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) na saída. Para chamar a análise de sentimentos, você precisará de um ponto de extremidade de recurso API de Análise de Texto. Por exemplo:  
+A partir do v 2.2.0 do contêiner de fala a texto, você pode chamar a [API da análise de opiniões v3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) na saída. Para chamar a análise de sentimentos, você precisará de um ponto de extremidade de recurso API de Análise de Texto. Por exemplo: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -302,12 +302,12 @@ A ID do **modelo** de fala personalizado é necessária para executar o contêin
 
 ![Página de treinamento de fala personalizada](media/custom-speech/custom-speech-model-training.png)
 
-Obtenha a **ID do modelo** para usar como o argumento para `ModelId` o parâmetro do `docker run` comando.
+Obtenha a **ID do modelo** para usar como o argumento para o `ModelId` parâmetro do `docker run` comando.
 <br>
 
 ![Detalhes do modelo de fala personalizado](media/custom-speech/custom-speech-model-details.png)
 
-A tabela a seguir representa os `docker run` vários parâmetros e suas descrições correspondentes:
+A tabela a seguir representa os vários `docker run` parâmetros e suas descrições correspondentes:
 
 | Parâmetro | Descrição |
 |---------|---------|
@@ -335,7 +335,7 @@ Esse comando:
 * Carrega o modelo de *fala personalizada para texto* da montagem de entrada de volume, por exemplo, *C:\CustomSpeech*.
 * Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner.
 * Baixa o modelo de acordo `ModelId` com o (se não for encontrado na montagem do volume).
-* Se o modelo personalizado tiver sido baixado anteriormente, `ModelId` o será ignorado.
+* Se o modelo personalizado tiver sido baixado anteriormente, o `ModelId` será ignorado.
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
@@ -364,12 +364,12 @@ O contêiner de *texto em fala personalizado* depende de um modelo de voz person
 
 ![Página de treinamento de voz personalizada](media/custom-voice/custom-voice-model-training.png)
 
-Obtenha a **ID do modelo** para usar como o argumento para `ModelId` o parâmetro do comando de execução do Docker.
+Obtenha a **ID do modelo** para usar como o argumento para o `ModelId` parâmetro do comando de execução do Docker.
 <br>
 
 ![Detalhes do modelo de voz personalizado](media/custom-voice/custom-voice-model-details.png)
 
-A tabela a seguir representa os `docker run` vários parâmetros e suas descrições correspondentes:
+A tabela a seguir representa os vários `docker run` parâmetros e suas descrições correspondentes:
 
 | Parâmetro | Descrição |
 |---------|---------|
@@ -397,7 +397,7 @@ Esse comando:
 * Carrega o modelo de *conversão de texto em fala personalizado* da montagem de entrada de volume, por exemplo, *C:\CustomVoice*.
 * Expõe a porta TCP 5000 e aloca um pseudo-TTY para o contêiner.
 * Baixa o modelo de acordo `ModelId` com o (se não for encontrado na montagem do volume).
-* Se o modelo personalizado tiver sido baixado anteriormente, `ModelId` o será ignorado.
+* Se o modelo personalizado tiver sido baixado anteriormente, o `ModelId` será ignorado.
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.
 
 ***
@@ -425,7 +425,7 @@ Se você forneceu suas credenciais de API de Análise de Texto [para o contêine
 
 # <a name="simple-format"></a>[Formato simples](#tab/simple-format)
 
-Para configurar o cliente de fala para usar um formato simples, `"Sentiment"` adicione como um valor `Simple.Extensions`para. Se você quiser escolher uma versão específica do modelo de Análise de Texto, `'latest'` substitua na `speechcontext-phraseDetection.sentimentAnalysis.modelversion` configuração da propriedade.
+Para configurar o cliente de fala para usar um formato simples, adicione `"Sentiment"` como um valor para `Simple.Extensions` . Se você quiser escolher uma versão específica do modelo de Análise de Texto, substitua `'latest'` na `speechcontext-phraseDetection.sentimentAnalysis.modelversion` configuração da propriedade.
 
 ```python
 speech_config.set_service_property(
@@ -459,7 +459,7 @@ speech_config.set_service_property(
 
 # <a name="detailed-format"></a>[Formato detalhado](#tab/detailed-format)
 
-Para configurar o cliente de fala para usar um formato detalhado, `"Sentiment"` adicione como um valor `Detailed.Extensions`para `Detailed.Options`, ou ambos. Se você quiser escolher uma versão específica do modelo de Análise de Texto, `'latest'` substitua na `speechcontext-phraseDetection.sentimentAnalysis.modelversion` configuração da propriedade.
+Para configurar o cliente de fala para usar um formato detalhado, adicione `"Sentiment"` como um valor para `Detailed.Extensions` , `Detailed.Options` ou ambos. Se você quiser escolher uma versão específica do modelo de Análise de Texto, substitua `'latest'` na `speechcontext-phraseDetection.sentimentAnalysis.modelversion` configuração da propriedade.
 
 ```python
 speech_config.set_service_property(
@@ -524,7 +524,7 @@ speech_config.set_service_property(
 
 ---
 
-Se você quiser desabilitar completamente a análise de sentimentos, adicione `false` um valor `sentimentanalysis.enabled`a.
+Se você quiser desabilitar completamente a análise de sentimentos, adicione um `false` valor a `sentimentanalysis.enabled` .
 
 ```python
 speech_config.set_service_property(

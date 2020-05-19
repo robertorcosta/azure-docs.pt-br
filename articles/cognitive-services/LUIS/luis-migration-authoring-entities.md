@@ -1,21 +1,14 @@
 ---
 title: Migrar para a entidade aprendida pela máquina v3
-titleSuffix: Azure Cognitive Services
 description: A criação v3 fornece um novo tipo de entidade, a entidade aprendida por máquina, juntamente com a capacidade de adicionar relações à entidade aprendida por máquina e a outras entidades ou recursos do aplicativo.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 12/30/2019
-ms.author: diberry
-ms.openlocfilehash: b5dbcd9033d9a41e43ea907d043e0c0486b236db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: how-to
+ms.date: 05/08/2020
+ms.openlocfilehash: 79fbe261f597f55ca6caff468d4d5c154a273c42
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75563829"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593215"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrar para a entidade de criação v3
 
@@ -23,14 +16,14 @@ A criação v3 fornece um novo tipo de entidade, a entidade aprendida por máqui
 
 ## <a name="entities-are-decomposable-in-v3"></a>As entidades são decompostas em v3
 
-As entidades criadas com as APIs de criação v3, usando as [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) ou com o [portal de visualização](https://preview.luis.ai/), permitem que você crie um modelo de entidade em camadas com um pai e filhos. O pai é conhecido como **entidade aprendida pela máquina** e os filhos são conhecidos como **Subcomponentes** da entidade aprendida do computador.
+As entidades criadas com as APIs de criação v3, usando as [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) ou com o portal, permitem que você crie um modelo de entidade em camadas com um pai e filhos. O pai é conhecido como a **entidade aprendida pela máquina** e os filhos são **conhecidos como subentidades** de entidades aprendidas pela máquina.
 
-Cada Subcomponente também é uma entidade aprendida por máquina, mas com as opções de configuração adicionadas de restrições e descritores.
+Cada subentidade também é uma entidade aprendida por computador, mas com as opções de configuração adicionadas dos recursos.
 
-* As **restrições** são regras de correspondência de texto exatas que garantem que uma entidade seja extraída quando corresponder a uma regra. A regra é definida por uma entidade de correspondência de texto exata, atualmente: uma [entidade predefinida](luis-reference-prebuilt-entities.md), uma [entidade de expressão regular](reference-entity-regular-expression.md)ou uma [entidade de lista](reference-entity-list.md).
-* Os **descritores** são [recursos](luis-concept-feature.md), como listas de frases ou entidades, que são usados para indicar fortemente a entidade.
-
-A criação v3 fornece um novo tipo de entidade, a entidade aprendida por máquina, juntamente com a capacidade de adicionar relações à entidade aprendida por máquina e a outras entidades ou recursos do aplicativo.
+* Os **recursos necessários** são regras que garantem que uma entidade seja extraída quando corresponder a um recurso. A regra é definida pelo recurso necessário para o modelo:
+    * [Entidade predefinida](luis-reference-prebuilt-entities.md)
+    * [Entidade de expressão regular](reference-entity-regular-expression.md)
+    * [Listar entidade](reference-entity-list.md).
 
 ## <a name="how-do-these-new-relationships-compare-to-v2-authoring"></a>Como essas novas relações se comparam à criação v2
 
@@ -61,7 +54,7 @@ Ao migrar, considere o seguinte em seu plano de migração:
     * Entidades
         * Entidade hierárquica
         * Entidade composta
-    * Funções – as funções só podem ser aplicadas a uma entidade aprendida por computador (pai). Funções não podem ser aplicadas a subcomponentes
+    * Funções – as funções só podem ser aplicadas a uma entidade aprendida por computador (pai). Funções não podem ser aplicadas a subentidades
     * Testes em lotes e padrões que usam as entidades hierárquicas e compostas
 
 Ao projetar seu plano de migração, deixe o tempo de revisar as entidades finais aprendidas pela máquina, depois que todas as entidades hierárquicas e compostas tiverem sido migradas. Embora uma migração direta funcione, depois de fazer a alteração e examinar os resultados do teste do lote e prever o JSON, o JSON mais unificado pode levar você a fazer alterações para que as informações finais entregues ao aplicativo do lado do cliente sejam organizadas de forma diferente. Isso é semelhante à refatoração de código e deve ser tratado com o mesmo processo de revisão que sua organização tem em vigor.
@@ -70,7 +63,7 @@ Se você não tiver testes de lote em vigor para seu modelo V2 e migrar os teste
 
 ## <a name="migrating-from-v2-entities"></a>Migrando de entidades v2
 
-Ao começar a mudar para o modelo de criação v3, você deve considerar como mover para a entidade aprendida por computador e seus subcomponentes, incluindo as restrições e os descritores.
+Ao começar a mudar para o modelo de criação v3, você deve considerar como mover para a entidade aprendida por computador e suas subentidades e recursos.
 
 A tabela a seguir anota quais entidades precisam migrar de um design de entidade v2 para um v3.
 
@@ -81,20 +74,20 @@ A tabela a seguir anota quais entidades precisam migrar de um design de entidade
 
 ## <a name="migrate-v2-composite-entity"></a>Migrar entidade composta v2
 
-Cada filho da composição v2 deve ser representado com um subcomponente da entidade do aprendida pela máquina v3. Se o filho composto for uma expressão predefinida, regular ou uma entidade de lista, isso deverá ser aplicado como uma **restrição** no subcomponente que representa o filho.
+Cada filho da composição v2 deve ser representado com uma subentidade da entidade aprendida pela máquina v3. Se o filho composto for uma expressão predefinida, regular ou uma entidade de lista, isso deverá ser aplicado como um recurso necessário na subentidade.
 
 Considerações ao planejar a migração de uma entidade composta para uma entidade aprendida por máquina:
 * Entidades filho não podem ser usadas em padrões
 * Entidades filho não são mais compartilhadas
 * Entidades filho precisam ser rotuladas se usadas para serem aprendidas sem computador
 
-### <a name="existing-descriptors"></a>Descritores existentes
+### <a name="existing-features"></a>Recursos existentes
 
-Qualquer lista de frases usada para impulsionar palavras na entidade composta deve ser aplicada como um descritor à entidade aprendida (pai) da máquina, à entidade de subcomponente (filho) ou à intenção (se a lista de frases se aplicar apenas a uma intenção). Planeje adicionar o descritor à entidade que ele deve aumentar mais significativamente. Não adicione o descritor genericamente à entidade aprendida pela máquina (pai), caso ela aumente significativamente a previsão de um subcomponente (filho).
+Qualquer lista de frases usada para impulsionar palavras na entidade composta deve ser aplicada como um recurso à entidade aprendida (pai) da máquina, à entidade da subentidade (filho) ou à intenção (se a lista de frases se aplicar apenas a uma intenção). Planeje adicionar o recurso à entidade em que ele deve aumentar significativamente. Não adicione o recurso genericamente à entidade aprendida por computador (pai), se ele aumentará significativamente a previsão de uma subentidade (filho).
 
-### <a name="new-descriptors"></a>Novos descritores
+### <a name="new-features"></a>Novos recursos
 
-Na criação v3, adicione uma etapa de planejamento para avaliar entidades como possíveis descritores para todas as entidades e intenções.
+Na criação v3, adicione uma etapa de planejamento para avaliar entidades como possíveis recursos para todas as entidades e intenções.
 
 ### <a name="example-entity"></a>Entidade de exemplo
 
@@ -114,8 +107,8 @@ A tabela a seguir demonstra a migração:
 |Modelos v2|Modelos v3|
 |--|--|
 |Entidade pai-componente nomeada`Order`|Entidade do pai-máquina aprendida denominada`Order`|
-|DatetimeV2 predefinido filho|* Migre a entidade predefinida para o novo aplicativo.<br>* Adicionar restrição no pai para datetimeV2 predefinidos.|
-|Entidade de lista de filhos para ingredientes|* Migre a entidade de lista para o novo aplicativo.<br>* Em seguida, adicione uma restrição ao pai para a entidade de lista.|
+|DatetimeV2 predefinido filho|* Migre a entidade predefinida para o novo aplicativo.<br>* Adicione o recurso necessário no pai para datetimeV2 predefinidos.|
+|Entidade de lista de filhos para ingredientes|* Migre a entidade de lista para o novo aplicativo.<br>* Em seguida, adicione um recurso necessário no pai para a entidade de lista.|
 
 
 ## <a name="migrate-v2-hierarchical-entity"></a>Migrar entidade hierárquica v2
@@ -124,11 +117,11 @@ Na criação v2, uma entidade hierárquica foi fornecida antes das funções exi
 
 Na criação V3:
 * Uma função pode ser aplicada na entidade (pai) aprendida pela máquina.
-* Uma função não pode ser aplicada a nenhum subcomponente.
+* Uma função não pode ser aplicada a nenhuma subentidade.
 
 Essa entidade é apenas um exemplo. Sua própria migração de entidade pode exigir outras considerações.
 
-Considere uma entidade hierárquica v2 para modificar uma pizza `order`:
+Considere uma entidade hierárquica v2 para modificar uma pizza `order` :
 * onde cada filho determina um ingredientes original ou o topo de cima
 
 Um exemplo de expressão para essa entidade é:
@@ -141,6 +134,56 @@ A tabela a seguir demonstra a migração:
 |--|--|
 |Entidade pai-componente nomeada`Order`|Entidade do pai-máquina aprendida denominada`Order`|
 |Entidade filho-hierárquica com topo de pizza original e final|* Adicionar função a `Order` para cada ingredientes.|
+
+## <a name="api-change-constraint-replaced-with-required-feature"></a>Restrição de alteração de API substituída pelo recurso necessário
+
+Essa alteração foi feita em maio de 2020 na conferência//Build e só se aplica às APIs de criação v3 em que um aplicativo está usando um recurso restrito. Se você estiver migrando da criação v2 para a criação V3 ou não tiver usado recursos restritos v3, pule esta seção.
+
+**Funcionalidade** – capacidade de exigir uma entidade existente como um recurso para outro modelo e apenas extrair esse modelo se a entidade for detectada. A funcionalidade não foi alterada, mas a API e a terminologia foram alteradas.
+
+|Terminologia anterior|Nova terminologia|
+|--|--|
+|`constrained feature`<br>`constraint`<br>`instanceOf`|`required feature`<br>`isRequired`|
+
+#### <a name="automatic-migration"></a>Migração automática
+
+A partir de **junho de 19 2020**, você não terá permissão para criar restrições programaticamente usando a API de criação anterior que expô essa funcionalidade.
+
+Todos os recursos de restrição existentes serão migrados automaticamente para o sinalizador de recurso necessário. Nenhuma alteração programática é necessária para sua API de previsão e nenhuma alteração resultante na qualidade da precisão da previsão.
+
+#### <a name="luis-portal-changes"></a>Alterações do portal LUIS
+
+O portal de visualização do LUIS referenciou essa funcionalidade como uma **restrição**. O portal LUIS atual designa essa funcionalidade como um **recurso necessário**.
+
+#### <a name="previous-authoring-api"></a>API de criação anterior
+
+Essa funcionalidade foi aplicada na API de criação de visualização **[criar entidade filho](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5d86cf3c6a25a45529767d77)** como parte da definição de uma entidade, usando a `instanceOf` Propriedade do filho de uma entidade:
+
+```json
+{
+    "name" : "dayOfWeek",
+    "instanceOf": "datetimeV2",
+    "children": [
+        {
+           "name": "dayNumber",
+           "instanceOf": "number",
+           "children": []
+        }
+    ]
+}
+```
+
+#### <a name="new-authoring-api"></a>Nova API de criação
+
+Essa funcionalidade agora é aplicada com a **[API adicionar relação de recursos de entidade](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5d9dc1781e38aaec1c375f26)** usando as `featureName` `isRequired` Propriedades e. O valor da `featureName` propriedade é o nome do modelo.
+
+```json
+{
+    "featureName": "YOUR-MODEL-NAME-HERE",
+    "isRequired" : true
+}
+```
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
