@@ -9,35 +9,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 21afb12bf2464218119ebf52ebd980745e3d731d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 077e29856842972fae2c723d4a2c368cbb80df06
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76311709"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593249"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
 Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](luis-concept-roles.md)de entidade e texto opcional.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 > [!CAUTION]
-> Os padrões incluem apenas pais de entidade aprendidas por computador, não subcomponentes.
+> Os padrões incluem apenas pais de entidade aprendidas por computador, não subentidades.
 
 ## <a name="adding-example-utterances-as-pattern"></a>Adicionando declarações de exemplo como padrão
 
 Se você quiser adicionar um padrão para uma entidade, a maneira _mais fácil_ é criar o padrão na página de detalhes da intenção. Isso garante que a sintaxe corresponda ao exemplo expressão.
 
-1. No [portal do Luis de visualização](https://preview.luis.ai), selecione o aplicativo na página **meus aplicativos** .
+1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Na página lista de **tentativas** , selecione o nome da intenção do exemplo expressão para o qual você deseja criar um modelo expressão.
 1. Na página detalhes da intenção, selecione a linha do exemplo expressão que você deseja usar como o modelo expressão e, em seguida, selecione **+ Adicionar como padrão** na barra de ferramentas de contexto.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de tela da seleção de exemplo expressão como um padrão de modelo na página de detalhes da intenção.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
 
-1. Na caixa pop-up, selecione **concluído** na página **confirmar padrões** . Você não precisa definir os subcomponentes, restrições ou descritores das entidades. Você só precisa listar a entidade aprendida por computador.
+1. Na caixa pop-up, selecione **concluído** na página **confirmar padrões** . Você não precisa definir as subentidades ou os recursos das entidades. Você só precisa listar a entidade aprendida por computador.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de tela de confirmação de exemplo expressão como um padrão de modelo na página de detalhes da intenção.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
@@ -47,8 +46,9 @@ Se você quiser adicionar um padrão para uma entidade, a maneira _mais fácil_ 
 1. Na barra de navegação, selecione **treinar** para treinar o aplicativo com o novo padrão.
 
 ## <a name="add-template-utterance-using-correct-syntax"></a>Adicionar modelo expressão usando a sintaxe correta
-
-1. Abra o aplicativo selecionando seu nome na página **Meus Aplicativos** e, em seguida, selecione **Padrões** no painel esquerdo, sob **Melhorar o desempenho do aplicativo**.
+1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
+1. Selecione **padrões** no painel esquerdo, em **melhorar o desempenho do aplicativo**.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de tela da lista de Padrões](./media/luis-how-to-model-intent-pattern/patterns-1.png)
@@ -60,7 +60,7 @@ Se você quiser adicionar um padrão para uma entidade, a maneira _mais fácil_ 
     > [!div class="mx-imgBorder"]
     > ![Captura de tela de entidade do padrão](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se sua entidade incluir uma [função](luis-concept-roles.md), indique a função com um único dois `:`-pontos,, após o nome da `{Location:Origin}`entidade, como. A lista de funções das entidades é exibida em uma lista. Selecione a função e, depois, selecione Enter.
+    Se sua entidade incluir uma [função](luis-concept-roles.md), indique a função com um único dois-pontos, `:` , após o nome da entidade, como `{Location:Origin}` . A lista de funções das entidades é exibida em uma lista. Selecione a função e, depois, selecione Enter.
 
     > [!div class="mx-imgBorder"]
     > ![Captura de tela da entidade com a função](./media/luis-how-to-model-intent-pattern/patterns-4.png)
