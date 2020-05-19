@@ -2,13 +2,13 @@
 title: Configurar o Personalizador
 description: A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço faz explorações, com que frequência o modelo é treinado novamente e quantos dados são armazenados.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/29/2020
+ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219352"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584647"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Configurar o loop de aprendizagem do personalizador
 
@@ -18,6 +18,23 @@ Configure o loop de aprendizagem na página **configuração** , na portal do Az
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## <a name="planning-configuration-changes"></a>Planejando alterações de configuração
+
+Como algumas alterações [de configuração redefinem seu modelo](#settings-that-include-resetting-the-model), você deve planejar as alterações de configuração.
+
+Se você planeja usar o [modo aprendiz](concept-apprentice-mode.md), certifique-se de revisar a configuração do personalizador antes de alternar para o modo aprendiz.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## <a name="settings-that-include-resetting-the-model"></a>Configurações que incluem a redefinição do modelo
+
+As ações a seguir disparam um novo treinamento do modelo usando dados disponíveis até os últimos 2 dias.
+
+* Recompensa
+* Exploração
+
+Para [limpar](how-to-manage-model.md) todos os seus dados, use a página de **configurações modelo e aprendizado** .
 
 ## <a name="configure-rewards-for-the-feedback-loop"></a>Configurar recompensas para o loop de comentários
 
@@ -66,16 +83,7 @@ O **Período de retenção de dados** define por quantos dias o Personalizador m
 
 Depois de alterar esse valor, certifique-se de selecionar **salvar**.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## <a name="settings-that-include-resetting-the-model"></a>Configurações que incluem a redefinição do modelo
-
-As ações a seguir incluem um novo treinamento imediato do modelo com os últimos 2 dias de dados.
-
-* Recompensa
-* Exploração
-
-Para [limpar](how-to-manage-model.md) todos os seus dados, use a página * * Configurações de modelo e aprendizado * *.
 
 ## <a name="next-steps"></a>Próximas etapas
 

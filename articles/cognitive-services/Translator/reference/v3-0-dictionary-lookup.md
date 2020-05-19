@@ -1,5 +1,5 @@
 ---
-title: Método de pesquisa de dicionário de API do Translator texto
+title: Método de pesquisa do dicionário do Tradutor
 titleSuffix: Azure Cognitive Services
 description: O método de pesquisa de dicionário fornece traduções alternativas para uma palavra e um pequeno número de frases idiomáticas.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: bd27827441082698bb4e0b43e7dd22d5b7e66539
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548944"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584732"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Tradução de texto API 3.0: Pesquisa de dicionário
+# <a name="translator-30-dictionary-lookup"></a>Tradutor 3,0: pesquisa de dicionário
 
 Fornece as traduções alternativas para uma palavra e um pequeno número de frases idiomáticas. Cada tradução tem uma parte da fala e uma lista de traduções reversas. As traduções reversas possibilitam que um usuário entenda a tradução no contexto. A operação [Exemplo de Dicionário](./v3-0-dictionary-examples.md) permite mais detalhamento para ver os usos de exemplo de cada par de tradução.
 
-## <a name="request-url"></a>URL de Solicitação
+## <a name="request-url"></a>URL da solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -42,7 +42,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 Os cabeçalhos de solicitação incluem:
 
-| headers  | Descrição |
+| Cabeçalhos  | Descrição |
 | ------ | ----------- |
 | Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
 | Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
