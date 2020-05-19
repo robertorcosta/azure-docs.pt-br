@@ -1,7 +1,7 @@
 ---
-title: Contagens de caractere - API de Tradução de Texto
+title: Contagens de caracteres-Tradutor
 titleSuffix: Azure Cognitive Services
-description: Este artigo explica como os serviços cognitivas do Azure API de Tradução de Texto contam caracteres para que você possa entender como ele consome conteúdo.
+description: Este artigo explica como o tradutor de serviços cognitivas do Azure conta os caracteres para que você possa entender como ele consome conteúdo.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb70b8624ac0d909511032622948f14f8764b153
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0219940a4ac60e4a6187d13802c36e8bff1925b3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73888154"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587316"
 ---
-# <a name="how-the-translator-text-api-counts-characters"></a>Como a API de Tradução de Texto conta caracteres
+# <a name="how-the-translator-counts-characters"></a>Como o tradutor conta caracteres
 
-A API de Tradução de Texto conta cada ponto de código Unicode do texto de entrada como um caractere. Cada tradução de um texto para um idioma conta como uma tradução separada, mesmo que a solicitação tenha sido feita em uma única chamada à API que traduziu para vários idiomas. O tamanho da resposta não é importante.
+O tradutor conta cada ponto de código Unicode de texto de entrada como um caractere. Cada tradução de um texto para um idioma conta como uma tradução separada, mesmo que a solicitação tenha sido feita em uma única chamada à API que traduziu para vários idiomas. O tamanho da resposta não é importante.
 
 O que conta é:
 
-* O texto é transferido para a API de Tradução de Texto no corpo da solicitação
+* Texto passado para o tradutor no corpo da solicitação
    * `Text` ao usar os métodos Tradução, Transliteração e Pesquisa no dicionário
    * `Text` e `Translation` ao usar o método Exemplos de dicionário
 * Todas as marcações: HTML, marcas XML, etc. no campo de texto do corpo da solicitação. A notação JSON usada para construir a solicitação (por exemplo "Text:") não é contabilizada.
@@ -33,11 +33,10 @@ O que conta é:
 * Cada ponto de código definido no Unicode
 * Uma tradução repetida, mesmo que você já tenha traduzido o mesmo texto anteriormente
 
-Para scripts com base em ideogramas, como chinês e japonês Kanji, a API de Tradução de Texto ainda contará o número de pontos de código Unicode, um caractere por ideograma. Exceção: os substitutos Unicode contam como dois caracteres.
+Para scripts baseados em ideograms como chinês e japonês kanji, o serviço de Tradutor ainda conta o número de pontos de código Unicode, um caractere por ideogram. Exceção: os substitutos Unicode contam como dois caracteres.
 
 O número de solicitações, palavras, bytes ou frases é irrelevante na contagem de caracteres.
 
 Chamadas para os métodos Detect e BreakSentence não são contadas no consumo de caractere. No entanto, esperamos que as chamadas para os métodos Detect e BreakSentence sejam de uma proporção razoável para o uso de outras funções que são contadas. Se o número de chamadas Detect ou BreakSentence feitas exceder 100 vezes o número de outros métodos contabilizados, a Microsoft se reservará o direito de restringir o uso dos métodos Detect e BreakSentence.
 
-
-Veja mais informações sobre contagens de caracteres em [Perguntas frequentes sobre o Microsoft Translator](https://www.microsoft.com/en-us/translator/faq.aspx).
+Mais informações sobre contagens de caracteres estão nas [perguntas frequentes do tradutor](https://www.microsoft.com/en-us/translator/faq.aspx).

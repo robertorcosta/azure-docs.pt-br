@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e01f3ddde96903716cf1fcff0426791ff3a90e07
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836559"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587656"
 ---
 # <a name="create-a-project"></a>Criar um projeto
 
@@ -52,7 +52,7 @@ A página de entrada do Custom Translator mostra os primeiros 10 projetos em seu
 
 Depois de selecionar um projeto, você verá o seguinte na página do projeto:
 
-- CategoryID: Um CategoryID é criado pela concatenação do WorkspaceID, rótulo do projeto e código da categoria. Você usa o CategoryID com o Text Translator API para obter traduções personalizadas.
+- CategoryID: Um CategoryID é criado pela concatenação do WorkspaceID, rótulo do projeto e código da categoria. Use o CategoryID com o conversor de texto para obter traduções personalizadas.
 
 - Botão Train: Use este botão para iniciar um [treinamento de um modelo](how-to-train-model.md).
 

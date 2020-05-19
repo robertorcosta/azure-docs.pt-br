@@ -1,7 +1,7 @@
 ---
-title: Filtragem de conteúdo ofensivo - API de tradução de texto
+title: Filtragem de profanação-Tradutor
 titleSuffix: Azure Cognitive Services
-description: Use a filtragem de profanação para determinar o nível de profanação traduzido em seu texto no API de Tradução de Texto de serviços cognitivas do Azure.
+description: Use a filtragem de profanação para determinar o nível de profanação traduzido em seu texto no Tradutor de serviços cognitivas do Azure.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 864f6a6d92306c40713f66b526c8a8df1683d3c4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836222"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586789"
 ---
-# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Adicionar conteúdo ofensivo filtragem com a API de tradução de texto
+# <a name="add-profanity-filtering-with-the-translator"></a>Adicionar filtragem de profanação com o tradutor
 
 Normalmente o serviço de tradução retém a linguagem obscena presente no texto de origem da tradução. O grau de obscenidade e o contexto que torna as palavras impróprias diferem entre culturas. Como resultado, o grau de profanação na língua-alvo pode ser amplificado ou reduzido.
 
@@ -30,8 +30,8 @@ O método Translate () usa o parâmetro “options”, que contém o novo elemen
 | :---|:---|:---|:---|
 | NoAction | Padrão. O mesmo que não configurar a opção. A linguagem obscena passa do texto de origem para o texto de destino. | 彼は変態です。 | Ele é um idiota. |
 | Marked | Palavras impróprias cercadas por marcas XML \<profanação >... \</profanity >. | 彼は変態です。 | Ele é um \<profanity>jerk\</profanity >. |
-| Deleted | Palavras impróprias são removidas da saída sem substituição. | 彼は。 | Ele é um. |
+| Excluído | Palavras impróprias são removidas da saída sem substituição. | 彼は。 | Ele é um. |
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Aplicar filtragem de linguagem obscena com a chamada à API de Tradução](reference/v3-0-translate.md)
+> [Aplicar a filtragem de profanação à sua chamada de Tradutor](reference/v3-0-translate.md)

@@ -4,19 +4,19 @@ description: Crie entidades para extrair dados de chave de declarações de usu�
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: cc24667f43dfedc032f52c40fc5f8fe5c80bad70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382158"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585565"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrões
 
 Sintaxe de padrão é um modelo para uma expressão. O modelo deve conter palavras e entidades que você deseja corresponder, bem como palavras e [pontuações](luis-reference-application-settings.md#punctuation-normalization) que você deseja ignorar. **Não** é uma expressão regular.
 
 > [!CAUTION]
-> Os padrões incluem apenas pais de entidade aprendidas por computador, não subcomponentes.
+> Os padrões incluem apenas pais de entidade aprendidas por computador, não subentidades.
 
 As entidades em padrões estão entre chaves, `{}`. Os padrões podem incluir entidades e entidades com funções. [Padrão. any](luis-concept-entity-types.md#patternany-entity) é uma entidade usada apenas em padrões.
 
@@ -117,7 +117,7 @@ Nas expressões a seguir, as entidades **assunto** e **pessoa** são extraídas 
 |email sobre cachorros de Chris|assunto=cachorros<br>pessoa=Chris|✔|
 |email sobre o homem de La Mancha|assunto=o homem<br>pessoa=La Mancha|X|
 
-Na tabela anterior, o assunto deve ser `the man from La Mancha` (um título de livro), mas como o assunto inclui a palavra `from`opcional, o título é previsto incorretamente.
+Na tabela anterior, o assunto deve ser `the man from La Mancha` (um título de livro), mas como o assunto inclui a palavra opcional `from` , o título é previsto incorretamente.
 
 Para corrigir esta expressão no padrão, adicione `the man from la mancha` como uma correspondência de lista explícita para a entidade {assunto} usando a [API de criação para lista explícita](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
@@ -129,7 +129,7 @@ Marque texto opcional na expressão usando a sintaxe colchete de expressão regu
 |`[find] email about {subject} [from {person}]`|`find`e `from {person}` são opcionais|
 |' Você pode me ajudar a [?]|A marca de pontuação é opcional|
 
-As marcas de`?`Pontuação `!`( `.`,,) devem ser ignoradas e você precisa ignorá-las usando a sintaxe de colchetes em padrões.
+As marcas de Pontuação ( `?` , `!` , `.` ) devem ser ignoradas e você precisa ignorá-las usando a sintaxe de colchetes em padrões.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,13 +2,13 @@
 title: Terminologia – personalizador
 description: O personalizador usa terminologia do reforço Learning. Esses termos são usados no portal do Azure e nas APIs.
 ms.topic: conceptual
-ms.date: 02/18/2020
-ms.openlocfilehash: f75437c5afd5d3fd7f7570079be410d3db1ca8db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/23/2020
+ms.openlocfilehash: 3f819ff3305a7c7302eb56c83b98340946613a92
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624270"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586296"
 ---
 # <a name="terminology"></a>Terminologia
 
@@ -19,6 +19,15 @@ O personalizador usa terminologia do reforço Learning. Esses termos são usados
 * **Loop de aprendizagem**: você cria um recurso personalizado, chamado de _loop de aprendizagem_, para cada parte do aplicativo que pode se beneficiar da personalização. Caso você tenha mais de uma experiência para personalização, crie um loop para cada uma.
 
 * **Modelo**: um modelo personalizado captura todos os dados aprendidos sobre o comportamento do usuário, obtendo dados de treinamento da combinação dos argumentos que você envia para classificar e recompensar chamadas e com um comportamento de treinamento determinado pela política de aprendizado.
+
+* **Modo online**: o [comportamento de aprendizado](#learning-behavior) padrão para personalizador em que seu loop de aprendizagem usa o aprendizado de máquina para criar o modelo que prevê a **ação principal** para seu conteúdo.
+
+* **Modo aprendiz**: um [comportamento de aprendizado](#learning-behavior) que ajuda a iniciar um modelo personalizado para treinar sem afetar os resultados e as ações dos aplicativos.
+
+## <a name="learning-behavior"></a>Comportamento de aprendizagem:
+
+* **Modo online**: retorna a melhor ação. Seu modelo responderá a chamadas de classificação com a melhor ação e usará as chamadas de recompensa para aprender e melhorar suas seleções ao longo do tempo.
+* **[Modo de aprendiz](concept-apprentice-mode.md)**: saiba como um aprendiz. Seu modelo aprenderá observando o comportamento do seu sistema existente. Chamadas de classificação sempre retornarão a **ação padrão** do aplicativo (linha de base).
 
 ## <a name="personalizer-configuration"></a>Configuração do personalizador
 
@@ -63,8 +72,21 @@ O personalizador é configurado no [portal do Azure](https://portal.azure.com).
 
 * **Recompensa**: uma medida de como o usuário respondeu à ID da ação de recompensa retornada da API de classificação, como uma pontuação entre 0 e 1. O valor de 0 a 1 é definido pela lógica de negócios, com base em como a opção ajudou a atingir as metas de negócios de personalização. O loop de aprendizagem não armazena esse prêmio como um histórico de usuário individual.
 
-## <a name="offline-evaluations"></a>Avaliações offline
+## <a name="evaluations"></a>Avaliações
 
-* **Avaliação**: uma avaliação offline determina a melhor política de aprendizado para seu loop com base nos dados do loop.
+### <a name="offline-evaluations"></a>Avaliações offline
+
+* **Avaliação**: uma avaliação offline determina a melhor política de aprendizado para seu loop com base nos dados do seu aplicativo.
 
 * **Política de aprendizagem**: como o personalizador treina um modelo em cada evento será determinado por alguns parâmetros que afetam o funcionamento do algoritmo de aprendizado de máquina. Um novo loop de aprendizado começa com uma **política de aprendizado**padrão, que pode produzir um desempenho moderado. Ao executar [avaliações](concepts-offline-evaluation.md), o personalizador cria novas políticas de aprendizado especificamente otimizadas para os casos de uso do loop. O personalizador terá um desempenho significativamente melhor com políticas otimizadas para cada loop específico, gerado durante a avaliação. A política de aprendizado é denominada _configurações de aprendizado_ nas **configurações de modelo e aprendizado** para o recurso personalizado no portal do Azure.
+
+### <a name="apprentice-mode-evaluations"></a>Avaliações do modo aprendiz
+
+O modo aprendiz fornece as seguintes **métricas de avaliação**:
+* **Linha de base – recompensa média**: recompensas médias do padrão do aplicativo (linha de base).
+* **Personalizador – recompensa média**: a média do personalizador de recompensas pode ter atingido potencialmente.
+* **Recompensa média contínua**: taxa de linha de base e recompensa de personalizador – normalizado sobre os eventos 1000 mais recentes.
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Saiba mais sobre [ética e uso responsável](ethics-responsible-use.md)

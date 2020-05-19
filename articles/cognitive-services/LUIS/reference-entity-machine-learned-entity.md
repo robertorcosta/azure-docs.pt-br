@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/30/2019
+ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75551991"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585582"
 ---
 # <a name="machine-learned-entity"></a>Entidade com aprendizado de máquina
 
@@ -38,7 +38,7 @@ Expressões de exemplo incluem:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Resposta de ponto de extremidade de previsão V3](#tab/V3)
 
-Como uma entidade aprendida por máquina pode ter muitos subcomponentes com restrições e descritores, isso é apenas um exemplo. Ele deve ser considerado um guia para o que a sua entidade retornará.
+Como uma entidade aprendida por máquina pode ter muitas subentidades com recursos necessários, isso é apenas um exemplo. Ele deve ser considerado um guia para o que a sua entidade retornará.
 
 Considere a consulta:
 

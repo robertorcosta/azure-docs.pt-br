@@ -1,21 +1,14 @@
 ---
 title: Tipo de entidade de expressão regular-LUIS
-titleSuffix: Azure Cognitive Services
 description: Uma expressão regular é melhor para texto de enunciado bruto. Não diferencia maiúsculas de minúsculas e ignora a variante cultural.  A correspondência de expressão regular é aplicada após alterações ortográficas no nível do caractere, não no nível do token.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 90260fca10fc087225f6b1286e9fa2dd6d17c836
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74841210"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585599"
 ---
 # <a name="regular-expression-entity"></a>Entidade de expressão regular
 
@@ -32,13 +25,13 @@ Uma expressão regular é melhor para texto de enunciado bruto. Não diferencia 
 
 ## <a name="usage-considerations"></a>Considerações sobre o uso
 
-Expressões regulares podem corresponder a mais do que você espera corresponder. Um exemplo disso é a correspondência de palavras numéricas `one` , `two`como e. Um exemplo é o seguinte Regex, que corresponde ao número `one` junto com outros números:
+Expressões regulares podem corresponder a mais do que você espera corresponder. Um exemplo disso é a correspondência de palavras numéricas, como `one` e `two` . Um exemplo é o seguinte Regex, que corresponde ao número `one` junto com outros números:
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ```
 
-Essa expressão Regex também corresponde a quaisquer palavras que terminem com esses números, `phone`como. Para corrigir problemas como esse, verifique se as correspondências de Regex levam em conta limites de palavras. O Regex para usar limites de palavras para este exemplo é usado no seguinte Regex:
+Essa expressão Regex também corresponde a quaisquer palavras que terminem com esses números, como `phone` . Para corrigir problemas como esse, verifique se as correspondências de Regex levam em conta limites de palavras. O Regex para usar limites de palavras para este exemplo é usado no seguinte Regex:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
@@ -46,7 +39,7 @@ Essa expressão Regex também corresponde a quaisquer palavras que terminem com 
 
 ### <a name="example-json"></a>JSON de exemplo
 
-Ao usar `kb[0-9]{6}`, como a definição de entidade de expressão regular, a resposta JSON a seguir é um exemplo de expressão com as entidades de expressão regular retornadas para a consulta:
+Ao usar `kb[0-9]{6}` , como a definição de entidade de expressão regular, a resposta JSON a seguir é um exemplo de expressão com as entidades de expressão regular retornadas para a consulta:
 
 `When was kb123456 published?`:
 
@@ -106,4 +99,7 @@ Esse é o JSON se `verbose=true` estiver definido na cadeia de caracteres de con
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste [tutorial](tutorial-regex-entity.md), crie um aplicativo para extrair dados formatados de forma consistente de um expressão usando a entidade **expressão regular** .
+Saiba mais sobre entidades:
+
+* [Conceitos](luis-concept-entity-types.md)
+* [Como criar](luis-how-to-add-entities.md)

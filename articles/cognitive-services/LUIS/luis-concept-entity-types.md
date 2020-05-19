@@ -1,33 +1,26 @@
 ---
 title: Tipos de entidade-LUIS
-titleSuffix: Azure Cognitive Services
-description: 'As entidades extraem dados do expressão. Os tipos de entidade oferecem extração previsível de dados. Há dois tipos de entidades: aprendidas por máquina e não aprendidas por computador. É importante saber para qual tipo de entidade você está trabalhando no declarações.'
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
+description: Uma entidade extrai dados de um usuário expressão no tempo de execução de previsão. Uma finalidade _opcional_e secundária é impulsionar a previsão da intenção ou de outras entidades usando a entidade como um recurso.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: diberry
-ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/30/2020
+ms.openlocfilehash: 9d8afd5a660b3af5556256835486e984d7d657bc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221024"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585633"
 ---
-# <a name="entities-and-their-purpose-in-luis"></a>Entidades e sua finalidade no LUIS
+# <a name="extract-data-with-entities"></a>Extrair dados com entidades
 
-A principal finalidade das entidades é fornecer à extração previsível dos dados pelo aplicativo cliente. Uma finalidade _opcional_e secundária é impulsionar a previsão da intenção ou de outras entidades com descritores.
+Uma entidade extrai dados de um usuário expressão no tempo de execução de previsão. Uma finalidade _opcional_e secundária é impulsionar a previsão da intenção ou de outras entidades usando a entidade como um recurso.
 
-Há dois tipos de entidades:
+Há vários tipos de entidades:
 
-* Machine-aprendi-do contexto
-* Não aprendido por máquina – para correspondências exatas de texto, correspondências de padrões ou detecção por entidades predefinidas
+* [Entidade com aprendizado de máquina](reference-entity-machine-learned-entity.md)
+* Não Machine-aprendi usado como um [recurso](luis-concept-feature.md) necessário – para correspondências exatas de texto, correspondências de padrões ou detecção por entidades predefinidas
+* [Padrão. any](#patternany-entity) -para extrair texto de forma livre, como títulos de livros, de um [padrão](reference-entity-pattern-any.md)
 
-As entidades aprendidas por máquina fornecem a mais ampla variedade de opções de extração de dados. As entidades não aprendidas por computador funcionam por correspondência de texto e podem ser usadas de forma independente ou como uma [restrição](#design-entities-for-decomposition) em uma entidade aprendida por máquina.
+As entidades aprendidas por máquina fornecem a mais ampla variedade de opções de extração de dados. As entidades não aprendidas por computador funcionam por correspondência de texto e são usadas como um [recurso necessário](#design-entities-for-decomposition) para uma entidade ou intenção aprendida por computador.
 
 ## <a name="entities-represent-data"></a>Entidades representam dados
 
@@ -39,45 +32,37 @@ As entidades precisam ser rotuladas consistentemente em todos os declarações d
 
 |Enunciado|Entidade|Dados|
 |--|--|--|
-|Comprar três passagens para Nova York|Número predefinido<br>Location.Destination|3<br>Nova Iorque|
-|Comprar uma passagem de Nova York para Londres em 5 de março|Location.Origin<br>Location.Destination<br>datetimeV2 predefinido|Nova Iorque<br>London<br>5 de março de 2018|
+|Comprar três passagens para Nova York|Número predefinido<br>Destino|3<br>Nova Iorque|
 
-### <a name="entities-are-optional"></a>As entidades são opcionais
 
-Embora as intenções sejam obrigatórias, as entidades são opcionais. Você não precisa criar entidades para cada conceito no aplicativo, mas apenas aquelas necessárias para que o aplicativo cliente execute uma ação.
+### <a name="entities-are-optional-but-recommended"></a>As entidades são opcionais, mas recomendadas
 
-Se seus declarações não tiverem dados exigidos pelo aplicativo cliente, você não precisará adicionar entidades. Conforme o aplicativo é reparado e uma nova necessidade de dados é identificada, você pode adicionar entidades apropriadas ao modelo LUIS mais tarde.
+Embora as [intenções](luis-concept-intent.md) sejam obrigatórias, as entidades são opcionais. Você não precisa criar entidades para todos os conceitos em seu aplicativo, mas apenas para aqueles em que o aplicativo cliente precisa dos dados ou a entidade atua como uma dica ou sinal para outra entidade ou intenção.
+
+Conforme o aplicativo é reparado e uma nova necessidade de dados é identificada, você pode adicionar entidades apropriadas ao modelo LUIS mais tarde.
 
 ## <a name="entity-compared-to-intent"></a>Entidade comparada com a intenção
 
-A entidade representa um conceito de dados dentro do expressão que você deseja extrair.
-
-Um expressão pode, opcionalmente, incluir entidades. Por comparação, a previsão da intenção de um expressão é _necessária_ e representa toda a expressão. LUIS exige que o exemplo declarações esteja contido em uma intenção.
+A entidade representa um conceito de dados _dentro do expressão_. Uma intenção classifica _todo o expressão_.
 
 Considere os quatro declarações a seguir:
 
 |Enunciado|Intenção prevista|Entidades extraídas|Explicação|
 |--|--|--|--|
 |Ajuda|ajuda|-|Nada para extrair.|
-|Enviar algo|sendSomething|-|Nada para extrair. O modelo não foi treinado para extrair `something` nesse contexto, e não há nenhum destinatário.|
-|Enviar Bob a presente|sendSomething|`Bob`, `present`|O modelo foi treinado com a entidade predefinida [PersonName](luis-reference-prebuilt-person.md) , que extraiu o nome `Bob`. Uma entidade aprendida por máquina foi usada para extrair `present`.|
-|Enviar Bob a caixa de chocolates|sendSomething|`Bob`, `box of chocolates`|As duas partes importantes dos dados `Bob` e as `box of chocolates`foram extraídas por entidades.|
+|Enviar algo|sendSomething|-|Nada para extrair. O modelo não tem um recurso necessário para extrair neste `something` contexto, e não há nenhum destinatário declarado.|
+|Enviar Bob a presente|sendSomething|`Bob`, `present`|O modelo extrai `Bob` adicionando um recurso necessário da entidade predefinida `personName` . Uma entidade aprendida por máquina foi usada para extrair `present` .|
+|Enviar Bob a caixa de chocolates|sendSomething|`Bob`, `box of chocolates`|As duas partes importantes dos dados `Bob` e as foram `box of chocolates` extraídas por entidades aprendidas por computador.|
 
 ## <a name="design-entities-for-decomposition"></a>Projetar entidades para decomposição
 
-É bom design de entidade para tornar sua entidade de nível superior uma entidade aprendida por máquina. Isso permite alterações no design de sua entidade ao longo do tempo e ao uso de **Subcomponentes** (entidades filho), opcionalmente com **restrições** e **descritores**, para decompor a entidade de nível superior nas partes necessárias para o aplicativo cliente.
+As entidades aprendidas por computador permitem que você projete seu esquema de aplicativo para decomposição, dividindo um conceito grande em subentidades.
 
 A criação de decomposição permite que o LUIS retorne um nível profundo de resolução de entidade para seu aplicativo cliente. Isso permite que o aplicativo cliente se concentre em regras de negócio e deixe a resolução de dados em LUIS.
 
-### <a name="machine-learned-entities-are-primary-data-collections"></a>As entidades aprendidas por computador são coleções de dados primárias
+Um gatilho de entidade aprendida por máquina com base no contexto aprendido por meio de exemplo declarações.
 
-As [**entidades aprendidas por computador**](tutorial-machine-learned-entity.md) são a unidade de dados de nível superior. Os subcomponentes são entidades filhas de entidades aprendidas por máquina.
-
-Um gatilho de entidade aprendida por máquina com base no contexto aprendido por meio de treinamento declarações. As **restrições** são regras opcionais aplicadas a uma entidade aprendida por máquina que restringe ainda mais o disparo com base na definição de correspondência de texto exato de uma entidade não aprendida por computador, como uma [lista](reference-entity-list.md) ou [Regex](reference-entity-regular-expression.md). Por exemplo, uma `size` entidade aprendida por máquina pode ter uma restrição de uma `sizeList` entidade de lista que restringe `size` a entidade para disparar somente quando os valores contidos `sizeList` na entidade forem encontrados.
-
-Os [**descritores**](luis-concept-feature.md) são recursos aplicados para impulsionar a relevância das palavras ou frases para a previsão. Eles são chamados de *descritores* porque são usados para *descrever* uma intenção ou entidade. Os descritores descrevem a distinção de características ou atributos de dados, como palavras importantes ou frases que LUIS observa e aprende.
-
-Quando você cria um recurso de lista de frases em seu aplicativo LUIS, ele é habilitado globalmente por padrão e aplica-se uniformemente em todas as intenções e entidades. No entanto, se você aplicar a lista de frases como um descritor (recurso) de uma entidade (ou *modelo*) aprendida por computador, seu escopo será reduzido para ser aplicado somente a esse modelo e não será mais usado com todos os outros modelos. Usar uma lista de frases como um descritor para um modelo ajuda a decomposição ao auxiliar na precisão do modelo ao qual ela é aplicada.
+As [**entidades aprendidas por computador**](tutorial-machine-learned-entity.md) são os extratores de nível superior. As subentidades são entidades filhas de entidades aprendidas por máquina.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -88,51 +73,50 @@ Quando você cria um recurso de lista de frases em seu aplicativo LUIS, ele é h
 
 ## <a name="types-of-entities"></a>Tipos de entidades
 
+Uma subentidade para um pai deve ser uma entidade aprendida por computador. A subentidade pode usar uma entidade não aprendida por máquina como um [recurso](luis-concept-feature.md).
+
 Escolha a entidade com base em como os dados devem ser extraídos e como devem ser representados após extraídos.
 
 |Tipo de entidade|Finalidade|
 |--|--|
-|[**Aprendido com o computador**](tutorial-machine-learned-entity.md)|As entidades aprendidas por computador aprendem com o contexto no expressão. Agrupamento pai de entidades, independentemente do tipo de entidade. Isso torna a variação do posicionamento no exemplo declarações significativa. |
+|[**Aprendido com o computador**](tutorial-machine-learned-entity.md)|Extraia dados aninhados e complexos aprendidos de exemplos rotulados. |
 |[**Lista**](reference-entity-list.md)|Lista de itens e seus sinônimos extraídos com **correspondência exata de texto**.|
-|[**Padrão. any**](reference-entity-pattern-any.md)|Entidade na qual é difícil determinar o final da entidade. |
+|[**Padrão. any**](#patternany-entity)|A entidade em que encontrar o final da entidade é difícil de determinar porque a entidade é de forma livre. Disponível somente em [padrões](luis-concept-patterns.md).|
 |[**Predefinida**](luis-reference-prebuilt-entities.md)|Já treinado para extrair um tipo específico de dados, como URL ou email. Algumas dessas entidades predefinidas são definidas no projeto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) de software livre. Se não houver suporte à sua cultura ou entidade específica, contribua para o projeto.|
 |[**Expressão regular**](reference-entity-regular-expression.md)|Usa uma expressão regular para **correspondência exata de texto**.|
 
 ## <a name="extracting-contextually-related-data"></a>Extraindo dados relacionados contextualmente
 
-Um expressão pode conter duas ou mais ocorrências de uma entidade em que o significado dos dados é baseado no contexto dentro do expressão. Um exemplo é um expressão para a reserva de um vôo que tem dois locais, origem e destino.
+Um expressão pode conter duas ou mais ocorrências de uma entidade em que o significado dos dados é baseado no contexto dentro do expressão. Um exemplo é um expressão para reservar um vôo que tem duas localizações geográficas, origem e destino.
 
 `Book a flight from Seattle to Cairo`
 
-Os dois exemplos de uma `location` entidade precisam ser extraídos. O aplicativo cliente precisa saber o tipo de local para cada para concluir a compra do tíquete.
+Os dois locais precisam ser extraídos de forma que o aplicativo cliente saiba o tipo de cada local para concluir a compra do tíquete.
 
-Há duas técnicas para extrair dados relacionados contextuais:
+Para extrair a origem e o destino, crie duas subentidades como parte da entidade aprendida pela máquina do pedido de tíquete. Para cada uma das subentidades, crie um recurso necessário que use geographyV2.
 
- * A `location` entidade é uma entidade aprendida por computador e usa duas entidades de subcomponente para capturar `origin` o `destination` e o (preferencial)
- * A `location` entidade usa duas **funções** de `origin` e`destination`
+<a name="using-component-constraints-to-help-define-entity"></a>
+<a name="using-subentity-constraints-to-help-define-entity"></a>
 
-Várias entidades podem existir em um expressão e podem ser extraídas sem usar a decomposição ou funções se o contexto no qual elas são usadas não tiver significado. Por exemplo, se o expressão inclui uma lista de locais, `I want to travel to Seattle, Cairo, and London.`, essa é uma lista em que cada item não tem um significado adicional.
+### <a name="using-required-features-to-constrain-entities"></a>Usando os recursos necessários para restringir entidades
 
-### <a name="using-subcomponent-entities-of-a-machine-learned-entity-to-define-context"></a>Usando entidades de subcomponente de uma entidade aprendida por máquina para definir o contexto
+Saiba mais sobre os [recursos necessários](luis-concept-feature.md)
 
-Você pode usar uma [**entidade aprendida por máquina**](tutorial-machine-learned-entity.md) para extrair os dados que descrevem a ação de reservar um vôo e, em seguida, decompor a entidade de nível superior nas partes separadas necessárias pelo aplicativo cliente.
+## <a name="patternany-entity"></a>Entidade pattern.any
 
-Neste exemplo, `Book a flight from Seattle to Cairo`a entidade de nível superior poderia ser `travelAction` e rotulada para extrair. `flight from Seattle to Cairo` Em seguida, duas entidades de subcomponente são `origin` criadas `destination`, chamadas e, ambas com uma restrição aplicada à `geographyV2` entidade predefinida. No declarações de treinamento, o `origin` e `destination` são rotulados adequadamente.
+Um padrão. Any está disponível apenas em um [padrão](luis-concept-patterns.md).
 
-### <a name="using-entity-role-to-define-context"></a>Usando a função de entidade para definir o contexto
+<a name="if-you-need-more-than-the-maximum-number-of-entities"></a>
+## <a name="exceeding-app-limits-for-entities"></a>Excedendo os limites de aplicativo para entidades
 
-Uma função é um alias nomeado para uma entidade com base no contexto dentro de expressão. Uma função pode ser usada com qualquer tipo de entidade predefinida ou personalizada e usada em padrões e enunciados de exemplo. Neste exemplo, a `location` entidade precisa de duas funções de `origin` e `destination` e ambas precisam ser marcadas no exemplo declarações.
-
-Se LUIS localizar o `location` , mas não puder determinar a função, a entidade de localização ainda será retornada. O aplicativo cliente precisaria acompanhar uma pergunta para determinar o tipo de local que o usuário pretendia.
-
-
-## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Se você precisar de mais do que o número máximo de entidades
-
-Se você precisar de mais do que o limite, entre em contato com o suporte. Para fazer isso, colete informações detalhadas sobre seu sistema, acesse o site do [LUIS](luis-reference-regions.md#luis-website) e selecione **Suporte**. Se a assinatura do Azure incluir serviços de suporte, contate o [suporte técnico do Azure](https://azure.microsoft.com/support/options/).
+Se você precisar de mais do que o [limite](luis-limits.md#model-limits), entre em contato com o suporte. Para fazer isso, colete informações detalhadas sobre seu sistema, acesse o site do [LUIS](luis-reference-regions.md#luis-website) e selecione **Suporte**. Se a assinatura do Azure incluir serviços de suporte, contate o [suporte técnico do Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="entity-prediction-status"></a>Status de previsão de entidade
 
-O portal do LUIS mostra quando a entidade, em um exemplo, expressão, tem uma previsão de entidade diferente da entidade selecionada. Essa pontuação diferente é baseada no modelo treinado atual.
+O portal do LUIS mostra quando a entidade tem uma previsão de entidade diferente da entidade selecionada para um exemplo de expressão. Essa pontuação diferente é baseada no modelo treinado atual. Use essas informações para resolver erros de treinamento usando um ou mais dos seguintes itens:
+* Criar um [recurso](luis-concept-feature.md) para a entidade para ajudar a identificar o conceito da entidade
+* Adicionar mais [exemplos de declarações](luis-concept-utterance.md) e rótulo com a entidade
+* [Examine as sugestões de aprendizado ativo](luis-concept-review-endpoint-utterances.md) para qualquer declarações recebido no ponto de extremidade de previsão que possa ajudar a identificar o conceito da entidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -141,4 +125,4 @@ Aprenda os conceitos sobre [declarações](luis-concept-utterance.md) boas.
 Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.
 
 Consulte [tutorial: extrair dados estruturados do usuário expressão com entidades aprendidas por máquina no reconhecimento vocal (Luis)](tutorial-machine-learned-entity.md) para saber como extrair dados estruturados de um expressão usando a entidade aprendida por máquina.
- 
+

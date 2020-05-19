@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219506"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587215"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
@@ -29,11 +29,11 @@ Para acessar a página de configurações:
 
 ## <a name="associating-microsoft-translator-subscription"></a>Associando a assinatura do Microsoft Translator
 
-Você precisa ter uma chave de assinatura do API de Tradução de Texto associada ao seu workspace para treinar ou implantar modelos.
+Você precisa ter uma chave de assinatura do tradutor associada ao seu espaço de trabalho para treinar ou implantar modelos.
 
 Se você não tem uma assinatura, siga as etapas abaixo:
 
-1. Assine a API de tradução de Texto. Este artigo mostra como se inscrever para a API de tradução de texto.
+1. Assine o tradutor. Este artigo mostra como assinar o tradutor.
 2. Anote a chave da sua assinatura de tradutor. Qualquer uma das Key1 ou Key2 são aceitáveis.
 3. Navegue de volta para o portal do Custom Translator.
 
