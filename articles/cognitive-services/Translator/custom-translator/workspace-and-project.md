@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a67e199af1ee6e68f00dbde9a0a43d02e4c7d638
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219429"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588659"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um workspace do Tradutor Personalizado?
 
@@ -39,7 +39,7 @@ No mesmo workspace, é possível criar projetos para o mesmo par de idiomas em d
 
 O Tradutor Personalizado permite atribuir um rótulo de projeto ao seu projeto. O rótulo de projeto faz distinção entre vários projetos com o mesmo par de idiomas e categoria. Como melhor prática evite usar rótulos de projeto, exceto se necessário.
 
-O rótulo de projeto é usado como parte da ID de Categoria. Se o rótulo de projeto não for definido ou se for definido de maneira idêntica nos projetos, os projetos com a mesma categoria e pares de idiomas *diferentes* compartilharão a mesma ID de Categoria. Essa abordagem é vantajosa porque permite que você ou seu cliente alterne entre idiomas ao usar a API de Tradução de Texto sem se preocupar com uma ID de Categoria exclusiva para cada projeto.
+O rótulo de projeto é usado como parte da ID de Categoria. Se o rótulo de projeto não for definido ou se for definido de maneira idêntica nos projetos, os projetos com a mesma categoria e pares de idiomas *diferentes* compartilharão a mesma ID de Categoria. Essa abordagem é vantajosa porque permite que você ou seu cliente alterne entre linguagens ao usar o tradutor sem se preocupar com uma CategoryID exclusiva a cada projeto.
 
 Por exemplo, se eu quisesse habilitar traduções no domínio de Tecnologia de inglês para francês e de francês para inglês, eu criaria dois projetos: um para inglês -\> francês, e um para francês -\> inglês. Especificaria a mesma categoria (Tecnologia) para ambos e deixaria o rótulo de projeto em branco. A ID de Categoria para ambos os projetos corresponderia e, desse modo, eu poderia consultar a API para ambas as traduções de inglês e francês sem a necessidade de modificar minha ID de Categoria.
 

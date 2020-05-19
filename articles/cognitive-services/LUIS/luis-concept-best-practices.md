@@ -2,14 +2,14 @@
 title: Práticas recomendadas para criar seu aplicativo LUIS
 description: Conheça as práticas recomendadas para obter os melhores resultados do modelo do aplicativo LUIS.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382383"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589798"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Práticas recomendadas para a criação de um aplicativo de reconhecimento de linguagem (LUIS)
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS:
@@ -31,11 +31,11 @@ A lista a seguir inclui melhores práticas para aplicativos LUIS:
 
 |O que fazer|O que não fazer|
 |--|--|
-|[Definir intenções distintas](#do-define-distinct-intents)<br>[Adicionar descritores a tentativas](#do-add-descriptors-to-intents) |[Adicionar muitos exemplos de declaração a intenções](#dont-add-many-example-utterances-to-intents)<br>[Usar algumas ou entidades simples](#dont-use-few-or-simple-entities) |
+|[Definir intenções distintas](#do-define-distinct-intents)<br>[Adicionar recursos a tentativas](#do-add-features-to-intents) |[Adicionar muitos exemplos de declaração a intenções](#dont-add-many-example-utterances-to-intents)<br>[Usar algumas ou entidades simples](#dont-use-few-or-simple-entities) |
 |[Localizar um ponto ideal entre muito genérico e muito específico para cada intenção](#do-find-sweet-spot-for-intents)|[Usar o LUIS como uma plataforma de treinamento](#dont-use-luis-as-a-training-platform)|
 |[Crie seu aplicativo iterativamente com versões](#do-build-your-app-iteratively-with-versions)<br>[Criar entidades para a decomposição do modelo](#do-build-for-model-decomposition)|[Adicionar muitas declarações de exemplo do mesmo formato, ignorando os outros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Adicionar padrões em iterações posteriores](#do-add-patterns-in-later-iterations)|[Misturar a definição de intenções e entidades](#dont-mix-the-definition-of-intents-and-entities)|
-|[Equilibrar suas declarações em todas as intenções](#balance-your-utterances-across-all-intents) exceto a intenção Nenhum.<br>[Adicionar exemplos de enunciado à intenção None](#do-add-example-utterances-to-none-intent)|[Criar descritores com todos os valores possíveis](#dont-create-descriptors-with-all-the-possible-values)|
+|[Equilibrar suas declarações em todas as intenções](#balance-your-utterances-across-all-intents) exceto a intenção Nenhum.<br>[Adicionar exemplos de enunciado à intenção None](#do-add-example-utterances-to-none-intent)|[Criar listas de frase com todos os valores possíveis](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Aproveitar o recurso de sugestão para aprendizado ativo](#do-leverage-the-suggest-feature-for-active-learning)|[Adicionar muitos padrões](#dont-add-many-patterns)|
 |[Monitorar o desempenho do seu aplicativo com testes em lotes](#do-monitor-the-performance-of-your-app)|[Treinar e publicar com cada declaração de exemplo única adicionada](#dont-train-and-publish-with-every-single-example-utterance)|
 
@@ -51,11 +51,11 @@ Considere os seguintes exemplos de declaração:
 |Reservar um voo|
 |Reservar um hotel|
 
-`Book a flight`e `Book a hotel` use o mesmo vocabulário de `book a `. Esse formato é o mesmo, portanto, deve ser a mesma intenção com as diferentes palavras `flight` de `hotel` e como entidades extraídas.
+`Book a flight`e `Book a hotel` use o mesmo vocabulário de `book a ` . Esse formato é o mesmo, portanto, deve ser a mesma intenção com as diferentes palavras de `flight` e `hotel` como entidades extraídas.
 
-## <a name="do-add-descriptors-to-intents"></a>Adicionar descritores a tentativas
+## <a name="do-add-features-to-intents"></a>Adicionar recursos a tentativas
 
-Os descritores ajudam a descrever os recursos para uma intenção. Um descritor pode ser uma lista de frases de palavras que são significativas para essa intenção ou uma entidade que é significativa para essa intenção.
+Os recursos descrevem os conceitos de uma intenção. Um recurso pode ser uma lista de frases de palavras que são significativas para essa intenção ou uma entidade que é significativa para essa intenção.
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Localizar ponto ideal para intenções
 Use dados de previsão do LUIS para determinar se suas intenções estiverem se sobrepondo. Intenções sobrepostas confundem o LUIS. O resultado é que a principal intenção de pontuação está muito perto de outra intenção. Como o LUIS não usa o mesmo caminho exato por meio dos dados para treinamento a cada vez, uma intenção sobreposta tem uma chance de ser a primeira ou a segunda no treinamento. Convém que a pontuação da declaração para cada intenção esteja mais distante para que esse flip/flop não aconteça. A boa distinção para intenções deve resultar na principal intenção esperada toda vez.
@@ -73,17 +73,22 @@ A decomposição do modelo tem um processo típico de:
 * criar **intenção** com base nas intenções do usuário do aplicativo cliente
 * Adicione o exemplo de 15-30 declarações com base na entrada do usuário do mundo real
 * rotular o conceito de dados de nível superior no exemplo expressão
-* dividir o conceito de dados em subcomponentes
-* Adicionar descritores (recursos) a subcomponentes
-* Adicionar descritores (recursos) à intenção
+* dividir o conceito de dados em subentidades
+* Adicionar recursos a subentidades
+* Adicionar recursos a tentativas
 
 Depois de criar a intenção e adicionar o exemplo declarações, o exemplo a seguir descreve a decomposição da entidade.
 
-Comece identificando os conceitos de dados completos que você deseja extrair em um expressão. Esta é sua entidade aprendida por computador. Em seguida, decompor a frase em suas partes. Isso inclui a identificação de subcomponentes (como entidades), juntamente com os descritores e restrições.
+Comece identificando os conceitos de dados completos que você deseja extrair em um expressão. Esta é sua entidade aprendida por computador. Em seguida, decompor a frase em suas partes. Isso inclui a identificação de subentidades e recursos.
 
-Por exemplo, se você quiser extrair um endereço, a entidade aprendida por máquina superior poderá ser chamada `Address`. Ao criar o endereço, identifique alguns de seus subcomponentes, como endereço, cidade, estado e CEP.
+Por exemplo, se você quiser extrair um endereço, a entidade aprendida por máquina superior poderá ser chamada `Address` . Ao criar o endereço, identifique algumas de suas subentidades, como endereço, cidade, estado e CEP.
 
-Continue decompondo esses elementos **restringindo** o CEP a uma expressão regular. Decompor o endereço em partes de um número de rua (usando um número predefinido), um nome de rua e um tipo de rua. O tipo de rua pode ser descrito com uma lista de **descritores** como Avenida, círculo, estrada e pista.
+Continue decompondo esses elementos por:
+* Adicionar um recurso necessário do CEP como uma entidade de expressão regular.
+* Decompondo o endereço de rua em partes:
+    * Um **número de rua** com um recurso necessário de uma entidade de número predefinida.
+    * Um **nome de rua**.
+    * Um **tipo de rua** com um recurso necessário de uma entidade de lista, incluindo palavras como Avenida, círculo, estrada e pista.
 
 A API de criação v3 permite a decomposição do modelo.
 
@@ -145,9 +150,9 @@ Criar uma intenção para qualquer ação que seu bot usará. Use entidades como
 
 Para um bot que irá reservar vôos de companhia aérea, crie uma intenção **BookFlight** . Não crie uma intenção para toda companhia aérea ou para todo destino. Use essas partes de dados como [entidades](luis-concept-entity-types.md) e marque-as nos exemplos de declarações.
 
-## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Não crie descritores com todos os valores possíveis
+## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>Não crie listas de frases com todos os valores possíveis
 
-Forneça alguns exemplos nas [listas de frases](luis-concept-feature.md) de descritor, mas não todas as palavras. O LUIS generaliza e leva em conta o contexto.
+Forneça alguns exemplos nas listas de [frases](luis-concept-feature.md) , mas não em todas as palavras ou frases. O LUIS generaliza e leva em conta o contexto.
 
 ## <a name="dont-add-many-patterns"></a>Não adicione muitos padrões
 

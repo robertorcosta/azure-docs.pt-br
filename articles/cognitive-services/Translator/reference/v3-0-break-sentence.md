@@ -1,7 +1,7 @@
 ---
-title: Método de BreakSentence de API de texto do tradutor
+title: Método BreakSentence do Tradutor
 titleSuffix: Azure Cognitive Services
-description: O método API de Tradução de Texto BreakSentence identifica o posicionamento dos limites de sentença em um pedaço de texto.
+description: O método BreakSentence do tradutor identifica o posicionamento dos limites de sentença em uma parte do texto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01a5404100da6c669da4513ac9fd08c959df220e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548111"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588625"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>3.0 da API de tradução de texto: BreakSentence
+# <a name="translator-30-breaksentence"></a>Tradutor 3,0: BreakSentence
 
 Identifica o posicionamento dos limites de frase em uma parte do texto.
 
-## <a name="request-url"></a>URL de Solicitação
+## <a name="request-url"></a>URL da solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -41,7 +41,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
 
 Os cabeçalhos de solicitação incluem:
 
-| headers | Descrição |
+| Cabeçalhos | Descrição |
 | ------- | ----------- |
 | Cabeçalho (s) de autenticação <img width=200/>  | **Cabeçalho de solicitação obrigatório**.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>. |
 | Tipo de conteúdo | **Cabeçalho de solicitação obrigatório**.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`. |
@@ -96,7 +96,7 @@ Um exemplo de resposta JSON é:
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">Cabeçalhos</th>
   <th>Descrição</th>
   <tr>
     <td>X-RequestId</td>
@@ -113,11 +113,11 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   <th>Descrição</th>
   <tr>
     <td>200</td>
-    <td>Sucesso.</td>
+    <td>Êxito.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Um dos parâmetros de consulta está ausente ou é inválido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
+    <td>Um dos parâmetros de consulta está ausente ou não é válido. Corrija os parâmetros de solicitação antes de tentar novamente.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -141,7 +141,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
   </tr>
 </table> 
 
-Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns que podem ser encontrados na [página de referência da API de Tradução de Texto v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de status HTTP de 3 dígitos seguido por um número de 3 dígitos para categorizar ainda mais o erro. Códigos de erro comuns podem ser encontrados na [página de referência do tradutor v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exemplos
 

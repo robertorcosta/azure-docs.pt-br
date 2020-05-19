@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258415"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590529"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Opções de suporte e comentários dos serviços cognitivas do Azure
 
 Você está apenas começando a explorar a funcionalidade dos serviços cognitivas do Azure? Talvez você esteja implementando um novo recurso em seu aplicativo. Ou, depois de usar o serviço, você tem sugestões sobre como melhorá-lo? Aqui estão as opções para onde você pode obter suporte, manter-se atualizado, fornecer comentários e relatar bugs para serviços cognitivas.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 ### <a name="create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 
@@ -28,12 +28,12 @@ Você está apenas começando a explorar a funcionalidade dos serviços cognitiv
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
-Explore a variedade de [opções de suporte do Azure e escolha o plano](https://azure.microsoft.com/support/plans) mais adequado, seja você um desenvolvedor no início do percurso na nuvem, seja uma grande organização implantando aplicativos estratégicos críticos para os negócios. Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
+Explore a variedade de [Opções de suporte do Azure e escolha o plano](https://azure.microsoft.com/support/plans) que melhor se adapta, seja você um desenvolvedor que esteja apenas iniciando sua jornada na nuvem ou uma grande organização Implantando aplicativos estratégicos e críticos para os negócios. Os clientes do Azure podem criar e gerenciar solicitações de suporte no portal do Azure.
 
 * [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal do Azure para o governo dos Estados Unidos](https://portal.azure.us)
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Search
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
@@ -45,7 +45,7 @@ Para obter resultados mais rápidos, faça uma pesquisa em sites relevantes, com
 {search keywords} site:stackoverflow.com
 ```
 
-Em `{search keywords}` que é o contexto de sua pesquisa. Considere usar essas pesquisas com escopo adequadamente:
+Em que `{search keywords}` é o contexto de sua pesquisa. Considere usar essas pesquisas com escopo adequadamente:
 
  - Stack Overflow:`site:stackoverflow.com`
  - Microsoft Docs:`site:docs.microsoft.com`
@@ -79,11 +79,11 @@ Manter-se informado sobre os recursos em uma nova versão ou notícias no blog d
 As notas de versão de serviços cognitivas são atualizadas conforme novas versões são disponibilizadas. As notas contêm informações sobre novos recursos, aprimoramentos e correções de bugs.
 
  - [Custom Vision](custom-vision-service/release-notes.md)
- - [Face](face/releasenotes.md)
+ - [Detecção Facial](face/releasenotes.md)
  - [Reconhecimento Vocal (LUIS)](LUIS/whats-new.md)
  - [Serviços de fala](speech-service/releasenotes.md)
  - [SDK de serviços de fala](speech-service/devices-sdk-release-notes.md)
- - [Análise de texto](text-analytics/whats-new.md)
+ - [Análise de Texto](text-analytics/whats-new.md)
  - [Video Indexer](../media-services/video-indexer/release-notes.md)
 
 ### <a name="azure-blog"></a>Blog do Azure
@@ -102,7 +102,7 @@ Notícias sobre serviços cognitivas são compartilhadas no [blog do Azure](http
 
 Reddit é um site de discussão orientado pela Comunidade, que oferece as conversas mais recentes sobre notícias de [Serviços cognitivas do Azure](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) , ajuda, informações, dicas e truques. Os membros registrados podem enviar conteúdo e outros podem votar nele, o que eleva o conteúdo mais relevante para o topo de seus feeds.
 
-## <a name="give-feedback"></a>Fornecer comentários
+## <a name="give-feedback"></a>Envie comentários
 
 ### <a name="uservoice-forum"></a>Fórum do UserVoice
 
@@ -120,7 +120,7 @@ Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias pa
 |-------------------------------|---------------|
 | Detector de Anomalias              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
 | Serviços do Bing                 | https://cognitive.uservoice.com/forums/555907-bing-search |
-| Visual Computacional               | https://cognitive.uservoice.com/forums/430309-computer-vision |
+| Pesquisa Visual Computacional               | https://cognitive.uservoice.com/forums/430309-computer-vision |
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
 | Face                          | https://cognitive.uservoice.com/forums/430315-face |
@@ -131,8 +131,8 @@ Para solicitar novos recursos, poste-os no UserVoice. Compartilhe suas ideias pa
 | QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
 | Serviços de Fala               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Fala Personalizada                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
-| Análise de texto                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Conversor de Texto               | https://cognitive.uservoice.com/forums/558796-translator |
+| Análise de Texto                | https://cognitive.uservoice.com/forums/555922-text-analytics |
+| Tradutor               | https://cognitive.uservoice.com/forums/558796-translator |
 | Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>Relatar bugs

@@ -2,13 +2,13 @@
 title: Tipo de entidade de lista-LUIS
 description: As entidades de lista representam um conjunto fixo e fechado de palavras relacionadas, juntamente com seus sinônimos. O LUIS não descobre valores adicionais para entidades de lista. Use o recurso Recomendado para consultar sugestões de novas palavras com base na lista atual.
 ms.topic: reference
-ms.date: 03/12/2020
-ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097567"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588880"
 ---
 # <a name="list-entity"></a>Entidade de lista
 
@@ -132,4 +132,7 @@ Esse é o JSON se `verbose=true` estiver definido na cadeia de caracteres de con
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste [tutorial](tutorial-list-entity.md), saiba como usar uma entidade de **lista** para extrair correspondências exatas de texto de uma lista de itens conhecidos.
+Saiba mais sobre entidades:
+
+* [Conceitos](luis-concept-entity-types.md)
+* [Como criar](luis-how-to-add-entities.md)

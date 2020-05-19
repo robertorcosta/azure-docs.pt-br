@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202071"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588325"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de serviços cognitivas do Azure
 
@@ -43,34 +43,34 @@ O suporte de rede virtual para serviços cognitivas listados abaixo é limitado 
 
 > [!div class="checklist"]
 > * [Detector de Anomalias](./anomaly-detector/index.yml)
-> * [Visual Computacional](./computer-vision/index.yml)
+> * [Pesquisa Visual Computacional](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Custom Vision](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
+> * [Detecção Facial](./face/index.yml)
 > * [Reconhecimento de Formulários](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
-> * [Análise de texto](./text-analytics/index.yml)
+> * [Análise de Texto](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 
 O suporte de rede virtual para serviços cognitivas listados abaixo é limitado às regiões *EUA Central EUAP*, *Sul EUA Central*, *leste dos EUA*, *oeste dos EUA 2*, *global*e *US gov-Virgínia* Azure.
 > [!div class="checklist"]
-> * [Conversor de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Marcas de serviço
 Além de dar suporte a pontos de extremidade de serviço de rede virtual para os serviços acima, os serviços cognitivas também dão suporte a uma marca de serviço para a configuração de regras de rede de saída. Os serviços a seguir estão incluídos na marca de serviço do CognitiveServicesManagement.
 > [!div class="checklist"]
 > * [Detector de Anomalias](./anomaly-detector/index.yml)
-> * [Visual Computacional](./computer-vision/index.yml)
+> * [Pesquisa Visual Computacional](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Custom Vision](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
+> * [Detecção Facial](./face/index.yml)
 > * [Reconhecimento de Formulários](./form-recognizer/index.yml)
 > * [LUIS](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
-> * [Análise de texto](./text-analytics/index.yml)
+> * [Análise de Texto](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-> * [Conversor de Texto](./translator/index.yml)
+> * [Tradutor](./translator/index.yml)
 > * [Serviço de Fala](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Alterar a regra de acesso de rede padrão

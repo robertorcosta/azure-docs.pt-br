@@ -1,190 +1,329 @@
 ---
 title: Glossário-LUIS
-titleSuffix: Azure Cognitive Services
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/25/2019
-ms.author: diberry
-ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/08/2020
+ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82099352"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589662"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
-O glossário do LUIS (Reconhecimento vocal) explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
+O Glossário de Reconhecimento vocal (LUIS) explica os termos que você pode encontrar enquanto trabalha com o serviço LUIS.
 
-## <a name="active-version"></a><a name="active-version"></a>Versão ativa
+## <a name="active-version"></a>Versão ativa
 
-A versão ativa do LUIS é a versão que recebe alterações no modelo. No portal do [Luis](luis-reference-regions.md) , se você quiser fazer alterações em uma versão que não seja a versão ativa, primeiro você precisará definir essa versão como ativa.
+A versão ativa é a [versão](luis-how-to-manage-versions.md) do seu aplicativo que é atualizada quando você faz alterações no modelo usando o portal do Luis. No portal do LUIS, se você quiser fazer alterações em uma versão que não seja a versão ativa, primeiro você precisará definir essa versão como ativa.
 
-## <a name="authoring"></a><a name="authoring"></a>Criação
+## <a name="active-learning"></a>Aprendizado ativo
 
-A criação é a capacidade de criar, gerenciar e implantar um [aplicativo Luis](#luis-app), usando o portal do [Luis](luis-reference-regions.md) ou as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087).
+O aprendizado ativo é uma técnica de aprendizado de máquina em que o modelo aprendido por máquina é usado para identificar novos exemplos informativos para rotular. No LUIS, o aprendizado ativo refere-se à adição de declarações do tráfego do ponto de extremidade cujas previsões atuais não estão claras para melhorar seu modelo. Clique em "examinar ponto de extremidade declarações" para exibir declarações para rotular.
 
-## <a name="authoring-key"></a><a name="authoring-key"></a>Chave de criação
+Consulte também:
+* [Informações conceituais](luis-concept-review-endpoint-utterances.md)
+* [Tutorial de revisão do declarações de ponto de extremidade](luis-tutorial-review-endpoint-utterances.md)
+* Como melhorar o aplicativo LUIS [examinando o ponto de extremidade declarações](luis-how-to-review-endpoint-utterances.md)
 
-Anteriormente denominada chave "programática". Usada para criar o aplicativo. Não usada para consultas de ponto de extremidade no nível de produção. Para obter mais informações, confira [Limites da chave](luis-limits.md#key-limits).
+## <a name="application-app"></a>Aplicativo (aplicativo)
 
-## <a name="batch-test-json-file"></a><a name="batch-test-json-file"></a>Arquivo JSON de teste em lote
+No LUIS, seu aplicativo ou aplicativo, é uma coleção de modelos aprendidos por máquina, criados no mesmo conjunto de dados, que funciona em conjunto para prever intenções e entidades para um cenário específico. Cada aplicativo tem um ponto de extremidade de previsão separado.
 
-O teste em lotes é a capacidade de validar um modelo de aplicativo LUIS atual com um conjunto de teste consistente e conhecido de declarações de usuário. O teste em lotes é definido em um [arquivo formatado em JSON](luis-concept-batch-test.md#batch-file-format).
+Se estiver criando um bot de RH, você poderá ter um conjunto de tentativas, como "tempo de licença de agenda", "consultar os benefícios" e "atualizar informações pessoais" e entidades para cada uma dessas intenções que você agrupa em um único aplicativo.
+
+## <a name="authoring"></a>Criação
+
+A criação é a capacidade de criar, gerenciar e implantar um aplicativo LUIS, usando o portal do LUIS ou as APIs de criação.
+
+### <a name="authoring-key"></a>Chave de criação
+
+A [chave de criação](luis-concept-keys.md) é usada para criar o aplicativo. Não usada para consultas de ponto de extremidade no nível de produção. Para obter mais informações, confira [Limites da chave](luis-limits.md#key-limits).
+
+### <a name="authoring-resource"></a>Recurso de criação
+
+O [recurso de criação](luis-concept-keys.md#azure-resources-for-luis) do Luis é um item gerenciável que está disponível por meio do Azure. O recurso é seu acesso às capacidades de criação, treinamento e publicação associadas do serviço do Azure. O recurso inclui autenticação, autorização e informações de segurança de que você precisa para acessar o serviço do Azure associado.
+
+O recurso de criação tem um "tipo" do Azure `LUIS-Authoring` .
+
+## <a name="batch-test"></a>Teste de lote
+
+Os testes em lote são a capacidade de validar os modelos de um aplicativo LUIS atual com um conjunto de teste consistente e conhecido de declarações de usuário. O teste em lotes é definido em um [arquivo formatado em JSON](luis-concept-batch-test.md#batch-file-format).
 
 Consulte também:
 * [Conceitos](luis-concept-batch-test.md)
-* [Como fazer](luis-how-to-batch-test.md)
-* [Tutorial](luis-tutorial-batch-testing.md)
+* [Como](luis-how-to-batch-test.md) executar um teste em lotes
+* [Tutorial](luis-tutorial-batch-testing.md) – criar e executar um teste em lotes
 
-## <a name="collaborator"></a><a name="collaborator"></a>Colaborador
+### <a name="f-measure"></a>Medida F
 
-Um colaborador/colaborador, não é o [proprietário](#owner) do aplicativo, mas tem as mesmas permissões para adicionar, editar e excluir as intenções, entidades, declarações.
+No teste de lote, uma medida da precisão do teste.
 
-## <a name="contributor"></a><a name="contributor"></a>Simplifica
+### <a name="false-negative-fn"></a>Falso negativo (FN)
 
-Um colaborador é a mesma coisa que um [colaborador.](#collaborator)
+No teste de lote, os pontos de dados representam enunciados em que o aplicativo previu incorretamente a ausência de entidade/intenção de destino.
 
-## <a name="descriptor"></a><a name="descriptor"></a>Descritor
+### <a name="false-positive-fp"></a>Falso positivo (FP)
 
-Um descritor é um [recurso](#features) aplicado a um modelo no tempo de treinamento, incluindo [listas de frases](#phrase-list) e [entidades](#entity).
+No teste de lote, os pontos de dados representam enunciados em que o aplicativo previu incorretamente a existência de entidade/intenção de destino.
 
-## <a name="domain"></a><a name="domain"></a>Domain
+### <a name="precision"></a>Precisão
+No teste de lote, a precisão (também chamada de valor preditivo positivo) é a fração de enunciados relevantes entre os enunciados recuperados.
 
-No contexto do LUIS, um **domínio** é uma área de conhecimento. Seu domínio é específico para a área de conhecimento do aplicativo. Isso pode ser uma área geral, como o aplicativo de agente de viagem. Um aplicativo de agente de viagem também pode ser específico apenas para as áreas de informações da sua empresa, como os locais geográficos, idiomas e serviços específicos.
+Um exemplo para um teste de lote de animais é o número de ovelha que foram previstas divididos pelo número total de animais (ovelha e não ovelha semelhantes).
 
-## <a name="endpoint"></a><a name="endpoint"></a>Extremidade
+### <a name="recall"></a>Recuperação
 
-A URL do [ponto de extremidade LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. Você pode encontrar o ponto de extremidade na página **[Chaves e pontos de extremidade](luis-how-to-azure-subscription.md)** do aplicativo ou obter a URL do ponto de extremidade na API [Obter Informações do Aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+No teste de lote, recall (também conhecido como sensibilidade) é a capacidade de generalização do LUIS.
 
-## <a name="entity"></a><a name="entity"></a>Entidade
+Um exemplo de teste de lote de animais é o número de ovelha que foram previstas divididos pelo número total de ovelha disponíveis.
 
-[Entidades](luis-concept-entity-types.md) são importantes palavras em [declarações](luis-concept-utterance.md) que descrevem informações relevantes para a [intenção](luis-concept-intent.md), e algumas vezes são essenciais para ela. Uma entidade é essencialmente um tipo de dados no LUIS.
+### <a name="true-negative-tn"></a>Negativo verdadeiro (TN)
 
-## <a name="f-measure"></a><a name="f-measure"></a>Medida F
+Um verdadeiro negativo é quando seu aplicativo não prevê corretamente nenhuma correspondência. No teste em lotes, um verdadeiro negativo ocorre quando seu aplicativo prevê uma intenção ou entidade para um exemplo que não tenha sido rotulado com essa intenção ou entidade.
 
-No [teste de lote](luis-interactive-test.md#batch-testing), uma medida da precisão do teste.
+### <a name="true-positive-tp"></a>Positivo verdadeiro (TP)
 
-## <a name="false-negative-fn"></a><a name="false-negative"></a>Falso negativo (FN)
+Verdadeiro positivo (TP) um verdadeiro positivo é quando seu aplicativo prevê uma correspondência corretamente. No teste em lotes, um verdadeiro positivo ocorre quando seu aplicativo prevê uma intenção ou entidade para obter um exemplo que tenha sido rotulado com essa intenção ou entidade.
 
-No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu incorretamente a ausência de entidade/intenção de destino.
+## <a name="classifier"></a>Classificador
 
-## <a name="false-positive-fp"></a><a name="false-positive"></a>Falso positivo (FP)
+Um classificador é um modelo de computador aprendido que prevê a categoria ou a classe à qual uma entrada se encaixa.
 
-No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu incorretamente a existência de entidade/intenção de destino.
+Uma [intenção](#intent) é um exemplo de classificador.
 
-## <a name="features"></a><a name="features"></a>Recursos
+## <a name="collaborator"></a>Colaborador
 
-No aprendizado de máquina, um [recurso](luis-concept-feature.md) é um traço ou atributo específico de dados que seu sistema observa.
+Um colaborador é conceitualmente a mesma coisa que um [contribuinte](#contributor). Um colaborador recebe acesso quando um proprietário adiciona o endereço de email do colaborador a um aplicativo que não é controlado com o RBAC (acesso baseado em função). Se você ainda estiver usando colaboradores, deverá migrar sua conta do LUIS e usar os recursos de criação do LUIS para gerenciar os colaboradores com o RBAC.
 
-## <a name="intent"></a><a name="intent"></a>Intencional
+## <a name="contributor"></a>Colaborador
 
-Uma [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o usuário deseja executar. É uma finalidade ou meta expressa na entrada de um usuário, como reservar um voo, pagar uma fatura ou localizar um artigo de notícias. No LUIS, a previsão da intenção é baseada em toda a declaração. As entidades, por comparação, são partes de uma declaração.
+Um colaborador não é o [proprietário](#owner) do aplicativo, mas tem as mesmas permissões para adicionar, editar e excluir as intenções, entidades, declarações. Um colaborador fornece acesso baseado em função (RBAC) a um aplicativo LUIS.
 
-## <a name="labeling"></a><a name="labeling"></a>Rotulação
+Consulte também:
+* [Como](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) adicionar colaboradores
 
-Rotular, ou marcar, é o processo de associar uma palavra ou frase no [expressão](#utterance) de uma intenção a uma [entidade](#entity) (DataType).
+## <a name="descriptor"></a>Descritor
 
-## <a name="luis-app"></a><a name="luis-app"></a>Aplicativo LUIS
+Um descritor é o termo usado anteriormente para um [recurso](#features)de aprendizado de máquina.
 
-Um aplicativo LUIS é uma coleção de modelos de linguagem para processamento de linguagem natural, incluindo [intenções](#intent), [entidades](#entity)e rotulada [declarações](#utterance).
+## <a name="domain"></a>Domínio
 
-## <a name="owner"></a><a name="owner"></a>Proprietário
+No contexto do LUIS, um domínio é uma área de conhecimento. Seu domínio é específico do seu cenário. Domínios diferentes usam uma terminologia e linguagem específica que têm significado no contexto do domínio. Por exemplo, se você estiver criando um aplicativo para reproduzir música, seu aplicativo teria termos e idioma específicos para música – palavras como "música, faixa, álbum, letras do lado do b, artista". Para obter exemplos de domínios, consulte [domínios predefinidos](#prebuilt-domain).
 
-Cada aplicativo tem um proprietário, que é a pessoa que criou o aplicativo. O proprietário pode adicionar [colaboradores](#collaborator).
+## <a name="endpoint"></a>Ponto de Extremidade
 
-## <a name="patterns"></a><a name="pattern"></a>Padrões
-O recurso Padrão anterior é substituído por [Padrões](luis-concept-patterns.md). Use padrões para melhorar a precisão da previsão fornecendo menos exemplos de treinamento.
+### <a name="authoring-endpoint"></a>Ponto de extremidade de criação
 
-## <a name="phrase-list"></a><a name="phrase-list"></a>Lista de frases
+A URL do ponto de extremidade de criação do LUIS é onde você cria, treina e publica seu aplicativo. A URL do ponto de extremidade contém a região ou o subdomínio personalizado do aplicativo publicado, bem como a ID do aplicativo.
 
-Uma [lista de frases](luis-concept-feature.md) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e deve ser tratada da mesma forma (por exemplo, nomes de cidades ou produtos). Uma lista intercambiável é tratada como sinônimos.
+Saiba mais sobre como criar seu aplicativo programaticamente da [referência do desenvolvedor](developer-reference-resource.md#rest-endpoints)
 
-## <a name="prebuilt-domain"></a><a name="prebuilt-domains"></a>Domínio predefinido
+### <a name="prediction-endpoint"></a>Ponto de extremidade de previsão
 
-Um [domínio predefinido](luis-how-to-use-prebuilt-domains.md) é um aplicativo LUIS configurado para um domínio específico, como automação residencial (HomeAutomation) ou reservas de restaurante (RestaurantReservation). As intenções, declarações e entidades são configuradas para esse domínio.
+A URL do ponto de extremidade de previsão LUIS é onde você envia consultas LUIS depois que o [aplicativo Luis](#application-app) é criado e publicado. A URL do ponto de extremidade contém a região ou o subdomínio personalizado do aplicativo publicado, bem como a ID do aplicativo. Você pode encontrar o ponto de extremidade na página de **[recursos do Azure](luis-how-to-azure-subscription.md)** do seu aplicativo ou pode obter a URL do ponto de extremidade da API [obter informações de aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) .
 
-## <a name="prebuilt-entity"></a><a name="prebuilt-entity"></a>Entidade predefinida
+Seu acesso ao ponto de extremidade de previsão é autorizado com a chave de previsão LUIS.
 
-Uma [entidade predefinida](luis-prebuilt-entities.md) é um LUIS de entidade que fornece tipos comuns de informações, como número, URL e email. Opte por adicionar uma entidade predefinida ao seu aplicativo.
+## <a name="entity"></a>Entidade
 
-## <a name="precision"></a><a name="precision"></a>Preciso
-No [teste de lote](luis-interactive-test.md#batch-testing), a precisão (também chamada de valor preditivo positivo) é a fração de enunciados relevantes entre os enunciados recuperados.
+As [entidades](luis-concept-entity-types.md) são palavras em declarações que descrevem as informações usadas para atender ou identificar uma intenção. Se sua entidade for complexa e você quiser que seu modelo identifique partes específicas, você poderá dividir seu modelo em subentidades. Por exemplo, você pode desejar que o modelo preveja um endereço, mas também as subentidades de Street, City, State e ZipCode. As entidades também podem ser usadas como recursos para modelos. Sua resposta do aplicativo LUIS incluirá as intenções previstas e todas as entidades.
 
-## <a name="programmatic-key"></a><a name="programmatic-key"></a>Chave programática
+### <a name="entity-extractor"></a>Extrator de entidade
+
+Um extrator de entidades, às vezes conhecido apenas como um extrator, é o tipo de modelo aprendido por máquina que o LUIS usa para prever entidades.
+
+### <a name="entity-schema"></a>Esquema de entidade
+
+O esquema de entidade é a estrutura que você define para entidades aprendidas com o computador com subentidades. O ponto de extremidade de previsão retorna todas as entidades e subentidades extraídas definidas no esquema.
+
+### <a name="entitys-subentity"></a>Subentidade da entidade
+
+Uma subentidade é uma entidade filho de uma entidade aprendida por máquina.
+
+### <a name="non-machine-learned-entity"></a>Entidade não aprendida por máquina
+
+Uma entidade que usa correspondência de texto para extrair dados:
+* Entidade de lista
+* Entidade de expressão regular
+
+### <a name="list-entity"></a>Entidade de lista
+
+Uma [entidade de lista](reference-entity-list.md) representa um conjunto fixo e fechado de palavras relacionadas junto com seus sinônimos. As entidades de lista são correspondências exatas, diferentemente das entidades aprendidas por computador.
+
+A entidade será prevista se uma palavra na entidade de lista estiver incluída na lista. Por exemplo, se você tiver uma entidade de lista chamada "tamanho" e tiver as palavras "pequeno, médio, grande" na lista, a entidade de tamanho será prevista para todos os declarações em que as palavras "pequeno", "média" ou "grande" são usadas, independentemente do contexto.
+
+### <a name="regular-expression"></a>Expressão regular
+
+Uma [entidade de expressão regular](reference-entity-regular-expression.md) representa uma expressão regular. As entidades de expressão regular são correspondências exatas, diferentemente das entidades aprendidas por computador.
+### <a name="prebuilt-entity"></a>Entidade predefinida
+
+Consulte a entrada do modelo predefinido para [entidade predefinida](#prebuilt-entity)
+
+## <a name="features"></a>Recursos
+
+No Machine Learning, um recurso é uma característica que ajuda o modelo a reconhecer um determinado conceito. É uma dica que o LUIS pode usar, mas não uma regra rígida.
+
+Esse termo também é conhecido como um **[recurso aprendido por máquina](luis-concept-feature.md)**.
+
+Essas dicas são usadas em conjunto com os rótulos para saber como prever novos dados. O LUIS dá suporte a ambas as listas de frases e ao uso de outros modelos como recursos.
+
+### <a name="required-feature"></a>Recurso necessário
+
+Um recurso necessário é uma maneira de restringir a saída de um modelo LUIS. Quando um recurso de uma entidade é marcado como obrigatório, o recurso deve estar presente no exemplo para que a entidade seja prevista, independentemente do que o modelo aprendido pelo computador prevê.
+
+Considere um exemplo em que você tem um recurso de número predefinido que você marcou como obrigatório na entidade quantidade para um bot de ordenação de menus. Quando o bot vê `I want a bajillion large pizzas?` , o bajillion não será previsto como uma quantidade, independentemente do contexto no qual ele aparece. Bajillion não é um número válido e não será previsto pelo número da entidade predefinida.
+
+## <a name="intent"></a>Intencional
+
+Uma [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o usuário deseja executar. É uma finalidade ou meta expressa na entrada de um usuário, como a reserva de um vôo ou o pagamento de uma conta. No LUIS, um expressão como um todo é classificado como uma intenção, mas partes do expressão são extraídas como entidades
+
+## <a name="labeling-examples"></a>Exemplos de rotulagem
+
+Rotular, ou marcar, é o processo de associar um exemplo positivo ou negativo com um modelo.
+
+### <a name="labeling-for-intents"></a>Rotulagem para tentativas
+No LUIS, as intenções em um aplicativo são mutuamente exclusivas. Isso significa que quando você adiciona um expressão a uma intenção, ele é considerado um exemplo _positivo_ para essa intenção e um exemplo _negativo_ para todas as outras intenções. Exemplos negativos não devem ser confundidos com a intenção "nenhum", que representa declarações que estão fora do escopo do aplicativo.
+
+### <a name="labeling-for-entities"></a>Rotulagem para entidades
+No LUIS, você [rotula](label-entity-example-utterance.md) uma palavra ou frase no exemplo de uma intenção expressão com uma entidade como um exemplo _positivo_ . Rotular mostra a intenção que ele deve prever para esse expressão. Os declarações rotulados são usados para treinar a intenção.
+
+## <a name="luis-app"></a>Aplicativo LUIS
+
+Consulte a definição de [aplicativo (aplicativo)](#application-app).
+
+## <a name="model"></a>Modelo
+
+Um modelo (aprendido pelo computador) é uma função que faz uma previsão sobre os dados de entrada. Em LUIS, nos referimos aos classificadores de intenção e aos extratores de entidade genericamente como "modelos", e nos referimos a uma coleção de modelos treinados, publicados e consultados juntos como um "aplicativo".
+
+## <a name="normalized-value"></a>Valor normalizado
+
+Você adiciona valores às suas entidades de [lista](#list-entity) . Cada um desses valores pode ter uma lista de um ou mais sinônimos. Somente o valor normalizado é retornado na resposta.
+
+## <a name="owner"></a>Proprietário
+
+Cada aplicativo tem um proprietário, que é a pessoa que criou o aplicativo. O proprietário gerencia permissões para o aplicativo no portal do Azure.
+
+## <a name="phrase-list"></a>Lista de frases
+
+Uma [lista de frases](luis-concept-feature.md) é um tipo específico de recurso de aprendizado de máquina que inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e deve ser tratado da mesma forma (por exemplo, nomes de cidades ou produtos).
+
+## <a name="prebuilt-model"></a>Modelo predefinido
+
+Um [modelo predefinido](luis-concept-prebuilt-model.md) é uma intenção, entidade ou coleção de ambos, juntamente com exemplos rotulados. Esses modelos predefinidos comuns podem ser adicionados ao seu aplicativo para reduzir o trabalho de desenvolvimento do modelo necessário para seu aplicativo.
+
+### <a name="prebuilt-domain"></a>Domínio predefinido
+
+Um domínio predefinido é um aplicativo LUIS configurado para um domínio específico, como automação residencial (HomeAutomation) ou reservas de restaurante (RestaurantReservation). As intenções, declarações e entidades são configuradas para esse domínio.
+
+### <a name="prebuilt-entity"></a>Entidade predefinida
+
+Uma entidade predefinida é um LUIS de entidade que fornece tipos comuns de informações, como número, URL e email. Eles são criados com base em dados públicos. Você pode optar por adicionar uma entidade predefinida como uma entidade autônoma ou como um recurso a uma entidade
+
+### <a name="prebuilt-intent"></a>Intenção predefinida
+
+Uma intenção predefinida é uma intenção LUIS fornecer tipos comuns de informações e ter seu próprio exemplo rotulado declarações.
+
+## <a name="prediction"></a>Previsão
+
+Uma previsão é uma solicitação REST para o serviço de previsão de LUIS do Azure que recebe novos dados (usuário expressão) e aplica o aplicativo treinado e publicado a esses dados para determinar quais tentativas e entidades são encontradas.
+
+### <a name="prediction-key"></a>Chave de previsão
+
+A [chave de previsão](luis-concept-keys.md) (anteriormente conhecida como chave de assinatura) é a chave associada ao serviço Luis que você criou no Azure que autoriza o uso do ponto de extremidade de previsão.
+
+Essa chave não é a chave de criação. Se você tiver uma chave de ponto de extremidade de previsão, ela deverá ser usada para qualquer solicitação de ponto de extremidade em vez da chave de criação. Você pode ver sua chave de previsão atual dentro da URL do ponto de extremidade na parte inferior da página de recursos do Azure no site do LUIS. É o valor do par nome/valor da chave de assinatura.
+
+### <a name="prediction-resource"></a>Recurso de previsão
+
+O recurso de previsão do LUIS é um item gerenciável que está disponível por meio do Azure. O recurso é seu acesso à previsão associada do serviço do Azure. O recurso inclui previsões.
+
+O recurso de previsão tem um "tipo" do Azure `LUIS` .
+
+### <a name="prediction-score"></a>Pontuação de previsão
+
+A [Pontuação](luis-concept-prediction-score.md) é um número de 0 e 1 que é uma medida de quão confiante é a confiança do sistema de que uma determinada entrada expressão corresponde a uma determinada intenção. Uma pontuação mais próxima de 1 significa que o sistema está muito confiante em relação à saída e uma pontuação mais próxima de 0 significa que o sistema tem certeza de que a entrada não corresponde a uma saída específica. As pontuações no meio significam que o sistema não tem certeza de como tomar a decisão.
+
+Por exemplo, use um modelo que é usado para identificar se algum texto de cliente inclui uma ordem de alimentos. Ele pode dar uma pontuação de 1 para "gostaria de pedir uma café" (o sistema tem certeza de que isso é uma ordem) e uma pontuação de 0 para "minha equipe venceu o jogo pela noite" (o sistema tem muito certeza de que isso não é um pedido). E ele pode ter uma pontuação de 0,5 por "Vamos ter um chá" (não tem certeza se isso é um pedido ou não).
+
+## <a name="programmatic-key"></a>Chave programática
 
 Renomeada para [chave de criação](#authoring-key).
 
-## <a name="publish"></a><a name="publish"></a>Publicou
+## <a name="publish"></a>Publicar
 
-Publicar significa tornar uma versão ativa do LUIS disponível no [ponto de extremidade](#endpoint) de preparo ou de produção.
+[Publicação](luis-how-to-publish-app.md) significa tornar uma versão Luis ativa disponível no [ponto de extremidade](#endpoint)de preparo ou de produção.
 
-## <a name="quota"></a><a name="quota"></a>Cota
+## <a name="quota"></a>Quota
 
-A cota LUIS é a limitação do [nível de assinatura do Azure](https://aka.ms/luis-price-tier). A cota LUIS pode ser limitada por solicitações por segundo (HTTP Status 429) e solicitações totais em um mês (HTTP Status 403).
+A cota LUIS é a limitação do nível de assinatura do Azure. A cota LUIS pode ser limitada por solicitações por segundo (HTTP Status 429) e solicitações totais em um mês (HTTP Status 403).
 
-## <a name="recall"></a><a name="recall"></a>Recuperação
-No [teste de lote](luis-interactive-test.md#batch-testing), recall (também conhecido como sensibilidade) é a capacidade de generalização do LUIS.
+## <a name="schema"></a>Esquema
 
-## <a name="semantic-dictionary"></a><a name="semantic-dictionary"></a>Dicionário semântico
-Um dicionário semântico é fornecido na página Entidade de lista e na página Lista de frases. O dicionário semântico fornece sugestões de palavras com base no escopo atual.
+Seu esquema inclui suas intenções e entidades junto com as subentidades. O esquema é inicialmente planejado para, em seguida, iterado ao longo do tempo. O esquema não inclui configurações de aplicativo, recursos ou declarações de exemplo. 
 
-## <a name="sentiment-analysis"></a><a name="sentiment-analysis"></a>Análise de Sentimento
-A Análise de sentimento fornece valores positivos ou negativos das declarações fornecidas pela [Análise de Texto](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
+## <a name="sentiment-analysis"></a>Análise de Sentimento
+A Análise de sentimento fornece valores positivos ou negativos das declarações fornecidas pela [Análise de Texto](../text-analytics/overview.md).
 
-## <a name="speech-priming"></a><a name="speech-priming"></a>Espriming de fala
+## <a name="speech-priming"></a>Preparação da fala
 
-A preparação da fala permite que seu serviço de fala seja preparado com seu modelo LUIS.
+A desobstrução de fala melhora o reconhecimento de palavras faladas e frases que são comumente usadas em seu cenário com os [serviços de fala](../speech-service/overview.md). Para aplicativos habilitados para estornar a fala, todos os exemplos de LUIS rotulados são usados para melhorar a precisão do reconhecimento de fala criando um modelo de fala personalizado para esse aplicativo específico. Por exemplo, em um jogo de xadrez, você deseja certificar-se de que quando o usuário disser "mover Knight", ele não será interpretado como "movimento noturno". O aplicativo LUIS deve incluir exemplos em que "cavalo" é rotulado como uma entidade.
 
-## <a name="spelling-correction"></a><a name="spelling-correction"></a>Correção ortográfica
-
-Habilite verificação ortográfica do Bing para corrigir as palavras com ortografia incorreta nos enunciados antes da previsão.
-
-## <a name="starter-key"></a><a name="starter-key"></a>Chave de início
+## <a name="starter-key"></a>Chave de início
 
 Uma chave gratuita a ser usada ao iniciar pela primeira vez usando LUIS.
 
-## <a name="structure"></a><a name="structure"></a>Estrutura
+## <a name="synonyms"></a>Sinônimos
 
-Adicione estrutura a uma entidade aprendida por máquina para fornecer subcomponentes com descritores (recursos) e restrições (entidades regulares ou de lista).
+Em LUIS [listar entidades](reference-entity-list.md), você pode criar um valor normalizado, que pode ter uma lista de sinônimos. Por exemplo, se você criar uma entidade de tamanho que tenha valores normalizados de pequeno, médio, grande e extra grande. Você pode criar sinônimos para cada valor como este:
 
-## <a name="subscription-key"></a><a name="subscription-key"></a>Chave de assinatura
+|Valor de Nomalized| Sinônimos|
+|--|--|
+|Pequeno| o pouco, 8 onças|
+|Médio| regular, 12 onças|
+|Grande| Big, 16 onças|
+|Xtra grande| o maior, 24 onças|
 
-A chave de assinatura é a chave de **ponto de extremidade de previsão** associada ao serviço Luis [que você criou no Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de ponto de extremidade, ela deverá ser usada para qualquer solicitação de ponto de extremidade, em vez da chave de criação. É possível ver a chave de ponto de extremidade atual dentro da URL do ponto de extremidade na parte inferior da [**página Chaves e pontos de extremidade**](luis-how-to-azure-subscription.md) no site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**.
+O modelo retornará o valor normalizado para a entidade quando qualquer um dos sinônimos for visto na entrada.
 
-## <a name="test"></a><a name="test"></a>Teste
+## <a name="test"></a>Teste
 
-[Testar](luis-interactive-test.md#test-your-app) um aplicativo LUIS significa passar uma declaração para o LUIS e exibir os resultados JSON.
+[Testar](luis-concept-test.md) um aplicativo Luis significa exibir previsões de modelo.
 
-## <a name="timezone-offset"></a><a name="timezoneoffset"></a>Diferença de fuso horário
+## <a name="timezone-offset"></a>Diferença de fuso horário
 
-O ponto de extremidade inclui timezoneOffset. Este é o número, em minutos, que você deseja adicionar ou remover da entidade predefinida datetimeV2. Por exemplo, se a declaração for "que horas são agora?", o datetimeV2 retornado será a hora atual da solicitação do cliente. Se a solicitação do cliente for proveniente de um bot ou de outro aplicativo que não for o mesmo que o usuário do seu bot, você deverá passar o deslocamento entre o bot e o usuário.
+O ponto de extremidade inclui [timezoneOffset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Este é o número, em minutos, que você deseja adicionar ou remover da entidade predefinida datetimeV2. Por exemplo, se a declaração for "que horas são agora?", o datetimeV2 retornado será a hora atual da solicitação do cliente. Se a solicitação do cliente for proveniente de um bot ou de outro aplicativo que não for o mesmo que o usuário do seu bot, você deverá passar o deslocamento entre o bot e o usuário.
 
 Confira [Alterar o fuso horário da entidade datetimeV2 predefinida](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a><a name="token"></a>Token
-Um token é a menor unidade pode ser rotulada em uma entidade. A geração de tokens é baseada na [cultura](luis-language-support.md#tokenization) do aplicativo.
+## <a name="token"></a>Token
+Um [token](luis-language-support.md#tokenization) é a menor unidade de texto que o Luis pode reconhecer. Isso difere ligeiramente entre os idiomas.
 
-## <a name="train"></a><a name="train"></a>Treinar
+Para o **Inglês**, um token é um intervalo contínuo (sem espaços ou pontuação) de letras e números. Um espaço não é um token.
 
-Treinamento é o processo de ensinar ao LUIS as alterações na versão ativa desde o último treinamento.
+|Senha|Contagem de tokens|Explicação|
+|--|--|--|
+|`Dog`|1|Uma única palavra sem pontuação ou espaços.|
+|`RMT33W`|1|Um número de localizador de registro. Ele pode ter números e letras, mas não tem pontuação.|
+|`425-555-5555`|5|Um número de telefone. Cada marca de pontuação é um único token, portanto, `425-555-5555` seria 5 tokens:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
-## <a name="true-negative-tn"></a><a name="true-negative"></a>Negativo verdadeiro (TN)
+## <a name="train"></a>Treinar
 
-No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu corretamente a ausência de entidade/intenção de destino.
+O [treinamento](luis-how-to-train.md) é o processo de ensinar Luis sobre quaisquer alterações na versão ativa desde o último treinamento.
 
-## <a name="true-positive-tp"></a><a name="true-positive"></a>Positivo verdadeiro (TP)
+### <a name="training-data"></a>Dados de treinamento
 
-No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu corretamente a existência de entidade/intenção de destino.
+Os dados de treinamento são o conjunto de informações necessárias para treinar um modelo. Isso inclui o esquema, rotulado declarações, recursos e configurações do aplicativo.
 
-## <a name="utterance"></a><a name="utterance"></a>Enunciado
+### <a name="training-errors"></a>Erros de treinamento
 
-Uma declaração é a frase de linguagem natural como "reservar 2 passagens para Seattle na próxima terça-feira". Os exemplos de declaração são adicionados à intenção.
+Os erros de treinamento são previsões em seus dados de treinamento que não correspondem a seus rótulos.
 
-## <a name="version"></a><a name="version"></a>Versão
+## <a name="utterance"></a>Enunciado
 
-Uma [versão](luis-how-to-manage-versions.md) do LUIS é um modelo de dados específico associado à ID do aplicativo LUIS e ao ponto de extremidade publicado. Todo aplicativo LUIS tem pelo menos uma versão.
+Um [expressão](luis-concept-utterance.md) é uma entrada do usuário que é um representante de texto curto de uma frase em uma conversa. Trata-se de uma frase de idioma natural, como "tíquetes do livro 2 para Seattle na próxima terça-feira". Exemplos de declarações são adicionados para treinar o modelo e o modelo prevê no novo expressão em tempo de execução
+
+## <a name="version"></a>Versão
+
+Uma [versão](luis-how-to-manage-versions.md) do Luis é uma instância específica de um aplicativo Luis associado a uma ID do aplicativo Luis e ao ponto de extremidade publicado. Todo aplicativo LUIS tem pelo menos uma versão.

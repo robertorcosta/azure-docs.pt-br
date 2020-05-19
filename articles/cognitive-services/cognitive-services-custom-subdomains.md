@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647686"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590631"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para serviços cognitivas
 
@@ -51,7 +51,7 @@ Sim. O uso de um nome de subdomínio personalizado não altera nenhum dos aspect
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>Quais são os requisitos para um nome de subdomínio personalizado?
 
-Um nome de subdomínio personalizado é exclusivo para seu recurso. O nome só pode incluir caracteres alfanuméricos e `-` o caractere; Ele deve ter entre 2 e 64 caracteres de comprimento e não pode terminar com `-`um.
+Um nome de subdomínio personalizado é exclusivo para seu recurso. O nome só pode incluir caracteres alfanuméricos e o `-` caractere; ele deve ter entre 2 e 64 caracteres de comprimento e não pode terminar com um `-` .
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Posso alterar um nome de domínio personalizado?
 
@@ -66,11 +66,11 @@ Cada nome de subdomínio personalizado é exclusivo, portanto, para reutilizar u
 Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar com os recursos de serviços cognitivas do Azure.
 
 > [!NOTE]
-> O API de Tradução de Texto e APIs de Pesquisa do Bing usar pontos de extremidade globais.
+> O serviço do tradutor e APIs de Pesquisa do Bing usar pontos de extremidade globais.
 
-| Tipo de ponto de extremidade | Região | Ponto de extremidade |
+| Tipo de ponto de extremidade | Região | Ponto de Extremidade |
 |---------------|--------|----------|
-| Público | Global (Tradução de Texto & Bing) | `https://api.cognitive.microsoft.com` |
+| Público | Global (tradutor & Bing) | `https://api.cognitive.microsoft.com` |
 | | Leste da Austrália | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Sul do Brasil | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Canadá Central | `https://canadacentral.api.cognitive.microsoft.com` |
@@ -96,7 +96,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | China | Leste da China 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Norte da China | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Quais são os serviços cognitivas?](Welcome.md)
 * [Autenticação](authentication.md)
