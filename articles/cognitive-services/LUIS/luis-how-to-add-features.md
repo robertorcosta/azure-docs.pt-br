@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 12445ec5b14f4c274e471bf1b061a3b221664d20
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8b52102ec26ec94097e4b5b9aa1b1730787cfa4b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592297"
+ms.locfileid: "83654086"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Usar recursos para impulsionar o sinal da lista de palavras
 
@@ -49,8 +49,23 @@ Examine os [conceitos](luis-concept-feature.md) para entender quando e por que u
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
+
 > [!Note]
 > Você pode excluir ou desativar uma lista de frases da barra de ferramentas contextual na página de **recursos do ml** .
+
+## <a name="global-phrase-list-applies-to-entire-app"></a>A lista de frases globais se aplica ao aplicativo inteiro
+
+Uma lista de frases deve ser aplicada à intenção ou entidade para ajudar, mas pode haver ocasiões em que uma lista de frases deve ser aplicada a todo o aplicativo como um recurso **global** .
+
+Na página recursos de ML, selecione a lista de frases e, em seguida, selecione **tornar global** na barra de ferramentas contextual superior.
+
+## <a name="model-as-a-feature"></a>Modelo como um recurso
+
+Uma entidade pode ser um [recurso para uma intenção ou entidade](luis-concept-feature.md).
+
+Para adicionar uma entidade como um recurso a uma intenção, selecione a intenção na página tentativas e, em seguida, selecione **+ Adicionar recurso** acima da barra de ferramentas contextual. A lista incluirá todas as listas de frases e entidades que podem ser aplicadas como recursos.
+
+Para adicionar uma entidade como um recurso a outra entidade, você pode adicionar o recurso na página de detalhes da intenção usando a [paleta de entidades](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) ou pode [Adicionar o recurso](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) na página de detalhes da entidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,12 +3,12 @@ title: Melhorar a base de dados de conhecimento – QnA Maker
 description: Melhore a qualidade de sua base de dados de conhecimento com o aprendizado ativo. Examine, aceite ou rejeite, adicione sem remover ou altere as perguntas existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756777"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650767"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
 
@@ -31,7 +31,7 @@ Para ver as perguntas sugeridas, você deve [ativar o aprendizado ativo](use-act
 
     [![Use a alternância filtrar por sugestões para exibir apenas as alternativas de perguntas sugeridas do aprendizado ativo.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Cada par de QnA sugere a nova pergunta alternativas com uma marca de `✔` seleção,, para aceitar a pergunta `x` ou um para rejeitar as sugestões. Selecione a marca de seleção para adicionar a pergunta.
+1. Cada par de QnA sugere a nova pergunta alternativas com uma marca de seleção, `✔` , para aceitar a pergunta ou um `x` para rejeitar as sugestões. Selecione a marca de seleção para adicionar a pergunta.
 
     [![Selecione ou rejeite as alternativas de pergunta sugeridas do aprendizado ativo selecionando a marca de seleção verde ou de exclusão vermelha.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
@@ -50,7 +50,7 @@ Para ver as perguntas sugeridas, você deve [ativar o aprendizado ativo](use-act
 
 Um bot ou outro aplicativo cliente deve usar o seguinte fluxo de arquitetura para usar o aprendizado ativo:
 
-* O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer `top` , usando a propriedade para obter várias respostas.
+* O bot [Obtém a resposta da base de dados de conhecimento](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) com a API GenerateAnswer, usando a `top` propriedade para obter várias respostas.
 * O bot determina os comentários explícitos:
     * Usando sua própria [lógica de negócios personalizada](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filtre pontuações baixas.
     * No bot ou no aplicativo cliente, exiba a lista de possíveis respostas para o usuário e obtenha a resposta selecionada do usuário.
@@ -127,21 +127,21 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Propriedade de solicitação HTTP|Nome|Type|Finalidade|
+|Propriedade de solicitação HTTP|Nome|Tipo|Finalidade|
 |--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
-|Subdomínio personalizado|Nome do recurso QnAMaker|cadeia de caracteres|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host`.|
-|Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. O valor padrão é:`application/json`|
-|Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parâmetro de rota de URL|ID da base de dados de conhecimento|string|o GUID da base de dados de conhecimento.|
+|Subdomínio personalizado|Nome do recurso QnAMaker|string|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host` .|
+|Cabeçalho|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. O valor padrão é:`application/json`|
+|Cabeçalho|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo da postagem|Objeto JSON|JSON|Os comentários de treinamento|
 
 O corpo JSON tem várias configurações:
 
-|Propriedade de corpo JSON|Type|Finalidade|
+|Propriedade de corpo JSON|Tipo|Finalidade|
 |--|--|--|--|
 |`feedbackRecords`|matriz|Lista de comentários.|
-|`userId`|cadeia de caracteres|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
-|`userQuestion`|cadeia de caracteres|Texto exato da consulta do usuário. Obrigatórios.|
+|`userId`|string|A ID de usuário da pessoa que está aceitando as perguntas sugeridas. O formato da ID de usuário cabe a você. Por exemplo, um endereço de email pode ser uma ID de usuário válida em sua arquitetura. Opcional.|
+|`userQuestion`|string|Texto exato da consulta do usuário. Obrigatórios.|
 |`qnaID`|número|ID de pergunta, encontrada na [resposta de GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Um exemplo de corpo JSON é semelhante a:
@@ -162,7 +162,7 @@ Uma resposta bem-sucedida retorna um status de 204 e nenhum corpo de resposta JS
 
 ### <a name="batch-many-feedback-records-into-a-single-call"></a>Lote de muitos registros de comentários em uma única chamada
 
-No aplicativo do lado do cliente, como um bot, você pode armazenar os dados e, em seguida, enviar vários registros em um único corpo JSON `feedbackRecords` na matriz.
+No aplicativo do lado do cliente, como um bot, você pode armazenar os dados e, em seguida, enviar vários registros em um único corpo JSON na `feedbackRecords` matriz.
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -311,7 +311,7 @@ async callTrain(stepContext){
 
 Quando seu aplicativo tem o aprendizado ativo habilitado e você exporta o aplicativo, a `SuggestedQuestions` coluna no arquivo TSV retém os dados de aprendizado ativos.
 
-A `SuggestedQuestions` coluna é um objeto JSON de informações de `autosuggested` `usersuggested` comentários implícitos,, e explícitos. Um exemplo desse objeto JSON para uma única pergunta enviada pelo usuário do `help` é:
+A `SuggestedQuestions` coluna é um objeto JSON de informações de comentários implícitos, `autosuggested` , e explícitos `usersuggested` . Um exemplo desse objeto JSON para uma única pergunta enviada pelo usuário do `help` é:
 
 ```JSON
 [
@@ -329,11 +329,6 @@ A `SuggestedQuestions` coluna é um objeto JSON de informações de `autosuggest
     }
 ]
 ```
-
-Você também pode usar a API de alterações de download para examinar essas alterações, usando REST ou qualquer um dos SDKs baseados em linguagem:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 Quando você Reimporta esse aplicativo, o aprendizado ativo continua a coletar informações e recomendar sugestões para sua base de dados de conhecimento.
 

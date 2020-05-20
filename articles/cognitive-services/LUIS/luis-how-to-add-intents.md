@@ -8,23 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: b2cb7494ae3d26fa14bef906b8f5222b9dbc70e1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f282bb0a80226afeb314aac4e8669634327f81d2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584954"
+ms.locfileid: "83654029"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do usuário de expressões
 
 Adicione [intents](luis-concept-intent.md) ao seu aplicativo LUIS para identificar grupos de perguntas ou comandos que tenham a mesma intenção.
 
-Os objetivos são gerenciados a partir da seção **Compilação** da barra de navegação superior e, a seguir, das **solicitações** do painel esquerdo.
+No portal do LUIS, as intenções são gerenciadas na seção de **Build** da barra de navegação superior e, em seguida, das **tentativas**do painel esquerdo.
 
-## <a name="add-intent"></a>Adicionar intenção
+## <a name="add-an-intent-to-your-app"></a>Adicionar uma intenção ao seu aplicativo
 
 1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
@@ -34,7 +34,7 @@ Os objetivos são gerenciados a partir da seção **Compilação** da barra de n
     > [!div class="mx-imgBorder"]
     > ![Adicionar intenção](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    A intenção precisa de um exemplo de declarações.
+    A intenção precisa de um [exemplo de declarações](luis-concept-utterance.md) para prever declarações no ponto de extremidade de previsão publicado.
 
 ## <a name="add-an-example-utterance"></a>Adicionar uma expressão de exemplo
 
@@ -51,16 +51,16 @@ Enunciados de exemplo são exemplos de texto de comandos ou perguntas do usuári
 
 ## <a name="intent-prediction-errors"></a>Erros de previsão de intenção
 
-Um exemplo de expressão em uma intenção pode ter um erro de previsão de intenção entre a intenção em que o exemplo expressão está atualmente em e a intenção determinada durante o treinamento.
+Um erro de previsão de intenção é determinado quando o expressão não é previsto com o aplicativo treinado para a intenção.
 
-Para localizar erros de previsão do expressão e corrigi-los, use as opções de **filtro** de incorretas e não claras combinadas com a opção **Exibir** da **exibição detalhada**.
+1. Para localizar erros de previsão do expressão e corrigi-los, use as opções de **filtro** de incorretos e não claros.
 
-![Para localizar erros de previsão de expressão e corrigi-los, use a opção de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+    > [!div class="mx-imgBorder"]
+    > ![Para localizar erros de previsão de expressão e corrigi-los, use a opção de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Quando os filtros e a exibição são aplicados e há um exemplo de declarações com erros, a lista de expressão de exemplo mostra o declarações e os problemas.
+1. Para exibir o valor de pontuação na página de detalhes da intenção, selecione **Mostrar pontuações de intenção de detalhes** no menu de opções de **exibição** .
 
-> [!div class="mx-imgBorder"]
-> ![! [Quando os filtros e a exibição são aplicados e há um exemplo de declarações com erros, a lista de expressão de exemplo mostra o declarações e os problemas.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+    Quando os filtros e a exibição são aplicados e há um exemplo de declarações com erros, a lista de expressão de exemplo mostra o declarações e os problemas.
 
 Cada linha mostra a pontuação de previsão do treinamento atual para o exemplo expressão, a Pontuação do rival mais próximo, que é a diferença nessas duas pontuações.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399695"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650591"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
 
@@ -24,6 +24,8 @@ ms.locfileid: "81399695"
 A conversão de fala em texto do serviço de fala, também conhecida como reconhecimento de fala, permite a transcrição em tempo real de fluxos de áudio em texto. Seus aplicativos, ferramentas ou dispositivos podem consumir, exibir e tomar medidas sobre esse texto como entrada de comando. Esse serviço é fornecido pela mesma tecnologia de reconhecimento usada pela Microsoft para os produtos Cortana e Office. Ele funciona diretamente com as ofertas <a href="./speech-translation.md" target="_blank">de <span class="docon docon-navigate-external x-hidden-focus"></span> tradução</a> e serviço de conversão de <a href="./text-to-speech.md" target="_blank">texto em fala <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Para obter uma lista completa de idiomas de fala para texto disponíveis, consulte [idiomas com suporte](language-support.md#speech-to-text).
 
 O serviço de conversão de voz em texto usa o modelo de linguagem universal. Esse modelo foi treinado usando dados de propriedade da Microsoft e é implantado na nuvem. É ideal para cenários de conversação e de ditado. Ao usar a conversão de fala em texto para reconhecimento e transcrição em um ambiente exclusivo, você pode criar e treinar modelos acústicos, de linguagem e de pronúncia personalizados. A personalização é útil para lidar com ruídos de ambiente ou vocabulário específico do setor.
+
+Com o texto de referência adicional como entrada, o serviço de conversão de fala também habilita a capacidade de [avaliação de pronúncia](rest-speech-to-text.md#pronunciation-assessment-parameters) para avaliar a pronúncia da fala e dá aos palestrantes os comentários sobre a precisão e a fluência de áudio falado. Com a avaliação de pronúncia, os aprendizes de linguagem podem praticar, obter comentários instantâneos e melhorar sua pronúncia para que eles possam falar e apresentar confiança. Os educadores podem usar a capacidade de avaliar a pronúncia de vários alto-falantes em tempo real. Atualmente, o recurso dá suporte ao inglês americano e correlaciona altamente com as avaliações de fala conduzidas por especialistas.
 
 > [!NOTE]
 > Fala do Bing foi encerrado em 15 de outubro de 2019. Se seus aplicativos, ferramentas ou produtos estiverem usando as APIs de Fala do Bing, criamos guias para ajudá-lo a migrar para o serviço de fala.
@@ -34,10 +36,12 @@ O serviço de conversão de voz em texto usa o modelo de linguagem universal. Es
 O serviço de fala a texto está disponível por meio do [SDK de fala](speech-sdk.md). Há vários cenários comuns disponíveis como guias de início rápido, em várias linguagens e plataformas:
 
  - [Início rápido: reconhecer a fala com a entrada do microfone](quickstarts/speech-to-text-from-microphone.md)
- - [Início rápido: reconhecer a fala de um arquivo](quickstarts/speech-to-text-from-file.md)
+ - [Início Rápido: Reconhecer fala em um arquivo](quickstarts/speech-to-text-from-file.md)
  - [Início rápido: reconhecer a fala armazenada no armazenamento de BLOBs](quickstarts/from-blob.md)
 
 Se você preferir usar o serviço REST de fala em texto, consulte [APIs REST](rest-speech-to-text.md).
+
+ - [Início rápido: avaliação de pronúncia com entrada de referência](rest-speech-to-text.md#pronunciation-assessment-parameters)
 
 ## <a name="tutorials-and-sample-code"></a>Tutoriais e código de exemplo
 
@@ -49,6 +53,7 @@ O código de exemplo para o SDK de fala está disponível no GitHub. Esses exemp
 
 - [Exemplos de conversão de fala em texto (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Exemplos de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+- [Exemplos de avaliação de pronúncia (REST)](rest-speech-to-text.md#pronunciation-assessment-parameters)
 
 ## <a name="customization"></a>Personalização
 

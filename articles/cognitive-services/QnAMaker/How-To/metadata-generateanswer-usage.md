@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 9beb6dbbba1c5855b8bfa97fc02f50aa59225d78
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80474860"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659550"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -64,7 +64,7 @@ Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de ex
 A solicitação POST usa:
 
 * [Parâmetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) necessários
-* Propriedade de cabeçalho necessária `Authorization`,, para segurança
+* Propriedade de cabeçalho necessária, `Authorization` , para segurança
 * [Propriedades do corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)necessárias.
 
 A URL GenerateAnswer tem o seguinte formato:
@@ -73,7 +73,7 @@ A URL GenerateAnswer tem o seguinte formato:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Lembre-se de definir a propriedade do `Authorization` cabeçalho HTTP com um valor da `EndpointKey` cadeia de caracteres com um espaço à direita, depois a chave do ponto de extremidade encontrada na página **configurações** .
+Lembre-se de definir a propriedade do cabeçalho HTTP `Authorization` com um valor da cadeia de caracteres `EndpointKey` com um espaço à direita, depois a chave do ponto de extremidade encontrada na página **configurações** .
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -228,7 +228,7 @@ A resposta para o GenerateAnswer contém as informações de metadados correspon
 
 Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da postagem da solicitação GenerateAnswer.
 
-Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste usando. `isTest=true`
+Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste usando `isTest=true` .
 
 ```json
 {
@@ -243,7 +243,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste us
 
 |Código|Explicação|
 |:--|--|
-|2xx|Êxito|
+|2xx|Sucesso|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
 |400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, errado ou é muito grande|
 |401|Chave inválida|
@@ -256,4 +256,4 @@ Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste us
 A página **publicar** também fornece informações para [gerar uma resposta com o](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) postmaster ou a ondulação.
 
 > [!div class="nextstepaction"]
-> [Criar um bot da base de dados de conhecimento](../tutorials/integrate-qnamaker-luis.md)
+> [Obter análises na base de dados de conhecimento](../how-to/get-analytics-knowledge-base.md)
