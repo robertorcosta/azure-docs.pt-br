@@ -71,7 +71,7 @@ Como qualquer aplicativo Web de página única, o aplicativo de tutorial inclui 
 
 Este tutorial não aborda a maior parte do CSS ou do HTML em detalhes, pois eles são simples.
 
-O HTML contém o formulário de pesquisa no qual o usuário insere uma consulta e escolhe as opções de pesquisa. O formulário está conectado ao JavaScript que, de fato, executa a pesquisa pelo atributo `<form>` da marca `onsubmit`:
+O HTML contém o formulário de pesquisa no qual o usuário insere uma consulta e escolhe as opções de pesquisa. O formulário está conectado ao JavaScript que, de fato, executa a pesquisa pelo atributo `onsubmit` da marca `<form>`:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">

@@ -51,7 +51,7 @@ Como qualquer aplicativo Web de página única, esse aplicativo de tutorial incl
 > * CSS – define a aparência da página
 > * JavaScript – define o comportamento da página
 
-A maior parte do HTML e do CSS é convencional e, portanto, o tutorial não o aborda. O HTML contém o formulário de pesquisa no qual o usuário insere uma consulta e escolhe as opções de pesquisa. O formulário é conectado ao JavaScript que faz a pesquisa usando a marcação `onsubmit` do atributo `<form>`:
+A maior parte do HTML e do CSS é convencional e, portanto, o tutorial não o aborda. O HTML contém o formulário de pesquisa no qual o usuário insere uma consulta e escolhe as opções de pesquisa. O formulário é conectado ao JavaScript que faz a pesquisa usando a marcação `<form>` do atributo `onsubmit`:
 
 ```html
 <form name="bing" onsubmit="return bingWebSearch(this)">
@@ -87,7 +87,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-A marca `<form>` HTML `onsubmit` chama a função `bingWebSearch` para retornar os resultados da pesquisa. `bingWebSearch` usa `getSubscriptionKey()` para autenticar cada consulta. Conforme mostrado na definição anterior, `getSubscriptionKey` solicita ao usuário a chave, caso ela ainda não tenha sido inserida. A chave é então armazenada para continuar o uso pelo aplicativo.
+A marca `onsubmit` HTML `<form>` chama a função `bingWebSearch` para retornar os resultados da pesquisa. `bingWebSearch` usa `getSubscriptionKey()` para autenticar cada consulta. Conforme mostrado na definição anterior, `getSubscriptionKey` solicita ao usuário a chave, caso ela ainda não tenha sido inserida. A chave é então armazenada para continuar o uso pelo aplicativo.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
