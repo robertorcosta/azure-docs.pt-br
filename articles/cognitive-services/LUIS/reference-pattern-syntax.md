@@ -4,19 +4,19 @@ description: Crie entidades para extrair dados de chave de declarações de usu�
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585565"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684534"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrões
 
 Sintaxe de padrão é um modelo para uma expressão. O modelo deve conter palavras e entidades que você deseja corresponder, bem como palavras e [pontuações](luis-reference-application-settings.md#punctuation-normalization) que você deseja ignorar. **Não** é uma expressão regular.
 
 > [!CAUTION]
-> Os padrões incluem apenas pais de entidade aprendidas por computador, não subentidades.
+> Os padrões incluem apenas pais de entidade de aprendizado de máquina, não subentidades.
 
 As entidades em padrões estão entre chaves, `{}`. Os padrões podem incluir entidades e entidades com funções. [Padrão. any](luis-concept-entity-types.md#patternany-entity) é uma entidade usada apenas em padrões.
 

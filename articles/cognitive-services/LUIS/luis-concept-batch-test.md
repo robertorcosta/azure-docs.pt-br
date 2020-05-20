@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a5ebd9b05b2dea9e04d4c9745c13d692ea88fcb8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220045"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680416"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Lote de teste com 1.000 declarações no portal do LUIS
 
@@ -24,7 +24,7 @@ O teste em lotes valida sua versão treinada ativa para medir sua precisão de p
 
 ## <a name="group-data-for-batch-test"></a>Agrupar dados para o teste em lote
 
-É importante que as declarações usadas para o teste em lote sejam novas no LUIS. Se você tiver um conjunto de dados de declarações, divida o declarações em três conjuntos: exemplo declarações adicionado a uma intenção, declarações recebido do ponto de extremidade publicado e declarações usado para testar o lote LUIS depois de ser treinado. 
+É importante que as declarações usadas para o teste em lote sejam novas no LUIS. Se você tiver um conjunto de dados de declarações, divida o declarações em três conjuntos: exemplo declarações adicionado a uma intenção, declarações recebido do ponto de extremidade publicado e declarações usado para testar o lote LUIS depois de ser treinado.
 
 ## <a name="a-data-set-of-utterances"></a>Um conjunto de dados de declarações
 
@@ -35,7 +35,7 @@ Envie um arquivo em lotes de declarações, conhecido como um *conjunto de dados
 |*Nenhuma declaração duplicada|
 |1.000 declarações ou menos|
 
-*As duplicatas serão consideradas correspondências da cadeia de caracteres exatas, não correspondências sinalizadas com token primeiro. 
+*As duplicatas serão consideradas correspondências da cadeia de caracteres exatas, não correspondências sinalizadas com token primeiro.
 
 ## <a name="entities-allowed-in-batch-tests"></a>Entidades permitidas nos testes em lotes
 
@@ -46,7 +46,7 @@ Todas as entidades personalizadas no modelo aparecem no filtro de entidades de t
 
 ## <a name="batch-file-format"></a>Formato do arquivo em lote
 
-O arquivo em lote consiste em declarações. Cada declaração deve ter uma previsão de intenção esperada junto com qualquer [entidade aprendida por máquina](luis-concept-entity-types.md#types-of-entities) que você espera detectar. 
+O arquivo em lote consiste em declarações. Cada expressão deve ter uma previsão de intenção esperada junto com as [entidades de aprendizado de máquina](luis-concept-entity-types.md#types-of-entities) que você espera que sejam detectadas.
 
 ## <a name="batch-syntax-template-for-intents-with-entities"></a>Modelo de sintaxe em lote para intenções com entidades
 
@@ -57,7 +57,7 @@ Use o modelo a seguir para iniciar o arquivo em lotes:
   {
     "text": "example utterance goes here",
     "intent": "intent name goes here",
-    "entities": 
+    "entities":
     [
         {
             "entity": "entity name 1 goes here",
@@ -74,7 +74,7 @@ Use o modelo a seguir para iniciar o arquivo em lotes:
 ]
 ```
 
-O arquivo em lotes usa as propriedades **startPos** e **endPos** para observar o início e o fim de uma entidade. Os valores são baseados em zero e não devem iniciar ou terminar em um espaço. Isso é diferente dos logs de consulta, que usam as propriedades startIndex e endIndex. 
+O arquivo em lotes usa as propriedades **startPos** e **endPos** para observar o início e o fim de uma entidade. Os valores são baseados em zero e não devem iniciar ou terminar em um espaço. Isso é diferente dos logs de consulta, que usam as propriedades startIndex e endIndex.
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
@@ -97,7 +97,7 @@ Se você não deseja testar entidades, inclua a propriedade `entities` e defina 
 
 ## <a name="common-errors-importing-a-batch"></a>Erros comuns ao importar um lote
 
-Os erros comuns incluem: 
+Os erros comuns incluem:
 
 > * Mais de 1.000 declarações
 > * Um objeto JSON de declaração que não tem uma propriedade de entidades. A propriedade pode ser uma matriz vazia.
@@ -112,7 +112,7 @@ LUIS rastreia o estado do último teste de cada conjunto de dados. Isso inclui o
 
 ## <a name="batch-test-results"></a>Resultados do teste em lote
 
-O resultado do teste em lote é um gráfico de dispersão, conhecido como matriz de erro. Esse gráfico é uma comparação de 4 vias das declarações no arquivo de lote, intenção prevista do modelo atual e entidades. 
+O resultado do teste em lote é um gráfico de dispersão, conhecido como matriz de erro. Esse gráfico é uma comparação de 4 vias das declarações no arquivo de lote, intenção prevista do modelo atual e entidades.
 
 Os pontos de dados nas seções **Falso Positivo** e **Falso Negativo** indicam os erros que devem ser investigados. Se todos os pontos de dados estiverem nas seções **verdadeiro positivo** e **verdadeiro negativo** , a precisão do aplicativo será perfeita nesse conjunto de dados.
 
@@ -124,13 +124,13 @@ Esse gráfico ajuda a encontrar as declarações que o LUIS prevê incorretament
 
 ## <a name="errors-in-the-results"></a>Erros nos resultados
 
-Os erros no teste em lote indicam as intenções que não estão previstas, como indicado no arquivo em lote. Os erros são indicados nas duas seções vermelhas do gráfico. 
+Os erros no teste em lote indicam as intenções que não estão previstas, como indicado no arquivo em lote. Os erros são indicados nas duas seções vermelhas do gráfico.
 
-A seção de falso positivo indica que uma declaração correspondeu a uma intenção ou entidade quando não deveria. O falso negativo indica que uma declaração não correspondeu a uma intenção ou entidade quando deveria. 
+A seção de falso positivo indica que uma declaração correspondeu a uma intenção ou entidade quando não deveria. O falso negativo indica que uma declaração não correspondeu a uma intenção ou entidade quando deveria.
 
 ## <a name="fixing-batch-errors"></a>Corrigindo erros em lote
 
-Se houver erros no teste em lote, você poderá adicionar mais declarações a uma intenção e/ou rotular mais declarações com a entidade para ajudar o LUIS a diferenciar as intenções. Se você adicionou declarações, rotulou e ainda recebe erros de previsão no teste em lote, considere adicionar um recurso de [lista de frases](luis-concept-feature.md) com um vocabulário específico do domínio para ajudar o LUIS a aprender mais rápido. 
+Se houver erros no teste em lote, você poderá adicionar mais declarações a uma intenção e/ou rotular mais declarações com a entidade para ajudar o LUIS a diferenciar as intenções. Se você adicionou declarações, rotulou e ainda recebe erros de previsão no teste em lote, considere adicionar um recurso de [lista de frases](luis-concept-feature.md) com um vocabulário específico do domínio para ajudar o LUIS a aprender mais rápido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

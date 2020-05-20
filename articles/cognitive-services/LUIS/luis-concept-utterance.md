@@ -2,17 +2,17 @@
 title: Bom exemplo de declarações-LUIS
 description: Enunciados são entradas do usuário que seu aplicativo precisa interpretar. Colete frases que você acredita que os usuários vão inserir. Inclua enunciados que tenham o mesmo significado, mas sejam construídos de modo diferente em termos de comprimento e posicionamento de palavras.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592858"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685279"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
-**Enunciados** são entrada do usuário que seu aplicativo precisa interpretar. Para treinar o LUIS a extrair intenções e entidades dos enunciados, é importante capturar uma variedade de diferentes enunciados para cada intenção. Aprendizado ativo, ou o processo de continuar a treinar em novos enunciados, é essencial para a inteligência de aprendizado de máquina que o LUIS fornece.
+**Enunciados** são entrada do usuário que seu aplicativo precisa interpretar. Para treinar o LUIS a extrair intenções e entidades dos enunciados, é importante capturar uma variedade de diferentes enunciados para cada intenção. O aprendizado ativo, ou o processo de continuar a treinar no novo declarações, é essencial para a inteligência de aprendizado de máquina que o LUIS fornece.
 
 Colete enunciados que você acredita que os usuários irão inserir. Inclua enunciados que tenham o mesmo significado mas são construídos de várias maneiras diferentes:
 
@@ -84,7 +84,7 @@ Defina as configurações de versão por meio do portal do LUIS, na seção **ge
 
 ### <a name="word-forms"></a>Formulários do Word
 
-A normalização de **formas de palavras** ignora as diferenças em palavras que se expandem além da raiz. Por exemplo, as palavras `run` , `running` e `runs` mudam com base no verbo conjugação.
+A normalização de **formas de palavras** ignora as diferenças em palavras que se expandem além da raiz.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

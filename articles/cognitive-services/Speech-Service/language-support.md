@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3fe1b999fbdc03157778a1329e05e8c342183528
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 28c5c1258c0733cd23f7c4ad3c901360461d5bdc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587367"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682144"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte de idioma e voz para o serviço de fala
 
@@ -24,7 +24,7 @@ O suporte a idiomas varia de acordo com a funcionalidade do serviço de fala. As
 
 ## <a name="speech-to-text"></a>Conversão de fala em texto
 
-O SDK do Microsoft Speech e a API REST dão suporte aos seguintes idiomas (localidades). Para melhorar a precisão, a personalização é oferecida para um subconjunto das linguagens por meio do carregamento de áudio + transcrições com rótulo humano ou texto relacionado: frases. Atualmente, a personalização de pronúncia está disponível apenas para `en-US` e `de-DE` . Saiba mais sobre a personalização [aqui](how-to-custom-speech.md).
+O SDK do Microsoft Speech e a API REST dão suporte aos seguintes idiomas (localidades). Para melhorar a precisão, a personalização é oferecida para um subconjunto das linguagens por meio do carregamento de áudio + transcrições com rótulo humano ou texto relacionado: frases. A personalização de pronúncia é oferecida por meio do carregamento de texto relacionado: pronúncia. Saiba mais sobre a personalização [aqui](how-to-custom-speech.md).
 
 <!--
 To get the AM and ML bits:
@@ -34,12 +34,14 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Localidade  | Idioma                          | Com suporte | Personalizações                                    |
+| Localidade  | Linguagem                          | Com suporte | Personalizações                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
 | `ar-AE` | Árabe (dos EAU)                      | Sim       | Não                                                |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Sim       | Modelo de linguagem                                    |
 | `ar-EG` | Árabe (Egito)                    | Sim       | Modelo de linguagem                                    |
+| `ar-IL` | Árabe (Israel)                   | Sim       | Não                                                |
 | `ar-KW` | Árabe (Kuwait)                   | Sim       | Não                                                |
+| `ar-PS` | Árabe (Palestina)                | Sim       | Não                                                |
 | `ar-QA` | Árabe (Catar)                    | Sim       | Não                                                |
 | `ar-SA` | Árabe (Arábia Saudita)             | Sim       | Não                                                |
 | `ar-SY` | Árabe (Síria)                    | Sim       | Modelo de linguagem                                    |
@@ -93,7 +95,7 @@ As vozes neurais podem ser usadas para fazer interações com os assistentes de 
 
 Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-|Localidade  | Idioma            | Gênero | Nome da voz  | Suporte multilíngue | Suporte de estilo |
+|Localidade  | Linguagem            | Gênero | Nome da voz  | Suporte multilíngue | Suporte de estilo |
 |--|--|--|--|--|--|
 | `de-DE` | Alemão (Alemanha)    | Feminino | "de-DE-KatjaNeural" | Sim. Inglês (EUA) | Geral |
 | `en-AU` | Inglês (Austrália) | Feminino |  "en-AU-NatashaNeural" | Não | Geral |
@@ -129,7 +131,7 @@ Para saber como você pode configurar e ajustar as vozes neurais, consulte [ling
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-| Localidade | Idioma | Gênero | Nome da voz |
+| Localidade | Linguagem | Gênero | Nome da voz |
 |--|--|--|--|
 | <sup>uma</sup>`ar-EG` | Árabe (Egito) | Feminino | "ar-ex-Hoda" |
 | `ar-SA` | Árabe (Arábia Saudita) | Masculino | "ar-SA-Naayf" |

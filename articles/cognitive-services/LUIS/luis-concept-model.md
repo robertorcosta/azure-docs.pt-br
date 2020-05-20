@@ -3,12 +3,12 @@ title: Criar com modelos-LUIS
 description: A compreensão da linguagem fornece vários tipos de modelos. Alguns modelos podem ser usados de mais de uma maneira.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591872"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683922"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Design com modelos de intenção e entidade
 
@@ -36,9 +36,9 @@ O expressão a seguir é um **exemplo positivo** para a `OrderBook` intenção e
 
 ## <a name="entities-extract-data"></a>Dados de extração de entidades
 
-Uma entidade representa uma unidade de dados que você deseja extrair do expressão. Uma entidade aprendida por máquina é uma entidade de nível superior que contém subentidades, que também são entidades aprendidas por computador.
+Uma entidade representa uma unidade de dados que você deseja extrair do expressão. Uma entidade de aprendizado de máquina é uma entidade de nível superior que contém subentidades, que também são entidades de aprendizado de máquina.
 
-Um exemplo de uma entidade aprendida por máquina é uma ordem para um tíquete de plano. Conceitualmente, essa é uma única transação com muitas unidades menores de dados, como data, hora, quantidade de estações, tipo de assento, como primeira classe, local de origem, local de destino e escolha de refeição.
+Um exemplo de uma entidade de aprendizado de máquina é uma ordem para um tíquete de plano. Conceitualmente, essa é uma única transação com muitas unidades menores de dados, como data, hora, quantidade de estações, tipo de assento, como primeira classe, local de origem, local de destino e escolha de refeição.
 
 ## <a name="intents-versus-entities"></a>Tentativas versus entidades
 
@@ -65,11 +65,11 @@ A decomposição do modelo tem as seguintes partes:
 
 * [tentativas](#intents-classify-utterances)
     * [Features](#features)
-* [entidades aprendidas por computador](reference-entity-machine-learned-entity.md)
-    * subentidades (também entidades aprendidas por máquina)
+* [entidades de aprendizado de máquina](reference-entity-machine-learned-entity.md)
+    * subentidades (também entidades de aprendizado de máquina)
         * [Features](#features)
             * [lista de frases](luis-concept-feature.md)
-            * [entidades não aprendidas por computador](luis-concept-feature.md) , como [expressões regulares](reference-entity-regular-expression.md), [listas](reference-entity-list.md)e [entidades predefinidas](luis-reference-prebuilt-entities.md)
+            * [entidades de aprendizagem não Machine-Learning](luis-concept-feature.md) , como [expressões regulares](reference-entity-regular-expression.md), [listas](reference-entity-list.md)e [entidades predefinidas](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>

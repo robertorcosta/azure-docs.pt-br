@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81404258"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684072"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprender os conceitos de moderação de imagem
 
-Use a moderação de imagem assistida por computador Content Moderator e a [ferramenta de revisão humana no loop](Review-Tool-User-Guide/human-in-the-loop.md) para imagens moderadas para conteúdo adulto e erótico. Examine as imagens quanto a conteúdo de texto, extraia esse texto e detecte faces. Você pode combinar imagens com listas personalizadas e executar mais ações.
+Use a [ferramenta de análise](Review-Tool-User-Guide/human-in-the-loop.md) e moderação de imagem assistida por computador Content moderator para imagens moderadas para conteúdo adulto e erótico. Examine as imagens quanto a conteúdo de texto, extraia esse texto e detecte faces. Você pode combinar imagens com listas personalizadas e executar mais ações.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Avaliação de conteúdo adulto e estimulante
 
@@ -147,4 +147,4 @@ Para casos mais sutis, use a [ferramenta de análise](Review-Tool-User-Guide/hum
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Faça test drive do [console da API de Moderação de Imagem](try-image-api.md) e use os exemplos de código da API REST. Confira também a seção de moderação de imagem do [início rápido do SDK do .net](dotnet-sdk-quickstart.md) se você estiver familiarizado com o Visual Studio e o C#.
+Faça test drive do [console da API de Moderação de Imagem](try-image-api.md) e use os exemplos de código da API REST. Consulte também [análises, fluxos de trabalho e trabalhos](./review-api.md) para saber como configurar as revisões humanas.

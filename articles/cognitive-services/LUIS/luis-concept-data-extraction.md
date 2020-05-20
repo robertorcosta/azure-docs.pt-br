@@ -4,17 +4,17 @@ description: Extraia dados de texto expressão com intenções e entidades. Saib
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 3b6b09fd1066a9caa745cddf30d76e2843c3f56c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589713"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682198"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto expressão com intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
 
-Os dados mais difíceis de extrair são dados de aprendizado de máquina, porque eles não são uma correspondência exata do texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizado de máquina precisa fazer parte do [ciclo de criação](luis-concept-app-iteration.md) até que você esteja confiante de receber os dados esperados.
+Os dados mais difíceis de extrair são os dados de aprendizado de máquina porque não é uma correspondência exata de texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizado de máquina precisa fazer parte do [ciclo de criação](luis-concept-app-iteration.md) até que você tenha certeza de que você receberá os dados esperados.
 
 ## <a name="data-location-and-key-usage"></a>Local dos dados e uso da chave
 LUIS extrai dados do expressão do usuário no [ponto de extremidade](luis-glossary.md#endpoint)publicado. A **solicitação HTTPS** (POST ou GET) contém a declaração, assim como algumas configurações opcionais, como ambientes de preparo ou de produção.
@@ -245,7 +245,7 @@ Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produ
 
 ## <a name="patternany-entity-data"></a>Dados de entidade pattern.any
 
-[Padrão. any](reference-entity-pattern-any.md) é um espaço reservado de comprimento variável usado somente no modelo de um padrão expressão para marcar onde a entidade começa e termina. A entidade usada no padrão deve ser encontrada para que o padrão seja aplicado. 
+[Padrão. any](reference-entity-pattern-any.md) é um espaço reservado de comprimento variável usado somente no modelo de um padrão expressão para marcar onde a entidade começa e termina. A entidade usada no padrão deve ser encontrada para que o padrão seja aplicado.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimento
 Se a análise de sentimentos estiver configurada durante a [publicação](luis-how-to-publish-app.md#sentiment-analysis), a resposta JSON Luis incluirá a análise de sentimentos. Saiba mais sobre a análise de sentimento na documentação [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).

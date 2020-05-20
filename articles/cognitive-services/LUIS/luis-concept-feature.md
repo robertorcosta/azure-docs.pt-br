@@ -2,13 +2,13 @@
 title: Recursos-LUIS
 description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/14/2020
+ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591889"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682153"
 ---
 # <a name="machine-learning-ml-features"></a>Recursos de aprendizado de máquina (ML)
 
@@ -38,9 +38,9 @@ Quando você precisar que seu aplicativo LUIS seja capaz de generalizar e identi
 Com uma lista de frases, LUIS considera contexto e generalizações para identificar itens semelhantes a, mas não uma correspondência de texto exata.
 
 Etapas para usar uma lista de frases:
-* Começar com uma entidade aprendida por computador
+* Comece com uma entidade de aprendizado de máquina
     * Adicionar enunciados de exemplo
-    * Rótulo com uma entidade aprendida por computador
+    * Rótulo com uma entidade de aprendizado de máquina
 * Adicionar uma lista de frases
     * Adicionar palavras com significado semelhante-não **adicione todas** as palavras ou frases possíveis. Em vez disso, adicione algumas palavras ou frases de cada vez e, em seguida, retreine e publique.
     * Revisar e adicionar palavras sugeridas
@@ -54,7 +54,7 @@ Um exemplo de palavras que podem precisar de uma lista de frases para impulsiona
 Se você quiser extrair os termos médicos:
 * Primeiro, crie o exemplo declarações e Rotule os termos médicos dentro desses declarações.
 * Em seguida, crie uma lista de frases com exemplos dos termos dentro do domínio do assunto. Essa lista de frases deve incluir o termo real rotulado e outros termos que descrevam o mesmo conceito.
-* Adicione a lista de frases à entidade ou subentidade que extrai o conceito usado na lista de frases. O cenário mais comum é um componente (filho) de uma entidade aprendida por máquina. Se a lista de frases deve ser aplicada em todas as intenções ou entidades, marque a lista de frases como uma lista de frases globais. O `enabledForAllModels` sinalizador controla esse escopo de modelo na API.
+* Adicione a lista de frases à entidade ou subentidade que extrai o conceito usado na lista de frases. O cenário mais comum é um componente (filho) de uma entidade de aprendizado de máquina. Se a lista de frases deve ser aplicada em todas as intenções ou entidades, marque a lista de frases como uma lista de frases globais. O `enabledForAllModels` sinalizador controla esse escopo de modelo na API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -88,9 +88,21 @@ Por exemplo, se n entidade de endereço de envio contivesse uma subentidade ende
     * País (subentidade)
     * CEP (subentidade)
 
+## <a name="nested-subentities-with-features"></a>Subentidades aninhadas com recursos
+
+Uma subentidade aprendida pelo computador indica que um conceito está presente na entidade pai, se esse pai é outra subentidade ou a entidade superior. O valor da subentidade atua como um recurso para seu pai.
+
+Uma subentidade pode ter uma lista de frases como um recurso, bem como um modelo (outra entidade) como um recurso.
+
+Quando a subentidade tiver uma lista de frases, isso aumentará o vocabulário do conceito, mas não adicionará nenhuma informação à resposta JSON da previsão.
+
+Quando a subentidade tem um recurso de outra entidade, a resposta JSON inclui os dados extraídos dessa outra entidade.
+
 ## <a name="required-features"></a>Recursos necessários
 
 Um recurso necessário deve ser encontrado para que o modelo seja retornado do ponto de extremidade de previsão. Use um recurso necessário quando você souber que seus dados de entrada devem corresponder ao recurso.
+
+Se o texto expressão não corresponder ao recurso necessário, ele não será extraído.
 
 **Um recurso necessário usa uma entidade aprendida não Machine**:
 * Entidade de expressão regular

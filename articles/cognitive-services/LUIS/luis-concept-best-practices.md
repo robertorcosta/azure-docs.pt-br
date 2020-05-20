@@ -2,14 +2,14 @@
 title: Práticas recomendadas para criar seu aplicativo LUIS
 description: Conheça as práticas recomendadas para obter os melhores resultados do modelo do aplicativo LUIS.
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589798"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683766"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Práticas recomendadas para a criação de um aplicativo de reconhecimento de linguagem (LUIS)
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS:
@@ -31,13 +31,27 @@ A lista a seguir inclui melhores práticas para aplicativos LUIS:
 
 |O que fazer|O que não fazer|
 |--|--|
-|[Definir intenções distintas](#do-define-distinct-intents)<br>[Adicionar recursos a tentativas](#do-add-features-to-intents) |[Adicionar muitos exemplos de declaração a intenções](#dont-add-many-example-utterances-to-intents)<br>[Usar algumas ou entidades simples](#dont-use-few-or-simple-entities) |
+|[Planejar seu esquema](#do-plan-your-schema)|[Criar e publicar sem um plano](#dont-publish-too-quickly)|
+|[Definir intenções distintas](#do-define-distinct-intents)<br>[Adicionar recursos a tentativas](#do-add-features-to-intents)<br>
+[Usar entidades aprendidas do computador](#do-use-machine-learned-entities) |[Adicionar muitos exemplos de declaração a intenções](#dont-add-many-example-utterances-to-intents)<br>[Usar algumas ou entidades simples](#dont-use-few-or-simple-entities) |
 |[Localizar um ponto ideal entre muito genérico e muito específico para cada intenção](#do-find-sweet-spot-for-intents)|[Usar o LUIS como uma plataforma de treinamento](#dont-use-luis-as-a-training-platform)|
 |[Crie seu aplicativo iterativamente com versões](#do-build-your-app-iteratively-with-versions)<br>[Criar entidades para a decomposição do modelo](#do-build-for-model-decomposition)|[Adicionar muitas declarações de exemplo do mesmo formato, ignorando os outros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Adicionar padrões em iterações posteriores](#do-add-patterns-in-later-iterations)|[Misturar a definição de intenções e entidades](#dont-mix-the-definition-of-intents-and-entities)|
 |[Equilibrar suas declarações em todas as intenções](#balance-your-utterances-across-all-intents) exceto a intenção Nenhum.<br>[Adicionar exemplos de enunciado à intenção None](#do-add-example-utterances-to-none-intent)|[Criar listas de frase com todos os valores possíveis](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Aproveitar o recurso de sugestão para aprendizado ativo](#do-leverage-the-suggest-feature-for-active-learning)|[Adicionar muitos padrões](#dont-add-many-patterns)|
 |[Monitorar o desempenho do seu aplicativo com testes em lotes](#do-monitor-the-performance-of-your-app)|[Treinar e publicar com cada declaração de exemplo única adicionada](#dont-train-and-publish-with-every-single-example-utterance)|
+
+## <a name="do-plan-your-schema"></a>Planejar seu esquema
+
+Antes de começar a criar o esquema do aplicativo, você deve identificar o que e onde planeja usar esse aplicativo. Quanto mais completo e específico seu planejamento, melhor seu aplicativo se torna.
+
+* Pesquisar usuários direcionados
+* Definindo pessoas de ponta a ponta para representar seu aplicativo-voz, Avatar, tratamento de problemas (proativo, reativo)
+* Identificar as interações do usuário (texto, fala) por meio dos canais, entregando as soluções existentes ou criando uma nova solução para este aplicativo
+* Jornada do usuário de ponta a ponta
+    * O que você deve esperar que esse aplicativo faça e não faça isso? * Quais são as prioridades do que ele deve fazer?
+    * Quais são os principais casos de uso?
+* Coletando dados- [saiba mais](data-collection.md) sobre como coletar e preparar dados
 
 ## <a name="do-define-distinct-intents"></a>Defina intenções distintas
 Verifique se o vocabulário para cada intenção é apenas para essa intenção e não está se sobrepondo a uma intenção diferente. Por exemplo, se desejar ter um aplicativo que manipula organizações de viagem como voos por companhia aérea e hotéis, será possível optar por tê-las como áreas de assunto, intenções separadas ou a mesma intenção com entidades para dados específicos dentro da declaração.
@@ -60,6 +74,14 @@ Os recursos descrevem os conceitos de uma intenção. Um recurso pode ser uma li
 ## <a name="do-find-sweet-spot-for-intents"></a>Localizar ponto ideal para intenções
 Use dados de previsão do LUIS para determinar se suas intenções estiverem se sobrepondo. Intenções sobrepostas confundem o LUIS. O resultado é que a principal intenção de pontuação está muito perto de outra intenção. Como o LUIS não usa o mesmo caminho exato por meio dos dados para treinamento a cada vez, uma intenção sobreposta tem uma chance de ser a primeira ou a segunda no treinamento. Convém que a pontuação da declaração para cada intenção esteja mais distante para que esse flip/flop não aconteça. A boa distinção para intenções deve resultar na principal intenção esperada toda vez.
 
+## <a name="do-use-machine-learned-entities"></a>Usar entidades aprendidas do computador
+
+As entidades aprendidas do computador são adaptadas ao seu aplicativo e exigem que o rótulo seja bem-sucedido. Se você não estiver usando entidades aprendidas do computador, talvez esteja usando a ferramenta errada.
+
+As entidades aprendidas por computador podem usar outras entidades como recursos. Essas outras entidades podem ser entidades personalizadas, como entidades de expressão regular ou entidades de lista, ou você pode usar entidades predefinidas como recursos.
+
+Saiba mais sobre as [entidades aprendidas da máquina em vigor](luis-concept-entity-types.md#effective-machine-learned-entities).
+
 <a name="#do-build-the-app-iteratively"></a>
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>Compilar seu aplicativo iterativamente com versões
@@ -79,9 +101,9 @@ A decomposição do modelo tem um processo típico de:
 
 Depois de criar a intenção e adicionar o exemplo declarações, o exemplo a seguir descreve a decomposição da entidade.
 
-Comece identificando os conceitos de dados completos que você deseja extrair em um expressão. Esta é sua entidade aprendida por computador. Em seguida, decompor a frase em suas partes. Isso inclui a identificação de subentidades e recursos.
+Comece identificando os conceitos de dados completos que você deseja extrair em um expressão. Esta é sua entidade de aprendizado de máquina. Em seguida, decompor a frase em suas partes. Isso inclui a identificação de subentidades e recursos.
 
-Por exemplo, se você quiser extrair um endereço, a entidade aprendida por máquina superior poderá ser chamada `Address` . Ao criar o endereço, identifique algumas de suas subentidades, como endereço, cidade, estado e CEP.
+Por exemplo, se você quiser extrair um endereço, a entidade de aprendizado de máquina superior poderia ser chamada `Address` . Ao criar o endereço, identifique algumas de suas subentidades, como endereço, cidade, estado e CEP.
 
 Continue decompondo esses elementos por:
 * Adicionar um recurso necessário do CEP como uma entidade de expressão regular.
@@ -122,13 +144,21 @@ Monitore a precisão da previsão usando um [conjunto de teste em lote](luis-con
 
 Mantenha um conjunto separado de declarações que não são usados como [exemplo declarações](luis-concept-utterance.md) ou Endpoint declarações. Continue melhorando o aplicativo para seu conjunto de testes. Adapte o conjunto de teste para refletir declarações de usuário real. Use este conjunto de teste para avaliar cada iteração ou versão do aplicativo.
 
+## <a name="dont-publish-too-quickly"></a>Não publicar muito rapidamente
+
+Publicar seu aplicativo muito rapidamente, sem o [planejamento adequado](#do-plan-your-schema), pode levar a vários problemas, como:
+
+* Seu aplicativo não funcionará em seu cenário real em um nível aceitável de desempenho.
+* O esquema (intenções e entidades) não seria apropriado e, se você tiver desenvolvido a lógica do aplicativo cliente após o esquema, talvez seja necessário reescrever isso do zero. Isso causaria atrasos inesperados e um custo extra para o projeto no qual você está trabalhando.
+* Declarações você adicionar ao modelo pode causar tendência em relação ao conjunto de expressão de exemplo que é difícil de depurar e identificar. Isso também dificultará a remoção da ambiguidade após a confirmação de um determinado esquema.
+
 ## <a name="dont-add-many-example-utterances-to-intents"></a>Não adicione muitos exemplos de declaração a intenções
 
 Depois que o aplicativo for publicado, adicione apenas declarações do aprendizado ativo no processo de ciclo de vida de desenvolvimento. Se as declarações forem semelhantes demais, adicione um padrão.
 
 ## <a name="dont-use-few-or-simple-entities"></a>Não use algumas ou entidades simples
 
-As entidades são criadas para extração e previsão de dados. É importante que cada tentativa tenha entidades aprendidas por máquina que descrevam os dados na intenção. Isso ajuda a LUIS a prever a intenção, mesmo que o aplicativo cliente não precise usar a entidade extraída.
+As entidades são criadas para extração e previsão de dados. É importante que cada tentativa tenha entidades de aprendizado de máquina que descrevam os dados na intenção. Isso ajuda a LUIS a prever a intenção, mesmo que o aplicativo cliente não precise usar a entidade extraída.
 
 ## <a name="dont-use-luis-as-a-training-platform"></a>Não use o LUIS como uma plataforma de treinamento
 

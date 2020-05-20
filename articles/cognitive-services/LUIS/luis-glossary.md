@@ -3,12 +3,12 @@ title: Glossário-LUIS
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589662"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681608"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O Glossário de Reconhecimento vocal (LUIS) explica os termos que você pode encontrar enquanto trabalha com o serviço LUIS.
@@ -139,9 +139,9 @@ O esquema de entidade é a estrutura que você define para entidades aprendidas 
 
 ### <a name="entitys-subentity"></a>Subentidade da entidade
 
-Uma subentidade é uma entidade filho de uma entidade aprendida por máquina.
+Uma subentidade é uma entidade filho de uma entidade de aprendizado de máquina.
 
-### <a name="non-machine-learned-entity"></a>Entidade não aprendida por máquina
+### <a name="non-machine-learning-entity"></a>Entidade de aprendizagem não Machine-Learning
 
 Uma entidade que usa correspondência de texto para extrair dados:
 * Entidade de lista
@@ -164,7 +164,7 @@ Consulte a entrada do modelo predefinido para [entidade predefinida](#prebuilt-e
 
 No Machine Learning, um recurso é uma característica que ajuda o modelo a reconhecer um determinado conceito. É uma dica que o LUIS pode usar, mas não uma regra rígida.
 
-Esse termo também é conhecido como um **[recurso aprendido por máquina](luis-concept-feature.md)**.
+Esse termo também é conhecido como um **[recurso de aprendizado de máquina](luis-concept-feature.md)**.
 
 Essas dicas são usadas em conjunto com os rótulos para saber como prever novos dados. O LUIS dá suporte a ambas as listas de frases e ao uso de outros modelos como recursos.
 
@@ -199,6 +199,10 @@ Um modelo (aprendido pelo computador) é uma função que faz uma previsão sobr
 ## <a name="normalized-value"></a>Valor normalizado
 
 Você adiciona valores às suas entidades de [lista](#list-entity) . Cada um desses valores pode ter uma lista de um ou mais sinônimos. Somente o valor normalizado é retornado na resposta.
+
+## <a name="overfitting"></a>Sobreajuste
+
+O sobreajuste acontece quando o modelo é concentradado nos exemplos específicos e não é capaz de generalizar bem.
 
 ## <a name="owner"></a>Proprietário
 
@@ -260,7 +264,7 @@ A cota LUIS é a limitação do nível de assinatura do Azure. A cota LUIS pode 
 
 ## <a name="schema"></a>Esquema
 
-Seu esquema inclui suas intenções e entidades junto com as subentidades. O esquema é inicialmente planejado para, em seguida, iterado ao longo do tempo. O esquema não inclui configurações de aplicativo, recursos ou declarações de exemplo. 
+Seu esquema inclui suas intenções e entidades junto com as subentidades. O esquema é inicialmente planejado para, em seguida, iterado ao longo do tempo. O esquema não inclui configurações de aplicativo, recursos ou declarações de exemplo.
 
 ## <a name="sentiment-analysis"></a>Análise de Sentimento
 A Análise de sentimento fornece valores positivos ou negativos das declarações fornecidas pela [Análise de Texto](../text-analytics/overview.md).
