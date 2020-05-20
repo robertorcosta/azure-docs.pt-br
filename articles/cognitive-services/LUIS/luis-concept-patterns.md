@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 86f4eab266aabccd25e1269e1942e535f6af5436
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591822"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683910"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões aumentam a precisão da previsão
 Os padrões são definidos para aumentar a precisão quando várias expressões são muito similares.  Um padrão permite que você alcance maior precisão para uma intenção sem fornecer muitos enunciados a mais.
@@ -36,16 +36,16 @@ Se um aplicativo tiver entre 10 e 20 expressões com comprimentos diferentes de 
 Os padrões resolvem as situações a seguir:
 
 * A pontuação da intenção é baixa
-* A intenção correta não é a pontuação superior, mas muito próximo da pontuação superior. 
+* A intenção correta não é a pontuação superior, mas muito próximo da pontuação superior.
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Os padrões não são uma garantia de intenção
 Os padrões usam uma mistura de tecnologias de previsão. Configurar uma intenção para uma expressão de modelo em um padrão não é uma garantia da previsão da intenção, mas é um sinal forte.
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
-## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Padrões não melhoram a detecção de entidade aprendida por máquina
+## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>Padrões não melhoram a detecção de entidade de aprendizado de máquina
 
-Um padrão destina-se principalmente a ajudar a previsão de intenções e funções. O _padrão. qualquer_ entidade é usada para extrair entidades de forma livre. Embora os padrões usem entidades, um padrão não ajuda a detectar uma entidade aprendida por computador.
+Um padrão destina-se principalmente a ajudar a previsão de intenções e funções. O _padrão. qualquer_ entidade é usada para extrair entidades de forma livre. Embora os padrões usem entidades, um padrão não ajuda a detectar uma entidade de aprendizado de máquina.
 
 Não espere ver melhorias na previsão de entidade se você recolher várias declarações em um único padrão. Para que as entidades simples sejam acionadas, você precisa adicionar declarações ou usar entidades de lista caso contrário, o padrão não será acionado.
 
@@ -59,7 +59,7 @@ Dadas expressões de exemplo suficientes, LUIS poderá aumentar a confiabilidade
 Um padrão é correspondido com base na detecção das entidades dentro do padrão primeiro, em seguida, validando o restante das palavras e a ordem de palavras do padrão. As entidades são exigidas no padrão para que um padrão corresponda. O padrão é aplicado no nível de token, não no nível do caractere.
 
 ## <a name="pattern-only-apps"></a>Aplicativos somente de padrão
-Você pode criar um aplicativo com tentativas que não têm nenhum exemplo de declarações, contanto que haja um padrão para cada tentativa. Para um aplicativo somente de padrão, o padrão não deve conter entidades aprendidas por computador, pois elas exigem um exemplo de declarações.
+Você pode criar um aplicativo com tentativas que não têm nenhum exemplo de declarações, contanto que haja um padrão para cada tentativa. Para um aplicativo somente de padrão, o padrão não deve conter entidades de aprendizado de máquina porque elas exigem um exemplo de declarações.
 
 ## <a name="patternany-entity"></a>Entidade pattern.any
 

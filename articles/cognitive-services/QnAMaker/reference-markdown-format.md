@@ -2,19 +2,25 @@
 title: Formato de redução-QnA Maker
 description: A seguir está a lista de formatos de redução que você pode usar no texto de resposta de QnA Maker.
 ms.topic: reference
-ms.date: 01/09/2020
-ms.openlocfilehash: 3fb7d73afdfd5ab7f1fb56a685b21538b97c8ea4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/19/2020
+ms.openlocfilehash: 38532783c38263b3f1364e30125414958eab1394
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77045405"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652761"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Formato de redução com suporte no texto de resposta QnA Maker
 
 QnA Maker armazena o texto de resposta como uma redução. Há muitos tipos de redução. Para certificar-se de que o texto de resposta seja retornado e exibido corretamente, use essa referência.
 
 Use o tutorial **[CommonMark](https://commonmark.org/help/tutorial/index.html)** para validar seu Markdown. O tutorial tem um recurso **Experimentar** para validação rápida de copiar/colar.
+
+## <a name="when-to-use-rich-text-editing-versus-markdown"></a>Quando usar edição de Rich Text versus redução
+
+A edição de respostas em [Rich Text](How-To/edit-knowledge-base.md#add-an-editorial-qna-set) permite que você, como autor, use uma barra de ferramentas de formatação para selecionar e formatar rapidamente o texto.
+
+A redução é uma ferramenta melhor quando você precisa gerar o conteúdo automaticamente para criar bases de dados de conhecimento a serem importadas como parte de um pipeline de CI/CD ou para [testes em lotes](Quickstarts/batch-testing.md).
 
 ## <a name="supported-markdown-format"></a>Formato de redução com suporte
 
@@ -35,7 +41,7 @@ Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA M
 |Símbolos de redução de escape|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato para URL de itálico](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>O exemplo anterior usa a numeração automática incorporada à redução.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>O exemplo anterior usa a numeração explícita.|![formato da lista ordenada](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |Lista não ordenada|`\n * item1 \n * item2`<br>ou<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![formato da lista não ordenada](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Você pode aninhar listas ordenadas e não ordenadas juntas. A guia, `\t`, indica o nível de recuo do elemento filho.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato da lista não ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato da lista ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Você pode aninhar listas ordenadas e não ordenadas juntas. A guia, `\t` , indica o nível de recuo do elemento filho.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato da lista não ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato da lista ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 * QnA Maker não processa a imagem de forma alguma. É a função do aplicativo cliente para renderizar a imagem.
 
@@ -43,10 +49,10 @@ Se você quiser adicionar conteúdo usando atualizar/substituir APIs da base de 
 
 | Preservar HTML  | Representação na solicitação de API  | Representação em KB |
 |-----------|---------|-------------------------|
-| Sim | \&lt; br\&gt; | &lt;br&gt; |
-| Sim | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;/H3&gt;de&lt;cabeçalho H3&gt; |
+| Sim | \&lt; br \& gt; | &lt;br&gt; |
+| Sim | \&lt; H3 \& gt; header \& lt;/H3 \& gt; | &lt;&gt;/H3 de cabeçalho H3 &lt;&gt; |
 
-Além disso, CR LF (\r\n) são convertidas em \n no KB. A LF (\n) é mantida como está. Se você quiser escapar qualquer sequência de escape como um \t ou \n, poderá usar a barra invertida, por exemplo\\\\:\\\\' r n '\\\\e ' T'
+Além disso, CR LF (\r\n) são convertidas em \n no KB. A LF (\n) é mantida como está. Se você quiser escapar qualquer sequência de escape como um \t ou \n, poderá usar a barra invertida, por exemplo: ' \\ \\ r \\ \\ n ' e ' \\ \\ T'
 
 ## <a name="next-steps"></a>Próximas etapas
 

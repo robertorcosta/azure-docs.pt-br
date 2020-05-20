@@ -3,12 +3,12 @@ title: Arquivos do SharePoint-QnA Maker
 description: Adicione fontes de dados do SharePoint protegidas à sua base de conhecimento para enriquecer a base de conhecimento com perguntas e respostas que podem ser protegidas com Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80294873"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660299"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma fonte de dados protegida do SharePoint à sua base de conhecimento
 
@@ -27,12 +27,12 @@ Se o QnA Maker Gerenciador da base de dados de conhecimento não for o Active Di
 
 Você pode adicionar todos os tipos de [arquivo](../Concepts/content-types.md) com suporte QnA Maker de um site do SharePoint à sua base de dados de conhecimento. Talvez você precise conceder [permissões](#permissions) se o recurso de arquivo estiver protegido.
 
-1. Na biblioteca com o site do SharePoint, selecione o menu de reticências do `...`arquivo,.
+1. Na biblioteca com o site do SharePoint, selecione o menu de reticências do arquivo, `...` .
 1. Copie a URL do arquivo.
 
    ![Obtenha a URL do arquivo do SharePoint selecionando o menu de reticências do arquivo e, em seguida, copiando a URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. No portal de QnA Maker, na página **configurações** , [adicione a URL](manage-knowledge-bases.md#edit-knowledge-base) à base de dados de conhecimento.
+1. No portal de QnA Maker, na página **configurações** , adicione a URL à base de dados de conhecimento.
 
 ### <a name="images-with-sharepoint-files"></a>Imagens com arquivos do SharePoint
 
@@ -44,7 +44,7 @@ Adicione a imagem com a seguinte sintaxe de redução:
 ![Explanation or description of image](URL of public image)
 ```
 
-O texto entre colchetes, `[]`, explica a imagem. A URL entre parênteses, `()`, é o link direto para a imagem.
+O texto entre colchetes, `[]` , explica a imagem. A URL entre parênteses, `()` , é o link direto para a imagem.
 
 Quando você testa o par QnA no painel de teste interativo, no portal de QnA Maker, a imagem é exibida, em vez do texto de redução. Isso valida que a imagem pode ser recuperada publicamente do aplicativo cliente.
 

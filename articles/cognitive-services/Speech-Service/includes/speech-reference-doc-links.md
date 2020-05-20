@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/06/2019
 ms.author: trbye
-ms.openlocfilehash: 50dd7ddb636658ec6d29c2669d02320c73167fde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b837797bf0baf025d350cec1918cf4a5b639416
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399682"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650593"
 ---
 ## <a name="reference-docs"></a>Documentos de Referência
 
@@ -43,5 +43,6 @@ O [SDK dos dispositivos de fala](../speech-devices-sdk.md) é um superconjunto d
 Para obter referências de várias APIs REST do serviço de fala, consulte a lista abaixo:
 
 - [API REST: conversão de fala em texto](../rest-speech-to-text.md)
+- [API REST: avaliação de pronúncia](../rest-speech-to-text.md#pronunciation-assessment-parameters)
 - [API REST: conversão de texto em fala](../rest-text-to-speech.md)
 - <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">API REST: transcrição e personalização do lote<span class="docon docon-navigate-external x-hidden-focus"></span></a>

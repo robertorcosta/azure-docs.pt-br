@@ -2,13 +2,13 @@
 title: Editar uma base de dados de conhecimento – QnA Maker
 description: O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhecimento, fornecendo uma experiência de edição fácil de usar.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 3cf5dcedd4d2cfa82fda002b71abca1e5bea4b18
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756725"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650819"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Editar pares de QnA na sua base de dados de conhecimento
 
@@ -16,21 +16,68 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
 
 Os pares de QnA são adicionados de uma fonte de arquivos, como um arquivo ou uma URL, ou adicionados como uma fonte editorial. Uma fonte editorial indica que o par QnA foi adicionado manualmente no portal do QnA. Todos os pares de QnA estão disponíveis para edição.
 
+<a name="add-an-editorial-qna-set"></a>
+
 ## <a name="add-an-editorial-qna-pair"></a>Adicionar um par editorial QnA
+
 1. Entre no portal do [QnA](https://www.qnamaker.ai/)e selecione a base de dados de conhecimento para adicionar o par QnA.
 1. Na página **Editar** da base de dados de conhecimento, selecione **Adicionar par de QnA** para adicionar um novo par de QnA.
 
-1. Na linha novo par QnA, adicione os campos de **pergunta** e **resposta** necessários. Os outros campos são opcionais. Todos os campos podem ser alterados a qualquer momento.
+    > [!div class="mx-imgBorder"]
+    > ![Adicionar par QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
-1. Opcionalmente, adicione **frases alternativas**. A formulação alternativa é qualquer forma da pergunta que seja significativamente diferente da pergunta original, mas deve fornecer a mesma resposta.
+1. Na linha novo par QnA, adicione os campos de pergunta e resposta necessários. Os outros campos são opcionais. Todos os campos podem ser alterados a qualquer momento.
+
+1. Opcionalmente, adicione **[frases alternativas](../Quickstarts/add-question-metadata-portal.md#add-additional-alternatively-phrased-questions)**. A formulação alternativa é qualquer forma da pergunta que seja significativamente diferente da pergunta original, mas deve fornecer a mesma resposta.
 
     Quando sua base de dados de conhecimento é publicada e você tem o [aprendizado ativo](use-active-learning.md) ativado, QnA Maker coleta opções de frases alternativas para aceitar. Essas opções são selecionadas para aumentar a precisão da previsão.
 
-1. Opcionalmente, adicione **metadados**. Para exibir metadados, selecione **Opções de exibição** no menu de contexto. Os metadados fornecem filtros às respostas que o aplicativo cliente, como um bate-papo, fornece.
+1. Opcionalmente, adicione **[metadados](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)**. Para exibir metadados, selecione **Opções de exibição** no menu de contexto. Os metadados fornecem filtros às respostas que o aplicativo cliente, como um bate-papo, fornece.
 
-1. Opcionalmente, adicione **avisos de acompanhamento**. Os prompts de acompanhamento fornecem caminhos de conversa adicionais ao aplicativo cliente para apresentar ao usuário.
+1. Opcionalmente, adicione **[avisos de acompanhamento](multiturn-conversation.md)**. Os prompts de acompanhamento fornecem caminhos de conversa adicionais ao aplicativo cliente para apresentar ao usuário.
 
 1. Selecione **salvar e treinar** para ver previsões, incluindo o novo par QnA.
+
+## <a name="rich-text-editing-for-answer"></a>Edição de texto completo para resposta
+
+A edição de texto completo do seu texto de resposta oferece uma redução do estilo de uma barra de ferramentas simples.
+
+1. Selecione a área de texto para uma resposta, a barra de ferramentas do editor de Rich-Text é exibida na linha do par QnA.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela do editor de Rich-Text com a pergunta e a resposta de uma linha de par de QnA.](../media/qnamaker-how-to-edit-kb/rich-text-control-qna-pair-row.png)
+
+    Qualquer texto que já esteja na resposta será exibido corretamente, pois o usuário o verá de um bot.
+
+1. Edite o texto. Selecione recursos de formatação na barra de ferramentas de edição de Rich Text ou use o recurso de alternância para alternar para a sintaxe de redução.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use o editor de Rich-Text para escrever e formatar texto e salvar como redução.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
+
+    |Recursos do editor de Rich-Text|Atalho de teclado|
+    |--|--|
+    |Alterne entre o editor de Rich-Text e a redução. `</>`|CTRL+M|
+    |Aplique. **B**|CTR + LB|
+    |Itálico, indicado com um I em itálico ** _I_**|Ctrl+I|
+    |Lista não ordenada||
+    |Lista ordenada||
+    |Estilo de parágrafo||
+    |Imagem – adicione uma imagem disponível de uma URL pública.|CTRL+G|
+    |Adicionar link à URL disponível publicamente.|CTRL+K|
+    |Emoticon – adicionar de uma seleção de emoticons.|CTRL+E|
+    |Menu avançado – desfazer|Ctrl+Z|
+    |Menu avançado – refazer|CTRL+Y|
+
+1. Adicione uma imagem à resposta usando o ícone de imagem na barra de ferramentas de Rich Text. O editor in-loco precisa da URL da imagem publicamente acessível e do texto alternativo para a imagem.
+
+
+    > [!div class="mx-imgBorder"]
+    > ![Use o editor de Rich-Text para adicionar uma imagem publicamente acessível e seu texto ALT.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+
+1. Adicione um link a uma URL selecionando o texto na resposta, selecionando o ícone de link na barra de ferramentas ou selecionando o ícone vincular na barra de ferramentas e, em seguida, inserindo o novo texto e a URL.
+
+    > [!div class="mx-imgBorder"]
+    > ![Use o editor de Rich-Text para adicionar uma imagem publicamente acessível e seu texto ALT.](../media/qnamaker-how-to-edit-kb/add-link-to-answer-rich-text-editor.png)
 
 ## <a name="edit-a-qna-pair"></a>Editar um par de QnA
 
@@ -63,13 +110,19 @@ Não é possível vincular pares de QnA nos metadados da resposta.
 
 ## <a name="add-metadata"></a>Adicionar metadados
 
-Adicione conjuntos de metadados selecionando primeiro **as opções de exibição**e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione **+** o sinal para adicionar um conjunto de metadados. Esse conjunto consiste em uma chave e um valor.
+Adicione conjuntos de metadados selecionando primeiro **as opções de exibição**e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione o **+** sinal para adicionar um conjunto de metadados. Esse conjunto consiste em uma chave e um valor.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Salvar alterações nos pares de QnA
 
 Selecione periodicamente **salvar e treinar** depois de fazer edições para evitar a perda de alterações.
 
 ![Adicionar Metadados](../media/qnamaker-how-to-edit-kb/add-metadata.png)
+
+## <a name="when-to-use-rich-text-editing-versus-markdown"></a>Quando usar edição de Rich Text versus redução
+
+A edição de respostas em [Rich Text](#add-an-editorial-qna-set) permite que você, como autor, use uma barra de ferramentas de formatação para selecionar e formatar rapidamente o texto.
+
+A [redução](../reference-markdown-format.md) é uma ferramenta melhor quando você precisa gerar o conteúdo automaticamente para criar bases de dados de conhecimento a serem importadas como parte de um pipeline de CI/CD ou para [testes em lotes](../Quickstarts/batch-testing.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

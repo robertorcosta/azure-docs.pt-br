@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 57de7f1e7c37fec66cda666d3f144e52849a026f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d9c6062e7106f764058d6c96c6f730d235b2ef0c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399950"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673026"
 ---
 Ao desenvolver para macOS, há três SDKs de fala disponíveis.
 
@@ -18,9 +18,9 @@ Ao desenvolver para macOS, há três SDKs de fala disponíveis.
 - O SDK de fala do Python está disponível como um módulo PyPI
 
 > [!TIP]
-> Para obter detalhes sobre como usar o SDK de fala do Objective-C com Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">importando Objective-c para Swift <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+> Para obter detalhes sobre como usar o SDK de fala do Objective-C com Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">importando Objective-c para Swift <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
-### <a name="system-requirements"></a>Requisitos do sistema
+### <a name="system-requirements"></a>Requisitos de sistema
 
 - Um macOS versão 10,13 ou posterior
 
@@ -28,7 +28,7 @@ Ao desenvolver para macOS, há três SDKs de fala disponíveis.
 
 :::row:::
     :::column span="3":::
-        O pacote MacOS CocoaPod está disponível para download e uso com o ambiente de desenvolvimento integrado (IDE) do <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (ou posterior) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Primeiro, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">Baixe o CocoaPod <span class="docon docon-navigate-external x-hidden-focus"> </span>binário </a>. Extraia o pod no mesmo diretório para seu uso pretendido, crie um *Podfile* e liste o `pod` como um `target`.
+        O pacote macOS CocoaPod está disponível para download e uso com o ambiente de desenvolvimento integrado (IDE) do <a href="https://apps.apple.com/us/app/xcode/id497799835" target="_blank">Xcode 9.4.1 (ou posterior) <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Primeiro, <a href="https://aka.ms/csspeech/macosbinary" target="_blank">Baixe o CocoaPod <span class="docon docon-navigate-external x-hidden-focus"></span> binário </a>. Extraia o pod no mesmo diretório para seu uso pretendido, crie um *Podfile* e liste o `pod` como um `target` .
     :::column-end:::
     :::column:::
         <br>
@@ -43,7 +43,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.11.0'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.0'
 end
 ```
 
@@ -51,7 +51,7 @@ end
 
 :::row:::
     :::column span="3":::
-        O Xamarin.Mac expõe o SDK completo do macOS para desenvolvedores do .NET para compilar aplicativos do Mac nativos usando o C#. Para obter mais informações, consulte <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin. <span class="docon docon-navigate-external x-hidden-focus"> </span>Mac </a>.
+        O Xamarin.Mac expõe o SDK completo do macOS para desenvolvedores do .NET para compilar aplicativos do Mac nativos usando o C#. Para obter mais informações, consulte <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin. <span class="docon docon-navigate-external x-hidden-focus"></span> Mac </a>.
     :::column-end:::
     :::column:::
         <br>

@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592892"
+ms.locfileid: "83659278"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Limitações de contêiner de Reconhecimento vocal (LUIS)
 
@@ -35,7 +35,7 @@ Você pode usar um aplicativo LUIS se ele **não inclui** nenhuma das seguintes 
 
 Configurações de aplicativo sem suporte|Detalhes|
 |--|--|
-|Culturas de contêiner sem suporte| Holandês ( `nl-NL` )<br>Japonês ( `ja-JP` )<br>O alemão só tem suporte com o [criador 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
+|Culturas de contêiner sem suporte| Os idiomas holandês ( `nl-NL` ), japonês ( `ja-JP` ) e alemão ( `de-DE` ) só têm suporte com o [criador 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
 |Entidades sem suporte para todas as culturas|Entidade predefinida [KeyPhrase](luis-reference-prebuilt-keyphrase.md) para todas as culturas|
 |Entidades sem suporte para cultura Inglês ( `en-US` )|Entidades predefinidas [GeographyV2](luis-reference-prebuilt-geographyV2.md)|
 |Preparação da fala|Não há suporte para dependências externas no contêiner.|
@@ -46,7 +46,7 @@ Configurações de aplicativo sem suporte|Detalhes|
 
 Os contêineres LUIS dão suporte a um subconjunto dos [idiomas com suporte](luis-language-support.md#languages-supported) do Luis apropriado. Os contêineres LUIS são capazes de entender declarações nos seguintes idiomas:
 
-| Idioma | Localidade | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem | Localidade | Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês americano | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |

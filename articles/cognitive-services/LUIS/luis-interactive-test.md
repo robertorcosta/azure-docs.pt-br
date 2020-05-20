@@ -2,13 +2,13 @@
 title: Testar o aplicativo no portal do LUIS
 description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar seu reconhecimento vocal.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: 3608bb17b6d1ea8c9095fa54324993a9e40355b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591855"
+ms.locfileid: "83653882"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
@@ -44,7 +44,7 @@ O expressão de teste não deve ser exatamente o mesmo que qualquer declaraçõe
 
     ![O teste interativo identifica a intenção incorreta](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="inspect-score"></a>Inspecionar pontuação
+## <a name="inspect-the-prediction"></a>Inspecionar a previsão
 
 Você inspeciona detalhes do resultado do teste no painel **inspecionar** .
 
@@ -52,23 +52,21 @@ Você inspeciona detalhes do resultado do teste no painel **inspecionar** .
 
     ![Selecione o botão Inspecionar para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
 
-1. O painel de **inspeção** é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
+1. O painel de **inspeção** é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra a previsão do expressão selecionado.
 
-    ![O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
+## <a name="add-to-example-utterances"></a>Adicionar ao exemplo declarações
 
-## <a name="correct-top-scoring-intent"></a>Corrigir principal intenção de pontuação
+No painel de inspeção, você pode adicionar o expressão de teste a uma intenção selecionando **Adicionar ao exemplo declarações**.
 
-1. Se a principal intenção de pontuação estiver incorreta, selecione o botão **Editar**.
+## <a name="disable-required-features"></a>Desabilitar recursos necessários
 
-1.  Na lista suspensa, selecione a intenção correta para a declaração.
+Selecione essa alternância para ver o que a previsão seria se o recurso da entidade não fosse necessário.
 
-    ![Selecionar intenção correta](./media/luis-how-to-interactive-test/intent-select.png)
+Essa alternância ajuda a determinar se o aplicativo treinado está prevendo corretamente suas entidades com base nos recursos necessários. O aplicativo treinado pode prever incorretamente uma entidade aprendida por máquina com base em rótulos incorretos de exemplo declarações ou o recurso necessário não corresponde ao texto.
 
 ## <a name="view-sentiment-results"></a>Exibir resultados de sentimento
 
 Se a **Análise de sentimento** estiver configurada na página **[Publicar](luis-how-to-publish-app.md#enable-sentiment-analysis)**, os resultados de teste incluirão o sentimento encontrado na declaração.
-
-![Imagem do painel de Teste com análise de sentimento](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Corrigir intenção do padrão correspondente
 

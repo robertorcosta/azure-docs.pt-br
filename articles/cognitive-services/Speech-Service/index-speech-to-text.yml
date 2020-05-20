@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentação de conversão de fala em texto
-summary: A conversão de fala em texto do serviço de fala, também conhecida como reconhecimento de fala, permite a transcrição em tempo real e em lote de fluxos de áudio em texto.
+summary: A conversão de fala em texto do serviço de fala, também conhecida como reconhecimento de fala, permite a transcrição em tempo real e em lote de fluxos de áudio em texto. Com a entrada de texto de referência adicional, ele também habilita a avaliação de pronúncia em tempo real e fornece comentários sobre a precisão e a fluência de áudio falado.
 metadata:
   title: Documentação de fala em texto-tutoriais, referência de API-serviços cognitivas do Azure | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: f496ba72f4f649a3ed5146f0b74caf3d8110adf9
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: be34def3c7aacc5419071028a3d3085fe69103fa
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83201900"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83653464"
 landingContent:
 - title: Sobre a conversão de fala em texto
   linkLists:
@@ -38,6 +38,8 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Reconhecer uma fala armazenada no Armazenamento de Blobs
       url: quickstarts/from-blob.md
+    - text: Avaliação de pronúncia com entrada de referência
+      url: rest-speech-to-text.md#pronunciation-assessment-parameters
 - title: Desenvolver com conversão de fala em texto
   linkLists:
   - linkListType: how-to-guide

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 653882db4b62d7731123faf7b177da44dbd74e3f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: abf149d621d283744a71e08ea4ac2199a1994d57
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584987"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680946"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Adicionar modelos predefinidos para cenários de uso comuns
 
@@ -40,7 +40,7 @@ O LUIS inclui um conjunto de modelos predefinidos para adicionar rapidamente cen
 
 1. Na página **tentativas** , selecione **Adicionar intenção de domínio predefinido** na barra de ferramentas acima da lista de intenções.
 
-1. Selecione a intenção **Utilities.Cancel** na caixa de diálogo pop-up.
+1. Selecione uma intenção na caixa de diálogo pop-up.
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar intenção predefinida](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
@@ -61,13 +61,24 @@ O LUIS inclui um conjunto de modelos predefinidos para adicionar rapidamente cen
 
 1. Selecione **Concluído**. Depois que a entidade é adicionada, você precisa treinar o aplicativo.
 
+## <a name="add-a-prebuilt-domain-entity"></a>Adicionar uma entidade de domínio predefinida
+1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
+1. Selecione **entidades** no lado esquerdo.
+
+1. Na página **entidades** , selecione **Adicionar entidade de domínio predefinida**.
+
+1. Na caixa de diálogo **adicionar modelos de domínio predefinidos** , selecione a entidade de domínio predefinida.
+
+1. Selecione **Concluído**. Depois que a entidade é adicionada, você precisa treinar o aplicativo.
+
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publicar para exibir o modelo predefinido do ponto de extremidade de previsão
 
 A maneira mais fácil de exibir o valor de um modelo predefinido é consultar o ponto de extremidade publicado.
 
 ## <a name="entities-containing-a-prebuilt-entity-token"></a>Entidades que contêm um token de entidade predefinida
 
-Se você tiver uma entidade aprendida por computador que precisa de um recurso necessário de uma entidade predefinida, adicione um subcomponente à entidade aprendida por computador e adicione um recurso _necessário_ de uma entidade predefinida.
+Se você tiver uma entidade de aprendizado de máquina que precisa de um recurso necessário de uma entidade predefinida, adicione uma subentidade à entidade de aprendizado de máquina e adicione um recurso _necessário_ de uma entidade predefinida.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
