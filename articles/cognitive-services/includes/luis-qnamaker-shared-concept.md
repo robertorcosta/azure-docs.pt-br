@@ -9,12 +9,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.author: diberry
-ms.openlocfilehash: 02610e647e2138cbf52f86c22107feec2d61273b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c3631b4a2964c5e3a8d8267d1934a5822966342
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604952"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673434"
 ---
 Os serviços cognitivas fornecem dois serviços de processamento de idioma natural, [reconhecimento vocal](../luis/what-is-luis.md) e [QnA Maker](../qnamaker/overview/overview.md), cada um com uma finalidade diferente. Entenda quando usar cada serviço e como eles se complementam.
 
@@ -30,17 +30,20 @@ Reconhecimento vocal (LUIS) e QnA Maker resolver problemas diferentes. LUIS dete
 
 Para escolher o serviço correto, você precisa entender o texto do usuário proveniente do aplicativo cliente e as informações que o aplicativo cliente precisa obter do serviço cognitiva.
 
-Se o seu bot de chat receber `How do I get to the Human Resources building on the Seattle North campus?`o texto, use o gráfico abaixo para entender como cada serviço funciona com o texto.
+Se o seu bot de chat receber o texto `How do I get to the Human Resources building on the Seattle North campus?` , use o gráfico abaixo para entender como cada serviço funciona com o texto.
 
 |Serviço|O aplicativo cliente determina|
 |--|--|
 |LUIS|**Determina a intenção** de texto do usuário-o serviço não retorna a resposta para a pergunta. Por exemplo, esse texto é classificado como correspondente à `FindLocation` intenção.<br>|
-|QnA Maker|**Retorna a resposta para a pergunta** de uma base de dados de conhecimento personalizada. Por exemplo, esse texto é determinado como uma pergunta com a resposta de texto estático `Get on the #9 bus and get off at Franklin street`de.|
+|QnA Maker|**Retorna a resposta para a pergunta** de uma base de dados de conhecimento personalizada. Por exemplo, esse texto é determinado como uma pergunta com a resposta de texto estático de `Get on the #9 bus and get off at Franklin street` .|
 |||
+
+> [!div class="mx-imgBorder"]
+> ![Infográfico para determinar quando usar LUIS e quando usar QnA Maker](./luis-qna-maker-together-decision.png)
 
 ## <a name="when-do-you-use-luis"></a>Quando você usa o LUIS?
 
-Use LUIS quando precisar saber a intenção do expressão como parte de um processo no bot de bate-papo. Continuando com o texto de `How do I get to the Human Resources building on the Seattle North campus?`exemplo,, quando você sabe que a intenção do usuário é encontrar um local, você pode passar detalhes sobre o expressão (extraído com entidades) para outro serviço, como um servidor de transporte, para obter a resposta.
+Use LUIS quando precisar saber a intenção do expressão como parte de um processo no bot de bate-papo. Continuando com o texto de exemplo, `How do I get to the Human Resources building on the Seattle North campus?` , quando você sabe que a intenção do usuário é encontrar um local, você pode passar detalhes sobre o expressão (extraído com entidades) para outro serviço, como um servidor de transporte, para obter a resposta.
 
 Você não precisa combinar LUIS e QnA Maker para determinar a intenção.
 
@@ -50,7 +53,7 @@ Você pode combinar os dois serviços para esse expressão, se o bot de chat pre
 
 Use QnA Maker quando você tiver uma base de dados de conhecimento estática de respostas. Essa base de dados de conhecimento é personalizada para suas necessidades e você a criou com documentos como PDFs e URLs.
 
-Continuando com o exemplo expressão `How do I get to the Human Resources building on the Seattle North campus?`,, envie o texto, como uma consulta, para o serviço de QnA Maker publicado e receba a melhor resposta.
+Continuando com o exemplo expressão, `How do I get to the Human Resources building on the Seattle North campus?` , envie o texto, como uma consulta, para o serviço de QnA Maker publicado e receba a melhor resposta.
 
 Você não precisa combinar LUIS e QnA Maker para determinar a resposta para a pergunta.
 
@@ -62,7 +65,7 @@ Se você estiver criando sua base de dados de conhecimento QnA Maker, mas souber
 
 O aplicativo cliente precisaria monitorar as respostas LUIS e QnA Maker para pontuações. Se a pontuação de QnA Maker estiver abaixo de um limite arbitrário, use as informações de intenção e entidade retornadas de LUIS para passar as informações para um serviço de terceiros.
 
-Continuando com o texto de `How do I get to the Human Resources building on the Seattle North campus?`exemplo,, suponha que QnA Maker retorna uma pontuação de confiança baixa. Use a intenção retornada de LUIS `FindLocation` e todas as entidades extraídas, como `Human Resources building` e `Seattle North campus`, para enviar essas informações a um serviço de mapeamento ou de pesquisa para outra resposta.
+Continuando com o texto de exemplo, `How do I get to the Human Resources building on the Seattle North campus?` , suponha que QnA Maker retorna uma pontuação de confiança baixa. Use a intenção retornada de LUIS `FindLocation` e todas as entidades extraídas, como `Human Resources building` e `Seattle North campus` , para enviar essas informações a um serviço de mapeamento ou de pesquisa para outra resposta.
 
 Você pode apresentar essa resposta de terceiros ao usuário para validação. Depois de ter a aprovação do usuário, você pode voltar para QnA Maker para adicionar as informações para aumentar seu conhecimento.
 
@@ -70,7 +73,7 @@ Você pode apresentar essa resposta de terceiros ao usuário para validação. D
 
 Se o seu bot de chat precisar de mais informações do que o serviço fornece, para continuar em uma árvore de decisão, use ambos os serviços e processe ambas as respostas no aplicativo cliente.
 
-Use a ferramenta de **[expedição da CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** do bot Framework para ajudar a criar um processo para trabalhar com ambos os serviços. Essa ferramenta cria um aplicativo LUIS superior de tentativas que expedem entre LUIS e QnA Maker como aplicativos filho.
+Use a ferramenta de **[expedição da CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** do bot Framework para ajudar a criar um processo para trabalhar com ambos os serviços. Essa ferramenta cria um aplicativo LUIS superior de tentativas que expedem entre LUIS e QnA Maker como aplicativos filho. [Saiba mais](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) sobre a integração com o Luis, o QnA Maker e o bot Framework.
 
 Use o exemplo do bot Builder, **NLP com expedição**, em [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) ou [node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), para implementar esse tipo de bot de chat.
 
