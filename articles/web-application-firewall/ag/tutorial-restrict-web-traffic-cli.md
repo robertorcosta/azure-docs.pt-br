@@ -143,7 +143,7 @@ Neste artigo, o gateway de aplicativo usa uma conta de armazenamento para armaze
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma conta de armazenamento denominada *myagstore1* com [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
+Crie uma conta de armazenamento denominada [myagstore1](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) com *az storage account create*.
 
 ```azurecli-interactive
 az storage account create \
