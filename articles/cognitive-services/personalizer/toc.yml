@@ -39,6 +39,8 @@
         - name: Política de aprendizado
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: Modo Aprendiz
+          href: concept-apprentice-mode.md
         - name: Eventos ativos e inativos
           href: concept-active-inactive-events.md
         - name: Recompensas
@@ -62,9 +64,11 @@
   items:
     - name: Criar um recurso do Personalizador
       href: how-to-create-resource.md
-    - name: Configurar um loop de aprendizagem
+    - name: Configurar o Personalizador
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: Usar modo Aprendiz
+      href: how-to-learning-behavior.md
     - name: Gerenciar configurações de modelo e de aprendizado
       href: how-to-manage-model.md
     - name: Analisar com uma avaliação offline
@@ -101,7 +105,7 @@
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Recursos
   items:
-    - name: solução de problemas
+    - name: Solução de problemas
       href: troubleshooting.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

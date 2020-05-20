@@ -28,6 +28,24 @@
       items:
         - name: Usar laboratórios para dar aulas
           href: classroom-labs-scenarios.md
+        - name: Laboratórios de sala de aula – tipos de aula
+          items:
+            - name: Visão geral dos tipos de classe
+              href: class-types.md
+            - name: Aprendizado profundo no processamento em idioma natural
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Script de Shell no Linux
+              href: class-type-shell-scripting-linux.md
+            - name: Hacking ético
+              href: class-type-ethical-hacking.md
+            - name: Gerenciamento de banco de dados
+              href: class-type-database-management.md
+            - name: Python e Jupyter Notebooks
+              href: class-type-jupyter-notebook.md
+            - name: Desenvolvimento de aplicativos móveis com o Android Studio
+              href: class-type-mobile-dev-android-studio.md
+            - name: Análise de Big Data
+              href: class-type-big-data-analytics.md
 - name: Guias de instruções
   items:
     - name: Guia do administrador
@@ -36,29 +54,13 @@
       href: account-setup-guide.md
     - name: Guia de configuração acelerada de laboratório
       href: setup-guide.md
-    - name: Laboratórios de sala de aula – tipos de aula
-      items:
-        - name: Visão geral dos tipos de classe
-          href: class-types.md
-        - name: Aprendizado profundo no processamento em idioma natural
-          href: class-type-deep-learning-natural-language-processing.md
-        - name: Script de Shell no Linux
-          href: class-type-shell-scripting-linux.md
-        - name: Hacking ético
-          href: class-type-ethical-hacking.md
-        - name: Gerenciamento de banco de dados
-          href: class-type-database-management.md
-        - name: Python e Jupyter Notebooks
-          href: class-type-jupyter-notebook.md
-        - name: Desenvolvimento de aplicativos móveis com o Android Studio
-          href: class-type-mobile-dev-android-studio.md
-        - name: Análise de Big Data
-          href: class-type-big-data-analytics.md
     - name: Criar e configurar contas de laboratório (proprietário da conta de laboratório)
       items:
         - name: Criar e gerenciar contas de laboratório
           href: how-to-manage-lab-accounts.md
-        - name: Configurar contas de laboratório
+        - name: Gerenciar laboratórios em uma conta de laboratório
+          href: manage-labs.md
+        - name: Configurar o desligamento automático de VMs
           href: how-to-configure-lab-accounts.md
         - name: Adicionar criador do laboratório
           href: add-lab-creator.md
@@ -76,7 +78,7 @@
           href: specify-marketplace-images.md
         - name: Especificar informações de suporte (proprietário da conta de laboratório)
           href: lab-account-owner-support-information.md
-    - name: Criar e configurar laboratórios de sala de aula (instrutor)
+    - name: Criar e configurar laboratórios de sala de aula (educador)
       items:
         - name: Criar e gerenciar laboratórios de sala de aula
           href: how-to-manage-classroom-labs.md
@@ -108,9 +110,9 @@
           href: how-to-prepare-windows-template.md
         - name: Controlar o comportamento de desligamento do Windows
           href: how-to-windows-shutdown.md
-        - name: Exibir informações de suporte (instrutor)
+        - name: Exibir informações de suporte (educador)
           href: lab-creator-support-information.md
-        - name: Acessar VMs do aluno na exibição do instrutor
+        - name: Acessar VMs do aluno na exibição do educador
           href: instructor-access-virtual-machines.md
     - name: Conectar a VMs nos laboratórios de sala de aula (aluno)
       items:

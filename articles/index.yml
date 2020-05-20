@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2cc8369c59905e1d1e1b794b8cbdefce1ede0a67
-  ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+  ms.openlocfilehash: 21319a3de2bcd38cd5373ac68fc1c9733ab64ee4
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/04/2020
-  ms.locfileid: "82739409"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593180"
 highlightedContent:
   items:
   - title: Guia de introdução para desenvolvedores do Azure
@@ -495,6 +495,13 @@ productDirectory:
     - compute
     - databases
     url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
+  - title: Aplicativos Web Estáticos
+    summary: Criar e implantar aplicativos Web de pilha cheia no Azure de um repositório do GitHub
+    imageSrc: ./media/index/static-apps.svg
+    azureCategories:
+    - compute
+    - web
+    url: static-web-apps/index.yml
   - title: Conjuntos de Dimensionamento de Máquinas Virtuais
     summary: Gerenciar e escalar verticalmente até milhares de máquinas virtuais do Linux e do Windows
     imageSrc: https://static.docs.com/ui/media/product/azure/vm-scale-sets.svg
@@ -599,13 +606,13 @@ productDirectory:
     - databases
     - hybrid
     url: sql-database/index.yml
-  - title: Banco de Dados SQL do Azure no Edge (versão prévia)
+  - title: SQL do Azure no Edge (versão prévia)
     summary: Mecanismo de dados com baixo volume de memória e otimizado para a borda com IA integrada
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
     azureCategories:
     - databases
     - iot
-    url: sql-database-edge/index.yml
+    url: azure-sql-edge/index.yml
   - title: Armazenamento de Tabelas
     summary: Repositório de valor de chaves NoSQL usando conjuntos de dados semiestruturados
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
