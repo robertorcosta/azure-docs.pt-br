@@ -9,6 +9,8 @@
       href: cognitive-services-and-machine-learning.md
     - name: Subdomínios personalizados para Serviços Cognitivos
       href: cognitive-services-custom-subdomains.md
+    - name: Processo de restrição dos Serviços Cognitivos
+      href: cognitive-services-gating-process.md
     - name: Suporte ao idioma
       href: language-support.md
 - name: Inícios rápidos

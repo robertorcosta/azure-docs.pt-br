@@ -11,17 +11,17 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: d22dcf221bef40edb8bb2bd346dd5964000a4a68
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588357"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702139"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres da Análise de Texto
 
 > [!NOTE]
-> * O contêiner para Análise de Sentimento v3 agora está disponível para o público geral. Os contêineres de extração de frases-chave e detecção de idioma estão disponíveis como uma [Visualização pública não restrita](../../cognitive-services-gating-process.md).
+> * O contêiner para Análise de Sentimento v3 agora está disponível para o público geral. Os contêineres de extração de frases-chave e detecção de idioma estão disponíveis como uma visualização pública não restrita.
 > * A vinculação de entidade e NER não estão disponíveis no momento como um contêiner.
 
 Os contêineres permitem executar as APIs de análise de texto em seu próprio ambiente e são ótimos para seus requisitos específicos de segurança e governança de dados. Os contêineres de Análise de Texto fornecem processamento de idioma natural avançado sobre texto bruto e incluem três funções principais: análise de sentimentos, extração de frases-chave e detecção de idioma. 

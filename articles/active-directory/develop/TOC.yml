@@ -433,6 +433,8 @@
           href: supported-accounts-validation.md
         - name: Aplicativos multilocatário e de único locatário
           href: single-and-multi-tenant-apps.md
+        - name: Verificação do editor (versão prévia)
+          href: publisher-verification-overview.md
     - name: Permissões e consentimento
       displayName: Scopes
       items:
@@ -503,6 +505,12 @@
           href: howto-configure-publisher-domain.md
         - name: Configurar os Termos de Serviço e a Política de Privacidade
           href: howto-add-terms-of-service-privacy-statement.md
+        - name: Configurar a verificação do editor para seu aplicativo
+          items:
+            - name: Marcar seu aplicativo como verificado pelo editor (versão prévia)
+              href: mark-app-as-publisher-verified.md
+            - name: Solucionar problemas de verificação do editor (versão prévia)
+              href: troubleshoot-publisher-verification.md
     - name: Trabalhar com a Biblioteca de Autenticação da Microsoft
       displayName: MSAL
       items:

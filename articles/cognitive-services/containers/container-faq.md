@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592178"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701818"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres de serviços cognitivas do Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "83592178"
 
 **P: o que está disponível?**
 
-**R:** Os contêineres de serviços cognitivas do Azure permitem que os desenvolvedores usem as mesmas APIs inteligentes disponíveis no Azure, mas com os [benefícios](../cognitive-services-container-support.md#features-and-benefits) da Containerização. Alguns contêineres estão disponíveis como uma [Visualização restrita](../cognitive-services-gating-process.md), o que pode exigir que um aplicativo acesse. Outros contêineres estão publicamente disponíveis como uma visualização não restrita ou estão geralmente disponíveis. Você pode encontrar uma lista completa de contêineres e sua disponibilidade no artigo [suporte a contêineres no Azure cognitiva Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
+**R:** Os contêineres de serviços cognitivas do Azure permitem que os desenvolvedores usem as mesmas APIs inteligentes disponíveis no Azure, mas com os [benefícios](../cognitive-services-container-support.md#features-and-benefits) da Containerização. Alguns contêineres estão disponíveis como uma visualização restrita que pode exigir que um aplicativo acesse. Outros contêineres estão publicamente disponíveis como uma visualização não restrita ou estão geralmente disponíveis. Você pode encontrar uma lista completa de contêineres e sua disponibilidade no artigo [suporte a contêineres no Azure cognitiva Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
 
 **P: há alguma diferença entre a nuvem de serviços cognitivas e os contêineres?**
 
@@ -103,12 +103,12 @@ Explore as seguintes marcas para obter possíveis perguntas e respostas que se a
 **R:** Os clientes são cobrados com base no consumo, de forma semelhante à nuvem de serviços cognitivas. Os contêineres precisam ser configurados para enviar dados de medição para o Azure e as transações serão cobradas de acordo. Os recursos usados nos serviços hospedados e locais serão adicionados a uma única cota com preços em camadas, contando com ambos os usos. Para obter mais detalhes, consulte a página de preços da oferta correspondente.
 
 * [Detector de Anomalias][ad-containers-billing]
-* [Pesquisa Visual Computacional][cv-containers-billing]
-* [Detecção Facial][fa-containers-billing]
+* [Visual Computacional][cv-containers-billing]
+* [Face][fa-containers-billing]
 * [Reconhecimento de Formulários][fr-containers-billing]
 * [Reconhecimento Vocal (LUIS)][lu-containers-billing]
 * [API do Serviço de Fala][sp-containers-billing]
-* [Análise de Texto][ta-containers-billing]
+* [Análise de texto][ta-containers-billing]
 
 > [!IMPORTANT]
 > Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres dos Serviços Cognitivos não enviam dados do cliente para a Microsoft.
@@ -130,12 +130,12 @@ Explore as seguintes marcas para obter possíveis perguntas e respostas que se a
 **R:** Os contêineres de serviços cognitivas são contêineres baseados em x64 que podem executar qualquer nó do Linux compatível, VM e dispositivo de borda que dá suporte a contêineres do Docker do Linux x64. Todos eles exigem processadores de CPU. As configurações mínimas e recomendadas para cada oferta de contêiner estão disponíveis abaixo:
 
 * [Detector de Anomalias][ad-containers-recommendations]
-* [Pesquisa Visual Computacional][cv-containers-recommendations]
-* [Detecção Facial][fa-containers-recommendations]
+* [Visual Computacional][cv-containers-recommendations]
+* [Face][fa-containers-recommendations]
 * [Reconhecimento de Formulários][fr-containers-recommendations]
 * [Reconhecimento Vocal (LUIS)][lu-containers-recommendations]
 * [API do Serviço de Fala][sp-containers-recommendations]
-* [Análise de Texto][ta-containers-recommendations]
+* [Análise de texto][ta-containers-recommendations]
  
 **P: atualmente, há suporte para esses contêineres no Windows?**
 

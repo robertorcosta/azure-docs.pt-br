@@ -1,0 +1,75 @@
+- name: Documentação do SQL no Edge
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é SQL no Edge?
+      href: overview.md
+    - name: Edições e recursos com suporte
+      href: features.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Implantar o SQL no Edge
+      href: deploy-portal.md
+    - name: Implantar Modelos do ONNX no SQL no Edge
+      href: deploy-onnx.md
+- name: Tutoriais
+  items:
+    - name: Sincronizar dados ao Azure Data Factory
+      href: tutorial-sync-data-factory.md
+    - name: Sincronizar dados à Sincronização de Dados SQL
+      href: tutorial-sync-data-sync.md
+    - name: Criar uma solução IoT de ponta a ponta com o SQL no Edge
+      items:
+        - name: Configurar recursos do Azure
+          href: tutorial-deploy-azure-resources.md
+        - name: Configurar módulos do IoT Edge
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: Implantar modelo no SQL no Edge
+          href: tutorial-run-ml-model-on-sql-edge.md
+- name: Como
+  items:
+    - name: Pacotes de DAC e trabalhos do Stream Analytics
+      href: stream-analytics.md
+    - name: Configurar replicação
+      href: configure-replication.md
+    - name: Controlar alterações nos dados
+      href: track-data-changes.md
+    - name: Gerenciar trabalhos de streaming do T-SQL
+      href: create-stream-analytics-job.md
+    - name: Conectar-se ao SQL no Edge
+      href: connect.md
+    - name: Configurar o SQL no Edge
+      href: configure.md
+    - name: Implantar pacote de DAC
+      href: deploy-dacpac.md
+- name: Conceitos
+  items:
+    - name: Aprendizado de máquina e IA com ONNX
+      href: onnx-overview.md
+    - name: Backup e restauração
+      href: backup-restore.md
+    - name: Streaming de dados no SQL no Edge
+      items:
+        - name: Transmitir dados
+          href: stream-data.md
+        - name: Create External Stream (Transact-SQL)
+          href: create-external-stream-transact-sql.md
+        - name: Alter External Stream (Transact-SQL)
+          href: alter-external-stream-transact-sql.md
+        - name: Drop External Stream (Transact-SQL)
+          href: drop-external-stream-transact-sql.md
+        - name: Transmitir exibições e DMVs
+          items:
+            - name: Transmitir exibições e DMVs
+              href: streaming-catalog-views.md
+            - name: sys.external_job_streams (Transact-SQL)
+              href: sys-external-job-streams.md
+            - name: sys.external-streaming_jobs (Transact-SQL)
+              href: sys-external-streaming-jobs.md
+            - name: sys.external_streams (Transact-SQL)
+              href: sys-external-streams.md
+    - name: Processar dados da série temporal
+      items:
+        - name: Date_Bucket (Transact-SQL)
+          href: date-bucket-tsql.md

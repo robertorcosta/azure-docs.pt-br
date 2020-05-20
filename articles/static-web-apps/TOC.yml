@@ -1,0 +1,61 @@
+- name: Documentação dos aplicativos Web estáticos do Azure
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre os aplicativos Web estáticos
+      href: overview.md
+- name: Inícios rápidos
+  expanded: true
+  items:
+    - name: Criar seu primeiro aplicativo Web estático
+      href: getting-started.md
+- name: Conceitos
+  items:
+    - name: Suporte a API com o Azure Functions
+      href: apis.md
+    - name: Rotas
+      href: routes.md
+    - name: Autenticação e autorização
+      href: authentication-authorization.md
+    - name: Acessar informações do usuário
+      href: user-information.md
+    - name: Examinar solicitações de pull em ambientes de pré-produção
+      href: review-publish-pull-requests.md
+    - name: Domínio personalizado
+      href: custom-domain.md
+    - name: Configuração de build e fluxo de trabalho
+      href: github-actions-workflow.md
+- name: Guias de instruções
+  items:
+    - name: Desenvolvimento local da instalação
+      href: local-development.md
+    - name: Adicionar uma API
+      href: add-api.md
+    - name: Definir configurações de aplicativo
+      href: application-settings.md
+- name: Tutoriais
+  items:
+    - name: Publicar de um gerador de site estático
+      items:
+        - name: Gatsby
+          href: publish-gatsby.md
+        - name: Hugo
+          href: publish-hugo.md
+        - name: VuePress
+          href: publish-vuepress.md
+    - name: Implantar com base em uma estrutura
+      items:
+        - name: Next.js
+          href: deploy-nextjs.md
+        - name: Nuxt.js
+          href: deploy-nuxtjs.md
+- name: Recursos
+  items:
+    - name: Desenvolva suas habilidades com o Microsoft Learn
+      items:
+        - name: 'Publicar um aplicativo e uma API JavaScript do Angular, React, Svelte ou Vue'
+          href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Criar e publicar um aplicativo Web estático com o Gatsby
+          href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - name: Cotas
+      href: quotas.md

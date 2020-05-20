@@ -4,6 +4,14 @@
   items:
     - name: Sobre o Serviço de Emparelhamento
       href: about.md
+- name: Tutoriais
+  items:
+    - name: Registrar uma conexão do Serviço de Emparelhamento
+      href: azure-portal.md
+    - name: Criar uma conexão do Serviço de Emparelhamento
+      href: create-connection.md
+    - name: Medir telemetria da conexão do Serviço de Emparelhamento
+      href: measure-connection-telemetry.md
 - name: Conceitos
   items:
     - name: Locais e parceiros
@@ -18,14 +26,10 @@
   items:
     - name: Registrar Serviço de Emparelhamento
       items:
-        - name: Portal do Azure
-          href: azure-portal.md
         - name: Azure PowerShell
           href: powershell.md
         - name: CLI do Azure
           href: cli.md
-    - name: Medir a telemetria de conexão
-      href: measure-connection-telemetry.md
 - name: Referências
   items:
     - name: Azure PowerShell
