@@ -1,46 +1,48 @@
 ---
 title: Rotular o enunciado de exemplo da entidade
-description: Saiba como rotular uma entidade de aprendizado de máquina com subcomponentes em um exemplo expressão em uma página de detalhes da intenção do portal do LUIS.
+description: Saiba como rotular uma entidade de aprendizado de máquina com subentidades em um exemplo expressão em uma página de detalhes da intenção do portal do LUIS.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 0181057bd693280223806e9b5b7cd8c7f7345f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 05/20/2020
+ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683770"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722636"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Rotular entidade Machine-Learning em um exemplo de expressão
 
 A rotulagem de uma entidade em um enunciado de exemplo dá ao LUIS um exemplo do que é a entidade e de em que parte do enunciado a entidade poderá ser exibida.
 
+Você pode rotular entidades e subentidades aprendidas por computador.
+
+Como não é possível rotular expressões regulares, listas ou entidades predefinidas, criar uma entidade ou subentidade, então adicionar essas entidades são recursos, quando aplicável, à entidade ou subentidade.
+
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Exemplo de rótulo declarações da página de detalhes da intenção
+
+Para rotular exemplos de entidades dentro do expressão, selecione a intenção do expressão.
 
 1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Selecione a intenção que tem o exemplo declarações que você deseja rotular para extração com uma entidade.
 1. Selecione o texto que você deseja rotular e, em seguida, selecione a entidade.
 
+## <a name="two-techniques-to-label-entities"></a>Duas técnicas para rotular entidades
+
+Há suporte para duas técnicas de rotulação na página de detalhes da intenção.
+* Selecione entidade ou subentidade na [paleta de entidades](#label-with-the-entity-palette-visible) e, em seguida, selecione o texto de exemplo expressão. Essa é a técnica recomendada porque você pode verificar visualmente se está trabalhando com a entidade ou subentidade correta, de acordo com seu esquema.
+* Selecione no primeiro texto expressão de exemplo. Quando você faz isso, um menu pop-up de [Opções de rotulagem](#how-to-label-entity-from-in-place-menu) é apresentado.
+
 ## <a name="label-with-the-entity-palette-visible"></a>Rótulo com a paleta de entidades visível
 
-Depois de planejar seu esquema com entidades, mantenha a **paleta de entidades** visível ao rotular. A **paleta de entidades** é um lembrete do que suas entidades planejam extrair.
+Depois de [planejar seu esquema com entidades](luis-how-plan-your-app.md), mantenha a **paleta de entidades** visível ao rotular. A **paleta de entidades** é um lembrete de quais entidades você planejou extrair.
 
 Para acessar a **paleta de entidades**, selecione o **@** símbolo na barra de ferramentas contextual acima da lista expressão de exemplo.
 
 > [!div class="mx-imgBorder"]
 > ![Captura de tela da paleta de entidades na página de detalhes da intenção.](media/label-utterances/entity-palette-from-tool-bar.png)
 
-## <a name="label-entity-from-in-place-menu"></a>Entidade de rótulo do menu no local
-
-Considere o exemplo expressão, `hi, please I want a cheese pizza in 20 minutes` .
-
-1. Selecione o texto mais à esquerda e, em seguida, selecione o texto mais à direita da entidade e, em seguida, no menu no local, escolha a entidade com a qual você deseja rotular.
-
-    > [!div class="mx-imgBorder"]
-    > ![Rotular entidade de aprendizado de máquina completa](media/label-utterances/label-steps-in-place-menu.png)
-
-
-## <a name="label-entity-from-entity-palette"></a>Entidade de rótulo da paleta de entidades
+## <a name="how-to-label-entity-from-entity-palette"></a>Como rotular entidade da paleta de entidades
 
 A paleta de entidades oferece uma alternativa à experiência de rotulagem anterior. Ele permite que você focalize o texto para rotulá-lo instantaneamente com uma entidade.
 
@@ -69,6 +71,17 @@ As funções de entidade são rotuladas usando a **paleta de entidades**.
 1. Abaixo da lista de entidades, selecione uma função existente.
 1. No texto do enunciado de exemplo, rotule o texto com a função de entidade.
 
+## <a name="how-to-label-entity-from-in-place-menu"></a>Como rotular a entidade no menu no local
+
+Rotular no local permite que você selecione rapidamente o texto dentro do expressão e etiquete-o. Você também pode criar uma entidade de Machine Learning ou uma entidade de lista a partir do texto rotulado.
+
+Considere o exemplo expressão, `hi, please I want a cheese pizza in 20 minutes` .
+
+Selecione o texto mais à esquerda e, em seguida, selecione o texto mais à direita da entidade e, em seguida, no menu no local, escolha a entidade com a qual você deseja rotular.
+
+> [!div class="mx-imgBorder"]
+> ![Rotular entidade de aprendizado de máquina completa](media/label-utterances/label-steps-in-place-menu.png)
+
 ## <a name="review-labeled-text"></a>Examinar texto rotulado
 
 Após a rotulagem, examine o enunciado de exemplo e verifique se o intervalo de texto selecionado foi sublinhado com a entidade escolhida. A linha sólida indica que o texto foi rotulado.
@@ -86,12 +99,12 @@ Se você rerotular o texto que já está rotulado, LUIS poderá dividir ou mescl
 
 ## <a name="labeling-for-punctuation"></a>Rotulagem para Pontuação
 
-Não é necessário rotular para pontuação. Use [as configurações do aplicativo](luis-reference-application-settings.md) _formulários do Word_ para controlar se a pontuação afeta as previsões expressão.
+Não é necessário rotular para pontuação. Use [as configurações do aplicativo](luis-reference-application-settings.md) para controlar como a pontuação afeta as previsões de expressão.
 
 ## <a name="unlabel-entities"></a>Remover o rótulo de entidades
 
 > [!NOTE]
-> Somente entidades aprendidas do computador podem ser sem rótulo.
+> Somente entidades aprendidas do computador podem ser sem rótulo. Não é possível rotular ou desrotular entidades de expressão regular, entidades de lista ou entidades predefinidas.
 
 Para desrotular uma entidade, selecione a entidade e selecione **desrotular** no menu no local.
 
@@ -107,6 +120,12 @@ Se você estiver rotulando uma subentidade, o pai será rotulado automaticamente
 ## <a name="automatic-labeling-for-non-machine-learned-entities"></a>Rotulamento automático para entidades aprendidas que não sejam da máquina
 
 Entidades aprendidas não Machine incluem entidades predefinidas, entidades de expressão regular, entidades de lista e padrão. quaisquer entidades. Elas são rotuladas automaticamente pelo LUIS, então não precisam ser rotuladas manualmente pelos usuários.
+
+## <a name="intent-prediction-errors"></a>Erros de previsão de intenção
+
+Um erro de previsão de intenção indica que o expressão de exemplo, dado o aplicativo treinado atual, não seria previsto para a intenção.
+
+Saiba como [exibir esses erros](luis-how-to-add-intents.md#intent-prediction-errors) na página de detalhes da intenção.
 
 ## <a name="entity-prediction-errors"></a>Erros de previsão da entidade
 
