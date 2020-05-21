@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 7a142060a29561526c378ce04b23aa2b286cd6c1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 726dd4e18565174c8bbf49b204af64129e607db5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997398"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714722"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementando assistentes de voz no Windows
 
@@ -43,7 +43,7 @@ Use sua chave de recurso de acesso limitado fornecida pela Microsoft para desblo
 
 O aplicativo precisa se registrar, seu modelo de palavra-chave e seu idioma com o Windows.
 
-Comece recuperando o detector de palavra-chave. Neste código de exemplo, recuperamos o primeiro detector, mas você pode selecionar um detector específico selecionando-o `configurableDetectors`em.
+Comece recuperando o detector de palavra-chave. Neste código de exemplo, recuperamos o primeiro detector, mas você pode selecionar um detector específico selecionando-o em `configurableDetectors` .
 
 ```csharp
 private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsync()
@@ -65,19 +65,19 @@ private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsyn
 }
 ```
 
-Depois de recuperar o objeto ActivationSignalDetector, chame seu `ActivationSignalDetector.CreateConfigurationAsync` método com a ID do sinal, a ID do modelo e o nome de exibição para registrar sua palavra- `ActivationSignalDetectionConfiguration`chave e recuperar o seu aplicativo. As IDs de sinal e modelo devem ser GUIDs decididas pelo desenvolvedor e permanecem consistentes para a mesma palavra-chave.
+Depois de recuperar o objeto ActivationSignalDetector, chame seu `ActivationSignalDetector.CreateConfigurationAsync` método com a ID do sinal, a ID do modelo e o nome de exibição para registrar sua palavra-chave e recuperar o seu aplicativo `ActivationSignalDetectionConfiguration` . As IDs de sinal e modelo devem ser GUIDs decididas pelo desenvolvedor e permanecem consistentes para a mesma palavra-chave.
 
 ### <a name="verify-that-the-voice-activation-setting-is-enabled"></a>Verifique se a configuração ativação de voz está habilitada
 
-Para usar a ativação de voz, um usuário precisa habilitar a ativação de voz para seu sistema e habilitar a ativação de voz para seu aplicativo. Você pode encontrar a configuração em "configurações de privacidade de ativação de voz" nas configurações do Windows. Para verificar o status da configuração de ativação de voz em seu aplicativo, use a instância do `ActivationSignalDetectionConfiguration` do registrando a palavra-chave. O campo [AvailabilityInfo](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-uwp/UWPVoiceAssistantSample/UIAudioStatus.cs#L128) no `ActivationSignalDetectionConfiguration` contém um valor de enumeração que descreve o estado da configuração de ativação de voz.
+Para usar a ativação de voz, um usuário precisa habilitar a ativação de voz para seu sistema e habilitar a ativação de voz para seu aplicativo. Você pode encontrar a configuração em "configurações de privacidade de ativação de voz" nas configurações do Windows. Para verificar o status da configuração de ativação de voz em seu aplicativo, use a instância do do `ActivationSignalDetectionConfiguration` registrando a palavra-chave. O campo [AvailabilityInfo](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-uwp/UWPVoiceAssistantSample/UIAudioStatus.cs#L128) no `ActivationSignalDetectionConfiguration` contém um valor de enumeração que descreve o estado da configuração de ativação de voz.
 
 ### <a name="retrieve-a-conversationalagentsession-to-register-the-app-with-the-mva-system"></a>Recuperar um ConversationalAgentSession para registrar o aplicativo no sistema MVA
 
-O `ConversationalAgentSession` é uma classe no SDK do Windows que permite ao seu aplicativo atualizar o Windows com o estado do aplicativo (ocioso, detectar, ouvir, trabalhar, falar) e receber eventos, como detecção de ativação e alterações de estado do sistema, como o bloqueio de tela. A recuperação de uma instância do AgentSession também serve para registrar o aplicativo com o Windows como ativável por voz. É uma prática recomendada manter uma referência para o `ConversationalAgentSession`. Para recuperar a sessão, use a `ConversationalAgentSession.GetCurrentSessionAsync` API.
+O `ConversationalAgentSession` é uma classe no SDK do Windows que permite ao seu aplicativo atualizar o Windows com o estado do aplicativo (ocioso, detectar, ouvir, trabalhar, falar) e receber eventos, como detecção de ativação e alterações de estado do sistema, como o bloqueio de tela. A recuperação de uma instância do AgentSession também serve para registrar o aplicativo com o Windows como ativável por voz. É uma prática recomendada manter uma referência para o `ConversationalAgentSession` . Para recuperar a sessão, use a `ConversationalAgentSession.GetCurrentSessionAsync` API.
 
 ### <a name="listen-to-the-two-activation-signals-the-onbackgroundactivated-and-onsignaldetected"></a>Ouça os dois sinais de ativação: OnBackgroundActivated e OnSignalDetected
 
-O Windows sinalizará seu aplicativo quando detectar uma palavra-chave de uma das duas maneiras. Se o aplicativo não estiver ativo (ou seja, se você não tiver uma referência a uma instância não descartada `ConversationalAgentSession`do), ele iniciará seu aplicativo e chamará o método OnBackgroundActivated no arquivo app.XAML.cs do seu aplicativo. Se o `BackgroundActivatedEventArgs.TaskInstance.Task.Name` campo argumentos do evento corresponder à cadeia de caracteres "AgentBackgroundTrigger", a inicialização do aplicativo foi disparada pela ativação de voz. O aplicativo precisa substituir esse método e recuperar uma instância de ConversationalAgentSession para sinalizar para o Windows que agora está ativo. Quando o aplicativo estiver ativo, o Windows sinalizará a ocorrência de uma ativação de voz `ConversationalAgentSession.OnSignalDetected` usando o evento. Adicione um manipulador de eventos a esse evento assim que você recuperar o `ConversationalAgentSession`.
+O Windows sinalizará seu aplicativo quando detectar uma palavra-chave de uma das duas maneiras. Se o aplicativo não estiver ativo (ou seja, se você não tiver uma referência a uma instância não descartada do `ConversationalAgentSession` ), ele iniciará seu aplicativo e chamará o método OnBackgroundActivated no arquivo app.XAML.cs do seu aplicativo. Se o campo argumentos do evento `BackgroundActivatedEventArgs.TaskInstance.Task.Name` corresponder à cadeia de caracteres "AgentBackgroundTrigger", a inicialização do aplicativo foi disparada pela ativação de voz. O aplicativo precisa substituir esse método e recuperar uma instância de ConversationalAgentSession para sinalizar para o Windows que agora está ativo. Quando o aplicativo estiver ativo, o Windows sinalizará a ocorrência de uma ativação de voz usando o `ConversationalAgentSession.OnSignalDetected` evento. Adicione um manipulador de eventos a esse evento assim que você recuperar o `ConversationalAgentSession` .
 
 ## <a name="keyword-verification"></a>Verificação de palavra-chave
 
@@ -85,7 +85,7 @@ Depois que um aplicativo de agente de voz é ativado por voz, a próxima etapa �
 
 ### <a name="retrieve-activation-audio"></a>Recuperar áudio de ativação
 
-Crie um [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) e passe-o para `CreateAudioDeviceInputNodeAsync` o do `ConversationalAgentSession`. Isso carregará o buffer de áudio do grafo com o áudio *inicial de aproximadamente 3 segundos antes de a palavra-chave ser detectada*. Esse áudio líder adicional é incluído para acomodar uma ampla gama de comprimentos de palavra-chave e velocidades do palestrante. Em seguida, manipule o evento [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) do grafo de áudio para recuperar os dados de áudio.
+Crie um [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) e passe-o para o `CreateAudioDeviceInputNodeAsync` do `ConversationalAgentSession` . Isso carregará o buffer de áudio do grafo com o áudio *inicial de aproximadamente 3 segundos antes de a palavra-chave ser detectada*. Esse áudio líder adicional é incluído para acomodar uma ampla gama de comprimentos de palavra-chave e velocidades do palestrante. Em seguida, manipule o evento [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) do grafo de áudio para recuperar os dados de áudio.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);
@@ -104,7 +104,7 @@ Quando a verificação de palavra-chave for realizada com sucesso, o aplicativo 
 
 Quando seu aplicativo é ativado pela primeira vez por voz, ele é iniciado em uma exibição compacta. Leia as [diretrizes de design para a visualização de ativação de voz](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) para obter orientação sobre as diferentes exibições e transições entre elas para assistentes de voz no Windows.
 
-Para fazer a transição da exibição compacta para a exibição de aplicativo completa, use a `TryEnterViewModeAsync`API ApplicationView:
+Para fazer a transição da exibição compacta para a exibição de aplicativo completa, use a API ApplicationView `TryEnterViewModeAsync` :
 
 ```csharp
 var appView = ApplicationView.GetForCurrentView();
@@ -113,19 +113,28 @@ await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);
 
 ## <a name="implementing-above-lock-activation"></a>Implementando a ativação de bloqueio acima
 
-As etapas a seguir abordam os requisitos para permitir que um assistente de voz no Windows seja executado acima do bloqueio, incluindo referências a código de exemplo e diretrizes para gerenciar o ciclo de vida do aplicativo. Para obter orientação sobre como criar experiências de bloqueio acima, visite o [Guia de práticas recomendadas](windows-voice-assistants-best-practices.md).
+As etapas a seguir abordam os requisitos para permitir que um assistente de voz no Windows seja executado acima do bloqueio, incluindo referências a código de exemplo e diretrizes para gerenciar o ciclo de vida do aplicativo.
+
+Para obter orientação sobre como criar experiências de bloqueio acima, visite o [Guia de práticas recomendadas](windows-voice-assistants-best-practices.md).
+
+Quando um aplicativo mostra uma exibição acima do bloqueio, é considerado que ele está no "modo de quiosque". Para obter mais informações sobre como implementar um aplicativo que usa o modo de quiosque, consulte a [documentação do modo de quiosque](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
+
+### <a name="transitioning-above-lock"></a>Transição acima do bloqueio
+
+Uma ativação acima do bloqueio é semelhante a uma ativação abaixo do bloqueio. Se não houver nenhuma instância ativa do aplicativo, uma nova instância será iniciada em segundo plano e `OnBackgroundActivated` em app.XAML.cs será chamado. Se houver uma instância do aplicativo, essa instância receberá uma notificação por meio do `ConversationalAgentSession.SignalDetected` evento.
+
+Se o aplicativo ainda não estiver sendo exibido acima do bloqueio, ele deverá chamar `ConversationalAgentSession.RequestForegroundActivationAsync` . Isso dispara o `OnLaunched` método em app.XAML.cs, que deve navegar até a exibição que será mostrada acima do bloqueio.
 
 ### <a name="detecting-lock-screen-transitions"></a>Detectando transições da tela de bloqueio
 
-A biblioteca ConversationalAgent no SDK do Windows fornece uma API para fazer o estado da tela de bloqueio e as alterações no estado da tela de bloqueio facilmente acessíveis. Para detectar o estado atual da tela de bloqueio, `ConversationalAgentSession.IsUserAuthenticated` Verifique o campo. Para detectar alterações no estado de bloqueio, adicione um manipulador de eventos `ConversationalAgentSession` ao evento `SystemStateChanged` do objeto. Ele será acionado sempre que a tela for alterada de desbloqueado para bloqueado ou vice-versa. Se o valor dos argumentos do evento for `ConversationalAgentSystemStateChangeType.UserAuthentication`, o estado da tela de bloqueio será alterado e o aplicativo deverá ser fechado.
+A biblioteca ConversationalAgent no SDK do Windows fornece uma API para fazer o estado da tela de bloqueio e as alterações no estado da tela de bloqueio facilmente acessíveis. Para detectar o estado atual da tela de bloqueio, verifique o `ConversationalAgentSession.IsUserAuthenticated` campo. Para detectar alterações no estado de bloqueio, adicione um manipulador de eventos ao `ConversationalAgentSession` evento do objeto `SystemStateChanged` . Ele será acionado sempre que a tela for alterada de desbloqueado para bloqueado ou vice-versa. Se o valor dos argumentos do evento for `ConversationalAgentSystemStateChangeType.UserAuthentication` , o estado da tela de bloqueio será alterado.
 
 ```csharp
-// When the app changes lock state, close the application to prevent duplicates running at once
 conversationalAgentSession.SystemStateChanged += (s, e) =>
 {
     if (e.SystemStateChangeType == ConversationalAgentSystemStateChangeType.UserAuthentication)
     {
-        WindowService.CloseWindow();
+        // Handle lock state change
     }
 };
 ```
@@ -136,7 +145,10 @@ A entrada de aplicativo na página de configurações de privacidade de ativaç�
 
 ## <a name="closing-the-application"></a>Fechando o aplicativo
 
-Para fechar corretamente o aplicativo programaticamente enquanto estiver acima ou abaixo do `WindowService.CloseWindow()` bloqueio, use a API. Isso dispara todos os métodos de ciclo de vida UWP, incluindo onsuspend, permitindo que o `ConversationalAgentSession` aplicativo descarte sua instância antes de fechar.
+Para fechar corretamente o aplicativo programaticamente enquanto estiver acima ou abaixo do bloqueio, use a `WindowService.CloseWindow()` API. Isso dispara todos os métodos de ciclo de vida UWP, incluindo onsuspend, permitindo que o aplicativo descarte sua `ConversationalAgentSession` instância antes de fechar.
+
+> [!NOTE]
+> O aplicativo pode fechar sem fechar a [instância de bloqueio abaixo](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). Nesse caso, o modo de exibição de bloqueio acima precisa "limpar", garantindo que, quando a tela for desbloqueada, não haja manipuladores de eventos ou tarefas que tentem manipular a exibição de bloqueio acima.
 
 ## <a name="next-steps"></a>Próximas etapas
 

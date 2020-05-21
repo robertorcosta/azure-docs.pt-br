@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 30df02062d3b94836f0131ac1124f56d1deefb5b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997486"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714773"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Experiências do assistente de design para Windows 10
 
 Os assistentes de voz desenvolvidos no Windows 10 devem implementar as diretrizes de experiência do usuário abaixo para fornecer as melhores experiências possíveis para ativação de voz no Windows 10. Este documento orientará os desenvolvedores na compreensão do trabalho principal necessário para que um assistente de voz se integre ao shell do Windows 10.
 
-## <a name="contents"></a>Conteúdo
+## <a name="contents"></a>Sumário
 
 - [Resumo de exibições de ativação de voz com suporte no Windows 10](#summary-of-voice-activation-views-supported-in-windows-10)
 - [Resumo dos requisitos](#requirements-summary)
@@ -63,25 +63,22 @@ Os assistentes devem criar uma experiência de escuta para fornecer comentários
 - O assistente está processando e preparando uma resposta
 - O assistente está respondendo
 
-Mesmo que os Estados mudem rapidamente, vale a pena considerar fornecer UX para Estados, pois as durações são variáveis no ecossistema do Windows. Comentários visuais, bem como breves Chimes de áudio ou chirps, &quot;também&quot;chamados de earcons, podem fazer parte da solução. Da mesma forma, as placas visuais combinadas com descrições de áudio fazem boas opções de resposta.
+Mesmo que os Estados mudem rapidamente, vale a pena considerar fornecer UX para Estados, pois as durações são variáveis no ecossistema do Windows. Comentários visuais, bem como breves Chimes de áudio ou chirps, também chamados &quot; &quot; de earcons, podem fazer parte da solução. Da mesma forma, as placas visuais combinadas com descrições de áudio fazem boas opções de resposta.
 
 ## <a name="design-guidance-for-in-app-voice-activation"></a>Diretrizes de design para ativação de voz no aplicativo
 
 Quando o aplicativo assistente tem foco, a intenção do cliente é claramente interagir com o aplicativo, de modo que todas as experiências de ativação de voz devem ser tratadas pela exibição do aplicativo principal. Este modo de exibição pode ser redimensionado pelo cliente. Para ajudar a explicar as interações do shell do assistente, o restante deste documento usa o exemplo concreto de um assistente de serviço financeiro chamado contoso. Neste e em diagramas subsequentes, o que o cliente diz aparecerá em bolhas de fala à esquerda, com respostas de assistente em bolhas de desenho à direita.
 
-**Exibição no aplicativo. Estado inicial quando a ativação de voz começa:**
-![captura de tela do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**Exibição no aplicativo. Estado inicial quando a ativação de voz começa:** 
+ ![ captura de tela do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
-**Exibição no aplicativo. Após a ativação de voz bem-sucedida, a experiência de escuta começa:**![captura de tela do assistente de voz no Windows enquanto o assistente de voz está ouvindo](media/voice-assistants/windows_voice_assistant/listening.png)
+**Exibição no aplicativo. Após a ativação de voz bem-sucedida, a experiência de escuta começa:** ![ captura de tela do assistente de voz no Windows enquanto o assistente de voz está ouvindo](media/voice-assistants/windows_voice_assistant/listening.png)
 
-**Exibição no aplicativo. Todas as respostas permanecem na experiência do aplicativo.** ![Captura de tela do assistente de voz no Windows como respostas do assistente](media/voice-assistants/windows_voice_assistant/response.png)
+**Exibição no aplicativo. Todas as respostas permanecem na experiência do aplicativo.** ![ Captura de tela do assistente de voz no Windows como respostas do assistente](media/voice-assistants/windows_voice_assistant/response.png)
 
 ## <a name="design-guidance-for-voice-activation-above-lock"></a>Diretrizes de design para ativação de voz acima do bloqueio
 
 Disponível com o 19H2, os assistentes criados na plataforma de ativação do Windows Voice estão disponíveis para responder ao bloqueio acima.
-
-> [!NOTE]
-> Devido a um problema ativo, os assistentes que desenham a interface do usuário de bloqueio acima devem implementar WindowService. CloseWindow () para todos os ignorados. Isso resultará em encerramento do aplicativo, mas atenua um problema técnico e mantém o assistente em um estado limpo. Além disso, para manter o estado limpo se um aplicativo estiver habilitado para ativação de voz de bloqueio acima, ele deverá escutar as alterações de estado de bloqueio e WindowService. CloseWindow () quando o dispositivo for bloqueado.
 
 ### <a name="customer-opt-in"></a>Aceitação do cliente
 
@@ -108,16 +105,16 @@ O assistente deve implementar as orientações descartadas nesta seção para fa
 - **Todas as telas do assistente que mostram o bloqueio acima devem conter um X** no canto superior direito que ignora o assistente.
 - **Pressionar qualquer tecla também deve ignorar o aplicativo assistente**. Entrada de teclado é um sinal de aplicativo de bloqueio tradicional no qual o cliente deseja fazer logon. Portanto, qualquer entrada de teclado/texto não deve ser direcionada para o aplicativo. Em vez disso, o aplicativo deve ser disparado automaticamente quando a entrada do teclado é detectada, para que o cliente possa fazer logon facilmente em seu dispositivo.
 - **Se a tela for desativada, o aplicativo deverá descartá-la automaticamente.** Isso garante que, na próxima vez que o cliente usar seu PC, a tela de logon estará pronta e aguardando.
-- Se o aplicativo estiver &quot;em uso&quot;, ele poderá continuar acima do bloqueio. &quot;em uso&quot; constitui qualquer entrada ou saída. Por exemplo, ao transmitir música ou vídeo, o aplicativo pode continuar acima do bloqueio. &quot;O acompanhamento&quot; e outras etapas de caixa de diálogo de multiativação têm permissão para manter o aplicativo acima do bloqueio.
+- Se o aplicativo estiver &quot; em uso &quot; , ele poderá continuar acima do bloqueio. &quot;em uso &quot; constitui qualquer entrada ou saída. Por exemplo, ao transmitir música ou vídeo, o aplicativo pode continuar acima do bloqueio. &quot;O acompanhamento &quot; e outras etapas de caixa de diálogo de multiativação têm permissão para manter o aplicativo acima do bloqueio.
 - Os **detalhes de implementação sobre como ignorar o aplicativo** podem ser encontrados [no guia de implementação de bloqueio acima](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
 ![Captura de tela do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
 ![Captura de tela do assistente de voz no Windows antes da ativação](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
-### <a name="privacy-amp-security-considerations-above-lock"></a>Considerações &amp; de segurança de privacidade acima do bloqueio
+### <a name="privacy-amp-security-considerations-above-lock"></a>Considerações de segurança de privacidade &amp; acima do bloqueio
 
-Muitos PCs são portáteis, mas nem sempre dentro do alcance do cliente. Elas podem ser brevemente deixadas em salas de Hotel, estações de avião ou espaços de trabalho, onde outras pessoas têm acesso físico. Se os assistentes que estão habilitados acima do bloqueio não estiverem preparados, eles poderão se tornar sujeitos à classe &quot;dos chamados ataques&quot; [Maids nocivos](https://en.wikipedia.org/wiki/Evil_maid_attack) .
+Muitos PCs são portáteis, mas nem sempre dentro do alcance do cliente. Elas podem ser brevemente deixadas em salas de Hotel, estações de avião ou espaços de trabalho, onde outras pessoas têm acesso físico. Se os assistentes que estão habilitados acima do bloqueio não estiverem preparados, eles poderão se tornar sujeitos à classe dos chamados &quot; ataques [Maids nocivos](https://en.wikipedia.org/wiki/Evil_maid_attack) &quot; .
 
 Portanto, os assistentes devem seguir as orientações desta seção para ajudar a manter a experiência segura. A interação acima do bloqueio ocorre quando o usuário do Windows não está autenticado. Isso significa que, em geral, a **entrada para o assistente também deve ser tratada como não autenticada**.
 
@@ -127,9 +124,9 @@ Portanto, os assistentes devem seguir as orientações desta seção para ajudar
 
 | **Classe de ação** | **Descrição** | **Exemplos (não é uma lista completa)** |
 | --- | --- | --- |
-| Seguro sem autenticação | Informações de uso geral ou comando e controle do aplicativo básico | &quot;Que horas são? &quot;, &quot;Jogue a próxima faixa&quot; |
-| Seguro com ID do palestrante | Risco de representação, revelando informações pessoais. | &quot;Qual&#39;s meu próximo compromisso? &quot;, &quot;Examine minha lista&quot;de compras &quot;, responda à chamada&quot; |
-| Seguro somente após a autenticação do Windows | Ações de alto risco que um invasor poderia usar para danificar o cliente | &quot;Comprar mais supermercado&quot;, &quot;excluir meu compromisso&quot;(importante), &quot;enviar uma mensagem&quot;de texto (Mean), &quot;iniciar uma página da Web do (perigoso)&quot; |
+| Seguro sem autenticação | Informações de uso geral ou comando e controle do aplicativo básico | &quot;Qual é o tempo? &quot; , &quot; Jogue a próxima faixa&quot; |
+| Seguro com ID do palestrante | Risco de representação, revelando informações pessoais. | &quot;O que&#39;s meu próximo compromisso? &quot; , &quot; examine minha lista de compras &quot; , &quot; responda à chamada&quot; |
+| Seguro somente após a autenticação do Windows | Ações de alto risco que um invasor poderia usar para danificar o cliente | &quot;Comprar mais supermercado &quot; , &quot; excluir meu compromisso (importante) &quot; , &quot; Enviar uma mensagem de texto (Mean) &quot; , &quot; iniciar uma página da Web do (perigoso)&quot; |
 
 Para o caso da Contoso, informações gerais sobre informações de ações públicas são seguras sem autenticação. Informações específicas do cliente, como o número de compartilhamentos de propriedade, provavelmente são seguras com a ID do palestrante. No entanto, comprar ou vender ações nunca deve ser permitido sem a autenticação do Windows.
 
