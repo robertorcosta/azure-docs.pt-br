@@ -8,46 +8,46 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57be24142a8504347f420e5780e9621cd2eac91d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77086912"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778199"
 ---
 ## <a name="personal-information-entity-types"></a>Tipos de entidade de informações pessoais:
 
 ### <a name="person"></a>Person
 Reconhece nomes de pessoas no texto.
 
-Linguagens:
+Idiomas:
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                               | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                               | Disponível a partir da versão do modelo |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| N/D          | Nomes reconhecidos, `Bill Gates`por exemplo,`Marie Curie` | `2020-02-01`                           |
+| N/D          | Nomes reconhecidos, por exemplo `Bill Gates` ,`Marie Curie` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organização  
 
 Reconheça organizações, corporações, agências, empresas, clubes e outros grupos de pessoas.
 
-Linguagens: 
+Idiomas: 
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                                                                       | Disponível a partir da versão do modelo|
+| Nome do subtipo | Description                                                                                       | Disponível a partir da versão do modelo|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| N/D          | organizações, por exemplo `Microsoft` `NASA`,,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| N/D          | organizações, `Microsoft` por exemplo,, `NASA``National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>Número do telefone
 
 Números de telefone (somente números de telefone dos EUA). 
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                    | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                    | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------|----------------------------------------|
 | N/D          | Números de telefone dos EUA, por exemplo`(312) 555-0176` | `2020-02-01`                           |
 
@@ -55,11 +55,11 @@ Linguagens:
 
 Endereço de email. 
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                      | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                      | Disponível a partir da versão do modelo |
 |--------------|--------------------------------------------------|----------------------------------------|
 | N/D          | Endereço de email, por exemplo`support@contoso.com` | `2020-02-01`                           |
 
@@ -67,11 +67,11 @@ Linguagens:
 
 URLs da Internet.
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                          | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                          | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------|----------------------------------------|
 | N/D          | URLs para sites, por exemplo`https://www.bing.com` | `2020-02-01`                           |
 
@@ -79,11 +79,11 @@ Linguagens:
 
 Endereço de protocolo de Internet
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                              | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                              | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------|----------------------------------------|
 | N/D          | Endereço de rede, por exemplo`10.0.0.101` | `2020-02-01`                           |
 
@@ -91,11 +91,11 @@ Linguagens:
 
 Quantidades numéricas
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                   | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                   | Disponível a partir da versão do modelo |
 |--------------|-------------------------------|----------------------------------------|
 | Idade          | `90 days old`, `30 years old` | `2020-02-01`                           |
 
@@ -103,11 +103,11 @@ Linguagens:
 
 Entidades de data e hora
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                   | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                   | Disponível a partir da versão do modelo |
 |--------------|-------------------------------|----------------------------------------|
 | Data         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
@@ -115,11 +115,11 @@ Linguagens:
 
  Coordenadas de GPS para locais na União Europeia. 
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                               | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                               | Disponível a partir da versão do modelo |
 |--------------|-------------------------------------------|----------------------------------------|
 | N/D          | Coordenadas de GPS na União Europeia | `2019-10-01`                           |
 
@@ -127,13 +127,13 @@ Linguagens:
 
 Informações identificáveis do Azure, incluindo informações de autenticação e cadeias de conexão. 
 
-* Disponível a partir da versão `2019-10-01`do modelo.
+* Disponível a partir da versão do modelo `2019-10-01` .
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo                          | Descrição                                                                 |
+| Nome do subtipo                          | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chave de autenticação DocumentDB do Azure             | Chave de autorização para um servidor do Azure DocumentDB.                           |
 | Cadeia de conexão do banco de dados IAAS do Azure | Cadeia de conexão para um banco de dados IaaS (infraestrutura como serviço) do Azure. |
@@ -149,24 +149,24 @@ Linguagens:
 
 ### <a name="identification"></a>Identificação
 
-* Disponível a partir da versão `2019-10-01`do modelo.
+* Disponível a partir da versão do modelo `2019-10-01` .
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
 #### <a name="financial-account-identification"></a>Identificação da conta financeira
 
-| Nome do subtipo               | Descrição                                                                |
+| Nome do subtipo               | Description                                                                |
 |----------------------------|----------------------------------------------------------------------------|
 | ABAr números de roteamento        | Números de roteamento de trânsito da ABA (Associação Americana do Banker).                  |
 | Código SWIFT                 | Códigos SWIFT para informações de instrução de pagamento.                           |
 | Cartão de crédito                | Números de cartão de crédito.                                                       |
 | Código do IBAN                  | Códigos de IBAN para informações de instrução de pagamento.                            |
 
-#### <a name="government-and-country-specific-identification"></a>Identificação específica do governo e do país
+#### <a name="government-and-countryregion-specific-identification"></a>Identificação específica do governo e do país/região
 
-As entidades abaixo são agrupadas e listadas por país:
+As entidades abaixo são agrupadas e listadas por país/região:
 
 Argentina
 * Número de identidade nacional (DNI)
@@ -186,7 +186,7 @@ Brasil
 * Número do CPF
 * Cartão de ID nacional (RG)
 
-Canada
+Canadá
 * ID do passaporte
 * ID da licença do driver
 * Número de seguro de integridade
@@ -316,7 +316,7 @@ Taiwan
 Tailândia
 * Código de identificação da população
 
-United Kingdom
+Reino Unido
 * ID do passaporte
 * ID da licença do driver
 * Número de seguro nacional (NINO)
