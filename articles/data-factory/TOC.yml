@@ -25,8 +25,6 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Criar fábrica de dados - Modelo do Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: Segurança – Habilitar a criptografia de chave gerenciada pelo cliente
-      href: quickstart-enable-customer-managed-key.md
     - name: Criar fluxo de dados
       href: data-flow-create.md
 - name: Tutoriais
@@ -188,8 +186,6 @@
               href: wrangling-data-flow-functions.md
     - name: Funções e permissões
       href: concepts-roles-permissions.md
-    - name: Noções básicas sobre preços
-      href: pricing-concepts.md
     - name: Regras de nomenclatura
       href: naming-rules.md
 - name: Guias de instruções
@@ -370,6 +366,8 @@
           href: connector-servicenow.md
         - name: SFTP
           href: connector-sftp.md
+        - name: Lista do SharePoint Online
+          href: connector-sharepoint-online-list.md
         - name: Shopify
           href: connector-shopify.md
         - name: Spark
@@ -416,6 +414,8 @@
           href: copy-activity-schema-and-type-mapping.md
         - name: Tolerância a falhas
           href: copy-activity-fault-tolerance.md
+        - name: Verificação de consistência de dados
+          href: copy-activity-data-consistency.md
         - name: Suporte à compactação e ao formato (herdado)
           href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Transformar dados
@@ -553,8 +553,12 @@
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Identidade gerenciada para o Data Factory
           href: data-factory-service-identity.md
+        - name: Criptografia de chave gerenciada pelo cliente
+          href: quickstart-enable-customer-managed-key.md
     - name: Monitorar e gerenciar
       items:
+        - name: Monitorar visualmente
+          href: monitor-visually.md
         - name: Monitorar com Azure Monitor
           href: monitor-using-azure-monitor.md
         - name: Monitorar com SDKs
@@ -577,6 +581,8 @@
           href: create-azure-ssis-integration-runtime.md
         - name: runtime de integração auto-hospedada compartilhado
           href: create-shared-self-hosted-integration-runtime-powershell.md
+        - name: Scripts de automação do runtime de integração auto-hospedada
+          href: self-hosted-integration-runtime-automation-scripts.md
     - name: Executar pacotes SSIS no Azure
       items:
         - name: Executar pacotes SSIS no Azure do SSDT
@@ -597,12 +603,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Habilitar a autenticação do Azure AD para IR Azure-SSIS
           href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Conectar-se aos dados com a Autenticação do Windows
-          href: ssis-azure-connect-with-windows-auth.md
-        - name: Salvar arquivos e conectar-se aos compartilhamentos de arquivo
-          href: ssis-azure-files-file-shares.md
         - name: Provisionar a Enterprise Edition para IR Azure-SSIS
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Componentes internos e pré-instalados no Azure-SSIS IR
+          href: built-in-preinstalled-components-ssis-integration-runtime.md
         - name: Personalizar instalação para IR Azure-SSIS
           href: how-to-configure-azure-ssis-ir-custom-setup.md
         - name: Instalar componentes licenciados para IR Azure-SSIS
@@ -613,6 +617,8 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Limpar logs do SSISDB com Trabalhos do Banco de Dados Elástico
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: Usar a Instância Gerenciada de SQL do Azure com o Azure-SSIS IR
+          href: how-to-use-sql-managed-instance-with-ir.md
         - name: Migrar trabalhos do SSIS com o SSMS
           href: how-to-migrate-ssis-job-ssms.md
     - name: Criar gatilhos
@@ -645,6 +651,12 @@
           href: solution-template-move-files.md
         - name: Transformação com o Azure Databricks
           href: solution-template-databricks-notebook.md
+    - name: Noções básicas sobre preços
+      items:
+        - name: Planejar e gerenciar custos
+          href: plan-manage-costs.md
+        - name: Exemplos de preços
+          href: pricing-concepts.md
     - name: Guias de solução de problemas
       items:
         - name: Atividades

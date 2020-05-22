@@ -133,6 +133,8 @@
   items:
     - name: Mover entre regiões
       href: move-across-regions.md
+    - name: Adicionar partições dinamicamente
+      href: dynamically-add-partitions.md
     - name: Usar o Armazenamento de Blobs como armazenamento de ponto de verificação no Azure Stack Hub
       href: use-blob-storage-checkpoint-store-azure-stack-hub.md
     - name: Migrar de APIs do Azure Service Manager (clássico) para APIs do Resource Manager
@@ -205,7 +207,7 @@
           href: event-hubs-ip-filtering.md
         - name: Configurar pontos de extremidade de serviço de rede virtual
           href: event-hubs-service-endpoints.md
-        - name: Configurar pontos de extremidade privados (versão prévia)
+        - name: Configurar pontos de extremidade privados
           href: private-link-service.md
         - name: Configurar chaves gerenciadas pelo cliente
           href: configure-customer-managed-key.md

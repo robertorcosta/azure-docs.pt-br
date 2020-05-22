@@ -118,10 +118,12 @@
       items:
         - name: Acessar laboratórios de sala de aula
           href: how-to-use-classroom-lab.md
-        - name: Usar a conexão de área de trabalho remota para VMs do Linux
+        - name: Conectar-se a VMs do Linux
           href: how-to-use-remote-desktop-linux-student.md
         - name: Conectar-se a uma VM de um Mac usando RDP
-          href: connect-virtual-machine-mac-rdp.md
+          href: connect-virtual-machine-mac-remote-desktop.md
+        - name: Conectar-se a uma VM de um Chromebook usando RDP
+          href: connect-virtual-machine-chromebook-remote-desktop.md
         - name: Definir ou redefinir as senhas das máquinas virtuais
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Exibir informações de suporte (aluno)

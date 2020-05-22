@@ -127,6 +127,9 @@
           href: 'functions-reference-node.md#typescript'
     - name: Segurança
       items:
+        - name: Visão geral da segurança
+          href: security-concepts.md
+          displayName: 'secure, ssl'
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Diagnósticos
@@ -332,6 +335,8 @@
       items:
         - name: Solucionar problemas de armazenamento
           href: functions-recover-storage-account.md
+        - name: Solucionar problemas de dependências do Python
+          href: recover-module-not-found.md
 - name: Referência
   items:
     - name: Referências de API
@@ -347,12 +352,16 @@
         - name: Armazenamento de blob
           items:
             - name: Visão geral
+              displayName: Blob storage
               href: functions-bindings-storage-blob.md
             - name: Gatilho
+              displayName: Blob storage
               href: functions-bindings-storage-blob-trigger.md
             - name: Entrada
+              displayName: Blob storage
               href: functions-bindings-storage-blob-input.md
             - name: Saída
+              displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
           items:
@@ -378,10 +387,13 @@
           items:
             - name: Visão geral
               href: functions-bindings-event-grid.md
+              displayName: Event Grid
             - name: Gatilho
               href: functions-bindings-event-grid-trigger.md
+              displayName: Event Grid
             - name: Saída
               href: functions-bindings-event-grid-output.md
+              displayName: Event Grid
         - name: Hubs de Eventos
           items:
             - name: Visão geral
@@ -408,10 +420,13 @@
           items:
             - name: Visão geral
               href: functions-bindings-http-webhook.md
+              displayName: HTTP
             - name: Gatilho
               href: functions-bindings-http-webhook-trigger.md
+              displayName: HTTP
             - name: Saída
               href: functions-bindings-http-webhook-output.md
+              displayName: HTTP
         - name: Microsoft Graph
           href: functions-bindings-microsoft-graph.md
         - name: Aplicativos Móveis
@@ -422,20 +437,26 @@
           items:
             - name: Visão geral
               href: functions-bindings-storage-queue.md
+              displayName: Queue storage
             - name: Gatilho
               href: functions-bindings-storage-queue-trigger.md
+              displayName: Queue storage
             - name: Saída
               href: functions-bindings-storage-queue-output.md
+              displayName: Queue storage
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Barramento de Serviço
           items:
             - name: Visão geral
               href: functions-bindings-service-bus.md
+              displayName: Service Bus
             - name: Gatilho
               href: functions-bindings-service-bus-trigger.md
+              displayName: Service Bus
             - name: Saída
               href: functions-bindings-service-bus-output.md
+              displayName: Service Bus
         - name: Serviço SignalR
           items:
             - name: Visão geral

@@ -71,10 +71,8 @@
       href: sql-api-dotnet-samples.md
     - name: Exemplos de SDK do .NET V3
       href: sql-api-dotnet-v3sdk-samples.md
-    - name: Exemplos do Java
-      href: sql-api-java-samples.md
-    - name: Amostras de Java assíncronos
-      href: sql-api-async-java-samples.md
+    - name: Exemplos de SDK do Java v4
+      href: sql-api-java-sdk-samples.md
     - name: Exemplos do Node.js
       href: sql-api-nodejs-samples.md
     - name: Exemplos em Python
@@ -132,11 +130,13 @@
         - name: Unidades de solicitação
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: Aprovisionar a taxa de transferência para contêineres e bancos de dados
+        - name: Introdução à taxa de transferência provisionada
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Provisionar a taxa de transferência – dimensionamento automático
+        - name: Provisionar taxa de transferência de dimensionamento automático
           href: provision-throughput-autoscale.md
+        - name: Escolha entre dimensionamento automático e taxa de transferência padrão (manual)
+          href: how-to-choose-offer.md
         - name: Perguntas frequentes sobre dimensionamento automático
           href: autoscale-faq.md
     - name: consulta SQL
@@ -492,12 +492,14 @@
           href: change-feed-functions.md
         - name: Modelo de pull do feed de alterações
           href: change-feed-pull-model.md
-    - name: Análise com o Link do Synapse
+    - name: Análise com o Link do Azure Synapse
       items:
-        - name: Link do Synapse para Azure Cosmos DB
+        - name: Link do Azure Synapse para Cosmos DB
           href: synapse-link.md
         - name: Repositório analítico – visão geral
           href: analytical-store-introduction.md
+        - name: Recursos com suporte do Link do Synapse
+          href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Perguntas frequentes sobre o Link do Synapse
           href: synapse-link-frequently-asked-questions.md
         - name: Casos de uso do Link do Synapse
@@ -568,6 +570,8 @@
           href: online-backup-and-restore.md
         - name: Conformidade
           href: compliance.md
+        - name: Suporte ao Azure Policy
+          href: policy.md
     - name: Cotas de serviço
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB e outras APIs'
@@ -664,8 +668,6 @@
             - name: Xamarin
               href: create-mongodb-xamarin.md
             - name: Golang
-              href: create-mongodb-golang.md
-            - name: Go
               href: create-mongodb-go.md
         - name: Tutoriais
           items:
@@ -922,12 +924,15 @@
           href: how-to-convert-session-token.md
     - name: Taxa de transferência provisionada
       items:
-        - name: Provisionar a taxa de transferência em um contêiner
+        - name: Provisionar taxa de transferência padrão (manual) em um contêiner
           displayName: 'request units, RUs, RU, collection level'
           href: how-to-provision-container-throughput.md
-        - name: Provisionar a taxa de transferência em um banco de dados
+        - name: Provisionar taxa de transferência padrão (manual) em um banco de dados
           displayName: 'request units, RUs, RU, shared throughput, database level'
           href: how-to-provision-database-throughput.md
+        - name: Provisionar taxa de transferência de dimensionamento automático em um banco de dados ou contêiner
+          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+          href: how-to-provision-autoscale-throughput.md
         - name: Estimar RU/s com o Planejador de Capacidade do Cosmos
           displayName: 'request units, RUs, RU, capacity'
           href: estimate-ru-with-capacity-planner.md
@@ -1020,10 +1025,14 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Feed de alterações – Amostra de Java Assíncrono
           href: create-sql-api-java-changefeed.md
-    - name: Análise com o Link do Synapse
+    - name: Análise com o Link do Azure Synapse
       items:
-        - name: Configurar o Link do Synapse
+        - name: Configurar o Link do Azure Synapse
           href: configure-synapse-link.md
+        - name: Conectar-se ao Link do Azure Synapse
+          href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Consultar com o Spark do Azure Synapse
+          href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Análise interna com o Apache Spark
       items:
         - name: Conector do Azure Databricks Spark
@@ -1034,8 +1043,12 @@
       items:
         - name: Habilitar os notebooks
           href: enable-notebooks.md
-        - name: Usar comandos de notebook interno
-          href: use-notebook-features-and-commands.md
+        - name: Importar notebooks do GitHub
+          href: import-github-notebooks.md
+        - name: Usar comandos de notebook interno em Python
+          href: use-python-notebook-features-and-commands.md
+        - name: 'Usar comandos de notebook interno em C#'
+          href: use-csharp-notebook-features-and-commands.md
     - name: Programação do lado do servidor
       items:
         - name: 'Gravar procedimentos armazenados, gatilhos e UDFs'
@@ -1160,6 +1173,8 @@
           href: migrate-relational-to-cosmos-db-sql-api.md
         - name: Migrar – Couchbase para a API do SQL
           href: couchbase-cosmos-migration.md
+        - name: Migrar – DynamoDB para a API do SQL
+          href: dynamo-to-cosmos.md
     - name: Biblioteca bulk executor
       items:
         - name: Sobre a biblioteca do executor em passa
@@ -1182,12 +1197,16 @@
       href: sql-api-sdk-dotnet-changefeed.md
     - name: Biblioteca do executor em massa do .NET
       href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java
-      href: sql-api-sdk-java.md
     - name: Biblioteca do executor em massa Java
       href: sql-api-sdk-bulk-executor-java.md
-    - name: Async Java
-      href: sql-api-sdk-async-java.md
+    - name: SDK do Java v4 para Core
+      href: sql-api-sdk-java-v4.md
+    - name: SDKs de Java mais antigos para Core
+      items:
+        - name: SDK do Java Assíncrono v2
+          href: sql-api-sdk-async-java.md
+        - name: SDK do Java Síncrono v2
+          href: sql-api-sdk-java.md
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python

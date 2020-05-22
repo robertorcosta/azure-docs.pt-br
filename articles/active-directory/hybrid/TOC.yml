@@ -278,6 +278,8 @@
           href: how-to-connect-sync-feature-scheduler.md
         - name: Criar e personalizar uma regra de sincronização
           href: how-to-connect-create-custom-sync-rule.md
+        - name: API de ponto de extremidade do Azure AD Connect Sync v2
+          href: how-to-connect-sync-endpoint-api-v2.md
         - name: Gerenciador de serviços do Azure AD Connect Sync
           items:
             - name: Gerenciar a guia de operações do gerenciador de serviços

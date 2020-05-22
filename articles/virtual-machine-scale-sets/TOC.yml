@@ -60,9 +60,39 @@
 - name: Exemplos
   items:
     - name: CLI do Azure
-      href: cli-samples.md
+      items:
+        - name: Criar um conjunto de dimensionamento de máquinas virtuais
+          href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Criar um conjunto de dimensionamento com base em uma imagem de VM personalizada
+          href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
+        - name: Instalar aplicativos em um conjunto de dimensionamento
+          href: ./scripts/cli-sample-install-apps.md
+        - name: Criar e anexar discos a um conjunto de dimensionamento
+          href: ./scripts/cli-sample-attach-disks.md
+        - name: Habilitar dimensionamento automático baseado em host
+          href: ./scripts/cli-sample-enable-autoscale.md
+        - name: Criar um conjunto de dimensionamento de zona única
+          href: ./scripts/cli-sample-single-availability-zone-scale-set.md
+        - name: Criar um conjunto de dimensionamento com redundância de zona
+          href: ./scripts/cli-sample-zone-redundant-scale-set.md
     - name: PowerShell
-      href: powershell-samples.md
+      items:
+        - name: Criar um conjunto de dimensionamento de máquinas virtuais simples
+          href: ./scripts/powershell-sample-create-simple-scale-set.md
+        - name: Criar um conjunto de dimensionamento de máquinas virtuais completas
+          href: ./scripts/powershell-sample-create-complete-scale-set.md
+        - name: Criar um conjunto de dimensionamento com base em uma imagem de VM personalizada
+          href: ./scripts/powershell-sample-create-scale-set-from-custom-image.md
+        - name: Instalar aplicativos em um conjunto de dimensionamento
+          href: ./scripts/powershell-sample-install-apps.md
+        - name: Criar e anexar discos a um conjunto de dimensionamento
+          href: ./scripts/powershell-sample-attach-disks.md
+        - name: Habilitar dimensionamento automático baseado em host
+          href: ./scripts/powershell-sample-enable-autoscale.md
+        - name: Criar um conjunto de dimensionamento de zona única
+          href: ./scripts/powershell-single-av-zone-scale-set.md
+        - name: Criar um conjunto de dimensionamento com redundância de zona
+          href: ./scripts/powershell-sample-zone-redundant-scale-set.md
     - name: Itens internos do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md

@@ -17,13 +17,13 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Implantar com grupos de IPS
+    - name: Implantar com grupos de IPs – modelo do ARM
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
-    - name: Implantação com vários endereços
+    - name: Implantar com vários endereços – modelo do ARM
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
-    - name: Implantar com Zonas de Disponibilidade
+    - name: Implantar com Zonas de Disponibilidade – modelo do ARM
       displayName: Resource Manager
       href: deploy-template.md
 - name: Exemplos

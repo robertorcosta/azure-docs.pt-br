@@ -4,6 +4,8 @@
       href: oracle-overview.md
     - name: Soluções em VMs do Azure
       href: oracle-vm-solutions.md
+    - name: Aplicativos Azure do WebLogic Server
+      href: oracle-weblogic.md
     - name: Soluções com o OCI
       href: oracle-oci-overview.md
 - name: Inícios rápidos

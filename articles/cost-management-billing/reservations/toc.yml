@@ -6,7 +6,6 @@
     - name: O que são Reservas do Azure?
       href: save-compute-costs-reservations.md
 - name: Guias de instruções
-  expanded: true
   items:
     - name: Determinar o que comprar
       items:
@@ -56,12 +55,17 @@
           href: 'manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances'
         - name: Trocar e reembolsar reservas
           href: exchange-and-refund-azure-reservations.md
+    - name: Relatar custos
+      items:
+        - name: Exibir transações de reserva
+          href: view-purchase-refunds.md
+        - name: Estornar custos de reserva
+          href: charge-back-usage.md
     - name: Renovar as reservas
       items:
         - name: Renovar uma reserva
           href: reservation-renew.md
 - name: Conceitos
-  expanded: true
   items:
     - name: Como as recomendações de reserva são criadas
       href: reserved-instance-purchase-recommendations.md

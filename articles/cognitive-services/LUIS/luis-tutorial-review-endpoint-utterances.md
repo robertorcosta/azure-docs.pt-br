@@ -4,12 +4,12 @@ description: Neste tutorial, aprimore as previsões de aplicativo verificando ou
 services: cognitive-services
 ms.topic: tutorial
 ms.date: 04/01/2020
-ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.openlocfilehash: 32d43b36910c8fbfd60463f4062b6a00b9272fdb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80548733"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592569"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões incertas examinando os enunciados de ponto de extremidade
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Você deve examinar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS.
@@ -33,11 +33,11 @@ Ao revisar os enunciados de ponto de extremidade, você verifica ou corrige a in
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Importar o aplicativo de exemplo
+## <a name="download-json-file-for-app"></a>Baixar arquivo JSON para aplicativo
 
-Use as etapas a seguir para importar um aplicativo.
+Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+## <a name="import-json-file-for-app"></a>Importar arquivo JSON para aplicativo
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

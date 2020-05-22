@@ -276,6 +276,8 @@
       items:
         - name: Configurar a integração do Azure AD
           href: howto-configure-sign-in-azure-ad-authentication.md
+        - name: Conectar-se com Identidade Gerenciada
+          href: howto-connect-with-managed-identity.md
     - name: Negar acesso à rede pública
       items:
         - name: Portal do Azure

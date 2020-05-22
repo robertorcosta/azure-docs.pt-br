@@ -2,13 +2,13 @@
 title: 'Tutorial: Padrões – LUIS'
 description: Use padrões para aumentar a previsão de intenção e entidade enquanto fornece menos enunciados de exemplo neste tutorial. O padrão é fornecido como um enunciado de modelo de exemplo, que inclui sintaxe para identificar entidades e texto ignorável.
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.date: 05/07/2020
+ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380779"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592909"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicionar formatos de enunciado de modelo de padrão comuns para aprimorar previsões
 
@@ -41,7 +41,8 @@ Use as seguintes etapas:
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Importe o JSON para um novo aplicativo para o [portal do LUIS em versão prévia](https://preview.luis.ai). Na página **Meus Aplicativos**, selecione **+ Novo aplicativo para conversa** e, em seguida, **Importar como JSON**. Escolha o arquivo que você baixou na etapa anterior.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
+1. Importe o JSON para um novo aplicativo usando o [portal do LUIS](https://www.luis.ai). Na página **Meus Aplicativos**, selecione **+ Novo aplicativo para conversa** e, em seguida, **Importar como JSON**. Escolha o arquivo que você baixou na etapa anterior.
 
 1. Na seção **Gerenciar**, na guia **Versões**, escolha a versão ativa e, em seguida, **Clonar**. Dê à versão clonada o nome `patterns`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. Como o nome da versão é usado como parte da rota de URL, o nome não pode conter nenhum caractere que não seja válido em uma URL.
 
@@ -468,33 +469,7 @@ A sintaxe padrão oferece uma sintaxe de âncora da declaração de início e t�
 
 ## <a name="using-patternany-entity"></a>Usando a entidade Pattern.any
 
-A entidade pattern.any permite localizar dados de formulário livre em que as palavras da entidade dificultam determinar o fim da entidade no resto do enunciado.
-
-Este aplicativo de Recursos Humanos ajuda os funcionários a encontrar formulários da empresa.
-
-|Enunciado|
-|--|
-|Onde está **HRF-123456**?|
-|Quem criou **HRF 123234**?|
-|**HRF-456098** está publicado em francês?|
-
-No entanto, cada formulário tem um nome formatado, usado na tabela anterior, bem como um nome amigável, como `Request relocation from employee new to the company 2018 version 5`.
-
-Enunciados com o nome amigável do formulário se parecem com:
-
-|Enunciado|
-|--|
-|Onde está **Solicitar a realocação do funcionário novo para a versão 5 da empresa 2018**?|
-|Quem criou **“Solicitar a realocação do funcionário novo para a versão 5 da empresa 2018”** ?|
-|**Solicitar a realocação do funcionário novo para a versão 5 da empresa 2018** está publicado em francês?|
-
-O comprimento variável inclui palavras que podem confundir o LUIS sobre onde a entidade termina. Usando uma entidade Pattern.any em um padrão permite especificar o início e o fim do nome do formulário para que o LUIS extraia corretamente o nome do formulário.
-
-|Exemplo de enunciado de modelo|
-|--|
-|Onde está {FormName}[?]|
-|Quem criou {FormName}[?]|
-|{FormName} foi publicado em francês[?]|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### <a name="add-example-utterances-with-patternany"></a>Adicione o enunciado de exemplo com Pattern.any
 

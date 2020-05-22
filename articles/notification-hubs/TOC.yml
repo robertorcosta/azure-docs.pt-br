@@ -9,10 +9,12 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar um hub de notificação – Portal do Azure
+    - name: Criar um hub de notificação – portal do Azure
       href: create-notification-hub-portal.md
     - name: Criar um hub de notificação – CLI do Azure
       href: create-notification-hub-azure-cli.md
+    - name: Criar um hub de notificação – modelo do Azure Resource Manager
+      href: create-notification-hub-template.md
     - name: Configurar um hub de notificação
       href: configure-notification-hub-portal-pns-settings.md
 - name: Tutoriais

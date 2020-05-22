@@ -88,7 +88,11 @@
         - name: Visão geral da segurança
           href: azure-stack-edge-security.md
         - name: Especificações de revisão
-          href: azure-stack-edge-technical-specifications-compliance.md
+          items:
+            - name: Especificações do dispositivo
+              href: azure-stack-edge-technical-specifications-compliance.md
+            - name: Especificações do cabo de alimentação
+              href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: Como
       items:
         - name: 'Desenvolver um módulo C#'

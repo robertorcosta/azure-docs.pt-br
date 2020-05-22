@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d1b5ea9a9f78bc8a83159a34026d58d7a8cc89b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 96106882c1c43c322afbf6517209621557de9d25
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78944266"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592059"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na borda com os bancos de dados do SQL Server
 
@@ -41,7 +41,7 @@ Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior pa
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão ou gratuito no Azure.
 * Um [dispositivo Linux AMD64 que executa o Azure IoT Edge](quickstart-linux.md).
-  * Dispositivos ARM, como Raspberry PIS, não podem executar o SQL Server. Se você quiser usar o SQL em um dispositivo ARM, poderá se inscrever para experimentar o [Banco de Dados SQL do Azure no Edge](https://azure.microsoft.com/services/sql-database-edge/) em versão prévia.
+  * Dispositivos ARM, como Raspberry PIS, não podem executar o SQL Server. Se quiser usar o SQL em um dispositivo ARM, poderá se inscrever para experimentar o [SQL do Azure no Edge](https://azure.microsoft.com/services/azure-sql-edge/) na versão prévia.
 * Um registro de contêiner, como o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/).
 * O [Visual Studio Code](https://code.visualstudio.com/) configurado com o [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * O [Docker CE](https://docs.docker.com/install/) configurado para executar contêineres do Linux.

@@ -4,8 +4,13 @@
   items:
     - name: O que é o Gerenciador de Firewall do Azure?
       href: overview.md
-- name: Tutoriais
+- name: Inícios rápidos
   expanded: true
+  items:
+    - name: Hub virtual seguro
+      displayName: Resource Manager
+      href: quick-secure-virtual-hub.md
+- name: Tutoriais
   items:
     - name: Proteja seu WAN virtual – portal
       href: secure-cloud-network.md

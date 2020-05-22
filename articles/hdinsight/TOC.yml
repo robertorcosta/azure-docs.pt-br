@@ -59,6 +59,8 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Planejamento de capacidade de cluster
           href: ./hdinsight-capacity-planning.md
+        - name: Solicitar aumento da cota de núcleo da CPU
+          href: ./quota-increase-request.md
         - name: Práticas recomendadas para o gerenciamento de cluster
           href: ./cluster-management-best-practices.md
         - name: Disponibilidade e confiabilidade
@@ -243,6 +245,8 @@
               href: ./troubleshoot-resource-creation-fails.md
             - name: Solucionar problemas do Apache Oozie
               href: ./troubleshoot-oozie.md
+            - name: Entender e resolver erros do WebHCat
+              href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
     - name: Referência
       items:
         - name: Azure PowerShell
@@ -285,8 +289,6 @@
           href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
         - name: Habilitar despejos de heap para serviços do Apache Hadoop
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-        - name: Entender e resolver erros do WebHCat
-          href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
         - name: Obtenha ajuda no fórum
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
         - name: Calculadora de preço
@@ -330,6 +332,8 @@
           href: ./spark/apache-spark-settings.md
         - name: Otimizar trabalhos do Apache Spark
           href: ./spark/apache-spark-perf.md
+        - name: Migrar para o Spark 2.3 ou 2.4
+          href: ./spark/migrate-versions.md
     - name: Como
       items:
         - name: Usar ferramentas
@@ -736,6 +740,8 @@
       items:
         - name: Melhores práticas de gateway
           href: ./interactive-query/gateway-best-practices.md
+        - name: Diretrizes de dimensionamento
+          href: ./interactive-query/sizing-guidelines.md
     - name: Como
       items:
         - name: Desenvolver
@@ -780,6 +786,8 @@
               href: ./hdinsight-hadoop-hive-out-of-memory-error-oom.md
             - name: O aplicativo Apache Tez para de responder
               href: ./interactive-query/interactive-query-troubleshoot-tez-hangs.md
+            - name: Diretrizes de dimensionamento do Apache Hive LLAP
+              href: ./interactive-query/hive-llap-sizing-guide.md
             - name: Desempenho da consulta do Apache Hive LLAP
               href: ./interactive-query/interactive-query-troubleshoot-query-performance.md
             - name: Redutor lento

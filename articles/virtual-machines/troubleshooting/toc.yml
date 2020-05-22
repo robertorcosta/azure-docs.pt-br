@@ -77,6 +77,10 @@
           href: troubleshoot-guide-critical-process-died.md
         - name: Falha de serviço crítico
           href: troubleshoot-critical-service-failed-boot-error.md
+        - name: Solucionar erro de inicialização – status não encontrado
+          href: boot-error-status-not-found.md
+        - name: Solucionar problemas de capacidade de instalação do Windows Update
+          href: windows-update-installation-capacity.md
         - name: A VM fica sem responder ao aplicar a política de usuários e grupos locais
           href: troubleshoot-vm-unresponsive-group-policy-local-users.md
         - name: Não é um disco inicializável

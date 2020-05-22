@@ -32,6 +32,8 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Associar um aplicativo ao MySQL do Azure
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Painel de Disjuntor com o Azure Spring Cloud
+      href: spring-cloud-tutorial-circuit-breaker.md
     - name: Mapear o nome DNS personalizado para o Azure Spring Cloud
       href: spring-cloud-tutorial-custom-domain.md
     - name: Usar o IntelliJ para implantar aplicativos do Azure Spring Cloud
@@ -69,7 +71,6 @@
       href: spring-cloud-howto-log-streaming.md
     - name: Usar armazenamento persistente no Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
-    - name: Implantação de DevOps no Azure Spring Cloud
     - name: Integrar o Azure Spring Cloud com soluções de balanceamento de carga do Azure
       href: spring-cloud-howto-integrate-azure-load-balancers.md
 - name: Implantação de DevOps no Azure Spring Cloud

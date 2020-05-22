@@ -2,13 +2,13 @@
 title: 'Tutorial: Teste do lote para encontrar problemas — LUIS'
 description: Este tutorial demonstra como usar o teste em lotes para validar a qualidade do aplicativo LUIS (Reconhecimento vocal).
 ms.topic: tutorial
-ms.date: 03/02/2020
-ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/07/2020
+ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78250537"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592586"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: testar conjuntos de dados em lote
 
@@ -41,7 +41,9 @@ Importe um aplicativo que recebe um pedido de pizza, como `1 pepperoni pizza on 
 
 1.  Baixe e salve o [arquivo JSON do aplicativo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Na [versão prévia do portal do LUIS](https://preview.luis.ai/), importe o JSON para um novo aplicativo e nomeie o aplicativo `Pizza app`.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
+1. Importe o JSON para um novo aplicativo e nomeie o aplicativo `Pizza app`.
+
 
 1. Selecione **Treinar** no canto superior direito da navegação para treinar o aplicativo.
 

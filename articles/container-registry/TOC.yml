@@ -91,7 +91,7 @@
           items:
             - name: Restringir acesso usando um ponto de extremidade privado
               href: container-registry-private-link.md
-            - name: Configurar regras de firewall de serviço
+            - name: Configurar o acesso ao Registro público
               href: container-registry-access-selected-networks.md
             - name: Restringir acesso usando um ponto de extremidade de serviço (versão prévia)
               href: container-registry-vnet.md

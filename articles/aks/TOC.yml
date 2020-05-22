@@ -12,6 +12,8 @@
       items:
         - name: Usar a CLI do Azure
           href: kubernetes-walkthrough.md
+        - name: Usar PowerShell do Azure
+          href: kubernetes-walkthrough-powershell.md
         - name: Use o Portal do Azure
           href: kubernetes-walkthrough-portal.md
         - name: Usar modelo ARM
@@ -225,7 +227,7 @@
         - name: Definir intervalos de IP autorizados do servidor de API
           href: api-server-authorized-ip-ranges.md
         - name: Controlar implantações com a política do Azure (visualização)
-          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
+          href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
         - name: Atualizar credenciais do cluster
           href: update-credentials.md
         - name: Restringir e controlar o tráfego de saída do cluster
@@ -263,6 +265,8 @@
       items:
         - name: Criar um cluster AKS
           href: windows-container-cli.md
+        - name: Criar um cluster do AKS com o PowerShell
+          href: windows-container-powershell.md
         - name: Conectar-se remotamente
           href: rdp.md
         - name: Limitações conhecidas

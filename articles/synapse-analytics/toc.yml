@@ -25,9 +25,13 @@
         - name: Como criar um notebook do Apache Spark usando ferramentas da Web
           href: quickstart-apache-spark-notebook.md
         - name: Como criar um pool do Apache Spark usando o portal do Azure
-          href: quickstart-create-apache-spark-pool.md
-        - name: Como criar um pool de SQL
-          href: quickstart-create-sql-pool.md
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Criar um pool do Apache Spark usando o Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
+        - name: Criar um pool de SQL usando o portal do Azure
+          href: quickstart-create-sql-pool-portal.md
+        - name: Criar um pool de SQL usando o Synapse Studio
+          href: quickstart-create-sql-pool-studio.md
     - name: Carregar dados com pools de SQL
       items:
         - name: Instrução COPY
@@ -308,7 +312,7 @@
                   href: sql/develop-storage-files-overview.md
                 - name: Controle de Acesso do Armazenamento
                   href: sql/develop-storage-files-storage-access-control.md
-                - name: Tabelas Spark
+                - name: Apache Spark para tabelas externas do Azure Synapse
                   href: sql/develop-storage-files-spark-tables.md
         - name: Gerenciamento de carga de trabalho
           items:
@@ -328,8 +332,16 @@
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Link do Synapse
       items:
+        - name: Link do Synapse para Azure Cosmos DB
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Visão geral do repositório analítico
+          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Recursos com suporte do Link do Synapse
           href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
+        - name: Perguntas frequentes sobre o Link do Synapse
+          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Casos de uso do Link do Synapse
+          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'Integração de ferramentas (IA, ETL, BI)'
       items:
         - name: Solução de problemas do Synapse Analytics Studio
@@ -414,6 +426,8 @@
       items:
         - name: Link do Synapse
           items:
+            - name: Configurar o Link do Synapse
+              href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Conectar-se ao Link do Azure Synapse para Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Consultar repositório analítico do Azure Cosmos DB com Apache Spark para Azure Synapse Analytics
@@ -860,14 +874,16 @@
   items:
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Solicitações de recursos
+      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
     - name: Fórum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/synapse-analytics/'
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Solicitações de recursos
-      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
+    - name: Perguntas e respostas
+      href: 'https://docs.microsoft.com/en-us/answers/questions/topics/single/25423.html'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
     - name: Stack Overflow

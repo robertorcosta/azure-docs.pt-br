@@ -3,7 +3,7 @@ title: Documentação da rede do Azure
 summary: Conheça os vários serviços de rede do Azure disponíveis que oferecem conectividade com seus recursos no Azure, fornecem e protegem aplicativos e ajudam a proteger a rede.
 brand: azure
 metadata:
-  title: Documentação da Rede do Azure
+  title: Documentação da rede do Azure
   description: Os serviços de rede do Azure fornecem conectividade com seus recursos no Azure, fornecem e protegem aplicativos e ajudam a proteger a rede.
   ms.service: virtual-network
   ms.topic: hub-page
@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 03/17/2020
-  ms.openlocfilehash: 5745c6c9a7f380d7e9b1d8d59d56a81581c66e14
-  ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+  ms.openlocfilehash: 99b15e3b311a033e346cb8994bb9109401d90a20
+  ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 03/26/2020
-  ms.locfileid: "80294325"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83715759"
 highlightedContent:
   items:
   - title: O que é a Rede do Azure?
@@ -32,9 +32,9 @@ highlightedContent:
   - title: Topologia de rede hub-spoke no Azure
     itemType: architecture
     url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-  - title: Acesso privado a um servidor do banco de dados SQL
-    itemType: tutorial
-    url: ../private-link/create-private-endpoint-portal.md
+  - title: O que é preferência de roteamento?
+    itemType: concept
+    url: ../virtual-network/routing-preference-overview.md
   - title: Como trabalhar remotamente usando os serviços do Azure
     itemType: concept
     url: working-remotely-support.md
