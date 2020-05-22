@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60cd6b8ba2cbfca497ae1b92113b12e85a34bf26
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77211399"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778228"
 ---
 ## <a name="general-entity-types"></a>Tipos de entidade geral:
 
@@ -21,82 +21,82 @@ ms.locfileid: "77211399"
 
 Reconhece nomes de pessoas no texto.
 
-Linguagens:
-* Visualização pública: `Arabic`, `Czech` `Chinese-Simplified` `Danish` `Dutch` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` ,, `Finnish`,,,,,,,,,,,,,,, e `English` `French` `German` `Hungarian` `Italian` `Japanese``Turkish`
+Idiomas:
+* Visualização pública:,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` , `Norwegian (Bokmål)` , `Polish` , `Portuguese (Portugal)` , `Portuguese (Brazil)` , `Russian` , `Spanish` `Swedish` e`Turkish`
 
-| Nome do subtipo | Descrição                                                      | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                                      | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------------------|---------------------------------------|
-| N/D          | Nomes de pessoas reconhecidos `Bill Gates`, por exemplo,`Marie Curie` | `2019-10-01`                          | 
+| N/D          | Nomes de pessoas reconhecidos, por exemplo `Bill Gates` ,`Marie Curie` | `2019-10-01`                          | 
 
 ### <a name="persontype"></a>Persontype
 Tipo de trabalho ou função mantida por uma pessoa.
 
-Linguagens:
+Idiomas:
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                                                                | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                                                                | Disponível a partir da versão do modelo |
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Tipos de trabalho, `civil engineer` `salesperson` `chef`por exemplo, `librarian`,,,`nursing aide` | `2020-02-01`                           |
+| N/D          | Tipos de trabalho, por exemplo,,, `civil engineer` `salesperson` `chef` `librarian` ,`nursing aide` | `2020-02-01`                           |
 
-### <a name="location"></a>Location
+### <a name="location"></a>Localização
 
 Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica.
 
-Linguagens:
+Idiomas:
 
-* Visualização pública: `Arabic`, `Czech` `Chinese-Simplified` `Danish` `Dutch` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` ,, `Finnish`,,,,,,,,,,,,,,, e `English` `French` `German` `Hungarian` `Italian` `Japanese``Turkish`
+* Visualização pública:,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` , `Norwegian (Bokmål)` , `Polish` , `Portuguese (Portugal)` , `Portuguese (Brazil)` , `Russian` , `Spanish` `Swedish` e`Turkish`
 
-| Nome do subtipo              | Descrição                                                                              | Disponível a partir da versão do modelo |
+| Nome do subtipo              | Description                                                                              | Disponível a partir da versão do modelo |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D                       | locais, por exemplo `Atlantic Ocean` `library` `Eiffel Tower`,,,`Statue of Liberty`  | `2019-10-01`                           |
-| Geopolítica Entity (GPE) – somente em inglês| Cidades, países, Estados, por `Seattle`exemplo `Pennsylvania`, `South Africa`,,`Tokyo` | `2020-02-01`                           |
+| N/D                       | locais, `Atlantic Ocean` por exemplo,,, `library` `Eiffel Tower``Statue of Liberty`  | `2019-10-01`                           |
+| Geopolítica Entity (GPE) – somente em inglês| Cidades, países/regiões, Estados, por exemplo `Seattle` , `Pennsylvania` ,, `South Africa``Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organização  
 
 Organizações reconhecidas, corporações, agências e outros grupos de pessoas. Por exemplo: empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas. As nacionalidades e Religions não são incluídas nesse tipo de entidade. 
 
-Linguagens: 
+Idiomas: 
 
-* Visualização pública: `Arabic`, `Czech` `Chinese-Simplified` `Danish` `Dutch` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` ,, `Finnish`,,,,,,,,,,,,,,, e `English` `French` `German` `Hungarian` `Italian` `Japanese``Turkish`
+* Visualização pública:,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` , `Norwegian (Bokmål)` , `Polish` , `Portuguese (Portugal)` , `Portuguese (Brazil)` , `Russian` , `Spanish` `Swedish` e`Turkish`
 
-| Nome do subtipo | Descrição                                                                                             | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                                                                             | Disponível a partir da versão do modelo |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | organizações, por exemplo `Microsoft` `NASA` `National Oceanic and Atmospheric Administration`,,,`VOA` | `2019-10-01`                           |
+| N/D          | organizações, `Microsoft` por exemplo,,, `NASA` `National Oceanic and Atmospheric Administration``VOA` | `2019-10-01`                           |
 
 ### <a name="event"></a>Evento  
 
 Eventos históricos, sociais e naturais.  
 
-Linguagens: 
+Idiomas: 
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                                            | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                                            | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------------------------|----------------------------------------|
-| N/D          | Eventos como `wedding`, `hurricane`, `car accident`,, `solar eclipse``American Revolution` | `2020-02-01`                           |
+| N/D          | Eventos como `wedding` ,, `hurricane` `car accident` , `solar eclipse` ,`American Revolution` | `2020-02-01`                           |
 
 ### <a name="product"></a>Produto  
 
 Objetos físicos de várias categorias.  
 
-Linguagens: 
+Idiomas: 
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                                                        | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                                                        | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| N/D          | `Microsoft Surface laptop`Por exemplo `sunglasses` `motorcycle`,,,,, `bag``Xbox` | `2020-02-01`                           |
+| N/D          | Por `Microsoft Surface laptop` exemplo,, `sunglasses` , `motorcycle` , `bag` ,`Xbox` | `2020-02-01`                           |
 | Computação    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
 
 ### <a name="skill"></a>Habilidade  
 
 Uma entidade que descreve um recurso ou uma experiência.  
 
-Linguagens: 
+Idiomas: 
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                                                 | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                                                 | Disponível a partir da versão do modelo |
 |--------------|-----------------------------------------------------------------------------|----------------------------------------|
 | N/D          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
 
@@ -104,11 +104,11 @@ Linguagens:
 
 Números de telefone (somente números de telefone dos EUA). 
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                    | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                    | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------|----------------------------------------|
 | N/D          | Números de telefone dos EUA, por exemplo`(312) 555-0176` | `2019-10-01`                           |
 
@@ -116,11 +116,11 @@ Linguagens:
 
 Endereço de email. 
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                      | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                      | Disponível a partir da versão do modelo |
 |--------------|--------------------------------------------------|----------------------------------------|
 | N/D          | Endereço de email, por exemplo`support@contoso.com` | `2019-10-01`                           |
 
@@ -128,11 +128,11 @@ Linguagens:
 
 URLs da Internet.
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                                          | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                                          | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------------------|----------------------------------------|
 | N/D          | URLs para sites, por exemplo`https://www.bing.com` | `2019-10-01`                           |
 
@@ -140,11 +140,11 @@ Linguagens:
 
 Endereço de protocolo de Internet
 
-Linguagens:
+Idiomas:
 
 * Visualização pública:`English`
 
-| Nome do subtipo | Descrição                              | Disponível a partir da versão do modelo |
+| Nome do subtipo | Description                              | Disponível a partir da versão do modelo |
 |--------------|------------------------------------------|----------------------------------------|
 | N/D          | Endereço de rede, por exemplo`10.0.0.101` | `2019-10-01`                           |
 
@@ -154,9 +154,9 @@ Entidades de data e hora.
 
 * Disponível a partir da versão do modelo`2019-10-01`
 
-Linguagens:
+Idiomas:
 
-* Visualização pública: `Chinese-Simplified`, `English`, `French` `German` e`Spanish`
+* Visualização pública: `Chinese-Simplified` , `English` , `French` `German` e`Spanish`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
@@ -174,16 +174,16 @@ Números e quantidades numéricas.
 
 * Disponível a partir da versão do modelo`2019-10-01`
 
-Linguagens:
+Idiomas:
 
-* Visualização pública: `Chinese-Simplified`, `English`, `French` `German` e`Spanish`
+* Visualização pública: `Chinese-Simplified` , `English` , `French` `German` e`Spanish`
 
 | Nome do subtipo    | Exemplos                     |
 |-------------|------------------------------|
 | Número         | `6`, `six`                   |
-| Porcentagem  | `50%`, `fifty percent`       |
+| Percentual  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
 | Idade         | `90 day old`, `30 years old` |
-| Currency    | `$10.99`, `€30.00`           |
+| Moeda    | `$10.99`, `&euro;30.00`           |
 | Dimensão   | `10 miles`, `40 cm`          |
 | Temperatura | `32 degrees`, `10°C`         |
