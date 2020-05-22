@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 34ff0e792fc388f3083e2d490b2658822793988f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ab8474833ce791f5715369cb25e95f34170f457b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906994"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586823"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -121,7 +121,7 @@ public String Get() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Criar uma função para analisar a resposta
 
-Essa função simples analisa e melhora a aparência da resposta JSON no serviço de Tradução de Texto.
+Essa função simples analisa e melhora a aparência da resposta JSON no serviço Tradutor.
 
 ```java
 // This function prettifies the json response.
@@ -255,7 +255,7 @@ Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte ex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira a referência da API para saber tudo o que você pode fazer com a API de Tradução de Texto.
+Confira a referência da API para saber tudo o que você pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

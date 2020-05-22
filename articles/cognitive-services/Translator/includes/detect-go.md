@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: d75c925ef55163ce06b2ceff585e230d95b38c77
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 7f3824ba4683c5ade4ac5bb84b853caf72e1073b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71837561"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587113"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Criar a função principal
 
-Este exemplo tentará ler a chave da sua assinatura e o ponto de extremidade de Tradução de Texto com base nestas variáveis de ambiente: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se você não estiver familiarizado com as variáveis de ambiente, poderá definir `subscriptionKey` e `endpoint` como cadeias de caracteres e comentar as instruções condicionais.
+Este exemplo tentará ler a chave da sua assinatura do Tradutor e o ponto de extremidade com base nestas variáveis de ambiente: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se você não estiver familiarizado com as variáveis de ambiente, poderá definir `subscriptionKey` e `endpoint` como cadeias de caracteres e comentar as instruções condicionais.
 
 Copie este código em seu projeto:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-detect-the-text-language"></a>Crie uma função para detectar o idioma do texto
 
-Vamos criar uma função para detectar o idioma do texto. Esta função usará um único argumento, sua chave de assinatura de Tradução de Texto.
+Vamos criar uma função para detectar o idioma do texto. Essa função usará um único argumento, sua chave de assinatura do Tradutor.
 
 ```go
 func detect(subscriptionKey string, uri string) {
@@ -90,7 +90,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Detectar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Para ter mais informações sobre os pontos de extremidade, rotas e parâmetros de solicitação, confira [Tradutor3.0: Detectar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Criar um struct para o corpo da solicitação
 
@@ -108,7 +108,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Criar a solicitação
 
-Agora que você codificou o corpo da solicitação como JSON, pode criar sua solicitação POST e chamar a API de Tradução de Texto.
+Agora que codificou o corpo da solicitação como JSON, pode compilar sua solicitação POST e chamar o Tradutor.
 
 ```go
 // Build the HTTP POST request
@@ -120,7 +120,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -146,7 +146,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 
-É isso; você montou um programa simples que chamará a API de Tradução de Texto e retornará uma resposta JSON. Agora é hora de executar o programa:
+É isso. Você montou um programa simples que chamará de Tradutor e retornará uma resposta JSON. Agora é hora de executar o programa:
 
 ```console
 go run detect-language.go
@@ -189,7 +189,7 @@ Depois de executar o exemplo, você deverá ver o seguinte impresso no terminal:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira a referência da API para saber tudo o que você pode fazer com a API de Tradução de Texto.
+Confira a referência da API para saber tudo o que você pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

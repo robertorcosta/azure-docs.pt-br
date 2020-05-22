@@ -6,15 +6,15 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 8660fd110b853b33a7dcd510b40d3298895a7dd0
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 25922efcaf9afdf8145ec963f470acc8fc642e31
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81385003"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588914"
 ---
-Estas declarações são apenas para fins de demonstração. Um aplicativo real deve ter pelo menos 15 enunciados de comprimento, ordem de palavras, tempos verbais, correção gramatical, [pontuação](../luis-reference-application-settings.md#punctuation-normalization) e contagem de palavras variados.
+Estas declarações são apenas para fins de demonstração. Um aplicativo real deve ter, pelo menos, 15-30 [enunciados](../luis-concept-utterance.md) de comprimento, ordem de palavras, tempos verbais, correção gramatical, pontuação e contagem de palavras variados.

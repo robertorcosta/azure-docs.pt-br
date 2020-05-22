@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Traduzir texto – Tradução de Texto'
+title: 'Início Rápido: Traduzir texto - Tradutor'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a traduzir texto usando a API de Tradução de Texto.
+description: Neste início rápido, você aprenderá a traduzir texto usando o Tradutor.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 3be05a6c4005b79a3fcde6a71e663f5f70d4d61e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e8f0f3ff1b34701d45b0138a3c11795520c30a2f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525168"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586587"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>Início Rápido: Usar a API de Tradução de Texto para traduzir texto
+# <a name="quickstart-use-the-translator-to-translate-text"></a>Início Rápido: Usar o Tradutor para traduzir texto
 
-Neste início rápido, você aprenderá a converter uma cadeia de texto de inglês em alemão, italiano, japonês e tailandês usando a API REST de Tradução de Texto.
+Neste início rápido, você aprenderá a traduzir uma cadeia de texto de inglês em alemão, italiano, japonês e tailandês usando a API REST do Tradutor.
 
-Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso Tradutor. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/translate-csharp.md)]

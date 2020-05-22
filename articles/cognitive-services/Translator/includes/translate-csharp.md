@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 64a934196bb964561f36b9d95a2467b149847225
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 77242ab35416fb24a3a815e7137280e5f3698c30
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906692"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586585"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Criar classes para a resposta JSON
 
-Em seguida, vamos criar um conjunto de classes usadas ao desserializar a resposta JSON retornada pela API de Tradução de Texto.
+Em seguida, criaremos um conjunto de classes usadas ao desserializar a resposta JSON retornada pelo Tradutor.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TranslationResult
 {
@@ -136,7 +136,7 @@ Na classe `Program`, crie uma função assíncrona chamada `TranslateTextRequest
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
-// Async call to the Translator Text API
+// Async call to the Translator
 static public async Task TranslateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
@@ -293,7 +293,7 @@ Remova todas as informações confidenciais do código-fonte do seu aplicativo d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira a referência da API para saber tudo o que você pode fazer com a API de Tradução de Texto.
+Confira a referência da API para saber tudo o que você pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

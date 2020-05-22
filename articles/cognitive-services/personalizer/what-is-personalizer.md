@@ -3,12 +3,12 @@ title: O que é o Personalizador?
 description: O Personalizador é um serviço de API baseado em nuvem que permite escolher a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real.
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf046ada21c4920ea9e3853668a5928b2ca9f33a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687256"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586211"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -69,18 +69,25 @@ Como o Personalizador usa informações coletivas quase em tempo real para retor
 
 ## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Como projetar e implementar o Personalizador para seu aplicativo cliente
 
-1. [Projete](concepts-features.md) e planeje para conteúdo, **_ações_** e **_contexto_** . Determine o algoritmo de recompensa para a pontuação de **_Recompensa_** .
-1. Cada [Recurso do Personalizador](how-to-settings.md) criado é considerado 1 Loop de Aprendizado. O loop receberá as chamadas de Classificação e Recompensa para o conteúdo ou a experiência do usuário.
-1. Adicione o Personalizador ao seu site ou sistema de conteúdo:
+1. [Projete](concepts-features.md) e planeje para conteúdo, **_ações_** e **_contexto_**. Determine o algoritmo de recompensa para a pontuação de **_Recompensa_**.
+1. Cada [Recurso do Personalizador](how-to-settings.md) criado é considerado um Loop de Aprendizado. O loop receberá as chamadas de Classificação e Recompensa para o conteúdo ou a experiência do usuário.
+
+    |Tipo de recurso| Finalidade|
+    |--|--|
+    |[Modo de aprendiz](concept-apprentice-mode.md) `E0`|Treine o modelo do Personalizador sem afetar o aplicativo existente, em seguida, implante o Comportamento de aprendizado online em um ambiente de produção|
+    |Padrão, `S0`|Comportamento de aprendizado online em um ambiente de produção|
+    |Gratuito, `F0`| Treinar comportamento de aprendizado online em um ambiente não de produção|
+
+1. Adicione o Personalizador ao aplicativo, site ou sistema:
     1. Adicione uma chamada de **Classificação** para o Personalizador em seu aplicativo, site ou sistema para determinar o melhor item de _conteúdo_ antes que o conteúdo seja mostrado ao usuário.
     1. Exiba o melhor item de _conteúdo_, que é a _ID da ação de recompensa_ retornada, para o usuário.
-    1. Aplique o _algoritmo_ às informações coletadas sobre como o usuário se comportou, para determinar a pontuação de **recompensa**, como:
+    1. Aplique a _lógica de negócios_ às informações coletadas sobre como o usuário se comportou para determinar a pontuação de **recompensa**, como:
 
-        |Comportamento|Pontuação de recompensa calculada|
-        |--|--|
-        |O usuário selecionou o melhor item de _conteúdo_ (ID da ação de recompensa)|**1**|
-        |O usuário selecionou outro conteúdo|**0**|
-        |O usuário deixou em pausa ou rolou a tela de maneira indecisa antes de selecionar o melhor item de _conteúdo_ (ID da ação de recompensa)|**0.5**|
+    |Comportamento|Pontuação de recompensa calculada|
+    |--|--|
+    |O usuário selecionou o melhor item de _conteúdo_ (ID da ação de recompensa)|**1**|
+    |O usuário selecionou outro conteúdo|**0**|
+    |O usuário deixou em pausa ou rolou a tela de maneira indecisa antes de selecionar o melhor item de _conteúdo_ (ID da ação de recompensa)|**0.5**|
 
     1. Adicione uma chamada de **Recompensa** enviando uma pontuação de recompensa entre 0 e 1
         * Imediatamente após mostrar seu conteúdo

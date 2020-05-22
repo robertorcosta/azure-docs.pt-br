@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 008058e42dfeb84cb2812ac4e8378cb5a8b5913a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 49c1a29547195ad8557550ba1bc0cb80fae40ad8
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425375"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402620"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer a autenticação do Key Vault com uma política de controle de acesso
 
@@ -60,10 +60,10 @@ A objectId de um aplicativo corresponde à sua entidade de serviço associada. P
 
 Há duas maneiras de obter uma objectId para um aplicativo.  A primeira é registrar o aplicativo no Azure Active Directory. Para fazer isso, siga as etapas do início rápido [Registrar um aplicativo na plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-register-app.md). Quando o registro for concluído, a objectID será listada como a "ID do Aplicativo (cliente)".
 
-A segunda é criar uma entidade de serviço em uma janela de terminal. Com a CLI do Azure, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac).
+A segunda é criar uma entidade de serviço em uma janela de terminal. Com a CLI do Azure, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) e forneça um nome de entidade de serviço exclusivo para o sinalizador -n no formato "http://&lt;my-unique-service-principle-name&gt;".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://mySP"
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
 A objectId será listada na saída como `clientID`.
@@ -72,7 +72,7 @@ Com o Azure PowerShell, use o cmdlet [New-AzADServicePrincipal](/powershell/modu
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName mySP
+New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
 A objectId será listada na saída como `Id` (não `ApplicationId`).
@@ -107,6 +107,9 @@ Na saída, a objectId é listada como `Id`:
 Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
+
+> [!WARNING]
+> Os grupos do Azure AD com identidades gerenciadas exigem até oito horas para atualizar o token e entrar em vigor.
 
 #### <a name="users"></a>Usuários
 

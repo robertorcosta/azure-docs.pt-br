@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: Converter script de texto – Tradução de Texto'
+title: 'Início Rápido: Converter script de texto - Tradutor'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, você aprenderá a transliterar (converter) texto de um script para outro usando a API de Tradução de Texto. Neste exemplo, o japonês é transliterado para usar o alfabeto latino.
+description: Neste início rápido, você aprenderá a transliterar (converter) o texto de um script em outro usando o Tradutor. Neste exemplo, o japonês é transliterado para usar o alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 4247983fd39cd8d9acf256d313ae10aa2002585f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: ca53abdecfdabb4a49bb45880c0f6c4856b3ed1a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77525101"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586469"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Início Rápido: Usar a API de Tradução de Texto para transliterar texto
+# <a name="quickstart-use-the-translator-to-transliterate-text"></a>Início Rápido: Usar o Tradutor para transliterar texto
 
-Neste início rápido, você aprenderá a transliterar texto (converter) de um script para outro usando a API REST de Tradução de Texto. No exemplo fornecido, o japonês é transliterado para usar o alfabeto latino.
+Neste início rápido, você aprenderá a transliterar (converter) o texto de um script em outro usando a API REST do Tradutor. No exemplo fornecido, o japonês é transliterado para usar o alfabeto latino.
 
-Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso Tradutor. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/transliterate-csharp.md)]

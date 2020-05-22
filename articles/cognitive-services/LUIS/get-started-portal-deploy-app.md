@@ -2,13 +2,13 @@
 title: 'Início Rápido: Implantar um aplicativo usando o portal do LUIS'
 description: Este início rápido mostra como implantar um aplicativo criando um recurso de ponto de extremidade de previsão, atribuindo o recurso, treinando e publicando o aplicativo.
 ms.topic: quickstart
-ms.date: 04/06/2020
-ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.date: 05/06/2020
+ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80756295"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585039"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
 
@@ -30,7 +30,7 @@ Neste início rápido, você aprenderá a implantar um aplicativo. Crie um recur
 
 Sempre que você criar um recurso de previsão de criação ou consulta para LUIS, será necessário atribuir o recurso para o aplicativo LUIS. Após a atribuição, você não precisará realizar esta etapa novamente, a menos que crie um novo recurso. Você pode criar um novo recurso para expandir as regiões do seu aplicativo ou para dar suporte a um número maior de consultas de previsão.
 
-1. Entre na [versão prévia do portal do LUIS](https://preview.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
+1. Entre no [portal do LUIS](https://www.luis.ai) e escolha o aplicativo **myEnglishApp** na lista de aplicativos.
 
 1. Selecione **Gerenciar** no menu superior direito e, em seguida, selecione **Recursos do Azure**.
 
@@ -59,7 +59,7 @@ Sempre que você criar um recurso de previsão de criação ou consulta para LUI
 
 ## <a name="prediction-endpoint-request"></a>Solicitação de ponto de extremidade de previsão
 
-No portal da versão prévia, o `query=` ao final da URL é onde o enunciado do usuário é anexado à solicitação GET. Após `query=`, insira a mesma expressão de usuário usado no final do guia de início rápido anterior:
+No portal, `query=` no final da URL é onde o enunciado do usuário é anexado à solicitação GET. Após `query=`, insira a mesma expressão de usuário usado no final do guia de início rápido anterior:
 
 ```Is there a form named hrf-234098```
 

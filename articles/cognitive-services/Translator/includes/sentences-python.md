@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9c7385d3457f3f5dbed2633c20445bb9ef0b1638
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: a3e32dba557041fe90d1b7321b06daa6ea4e1235
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "69906829"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586687"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Se você nunca usou esses módulos, você precisará instalá-los antes de executar o programa. Para instalar esses pacotes, execute: `pip install requests uuid`.
 
-O primeiro comentário manda o interpretador de Python usar a codificação UTF-8. Em seguida, os módulos necessários são importados para ler a chave de assinatura de uma variável de ambiente, construir a solicitação HTTP, criar um identificador exclusivo e manipular a resposta JSON retornada pela API de Tradução de Texto.
+O primeiro comentário manda o interpretador de Python usar a codificação UTF-8. Em seguida, os módulos necessários são importados para ler a chave de assinatura a partir de uma variável de ambiente, construir a solicitação http, criar um identificador exclusivo e lidar com a resposta JSON retornada pelo Tradutor.
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Definir a chave de assinatura, o ponto de extremidade e o caminho
 
-Este exemplo tentará ler a chave da sua assinatura e o ponto de extremidade de Tradução de Texto com base nas variáveis de ambiente: `TRANSLATOR_TEXT_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se você não estiver familiarizado com as variáveis de ambiente, poderá definir `subscription_key` e `endpoint` como cadeias de caracteres e comentar as instruções condicionais.
+Este exemplo tentará ler a chave da sua assinatura do Tradutor e o ponto de extremidade com base nas variáveis de ambiente: `TRANSLATOR_TEXT_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se você não estiver familiarizado com as variáveis de ambiente, poderá definir `subscription_key` e `endpoint` como cadeias de caracteres e comentar as instruções condicionais.
 
 Copie este código em seu projeto:
 
@@ -47,12 +47,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-O ponto de extremidade global de Tradução de Texto é definido como o `endpoint`. `path` define a rota `breaksentence` e identifica que queremos usar a versão 3 da API.
+O ponto de extremidade global do Tradutor é definido como `endpoint`. `path` define a rota `breaksentence` e identifica que queremos usar a versão 3 da API.
 
 Os `params` neste exemplo são usados para definir o idioma do texto fornecido. `params` não é necessário para a rota `breaksentence`. Se deixada de fora da solicitação, a API tentará detectar o idioma do texto fornecido e fornecer essas informações, juntamente com uma pontuação de confiança na resposta.
 
 >[!NOTE]
-> Para saber mais sobre pontos de extremidade, rotas e parâmetros de solicitação, confira [API de Tradução de Texto 3.0: Idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Para ter mais informações sobre os pontos de extremidade, rotas e parâmetros de solicitação, confira [Tradutor3.0: idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 path = '/breaksentence?api-version=3.0'
@@ -105,7 +105,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 
-É isso; você montou um programa simples que chamará a API de Tradução de Texto e retornará uma resposta JSON. Agora é hora de executar o programa:
+É isso. Você montou um programa simples que chamará de Tradutor e retornará uma resposta JSON. Agora é hora de executar o programa:
 
 ```console
 python sentence-length.py
@@ -133,7 +133,7 @@ Se você embutiu sua chave de assinatura no programa, remova-a quando tiver term
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira a referência da API para saber tudo o que você pode fazer com a API de Tradução de Texto.
+Confira a referência da API para saber tudo o que você pode fazer com o Tradutor.
 
 > [!div class="nextstepaction"]
 > [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

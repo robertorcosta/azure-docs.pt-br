@@ -2,13 +2,13 @@
 title: 'Início Rápido: criar aplicativo – LUIS'
 description: Neste início rápido, crie um aplicativo LUIS que use o domínio predefinido `HomeAutomation` para ligar e desligar luzes e dispositivos. Este domínio predefinido fornece intenções, entidades e exemplos de enunciados a você. Quando terminar, você terá um ponto de extremidade do LUIS em execução na nuvem.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/05/2020
+ms.openlocfilehash: 186a60a7fd8315d68718ceedd3b5cadb4d3645e8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80287791"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589105"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: usar aplicativo de automação Inicial predefinido
 
@@ -21,11 +21,15 @@ Neste início rápido, crie um aplicativo LUIS que use o domínio predefinido `H
 ## <a name="create-a-new-app"></a>Criar um novo aplicativo
 Você pode criar e gerenciar seus aplicativos em **Meus Aplicativos**.
 
-1. Na lista "Meus aplicativos", selecione **+ Novo aplicativo de conversa**.
+1. Na lista Meus aplicativos, selecione **+ Novo aplicativo para conversa**, então na lista de opções, escolha **+ Novo aplicativo para conversa** novamente.
 
-1. Na caixa de diálogo, dê um nome ao aplicativo `Home Automation`. Selecione **Inglês** como a cultura. A descrição é opcional e não será usada para criação ou previsão. O recurso de previsão também é opcional ao criar um aplicativo do LUIS. Selecione **Concluído**.
+1. Na caixa de diálogo, dê um nome ao aplicativo `Home Automation`.
+1. Selecione **Inglês** como a cultura.
+1. Insira uma descrição opcional.
+1. Não selecione um recurso de previsão se você ainda não criou o recurso. Para usar o ponto de extremidade de previsão do aplicativo (preparo ou produção), você precisa atribuir um recurso de previsão.
+1. Selecione **Concluído**.
 
-    LUIS cria o aplicativo. Ao publicar seu aplicativo na produção, você deverá atribuir um recurso de previsão para que o aplicativo possa gerenciar inúmeras solicitações.
+    LUIS cria o aplicativo.
 
     ![Na caixa de diálogo, dê ao seu aplicativo o nome `Automação Residencial`](./media/create-new-app-details.png)
 
@@ -34,24 +38,27 @@ Você pode criar e gerenciar seus aplicativos em **Meus Aplicativos**.
 
 ## <a name="add-prebuilt-domain"></a>Adicionar domínio predefinido
 
-Selecione **Domínios predefinidos**, em seguida, pesquise **HomeAutomation**. Selecione **Adicionar domínio** no cartão HomeAutomation.
+1. Na navegação à esquerda, selecione **Domínios predefinidos**.
+1. Pesquise **Automação Inicial**.
+1. Selecione **Adicionar domínio** no cartão HomeAutomation.
 
-![Selecione 'Domínios predefinidos', em seguida, pesquise 'HomeAutomation'. Selecione 'Adicionar domínio' no cartão HomeAutomation.](media/luis-quickstart-new-app/home-automation.png)
+    ![Selecione 'Domínios predefinidos', em seguida, pesquise 'HomeAutomation'. Selecione 'Adicionar domínio' no cartão HomeAutomation.](media/luis-quickstart-new-app/home-automation.png)
 
-Quando o domínio for adicionado com êxito, a caixa de domínio predefinido exibirá um botão **Remover domínio**.
+    Quando o domínio for adicionado com êxito, a caixa de domínio predefinido exibirá um botão **Remover domínio**.
 
 ## <a name="intents-and-entities"></a>Intenções e entidades
 
-Selecione **intenções** para examinar as intenções do domínio HomeAutomation. As intenções de domínio pré-criadas têm enunciados de exemplo.
+1. Selecione **intenções** para examinar as intenções do domínio HomeAutomation. As intenções de domínio predefinidas têm enunciados de exemplo.
 
-![Captura de tela da lista de intenções de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Captura de tela da lista de intenções de HomeAutomation")
+    ![Captura de tela da lista de intenções de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Captura de tela da lista de intenções de HomeAutomation")
 
-> [!NOTE]
-> **None** é uma intenção fornecida por todos os aplicativos LUIS. Você pode usá-la para lidar com enunciados que não correspondem à funcionalidade que seu aplicativo fornece.
+    > [!NOTE]
+    > **None** é uma intenção fornecida por todos os aplicativos LUIS. Você pode usá-la para lidar com enunciados que não correspondem à funcionalidade que seu aplicativo fornece.
 
-Selecione a intenção **HomeAutomation.TurnOff**. Você pode ver que a intenção contém uma lista de enunciados que rotulados com entidades.
+1. Selecione a intenção **HomeAutomation.TurnOff**. A intenção contém uma lista de enunciados de exemplo rotulados com entidades.
 
-[![Captura de tela da intenção HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Captura de tela da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+    > [!div class="mx-imgBorder"]
+    > [![Captura de tela da intenção HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Captura de tela da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
 
@@ -60,21 +67,22 @@ Selecione a intenção **HomeAutomation.TurnOff**. Você pode ver que a intenç�
 ## <a name="test-your-app"></a>Testar seu aplicativo
 Depois de treinar o aplicativo, você pode testá-lo.
 
-1. Selecione **Teste** no menu de navegação superior direito. 1. Digite um enunciado de teste, como `Turn off the lights` no painel de teste interativo e pressione Enter.
+1. Selecione **Teste** no menu de navegação superior direito.
+
+1. Digite um enunciado de teste, como `Turn off the lights` no painel de teste interativo e pressione Enter.
 
     ```
     Turn off the lights
     ```
 
-    Verifique se a intenção de pontuação superior corresponde à intenção esperada para cada enunciado de teste.
-
     Neste exemplo, `Turn off the lights` é identificado corretamente como a intenção de pontuação superior de **HomeAutomation.TurnOff**.
 
     ![Captura de tela do painel de Teste com o enunciado realçado](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-1. Selecione **Inspecionar** para examinar mais informações sobre a previsão.
+1. Selecione **Inspecionar** para exibir mais informações sobre a previsão.
 
-    ![Captura de tela do painel de teste com informações de inspeção](media/luis-quickstart-new-app/test.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela do Painel de teste com informações de inspeção](media/luis-quickstart-new-app/test.png)
 
 1. Feche o painel de teste.
 

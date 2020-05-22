@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Prever intenções – LUIS'
-description: Neste tutorial, crie um aplicativo personalizado que preveja a intenção do usuário. Este aplicativo é o tipo mais simples de aplicativo LUIS porque ele não extrai vários elementos de dados do texto do enunciado, como endereços de email ou datas.
+description: Crie um aplicativo personalizado que prevê a intenção de um usuário com base no enunciado (texto) neste tutorial.
 ms.topic: tutorial
-ms.date: 03/24/2020
-ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.date: 05/05/2020
+ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80286737"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588916"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Tutorial: Criar um aplicativo LUIS para determinar as intenções do usuário
 
@@ -37,7 +37,7 @@ Essas intenções são categorizadas em **Intenções**.
 |`ModifyOrder`|Determinar o pedido de pizza do usuário.|
 |`Greeting`|Iniciar conversa de bot.|
 |`ConfirmOrder`|Confirmar o pedido de pizza.|
-|`None`|Determinar se o usuário está perguntando algo que o aplicativo não deve responder. Essa intenção é fornecida como parte da criação do aplicativo e não pode ser excluída. |
+|`None`|Determine se o usuário está perguntando algo que o aplicativo LUIS não deve responder. Essa intenção é fornecida como parte da criação do aplicativo e não pode ser excluída. |
 
 ## <a name="create-a-new-app"></a>Criar um novo aplicativo
 
@@ -64,9 +64,10 @@ Para classificar um enunciado, a intenção precisa de exemplos de enunciados cl
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
     |`Order a pizza for me`|
 
-    ![Adicionar enunciados de exemplo](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela da adição de enunciados de exemplo no portal do LUIS na página Intenção](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Ao fornecer _enunciados de exemplo_, você está treinando o LUIS sobre quais tipos de enunciados devem ser previstos para essa intenção.
+    Ao fornecer _enunciados de exemplo_, você está treinando o LUIS sobre quais tipos de enunciados devem ser previstos para essa intenção. Esses são exemplos positivos. Os enunciados em todas as outras intenções são tratados como exemplos negativos para essa intenção.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
@@ -178,6 +179,8 @@ Para classificar um enunciado, a intenção precisa de exemplos de enunciados cl
 
 ## <a name="client-application-next-steps"></a>Próximas etapas do aplicativo cliente
 
+Este tutorial criou o aplicativo do LUIS, criou intenções, adicionou enunciados de exemplo a cada intenção, adicionou enunciados de exemplo à intenção Nenhuma, além de treiná-la, publicá-la e testá-la no ponto de extremidade. Essas são as etapas básicas da criação de um modelo LUIS.
+
 Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitação. O LUIS não fornece respostas para os enunciados do usuário; só identifica qual tipo de informação está sendo solicitado em idioma natural. O acompanhamento de conversação é fornecido pelo aplicativo cliente como um Bot do Azure.
 
 
@@ -193,8 +196,6 @@ Depois que o LUIS retornar a resposta JSON, ele terá concluído esta solicitaç
 
 
 ## <a name="next-steps"></a>Próximas etapas
-
-Este tutorial criou o aplicativo do LUIS, criou intenções, adicionou enunciados de exemplo a cada intenção, adicionou enunciados de exemplo à intenção Nenhuma, além de treiná-la, publicá-la e testá-la no ponto de extremidade. Essas são as etapas básicas da criação de um modelo LUIS.
 
 > [!div class="nextstepaction"]
 > [Adicionar uma entidade divisível a este aplicativo](tutorial-machine-learned-entity.md)
