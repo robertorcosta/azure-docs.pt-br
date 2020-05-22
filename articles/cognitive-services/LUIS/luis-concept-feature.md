@@ -3,12 +3,12 @@ title: Recursos-LUIS
 description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682153"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742706"
 ---
 # <a name="machine-learning-ml-features"></a>Recursos de aprendizado de máquina (ML)
 
@@ -85,7 +85,7 @@ Por exemplo, se n entidade de endereço de envio contivesse uma subentidade ende
     * Endereço (subentidade)
     * Cidade (subentidade)
     * Estado ou província (subentidade)
-    * País (subentidade)
+    * País/região (subentidade)
     * CEP (subentidade)
 
 ## <a name="nested-subentities-with-features"></a>Subentidades aninhadas com recursos
@@ -118,14 +118,14 @@ Continuando com o exemplo do endereço de envio:
     * Nome da rua (subentidade)
     * Cidade (subentidade)
     * Estado ou província (subentidade)
-    * País (subentidade)
+    * País/região (subentidade)
     * CEP (subentidade)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Recurso necessário usando entidades predefinidas
 
-A cidade, o estado e o país geralmente são um conjunto fechado de listas, o que significa que eles não mudam muito ao longo do tempo. Essas entidades podem ter os recursos recomendados relevantes e esses recursos podem ser marcados como obrigatórios. Isso significa que o endereço de remessa inteiro não é retornado é que as entidades com os recursos necessários não foram encontradas.
+A cidade, o estado e o país/região geralmente são um conjunto fechado de listas, o que significa que elas não mudam muito ao longo do tempo. Essas entidades podem ter os recursos recomendados relevantes e esses recursos podem ser marcados como obrigatórios. Isso significa que o endereço de remessa inteiro não é retornado é que as entidades com os recursos necessários não foram encontradas.
 
-E se a cidade, o estado ou o país estiverem no expressão, mas em um local ou gírias que o LUIS não espera? Se você quiser fornecer algum pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de confiança baixa do LUIS, não marque o recurso conforme necessário.
+E se a cidade, o estado ou o país/região estiverem no expressão, mas em um local ou gírias que o LUIS não espera? Se você quiser fornecer algum pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de confiança baixa do LUIS, não marque o recurso conforme necessário.
 
 Outro exemplo de um recurso necessário para o endereço de envio é tornar o número da rua um número [predefinido](luis-reference-prebuilt-entities.md) necessário. Isso permite que um usuário insira "1 Microsoft Way" ou "One Microsoft Way". Ambos serão resolvidos para um número de "1" para a subentidade número da rua.
 
@@ -133,19 +133,19 @@ Outro exemplo de um recurso necessário para o endereço de envio é tornar o n�
 
 Uma [entidade de lista](reference-entity-list.md) é usada como uma lista de nomes canônicos junto com seus sinônimos. Como um recurso necessário, se o expressão não incluir o nome canônico ou sinônimo, a entidade não será retornada como parte do ponto de extremidade de previsão.
 
-Continuando com o exemplo de endereço de envio, suponha que sua empresa seja enviada apenas para um conjunto limitado de países. Você pode criar uma entidade de lista que inclui várias maneiras pelas quais o cliente pode referenciar o país. Se LUIS não encontrar uma correspondência exata dentro do texto do expressão, a entidade (que tem o recurso necessário da entidade List) não será retornada na previsão.
+Continuando com o exemplo de endereço de envio, suponha que sua empresa seja enviada apenas para um conjunto limitado de países/regiões. Você pode criar uma entidade de lista que inclui várias maneiras pelas quais o cliente pode referenciar o país. Se LUIS não encontrar uma correspondência exata dentro do texto do expressão, a entidade (que tem o recurso necessário da entidade List) não será retornada na previsão.
 
 |Nome canônico|Sinônimos|
 |--|--|
 |Estados Unidos|EUA<br>U. S. A<br>EUA<br>EUA<br>0|
 
-O aplicativo cliente, como um bot de bate-papo, pode fazer uma pergunta a seguir para que o cliente entenda que a seleção de país é limitada e _necessária_.
+O aplicativo cliente, como um bot de chat, pode fazer uma pergunta a seguir para que o cliente entenda que a seleção de país/região é limitada e _necessária_.
 
 ### <a name="required-feature-using-regular-expression-entities"></a>Recurso necessário usando entidades de expressão regular
 
 Uma [entidade de expressão regular](reference-entity-regular-expression.md) usada como um recurso necessário fornece recursos avançados de correspondência de texto.
 
-Continuando com o endereço de envio, você pode criar uma expressão regular que captura as regras de sintaxe dos códigos postais do país.
+Continuando com o endereço de envio, você pode criar uma expressão regular que capture as regras de sintaxe dos códigos postais de país/região.
 
 ## <a name="global-features"></a>Recursos globais
 
