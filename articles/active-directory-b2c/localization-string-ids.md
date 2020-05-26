@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 05/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3abf38a4b1ea798c39150454ac33f73ea588b782
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: MT
+ms.openlocfilehash: aa90775df4462328ed7c39e70c8dd1989248e308
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264369"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900524"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de caracteres de localização
 
@@ -33,7 +33,7 @@ As IDs a seguir são usadas para uma definição de conteúdo com uma ID de `api
 | **logonIdentifier_email** | Endereço de Email |
 | **requiredField_email** | Insira seu email |
 | **invalid_email** | Insira um endereço de email válido |
-| **email_pattern** | ^ [a-zA-Z0-9.! # $% & ' ' *+/=? ^ _\`{\|} ~-] + @ [a-zA-Z0-9-] + (?:\\. [ a-zA-Z0-9-] +)* $ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
 | **local_intro_username** | Entre com seu nome de usuário |
 | **logonIdentifier_username** | Nome de Usuário |
 | **requiredField_username** | Insira seu nome de usuário |
@@ -190,7 +190,7 @@ A seguir, estão as IDs de uma definição de conteúdo com uma ID de `api.phone
 | **number_label** | Número do telefone |
 | **error_tryagain** | O número de telefone que você forneceu está ocupado ou não disponível. Verifique o número e tente novamente. |
 | **error_incorrect_code** | O código de verificação inserido não corresponde aos nossos registros. Tente novamente ou solicite um novo código. |
-| **countryList** | {\"DEFAULT\":\"Country/Region\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Islands\",\"AL\":\"Albania\",\"DZ\":\"Algeria\",\"AS\":\"American Samoa\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\":\"Anguilla\",\"AQ\":\"Antarctica\",\"AG\":\"Antigua and Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenia\",\"AW\":\"Aruba\",\"AU\":\"Australia\",\"AT\":\"Austria\",\"AZ\":\"Azerbaijan\",\"BS\":\"Bahamas\",\"BH\":\"Bahrain\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\"BY\":\"Belarus\",\"BE\":\"Belgium\",\"BZ\":\"Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermuda\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\"Bonaire\",\"BA\":\"Bosnia and Herzegovina\",\"BW\":\"Botswana\",\"BV\":\"Bouvet Island\",\"BR\":\"Brazil\",\"IO\":\"British Indian Ocean Territory\",\"VG\":\"British Virgin Islands\",\"BN\":\"Brunei\",\"BG\":\"Bulgaria\",\"BF\":\"Burkina Faso\",\"BI\":\"Burundi\",\"CV\":\"Cabo Verde\",\"KH\":\"Cambodia\",\"CM\":\"Cameroon\",\"CA\":\"Canada\",\"KY\":\"Cayman Islands\",\"CF\":\"Central African Republic\",\"TD\":\"Chad\",\"CL\":\"Chile\",\"CN\":\"China\",\"CX\":\"Christmas Island\",\"CC\":\"Cocos (Keeling) Islands\",\"CO\":\"Colombia\",\"KM\":\"Comoros\",\"CG\":\"Congo\",\"CD\":\"Congo (DRC)\",\"CK\":\"Cook Islands\",\"CR\":\"Costa Rica\",\"CI\":\"Côte d’Ivoire\",\"HR\":\"Croatia\",\"CU\":\"Cuba\",\"CW\":\"Curaçao\",\"CY\":\"Cyprus\",\"CZ\":\"Czech Republic\",\"DK\":\"Denmark\",\"DJ\":\"Djibouti\",\"DM\":\"Dominica\",\"DO\":\"Dominican Republic\",\"EC\":\"Ecuador\",\"EG\":\"Egypt\",\"SV\":\"El Salvador\",\"GQ\":\"Equatorial Guinea\",\"ER\":\"Eritrea\",\"EE\":\"Estonia\",\"ET\":\"Ethiopia\",\"FK\":\"Falkland Islands\",\"FO\":\"Faroe Islands\",\"FJ\":\"Fiji\",\"FI\":\"Finland\",\"FR\":\"France\",\"GF\":\"French Guiana\",\"PF\":\"French Polynesia\",\"TF\":\"French Southern Territories\",\"GA\":\"Gabon\",\"GM\":\"Gambia\",\"GE\":\"Georgia\",\"DE\":\"Germany\",\"GH\":\"Ghana\",\"GI\":\"Gibraltar\",\"GR\":\"Greece\",\"GL\":\"Greenland\",\"GD\":\"Grenada\",\"GP\":\"Guadeloupe\",\"GU\":\"Guam\",\"GT\":\"Guatemala\",\"GG\":\"Guernsey\",\"GN\":\"Guinea\",\"GW\":\"Guinea-Bissau\",\"GY\":\"Guyana\",\"HT\":\"Haiti\",\"HM\":\"Heard Island and McDonald Islands\",\"HN\":\"Honduras\",\"HK\":\"Hong Kong SAR\",\"HU\":\"Hungary\",\"IS\":\"Iceland\",\"IN\":\"India\",\"ID\":\"Indonesia\",\"IR\":\"Iran\",\"IQ\":\"Iraq\",\"IE\":\"Ireland\",\"IM\":\"Isle of Man\",\"IL\":\"Israel\",\"IT\":\"Italy\",\"JM\":\"Jamaica\",\"JP\":\"Japan\",\"JE\":\"Jersey\",\"JO\":\"Jordan\",\"KZ\":\"Kazakhstan\",\"KE\":\"Kenya\",\"KI\":\"Kiribati\",\"KR\":\"Korea\",\"KW\":\"Kuwait\",\"KG\":\"Kyrgyzstan\",\"LA\":\"Laos\",\"LV\":\"Latvia\",\"LB\":\"Lebanon\",\"LS\":\"Lesotho\",\"LR\":\"Liberia\",\"LY\":\"Libya\",\"LI\":\"Liechtenstein\",\"LT\":\"Lithuania\",\"LU\":\"Luxembourg\",\"MO\":\"Macao SAR\",\"MK\":\"North Macedonia\",\"MG\":\"Madagascar\",\"MW\":\"Malawi\",\"MY\":\"Malaysia\",\"MV\":\"Maldives\",\"ML\":\"Mali\",\"MT\":\"Malta\",\"MH\":\"Marshall Islands\",\"MQ\":\"Martinique\",\"MR\":\"Mauritania\",\"MU\":\"Mauritius\",\"YT\":\"Mayotte\",\"MX\":\"Mexico\",\"FM\":\"Micronesia\",\"MD\":\"Moldova\",\"MC\":\"Monaco\",\"MN\":\"Mongolia\",\"ME\":\"Montenegro\",\"MS\":\"Montserrat\",\"MA\":\"Morocco\",\"MZ\":\"Mozambique\",\"MM\":\"Myanmar\",\"NA\":\"Namibia\",\"NR\":\"Nauru\",\"NP\":\"Nepal\",\"NL\":\"Netherlands\",\"NC\":\"New Caledonia\",\"NZ\":\"New Zealand\",\"NI\":\"Nicaragua\",\"NE\":\"Niger\",\"NG\":\"Nigeria\",\"NU\":\"Niue\",\"NF\":\"Norfolk Island\",\"KP\":\"North Korea\",\"MP\":\"Northern Mariana Islands\",\"NO\":\"Norway\",\"OM\":\"Oman\",\"PK\":\"Pakistan\",\"PW\":\"Palau\",\"PS\":\"Palestinian Authority\",\"PA\":\"Panama\",\"PG\":\"Papua New Guinea\",\"PY\":\"Paraguay\",\"PE\":\"Peru\",\"PH\":\"Philippines\",\"PN\":\"Pitcairn Islands\",\"PL\":\"Poland\",\"PT\":\"Portugal\",\"PR\":\"Puerto Rico\",\"QA\":\"Qatar\",\"RE\":\"Réunion\",\"RO\":\"Romania\",\"RU\":\"Russia\",\"RW\":\"Rwanda\",\"BL\":\"Saint Barthélemy\",\"KN\":\"Saint Kitts and Nevis\",\"LC\":\"Saint Lucia\",\"MF\":\"Saint Martin\",\"PM\":\"Saint Pierre and Miquelon\",\"VC\":\"Saint Vincent and the Grenadines\",\"WS\":\"Samoa\",\"SM\":\"San Marino\",\"ST\":\"São Tomé and Príncipe\",\"SA\":\"Saudi Arabia\",\"SN\":\"Senegal\",\"RS\":\"Serbia\",\"SC\":\"Seychelles\",\"SL\":\"Sierra Leone\",\"SG\":\"Singapore\",\"SX\":\"Sint Maarten\",\"SK\":\"Slovakia\",\"SI\":\"Slovenia\",\"SB\":\"Solomon Islands\",\"SO\":\"Somalia\",\"ZA\":\"South Africa\",\"GS\":\"South Georgia and South Sandwich Islands\",\"SS\":\"South Sudan\",\"ES\":\"Spain\",\"LK\":\"Sri Lanka\",\"SH\":\"St Helena, Ascension, Tristan da Cunha\",\"SD\":\"Sudan\",\"SR\":\"Suriname\",\"SJ\":\"Svalbard\",\"SZ\":\"Swaziland\",\"SE\":\"Sweden\",\"CH\":\"Switzerland\",\"SY\":\"Syria\",\"TW\":\"Taiwan\",\"TJ\":\"Tajikistan\",\"TZ\":\"Tanzania\",\"TH\":\"Thailand\",\"TL\":\"Timor-Leste\",\"TG\":\"Togo\",\"TK\":\"Tokelau\",\"TO\":\"Tonga\",\"TT\":\"Trinidad and Tobago\",\"TN\":\"Tunisia\",\"TR\":\"Turkey\",\"TM\":\"Turkmenistan\",\"TC\":\"Turks and Caicos Islands\",\"TV\":\"Tuvalu\",\"UM\":\"U.S. Outlying Islands\",\"VI\":\"U.S. Virgin Islands\",\"UG\":\"Uganda\",\"UA\":\"Ukraine\",\"AE\":\"United Arab Emirates\",\"GB\":\"United Kingdom\",\"US\":\"United States\",\"UY\":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"VU\":\"Vanuatu\",\"VA\":\"Vatican City\",\"VE\":\"Venezuela\",\"VN\":\"Vietnam\",\"WF\":\"Wallis and Futuna\",\"YE\":\"Yemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |
+| **countryList** | {\"PADRÃO\":\"país/região\",\"AF\":\"Afeganistão\",\"AX\":\"Ilhas Aland\",\"AL\":\"Albânia\",\"DZ\":\"Argélia\",\"AS\": \"Samoa Americana\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\": \"Anguila\",\"AQ\":\"Antártida\",\"AG\":\"Antígua e Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armênia\",\"AW\":\"Aruba\",\"AU\":\"Austrália\",\"AT\":\"Áustria\", \"AZ\":\"Azerbaijão\",\"BS\":\"Bahamas\",\"BH\": \"Bahrein\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\", \"BY\":\"Belarus\",\"BE\":\"Bélgica\",\"BZ\": \"Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermudas\",\"BT\":\"Butão\",\"BO\":\"Bolívia\",\"BQ\": \"Bonaire\",\"BA\":\"Bósnia e Herzegovina\",\"BW\":\"Botsuana\",\"BV\":\"Ilha Bouvet\",\"BR\":\"Brasil\",\"IO\":\"Território Britânico do Oceano Índico\",\"VG\":\"Ilhas Virgens Britânicas\",\"BN\":\"Brunei\",\"BG\":\"Bulgária\",\"BF\":\"Burquina Faso\",\"BI\":\"Burundi\",\"CV\":\"Cabo Verde\",\"KH\":\"Camboja\",\"CM\":\"Camarões\",\"CA\":\"Canadá\",\"KY\":\"Ilhas Cayman\",\"CF\":\"República Centro-Africana\",\"TD\":\"Chade\",\"CL\":\"Chile\",\"CN\":\"China\",\"CX\":\"Ilha Christmas\",\"CC\":\"Ilhas Cocos (Keeling)\",\"CO\":\"Colômbia\",\"KM\":\"Comores\",\"CG\":\"Congo\",\"CD\":\"Congo (RDC)\",\"CK\":\"Ilhas Cook\",\"CR\":\"Costa Rica\",\"CI\":\"Côte d’Ivoire\",\"HR\":\"Croácia\",\"CU\":\"Cuba\",\"CW\":\"Curaçao\",\"CY\":\"Chipre\",\"CZ\":\"República Tcheca\",\"DK\":\"Dinamarca\",\"DJ\":\"Djibuti\",\"DM\":\"Dominica\",\"DO\":\"República Dominicana\",\"EC\":\"Equador\",\"EG\":\"Egito\",\"SV\":\"El Salvador\",\"GQ\":\"Guiné Equatorial\",\"ER\":\"Eritreia\",\"EE\":\"Estônia\",\"ET\":\"Etiópia\",\"FK\":\"Ilhas Malvinas\",\"FO\":\"Ilhas Faroe\",\"FJ\":\"Fiji\",\"FI\":\"Finlândia\",\"FR\":\"França\",\"GF\":\"Guiana Francesa\",\"PF\":\"Polinésia Francesa\",\"TF\":\"Territórios Franceses do Sul\",\"GA\":\"Gabão\",\"GM\":\"Gâmbia\",\"GE\":\"Geórgia\",\"DE\":\"Alemanha\",\"GH\":\"Gana\",\"GI\":\"Gibraltar\",\"GR\":\"Grécia\",\"GL\":\"Groenlândia\",\"GD\":\"Granada\",\"GP\":\"Guadalupe\",\"GU\":\"Guam\",\"GT\":\"Guatemala\",\"GG\":\"Guernsey\",\"GN\":\"Guiné\",\"GW\":\"Guiné-Bissau\",\"GY\":\"Guiana\",\"HT\":\"Haiti\",\"HM\":\"Ilhas Heard e McDonald\",\"HN\":\"Honduras\",\"HK\":\"RAE de Hong Kong\",\"HU\":\"Hungria\",\"IS\":\"Islândia\",\"IN\":\"Índia\",\"ID\":\"Indonésia\",\"IR\":\"Irã\",\"IQ\":\"Iraque\",\"IE\":\"Irlanda\",\"IM\":\"Ilha de Man\",\"IL\":\"Israel\",\"IT\":\"Itália\",\"JM\":\"Jamaica\",\"JP\":\"Japão\",\"JE\":\"Jersey\",\"JO\":\"Jordânia\",\"KZ\":\"Cazaquistão\",\"KE\":\"Quênia\",\"KI\":\"Quiribati\",\"KR\":\"Coreia do Sul\",\"KW\":\"Kuwait\",\"KG\":\"Quirguistão\",\"LA\":\"Laos\",\"LV\":\"Letônia\",\"LB\":\"Líbano\",\"LS\":\"Lesoto\",\"LR\":\"Libéria\",\"LY\":\"Líbia\",\"LI\":\"Liechtenstein\",\"LT\":\"Lituânia\",\"LU\":\"Luxemburgo\",\"MO\":\"RAE de Macau\",\"MK\":\"Macedônia do Norte\",\"MG\":\"Madagascar\",\"MW\":\"Malaui\",\"MY\":\"Malásia\",\"MV\":\"Maldivas\",\"ML\":\"Mali\",\"MT\":\"Malta\",\"MH\":\"Ilhas Marshall\",\"MQ\":\"Martinica\",\"MR\":\"Mauritânia\",\"MU\":\"Maurício\",\"YT\":\"Mayotte\",\"MX\":\"México\",\"FM\":\"Micronésia\",\"MD\":\"Moldova\",\"MC\":\"Mônaco\",\"MN\":\"Mongólia\",\"ME\":\"Montenegro\",\"MS\":\"Montserrat\",\"MA\":\"Marrocos\",\"MZ\":\"Moçambique\",\"MM\":\"Mianmar\",\"NA\":\"Namíbia\",\"NR\":\"Nauru\",\"NP\":\"Nepal\",\"NL\":\"Países Baixos\",\"NC\":\"Nova Caledônia\",\"NZ\":\"Nova Zelândia\",\"NI\":\"Nicarágua\",\"NE\":\"Níger\",\"NG\":\"Nigéria\",\"NU\":\"Niue\",\"NF\":\"Ilha Norfolk\",\"KP\":\"Coreia do Norte\",\"MP\":\"Ilhas Marianas do Norte\",\"NO\":\"Noruega\",\"OM\":\"Omã\",\"PK\":\"Paquistão\",\"PW\":\"Palau\",\"PS\":\"Autoridade Palestina\",\"PA\":\"Panamá\",\"PG\":\"Papua-Nova Guiné\",\"PY\":\"Paraguai\",\"PE\":\"Peru\",\"PH\":\"Filipinas\",\"PN\":\"Ilhas Pitcairn\",\"PL\":\"Polônia\",\"PT\":\"Portugal\",\"PR\":\"Porto Rico\",\"QA\":\"Catar\",\"RE\":\"Reunião\",\"RO\":\"Romênia\",\"RU\":\"Rússia\",\"RW\":\"Ruanda\",\"BL\":\"São Bartolomeu\",\"KN\":\"São Cristóvão e Névis\",\"LC\":\"Santa Lúcia\",\"MF\":\"Saint Martin\",\"PM\":\"São Pedro e Miquelon\",\"VC\":\"São Vicente e Granadinas\",\"WS\":\"Samoa\",\"SM\":\"San Marino\",\"ST\":\"São Tomé e Príncipe\",\"SA\":\"Arábia Saudita\",\"SN\":\"Senegal\",\"RS\":\"Sérvia\",\"SC\":\"Seicheles\",\"SL\":\"Serra Leoa\",\"SG\":\"Singapura\",\"SX\":\"Sint Maarten\",\"SK\":\"Eslováquia\",\"SI\":\"Eslovênia\",\"SB\":\"Ilhas Salomão\",\"SO\":\"Somália\",\"ZA\":\"África do Sul\",\"GS\":\"Ilhas Geórgia do Sul e Sandwich do Sul\",\"SS\":\"Sudão do Sul\",\"ES\":\"Espanha\",\"LK\":\"Sri Lanka\",\"SH\":\"Santa Helena, Ascensão e Tristão da Cunha\",\"SD\":\"Sudão\",\"SR\":\"Suriname\",\"SJ\":\"Svalbard\",\"SZ\":\"Suazilândia\",\"SE\":\"Suécia\",\"CH\":\"Suíça\",\"SY\":\"Síria\",\"TW\":\"Taiwan\",\"TJ\":\"Tadjiquistão\",\"TZ\":\"Tanzânia\",\"TH\":\"Tailândia\",\"TL\":\"Timor-Leste\",\"TG\":\"Togo\",\"TK\":\"Tokelau\",\"TO\":\"Tonga\",\"TT\":\"Trinidad e Tobago\",\"TN\":\"Tunísia\",\"TR\":\"Turquia\",\"TM\":\"Turcomenistão\",\"TC\":\"Ilhas Turcas e Caicos\",\"TV\":\"Tuvalu\",\"UM\":\"Ilhas. Menores Distantes dos EUA\",\"VI\":\"Ilhas Virgens dos EUA\",\"UG\":\"Uganda\",\"UA\":\"Ucrânia\",\"AE\":\"Emirados Árabes Unidos\",\"GB\":\"Reino Unido\",\"US\":\"Estados Unidos\",\"UY\":\"Uruguai\",\"UZ\":\"Uzbequistão\",\"VU\":\"Vanuatu\", \"VA\":\"Cidade do Vaticano\",\"VE\":\"Venezuela\",\"VN\":\"Vietnã\",\"WF\":\"Wallis e Futuna\",\"YE\":\"Iêmen\",\"ZM\":\"Zâmbia\",\"ZW\":\"Zimbábue\"} |
 | **error_448** | O número de telefone que você forneceu está inacessível. |
 | **error_449** | O usuário excedeu o número de novas tentativas. |
 | **verification_code_input_placeholder_text** | Código de verificação |
@@ -210,8 +210,8 @@ A seguir estão as IDs para um [controle de exibição de verificação](display
 | ID | Valor padrão |
 | -- | ------------- |
 |verification_control_but_change_claims |Alterar |
-|verification_control_fail_send_code |Falha ao enviar o código, tente novamente mais tarde. |
-|verification_control_fail_verify_code |Falha ao verificar o código. tente novamente mais tarde. |
+|verification_control_fail_send_code |Falha ao enviar o código. Tente novamente mais tarde. |
+|verification_control_fail_verify_code |Falha ao verificar o código. Tente novamente mais tarde. |
 |verification_control_but_send_code |Enviar Código |
 |verification_control_but_send_new_code |Enviar novo código |
 |verification_control_but_verify_code |Verificar Código |
@@ -233,15 +233,45 @@ A seguir estão as IDs para um [controle de exibição de verificação](display
 </LocalizedResources>
 ```
 
-## <a name="one-time-password-error-messages"></a>Mensagens de erro de senha de uma vez
-A seguir estão as IDs para mensagens de erro de [perfil técnico de senha de uma vez](one-time-password-technical-profile.md)
+## <a name="azure-mfa-error-messages"></a>Mensagens de erro do Azure MFA
+
+Veja a seguir as IDs para mensagens de erro de um [perfil técnico do Azure MFA](multi-factor-auth-technical-profile.md):
 
 | ID | Valor padrão |
 | -- | ------------- |
-|UserMessageIfMaxRetryAttempted |A verificação de senha de uma vez fornecida excedeu o número máximo de tentativas |
-|UserMessageIfSessionDoesNotExist |A sessão de verificação de senha de uma vez expirou |
-|UserMessageIfSessionConflict |A sessão de verificação de senha de uma vez está em conflito |
-|UserMessageIfInvalidCode |A senha de uso único fornecida para verificação está incorreta |
+|UserMessageIfCouldntSendSms | Não é possível enviar SMS para o telefone. Tente outro número de telefone. |
+|UserMessageIfInvalidFormat | Seu número de telefone não está em um formato válido. Corrija-o e tente novamente.|
+|UserMessageIfMaxAllowedCodeRetryReached | Código errado inserido muitas vezes. Tente novamente mais tarde.|
+|UserMessageIfServerError | Não é possível usar o serviço do MFA. Tente novamente mais tarde.|
+|UserMessageIfThrottled | Sua solicitação foi limitada. Tente novamente mais tarde.|
+|UserMessageIfWrongCodeEntered|Código errado inserido. Tente novamente.|
+
+### <a name="example"></a>Exemplo
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidFormat">Your phone number is not in a valid format, please correct it and try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">Wrong code entered too many times, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="one-time-password-error-messages"></a>Mensagens de erro de senha avulsa
+
+Veja a seguir as IDs para mensagens de erro de um [perfil técnico de senha avulsa](one-time-password-technical-profile.md)
+
+| ID | Valor padrão |
+| -- | ------------- |
+|UserMessageIfMaxRetryAttempted |A verificação de senha avulsa fornecida excedeu o número máximo de tentativas |
+|UserMessageIfSessionDoesNotExist |A sessão de verificação de senha avulsa expirou |
+|UserMessageIfSessionConflict |A sessão de verificação de senha avulsa tem conflito |
+|UserMessageIfInvalidCode |A senha avulsa fornecida para verificação está incorreta |
+|UserMessageIfVerificationFailedRetryAllowed |Esse código está incorreto. Tente novamente. | 
 
 ### <a name="example"></a>Exemplo
 
@@ -252,9 +282,36 @@ A seguir estão as IDs para mensagens de erro de [perfil técnico de senha de um
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
+
+
+## <a name="claims-transformations-error-messages"></a>Mensagens de erro de transformações de declarações
+
+Veja a seguir as IDs para mensagens de erro de transformações de declarações:
+
+| ID | Transformação de declarações | Valor padrão |
+| -- | ------------- |------------- |
+|UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | A comparação de valor de declaração booliana falhou para o tipo de declaração "inputClaim".| 
+|DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | A comparação de arquivo falhou: O operando esquerdo fornecido é maior que o operando direito.|
+|UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | A comparação de valor de declaração falhou usando StringComparison "OrdinalIgnoreCase".|
+
+### <a name="example"></a>Exemplo
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="DateTimeGreaterThan">Expiration date must be greater that the current date.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationStringsAreNotEqual">The email entry fields do not match. Please enter the same email address in both fields and try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+
+
 
 
 

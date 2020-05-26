@@ -166,6 +166,8 @@
               href: storage-blob-change-feed.md
             - name: Restauração em um momento determinado
               href: point-in-time-restore-overview.md
+        - name: Replicação de objeto
+          href: object-replication-overview.md
         - name: Níveis de desempenho e de acesso
           items:
             - name: Níveis de acesso
@@ -399,6 +401,8 @@
               href: storage-blob-change-feed-how-to.md
             - name: Habilitar a restauração pontual
               href: point-in-time-restore-manage.md
+        - name: Configurar a replicação de objeto
+          href: object-replication-configure.md
         - name: Gerenciar recuperação de desastre
           items:
             - name: Verificar a propriedade Horário da Última Sincronização
@@ -694,16 +698,22 @@
               href: data-lake-storage-supported-azure-services.md
             - name: Plataformas de software livre com suporte
               href: data-lake-storage-supported-open-source-platforms.md
-        - name: Monitoramento e solução de problemas
+        - name: Monitoramento
           items:
-            - name: 'Monitorar, diagnosticar e solucionar problemas'
-              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Métricas no Azure Monitor
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migrar para novas métricas
+            - name: Monitorar uma conta de armazenamento
+              href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Migrar de métricas clássicas
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Logs da análise de armazenamento
-              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Monitoramento (clássico)
+              items:
+                - name: Análise de Armazenamento
+                  href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Métricas
+                  href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Logs
+                  href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 'Monitorar, diagnosticar e solucionar problemas'
+                  href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Como
       items:
         - name: Criar

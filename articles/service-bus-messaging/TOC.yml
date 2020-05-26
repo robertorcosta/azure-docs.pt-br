@@ -196,6 +196,8 @@
           href: service-bus-diagnostic-logs.md
         - name: Suspender e reativar entidades de mensagens
           href: entity-suspend.md
+        - name: Usar o Service Bus Explorer para executar operações de dados no Barramento de Serviço
+          href: explorer.md
         - name: Usar modelos ARM
           href: service-bus-resource-manager-overview.md
           items:

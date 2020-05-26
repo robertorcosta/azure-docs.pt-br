@@ -15,6 +15,9 @@
           href: quickstart-create-server-database-azure-cli.md
         - name: Criar BD – CLI do Azure (comando para cima)
           href: quickstart-create-server-up-azure-cli.md
+        - name: Criar BD – Modelo do Resource Manager
+          href: quickstart-create-postgresql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
         - name: Conectar e consultar
           items:
             - name: Python

@@ -159,6 +159,8 @@
               href: manage-self-service-access.md
             - name: Descoberta de Realm Inicial
               href: configure-authentication-for-federated-users-portal.md
+        - name: Automatizar o logon único baseado em SAML usando APIs do MS Graph
+          href: application-saml-sso-configure-api.md
         - name: Migrar aplicativos para o Azure AD
           items:
             - name: Recursos de migração
