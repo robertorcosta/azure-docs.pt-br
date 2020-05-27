@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8faa1d0ecfec629487c9cddee6a01fb9f809393f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7aa6c799535db21a9d40f2eb8b74300a8c6b00f0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "70165979"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739814"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Palo Alto Networks – GlobalProtect
 
@@ -165,7 +165,5 @@ Quando clica no bloco Palo Alto Networks – GlobalProtect no painel de acesso, 
 - [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Experimentar o Palo Alto Networks – GlobalProtect com o Azure AD](https://aad.portal.azure.com/)
