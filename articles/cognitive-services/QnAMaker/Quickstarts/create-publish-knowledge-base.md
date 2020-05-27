@@ -2,13 +2,13 @@
 title: 'Início rápido: criar, treinar e publicar a base de dados de conhecimento-QnA Maker'
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 ms.topic: conceptual
-ms.date: 02/08/2020
-ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756831"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871430"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: criar, treinar e publicar sua base de dados de conhecimento QnA Maker
 
@@ -34,8 +34,8 @@ ms.locfileid: "80756831"
 
 1. Na **Etapa 3**, selecione a sua assinatura do Active Directory, o serviço (recurso) e o idioma para todas as bases de dados de conhecimento criadas no serviço.
 
-   ![Captura de tela da seleção de uma base de dados de conhecimento do serviço do QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
-
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Captura de tela da seleção de uma base de dados de conhecimento do serviço do QnA Maker":::
+    
 1. Na **Etapa 3**, dê à base de dados de conhecimento o nome **Minha Base de Dados de QnA de Exemplo**.
 
 1. Na **Etapa 4**, defina as configurações com a seguinte tabela:
@@ -64,7 +64,7 @@ ms.locfileid: "80756831"
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Adicione a pergunta como texto e a resposta formatada com Markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Adicione a pergunta como texto e a resposta formatada com Markdown.":::
 
     O símbolo de Markdown, `*`, é usado para marcadores. O `\n` é usado para uma nova linha.
 
@@ -81,7 +81,7 @@ No canto superior direito, selecione **Salvar e treinar** para salvar as ediçõ
 
     `How many Azure services are used by a knowledge base?`
 
-    ![ Insira um exemplo de consulta de usuário na caixa de texto. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Insira um exemplo de consulta de usuário na caixa de texto.":::
 
 1. Selecione **Inspecionar** para examinar a resposta mais detalhadamente. A janela de teste é usada para testar as alterações na base de dados de conhecimento antes que ela seja publicada.
 
@@ -117,7 +117,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
     * **Coincide**
         * Alterar o identificador de bot se ele não for exclusivo.
         * Selecionar a linguagem de programação do SDK. Depois que o bot for criado, você poderá baixar o código em seu ambiente de desenvolvimento local e continuar o processo de desenvolvimento.
-    * **Não deve ser feito**
+    * **O que não fazer**
         * Alterar as configurações a seguir no portal do Azure ao criar o bot. Elas são preenchidas previamente para sua base de dados de conhecimento existente:
            * Chave de autenticação do QnA
            * Plano e local do serviço de aplicativo
@@ -131,7 +131,7 @@ Quando você faz alterações na base de dados de conhecimento e republica, não
 
     O chatbot responde com uma resposta de sua base de dados de conhecimento.
 
-    ![Insira uma consulta de usuário no Webchat de teste.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Insira uma consulta de usuário no Webchat de teste.":::
 
 ## <a name="what-did-you-accomplish"></a>O que você realizou?
 
