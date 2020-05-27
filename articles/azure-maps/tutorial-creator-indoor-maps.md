@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5a7f64ead6d2e19242950002feed1cd1491dbacc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596585"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745932"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Usar o Criador para criar mapas internos
 
@@ -57,7 +57,7 @@ A API de upload de dados é uma transação de execução prolongada que impleme
 
 4. Na guia **Cabeçalhos**, especifique um valor para a chave `Content-Type`. O pacote do Drawing é uma pasta compactada, portanto, use o valor `application/octet-stream`. Na guia **Corpo**, selecione **binário**. Clique em **Selecionar Arquivo** e escolha um pacote do Drawing.
 
-     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![data-management](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Clique no botão azul **Enviar** e aguarde a solicitação ser processada. Depois que a solicitação for concluída, vá para a guia **Cabeçalhos** da resposta. Copie o valor da chave **Local**, que é `status URL`.
 
@@ -215,7 +215,7 @@ Um conjunto de peças é um conjunto de peças de vetor que são renderizadas no
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. O corpo da resposta será entregue no formato GeoJSON e conterá todas as coleções no conjunto de dados. Para simplificar, o exemplo aqui mostra apenas a coleção `unit`. Para ver um exemplo que contém todas as coleções, consulte [WFS: API de descrição de coleções](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview). Para saber mais sobre coleções, você pode clicar em uma das URLs dentro do elemento `link`.
+3. O corpo da resposta será entregue no formato GeoJSON e conterá todas as coleções no conjunto de dados. Para simplificar, o exemplo aqui mostra apenas a coleção `unit`. Para ver um exemplo que contém todas as coleções, consulte [WFS: API de descrição de coleções](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Para saber mais sobre coleções, você pode clicar em uma das URLs dentro do elemento `link`.
 
     ```json
     {
@@ -285,7 +285,7 @@ Um conjunto de peças é um conjunto de peças de vetor que são renderizadas no
 
 1. No aplicativo Postman, selecione **Novo**. Na janela **Criar**, selecione **Solicitação**. Insira o **Nome da solicitação** e selecione uma coleção. Clique em **Salvar**
 
-2. Faça uma solicitação **POST** para a [API de criação de conjunto de estados](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Use o `datasetId` do conjunto de dados que contém o estado que você deseja modificar. A solicitação deve ser semelhante à seguinte URL:
+2. Faça uma solicitação **POST** para a [API de criação de conjunto de estados](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Use o `datasetId` do conjunto de dados que contém o estado que você deseja modificar. A solicitação deve ser semelhante à seguinte URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
