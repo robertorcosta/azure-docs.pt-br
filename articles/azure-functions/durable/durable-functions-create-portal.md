@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83120125"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar Durable Functions usando o portal do Azure
@@ -17,7 +17,7 @@ A extensão [Funções Duráveis](durable-functions-overview.md) do Azure Functi
 
 > [!NOTE]
 > 
-> * Se você estiver desenvolvendo funções duráveis em C#, considere o desenvolvimento do [Visual Studio 2019](durable-functions-create-first-csharp.md).
+> * Se você estiver desenvolvendo funções duráveis em C#, deverá considerar o [Desenvolvimento do Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Se você estiver desenvolvendo funções duráveis em JavaScript, você deve considerar o [Desenvolvimento de código do Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
@@ -30,15 +30,15 @@ Por padrão, o aplicativo de função criado usa a versão 2.x do Azure Function
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Instalar o pacote npm de Durable Functions (apenas JavaScript)
 
-Se estiver criando Durable Functions de JavaScript, você precisará instalar o [ `durable-functions` pacote NPM](https://www.npmjs.com/package/durable-functions):
+Se você estiver criando Durable Functions do JavaScript, precisará instalar o [`durable-functions` pacote npm](https://www.npmjs.com/package/durable-functions):
 
-1. Na página do aplicativo de funções, selecione **ferramentas avançadas** em **ferramentas de desenvolvimento** no painel esquerdo.
+1. Na página do aplicativo de funções, selecione **Ferramentas Avançadas** em **Ferramentas de Desenvolvimento** no painel à esquerda.
 
-   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Recursos da plataforma funções, escolha Kudu":::
+   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Em recursos da plataforma de funções, escolha Kudu":::
 
-2. Na página **ferramentas avançadas** , selecione **ir**.
+2. Na página **Ferramentas Avançadas**, selecione **Ir**.
 
-3. No console do kudu, selecione **console de depuração**e, em seguida, **cmd**.
+3. No console Kudu, selecione **Console de depuração** e **CMD**.
 
    :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Console de depuração do Kudu":::
 
@@ -52,7 +52,7 @@ Se estiver criando Durable Functions de JavaScript, você precisará instalar o 
     }
     ```
 
-   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Carregar o pacote do package.json do Kudu":::
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu carrega package.json":::
 
 4. Após seu `package.json` ser carregado, execute o comando `npm install` do Console de Execução Remota do Kudu.
 
@@ -60,23 +60,23 @@ Se estiver criando Durable Functions de JavaScript, você precisará instalar o 
 
 ## <a name="create-an-orchestrator-function"></a>Crie uma função de orquestrador
 
-1. Em seu aplicativo de funções, selecione **funções** no painel esquerdo e, em seguida, selecione **Adicionar** no menu superior. 
+1. Em seu aplicativo de funções, selecione **Funções** no painel à esquerda, em seguida, selecione **Adicionar** no menu superior. 
 
-1. No campo de pesquisa da página **nova função** , digite `durable` e escolha o modelo de **início de http Durable Functions** .
+1. No campo de pesquisa da página **Nova Função**, insira `durable` e escolha o modelo **Durable Functions HTTP starter**.
 
-   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Selecione Durable Functions iniciador HTTP":::
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Selecione Durable Functions HTTP starter":::
 
-1. Para o **novo** nome da função, digite `HttpStart` e, em seguida, selecione **criar função**.
+1. Para o nome **Nova Função**, insira `HttpStart` e selecione **Criar Função**.
 
    A função criada é usada para iniciar a orquestração.
 
-1. Crie outra função no aplicativo de funções, desta vez usando o modelo **Durable Functions Orchestrator** . Nomeie sua nova função de orquestração `HelloSequence`.
+1. Crie outra função no aplicativo de funções, desta vez usando o modelo **Durable Functions orchestrator**. Nomeie sua nova função de orquestração `HelloSequence`.
 
-1. Crie uma terceira função chamada `Hello` usando o modelo de **atividade de durable Functions** .
+1. Crie uma terceira função denominada `Hello` usando o modelo **Durable Functions activity**.
 
 ## <a name="test-the-durable-function-orchestration"></a>Teste a orquestração de função durável
 
-1. Volte para a função **HttpStart** , escolha **obter URL de função**e selecione o ícone **copiar para área de transferência** para copiar a URL. Use essa URL para iniciar o **HelloSequence** função.
+1. Volte para a função **HttpStart**, escolha **Obter URL da função** e selecione o ícone **Copiar para área de transferência** para copiar a URL. Use essa URL para iniciar o **HelloSequence** função.
 
 1. Use uma ferramenta HTTP, como Postman ou cURL, para enviar uma solicitação POST ao URL que você copiou. O exemplo a seguir é um comando cURL que envia uma solicitação POST para a função durável:
 

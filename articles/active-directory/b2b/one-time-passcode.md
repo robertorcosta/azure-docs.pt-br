@@ -1,5 +1,5 @@
 ---
-title: Autenticação de senha única para usuários convidados B2B – Azure AD
+title: Autenticação de senha avulsa para usuários convidados de B2B - Azure AD
 description: Como usar a senha avulsa por email para autenticar os usuários convidados de B2B sem a necessidade de uma conta Microsoft.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199477"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585905"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação por senha avulsa por email (versão prévia)
 
@@ -26,7 +26,7 @@ ms.locfileid: "83199477"
 | A senha avulsa por email é a versão prévia pública de um recurso do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Este artigo descreve como habilitar a autenticação de senha de uso único de email para usuários de convidado B2B. O recurso de senha avulsa por Email autentica os usuários convidados de B2B quando eles não podem ser autenticados por outros meios, tais como o Azure AD, uma MSA (conta Microsoft) ou uma federação do Google. Com a autenticação por senha avulsa, não é necessário criar uma conta Microsoft. Quando o usuário convidado resgata um convite ou acessa um recurso compartilhado, ele pode solicitar um código temporário, que é enviado para seu endereço de email. Em seguida, ele digita esse código para continuar o processo de entrada.
+Este artigo descreve como habilitar a Autenticação de senha avulsa por email para usuários de convidado B2B. O recurso de senha avulsa por Email autentica os usuários convidados de B2B quando eles não podem ser autenticados por outros meios, tais como o Azure AD, uma MSA (conta Microsoft) ou uma federação do Google. Com a autenticação por senha avulsa, não é necessário criar uma conta Microsoft. Quando o usuário convidado resgata um convite ou acessa um recurso compartilhado, ele pode solicitar um código temporário, que é enviado para seu endereço de email. Em seguida, ele digita esse código para continuar o processo de entrada.
 
 Esse recurso está atualmente disponível em versão prévia (confira [Aceitar a versão prévia](#opting-in-to-the-preview) abaixo). Após a versão prévia, esse recurso será ativado por padrão para todos os locatários.
 
@@ -36,11 +36,11 @@ Esse recurso está atualmente disponível em versão prévia (confira [Aceitar a
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Experiência do usuário para usuários convidados com senha avulsa
 Com a autenticação por senha avulsa, o usuário convidado pode resgatar seu convite clicando em um link direto ou usando o email de convite. Em ambos os casos, uma mensagem no navegador indica que um código será enviado ao endereço de email do usuário convidado. O usuário convidado seleciona **Enviar código**:
  
-   ![Captura de tela mostrando o botão enviar código](media/one-time-passcode/otp-send-code.png)
+   ![Captura de tela mostrando o botão Enviar código](media/one-time-passcode/otp-send-code.png)
  
 Uma senha é enviada ao endereço de email do usuário. O usuário recupera a senha de email e insere-a na janela do navegador:
  
-   ![Captura de tela mostrando a página inserir código](media/one-time-passcode/otp-enter-code.png)
+   ![Captura de tela mostrando a página Inserir código](media/one-time-passcode/otp-enter-code.png)
  
 O usuário convidado está agora autenticado e pode ver o recurso compartilhado ou continuar o processo de entrada. 
 
@@ -56,15 +56,15 @@ Quando um usuário convidado resgata um convite ou usa um link para um recurso q
 
 No momento do convite, não há nenhuma indicação de que o usuário que você está convidando usará a autenticação de senha avulsa. Mas quando o usuário convidado entrar, a autenticação de senha avulsa será o método de fallback se nenhum outro método de autenticação puder ser usado. 
 
-Você pode exibir os usuários convidados que se autenticam com senhas de uso único no portal do Azure acessando **Azure Active Directory**  >  **usuários**.
+Você pode exibir os usuários convidados que se autenticam com senhas avulsas no portal do Azure acessando **Azure Active Directory** > **Usuários**.
 
-![Captura de tela mostrando um usuário de senha de uso único com o valor de origem de OTP](media/one-time-passcode/otp-users.png)
+![Captura de tela mostrando um usuário de senha avulsa com o valor Origem OTP](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Quando um usuário resgatar uma senha avulsa e, posteriormente, obtém uma MSA, conta do Azure AD ou outra conta federada, ele continuará a ser autenticado usando uma senha avulsa. Se quiser atualizar o método de autenticação do usuário, você poderá excluir a conta de usuário convidado dele e convidá-lo novamente.
 
 ### <a name="example"></a>Exemplo
-O usuário convidado alexdoe@gmail.com é convidado para a Fabrikam, que não tem a federação do Google configurada. Alex não tem uma conta Microsoft. Eles receberão uma senha de uso único para autenticação.
+O usuário convidado alexdoe@gmail.com é convidado para a Fabrikam, que não tem a federação do Google configurada. Alex não tem uma conta Microsoft. Receberemos uma senha avulsa para autenticação.
 
 ## <a name="opting-in-to-the-preview"></a>Aceitação da versão prévia 
 Pode levar alguns minutos para que a ação de aceitação entre em vigor. Depois disso, somente os usuários recém-convidados que atenderem às condições acima usarão a autenticação de senha avulsa. Usuários convidados que anteriormente resgataram um convite continuarão a usar o mesmo método de autenticação.
@@ -72,14 +72,14 @@ Pode levar alguns minutos para que a ação de aceitação entre em vigor. Depoi
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Para aceitar usando o portal do Azure AD
 1.  Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
 2.  No painel de navegação, selecione **Azure Active Directory**.
-3.  Selecione Configurações de **relações organizacionais**  >  **Settings** (ou selecione **identidades externas**  >  **configurações de colaboração externas**).
-5.  Em **Habilitar Senha Avulsa por Email para convidados (Versão Prévia)**, selecione **Sim**.
+3.  Selecione **Identidades Externas** > **Configurações de colaboração externa**.
+5.  Em **Habilitar Senha Avulsa por Email para convidados (Versão Prévia)** , selecione **Sim**.
  
 ### <a name="to-opt-in-using-powershell"></a>Para aceitar usando o PowerShell
 
 Primeiro, você precisará instalar a versão mais recente do módulo do Azure AD PowerShell para Graph (AzureADPreview). Em seguida, você poderá determinar se as políticas de B2B já existem e executar os comandos apropriados.
 
-#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Pré-requisito: instalar o módulo AzureADPreview mais recente
+#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Pré-requisito: Instalar o módulo AzureADPreview mais recente
 Primeiro, verifique quais módulos estão instalados. Abra o Windows PowerShell como usuário com privilégios elevados (Executar como administrador) e execute o seguinte comando:
  
 ```powershell  
@@ -138,11 +138,11 @@ Pode levar alguns minutos para que a ação de recusa entre em vigor. Se você d
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Para desativar a versão prévia usando o portal do Azure AD
 1.  Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do Azure AD.
 2.  No painel de navegação, selecione **Azure Active Directory**.
-3.  Selecione Configurações de **relações organizacionais**  >  **Settings** (ou selecione **identidades externas**  >  **configurações de colaboração externas**).
-5.  Em **Habilitar Senha Avulsa por Email para convidados (Versão Prévia)**, selecione **Não**.
+3.  Selecione **Identidades Externas** > **Configurações de colaboração externa**.
+5.  Em **Habilitar Senha Avulsa por Email para convidados (Versão Prévia)** , selecione **Não**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Para desativar a versão prévia usando o PowerShell
-Instale o módulo AzureADPreview mais recente se você ainda não o tiver (consulte [pré-requisito: instalar o módulo AzureADPreview mais recente](#prerequisite-install-the-latest-azureadpreview-module) acima). Em seguida, verifique se a política de versão prévia de senha avulsa existe atualmente, executando o seguinte:
+Instale o módulo mais recente do AzureADPreview se você ainda não o tiver (confira [Pré-requisito: Instalar o módulo AzureADPreview mais recente](#prerequisite-install-the-latest-azureadpreview-module) acima). Em seguida, verifique se a política de versão prévia de senha avulsa existe atualmente, executando o seguinte:
 
 ```powershell 
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1

@@ -8,22 +8,22 @@ ms.date: 05/08/2020
 ms.author: tisande
 ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
 ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/12/2020
 ms.locfileid: "83117012"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Trabalhando com JSON no Azure Cosmos DB
 
-Na API do SQL (núcleo) do Azure Cosmos DB, os itens são armazenados como JSON. O sistema de tipos e as expressões são restritos para lidar apenas com tipos JSON. Para obter mais informações, consulte a [especificação JSON](https://www.json.org/).
+Na API do SQL (núcleo) do Azure Cosmos DB, os itens são armazenados como JSON. As expressões e sistema de tipos são restritos para lidar somente com tipos JSON. Para obter mais informações, consulte as [especificações do JSON](https://www.json.org/).
 
 Vamos resumir alguns aspectos importantes do trabalho com JSON:
 
-- Objetos JSON sempre começam com uma `{` chave esquerda e terminam com uma `}` chave direita
+- Os objetos JSON sempre começam com uma `{` chave esquerda e terminam com uma `}` chave direita
 - Você pode ter propriedades JSON [aninhadas](#nested-properties) entre si
 - Os valores de propriedade JSON podem ser matrizes
 - Os nomes de propriedade JSON diferenciam maiúsculas de minúsculas
-- O nome da propriedade JSON pode ser qualquer valor de cadeia de caracteres (incluindo espaços ou caracteres que não sejam letras)
+- O nome de propriedade JSON pode ser qualquer valor de cadeia de caracteres (incluindo espaços ou caracteres que não sejam letras)
 
 ## <a name="nested-properties"></a>Propriedades aninhadas
 
@@ -45,9 +45,9 @@ Aqui está um documento com JSON aninhado:
 }
 ```
 
-Nesse caso, as `state` Propriedades, `country` e `city` são todas aninhadas dentro da `address` propriedade.
+Nesse caso, as propriedades `state`, `country`e `city` estão todas aninhadas dentro da propriedade `address`.
 
-O exemplo a seguir projeta duas propriedades aninhadas: `f.address.state` e `f.address.city` .
+O exemplo a seguir projeta duas propriedades aninhadas: `f.address.state` e `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -98,7 +98,7 @@ FROM Families f
 WHERE f.children[0].givenName = "Jesse"
 ```
 
-Na maioria dos casos, no entanto, você usará uma [subconsulta](sql-query-subquery.md) [ou auto-associação](sql-query-join.md) ao trabalhar com matrizes.
+Na maioria dos casos, no entanto, você usará uma [consulta aninhada](sql-query-subquery.md) ou [autojunção](sql-query-join.md) ao trabalhar com matrizes.
 
 Por exemplo, aqui está um documento que mostra o saldo diário da conta bancária de um cliente.
 
@@ -127,7 +127,7 @@ Por exemplo, aqui está um documento que mostra o saldo diário da conta bancár
 }
 ```
 
-Se você quisesse executar uma consulta que mostrou todos os clientes que tinham um saldo negativo em algum momento, você poderia usar [Exists](sql-query-subquery.md#exists-expression) com uma subconsulta:
+Se você quisesse executar uma consulta mostrando todos os clientes com saldo negativo em algum momento, você poderia usar [EXISTS](sql-query-subquery.md#exists-expression) com uma consulta aninhada:
 
 ```sql
 SELECT c.id
@@ -141,7 +141,7 @@ WHERE EXISTS(
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Palavras-chave reservadas e caracteres especiais em JSON
 
-Você pode acessar as propriedades usando o operador de propriedade entre aspas `[]` . Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para escapar de uma propriedade que contém espaços, caracteres especiais ou tem o mesmo nome que uma palavra-chave SQL ou reservada.
+Você pode acessar propriedades usando o operador de propriedade entre aspas `[]`. Por exemplo: `SELECT c.grade` and `SELECT c["grade"]` são equivalentes. Essa sintaxe é útil para substituir uma propriedade que contém espaços, caracteres especiais ou compartilha o mesmo nome que uma palavra-chave ou palavra reservada SQL.
 
 Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma propriedade `price($)` que contém caracteres especiais:
 
@@ -160,7 +160,7 @@ Por exemplo, aqui está um documento com uma propriedade chamada `order` e uma p
 }
 ```
 
-Se você executar uma consulta que inclui a `order` propriedade ou `price($)` propriedade, receberá um erro de sintaxe.
+Se você executar uma consulta que inclui a propriedade `order` ou a propriedade `price($)`, obterá um erro de sintaxe.
 
 ```sql
 SELECT * FROM c where c.order.orderid = "12345"
@@ -188,7 +188,7 @@ SELECT * FROM c WHERE c["order"]["price($)"] > 50
 
 ## <a name="json-expressions"></a>Expressões JSON
 
-A projeção também oferece suporte a expressões JSON, conforme mostrado no exemplo a seguir:
+A projeção também oferece suporte para expressões JSON, conforme mostrado no exemplo a seguir:
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
@@ -208,7 +208,7 @@ Os resultados são:
     }]
 ```
 
-No exemplo anterior, a `SELECT` cláusula precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome da variável de argumento implícito `$1` . A consulta a seguir retorna duas variáveis de argumento implícitas: `$1` e `$2` .
+No exemplo anterior, a cláusula `SELECT` precisa criar um objeto JSON e, como o exemplo não fornece nenhuma chave, a cláusula usa o nome da variável de argumento implícito `$1`. A consulta retorna duas variáveis de argumento implícito: `$1` e `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -233,11 +233,11 @@ Os resultados são:
 
 ## <a name="aliasing"></a>Atribuição de alias
 
-Você pode explicitamente alias de valores em consultas. Se uma consulta tiver duas propriedades com o mesmo nome, use alias para renomear uma ou ambas as propriedades para que elas sejam desambiguadas no resultado projetado.
+Você pode usar explicitamente alias de valores em consultas. Caso uma consulta tenha duas propriedades com o mesmo nome, use a atribuição para renomear uma ou as duas propriedades para que elas não sejam ambíguas no resultado projetado.
 
 ### <a name="examples"></a>Exemplos
 
-A `AS` palavra-chave usada para alias é opcional, conforme mostrado no exemplo a seguir ao projetar o segundo valor como `NameInfo` :
+A palavra-chave `AS` usada para atribuição de alias é opcional, conforme mostrado no exemplo a seguir, ao projetar o segundo valor como `NameInfo`:
 
 ```sql
     SELECT
@@ -261,9 +261,9 @@ Os resultados são:
     }]
 ```
 
-### <a name="aliasing-with-reserved-keywords-or-special-characters"></a>Alias com palavras-chave reservadas ou caracteres especiais
+### <a name="aliasing-with-reserved-keywords-or-special-characters"></a>Atribuição de alias com palavras-chave reservadas ou caracteres especiais
 
-Você não pode usar o alias para projetar um valor como um nome de propriedade com um espaço, um caractere especial ou uma palavra reservada. Se você quisesse alterar a projeção de um valor para, por exemplo, ter um nome de propriedade com um espaço, poderá usar uma [expressão JSON](#json-expressions).
+Você não pode usar a atribuição de alias para projetar um valor como um nome de propriedade com um espaço, um caractere especial ou uma palavra reservada. Se você quisesse alterar a projeção de um valor para, por exemplo, ter um nome de propriedade com um espaço, poderia usar uma [expressão JSON](#json-expressions).
 
 Aqui está um exemplo:
 
@@ -277,6 +277,6 @@ Aqui está um exemplo:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução](sql-query-getting-started.md)
+- [Guia de Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
 - [Cláusula WHERE](sql-query-where.md)

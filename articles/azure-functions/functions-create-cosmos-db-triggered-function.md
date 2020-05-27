@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83123714"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
 
-Saiba como criar uma função disparada quando dados são adicionados ou alterados no Azure Cosmos DB. Para obter mais informações sobre o Azure Cosmos DB, consulte [Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions](../cosmos-db/serverless-computing-database.md).
+Saiba como criar uma função disparada quando dados são adicionados ou alterados no Azure Cosmos DB. Para saber mais sobre o Azure Cosmos DB, confira [Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions](../cosmos-db/serverless-computing-database.md).
 
-:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Código de Azure Cosmos DB":::
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Código do Azure Cosmos DB":::
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -46,31 +46,31 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Criar gatilho do Azure Cosmos DB
 
-1. Em seu aplicativo de funções, selecione **funções** no menu à esquerda e, em seguida, selecione **Adicionar** no menu superior. 
+1. Em seu aplicativo de funções, selecione **Funções** no menu à esquerda, em seguida, selecione **Adicionar** no menu superior. 
 
-1. Na página **nova função** , insira `cosmos` no campo de pesquisa e escolha o modelo de **gatilho Azure Cosmos DB** .
+1. Na página **Nova Função**, insira `cosmos` no campo de pesquisa e, em seguida, escolha o modelo **gatilho do Azure Cosmos DB**.
 
    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Página de funções no portal do Azure":::
 
 
-1. Configure o novo gatilho com as configurações conforme especificado na tabela a seguir:
+1. Configure o novo gatilho com as configurações conforme especificado na seguinte tabela:
 
     | Configuração      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nova função** | Aceite o nome padrão | O nome da função. |
-    | **Conexão da conta do Cosmos DB** | Aceitar o novo nome padrão | Selecione **novo**, a **conta de banco de dados** que você criou anteriormente e, em seguida, **OK**. Essa ação cria uma configuração de aplicativo para sua conexão de conta. Essa configuração é usada pela associação para conexão com o banco de dados. |
+    | **Nova Função** | Aceite o nome padrão | O nome da função. |
+    | **Conexão da conta do Cosmos DB** | Aceite o nome do novo padrão | Selecione **Novo**, a **Conta de Banco de Dados** criada anteriormente e depois **OK**. Essa ação cria uma configuração de aplicativo para sua conexão de conta. Essa configuração é usada pela associação para conexão com o banco de dados. |
     | **Nome do banco de dados** | Tarefas | Nome do banco de dados que inclui a coleção a ser monitorada. |
-    | **Nome da coleção** | Itens | Nome da coleção a ser monitorada. |
-    | **Nome da coleção para concessões** | leases | Nome da coleção para armazenar as concessões. |
-    | **Criar coleção de concessão se ela não existir** | Sim | Verifica a existência da coleção de concessão e a cria automaticamente. |
+    | **Nome da coleção** | Itens | O nome da coleção a ser monitorada. |
+    | **Nome da coleção para concessões** | concessões | O nome da coleção para armazenar as concessões. |
+    | **Criar coleção de concessões se ela não existir** | Sim | Verifica a existência da coleção de concessões e cria-a automaticamente. |
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Criar a função acionada do Azure Cosmos DB":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Criar a função disparada do Azure Cosmos DB":::
 
-1. Selecione **criar função**. 
+1. Selecione **Criar Função**. 
 
-    O Azure cria a função de gatilho Cosmos DB.
+    O Azure cria a função de gatilho do Cosmos DB.
 
-1. Para exibir o código de função baseado em modelo, selecione **código + teste**.
+1. Para exibir o código de função baseado em modelo, selecione **Código + Teste**.
 
     :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Modelo de função do Cosmos DB em C#":::
 

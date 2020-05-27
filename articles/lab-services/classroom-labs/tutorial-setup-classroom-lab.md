@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77592213"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591770"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -37,9 +37,9 @@ Neste tutorial, você configura um laboratório com máquinas virtuais para sua 
 
 Este é o fluxo de trabalho típico ao usar o Azure Lab Services:
 
-1. Um criador de conta pode adicionar outros usuários à função **Criador de Laboratório**. Por exemplo, o criador/administrador da conta de laboratório adiciona professores à função **Criador de Laboratório**, para que eles possam criar laboratórios para as aulas deles. 
-2. Em seguida, os professores criam laboratórios com VMs para as classes e enviam links de registro para alunos na classe. 
-3. Os alunos usam o link de registro que recebem dos professores para registrarem-se para o laboratório. Depois de registrados, eles podem usar VMs nos laboratórios para fazerem os trabalhos de aula e os deveres de casa. 
+1. Um criador de conta pode adicionar outros usuários à função **Criador de Laboratório**. Por exemplo, o criador/administrador da conta de laboratório adiciona educadores à função **Criador de Laboratório** para que eles possam criar laboratórios para suas aulas. 
+2. Em seguida, os educadores criam laboratórios com VMs para suas aulas e enviam links de registro para os participantes. 
+3. Os alunos usam o link de registro que recebem dos educadores para se registrarem no laboratório. Depois de registrados, eles podem usar VMs nos laboratórios para fazerem os trabalhos de aula e os deveres de casa. 
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 Nessa etapa, você cria um laboratório para sua classe no Azure. 

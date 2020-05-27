@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 3b23eac4ab50401e68e17064d0964dacc3c17d32
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82120445"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634083"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -32,9 +32,9 @@ O Armazenamento de Blobs do Azure é otimizado para armazenar grandes quantidade
 * [Node.js](https://nodejs.org)
 * [Microsoft Visual Studio Code](https://code.visualstudio.com)
 * Uma extensão do Visual Studio Code para depuração do navegador, como:
-    * [Depurador para o Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge)
-    * [Depurador para o Chrome](vscode:extension/msjsdiag.debugger-for-chrome)
-    * [Depurador para o Firefox](vscode:extension/firefox-devtools.vscode-firefox-debug)
+    * [Depurador para o Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+    * [Depurador para o Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+    * [Depurador para o Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
