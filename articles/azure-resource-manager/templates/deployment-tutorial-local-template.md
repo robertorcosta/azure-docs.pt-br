@@ -1,15 +1,15 @@
 ---
 title: Tutorial – Implantar o modelo do Azure Resource Manager local
 description: Aprenda a implantar um modelo do Azure Resource Manager do seu computador local
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82188817"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714059"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implantar o modelo do Azure Resource Manager local
 
@@ -69,7 +69,7 @@ Se você tiver várias assinaturas do Azure, selecione a que deseja usar:
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
