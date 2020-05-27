@@ -2,13 +2,13 @@
 title: Novidades - reconhecimento vocal (LUIS)
 description: Este artigo é atualizado regularmente com notícias sobre a API de reconhecimento vocal dos Serviços Cognitivos do Azure.
 ms.topic: overview
-ms.date: 05/08/2020
-ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592790"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675945"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novidades sobre reconhecimento vocal
 
@@ -21,12 +21,18 @@ Conheça o que há de novo no serviço. Esses itens incluem notas sobre a versã
 * Liberado como **disponibilidade geral** (GA):
     * [Contêiner de reconhecimento vocal](luis-container-howto.md)
     * Portal de visualização promovido a [portal atual](https://www.luis.ai), portal [anterior](https://previous.luis.ai) ainda disponível
-    * Nova experiência de criação e rotulação de entidade de aprendizado de máquina
-    * [Processo de atualização](migrate-from-composite-entity.md) de entidades compostas e simples para entidades de aprendizado de máquina
+    * Nova experiência de criação e rotulação de entidade de machine learning
+    * [Processo de atualização](migrate-from-composite-entity.md) de entidades compostas e simples para entidades de machine learning
     * [Configuração](how-to-application-settings-portal.md) de suporte para normalização de variantes de palavras
 * Visualização de alterações da API de criação
-    * Esquema de aplicativo 7. x para entidades aninhadas de aprendizado de máquina
+    * Esquema de aplicativo 7.x para entidades de machine learning aninhadas
     * [Migração para recurso necessário](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* Novos recursos para desenvolvedores
+    * [Ferramentas de integração contínua](developer-reference-resource.md#continuous-integration-tools)
+    * Workshop: conheça as melhores práticas para [_Reconhecimento Vocal Natural_ (NLU) usando o LUIS](developer-reference-resource.md#workshops)
+* [Chaves gerenciadas pelo cliente](luis-encryption-of-data-at-rest.md): criptografe todos os dados que você usa no LUIS com sua própria chave
+* [AI Show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (vídeo): veja os novos recursos no LUIS
+
 
 
 ### <a name="march-2020"></a>Março de 2020
@@ -48,13 +54,13 @@ Conheça o que há de novo no serviço. Esses itens incluem notas sobre a versã
     * [Entidades predefinidas](luis-reference-prebuilt-entities.md#italian-entity-support) de italiano - idade, moeda, dimensão, número e resolução de porcentagem alteradas na v2.
 * Experiência avançada do usuário no [portal preview.luis.ai](https://preview.luis.ai) - experiência de rotulagem reformulada para permitir compilação e depuração de modelos complexos. Experimente os tutoriais do portal de visualização:
     * [Somente intenção](tutorial-intents-only.md)
-    * [Entidade divisível de aprendizado de máquina](tutorial-machine-learned-entity.md)
+    * [Entidade divisível de machine learning](tutorial-machine-learned-entity.md)
 * Recursos avançados de reconhecimento vocal - [criando modelos de linguagem sofisticados](luis-concept-entity-types.md) com menos esforço.
 * Defina os recursos de aprendizado de máquina no nível de modelo e habilite os modelos a serem usados como sinais para outros modelos. Por exemplo, usando entidades como recursos para intenções e para outras entidades.
 * [Limites](luis-limits.md) novos e expandidos - aumento do máximo de listas de frases e do total de frases, novos limites de modelo como recurso
 * Extraia informações de texto no formato de estrutura de hierarquia profunda, tornando os aplicativos de conversa mais poderosos.
 
-    ![imagem de entidade de aprendizado de máquina](./media/whats-new/deep-entity-extraction-example.png)
+    ![imagem de entidade de machine learning](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 de setembro de 2019
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117200"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660571"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de failover de recuperação de desastre
 
@@ -39,7 +39,7 @@ Para restaurar os instantâneos de armazenamento replicados mais recentemente, s
 Se você quiser que várias instâncias do SAP HANA façam failover, execute o comando azure_hana_dr_failover várias vezes. Quando solicitado, insira o SID do SAP HANA que você deseja fazer failover e restaurar. 
 
 
-Você também pode testar o failover de recuperação de desastres sem afetar a relação de replicação real. Para executar um failover de teste, siga as etapas em “Executar um teste de failover de recuperação de desastre - azure_hana_test_dr_failover” em [Ferramentas de instantâneo da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+Você também pode testar o failover de recuperação de desastres sem afetar a relação de replicação real. Para executar um failover de teste, siga as etapas em “Executar um teste de failover de recuperação de desastre - azure_hana_test_dr_failover” em [Ferramentas de instantâneo da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf). 
 
 >[!IMPORTANT]
 >*Não* execute nenhuma transação na instância que você criou no site de recuperação de desastre por meio do processo de **teste de um failover**. O comando azure_hana_test_dr_failover cria um conjunto de volumes que não têm nenhuma relação com o site primário. Como resultado, a sincronização de volta para o site primário *não* é possível. 
@@ -117,7 +117,7 @@ Siga estas etapas:
 
 Para monitorar o status do andamento da sua replicação de armazenamento, execute o script `azure_hana_replication_status`. Esse comando deve ser executado a partir de uma unidade em execução no site de recuperação de desastre para funcionar conforme o esperado. O comando funciona independentemente se a replicação está ativa. O comando pode ser executado para cada unidade de Instância Grande do HANA do seu locatário no local de recuperação de desastre. Ele não pode ser usado para obter detalhes sobre o volume de inicialização. 
 
-Para obter mais informações sobre o comando e sua saída, consulte “Get DR Replication status - azure_hana_replication_status” em [Ferramentas de instantâneo da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
+Para obter mais informações sobre o comando e sua saída, consulte “Get DR Replication status - azure_hana_replication_status” em [Ferramentas de instantâneo da Microsoft para SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf).
 
 
 ## <a name="next-steps"></a>Próximas etapas

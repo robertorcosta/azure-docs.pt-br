@@ -6,24 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: c8c792d548fc953cb5d059f322ad1f3139c91562
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e101747322baac860cbde02aca341171aa0cc1d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595115"
+ms.locfileid: "83658354"
 ---
 # <a name="azure-stream-analytics-internal-error-codes"></a>Códigos de erro interno do Azure Stream Analytics
 
 Você pode usar logs de atividade e logs de recursos para ajudar a depurar comportamentos inesperados do seu trabalho do Azure Stream Analytics. Este artigo lista a descrição de cada código de erro interno. Os erros internos são genéricos, sendo gerados na plataforma Stream Analytics quando Stream Analytics não pode distinguir se o erro é um erro de Disponibilidade Interno ou um bug no sistema.
-
-## <a name="kafkainvalidrequest"></a>KafkaInvalidRequest
-
-* **Causa**: A solicitação enviada para o servidor Kafka é inválida.
-
-## <a name="kafkainputerror"></a>KafkaInputError
-
-* **Causa**: A entrada Kafka encontrou um erro.
 
 ## <a name="cosmosdboutputbatchsizetoolarge"></a>CosmosDBOutputBatchSizeTooLarge
 
