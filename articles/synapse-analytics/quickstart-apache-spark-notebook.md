@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592943"
+ms.locfileid: "83656184"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Início Rápido: Criar um pool do Apache Spark (versão prévia) no Azure Synapse Analytics usando ferramentas da Web
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de c
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [Workspace do Synapse Analytics](quickstart-create-workspace.md)
-- [Pool do Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Pool do Apache Spark](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -133,7 +133,9 @@ A linguagem SQL (Structured Query Language) é a mais comum e amplamente usada p
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-O Azure Synapse salva os dados no Azure Data Lake Storage. Você pode deixar uma instância do Spark desligada com segurança quando ela não está em uso. Você é cobrado pelo pool do Apache Spark do Azure Synapse enquanto ele está em execução, mesmo quando não está em uso. O preço do pool é muito mais alto do que o do armazenamento. Sendo assim, em termos econômicos faz sentido deixar que as instâncias do Spark sejam desligadas quando não estão em uso.
+O Azure Synapse salva os dados no Azure Data Lake Storage. Você poderá deixar uma instância do Spark desligada com segurança quando ela não estiver em uso. Você será cobrado por um pool do Apache Spark do Azure Synapse desde que ele esteja em execução, mesmo quando não estiver em uso. 
+
+Como os preços do pool são muitas vezes mais altos do que os preços do armazenamento, faz sentido, do ponto de vista econômico, deixar as instâncias do Spark desligadas quando não estão em uso.
 
 Para garantir que a instância do Spark seja desligada, encerre todas as sessões conectadas (notebooks). O pool é desligado quando o **tempo ocioso** especificado no Pool do Apache Spark é atingido. Escolha também **Encerrar sessão** na barra de status na parte inferior do notebook.
 

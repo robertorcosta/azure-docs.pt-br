@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b1db306ffdb1c05c880e5fc639de2cc1db130d8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6276d198e547efec3d2e3cb88816da5e2b593aae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096275"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644694"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Conceitos principais do Apache Spark no Azure Synapse Analytics
 
@@ -30,7 +30,7 @@ Como não há nenhum custo monetário ou de recurso associado à criação de Po
 
 A melhor prática é criar Pools do Spark menores que possam ser usados para desenvolvimento e depuração e, em seguida, criar maiores para executar cargas de trabalho de produção.
 
-Você pode ler como criar um Pool do Spark e ver todas as suas propriedades em [Introdução aos Pools do Spark no Synapse Analytics](../quickstart-create-apache-spark-pool.md)
+Você pode ler como criar um Pool do Spark e ver todas as suas propriedades em [Introdução aos Pools do Spark no Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="spark-instances"></a>Instâncias do Spark
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68844890"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652166"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorar e solucionar problemas de um aplicativo de armazenamento de nuvem
 
@@ -87,7 +87,7 @@ Nesse cenário, você usa o [Analisador de Mensagens da Microsoft](https://techn
 
 ### <a name="download-microsoft-message-analyzer"></a>Baixar Analisador de Mensagens da Microsoft
 
-Baixe o [Analisador de Mensagens da Microsoft](https://www.microsoft.com/download/details.aspx?id=44226) e instale o aplicativo.
+Baixe o [Analisador de Mensagens da Microsoft](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) e instale o aplicativo.
 
 Inicie o aplicativo e escolha **Arquivo** > **Abrir** > **De Outras Fontes de Arquivo**.
 

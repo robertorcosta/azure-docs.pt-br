@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a6ec5896a1bb6ae723d84ef6453522861f83d16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d9b246d8190a01b34fa0d2e8eba9e48ce879a76
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82183952"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647422"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao CylancePROTECT
 
@@ -148,7 +148,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-cylanceprotect-sso"></a>Configurar o SSO do CylancePROTECT
 
-Para configurar o logon único no lado do **CylancePROTECT**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do CylancePROTECT](https://www.cylance.com/resources/support/support-overview.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados. Para obter mais informações, use a documentação do Cylance: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4).
+Para configurar o logon único no lado do **CylancePROTECT**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do CylancePROTECT](https://www.cylance.com/en-us/resources/support/support-overview.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados. Para obter mais informações, use a documentação do Cylance: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4).
 
 ### <a name="create-cylanceprotect-test-user"></a>Criar um usuário de teste do CylancePROTECT
 
