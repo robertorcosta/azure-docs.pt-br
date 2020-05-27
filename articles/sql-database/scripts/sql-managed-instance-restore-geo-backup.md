@@ -3,7 +3,7 @@ title: Exemplo do PowerShell – Restaurar o backup geográfico – Banco de Dad
 description: Script de exemplo do Azure PowerShell para restaurar um Banco de Dados de Instância Gerenciada do SQL do Azure de um backup com redundância geográfica.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: f1b4166df2290c1250e3807b4a7133c3afae8e44
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 62ed66c52375eb72394949fff384d012af49a7d7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74304077"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774490"
 ---
 # <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Usar o PowerShell para restaurar um banco de dados de Instância Gerenciada para outra região geográfica
 

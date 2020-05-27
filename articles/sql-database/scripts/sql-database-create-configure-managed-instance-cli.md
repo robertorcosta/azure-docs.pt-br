@@ -3,7 +3,7 @@ title: Exemplo de CLI – criar uma instância gerenciada no Banco de Dados SQL 
 description: Script de exemplo da CLI do Azure para criar uma instância gerenciada no Banco de Dados SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: 998bd8e39863dd9520d1a05e7fff52095c3be6c1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f52a460be33b23da3da0cb32075ab5f75bb8d129
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80067440"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772617"
 ---
 # <a name="use-cli-to-create-an-azure-sql-database-managed-instance"></a>Usar a CLI para criar uma Instância Gerenciada do Banco de Dados SQL do Azure
 
