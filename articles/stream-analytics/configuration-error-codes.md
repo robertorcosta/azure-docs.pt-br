@@ -6,28 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 9951a6ddfbd1c562184e2b7e02a9da98f7d94b12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5aa15ae4a234a56a172a0166070c32be4f822910
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595585"
+ms.locfileid: "83650065"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Códigos de erro de configuração do Azure Stream Analytics
 
 Você pode usar logs de atividade e logs de recursos para ajudar a depurar comportamentos inesperados do seu trabalho do Azure Stream Analytics. Este artigo lista a descrição de cada código de erro de configuração. Os erros de configuração estão relacionados à configuração do trabalho ou às configurações de entrada e saída.
-
-## <a name="kafkainvalidpermission"></a>KafkaInvalidPermission
-
-* **Causa**: O trabalho do Stream Analytics não tem a permissão adequada para executar determinadas ações.
-
-## <a name="kafkainvalidconfiguration"></a>KafkaInvalidConfiguration
-
-* **Causa**: Determinadas configurações no adaptador do Kafka são inválidas.
-
-## <a name="kafkainvalidtimestamptype"></a>KafkaInvalidTimestampType
-
-* **Causa**: O tipo de carimbo de data/hora usado pelo Kafka é inválido.
 
 ## <a name="eventhubunauthorizedaccess"></a>EventHubUnauthorizedAccess
 

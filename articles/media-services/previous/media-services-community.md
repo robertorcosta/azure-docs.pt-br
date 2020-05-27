@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 11902e363428a45bc158a99d251343e13b62540d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72598325"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836423"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Mídia do Azure  
 
@@ -40,7 +40,7 @@ Esta página da comunidade dos AMS (Serviços de Mídia do Azure) discute as dif
 
 ### <a name="twitter"></a>Twitter
 
-Use o [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) identificador do Twitter para entrar em contato conosco ou seguir as atualizações no Twitter. Você pode usar o [@AzureSupport](https://twitter.com/azuresupport) identificador do Twitter para solicitar suporte no Twitter.  
+Use o identificador [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) do twitter para entrar em contato conosco ou seguir as atualizações no Twitter. Use o identificador do twitter [@AzureSupport](https://twitter.com/azuresupport) para solicitar suporte no Twitter.  
 
 ### <a name="online-forums"></a>Fóruns online
 
@@ -48,7 +48,7 @@ Os fóruns a seguir podem ser usados para fazer perguntas sobre produtos e recur
 
 Atualmente, o MSDN é o principal fórum da comunidade da equipe dos Serviços de Mídia.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 A equipe também monitora perguntas marcadas com 'azure-media-services' no Stack Overflow.
 
@@ -56,7 +56,7 @@ A equipe também monitora perguntas marcadas com 'azure-media-services' no Stack
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Abra um tíquete de suporte navegando até [Nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Próximas etapas
 

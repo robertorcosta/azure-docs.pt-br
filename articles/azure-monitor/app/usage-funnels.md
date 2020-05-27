@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671045"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797828"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descobrir como os clientes estão usando seu aplicativo com os Funis do Application Insights
 
-Entender a experiência do cliente é de extrema importância para seus negócios. Se o aplicativo envolver vários estágios, você precisará saber se a maioria dos clientes está progredindo por todo o processo ou se eles estão encerrando o processo em algum momento. A progressão por meio de uma série de etapas em um aplicativo Web é conhecida como *funil*. Use os Funis do Azure Application Insights para obter informações sobre os usuários e monitorar as taxas de conversão passo a passo. 
+Entender a experiência do cliente é de extrema importância para seus negócios. Se o aplicativo envolver vários estágios, você precisará saber se a maioria dos clientes está progredindo por todo o processo ou se eles estão encerrando o processo em algum momento. A progressão por uma série de etapas em um aplicativo Web é conhecida como *funil*. Use os Funis do Azure Application Insights para obter informações sobre os usuários e monitorar as taxas de conversão passo a passo. 
 
 ## <a name="create-your-funnel"></a>Criar o funil
 Antes de criar o funil, decida qual pergunta você deseja responder. Por exemplo, você pode querer saber quantos usuários estão exibindo a página inicial, exibindo um perfil de cliente e criar um tíquete. Neste exemplo, os proprietários da empresa Fabrikam Fiber desejam saber o percentual de clientes que criam com êxito um tíquete de cliente.
@@ -23,7 +23,7 @@ Antes de criar o funil, decida qual pergunta você deseja responder. Por exemplo
 Estas são as etapas que eles realizam para criar seu funil.
 
 1. Na ferramenta Funis do Application Insights, selecione **Novo**.
-1. Do menu suspenso **Intervalo de Tempo**, selecione **Últimos 90 dias**. Selecione **meus funils** ou **funils compartilhados**.
+1. Do menu suspenso **Intervalo de Tempo**, selecione **Últimos 90 dias**. Selecione **Meu funis** ou **Funis compartilhados**.
 1. Na lista suspensa **Etapa 1**, selecione **Índice**. 
 1. Na lista **Etapa 2**, selecione **Cliente**.
 1. Na lista **Etapa 3**, selecione **Criar**.
@@ -46,7 +46,7 @@ A captura de tela anterior inclui cinco áreas realçadas. Esses são recursos d
   * [Visão geral do uso](usage-overview.md)
   * [Usuários, Sessões e Eventos](usage-segmentation.md)
   * [Retenção](usage-retention.md)
-  * [Pastas de trabalho](../../azure-monitor/app/usage-workbooks.md)
+  * [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)
   * [Adicionar contexto de usuário](usage-send-user-context.md)
   * [Exportar para o Power BI](../../azure-monitor/app/export-power-bi.md )
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7d659ca519e5bd7f26e4cca17707e0db397aae98
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421170"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652287"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure
 
@@ -63,7 +63,11 @@ Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Ne
     - **Valor**: hVFkk965BuUv
     - Deixe os outros valores com seus padrões. Clique em **Criar**.
 
-Quando receber a mensagem de que o segredo foi criado com êxito, clique nele na lista. Você pode ver algumas das propriedades. Se você clicar na versão atual, poderá ver o valor especificado na etapa anterior.
+Quando receber a mensagem de que o segredo foi criado com êxito, clique nele na lista. 
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Recuperar um segredo do Key Vault
+
+Se você clicar na versão atual, poderá ver o valor especificado na etapa anterior.
 
 ![Propriedades do segredo](../media/quick-create-portal/current-version-hidden.png)
 

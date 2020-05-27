@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 059e77c063d00ef850a171507ca2e06422ade426
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 514694dc2e3f06db2fb80f6b3ba0106343be11d8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82191763"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658511"
 ---
 # <a name="azure-synapse-analytics-preview-release-notes"></a>Notas sobre a versão do Azure Synapse Analytics (versão prévia)
 
@@ -38,6 +38,6 @@ Este artigo descreve as limitações e os problemas com o Azure Synapse Analytic
 
 * [Criar um workspace](quickstart-create-workspace.md)
 * [Usar o Synapse Studio](quickstart-synapse-studio.md)
-* [Criar um pool de SQL](quickstart-create-sql-pool.md)
+* [Criar um pool de SQL](quickstart-create-sql-pool-portal.md)
 * [Usar o SQL sob demanda](quickstart-sql-on-demand.md)
-* [Criar um Pool do Apache Spark](quickstart-create-apache-spark-pool.md)
+* [Criar um Pool do Apache Spark](quickstart-create-apache-spark-pool-portal.md)

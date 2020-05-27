@@ -3,18 +3,18 @@ title: Usar o PowerShell para configurar alertas no Application Insights | Micro
 description: Automatize a configuração do Application Insights para receber emails sobre alterações de métricas.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: f35658b08eff7574448e3c72b103178b66acbbe0
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669838"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701824"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Você pode automatizar a configuração de [alertas](../../azure-monitor/app/alerts.md) no [Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Você pode automatizar a configuração de [alertas](../../azure-monitor/platform/alerts-log.md) no [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 Além disso, você pode [definir webhooks para automatizar sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md).
 
@@ -29,7 +29,7 @@ Instale o módulo do Azure Powershell no computador em que você deseja executar
 * Instale o [Microsoft Web Platform Installer (v5 ou superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Use-o para instalar o Microsoft Azure PowerShell
 
-## <a name="connect-to-azure"></a>Conecte-se ao Azure
+## <a name="connect-to-azure"></a>Conectar-se ao Azure
 Inicie o Azure PowerShell e [conecte-se à sua assinatura](/powershell/azure/overview):
 
 ```powershell
