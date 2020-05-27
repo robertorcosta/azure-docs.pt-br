@@ -990,6 +990,8 @@
       href: /azure/templates/microsoft.compute/allversions
 - name: Recursos
   items:
+    - name: Perguntas e respostas
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
     - name: Criar modelos ARM
       displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
