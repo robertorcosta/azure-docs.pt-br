@@ -265,8 +265,8 @@
       href: 'https://github.com/Azure/Batch'
     - name: Comentários sobre o Lote
       href: 'https://feedback.azure.com/forums/269742-batch'
-    - name: Fórum do lote
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch'
+    - name: Página de perguntas de P e R da Microsoft para Lote
+      href: 'https://docs.microsoft.com/answers/topics/azure-batch.html'
     - name: Shipyard de lote
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
