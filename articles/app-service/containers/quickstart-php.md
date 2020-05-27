@@ -3,14 +3,14 @@ title: 'Início Rápido: Criar um aplicativo PHP no Linux'
 description: Comece a usar os aplicativos do Linux no Serviço de Aplicativo do Azure implantando seu primeiro aplicativo PHP em um contêiner do Linux no Serviço de Aplicativo.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 05/25/2020
 ms.custom: mvc, cli-validatem seodec18
-ms.openlocfilehash: 5a2abaf49071c90ea4fe0d5b5a454ce91f2cb1e4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f0307088d274c9afee8fb8816b41a6357b4ce9f2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80046064"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848053"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Criar um aplicativo PHP no Serviço de Aplicativo no Linux
 
@@ -73,7 +73,7 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 Navegue até o site para ver o aplicativo recém-criado com imagem interna. Substitua _&lt;nome do aplicativo>_ pelo nome de seu aplicativo.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Seu novo aplicativo deve ficar assim:
@@ -82,37 +82,35 @@ Seu novo aplicativo deve ficar assim:
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
-Counting objects: 2, done.
+<pre>
+Counting objects: 26, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
+Compressing objects: 100% (23/23), done.
+Writing objects: 100% (26/26), 4.95 KiB | 0 bytes/s, done.
+Total 26 (delta 9), reused 0 (delta 0)
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.php'
-remote: Ignoring: .git
-remote: Finished successfully.
-remote: Running post deployment command(s)...
+remote: Preparing deployment for commit id 'df425ea6ef'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
+remote: .
+remote: .
+remote: .
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
-```
+remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/.../log'
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+ * [new branch]      master -> master
+</pre>
 
 ## <a name="browse-to-the-app"></a>Navegar até o aplicativo
 
 Navegue até o aplicativo implantado usando o navegador da Web.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 O código de exemplo PHP está em execução no Serviço de Aplicativo no Linux com imagem interna.
