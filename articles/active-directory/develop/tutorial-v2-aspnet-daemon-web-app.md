@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b9c40d93c48bcf5959b5d9651510ce6076eb789e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201747"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641113"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Criar um daemon multilocatário que usa o ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -235,8 +235,8 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador na U
 1. Retorne ao [Portal do Azure](https://portal.azure.com).
 1. No painel à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, **Registros de aplicativo**.
 1. Selecione o aplicativo **dotnet-web-daemon-v2**.
-1. Na página **Autenticação** do seu aplicativo, atualize os campos de **URL de Logout** com o endereço do seu serviço. Por exemplo, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
-1. No menu de **Identidade Visual**, atualize a **URL da página inicial** para o endereço do serviço. Por exemplo, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
+1. Na página **Autenticação** do seu aplicativo, atualize os campos de **URL de Logout** com o endereço do seu serviço. Por exemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. No menu de **Identidade Visual**, atualize a **URL da página inicial** para o endereço do serviço. Por exemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Salve a configuração.
 1. Adicione a mesma URL na lista de valores do menu **Autenticação** > **URIs de Redirecionamento**. Se você tiver várias URLs de redirecionamento, verifique se há uma nova entrada que usa o URI do serviço de aplicativo para cada URL de redirecionamento.
 
