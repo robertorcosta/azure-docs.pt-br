@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 945c7035c2eeada3fea358489460f80c40438950
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595935"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677967"
 ---
 # <a name="manage-azure-maps-creator"></a>Gerenciar o Criador do Azure Mapas
 
@@ -39,7 +39,7 @@ Este artigo orienta você pelas etapas para criar e excluir um recurso do Criado
 
 5. Revise as configurações e clique em **Criar**.
 
-    ![Confirme as configurações de conta do Creator](./media/how-to-manage-creator/creator-create.PNG)
+    ![Confirme as configurações de conta do Creator](./media/how-to-manage-creator/creator-create-dialog.png)
 
 6. Quando a implantação for concluída, você verá uma página com uma mensagem de êxito ou de falha.
 

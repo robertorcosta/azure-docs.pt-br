@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 09ccb9f095e58d8fa22ec3d119853c729f0c7026
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 328f3d0dc648b3c5fa96c3aab02e80a37cf4218f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "67090566"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: integração do Azure Active Directory com o Skillport
 
@@ -139,7 +139,7 @@ Para configurar o logon único do Azure AD com o Skillport, execute as seguintes
 
 ### <a name="configure-skillport-single-sign-on"></a>Configurar o logon único do Skillport
 
-Para configurar o logon único no lado do **Skillport**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Skillport](https://www.skillsoft.com/contact.asp). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Skillport**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Skillport](https://www.skillsoft.com/about/contact-us). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -194,7 +194,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-skillport-test-user"></a>Criar um usuário de teste do Skillport
 
-Para criar um usuário de teste do Skillport, você precisa entrar em contato com [a equipe de suporte do Skillport](https://www.skillsoft.com/contact.asp), pois eles têm vários cenários de negócios de acordo com o requisito de usuário final. Eles configurarão isso após conversar com os usuários.
+Para criar um usuário de teste do Skillport, você precisa entrar em contato com [a equipe de suporte do Skillport](https://www.skillsoft.com/about/contact-us), pois eles têm vários cenários de negócios de acordo com o requisito de usuário final. Eles configurarão isso após conversar com os usuários.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

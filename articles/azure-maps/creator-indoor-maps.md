@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 34a1495d1a14e35bc5a94bfc01f4034c6fd6de72
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596055"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677806"
 ---
 # <a name="creator-for-indoor-maps"></a>Criador de mapas internos
 
@@ -35,7 +35,7 @@ Use a [API de carregamento de dados do Azure Mapas](https://docs.microsoft.com/r
 
 ## <a name="convert-a-drawing-package"></a>Converter um pacote do Drawing
 
-O [serviço de Conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) converte um pacote do Drawing carregado em dados de mapa interno. O serviço de Conversão também valida o pacote. Os problemas de validação são classificados em dois tipos: erros e avisos. Se forem detectados erros, o processo de conversão apresentará falha. Caso sejam detectados avisos, a conversão será bem-sucedida. No entanto, é recomendável que você analise e resolva todos os avisos. Um aviso indica que parte da conversão foi ignorada ou corrigida automaticamente. Não resolver os avisos pode resultar em erros em processos futuros. Para obter mais informações, confira [Avisos e erros do pacote do Drawing](drawing-conversion-error-codes.md).
+O [serviço de Conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) converte um pacote do Drawing carregado em dados de mapa interno. O serviço de Conversão também valida o pacote. Os problemas de validação são classificados em dois tipos: erros e avisos. Se forem detectados erros, o processo de conversão apresentará falha. Caso sejam detectados avisos, a conversão será bem-sucedida. No entanto, é recomendável que você analise e resolva todos os avisos. Um aviso indica que parte da conversão foi ignorada ou corrigida automaticamente. Não resolver os avisos pode resultar em erros em processos futuros. Para obter mais informações, confira [Avisos e erros do pacote do Drawing](drawing-conversion-error-codes.md).
 
 Quando ocorre um erro, o serviço de Conversão fornece um link para o [Visualizador de Erros de Desenho no Azure Mapas](drawing-error-visualizer.md) aplicativo Web autônomo. Você pode usar o Visualizador de Erros de Desenho para inspecionar [erros e avisos do pacote do Drawing](drawing-conversion-error-codes.md) ocorridos durante o processo de conversão. Depois de corrigir os erros, você poderá tentar carregar e converter o pacote.
 
