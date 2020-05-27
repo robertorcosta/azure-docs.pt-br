@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067676"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798668"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -53,7 +53,7 @@ O corpo principal da página de visão geral fornece insight rápido sobre o sta
 
 ## <a name="use-built-in-workbooks"></a>Usar pastas de trabalho internas<a name="dashboards"></a>
 
-Pastas de trabalho internas oferecem dados integrados de suas fontes de dados conectadas para permitir que você examine os eventos gerados nesses serviços. As pastas de trabalho internas incluem o Azure AD, os eventos de atividades do Azure e locais, que podem ser dados de eventos do Windows provenientes de servidores, de alertas internos, de terceiros, incluindo logs de tráfego do firewall, do Office 365 e de protocolos inseguros com base em eventos do Windows. As pastas de trabalho são baseadas em Pastas de Trabalho do Azure Monitor para fornecer a você melhores personalização e flexibilidade na criação de sua própria pasta de trabalho. Para saber mais, confira [Pastas de Trabalho](../azure-monitor/app/usage-workbooks.md).
+Pastas de trabalho internas oferecem dados integrados de suas fontes de dados conectadas para permitir que você examine os eventos gerados nesses serviços. As pastas de trabalho internas incluem o Azure AD, os eventos de atividades do Azure e locais, que podem ser dados de eventos do Windows provenientes de servidores, de alertas internos, de terceiros, incluindo logs de tráfego do firewall, do Office 365 e de protocolos inseguros com base em eventos do Windows. As pastas de trabalho são baseadas em Pastas de Trabalho do Azure Monitor para fornecer a você melhores personalização e flexibilidade na criação de sua própria pasta de trabalho. Para saber mais, confira [Pastas de Trabalho](../azure-monitor/platform/workbooks-overview.md).
 
 1. Em **Configurações**, selecione **Pastas de Trabalho**. Em **Instalados**, é possível ver todas as pastas de trabalho instaladas. Em **Todos**, é possível ver toda a galeria de pastas de trabalho internas disponíveis para instalação. 
 2. Pesquise uma pasta de trabalho específica ver a lista inteira e a descrição do que cada uma oferece. 
