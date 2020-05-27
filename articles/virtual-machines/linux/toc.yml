@@ -1079,6 +1079,8 @@
       displayName: ARM
 - name: Recursos
   items:
+    - name: Perguntas e respostas
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
     - name: Criar modelos ARM
       displayName: 'Azure Resource Manager, ARM'
       href: /azure/azure-resource-manager/
