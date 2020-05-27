@@ -67,8 +67,6 @@
           href: cdn-restrict-access-by-country.md
         - name: Melhorar o desempenho ao compactar arquivos
           href: cdn-improve-performance.md
-        - name: Várias origens do ponto de extremidade
-          href: endpoint-multiorigin.md
         - name: Controlar o comportamento do cache
           items:
             - name: Controlar o comportamento do cache usando regras de cache
@@ -185,8 +183,8 @@
       href: cdn-billing.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
+    - name: Página de perguntas de P e R da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-cdn.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: Calculadora de preço

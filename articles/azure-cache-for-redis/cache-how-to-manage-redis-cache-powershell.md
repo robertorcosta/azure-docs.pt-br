@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 838835cf44b5ca5048ea6cb7bc1bba582b2a0926
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79278526"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647975"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerenciar o Cache do Azure para Redis com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Este tópico mostra como executar tarefas comuns, como criar, atualizar e dimens
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para obter mais informações sobre o modelo de implantação clássico, consulte [Implantação do Azure Resource Manager versus clássica: Entenda os modelos de implantação e o estado de seus recursos](../azure-resource-manager/management/deployment-models.md).
+Para saber mais sobre o modelo de implantação clássica, consulte [Azure Resource Manager versus implantação clássica: compreenda os modelos de implantação e o estado de seus recursos](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell versão 1.0.0 ou posterior. Você pode verificar a versão do Azure PowerShell instalada com o comando este comando no prompt de comando do Azure PowerShell.
@@ -119,10 +119,10 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 
 | Parâmetro | Descrição | Padrão |
 | --- | --- | --- |
-| Name |Nome do cache | |
-| Local |Local do cache | |
+| Nome |Nome do cache | |
+| Location |Local do cache | |
 | ResourceGroupName |Nome do grupo de recursos no qual criar o cache | |
-| Tamanho |O tamanho do cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2.5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
+| Tamanho |O tamanho do cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |O número de fragmentos para criar durante a criação de um cache premium com o cluster ativado. Os valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |Especifica o SKU do cache. Os valores válidos são: Básico, Standard e Premium |Standard |
 | RedisConfiguration |Especifica as definições de configuração do Redis. Para obter detalhes sobre cada configuração, confira a seguinte tabela de [propriedades RedisConfiguration](#redisconfiguration-properties) . | |
@@ -131,7 +131,7 @@ A tabela a seguir contém as propriedades e as descrições dos parâmetros usad
 | StaticIP |Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. | |
 | Sub-rede |Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. | |
 | VirtualNetwork |Ao hospedar o cache em uma VNET, especifica a ID do recurso da VNET na qual implantar o cache. | |
-| KeyType |Especifica qual chave de acesso regenerar durante a renovação das chaves de acesso. Os valores válidos são: Primary, Secondary | |
+| KeyType |Especifica qual chave de acesso regenerar durante a renovação das chaves de acesso. Os valores válidos são: Primária, Secundária | |
 
 ### <a name="redisconfiguration-properties"></a>propriedades RedisConfiguration
 | Propriedade | Descrição | Tipos de preço |
@@ -714,7 +714,7 @@ O comando a seguir exporta dados de uma instância de Cache do Azure para Redis 
 Você pode reiniciar a instância de Cache do Azure para Redis usando o cmdlet `Reset-AzRedisCache`.
 
 > [!IMPORTANT]
-> A reinicialização só está disponível para caches da [camada Premium](cache-premium-tier-intro.md) . Para saber mais sobre a reinicialização de seu cache, confira [Administração de cache - reinicializar](cache-administration.md#reboot).
+> A reinicialização está disponível somente para caches do [tipo Premium](cache-premium-tier-intro.md) . Para saber mais sobre a reinicialização de seu cache, confira [Administração de cache - reinicializar](cache-administration.md#reboot).
 > 
 > 
 
@@ -775,9 +775,9 @@ O comando a seguir reinicializa ambos os nós do cache especificado.
 Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os seguintes recursos:
 
 * [Documentação de cmdlet do Cache do Azure para Redis no MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
-* [Cmdlets do Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkID=394765): saiba usar os cmdlets no módulo do Azure Resource Manager.
-* [Usando Grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/templates/deploy-portal.md): saiba como criar e gerenciar grupos de recursos no portal do Azure.
-* [Blog do Azure](https://azure.microsoft.com/blog/): obtenha informações sobre os novos recursos no Azure.
-* [Blog do Windows PowerShell](https://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
-* [Blog "Hey, Scripting Guy!" Blog](https://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
+* [Cmdlets do Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkID=394765): aprenda a usar os cmdlets no módulo do Azure Resource Manager.
+* [Como usar os Grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/templates/deploy-portal.md): aprenda a criar e gerenciar Grupos de recursos no portal do Azure.
+* [Blog do Azure](https://azure.microsoft.com/blog/): saiba mais sobre os novos recursos do Azure.
+* [Blog do Windows PowerShell](https://devblogs.microsoft.com/powershell/): saiba mais sobre os novos recursos do Windows PowerShell.
+* [Blog "Hey, Scripting Guy!" Blog](https://blogs.technet.com/b/heyscriptingguy/): obtenha dicas e truques reais da comunidade do Windows PowerShell.
 

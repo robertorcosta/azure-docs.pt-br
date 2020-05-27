@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670365"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835862"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com alertas do Azure Monitor
 Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Eles são criados por regras de alerta que executam pesquisas de logs automaticamente em intervalos regulares e, se os resultados da pesquisa de logs corresponderem a determinados critérios, um registro de alerta será criado e poderá ser configurado para executar uma resposta automatizada.  Este tutorial é uma continuação do tutorial [Criar e compartilhar painéis de dados do Log Analytics](tutorial-logs-dashboards.md).   
@@ -23,7 +23,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma regra de alerta
 > * Configurar um Grupo de Ações para enviar uma notificação por email
 
-Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
+Para concluir o exemplo neste tutorial, você deve ter uma máquina virtual existente [conectada ao espaço de trabalho do Log Analytics](quick-collect-azurevm.md).  
 
 ## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
@@ -69,4 +69,4 @@ Neste tutorial, você aprendeu como as regras de alerta podem identificar de for
 Siga este link para ver amostras de script do Log Analytics pré-criadas.  
 
 > [!div class="nextstepaction"]
-> [Amostras de script do Log Analytics](../../azure-monitor/platform/powershell-samples.md)
+> [Amostras de script do Log Analytics](../samples/powershell-samples.md)

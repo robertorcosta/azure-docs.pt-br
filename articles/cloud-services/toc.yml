@@ -193,8 +193,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Roteiro de aprendizagem
       href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
-    - name: Fórum do MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment'
+    - name: Página de perguntas de P e R da Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Calculadora de preço

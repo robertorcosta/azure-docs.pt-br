@@ -3,34 +3,20 @@ title: Administração do Portal do EA do Azure
 description: Este artigo explica as tarefas comuns que um administrador realiza no Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 2b2ec7a5954649c36cf9da5d7933c83eec67faa3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692651"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648201"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Portal do EA do Azure
 
 Este artigo explica as tarefas comuns que um administrador realiza no Portal do EA do Azure (https://ea.azure.com). O Portal do EA do Azure é um portal de gerenciamento online que ajuda os clientes a gerenciar o custo dos respectivos serviços de EA do Azure. Para obter informações introdutórias sobre o Portal do EA do Azure, confira o artigo [Introdução ao Portal do EA do Azure](ea-portal-get-started.md).
-
-## <a name="add-a-new-enterprise-administrator"></a>Adicionar um novo administrador corporativo
-
-Os administradores corporativos têm mais privilégios ao gerenciar um registro de EA do Azure. O administrador inicial do EA do Azure foi criado quando o contrato de EA foi configurado. No entanto, você pode adicionar ou remover novos administradores a qualquer momento. Novos administradores são adicionados somente por administradores existentes. Para obter mais informações sobre como adicionar outros admins corporativos, confira [Criar outro admin corporativo](ea-portal-get-started.md#create-another-enterprise-administrator). Para saber mais sobre funções e tarefas do perfil de cobrança, confira [Funções e tarefas do perfil de cobrança](understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-## <a name="update-user-state-from-pending-to-active"></a>Atualizar estado do usuário de pendente para ativo
-
-Quando novos AOs (proprietários de conta) são adicionados a um registro de EA do Azure pela primeira vez, o status deles aparece como _pendente_. Quando um novo proprietário da conta receber o email de ativação de boas-vindas, ele poderá entrar para ativar a própria conta. Assim que ele ativa a própria conta, o status da conta é atualizado de _pendente_ para _ativo_. O proprietário da conta precisa ler a mensagem de 'Aviso' e selecionar **Continuar**. Pode ser solicitado de novos usuários que insiram o nome e sobrenome deles para criar uma conta de comércio. Nesse caso, eles precisam adicionar as informações necessárias para continuar e, em seguida, a conta é ativada.
-
-## <a name="add-a-department-admin"></a>Adicionar um administrador de departamento
-
-Depois que um administrador de EA cria um departamento, o administrador corporativo do Azure pode adicionar administradores de departamento e associar cada um deles a um departamento. Um administrador de departamento pode criar novas contas. Novas contas são necessárias para que as assinaturas de EA do Azure sejam criadas.
-
-Para obter mais informações sobre como adicionar um administrador de departamento, confira [Criar um administrador de departamento do Azure EA](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associar uma conta a um departamento
 
@@ -114,108 +100,6 @@ Quando um usuário é adicionado como um proprietário de conta por meio do Port
 
 No momento, a oferta de Desenvolvimento/Teste não é aplicável aos clientes do Azure Gov.
 
-## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transferir uma conta empresarial para um novo registro
-
-Uma transferência de conta move um proprietário da conta de um registro para outro. Todas as assinaturas relacionadas no proprietário da conta serão movidas para o registro de destino. Use uma transferência de conta quando tiver vários registros ativos e só desejar mover os proprietários da conta selecionados.
-
-Esta seção destina-se apenas a fins informativos, pois a ação não pode ser executada por um administrador corporativo. Uma solicitação de suporte é necessária para transferir uma conta empresarial para um novo registro.
-
-Tenha os pontos a seguir em mente ao transferir uma conta empresarial para um novo registro:
-
-- Somente as contas especificadas na solicitação são transferidas. Se todas as contas forem escolhidas, elas serão todas transferidas.
-- O registro de origem mantém o status como ativo ou estendido. Você poderá continuar usando o registro até que ele expire.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Ao solicitar uma transferência de conta, forneça as seguintes informações:
-
-- O número do registro de destino, o nome da conta e o email do proprietário da conta a ser transferido
-- Para o registro de origem, o número de registro e a conta a serem transferidos
-
-Outros pontos para ter em mente antes de uma transferência de conta:
-
-- A aprovação de um administrador de EA é necessária para o registro de origem e o de destino
-- Se uma transferência de conta não atender aos seus requisitos, considere uma transferência de registro.
-- A transferência de conta transfere todos os serviços e assinaturas relacionados às contas específicas.
-- Depois que a transferência for concluída, a conta transferida aparecerá inativa no registro de origem e aparecerá ativa no registro de destino.
-- A conta mostra a data de término correspondente à data de transferência efetiva no registro de origem e como uma data de início no registro de destino.
-- Qualquer uso ocorrido para a conta antes da data de transferência efetiva permanece no registro de origem.
-
-
-## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transferir Registro Enterprise para um novo registro
-
-Uma transferência de registro é considerada quando:
-
-- O termo de compromisso de um registro atual chegou ao fim.
-- Um registro está no status expirado/estendido e um novo contrato é negociado.
-- Você tem vários registros e deseja combinar todas as contas e a cobrança em um só registro.
-
-Esta seção destina-se apenas a fins informativos, pois a ação não pode ser executada por um administrador corporativo. Uma solicitação de suporte é necessária para transferir um Registro Enterprise para um novo.
-
-Quando você solicita a transferência de um Registro Enterprise inteiro para um registro, as seguintes ações ocorrem:
-
-- Todos os serviços, as assinaturas, as contas, os departamentos e toda a estrutura de registro do Azure, incluindo todos os administradores de departamento do EA, são transferidos para um novo registro de destino.
-- O status do registro é definido como _Transferido_. O registro transferido está disponível apenas para fins de relatório de uso histórico.
-- Você não pode adicionar funções nem assinaturas a um registro transferido. O status de transferido impede o uso adicional em relação ao registro.
-- Qualquer saldo de compromisso monetário restante no contrato é perdido, incluindo termos futuros.
--    Se o registro do qual você está fazendo a transferência tiver compras de RI, o valor de compra de RI permanecerá no registro de origem. No entanto, todos os benefícios de RI serão transferidos para serem utilizados no novo registro.
--    O valor avulso de compra do Marketplace e todos os valores fixos mensais já incorridos no registro antigo não serão transferidos para o novo registro. As cobranças do Marketplace baseadas no consumo serão transferidas.
-
-### <a name="effective-transfer-date"></a>Data de início de vigência da transferência
-
-A data de efetivação da transferência pode ser a data de início do registro de destino ou uma data posterior a ela.
-
-O uso do registro de origem é cobrado em relação ao compromisso monetário ou como excedente. O uso que ocorre após a data de início de vigência da transferência é transferido para o novo registro e cobrado de acordo.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Ao solicitar uma transferência de registro, forneça as seguintes informações:
-
-- Para o registro de origem, o número de registro.
-- Para o registro de destino, o número de registro no qual transferir.
-- A data de início de vigência da transferência do registro pode ser uma data igual ou posterior à data de início do registro de destino. A data escolhida não pode afetar o uso de nenhuma fatura excedente já emitida.
-
-Outros pontos para ter em mente antes de uma transferência de registro:
-
-- É necessária a aprovação dos administradores do EA do registro de origem e de destino.
-- Se uma transferência de registro não atender aos seus requisitos, considere uma transferência de conta.
-- O status do registro de origem será atualizado para transferido e só estará disponível para fins de relatório de uso histórico.
-
-### <a name="monetary-commitment"></a>Compromisso monetário
-
-O compromisso monetário não é transferível entre registros. Os saldos de compromisso monetário são associados contratualmente ao registro em que ele foi pedido. O compromisso monetário não é transferido como parte do processo de transferência do registro ou da conta.
-
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Nenhum serviço afetado para transferências de conta e registro
-
-Não há tempo de inatividade durante uma transferência de conta ou de registro. Ela poderá ser concluída no mesmo dia da solicitação se todas as informações necessárias forem fornecidas.
-
-## <a name="change-account-owner"></a>Alterar proprietário da conta
-
-O Portal do EA do Azure pode transferir assinaturas de um proprietário de conta para outro. Para obter mais informações, confira [Alterar proprietário da conta](ea-portal-get-started.md#change-account-owner).
-
-## <a name="subscription-transfer-effects"></a>Efeitos da transferência de assinatura
-
-Quando uma assinatura do Azure é transferida para uma conta no mesmo locatário do Azure Active Directory, todos os usuários, os grupos e as entidades de serviço que tinham o [RBAC (controle de acesso baseado em função)](../../role-based-access-control/overview.md) para gerenciar recursos mantêm o respectivo acesso.
-
-Para exibir os usuários com acesso RBAC à assinatura:
-
-1. No portal do Azure, abra **Assinaturas**.
-2. Selecione a assinatura que deseja exibir e, em seguida, selecione **Controle de Acesso (IAM)** .
-3. Selecione **Atribuições de função**. A página de atribuições de função lista todos os usuários que têm acesso RBAC à assinatura.
-
-Se a assinatura for transferida para uma conta em um locatário diferente do Azure AD, todos os usuários, grupos e entidades de serviço que tiverem [RBAC](../../role-based-access-control/overview.md) para gerenciar recursos _perderão_ o acesso. Embora o acesso RBAC não esteja presente, o acesso à assinatura pode estar disponível por meio de mecanismos de segurança, incluindo:
-
-- Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md).
-- Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Visão geral da conta de armazenamento do Azure](../../storage/common/storage-account-overview.md).
-- Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
-
-Se o destinatário precisar restringir o acesso aos respectivos recursos do Azure, ele deverá considerar a possibilidade de atualizar os segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
-
-1. Entre no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, selecione **Todos os recursos**.
-3. Selecione o recurso.
-4. Na página de recursos, selecione **Configurações** para ver e atualizar os segredos existentes.
-
 ## <a name="delete-subscription"></a>Excluir assinatura
 
 Para excluir uma assinatura na qual você seja o proprietário da conta:
@@ -260,60 +144,6 @@ Para adicionar um contato:
 O novo contato de notificação é exibido na seção **Contato de Notificação**. Para alterar a frequência de notificação, selecione o contato de notificação e selecione o símbolo de lápis à direita da linha selecionada. Defina a frequência como **diária**, **semanal**, **mensal** ou **nenhuma**.
 
 Você pode suprimir a _data de término do período de cobertura_ e _desabilitar e desprovisionar as notificações de data de término do ciclo de vida se aproximando_. Desabilitar as notificações de ciclo de vida suprime as notificações sobre o período de cobertura e a data de término do contrato.
-
-## <a name="manage-partner-administrators"></a>Gerenciar administradores parceiros
-
-Cada administrador parceiro no Portal do EA do Azure tem a capacidade de adicionar ou remover outros administradores parceiros. Os administradores de parceiros estão associados às organizações de parceiros de registros indiretos e não estão associados diretamente aos registros.
-
-### <a name="add-a-partner-administrator"></a>Adicionar um administrador parceiro
-
-Para ver uma lista de todos os registros associados à mesma organização de parceiro do usuário atual, selecione a guia **Registro** e marque a caixa de registro desejada.
-
-1. Entre como um administrador parceiro.
-1. Selecione **Gerenciar** na área de navegação à esquerda.
-1. Selecione a guia **Parceiro**.
-1. Selecione **+ Adicionar Administrador** e preencha o endereço de email, o contato da notificação e os detalhes da notificação.
-1. Selecione **Adicionar**.
-
-### <a name="remove-a-partner-administrator"></a>Remover um administrador parceiro
-
-Para ver uma lista de todos os registros associados à mesma organização de parceiro do usuário atual, selecione a guia **Registro** e marque a caixa de registro desejada.
-
-1. Entre como um administrador parceiro.
-1. Selecione **Gerenciar** na área de navegação à esquerda.
-1. Selecione a guia **Parceiro**.
-1. Na seção Administrador, escolha a linha apropriada para o administrador que você deseja remover.
-1. Selecione o símbolo X à direita.
-1. Confirme se você deseja excluir.
-
-## <a name="manage-partner-notifications"></a>Gerenciar notificações de parceiro
-
-Os administradores parceiros podem gerenciar a frequência com que recebem notificações de uso para os respectivos registros. Eles recebem automaticamente notificações semanais do próprio saldo não cobrado. Eles podem alterar a frequência de notificações individuais para mensal, semanal ou diária, podendo ainda desligá-las completamente.
-
-Se uma notificação não tiver sido recebida por um usuário, verifique se as configurações de notificação do usuário estão corretas com as etapas a seguir.
-
-1. Entrar no Portal do EA do Azure como um administrador parceiro.
-2. Selecione **Gerenciar** e, em seguida, selecione a guia **Parceiro**.
-3. Exiba a lista de administradores na seção Administrador.
-4. Para editar as preferências de notificação, posicione o cursor sobre o administrador apropriado e selecione o símbolo de lápis.
-5. Aumente a frequência de notificação e as notificações de ciclo de vida conforme necessário.
-6. Adicione um contato, se necessário, e selecione **Adicionar**.
-7. Clique em **Salvar**.
-
-![Exemplo mostrando a caixa Adicionar Contato ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
-
-## <a name="view-enrollments-for-partner-administrators"></a>Exibir registros para administradores parceiros
-
-Os administradores parceiros podem ver um modo de exibição de lista de todos os registros diretos e indiretos no Portal do EA do Azure. As caixas que contêm uma visão geral de cada registro serão exibidas com o número do registro, o nome do registro, o saldo e os valores excedentes.
-
-### <a name="view-a-list-of-enrollments"></a>Exibir uma Lista de registros
-
-1. Entre como um administrador parceiro.
-1. Selecione **Gerenciar** no painel de navegação no lado esquerdo da página.
-1. Selecione a guia **Registro**.
-1. Marque a caixa do registro.
-
-Uma exibição de todos os registros é mantida na parte superior da página e apresenta caixas para cada registro. Além disso, você pode navegar pelos registros selecionando o número de registro atual na navegação do lado esquerdo da página. Um pop-up será exibido, permitindo que você pesquise registros ou escolha outro registro marcando a caixa apropriada.
 
 ## <a name="azure-sponsorship-offer"></a>Oferta do Azure Sponsorship
 

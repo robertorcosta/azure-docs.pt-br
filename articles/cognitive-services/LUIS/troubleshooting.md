@@ -4,12 +4,12 @@ description: Este artigo contém as respostas para perguntas frequentes sobre o 
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 79cee94a0f04cb89aa65f65cde63e48b6f078d2c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592841"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834995"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -82,7 +82,7 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Ponto de Extremidade
+## <a name="endpoint"></a>Ponto de extremidade
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como corrigi-la?
 
@@ -317,20 +317,20 @@ Consulte o [Guia de migração da API v2 para V3 para aplicativos Luis](luis-mig
 
 ## <a name="build-2019-conference-announcements"></a>Crie anúncios de conferência 2019
 
-Os seguintes recursos foram lançados na conferência Build 2019:
+Os seguintes recursos foram lançados na Conferência Build 2019:
 
-* [Visualização do guia de migração da API v3](luis-migration-api-v3.md)
-* [Painel analítico aprimorado](luis-how-to-use-dashboard.md)
+* [Visualização do guia de migração da API V3](luis-migration-api-v3.md)
+* [Painel de análise aprimorado](luis-how-to-use-dashboard.md)
 * [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md)
 * [Entidades de lista dinâmica](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Vídeos:
 
-* [Como usar o AI de conversa do Azure para dimensionar sua empresa para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Como usar a IA de conversa do Azure para preparar sua empresa para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o LUIS, veja os seguintes recursos:
 * [Perguntas do Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Fórum de LUIS (Serviço Inteligente de Reconhecimento Vocal) na MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Microsoft Q&uma página de perguntas para o MSDN Reconhecimento vocal Intelligent Services (LUIS)](https://docs.microsoft.com/answers/topics/azure-language-understanding.html)
