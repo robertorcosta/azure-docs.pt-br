@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421220"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700322"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -50,7 +50,7 @@ As contas do **Administrador do servidor** e do **Administrador do Azure AD** t�
 - Podem adicionar e remover membros das funções `dbmanager` e `loginmanager`.
 - Podem exibir a tabela do sistema `sys.sql_logins`.
 
-## <a name="sql-on-demand-preview"></a>SQL sob demanda (versão prévia)
+## <a name="sql-on-demand-preview"></a>[SQL sob demanda (versão prévia)](#tab/serverless)
 
 Para gerenciar os usuários que têm acesso ao SQL sob demanda, use as instruções abaixo.
 
@@ -72,7 +72,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Depois que o logon e o usuário forem criados, use a sintaxe convencional do SQL Server para conceder direitos.
 
-## <a name="sql-pool"></a>Pool de SQL
+## <a name="sql-pool"></a>[Pool de SQL](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>Caminho de acesso do administrador
 
@@ -127,6 +127,8 @@ Agora, o usuário pode se conectar ao banco de dados `master` e criar novos banc
 ### <a name="login-managers"></a>Gerentes de logon
 
 A outra função administrativa é a função de gerente de logon. Os membros dessa função podem criar novos logons no banco de dados mestre. Se quiser, você poderá concluir as mesmas etapas (criar um logon e usuário, e adicionar um usuário à função **loginmanager**) para permitir que um usuário crie novos logons no mestre. Normalmente, os logons não são necessários, pois a Microsoft recomenda o uso de usuários de banco de dados independentes, que são autenticados no nível do banco de dados em vez de usar os usuários baseados em logons. Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+---
 
 ## <a name="non-administrator-users"></a>Usuários não administradores
 

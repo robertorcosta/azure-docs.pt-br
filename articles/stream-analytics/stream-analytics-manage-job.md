@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 79b8cfd3f50ffd9f1c6b36dd73942ed3ddc5929f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594909"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697390"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Tutorial: Analisar os dados de uma chamada telefônica com o Stream Analytics e visualizar os resultados em um dashboard do Power BI
 
@@ -264,7 +264,7 @@ Você pode testar uma consulta no editor de consultas usando dados de exemplo. E
 
 Nesta parte do tutorial, você usará um aplicativo Web [ASP.NET](https://asp.net/) de exemplo criado pela equipe do Power BI para inserir seu dashboard. Para saber mais sobre a inserção de painéis, confira o artigo [Inserindo com o Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Para configurar o aplicativo, acesse o repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) do GitHub e siga as instruções na seção **Usuário Tem Dados** (use as URLs de redirecionamento e de página inicial da subseção **integrate-web-app**). Como estamos usando painel de exemplo, use o código de exemplo **integrate-web-app** localizado no [repositório GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/User%20Owns%20Data/integrate-web-app).
+Para configurar o aplicativo, acesse o repositório [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) do GitHub e siga as instruções na seção **Usuário Tem Dados** (use as URLs de redirecionamento e de página inicial da subseção **integrate-web-app**). Como estamos usando painel de exemplo, use o código de exemplo **integrate-web-app** localizado no [repositório GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/integrate-web-app).
 Quando o aplicativo estiver em execução no seu navegador, siga estas etapas para inserir o painel criado anteriormente na página:
 
 1. Selecione **Entrar no Power BI**, que concede ao aplicativo acesso aos dashboards da sua conta do Power BI.

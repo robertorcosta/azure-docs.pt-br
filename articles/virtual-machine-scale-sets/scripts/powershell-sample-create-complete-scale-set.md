@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 05/29/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 2d4e252484515f43e53bdfbed58f7350d4d82cb3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df2c1b10f0d63e3cafbd6f20805a296710219461
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200275"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699559"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais completo com o PowerShell
 
@@ -62,5 +62,3 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
-
-Outros exemplos de script do PowerShell de conjunto de dimensionamento de máquinas virtuais podem ser encontrados na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../powershell-samples.md).

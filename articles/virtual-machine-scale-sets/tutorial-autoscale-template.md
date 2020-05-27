@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 0d857a0066737cd7bdc14dff435e25add66f2cdd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 95baaaff0936d288b5a56efb8f6ce1ba87637d8a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201376"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700933"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo. Neste tutorial, você aprenderá a:
@@ -272,8 +272,3 @@ Neste tutorial, você aprendeu como dimensionar automaticamente ou reduzir horiz
 > * Criar e usar regras de dimensionamento automático
 > * Testar instâncias de VM sob estresse e disparar regras de dimensionamento automático
 > * Redimensionar automaticamente conforme a demanda é reduzida
-
-Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, confira os seguintes scripts de exemplo de CLI do Azure de exemplo:
-
-> [!div class="nextstepaction"]
-> [Exemplos de script de conjunto de dimensionamento para a CLI do Azure](cli-samples.md)

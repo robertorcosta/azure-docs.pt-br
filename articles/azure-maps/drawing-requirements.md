@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: dad9bb40161a2adc8654f50de5c1d876e3344e59
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596635"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681897"
 ---
 # <a name="drawing-package-requirements"></a>Requisitos do pacote de desenho
 
-O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) permite converter pacotes de desenho carregados em dados de mapa. Este artigo descreve os requisitos de pacote de desenho para a API de Conversão. Para exibir um pacote de exemplo, você pode baixar o [Pacote de desenho](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de amostra.
+O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) permite converter pacotes de desenho carregados em dados de mapa. Este artigo descreve os requisitos de pacote de desenho para a API de Conversão. Para exibir um pacote de exemplo, você pode baixar o [Pacote de desenho](https://github.com/Azure-Samples/am-creator-indoor-data-examples) de amostra.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -25,7 +25,7 @@ O pacote de desenho inclui desenhos salvos no formato DWG, que é o formato de a
 
 Você pode usar qualquer software CAD para produzir os desenhos no pacote de desenho.  
 
-O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) converte o pacote de desenho em dados de mapa.  O Serviço de conversão foi desenvolvido e testado usando o formato de arquivo DWG do AutoCAD. `AC1032` é a versão do formato interno dos arquivos DWG. Você é encorajado a selecionar `AC1032` como a versão interna do formato de arquivo DWG.  
+O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) converte o pacote de desenho em dados de mapa.  O Serviço de conversão foi desenvolvido e testado usando o formato de arquivo DWG do AutoCAD. `AC1032` é a versão do formato interno dos arquivos DWG. Você é encorajado a selecionar `AC1032` como a versão interna do formato de arquivo DWG.  
 
 Glossário dos termos usados neste documento.
 
@@ -54,7 +54,7 @@ Apenas um arquivo DWG é necessário para cada nível da instalação. Os dados 
 * Não deve conter recursos de vários níveis.
 * Não deve conter recursos de várias instalações.
 
-O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) pode extrair as seguintes classes de recurso de um arquivo DWG:
+O [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) pode extrair as seguintes classes de recurso de um arquivo DWG:
 
 * Levels
 * Unidades
@@ -71,11 +71,11 @@ As camadas do DWG também devem seguir os seguintes critérios:
 
 * As origens de desenhos para todos os arquivos DWG devem se alinhar à mesma latitude e longitude.
 * Cada nível deve estar na mesma orientação dos outros níveis.
-* Os polígonos com interseção automática serão reparados automaticamente, e o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) emitirá um aviso. É recomendável inspecionar os resultados reparados manualmente, pois eles podem não corresponder aos resultados esperados.
+* Os polígonos com interseção automática serão reparados automaticamente, e o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) emitirá um aviso. É recomendável inspecionar os resultados reparados manualmente, pois eles podem não corresponder aos resultados esperados.
 
 Todas as entidades de camada devem ser um dos seguintes tipos: linha, polilinha, polígono, arco circular, círculo, texto (linha única). Todos os outros tipos de entidade serão ignorados.
 
-A tabela a seguir descreve os tipos de entidade e recursos com suporte de cada camada. Se uma camada contiver tipos de entidade sem suporte, o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) ignorará essas entidades.  
+A tabela a seguir descreve os tipos de entidade e recursos com suporte de cada camada. Se uma camada contiver tipos de entidade sem suporte, o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) ignorará essas entidades.  
 
 | Camada | Tipos de entidade | Recursos |
 | :----- | :-------------------| :-------
@@ -167,11 +167,11 @@ Um exemplo da camada ZoneLabel pode ser visto como a camada ZONELABELS no [pacot
 
 ## <a name="manifest-file-requirements"></a>Requisitos do arquivo de manifesto
 
-A pasta zip deve conter um arquivo de manifesto no nível raiz do diretório, e o arquivo deve ser nomeado como **manifest.json**. Ele descreve os arquivos DWG para permitir que o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) analise seu conteúdo. Apenas os arquivos identificados pelo manifesto serão ingeridos. Serão ignorados os arquivos que estiverem na pasta zip, mas não estiverem listados corretamente no manifesto.
+A pasta zip deve conter um arquivo de manifesto no nível raiz do diretório, e o arquivo deve ser nomeado como **manifest.json**. Ele descreve os arquivos DWG para permitir que o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) analise seu conteúdo. Apenas os arquivos identificados pelo manifesto serão ingeridos. Serão ignorados os arquivos que estiverem na pasta zip, mas não estiverem listados corretamente no manifesto.
 
 Os caminhos de arquivo, no objeto **buildingLevels** do arquivo de manifesto, devem estar relacionados à raiz da pasta zip. O nome do arquivo DWG deve corresponder exatamente ao nome do nível da instalação. Por exemplo, um arquivo DWG para o nível “Porão” seria “Porão.dwg”. Um arquivo DWG para o nível 2 seria nomeado como “nível_2.dwg”. Use um sublinhado se o nome do seu nível tiver um espaço. 
 
-Embora haja requisitos para usar os objetos de manifesto, nem todos os objetos são necessários. A tabela a seguir mostra os objetos obrigatórios e opcionais para a versão 1.1 do [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion).
+Embora haja requisitos para usar os objetos de manifesto, nem todos os objetos são necessários. A tabela a seguir mostra os objetos obrigatórios e opcionais para a versão 1.1 do [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Objeto | Obrigatório | Descrição |
 | :----- | :------- | :------- |
@@ -402,7 +402,7 @@ A seguir, há um arquivo de manifesto de amostra para o pacote de desenho de amo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que o pacote de desenho atender aos requisitos, você poderá usar o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) para converter o pacote em um conjunto de dados de mapa. Em seguida, você pode usar o conjunto de dados para gerar um mapa interno usando o módulo de Mapas internos. Leia os artigos a seguir para saber mais sobre como usar o módulo de Mapas internos:
+Depois que o pacote de desenho atender aos requisitos, você poderá usar o [Serviço de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote em um conjunto de dados de mapa. Em seguida, você pode usar o conjunto de dados para gerar um mapa interno usando o módulo de Mapas internos. Leia os artigos a seguir para saber mais sobre como usar o módulo de Mapas internos:
 
 > [!div class="nextstepaction"]
 >[Criador de mapas internos](creator-indoor-maps.md)

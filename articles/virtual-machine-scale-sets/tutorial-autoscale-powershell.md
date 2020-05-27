@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 3c8488fa794e2bfa4de7833cb4cd4756b5394263
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201362"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700818"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
 
@@ -255,8 +255,3 @@ Neste tutorial você aprendeu a reduzir ou escalar aplicativos horizontal e auto
 > * Criar e usar regras de dimensionamento automático
 > * Testar instâncias de VM sob estresse e disparar regras de dimensionamento automático
 > * Redimensionar automaticamente conforme a demanda é reduzida
-
-Para obter mais exemplos de conjuntos de dimensionamento de máquinas virtuais em ação, consulte os seguintes scripts de exemplo do exemplo do Azure PowerShell:
-
-> [!div class="nextstepaction"]
-> [Exemplos de script de conjunto de dimensionamento para o Azure PowerShell](powershell-samples.md)

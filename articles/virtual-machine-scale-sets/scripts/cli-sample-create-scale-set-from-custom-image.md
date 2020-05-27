@@ -9,12 +9,12 @@ ms.subservice: imaging
 ms.date: 03/27/2018
 ms.reviewer: cynthn
 ms.custom: akjosh
-ms.openlocfilehash: 7e706eb76560b6479d7579c59aaf48b5dfdaf968
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 91673f945104bd7b26d21b11ec3b710bac9db9cb
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117199"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699916"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais de uma imagem de VM personalizada com a CLI do Azure
 Esse script cria um conjunto de dimensionamento de máquinas virtuais que usa uma imagem de VM personalizada como a origem para as instâncias de VM.
@@ -44,5 +44,3 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um conjunt
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Outros exemplos de script da CLI do Azure de conjunto de dimensionamento de máquinas virtuais podem ser encontrados na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).

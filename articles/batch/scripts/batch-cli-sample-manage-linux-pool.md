@@ -1,25 +1,14 @@
 ---
 title: Exemplo de Script da CLI do Azure – Pool do Linux em Lote
 description: O script demonstra alguns dos comandos disponíveis na CLI do Azure para criar e gerenciar um pool dos nós de computação do Linux no Lote do Azure.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 01/29/2018
-ms.author: labrenne
-ms.openlocfilehash: 7f896f7f6493cff8c25d4ccfd5a15f5edb11258f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e39deaf2cb897e01ac69b26a7855d7227904539a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77024476"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681873"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Exemplo da CLI: criar e gerenciar um pool do Linux em Lote do Azure
 

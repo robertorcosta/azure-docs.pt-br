@@ -2,13 +2,13 @@
 title: 'Início Rápido: Criar um aplicativo no portal do LUIS'
 description: Neste início rápido, você criará as partes básicas de um aplicativo, intenções e entidades, bem como um teste com enunciado de exemplo no portal do LUIS.
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585163"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697285"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início Rápido: Criar um aplicativo no portal do LUIS
 
@@ -137,7 +137,7 @@ Os exemplos de enunciado da intenção **Nenhum** devem ficar fora do seu domín
 
 1. Verifique se a entidade é encontrada na intenção **FindForm** selecionando **Intenções** no menu à esquerda. Em seguida, selecione a intenção **FindForm**.
 
-   A entidade é marcada onde ela aparece nos exemplos de enunciado. Caso deseje ver o texto original em vez do nome da entidade, ative/desative a **Exibição de Entidades** na barra de ferramentas.
+   A entidade é marcada onde ela aparece nos exemplos de enunciado.
 
    > [!div class="mx-imgBorder"]
    > [![Captura de tela de todos os enunciados de exemplo marcados com entidades](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)

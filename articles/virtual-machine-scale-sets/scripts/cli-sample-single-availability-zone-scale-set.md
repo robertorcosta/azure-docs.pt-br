@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: dc98085ca017f7249e225e8c1c009b3d255f1719
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8883bd099b684b5086554feded88e133764e614f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195798"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701613"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-the-azure-cli"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com a CLI do Azure
 Esse script cria um conjunto de dimensionamento de máquinas virtuais executando o Ubuntu em uma Zona de disponibilidade única. Após a execução do script, é possível acessar a máquina virtual por RDP.
@@ -44,5 +44,3 @@ Este script usa os comandos a seguir para criar um grupo de recursos, um conjunt
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
-
-Outros exemplos de script da CLI do Azure de conjunto de dimensionamento de máquinas virtuais podem ser encontrados na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../cli-samples.md).

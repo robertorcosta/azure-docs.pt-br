@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Nova atribuição de política com o PowerShell'
 description: Neste início rápido, use o Azure PowerShell para criar uma atribuição do Azure Policy para identificar recursos sem conformidade.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1fe1c7ee50c1e93f94d387440a22b011d392ffca
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75978302"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684500"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início Rápido: Criar uma atribuição de política para identificar recursos sem conformidade usando o Azure PowerShell
 
@@ -41,10 +41,10 @@ Neste início rápido, crie uma atribuição de política para a definição _Au
 Execute o comando a seguir para criar uma nova atribuição de política:
 
 ```azurepowershell-interactive
-# Get a reference to the resource group that will be the scope of the assignment
+# Get a reference to the resource group that is the scope of the assignment
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
 
-# Get a reference to the built-in policy definition that will be assigned
+# Get a reference to the built-in policy definition to assign
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
 
 # Create the policy assignment with the built-in definition against your resource group

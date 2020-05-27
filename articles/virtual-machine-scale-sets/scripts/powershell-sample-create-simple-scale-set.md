@@ -9,12 +9,12 @@ ms.subservice: powershell
 ms.date: 03/27/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 6da415d3fc9e408a0676e2bd01cc725ffb262ea7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3d49212e6d35e2a348a7e31ff7d2f0ad49eabfc2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197549"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699505"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais básico com o PowerShell
 Esse script cria um conjunto de dimensionamento de máquinas virtuais que executa o Windows Server 2016. Depois de executar o script, é possível acessar a VM via RDP.
@@ -45,5 +45,3 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
-
-Outros exemplos de script do PowerShell de conjunto de dimensionamento de máquinas virtuais podem ser encontrados na [documentação do conjunto de dimensionamento de máquinas virtuais do Azure](../powershell-samples.md).

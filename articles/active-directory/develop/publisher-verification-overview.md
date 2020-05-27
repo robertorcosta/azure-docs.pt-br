@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d050efe1224e2783cdad52a12c842f7abe44b7af
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83595065"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682432"
 ---
 # <a name="publisher-verification-preview"></a>Verificação do editor (versão prévia)
 
-A verificação do editor (versão prévia) ajuda administradores e usuários finais a entender a autenticidade dos desenvolvedores de aplicativos que se integram com a plataforma de identidade da Microsoft. Em outras palavras, o editor é uma fonte conhecida ou um ator inadequado que se disfarça como um editor bem conhecido? Quando um aplicativo é marcado como verificado pelo editor, isso significa que o editor verificou sua identidade usando uma conta do [Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu a [verificação](/partner-center/verification-responses). 
+A verificação do editor (versão prévia) ajuda administradores e usuários finais a entender a autenticidade dos desenvolvedores de aplicativos que se integram com a plataforma de identidade da Microsoft. Quando um aplicativo é marcado como verificado pelo editor, isso significa que o editor verificou sua identidade usando uma conta do [Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu a [verificação](/partner-center/verification-responses). 
 
 Um selo azul "verificado" aparece na solicitação de consentimento do Azure AD e em outras telas: ![Solicitação de consentimento](./media/publisher-verification-overview/consent-prompt.png)
 

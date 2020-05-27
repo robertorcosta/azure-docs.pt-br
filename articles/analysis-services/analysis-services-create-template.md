@@ -8,12 +8,12 @@ ms.service: analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: d292500c5e26d3c07ff2402964166b3928cc7e44
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 6f0d5f084c5cd48abf399e351c627d64951ce719
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81384098"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697435"
 ---
 # <a name="quickstart-create-a-server---azure-resource-manager-template"></a>Início Rápido: Criar um servidor – modelo do Azure Resource Manager
 
@@ -32,7 +32,7 @@ Este início rápido descreve como criar um recurso de servidor do Analysis Serv
 
 O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
 
 Um recurso [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/2017-08-01/servers) único com uma regra de firewall é definido no modelo. 
 
@@ -40,7 +40,7 @@ Um recurso [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure
 
 1. Selecione o link Implantar no Azure a seguir para entrar no Azure e abrir um modelo. O modelo é usado para criar um recurso de servidor do Analysis Services e especificar as propriedades obrigatórias e opcionais.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json"><img src="./media/analysis-services-create-template/deploy-azure.png" alt="deploy to azure"/></a>
+   [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 2. Selecione ou insira os seguintes valores.
 
@@ -66,7 +66,7 @@ Um recurso [Microsoft.AnalysisServices/servers](https://docs.microsoft.com/azure
 
 Use o portal do Azure ou o Azure PowerShell para verificar se o grupo de recursos e o recurso de servidor foram criados.
 
-#### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -96,6 +96,8 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

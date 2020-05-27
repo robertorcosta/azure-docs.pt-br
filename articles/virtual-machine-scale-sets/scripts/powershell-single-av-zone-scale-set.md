@@ -1,23 +1,23 @@
 ---
-title: Exemplos do Azure PowerShell – Anexar e usar discos de dados
-description: Esse script cria um conjunto de dimensionamento de máquinas virtuais do Azure e anexa e prepara os discos de dados usando o PowerShell.
+title: Exemplos do Azure PowerShell – Conjunto de dimensionamento de zona única
+description: Esse script cria conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 em uma Zona de disponibilidade única.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
-ms.subservice: disks
-ms.date: 03/27/2018
+ms.subservice: availability
+ms.date: 04/05/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 39c1c534a930dae2967d982f7c175fadb3222e83
+ms.openlocfilehash: 222b45e455f42264a5324f138c55b822d9d8e7a1
 ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700916"
+ms.locfileid: "83698616"
 ---
-# <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>Anexar e usar discos de dados com um conjunto de dimensionamento de máquinas virtuais com o PowerShell
-Esse script cria um conjunto de dimensionamento de máquinas virtuais e anexa e prepara os discos de dados.
+# <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais de zona única com o PowerShell
+Esse script cria conjunto de dimensionamento de máquinas virtuais executando o Windows Server 2016 em uma Zona de disponibilidade única. Após a execução do script, é possível acessar a máquina virtual por RDP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,7 +25,7 @@ Esse script cria um conjunto de dimensionamento de máquinas virtuais e anexa e 
 
 ## <a name="sample-script"></a>Exemplo de script
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/use-data-disks/use-data-disks.ps1 "Create a virtual machine scale set with data disks")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/create-single-availability-zone/create-single-availability-zone.ps1 "Create single-zone scale set")]
 
 ## <a name="clean-up-deployment"></a>Limpar a implantação
 Execute o comando a seguir para remover o grupo de recursos, o conjunto de dimensionamento e todos os recursos relacionados.
@@ -43,7 +43,9 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Obtém informações sobre um conjunto de dimensionamento de máquinas virtuais. |
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) | Adiciona uma extensão de VM para um Script personalizado para instalar um aplicativo Web básico. |
 | [Update-AzVmss](/powershell/module/az.compute/update-azvmss) | Atualiza o modelo de conjunto de dimensionamento de máquinas virtuais para aplicar a extensão de VM. |
+| [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) | Obtém informações sobre o endereço IP público atribuído usado pelo balanceador de carga. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos nele. |
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+

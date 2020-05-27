@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e1b5b16d5522285f2d028303f3295cc1fb740330
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596655"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681961"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Usando o Visualizador de Erros de Desenho do Azure Mapas
 
-O Visualizador de Erros de Desenho é um aplicativo Web autônomo que exibe [avisos e erros de pacote de desenho](drawing-conversion-error-codes.md) detectados durante o processo de conversão. O aplicativo Web Visualizador de Erros consiste em uma página estática que você pode usar sem se conectar à Internet.  Você pode usar o Visualizador de Erros para corrigir erros e avisos de acordo com os [Requisitos de pacote de desenho](drawing-requirements.md). A [API de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) só retornará uma resposta com um link para o Visualizador de Erros quando um erro for detectado.
+O Visualizador de Erros de Desenho é um aplicativo Web autônomo que exibe [avisos e erros de pacote de desenho](drawing-conversion-error-codes.md) detectados durante o processo de conversão. O aplicativo Web Visualizador de Erros consiste em uma página estática que você pode usar sem se conectar à Internet.  Você pode usar o Visualizador de Erros para corrigir erros e avisos de acordo com os [Requisitos de pacote de desenho](drawing-requirements.md). A [API de conversão do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) só retornará uma resposta com um link para o Visualizador de Erros quando um erro for detectado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,7 +90,7 @@ Depois que o arquivo _ConversionWarningsAndErrors.json_ for carregado, você ver
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que o [pacote de desenho atender aos requisitos](drawing-requirements.md), você poderá usar o [serviço do Conjunto de dados do Azure Mapas](https://docs.microsoft.com/rest/api/maps/data/conversion) para converter o pacote de desenho em um conjunto de dados. Em seguida, você pode usar o módulo Web do Azure Mapas Interno para desenvolver seu aplicativo. Para saber mais, leia os seguintes artigos:
+Depois que o [pacote de desenho atender aos requisitos](drawing-requirements.md), você poderá usar o [serviço do Conjunto de dados do Azure Mapas](https://docs.microsoft.com/rest/api/maps/conversion) para converter o pacote de desenho em um conjunto de dados. Em seguida, você pode usar o módulo Web do Azure Mapas Interno para desenvolver seu aplicativo. Para saber mais, leia os seguintes artigos:
 
 > [!div class="nextstepaction"]
 > [Códigos de erro de conversão de desenho](drawing-conversion-error-codes.md)
