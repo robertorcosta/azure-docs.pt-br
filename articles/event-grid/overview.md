@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b6f987eb283edea7f2d8e6b207b5b4e5b14f9120
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a323bd9b9c605363963d5a25d1746727e379553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393198"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587588"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -52,15 +52,15 @@ Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à
 
 Para obter detalhes completos sobre os recursos de cada manipulador, bem como artigos relacionados, confira [manipuladores de evento](event-handlers.md). Atualmente, os serviços do Azure a seguir dão suporte para manipulação de eventos da Grade de Eventos: 
 
-* [Automação do Azure](event-handlers.md#azure-automation)
-* [Azure Functions](event-handlers.md#azure-functions)
-* [Hubs de Evento](event-handlers.md#event-hubs)
-* [Conexões híbridas](event-handlers.md#hybrid-connections)
-* [Aplicativos Lógicos](event-handlers.md#logic-apps)
+* [Automação do Azure](handler-webhooks.md#azure-automation)
+* [Azure Functions](handler-functions.md)
+* [Hubs de Evento](handler-event-hubs.md)
+* [Conexões híbridas de Retransmissão](handler-relay-hybrid-connections.md)
+* [Aplicativos Lógicos](handler-webhooks.md#logic-apps)
 * [Power Automate (anteriormente conhecido como Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Barramento de Serviço](event-handlers.md#service-bus)
-* [Armazenamento de Filas](event-handlers.md#queue-storage)
-* [Webhooks](event-handlers.md#webhooks)
+* [Barramento de Serviço](handler-service-bus.md)
+* [Armazenamento de Filas](handler-storage-queues.md)
+* [Webhooks](handler-webhooks.md)
 
 ## <a name="concepts"></a>Conceitos
 

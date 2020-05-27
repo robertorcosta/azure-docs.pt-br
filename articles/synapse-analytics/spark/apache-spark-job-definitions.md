@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial – Azure Synapse Analytics: Definição de trabalho do Spark para o Synapse'
-description: Tutorial – use o Azure Synapse Analytics para criar definições de trabalho do Spark e enviá-las a um Pool do Spark do Synapse.
+title: 'Tutorial - Apache Spark para Azure Synapse Analytics: Definição de trabalho do Apache Spark para o Synapse'
+description: Tutorial - Use o Azure Synapse Analytics para criar definições de trabalho do Spark e enviá-las a um Apache Spark para um pool do Azure Synapse Analytics.
 author: hrasheed-msft
 ms.author: jejiang
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: d5443a2db6f4fecbd84ef51166f44c3a6e920aee
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5fc9dffaa73d195c842381b6682a00e9834c0fe7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425905"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587928"
 ---
 # <a name="tutorial-use-azure-synapse-analytics-to-create-apache-spark-job-definitions-for-synapse-spark-pools"></a>Tutorial: usar o Azure Synapse Analytics para criar definições de trabalho do Spark para pools do Spark do Synapse
 

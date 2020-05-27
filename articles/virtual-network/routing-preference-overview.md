@@ -1,0 +1,102 @@
+---
+title: Preferência de roteamento no Azure
+description: Saiba mais sobre como você pode escolher as rotas de tráfego entre o Azure e a Internet com a preferência de roteamento.
+services: virtual-network
+documentationcenter: na
+author: KumudD
+manager: mtillman
+ms.service: virtual-network
+Customer intent: As an Azure customer, I want to learn more about routing choices for my internet egress traffic.
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 05/18/2020
+ms.author: mnayak
+ms.openlocfilehash: 0ae06a1c3d486b5d5998b4c6d050d86f50910a0a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83595545"
+---
+# <a name="what-is-routing-preference-preview"></a>O que é a preferência de roteamento (versão prévia)?
+
+A preferência de roteamento do Azure permite que você escolha as rotas de tráfego entre o Azure e a Internet. Você pode optar por rotear o tráfego por meio da rede da Microsoft ou por meio da rede do ISP (Internet pública). Essas opções também são conhecidas como *roteamento cold potato* e *roteamento hot potato*, respectivamente. O preço da transferência de dados de saída varia de acordo com a seleção de roteamento. Você pode escolher a opção de roteamento ao criar um endereço IP público. O endereço IP público pode ser associado aos recursos como máquina virtual, conjuntos de dimensionamento de máquinas virtuais, balanceador de carga voltado para a Internet etc. Defina também a preferência de roteamento para os recursos de armazenamento do Azure, como blobs, arquivos, Web e Azure Data Lake. Por padrão, o tráfego é roteado por meio da rede global da Microsoft para todos os serviços do Azure.
+
+> [!IMPORTANT]
+> Atualmente, a preferência de roteamento está em versão prévia pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="routing-via-microsoft-global-network"></a>Roteamento por meio da rede global da Microsoft
+
+Quando você roteia o tráfego por meio da *rede global da Microsoft*, o tráfego é entregue para uma das maiores redes do mundo, abrangendo mais de 160 mil milhas de fibra com mais de 165 POP (Ponto de Presença) de borda. A rede é bem provisionada com vários caminhos de fibra redundantes que visam garantir a confiabilidade e a disponibilidade excepcionalmente alta. A engenharia de tráfego é gerenciada por um controlador WAN definido pelo software que garante a seleção de caminho de baixa latência para o tráfego e oferece um desempenho de rede Premium.
+
+![Roteamento por meio da rede global da Microsoft](media/routing-preference-overview/route-via-microsoft-global-network.png)
+
+**Tráfego de entrada:** o comunicado global do BGP da Anycast garante que o tráfego de entrada entre na rede da Microsoft mais próximo ao usuário. Por exemplo, se um usuário de Singapura acessar os recursos do Azure hospedados em Chicago, nos EUA, o tráfego entrará na rede global da Microsoft no POP de borda de Singapura e viajará na rede da Microsoft para o serviço hospedado em Chicago.
+
+**Tráfego de saída:** o tráfego de saída segue o mesmo princípio. O tráfego viaja na maior parte da jornada na rede global da Microsoft e sai mais próximo do usuário. Por exemplo, se o tráfego do Azure em Chicago for destinado a um usuário de Singapura, o tráfego viajará na rede da Microsoft de Chicago para Singapura e sairá da rede da Microsoft no POP de borda de Singapura.
+
+Tanto o tráfego de entrada quanto o de saída permanecem grande parte da viagem na rede global da Microsoft. Isso também é conhecido como *roteamento cold potato*.
+
+
+## <a name="routing-over-public-internet-isp-network"></a>Roteamento pela Internet pública (rede do ISP)
+
+A nova escolha de *roteamento da Internet* minimiza a viagem na rede global da Microsoft e usa a rede do ISP de trânsito para rotear o tráfego. Essa opção de roteamento com otimização de custo oferece um desempenho de rede comparável a outros provedores de nuvem.
+
+![Roteamento pela Internet pública](media/routing-preference-overview/route-via-isp-network.png)
+
+**Tráfego de entrada:** o caminho de entrada usa o *roteamento hot potato*, o que significa que o tráfego entra na rede da Microsoft mais próxima da região do serviço hospedado. Por exemplo, se um usuário de Singapura acessa os recursos do Azure hospedados em Chicago, o tráfego viaja pela Internet pública e entra na rede global da Microsoft em Chicago.
+
+**Tráfego de saída:** o tráfego de saída segue o mesmo princípio. O tráfego sai da rede da Microsoft na mesma região em que o serviço está hospedado. Por exemplo, se o tráfego do serviço do Azure em Chicago for destinado a um usuário de Singapura, o tráfego sairá da rede da Microsoft em Chicago e viajará pela Internet pública para o usuário em Singapura.
+
+## <a name="supported-services"></a>Serviços com suporte
+
+O IP público com a escolha de preferência de roteamento “Rede Global da Microsoft” pode ser associado a qualquer serviço do Azure. No entanto, o IP público com a escolha de preferência de roteamento **Internet** pode ser associado aos seguintes recursos do Azure:
+
+* Máquina virtual
+* Conjunto de escala de máquina virtual
+* AKS (Serviço de Kubernetes do Azure)
+* Balanceador de carga voltado para a Internet
+* Gateway de Aplicativo
+* Firewall do Azure
+
+Para o armazenamento, os pontos de extremidade primários sempre usam a **rede global da Microsoft**. Habilite pontos de extremidade secundários com a **Internet** como a escolha de roteamento de tráfego. Os serviços de armazenamento compatíveis são:
+
+* Blobs
+* Arquivos
+* Web
+* Azure Data Lake
+
+## <a name="pricing"></a>Preços
+A diferença de preço entre as duas opções é refletida nos preços de transferência de dados de saída da Internet. O preço de transferência de dados do roteamento por meio da **rede global da Microsoft** é igual ao atual preço de saída da Internet. Visite a [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações de preços mais recentes. O roteamento por meio da **Internet pública** é mais barato, como mostrado na tabela abaixo:
+
+| Região de origem de saída | 0-5 GB/mês | 5 GB – 10 TB/mês | 10-50 TB/mês | 50-150 TB/mês | 150-500 TB/mês |
+| --- | --- | --- | --- | --- | --- |
+| Zona 1 | US$ 0/GB | US$ 0,085/GB | US$ 0,065/GB | US$ 0,06/GB | US$ 0,04/GB |
+| Zona 2 | US$ 0/GB | US$ 0,11/GB | US$ 0,075/GB | US$ 0,07/GB | US$ 0,06/GB  |
+
+[Fale conosco](https://azure.microsoft.com/overview/sales-number/) para saber sobre os preços de um volume mensal acima de 500 TB.
+* Zona 1: Austrália Central, Austrália Central 2, Canadá Central, Leste do Canadá, Norte da Europa, Oeste da Europa, França Central, Sul da França, Norte da Alemanha (público), Centro-Oeste da Alemanha (público), Leste da Noruega, Oeste da Noruega, Norte da Suíça, Oeste da Suíça, Sul do Reino Unido, Oeste do Reino Unido, EUA Central, Leste dos EUA, Leste dos EUA 2, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Oeste dos EUA 2 e Centro-Oeste dos EUA.
+
+* Zona 2: Leste da Ásia, Sudeste da Ásia, Leste da Austrália, Sudeste da Austrália, Índia Central, Sul da Índia, Oeste da Índia, Leste do Japão, Oeste do Japão, Coreia Central e Sul da Coreia.
+
+* Zona 3: Sul do Brasil, Norte da África do Sul, Oeste da África do Sul, EAU Central e Norte dos EAU.
+
+## <a name="availability"></a>Disponibilidade
+
+O suporte à preferência de roteamento está disponível nas seguintes regiões para serviços como máquina virtual e balanceador de carga voltado para a Internet que usam um IP público para a saída da Internet: Norte da Europa, Oeste da Europa, Sul da França, Sul do Reino Unido, Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Centro-Oeste dos EUA, Sudeste da Ásia, Centro-Oeste da Alemanha, Oeste da Suíça, Leste do Japão e Oeste do Japão.
+
+O suporte à preferência de roteamento na conta de armazenamento está disponível nas seguintes regiões do Azure: Sul da França, Centro-Norte dos EUA e Centro-Oeste dos EUA.
+## <a name="limitations"></a>Limitações
+
+* A preferência de roteamento é compatível apenas com o SKU Standard do endereço IP público. Não há suporte para o SKU Básico do endereço IP público.
+* Atualmente, a preferência de roteamento dá suporte apenas a endereços IP públicos IPv4. Não há suporte para endereços IP públicos IPv6.
+* As máquinas virtuais com várias NICs podem ter apenas um tipo de preferência de roteamento.
+
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Configurar a preferência de roteamento para uma VM usando o Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
+* [Configurar a preferência de roteamento para uma VM usando a CLI do Azure](configure-routing-preference-virtual-machine-cli.md)

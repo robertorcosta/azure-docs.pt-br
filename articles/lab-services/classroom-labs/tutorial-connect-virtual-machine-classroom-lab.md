@@ -1,6 +1,6 @@
 ---
 title: Acessar um laboratório de sala de aula no Azure Lab Services | Microsoft Docs
-description: Neste tutorial, você deve acessar máquinas virtuais em um laboratório de sala de aula configurado por um professor.
+description: Neste tutorial, você acessa as máquinas virtuais em um laboratório de sala de aula configurado por um educador.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 27d79e28a986e929fb71dd77fc50b3c2cd32618f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d2d40c007a06bad09748b14394da46c50c80dc19
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77134032"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589441"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Tutorial: Acessar um laboratório de sala de aula no Azure Lab Services
 Neste tutorial, você, como aluno, conecta-se a uma máquina virtual (VM) em um laboratório de sala de aula. 
@@ -33,12 +33,16 @@ Neste tutorial, você executa as seguintes ações:
 
 ## <a name="register-to-the-lab"></a>Registrar-se no laboratório
 
-1. Navegue até a **URL de registro** que você recebeu do professor/educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, use a URL: [https://labs.azure.com](https://labs.azure.com). Ainda não há suporte para o Internet Explorer 11. 
+1. Navegue até a **URL de registro** recebida do educador. Não é necessário usar a URL de registro após concluir o registro. Em vez disso, use a URL: [https://labs.azure.com](https://labs.azure.com). Ainda não há suporte para o Internet Explorer 11. 
+
+    ![Registrar-se no laboratório](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Entre no serviço usando sua conta da escola para concluir o registro. 
 
     > [!NOTE]
     > Uma conta Microsoft é necessária para usar o Azure Lab Services. Se estiver tentando usar sua conta não Microsoft, como as contas do Yahoo ou do Google, para entrar no portal, siga as instruções para criar uma conta Microsoft que será vinculada à sua conta não Microsoft. Em seguida, siga as etapas para concluir o processo de registro. 
 1. Depois de registrado, confirme que consegue ver a máquina virtual do laboratório ao qual você tem acesso. 
+
+    ![VMs acessíveis](../media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
 1. Aguarde até a máquina virtual ficar pronta. No bloco da VM, observe os seguintes campos:
     1. Na parte superior do bloco, você verá o **nome do laboratório**.
     1. À direita, você verá o ícone que representa o **SO (sistema operacional)** da VM. Neste exemplo, é o sistema operacional Windows. 
@@ -64,11 +68,11 @@ Neste tutorial, você executa as seguintes ações:
 
     ![Conectar-se a uma VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Siga uma das etapas a seguir: 
-    1. Para máquinas virtuais do **Windows**, salve o arquivo **RDP** no disco rígido. Abra o arquivo RDP para conectar a máquina virtual. Use o **nome de usuário** e **senha** obtido do seu professor/educador para entrar no computador. 
+    1. Para máquinas virtuais do **Windows**, salve o arquivo **RDP** no disco rígido. Abra o arquivo RDP para conectar a máquina virtual. Use o **nome de usuário** e a **senha** obtidos com seu educador para entrar no computador. 
     3. Para máquinas virtuais do **Linux**, você pode usar **SSH** ou **RDP** (se habilitado) para se conectar a elas. Para obter mais informações, veja [Habilitar conexão de área de trabalho remota para computadores Linux](how-to-enable-remote-desktop-linux.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você acessou um laboratório de sala de aula usando o link de registro obtido do seu professor/educador.
+Neste tutorial, você acessou um laboratório de sala de aula usando o link de registro obtido do seu educador.
 
 Como proprietário de laboratório, convém exibir quem se registrou em seu laboratório e acompanhar o uso das VMs. Vá para o próximo tutorial para aprender a controlar o uso do laboratório:
 

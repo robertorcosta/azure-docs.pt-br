@@ -4,10 +4,10 @@ description: Aprenda a criar sua primeira Função do Azure para a execução se
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 5aae60900a61c28f6c53f89b8e273daccb047eef
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83115935"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar um aplicativo de funções em um Plano do Serviço de Aplicativo do Azure
@@ -34,7 +34,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
 1. Na página **Informações Básicas**, use as configurações do aplicativo de funções especificadas na tabela a seguir.
 
-    | Configuração      | Valor sugerido  | DESCRIÇÃO |
+    | Configuração      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo aplicativo de funções será criado. |
     | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do novo grupo de recursos no qual criar o seu aplicativo de funções. |
@@ -44,7 +44,7 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
     |**Versão**| Número de versão | Escolha a versão do seu runtime instalado.  |
     |**Região**| Região preferencial | Escolha uma [região](https://azure.microsoft.com/regions/) perto de você ou perto de outros serviços que suas funções acessam. |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Página de Noções Básicas":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Página de noções básicas":::
 
 1. Selecione **Avançar: Hospedagem**. Na página **Hospedagem**, insira as configurações a seguir.
 
@@ -54,21 +54,21 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
     |**Sistema operacional**| **Linux** | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. |
     | **[Plano](../azure-functions/functions-scale.md)** | **Consumo (Sem servidor)** | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. No plano **Consumo** padrão, os recursos são adicionados dinamicamente conforme exigido por suas funções. Nesta hospedagem [sem servidor](https://azure.microsoft.com/overview/serverless-computing/), você paga somente pelo tempo durante o qual suas funções são executadas. Quando você executa em um Plano do Serviço de Aplicativo, deve gerenciar o [dimensionamento do aplicativo de funções](../azure-functions/functions-scale.md).  |
 
-    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Página de hospedagem":::
+    :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-hosting-linux.png" alt-text="Plano de hospedagem":::
 
 1. Selecione **Avançar: Monitoramento**. Na página **Monitoramento**, insira as configurações a seguir.
 
     | Configuração      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Sim** (padrão) | Cria um recurso do Application Insights do mesmo *nome do aplicativo* na região com suporte mais próxima. Ao expandir essa configuração ou selecionar **criar nova**, você pode alterar o nome da Application insights ou escolher uma região diferente em uma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) onde você deseja armazenar seus dados. |
+    | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Sim** (padrão) | Cria um recurso do Application Insights do mesmo *nome do aplicativo* na região com suporte mais próxima. Ao expandir essa configuração ou selecionar **Criar**, você pode alterar o nome do Application Insights ou escolher uma região diferente em uma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) onde deseja armazenar seus dados. |
 
-   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Página monitoramento":::
+   :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-monitoring-linux.png" alt-text="Página de monitoramento":::
 
 1. Selecione **Examinar + criar** para examinar as seleções de configuração do aplicativo.
 
 1. Na página **Examinar + criar**, examine as configurações e, em seguida, selecione **Criar** para provisionar e implantar o aplicativo de funções.
 
-1. Selecione o ícone **notificações** no canto superior direito do portal e observe a mensagem **implantação bem-sucedida** .
+1. Selecione o ícone **Notificações** no canto superior direito do portal e veja se a mensagem **Implantação concluída com êxito** é exibida.
 
 1. Selecione **Ir para recursos** para exibir o novo aplicativo de funções. Você também pode selecionar **Fixar no painel**. A fixação torna mais fácil retornar a esse recurso de aplicativo de função no seu painel.
 
@@ -85,25 +85,25 @@ Esta seção mostra como criar uma função no novo aplicativo de funções no p
 > [!NOTE]
 > A experiência de desenvolvimento do portal pode ser útil para experimentar o Azure Functions. Na maioria dos cenários, considere desenvolver suas funções localmente e publicar o projeto de seu aplicativo de funções usando um [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) ou [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
 
-1. No menu à esquerda da janela **funções** , selecione **funções**e, em seguida, selecione **Adicionar** no menu superior. 
+1. No menu esquerdo da janela **Funções**, selecione **Funções** e depois selecione **Adicionar** no menu superior. 
  
-1. Na janela **nova função** , selecione **gatilho http**.
+1. Na janela **Nova Função**, selecione **Gatilho HTTP**.
 
-    ![Escolher função de gatilho HTTP](./media/create-function-app-linux-app-service-plan/function-app-select-http-trigger.png)
+    ![Escolher uma função de gatilho HTTP](./media/create-function-app-linux-app-service-plan/function-app-select-http-trigger.png)
 
-1. Na janela **nova função** , aceite o nome padrão para **nova função**ou insira um novo nome. 
+1. Na janela **Nova Função**, aceite o nome padrão para **Nova Função** ou insira um novo nome. 
 
-1. Escolha **anônimo** na lista suspensa **nível de autorização** e selecione **criar função**.
+1. Escolha **Anônimo** na lista suspensa **Nível de autorização** e, em seguida, selecione **Criar Função**.
 
     O Azure cria a função de gatilho HTTP. Agora você pode executar a nova função enviando uma solicitação HTTP.
 
 ## <a name="test-the-function"></a>Testar a função
 
-1. Na nova função de gatilho HTTP, selecione **código + teste** no menu à esquerda e selecione **obter URL de função** no menu superior.
+1. Em sua nova função de gatilho HTTP, selecione **Codificar + Testar** no menu esquerdo e, em seguida, **Obter URL da função** no menu superior.
 
-    ![Selecione obter URL da função](./media/create-function-app-linux-app-service-plan/function-app-select-get-function-url.png)
+    ![Selecione Obter URL da função](./media/create-function-app-linux-app-service-plan/function-app-select-get-function-url.png)
 
-1. Na caixa de diálogo **obter URL da função** , selecione **padrão** na lista suspensa e, em seguida, selecione o ícone **copiar para área de transferência** . 
+1. Na caixa de diálogo **Obter URL da função**, selecione **padrão** na lista suspensa e, em seguida, selecione **Copiar para a área de transferência**. 
 
     ![Copiar a URL da função do Portal do Azure](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
 
@@ -115,7 +115,7 @@ Esta seção mostra como criar uma função no novo aplicativo de funções no p
 
     A URL da solicitação inclui uma chave que é necessária, por padrão, para acessar sua função via HTTP.
 
-1. Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento, retorne à página **código + teste** no portal e expanda a seta **logs** na parte inferior da página.
+1. Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento, retorne à página **Codificar + Testar** no portal e expanda a seta **Logs** na parte inferior da página.
 
    ![Visualizador de log de função no Portal do Azure.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
 
@@ -125,7 +125,7 @@ Esta seção mostra como criar uma função no novo aplicativo de funções no p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você criou um aplicativo de funções com uma função de gatilho HTTP simples.  
+Você criou um aplicativo de funções com uma função simples de gatilho HTTP.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
