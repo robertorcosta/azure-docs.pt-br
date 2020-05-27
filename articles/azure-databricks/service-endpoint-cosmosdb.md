@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e18c2b0f03f9ac2155c441580d62d6085581de12
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74706158"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779589"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar o Azure Databricks com um ponto de extremidade do Cosmos DB
 
@@ -107,8 +107,6 @@ Antes de começar, faça o seguinte:
 ## <a name="create-a-cluster-and-add-library"></a>Criar um cluster e adicionar a biblioteca
 
 1. Navegue até o serviço do Azure Databricks no [portal do Azure](https://portal.azure.com) e selecione **Inicializar workspace**.
-
-   ![Iniciar o workspace do Azure Databricks](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
 2. Crie um novo cluster. Escolha um Nome de Cluster e aceite as configurações padrão restantes.
 

@@ -77,7 +77,7 @@
     - name: Projetar os fluxos de trabalho da Política como código
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
-    - name: Azure Policy para Kubernetes
+    - name: Azure Policy para Kubernetes (versão prévia)
       displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
       href: ./concepts/policy-for-kubernetes.md
     - name: Auditar VMs com configuração de convidado

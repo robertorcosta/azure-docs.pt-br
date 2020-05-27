@@ -328,13 +328,13 @@
           items:
             - name: Criar uma oferta de máquina virtual do Azure
               href: ./partner-center-portal/azure-vm-create-offer.md
-            - name: Criar ativo técnico da VM do Azure
+            - name: Criar ativo técnico de VM do Azure
               items:
-                - name: Criar ativo técnico da VM do Azure
+                - name: Criar ativo técnico de VM do Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Perguntas frequentes sobre ativos técnicos da VM do Azure
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certificar uma imagem da VM do Azure
+                - name: Certificar uma imagem de VM do Azure
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: URI DE SAS
                   items:
