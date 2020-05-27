@@ -53,12 +53,26 @@
       items:
         - name: Linha de base de segurança
           href: security-baseline.md
-    - name: Recursos do desenvolvedor
-      href: batch-api-basics.md
+    - name: Fluxo de trabalho e recursos do serviço do Lote
+      displayName: developer features
+      href: batch-service-workflow-features.md
+      items:
+        - name: Contas do Lote
+          displayName: storage account
+          href: accounts.md
+        - name: Nós e pools
+          displayName: 'compute node, application package, scaling, schedule, os'
+          href: nodes-and-pools.md
+        - name: Trabalhos e tarefas
+          displayName: Batch job
+          href: jobs-and-tasks.md
+        - name: Arquivos e diretórios
+          displayName: Batch file
+          href: files-and-directories.md
     - name: APIs e ferramentas
       href: batch-apis-tools.md
-    - name: Detectar e manipular erros do serviço de Lote
-      href: batch-retry-after-errors.md
+    - name: Detecção e tratamento de erro
+      href: error-handling.md
     - name: Práticas recomendadas
       href: best-practices.md
     - name: Cotas e limites
@@ -91,6 +105,10 @@
           href: batch-aad-auth-management.md
         - name: Acessar com segurança o Key Vault com o Lote
           href: credential-access-key-vault.md
+        - name: Usando certificados com o Lote
+          href: batch-certificates.md
+    - name: Como usar pacotes de aplicativos
+      href: batch-application-packages.md
     - name: Copiar arquivos e aplicativos para nós de pool
       items:
         - name: Copiar aplicativos e dados para nós de pool
