@@ -95,6 +95,8 @@
           href: troubleshoot-guide-windows-boot-manager-menu.md
         - name: A VM não responde devido à atualização
           href: unresponsive-vm-apply-windows-update.md
+        - name: A VM não responde ao aplicar a política de grupo
+          href: unresponsive-vm-apply-group-policy.md
 - name: Não é possível conectar-se à minha VM
   items:
     - name: RDP

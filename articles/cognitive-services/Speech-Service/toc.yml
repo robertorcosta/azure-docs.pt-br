@@ -32,8 +32,6 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Reconhecer uma fala armazenada no Armazenamento de Blobs
           href: quickstarts/from-blob.md
-        - name: Avaliação de pronúncia com entrada de referência
-          href: 'rest-speech-to-text.md#pronunciation-assessment-parameters'
     - name: Guias de instruções
       items:
         - name: Escolher o modo de reconhecimento de fala
@@ -563,11 +561,14 @@
           href: devices-sdk-release-notes.md
 - name: Ferramentas
   items:
-    - name: SPX
+    - name: CLI de Fala
+      displayName: SPX
       items:
-        - name: O que é SPX?
+        - name: O que é a CLI de Fala?
+          displayName: What is SPX?
           href: spx-overview.md
-        - name: Noções básicas do SPX
+        - name: Noções básicas da CLI de Fala
+          displayName: SPX basics
           href: spx-basics.md
     - name: Estúdio de Fala
       items:

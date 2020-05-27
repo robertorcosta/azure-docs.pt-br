@@ -1,6 +1,6 @@
 ---
-title: Dimensionar automaticamente instâncias de Apache Spark do Azure Synapse
-description: Usar o recurso de autoescala do Azure Synapse para dimensionar automaticamente as instâncias de Apache Spark
+title: Dimensionar automaticamente instâncias do Apache Spark do Azure Synapse
+description: Usar o recurso Dimensionamento automático do Azure Synapse para dimensionar automaticamente instâncias do Apache Spark
 author: euangMS
 ms.author: euang
 ms.reviewer: euang
@@ -8,51 +8,51 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: a2f907384326aa887c12c293feb8c988f42bbaf1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210508"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591957"
 ---
-# <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Dimensionar automaticamente os pools de Apache Spark do Azure Synapse Analytics
+# <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Dimensionar automaticamente pools do Apache Spark do Azure Synapse Analytics
 
-O recurso de dimensionamento automático do pool do Azure Synapse Spark dimensiona automaticamente o número de nós em uma instância de cluster para cima e para baixo. Durante a criação de um novo pool do Azure Synapse Spark, um número mínimo e máximo de nós podem ser definidos quando o dimensionamento automático é selecionado. O dimensionamento automático monitora os requisitos de recursos da carga e dimensiona o número de nós para cima ou para baixo. Não há encargos adicionais para esse recurso.
+O recurso Dimensionamento automático do pool do Apache Spark para Azure Synapse Analytics escala ou reduz verticalmente de maneira automática o número de nós em uma instância de cluster. Durante a criação de um pool do Apache Spark para Azure Synapse Analytics, um número mínimo e máximo de nós pode ser definido quando o Dimensionamento automático é selecionado. O dimensionamento automático monitora os requisitos do recurso da carga e escala ou reduz verticalmente o número de nós. Não há nenhum custo adicional para esse recurso.
 
 ## <a name="metrics-monitoring"></a>Monitoramento de métricas
 
-A autoescala monitora continuamente a instância do Spark e coleta as seguintes métricas:
+O dimensionamento automático monitora a instância do Spark continuamente e coleta as seguintes métricas:
 
 |Métrica|Descrição|
 |---|---|
-|Total de CPU pendente|O número total de núcleos necessários para iniciar a execução de todos os nós pendentes.|
-|Memória total pendente|A memória total (em MB) necessária para iniciar a execução de todos os nós pendentes.|
-|Total de CPU livre|A soma de todos os núcleos não utilizados nos nós ativos.|
-|Memória livre total|A soma da memória não utilizada (em MB) nos nós ativos.|
-|Memória usada por nó|A carga em um nó. Um nó no qual são usados 10 GB de memória é considerado com mais carga do que um trabalhador com 2 GB de memória usada.|
+|Total de CPU pendente|O número total de núcleos necessário para iniciar a execução de todos os nós pendentes.|
+|Total de memória pendente|O total de memória (em MB) necessário para iniciar a execução de todos os nós pendentes.|
+|Total de CPU livre|A soma de todos os núcleos não utilizados em nós ativos.|
+|Total de memória livre|A soma de memória não usada (em MB) em nós ativos.|
+|Memória usada por nó|A carga em um nó. Um nó no qual 10 GB de memória são usados é considerado estando sob uma carga maior que um nó de trabalho com 2 GB de memória usada.|
 
-As métricas acima são verificadas a cada 30 segundos. O dimensionamento automático faz decisões de redução e redução com base nessas métricas.
+As métricas acima são verificadas a cada 30 segundos. O dimensionamento automático escala ou reduz verticalmente as decisões com base nessas métricas.
 
 ## <a name="load-based-scale-conditions"></a>Condições de escala baseadas em carga
 
-Quando as condições a seguir forem detectadas, o dimensionamento automático emitirá uma solicitação de dimensionamento:
+Quando as seguintes condições forem detectadas, o Dimensionamento automático emitirá uma solicitação de dimensionamento:
 
 |Escalar verticalmente|Reduzir verticalmente|
 |---|---|
-|O total de CPU pendente é maior que o total de CPU livre por mais de 1 minuto.|A CPU pendente total é menor que a CPU livre total por mais de 2 minutos.|
-|O total de memória pendente é maior que o total de memória livre por mais de 1 minuto.|A memória total pendente é menor que a memória livre total por mais de 2 minutos.|
+|O total de CPU pendente é maior que o total de CPU livre por mais de 1 minuto.|O total de CPU pendente é menor que o total de CPU livre por mais de 2 minutos.|
+|O total de memória pendente é maior que o total de memória livre por mais de 1 minuto.|O total de memória pendente é menor que o total de memória livre por mais de 2 minutos.|
 
-Para expansão, o serviço de dimensionamento automático Synapse do Azure calcula quantos novos nós são necessários para atender aos requisitos atuais de CPU e memória e, em seguida, emite uma solicitação de expansão para adicionar o número necessário de nós.
+Para escalar verticalmente, o serviço Dimensionamento automático do Azure Synapse calcula quantos novos nós são necessários para atender aos requisitos atuais de CPU e memória e emite uma solicitação de escala vertical para adicionar o número necessário de nós.
 
-Para reduzir verticalmente, com base no número de executores, Application Masters por nó e os requisitos atuais de CPU e memória, o dimensionamento automático emite uma solicitação para remover um determinado número de nós. O serviço também detecta quais nós são candidatos para remoção com base na execução do trabalho atual. A operação de redução vertical primeiro encerra os nós e, em seguida, remove-os do cluster.
+Para reduzir verticalmente, com base no número de executores, mestres de aplicativo por nó e os requisitos atuais de CPU e memória, o Dimensionamento automático emite uma solicitação para remover um determinado número de nós. O serviço também detecta quais nós são candidatos para remoção com base na execução do trabalho atual. A operação de redução encerra primeiro os nós e, em seguida, remove-os do cluster.
 
 ## <a name="get-started"></a>Introdução
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Criar um pool do Spark com dimensionamento automático
+### <a name="create-a-spark-pool-with-autoscaling"></a>Criar um pool do Spark com Dimensionamento automático
 
-Para habilitar o recurso de dimensionamento automático, conclua as seguintes etapas como parte do processo de criação de pool normal:
+Para habilitar o recurso Dimensionamento automático, execute as seguintes etapas como parte do processo normal de criação de pool:
 
-1. Na guia **noções básicas** , marque a caixa de seleção **habilitar autoescala** .
+1. Na guia **Noções básicas**, marque a caixa de seleção **Habilitar dimensionamento automático**.
 1. Insira os valores desejados para as seguintes propriedades:  
 
     * Número **mínimo** de nós.
@@ -62,16 +62,16 @@ O número inicial de nós será o mínimo. Esse valor define o tamanho inicial d
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considerar a latência de operações de escala ou redução vertical
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considerar a latência de operações de aumento ou redução
 
 Pode levar de 1 a 5 minutos para que uma operação de dimensionamento seja concluída.
 
-### <a name="preparation-for-scaling-down"></a>Preparação para reduzir verticalmente
+### <a name="preparation-for-scaling-down"></a>Preparação para reduzir
 
-Durante o processo de redução de escala de instância, o dimensionamento automático colocará os nós no estado de encerramento para que nenhum executor novo possa ser iniciado nesse nó.
+Durante o processo de redução da instância, o Dimensionamento automático colocará os nós no estado de encerramento para que nenhum executor novo possa ser iniciado nesse nó.
 
-Os trabalhos em execução continuarão a ser executados e concluídos. Os trabalhos pendentes aguardarão para serem agendados normalmente com menos nós disponíveis.
+Os trabalhos em execução continuarão sendo executados e concluídos. Os trabalhos pendentes aguardarão para serem agendados normalmente com menos nós disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Início rápido para configurar um novo pool do Spark [criar um pool do Spark](..\quickstart-create-apache-spark-pool.md)
+Início rápido para configurar um novo pool do Spark [Criar um pool do Spark](..\quickstart-create-apache-spark-pool.md)

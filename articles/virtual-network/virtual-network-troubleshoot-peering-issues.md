@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de emparelhamento de rede virtual
-description: Etapas para ajudar a resolver a maioria dos problemas de emparelhamento de rede virtual.
+description: Etapas para resolver a maioria dos problemas de emparelhamento de rede virtual.
 services: virtual-network
 documentationcenter: na
 author: v-miegge
@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 20580edb84a8c983c2342e6a5904c75a0986a3d7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: MT
+ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801562"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587724"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Solucionar problemas de emparelhamento de rede virtual
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Comece</a></span>a<span class="has-padding-small">resolver seu problema rapidamente usando nosso agente virtual para executar o <b>diagnóstico automatizado.</b> </span> <span class="has-padding-small"> <sub>Privacy Statement</sub> Política <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
 
-Este guia de solução de problemas fornece etapas para ajudá-lo a resolver a maioria dos problemas de [emparelhamento de rede virtual](virtual-network-peering-overview.md) .
+Este guia de solução de problemas fornece etapas para ajudá-lo a resolver a maior parte dos problemas com [emparelhamento de rede virtual](virtual-network-peering-overview.md).
 
 ![Diagrama de emparelhamento de rede virtual](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 
@@ -35,187 +34,187 @@ As redes virtuais estão na mesma assinatura ou em assinaturas diferentes?
 
 ### <a name="the-virtual-networks-are-in-the-same-subscription"></a>As redes virtuais estão na mesma assinatura
 
-Para configurar o emparelhamento de rede virtual para as redes virtuais que estão na mesma assinatura, use os métodos nos seguintes artigos:
+Para configurar o emparelhamento de rede virtual das redes virtuais que estão na mesma assinatura, use os métodos nos seguintes artigos:
 
-* Se as redes virtuais estiverem na *mesma região*, consulte [criar um emparelhamento](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
-* Se as redes virtuais estiverem em *regiões diferentes*, consulte [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
+* Se as redes virtuais estiverem na *mesma região*, confira [Criando um emparelhamento](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
+* Se as redes virtuais estiverem em *diferentes regiões*, confira [Emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
 
 > [!Note]
-> A conectividade não funciona em emparelhamento de rede virtual global para os seguintes recursos: 
+> A conectividade não funciona no emparelhamento de rede virtual global para os seguintes recursos: 
 >
-> * VMs (máquinas virtuais) por trás do SKU do ILB (balanceador de carga interno) básico
+> * VMs (máquinas virtuais) por trás do SKU ILB (balanceador de carga interno) básico
 > * Cache Redis (usa o SKU ILB básico)
-> * Gateway de aplicativo (usa o SKU ILB básico)
+> * Gateway de Aplicativo (usa o SKU ILB básico)
 > * Conjuntos de dimensionamento de máquinas virtuais (usa o SKU ILB básico)
-> * Clusters Service Fabric do Azure (usa o SKU básico do ILB)
+> * Clusters do Azure Service Fabric (usa o SKU ILB básico)
 > * SQL Server Always On (usa o SKU ILB básico)
-> * Ambiente do Serviço de Aplicativo do Azure para PowerApps (usa o SKU básico do ILB)
-> * Gerenciamento de API do Azure (usa o SKU básico do ILB)
-> * Azure Active Directory Domain Services (AD DS do Azure) (usa o SKU básico do ILB)
+> * Ambiente do Serviço de Aplicativo do Azure para PowerApps (usa o SKU ILB básico)
+> * Gerenciamento de API do Azure (usa o SKU ILB básico)
+> * Azure AD DS (Azure Active Directory Domain Services) (usa o SKU ILB básico)
 
-Para obter mais informações, consulte os [requisitos e as restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) de emparelhamento global.
+Para obter mais informações, confira [os requisitos e as restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) de emparelhamento global.
 
-### <a name="the-virtual-networks-are-in-different-subscriptions-or-active-directory-tenants"></a>As redes virtuais estão em assinaturas ou locatários de Active Directory diferentes
+### <a name="the-virtual-networks-are-in-different-subscriptions-or-active-directory-tenants"></a>As redes virtuais estão em assinaturas ou locatários do Active Directory diferentes
 
-Para configurar o emparelhamento de rede virtual para redes virtuais em assinaturas ou Active Directory locatários diferentes, consulte [criar emparelhamento em assinaturas diferentes para CLI do Azure](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
+Para configurar o emparelhamento de rede virtual de redes virtuais em assinaturas ou locatários do Active Directory diferentes, confira [Criar emparelhamento em assinaturas diferentes para a CLI do Azure](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 > [!Note]
-> Para configurar o emparelhamento de rede, você deve ter permissões de **colaborador de rede** em ambas as assinaturas. Para obter mais informações, consulte [permissões de emparelhamento](virtual-network-manage-peering.md#permissions).
+> Para configurar o emparelhamento de rede, você precisa ter permissões de **Colaborador de rede** em ambas as assinaturas. Para obter mais informações, confira [Permissões de emparelhamento](virtual-network-manage-peering.md#permissions).
 
-## <a name="configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Configurar o emparelhamento de rede virtual com a topologia hub-spoke que usa recursos locais
+## <a name="configure-virtual-network-peering-with-hub-spoke-topology-that-uses-on-premises-resources"></a>Configurar o emparelhamento de rede virtual com topologia hub-spoke que usa recursos locais
 
 ![Diagrama de emparelhamento de rede virtual com spoke local](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1a.png)
 
-### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>Para uma conexão site a site ou uma conexão do ExpressRoute
+### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>Para uma conexão site a site ou do ExpressRoute
 
-Siga as etapas em: [Configurar o tráfego de gateway de VPN para o emparelhamento de rede virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+Siga as etapas em: [Configurar o trânsito de gateway de VPN para o emparelhamento de rede virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 
 ### <a name="for-point-to-site-connections"></a>Para conexões ponto a site
 
-1. Siga as etapas em: [Configurar o tráfego de gateway de VPN para o emparelhamento de rede virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
-2. Após o emparelhamento de rede virtual ser estabelecido ou alterado, baixe e reinstale o pacote ponto a site para que os clientes ponto a site obtenham as rotas atualizadas para a rede virtual spoke.
+1. Siga as etapas em: [Configurar o trânsito de gateway de VPN para o emparelhamento de rede virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+2. Após o emparelhamento de rede virtual ser estabelecido ou alterado, baixe e reinstale o pacote ponto a site para permitir que os clientes ponto a site obtenham as rotas atualizadas para a rede virtual spoke.
 
-## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>Configurar o emparelhamento de rede virtual com a rede virtual da topologia hub-spoke
+## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>Configurar o emparelhamento de rede virtual com rede virtual de topologia hub-spoke
 
 ![Diagrama de emparelhamento de rede virtual com um spoke de rede virtual](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1b.png)
 
 ### <a name="the-virtual-networks-are-in-the-same-region"></a>As redes virtuais estão na mesma região
 
 
-1. Na rede virtual do Hub, configure uma solução de virtualização de rede (NVA).
-1. Nas redes virtuais do spoke, tenha rotas definidas pelo usuário com o tipo do próximo salto "solução de virtualização de rede" aplicada.
+1. Na rede virtual do hub, configure uma NVA (solução de virtualização de rede).
+1. Nas redes virtuais do spoke, aplique o tipo de próximo salto “solução de virtualização de rede” às rotas definidas pelo usuário.
 
-Para obter mais informações, consulte [encadeamento de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining).
+Para obter mais informações, confira [Encadeamento de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining).
 
 > [!Note]
-> Se você precisar de ajuda para configurar um NVA, [entre em contato com o fornecedor do NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Se você precisar de ajuda para configurar uma NVA, [entre em contato com o fornecedor da NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
-Para obter ajuda com a solução de problemas de configuração e roteamento do dispositivo NVA, consulte [problemas de solução de virtualização de rede no Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
+Para obter ajuda na solução de problemas de configuração e roteamento do dispositivo NVA, confira [Problemas com solução de virtualização de rede no Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
 ### <a name="the-virtual-networks-are-in-different-regions"></a>As redes virtuais estão em regiões diferentes
 
-Agora há suporte para tráfego em emparelhamento de rede virtual global. A conectividade não funciona em emparelhamento de rede virtual global para os seguintes recursos:
+Agora há suporte ao tráfego em emparelhamento de rede virtual global. A conectividade não funciona no emparelhamento de rede virtual global para os seguintes recursos:
 
 * VMs por trás do SKU ILB básico
 * Cache Redis (usa o SKU ILB básico)
-* Gateway de aplicativo (usa o SKU ILB básico)
-* Conjuntos de dimensionamento (usa o SKU básico do ILB)
+* Gateway de Aplicativo (usa o SKU ILB básico)
+* Conjuntos de dimensionamento (usa o SKU ILB básico)
 * Clusters de Service Fabric (usa o SKU ILB básico)
 * SQL Server Always On (usa o SKU ILB básico)
-* Ambiente do Serviço de Aplicativo (usa o SKU básico do ILB)
-* Gerenciamento de API (usa o SKU básico do ILB)
-* AD DS do Azure (usa o SKU básico do ILB)
+* Ambiente do Serviço de Aplicativo (usa o SKU ILB básico)
+* Gerenciamento de API (usa o SKU ILB básico)
+* Azure AD DS (usa o SKU ILB básico)
 
-Para saber mais sobre requisitos de emparelhamento global e restrições, confira [emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints).
+Para saber mais sobre requisitos de emparelhamento global e restrições, confira [Emparelhamento de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints).
 
 ## <a name="troubleshoot-a-connectivity-issue-between-two-peered-virtual-networks"></a>Solucionar um problema de conectividade entre duas redes virtuais emparelhadas
 
-Entre no [portal do Azure](https://portal.azure.com/) com uma conta que tenha as [funções e permissões](virtual-network-manage-peering.md#permissions)necessárias. Selecione a rede virtual, selecione **emparelhamento**e, em seguida, verifique o campo **status** . Qual é o status?
+Entre no [portal do Azure](https://portal.azure.com/) com uma conta que tenha as [funções e permissões](virtual-network-manage-peering.md#permissions) necessárias. Selecione a rede virtual, selecione **Emparelhamento** e verifique o campo de **Status**. Qual é o status?
 
-### <a name="the-peering-status-is-connected"></a>O status de emparelhamento é "conectado"
+### <a name="the-peering-status-is-connected"></a>O status de emparelhamento é “Conectado”
 
-Para solucionar este problema:
+Para solucionar o problema:
 
 1. Verifique os fluxos de tráfego de rede:
 
-   Use a [solução de problemas de conexão](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) e de fluxo de [IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) da VM de origem para a VM de destino para determinar se há um NSG ou UDR que está causando interferência nos fluxos de tráfego.
+   Use [Solução de problemas de conexão](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) e [Verificação de fluxo de IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) da VM de origem para a VM de destino para determinar se há um NSG ou UDR que esteja causando interferência nos fluxos de tráfego.
 
-   Se você estiver usando um firewall ou NVA: 
-   1. Documente os parâmetros UDR para que você possa restaurá-los após a conclusão desta etapa.
-   2. Remova o UDR da sub-rede VM de origem ou NIC que aponta para o NVA como o próximo salto. Verifique a conectividade da VM de origem diretamente para o destino que está ignorando o NVA. Se essa etapa não funcionar, consulte a [solução de problemas do NVA](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
+   Se você estiver usando um firewall ou uma NVA: 
+   1. Documente os parâmetros UDR para poder restaurá-los após a conclusão desta etapa.
+   2. Remova o UDR da sub-rede da VM ou NIC de origem que aponta para a NVA como o próximo salto. Verifique a conectividade da VM de origem diretamente com o destino que está ignorando a NVA. Se a etapa não funcionar, confira o [Solucionador de problemas de NVA](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
 2. Faça um rastreamento de rede: 
-   1. Inicie um rastreamento de rede na VM de destino. Para o Windows, você pode usar o **netsh**. Para o Linux, use **tcpdump**.
-   2. Execute **TcpPing** ou **PsPing** da origem para o IP de destino.
+   1. Inicie um rastreamento de rede na VM de destino. No caso do Windows, você pode usar **Netsh**. No caso do Linux, use **TCPDump**.
+   2. Execute **TcpPing** ou **o PsPing** do IP de origem para o IP de destino.
 
-      Este é um exemplo de um comando **TcpPing** :`tcping64.exe -t <destination VM address> 3389`
+      Este é um exemplo de um comando **TcpPing**: `tcping64.exe -t <destination VM address> 3389`
 
-   3. Depois que o **TcpPing** for concluído, pare o rastreamento de rede no destino.
-   4. Se os pacotes chegam da origem, não há nenhum problema de rede. Examine o firewall da VM e o aplicativo que está escutando nessa porta para localizar o problema de configuração.
+   3. Após concluir o **TcpPing**, interrompa o rastreamento de rede no destino.
+   4. Se os pacotes chegam da origem, não há nenhum problema com a rede. Examine o firewall da VM e o aplicativo que está escutando nessa porta para localizar o problema de configuração.
 
    > [!Note]
-   > Você não pode se conectar aos seguintes tipos de recursos por meio do emparelhamento de rede virtual global (redes virtuais em regiões diferentes):
+   > Não é possível se conectar aos seguintes tipos de recursos por meio do emparelhamento de rede virtual global (redes virtuais em regiões diferentes):
    >
    > * VMs por trás do SKU ILB básico
    > * Cache Redis (usa o SKU ILB básico)
-   > * Gateway de aplicativo (usa o SKU ILB básico)
-   > * Conjuntos de dimensionamento (usa o SKU básico do ILB)
+   > * Gateway de Aplicativo (usa o SKU ILB básico)
+   > * Conjuntos de dimensionamento (usa o SKU ILB básico)
    > * Clusters de Service Fabric (usa o SKU ILB básico)
    > * SQL Server Always On (usa o SKU ILB básico)
-   > * Ambiente do Serviço de Aplicativo (usa o SKU básico do ILB)
-   > * Gerenciamento de API (usa o SKU básico do ILB)
-   > * AD DS do Azure (usa o SKU básico do ILB)
+   > * Ambiente do Serviço de Aplicativo (usa o SKU ILB básico)
+   > * Gerenciamento de API (usa o SKU ILB básico)
+   > * Azure AD DS (usa o SKU ILB básico)
 
-Para obter mais informações, consulte os [requisitos e as restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) de emparelhamento global.
+Para obter mais informações, confira [os requisitos e as restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) de emparelhamento global.
 
-### <a name="the-peering-status-is-disconnected"></a>O status de emparelhamento é "desconectado"
+### <a name="the-peering-status-is-disconnected"></a>O status de emparelhamento é “Desconectado”
 
-Para resolver esse problema, exclua o emparelhamento de ambas as redes virtuais e, em seguida, crie-as novamente.
+Para resolver esse problema, exclua o emparelhamento das duas redes virtuais e crie-as novamente.
 
 ## <a name="troubleshoot-a-connectivity-issue-between-a-hub-spoke-virtual-network-and-an-on-premises-resource"></a>Solucionar um problema de conectividade entre uma rede virtual hub-spoke e um recurso local
 
-Sua rede usa um gateway de NVA ou VPN de terceiros?
+Sua rede usa um gateway de VPN ou uma NVA de terceiros?
 
-### <a name="my-network-uses-a-third-party-nva-or-vpn-gateway"></a>Minha rede usa um gateway de NVA ou VPN de terceiros
+### <a name="my-network-uses-a-third-party-nva-or-vpn-gateway"></a>Minha rede usa um gateway de VPN ou uma NVA de terceiros
 
-Para solucionar problemas de conectividade que afetam um gateway de VPN ou NVA de terceiros, consulte os seguintes artigos:
+Para solucionar problemas de conectividade que afetam um gateway de VPN ou uma NVA de terceiros, confira os seguintes artigos:
 
-* [Solução de problemas do NVA](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
+* [Solucionador de problemas de NVA](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva)
 * [Encadeamento de serviços](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)
 
-### <a name="my-network-does-not-use-a-third-party-nva-or-vpn-gateway"></a>Minha rede não usa um gateway de NVA ou VPN de terceiros
+### <a name="my-network-does-not-use-a-third-party-nva-or-vpn-gateway"></a>Minha rede não usa um gateway de VPN ou uma NVA de terceiros
 
-A rede virtual do Hub e a rede virtual do spoke têm um gateway de VPN?
+A rede virtual do hub e a rede virtual spoke têm um gateway de VPN?
 
-#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-have-a-vpn-gateway"></a>A rede virtual do Hub e a rede virtual spoke têm um gateway de VPN
+#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-have-a-vpn-gateway"></a>Tanto a rede virtual do Hub quanto a rede virtual spoke têm um gateway de VPN
 
-Não há suporte para o uso de um gateway remoto.
+Não há suporte ao uso de um gateway remoto.
 
-Se a rede virtual do spoke já tiver um gateway de VPN, a opção **usar gateway remoto** não terá suporte na rede virtual do spoke. Isso ocorre devido a uma limitação de emparelhamento de rede virtual.
+Se a rede virtual spoke já tiver um gateway de VPN, a opção **Usar gateway remoto** não terá suporte na rede virtual spoke. Isso ocorre devido a uma limitação no emparelhamento de rede virtual.
 
-#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-do-not-have-a-vpn-gateway"></a>A rede virtual do Hub e a rede virtual spoke não têm um gateway de VPN
+#### <a name="both-the-hub-virtual-network-and-the-spoke-virtual-network-do-not-have-a-vpn-gateway"></a>Nenhuma das duas redes virtuais, a do hub e a spoke, tem um gateway de VPN
 
-Para conexões site a site ou do Azure ExpressRoute, verifique as seguintes causas primárias de problemas de conectividade para a rede virtual remota do local:
+Para conexões site a site ou do Azure ExpressRoute, verifique as seguintes causas primárias de problemas de conectividade entre o local e a rede virtual remota:
 
-* Na rede virtual que tem um gateway, verifique se a caixa de seleção **Permitir tráfego encaminhado** está marcada.
-* Na rede virtual que não tem um gateway, verifique se a caixa de seleção **usar gateway remoto** está marcada.
-* Faça com que o administrador de rede verifique seus dispositivos locais para verificar se todos eles têm o espaço de endereço de rede virtual remoto adicionado.
+* Na rede virtual que tem um gateway, verifique se a caixa de seleção **Permitir o tráfego encaminhado** está marcada.
+* Na rede virtual que não tem um gateway, verifique se a caixa de seleção **Usar gateway remoto** está marcada.
+* Peça ao administrador de rede que verifique se todos os seus dispositivos locais têm o espaço de endereço de rede virtual remota adicionado.
 
 Para conexões ponto a site:
 
-* Na rede virtual que tem um gateway, verifique se a caixa de seleção **Permitir tráfego encaminhado** está marcada.
-* Na rede virtual que não tem um gateway, verifique se a caixa de seleção **usar gateway remoto** está marcada.
-* Baixe e reinstale o pacote do cliente ponto a site. As rotas de rede virtual que são emparelhadas recentemente não adicionam automaticamente rotas a clientes de ponto a site.
+* Na rede virtual que tem um gateway, verifique se a caixa de seleção **Permitir o tráfego encaminhado** está marcada.
+* Na rede virtual que não tem um gateway, verifique se a caixa de seleção **Usar gateway remoto** está marcada.
+* Baixe e reinstale o pacote do cliente ponto a site. As rotas de rede virtual emparelhadas recentemente não adicionam rotas a clientes ponto a site automaticamente.
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-the-same-region"></a>Solucionar um problema de conectividade de rede hub-spoke entre redes virtuais spoke na mesma região
 
-Uma rede de Hub deve incluir um NVA. Configure o UDRs em spokes que têm um NVA definido como o próximo salto e habilite **permitir o tráfego encaminhado** na rede virtual do Hub.
+Uma rede de Hub deve incluir uma NVA. Configure UDRs em spokes que tenham uma NVA definida como o próximo salto e habilite **Permitir tráfego encaminhado** na rede virtual do hub.
 
-Para obter mais informações, consulte [encadeamento de serviços](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining)e discuta esses requisitos com o [fornecedor de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) de sua escolha.
+Para obter mais informações, confira [Encadeamento de serviço](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining) e converse sobre esses requisitos com o [fornecedor de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) escolhido.
 
-## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Solucionar problemas de conectividade de rede hub-spoke entre redes virtuais spoke em regiões diferentes
+## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Solucionar um problema de conectividade de rede hub-spoke entre redes virtuais spoke em regiões diferentes
 
-Agora há suporte para tráfego em emparelhamento de rede virtual global. A conectividade não funciona em emparelhamento de rede virtual global para os seguintes recursos:
+Agora há suporte ao tráfego em emparelhamento de rede virtual global. A conectividade não funciona no emparelhamento de rede virtual global para os seguintes recursos:
 
 * VMs por trás do SKU ILB básico
 * Cache Redis (usa o SKU ILB básico)
-* Gateway de aplicativo (usa o SKU ILB básico)
-* Conjuntos de dimensionamento (usa o SKU básico do ILB)
+* Gateway de Aplicativo (usa o SKU ILB básico)
+* Conjuntos de dimensionamento (usa o SKU ILB básico)
 * Clusters de Service Fabric (usa o SKU ILB básico)
 * SQL Server Always On (usa o SKU ILB básico)
-* Ambiente do Serviço de Aplicativo (usa o SKU básico do ILB)
-* Gerenciamento de API (usa o SKU básico do ILB)
-* AD DS do Azure (usa o SKU básico do ILB)
+* Ambiente do Serviço de Aplicativo (usa o SKU ILB básico)
+* Gerenciamento de API (usa o SKU ILB básico)
+* Azure AD DS (usa o SKU ILB básico)
 
-Para obter mais informações, consulte os [requisitos e as restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) de emparelhamento global e [topologias de VPN diferentes](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
+Para obter mais informações, confira [os requisitos e as restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) de emparelhamento global e as [Topologias de VPN diferentes](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-a-web-app-and-the-spoke-virtual-network"></a>Solucionar um problema de conectividade de rede hub-spoke entre um aplicativo Web e a rede virtual spoke
 
-Para solucionar este problema:
+Para solucionar o problema:
 
 1. Entre no portal do Azure. 
-1. No aplicativo Web, selecione **rede**e, em seguida, selecione **integração VNet**.
-1. Verifique se você pode ver a rede virtual remota. Insira manualmente o espaço de endereço de rede virtual remota (**rede de sincronização** e **adicionar rotas**).
+1. No aplicativo Web, selecione **rede**e, em seguida, **Integração VNET**.
+1. Verifique se consegue ver a rede virtual remota. Insira manualmente o espaço de endereço de rede virtual remota (**Rede de Sincronização** e **Adicionar Rotas**).
 
 Para obter mais informações, consulte os seguintes artigos:
 
@@ -224,26 +223,26 @@ Para obter mais informações, consulte os seguintes artigos:
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Solucionar problemas de uma mensagem de erro de configuração de emparelhamento de rede virtual 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>O locatário `<TENANT ID>` atual não está autorizado a acessar a assinatura vinculada
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>O `<TENANT ID>` do locatário atual não está autorizado a acessar a assinatura vinculada
 
-Para resolver esse problema, consulte [criar CLI do Azure de emparelhamento](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
+Para resolver o problema, confira [Criar emparelhamento – CLI do Azure](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 ### <a name="not-connected"></a>Não conectado
 
-Para resolver esse problema, exclua o emparelhamento de ambas as redes virtuais e, em seguida, recrie-as.
+Para resolver esse problema, exclua o emparelhamento das duas redes virtuais e crie-as novamente.
 
-### <a name="failed-to-peer-a-databricks-virtual-network"></a>Falha ao emparelhar uma rede virtual do databricks
+### <a name="failed-to-peer-a-databricks-virtual-network"></a>Falha ao emparelhar uma rede virtual do Databricks
 
-Para resolver esse problema, configure o emparelhamento de rede virtual em **Azure Databricks**e, em seguida, especifique a rede virtual de destino usando a **ID do recurso**. Para obter mais informações, consulte [emparelhar uma rede virtual do databricks para uma rede virtual remota](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+Para resolver o problema, configure o emparelhamento de rede virtual em **Azure Databricks**e especifique a rede virtual de destino usando **ID de recurso**. Para obter mais informações, confira [Emparelhar uma rede virtual do Databricks com uma rede virtual remota](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>A rede virtual remota não tem um gateway
 
-Esse problema ocorre quando você emparelha redes virtuais de locatários diferentes e, posteriormente, deseja `Use Remote Gateways`configurar o. Uma limitação do portal do Azure é que ele não pode validar a presença de um gateway de rede virtual na rede virtual de outro locatário.
+Esse problema ocorre quando você emparelha redes virtuais de locatários diferentes e, posteriormente, deseja configurar `Use Remote Gateways`. Uma limitação do portal do Azure é que ele não pode validar a presença de um gateway de rede virtual na rede virtual de outro locatário.
 
-Há duas maneiras de resolver o problema:
+Há três maneiras de resolver o erro:
 
- * Exclua os emparelhamentos e ative `Use Remote Gateways` a opção ao criar um novo emparelhamento.
- * Use o PowerShell ou a CLI, em vez do portal do Azure, `Use Remote Gateways`para habilitar o.
+ * Exclua os emparelhamentos e ative a opção `Use Remote Gateways` ao criar um novo emparelhamento.
+ * Em vez do portal do Azure, use o PowerShell ou a CLI para habilitar `Use Remote Gateways`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

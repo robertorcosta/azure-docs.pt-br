@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 21669a214ff1646a8f331cbe2871b7d8c756f22f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0c52771573c1df6a7a0efefbf950e88e1f1728f7
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591753"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800621"
 ---
 # <a name="whats-new-in-personalizer"></a>O que há de novo no Personalizador
 
@@ -31,7 +31,7 @@ Os itens a seguir estão disponíveis em **Visualização pública**:
 
 ### <a name="march-2020"></a>Março de 2020
 
-* O TLS 1,2 agora é imposto para todas as solicitações HTTP para esse serviço. Para obter mais informações, consulte [segurança de serviços cognitivas do Azure](../cognitive-services-security.md).
+* Agora o TLS 1.2 é obrigatório para todas as solicitações HTTP a este serviço. Para saber mais, confira [Segurança nos Serviços Cognitivos do Azure](../cognitive-services-security.md).
 
 ### <a name="november-2019---ignite-conference"></a>2019 de novembro-conferência Ignite
 
@@ -44,11 +44,11 @@ Os seguintes recursos de visualização foram lançados na conferência Build 20
 
 * [Classificar e recompensar o loop de aprendizado](what-is-personalizer.md)
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 
-### <a name="2019-build-videos"></a>vídeos de Build 2019
+### <a name="2019-build-videos"></a>Vídeos da Build 2019
 
-* [Forneça as experiências corretas & conteúdo como o Xbox com o personalizador de serviços cognitivas](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Forneça as experiências corretas & conteúdo como o Xbox com o personalizador de serviços cognitivas](https://azure.microsoft.com/resources/videos/build-2019-deliver-the-right-experiences-and-content-with-cognitive-services-personalizer/)
 
 ## <a name="service-updates"></a>Atualizações de serviço
 
