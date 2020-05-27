@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 29967c5f8d452fbf66d9a121357415176139b39d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ab9c93dc029498c70a828f38f297c1e02dcb29ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82564514"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774145"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge"></a>Tutorial: Transformar dados com o Azure Stack Edge
 
@@ -136,11 +136,11 @@ Para verificar se o módulo está em execução, faça o seguinte:
 
     ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-1.png)
  
-1.    No Explorador de Arquivos, conecte-se aos compartilhamentos do Microsoft Edge e local do Microsoft Edge criados anteriormente.
+1. No Explorador de Arquivos, conecte-se aos compartilhamentos do Microsoft Edge e local do Microsoft Edge criados anteriormente.
 
     ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
-1.    Adicione dados ao compartilhamento de local.
+1. Adicione dados ao compartilhamento de local.
 
     ![Verifique a transformação de dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  
