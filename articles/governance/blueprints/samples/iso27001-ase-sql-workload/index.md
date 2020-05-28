@@ -3,12 +3,12 @@ title: Visão Geral do exemplo de blueprint de carga de trabalho do ASE/SQL ISO 
 description: Visão geral e arquitetura do exemplo de blueprint da carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001.
 ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 834096ec529673bae1728877310ba7153ae94cb3
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: ab6a1b7e5569be39cc3b2934ec9891d5aa5712ca
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460572"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012986"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Visão geral do exemplo de blueprint de carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL do ISO 27001
 
@@ -33,7 +33,7 @@ Este ambiente é composto de vários serviços do Azure usados para oferecer uma
 - Uma rede virtual que contém uma sub-rede e emparelha com um ambiente de [serviços compartilhados](../iso27001-shared/index.md) já existente e força a passagem de todo o tráfego pelo firewall dos [serviços compartilhados](../iso27001-shared/index.md). A rede virtual hospeda os recursos a seguir:
   - Um [Ambiente do Serviço de Aplicativo do Azure](../../../../app-service/environment/intro.md) que pode ser usado para hospedar um ou mais aplicativos Web, APIs Web ou funções
   - Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) que usa um ponto de extremidade de serviço de VNet para armazenar segredos usados pelos aplicativos em execução no ambiente de carga de trabalho
-  - Uma instância de servidor do [Banco de Dados SQL do Azure](../../../../sql-database/sql-database-technical-overview.md) que usa um ponto de extremidade de serviço de VNet para hospedar bancos de dados usados para aplicativos no ambiente de carga de trabalho
+  - Uma instância de servidor do [Banco de Dados SQL do Azure](../../../../azure-sql/database/sql-database-paas-overview.md) que usa um ponto de extremidade de serviço de VNet para hospedar bancos de dados usados para aplicativos no ambiente de carga de trabalho
 
 ## <a name="next-steps"></a>Próximas etapas
 

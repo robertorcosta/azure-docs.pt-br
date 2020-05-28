@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: c1928f9aa2c2b011e1cf54b4ef6cfc5cb8251904
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6db43300632ec5b2c4f6c18848442901a40561b0
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588642"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996991"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
 
@@ -49,12 +49,12 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 
 |   | **Hub** | **Tradutor personalizado**|
 |:-----|:----:|:----:|
-|Status do recurso de personalização   | Disponibilidade geral  | Disponibilidade geral |
-| Versão da API de texto  | Somente V2   | Somente V3 |
-| Personalização de SMT | Sim   | Não |
-| Personalização de NMT | Não    | Sim |
-| Nova personalização de serviços de Fala unificados | Não    | Sim |
-| [Sem rastreamento](https://www.aka.ms/notrace) | Sim  | Sim |
+|Status do recurso de personalização    | Disponibilidade geral    | Disponibilidade geral |
+| Versão da API de texto    | Somente V2    | Somente V3 |
+| Personalização de SMT    | Sim    | Não |
+| Personalização de NMT    | Não    | Sim |
+| Nova personalização de serviços de Fala unificados    | Não    | Sim |
+| [Sem rastreamento](https://www.aka.ms/notrace) | Sim    | Sim |
 
 ## <a name="collaborative-translations-framework"></a>Estrutura de traduções colaborativas
 
