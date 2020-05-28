@@ -1,24 +1,24 @@
 ---
 title: Importando de fontes de dados-QnA Maker
-description: Uma base de dados de conhecimento QnA Maker consiste em um conjunto de conjuntos de QnA (perguntas e respostas) e metadados opcionais associados a cada par de QnA.
+description: Uma base de dados de conhecimento QnA Maker consiste em um conjunto de pares de QnA (pergunta e resposta) e metadados opcionais associados a cada par de QnA.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eaa19cb2abf84f31cda9d8894e91ec1540980b27
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804275"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993092"
 ---
 # <a name="importing-from-data-sources"></a>Importar de fontes de dados
 
-Uma base de dados de conhecimento consiste em conjuntos de perguntas e respostas trazidos por arquivos e URLs públicos.
+Uma base de dados de conhecimento consiste em pares de perguntas e respostas trazidos por arquivos e URLs públicos.
 
 ## <a name="data-source-locations"></a>Locais de origem de dados
 
 O conteúdo é trazido para uma base de conhecimento de uma fonte de dados. Os locais de fonte de dados são **URLs ou arquivos públicos**, que não exigem autenticação.
 
-Os [arquivos do SharePoint](../how-to/add-sharepoint-datasources.md), protegidos com autenticação, são a exceção. Os recursos do SharePoint devem ser arquivos, não páginas da Web. Se a URL terminar com uma extensão da Web, como. ASPX, ele não será importado para o QnA Maker do SharePoint.
+Os [arquivos do SharePoint](../how-to/add-sharepoint-datasources.md), protegidos com autenticação, são a exceção. Os recursos do SharePoint devem ser arquivos, não páginas da Web. Se a URL terminar com uma extensão da Web, como .ASPX, ela não será importada do SharePoint para o QnA Maker.
 
 ## <a name="chit-chat-content"></a>Conteúdo do chat Chit
 
@@ -26,7 +26,7 @@ O conjunto de conteúdo do Chit Chat QnA é oferecido como uma fonte de dados de
 
 ## <a name="structured-data-format-through-import"></a>Formato de dados estruturados por meio de importação
 
-Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer um `.tsv` arquivo estruturado que contenha perguntas e respostas. Essas informações ajudam a QnA Maker agrupar os conjuntos de respostas de perguntas e os atributos para uma determinada fonte de dados.
+Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. A importação requer um `.tsv` arquivo estruturado que contenha perguntas e respostas. Essas informações ajudam o QnA Maker a agrupar os pares de resposta de pergunta e atribuí-los a uma fonte de dados específico.
 
 | Pergunta  | Resposta  | Fonte| Metadados (1 chave: 1 valor) |
 |-----------|---------|----|---------------------|
@@ -35,12 +35,12 @@ Importar uma base de dados de conhecimento substitui o conteúdo da base de dado
 
 ## <a name="structured-multi-turn-format-through-import"></a>Formato de várias transformações estruturado por meio de importação
 
-Você pode criar conversas com vários folheios em um `.tsv` formato de arquivo. O formato fornece a capacidade de criar as conversas de passagem múltipla analisando os logs de chat anteriores (com outros processos, não usando QnA Maker) e, em seguida `.tsv` , criar o arquivo por meio da automação. Importe o arquivo para substituir a base de dados de conhecimento existente.
+Você pode criar conversas com vários folheios em um `.tsv` formato de arquivo. O formato fornece a capacidade de criar as conversas de passagem múltipla analisando os logs de chat anteriores (com outros processos, não usando QnA Maker) e, em seguida, criar o `.tsv` arquivo por meio da automação. Importe o arquivo para substituir a base de dados de conhecimento existente.
 
 > [!div class="mx-imgBorder"]
 > ![Modelo conceitual de 3 níveis de pergunta de vários desligamentos](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-A coluna para uma passagem múltipla `.tsv`, específica para a múltipla ativação, é **solicitada**. Um exemplo `.tsv`, mostrado no Excel, mostra as informações a serem incluídas para definir os filhos de troca múltipla:
+A coluna para uma passagem múltipla `.tsv` , específica para a múltipla ativação, é **solicitada**. Um exemplo `.tsv` , mostrado no Excel, mostra as informações a serem incluídas para definir os filhos de troca múltipla:
 
 ```JSON
 [
@@ -58,14 +58,14 @@ O **displayOrder** é numérico e o **exibirtexto** é texto que não deve inclu
 
 Se você não tiver certeza de como representar seu par de QnA no `.tsv` arquivo:
 * Use este [exemplo para download do GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
-* Ou crie o conjunto no portal de QnA Maker, salve e, em seguida, exporte a base de dados de conhecimento para obter um exemplo de como representar o conjunto.
+* Ou crie o par no portal de QnA Maker, salve e, em seguida, exporte a base de dados de conhecimento para obter um exemplo de como representar o par.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Ciclo de vida de desenvolvimento de uma base de dados de conhecimento](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 Use a [referência de redução](../reference-markdown-format.md) QnA Maker para ajudá-lo a Formatar suas respostas.
 

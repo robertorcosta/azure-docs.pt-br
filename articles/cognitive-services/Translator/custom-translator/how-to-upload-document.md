@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: b2a249a40d8c782d54a12df43d33655f3409753c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aaebf849cc69db7c85d1472f4d71774bc599be11
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647379"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994296"
 ---
 # <a name="upload-a-document"></a>Upload de um documento
 
@@ -24,7 +24,7 @@ Antes de carregar seus documentos, examine as [diretrizes de convenção de nome
 
 ## <a name="how-to-upload-document"></a>Como carregar o documento?
 
-No portal [ Custom Translator ](https://portal.customtranslator.azure.ai), clique na guia “Documents” para ir para a página de documentos.
+No portal do [Tradutor personalizado](https://portal.customtranslator.azure.ai) , clique na guia "documentos" para ir para a página de documentos.
 
 ![Link de upload de documento](media/how-to/how-to-upload-1.png)
 
@@ -61,11 +61,11 @@ No portal [ Custom Translator ](https://portal.customtranslator.azure.ai), cliqu
 
     ![Carregar a caixa de diálogo de documento](media/how-to/how-to-upload-dialog.png)
 
-3.  Neste ponto, estamos processando seus documentos e tentando extrair sentenças. Você pode clicar em "Visualizar progresso do envio" para verificar o status de seus documentos conforme eles são processados.
+3.  Neste ponto, estamos processando seus documentos e tentando extrair sentenças. Você pode clicar em "Exibir progresso do upload" para verificar o status dos documentos conforme eles são processados.
 
     ![Carregar caixa de diálogo de processamento de documentos](media/how-to/how-to-upload-processing-dialog.png)
 
-4.  Esta página exibirá o status e os erros de cada arquivo no seu upload. Você pode ver o status do upload passado a qualquer momento clicando na guia "Histórico de uploads".
+4.  Esta página exibirá o status e os erros de cada arquivo no seu upload. Você pode exibir o status de carregamento anterior a qualquer momento clicando na guia "carregar histórico".
 
     ![Carregar a caixa de diálogo de histórico de documento](media/how-to/how-to-upload-document-history.png)
 
