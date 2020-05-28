@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c2b67989cbffb03eb182b4de2bf471a02ee33e7b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627986"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996815"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -27,11 +27,10 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
 
 ### <a name="new-features"></a>Novos recursos
 * **Suporte do SDK para a visualização pública da API v 2.0 do Forms Recognizer** Este mês, expandimos nosso suporte de serviço para incluir um SDK de visualização para o formulário Recognizer v 2.0 (versão prévia). Use os links abaixo para começar a usar o idioma de sua escolha: 
-   * [SDK .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer)
-   * [Java SDK](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [SDK do Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [SDK do JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)
-
+   * [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
+   * [SDK do Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
+   * [SDK do JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
 
   O novo SDK dá suporte a todos os recursos da API REST v 2.0 para o reconhecedor de formulário. Por exemplo, você pode treinar um modelo com ou sem rótulos e extrair texto, pares chave-valor e tabelas de seus formulários, extrair dados de recibos com o serviço de recebimentos pré-criados e extrair texto e tabelas com o serviço de layout de seus documentos. Você pode compartilhar seus comentários sobre os SDKs por meio do [formulário de comentários do SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -39,18 +38,22 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
    * [Gerar uma autorização de cópia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) API REST
    * [Copiar um modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) API REST 
 
+### <a name="security-improvements"></a>Aprimoramentos de segurança
+
+* As chaves gerenciadas pelo cliente agora estão disponíveis para FormRecognizer. Para obter mais informações, consulte [criptografia de dados em repouso para o reconhecedor de formulário](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
+* Use identidades gerenciadas para acessar recursos do Azure com Azure Active Directory. Para obter mais informações, consulte [autorizar o acesso a identidades gerenciadas](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Março de 2020 
 
 ### <a name="new-features"></a>Novos recursos
 
-* **Tipos de valor para rotulagem** Agora você pode especificar os tipos de valores que está rotulando com a ferramenta de rotulagem de amostra do reconhecedor de formulário. Os tipos de valor e as variações a seguir têm suporte no momento:
+* **Tipos de valor para rotulagem** Agora você pode especificar os tipos de valores que está rotulando com a ferramenta de rotulagem de amostra do reconhecedor de formulário. Os tipos de valor e as variações a seguir são compatíveis no momento:
   * `string`
-    * padrão, `no-whitespaces`,`alphanumeric`
+    * padrão, `no-whitespaces`, `alphanumeric`
   * `number`
-    * os`currency`
+    * padrão, `currency`
   * `date` 
-    * padrão, `dmy`, `mdy`,`ymd`
+    * padrão, `dmy`, `mdy`, `ymd`
   * `time`
   * `integer`
 
@@ -64,7 +67,7 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
   > [!div class="mx-imgBorder"]
   > ![Visualização de tabela usando a ferramenta de rótulo de exemplo](./media/whats-new/formre-table-viz.png)
 
-    As tabelas extraídas estão disponíveis na saída JSON em `"pageResults"`.
+    As tabelas extraídas estão disponíveis na saída JSON em `"pageResults"` .
 
   > [!IMPORTANT]
   > Não há suporte para rotular tabelas. Se as tabelas não forem reconhecidas e extrated automaticamente, você só poderá rotulá-las como pares de chave/valor. Ao rotular tabelas como pares de chave/valor, rotule cada célula como um valor exclusivo.
@@ -81,7 +84,7 @@ Para obter mais informações sobre a ferramenta de rótulo de exemplo do reconh
 
 ### <a name="tls-12-enforcement"></a>Imposição do TLS 1.2
 
-O TLS 1,2 agora é imposto para todas as solicitações HTTP para esse serviço. Para obter mais informações, consulte [segurança de serviços cognitivas do Azure](../cognitive-services-security.md).
+Agora o TLS 1.2 é obrigatório para todas as solicitações HTTP a este serviço. Para saber mais, confira [Segurança nos Serviços Cognitivos do Azure](../cognitive-services-security.md).
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
