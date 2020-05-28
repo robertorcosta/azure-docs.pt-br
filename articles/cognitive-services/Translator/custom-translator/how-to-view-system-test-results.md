@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: eee2271b6d1fb51ff4b27c0d612306b1f7f8747a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3361241bf0a330abc18701f93460208b8804a7dc
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584715"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994252"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
@@ -68,7 +68,7 @@ Para solicitar uma implantação:
 
 1.  Selecione um projeto, vá para a guia de modelos.
 
-2. Para um modelo treinado com êxito, ela mostra o botão "Implantar", se não for implantado.
+2. Para um modelo treinado com êxito, ele mostra o botão "implantar", se não for implantado.
 
     ![Implantar modelo](media/how-to/how-to-deploy-model.png)
 
@@ -77,7 +77,7 @@ Para solicitar uma implantação:
 
     ![Implantar modelo](media/how-to/how-to-deploy-model-regions.png)
 
-5.  Você pode ver o status do seu modelo na coluna "Status".
+5.  Você pode exibir o status do seu modelo na coluna "status".
 
 >[!Note]
 >O tradutor personalizado dá suporte a 10 modelos implantados em um espaço de trabalho a qualquer momento.

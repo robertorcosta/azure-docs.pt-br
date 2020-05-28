@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595585"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994235"
 ---
 # <a name="view-document-details"></a>Exibir detalhes do documento
 
@@ -22,7 +22,7 @@ A página de lista de documentos mostra os primeiros 10 documentos no workspace.
 
 Clique em um documento individual para exibir a página de detalhes do documento. A página de detalhes de documento exibe a lista de frases extraídas do documento.
 
-- Por padrão, o idioma de "origem" é selecionado no campo suspenso, mas é possível alternar para exibir as frases no idioma de destino.
+- Por padrão, o idioma de "origem" é selecionado no campo suspenso, mas você pode alternar para exibir frases no idioma de destino.
 - Por padrão, são exibidas 20 frases por página. Você pode usar o controle de paginação para navegar entre as páginas.
 
 ![detalhes do documento](media/how-to/how-to-view-document-details.png)

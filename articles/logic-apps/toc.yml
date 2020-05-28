@@ -4,7 +4,7 @@
   items:
     - name: O que são Aplicativos Lógicos do Azure?
       href: logic-apps-overview.md
-- name: Inícios rápidos
+- name: Início rápido
   expanded: true
   items:
     - name: Criar aplicativos lógicos - Portal do Azure
@@ -377,6 +377,8 @@
       href: logic-apps-limits-and-config.md
     - name: Modelo de preço e medição de uso
       href: logic-apps-pricing.md
+    - name: CLI do Azure
+      href: /cli/azure/ext/logic/logic?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
     - name: API REST

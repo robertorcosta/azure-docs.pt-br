@@ -4,12 +4,12 @@ description: Os tipos de conteúdo incluem muitos documentos estruturados padrã
 services: cognitive-services
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: 7c78f9ea261fa636cce50b69524802d0900e9d7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2569832f7f87ed7b8fccbc44e431fa45495ba67
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77650190"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996101"
 ---
 # <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>Tipos de conteúdo de documentos que você pode adicionar a uma base de dados de conhecimento
 Os tipos de conteúdo incluem muitos documentos estruturados padrão, como PDF, DOC e TXT.
@@ -49,4 +49,4 @@ Saiba mais sobre as [diretrizes de formato](../reference-document-format-guideli
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Entenda quais informações são armazenadas em um [conjunto de perguntas e respostas (QnA)](question-answer-set.md).
+Entenda quais informações são armazenadas em um [par de perguntas e respostas (QnA)](question-answer-set.md).

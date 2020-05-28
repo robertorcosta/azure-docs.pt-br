@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9432ac390b7677b3dea5aebc84cf23ef6e45db92
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40a0429c4296426042e5baa58c9575ddb195cd7c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595721"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996730"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e excluir projetos
 
@@ -34,7 +34,7 @@ A ferramenta de filtragem permite pesquisar projetos por diferentes condições 
 
     ![Opções de filtro de projeto de pesquisa](media/how-to/how-to-search-project-filters.png)
 
-3.  Limpe o filtro para ver todos os seus projetos tocando em "Limpar".
+3.  Desmarque o filtro para exibir todos os seus projetos tocando em "limpar".
 
 
 ## <a name="edit-a-project"></a>Editar um projeto

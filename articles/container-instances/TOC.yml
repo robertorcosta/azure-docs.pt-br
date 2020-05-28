@@ -4,7 +4,7 @@
   items:
     - name: Sobre as Instâncias de Contêiner do Azure
       href: container-instances-overview.md
-- name: Inícios rápidos
+- name: Início rápido
   expanded: true
   items:
     - name: Implantar uma instância de contêiner – CLI
@@ -52,8 +52,12 @@
       href: container-instances-region-availability.md
     - name: Relação com orquestradores
       href: container-instances-orchestrator-relationship.md
-    - name: Considerações de segurança
-      href: container-instances-image-security.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
+        - name: Considerações de segurança
+          href: container-instances-image-security.md
     - name: Rede Virtual
       href: container-instances-virtual-network-concepts.md
 - name: Guias de instruções

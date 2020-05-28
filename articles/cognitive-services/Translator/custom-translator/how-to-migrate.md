@@ -6,25 +6,25 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: face605d756d2107c04b3df0c072602ac91d147d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586973"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992888"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar workspace e projetos do Hub para o Tradutor Personalizado
 
 É possível migrar o workspace e os projetos do [Hub do Microsoft Translator](https://hub.microsofttranslator.com/) facilmente para o Tradutor Personalizado. A migração é iniciada no Hub da Microsoft selecionando um workspace ou um projeto, selecionando um workspace no Tradutor Personalizado e, em seguida, selecionando os treinamentos que você deseja transferir. Depois que a migração é iniciada, as configurações de treinamento selecionadas serão transferidas com todos os documentos relevantes. Modelos implantados são treinados e podem ser implantados automaticamente após a conclusão.
 
 Estas ações são executadas durante a migração:
-* Todos os documentos e as definições do projeto terão seus nomes transferidos com a adição de "hub_" como prefixo no nome. Os dados de teste e ajuste gerados automaticamente serão denominados hub_systemtune_\<modelid> ou hub_systemtest_\<modelid>.
+* Todos os documentos e definições de projeto terão seus nomes transferidos com a adição de "hub_" prefixado para o nome. Os dados de teste e ajuste gerados automaticamente serão denominados hub_systemtune_\<modelid> ou hub_systemtest_\<modelid>.
 * Os treinamentos que estavam no estado implantado quando a migração ocorrer serão treinados automaticamente usando os documentos do treinamento do Hub. Esse treinamento não será cobrado na sua assinatura. Se a implantação automática foi selecionada para a migração, o modelo treinado será implantado após a conclusão. Custos de hospedagem normais serão aplicados.
 * Os treinamentos migrados que não estavam no estado implantado serão colocados no estado de rascunho migrado. Nesse estado, você terá a opção de treinar de um modelo com a definição de migrada, mas serão aplicados os encargos de treinamento regulares.
-* Em algum momento, a pontuação BLEU migrada do treinamento do Hub poderá ser encontrada na página TrainingDetails do modelo no cabeçalho “Pontuação BLEU no Hub de TA”.
+* A qualquer momento, a pontuação de BLEU migrada do treinamento de Hub pode ser encontrada na página TrainingDetails do modelo no cabeçalho "Pontuação Bleu no Hub MT".
 
 > [!Note] 
 > Para que um treinamento tenha sucesso, o tradutor personalizado requer um mínimo de 10.000 frases extraídas exclusivas. O tradutor personalizado não pode conduzir um treinamento com menos do que o [mínimo sugerido](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
@@ -92,7 +92,7 @@ Para migrar um workspace:
 
 ## <a name="migration-history"></a>Histórico de migração
 
-Após solicitar a migração do workspace/projeto do Hub, você localizará o histórico de migração na página Configurações do Tradutor Personalizado.
+Quando tiver solicitado a migração de espaço de trabalho/projeto do Hub, você encontrará o histórico de migração na página Configurações do tradutor personalizado.
 
 Para exibir o histórico de migração, siga estas etapas:
 
@@ -132,11 +132,11 @@ Esta tabela compara os recursos entre o Microsoft Translator Hub e o conversor p
 
 |   | Hub | Tradutor personalizado |
 |:-----|:----:|:----:|
-|Status do recurso de personalização   | Disponibilidade geral  | Disponibilidade geral |
-| Versão da API de texto  | V2    | V3  |
-| Personalização de SMT | Sim   | Não |
-| Personalização de NMT | Não    | Sim |
-| Nova personalização de serviços de Fala unificados | Não    | Sim |
+|Status do recurso de personalização    | Disponibilidade geral    | Disponibilidade geral |
+| Versão da API de texto    | V2     | V3  |
+| Personalização de SMT    | Sim    | Não |
+| Personalização de NMT    | Não    | Sim |
+| Nova personalização de serviços de Fala unificados    | Não    | Sim |
 | Sem rastreamento | Sim | Sim |
 
 ## <a name="new-languages"></a>Novos idiomas
