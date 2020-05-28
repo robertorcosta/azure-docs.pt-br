@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714314"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017759"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -57,9 +57,9 @@ Cada documento SSML é criado com elementos SSML (ou marcas). Esses elementos s�
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `version` | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Necessária |
-| `xml:lang` | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, `en` ) ou o código de idioma e o país/região em maiúsculas (por exemplo, `en-US` ). | Necessária |
-| `xmlns` | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é http://www.w3.org/2001/10/synthesis . | Necessária |
+| `version` | Indica a versão da especificação SSML usada para interpretar a marcação do documento. A versão atual é 1,0. | Obrigatório |
+| `xml:lang` | Especifica o idioma do documento raiz. O valor pode conter um código de idioma de duas letras minúsculas (por exemplo, `en` ) ou o código de idioma e o país/região em maiúsculas (por exemplo, `en-US` ). | Obrigatório |
+| `xmlns` | Especifica o URI para o documento que define o vocabulário de marcação (os tipos de elementos e nomes de atributo) do documento SSML. O URI atual é http://www.w3.org/2001/10/synthesis . | Obrigatório |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Escolha uma voz para conversão de texto em fala
 
@@ -100,7 +100,7 @@ Dentro do `speak` elemento, você pode especificar várias vozes para a saída d
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Necessária |
+| `name` | Identifica a voz usada para saída de texto para fala. Para obter uma lista completa de vozes com suporte, consulte [suporte a idiomas](language-support.md#text-to-speech). | Obrigatório |
 
 > [!IMPORTANT]
 > Várias vozes são incompatíveis com o recurso de limite de palavra. O recurso de limite de palavra precisa ser desabilitado para usar várias vozes.
@@ -118,7 +118,7 @@ speechConfig.SetProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="c"></a>[C++](#tab/cpp)
+# <a name="c"></a>[C](#tab/cpp)
 
 Para obter mais informações, <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
 
@@ -330,7 +330,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `alphabet` | Especifica o alfabeto fonético a ser usado ao resumir a pronúncia da cadeia de caracteres no `ph` atributo. A cadeia de caracteres que especifica o alfabeto deve ser especificada em letras minúsculas. A seguir estão os possíveis alfabetos que você pode especificar.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonético internacional</a></li><li>`sapi`&ndash; [Alfabeto fonético do serviço de fala](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash;Conjunto de telefone universal</li></ul><br>O alfabeto aplica-se somente ao `phoneme` no elemento. | Opcional |
+| `alphabet` | Especifica o alfabeto fonético a ser usado ao resumir a pronúncia da cadeia de caracteres no `ph` atributo. A cadeia de caracteres que especifica o alfabeto deve ser especificada em letras minúsculas. A seguir estão os possíveis alfabetos que você pode especificar.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Alfabeto <span class="docon docon-navigate-external x-hidden-focus"></span> fonético internacional</a></li><li>`sapi`&ndash; [Alfabeto fonético do serviço de fala](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Conjunto de telefone universal</a></li></ul><br>O alfabeto aplica-se somente ao `phoneme` no elemento. | Opcional |
 | `ph` | Uma cadeia de caracteres que contém telefones que especificam a pronúncia da palavra no `phoneme` elemento. Se a cadeia de caracteres especificada contiver telefones não reconhecidos, o serviço de conversão de texto em fala (TTS) rejeitará todo o documento SSML e produzirá nenhuma saída de fala especificada no documento. | Necessário se estiver usando fonemas. |
 
 **Exemplos**
@@ -378,7 +378,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | O endereço do documento PLS externo. | Obrigatórios.           |
 
-**Usage**
+**Uso**
 
 Para definir como várias entidades são lidas, você pode criar um léxico personalizado, que é armazenado como um arquivo. xml ou. pls. Este é um arquivo. XML de exemplo.
 
@@ -574,7 +574,7 @@ As alterações de timbre podem ser aplicadas a vozes padrão na palavra ou no n
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Necessária |
+| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Obrigatório |
 | `format` | Fornece informações adicionais sobre a formatação exata do texto do elemento para tipos de conteúdo que podem ter formatos ambíguos. O SSML define formatos para tipos de conteúdo que os usam (consulte a tabela abaixo). | Opcional |
 | `detail` | Indica o nível de detalhe a ser falado. Por exemplo, esse atributo pode solicitar que o mecanismo de síntese de fala pronuncia as marcas de pontuação. Não há valores padrão definidos para `detail` . | Opcional |
 
@@ -594,7 +594,7 @@ A seguir estão os tipos de conteúdo com suporte para os `interpret-as` `format
 | `telephone` | | O texto é falado como um número de telefone. O `format` atributo pode conter dígitos que representam um código de país. Por exemplo, "1" para o Estados Unidos ou "39" para a Itália. O mecanismo de síntese de fala pode usar essas informações para orientar sua pronúncia de um número de telefone. O número de telefone também pode incluir o código do país e, nesse caso, tem precedência sobre o código do país no `format` . O mecanismo de síntese de fala pronuncia:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Como "meu número é código de área 8 8 8 5 5 5 1 2 1 2." |
 | `time` | hms12, hms24 | O texto é falado como uma hora. O `format` atributo especifica se a hora é especificada usando um relógio de 12 horas (hms12) ou um relógio de 24 horas (hms24). Use dois-pontos para separar números que representam horas, minutos e segundos. Estes são exemplos de tempo válidos: 12:35, 1:14:32, 08:15 e 02:50:45. O mecanismo de síntese de fala pronuncia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Como "o treinamento faz parte de quatro A M". |
 
-**Usage**
+**Uso**
 
 O `say-as` elemento pode conter apenas texto.
 
