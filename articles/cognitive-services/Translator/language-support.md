@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592722"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996067"
 ---
 # <a name="language-and-region-support-for-translator"></a>Suporte a idiomas e regiões para o tradutor
 
@@ -40,80 +40,80 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 > [!NOTE]
 > Atualmente, um subconjunto dos idiomas neurais está disponível no Tradutor personalizado e estamos adicionando gradualmente outros. [Exiba os idiomas disponíveis no momento no Tradutor personalizado](#customization).
 
-|Idioma|  Código de idioma|  API V3|
+|Linguagem|    Código de idioma|    API V3|
 |:-----|:-----:|:-----|
-|Africâner| `af`|   Neural|
-|Árabe|    `ar`    |   Neural|
-|Bangla|    `bn`    |   Neural|
-|Bósnio (latim)|   `bs`    |   Neural|
-|Búlgaro| `bg`    |   Neural|
-|Cantonês (tradicional)|   `yue`|  Estatística|
-|Catalão|   `ca`    |   Estatística|
+|Africâner|    `af`|    Neural|
+|Árabe|    `ar`    |    Neural|
+|Bangla|    `bn`    |    Neural|
+|Bósnio (latim)|    `bs`    |    Neural|
+|Búlgaro|    `bg`    |    Neural|
+|Cantonês (tradicional)|    `yue`|    Estatística|
+|Catalão|    `ca`    |    Estatística|
 |Chinês simplificado|    `zh-Hans`|Neural|
-|Chinês (tradicional)|   `zh-Hant`       |Neural|
-|Croata|  `hr`    |Neural|
-|Tcheco| `cs`    |   Neural|
+|Chinês (tradicional)|    `zh-Hant`        |Neural|
+|Croata|    `hr`    |Neural|
+|Tcheco|    `cs`    |    Neural|
 |Dinamarquês|    `da`        |Neural|
-|Holandês| `nl`|   Neural|
-|Inglês|   `en`    |   Neural|
-|Estoniano|  `et`    |   Neural|
-|Fijiano|    `fj`    |   Estatística|
-|Filipino|  `fil`   |   Estatística|
-|Finlandês|   `fi`    |   Neural|
-|Francês|    `fr`    |   Neural|
-|Alemão|    `de`    |   Neural|
-|Grego| `el`    |   Neural|
-|Guzerate|  `gu`    |   Neural|
+|Holandês|    `nl`|    Neural|
+|Inglês|    `en`    |    Neural|
+|Estoniano|    `et`    |    Neural|
+|Fijiano|    `fj`    |    Estatística|
+|Filipino|    `fil`    |    Estatística|
+|Finlandês|    `fi`    |    Neural|
+|Francês|    `fr`    |    Neural|
+|Alemão|    `de`    |    Neural|
+|Grego|    `el`    |    Neural|
+|Guzerate|    `gu`    |    Neural|
 |Crioulo haitiano|    `ht`        |Estatística|
-|Hebraico |`he`   |Neural
-|Híndi| `hi`    |   Neural|
-|Hmong Daw| `mww`   |   Estatística|
-|Húngaro| `hu`    |   Neural|
-|Islandês| `is`    |   Neural|
-|Indonésio|    `id`    |   Estatística|
+|Hebraico    |`he`    |Neural
+|Híndi|    `hi`    |    Neural|
+|Hmong Daw|    `mww`    |    Estatística|
+|Húngaro|    `hu`    |    Neural|
+|Islandês|    `is`    |    Neural|
+|Indonésio|    `id`    |    Estatística|
 |Irlandês | `ga`| Neural
-|Italiano|   `it`    |   Neural|
-|Japonês|  `ja`    |   Neural|
+|Italiano|    `it`    |    Neural|
+|Japonês|    `ja`    |    Neural|
 |canarim|`kn`| Neural
-|Suaíli| `sw`    |   Estatística|
-|Klingon|   `tlh`   |   Estatística|
-|Klingon (plqaD)|   `tlh-Qaak`  |   Estatística|
-|Coreano |`ko`   |   Neural|
-|Letão|   `lv`    |   Neural|
-|Lituano|    `lt`    |   Neural|
-|Malgaxe|  `mg`    |   Estatística|
-|Malaio| `ms`        |Estatística|
+|Suaíli|    `sw`    |    Estatística|
+|Klingon|    `tlh`    |    Estatística|
+|Klingon (plqaD)|    `tlh-Qaak`    |    Estatística|
+|Coreano    |`ko`    |    Neural|
+|Letão|    `lv`    |    Neural|
+|Lituano|    `lt`    |    Neural|
+|Malgaxe|    `mg`    |    Estatística|
+|Malaio|    `ms`        |Estatística|
 |Malaiala| `ml` | Neural
-|Maltês|   `mt`    |   Estatística|
+|Maltês|    `mt`    |    Estatística|
 |Maori| `mi`  | Neural|
 |Marati| `mr`  | Neural|
-|Norueguês| `nb`    |   Neural|
-|Persa|   `fa`    |   Neural|
-|Polonês|    `pl`    |   Neural|
-|Português (Brasil)|   `pt-br` |   Neural|
+|Norueguês|    `nb`    |    Neural|
+|Persa|    `fa`    |    Neural|
+|Polonês|    `pl`    |    Neural|
+|Português (Brasil)|    `pt-br`    |    Neural|
 |Português (Portugal)| `pt-pt` | Neural
 |Panjabi|`pa`|Neural
-|Queretaro Otomi|   `otq`   |   Estatística|
-|Romeno|  `ro`    |   Neural|
-|Russo|   `ru`    |   Neural|
-|Samoano|    `sm`    |   Estatística|
-|Sérvio (cirílico)|    `sr-Cyrl`|  Estatística|
-|Sérvio (latino)|   `sr-Latn`       |Estatística|
-|Eslovaco|    `sk`    |   Neural|
-|Esloveno| `sl`    |   Neural|
-|Espanhol|   `es`    |   Neural|
-|Sueco|   `sv`    |Neural|
-|Taitiano|  `ty`    |Estatística|
-|Tâmil| `ta`    |   Neural|
-|Télugo|    `te`    |   Neural|
-|Tailandês|  `th`    |   Neural|
-|Tongan|    `to`    |   Estatística|
-|Turco|   `tr`        |Neural|
-|Ucraniano| `uk`    |   Neural|
-|Urdu|  `ur`    |   Estatística|
-|Vietnamita|    `vi`    |   Neural|
-|Galês| `cy`    |   Neural|
-|Yucatec Maya|  `yua`   |   Estatística|
+|Queretaro Otomi|    `otq`    |    Estatística|
+|Romeno|    `ro`    |    Neural|
+|Russo|    `ru`    |    Neural|
+|Samoano|    `sm`    |    Estatística|
+|Sérvio (cirílico)|    `sr-Cyrl`|    Estatística|
+|Sérvio (latino)|    `sr-Latn`        |Estatística|
+|Eslovaco|    `sk`    |    Neural|
+|Esloveno|    `sl`    |    Neural|
+|Espanhol|    `es`    |    Neural|
+|Sueco|    `sv`    |Neural|
+|Taitiano|    `ty`    |Estatística|
+|Tâmil|    `ta`    |    Neural|
+|Télugo|    `te`    |    Neural|
+|Tailandês|    `th`    |    Neural|
+|Tongan|    `to`    |    Estatística|
+|Turco|    `tr`        |Neural|
+|Ucraniano|    `uk`    |    Neural|
+|Urdu|    `ur`    |    Estatística|
+|Vietnamita|    `vi`    |    Neural|
+|Galês|    `cy`    |    Neural|
+|Yucatec Maya|    `yua`    |    Estatística|
 
 > [!NOTE]
 > O código `pt` de idioma padrão será `pt-br` , Português (Brasil).
@@ -122,7 +122,7 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 
 O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indica que o idioma pode ser transliterado de ou para qualquer um dos scripts listados. O "->" indica que o idioma só pode ser transliterado de um script para outro.
 
-| Idioma    | Código de idioma | script | Para/De | script|
+| Linguagem    | Código de idioma | script | Para/De | script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 |Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -149,7 +149,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 
 O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos Lookup e Examples.
 
-| Idioma    | Código de idioma |
+| Linguagem    | Código de idioma |
 |:----------- |:-------------:|
 | Africâner      | `af`          |
 | Árabe       | `ar`          |
@@ -217,14 +217,14 @@ Você pode recuperar uma lista de idiomas com suporte para o tradutor v 3.0 usan
 
 Os idiomas a seguir estão disponíveis para personalização de ou para o inglês usando o [Tradutor personalizado](https://aka.ms/CustomTranslator).
 
-| Idioma    | Código de idioma |
+| Linguagem    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Bangla      | `bn`          |
 | Bósnio (latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Chinês simplificado      | `zh-Hans`          |
-|Chinês (tradicional)|   `zh-Hant`   |
+|Chinês (tradicional)|    `zh-Hant`    |
 | Croata      | `hr`          |
 | Tcheco      | `cs`          |
 | Dinamarquês      | `da`          |
@@ -239,15 +239,15 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Híndi      | `hi`          |
 | Húngaro      | `hu`          |
 | Islandês | `is` |
-| Indonésio|   `id`    |
-| Irlandês | `ga`  |
+| Indonésio|    `id`    |
+| Irlandês | `ga`    |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
 | Suaíli|    `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
-| Malgaxe| `mg`    |
+| Malgaxe|    `mg`    |
 | Maori| `mi`  |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
@@ -255,7 +255,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Português (Brasil) | `pt-br` |
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
-| Samoano|   `sm`    |
+| Samoano|    `sm`    |
 | Sérvio (latino)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |

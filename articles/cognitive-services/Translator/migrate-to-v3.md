@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592705"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996203"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Conversor v2 para migração v3
 
@@ -32,19 +32,19 @@ O fim deste documento contém links úteis para saber mais.
 
 * Sem rastreamento – na V3, Sem Rastreamento se aplica a todas as camadas de preços no portal do Azure. Esse recurso significa que nenhum texto enviado para a API V3 será salvo pela Microsoft.
 * JSON – XML é substituído por JSON. Todos os dados enviados para o serviço e recebidos do serviço estão no formato JSON.
-* Vários idiomas de destino em uma única solicitação – o método Translate aceita vários idiomas de destino para tradução em uma única solicitação. Por exemplo, uma única solicitação pode ser 'de' inglês e 'para' alemão, espanhol e japonês ou qualquer outro grupo de idiomas.
-* Dicionário bilíngue – um método de dicionário bilíngue foi adicionado à API. Esse método inclui 'pesquisa' e 'exemplos'.
+* Vários idiomas de destino em uma única solicitação – o método translate aceita vários idiomas ' to ' para tradução em uma única solicitação. Por exemplo, uma única solicitação pode ser ' de ' em inglês e ' para ' alemão, espanhol e japonês ou qualquer outro grupo de idiomas.
+* Dicionário bilíngue – um método de dicionário bilíngue foi adicionado à API. Esse método inclui ' Lookup ' e ' examples '.
 * Transliterate – um método transliterate foi adicionado à API. Esse método converterá palavras e frases em um script (ex.: árabe) em outro script (ex.: latim).
-* Idiomas – um novo método de 'idiomas' fornece informações de idioma, no formato JSON, para uso com os métodos 'translate', 'dictionary' e 'transliterate'.
-* Não familiarizado com a Tradução – novas funcionalidades foram adicionadas ao método 'translate' para dar suporte a alguns dos recursos que estavam na API V2 como métodos separados. Um exemplo é TranslateArray.
+* Idiomas – um novo método ' Languages ' fornece informações de idioma, no formato JSON, para uso com os métodos ' translate ', ' Dictionary ' e ' transliterate '.
+* Novo para traduzir-novos recursos foram adicionados ao método ' translate ' para dar suporte a alguns dos recursos que estavam na API v2 como métodos separados. Um exemplo é TranslateArray.
 * Método de fala – não há mais suporte para a funcionalidade de conversão de texto em fala no Microsoft Translator. A funcionalidade de texto para fala está disponível no [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 A seguinte lista de métodos V2 e V3 identifica as APIs e os métodos da V3 que fornecerão a funcionalidade disponibilizada com a V2.
 
 | Método da API V2   | Compatibilidade da API V3 |
 |:----------- |:-------------|
-| `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
+| `Translate`     | [Translate](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Linguagens](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Linguagens](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Serviço de fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
@@ -116,10 +116,10 @@ Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como t
 
 A tradução neural com a API de texto V3 não dá suporte ao uso de categorias padrão (SMT, fala, texto, generalnn).
 
-| |Ponto de Extremidade|    Conformidade de processador do RGPD|  Usar o Hub do Tradutor| Usar o Tradutor Personalizado (Versão Prévia)|
+| |Ponto de Extremidade|    Conformidade de processador do RGPD|    Usar o Hub do Tradutor|    Usar o Tradutor Personalizado (Versão Prévia)|
 |:-----|:-----|:-----|:-----|:-----|
-|Tradutor versão 2|  api.microsofttranslator.com|    Não  |Sim    |Não|
-|Tradutor versão 3|  api.cognitive.microsofttranslator.com|  Sim|    Não| Sim|
+|Tradutor versão 2|    api.microsofttranslator.com|    Não    |Sim    |Não|
+|Tradutor versão 3|    api.cognitive.microsofttranslator.com|    Sim|    Não|    Sim|
 
 **Tradutor versão 3**
 * Está geralmente disponível e tem suporte completo.
