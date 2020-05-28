@@ -3,12 +3,12 @@ title: Editar uma base de dados de conhecimento – QnA Maker
 description: O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhecimento, fornecendo uma experiência de edição fácil de usar.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650819"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993568"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Editar pares de QnA na sua base de dados de conhecimento
 
@@ -85,7 +85,7 @@ Qualquer campo em qualquer par de QnA pode ser editado, independentemente da fon
 
 ## <a name="delete-a-qna-pair"></a>Excluir um par de QnA
 
-Para excluir um QnA, clique no ícone **excluir** à direita da linha QnA. Essa é uma operação permanente. Não pode ser desfeito. Considere exportar a KB da página de **publicação** antes de excluir os conjuntos.
+Para excluir um QnA, clique no ícone **excluir** à direita da linha QnA. Essa é uma operação permanente. Não pode ser desfeito. Considere exportar seu KB da página **publicar** antes de excluir pares.
 
 ![Excluir par de QnA](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -110,7 +110,7 @@ Não é possível vincular pares de QnA nos metadados da resposta.
 
 ## <a name="add-metadata"></a>Adicionar metadados
 
-Adicione conjuntos de metadados selecionando primeiro **as opções de exibição**e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione o **+** sinal para adicionar um conjunto de metadados. Esse conjunto consiste em uma chave e um valor.
+Adicione pares de metadados selecionando primeiro **as opções de exibição**e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione o **+** sinal para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Salvar alterações nos pares de QnA
 

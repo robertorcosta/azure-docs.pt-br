@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 252759139de7f53cd7875efeb7f477219092aa0b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584681"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996356"
 ---
 # <a name="unsupported-language-deployments"></a>Implantações de linguagem sem suporte
 
@@ -32,7 +32,7 @@ Para que seus modelos sejam candidatos à implantação, eles devem atender aos 
 * O modelo deve estar no estado implantado quando a migração ocorrer.  
 * O par de idiomas do modelo deve ser um par de idiomas sem suporte no Tradutor personalizado.  Os pares de idiomas nos quais um idioma tem suporte no ou em inglês, mas o par não inclui o inglês, são candidatos para implantações de idioma sem suporte.  Por exemplo, um modelo de Hub para um par de idiomas francês a alemão é considerado um par de idiomas sem suporte, embora francês a inglês e inglês para alemão sejam um par de idiomas com suporte.
 
-## <a name="process"></a>Processar
+## <a name="process"></a>Processo
 Depois de migrar os modelos do Hub que são candidatos à implantação, você poderá encontrá-los acessando a página de **configurações** do seu espaço de trabalho e rolando até o final da página em que você verá uma seção de **treinamentos do Hub do tradutor sem suporte** .  Esta seção só aparecerá se você tiver projetos que atendam aos pré-requisitos mencionados acima.
 
 ![Como migrar do Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
