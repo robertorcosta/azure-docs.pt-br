@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fcac761ab1f0805a3b2b75107e0119fbfb9db6e
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588325"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148082"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de serviços cognitivas do Azure
 
@@ -51,11 +51,11 @@ O suporte de rede virtual para serviços cognitivas listados abaixo é limitado 
 > * [LUIS](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
 > * [Análise de Texto](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
+> * [O QnA Maker](./qnamaker/index.yml)
 
 O suporte de rede virtual para serviços cognitivas listados abaixo é limitado às regiões *EUA Central EUAP*, *Sul EUA Central*, *leste dos EUA*, *oeste dos EUA 2*, *global*e *US gov-Virgínia* Azure.
 > [!div class="checklist"]
-> * [Tradução de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [Conversor de Texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Marcas de serviço
 Além de dar suporte a pontos de extremidade de serviço de rede virtual para os serviços acima, os serviços cognitivas também dão suporte a uma marca de serviço para a configuração de regras de rede de saída. Os serviços a seguir estão incluídos na marca de serviço do CognitiveServicesManagement.
@@ -69,7 +69,7 @@ Além de dar suporte a pontos de extremidade de serviço de rede virtual para os
 > * [LUIS](./luis/index.yml)
 > * [Personalizador](./personalizer/index.yml)
 > * [Análise de Texto](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
+> * [O QnA Maker](./qnamaker/index.yml)
 > * [Tradutor](./translator/index.yml)
 > * [Serviço de Fala](./speech-service/index.yml)
 
@@ -484,6 +484,68 @@ Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por
 
 > [!IMPORTANT]
 > Não se esqueça de [definir a regra padrão](#change-the-default-network-access-rule) para **negar** ou as regras de rede não terão efeito.
+
+## <a name="use-private-endpoints"></a>Usar pontos de extremidade privados
+
+Você pode usar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para seus recursos de serviços cognitivas para permitir que clientes em uma rede virtual (VNet) acessem dados com segurança por meio de um [link privado](../private-link/private-link-overview.md). O ponto de extremidade privado usa um endereço IP do espaço de endereço de VNet para seu recurso de serviços cognitivas. O tráfego de rede entre os clientes na VNet e o recurso atravessa a VNet e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública.
+
+Pontos de extremidade privados para recursos de serviços cognitivas permitem que você:
+
+- Proteja seu recurso de serviços cognitivas Configurando o firewall para bloquear todas as conexões no ponto de extremidade público para o serviço de serviços cognitivas.
+- Aumente a segurança para a VNet, permitindo que você bloqueie vazamento de dados da VNet.
+- Conecte-se com segurança a recursos de serviços cognitivas de redes locais que se conectam à VNet usando [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [expressroute ao qual](../expressroute/expressroute-locations.md) com emparelhamento privado.
+
+### <a name="conceptual-overview"></a>Visão geral conceitual
+
+Um ponto de extremidade privado é uma interface de rede especial para um serviço do Azure em sua [VNet](../virtual-network/virtual-networks-overview.md). Quando você cria um ponto de extremidade privado para o recurso de serviços cognitivas, ele fornece conectividade segura entre clientes em sua VNet e seu recurso. O ponto de extremidade privado recebe um endereço IP do intervalo de endereços IP de sua VNet. A conexão entre o ponto de extremidade privado e o serviço de serviços cognitivas usa um link privado seguro.
+
+Os aplicativos na VNet podem se conectar ao serviço por meio do ponto de extremidade privado diretamente, usando as mesmas cadeias de conexão e mecanismos de autorização que eles usariam de outra forma. A exceção é o serviço de fala, que requer um ponto de extremidade separado. Consulte a seção sobre [pontos de extremidade privados com o serviço de fala](#private-endpoints-with-the-speech-service). Pontos de extremidade privados podem ser usados com todos os protocolos compatíveis com o recurso de serviços cognitivas, incluindo REST.
+
+Pontos de extremidade privados podem ser criados em sub-redes que usam [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md). Os clientes em uma sub-rede podem se conectar a um recurso de serviços cognitivas usando o ponto de extremidade privado, ao mesmo tempo que usam pontos de extremidades de serviço para acessar outros.
+
+Quando você cria um ponto de extremidade privado para um recurso de serviços cognitivas em sua VNet, uma solicitação de consentimento é enviada para aprovação para o proprietário do recurso de serviços cognitivas. Se o usuário que solicita a criação do ponto de extremidade privado também for um proprietário do recurso, essa solicitação de consentimento será aprovada automaticamente.
+
+Os proprietários de recursos de serviços cognitivas podem gerenciar solicitações de consentimento e os pontos de extremidade privados, por meio da guia '*pontos de extremidade particulares*' para o recurso de serviços cognitivas no [portal do Azure](https://portal.azure.com).
+
+### <a name="private-endpoints"></a>Pontos de extremidade privados
+
+Ao criar o ponto de extremidade privado, você deve especificar o recurso de serviços cognitivas ao qual ele se conecta. Para obter mais informações sobre como criar um ponto de extremidade privado, consulte os seguintes artigos:
+
+- [Criar um ponto de extremidade privado usando o centro de links privado no portal do Azure](../private-link/create-private-endpoint-portal.md)
+- [Criar um ponto de extremidade privado usando a CLI do Azure](../private-link/create-private-endpoint-cli.md)
+- [Criar um ponto de extremidade privado usando Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+
+### <a name="connecting-to-private-endpoints"></a>Conectando-se a pontos de extremidade privados
+
+Os clientes em uma VNet usando o ponto de extremidade privado devem usar a mesma cadeia de conexão para o recurso de serviços cognitivas como clientes que se conectam ao ponto de extremidade público. A exceção é o serviço de fala, que requer um ponto de extremidade separado. Consulte a seção sobre [pontos de extremidade privados com o serviço de fala](#private-endpoints-with-the-speech-service). Nós confiamos na resolução DNS para rotear automaticamente as conexões da VNet para o recurso de serviços cognitivas por meio de um link privado. O serviço de fala 
+
+Criamos uma [zona DNS privada](../dns/private-dns-overview.md) anexada à VNet com as atualizações necessárias para os pontos de extremidade privados, por padrão. No entanto, se você estiver usando seu próprio servidor DNS, talvez seja necessário fazer alterações adicionais na configuração do DNS. A seção sobre o [DNS é alterada](#dns-changes-for-private-endpoints) abaixo descreve as atualizações necessárias para pontos de extremidade privados.
+
+### <a name="private-endpoints-with-the-speech-service"></a>Pontos de extremidade privados com o serviço de fala
+
+Ao usar pontos de extremidade privados com o serviço de fala, você deve usar um EndPoint personalizado para chamar a API do serviço de fala. Você não pode usar o ponto de extremidade global. Você deve usar um ponto de extremidade no formato {Account}. {STT | TTS | voz | DLS}. Speech. Microsoft. com.
+
+### <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos de extremidade particulares
+
+Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNAME para o recurso de serviços cognitivas é atualizado para um alias em um subdomínio com o prefixo '*privatelink*'. Por padrão, também criamos uma [zona DNS privada](../dns/private-dns-overview.md), correspondente ao subdomínio '*privatelink*', com os registros de recurso de DNS a para os pontos de extremidade privados.
+
+Quando você resolve a URL do ponto de extremidade de fora da VNet com o ponto de extremidade privado, ela é resolvida para o ponto de extremidade público do recurso de serviços cognitivas. Quando resolvido da VNet que hospeda o ponto de extremidade privado, a URL do ponto de extremidade é resolvida para o endereço IP do ponto de extremidade privado.
+
+Essa abordagem permite o acesso ao recurso de serviços cognitivas usando a mesma cadeia de conexão para clientes na VNet que hospedam os pontos de extremidade privados, bem como clientes fora da VNet.
+
+Se você estiver usando um servidor DNS personalizado em sua rede, os clientes deverão ser capazes de resolver o FQDN (nome de domínio totalmente qualificado) para o ponto de extremidade de recurso dos serviços cognitivas para o endereço IP do ponto de extremidade privado. Você deve configurar o servidor DNS para delegar seu subdomínio de link privado à zona DNS privada para a VNet.
+
+> [!TIP]
+> Ao usar um servidor DNS local ou personalizado, você deve configurar o servidor DNS para resolver o nome do recurso de serviços cognitivas no subdomínio ' privatelink ' para o endereço IP do ponto de extremidade privado. Você pode fazer isso delegando o subdomínio ' privatelink ' à zona DNS privada da VNet ou configurando a zona DNS no servidor DNS e adicionando os registros DNS A.
+
+Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
+
+- [Resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [Configuração de DNS para pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+
+### <a name="pricing"></a>Preços
+
+Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https://azure.microsoft.com/pricing/details/private-link).
 
 ## <a name="next-steps"></a>Próximas etapas
 

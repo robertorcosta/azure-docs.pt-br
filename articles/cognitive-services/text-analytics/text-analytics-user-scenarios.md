@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219242"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141799"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemplos de cenário do usuário para a API de Análise de Texto
 
@@ -39,9 +39,9 @@ Use a Extração de Frases-chave e o Reconhecimento de Entidade para processar s
 
 ![Uma imagem descrevendo como usar o reconhecimento de entidade e a extração de frases-chave para categorizar relatórios de incidentes e tendências](media/use-cases/support-incidents.svg)
 
-## <a name="monitor-your-products-social-media-feeds"></a>Monitorar os feeds de mídias sociais de seu produto
+## <a name="monitor-your-products-social-media-feeds"></a>Monitorar os feeds de mídia social de seu produto
 
-Monitore comentários do usuário sobre o produto no Twitter ou na página do Facebook de seu produto. Use os dados para analisar o sentimento do cliente com relação a novos lançamentos de produtos, extraia frases-chave sobre recursos e solicitações de recursos ou responda a reclamações do cliente conforme elas ocorrerem. Confira o exemplo [modelo do Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
+Monitore os comentários sobre o produto do usuário na página do Twitter ou do Facebook do seu produto. Use os dados para analisar o sentimento do cliente com relação a novos lançamentos de produtos, extraia frases-chave sobre recursos e solicitações de recursos ou responda a reclamações do cliente conforme elas ocorrerem. Confira o exemplo [modelo do Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
 ![Uma imagem descrevendo como monitorar comentários sobre seu produto e sua empresa em redes sociais usando extração de frases-chave](media/use-cases/social-feed.svg)
 
@@ -50,6 +50,13 @@ Monitore comentários do usuário sobre o produto no Twitter ou na página do Fa
 Use o reconhecimento de entidade nomeada para identificar informações pessoais e confidenciais em documentos. Use os dados para classificar documentos ou redação-los para que eles possam ser compartilhados com segurança.
 
 ![Uma imagem que descreve como usar o NER para detectar informações pessoais e classificar e redigir documentos](media/use-cases/sensitive-docs.jpg)
+
+## <a name="perform-opinion-mining"></a>Executar mineração de opinião
+
+Agrupe opiniões relacionadas a aspectos específicos de um produto ou serviço em pesquisas, comentários de clientes ou onde quer que o texto tenha uma opinião sobre um aspecto. Use-o para ajudar a orientar os lançamentos e melhorias do produto, os esforços de marketing ou realçar o desempenho de seu produto ou serviço. 
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="Opiniões de exemplo sobre um hotel.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
