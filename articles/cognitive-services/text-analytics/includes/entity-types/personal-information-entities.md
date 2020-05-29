@@ -6,327 +6,61 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/06/2020
+ms.date: 04/30/2020
 ms.author: aahi
-ms.openlocfilehash: 57be24142a8504347f420e5780e9621cd2eac91d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 81ed10f0b3b2a8042f0766f89bb99d7cad950fca
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778199"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140901"
 ---
-## <a name="personal-information-entity-types"></a>Tipos de entidade de informações pessoais:
+> [!NOTE]
+> Para detectar `PHI` , use o `domain=phi` parâmetro e a versão do modelo `2020-04-01` ou posterior.
+>
+> Por exemplo: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
+ 
+As categorias de entidade a seguir são retornadas ao enviar solicitações para o `/v3.1-preview.1/entities/recognition/pii` ponto de extremidade.
 
-### <a name="person"></a>Person
-Reconhece nomes de pessoas no texto.
+| Categoria   | Subcategoria | Descrição                          | Iniciando versão do modelo | Observações |
+|------------|-------------|--------------------------------------|------------------------|---|
+| Person     | N/D         | Nomes de pessoas.  | `2019-10-01`  | Também retornado com `domain=phi` . |
+| Persontype | N/D         | Tipos de trabalho ou funções mantidas por uma pessoa. | `2020-02-01` | |
+| PhoneNumber | N/D | Números de telefone (somente números de telefone dos EUA e da UE). | `2019-10-01` | Também retornado com`domain=phi` |
+|Organização  | N/D | Empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas.  | `2019-10-01` | As nacionalidades e Religions não são incluídas nesse tipo de entidade.  |
+|Organização | Médicos | Empresas e grupos médicos. | `2020-04-01` | Também retornado com `domain=phi` . |
+|Organização | Troca de estoque | Grupos de troca de estoque. | `2020-04-01` | Também retornado com `domain=phi` . |
+| Organização | Esportes | Organizações relacionadas a esportes. | `2020-04-01` | Também retornado com `domain=phi` . |
+| Endereço | N/D | Endereços de endereçamento completos.  | `2020-04-01` | Também retornado com `domain=phi` . |
+| Coordenadas de GPS da UE | N/D | Coordenadas de GPS para locais na União Europeia.  | `2019-10-01` |  |
+| Email | N/D | Endereços de email. | `2019-10-01` | Também retornado com `domain=phi` .   |
+| URL | N/D | URLs para sites. | `2019-10-01` | Também retornado com `domain=phi` . |
+| IP | N/D | Endereços IP de rede. | `2019-10-01` | |
+| Datetime | N/D | Datas e horas do dia. | `2019-10-01` |  | 
+| Datetime | Data | Datas do calendário. | `2019-10-01` | Também retornado com `domain=phi` . |
+| Quantidade | N/D | Números e quantidades numéricas. | `2019-10-01` |  |
+| Quantidade | Idade | Paralisa. | `2019-10-01` | | |
+| Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, nono revisão.   | `2020-04-01` | Também retornado com `domain=phi` . |
+| Classificação internacional de doenças (ICD-10-CM) | N/D | Entidades relacionadas à classificação internacional de doenças, décimo revisão.    | `2020-04-01` | Também retornado com `domain=phi` . |
 
-Idiomas:
-* Visualização pública:`English`
+## <a name="azure-information"></a>Informações do Azure
 
-| Nome do subtipo | Description                                               | Disponível a partir da versão do modelo |
-|--------------|-----------------------------------------------------------|----------------------------------------|
-| N/D          | Nomes reconhecidos, por exemplo `Bill Gates` ,`Marie Curie` | `2020-02-01`                           |
+Essa categoria de entidade inclui informações identificáveis do Azure, incluindo informações de autenticação e cadeias de conexão. Disponível a partir da versão do modelo `2019-10-01` . Não retornado com o `domain=phi` parâmetro.
 
-### <a name="organization"></a>Organização  
-
-Reconheça organizações, corporações, agências, empresas, clubes e outros grupos de pessoas.
-
-Idiomas: 
-
-* Visualização pública:`English`
-
-| Nome do subtipo | Description                                                                                       | Disponível a partir da versão do modelo|
-|--------------|---------------------------------------------------------------------------------------------------|--------------|
-| N/D          | organizações, `Microsoft` por exemplo,, `NASA``National Oceanic and Atmospheric Administration` | `2020-02-01` |
-
-### <a name="phone-number"></a>Número do telefone
-
-Números de telefone (somente números de telefone dos EUA). 
-
-Idiomas:
-
-* Visualização pública:`English`
-
-| Nome do subtipo | Description                                    | Disponível a partir da versão do modelo |
-|--------------|------------------------------------------------|----------------------------------------|
-| N/D          | Números de telefone dos EUA, por exemplo`(312) 555-0176` | `2020-02-01`                           |
-
-### <a name="email"></a>Email
-
-Endereço de email. 
-
-Idiomas:
-
-* Visualização pública:`English`
-
-| Nome do subtipo | Description                                      | Disponível a partir da versão do modelo |
-|--------------|--------------------------------------------------|----------------------------------------|
-| N/D          | Endereço de email, por exemplo`support@contoso.com` | `2020-02-01`                           |
-
-### <a name="url"></a>URL
-
-URLs da Internet.
-
-Idiomas:
-
-* Visualização pública:`English`
-
-| Nome do subtipo | Description                                          | Disponível a partir da versão do modelo |
-|--------------|------------------------------------------------------|----------------------------------------|
-| N/D          | URLs para sites, por exemplo`https://www.bing.com` | `2020-02-01`                           |
-
-### <a name="ip-address"></a>Endereço IP
-
-Endereço de protocolo de Internet
-
-Idiomas:
-
-* Visualização pública:`English`
-
-| Nome do subtipo | Description                              | Disponível a partir da versão do modelo |
-|--------------|------------------------------------------|----------------------------------------|
-| N/D          | Endereço de rede, por exemplo`10.0.0.101` | `2020-02-01`                           |
-
-### <a name="quantity"></a>Quantidade 
-
-Quantidades numéricas
-
-Idiomas:
-
-* Visualização pública:`English`
-
-| Nome do subtipo | Description                   | Disponível a partir da versão do modelo |
-|--------------|-------------------------------|----------------------------------------|
-| Idade          | `90 days old`, `30 years old` | `2020-02-01`                           |
-
-### <a name="datetime"></a>Datetime
-
-Entidades de data e hora
-
-Idiomas:
-
-* Visualização pública:`English`
-
-| Nome do subtipo | Description                   | Disponível a partir da versão do modelo |
-|--------------|-------------------------------|----------------------------------------|
-| Data         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
-
-### <a name="eu-gps-coordinates"></a>Coordenadas de GPS da UE
-
- Coordenadas de GPS para locais na União Europeia. 
-
-Idiomas:
-
-* Visualização pública:`English`
-
-| Nome do subtipo | Description                               | Disponível a partir da versão do modelo |
-|--------------|-------------------------------------------|----------------------------------------|
-| N/D          | Coordenadas de GPS na União Europeia | `2019-10-01`                           |
-
-### <a name="azure-information"></a>Informações do Azure
-
-Informações identificáveis do Azure, incluindo informações de autenticação e cadeias de conexão. 
-
-* Disponível a partir da versão do modelo `2019-10-01` .
-
-Idiomas:
-
-* Visualização pública:`English`
-
-| Nome do subtipo                          | Description                                                                 |
+| Subcategoria                           | Descrição                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Chave de autenticação DocumentDB do Azure             | Chave de autorização para um servidor do Azure DocumentDB.                           |
-| Cadeia de conexão do banco de dados IAAS do Azure | Cadeia de conexão para um banco de dados IaaS (infraestrutura como serviço) do Azure. |
+| Cadeia de conexão do banco de dados IAAS do Azure e Cadeia de conexão de SQL do Azure | Cadeia de conexão para um banco de dados IaaS (infraestrutura como serviço) do Azure e uma cadeia de conexão SQL. |
 | Cadeia de conexão SQL do Azure           | Cadeia de conexão para um banco de dados SQL do Azure.                                |
 | Cadeia de conexão do IoT do Azure           | Cadeia de conexão para a IoT (Internet das coisas) do Azure.                        |
 | Senha das configurações de publicação do Azure        | Senha para as configurações de publicação do Azure.                                        |
 | Cadeia de conexão do Cache Redis do Azure   | Cadeia de conexão para um cache do Azure para Redis.                             |
 | Azure SAS                             | Cadeia de conexão para o software como um serviço (SAS) do Azure.                     |
-| Cadeia de conexão do Barramento de Serviço do Azure   | Cadeia de conexão para um barramento de serviço do Azure.                                |
+| Cadeia de conexão do Barramento de Serviço do Azure   | Cadeia de conexão para um barramento de serviço do Azure.                                 |
 | Chave de conta de armazenamento do Azure             | Chave de conta para uma conta de armazenamento do Azure.                                   |
 | Chave da conta de armazenamento do Azure (genérica)   | Chave de conta genérica para uma conta de armazenamento do Azure.                           |
 | Cadeia de conexão do SQL Server          | Cadeia de conexão para um SQL Server.                                         |
 
-### <a name="identification"></a>Identificação
+## <a name="identification"></a>Identificação
 
-* Disponível a partir da versão do modelo `2019-10-01` .
-
-Idiomas:
-
-* Visualização pública:`English`
-
-#### <a name="financial-account-identification"></a>Identificação da conta financeira
-
-| Nome do subtipo               | Description                                                                |
-|----------------------------|----------------------------------------------------------------------------|
-| ABAr números de roteamento        | Números de roteamento de trânsito da ABA (Associação Americana do Banker).                  |
-| Código SWIFT                 | Códigos SWIFT para informações de instrução de pagamento.                           |
-| Cartão de crédito                | Números de cartão de crédito.                                                       |
-| Código do IBAN                  | Códigos de IBAN para informações de instrução de pagamento.                            |
-
-#### <a name="government-and-countryregion-specific-identification"></a>Identificação específica do governo e do país/região
-
-As entidades abaixo são agrupadas e listadas por país/região:
-
-Argentina
-* Número de identidade nacional (DNI)
-
-Austrália
-* Número do arquivo de imposto 
-* ID da licença do driver
-* ID do passaporte
-* Número da conta médica
-* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
-
-Bélgica
-* Número nacional
-
-Brasil
-* Número da entidade legal (CNPJ)
-* Número do CPF
-* Cartão de ID nacional (RG)
-
-Canadá
-* ID do passaporte
-* ID da licença do driver
-* Número de seguro de integridade
-* Número de ID de integridade pessoal (PHIN)
-* Cadastro de Pessoa Física
-* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
-
-Chile
-* Número do cartão de identidade 
-
-China
-* Número do cartão de identidade
-* Número de placa de ID residente (PRC)
-
-Croácia
-* Número do cartão de ID
-* Número da ID pessoal (OIB)
-
-República Tcheca
-* Número do cartão da ID nacional
-
-Dinamarca
-* Número da ID pessoal
-
-União Europeia (UE)
-* Número de ID nacional
-* ID do passaporte
-* ID da licença do driver
-* Número do seguro social (SSN) ou ID equivalente
-* Número de Identificação Tributária da UE (TIN)
-* Número do cartão de débito da UE
-
-Finlândia
-* Número de ID nacional
-* ID do passaporte
-
-França
-* Placa de ID nacional (CNI)
-* Número do seguro social (INSEE)
-* ID do passaporte
-* ID da licença do driver
-
-Alemanha
-* Número do cartão de ID
-* ID do passaporte
-* ID da licença do driver
-
-Grécia 
-* Número do cartão da ID nacional
-
-RAE de Hong Kong
-* Número do cartão de ID (HKID)
-
-Índia
-* Número da conta permanente (PAN)
-* Número de ID exclusiva (Aadhaar)
-
-Indonésia
-* Número do cartão de ID (KTP)
-
-Irlanda
-* Número do PPS (serviço público pessoal)
-
-Israel
-* ID nacional
-* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
-
-Itália
-* ID da licença do driver
-
-Japão
-* Número de registro residente
-* Número da placa de residência
-* ID da licença do driver
-* Número de seguro social (SIN)
-* ID do passaporte
-* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
-
-Malásia
-* Número do cartão de ID
-
-Países Baixos
-* Número de serviço do cidadão (BSN)
-
-Nova Zelândia
-* Ministério do número de integridade
-
-Noruega
-* Número do cartão de ID
-
-Filipinas
-* Número de ID de multipropósito unificado
-
-Polônia
-* Número do cartão de ID
-* ID nacional (PESEL)
-* ID do passaporte
-
-Portugal 
-* Número do cartão do cidadão
-
-Arábia Saudita
-* ID nacional
-
-Singapura
-* Número do NRIC (ID de Registro Nacional)
-
-África do Sul
-* Número da ID
-* Número de registro residente
-
-Coreia do Sul
-* Número de registro residente
-
-Espanha 
-* CPF
-
-Suécia
-* ID nacional
-* ID do passaporte
-
-Taiwan 
-* ID nacional
-* Número do certificado residente (arco/TARC)
-* ID do passaporte
-
-Tailândia
-* Código de identificação da população
-
-Reino Unido
-* ID do passaporte
-* ID da licença do driver
-* Número de seguro nacional (NINO)
-* Número de Serviço de Integridade nacional (NHS)
-
-Estados Unidos
-* CPF
-* ID da licença do driver
-* ID do passaporte
-* Número de reversão do eleitoral
-* Número de ID de imposto individual (certa)
-* Número da Agência de aplicação de drogas (DEA)
-* números de conta bancária (por exemplo, contas de verificação, poupança e débito)
+[!INCLUDE [supported identification entities](./identification-entities.md)]

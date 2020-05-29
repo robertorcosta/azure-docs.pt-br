@@ -1,27 +1,119 @@
 ---
 title: Idiomas compatíveis – API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: 'Uma lista dos idiomas naturais compatíveis com a API de Análise de Texto. Este artigo explica quais idiomas têm suporte para cada operação: análise de sentimento, extração de frases-chave, detecção de idioma e reconhecimento de entidade.'
+description: Uma lista dos idiomas naturais compatíveis com a API de Análise de Texto. Este artigo explica quais idiomas têm suporte para cada operação.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c0e71ffcc88a85caf4b76c34940293663c4acf66
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219275"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142156"
 ---
-# <a name="language-and-region-support-for-the-text-analytics-api"></a>Idiomas e regiões compatíveis com a API de Análise de Texto
+# <a name="text-analytics-api-v3-language-support"></a>Suporte à linguagem API de Análise de Texto v3 
 
-Este artigo explica quais idiomas têm suporte para cada operação: análise de sentimentos, extração de frases-chave, detecção de idioma e reconhecimento de entidade nomeada.
+> [!IMPORTANT]
+> A versão 3. x do API de Análise de Texto não está disponível atualmente nas seguintes regiões: Índia central, Fairfax, Norte dos EAU, África do Sul, Norte da China 2 Leste da China.
 
-## <a name="language-detection"></a>Detecção de Idioma
+
+#### <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment-analysis)
+
+| Linguagem              | Código de idioma | suporte a v2 | suporte v3 | Iniciando a versão do modelo V3: |              Observações |
+|:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
+| Chinês simplificado    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` também é aceito |
+| Chinês tradicional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
+| Dinamarquês               |     `da`      |     ✓      |            |                            |                    |
+| Holandês                 |     `nl`      |     ✓      |            |                            |                    |
+| Inglês               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Finlandês               |     `fi`      |     ✓      |            |                            |                    |
+| Francês                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Alemão                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Grego                 |     `el`      |     ✓      |            |                            |                    |
+| Italiano               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Japonês              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Coreano                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |            |                            |                    |
+| Polonês                |     `pl`      |     ✓      |            |                            |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` também é aceito |
+| Russo               |     `ru`      |     ✓      |            |                            |                    |
+| Espanhol               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
+| Sueco               |     `sv`      |     ✓      |            |                            |                    |
+| Turco               |     `tr`      |     ✓      |            |                            |                    |
+
+### <a name="opinion-mining-v31-preview-only"></a>Mineração de opinião (v 3.1-somente visualização)
+
+| Linguagem              | Código de idioma | Iniciando com a versão do modelo V3: |              Observações |
+|:----------------------|:-------------:|:------------------------------------:|-------------------:|
+| Inglês               |     `en`      |              2020-04-01              |                    |
+
+
+#### <a name="named-entity-recognition-ner"></a>[Reconhecimento de entidade nomeada (NER)](#tab/named-entity-recognition)
+
+> [!NOTE]
+> * O NER v3 atualmente dá suporte apenas ao idioma inglês. Se você chamar NER v3 com um idioma diferente, a API retornará os resultados de v 2.1, desde que a linguagem tenha suporte na versão 2,1.
+> * o v 2.1 retorna apenas o conjunto completo de entidades disponíveis para os idiomas inglês, chinês simplificado, francês, alemão e espanhol.  As entidades "pessoa", "local" e "organização" são retornadas para os outros idiomas com suporte.
+
+| Linguagem               | Código de idioma | suporte a v 2.1 | suporte v3 | Iniciando com a versão do modelo V3: |       Observações        |
+|:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
+| Árabe                |     `ar`      |     ✓      |            |                                 |                    |
+| Tcheco                 |     `cs`      |     ✓      |            |                                 |                    |
+| Chinês simplificado     |   `zh-hans`   |     ✓      |            |                                 | `zh` também é aceito |
+| Chinês tradicional   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Dinamarquês                |     `da`      |     ✓      |            |                                 |                    |
+| Holandês                 |     `nl`      |     ✓      |            |                                 |                    |
+| Inglês                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
+| Finlandês               |     `fi`      |     ✓      |            |                                 |                    |
+| Francês                 |     `fr`      |     ✓      |            |                                 |                    |
+| Alemão                 |     `de`      |     ✓      |            |                                 |                    |
+| Hebraico                |     `he`      |     ✓      |            |                                 |                    |
+| Húngaro             |     `hu`      |     ✓      |            |                                 |                    |
+| Italiano               |     `it`      |     ✓      |            |                                 |                    |
+| Japonês              |     `ja`      |     ✓      |            |                                 |                    |
+| Coreano                |     `ko`      |     ✓      |            |                                 |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |            |                                 | `nb` também é aceito |
+| Polonês                |     `pl`      |     ✓      |            |                                 |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` também é aceito |
+| Português (Brasil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| Russo              |     `ru`      |     ✓      |            |                                 |                    |
+| Espanhol               |     `es`      |     ✓      |            |                                 |                    |
+| Sueco               |     `sv`      |     ✓      |            |                                 |                    |
+| Turco               |     `tr`      |     ✓      |            |                                 |                    |
+
+#### <a name="key-phrase-extraction"></a>[Extração de frases-chave](#tab/key-phrase-extraction)
+
+| Linguagem              | Código de idioma | suporte a v2 | suporte v3 | Disponível a partir da versão do modelo V3: |       Observações        |
+|:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
+| Holandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Finlandês               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Francês                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Alemão                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Italiano               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Japonês              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Coreano                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Norueguês (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` também é aceito |
+| Polonês                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` também é aceito |
+| Português (Brasil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Russo               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Espanhol               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Sueco               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
+
+#### <a name="entity-linking"></a>[Vinculação de entidade](#tab/entity-linking)
+
+| Linguagem | Código de idioma | suporte a v2 | suporte v3 | Disponível a partir da versão do modelo V3: | Observações |
+|:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
+| Inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
+| Espanhol  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
+
+#### <a name="language-detection"></a>[Detecção de Idioma](#tab/language-detection)
 
 O API de Análise de Texto pode detectar uma ampla gama de linguagens, variantes, dialetos e alguns idiomas regionais/culturais.  A detecção de idioma retorna o "script" de um idioma. Por exemplo, a frase "Eu tenho um cachorro" retornará `en`, em vez de `en-US`. O único especial é chinês, em que a funcionalidade de detecção de idioma retornará `zh_CHS` ou `zh_CHT` se ela puder determinar o script fornecido pelo texto fornecido. Em situações em que um script específico não pode ser identificado para um documento em chinês, ela retornará simplesmente `zh`.
 
@@ -29,55 +121,8 @@ Não publicamos a lista exata de idiomas para esse recurso, mas ele pode detecta
 
 Se você tiver um conteúdo expresso em um idioma usado com menos frequência, experimente a Detecção de Idioma para ver se ela retorna um código. A resposta para idiomas que não pode ser detectada é `unknown`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Reconhecimento de entidade Análise de Sentimento, Extração de Frases-chave e nomeada
-
-Para análise de sentimento, extração de frases-chave e reconhecimento de entidade, a lista de idiomas compatíveis é mais seletiva, uma vez que os analisadores são refinados para acomodar as regras linguísticas de idiomas adicionais. No reconhecimento de entidade nomeada v2, o suporte para o conjunto completo de [tipos de entidade](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) está atualmente limitado aos seguintes idiomas: 
-* Inglês
-* Chinês simplificado
-* Francês
-* Alemão
-* Espanhol
-
-Somente as `Person`entidades `Location` e `Organization` nomeadas são retornadas para os outros idiomas.
-
-## <a name="language-list-and-status"></a>Status e lista de idiomas
-
-O suporte a idiomas é implantado inicialmente em versão prévia, passando para o status GA (disponível ao público em geral), de modo independente um do outro e do serviço de Análise de Texto como um todo. É possível que idiomas permaneçam em versão prévia mesmo quando a API de Análise de Texto passar para disponível ao público em geral.
-
-> [!NOTE]
-> Para obter suporte de idioma detalhado para a visualização pública de reconhecimento de entidade nomeada (NER) v3, consulte [tipos de entidade nomeada](named-entity-types.md).
-
-| Linguagem              | Código de idioma | Sentimento | Frases principais | Reconhecimento de Entidade Nomeada | Vinculação de entidade |       Observações        |
-|:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
-| Árabe                |     `ar`      |           |             |           ✔\*           |                |                    |
-| Tcheco                 |     `cs`      |           |             |           ✔\*           |                |                    |
-| Chinês simplificado    |   `zh-hans`   |  ✔\*\*   |             |            ✔             |                | `zh` também é aceito                   |
-| Chinês tradicional   |   `zh-hant`   |  ✔\*\*   |             |                          |                |                    |
-| Dinamarquês                |     `da`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Holandês                 |     `nl`      |   ✔\**   |      ✔      |           ✔\*           |                |                    |
-| Inglês               |     `en`      |   ✔\**   |      ✔      |          ✔\*\*          |     ✔\**      |                    |
-| Finlandês               |     `fi`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Francês                |     `fr`      |   ✔\**   |      ✔      |            ✔             |                |                    |
-| Alemão                |     `de`      |   ✔\**   |      ✔      |            ✔             |                |                    |
-| Grego                 |     `el`      |   ✔\*    |             |                          |                |                    |
-| Húngaro             |     `hu`      |           |             |           ✔\*           |                |                    |
-| Italiano               |     `it`      |   ✔\**   |      ✔      |           ✔\*           |                |                    |
-| Japonês              |     `ja`      |   ✔\**   |      ✔      |           ✔\*           |                |                    |
-| Coreano                |     `ko`      |   ✔\*\*  |      ✔      |           ✔\*           |                |                    |
-| Norueguês (Bokmål)   |     `no`      |   ✔\*    |      ✔      |           ✔\*           |                | `nb` também é aceito                   |
-| Polonês                |     `pl`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Português (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔\*           |                | `pt` também é aceito |
-| Português (Brasil)   |    `pt-BR`    |           |      ✔      |           ✔\*           |                |                    |
-| Russo               |     `ru`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Espanhol               |     `es`      |   ✔\**    |      ✔      |           ✔\*           |     ✔\**      |                    |
-| Sueco               |     `sv`      |   ✔\*    |      ✔      |           ✔\*           |                |                    |
-| Turco               |     `tr`      |   ✔\*    |             |           ✔\*           |                |                    |
-
-\*O suporte ao idioma está em versão prévia
-
-\** Também disponível nas visualizações públicas do [análise de sentimento v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) e/ou do [reconhecimento de entidade nomeada v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) .
+---
 
 ## <a name="see-also"></a>Confira também
 
-[Página de documentação de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/)   
-[Página do Produto de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
+* [O que é a API de Análise de Texto?](overview.md)   
