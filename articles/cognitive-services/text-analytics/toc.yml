@@ -22,7 +22,7 @@
           href: quickstarts/java.md
         - name: Usando Python
           href: quickstarts/python.md
-        - name: Usando o Node.js
+        - name: Usando Node.js
           href: quickstarts/nodejs.md
         - name: Usando o PHP
           href: quickstarts/php.md
@@ -54,6 +54,8 @@
       href: concepts/text-offsets.md
     - name: Limites de dados
       href: concepts/data-limits.md
+    - name: Controle de versão de modelo
+      href: concepts/model-versioning.md
 - name: Guias de instruções
   items:
     - name: Chamar a API da Análise de Texto
@@ -76,6 +78,8 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Usar AKS (serviço de Kubernetes do Azure)
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+    - name: Migrar para a versão 3 da API
+      href: migration-guide.md
 - name: Referência
   items:
     - name: Referência da CLI

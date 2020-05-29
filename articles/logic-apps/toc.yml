@@ -4,7 +4,7 @@
   items:
     - name: O que são Aplicativos Lógicos do Azure?
       href: logic-apps-overview.md
-- name: Início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar aplicativos lógicos - Portal do Azure
@@ -82,6 +82,8 @@
           href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Mensagens do processo em lote
           href: logic-apps-batch-process-send-receive-messages.md
+        - name: Enviar mensagens em ordem – comboio sequencial
+          href: send-related-messages-sequential-convoy.md
         - name: Criar definições JSON
           href: logic-apps-author-definitions.md
         - name: Lidar com tipos de conteúdo
