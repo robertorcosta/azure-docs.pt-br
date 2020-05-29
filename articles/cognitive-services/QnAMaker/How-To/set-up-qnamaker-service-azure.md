@@ -2,13 +2,13 @@
 title: Configurar um serviço de QnA Maker-QnA Maker
 description: Antes de criar quaisquer bases de dados de conhecimento do QnA Maker, primeiro você deve configurar um serviço de QnA Maker no Azure. Qualquer pessoa com autorização para criar novos recursos em uma assinatura pode configurar o serviço QnA Maker.
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 563a56fdb288568e7fe667fa54658400064a560f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/28/2020
+ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402982"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171167"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -58,6 +58,7 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
    ![O recurso criou um serviço do QnA Maker](../media/qnamaker-how-to-setup-service/resources-created.png)
 
     O recurso com o tipo de _Serviços cognitivas_ tem suas chaves de _assinatura_ .
+
 
 ## <a name="find-subscription-keys-in-the-azure-portal"></a>Localizar chaves de assinatura no portal do Azure
 
@@ -117,7 +118,7 @@ Vá para o recurso serviço de aplicativo no portal do Azure e selecione a opç�
 
 Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do serviço Pesquisa Cognitiva do Azure.
 
-No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, execute estas etapas:
+No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, siga estas etapas:
 
 1. Crie um novo recurso de Azure Search no portal do Azure e selecione o SKU desejado.
 
@@ -145,7 +146,7 @@ No momento, não é possível realizar uma atualização in-loco da SKU do Azure
 
 O tempo de execução do QnAMaker faz parte da instância do serviço de Azure App que é implantada quando você [cria um serviço QnAMaker](./set-up-qnamaker-service-azure.md) no portal do Azure. Atualizações são feitas periodicamente para o runtime. A instância do serviço de aplicativo QnA Maker está no modo de atualização automática após a versão da extensão do site de abril de 2019 (versão 5 +). Essa atualização foi projetada para cuidar do tempo de inatividade ZERO durante as atualizações.
 
-Você pode verificar a versão atual em https://www.qnamaker.ai/UserSettings. Se sua versão for anterior à versão 5. x, você deverá reiniciar o serviço de aplicativo para aplicar as atualizações mais recentes:
+Você pode verificar a versão atual em https://www.qnamaker.ai/UserSettings . Se sua versão for anterior à versão 5. x, você deverá reiniciar o serviço de aplicativo para aplicar as atualizações mais recentes:
 
 1. Vá para o serviço QnAMaker (grupo de recursos) no [portal do Azure](https://portal.azure.com).
 
@@ -210,6 +211,29 @@ Para manter o aplicativo de ponto de extremidade de previsão carregado mesmo qu
 
 Saiba mais sobre como definir as [configurações gerais](../../../app-service/configure-common.md#configure-general-settings)do serviço de aplicativo.
 
+## <a name="business-continuity-with-traffic-manager"></a>Continuidade dos negócios com o Gerenciador de tráfego
+
+O principal objetivo do plano de continuidade de negócios é criar um ponto de extremidade resiliente da base de conhecimento que garantiria a total ausência de tempo de inatividade para o bot ou aplicativo que a estivesse consumindo.
+
+> [!div class="mx-imgBorder"]
+> ![Plano de backup do QnA Maker](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+
+A ideia de alto nível como representada acima é a seguinte:
+
+1. Configurar dois [serviços QnA Maker](set-up-qnamaker-service-azure.md) em paralelo nas [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+1. [Faça backup](../../../app-service/manage-backup.md) de seu serviço de aplicativo de QnA Maker primário e [restaure](../../../app-service/web-sites-restore.md) -o na instalação secundária. Isso garantirá que ambas as configurações funcionem com o mesmo nome de host e chaves.
+
+1. Mantenha os índices primário e secundário do Azure Search sincronizados. Use o exemplo do GitHub [aqui](https://github.com/pchoudhari/QnAMakerBackupRestore) para ver como fazer backup-restaurar índices do Azure.
+
+1. Fazer backup do Application Insights usando [exportação contínua](../../../application-insights/app-insights-export-telemetry.md).
+
+1. Depois que as pilhas primárias e secundárias forem configuradas, use o [gerenciador de tráfego](../../../traffic-manager/traffic-manager-overview.md) para configurar os dois pontos de extremidade e configurar um método de roteamento.
+
+1. Você precisaria criar uma TLS (segurança de camada de transporte), anteriormente conhecida como protocolo SSL (SSL), certificado para o ponto de extremidade do Gerenciador de tráfego. [Associe o certificado TLS/SSL](../../../app-service/configure-ssl-bindings.md) nos serviços de aplicativo.
+
+1. Por fim, use o ponto de extremidade do gerenciador de tráfego em seu bot ou aplicativo.
+
 ## <a name="delete-azure-resources"></a>Excluir recursos do Azure
 
 Se você excluir qualquer um dos recursos do Azure usados em suas bases de conhecimento do QnA Maker, as bases de conhecimento não funcionarão mais. Antes de excluir qualquer recurso, exporte suas bases de conhecimento da página **Configurações**.
@@ -219,4 +243,4 @@ Se você excluir qualquer um dos recursos do Azure usados em suas bases de conhe
 Saiba mais sobre o serviço de [aplicativo](../../../app-service/index.yml) e o [serviço de pesquisa](../../../search/index.yml).
 
 > [!div class="nextstepaction"]
-> [Criar e publicar uma base de dados de conhecimento](../Quickstarts/create-publish-knowledge-base.md)
+> [Saiba como criar com outras pessoas](../how-to/collaborate-knowledge-base.md)
