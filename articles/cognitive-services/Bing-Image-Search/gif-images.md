@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: ad33b5a28728a8e7f9c0a70ff81ea5a9e65624bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74072648"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169977"
 ---
 # <a name="search-for-gif-images"></a>Pesquisar imagens GIF 
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre parâmetros de consulta e opções, veja a [
 - Consulte [mkt](supported-countries-markets.md) para obter uma lista completa de idiomas e localizações compatíveis.
 - *AnimatedGifHttps* retornará somente imagens em GIF animado de um endereço https. Para segurança, muitos aplicativos exigem conexão a links Web externos via https. Por exemplo, a Apple App Store requer conexão com serviços Web via HTTPS, o que criptografa dados do usuário protegidos em trânsito.
 
-<a name="gifExample" />
+<a name="gifExample"></a>
 
 ## <a name="example-search-for-animated-gif-using-java"></a>Exemplo de pesquisa de GIF animado usando Java
 

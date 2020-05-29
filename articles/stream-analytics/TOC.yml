@@ -9,14 +9,18 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar um trabalho – Portal do Azure
-      href: stream-analytics-quick-create-portal.md
-    - name: Criar um trabalho – PowerShell
-      href: stream-analytics-quick-create-powershell.md
-    - name: Criar um trabalho - Visual Studio
-      href: stream-analytics-quick-create-vs.md
-    - name: Criar um trabalho – Visual Studio Code
-      href: quick-create-vs-code.md
+    - name: Criar um trabalho
+      items:
+        - name: Portal do Azure
+          href: stream-analytics-quick-create-portal.md
+        - name: Modelo de ARM
+          href: quick-create-azure-resource-manager.md
+        - name: PowerShell
+          href: stream-analytics-quick-create-powershell.md
+        - name: Visual Studio
+          href: stream-analytics-quick-create-vs.md
+        - name: Visual Studio Code
+          href: quick-create-vs-code.md
 - name: Tutoriais
   items:
     - name: 1 – Criar/gerenciar um trabalho
