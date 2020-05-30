@@ -87,8 +87,6 @@
           href: howto-manage-devices.md
         - name: Configurar regras
           href: howto-configure-rules.md
-        - name: Usar fluxos de trabalho para integrar-se a outros serviços
-          href: howto-configure-rules-advanced.md
         - name: Analisar dados do dispositivo
           href: howto-create-analytics.md
         - name: Adicionar blocos ao dashboard
@@ -103,6 +101,8 @@
           href: howto-export-data.md
         - name: Criar webhooks em regras
           href: howto-create-webhooks.md
+        - name: Usar fluxos de trabalho para integrar-se a outros serviços
+          href: howto-configure-rules-advanced.md
         - name: Conectar grupos de ação do Azure Monitor em regras
           href: howto-use-action-groups.md
         - name: Criar regras personalizadas
