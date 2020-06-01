@@ -98,6 +98,8 @@
               href: virtual-wan-route-table.md
         - name: Exibir rotas efetivas do hub virtual
           href: effective-routes-virtual-hub.md
+        - name: Vários links de ISP – Seleção de caminho do Azure
+          href: path-selection-multiple-links.md
     - name: Segurança
       items:
         - name: Instalar o Firewall do Azure em um hub

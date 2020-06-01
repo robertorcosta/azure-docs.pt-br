@@ -42,6 +42,8 @@
   items:
     - name: Usar o Reconhecimento de Formulários com os Aplicativos Lógicos
       href: tutorial-form-recognizer-with-logic-apps.md
+    - name: Usar o Reconhecimento de Formulários com o Cognitive Search
+      href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
 - name: Guias de instruções
   items:
     - name: Criar um conjunto de dados de treinamento
@@ -58,6 +60,8 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Usar instâncias de contêiner
           href: deploy-form-recognizer-on-container-instances.md
+    - name: Copiar modelos para a recuperação de desastre
+      href: disaster-recovery.md
 - name: Referência
   items:
     - name: API de Reconhecimento de Formulários v2.0

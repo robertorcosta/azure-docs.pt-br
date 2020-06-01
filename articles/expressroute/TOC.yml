@@ -24,28 +24,28 @@
           href: work-remotely-support.md
     - name: Modelos de conectividade
       href: expressroute-connectivity-models.md
-    - name: Circuitos e emparelhamento
-      href: expressroute-circuit-peerings.md
     - name: Locais e parceiros
       items:
         - name: Provedores por local
           href: expressroute-locations-providers.md
         - name: Locais por provedor
           href: expressroute-locations.md
-    - name: Sobre gateways de rede virtual
-      href: expressroute-about-virtual-network-gateways.md
     - name: Pré-requisitos
       href: expressroute-prerequisites.md
     - name: Fluxos de trabalho
       href: expressroute-workflows.md
     - name: Requisitos de roteamento
       href: expressroute-routing.md
+    - name: Circuitos e emparelhamento
+      items:
+        - name: Sobre circuitos e emparelhamento
+          href: expressroute-circuit-peerings.md
+        - name: Movendo circuitos do clássico para o Gerenciador de Recursos
+          href: expressroute-move.md
     - name: BFD por meio do ExpressRoute
       href: expressroute-bfd.md
     - name: Requisitos de QoS
       href: expressroute-qos.md
-    - name: Sobre a movimentação de circuitos do clássico para o Gerenciador de Recursos
-      href: expressroute-move.md
     - name: Sobre o ExpressRoute FastPath
       href: about-fastpath.md
     - name: Sobre o ExpressRoute Direct
@@ -54,6 +54,10 @@
       href: expressroute-global-reach.md
     - name: Sobre a criptografia do ExpressRoute
       href: expressroute-about-encryption.md
+    - name: Controles de segurança
+      href: expressroute-security-controls.md
+    - name: Sobre gateways de rede virtual
+      href: expressroute-about-virtual-network-gateways.md
     - name: Conectar o Azure à nuvem pública
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Interoperabilidade da Conectividade de Back-end
@@ -68,11 +72,9 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Conectividade entre redes
       href: cross-network-connectivity.md
-    - name: Controles de segurança interna
-      href: expressroute-security-controls.md
-    - name: Projetar para alta disponibilidade
+    - name: Alta disponibilidade – Design
       href: designing-for-high-availability-with-expressroute.md
-    - name: Projetar para recuperação de desastre
+    - name: Recuperação de desastre – Design
       items:
         - name: Emparelhamento privado
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
@@ -165,6 +167,8 @@
           href: expressroute-monitoring-metrics-alerts.md
         - name: Configurar o Monitor de Desempenho de Rede para ExpressRoute
           href: how-to-npm.md
+        - name: Configurar alertas personalizados para monitorar rotas anunciadas
+          href: how-to-custom-route-alert.md
     - name: Artigos clássicos e herdados
       items:
         - name: Modificar um circuito

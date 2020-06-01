@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de política
 description: Índice de entradas internas do Azure Policy. Marcas de categorias, conformidade a normas, Key Vault, Kubernetes, configuração de convidado e muito mais.
-ms.date: 03/25/2020
+ms.date: 05/29/2020
 ms.topic: sample
-ms.openlocfilehash: 41a08a70df24f80ea324860d6d1db16c9ed99760
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 6e9c3b92942f24ae0a9972fa61340775262af761
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697189"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203895"
 ---
 # <a name="azure-policy-samples"></a>Exemplos do Azure Policy
 
@@ -32,6 +32,14 @@ Veja a seguir exemplos de padrões diferentes usando a linguagem e os operadores
 - [Operador de contagem](./pattern-count-operator.md)
 - [Agrupamento de definições de política em uma iniciativa](./pattern-group-with-initiative.md)
 - [Implantação de recursos com o deployIfNotExists](./pattern-deploy-resources.md)
+
+## <a name="regulatory-compliance"></a>Conformidade normativa
+
+Estas são as iniciativas internas de [Conformidade Regulatória](../concepts/regulatory-compliance.md):
+
+- [Azure Security Benchmark](./azure-security-benchmark.md)
+- [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 
 ## <a name="other-samples"></a>Outros exemplos
 

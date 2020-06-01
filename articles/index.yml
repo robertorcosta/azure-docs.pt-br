@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 8dd70bbe8b3e495473523a662e0501613703354f
-  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.openlocfilehash: 5d8dfc5c51ab6a56823a4984a7788b3cce98e7e1
+  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "84021765"
+  ms.lasthandoff: 05/31/2020
+  ms.locfileid: "84230074"
 highlightedContent:
   items:
   - title: Guia de introdução para desenvolvedores do Azure
@@ -359,12 +359,6 @@ productDirectory:
     azureCategories:
     - blockchain
     url: blockchain/service/index.yml
-  - title: Tokens do Azure Blockchain (versão prévia)
-    summary: Definir, criar e gerenciar com facilidade tokens baseados em razão
-    imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-token.svg
-    azureCategories:
-    - blockchain
-    url: blockchain/tokens/index.yml
   - title: Azure Blockchain Workbench (versão prévia)
     summary: Crie protótipos de aplicativos blockchain facilmente na nuvem
     imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
@@ -636,6 +630,12 @@ productDirectory:
     azureCategories:
     - developer-tools
     url: azure-app-configuration/index.yml
+  - title: Azure Data Studio
+    summary: Um editor leve que pode executar consultas SQL sob demanda, além de exibir e salvar resultados como texto, JSON ou Excel.
+    imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
+    azureCategories:
+    - developer-tools
+    url: https://docs.microsoft.com/sql/azure-data-studio/
   - title: Azure DevOps
     summary: Serviços para equipes compartilharem código, acompanharem trabalho e enviarem software
     imageSrc: https://static.docs.com/ui/media/product/azure/devops.svg
@@ -720,6 +720,12 @@ productDirectory:
     azureCategories:
     - devops
     url: https://docs.microsoft.com/azure/devops/test/
+  - title: GitHub Actions para Azure
+    summary: Crie, teste e implante qualquer aplicativo do GitHub no Azure
+    imageSrc: ./media/index/github-actions-icon.svg
+    azureCategories:
+    - devops
+    url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
   - title: Azure Active Directory (AD)
     summary: Sincronizar diretórios locais e habilitar o logon único
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory.svg
