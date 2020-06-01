@@ -3,12 +3,12 @@ title: Recursos do Azure-QnA Maker
 description: O QnA Maker usa várias fontes do Azure, cada uma com uma finalidade diferente. Entender como eles são usados individualmente permite que você planeje e selecione o tipo de preço correto ou saiba quando alterar o tipo de preço. Entender como eles são usados em combinação permite localizar e corrigir problemas quando eles ocorrem.
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 581029d2372f7a2ef704dcf02f266b66440aa246
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 916f5b9b012d233c6a28d5cbb75ea0b4e073d064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80873898"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236079"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -72,7 +72,7 @@ Obtenha as atualizações de tempo de execução mais recentes [atualizando seu 
 
 ## <a name="resource-naming-considerations"></a>Considerações sobre nomenclatura de recursos
 
-O nome do recurso para o recurso de QnA Maker, `qna-westus-f0-b`como, também é usado para nomear os outros recursos.
+O nome do recurso para o recurso de QnA Maker, como `qna-westus-f0-b` , também é usado para nomear os outros recursos.
 
 A portal do Azure criar janela permite que você crie um recurso de QnA Maker e selecione os tipos de preço para os outros recursos.
 
@@ -150,7 +150,7 @@ QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e benefic
 |Plano do Serviço de Aplicativo|✔|Espaço em disco fixo alocado para um plano do serviço de aplicativo. Se outros aplicativos que compartilham o mesmo plano do serviço de aplicativo usarem um espaço em disco significativo, a instância do serviço de aplicativo do QnAMaker encontrará problemas.|
 |Serviço de Aplicativo|X|Não é possível por design|
 |Application Insights|✔|Pode ser compartilhada|
-|Serviço Search|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; Ele não pode ser usado por outras pessoas.<br>2. o mapa de sinônimos `synonym-map` pelo nome é reservado para o serviço QnAMaker.<br>3. o número de bases de dados de conhecimento publicadas é limitado pela camada de serviço de pesquisa. Se houver índices livres disponíveis, outros serviços poderão usá-los.|
+|Serviço Search|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; ele não pode ser usado por outros.<br>2. o mapa de sinônimos pelo nome `synonym-map` é reservado para o serviço QnAMaker.<br>3. o número de bases de dados de conhecimento publicadas é limitado pela camada de serviço de pesquisa. Se houver índices livres disponíveis, outros serviços poderão usá-los.|
 
 ### <a name="using-a-single-cognitive-search-service"></a>Usando um único serviço de Pesquisa Cognitiva
 
@@ -182,6 +182,14 @@ Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 Os termos criação e chave de ponto de extremidade de consulta são termos corretivos. O termo anterior era a **chave de assinatura**. Se você vir outra documentação referente a chaves de assinatura, elas serão equivalentes às chaves de ponto de extremidade de criação e de consulta (usadas no tempo de execução).
 
 Você deve saber o que a chave está acessando, gerenciamento da base de dados de conhecimento ou consulta da base de dados de conhecimento, para saber qual chave você precisa encontrar.
+
+## <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
+
+* Proteja o recurso de serviço cognitiva do acesso público [Configurando a rede virtual](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Proteger o serviço de aplicativo (tempo de execução QnA) do acesso público:
+    * Permitir tráfego somente de IPs de serviço cognitiva. Eles já estão incluídos na marca de serviço "CognitiveServicesManagement". Isso é necessário para criar APIs (criar/atualizar KB) para invocar o serviço de aplicativo e atualizar o serviço de Azure Search de acordo.
+    * Certifique-se também de permitir outros pontos de entrada como o serviço de bot, QnA Maker Portal (pode ser seu corpnet) etc. para acesso à API de previsão "GenerateAnswer".
+    * Confira [mais informações sobre marcas de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 ## <a name="next-steps"></a>Próximas etapas
 

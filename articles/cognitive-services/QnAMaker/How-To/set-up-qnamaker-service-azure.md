@@ -3,12 +3,12 @@ title: Configurar um serviço de QnA Maker-QnA Maker
 description: Antes de criar quaisquer bases de dados de conhecimento do QnA Maker, primeiro você deve configurar um serviço de QnA Maker no Azure. Qualquer pessoa com autorização para criar novos recursos em uma assinatura pode configurar o serviço QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171167"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235531"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -210,6 +210,11 @@ Para manter o aplicativo de ponto de extremidade de previsão carregado mesmo qu
 1. Você será perguntado se deseja reiniciar o aplicativo para usar a nova configuração. Selecione **Continuar**.
 
 Saiba mais sobre como definir as [configurações gerais](../../../app-service/configure-common.md#configure-general-settings)do serviço de aplicativo.
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurar Ambiente do Serviço de Aplicativo para hospedar o serviço de aplicativo do QnA Maker
+O Ambiente do Serviço de Aplicativo pode ser usado para hospedar QnA Maker serviço de aplicativo. Se o Ambiente do Serviço de Aplicativo for interno, você precisará seguir estas etapas:
+1. Crie um serviço de aplicativo e um serviço de Azure Search.
+2. Expor o serviço de aplicativo em um DNS público e uma lista de permissões QnA Maker marca de serviço: CognitiveServicesManagement ou mantenha-o voltado para a Internet.
+3. Crie um QnA Maker instância de serviço cognitiva (Microsoft. Cognitivaservices/accounts) usando Azure Resource Manager, em que QnA Maker ponto de extremidade deve ser definido como Ambiente do Serviço de Aplicativo. 
 
 ## <a name="business-continuity-with-traffic-manager"></a>Continuidade dos negócios com o Gerenciador de tráfego
 
