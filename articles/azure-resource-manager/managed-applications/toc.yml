@@ -46,6 +46,8 @@
           href: test-createuidefinition.md
         - name: Solicitar acesso just-in-time
           href: request-just-in-time-access.md
+        - name: Usar rede virtual existente
+          href: existing-vnet-integration.md
         - name: Atualizar recursos gerenciados
           href: update-managed-resources.md
         - name: Usar portal para publicar definição do aplicativo

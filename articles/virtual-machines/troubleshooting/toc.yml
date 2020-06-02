@@ -11,6 +11,8 @@
       href: virtual-machines-availability-set-supportability.md
 - name: Diretrizes de implantação de VM
   items:
+    - name: Atualizar para SLES 15 SP1
+      href: linux-upgrade-suse-15sp1.md
     - name: Novas implantações de VM
       items:
         - name: Linux

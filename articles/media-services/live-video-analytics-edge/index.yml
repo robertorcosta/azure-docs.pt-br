@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: Documentação da Análise de Vídeo ao vivo no IoT Edge
+summary: Saiba como usar a Análise de Vídeo ao vivo no IoT Edge
+metadata:
+  title: Documentação da Análise de Vídeo ao vivo no IoT Edge
+  description: Saiba como usar a Análise de Vídeo ao vivo no IoT Edge
+  services: media-services
+  ms.service: media-services
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: 
+  ms.author: 
+  ms.date: 10/12/2019
+  ms.openlocfilehash: ef82f7ccfabce330c5604a26d74f0491876a1634
+  ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84259882"
+landingContent:
+- title: Sobre a Análise de Vídeo ao vivo no IoT Edge (versão prévia)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Sobre a Análise de Vídeo ao vivo no IoT Edge
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Grafo de mídia
+      url: media-graph-concept.md
+    - text: Gravação de vídeo
+      url: video-recording-concept.md
+    - text: Reprodução de vídeo
+      url: video-playback-concept.md
+  - linkListType: learn
+    links:
+    - text: Gravação de vídeo contínua
+      url: continuous-video-recording-concept.md
+    - text: Gravação de vídeo baseada em eventos
+      url: event-based-video-recording-concept.md
+    - text: Como analisar vídeos ao vivo
+      url: analyze-live-video-concept.md
+- title: Cenários
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Introdução – Análise de Vídeo ao vivo no IoT Edge
+      url: get-started-detect-motion-emit-events-quickstart.md
+    - text: Detectar movimento e gravar clipes de vídeo nos Serviços de Mídia do Azure
+      url: detect-motion-record-video-clips-media-services-quickstart.md
+    - text: Detectar movimento e emitir eventos
+      url: detect-motion-emit-events-quickstart.md
+    - text: Detectar movimento e gravar vídeo em dispositivos de borda
+      url: detect-motion-record-video-clips-edge-devices-quickstart.md
+    - text: Executar a Análise de Vídeo ao vivo com seu próprio modelo
+      url: use-your-model-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Gravação de vídeo contínua
+      url: continuous-video-recording-tutorial.md
+    - text: Gravação de vídeo baseada em eventos
+      url: event-based-video-recording-tutorial.md
+    - text: Reproduzir gravações de vários dias
+      url: playback-multi-day-recordings-tutorial.md
+- title: Desenvolver
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Criar função personalizada do Azure Resource Manager
+      url: create-custom-azure-resource-manager-role-how-to.md
+    - text: Implantar em um dispositivo do IoT Edge
+      url: deploy-iot-edge-device.md
+    - text: Monitoramento e registro em log
+      url: monitoring-logging.md
+    - text: Reproduzir uma gravação
+      url: playback-recordings-how-to.md
+    - text: Gerenciar política de gravação
+      url: manage-recording-policy-how-to.md
+    - text: Solucionar problemas
+      url: troubleshoot-how-to.md
+  - linkListType: reference
+    links:
+    - text: Métodos diretos
+      url: direct-methods.md
+    - text: Esquema de configuração do módulo gêmeo
+      url: module-twin-configuration-schema.md
+    - text: Cotas e limitações
+      url: quotas-limitations.md
