@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Prever preço de automóvel com o designer'
+title: 'Tutorial: Prever preços de carro com o designer'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar, pontuar e implantar um modelo de machine learning usando uma interface do tipo "arrastar e soltar". Este tutorial é a primeira parte de uma série de duas partes sobre a previsão de preços de automóveis usando a regressão linear.
 author: peterclu
@@ -8,13 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/12/2020
-ms.openlocfilehash: 0488002352d222abb0166737f9a042060b1a1bb1
-ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
+ms.date: 05/12/2020
+ms.custom: designer
+ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80389419"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656589"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço de automóvel com o designer (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -76,7 +77,7 @@ Você pode definir um **Destino de computação padrão** para o pipeline inteir
     Se já tiver um destino de computação disponível, você poderá selecioná-lo para executar esse pipeline.
 
     > [!NOTE]
-    > O designer pode executar experimentos apenas em destinos de Computação do Azure Machine Learning. Outros destinos de computação não serão mostrados.
+    > O designer só pode executar experimentos de treinamento na Computação do Azure Machine Learning e nos destinos da instância da Computação do Azure Machine Learning. Outros destinos de computação não serão mostrados.
 
 1. Insira um nome para o recurso de computação.
 

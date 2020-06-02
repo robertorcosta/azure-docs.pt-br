@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 02/05/2020
+ms.date: 05/14/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 927c09f61ce0847c72cefb51935116070e956861
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80743113"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657001"
 ---
 # <a name="about-azure-virtual-wan"></a>Sobre a WAN Virtual do Azure
 
-A WAN Virtual do Azure é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma interface operacional. Essas funcionalidades incluem conectividade de branch (por meio da automação de conectividade de dispositivos de parceiros de WAN Virtual, como SD-WAN ou VPN CPE), conectividade VPN site a site, conectividade VPN de usuário remoto (ponto a site), conectividade privada (ExpressRoute), conectividade de nuvem interna (conectividade transitiva para redes virtuais), interconectividade VPN ExpressRoute, roteamento, Firewall do Azure, criptografia para conectividade privada etc. Você não precisa ter todos esses casos de uso para começar a usar a WAN Virtual. Você pode simplesmente começar com apenas um caso de uso e ajustar a rede à medida que ela evolui. A arquitetura da WAN Virtual é uma arquitetura de hub e spoke com dimensionamento e desempenho internos para branches (dispositivos VPN/SD-WAN), usuários (clientes VPN do Azure/OpenVPN/IKEv2), circuitos de ExpressRoute e redes virtuais. Ele permite a [arquitetura de rede de trânsito global](virtual-wan-global-transit-network-architecture.md) em que o “hub” da rede hospedada em nuvem permite a conectividade transitiva entre pontos de extremidade que podem ser distribuídos entre diferentes tipos de “spokes”.
+A WAN Virtual do Azure é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma interface operacional. Essas funcionalidades incluem conectividade de branch (por meio da automação de conectividade de dispositivos de parceiros de WAN Virtual, como SD-WAN ou VPN CPE), conectividade VPN site a site, conectividade VPN de usuário remoto (ponto a site), conectividade privada (ExpressRoute), conectividade de nuvem interna (conectividade transitiva para redes virtuais), interconectividade VPN ExpressRoute, roteamento, Firewall do Azure, criptografia para conectividade privada etc. Você não precisa ter todos esses casos de uso para começar a usar a WAN Virtual. Você pode simplesmente começar com apenas um caso de uso e, depois, ajustar a rede à medida que ela evolui.
 
-As regiões do Azure servem como hubs para os quais é possível optar por se conectar. Todos os hubs são conectados em malha completa em uma WAN Virtual Padrão, o que facilita para o usuário usar o backbone da Microsoft para conectividade de qualquer um para qualquer um (qualquer spoke). Para a conectividade de spoke com dispositivos SD-WAN/VPN, os usuários podem configurá-la manualmente na WAN Virtual do Azure ou usar a solução do parceiro de CPE da WAN Virtual (SD-WAN/VPN) para configurar a conectividade com o Azure. Temos uma lista de parceiros que dão suporte à automação para conectividade (capacidade de exportar as informações do dispositivo para o Azure, baixar a configuração do Azure e estabelecer a conectividade) com a WAN Virtual do Azure. Para saber mais, veja o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md). 
+A arquitetura da WAN Virtual é uma arquitetura de hub e spoke com dimensionamento e desempenho internos para branches (dispositivos VPN/SD-WAN), usuários (clientes VPN do Azure/OpenVPN/IKEv2), circuitos de ExpressRoute e redes virtuais. Ele permite a [arquitetura de rede de trânsito global](virtual-wan-global-transit-network-architecture.md) em que o “hub” da rede hospedada em nuvem permite a conectividade transitiva entre pontos de extremidade que podem ser distribuídos entre diferentes tipos de “spokes”.
+
+As regiões do Azure servem como hubs para os quais é possível optar por se conectar. Todos os hubs são conectados em malha completa em uma WAN Virtual Padrão, o que facilita para o usuário usar o backbone da Microsoft para conectividade de qualquer um para qualquer um (qualquer spoke). Para a conectividade de spoke com dispositivos SD-WAN/VPN, os usuários podem configurá-la manualmente na WAN Virtual do Azure ou usar a solução do parceiro de CPE da WAN Virtual (SD-WAN/VPN) para configurar a conectividade com o Azure. Temos uma lista de parceiros que dão suporte à automação para conectividade (capacidade de exportar as informações do dispositivo para o Azure, baixar a configuração do Azure e estabelecer a conectividade) com a WAN Virtual do Azure. Para saber mais, veja o artigo [Parceiros e localizações de WAN Virtual](virtual-wan-locations-partners.md).
 
 ![Diagrama de WAN virtual](./media/virtual-wan-about/virtualwan1.png)
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 704da86fd1d816dbf5d6cd9cf67dfee53fce2622
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 72006879c7181a8cefe56248215099eeb784d816
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419630"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658194"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conectar-se ao Synapse SQL com o SSMS (SQL Server Management Studio)
 > [!div class="op_single_selector"]
@@ -30,14 +30,17 @@ Você pode usar o [SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-s
 
 ### <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas compatíveis com o SQL sob demanda (versão prévia)
 
-O SSMS tem compatibilidade parcial desde a versão 18.5, com recursos limitados como conexão e consulta. O [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) tem total compatibilidade.
+O [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) tem total compatibilidade com a versão 1.18.0 em diante. O SSMS tem compatibilidade parcial da versão 18.5 em diante. Você pode usá-lo somente para se conectar e consultar.
 
+> [!NOTE]
+> Se o logon do AAD tiver uma conexão aberta por mais de 1 hora no momento da execução da consulta, qualquer consulta que depender do AAD falhará. Isso inclui consultar o armazenamento usando a passagem do AAD e instruções que interagem com o AAD (como CREATE EXTERNAL PROVIDER). Isso afeta todas as ferramentas que mantêm a conexão aberta, como no editor de consultas no SSMS e no ADS. As ferramentas que abrem novas conexões para executar consultas, como o Synapse Studio, não são afetadas.
+> Você pode reiniciar o SSMS ou conectar-se e desconectar-se no ADS para atenuar esse problema. .
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar, verifique se você cumpre os seguintes pré-requisitos:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* Para o pool de SQL, você precisa de um data warehouse existente. Para criar um, confira [Criar um pool de SQL](../quickstart-create-sql-pool.md). Para o SQL sob demanda, um data warehouse já será provisionado em seu workspace no momento da criação. 
+* Para o pool de SQL, você precisa de um data warehouse existente. Para criar um, confira [Criar um pool de SQL](../quickstart-create-sql-pool-portal.md). Para o SQL sob demanda, um data warehouse já será provisionado em seu workspace no momento da criação. 
 * O nome do SQL Server totalmente qualificado. Para encontrar isso, confira [Conectar-se ao Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Conectar

@@ -3,12 +3,12 @@ title: 'Tutorial: Teste do lote para encontrar problemas — LUIS'
 description: Este tutorial demonstra como usar o teste em lotes para validar a qualidade do aplicativo LUIS (Reconhecimento vocal).
 ms.topic: tutorial
 ms.date: 05/07/2020
-ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592586"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681636"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: testar conjuntos de dados em lote
 
@@ -49,13 +49,13 @@ Importe um aplicativo que recebe um pedido de pizza, como `1 pepperoni pizza on 
 
 ## <a name="what-should-the-batch-file-utterances-include"></a>O que está incluído nos enunciados do arquivo em lotes
 
-O arquivo em lotes deve incluir enunciados com as entidades de aprendizado de máquina de nível superior rotuladas, incluindo a posição inicial e final. Os enunciados não devem fazer parte dos exemplos já existentes no aplicativo. Eles devem ser enunciados dos quais você deseja prever positivamente a intenção e as entidades.
+O arquivo em lotes deve incluir enunciados com as entidades de aprendizado de máquina de nível superior rotuladas, incluindo as posições inicial e final. Os enunciados não devem fazer parte dos exemplos já existentes no aplicativo. Eles devem ser enunciados dos quais você deseja prever positivamente a intenção e as entidades.
 
 Você pode separar os testes por intenção e/ou entidade ou ter todos os testes (até 1.000 enunciados) no mesmo arquivo.
 
 ## <a name="batch-file"></a>Arquivo em lotes
 
-O JSON de exemplo inclui um enunciado com uma entidade rotulada para ilustrar a aparência de um arquivo de teste. Nos próprios testes, você deverá ter muitos enunciados com a intenção correta e a entidade de aprendizado de máquina rotulada.
+O JSON de exemplo inclui um enunciado com uma entidade rotulada para ilustrar a aparência de um arquivo de teste. Em seus testes, você deverá ter muitos enunciados com a intenção correta e a entidade de aprendizado de máquina rotulada.
 
 1. Crie `pizza-with-machine-learned-entity-test.json` em um editor de texto ou [baixe-o](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true).
 

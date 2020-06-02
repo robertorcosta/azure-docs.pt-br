@@ -6,39 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3651467de86d3b026ab348675249f93ebf3a86a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: da1bd9c812c20f60264d1a5ee1f8821128900618
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420210"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698860"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Banco de dados compartilhado do Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Spark (versão prévia), o mecanismo SQL sob demanda (versão prévia) e os pools de SQL.
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Spark (versão prévia) e o mecanismo SQL sob demanda (versão prévia).
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
 Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os Pools do Spark atuais e futuros (versão prévia) no workspace, bem como para o mecanismo SQL sob demanda.
 
-Se houver pools de SQL no workspace que tenham a sincronização de metadados habilitada ou se você criar um pool de SQL com a sincronização de metadados habilitada, esses bancos de dados criados pelo Spark serão mapeados automaticamente para esquemas especiais no banco de dados do pool de SQL. 
+O banco de dados padrão do Spark, chamado `default`, também ficará visível no contexto do SQL sob demanda como um banco de dados chamado `default`.
 
-Cada esquema é nomeado com base no nome do banco de dados do Spark com um prefixo `$` adicional. As tabelas externas e gerenciadas no banco de dados gerado pelo Spark são expostas como tabelas externas no esquema especial correspondente.
-
-O banco de dados padrão do Spark, chamado `default`, também ficará visível no contexto do SQL sob demanda como um banco de dados chamado `default` e em qualquer um dos bancos dos dados do pool de SQL com a sincronização de metadados ativada como o esquema `$default`.
-
-Como os bancos de dados são sincronizados com o SQL sob demanda e os pools de SQL de maneira assíncrona, haverá um atraso até que eles sejam exibidos.
+Como os bancos de dados são sincronizados com o SQL sob demanda de maneira assíncrona, haverá um atraso até que eles sejam exibidos.
 
 ## <a name="manage-a-spark-created-database"></a>Gerenciar um banco de dados criado pelo Spark
 
 Use o Spark para gerenciar bancos de dados criados pelo Spark. Por exemplo, exclua-o por meio de um trabalho do Pool do Spark e crie tabelas nele por meio do Spark.
 
 Se você criar objetos em um banco de dados criado pelo Spark usando o SQL sob demanda ou tentar remover o banco de dados, a operação terá êxito. Porém, o banco de dados do Spark original não será alterado.
-
-Se você tentar remover o esquema sincronizado em um pool de SQL ou tentar criar uma tabela nele, o Azure retornará um erro.
 
 ## <a name="handling-of-name-conflicts"></a>Processamento de conflitos entre nomes
 
@@ -51,7 +45,7 @@ Por exemplo, se um banco de dados do Spark chamado `mydb` for criado no workspac
 
 ## <a name="security-model"></a>Modelo de segurança
 
-Os bancos de dados e as tabelas do Spark, juntamente com as respectivas representações sincronizadas nos mecanismos SQL, serão protegidos no nível de armazenamento subjacente.
+Os bancos de dados e as tabelas do Spark, juntamente com as respectivas representações sincronizadas no mecanismo SQL, serão protegidos no nível de armazenamento subjacente.
 
 A entidade de segurança que cria um banco de dados é considerada o proprietário desse banco de dados e tem todos os direitos ao banco de dados e aos respectivos objetos.
 
@@ -79,22 +73,7 @@ SELECT * FROM sys.databases;
 
 Verifique se `mytestdb` está incluída nos resultados.
 
-### <a name="exposing-a-spark-database-in-a-sql-pool"></a>Como expor um banco de dados do Spark em um pool de SQL
-
-Com o banco de dados criado no exemplo anterior, agora crie um pool de SQL no workspace chamado `mysqlpool` que habilita a sincronização de metadados.
-
-Execute a seguinte instrução no pool de SQL `mysqlpool`:
-
-```sql
-SELECT * FROM sys.schema;
-```
-
-Confirme o esquema do banco de dados recém-criado nos resultados.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre os metadados compartilhados do Azure Synapse Analytics](overview.md)
 - [Saiba mais sobre as tabelas de metadados compartilhados do Azure Synapse Analytics](table.md)
-
-<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->

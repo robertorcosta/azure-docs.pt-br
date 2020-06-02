@@ -3,12 +3,12 @@ title: Organizar seus recursos com grupos de gerenciamento – Governança do Az
 description: Saiba mais sobre os grupos de gerenciamento, o funcionamento de suas permissões e como usá-los.
 ms.date: 04/15/2020
 ms.topic: overview
-ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381532"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773144"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -163,13 +163,14 @@ Há algumas opções diferentes para corrigir esse cenário:
 
 Há limitações ao usar funções personalizadas em grupos de gerenciamento. 
 
- - Você só pode definir um grupo de gerenciamento nos escopos atribuíveis de uma nova função. Essa limitação está em vigor para reduzir o número de situações em que as definições de função e as atribuições de função são desconectadas. Isso acontece quando uma assinatura ou um grupo de gerenciamento com uma atribuição de função é movido para um pai diferente que não tem a definição de função.  
- - As ações do plano de dados RBAC não podem ser definidas nas funções personalizadas do grupo de gerenciamento. Essa restrição está em vigor porque há um problema de latência com ações RBAC atualizando os provedores de recursos do plano de dados. Esse problema de latência está sendo resolvido e essas ações serão desabilitadas da definição de função para reduzir os riscos.
+ - Você só pode definir um grupo de gerenciamento nos escopos atribuíveis de uma nova função. Essa limitação está em vigor para reduzir o número de situações em que as definições de função e as atribuições de função são desconectadas. Essa situação acontece quando uma assinatura ou um grupo de gerenciamento com uma atribuição de função é movido para um pai diferente que não tem a definição de função.  
+ - As ações do plano de dados do RBAC não podem ser definidas nas funções personalizadas do grupo de gerenciamento. Essa restrição está em vigor porque há um problema de latência com ações RBAC atualizando os provedores de recursos do plano de dados.
+   Esse problema de latência está sendo resolvido e essas ações serão desabilitadas da definição de função para reduzir os riscos.
  - O Azure Resource Manager não valida a existência do grupo de gerenciamento no escopo atribuível da definição de função. Se houver uma ID de grupo de gerenciamento de digitação ou incorreta listada, a definição de função ainda será criada.  
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Como mover grupos de gerenciamento e assinaturas 
 
-Para que um grupo de gerenciamento ou assinatura seja um filho de outro grupo de gerenciamento, três regras precisam ser avaliadas como true.
+Para mover um grupo de gerenciamento ou assinatura para que seja um filho de outro grupo de gerenciamento, três regras precisam ser avaliadas como true.
 
 Se você estiver executando a ação de mover, precisará de: 
 

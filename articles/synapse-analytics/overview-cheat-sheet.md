@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: aa93a816fc11158d928978bdec2dbf42119fa149
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c49e5f421f88b4d2676204ff0a32a0aa2b808be1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420940"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652649"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de referências do Azure Synapse Analytics
 
@@ -30,8 +30,8 @@ A folha de referências do Azure Synapse Analytics explicará os conceitos bási
 ## <a name="concepts"></a>Conceitos
 | Substantivos e verbos                         | O que faz       |
 |:---                                 |:---                 |
-| **Workspace do Synapse (versão prévia)** | Um limite de colaboração protegível para fazer análises empresariais baseadas em nuvem no Azure. Um workspace é implantado em uma região específica e tem uma conta do ADLSg2 e um sistema de arquivos associados (para armazenar dados temporários). Um workspace está localizado em um grupo de recursos. |
-| **Análise de SQL**   | Execute análises com pools ou com funcionalidades sob demanda.  |
+| **Workspace do Synapse (versão prévia)** | Um limite de colaboração protegível para fazer análises empresariais baseadas em nuvem no Azure. Um workspace é implantado em uma região específica e tem uma conta do ADLS Gen2 e um sistema de arquivos associados (para armazenar dados temporários). Um workspace está localizado em um grupo de recursos. |
+| **SQL do Synapse**   | Execute análises com pools ou com funcionalidades sob demanda.  |
 | **Pool de SQL**   | Os recursos provisionados do SQL de 0 a N com os bancos de dados correspondentes podem ser implantados em um workspace. Cada pool de SQL tem um banco de dados associado. Um pool de SQL pode ser escalado, colocado em pausa e retomado manual ou automaticamente. Um pool de SQL pode ser escalado de 100 DWUs até 30 mil DWUs.       |
 | **SQL sob demanda (versão prévia)**   | Sistema de processamento de dados distribuído criado para dados de grande escala que permite executar consultas T-SQL nos dados do data lake. Ele é sem servidor e, portanto, você não precisa gerenciar a infraestrutura.       |
 |**Apache Spark** | Runtime do Spark usado em um Pool do Spark. A versão atual compatível é Spark 2.4 com Python 3.6.1, Scala 2.11.12, suporte do .NET para Apache Spark 0.5 e Delta Lake 0.3.  | 
@@ -55,7 +55,7 @@ A folha de referências do Azure Synapse Analytics explicará os conceitos bási
 
 - [Criar um workspace](quickstart-create-workspace.md)
 - [Usar o Synapse Studio](quickstart-synapse-studio.md)
-- [Criar um pool de SQL](quickstart-create-sql-pool.md)
+- [Criar um pool de SQL](quickstart-create-sql-pool-portal.md)
 - [Usar o SQL sob demanda](quickstart-sql-on-demand.md)
-- [Criar um Pool do Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Criar um Pool do Apache Spark](quickstart-create-apache-spark-pool-portal.md)
 

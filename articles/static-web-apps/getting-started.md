@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 14fd237b6437c15ede2da7c0694004f6c22736cc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599126"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714229"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Início Rápido: Como criar seu primeiro aplicativo Web estático
 
@@ -81,7 +81,7 @@ Para começar, configure seu novo aplicativo e vincule-o a um repositório GitHu
 - Selecione sua _Assinatura do Azure_.
 - Selecione ou crie um novo _Grupo de Recursos_
 - Nomeie o aplicativo **my-first-static-web-app**.
-  - Os caracteres válidos são `a-z` (não diferencia maiúsculas de minúsculas), `0-9` e `_`.
+  - Os caracteres válidos são `a-z` (não diferencia maiúsculas de minúsculas), `0-9` e `-`.
 - Selecione a _Região_ mais próxima de você.
 - Selecione o **SKU** _gratuito_
 - Clique no botão **Entrar com o GitHub** e autentique-se com o GitHub.
@@ -130,6 +130,8 @@ Em seguida, adicione detalhes de configuração específicos à sua estrutura de
 Selecione o botão **Revisar + Criar**.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Botão Revisar Criar":::.
+
+Para alterar esses valores após criar o aplicativo, edite o [arquivo de fluxo de trabalho](github-actions-workflow.md).
 
 ### <a name="review--create"></a>Examinar + criar
 

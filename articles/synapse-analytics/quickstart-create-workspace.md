@@ -2,19 +2,19 @@
 title: Início Rápido – criar um workspace
 description: Crie um workspace do Azure Synapse Analytics seguindo as etapas deste guia.
 services: synapse-analytics
-author: malvenko
+author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: josels
+ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792200"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656141"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Início Rápido: Criar um workspace do Azure Synapse Analytics (versão prévia)
 
@@ -26,6 +26,9 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de c
 
 - [Conta de armazenamento do Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
+## <a name="register-azure-synapse-resource-provider"></a>Registrar o provedor de recursos do Azure Synapse
+Registre o provedor de recursos do Azure Synapse, caso ainda não tenha feito isso. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Para registrar o provedor de recursos do Azure Synapse, confira [Tipos e provedores de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Escolha *Microsoft.Synapse* na lista de provedores de recursos ao se registrar.
+
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no [Portal do Azure](https://portal.azure.com/)
@@ -33,9 +36,9 @@ Entre no [Portal do Azure](https://portal.azure.com/)
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Criar um workspace do Azure Synapse usando o portal do Azure
 
 1. No painel de pesquisa do Microsoft Azure, insira **workspace do Synapse** e escolha esse serviço.
-![Barra de pesquisa do portal do Azure com workspaces do Azure Synapse digitado.](media/quickstart-create-synapse-workspace/workspace-search.png).
+![Barra de pesquisa do portal do Azure com workspaces do Azure Synapse digitados.](media/quickstart-create-synapse-workspace/workspace-search.png)
 2. Na página **Workspaces do Synapse**, clique em **+ Adicionar**.
-![Comando usado para criar o workspace do Azure Synapse realçado.](media/quickstart-create-synapse-workspace/create-workspace-02.png).
+![Comando para criar o workspace do Azure Synapse realçado.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. Preencha o formulário do **workspace do Azure Synapse** com as seguintes informações:
 
     | Configuração | Valor sugerido | Descrição |
@@ -47,7 +50,7 @@ Entre no [Portal do Azure](https://portal.azure.com/)
     | **Data Lake Storage Gen2** | Conta: `storage account name` </br> Sistema de arquivos: `root file system to use` | Especifica o nome da conta de armazenamento do ADLS Gen2 a ser usado como armazenamento primário e o sistema de arquivos a ser usado.|
     ||||
 
-    ![Fluxo de provisionamento do workspace – guia Informações Básicas.](media/quickstart-create-synapse-workspace/create-workspace-03.png).
+    ![Fluxo de provisionamento do workspace – guia Informações Básicas.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
 
     A conta de armazenamento pode ser selecionada em:
     - Uma lista de contas do ADLS Gen2 disponíveis na sua assinatura
@@ -60,8 +63,8 @@ Entre no [Portal do Azure](https://portal.azure.com/)
 
 4. (Opcional) Modifique um dos padrões da guia **Segurança + rede**:
 5. (Opcional) Adicione marcas na guia **Marcas**.
-6. A guia **Resumo** executará as validações necessárias para verificar se o workspace pode ser criado com êxito. Depois que a validação for executada com êxito, selecione **Criar** ![Fluxo de provisionamento do workspace – guia Confirmação.](media/quickstart-create-synapse-workspace/create-workspace-05.png).
-7. Depois que o processo de provisionamento de recursos for concluído com êxito, você verá uma entrada para o workspace criado na lista de workspaces do Synapse. ![Listagem de workspaces do Synapse mostrando o workspace recém-provisionado.](media/quickstart-create-synapse-workspace/create-workspace-07.png).
+6. A guia **Resumo** executará as validações necessárias para verificar se o workspace pode ser criado com êxito. Se a validação for concluída com sucesso, selecione **Criar** ![fluxo de provisionamento de workspace – guia de confirmação.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
+7. Depois que o processo de provisionamento de recursos for concluído com êxito, você verá uma entrada para o workspace criado na lista de workspaces do Synapse. ![Listagem de workspaces do Synapse mostrando o workspace recém-provisionado.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -76,10 +79,10 @@ Caso deseje excluir o workspace do Azure Synapse, conclua as seguintes etapas:
 1. Navegue até o workspace do Azure Synapse a ser excluído.
 1. Selecione **delete** na barra de comandos.
  ![Visão geral do workspace do Azure Synapse – comando DELETE realçado.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
-1. Confirme a exclusão e selecione o botão **Delete**.
+1. Confirme a exclusão e pressione o botão **Excluir**.
  ![Visão geral do workspace do Azure Synapse – caixa de diálogo Confirmação de exclusão do workspace.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
 1. Quando o processo for concluído com êxito, o workspace do Azure Synapse não será mais mostrado na lista de workspaces.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, você poderá [criar pools de SQL](quickstart-create-sql-pool.md) ou [criar pools do Apache Spark](quickstart-create-apache-spark-pool.md) para começar a analisar e explorar seus dados.
+Em seguida, você poderá [criar pools de SQL](quickstart-create-sql-pool-studio.md) ou [criar pools do Apache Spark](quickstart-create-apache-spark-pool-studio.md) para começar a analisar e explorar seus dados.

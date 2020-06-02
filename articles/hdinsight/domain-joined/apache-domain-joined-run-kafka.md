@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.openlocfilehash: 58c5b3bdd6d50f2e512cccffe78bd4e70805d729
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 6da2537464e39ecb2c613a97b19f2d8f316818af
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78204728"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677544"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (Versão Prévia)
 
@@ -147,7 +147,8 @@ Com base nas políticas do Ranger configuradas, **sales_user** pode produzir/con
 
 4. Siga a Etapa 3 de **Compilar e implantar o exemplo** em [Tutorial: Usar as APIs de Produtor e Consumidor do Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) para garantir que o `kafka-producer-consumer.jar` também esteja disponível para **sales_user**.
 
-**Observação:  Para este tutorial, use o kafka-producer-consumer.jar no projeto "DomainJoined-Producer-Consumer" (não aquele no projeto Producer-Consumer, que se destina aos cenários não ingressados no domínio).**
+> [!NOTE]  
+> Para este tutorial, use o kafka-producer-consumer.jar no projeto "DomainJoined-Producer-Consumer" (não o que está no projeto Producer-Consumer, que se destina a cenários não ingressados no domínio).
 
 5. Verifique se **sales_user1** pode produzir para o tópico `salesevents` executando o seguinte comando:
 

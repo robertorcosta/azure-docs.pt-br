@@ -1,24 +1,20 @@
 ---
-title: Visão geral da Automação do Azure
-description: Saiba como usar a Automação do Azure para automatizar o ciclo de vida de infraestrutura e de aplicativos.
+title: Uma introdução à Automação do Azure
+description: Este artigo mostra o que é a Automação do Azure e como usá-la para automatizar o ciclo de vida da infraestrutura e dos aplicativos.
 services: automation
 ms.subservice: process-automation
 keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8ee8fd4d9a81746be7b65aeb6410691a5e3aea96
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010232"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835267"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
-
-Este artigo fornece uma visão geral da Automação do Azure e responde algumas perguntas comuns. Para obter mais informações sobre os diferentes recursos, acesse os links em toda esta visão geral.
-
-## <a name="about-azure-automation"></a>Sobre a Automação do Azure
 
 A Automação do Azure oferece um serviço de configuração e de automação baseado em nuvem que compatível com o gerenciamento consistente em seus ambientes Azure e não Azure. Ela é composta pela automação de processos, pelo gerenciamento de configuração, pelo gerenciamento de atualizações, por funcionalidades compartilhadas e por recursos heterogêneos. A Automação oferece controle completo durante a implantação, operações e o encerramento de cargas de trabalho e de recursos.
 
@@ -26,19 +22,28 @@ A Automação do Azure oferece um serviço de configuração e de automação ba
 
 ## <a name="process-automation"></a>Automação de processos
 
-A automação de processos na Automação do Azure permite automatizar tarefas de gerenciamento de nuvem frequentes, demoradas e propensas a erros. Esse serviço ajuda você a se concentrar em trabalhos que agregam valor. Ao reduzir erros e melhorar a eficiência, também ajuda a diminuir os custos operacionais. O ambiente operacional da automação de processos é detalhado na [Execução de runbook na Automação do Azure](automation-runbook-execution.md).
+A Automação de processos na Automação do Azure permite automatizar tarefas de gerenciamento de nuvem frequentes, demoradas e propensas a erros. Esse serviço ajuda você a se concentrar em trabalhos que agregam valor. Ao reduzir erros e melhorar a eficiência, também ajuda a diminuir os custos operacionais. O ambiente operacional da automação de processos é detalhado na [Execução de runbook na Automação do Azure](automation-runbook-execution.md).
 
 A automação de processos dá suporte à integração de serviços do Azure e outros sistemas públicos necessários para implantar, configurar e gerenciar seus processos de ponta a ponta. O serviço permite criar [runbooks](automation-runbook-types.md) graficamente, no PowerShell ou usando o Python. Usando um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), é possível unificar o gerenciamento por meio da orquestração entre ambientes locais. [Webhooks](automation-webhooks.md) permitem que você atenda a solicitações e garanta a entrega e operações contínuas disparando automação do ITSM, DevOps e sistemas de monitoramento. 
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração
 
-A [configuração de estado](automation-dsc-overview.md) da Automação do Azure é uma solução baseada em nuvem para DSC (Desired State Configuration) do PowerShell que fornece serviços necessários para ambientes empresariais. Usando esse recurso, é possível gerenciar recursos de DSC na Automação do Azure e aplicar as configurações a máquinas virtuais ou físicas de um servidor de pull de DSC na nuvem do Azure. É possível monitorar e atualizar automaticamente as configurações do computador em máquinas virtuais e físicas, no Windows ou Linux, na nuvem ou locais. O suporte a inventário permite consultar recursos no convidado para obter visibilidade sobre aplicativos instalados e outros itens de configuração.
- 
-O serviço de State Configuration da Automação do Azure fornece funcionalidades avançadas de relatórios e pesquisa. É possível usar esses recursos para localizar informações detalhadas sobre o que é configurado dentro de um sistema operacional. O serviço dá suporte ao controle de alterações entre serviços, daemons, software, Registro e arquivos em seu ambiente para ajudar a diagnosticar alterações indesejadas e a gerar alertas. Um recurso relacionado importante é o relatório de eventos principais, por exemplo, eventos emitidos quando nós se desviam das configurações atribuídas a eles. 
+O Gerenciamento de Configuração na Automação do Azure permite o acesso a dois recursos:
+
+* Controle de Alterações e Inventário
+* State Configuration da Automação do Azure
+
+### <a name="change-tracking-and-inventory"></a>Controle de Alterações e Inventário
+
+O Controle de Alterações e Inventário combinam as funções de controle de alterações e inventário para permitir que você rastreie as alterações de infraestrutura de máquina virtual e de servidor. O serviço dá suporte ao controle de alterações entre serviços, daemons, software, Registro e arquivos em seu ambiente para ajudar a diagnosticar alterações indesejadas e a gerar alertas. O suporte a inventário permite consultar recursos no convidado para obter visibilidade sobre aplicativos instalados e outros itens de configuração. Para obter detalhes desse recurso, consulte [Controle de Alterações e Inventário](change-tracking.md).
+
+### <a name="azure-automation-state-configuration"></a>State Configuration da Automação do Azure
+
+O [State Configuration da Automação do Azure](automation-dsc-overview.md) é um recurso baseado em nuvem para DSC (Desired State Configuration) do PowerShell que fornece serviços necessários para ambientes empresariais. Usando esse recurso, é possível gerenciar recursos de DSC na Automação do Azure e aplicar as configurações a máquinas virtuais ou físicas de um servidor de pull de DSC na nuvem do Azure. 
 
 ## <a name="update-management"></a>Gerenciamento de atualizações
 
-A Automação do Azure inclui a solução de [gerenciamento de atualizações](automation-update-management.md) para sistemas Windows e Linux em ambientes híbridos. Com essa solução, você obtém visibilidade sobre a conformidade de atualizações local e no Azure e em outras nuvens. O gerenciamento de atualizações permite criar implantações agendadas para orquestrar a instalação de atualizações em uma janela de manutenção definida. Se uma atualização não deve ser instalada em um computador, você pode usar os recursos de gerenciamento de atualizações para excluí-la de uma implantação.
+A Automação do Azure inclui o recurso de [Gerenciamento de Atualizações](automation-update-management.md) para sistemas Windows e Linux em ambientes híbridos. O Gerenciamento de Atualizações oferece visibilidade sobre a conformidade de atualizações no Azure, em outras nuvens e localmente. O recurso permite criar implantações agendadas que orquestram a instalação de atualizações em uma janela de manutenção definida. Se uma atualização não deve ser instalada em um computador, você pode usar a funcionalidade Gerenciamento de Atualizações para excluí-la de uma implantação.
 
 ## <a name="shared-capabilities"></a>Funcionalidades compartilhadas
 
@@ -63,7 +68,7 @@ A Automação do Azure dá suporte ao RBAC (controle de acesso baseado em funç�
 
 ### <a name="source-control-integration"></a>Integração de controle do código-fonte
 
-A Automação do Azure permite a [integração do controle do código-fonte](source-control-integration.md). Esse recurso promove a configuração como código em que o check-in de runbooks ou configurações pode ser feito em um sistema de controle do código-fonte.
+A Automação do Azure é compatível com a [integração do controle do código-fonte](source-control-integration.md). Esse recurso promove a configuração como código em que o check-in de runbooks ou configurações pode ser feito em um sistema de controle do código-fonte.
 
 ## <a name="heterogeneous-support-windows-and-linux"></a>Suporte heterogêneo (Windows e Linux)
 
@@ -85,12 +90,11 @@ A Automação do Azure dá suporte ao gerenciamento durante todo o ciclo de vida
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
-## <a name="pricing-for-automation"></a>Preço da Automação
+## <a name="pricing-for-azure-automation"></a>Preços da Automação do Azure
 
 É possível examinar o preço associado à Automação do Azure na página [preços](https://azure.microsoft.com/pricing/details/automation/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar uma conta de Automação](automation-quickstart-create-account.md)
-
+> [Criar uma conta da Automação](automation-quickstart-create-account.md)

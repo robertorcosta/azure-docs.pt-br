@@ -1,38 +1,28 @@
 ---
-title: Gerenciar atualizações e patches para as VMs do Azure
-description: Este artigo fornece uma visão geral de como usar o Gerenciamento de Atualizações da Automação do Azure para gerenciar atualizações e patches das VMs do Azure e não Azure.
+title: Gerenciar atualizações e patches para as VMs do Azure na Automação do Azure
+description: Este artigo mostra como usar o Gerenciamento de Atualizações para gerenciar atualizações e patches para suas VMs do Azure.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604686"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829147"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gerenciar atualizações e patches para as VMs do Azure
 
-Você pode usar a solução Gerenciamento de Atualizações para gerenciar atualizações e patches de suas máquinas virtuais. Neste tutorial, você aprende a avaliar rapidamente o status das atualizações disponíveis, a agendar a instalação das atualizações necessárias e revisar os resultados da implantação e criar um alerta para verificar se as atualizações foram aplicadas com sucesso.
+Este artigo descreve como usar o recurso [Gerenciamento de Atualizações](automation-update-management.md) da Automação do Azure para gerenciar atualizações e patches para suas VMs do Azure. 
 
 Para obter informações sobre preços, consulte [Preços de automação do Gerenciamento de Atualizações](https://azure.microsoft.com/pricing/details/automation/).
 
-Neste tutorial, você aprenderá como:
-
-> [!div class="checklist"]
-> * Exibir uma avaliação de atualização
-> * Configurar alertas
-> * Agendar uma implantação de atualização
-> * Exibir os resultados de uma implantação
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisará:
-
-* A solução [Gerenciamento de Atualizações](automation-update-management.md) habilitada para uma ou mais de suas VMs.
-* Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) a ser carregada.
+* O recurso [Gerenciamento de Atualizações](automation-update-management.md) habilitado para uma ou mais de suas VMs. 
+* Uma [máquina virtual](../virtual-machines/windows/quick-create-portal.md) habilitada para o Gerenciamento de Atualizações.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -95,7 +85,7 @@ Para personalizar o assunto do email de alerta, em **Criar regra**, em **Persona
 
 ## <a name="schedule-an-update-deployment"></a>Agendar uma implantação de atualização
 
-Em seguida, agende uma implantação que siga o agendamento de versão e o período de serviço para instalar as atualizações. Você pode escolher os tipos de atualização que deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
+Agende uma implantação que siga o agendamento de versão e o período de serviço para instalar as atualizações. Você pode escolher os tipos de atualização que deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
 
 >[!NOTE]
 >O agendamento de uma implantação de atualização cria um recurso de [agenda](shared-resources/schedules.md) vinculado ao runbook **Patch-MicrosoftOMSComputers** que manipula a implantação de atualização nos computadores de destino. Se você excluir o recurso de agenda no portal do Azure ou usando o PowerShell depois de criar a implantação, a exclusão interromperá a implantação de atualização agendada e apresentará um erro quando você tentar reconfigurar o recurso de agenda no portal. Você só pode excluir o recurso de agendamento excluindo o agendamento de implantação correspondente.  
@@ -112,16 +102,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Computadores para atualizar**: selecione uma Pesquisa salva, um Grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Se você escolher **Computadores**, a preparação de cada computador será mostrada na coluna **Preparação para atualização do agente**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
-* **Classificação de atualização**: para cada produto, desmarque todas as classificações de atualização com suporte, exceto as que serão incluídas na implantação da atualização. Para este tutorial, deixe todos os tipos selecionados para todos os produtos.
-
-  Os tipos de classificação são:
-
-   |Sistema operacional  |Type  |
-   |---------|---------|
-   |Windows     | Atualizações críticas</br>Atualizações de segurança</br>Pacotes cumulativos de atualização</br>Feature packs</br>Service packs</br>Atualizações de definição</br>Ferramentas</br>Atualizações<br>Driver        |
-   |Linux     | Atualizações críticas ou de segurança</br>Outras atualizações       |
-
-   Para obter descrições dos tipos de classificação, confira [Classificações de atualização](automation-view-update-assessments.md#update-classifications).
+* **Classificação de atualização**: para cada produto, desmarque todas as classificações de atualização com suporte, exceto as que serão incluídas na implantação da atualização. Para obter descrições dos tipos de classificação, confira [Classificações de atualização](automation-view-update-assessments.md#work-with-update-classifications).
 
 * **Atualizações a serem incluídas/excluídas** – abre a página Incluir/Excluir. As atualizações a serem incluídas ou excluídas estão em guias separadas, especificando os números de ID do artigo da base de dados de conhecimento. Ao especificar um ou mais números de ID, você precisa remover ou desmarcar todas as classificações com a implantação de atualização. Isso verifica se nenhuma outra atualização foi incluída em seu pacote de atualização ao especificar IDs de atualização.
 
@@ -131,7 +112,6 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 > [!NOTE]
 > Não é possível especificar atualizações que foram substituídas para inclusão na implantação de atualização.
 >
-
 * **Configurações da agenda**: O painel Configurações da agenda é aberto. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
 
    Você também pode especificar se a implantação ocorre uma única vez ou configurar um agendamento recorrente. Em **Recorrência**, selecione **Uma vez**. Deixe o padrão como 1 dia e clique em **OK**. Essas entradas configuram um agenda recorrente.
@@ -196,16 +176,4 @@ Quando sua implantação de atualização for realizada com êxito, você recebe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a:
-
-> [!div class="checklist"]
-> * Integrar uma VM para o Gerenciamento de Atualizações
-> * Exibir uma avaliação de atualização
-> * Configurar alertas
-> * Agendar uma implantação de atualização
-> * Exibir os resultados de uma implantação
-
-Prossiga para a visão geral da solução de Gerenciamento de Atualizações.
-
-> [!div class="nextstepaction"]
-> [Solução Gerenciamento de Atualizações](automation-update-management.md)
+* Para obter detalhes sobre o Gerenciamento de Atualizações, consulte [Visão geral do Gerenciamento de Atualizações](automation-update-management.md).

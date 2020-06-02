@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 49b57b213a452d6c594bbc1ca537e68bd7a83864
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333850"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746057"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de lojas usando o Azure Mapas
 
@@ -81,7 +81,7 @@ Observando a captura de tela dos dados, podemos fazer as seguintes observações
     
 * As informações de lugar são armazenadas usando as colunas **AddressLine**, **City**, **Municipality** (região), **AdminDivision** (estado/província), **PostCode** (CEP) e **Country**.  
 * As colunas **Latitude** e **Longitude** contêm as coordenadas de cada loja da Contoso Coffee. Se você não tiver informações sobre as coordenadas, poderá usar os serviços de pesquisa do Azure Mapas para determinar as coordenadas de lugar.
-* Algumas colunas adicionais contêm metadados relacionados às cafeterias: um número de telefone, colunas de boolianos e horários de abertura e fechamento no formato de 24 horas. As colunas de boolianos referem-se à acessibilidade a cadeira de rodas e Wi-Fi. Você pode criar suas próprias colunas com metadados que sejam mais relevantes para seus dados de localização.
+* Algumas colunas adicionais contêm metadados relacionados às cafeterias: um número de telefone, colunas de boolianos e horários de abertura e fechamento no formato de 24 horas. As colunas de boolianos referem-se à acessibilidade a cadeira de rodas e Wi-Fi. Você pode criar suas próprias colunas com os metadados mais relevantes para seus dados de localização.
 
 > [!Note]
 > O Azure Mapas processa dados na projeção Mercator esférica "EPSG:3857", mas lê os dados em "EPSG:4325" que usam a datum WGS84. 
@@ -397,7 +397,7 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
 
 1. Adicione código ao *index.js*. O código a seguir inicializa o mapa. Adicionamos um [ouvinte de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para aguardar até que a página termine de ser carregada. Em seguida, conectamos eventos para monitorar o carregamento do mapa e fornecemos funcionalidade aos botões Pesquisar e Minha localização.
 
-   Quando o usuário seleciona o botão de pesquisa ou digita uma localização na caixa de pesquisa e, em seguida, seleciona ENTER, uma pesquisa difusa é iniciada na consulta do usuário. Transmita uma matriz de valores de país ISO 2 para a opção `countrySet` a fim de limitar os resultados da pesquisa a esses países/regiões. Limitar os países/regiões a serem pesquisados ajuda a aumentar a precisão dos resultados retornados. 
+   Quando o usuário seleciona o botão de pesquisa ou digita uma localização na caixa de pesquisa e, em seguida, seleciona ENTER, uma pesquisa difusa é iniciada na consulta do usuário. Transmita uma matriz de valores de país/região ISO 2 para a opção `countrySet` a fim de limitar os resultados da pesquisa a esses países/regiões. Limitar os países/regiões a serem pesquisados ajuda a aumentar a precisão dos resultados retornados. 
   
    Depois que a pesquisa for concluída, use o primeiro resultado e defina a câmera do mapa sobre essa área. Quando o usuário selecionar o botão Minha Localização, recupere a localização do usuário usando a API de Geolocalização do HTML5. Essa API é interna do navegador. Em seguida, centralize o mapa sobre a localização.  
 
@@ -453,7 +453,7 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -461,7 +461,7 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.
@@ -922,7 +922,7 @@ Tudo agora está configurado na interface do usuário. Ainda precisamos adiciona
 
 Agora você tem um localizador de lojas totalmente funcional. Em um navegador da Web, abra o arquivo *index.html* para o localizador de lojas. Quando os clusters são exibidos no mapa, você pode procurar um lugar usando a caixa de pesquisa, selecionando o botão Minha Localização, selecionando um cluster ou ampliando o mapa para ver lugares individualmente.
 
-Na primeira vez em que um usuário seleciona o botão Minha Localização, o navegador exibe um aviso de segurança que solicita permissão para acessar a localização do usuário. Se o usuário concordar em compartilhar sua localização, o mapa ampliará a localização do usuário e as cafeterias próximas serão exibidas. 
+Na primeira vez em que um usuário seleciona o botão Minha Localização, o navegador exibe um aviso de segurança que solicita permissão para acessar a localização dele. Se o usuário concordar em compartilhar sua localização, o mapa ampliará a localização do usuário e as cafeterias próximas serão exibidas. 
 
 <center>
 

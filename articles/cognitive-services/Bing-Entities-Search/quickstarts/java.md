@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c4335e1ac0f0ffc7ee5570a8f0819827fc77dd18
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6d4e7297ba0b325aa0045c16620d716ceb1418b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75384144"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650250"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o Java
 
@@ -25,15 +25,15 @@ Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
-* A [biblioteca Gson](https://github.com/google/gson)
+* O [JDK (Kit de Desenvolvimento Java)](https://www.oracle.com/technetwork/java/javase/downloads/).
+* A [biblioteca Gson](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo projeto Java em seu IDE ou editor favorito e importe as bibliotecas a seguir.
+1. Crie um projeto do Java em seu IDE ou editor favorito e importe as seguintes bibliotecas:
 
    ```java
    import java.io.*;
@@ -50,7 +50,7 @@ Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful co
    import com.google.gson.JsonParser;
    ```
 
-2. Em uma classe, crie variáveis para o ponto de extremidade de API, a chave de assinatura e uma consulta de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Em uma classe, crie variáveis para o ponto de extremidade de API, a chave de assinatura e uma consulta de pesquisa. É possível usar o ponto de extremidade global no código a seguir ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
    ```java
    public class EntitySearch {
@@ -68,7 +68,7 @@ Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful co
 
 ## <a name="construct-a-search-request-string"></a>Construir uma cadeia de caracteres de solicitação de pesquisa
 
-1. Crie uma função chamada `search()` que retorna uma `String` JSON. codifique a consulta de pesquisa em URL e a adicione a uma cadeia de caracteres de parâmetros com `&q=`. Adicione seu mercado à cadeia de caracteres com `?mkt=`.
+1. Crie uma função chamada `search()` que retorna uma `String` JSON. codifique a consulta de pesquisa em URL e a adicione a uma cadeia de caracteres de parâmetros com `&q=`. Adicione seu mercado à cadeia de caracteres de parâmetro com `?mkt=`.
  
 2. Crie um objeto de URL com as cadeias de caracteres de host, caminho e parâmetros.
     
@@ -119,9 +119,9 @@ Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful co
 
 ## <a name="format-the-json-response"></a>Formatar a resposta JSON
 
-1. Crie uma função chamada `prettify` para formatar a resposta JSON. Crie um `JsonParser`, chame `parse()` no texto JSON e armazene-o como um objeto JSON. 
+1. Crie uma função chamada `prettify` para formatar a resposta JSON. Crie um `JsonParser`, chame `parse()` no texto JSON e, em seguida, armazene-o como um objeto JSON. 
 
-2. Use a biblioteca Gson para criar um `GsonBuilder()` e use `setPrettyPrinting().create()` para formatar o JSON. Em seguida, retorne-o.    
+2. Use a biblioteca Gson para criar um `GsonBuilder()`, use `setPrettyPrinting().create()` para formatar o JSON e, em seguida, retorne-o.    
   
    ```java
    //...
@@ -136,7 +136,7 @@ Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful co
 
 ## <a name="call-the-search-function"></a>Chamar a função de pesquisa
 
-1. No método principal do projeto, chame `search()` e use `prettify()` para formatar o texto.
+- No método principal do projeto, chame `search()` e use `prettify()` para formatar o texto.
     
     ```java
         public static void main(String[] args) {
@@ -220,5 +220,5 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é a API de Pesquisa de Entidade do Bing?](../overview.md )
-* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [O que é a API de Pesquisa de Entidade do Bing?](../overview.md)
+* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

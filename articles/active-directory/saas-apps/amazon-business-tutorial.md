@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7ac085beaa85a7ddf3a6c3bfc61820e8e5a63ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8218b3dbe09e5ce7e6c28e1084b26c6eec4a16ca
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68496561"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772974"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: integrar o Amazon Business ao Azure Active Directory
 
@@ -87,24 +87,22 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     
        | | |
        |-|-|
-       | `https://www.amazon.com`|
-       | `https://www.amazon.co.jp`|
-       | `https://www.amazon.de`|
+       | `https://www.amazon.com`| América do Norte |
+       | `https://www.amazon.co.jp`| Leste da Ásia |
+       | `https://www.amazon.de`| Europa |
 
     1. Na caixa de texto **URL de Resposta**, digite uma URL nos seguintes padrões:
     
        | | |
        |-|-|
-       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
+       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| América do Norte |
+       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Leste da Ásia |
+       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Europa |
 
        > [!NOTE]
        > O valor de URL de Resposta não é real. Atualize esse valor com a URL de Resposta real. Você obterá o valor `<idpid>` da seção de configuração de SSO do Amazon Business, explicada posteriormente no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
-
-    Na caixa de texto **URL de Logon**, digite uma URL: `https://www.amazon.com/`
+1. Se você quiser configurar o aplicativo no modo iniciado pelo **SP**, será necessário adicionar a URL completa fornecida na configuração do Amazon Business à **URL de Logon** na seção **Definir URLs adicionais**.
 
 1. A captura de tela a seguir mostra a lista de atributos padrão. Edite os atributos clicando no ícone **Editar** na seção **Atributos e Declarações do Usuário**.
 
@@ -153,6 +151,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. No assistente **Configurar o SSO**, selecione o provedor de acordo com os requisitos organizacionais e clique em **Avançar**.
 
     ![Grupo padrão](media/amazon-business-tutorial/default-group1.png)
+    
+    > [!NOTE]
+    > Embora o Microsoft ADFS seja uma opção listada, ele não funcionará com o SSO do Azure AD.
 
 1. No assistente **Padrões para novas contas de usuário**, selecione o **Grupo Padrão** e, em seguida, selecione a **Função de Compra Padrão** de acordo com a função do usuário na organização e clique em **Avançar**.
 
@@ -197,7 +198,12 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Por fim, na seção **Detalhes da Conexão de SSO**, o **Status** é mostrado como **Ativo**.
 
     ![Conexão](media/amazon-business-tutorial/sso-connection5.png)
-
+    
+    > [!NOTE]
+    > Se quiser configurar o aplicativo no modo iniciado pelo **SP**, conclua a seguinte etapa: cole a URL de logon da captura de tela acima na caixa de texto **URL de Logon** da seção **Definir URLs adicionais** no portal do Azure. Use o seguinte formato:
+    >
+    > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
+    
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.

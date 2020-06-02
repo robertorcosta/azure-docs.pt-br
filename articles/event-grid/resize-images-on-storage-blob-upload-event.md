@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81482188"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652724"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -192,15 +192,15 @@ O código de projeto de função é implantado diretamente no repositório públ
 
 Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja que sejam enviados para um ponto de extremidade específico. Nesse caso, o ponto de extremidade é exposto pela função. Use as seguintes etapas para criar uma assinatura de evento que envia notificações à sua função no portal do Azure:
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Todos os Serviços** no menu à esquerda e, em seguida, selecione **Aplicativos de Funções**.
+1. No [portal do Azure](https://portal.azure.com), na parte superior da página, procure e selecione `Function App` e escolha o aplicativo de funções que você acabou de criar. Selecione **Functions** e escolha a função **Miniatura**.
 
-    ![Navegar até os Aplicativos de Funções no portal do Azure](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    :::image type="content" source="media/resize-images-on-storage-blob-upload-event/choose-thumbnail-function.png" alt-text="Escolher a função Miniatura no portal":::
 
-2. Expanda o aplicativo de funções, escolha a função **Miniatura** e, em seguida, selecione **Adicionar assinatura da Grade de Eventos**.
+1.  Selecione **Integração**, depois escolha o **Gatilho de Grade de Eventos** e selecione **Criar Assinatura de Grade de Eventos**.
 
-    ![Navegar até assinatura de Adicionar Grade de Eventos no portal do Azure](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navegar até Adicionar Assinatura de Grade de Eventos no portal do Azure" :::
 
-3. Use as configurações da assinatura de evento, conforme especificado na tabela.
+1. Use as configurações da assinatura de evento, conforme especificado na tabela.
     
     ![Criar a assinatura de evento com base na função no portal do Azure](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
@@ -215,13 +215,13 @@ Uma assinatura de evento indica quais eventos gerados pelo provedor você deseja
     | **Tipo de ponto de extremidade** | gerado automaticamente | Pré-definido como **Função do Azure**. |
     | **Ponto de extremidade** | gerado automaticamente | Nome da função. Nesse caso, é **Miniatura**. |
 
-4. Alterne para a guia **Filtros** e execute as seguintes ações:
+1. Alterne para a guia **Filtros** e execute as seguintes ações:
     1. Selecione a opção **Habilitar filtragem por assunto**.
     2. Em **O assunto começa com**, insira o seguinte valor: **/blobServices/default/containers/images/blobs/** .
 
         ![Especificar o filtro para a assinatura de evento](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Selecione **Criar** para adicionar a assinatura de evento. Isso criará uma assinatura de evento que dispara a função `Thumbnail` quando um blob é adicionado ao contêiner `images`. A função redimensiona as imagens e as adiciona ao contêiner `thumbnails`.
+1. Selecione **Criar** para adicionar a assinatura de evento. Isso criará uma assinatura de evento que dispara a função `Thumbnail` quando um blob é adicionado ao contêiner `images`. A função redimensiona as imagens e as adiciona ao contêiner `thumbnails`.
 
 Agora que os serviços de back-end estão configurados, teste a funcionalidade de redimensionamento da imagem no aplicativo Web de exemplo.
 

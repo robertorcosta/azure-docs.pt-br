@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 94bcba80e5768d57e3dc97bed1a74a8369ac60b9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9e35f5c9288860056a910f54f9601b2178a628bb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81425795"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828076"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Alterar a ID de locatário do cofre de chaves depois de mover uma assinatura
 
@@ -61,4 +61,4 @@ Se estiver usando o MSI, você também precisará atualizar a identidade do MSI,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você tiver dúvidas sobre o Cofre de Chaves do Azure, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Se você tiver dúvidas sobre o Azure Key Vault, visite a [Página de P e R da Microsoft para o Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

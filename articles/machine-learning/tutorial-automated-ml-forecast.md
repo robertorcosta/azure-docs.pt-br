@@ -1,5 +1,5 @@
 ---
-title: Prever a demanda de compartilhamento de bicicletas com o experimento de ML automatizado
+title: 'Tutorial: Previsão de demanda e AutoML'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar e implantar um modelo de previsão de demanda com o machine learning automatizado no Azure Machine Learning Studio.
 services: machine-learning
@@ -9,24 +9,27 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 05/19/2020
+ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77088320"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656558"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Tutorial: Prever a demanda de compartilhamento de bicicletas com o machine learning automatizado
+# <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Prever demanda com machine learning automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste tutorial, você usará o machine learning automatizado, ou o ML automatizado, no Azure Machine Learning Studio para criar um modelo de previsão de série temporal para prever a demanda de aluguel para um serviço de compartilhamento de bicicletas.
+Neste tutorial, você usará machine learning automatizado, ou ML automatizado, no Azure Machine Learning Studio para criar um modelo de previsão de série temporal para prever a demanda de aluguel para um serviço de compartilhamento de bicicletas.
+
+Para ver um exemplo de modelo de classificação, confira [Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Criar e carregar um conjunto de dados.
 > * Configurar e executar um experimento de ML automatizado.
+> * Especificar configurações de previsão.
 > * Explorar os resultados do experimento.
 > * Implantar o melhor modelo.
 
@@ -129,7 +132,7 @@ Conclua a configuração do experimento de ML automatizado especificando o tipo 
 
 1. Selecione **data** como a **Coluna de tempo** e mantenha **Agrupar por colunas** em branco. 
 
-    1. Selecione **Exibir definições de configuração adicionais** e preencha os campos da seguinte maneira. Essas configurações destinam-se a controlar melhor o trabalho de treinamento. Caso contrário, os padrões são aplicados com base na seleção e nos dados de experimento.
+    1. Selecione **Exibir definições de configuração adicionais** e preencha os campos da seguinte maneira. Essas configurações são destinadas a controlar melhor o trabalho de treinamento e especificar configurações para sua previsão. Caso contrário, os padrões são aplicados com base na seleção e nos dados de experimento.
 
   
         Configurações&nbsp;adicionais|Descrição|Valor&nbsp;para o&nbsp;tutorial
@@ -138,7 +141,7 @@ Conclua a configuração do experimento de ML automatizado especificando o tipo 
         Personalização automática| Habilita o pré-processamento. Isso inclui limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos.| Habilitar
         Explicar o melhor modelo (versão prévia)| Mostra automaticamente a explicabilidade no melhor modelo criado pelo ML automatizado.| Habilitar
         Algoritmos bloqueados | Algoritmos que você deseja excluir do trabalho de treinamento| Árvores aleatórias extremas
-        Configurações adicionais de previsão| Essas configurações ajudam a aprimorar a precisão do modelo <br><br> _**Horizonte de previsão**_ : período no futuro que você deseja prever <br> _**Retardos de destino de previsão:**_ até que ponto no passado você deseja construir os retardos de uma variável de destino <br> _**Janela rolante de destino**_ : especifica o tamanho da janela rolante na qual recursos, como *máx., mín.* e *soma*, serão gerados. |Horizonte de previsão: 14 <br> Retardos&nbsp;de destino&nbsp;de previsão: Nenhum <br> Tamanho&nbsp;da janela&nbsp;rolante&nbsp;de destino: Nenhum
+        Configurações adicionais de previsão| Essas configurações ajudam a aprimorar a precisão do modelo <br><br> _**Horizonte de previsão**_: período no futuro que você deseja prever <br> _**Retardos de destino de previsão:**_ até que ponto no passado você deseja construir os retardos de uma variável de destino <br> _**Janela rolante de destino**_: especifica o tamanho da janela rolante na qual recursos, como *máx., mín.* e *soma*, serão gerados. |Horizonte de previsão: 14 <br> Retardos&nbsp;de destino&nbsp;de previsão: Nenhum <br> Tamanho&nbsp;da janela&nbsp;rolante&nbsp;de destino: Nenhum
         Critério de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Hora&nbsp;do&nbsp;trabalho de treinamento (horas): 3 <br> Limite de&nbsp;pontuação da&nbsp;métrica: Nenhum
         Validação | Escolha um tipo de validação cruzada e um número de testes.|Tipo de validação:<br>validação cruzada&nbsp;k-fold&nbsp; <br> <br> Número de validações: 5
         Simultaneidade| O número máximo de iterações paralelas executadas por iteração| Máximo de&nbsp;iterações&nbsp;simultâneas: 6
@@ -224,6 +227,10 @@ Confira este artigo para obter as etapas de como criar um esquema compatível co
 > [!div class="nextstepaction"]
 > [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
++ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification).
++ Saiba mais sobre a [personalização](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Saiba mais sobre a [criação de perfil de dados](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
 > Este conjunto de dados de compartilhamento de bicicletas foi modificado para este tutorial. Esse conjunto de dados foi disponibilizado como parte de uma [competição da Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) e estava originalmente disponível por meio da [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). Também pode ser encontrado no [Banco de dados de machine learning do UCI](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

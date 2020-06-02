@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143740"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640182"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitar o write-back da redefinição de senha por autoatendimento do Azure Active Directory para um ambiente local
 
@@ -58,6 +58,10 @@ Para trabalhar corretamente com o write-back do SSPR, a conta especificada no Az
    * As unidades organizacionais (OUs) do usuário que você deseja que estejam no escopo para SSPR
 
 Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar as respectivas senhas locais na nuvem. As permissões precisam ser aplicadas para que **esse objeto e todos os objetos descendentes** de "Não Permitir Expiração de Senha" sejam exibidos.  
+
+> [!TIP]
+>
+> Se as senhas de algumas contas de usuário não são gravadas de volta no diretório local, verifique se a herança não está desabilitada para essas contas no ambiente local do AD DS. As permissões de gravação para senhas devem ser aplicadas aos objetos descendentes para que o recurso funcione corretamente.
 
 Para configurar as permissões apropriadas para que ocorra o write-back de senha, conclua as etapas a seguir:
 

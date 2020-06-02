@@ -1,23 +1,22 @@
 ---
 title: Criar um BD do Azure para MySQL usando um modelo do ARM
 description: Neste artigo, saiba como criar um servidor do Banco de Dados do Azure para MySQL com integração de rede virtual usando um modelo do Azure Resource Manager.
-services: azure-resource-manager
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/27/2020
-ms.openlocfilehash: 7313d12509859514e41b30c4021f74f25a0e50b9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/19/2020
+ms.openlocfilehash: ef3813840b1ecb3ad091a5b420ff8cfff9f6059a
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82630362"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800206"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-arm-template"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MySQL usando o modelo do ARM
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mysql-server"></a>Início Rápido: Usar um modelo do Resource Manager para criar um servidor do Banco de Dados do Azure para MySQL
 
-O Banco de Dados do Azure para MySQL é um serviço gerenciado usado para executar, gerenciar e dimensionar Bancos de Dados MySQL altamente disponíveis na nuvem. Este guia de início rápido mostra como usar um modelo predefinido do ARM (Azure Resource Manager) para criar um servidor de banco de dados do Azure para MySQL com integração de rede virtual. Você pode criar o servidor usando o portal do Azure, CLI do Azure ou Azure PowerShell.
+O Banco de Dados do Azure para MySQL é um serviço gerenciado usado para executar, gerenciar e dimensionar Bancos de Dados MySQL altamente disponíveis na nuvem. Neste guia de início rápido, você usa um modelo do ARM para criar um servidor do Banco de Dados do Azure para MySQL com integração com rede virtual. Você pode criar o servidor no o portal do Azure, na CLI do Azure ou no Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -100,7 +99,7 @@ Na página **Implantar Banco de Dados do Azure para MySQL com VNet**:
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
-Use o código interativo a seguir para criar um servidor de Banco de Dados do Azure para MySQL usando o modelo. O código solicita o novo nome do servidor, o nome e a localização de um novo grupo de recursos e um nome de conta e senha de administrador.
+Use o código interativo a seguir para criar um servidor de Banco de Dados do Azure para MySQL usando o modelo. O código solicita o novo nome do servidor, o nome e o local de um novo grupo de recursos e um nome de conta e senha de administrador.
 
 Para executar o código em Azure Cloud Shell, selecione **Experimentar** no canto superior de qualquer bloco de código.
 

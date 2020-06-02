@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3fd308ede17f510b3e9188f2bebc93a08a61181
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76169884"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263169"
 ---
 # <a name="get-face-detection-data"></a>Obter dados de detecção facial
 
@@ -29,7 +29,7 @@ Este guia mostra como:
 
 ## <a name="setup"></a>Instalação
 
-Este guia pressupõe que você já construiu um objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) , chamado `faceClient`, com uma chave de assinatura facial e uma URL de ponto de extremidade. A partir daqui, você pode usar o recurso de detecção facial chamando o [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), que é usado neste guia ou [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Para obter instruções sobre como configurar esse recurso, siga um dos guias de início rápido.
+Este guia pressupõe que você já construiu um objeto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) , chamado `faceClient` , com uma chave de assinatura facial e uma URL de ponto de extremidade. A partir daqui, você pode usar o recurso de detecção facial chamando o [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), que é usado neste guia ou [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Para obter instruções sobre como configurar esse recurso, siga um dos guias de início rápido.
 
 Este guia concentra-se nas especificidades da chamada de detecção, como os argumentos que você pode passar e o que pode fazer com os dados retornados. Recomendamos que você consulte apenas os recursos necessários. Cada operação leva mais tempo para ser concluída.
 
@@ -145,7 +145,6 @@ Para saber mais sobre cada um dos atributos, consulte o guia conceitual de [dete
 Neste guia, você aprendeu a usar as várias funcionalidades de detecção facial. Em seguida, integre esses recursos ao seu aplicativo seguindo um tutorial detalhado.
 
 - [Tutorial: Criar um aplicativo do WPF para exibir dados faciais em uma imagem](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos em uma imagem](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## <a name="related-topics"></a>Tópicos relacionados
 

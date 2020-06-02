@@ -2,19 +2,19 @@
 title: Autoajuda do SQL sob demanda (versão prévia)
 description: Esta seção contém informações que podem ajudar você a solucionar problemas com o SQL sob demanda (versão prévia).
 services: synapse analytics
-author: vvasic-msft
+author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: vvasic
+ms.date: 05/15/2020
+ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e2c262915c928cf487cb84aeb3423d67e7a96e97
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421190"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658881"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Autoajuda do SQL sob demanda (versão prévia)
 
@@ -33,13 +33,43 @@ Se a consulta falhar com o erro 'O arquivo não pode ser aberto porque ele não 
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>A consulta falha porque não pode ser executada devido às restrições de recursos atuais 
 
-Se a consulta falhar com a mensagem de erro 'Esta consulta não pode ser executada devido às restrições de recurso atuais', o SQL OD não poderá executá-la no momento devido a restrições de recursos: 
+Se a consulta falhar com a mensagem de erro “Esta consulta não pode ser executada devido às restrições de recurso atuais”, o SQL sob demanda não poderá executá-la no momento devido a restrições de recursos: 
 
 - Use tipos de dados de tamanhos razoáveis. Além disso, especifique o esquema de arquivos Parquet para colunas de cadeia de caracteres, pois elas serão VARCHAR(8000) por padrão. 
 
 - Se a consulta for direcionada a arquivos CSV, considere a possibilidade de [criar estatísticas](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
 - Acesse [Melhores práticas de desempenho do SQL sob demanda](best-practices-sql-on-demand.md) para otimizar a consulta.  
+
+## <a name="create-statement-is-not-supported-in-master-database"></a>Não há suporte para CREATE 'STATEMENT' no banco de dados mestre
+
+Se a consulta falhar com a mensagem de erro:
+
+> "Falha ao executar a consulta. Erro: CREATE EXTERNAL TABLE/DATA SOURCE/DATABASE SCOPED CREDENTIAL/FILE FORMAT não tem suporte no banco de dados mestre". 
+
+o banco de dados mestre no SQL sob demanda não tem suporte para a criação de:
+  - Tabelas externas
+  - Fontes de dados externas
+  - Credenciais no escopo do banco de dados
+  - Formatos de arquivo externos
+
+Solução:
+
+  1. Crie um banco de dados de usuário:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Execute a instrução CREATE no contexto de < NOME_DO_BANCO_DE_DADOS> que falhou anteriormente para o banco de dados mestre. 
+  
+  Exemplo de criação de formato de arquivo externo:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

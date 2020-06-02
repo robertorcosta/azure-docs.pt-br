@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79014d318da1732d48eeb893aa383e948e1036cd
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78330712"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267096"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory
 
@@ -29,7 +29,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 
 ## <a name="set-up-powershell-environment"></a>Configurar o ambiente do PowerShell
 
-1. Comece abrindo a [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Verifique se o Cloud Shell está definido como PowerShell no menu suspenso superior esquerdo ou digitando `pwsh`.
+1. Comece abrindo a [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Verifique se Cloud Shell está definido como PowerShell no menu suspenso superior esquerdo ou digitando `pwsh` .
 
 1. Copie e cole o trecho de código a seguir no Shell.
 
@@ -141,7 +141,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
     }
     ```
 
-1. Execute a função `Create-ImmersiveReaderResource`, fornecendo os parâmetros conforme apropriado.
+1. Execute a função `Create-ImmersiveReaderResource` , fornecendo os parâmetros conforme apropriado.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
@@ -162,10 +162,10 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
     | SubscriptionName |Nome da assinatura do Azure a ser usada para o recurso de leitura de imersão. Você deve ter uma assinatura do para criar um recurso. |
     | ResourceName |  Deve ser alfanumérico e pode conter '-', desde que '-' não seja o primeiro ou o último caractere. O comprimento não pode exceder 63 caracteres.|
     | ResourceSubdomain |Um subdomínio personalizado é necessário para o recurso de leitura de imersão. O subdomínio é usado pelo SDK ao chamar o serviço de leitura de imersão para iniciar o leitor. O subdomínio deve ser globalmente exclusivo. O subdomínio deve ser alfanumérico e pode conter '-', desde que '-' não seja o primeiro ou o último caractere. O comprimento não pode exceder 63 caracteres. Esse parâmetro será opcional se o recurso já existir. |
-    | ResourceSKU |Opções: `S0`. Visite nossa [página de preços de serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para saber mais sobre cada SKU disponível. Esse parâmetro será opcional se o recurso já existir. |
-    | ResourceLocation |Opções: `eastus`, `eastus2`, `southcentralus` `westus` `westus2` `southeastasia` `centralindia` `japaneast` `northeurope` `uksouth`,,,,,,,,, `westeurope` `australiaeast` Esse parâmetro será opcional se o recurso já existir. |
+    | ResourceSKU |Opções: `S0` . Visite nossa [página de preços de serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) para saber mais sobre cada SKU disponível. Esse parâmetro será opcional se o recurso já existir. |
+    | ResourceLocation |Opções:,,,,,, `eastus` `eastus2` `southcentralus` `westus` `westus2` `australiaeast` `southeastasia` , `centralindia` , `japaneast` , `northeurope` , `uksouth` , `westeurope` . Esse parâmetro será opcional se o recurso já existir. |
     | ResourceGroupName |Os recursos são criados em grupos de recursos dentro de assinaturas. Forneça o nome de um grupo de recursos existente. Se o grupo de recursos ainda não existir, um novo com esse nome será criado. |
-    | ResourceGroupLocation |Se o grupo de recursos não existir, você precisará fornecer um local no qual criar o grupo. Para localizar uma lista de locais, execute `az account list-locations`. Use a propriedade *Name* (sem espaços) do resultado retornado. Esse parâmetro será opcional se o grupo de recursos já existir. |
+    | ResourceGroupLocation |Se o grupo de recursos não existir, você precisará fornecer um local no qual criar o grupo. Para localizar uma lista de locais, execute `az account list-locations` . Use a propriedade *Name* (sem espaços) do resultado retornado. Esse parâmetro será opcional se o grupo de recursos já existir. |
     | AADAppDisplayName |O nome de exibição do aplicativo Azure Active Directory. Se um aplicativo existente do Azure AD não for encontrado, um novo com esse nome será criado. Esse parâmetro será opcional se o aplicativo do Azure AD já existir. |
     | AADAppIdentifierUri |O URI para o aplicativo do Azure AD. Se um aplicativo do Azure AD existente não for encontrado, um novo com esse URI será criado. Por exemplo, `https://immersivereaderaad-mycompany`. |
     | AADAppClientSecret |Uma senha que você cria que será usada posteriormente para autenticar ao adquirir um token para iniciar o leitor de imersão. A senha deve ter pelo menos 16 caracteres de comprimento, conter pelo menos um caractere especial e conter pelo menos um caractere numérico. |
@@ -183,7 +183,7 @@ O script foi projetado para ser flexível. Ele primeiro procurará os recursos e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Confira o [Início rápido do Node.js](./quickstart-nodejs.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Node.js
+* Confira o [Início rápido do Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Node.js
 * Confira o [tutorial do Python](./tutorial-python.md) para ver o que mais você pode fazer com o SDK de Leitura Avançada usando Python
 * Veja o [tutorial do Swift](./tutorial-ios-picture-immersive-reader.md) para ver o que mais você pode fazer com o SDK do leitor de imersão usando o Swift
 * Explore o [SDK da Leitura Avançada](https://github.com/microsoft/immersive-reader-sdk) e a [Referência de SDK da Leitura Avançada](./reference.md)

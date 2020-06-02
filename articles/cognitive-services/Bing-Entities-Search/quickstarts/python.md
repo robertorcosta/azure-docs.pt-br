@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 07b563308e80055d699d1cefeb3b2db71ffa4cd7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 43b440b631122f7057de68871f0a3f870588dc67
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448609"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650209"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Início Rápido: Enviar uma solicitação de pesquisa à API REST de Pesquisa de Entidade do Bing usando Python
 
@@ -31,7 +31,7 @@ Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-1. Crie um novo arquivo Python em seu IDE ou editor favorito e adicione as seguintes importações. Crie variáveis para a chave de assinatura, um ponto de extremidade, um mercado e uma consulta de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+1. Crie um novo arquivo Python em seu IDE ou editor favorito e adicione as seguintes importações. Crie variáveis para a chave de assinatura, o ponto de extremidade, o mercado e a consulta de pesquisa. É possível usar o ponto de extremidade global no código a seguir ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```python
     import http.client, urllib.parse
@@ -44,7 +44,7 @@ Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful 
     query = 'italian restaurants near me'
     ```
 
-2. Crie uma url de solicitação acrescentando sua variável de mercado ao parâmetro `?mkt=`. Codifique sua consulta como URL e acrescente-a ao parâmetro `&q=`. 
+2. Crie uma url de solicitação acrescentando sua variável de mercado ao parâmetro `?mkt=`. Codifique a consulta como URL e acrescente-a ao parâmetro `&q=`. 
     
     ```python
     params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
@@ -52,21 +52,24 @@ Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful 
 
 ## <a name="send-a-request-and-get-a-response"></a>Enviar uma solicitação e obter uma resposta
 
-1. Crie uma função chamada `get_suggestions()`. Em seguida, siga estas etapas.
-   1. Adicione a chave de assinatura a um dicionário com `Ocp-Apim-Subscription-Key` como uma chave.
-   2. Use `http.client.HTTPSConnection()` para criar um objeto de cliente HTTPS. Envie uma solicitação `GET` usando `request()` com seu caminho e parâmetros e informações de cabeçalho.
-   3. Armazene a resposta com `getresponse()` e retorne `response.read()`.
+1. Crie uma função chamada `get_suggestions()`. 
 
-      ```python
-      def get_suggestions ():
-       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-       conn = http.client.HTTPSConnection (host)
-       conn.request ("GET", path + params, None, headers)
-       response = conn.getresponse ()
-       return response.read()
-      ```
+2. Nessa função, adicione a chave de assinatura a um dicionário que tem `Ocp-Apim-Subscription-Key` como chave.
 
-2. Chame `get_suggestions()` e imprima a resposta json.
+3. Use `http.client.HTTPSConnection()` para criar um objeto de cliente HTTPS. Envie uma solicitação `GET` usando `request()` com seu caminho e parâmetros e informações de cabeçalho.
+
+4. Armazene a resposta com `getresponse()` e retorne `response.read()`.
+
+   ```python
+   def get_suggestions ():
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    conn = http.client.HTTPSConnection (host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read()
+   ```
+
+5. Chame `get_suggestions()` e imprima a resposta JSON.
 
     ```python
     result = get_suggestions ()
@@ -143,5 +146,5 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é a API de Pesquisa de Entidade do Bing](../search-the-web.md)
-* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [O que é a API de Pesquisa de Entidade do Bing?](../search-the-web.md)
+* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

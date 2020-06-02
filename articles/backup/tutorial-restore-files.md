@@ -4,12 +4,12 @@ description: Saiba como executar restaurações em nível de arquivo em uma VM d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 439ffeed7f0e37f04eda39380ddcabe1fa4e06c3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74171732"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653271"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar arquivos para uma máquina virtual no Azure
 
@@ -25,7 +25,7 @@ O Backup do Azure cria pontos de recuperação que são armazenados em cofres de
 
 Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando a CLI do Azure versão 2.0.18 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial requer uma VM do Linux que tenha sido protegida com o Backup do Azure. Para simular um processo de exclusão acidental e recuperação de arquivo, você exclui uma página de um servidor Web. Se você precisar de uma VM do Linux que execute um servidor Web e tenha sido protegida com o Backup do Azure, consulte [Back up a virtual machine in Azure with the CLI](quick-backup-vm-cli.md) (Fazer backup de uma máquina virtual no Azure com a CLI).
 
@@ -117,6 +117,9 @@ Para restaurar os arquivos, o Backup do Azure fornece um script para ser executa
 ## <a name="restore-file-to-your-vm"></a>Restaurar arquivos na VM
 
 Com o script de recuperação copiado para a VM, você pode conectar o ponto de recuperação e restaurar arquivos.
+
+>[!NOTE]
+> Verifique [aqui](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) para ver se você pode executar o script na sua VM antes de continuar.
 
 1. Conecte-se à VM com SSH. Substitua *publicIpAddress* pelo endereço IP público da VM da seguinte maneira:
 

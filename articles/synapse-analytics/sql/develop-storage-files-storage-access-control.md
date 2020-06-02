@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589271"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835828"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Controlar o acesso à conta de armazenamento para SQL sob demanda (versão prévia)
 
@@ -26,11 +26,7 @@ Este artigo descreve os tipos de credenciais que você pode usar e como a pesqui
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorização de armazenamento compatíveis
 
-Um usuário que fez logon em um recurso SQL sob demanda deverá estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Três tipos de autorização são compatíveis:
-
-- [Assinatura de acesso compartilhado](?tabs=shared-access-signature)
-- [Identidade do Usuário](?tabs=user-identity)
-- [Identidade gerenciada](?tabs=managed-identity)
+Um usuário que fez logon em um recurso SQL sob demanda deverá estar autorizado a acessar e consultar os arquivos no Armazenamento do Azure se os arquivos não estiverem disponíveis publicamente. Você pode usar três tipos de autorização para acessar um armazenamento não público: [Identidade do Usuário](?tabs=user-identity), [Assinatura de acesso compartilhado](?tabs=shared-access-signature) e [Identidade Gerenciada](?tabs=managed-identity).
 
 > [!NOTE]
 > [Passagem do Azure AD](#force-azure-ad-pass-through) é o comportamento padrão quando você cria um workspace. Se você usá-la, não precisará criar credenciais para cada conta de armazenamento acessada usando os logons do Azure AD. É possível [desabilitar esse comportamento](#disable-forcing-azure-ad-pass-through).
@@ -99,7 +95,7 @@ Antes de acessar os dados, o administrador do Armazenamento do Azure deve conced
 
 ### <a name="anonymous-access"></a>[Acesso anônimo](#tab/public-access)
 
-Você pode acessar os arquivos publicamente disponíveis colocados em contas do Armazenamento do Azure que [permitem acesso anônimo](/azure/storage/blobs/storage-manage-access-to-resources.md).
+Você pode acessar os arquivos publicamente disponíveis colocados em contas do Armazenamento do Azure que [permitem acesso anônimo](/azure/storage/blobs/storage-manage-access-to-resources).
 
 ---
 

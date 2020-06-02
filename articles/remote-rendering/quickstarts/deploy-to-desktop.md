@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415717"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758989"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Início Rápido: Implantar a amostra de Unity na Área de Trabalho
 
@@ -46,7 +46,7 @@ No momento, há suporte apenas para aplicativos da área de trabalho simples no 
 ## <a name="build-the-sample-project"></a>Criar o projeto de exemplo
 
 1. Abra *Arquivo > Configurações de Build*.
-1. Altere *Plataforma* para **Plataforma Universal do Windows**.
+1. Altere a *Plataforma* para a **Plataforma Universal do Windows** (**PC autônomo** também tem suporte, mas não é usado aqui).
 1. Defina o *Dispositivo de Destino* como **PC**.
 1. Defina *Arquitetura* como **x86**.
 1. Defina *Tipo de Build* como **Projeto D3D**.

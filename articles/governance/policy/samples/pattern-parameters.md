@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Parâmetros em uma definição de política'
 description: Esse padrão do Azure Policy fornece um exemplo de como usar parâmetros em uma definição de política.
-ms.date: 01/31/2020
+ms.date: 05/20/2020
 ms.topic: sample
-ms.openlocfilehash: 4921bb216ef67b561bc8986cf48239e6448beafc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e163a243a0dc23f04d564287b630634eb4662cda
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77170174"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696729"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Padrão do Azure Policy: parâmetros
 
@@ -16,7 +16,10 @@ Uma definição de política pode ser dinamizada para reduzir o número de defin
 
 ## <a name="sample-1-string-parameters"></a>Exemplo 1: Parâmetros de cadeia de caracteres
 
-Essa definição de política usa dois parâmetros, **tagName** e **tagValue** para definir o que a atribuição de política está procurando em recursos. Esse formato permite que a política seja usada para qualquer número de combinações de nome e valor de marca, mas mantém apenas uma única definição de política.
+Essa definição de política usa dois parâmetros, **tagName** e **tagValue** para definir o que a atribuição de política está procurando em recursos. Esse formato permite que a definição de política seja usada para qualquer número de combinações de nome e valor de marca, mas mantém apenas uma única definição de política.
+
+> [!NOTE]
+> Para ver um exemplo de marca que usa o **modo** _Todos_ e funciona com um grupo de recursos, confira [Padrão: Marcas – Exemplo #1](./pattern-tags.md#sample-1-parameterize-tags).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 
@@ -47,6 +50,22 @@ O parâmetro é então usado no bloco **policyRule.if**. Com um parâmetro de _m
 Aqui, é usado no alias **serviceProvider.bandwidthInMbps** como um dos valores definidos.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::
+
+## <a name="sample-3-parameterized-effect"></a>Exemplo 3: Efeito parametrizado
+
+Uma forma comum de tornar as definições de política reutilizáveis é parametrizar o próprio efeito. Este exemplo usa um só parâmetro, **effect**. A parametrização do efeito possibilita atribuir a mesma definição a escopos diferentes com efeitos diferentes.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json":::
+
+### <a name="sample-3-explanation"></a>Exemplo 3: Explicação
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="11-25":::
+
+Nessa parte da definição da política, o parâmetro **effect** é definido como uma _cadeia de caracteres_. A definição da política define o valor padrão de uma atribuição como _audit_ e limita as outras opções a _disabled_ e _deny_.
+
+O parâmetro, então, é usado no bloco **policyRule.if** para o _effect_.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 15f8a3ac8c2777b3a878de92db495e559f64ad20
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727593"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698316"
 ---
 # <a name="changelog"></a>Log de alteração #
 
@@ -577,8 +577,8 @@ ms.locfileid: "81727593"
 - [Correção de bug][AzureHtml5JS] A reprodução ao vivo congela nas atualizações do MPD quando há pequenas imprecisões no carimbo de data/hora
 - [Correção de bug][AzureHtml5JS] Mitigação de vários problemas de reprodução ao vivo
 - [Correção de bug][AzureHtml5JS] A liberação é armazenada em buffer quando a heurística do tamanho da janela está ativada e é colocada em uma tela de resolução mais alta
-- [Correção de bug][AzureHtml5JS] O Chrome agora mostra o evento encerrado corretamente. Vinculado ao problema conhecido anterior do *Chrome não envia o evento â&euro;œendedâ&euro; corretamente ao usar o AzureHtml5JS. Há um problema no navegador subjacente.*
-- [Correção de bug][AzureHtml5JS] Safari desabilitado para esta tecnologia para resolver o *Problema de reprodução no OSX Yosemite com a tecnologia AzureHtml5JS. Há problemas de implementação do MSE. Mitigação temporária: forçar â&euro;œflashSSâ&euro;, â&euro;œsilverlightSSâ&euro; como a ordem de tecnologia para esses agentes de usuário*
+- [Correção de bug][AzureHtml5JS] O Chrome agora mostra o evento encerrado corretamente. Vinculado ao problema conhecido anterior *Chrome não envia corretamente o evento finalizado quando AzureHtml5JS é usado. Há um problema no navegador subjacente.*
+- [Correção de bug][AzureHtml5JS] Safari desabilitado para esta tecnologia para resolver o *Problema de reprodução no OSX Yosemite com a tecnologia AzureHtml5JS. Há problemas de implementação do MSE. Mitigação temporária: forçar flashSS, silverlightSS como ordem de tecnologia para esses agentes de usuário*
 - [Correção de bug][FlashSS] Acionamento de início da carga após um erro
 
 ## <a name="020-beta"></a>0.2.0 (beta) ##
@@ -617,4 +617,4 @@ Pré-lançamento inicial
 
 ## <a name="next-steps"></a>Próximas etapas ##
 
-- [Início Rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)

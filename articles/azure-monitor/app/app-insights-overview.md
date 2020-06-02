@@ -4,12 +4,12 @@ description: Gerenciamento de desempenho de aplicativo e acompanhamento de uso d
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 0ffa9e38d0ffbca41e4f4a8f3d27015ebe4b8bae
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891733"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828722"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights, um recurso do [Azure Monitor](../overview.md), é um serviço de APM (Gerenciamento de Desempenho de Aplicativo) para desenvolvedores e profissionais de DevOps. Use-o para monitorar seus aplicativos ativos. Ele detecta automaticamente anomalias de desempenho e inclui ferramentas de análise avançadas para ajudar a diagnosticar problemas e entender o que os usuários realmente fazem com seu aplicativo.  Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo. Ele funciona com aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node.js, Java e Python, hospedadas localmente, de maneira híbrida ou em qualquer nuvem pública. Ele integra-se ao seu processo DevOps e tem pontos de conexão para uma ampla variedade de ferramentas de desenvolvimento. Ele pode monitorar e analisar a telemetria de aplicativos móveis integrando-se ao Visual Studio App Center.
@@ -49,7 +49,7 @@ Há várias maneiras de explorar seus dados. Confira estes artigos:
 
 |  |  |
 | --- | --- |
-| [**Detecção inteligente e alertas manuais**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Defina alertas automáticos que se adaptem aos padrões normais de telemetria do seu aplicativo e são disparados quando há algo fora do padrão normal. Você também pode [definir alertas](../../azure-monitor/app/alerts.md) em níveis específicos de métricas padrão ou personalizadas. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
+| [**Detecção inteligente e alertas manuais**](../../azure-monitor/app/proactive-diagnostics.md)<br/>Defina alertas automáticos que se adaptem aos padrões normais de telemetria do seu aplicativo e são disparados quando há algo fora do padrão normal. Você também pode [definir alertas](../../azure-monitor/platform/alerts-log.md) em níveis específicos de métricas padrão ou personalizadas. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
 | [**Mapa do aplicativo**](../../azure-monitor/app/app-map.md)<br/>Explore os componentes de seu aplicativo, com as principais métricas e alertas. |![Mapa do aplicativo](./media/app-insights-overview/appmap-tn.png)  |
 | [**Criador de perfil**](../../azure-monitor/app/profiler.md)<br/>Inspecione os perfis de execução de solicitações de amostras. |![Criador de perfil](./media/app-insights-overview/profiler.png) |
 | [**Análise de uso**](../../azure-monitor/app/usage-overview.md)<br/>Analise a retenção e a segmentação de usuários.|![Ferramenta de retenção](./media/app-insights-overview/retention.png) |
@@ -127,7 +127,7 @@ Introdução ao tempo de desenvolvimento com:
 ## <a name="support-and-feedback"></a>Suporte e comentários
 * Perguntas e problemas:
   * [Solução de problemas][qna]
-  * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Página de P e R da Microsoft](https://docs.microsoft.com/answers/topics/azure-monitor.html)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Suas sugestões:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70387798"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745580"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detectar o idioma com a Análise de Texto
 
@@ -155,9 +155,9 @@ Uma pontuação positiva de 1.0 expressa o nível mais alto de confiança possí
 
 ### <a name="ambiguous-content"></a>Conteúdo ambíguo
 
-Em alguns casos, pode ser difícil eliminar a ambiguidade de idiomas com base na entrada. Você pode usar o parâmetro `countryHint` para especificar um código de país de duas letras. Por padrão, a API está usando o "US" como o countryHint padrão, para remover esse comportamento, você pode redefinir esse parâmetro configurando esse valor como uma cadeia de caracteres vazia `countryHint = ""`.
+Em alguns casos, pode ser difícil eliminar a ambiguidade de idiomas com base na entrada. Você pode usar o parâmetro `countryHint` para especificar um código de duas letras de país/região. Por padrão, a API está usando o "US" como o countryHint padrão, para remover esse comportamento, você pode redefinir esse parâmetro configurando esse valor como uma cadeia de caracteres vazia `countryHint = ""`.
 
-Por exemplo, "Impossible" é comum entre inglês e francês e se for fornecida com contexto limitado, a resposta será baseada na dica de país “US”. Se a origem do texto for conhecida por ser proveniente da França, isso poderá ser fornecido como uma dica.
+Por exemplo, "Impossible" é comum em inglês e em francês e, se for fornecida com contexto limitado, a resposta será baseada na dica de país/região “US”. Se a origem do texto for conhecida por ser proveniente da França, isso poderá ser fornecido como uma dica.
 
 **Entrada**
 

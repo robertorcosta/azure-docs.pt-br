@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 49c1a29547195ad8557550ba1bc0cb80fae40ad8
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402620"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652210"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fornecer a autenticação do Key Vault com uma política de controle de acesso
 
@@ -107,9 +107,6 @@ Na saída, a objectId é listada como `Id`:
 Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
-
-> [!WARNING]
-> Os grupos do Azure AD com identidades gerenciadas exigem até oito horas para atualizar o token e entrar em vigor.
 
 #### <a name="users"></a>Usuários
 
@@ -225,6 +222,9 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 Por fim, conceda ao grupo do AD permissões no cofre de chaves usando o comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) da CLI do Azure ou o cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) do Azure PowerShell. Para obter exemplos, confira a seção [Fornecer ao aplicativo, ao grupo do Azure AD ou ao usuário o acesso ao cofre de chaves](#give-the-principal-access-to-your-key-vault) acima.
 
 O aplicativo também precisa de pelo menos uma função de IAM (Gerenciamento de Identidades e Acesso) atribuída ao cofre de chaves. Caso contrário, ele não poderá fazer logon e falhará ao acessar a assinatura, devido a direitos insuficientes.
+
+> [!WARNING]
+> Os grupos do Azure AD com identidades gerenciadas podem exigir até oito horas para atualizar o token e entrar em vigor.
 
 ## <a name="next-steps"></a>Próximas etapas
 

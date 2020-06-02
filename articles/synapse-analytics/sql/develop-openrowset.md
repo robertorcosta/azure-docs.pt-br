@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591413"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702037"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como usar OPENROWSET com o SQL sob demanda (versão prévia)
 
@@ -45,10 +45,12 @@ essa é uma forma rápida e fácil de ler o conteúdo dos arquivos sem pré-conf
                     TYPE = 'PARQUET') AS file
     ```
 
+
     essa opção permite que você configure o local da conta de armazenamento na fonte de dados e especifique o método de autenticação que deve ser usado para acessar o armazenamento. 
     
     > [!IMPORTANT]
     > `OPENROWSET` sem `DATA_SOURCE` oferece uma forma rápida e fácil de acessar os arquivos de armazenamento, mas oferece opções de autenticação limitadas. Por exemplo, a entidade de segurança do Azure AD pode acessar arquivos somente usando a [identidade do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) dela e não pode acessar arquivos publicamente disponíveis. Se você precisar de opções de autenticação mais avançadas, use a opção `DATA_SOURCE` e defina a credencial que deseja usar para acessar o armazenamento.
+
 
 ## <a name="security"></a>Segurança
 
@@ -57,10 +59,10 @@ Um usuário de banco de dados deve ter a permissão `ADMINISTER BULK OPERATIONS`
 O administrador de armazenamento também deve permitir que um usuário acesse os arquivos fornecendo um token SAS válido ou habilitando a entidade de segurança do Azure AD para acessar os arquivos de armazenamento. Saiba mais sobre o controle de acesso de armazenamento [neste artigo](develop-storage-files-storage-access-control.md).
 
 `OPENROWSET` usa as regras a seguir para determinar como se autenticar no armazenamento:
-- No `OPENROWSET` com `DATA_SOURCE`, o mecanismo de autenticação depende do tipo de chamador.
-  - Os logons do AAD só poderão acessar arquivos usando as próprias [identidade do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) se o armazenamento do Azure permitir que o usuário do Azure AD acesse arquivos subjacentes (por exemplo, se o chamador tiver permissão de Leitor de Armazenamento no armazenamento) e se você [habilitar a autenticação de passagem do Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) no serviço do SQL Synapse.
+- No `OPENROWSET` sem `DATA_SOURCE`, o mecanismo de autenticação depende do tipo de chamador.
+  - Os logons do Azure AD só poderão acessar arquivos usando as próprias [identidade do Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se o armazenamento do Azure permitir que o usuário do Azure AD acesse arquivos subjacentes (por exemplo, se o chamador tiver permissão de Leitor de Armazenamento no armazenamento) e se você [habilitar a autenticação de passagem do Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) no serviço do SQL do Synapse.
   - Os logons do SQL também podem usar `OPENROWSET` sem `DATA_SOURCE` para acessar arquivos publicamente disponíveis, arquivos protegidos usando o token SAS ou a Identidade Gerenciada do workspace do Synapse. Você precisaria [criar uma credencial com escopo de servidor](develop-storage-files-storage-access-control.md#examples) para permitir o acesso a arquivos de armazenamento. 
-- Em `OPENROWSET` com `DATA_SOURCE`, o mecanismo de autenticação é definido na credencial no escopo do banco de dados atribuída à fonte de dados referenciada. Essa opção permite que você acesse o armazenamento disponível publicamente ou o armazenamento usando o token SAS, a Identidade Gerenciada do workspace ou a [identidade do Azure AD do chamador](develop-storage-files-storage-access-control.md?tabs=user-identity#) (se o chamador for a entidade de segurança do Azure AD). Se `DATA_SOURCE` referenciar ao armazenamento do Azure que não é público, você precisará [criar uma credencial com escopo de banco de dados](develop-storage-files-storage-access-control.md#examples) e referenciá-la no `DATA SOURCE` para permitir o acesso aos arquivos de armazenamento.
+- Em `OPENROWSET` com `DATA_SOURCE`, o mecanismo de autenticação é definido na credencial no escopo do banco de dados atribuída à fonte de dados referenciada. Essa opção permite que você acesse o armazenamento disponível publicamente ou o armazenamento usando o token SAS, a Identidade Gerenciada do workspace ou a [identidade do Azure AD do chamador](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (se o chamador for a entidade de segurança do Azure AD). Se `DATA_SOURCE` referenciar ao armazenamento do Azure que não é público, você precisará [criar uma credencial com escopo de banco de dados](develop-storage-files-storage-access-control.md#examples) e referenciá-la no `DATA SOURCE` para permitir o acesso aos arquivos de armazenamento.
 
 O chamador deve ter a permissão `REFERENCES` na credencial para usá-la para autenticar-se no armazenamento.
 
@@ -193,7 +195,7 @@ Especifica o método de compactação. Há suporte para o seguinte método de co
 
 PARSER_VERSION = 'parser_version'
 
-Especifica a versão do analisador a ser usada ao ler arquivos. As versões do analisador CSV com suporte no momento são 1.0 e 2.0
+Especifica a versão do analisador a ser usada ao ler arquivos. As versões do analisador CSV com suporte no momento são 1.0 e 2.0:
 
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'
@@ -204,7 +206,7 @@ Especificações do analisador CSV versão 2.0:
 
 - não há suporte para todos os tipos de dados.
 - O limite de tamanho máximo de linha é de 8 MB.
-- Não há suporte para as seguintes opções: DATA_COMPRESSION.
+- As opções a seguir não têm suporte: DATA_COMPRESSION.
 - A cadeia de caracteres vazia entre aspas ("") é interpretada como cadeia de caracteres vazia.
 
 ## <a name="examples"></a>Exemplos
@@ -236,7 +238,7 @@ FROM
     ) AS [r]
 ```
 
-Se você estiver recebendo um erro informando que os arquivos não podem ser listados, será necessário habilitar o acesso ao armazenamento público no Synapse SQL sob demanda:
+Se você estiver recebendo um erro informando que os arquivos não podem ser listados, será necessário habilitar o acesso ao armazenamento público no SQL do Synapse sob demanda:
 - Se você estiver usando um logon do SQL, precisará [criar uma credencial com escopo de servidor que permita acesso ao armazenamento público](develop-storage-files-storage-access-control.md#examples).
 - Se você estiver usando uma entidade de segurança do Azure AD para acessar o armazenamento público, precisará [criar uma credencial com escopo de servidor que permita o acesso ao armazenamento público](develop-storage-files-storage-access-control.md#examples) e desabilitar a [autenticação de passagem do Azure AD](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 

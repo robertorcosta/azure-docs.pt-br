@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190700"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683248"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -321,7 +321,7 @@ O Azure Resource Graph pode ser usado por meio do [Cloud Shell](https://shell.az
 
 Decidir o que fazer com os recursos fora de conformidade é tão importante quanto decidir o que deve ser avaliado em primeiro lugar. Cada resposta possível para um recurso fora de conformidade é chamada de [efeito](../concepts/effects.md). O efeito controla se o recurso fora de conformidade está conectado, bloqueado, tem dados acrescentados ou tem uma implantação associada a ele para colocar o recurso novamente em um estado de conformidade.
 
-Para nosso exemplo, Negar é o efeito que desejamos, pois não queremos os recursos fora de conformidade criados em nosso ambiente do Azure. A auditoria é uma boa primeira escolha para um efeito de política, a fim de determinar o impacto de uma política antes de defini-la como Negar. Uma forma de facilitar a alteração do efeito por atribuição é parametrizar o efeito. Confira [Parâmetros](#parameters) abaixo para obter detalhes sobre como fazer isso.
+Em nosso exemplo, Negar é o efeito que desejamos, pois não queremos que recursos fora de conformidade sejam criados em nosso ambiente do Azure. A auditoria é uma boa primeira escolha para um efeito de política, a fim de determinar o impacto de uma política antes de defini-la como Negar. Uma forma de facilitar a alteração do efeito por atribuição é parametrizar o efeito. Confira [Parâmetros](#parameters) abaixo para obter detalhes sobre como fazer isso.
 
 ## <a name="compose-the-definition"></a>Redigir a definição
 

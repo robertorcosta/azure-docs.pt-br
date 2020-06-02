@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08c6610541d987cddd7cf2aeb71c526cb2359598
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419550"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645316"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Pontos de extremidade privados gerenciados do Synapse (versão prévia)
 
@@ -30,8 +30,9 @@ O ponto de extremidade privado usa um endereço IP privado de sua VNet para, efe
 
 >[!IMPORTANT]
 >Os Pontos de extremidade privados gerenciados só são compatíveis com workspaces do Azure Synapse com uma VNet de workspace gerenciada.
+
 >[!NOTE]
->É recomendável que você crie Pontos de extremidade privados gerenciados para se conectar a todas as suas fontes de dados do Azure. Todo o tráfego de saída da >VNet de workspace gerenciada será bloqueado no futuro.
+>Todo o tráfego de saída da VNet de workspace gerenciada, exceto por meio de pontos de extremidade privados gerenciados, será bloqueado no futuro. É recomendável que você crie pontos de extremidade privados gerenciados para se conectar a todas as suas fontes de dados do Azure externas ao workspace. 
 
 Uma conexão de ponto de extremidade privado é criada em um estado "Pendente" quando você cria um Ponto de extremidade privado gerenciado no Azure Synapse. Um fluxo de trabalho de aprovação é iniciado. O proprietário do recurso de link privado é responsável por aprovar ou rejeitar a conexão.
 

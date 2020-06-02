@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: f36a76187538d93b57d2d3f5973408f141271f67
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1dfac9a56e3bc299fbb0651ae1cd5644eba83267
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420160"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645808"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regras de firewall de IP do Azure Synapse Analytics (versão prévia)
 
@@ -42,7 +42,7 @@ Verifique se o firewall na rede e no computador local permite a comunicação de
 
 Além disso, você precisa permitir a comunicação de saída na porta UDP 53 do Synapse Studio. Para se conectar usando ferramentas como o SSMS e o Power BI, você precisará permitir a comunicação de saída na porta TCP 1433.
 
-Se você estiver usando a configuração de política de conexão de redirecionamento padrão, poderá precisar permitir a comunicação de saída em portas adicionais. Saiba mais sobre as políticas de conexão aqui.
+Se você estiver usando a configuração de política de conexão de redirecionamento padrão, poderá precisar permitir a comunicação de saída em portas adicionais. Saiba mais sobre as políticas de conexão [aqui](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy).
 
 ## <a name="next-steps"></a>Próximas etapas
 

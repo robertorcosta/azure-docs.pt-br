@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 60771d5a188df5dfeca3530a551a116c870e63f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82150481"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722449"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Início Rápido: Criar um cluster do Service Fabric usando um modelo do Resource Manager
 
@@ -91,7 +91,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype). O modelo deste artigo é muito longo para ser mostrado aqui. Para ver o modelo, confira https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json.
+O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). O modelo deste artigo é muito longo para ser mostrado aqui. Para ver o modelo, confira o arquivo [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json).
 
 Vários recursos do Azure foram definidos no modelo:
 
@@ -113,7 +113,7 @@ Abra *azuredeploy.parameters.json* e edite os valores de parâmetro de modo que:
 * **adminPassword** seja um valor diferente do token *GEN-PASSWORD* padrão
 * **certificateThumbprint**, **sourceVaultResourceId** e **certificateUrlValue** são todos cadeias de caracteres vazias (`""`)
 
-Por exemplo: 
+Por exemplo:
 
 ```json
 {

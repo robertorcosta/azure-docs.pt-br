@@ -1,17 +1,16 @@
 ---
 title: Exemplos de CLI do Azure - Azure Functions
 description: Exemplos de CLI do Azure - Azure Functions
-author: syntaxc4
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79223743"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779542"
 ---
 # <a name="azure-cli-samples"></a>Exemplos de CLI do Azure
 
@@ -21,9 +20,9 @@ A tabela a seguir inclui links para scripts bash criados para Azure Functions qu
 
 | Criar aplicativo | Descrição |
 |---|---|
-| [Criar um Aplicativo de funções para execução sem servidor](scripts/functions-cli-create-serverless.md) | Cria um aplicativo de funções em um plano de consumo.  |
-| [Criar um aplicativo de funções do Python sem servidor](scripts/functions-cli-create-serverless-python.md) | Crie um aplicativo de funções em um Plano do Serviço de Aplicativo dedicado. |
-| [Criar um aplicativo de funções em um plano Premium escalonável](scripts/functions-cli-create-premium-plan.md) | Crie um aplicativo de funções em um Plano do Serviço de Aplicativo dedicado. |
+| [Criar um Aplicativo de funções para execução sem servidor](scripts/functions-cli-create-serverless.md) | Criar um aplicativo de funções em um Plano de consumo.  |
+| [Criar um aplicativo de funções do Python sem servidor](scripts/functions-cli-create-serverless-python.md) | Criar um aplicativo de funções Python em um Plano de consumo. |
+| [Criar um aplicativo de funções em um plano Premium escalonável](scripts/functions-cli-create-premium-plan.md) | Criar um aplicativo de funções em um plano Premium. |
 | [Criar um aplicativo de funções em um plano dedicado (Serviço de Aplicativo)](scripts/functions-cli-create-app-service-plan.md) | Crie um aplicativo de funções em um Plano do Serviço de Aplicativo dedicado. |
 
 | Integração | Descrição|

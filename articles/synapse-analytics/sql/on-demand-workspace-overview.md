@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d4de424d5d4d6da1ee80e04b35e63ae29df57c8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81421300"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702047"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL sob demanda (versão prévia) no Azure Synapse Analytics 
 
@@ -28,7 +28,7 @@ O SQL sob demanda é um sistema de processamento de dados distribuído, criado p
 
 O SQL sob demanda é sem servidor, portanto, não há infraestrutura a ser instalada nem clusters a serem mantidos. Um ponto de extremidade padrão para esse serviço é fornecido em todos os workspaces do Azure Synapse, de modo que você pode iniciar a consulta de dados assim que o workspace é criado. Não há nenhum encargo referente aos recursos reservados, você está sendo cobrado apenas pelos dados verificados por consultas que você executa, portanto, esse é verdadeiramente um modelo de pagamento conforme o uso.  
 
-Se você usar o Spark em seu pipeline de dados, para preparação de dados, limpeza ou enriquecimento de dados, poderá [consultar tabelas do Spark](develop-storage-files-spark-tables.md) que você tiver criado no processo, diretamente do SQL sob demanda. Use o [Link Privado](../security/how-to-connect-to-workspace-with-private-links.md) para trazer o ponto de extremidade do SQL sob demanda para dentro da [VNet do workspace gerenciado](../security/synapse-workspace-managed-vnet.md).  
+Se usar o Apache Spark para o Azure Synapse em seu pipeline de dados para preparação, limpeza ou enriquecimento de dados, você poderá [consultar as tabelas externas do Spark](develop-storage-files-spark-tables.md) que criou no processo, diretamente do SQL sob demanda. Use o [Link Privado](../security/how-to-connect-to-workspace-with-private-links.md) para trazer o ponto de extremidade do SQL sob demanda para dentro da [VNet do workspace gerenciado](../security/synapse-workspace-managed-vnet.md).  
 
 ## <a name="who-is-sql-on-demand-for"></a>A quem o SQL sob demanda se destina
 
@@ -42,7 +42,7 @@ Diferentes funções profissionais podem se beneficiar do SQL sob demanda:
 
 - Os engenheiros de dados podem explorar o lake, transformar e preparar dados usando esse serviço e simplificar os próprios pipelines de transformação de dados. Para obter mais informações, confira este [tutorial](tutorial-data-analyst.md).
 - Os cientistas de dados podem tirar conclusões rapidamente com base no conteúdo e na estrutura dos dados no lake, graças a recursos como o OPENROWSET e a inferência automática de esquemas.
-- Os analistas de dados podem [explorar dados e tabelas do Spark](develop-storage-files-spark-tables.md) criadas por cientistas de dados ou engenheiros de dados usando uma linguagem T-SQL familiar ou as ferramentas favoritas deles, que podem se conectar ao SQL sob demanda.
+- Os analistas de dados podem [explorar dados e tabelas externas do Spark](develop-storage-files-spark-tables.md) criadas por cientistas de dados ou engenheiros de dados usando uma linguagem T-SQL familiar ou as ferramentas favoritas deles, que podem se conectar ao SQL sob demanda.
 - Os profissionais de BI podem rapidamente [criar relatórios do Power BI com base nos dados no lake](tutorial-connect-power-bi-desktop.md) e em tabelas do Spark.
 
 ## <a name="what-do-i-need-to-do-to-start-using-it"></a>O que preciso fazer para começar a usá-lo?
@@ -110,7 +110,7 @@ O SQL sob demanda oferece mecanismos para proteger o acesso aos seus dados.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e autenticação multifator
 
-O SQL sob demanda permite gerenciar centralmente as identidades de usuário do banco de dados e de outros serviços da Microsoft com a [integração do Azure Active Directory](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esse recurso simplifica o gerenciamento de permissão e aprimora a segurança. O Azure AD (Azure Active Directory) é compatível com [MFA](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (autenticação multifator) para aumentar a segurança de aplicativos e dados e dá suporte a um processo de logon único.
+O SQL sob demanda permite gerenciar centralmente as identidades de usuário do banco de dados e de outros serviços da Microsoft com a [integração do Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Esse recurso simplifica o gerenciamento de permissão e aprimora a segurança. O Azure AD (Azure Active Directory) é compatível com [MFA](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (autenticação multifator) para aumentar a segurança de aplicativos e dados e dá suporte a um processo de logon único.
 
 #### <a name="authentication"></a>Autenticação
 

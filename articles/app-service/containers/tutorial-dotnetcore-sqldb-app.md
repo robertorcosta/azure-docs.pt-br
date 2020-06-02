@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5bd20f98b10989da0a66acbf45b99d724664cf5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c2ed68c18cc7845d45bebffc31842879353f2c2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82208118"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846862"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Tutorial: Criar um aplicativo ASP.NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux
 
@@ -314,6 +314,10 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
+> [!NOTE]
+> Se você abrir uma nova janela de terminal, precisará definir a cadeia de conexão para o banco de dados de produção no terminal, como fez em [Executar migrações de banco de dados para o banco de dados de produção](#run-database-migrations-to-the-production-database).
+>
+
 ### <a name="use-the-new-property"></a>Usar a nova propriedade
 
 Faça algumas alterações em seu código para usar a propriedade `Done`. Para simplificar este tutorial, somente as exibições `Index` e `Create` serão alteradas para observar a propriedade em ação.
@@ -367,6 +371,10 @@ Execute o aplicativo localmente.
 ```bash
 dotnet run
 ```
+
+> [!NOTE]
+> Se você abrir uma nova janela de terminal, precisará definir a cadeia de conexão para o banco de dados de produção no terminal, como fez em [Executar migrações de banco de dados para o banco de dados de produção](#run-database-migrations-to-the-production-database).
+>
 
 No navegador, navegue até `http://localhost:5000/`. Agora você pode adicionar um item de tarefas e marcar **Concluído**. Em seguida, ele deverá aparecer na sua página inicial como um item concluído. Lembre-se de que a exibição `Edit` não mostra o campo `Done`, porque você não alterou a exibição `Edit`.
 

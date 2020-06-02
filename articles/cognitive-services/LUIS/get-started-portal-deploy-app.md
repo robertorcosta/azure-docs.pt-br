@@ -3,12 +3,12 @@ title: 'Início Rápido: Implantar um aplicativo usando o portal do LUIS'
 description: Este início rápido mostra como implantar um aplicativo criando um recurso de ponto de extremidade de previsão, atribuindo o recurso, treinando e publicando o aplicativo.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585039"
+ms.locfileid: "83653237"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Início Rápido: Implantar um aplicativo no portal do LUIS
 
@@ -40,7 +40,8 @@ Sempre que você criar um recurso de previsão de criação ou consulta para LUI
 
 1. Selecione o locatário, a assinatura e o nome do recurso. Selecione **Atribuir recurso**.
 
-   ![Atribuir um recurso ao seu aplicativo](./media/get-started-portal-deploy-app/assign-resource.png)
+   > [!div class="mx-imgBorder"]
+   > ![Atribuir um recurso ao seu aplicativo](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. Conclua as mesmas etapas para adicionar a chave de criação ao seu aplicativo.
 
@@ -51,11 +52,11 @@ Sempre que você criar um recurso de previsão de criação ou consulta para LUI
 
 ## <a name="train-the-app"></a>Treinar o aplicativo
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+Se você alterou o aplicativo desde que o treinou pela última vez, [treine](get-started-portal-build-app.md) o aplicativo.
 
 ## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publicar o aplicativo no ponto de extremidade de previsão
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>Solicitação de ponto de extremidade de previsão
 

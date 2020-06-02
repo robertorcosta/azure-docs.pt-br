@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fdac12350db785e6194cd3d057f4d2adfefa5969
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 113e745e078bd5d345845318af1b10ed98f2aecb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80335741"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746913"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Mapas?
 
@@ -155,7 +155,7 @@ Para obter mais informações, confira a [Documentação da API de tráfego](htt
 
 ### <a name="ip-to-location-service"></a>Serviço de IP para Local
 
-Use o serviço IP para Local para visualizar o código de país de duas letras recuperado para um endereço IP. Esse serviço pode ajudar você a aprimorar a experiência do usuário fornecendo o conteúdo do aplicativo personalizado com base na localização geográfica.
+Use o serviço IP para Local para visualizar o código de duas letras de país/região recuperado para um endereço IP. Esse serviço pode ajudar você a aprimorar a experiência do usuário fornecendo o conteúdo do aplicativo personalizado com base na localização geográfica.
 
 Para obter mais detalhes sobre o IP para o serviço Localização na API REST, leia a [documentação da API de Geolocalização do Azure Mapas](https://docs.microsoft.com/rest/api/maps/geolocation).
 
@@ -180,7 +180,7 @@ As APIs do Azure Mapas estão disponíveis no momento em todos os países e regi
 * China
 * Coreia do Sul
 
-Verifique se a localização do seu endereço IP atual está em um dos países com suporte.
+Verifique se a localização de seu endereço IP atual está em um dos países/regiões com suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 

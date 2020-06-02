@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
-ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.openlocfilehash: 8af412fb2660625ffb413052b06d4429d7844e70
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366521"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656521"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -23,6 +23,8 @@ ms.locfileid: "80366521"
 Neste tutorial, você aprenderá a criar um modelo de classificação básico sem escrever uma única linha de código usando a interface de machine learning automatizado do Azure Machine Learning. Este modelo de classificação prevê se um cliente assinará um depósito a prazo fixo com uma instituição financeira.
 
 Com o aprendizado de máquina automatizado, você pode automatizar tarefas intensivas e demoradas. O aprendizado de máquina automatizado itera rapidamente em muitas combinações de algoritmos e hiperparâmetros para ajudar você a encontrar o melhor modelo com base em uma métrica de sucesso de sua escolha.
+
+Para ver um exemplo de previsão de série temporal, confira [Tutorial: Previsão de demanda e AutoML](tutorial-automated-ml-forecast.md).
 
 Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 
@@ -221,7 +223,8 @@ Neste tutorial de machine learning automatizado, você usou a interface de ML au
 > [Consumir um serviço Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
-+ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification). + Saiba mais sobre [personalização](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification).
++ Saiba mais sobre a [personalização](how-to-use-automated-ml-for-ml-models.md#featurization).
 + Saiba mais sobre a [criação de perfil de dados](how-to-use-automated-ml-for-ml-models.md#profile).
 
 

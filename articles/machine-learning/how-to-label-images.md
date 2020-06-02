@@ -7,14 +7,14 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204314"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758904"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem
+# <a name="tag-images-in-a-labeling-project-preview"></a>Marcar imagens em um projeto de rotulagem (versão prévia)
 
 Depois que o administrador de projeto [criar um projeto de rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) no Azure Machine Learning, você poderá usar a ferramenta de rotulagem (versão prévia pública) para preparar rapidamente os dados para um projeto do Machine Learning. Este artigo descreve:
 
@@ -65,11 +65,13 @@ Depois que você enviar marcas para os dados à disposição, o Azure atualizar�
 
 ### <a name="assisted-machine-learning"></a>Aprendizado de máquina assistido 
 
-Os algoritmos de aprendizado de máquina podem ser disparados durante uma tarefa de classificação multiclasse ou de vários rótulos. Se esses algoritmos estiverem habilitados no seu projeto, você poderá ver o seguinte:
+Os algoritmos de machine learning poderão ser disparados. Se esses algoritmos estiverem habilitados no seu projeto, você poderá ver o seguinte:
 
 * Depois que uma quantidade de imagens for rotulada, você poderá ver **Tarefas clusterizadas** na parte superior da tela ao lado do nome do projeto.  Isso significa que as imagens são agrupadas para apresentar as imagens semelhantes na mesma página.  Nesse caso, alterne para uma das várias exibições de imagens para aproveitar o agrupamento.  
 
 * Em um momento posterior, você poderá ver **Tarefas pré-rotuladas** ao lado do nome do projeto.  As imagens serão então exibidas com um rótulo sugerido proveniente de um modelo de classificação de aprendizado de máquina. Nenhum modelo de machine learning tem precisão de 100%. Embora só utilizemos imagens para as quais o modelo esteja confiante, essas imagens ainda poderão ser pré-rotuladas incorretamente.  Quando você vir esses rótulos, corrija os rótulos incorretos antes de enviar a página.  
+
+* Para modelos de detecção de objetos, você poderá ver caixas delimitadoras e rótulos já presentes.  Corrija os que estiverem incorretos antes de enviar a página.
 
 Especialmente no início de um projeto de rotulagem, o modelo de machine learning poderá ser preciso apenas o suficiente para pré-rotular um pequeno subconjunto de imagens. Depois que essas imagens forem rotuladas, o projeto de rotulagem voltará à rotulagem manual para coletar mais dados para a próxima rodada de treinamento do modelo. Ao longo do tempo, o modelo se tornará mais confiante em relação a uma proporção mais alta de imagens, resultando em mais tarefas de pré-rotulo posteriormente no projeto.
 

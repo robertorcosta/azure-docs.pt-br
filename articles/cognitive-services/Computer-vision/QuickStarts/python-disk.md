@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d859d04b9fee9af52c2d63004ba9c84665fe9edf
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 05941081580295ddcf396a9ec2c12826d2cc2136
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81404449"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712733"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-python"></a>Início Rápido: Analisar uma imagem local usando a API REST da Pesquisa Visual Computacional e o Python
 
@@ -42,7 +42,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para criar e executar o exemplo, siga estas etapas:
 
 1. Copie o código a seguir em um editor de texto.
-1. Outra opção é substituir o valor de `image_path` pelo caminho e o nome do arquivo de uma imagem diferente que você deseja analisar.
+1. Substitua o valor de `image_path` pelo caminho e pelo nome do arquivo de uma imagem diferente que você deseja analisar.
 1. Salve o código como um arquivo com uma extensão `.py`. Por exemplo, `analyze-local-image.py`.
 1. Abra una janela de prompt de comando.
 1. No prompt, use o comando `python` para executar o exemplo. Por exemplo, `python analyze-local-image.py`.
@@ -67,9 +67,11 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-analyze_url = endpoint + "vision/v2.1/analyze"
+analyze_url = endpoint + "vision/v3.0/analyze"
 
 # Set image_path to the local path of an image that you want to analyze.
+# Sample images are here, if needed:
+# https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
 image_path = "C:/Documents/ImageToAnalyze.jpg"
 
 # Read the image into a byte array
@@ -92,6 +94,7 @@ image = Image.open(BytesIO(image_data))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
 ## <a name="examine-the-response"></a>Examinar a resposta

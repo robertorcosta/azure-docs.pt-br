@@ -1,22 +1,22 @@
 ---
-title: Guia de início rápido do Azure – Configurar uma VM com DSC | Microsoft Docs
-description: Configurar uma pilha LAMP em uma máquina virtual Linux com Desired State Configuration
+title: Início Rápido do Azure – Configurar uma VM com Desired State Configuration | Microsoft Docs
+description: Este artigo ajuda você a começar a configurar uma VM com a Desired State Configuration.
 services: automation
 ms.subservice: dsc
 keywords: dsc, configuração, automação
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 1a146ab7c05d200b71a33a72fa6362c3cf62629a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81457511"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836712"
 ---
-# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual com Desired State Configuration
+# <a name="configure-a-vm-with-desired-state-configuration"></a>Configurar uma VM com Desired State Configuration
 
-Ao habilitar a Configuração de Estado da Automação do Azure, é possível gerenciar e monitorar as configurações de seus servidores Windows e Linux usando a DSC (Desired State Configuration). Configurações que apresentam um desvio de uma configuração desejada podem ser identificadas ou corrigidas automaticamente. Este início rápido percorre a integração de uma VM Linux e a implantação de uma pilha LAMP com o DSC.
+Ao habilitar a Configuração de Estado da Automação do Azure, é possível gerenciar e monitorar as configurações de seus servidores Windows e Linux usando a DSC (Desired State Configuration). Configurações que apresentam um desvio de uma configuração desejada podem ser identificadas ou corrigidas automaticamente. Este início rápido mostra como habilitar uma VM do Linux e implantar uma pilha do LAMP usando a State Configuration da Automação do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -24,14 +24,14 @@ Para concluir este início rápido, você precisa de:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 * Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta Executar Como de Automação do Azure, consulte [Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md).
-* Uma VM do Azure Resource Manager (não clássico) executando o Red Hat Enterprise Linux, CentOS e Oracle Linux. Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md)
+* Uma VM do Azure Resource Manager (não clássico) executando o Red Hat Enterprise Linux, o CentOS ou o Oracle Linux. Para obter instruções sobre a criação de uma VM, consulte [Criar sua primeira máquina virtual do Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no Azure em https://portal.azure.com.
 
-## <a name="onboard-a-virtual-machine"></a>Carregar uma máquina virtual
+## <a name="enable-a-virtual-machine"></a>Habilitar uma máquina virtual
 
-Há vários métodos diferentes para integrar um computador e habilitar a DSC. Este guia de início rápido abrange a integração por meio de uma conta de Automação. Lendo o artigo de [integração](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding), é possível saber mais sobre diferentes métodos para integrar seus computadores à State Configuration.
+Há vários métodos diferentes para habilitar um computador para o recurso State Configuration. Este início rápido informa como habilitar o recurso para uma VM usando uma conta da Automação. Você pode saber mais sobre métodos diferentes para habilitar seus computadores para State Configuration lendo [Habilitar computadores para gerenciamento pela State Configuration da Automação do Azure](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. No painel esquerdo do Portal do Azure, selecione **contas de Automação**. Se esse item não estiver visível no painel esquerdo, clique em **Todos os serviços** e pesquise-o na exibição que surgir.
 1. Na lista, selecione uma conta de Automação.
@@ -42,7 +42,7 @@ Há vários métodos diferentes para integrar um computador e habilitar a DSC. E
 5. Selecione as configurações de DSC adequadas para a máquina virtual. Se você já preparou uma configuração, é possível especificá-la como `Node Configuration Name`. É possível definir o [modo de configuração](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) para controlar o comportamento de configuração do computador.
 6. Clique em **OK**. Embora a extensão de DSC seja implantada na máquina virtual, o status aparece como `Connecting`.
 
-![Integração de uma VM do Azure ao DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
+![Como habilitar uma VM do Azure para DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
 ## <a name="import-modules"></a>Importar módulos
 
@@ -128,11 +128,7 @@ Você pode exibir o status de todos os nós gerenciados por State Configuration 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você carregou uma VM Linux para State Configuration, criou uma configuração para uma pilha LAMP e implantou-a na VM. Para saber como usar a State Configuration da Automação do Azure para habilitar a implantação contínua, prossiga para o artigo:
+Neste início rápido, você habilitou uma VM do Linux para State Configuration, criou uma configuração para uma pilha LAMP e implantou-a na VM. Para saber como usar a State Configuration da Automação do Azure para habilitar a implantação contínua, prossiga para o artigo:
 
 > [!div class="nextstepaction"]
-> [Implantação contínua em uma VM usando DSC e Chocolatey](./automation-dsc-cd-chocolatey.md)
-
-* Para saber mais sobre a DSC do PowerShell, consulte [Visão geral da Desired State Configuration do PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* Para saber mais sobre como gerenciar a State Configuration por meio do PowerShell, confira [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/).
-* Para saber como encaminhar relatórios de DSC nos logs do Azure Monitor para relatórios e alertas, confira [Encaminhamento de relatórios da DSC para logs do Azure Monitor](automation-dsc-diagnostics.md).
+> [Configurar a implantação contínua com o Chocolatey](./automation-dsc-cd-chocolatey.md)

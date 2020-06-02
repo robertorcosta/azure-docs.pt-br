@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73720918"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743588"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Tutorial: Criar um notebook no Azure Cosmos DB para analisar e visualizar os dados
 
@@ -34,7 +34,7 @@ Nesta seção, você criará o banco de dados do Azure Cosmos e o contêiner e i
 
 1. Depois que um notebook for criado, será possível renomeá-lo para algo como **VisualizeRetailData.ipynb.**
 
-1. Em seguida, você criará um banco de dados chamado “RetailDemo” e um contêiner chamado “WebsiteData” para armazenar os dados de varejo. É possível usar /CardID como a chave de partição. Copie e cole o código a seguir para uma nova célula em seu notebook e o execute:
+1. Em seguida, você criará um banco de dados chamado "RetailDemo" e um contêiner chamado "WebsiteData" para armazenar os dados de varejo. Você pode usar /CartID como a chave de partição. Copie e cole o código a seguir para uma nova célula em seu notebook e o execute:
 
    ```python
    import azure.cosmos
@@ -121,7 +121,7 @@ Antes de executar consultas para analisar os dados, é possível ler os dados do
 {Query text}
 ```
 
-Para saber mais, confira o artigo [comandos e recursos de notebook interno no Azure Cosmos DB](use-notebook-features-and-commands.md). Você executará a consulta- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Os resultados serão salvos em um DataFrame do Pandas chamado df_cosmos. Cole o seguinte comando em uma nova célula de notebook e o execute:
+Para saber mais, confira o artigo [comandos e recursos de notebook interno no Azure Cosmos DB](use-python-notebook-features-and-commands.md). Você executará a consulta- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Os resultados serão salvos em um DataFrame do Pandas chamado df_cosmos. Cole o seguinte comando em uma nova célula de notebook e o execute:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 Nesta seção, você executará algumas consultas nos dados recuperados.
 
-* **Consulta1:** execute uma consulta Agrupar por no DataFrame para obter a soma da receita de vendas total para cada país e exiba cinco itens nos resultados. Em uma nova célula do notebook, execute o seguinte código:
+* **Consulta1:** execute uma consulta Agrupar por no DataFrame para obter a soma da receita de vendas total para cada país/região e exiba cinco itens nos resultados. Em uma nova célula do notebook, execute o seguinte código:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -170,16 +170,16 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Em seguida, prepare-se para plotar os dados em um mapa. Ingresse os dados no Azure Cosmos DB com informações de país localizadas no Armazenamento de Blobs do Azure e converta o resultado em formato GeoJSON. Copie o seguinte código para uma nova célula de notebook e o execute.
+1. Em seguida, prepare-se para plotar os dados em um mapa. Ingresse os dados no Azure Cosmos DB com informações de país/região localizadas no Armazenamento de Blobs do Azure e converta o resultado em formato GeoJSON. Copie o seguinte código para uma nova célula de notebook e o execute.
 
    ```python
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -187,7 +187,7 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualize a receita de vendas de diferentes países em um mapa mundial executando o seguinte código em uma nova célula de notebook:
+1. Visualize a receita de vendas de diferentes países/regiões em um mapa mundial executando o seguinte código em uma nova célula de notebook:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,9 +233,9 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
    show(p)
    ```
 
-   A saída exibe o mapa mundial com diferentes cores. As cores mais escuras para mais claras representam os países com maior renda para os países com menor renda.
+   A saída exibe o mapa mundial com diferentes cores. As cores mais escuras para mais claras representam os países/regiões com maior renda para os países com menor renda.
 
-   ![Visualização do mapa da receita de países](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Visualização do mapa da receita de países/regiões](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
 1. Vamos ver outro caso de visualização de dados. O contêiner WebsiteData tem um registro de usuários que exibiram um item, o adicionaram ao carrinho e o compraram. Vamos plotar a taxa de conversão de itens adquiridos. Execute o código a seguir em uma nova célula para visualizar a taxa de conversão para cada item:
 
@@ -290,4 +290,4 @@ Nesta seção, você executará algumas consultas nos dados recuperados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre comandos de notebook, confira o artigo [como usar comandos e recursos de notebook interno no Azure Cosmos DB](use-notebook-features-and-commands.md).
+* Para saber mais sobre comandos de notebook do Python, confira o artigo [como usar comandos e recursos de notebook interno no Azure Cosmos DB](use-python-notebook-features-and-commands.md).

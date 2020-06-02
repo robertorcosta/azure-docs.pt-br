@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 6a781e767393f35a1ec22f195ba787e3018d8d1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0b5647dd2e43c8a73bb999af559a579c14bb86a1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76713088"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683987"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Meça pontos de extremidade personalizados para avaliar nos testes do Analisador de Internet 
 
@@ -31,7 +31,7 @@ Verifique se você configurou um recurso do Analisador de Internet e selecione a
 
 1. Baixe uma imagem de teste transparente de um pixel [aqui](https://fpc.msedge.net/apc/trans.gif). Essa imagem de um pixel é o ativo que o JavaScript do cliente buscará para medir o desempenho.
 2. Em seu aplicativo Web personalizado, implante a imagem de teste em um caminho publicamente acessível. O caminho deve funcionar em HTTPS. 
-3. Copie a URL do ponto de extremidade personalizado completa (por exemplo, https://contoso.com/test/trans.gif) no campo de ponto de extremidade personalizado durante a sua criação de teste.
+3. Copie a URL completa do ponto de extremidade personalizado (por exemplo, `https://contoso.com/test/trans.gif`) no campo ponto de extremidade personalizado durante a criação do teste.
 
 ## <a name="next-steps"></a>Próximas etapas
 

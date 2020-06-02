@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/24/2020
-ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80247190"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682471"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
 Conheça o que há de novo no serviço. Marque esta página para manter-se atualizado quanto ao serviço.
 
-<a name="new-service-name"></a>
-
-## <a name="new-service-name"></a>Nome do novo serviço
-
-O Azure Search foi renomeado para **Azure Cognitive Search** para refletir o uso expandido (ainda opcional) de habilidades cognitivas e processamento de IA nas principais operações. As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são alteradas. As soluções de pesquisa novas e existentes não são afetadas pela alteração do nome do serviço.
-
 ## <a name="feature-announcements"></a>Comunicados de recursos
+
+### <a name="may-2020-microsoft-build"></a>Maio de 2020 (Microsoft Build)
+
++ O recurso de [sessões de depuração](cognitive-search-debug-session.md) está na versão prévia. [Inscreva-se para solicitar o acesso](https://aka.ms/DebugSessions). As sessões de depuração fornecem uma interface baseada em portal para investigar e resolver problemas com um conjunto de habilidades. Correções criadas na sessão de depuração podem ser salvas em conjuntos de habilidades de produção. Veja uma introdução [neste tutorial](cognitive-search-tutorial-debug-sessions.md).
+
++ Os aprimoramentos de segurança incluem a capacidade de [configurar um ponto de extremidade de pesquisa particular (versão prévia)](service-create-private-endpoint.md) que é inacessível na Internet pública. Você também pode [configurar regras de IP para suporte de firewall de entrada (versão prévia)](service-configure-firewall.md).
+
++ Use uma [identidade gerenciada pelo sistema (versão prévia)](search-howto-managed-identities-data-sources.md) para configurar uma conexão com uma fonte de dados do Azure para indexação. Aplica-se a [indexadores](search-indexer-overview.md) que ingerem conteúdo de fontes de dados do Azure, como o Banco de Dados SQL do Azure, o Azure Cosmos DB e o Armazenamento do Azure.
+
++ Altere a base de como as pontuações de pesquisa são calculadas, de por fragmento para todos os fragmentos, usando o [parâmetro de consulta scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics).
 
 ### <a name="march-2020"></a>Março de 2020
 
@@ -73,6 +77,12 @@ O Azure Search foi renomeado para **Azure Cognitive Search** para refletir o uso
 ### <a name="july-2019"></a>Julho de 2019
 
 + Em disponibilidade geral na [Nuvem do Azure Government](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
+
+<a name="new-service-name"></a>
+
+## <a name="new-service-name"></a>Nome do novo serviço
+
+O Azure Search foi renomeado para **Azure Cognitive Search** para refletir o uso expandido (ainda opcional) de habilidades cognitivas e processamento de IA nas principais operações. As versões de API, pacotes NuGet, namespaces e pontos de extremidade não são alteradas. As soluções de pesquisa novas e existentes não são afetadas pela alteração do nome do serviço.
 
 ## <a name="service-updates"></a>Atualizações de serviço
 

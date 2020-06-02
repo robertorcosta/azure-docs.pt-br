@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 05/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b130bb88ea9a3e08d788171b1d341b8db21a3ed
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3f1384d23f77407d2d20066cc2fa086037d546f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75532709"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648476"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-talentsoft"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Talentsoft
 
@@ -90,7 +90,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<tenant>.talentsoft.com`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do Talentsoft](mailto:jlegoff@talentsoft.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do Talentsoft](mailto:advancedservices@talentsoft.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -132,11 +132,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="configure-talentsoft-sso"></a>Configurar o SSO do Talentsoft
 
-Para configurar o logon único no lado do **Talentsoft**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Talentsoft](mailto:jlegoff@talentsoft.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Talentsoft**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Talentsoft](mailto:advancedservices@talentsoft.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-talentsoft-test-user"></a>Criar usuário de teste do Talentsoft
 
-Nesta seção, você criará um usuário com o nome B.Fernandes no Talentsoft. Trabalhe com a  [equipe de suporte do Talentsoft](mailto:jlegoff@talentsoft.com) para adicionar os usuários à plataforma do Talentsoft. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário com o nome B.Fernandes no Talentsoft. Trabalhe com a [equipe de suporte do Talentsoft](mailto:advancedservices@talentsoft.com) para adicionar os usuários à plataforma do Talentsoft. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar o SSO
 

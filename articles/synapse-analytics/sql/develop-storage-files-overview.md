@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 204fd1b1a0a2984886684bbabf33dc7e73c1b45c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691886"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653547"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consultar arquivos de armazenamento usando recursos de SQL sob demanda (versão prévia) no Synapse SQL
 
@@ -90,7 +90,7 @@ Esses parâmetros adicionais são introduzidos para trabalhar com arquivos CSV (
 ```
 
 - ESCAPE_CHAR = 'char' especifica o caractere que é usado no arquivo para escapar a si mesmo e todos os valores de delimitador no arquivo. Se o caractere de escape for seguido por um valor diferente dele mesmo ou de qualquer um dos valores delimitadores, o caractere de escape será descartado durante a leitura do valor.
-O parâmetro ESCAPE_CHAR será aplicado independentemente de FIELDQUOTE estar ou não habilitado. Ele não será usado para escapar o caractere de aspas. O escape do caractere de aspas é feito com aspas duplas em alinhamento com o comportamento CSV do Excel.
+O parâmetro ESCAPE_CHAR será aplicado quer FIELDQUOTE esteja habilitado ou não. Ele não será usado para fazer escape do caractere de aspas. O escape do caractere de aspas é feito com aspas duplas em alinhamento com o comportamento CSV do Excel.
 - FIELDTERMINATOR ='field_terminator' especifica o terminador de campo a ser usado. O terminador de campo padrão é uma vírgula (" **,** ")
 - ROWTERMINATOR ='row_terminator' especifica o terminador de linha a ser usado. O terminador de linha padrão um caractere de nova linha: **\r\n**.
 

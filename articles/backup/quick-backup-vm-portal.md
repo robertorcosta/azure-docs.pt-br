@@ -1,17 +1,16 @@
 ---
 title: Início Rápido – Fazer backup de uma VM com o portal do Azure
 description: Neste guia de Início Rápido, saiba como criar um cofre dos Serviços de Recuperação, habilitar a proteção na VM do Azure, e fazer backup da VM com o portal do Azure.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79215324"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656958"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer backup de uma máquina virtual no Azure
 
@@ -66,11 +65,11 @@ Na janela **Backup** para sua VM, o status do backup e o número de pontos de re
 
 Quando não for mais necessária, você poderá desabilitar a proteção na máquina virtual, remover os pontos de restauração e o cofre dos Serviços de Recuperação, então excluir o grupo de recursos e recursos associados de VM
 
-Se você pretende examinar um tutorial de Backup que explique como restaurar dados para sua VM, ignore as etapas desta seção e vá para [Próximas etapas](#next-steps).
+Se você pretende prosseguir para um tutorial de Backup que explica como restaurar dados para sua VM, ignore as etapas desta seção e vá para [Próximas etapas](#next-steps).
 
 1. Selecione a opção **Backup** para sua VM.
 
-2. Selecione **...Mais** para mostrar opções adicionais, então escolha **Parar backup**.
+2. Escolha **Parar backup**.
 
     ![Interromper um backup de VM do portal do Azure](./media/quick-backup-vm-portal/stop-backup.png)
 

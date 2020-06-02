@@ -1,5 +1,5 @@
 ---
-title: Executar scripts do Python por meio do Data Factory – Python do Lote do Azure
+title: Executar scripts do Python com o Data Factory
 description: Tutorial – saiba como executar scripts do Python como parte de um pipeline por meio do Azure Data Factory usando o Lote do Azure.
 author: mammask
 ms.devlang: python
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
-ms.openlocfilehash: 6761896a6555c11d7957f923a5951641c1541012
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 433a652ffa3fa3ae5a570fac6160ef8a04ee11c8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117056"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773178"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts do Python por meio de Azure Data Factory usando o Lote do Azure
 
@@ -34,6 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 * Uma distribuição instalada do [Python](https://www.python.org/downloads/) para teste local.
 * O pacote do `pip` do [Azure](https://pypi.org/project/azure/).
+* O [conjunto de dados iris.csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Uma conta do Lote do Azure e uma conta de Armazenamento do Azure vinculada. Confira [Criar uma conta do Lote](quick-create-portal.md#create-a-batch-account) para obter mais informações sobre como criar e vincular contas de Lote a contas de armazenamento.
 * Uma conta do Azure Data Factory. Confira [Criar um data factory](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) para obter mais informações sobre como criar um data factory por meio do portal do Azure.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
@@ -66,7 +67,7 @@ Aqui você vai criar contêineres de blob que armazenarão arquivos de entrada e
 1. Entre no Gerenciador de Armazenamento usando suas credenciais do Azure.
 1. Usando a conta de armazenamento vinculada à sua conta do Lote, crie dois contêineres de blob (um para arquivos de entrada, um para arquivos de saída) seguindo as etapas em [Criar um contêiner de blob](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * Neste exemplo, chamaremos nosso contêiner de entrada `input` e nosso contêiner de saída `output`.
-1. Carregue `main.py` e `iris.csv` para o contêiner de entrada `input` usando o Gerenciador de Armazenamento seguindo as etapas em [Gerenciar blobs em um contêiner de blobs](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
+1. Carregue `main.py` e [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) no contêiner de entrada `input` usando o Gerenciador de Armazenamento seguindo as etapas em [Gerenciar blobs em um contêiner de blobs](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 
 ## <a name="develop-a-script-in-python"></a>Desenvolver um script em Python

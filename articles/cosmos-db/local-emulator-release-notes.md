@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77168645"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747001"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos – Notas sobre a versão e informações de download
 
@@ -25,6 +25,15 @@ Este artigo mostra as notas de versão do emulador do Azure Cosmos com uma lista
 |**Introdução**|[Desenvolver localmente com o emulador do Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="2110"></a>2.11.0
+
+- Esta versão introduz o suporte para taxa de transferência provisionada com dimensionamento automático. Esses novos recursos incluem a capacidade de definir um nível máximo personalizado de taxa de transferência provisionada em unidades de solicitação (RU/s), habilitar o dimensionamento automático em bancos de dados e contêineres existentes e suporte programático por meio de SDKs do Azure Cosmos DB.
+- Correção de um problema ao consultar uma grande quantidade de documentos (mais de 1GB), em que o emulador falha com o código de status de erro interno 500.
+
+### <a name="292"></a>2.9.2
+
+- Esta versão corrige um bug ao habilitar o suporte para o ponto de extremidade do MongoDb versão 3.2. Ela também adiciona suporte para gerar rastreamentos de ETL para fins de solução de problemas usando WPR em vez de LOGMAN.
 
 ### <a name="291"></a>2.9.1
 

@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203634"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759176"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagens de várias classes 
+# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem (versão prévia) para classificação de imagens de várias classes 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Este tutorial mostra como gerenciar o processo de rotulagem (também conhecido como marcação) de imagens a serem usadas como dados para a criação de modelos de machine learning. A rotulagem de dados no Azure Machine Learning está em versão prévia pública.
@@ -77,7 +77,7 @@ Os armazenamentos de dados do Azure Machine Learning são usados para armazenar 
 
 ### <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
-Agora que você tem a lista de rotuladores e o acesso aos dados que deseja rotular, crie o projeto de rotulagem.
+Agora que você tem acesso aos dados que deseja rotular, crie o projeto de rotulagem.
 
 1. Na parte superior da página, selecione **Projetos**.
 
