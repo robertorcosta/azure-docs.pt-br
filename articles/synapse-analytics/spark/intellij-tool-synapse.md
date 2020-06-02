@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: fc7551c081d14a871c8ee96610ca7190f629901d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790959"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644850"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Tutorial: Usar o Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para pools do Spark (versão prévia)
 
@@ -62,6 +62,7 @@ Neste tutorial, você aprenderá como:
     |Local do&nbsp;projeto| Insira a localização desejada para salvar o projeto.|
     |SDK do projeto| Isso poderá ficar em branco no primeiro uso do IDEA. Selecione **Novo...** e navegue até o JDK.|
     |Versão do Spark|O assistente de criação integra a versão apropriada para o SDK do Spark e o SDK do Scala. O Synapse só dá suporte ao **Spark 2.4.0**.|
+    |||
 
     ![Selecionar o SDK do Apache Spark](./media/intellij-tool-synapse/create-synapse-application02.png)
 
@@ -92,7 +93,7 @@ Entre na assinatura do Azure para se conectar aos seus pools do Spark.
 
 2. No Azure Explorer, clique com o botão direito do mouse no nó **Azure** e, em seguida, selecione **Entrar**.
 
-   ![IntelliJ IDEA explorer clique com o botão direito do mouse no Azure](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
+   ![Clique com o botão direito do mouse no Azure Explorer pelo IntelliJ IDEA](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
 
 3. Na caixa de diálogo **Entrar no Azure**, escolha **Logon do Dispositivo** e selecione **Entrar**.
 
@@ -100,7 +101,7 @@ Entre na assinatura do Azure para se conectar aos seus pools do Spark.
 
 4. Na caixa de diálogo **Logon no Dispositivo do Azure**, clique em **Copiar e Abrir**.
 
-   ![IntelliJ IDEA logon no dispositivo do Azure](./media/intellij-tool-synapse/intellij-view-explorer5.png)
+   ![Logon no dispositivo do Azure pelo IntelliJ IDEA](./media/intellij-tool-synapse/intellij-view-explorer5.png)
 
 5. Na interface do navegador, cole o código e clique em **Avançar**.
 
@@ -141,9 +142,9 @@ Depois de criar um aplicativo Scala, você poderá executá-lo remotamente.
     |Pools do Spark|Selecione os pools do Spark nos quais você deseja executar o aplicativo.|
     |Selecione um Artefato para enviar|Deixe a configuração padrão.|
     |Nome da classe principal|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticência ( **...** ) e escolhendo outra classe.|
-    |Configurações de trabalho|Você pode alterar os valores e as chaves padrão. Para obter mais informações, confira [API REST do Apache Livy](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Configurações de trabalho|Você pode alterar os valores e as chaves padrão. Para obter mais informações, confira [API REST do Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumentos de linha de comando|Você pode inserir argumentos separados por espaço para a classe principal se necessário.|
-    |Arquivos Referenciados e Jars Referenciados|você pode inserir os caminhos para os Jars e os arquivos referenciados, se houver. Você também pode procurar arquivos no sistema de arquivos virtual do Azure, que atualmente suporta apenas o cluster ADLS Gen 2. Para mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) e [Como carregar recursos no cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Arquivos Referenciados e Jars Referenciados|você pode inserir os caminhos para os Jars e os arquivos referenciados, se houver. Você também pode procurar arquivos no sistema de arquivos virtual do Azure, que atualmente dá suporte apenas ao cluster ADLS Gen2. Para mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) e [Como carregar recursos no cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Armazenamento de Upload de Trabalho|Expanda para revelar opções adicionais.|
     |Tipo de armazenamento|Selecione **Usar Blob do Azure para carregar** na lista suspensa.|
     |Conta de Armazenamento|Insira sua conta de armazenamento.|
@@ -176,7 +177,7 @@ Você pode seguir as instruções abaixo para configurar a execução e a depura
 
     ![Execução do IntelliJ configurações de depuração execução local](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. Depois que a execução local for concluída, se o script incluir a saída, você poderá verificar o arquivo de saída em **data** >  **__default__** .
+3. Depois que a execução local for concluída, se o script incluir a saída, você poderá verificar o arquivo de saída em **data** > **__default__**.
 
     ![Resultado da execução local do projeto do IntelliJ](./media/intellij-tool-synapse/spark-local-run-result.png)
 
@@ -270,4 +271,4 @@ Ele é compatível apenas com o IntelliJ 2018.2 e 2018.3.
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Criar um Pool do Apache Spark para um workspace do Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
+- [Criar um Pool do Apache Spark para um workspace do Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)

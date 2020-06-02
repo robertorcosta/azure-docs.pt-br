@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.openlocfilehash: 5b57a2463815d5db1c83d3bc4e8cd56314fb204d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff38f923f7b33c4bc893246970c1e47d33e59269
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176831"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780390"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapear um domínio personalizado existente para o Azure Spring Cloud
 O DNS (Sistema de Nomes de Domínio) é uma técnica para armazenar nomes de nó de rede em uma rede. Este tutorial mapeia um domínio, como www.contoso.com, usando um registro CNAME. Ele protege o domínio personalizado com um certificado e mostra como impor o protocolo TLS, também conhecido como protocolo SSL. 
@@ -21,7 +21,7 @@ Os certificados criptografam o tráfego da Web. Esses certificados TLS/SSL podem
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um aplicativo implantado no Azure Spring Cloud (confira [Início rápido: Iniciar um aplicativo existente do Azure Spring Cloud usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md) ou use um aplicativo existente).
 * Um nome de domínio com acesso ao Registro DNS para um provedor de domínio, como o GoDaddy.
-* Um certificado privado de um provedor de terceiros. O certificado precisa corresponder ao domínio.
+* Um certificado privado (ou seja, seu certificado autoassinado) de um provedor de terceiros. O certificado precisa corresponder ao domínio.
 * Uma instância implantada do [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
 ## <a name="import-certificate"></a>Importar certificado 
@@ -36,20 +36,63 @@ Para carregar seu certificado autoassinado no cofre de chaves:
 1. Em **Senha**, insira a chave privada para o certificado.
 1. Clique em **Criar**.
 
-![Importar certificado 1](./media/custom-dns-tutorial/import-certificate-a.png)
+    ![Importar certificado 1](./media/custom-dns-tutorial/import-certificate-a.png)
+
+Para conceder ao Azure Spring Cloud acesso ao seu cofre de chaves antes de importar o certificado:
+1. Vá para a instância do cofre de chaves.
+1. No painel de navegação esquerdo, clique em **Política de Acesso**.
+1. No menu superior, clique em **Adicionar Política de Acesso**.
+1. Preencha as informações e clique no botão **Adicionar** e, em seguida, **Salve** a política de acesso.
+
+| Permissão de segredo | Permissão de certificado | Selecionar entidade de segurança |
+|--|--|--|
+| Obter, listar | Obter, listar | Gerenciamento de domínio do Azure Spring Cloud |
+
+![Importar certificado 2](./media/custom-dns-tutorial/import-certificate-b.png)
+
+Ou, você pode usar a CLI do Azure para conceder ao Azure Spring Cloud acesso ao cofre de chaves.
+
+Obtenha a ID do objeto por meio do comando a seguir.
+```
+az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+```
+
+Conceda ao Azure Spring Cloud acesso de leitura ao cofre de chaves, substitua a ID do objeto no comando a seguir.
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+``` 
 
 Para importar o certificado para o Azure Spring Cloud:
 1. Vá para a instância do serviço. 
 1. No painel de navegação à esquerda do aplicativo, selecione **Configurações de TLS/SSL**.
 1. Em seguida, clique em **Importar o Certificado do Key Vault**.
 
-![Importar certificado](./media/custom-dns-tutorial/import-certificate.png)
+    ![Importar certificado](./media/custom-dns-tutorial/import-certificate.png)
 
-Depois de importar o certificado com êxito, você o verá na lista de **certificados de chave privada**.
+Ou você pode usar a CLI do Azure para importar o certificado:
+
+```
+az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
+```
+
+> [!IMPORTANT] 
+> Conceda ao Azure Spring Cloud acesso ao seu cofre de chaves antes de executar o comando importar certificado anterior. Se não tiver feito isso, execute o comando a seguir para conceder os direitos de acesso.
+
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
+``` 
+
+Depois de importar o certificado com êxito, você o verá na lista de **Certificados de Chave Privada**.
 
 ![Certificado de chave privada](./media/custom-dns-tutorial/key-certificates.png)
 
->[!IMPORTANT] 
+Ou, você pode usar a CLI do Azure para mostrar uma lista de certificados:
+
+```
+az spring-cloud certificate list
+```
+
+> [!IMPORTANT] 
 > Para proteger um domínio personalizado com esse certificado, ainda é necessário associar o certificado a um domínio específico. Siga as etapas neste documento sob o título **Adicionar Associação SSL**.
 
 ## <a name="add-custom-domain"></a>Adicionar domínio personalizado
@@ -71,19 +114,29 @@ Acesse a página do aplicativo.
 1. Selecione **Domínio Personalizado**.
 2. Em seguida, selecione **Adicionar Domínio Personalizado**. 
 
-![Domínio personalizado](./media/custom-dns-tutorial/custom-domain.png)
+    ![Domínio personalizado](./media/custom-dns-tutorial/custom-domain.png)
 
 3. Digite o nome de domínio totalmente qualificado ao qual você adicionou um registro CNAME, como www.contoso.com. Verifique se o tipo de registro de nome de host está definido como CNAME (<nome_do_serviço>.azuremicroservices.io)
 4. Clique em **Validar** para habilitar o botão **Adicionar**.
 5. Clique em **Adicionar**.
 
-![Adicionar domínio personalizado](./media/custom-dns-tutorial/add-custom-domain.png)
+    ![Adicionar domínio personalizado](./media/custom-dns-tutorial/add-custom-domain.png)
+
+Ou você pode usar a CLI do Azure para adicionar um domínio personalizado:
+```
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+```
 
 Um aplicativo pode ter vários domínios, mas um domínio só pode ser mapeado para um aplicativo. Quando você tiver mapeado com êxito seu domínio personalizado para o aplicativo, você o verá na tabela de domínios personalizados.
 
 ![Tabela de domínios personalizados](./media/custom-dns-tutorial/custom-domain-table.png)
 
->[!NOTE]
+Ou, você pode usar a CLI do Azure para mostrar uma lista de domínios personalizados:
+```
+az spring-cloud app custom-domain list --app <app name> 
+```
+
+> [!NOTE]
 > Um rótulo **Não Seguro** para seu domínio personalizado significa que ele ainda não está associado a um certificado SSL. Solicitações HTTPS de um navegador para seu domínio personalizado receberão um erro ou aviso.
 
 ## <a name="add-ssl-binding"></a>Adicionar associação SSL
@@ -91,7 +144,12 @@ Na tabela de domínio personalizado, selecione **Adicionar associação SSL** co
 1. Selecione seu **certificado** ou importe-o.
 1. Clique em **Save** (Salvar).
 
-![Adicionar associação SSL](./media/custom-dns-tutorial/add-ssl-binding.png)
+    ![Adicionar associação SSL](./media/custom-dns-tutorial/add-ssl-binding.png)
+
+Ou, você pode usar a CLI do Azure para **Adicionar associação SSL**:
+```
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+```
 
 Depois de adicionar a associação SSL com êxito, o estado do domínio será seguro: **Íntegro**. 
 
@@ -103,6 +161,11 @@ Por padrão, qualquer pessoa ainda pode acessar seu aplicativo usando HTTP, mas 
 Na sua página do aplicativo, na navegação esquerda, selecione **Domínio Personalizado**. Em seguida, defina **Somente HTTPS** como *Verdadeiro*.
 
 ![Adicionar associação SSL](./media/custom-dns-tutorial/enforce-http.png)
+
+Ou, você pode usar a CLI do Azure para impor HTTPS:
+```
+az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+```
 
 Quando a operação estiver concluída, navegue até qualquer uma das URLs HTTPS que aponte para seu aplicativo. Observe que as URLs HTTP não funcionam.
 

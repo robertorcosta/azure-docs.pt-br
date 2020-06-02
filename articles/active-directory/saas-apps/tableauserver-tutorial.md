@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d19a7cc8d81f9e6e913f147b24c5cce03ff82027
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2325259cd5e613223ee77371d7e563e8ab1e94ca
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76986709"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648461"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Tableau Server
 
@@ -158,7 +158,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     h. Clique em **Salvar**
 
     > [!NOTE]
-    > O cliente precisa carregar um certificado na configuração de SSO do SAML do Tableau Server e ele será ignorado no fluxo de SSO. Se precisar de ajuda para configurar o SAML no Tableau Server, consulte o artigo [Configurar SAML](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm).
+    > O cliente precisa carregar um arquivo de Certificado X509 codificado por PEM com extensão .crt e um arquivo de chave privada RSA ou DSA com extensão .key, como um arquivo de Chave de Certificado. Para obter mais informações sobre o arquivo de Certificado e o arquivo de Chave de Certificado, confira [este](https://help.tableau.com/current/server/en-us/saml_requ.htm) documento. Se precisar de ajuda para configurar o SAML no Tableau Server, confira o artigo [Configurar SAML no âmbito do servidor](https://help.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="create-tableau-server-test-user"></a>Criar um usuário de teste do Tableau Server
 

@@ -170,7 +170,7 @@
     - name: Python (Gerenciamento de Conta)
       href: 'https://docs.microsoft.com/python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store?view=azure-python'
     - name: Python (Gerenciamento do sistema de arquivos)
-      href: 'https://azure-datalake-store.readthedocs.io/en/latest'
+      href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
     - name: REST
       href: /rest/api/datalakestore
     - name: Modelo do Resource Manager

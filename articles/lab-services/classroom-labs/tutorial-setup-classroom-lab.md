@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c9e594af96fd43bc03f67caa06f585ab57b4b6e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591770"
+ms.locfileid: "83643462"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -70,6 +70,9 @@ Nessa etapa, você cria um laboratório para sua classe no Azure.
     1. Conecte-se à VM modelo selecionando **Conectar**. Se for uma VM de modelo do Linux, você escolherá se deseja se conectar usando SSH ou RDP (se RDP estiver habilitado).
     3. Instale e configure o software necessário para sua classe na VM de modelo. 
     4. **Pare** a VM de modelo.  
+
+    > [!NOTE]
+    > As VMs de modelo incorrem em **custos** durante a execução, portanto, verifique se elas estão desligadas quando não precisam estar em execução. 
 
 ## <a name="publish-the-template-vm"></a>Publicar a VM modelo
 Nessa etapa, você publica a VM de modelo. Quando você publicar a VM do modelo, o Azure Lab Services criará VMs no laboratório usando o modelo. Todas as máquinas virtuais têm a mesma configuração que o modelo.

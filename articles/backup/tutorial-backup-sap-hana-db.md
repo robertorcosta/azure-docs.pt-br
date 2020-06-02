@@ -3,12 +3,12 @@ title: Tutorial – fazer backup de bancos de dados do SAP HANA em VMs do Azure
 description: Neste tutorial, saiba o backup de bancos de dados SAP HANA executados em uma VM do Azure pode ser realizado no cofre dos Serviços de Recuperação do Backup do Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79501445"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747224"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Fazer backup de bancos de dados do SAP HANA em uma VM do Azure
 
@@ -32,6 +32,11 @@ Antes de configurar backups, verifique se você fez o seguinte:
   * Para MDC, a chave deve apontar para a porta SQL de **NAMESERVER**. No caso do SDC, ele deve apontar para a porta SQL de **INDEXSERVER**
   * Ela deve ter credenciais para adicionar e excluir usuários
 * Executar o script de configuração de backup do SAP HANA (script de pré-registro) na máquina virtual em que o HANA está instalado como o usuário raiz. [Esse script](https://aka.ms/scriptforpermsonhana) faz o sistema HANA ficar pronto para backup. Veja a seção [O que o script de pré-registro faz](#what-the-pre-registration-script-does) para entender mais sobre o script de pré-registro.
+
+>[!NOTE]
+>O Backup do Azure não é ajustado automaticamente para alterações do horário de verão ao fazer backup de um banco de dados SAP HANA em execução em uma VM do Azure.
+>
+>Modifique a política manualmente, se necessário.
 
 ## <a name="set-up-network-connectivity"></a>Configurar a conectividade de rede
 

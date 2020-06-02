@@ -92,6 +92,8 @@
       href: template-samples.md
     - name: Exemplos de código
       href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+    - name: Itens internos do Azure Policy
+      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Terminologia da Grade de Eventos

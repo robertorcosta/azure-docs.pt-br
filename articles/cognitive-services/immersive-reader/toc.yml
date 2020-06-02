@@ -7,12 +7,8 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: 'Usando C#'
-      href: Quickstart.md
-    - name: Usando Node.js
-      href: quickstart-nodejs.md
-    - name: Usando Swift (iOS)
-      href: ios-quickstart.md
+    - name: Como usar a biblioteca de clientes
+      href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
     - name: Iniciar a Leitura Avançada (Python)
