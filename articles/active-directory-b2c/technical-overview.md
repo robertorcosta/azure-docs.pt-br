@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80332543"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739092"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e de recursos do Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Um usuário com uma conta de consumidor pode entrar com várias identidades, por
 
 ![Identidades da conta de consumidor](media/technical-overview/identities.png)<br/>*Figura: Uma única conta de consumidor com várias identidades no Azure AD B2C*
 
-O Azure AD B2C permite que você gerencie atributos comuns de perfis de conta de consumidor como nome de exibição, sobrenome, nome, cidade e outros. Você também pode estender o esquema do Azure AD para armazenar informações adicionais sobre seus usuários. Por exemplo, seu país ou residência, idioma preferencial e preferências, como se desejam assinar um boletim informativo ou habilitar a autenticação multifator.
+O Azure AD B2C permite que você gerencie atributos comuns de perfis de conta de consumidor como nome de exibição, sobrenome, nome, cidade e outros. Você também pode estender o esquema do Azure AD para armazenar informações adicionais sobre seus usuários. Por exemplo, seu país/região ou residência, idioma preferencial e preferências, como se desejam assinar um boletim informativo ou habilitar a autenticação multifator.
 
 Saiba mais sobre os tipos de conta de usuário no Azure AD B2C em [Visão geral de contas de usuário no Azure Active Directory B2C](user-overview.md).
 
@@ -100,7 +100,7 @@ Para ajudá-lo a configurar rapidamente as tarefas de identidade mais comuns, o 
 Você pode definir configurações de fluxo de usuário como essas para controlar os comportamentos de experiência de identidade em seus aplicativos:
 
 * Tipos de conta usados para entrar, por exemplo, contas sociais como as do Facebook ou locais que usam um endereço de email e uma senha para entrada
-* Atributos a serem coletados do consumidor, tais como nome, código postal ou país de residência
+* Atributos a serem coletados do consumidor, tais como nome, código postal ou país/região de residência
 * MFA (Autenticação Multifator) do Azure
 * Personalização da interface do usuário
 * Conjunto de declarações em um token que seu aplicativo recebe depois que o usuário conclui o fluxo do usuário

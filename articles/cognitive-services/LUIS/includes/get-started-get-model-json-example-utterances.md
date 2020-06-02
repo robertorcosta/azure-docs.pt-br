@@ -5,41 +5,77 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.date: 02/14/2020
+ms.date: 05/18/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: e879afdbd4c34e9d74405644de86421fb2cbab46
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: acf3968510bc45838f26c4b3cf366abdee06f298
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77279504"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655552"
 ---
 Os enunciados de exemplo seguem um formato específico.
 
 O campo `text` contém o texto do enunciado de exemplo. O campo `intentName` precisa corresponder ao nome de uma intenção existente no aplicativo do LUIS. O campo `entityLabels` é obrigatório. Se você não quiser rotular as entidades, forneça uma matriz vazia.
 
-Se a matriz entityLabels não estiver vazia, `startCharIndex` e `endCharIndex` precisarão marcar a entidade referenciada no campo `entityName`. O índice é baseado em zero, o que significa que o 6 no exemplo superior se refere ao "S" de Seattle e não ao espaço antes da letra maiúscula S. Se você iniciar ou terminar o rótulo com um espaço no texto, a chamada à API para adicionar os enunciados falhará.
+Se a matriz entityLabels não estiver vazia, `startCharIndex` e `endCharIndex` precisarão marcar a entidade referenciada no campo `entityName`. O índice começa no zero. Se você começar ou terminar o rótulo em um espaço no texto, a chamada à API para adicionar os enunciados falhará.
 
 ```JSON
 [
-  {
-    "text": "go to Seattle today",
-    "intentName": "BookFlight",
-    "entityLabels": [
-      {
-        "entityName": "Location::LocationTo",
-        "startCharIndex": 6,
-        "endCharIndex": 12
-      }
-    ]
-  },
-  {
-    "text": "purple dogs are difficult to work with",
-    "intentName": "BookFlight",
-    "entityLabels": []
-  }
+    {
+        "text": "order a cheese pizza",
+        "intentName": "ModifyOrder",
+        "entityLabels":[]
+    },
+    {
+        "text": "order a large pepperoni pizza",
+        "intentName": "ModifyOrder",
+        "entityLabels": [
+            {
+                "entityName": "Order",
+                "startCharIndex": 8,
+                "endCharIndex": 28
+            }
+        ]
+    },
+    {
+        "text": "order 2 large pepperoni pizzas on thin crust",
+        "intentName": "ModifyOrder",
+        "entityLabels": [
+            {
+                "entityName": "Order",
+                "startCharIndex": 6,
+                "endCharIndex": 61
+            },
+            {
+                "entityName": "FullPizzaWithModifiers",
+                "startCharIndex": 6,
+                "endCharIndex": 61
+            },
+            {
+                "entity": "Quantity",
+                "startPos": 6,
+                "endPos": 7
+            },
+            {
+                "entity": "PizzaType",
+                "startPos": 14,
+                "endPos": 22
+            },
+            {
+                "entity": "Size",
+                "startPos": 8,
+                "endPos": 12
+            },
+            {
+                "entity": "Crust",
+                "startPos": 34,
+                "endPos": 37
+            }
+        ]
+    }
 ]
 ```

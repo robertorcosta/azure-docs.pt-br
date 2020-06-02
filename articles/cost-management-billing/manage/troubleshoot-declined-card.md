@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0eeddc26ac1a1f286d8ed253f3fe097f0e7de91f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7cf42950bc25ad501fd11b1b28c74b5f63066c32
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409396"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745518"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Solucionar problemas de cartão recusado no momento da inscrição do Azure
 
@@ -20,9 +20,9 @@ Você pode receber um erro ou ter problemas, no qual um cartão de crédito é r
 
 Para resolver o problema, selecione o tópico abaixo que mais se assemelha ao erro.
 
-## <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>O provedor de cartão de crédito não é aceito no país
+## <a name="the-credit-card-provider-is-not-accepted-for-your-countryregion"></a>O provedor de cartão de crédito não é aceito no país/região
 
-Ao escolher um cartão, o Azure lhe mostra apenas as opções válidas no país selecionado. Entre em contato com o banco ou o emissor do cartão para confirmar se o cartão de crédito está habilitado para transações internacionais. Para obter mais informações sobre países e moedas compatíveis, confira as [Perguntas Frequentes sobre a Compra do Azure](https://azure.microsoft.com/pricing/faq/).
+Ao escolher um cartão, o Azure lhe mostra apenas as opções válidas no país/região selecionado. Entre em contato com o banco ou o emissor do cartão para confirmar se o cartão de crédito está habilitado para transações internacionais. Para obter mais informações sobre países/região e moedas compatíveis, confira as [Perguntas Frequentes sobre a Compra do Azure](https://azure.microsoft.com/pricing/faq/).
 
 >[!Note]
 >Os cartões de crédito American Express não são compatíveis no momento como um meio de pagamento na Índia. Não há um período específico em que saibamos que essa será uma forma de pagamento aceita.
@@ -47,7 +47,7 @@ Para obter mais informações sobre como solucionar problemas de inscrição do 
 
 ## <a name="you-represent-a-business-that-doesnt-want-to-pay-by-card"></a>Você representa uma empresa que não deseja pagar com cartão
 
-Se você representa uma empresa, pode usar formas de pagamento da fatura como cheques ou transferências eletrônicas para pagar pela assinatura do Azure. Depois de configurar a conta para pagamento por fatura, você não poderá mudar para outra forma de pagamento, a menos que tenha um contrato de cliente da Microsoft e se inscreva no Azure por meio do site do Azure.
+Se você representa uma empresa, pode usar formas de pagamento da fatura como cheques ou transferências eletrônicas para pagar pela assinatura do Azure. Depois de configurar a conta para pagamento por fatura, você não poderá mudar para outra forma de pagamento, a menos que tenha um Contrato de Cliente da Microsoft e se inscreva no Azure por meio do site do Azure.
 
 Para obter mais informações sobre como pagar por fatura, confira [Enviar uma solicitação para pagar a assinatura do Azure por fatura.](pay-by-invoice.md)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 7147f0d13c88c1d2e17e81a360a5aee55ee760ed
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 94946b4b6d0f0fc9c94cac7aca1e971b3f6262f9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924759"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673213"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para o JRE do Java 8 de 64 bits. Se você quiser apenas o nome do pacote para começar por conta própria, o SDK do Java não estará disponível no repositório central do Maven. Se você estiver usando o Gradle ou um arquivo de dependência `pom.xml`, será necessário adicionar um repositório personalizado apontando para `https://csspeechstorage.blob.core.windows.net/maven/` (veja abaixo o nome do pacote).
 
@@ -29,7 +29,7 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
 - O pacote do SDK de Fala do Java está disponível para estes sistemas operacionais:
   - Windows: somente 64 bits
   - Mac: macOS X versão 10.13 ou mais recente
-  - Linux: 64 bits apenas no Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8
+  - Linux: 64 bits apenas no Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - No RHEL/CentOS 8, execute os seguintes comandos para instalar os pacotes necessários:
+  - No RHEL/CentOS, execute os seguintes comandos para instalar os pacotes necessários:
 
         ```sh
         sudo yum update
@@ -60,7 +60,8 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
         ```
 
 > [!NOTE]
-> No RHEL/CentOS 8, siga as instruções em [como configurar o OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - No RHEL/CentOS 7, siga as instruções sobre [como configurar o RHEL/CentOS 7 para o SDK de Fala](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - No RHEL/CentOS 8, siga as instruções em [como configurar o OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Observe que, ao instalá-los pela primeira vez, pode ser necessário reiniciar o Windows antes de continuar com este guia.
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 40a1d75ff90efafff14cd27ab439df8ab3729c50
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77132025"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674308"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 
@@ -36,7 +36,7 @@ O Azure fornece ferramentas, incluindo a interface de linha de comando do Azure,
 
 ## <a name="key-features"></a>Principais recursos
 
-* **SKUs de Registro** – crie um ou mais registros de contêiner em sua assinatura do Azure. Os registros estão disponíveis em três SKUs: [Básico, Standard e Premium](container-registry-skus.md), cada um dando suporte à integração de webhook, autenticação de registro com o Azure Active Directory e funcionalidade de exclusão. Aproveite o armazenamento local e de rede fechada de suas imagens de contêiner criando um registro no mesmo local do Azure de suas implantações. Use o recurso [replicação geográfica](container-registry-geo-replication.md) de registros Premium para cenários avançados de replicação e distribuição de imagens de contêiner. 
+* **Camadas de serviço do Registro** – crie um ou mais registros de contêiner em sua assinatura do Azure. Os registros estão disponíveis em três camadas: [Básico, Standard e Premium](container-registry-skus.md), cada um dando suporte à integração de webhook, autenticação de registro com o Azure Active Directory e funcionalidade de exclusão. Aproveite o armazenamento local e de rede fechada de suas imagens de contêiner criando um registro no mesmo local do Azure de suas implantações. Use o recurso [replicação geográfica](container-registry-geo-replication.md) de registros Premium para cenários avançados de replicação e distribuição de imagens de contêiner. 
 
 * **Segurança e acesso** – você faz logon em um registro usando o CLI do Azure ou o comando `docker login` padrão. O Registro de Contêiner do Azure transfere imagens de contêiner por HTTPS e é compatível com TLS para proteger conexões de cliente. 
 
@@ -45,7 +45,7 @@ O Azure fornece ferramentas, incluindo a interface de linha de comando do Azure,
 
   Você [controla o acesso](container-registry-authentication.md) a um registro de contêiner usando uma identidade do Azure, uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) com suporte do Azure Active Directory ou uma conta do administrador fornecida. Use o RBAC (controle de acesso baseado em função) para atribuir a usuários ou sistemas permissões refinadas a um registro.
 
-  Os recursos de segurança da SKU Premium incluem [confiança de conteúdo](container-registry-content-trust.md) para assinatura de tag de imagem e [firewalls e redes virtuais (versão prévia)](container-registry-vnet.md) para restringir o acesso ao registro. A Central de Segurança do Azure integra-se opcionalmente ao Registro de Contêiner do Azure para [verificar imagens](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) sempre que uma imagem é enviada por push a um registro.
+  Os recursos de segurança da camada de serviço Premium incluem [confiança de conteúdo](container-registry-content-trust.md) para assinatura de tag de imagem e [firewalls e redes virtuais (versão prévia)](container-registry-vnet.md) para restringir o acesso ao Registro. A Central de Segurança do Azure integra-se opcionalmente ao Registro de Contêiner do Azure para [verificar imagens](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) sempre que uma imagem é enviada por push a um registro.
 
 * **Artefatos e imagens compatíveis** – agrupadas em um repositório, cada imagem é um instantâneo somente leitura de um contêiner compatível com o Docker. Registros de contêiner do Azure podem incluir imagens do Windows e Linux. Você controla os nomes de imagem para todas as implantações de contêiner. Use [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para envio de imagens em um repositório ou extraia uma imagem de um repositório. Além de imagens de contêiner do Docker, o Registro de Contêiner do Azure armazena [formatos de conteúdo relacionados](container-registry-image-formats.md), como [Gráficos do Helm](container-registry-helm-repos.md) e imagens criadas conforme a [Especificação de Formato de Imagem da OCI (Iniciativa de Contêiner Aberto)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 

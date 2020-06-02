@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a1354bc74d13e02e5e0982a8f5d98b01fab67b4b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: fae54baf3b08ae5e0fa0f640d011b58d686e443e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81404765"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683141"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Início Rápido: Gerar uma miniatura usando a API REST da Pesquisa Visual Computacional e o Java
 
@@ -35,56 +35,61 @@ Para criar e executar o exemplo, siga estas etapas:
 
 1. Crie um projeto Java em seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java com um modelo de aplicativo de linha de comando.
 1. Importe as bibliotecas a seguir para seu projeto Java. Se você usar o Maven, as coordenadas do Maven serão fornecidas para cada biblioteca.
-   - [Cliente do Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
-   - [Núcleo do Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
+   - [Cliente HTTP do Apache](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.X)
+   - [Núcleo HTTP do Apache](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.X)
    - [Biblioteca JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-1. Adicione as seguintes instruções `import` ao arquivo que contém a classe pública `Main` para seu projeto.  
+1. Adicione as seguintes instruções `import` à classe principal: 
 
    ```java
-   import java.awt.*;
-   import javax.swing.*;
-   import java.net.URI;
-   import java.io.InputStream;
-   import javax.imageio.ImageIO;
-   import java.awt.image.BufferedImage;
-   import org.apache.http.HttpEntity;
-   import org.apache.http.HttpResponse;
-   import org.apache.http.client.methods.HttpPost;
-   import org.apache.http.entity.StringEntity;
-   import org.apache.http.client.utils.URIBuilder;
-   import org.apache.http.impl.client.CloseableHttpClient;
-   import org.apache.http.impl.client.HttpClientBuilder;
-   import org.apache.http.util.EntityUtils;
-   import org.json.JSONObject;
+    import java.awt.*;
+    import javax.swing.*;
+    import java.net.URI;
+    import java.io.InputStream;
+    import javax.imageio.ImageIO;
+    import java.awt.image.BufferedImage;
+    import org.apache.http.HttpEntity;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.methods.HttpPost;
+    import org.apache.http.entity.StringEntity;
+    import org.apache.http.client.utils.URIBuilder;
+    import org.apache.http.impl.client.CloseableHttpClient;
+    import org.apache.http.impl.client.HttpClientBuilder;
+    import org.apache.http.util.EntityUtils;
+    import org.json.JSONObject;
    ```
 
-1. Substitua a classe pública `Main` pelo código a seguir.
-1. Outra opção é substituir o valor de `imageToAnalyze` pela URL de uma imagem diferente para a qual você deseja gerar uma miniatura.
+1. Adicione o restante do código de exemplo a seguir, abaixo das importações (altere para o nome de sua classe, se necessário).
+1. Adicione a chave e o ponto de extremidade de sua assinatura da Pesquisa Visual Computacional às suas variáveis de ambiente.
+1. Como opção, substitua o valor de `imageToAnalyze` pela URL de sua própria imagem.
 1. Salve e crie o projeto Java.
-1. Se você usar um IDE, execute `Main`. Caso contrário, abra uma janela do prompt de comando e use o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
+1. Se você usar um IDE, execute `GenerateThumbnail`. Caso contrário, execute na linha de comando (comandos abaixo).
 
 ```java
-// This sample uses the following libraries:
-//  - Apache HTTP client (org.apache.httpcomponents:httpclient:4.5.5)
-//  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
-//  - JSON library (org.json:json:20180130).
+/**
+ * This sample uses the following libraries (create a "lib" folder to place them in): 
+ * Apache HTTP client:
+ * org.apache.httpcomponents:httpclient:4.5.X 
+ * Apache HTTP core:
+ * org.apache.httpcomponents:httpccore:4.4.X 
+ * JSON library:
+ * org.json:json:20180130
+ *
+ * To build/run from the command line: 
+ *     javac GenerateThumbnail.java -cp .;lib\*
+ *     java -cp .;lib\* GenerateThumbnail
+ */
 
+public class GenerateThumbnail {
 
-public class Main {
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
-
-    // Add your Computer Vision subscription key and endpoint to your environment variables.
-    // After setting, close and then re-open your command shell or project for the changes to take effect.
-    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
-    String endpoint = ("COMPUTER_VISION_ENDPOINT");
-
-    private static final String uriBase = endpoint + 
-            "vision/v2.1/generateThumbnail";
-
-    private static final String imageToAnalyze =
-        "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg";
+    // Add your Computer Vision subscription key and endpoint to your environment
+    // variables. Then, close and then re-open your command shell or project for the
+    // changes to take effect.
+    private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
+    // The endpoint path
+    private static final String uriBase = endpoint + "vision/v3.0/generateThumbnail";
+    // It's optional if you'd like to use your own image instead of this one.
+    private static final String imageToAnalyze = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg";
 
     public static void main(String[] args) {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
@@ -106,13 +111,14 @@ public class Main {
             request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 
             // Request body.
-            StringEntity requestEntity =
-                    new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
+            StringEntity requestEntity = new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
             // Call the REST API method and get the response entity.
             HttpResponse response = httpClient.execute(request);
             HttpEntity entity = response.getEntity();
+
+            System.out.println("status" + response.getStatusLine().getStatusCode());
 
             // Check for success.
             if (response.getStatusLine().getStatusCode() == 200) {
@@ -128,11 +134,12 @@ public class Main {
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     // Displays the given input stream as an image.
-    private static void displayImage(InputStream inputStream) {
+    public static void displayImage(InputStream inputStream) {
         try {
             BufferedImage bufferedImage = ImageIO.read(inputStream);
 

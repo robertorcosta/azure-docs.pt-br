@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 41fa0b469d0d86b8c1d9234455ade0395fa86f3d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 21a8d47f80dae35553114f522c1c78a97a086518
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383930"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650224"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o PHP
 
@@ -31,12 +31,12 @@ Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful com
 
 ## <a name="search-entities"></a>Pesquisar entidades
 
-Para executar esse aplicativo, siga estas etapas.
+Para executar este aplicativo, siga estas etapas:
 
 1. Crie um projeto PHP em seu IDE favorito.
 2. Adicione o código fornecido abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
-4. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+4. É possível usar o ponto de extremidade global no código a seguir ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 5. Execute o programa.
 
 ```php
@@ -83,7 +83,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Resposta**
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
@@ -154,4 +154,4 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
 * [O que é a API de Pesquisa de Entidade do Bing?](../overview.md )
-* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

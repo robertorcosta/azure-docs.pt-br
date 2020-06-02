@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 48ce72ee501252e35388f958b5c2e166edc2678f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 21289874792987e35fa1cc5731a63e3f55fedc35
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196168"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835760"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -65,6 +65,8 @@ O Link Privado do Azure fornece os seguintes benefícios:
 |Azure Machine Learning | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Hub IoT | Todas as regiões públicas    |   Visualização   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |   Visualização   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
+| Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |   GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   |
+
 
 Para obter as notificações mais recentes, confira a página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

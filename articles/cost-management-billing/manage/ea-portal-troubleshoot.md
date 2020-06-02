@@ -3,16 +3,16 @@ title: Solucionar problemas de acesso ao Portal do EA do Azure
 description: Este artigo descreve alguns problemas comuns que podem ocorrer com um EA (Contrato Enterprise do Azure) no Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: fdcce868cb53c0fdd6a51f2b351491e1ee998d61
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 97ba4e77c96859115c974b630a455f4bea62051a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691175"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654750"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Solucionar problemas de acesso ao Portal do EA do Azure
 
@@ -64,15 +64,15 @@ Ou, se você receber um erro de _Usuário Inválido_, poderá ser porque o tipo 
   - Se você precisar verificar o alias principal, vá para [https://account.live.com](https://account.live.com). Em seguida, clique em **Suas informações** e clique em **Gerenciar como você entra na Microsoft**. Siga os avisos para verificar um endereço de email alternativo e obter um código para acessar informações confidenciais. Digite o código de segurança. Selecione **Configurar mais tarde** se você não quiser configurar a autenticação de dois fatores.
   - Você verá a página **Gerencie a forma como você entra na Microsoft**, na qual poderá exibir seus aliases de conta. Verifique se o alias principal é aquele que você está usando para entrar no Portal do EA do Azure. Se não for, você poderá torná-lo seu alias principal. Ou então, em vez disso, você pode usar o alias principal para o Portal do EA do Azure.
 
-## <a name="no-activation-email-received"></a>Nenhum email de ativação recebido
+## <a name="azure-ea-activation-faq"></a>Perguntas frequentes sobre a ativação do Azure EA
+
+Esta seção do artigo descreve soluções para problemas comuns relacionados à ativação do Azure EA.
+
+### <a name="i-didnt-receive-an-activation-email"></a>Não recebi um email de ativação
 
 Um email de ativação do Portal do EA do Azure é enviado do *waep@microsoft.com* . Se você não tiver recebido um email de ativação, verifique sua pasta de spam ou lixo eletrônico em busca do email. Ele é enviado com o assunto _Convite para exibir/gerenciar o serviço do Microsoft Azure_. Ele é enviado para cada administrador de EA recém-adicionado.
 
 Se tiver certeza de que foi configurado como o administrador do EA, você não precisará aguardar o recebimento do email de ativação para entrar no Portal do EA do Azure. Em vez disso, você pode acessar https://ea.azure.com e entrar com seu endereço de email (conta Microsoft, corporativa ou de estudante) e senha.
-
-## <a name="azure-ea-activation-faq"></a>Perguntas frequentes sobre a ativação do Azure EA
-
-Esta seção do artigo descreve soluções para problemas comuns relacionados à ativação do Azure EA.
 
 ### <a name="i-would-like-to-add-a-new-ea-administrator-to-my-enrollment"></a>Eu gostaria de adicionar um novo administrador do EA ao meu registro
 

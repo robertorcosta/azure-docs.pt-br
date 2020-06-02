@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/14/2020
 ms.author: banders
-ms.openlocfilehash: 4aa02dae521844f2654a50f77be9b2ee3c46a74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee2de33fadb068ee2697f79c1ebcb1b2fa4e5fcc
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199510"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715878"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Alterar sua assinatura do Azure para outra oferta
 
@@ -51,10 +51,10 @@ Você pode alternar de uma assinatura individual com tarifas pagas conforme o us
 1. **Selecione a oferta desejada** da lista de ofertas para as quais sua assinatura pode ser alternada. Essa lista varia com base nas associações em que sua conta está associada. Se nada estiver disponível, verifique a [lista de ofertas disponíveis para as quais você pode alternar](#whats-supported) e confirme se você tem as associações corretas.
 
    ![Selecione uma oferta para a qual você deseja alternar](./media/switch-azure-offer/selectoffer.png)
-1. Dependendo da oferta para qual esteja trocando, é provável que você veja uma observação sobre o impacto da troca. Examine a lista cuidadosamente e siga as instruções antes de prosseguir.
+1. Dependendo da oferta para qual esteja trocando, é provável que você veja uma observação sobre o impacto da troca. Examine a lista atentamente e siga as instruções antes de continuar.
 
    ![Analise as notas](./media/switch-azure-offer/thingstonote.png)
-1. Você pode renomear sua assinatura. Por padrão, podemos defini-la com o nome da nova oferta. Clique em **Alterar Oferta** para concluir o processo.
+1. Você pode renomear sua assinatura. Por padrão, ela não está definida com o nome da nova oferta. Clique em **Alterar Oferta** para concluir o processo.
 
    ![Clique no botão verde](./media/switch-azure-offer/confirmpage.png)
 1. Êxito! Sua assinatura foi trocada pela nova oferta.
@@ -96,11 +96,11 @@ Quando você muda de oferta, qualquer [aumento de cota ou de limite acima do lim
 
 #### <a name="billing"></a>Cobrança
 
-No dia da alteração, uma fatura é gerada para todos os encargos pendentes. Em seguida, sua assinatura é cobrada pelos termos de preços da nova oferta. O vencimento da cobrança da assinatura será alterado para a data da alteração da oferta. Os dados de uso e de cobrança anteriores à alteração da oferta não serão mantidos, portanto, recomendamos que você baixe uma cópia antes da troca.
+No dia da alteração, uma fatura é gerada para todos os encargos pendentes. Em seguida, sua assinatura é cobrada pelos termos de preços da nova oferta. O vencimento da cobrança da assinatura será alterado para a data da alteração da oferta. Os dados de uso e de cobrança anteriores à alteração da oferta não são mantidos, portanto, recomendamos que você baixe uma cópia antes da troca.
 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Posso migrar de uma assinatura com taxas pagas conforme o uso para o CSP (Provedor de Soluções na Nuvem) ou o EA (Contrato Enterprise)?
 
-* Para migrar para o CSP, consulte [Migração de assinatura com Pagamento Conforme o Uso para CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Para migrar para o CSP, confira [Transferir assinaturas do Azure entre assinantes e CSPs](transfer-subscriptions-subscribers-csp.md).
 * Para migrar para o EA, peça ao Administrador de Registro para adicionar sua conta no EA. Siga as instruções no email de convite para que suas assinaturas sejam movidas para o registro de EA. Para saber mais, confira [Associar uma conta existente](https://ea.azure.com/helpdocs/associateExistingAccount) no portal do EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Posso migrar dados e serviços para uma nova assinatura?

@@ -14,23 +14,21 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 35d5bb13cf9c3735c61173177a3b94f4594c9272
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75638656"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714127"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>APIs do Microsoft Graph para Privileged Identity Management (versão prévia)
 
-Você pode executar todas as tarefas do Privileged Identity Management usando as [APIs do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/overview) para Azure Active Directory. Este artigo descreve conceitos importantes para uso das APIs do Microsoft Graph para Privileged Identity Management.
+Você pode executar tarefas do Privileged Identity Management usando as [APIs do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/overview) para o Azure Active Directory. Este artigo descreve conceitos importantes para uso das APIs do Microsoft Graph para Privileged Identity Management.
 
 Para obter detalhes sobre as APIs do Microsoft Graph, confira a [Referência de API do Azure AD Privileged Identity Management](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
 
 > [!IMPORTANT]
 > APIs na versão /beta no Microsoft Graph estão em versão prévia e estão sujeitas a alterações. Não há suporte para o uso dessas APIs em aplicativos de produção.
->
-> Embora haja suporte para todas as operações do PIM por meio dos comandos da API do Graph, usamos outro sistema para aprovar as solicitações de ativação. A API do Graph para aprovação está sendo desenvolvida no momento e será lançada nos próximos meses.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 

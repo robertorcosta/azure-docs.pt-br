@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: spelluru
-ms.openlocfilehash: fd4b41cc2fe97ad0c2f075884e21f4f2ffc01561
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44e77330e6a651a93b1f88fa6b20450ebc2b1455
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159447"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773983"
 ---
-# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Enviar e receber eventos bidirecionalmente dos Hubs de Eventos do Azure – .NET Core (Azure.Messaging.EventHubs) 
-Este início rápido mostra como enviar e receber eventos de um hub de eventos usando o pacote de .NET Core **Azure.Messaging.EventHubs**. 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Enviar e receber eventos dos Hubs de Eventos do Azure – .NET (Azure.Messaging.EventHubs) 
+Este início rápido mostra como enviar e receber eventos de um hub de eventos usando a biblioteca **Azure.Messaging.EventHubs** do .NET. 
 
 > [!IMPORTANT]
 > Este início rápido usa a nova biblioteca **Azure.Messaging.EventHubs**. Para ver um início rápido que usa a biblioteca antiga **Microsoft.Azure.EventHubs**, confira [Enviar e receber eventos usando a biblioteca Microsoft.Azure.EventHubs](event-hubs-dotnet-standard-getstarted-send.md). 
@@ -34,7 +34,7 @@ Se você estiver conhecendo agora os Hubs de Eventos do Azure, confira [Visão g
 Para concluir este início rápido, você precisará dos seguintes pré-requisitos:
 
 - **Assinatura do Microsoft Azure**. Para usar os serviços do Azure, incluindo os Hubs de Eventos do Azure, você precisa ter uma assinatura.  Caso não tenha uma conta existente do Azure, inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/free/) ou use os benefícios do assinante do MSDN quando [criar uma conta](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. A biblioteca de clientes dos Hubs de Eventos do Azure usa novos recursos que foram introduzidos no C# 8.0.  Você ainda poderá usar a biblioteca com versões mais antigas do C#, mas algumas das funcionalidades não estarão disponíveis.  Para habilitar esses recursos, você precisará [ter como destino o .NET Core 3.0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) ou [especificar a versão da linguagem](/dotnet/csharp/language-reference/configure-language-version#override-a-default) que deseja usar (8.0 ou acima). Se você estiver usando o Visual Studio, as versões anteriores ao Visual Studio 2019 não serão compatíveis com as ferramentas necessárias para compilar projetos C# 8.0. O Visual Studio 2019, incluindo a edição Community gratuita, pode ser baixado [aqui](https://visualstudio.microsoft.com/vs/)
+- **Microsoft Visual Studio 2019**. A biblioteca de clientes dos Hubs de Eventos do Azure usa novos recursos que foram introduzidos no C# 8.0.  Você ainda pode usar a biblioteca com versões anteriores da linguagem C#, mas a nova sintaxe não estará disponível. Para usar a sintaxe completa, é recomendável que você compile com o [SDK do .NET Core](https://dotnet.microsoft.com/download) 3.0 ou superior e a [versão de linguagem](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) definida como `latest`. Se você estiver usando o Visual Studio, as versões anteriores ao Visual Studio 2019 não serão compatíveis com as ferramentas necessárias para compilar projetos C# 8.0. O Visual Studio 2019, incluindo a edição Community gratuita, pode ser baixado [aqui](https://visualstudio.microsoft.com/vs/).
 - **Criar um namespace de Hubs de Eventos e um hub de eventos**. A primeira etapa é usar o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo Hubs de eventos e obter as credenciais de gerenciamento das quais que seu aplicativo precisa para se comunicar com o hub de eventos. Para criar um namespace e um hub de eventos, siga o procedimento [nesse artigo](event-hubs-create.md). Em seguida, obtenha a **cadeia de conexão para o namespace dos Hubs de Eventos** seguindo as instruções do artigo: [Obter a cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Você usa a cadeia de conexão posteriormente no início rápido.
 
 ## <a name="send-events"></a>Enviar eventos 

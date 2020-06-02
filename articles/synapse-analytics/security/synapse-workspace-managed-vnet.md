@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 162d96244b01f8c5e1acf224475aadb9508f0aa5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 623b6325b88f42f0076c84a221864762cd3918f9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419480"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645227"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Rede virtual gerenciada do Azure Synapse Analytics (versão prévia)
 
@@ -40,6 +40,8 @@ O pool de SQL e o SQL sob demanda são recursos multilocatários e, portanto, re
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>Criar um workspace do Azure Synapse com uma VNet de workspace gerenciada
 
+Registre o provedor de recursos de rede, caso ainda não tenha feito isso. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Escolha *Microsoft.Network* na lista de provedores de recursos ao se [registrar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
 Para criar um workspace do Azure Synapse que tenha uma VNet de workspace gerenciada associada a ele, selecione a guia **Segurança + rede** no portal do Azure e marque a caixa de seleção **Habilitar rede virtual gerenciada**.
 
 Se você deixar a caixa de seleção desmarcada, o workspace não terá uma VNet associada a ela.
@@ -50,7 +52,7 @@ Se você deixar a caixa de seleção desmarcada, o workspace não terá uma VNet
 ![Habilitar a VNet de workspace gerenciada](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
->Todo o tráfego de saída da VNet de workspace gerenciada será bloqueado no futuro. É recomendável que você se conecte a todas as suas fontes de dados usando Pontos de extremidade privados gerenciados.
+>Todo o tráfego de saída da VNet de workspace gerenciada, exceto por meio de pontos de extremidade privados gerenciados, será bloqueado no futuro. É recomendável que você crie pontos de extremidade privados gerenciados para se conectar a todas as suas fontes de dados do Azure externas ao workspace. 
 
 Você pode verificar se o workspace do Azure Synapse está associado a uma VNet de workspace gerenciada selecionando **Visão geral** no portal do Azure.
 

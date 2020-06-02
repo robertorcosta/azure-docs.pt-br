@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 6b165df42da35077c7ef252291d8e1514bb3b1b0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: bfac12c6ef278072c6bb44d55dc12926fe906e6f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996008"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747689"
 ---
 ::: zone target="docs"
 
@@ -49,7 +49,7 @@ Antes de começar, verifique se você concluiu o [Tutorial: copiar dados para o 
     - É recomendável que empacotar os discos usando um plástico bolha bem ajustado.
     - Verifique se que o ajuste é firme para reduzir qualquer movimentos dentro da caixa.
 
-As próximas etapas são determinadas pelo local em você está devolvendo o dispositivo. As instruções são diferentes para EUA/Canadá, UE (União Europeia), Austrália ou países da Ásia.
+As próximas etapas são determinadas pelo local em você está devolvendo o dispositivo. As instruções são diferentes para EUA/Canadá, UE (União Europeia), Austrália e países/regiões na Ásia.
 
 ### <a name="in-us-or-canada"></a>[Nos EUA ou no Canadá](#tab/in-us-or-canada)
 
@@ -142,10 +142,10 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
     To: kadcustcare@singpost.com
     Subject: Microsoft Azure Pick-up - XZ00001234567 
     Body: 
-     a. Requestor name
-     b. Requestor contact number
-     c. Requestor collection address
-     d. Preferred collection date
+     a.    Requestor name
+     b.    Requestor contact number
+     c.    Requestor collection address
+     d.    Preferred collection date
     ```
 
    > [!NOTE]
@@ -167,7 +167,7 @@ Se estiver usando o Data Box Disk no Japão, em Singapura, na Coreia do Sul e no
 
     ```
     To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
     Body: 
      a. Order name
      b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.

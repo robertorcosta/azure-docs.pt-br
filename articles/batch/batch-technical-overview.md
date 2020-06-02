@@ -1,14 +1,14 @@
 ---
 title: O Lote do Azure executa grandes trabalhos paralelos na nuvem
 description: Saiba mais sobre o uso do serviço Lote do Azure para cargas de trabalho paralelas e HPC em larga escala.
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116342"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779558"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Lote do Azure?
 
@@ -74,7 +74,7 @@ O diagrama a seguir mostra etapas em um fluxo de trabalho do Lote comum, com um 
 
 Lembre-se de que essa é apenas uma maneira de usar o Lote, e este cenário descreve apenas alguns de seus recursos disponíveis. Por exemplo, você pode executar [várias tarefas em paralelo](batch-parallel-node-tasks.md) em cada nó de computação. Ou usar [tarefas de preparação e conclusão do trabalho](batch-job-prep-release.md) para preparar os nós para os trabalhos e limpá-los posteriormente. 
 
-Confira a [Visão geral do recurso do Lote para desenvolvedores](batch-api-basics.md) para obter informações mais detalhadas sobre os recursos do serviço Lote, como pools, nós, trabalhos e tarefas, e os muitos recursos da API que você pode usar ao criar o aplicativo do Lote. Confira também as [atualizações de serviço Lote](https://azure.microsoft.com/updates/?product=batch) mais recentes.
+Consulte o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) para uma visão geral dos recursos como pools, nós, trabalhos e tarefas. Confira também as [atualizações de serviço Lote](https://azure.microsoft.com/updates/?product=batch) mais recentes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

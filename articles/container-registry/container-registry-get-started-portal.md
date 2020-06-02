@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar um registro de Docker privado no Regist
 ms.topic: quickstart
 ms.date: 03/03/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 0875e5be628ddfe47696a9d4fc537a8a07122804
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79409216"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682810"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início Rápido: criar um registro de contêiner privado usando o portal do Azure
 
@@ -35,7 +35,7 @@ Na guia **Noções básicas**, insira valores para **Grupo de recursos** e **Nom
 
 Aceite os valores padrão para as configurações restantes. Em seguida, selecione **Examinar + criar**. Depois de revisar as configurações, selecione **Criar**.
 
-Neste início rápido você criará um Registro *Básico*, que é uma opção com otimização de custo para desenvolvedores que estão aprendendo sobre o Registro de Contêiner do Azure. Para obter detalhes sobre as camadas de serviço disponíveis, confira [SKUs de registro de contêiner][container-registry-skus].
+Neste início rápido você criará um Registro *Básico*, que é uma opção com otimização de custo para desenvolvedores que estão aprendendo sobre o Registro de Contêiner do Azure. Para obter detalhes sobre as camadas de serviço disponíveis, confira [Camadas de serviço do registro de contêiner][container-registry-skus].
 
 Quando a mensagem **Implantação bem-sucedida** é exibida, selecione o registro de contêiner no portal. 
 

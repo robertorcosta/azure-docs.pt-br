@@ -3,34 +3,26 @@ title: Contratos e aditamentos de EA do Azure
 description: Este artigo explica como os contratos e aditamentos de EA do Azure afetam o uso do Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691002"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648188"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
 
 O artigo explica como os contratos e aditamentos do Azure EA podem afetar seu acesso, uso e pagamento pelos serviços do Azure.
 
-## <a name="amendment-status"></a>Status do aditamento
-
-Qualquer aditamento para os clientes do Azure precisa passar pelo parceiro ou equipe de conta Microsoft desses clientes e ser processado pelo centro de operações regionais. Se acreditar que um aditamento não foi processado, consulte seu parceiro, consultor de software ou equipe de contas Microsoft.
-
 ## <a name="enrollment-provisioning-status"></a>Status de provisionamento do registro
 
 A data de início de um novo compromisso monetário é definida pela data em que o centro de operações regionais o processou. Como as ordens de compromisso monetário realizadas por meio do portal do Azure EA são processadas no fuso horário UTC, você poderá enfrentar algum atraso se sua ordem de compra de compromisso monetário tiver sido processada em uma região diferente. A data de início da cobertura na ordem de compra em https://www.explore.ms mostra o início do compromisso monetário. A data de início da cobertura é quando o compromisso monetário aparece no Portal do EA do Azure.
 
-## <a name="support-offer-not-provisioned"></a>Oferta de suporte não provisionada
-
-Você pode solicitar suporte Standard ou Pro-Direct comprando SKUs específicos a um suporte. O pedido é semelhante a uma ordem de compra do SKU monetário do Azure do EA. Por exemplo, 6QK-00001. Os números de SKU de suporte são W6T-00002 (Pro-Direct) e W6T-00003 (Standard). Verifique as ofertas de suporte atuais antes de comprar SKUs de suporte.
-
-O registro precisa ter pelo menos uma conta ativa para que a oferta de suporte seja provisionada.
+## <a name="support-for-enterprise-customers"></a>Compatibilidade com clientes empresariais
 
  A [Oferta do plano de suporte do Contrato Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support/) do Azure está disponível para alguns clientes.
 
@@ -158,24 +150,6 @@ Você pode solicitar um aumento de cota a qualquer momento enviando uma [solicit
 - A ID da Assinatura do Portal do Desenvolvedor do Azure associada ao seu serviço.
   - Para saber mais sobre como obter sua ID de assinatura, [entre em contato com o suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## <a name="azure-compute-pre-purchase-plan-cpp"></a>Plano de pré-aquisição de computação (CPP) do Azure
-
-O Plano de pré-aquisição de computação do Azure (CPP, anteriormente conhecido como Promoção de computação do Azure) é uma oferta que fornece aos clientes com cargas de trabalho estáveis e previsíveis a oportunidade de obter a computação por um desconto considerável ao comprar previamente a computação do Azure por 12 meses. Ele está disponível para o EA e visível no portal de EA.
-
-Se você solicitou um SKU de CPP, será para um tipo específico de computador em um data center específico. A situação atual desse recurso não permite que forneçamos uma lista de todas as compras de CPP feitas por um cliente. Portanto, não há uma lista de créditos em espera. No entanto, ao configurar os tipos de computadores comprados no data center em que foram adquiridos, você verá a alocação mensal no relatório de Resumo do uso no portal do EA.
-
-O valor da pré-aquisição será exibido como um crédito na coluna "Unidades Incluídas", e o uso não resultará em cobranças até que as "Unidades Incluídas" sejam consumidas. Após o consumo, o uso adicional estará em taxas negociadas na tabela de preços normal do EA do cliente.
-
-A maneira de compra dos créditos têm base no número de computadores de uma classe por mês. Por exemplo: se você comprou 70 VMs A2 por ano no Leste dos EUA 2, não veria isso no portal do EA da mesma maneira que comprou.
-
-As máquinas mensais são calculadas como em execução 744 horas por mês. A conversão disso em horas daria 70 vezes 744 ou 52.080 horas adquiridas de VMs A2 por mês. Como no Resumo do uso do Portal do EA as VMs A2 são indicadas em incrementos de 100 horas, você verá um crédito de 520,8 (52.080/100) "Unidades Incluídas" por mês e verá as unidades consumidas até o momento no mês. Os encargos de uso devem aparecer como zero até que as unidades mensais consumidas excedam as unidades mensais incluídas.
-
-Tipos diferentes de computador usam unidades diferentes de medida. Por exemplo, as VMs D3 e D4 usam uma unidade de medida de 10 horas em nosso relatório Resumo do uso, de modo que uma compra de 70 delas mostraria 5208 unidades incluídas por mês (52.080/10).
-
-Em geral, a fórmula abaixo fornecerá o número de VMs adquiridas com base nas unidades de medida:
-
-<center><b> ("Quantidade Incluída" * "Unidades de Medida")/744 </b></center>
-
 ## <a name="plan-skus"></a>SKUs do plano
 
 As SKUs do plano oferecem a capacidade de comprar um pacote de serviços integrados por uma taxa com desconto. As SKUs do plano foram projetadas para se complementarem por meio de ofertas integradas adicionais e proporcionarem maior economia de custos.
@@ -191,35 +165,6 @@ Os Administradores Corporativos podem atribuir Proprietários de Conta para prov
 1. Clique na guia **Tabela de preços**.
 1. Clique no ícone "Download" no canto superior direito.
 1. Encontre os números de referência do SKU do plano correspondente com o filtro na coluna "Quantidade Incluída" e selecione valores maiores que "0".
-
-### <a name="provision-the-plan-skus"></a>Provisionar as SKUs do plano
-
-Os administradores corporativos podem adicionar novos proprietários de conta, associar um proprietário de conta existente ou solicitar que os proprietários de conta existentes entrem no portal do Azure EA para provisionar SKUs de plano adquiridos anteriormente no portal do Azure EA executando as etapas abaixo.  
-
-**Adicionar um novo Proprietário de Conta (feito pelo administrador do EA):**
-
-1. No Portal do Azure EA, escolha **Gerenciar** na área de navegação à esquerda.
-1. Clique na guia **Conta**.
-1. Na página Conta, clique em **+Adicionar Conta**.
-1. Selecione um departamento ou deixe como não atribuído.
-1. Selecione o tipo de autenticação pretendido.
-1. Forneça um nome amigável que você gostaria de usar para identificar esta conta no relatório.
-1. Insira o endereço de email do proprietário da conta que você quer associar à nova conta.
-1. Confirme o endereço de email que você deseja associar à nova conta.
-1. Clique em **Adicionar**.
-1. Você pode adicionar outra conta clicando em **Adicionar outra conta** ou pode clicar no botão **Adicionar** no canto inferior direito da barra de ferramentas à esquerda.
-1. Agora, o proprietário da conta pode entrar e adicionar as assinaturas relevantes para provisionar as SKUs do plano
-
-**Associar um proprietário de uma conta existente:**
-
-1. No Enterprise Portal, clique em **Gerenciar**.
-1. Clique na guia **Conta**.
-1. Clique em **+Adicionar uma conta**. Insira a conta Microsoft ou a conta corporativa ou de estudante associada à conta existente.
-1. Confirme a conta Microsoft ou a conta corporativa ou de estudante associada à conta existente.
-1. Forneça um nome que você gostaria de usar para identificar esta conta nos relatórios.
-1. Clique em **Adicionar**.
-1. Você pode adicionar outra conta selecionando novamente a opção **+Adicionar uma conta** ou pode retornar à página inicial escolhendo o botão **Administrador**.  
-1. Se você clicar para exibir a página Conta, a conta recém-adicionada será exibida com o status "Pendente". Ela será alterada para o status "Ativo" depois que o proprietário da conta fizer logon no Portal do EA pela primeira vez.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Proprietários de conta novos/existentes para criar novas assinaturas
 

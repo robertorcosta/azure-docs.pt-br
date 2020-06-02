@@ -3,12 +3,12 @@ title: O que é Reconhecimento Vocal (LUIS)?
 description: O Reconhecimento Vocal (LUIS) é um serviço de API baseado em nuvem que aplica inteligência de aprendizado de máquina personalizado em um texto de linguagem natural de conversação do usuário prever o significado geral, e extrair informações detalhadas relevantes.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: d09aaabeec1d22132843ba98472e1cd89ba95815
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592807"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675986"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 
@@ -46,7 +46,7 @@ Um aplicativo LUIS contém um modelo de linguagem natural de domínio específic
 
 * **Modelo predefinido** LUIS tem muitos modelos de domínio que incluem intenções, expressões e entidades predefinidas. Você pode usar as entidades predefinidas sem a necessidade de usar as intenções e expressões do modelo predefinido. [Modelos de domínio predefinidos](luis-how-to-use-prebuilt-domains.md) incluem todo o design para você e são uma ótima maneira de começar a usar o LUIS rapidamente.
 
-* **O modelo personalizado** LUIS oferece várias maneiras de identificar seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades aprendidas por máquina, entidades específicas ou literais e uma combinação de aprendidas por máquina e literal.
+* **O modelo personalizado** LUIS oferece várias maneiras de identificar seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades de aprendizado de máquina, entidades específicas ou literais e uma combinação de aprendizado de máquina e literal.
 
 ## <a name="build-the-luis-model"></a>Criar o modelo LUIS
 Criar o modelo com as APIs de [criação](https://go.microsoft.com/fwlink/?linkid=2092087) ou com o [portal do LUIS](https://www.luis.ai).

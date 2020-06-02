@@ -1,5 +1,5 @@
 ---
-title: Como usar o SQL sob demanda (versão prévia)
+title: Usar SQL sob demanda (versão prévia)
 description: Neste início rápido, você verá e aprenderá como é fácil consultar vários tipos de arquivos usando o SQL sob demanda (versão prévia).
 services: synapse-analytics
 author: azaricstefan
@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 6d107dcbdc31a0049c7685e6dd8223bda694a526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692164"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836797"
 ---
-# <a name="quickstart-using-sql-on-demand"></a>Início Rápido: Como usar o SQL sob demanda
+# <a name="quickstart-use-sql-on-demand"></a>Início Rápido: Usar o SQL sob demanda
 
-O Synapse SQL sob demanda (versão prévia) é um serviço de consulta sem servidor que permite executar as consultas SQL em arquivos colocados no Armazenamento do Azure. Neste início rápido, você aprenderá a consultar vários tipos de arquivos usando o SQL sob demanda.
+O Synapse SQL sob demanda (versão prévia) é um serviço de consulta sem servidor que permite executar as consultas SQL em arquivos colocados no Armazenamento do Azure. Neste início rápido, você aprenderá a consultar vários tipos de arquivos usando o SQL sob demanda. Os formatos compatíveis são listados em [OPENROWSET](sql/develop-openrowset.md).
 
-Há suporte para os seguintes tipos de arquivo: JSON, CSV, Apache Parquet
+Este início rápido mostra a consulta de: arquivos CSV, Apache Parquet e JSON.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,36 +60,24 @@ Use a seguinte consulta, alterando `mydbname` para um nome de sua escolha:
 CREATE DATABASE mydbname
 ```
 
-### <a name="create-credentials"></a>Criar credenciais
+### <a name="create-data-source"></a>Criar a fonte de dados
 
-Para executar consultas usando o SQL sob demanda, crie credenciais para uso pelo SQL sob demanda para acessar arquivos no armazenamento.
-
-> [!NOTE]
-> Para executar com êxito os exemplos desta seção, você precisa usar um token SAS.
->
-> Para começar a usar tokens SAS, você precisa descartar o UserIdentity, que é explicado no [artigo](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through) a seguir.
->
-> O SQL sob demanda sempre usa por padrão a passagem do AAD.
-
-Para obter mais informações sobre como gerenciar o controle de acesso ao armazenamento, confira o artigo [Controlar o acesso à conta de armazenamento para o SQL sob demanda ](sql/develop-storage-files-storage-access-control.md).
-
-Execute o seguinte snippet de código para criar as credenciais usada nos exemplos nesta seção:
+Para executar consultas usando o SQL sob demanda, crie uma fonte de dados para uso pelo SQL sob demanda para acessar arquivos no armazenamento.
+Execute o seguinte snippet de código para criar a fonte de dados usada nos exemplos nesta seção:
 
 ```sql
 -- create credentials for containers in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
+CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
 ```
 
-## <a name="querying-csv-files"></a>Como consultar arquivos CSV
+## <a name="query-csv-files"></a>Consultar arquivos CSV
 
 A seguinte imagem é uma visualização do arquivo a ser consultado:
 
@@ -101,8 +89,9 @@ A seguinte consulta mostra como ler um arquivo CSV que não contém uma linha de
 SELECT TOP 10 *
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
-    , FORMAT = 'CSV'
+      BULK 'csv/population/*.csv',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT = 'CSV', PARSER_VERSION = '2.0'
   )
 WITH
   (
@@ -118,7 +107,7 @@ WHERE
 Você pode especificar o esquema no momento da compilação da consulta.
 Para obter mais exemplos, confira como [consultar um arquivo CSV](sql/query-single-csv-file.md).
 
-## <a name="querying-parquet-files"></a>Como consultar arquivos Parquet
+## <a name="query-parquet-files"></a>Consultar arquivos Parquet
 
 A amostra a seguir apresenta as funcionalidades de inferência automática de esquemas para consulta de arquivos Parquet. Ela retorna o número de linhas em setembro de 2017 sem especificar o esquema.
 
@@ -129,14 +118,15 @@ A amostra a seguir apresenta as funcionalidades de inferência automática de es
 SELECT COUNT_BIG(*)
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet'
-    , FORMAT='PARQUET'
+      BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT='PARQUET'
   ) AS nyc
 ```
 
 Encontre mais informações sobre [como consultar arquivos parquet](sql/query-parquet-files.md).
 
-## <a name="querying-json-files"></a>Como consultar arquivos JSON
+## <a name="query-json-files"></a>Consultar arquivos JSON
 
 ### <a name="json-sample-file"></a>Arquivo de exemplo JSON
 
@@ -158,7 +148,7 @@ Os arquivos são armazenados no contêiner *json* e na pasta *books* e contêm u
 }
 ```
 
-### <a name="querying-json-files"></a>Como consultar arquivos JSON
+### <a name="query-json-files"></a>Consultar arquivos JSON
 
 A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, editor) de um livro com o título *Probabilística e métodos estatísticos em criptologia, uma introdução com artigos selecionados*:
 
@@ -169,7 +159,8 @@ SELECT
   , jsonContent
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json'
+      BULK 'json/books/*.json',
+      DATA_SOURCE = 'SqlOnDemandDemo'
     , FORMAT='CSV'
     , FIELDTERMINATOR ='0x0b'
     , FIELDQUOTE = '0x0b'

@@ -8,22 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 8cab88b9d3a861c72d382534705ea5c087fe9ecb
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0728aa84447573bd8d335daf84c01138c627ecb5
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382643"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848647"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Java
 
-Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Este aplicativo Java simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) com anotações de código, recursos e tratamentos de erro adicionais.
+Use este início rápido para fazer sua primeira chamada à API da Pesquisa de Vídeo do Bing. Este aplicativo Java simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. 
+
+O código-fonte para deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) com anotações de código, recursos e tratamentos de erro adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+* O [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
 * A [biblioteca Gson](https://github.com/google/gson)
 
@@ -32,7 +34,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo projeto Java em seu IDE ou editor favorito e importe as bibliotecas a seguir.
+1. Crie um projeto do Java em seu IDE ou editor favorito e importe as seguintes bibliotecas:
 
     ```java
     import java.net.*;
@@ -59,7 +61,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
     }
     ```
 
-3. Criar um novo método chamado `SearchVideos()` com variáveis para seu host do ponto de extremidade e caminho da API, sua chave de assinatura e um termo de pesquisa. Ele retornará um objeto `SearchResults`. `host` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+3. Criar um método chamado `SearchVideos()` com variáveis para seu host do ponto de extremidade e caminho da API, sua chave de assinatura e um termo de pesquisa. Esse método retorna um objeto `SearchResults`. Para o valor `host`, você pode usar o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {
@@ -72,66 +74,66 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
 
 ## <a name="construct-and-send-the-search-request"></a>Construir e enviar a solicitação de pesquisa
 
-1. Em `SearchVideos()`, execute as seguintes etapas:
+No método `SearchVideos()`, execute as seguintes etapas:
 
-    1. construir a URL para a sua solicitação combinando sua API host e caminho e codificando sua consulta de pesquisa. Em seguida, use `openConnection()` para criar uma conexão e adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
+1. Construa a URL para a sua solicitação combinando seu host de API, caminho e consulta de pesquisa codificada. Use `openConnection()` para criar uma conexão e adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
-        ```java
-        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        ```
+     ```java
+     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+     connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+     ```
 
-    2. Obtenha a resposta da API e armazene a cadeia de caracteres JSON.
+2. Obtenha a resposta da API e armazene a cadeia de caracteres JSON.
 
-        ```java
-        InputStream stream = connection.getInputStream();
-        String response = new Scanner(stream).useDelimiter("\\A").next();
-        ```
+     ```java
+     InputStream stream = connection.getInputStream();
+     String response = new Scanner(stream).useDelimiter("\\A").next();
+     ```
 
-    3. Use `getHeaderFields();` para extrair os cabeçalhos HTTP da resposta e armazenar daquelas relacionadas ao Bing no objeto `results`. Em seguida, feche o fluxo e retorne o resultado.
+ 3. Use `getHeaderFields()` para extrair os cabeçalhos HTTP da resposta e armazenar daquelas relacionadas ao Bing no objeto `results`. Em seguida, feche o fluxo e retorne o resultado.
 
-        ```java
-        // extract Bing-related HTTP headers
-        Map<String, List<String>> headers = connection.getHeaderFields();
-        for (String header : headers.keySet()) {
-            if (header == null) continue;      // may have null key
-            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                results.relevantHeaders.put(header, headers.get(header).get(0));
-            }
-        }
-        stream.close();
-        return results;
-        ```
+     ```java
+     // extract Bing-related HTTP headers
+     Map<String, List<String>> headers = connection.getHeaderFields();
+     for (String header : headers.keySet()) {
+         if (header == null) continue;      // may have null key
+         if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
+             results.relevantHeaders.put(header, headers.get(header).get(0));
+         }
+     }
+     stream.close();
+     return results;
+     ```
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-1. Crie um método chamado `prettify()` para formatar a resposta retornada da API de Vídeo do Bing. Use a biblioteca de Gson `JsonParser` pegar uma cadeia de caracteres JSON e convertê-la em um objeto. Em seguida, use `GsonBuilder()` e `toJson()` para criar a cadeia de caracteres formatada. 
+Crie um método chamado `prettify()` para formatar a resposta retornada da API de Vídeo do Bing. Use a biblioteca de Gson `JsonParser` para converter uma cadeia de caracteres JSON em um objeto. Em seguida, use `GsonBuilder()` e `toJson()` para criar a cadeia de caracteres formatada.
 
-    ```java
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-    ```
+```java
+// pretty-printer for JSON; uses GSON parser to parse and re-serialize
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
 ## <a name="send-the-request-and-print-the-response"></a>Envie a solicitação e imprimir a resposta
 
-1. No método principal do seu aplicativo, chame `SearchVideos` com seu termo de pesquisa. Você pode imprimir os cabeçalhos HTTP armazenados na resposta, bem como a cadeia de caracteres JSON retornada pela API.
+No método principal do seu aplicativo, chame `SearchVideos` com seu termo de pesquisa. Em seguida, imprima os cabeçalhos HTTP armazenados na resposta, bem como a cadeia de caracteres JSON retornada pela API.
 
-    ```java
-    public static void main (String[] args) {
+ ```java
+ public static void main (String[] args) {
 
-        SearchResults result = SearchVideos(searchTerm);
-        //print the Relevant HTTP Headers
-        for (String header : result.relevantHeaders.keySet())
-            System.out.println(header + ": " + result.relevantHeaders.get(header));
-        System.out.println(prettify(result.jsonResponse));
-    }
-    ```
+     SearchResults result = SearchVideos(searchTerm);
+     //print the Relevant HTTP Headers
+     for (String header : result.relevantHeaders.keySet())
+         System.out.println(header + ": " + result.relevantHeaders.get(header));
+     System.out.println(prettify(result.jsonResponse));
+ }
+ ```
 
 ## <a name="json-response"></a>Resposta JSON
 

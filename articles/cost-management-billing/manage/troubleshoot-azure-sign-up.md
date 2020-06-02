@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2ccb2b7fca8a5615d56c25b9ea09a26caf295a2b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133178"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745541"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Solucionar problemas ao se inscrever para uma nova conta no portal do Azure ou no Centro de Contas do Azure
 
@@ -63,7 +63,7 @@ Use as etapas a seguir para atualizar as configurações de cookies do navegador
 
 ### <a name="credit-card-form-doesnt-support-my-billing-address"></a>O formulário de cartão de crédito não dá suporte ao meu endereço para cobrança
 
-Seu endereço para cobrança precisa estar localizado no país selecionado na seção **Sobre você**. Verifique se selecionou o país correto.
+Seu endereço para cobrança precisa estar localizado no país/região selecionado na seção **Sobre você**. Não deixe de selecionar o país/região correto.
 
 ### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Nenhuma mensagem de texto ou chamada durante a verificação da conta de inscrição
 
@@ -72,7 +72,7 @@ Embora o processo seja normalmente rápido, pode levar até quatro minutos para 
 Estas são algumas outras dicas:
 
 - Um número de telefone VoIP (Voz sobre IP) não pode ser usado para o processo de verificação por telefone.
-- Confira o número de telefone inserido, incluindo o código do país selecionado no menu suspenso.
+- Confira o número de telefone inserido, incluindo o código do país/região selecionado no menu suspenso.
 - Se o telefone não receber mensagens de texto (SMS), tente a opção **Ligar para mim**.
 - Verifique se o telefone pode receber chamadas ou mensagens SMS de um número de telefone localizado nos Estados Unidos.
 
