@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Pesquisar imagens usando a API REST de Pesquisa de Imagem do Bing e Node.js'
 titleSuffix: Azure Cognitive Services
-description: Use este início rápido para enviar solicitações de pesquisa de imagem para a API REST de Pesquisa de Imagem do Bing usando JavaScript e receba uma resposta JSON.
+description: Use este guia de início rápido para enviar solicitações de pesquisa de imagens para a API REST de Pesquisa de Imagem do Bing usando JavaScript e respostas JSON.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -9,19 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 15757d606a846a2951bc5c15d8d5ef0dbfd7a2a1
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 597a12353fa573c628162b110f4e08e6d3a69b86
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80478603"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118908"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>Início Rápido: Pesquisar imagens usando a API REST de Pesquisa de Imagem do Bing e Node.js
 
-Use este guia de início rápido para começar a enviar solicitações de pesquisa para a API de Pesquisa de Imagem do Bing. Esse aplicativo JavaScript envia uma consulta de pesquisa para a API e exibe a URL da primeira imagem nos resultados. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este início rápido para aprender a enviar solicitações de pesquisa para a API da Pesquisa de Imagem do Bing. Esse aplicativo JavaScript envia uma consulta de pesquisa para a API e exibe a URL da primeira imagem nos resultados. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) com anotações e tratamentos de erro adicionais.
 
@@ -29,22 +29,22 @@ O código-fonte para esse exemplo está disponível [no GitHub](https://github.c
 
 * A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 
-* A [biblioteca de solicitações JavaScript](https://github.com/request/request)  
+* A [Biblioteca de Solicitações JavaScript](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Para obter mais informações, confira [Preço dos Serviços Cognitivos – API de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-1. Crie um novo arquivo JavaScript no seu IDE ou editor favorito e defina o rigor e os requisitos de https.
+1. Crie um arquivo JavaScript no seu IDE ou editor favorito e defina o rigor e os requisitos de HTTPS.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Crie variáveis para o ponto de extremidade da API, caminho de pesquisa da API de imagem, sua chave de assinatura e o termo de pesquisa. `host` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Crie variáveis para o ponto de extremidade da API, caminho de pesquisa da API de imagem, sua chave de assinatura e o termo de pesquisa. Para `host`, você pode usar o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -55,7 +55,7 @@ Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azur
 
 ## <a name="construct-the-search-request-and-query"></a>Construa a solicitação de pesquisa e a consulta.
 
-1. Use as variáveis da última etapa para formatar uma URL de pesquisa para a solicitação da API. O termo de pesquisa deve ser codificado como URL antes de ser enviado para a API.
+1. Use as variáveis da última etapa para formatar uma URL de pesquisa para a solicitação da API. Codifique a URL do seu termo de pesquisa antes de enviá-la para a API.
 
     ```javascript
     let request_params = {
@@ -68,7 +68,7 @@ Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azur
     };
     ```
 
-2. Use a biblioteca de solicitação para enviar sua consulta para a API. `response_handler` será definido na próxima seção.
+2. Use a biblioteca de solicitação para enviar sua consulta para a API. 
     ```javascript
     let req = https.request(request_params, response_handler);
     req.end();
@@ -76,32 +76,34 @@ Veja também [Cognitive Services Pricing - API de Pesquisa do Bing](https://azur
 
 ## <a name="handle-and-parse-the-response"></a>Lidar e analisar a resposta
 
-1. defina uma função chamada `response_handler` que usa uma chamada HTTP, `response`, como um parâmetro. Siga estas etapas nesta função:
+1. Defina uma função chamada `response_handler` que usa uma chamada HTTP, `response`, como um parâmetro. 
 
-    1. Defina uma variável para conter o corpo da resposta JSON.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
-        ```
+2. Dentro dessa função, defina uma variável para conter o corpo da resposta JSON. 
 
-    2. Armazene o corpo da resposta quando o sinalizador **dados** for chamado
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
 
-    3. Quando um sinalizador **fim** é sinalizado, obtenha o primeiro resultado da resposta JSON. Imprima a URL da primeira imagem, juntamente com o número total de imagens retornadas.
+3. Armazene o corpo da resposta quando o sinalizador `data` for chamado.
 
-        ```javascript
-        response.on('end', function () {
-            let firstImageResult = imageResults.value[0];
-            console.log(`Image result count: ${imageResults.value.length}`);
-            console.log(`First image thumbnail url: ${firstImageResult.thumbnailUrl}`);
-            console.log(`First image web search url: ${firstImageResult.webSearchUrl}`);
-         });
-        ```
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
+
+4. Quando um sinalizador `end` é sinalizado, obtenha o primeiro resultado da resposta JSON. Imprima a URL da primeira imagem, juntamente com o número total de imagens retornadas.
+
+    ```javascript
+    response.on('end', function () {
+        let firstImageResult = imageResults.value[0];
+        console.log(`Image result count: ${imageResults.value.length}`);
+        console.log(`First image thumbnail url: ${firstImageResult.thumbnailUrl}`);
+        console.log(`First image web search url: ${firstImageResult.webSearchUrl}`);
+     });
+    ```
 
 ## <a name="example-json-response"></a>Resposta JSON de exemplo
 
@@ -158,9 +160,9 @@ As respostas da API de Pesquisa de Imagem do Bing são retornadas como JSON. Est
 
 ## <a name="see-also"></a>Confira também
 
-* [O que é a Pesquisa de Imagem do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Experimente uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) para as APIs de Pesquisa do Bing. 
-* [Obtenha uma chave de acesso de Serviços Cognitivos grátis](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services)
-* [Referência da API de Pesquisa de Imagem do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [O que é a API de Pesquisa de Imagem do Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Experimentar uma demonstração interativa online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
+* [Detalhes de preços para as APIs de Pesquisa do Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [Obter uma chave de acesso gratuita dos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+* [Documentação dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services).
+* [Referência de API da Pesquisa de Imagem do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

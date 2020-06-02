@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 04/17/2020
-ms.openlocfilehash: 3abec9b0c37e0475e369ce3cd2f91e40a1040b75
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/25/2020
+ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628956"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848865"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -51,6 +51,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Transformação de Pesquisa](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
+[Atualizações e dicas da Transformação Pesquisa](https://youtu.be/MBskWoeuTLw)
+
 [Transformação Dinâmica](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
 [Transformação dinâmica: mapeamento de colunas com descompasso](https://youtu.be/5MygzCX0wnM)
@@ -58,6 +60,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Transformação Selecionar](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
 [Transformação Selecionar: mapeamento baseado em regras](https://youtu.be/5lf1lh1qMwU)
+
+[Transformação Selecionar: Conjuntos de dados grandes](https://www.youtube.com/watch?v=R5ea2_R0ouc)
 
 [Transformação de Chave alternativa](https://www.youtube.com/watch?v=ISpegL9CbTM)
 
@@ -148,6 +152,8 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 [Modelos lógicos vs. modelos físicos](http://youtu.be/K5tgzLjEE9Q)
 
 [Detectar alterações de dados de origem](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+[Dimensão de alteração lenta Tipo genérico 2](http://youtu.be/tc283k8CWh8)
 
 ## <a name="data-flow-expressions"></a>Expressões de fluxo de dados
 

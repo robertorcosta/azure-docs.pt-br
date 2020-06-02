@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 582e298bb291a66a6ec6b7300dffaa0fc18af4e0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 94ee870771cd0f0c372602648e5a81e99cbd5537
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238913"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929513"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Início Rápido: Sugerir consultas de pesquisa com a API de REST de Sugestão Automática do Bing e o Python
 
-Use este guia de início rápido para começar a fazer chamadas para a API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo simples do Python envia uma consulta de pesquisa parcial para a API e retorna as sugestões para pesquisas. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte dessa amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
+Siga este guia de início rápido para saber como fazer chamadas à API de Sugestão Automática do Bing e ler a resposta JSON. Esse aplicativo simples do Python envia uma consulta de pesquisa parcial para a API e retorna as sugestões para pesquisas. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte dessa amostra está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Use este guia de início rápido para começar a fazer chamadas para a API de Su
     import http.client, urllib.parse, json
     ```
 
-2. Criar variáveis para o host de API e o caminho, [código do mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e uma consulta de pesquisa parcial. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Criar variáveis para o host de API e o caminho, [código do mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) e uma consulta de pesquisa parcial. Use o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```python
     subscriptionKey = 'enter key here'
@@ -45,7 +45,7 @@ Use este guia de início rápido para começar a fazer chamadas para a API de Su
     query = 'sail'
     ```
 
-3. Criar uma cadeia de caracteres de parâmetros, acrescentando o código de mercado ao `?mkt=` parâmetro e sua consulta ao `&q=` parâmetro.
+3. Criar uma cadeia de caracteres de parâmetros, acrescentando o código de mercado ao `mkt=` parâmetro e sua consulta ao `q=` parâmetro.
 
     ```python
     params = '?mkt=' + mkt + '&q=' + query

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 241efab246dc903981da570a4191f93cc744bca7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 627dfee81cb10e4e442b3cefb10d786d87d5c81d
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81727443"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005883"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 
@@ -46,7 +46,7 @@ Consulte as especificações JOSE para tipos de dados relevantes para as chaves,
 
 Objetos armazenados no Key Vault são submetidos ao controle de versão sempre que uma nova instância de um objeto é criada. Cada versão é atribuída a um identificador exclusivo e a uma URL. Quando um objeto é criado pela primeira vez, ele recebe um identificador de versão exclusivo e é marcado como a versão atual do objeto. A criação de uma nova instância com o mesmo nome de objeto fornece ao novo objeto um identificador de versão exclusivo, fazendo com que ele se torne a versão atual.  
 
-Objetos no Key Vault podem ser endereçados usando o identificador atual ou um identificador específico da versão. Por exemplo, dada uma chave com o nome `MasterKey`, executar operações com o identificador atual faz com que o sistema use a versão mais recente disponível. Executar operações com o identificador de versão específico faz com que o sistema use essa versão específica do objeto.  
+Os objetos no Key Vault podem ser abordados especificando uma versão ou omitindo a versão para operações na versão atual do objeto. Por exemplo, dada uma chave com o nome `MasterKey`, executar operações sem especificar uma versão faz o sistema usar a versão mais recente disponível. Executar operações com o identificador de versão específico faz com que o sistema use essa versão específica do objeto.  
 
 Os objetos são identificados de forma exclusiva no Key Vault usando uma URL. Não há dois objetos no sistema com a mesma URL, independentemente da localização geográfica. A URL completa para um objeto é chamada de Identificador do Objeto. A URL consiste em um prefixo que identifica o Key Vault, o tipo de objeto, o Nome do Objeto fornecido pelo usuário e uma Versão do Objeto. O nome do objeto é imutável e diferencia maiusculas de minúsculas. Identificadores que não incluem a versão do objeto são chamados de Identificadores de Base.  
 
@@ -62,7 +62,7 @@ Em que:
 |-|-|  
 |`keyvault-name`|O nome de um cofre de chaves no serviço do Microsoft Azure Key Vault.<br /><br /> Nomes de Cofre de Chaves são selecionados pelo usuário e são globalmente exclusivos.<br /><br /> O nome do Key Vault deve ser uma sequência de 3 a 24 caracteres que contenha somente 0 a 9, a a z, A a Z, e -.|  
 |`object-type`|O tipo do objeto, "chaves", "segredos" ou "certificados".|  
-|`object-name`|Um `object-name` é um nome fornecido por usuário e deve ser exclusivo em um Cofre de Chaves. O nome deve ser uma sequência de 1 a 127 caracteres que contenha somente 0 a 9, a a z, A a Z, e -.|  
+|`object-name`|Um `object-name` é um nome fornecido por usuário e deve ser exclusivo em um Cofre de Chaves. O nome deve ser uma sequência de 1 a 127 caracteres, que começam com uma letra e contêm somente 0 – 9, a – z, A – Z e -.|  
 |`object-version`|Um `object-version` é um identificador de cadeia de caracteres de 32 caracteres gerado pelo sistema, que é opcionalmente usado para direcionar uma versão exclusiva de um objeto.|  
 
 ## <a name="next-steps"></a>Próximas etapas

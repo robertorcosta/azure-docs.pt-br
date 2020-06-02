@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0d4d32a413dd22c55f1b2f01dce3a3df81f5f729
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 039a52c9ab0bfc460116e48086c854f4d7e8efb4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77919661"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996976"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-ruby"></a>Início Rápido: Usar a biblioteca de clientes da Análise de Texto para o Ruby
 
@@ -31,7 +31,7 @@ Use a biblioteca de clientes da Análise de Texto para executar:
 > [!NOTE]
 > Este início rápido só se aplica à Análise de Texto versão 2.1. Atualmente, uma biblioteca de clientes v3 para o Ruby não está disponível.
 
-[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Pacote (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-ruby/tree/master/data/azure_cognitiveservices_textanalytics) | [Pacote (RubyGems)](https://rubygems.org/gems/azure_cognitiveservices_textanalytics) | [Amostras](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 <a name="HOLTop"></a>
 
@@ -83,7 +83,7 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes snippets de código mostram como realizar o seguinte com a biblioteca de clientes de Análise de Texto para Python:
+Estes snippets de código mostram como realizar o seguinte com a biblioteca de clientes de Análise de Texto para Ruby:
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimento](#sentiment-analysis)

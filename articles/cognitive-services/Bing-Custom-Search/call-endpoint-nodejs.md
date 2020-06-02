@@ -1,39 +1,39 @@
 ---
 title: 'Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o Node.js | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Use este início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing, usando o Node.js
+description: Use este guia de início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing usando o Node.js.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 1c7bd97de4e46e1c8da467840006fe2520851caf
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 34d64db9caefd26adc91471ed67e528a6e3196dc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80238874"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199833"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o Node.js
 
-Use este início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito em JavaScript, a API de Pesquisa Personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
+Use este início rápido para saber como solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito em JavaScript, a API de Pesquisa Personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância da Pesquisa Personalizada do Bing. Confira [Início Rápido: Criar sua primeira instância da Pesquisa Personalizada do Bing](quick-start.md) para obter mais informações.
+- Uma instância da Pesquisa Personalizada do Bing. Para saber mais, confira [Início Rápido: Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
 
-- [Node.js](https://www.nodejs.org/)
+- [O runtime do JavaScript do Node.js](https://www.nodejs.org/).
 
-- A [biblioteca de solicitações JavaScript](https://github.com/request/request)
+- A [biblioteca de solicitações JavaScript](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-1. Crie um arquivo JavaScript em seu IDE ou editor favorito e adicione uma instrução `require()` à biblioteca de solicitações. Crie variáveis para sua chave de assinatura, uma ID de Configuração Personalizada e um termo de pesquisa. 
+- Crie um arquivo JavaScript em seu IDE ou editor favorito e adicione uma instrução `require()` à biblioteca de solicitações. Crie variáveis para sua chave de assinatura, uma ID de configuração personalizada e um termo de pesquisa.
 
     ```javascript
     var request = require("request");
@@ -45,7 +45,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
 
 ## <a name="send-and-receive-a-search-request"></a>Enviar e receber uma solicitação de pesquisa 
 
-1. Crie uma variável para armazenar as informações que estão sendo enviadas na solicitação. Construa a URL de solicitação acrescentando o termo de pesquisa ao parâmetro de consulta `q=` e a ID de Configuração Personalizada da instância de pesquisa a `customconfig=`. separe os parâmetros com um caractere `&`. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+1. Crie uma variável para armazenar as informações que estão sendo enviadas na solicitação. Construa a URL de solicitação acrescentando o termo de pesquisa ao parâmetro de consulta `q=` e a ID de configuração personalizada da instância de pesquisa ao parâmetro `customconfig=`. Separe os parâmetros com um “e” comercial (`&`). Você pode usar o ponto de extremidade global no código a seguir ou o ponto de extremidade do [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     var info = {
@@ -58,7 +58,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
     }
     ```
 
-1. Use a Biblioteca de Solicitações JavaScript para enviar uma solicitação de pesquisa à instância da Pesquisa Personalizada do Bing e imprimir informações sobre os resultados, incluindo o nome, a URL e a data em que a página da Web foi rastreada pela última vez.
+1. Use a biblioteca de solicitações JavaScript para enviar uma solicitação de pesquisa à instância da Pesquisa Personalizada do Bing e imprimir informações sobre os resultados, incluindo o nome, a URL e a data em que a página da Web foi rastreada pela última vez.
 
     ```javascript
     request(info, function(error, response, body){

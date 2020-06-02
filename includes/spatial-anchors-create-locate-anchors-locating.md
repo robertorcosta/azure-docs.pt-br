@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b5fec8bbc0db78454b080a411702014bd96f7db9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4df49b4e68769a907423c4edef9f8820df4d20b7
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76887835"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006464"
 ---
 ## <a name="locate-a-cloud-spatial-anchor"></a>Localizar uma âncora espacial de nuvem
 
@@ -12,6 +12,9 @@ Ser capaz de localizar uma âncora espacial de nuvem salva anteriormente é um d
 - Localizar âncoras por identificador.
 - Localizar âncoras conectadas a uma âncora localizada anteriormente. Saiba mais sobre as relações entre âncoras [aqui](/azure/spatial-anchors/concepts/anchor-relationships-way-finding/).
 - Localizar âncora usando a [Relocalização grosseira](/azure/spatial-anchors/concepts/coarse-reloc/).
+
+> [!NOTE]
+> Cada vez que você localizar uma âncora, as Âncoras Espaciais do Azure tentarão usar os dados do ambiente coletados para aumentar as informações visuais na âncora. Se você tiver problemas para localizar uma âncora, poderá ser útil criar uma âncora e, em seguida, localizá-la várias vezes de diferentes ângulos e condições de iluminação.
 
 Se estiver localizando âncoras espaciais de nuvem pelo identificador, você desejará armazenar o identificador da âncora espacial de nuvem no serviço de back-end do aplicativo e torná-lo acessível para todos os dispositivos que puderem se autenticar nele corretamente. Para ver um exemplo disso, confira [Tutorial: Compartilhar âncoras espaciais entre dispositivos](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c645ab45711698e4a6f582678e2a850e15dea62a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1ede6592b3da979136d70b873142af6d2bb8b593
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181589"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201320"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo de página única Angular
 
@@ -265,14 +265,14 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 Nesse código, `scopes` contém os escopos solicitados para retorno no token de acesso para a API.
 
-Por exemplo: 
+Por exemplo:
 
 * `["user.read"]` para Microsoft Graph
 * `["<Application ID URL>/scope"]` para APIs Web personalizadas (ou seja, `api://<Application ID>/access_as_user`)
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Às vezes, você precisa que o usuário interaja com o ponto de extremidade da plataforma de identidade da Microsoft. Por exemplo: 
+Às vezes, você precisa que o usuário interaja com o ponto de extremidade da plataforma de identidade da Microsoft. Por exemplo:
 
 * Os usuários podem precisar reinserir as credenciais porque a senha expirou.
 * Seu aplicativo está solicitando acesso a escopos de recursos adicionais com os quais o usuário precisa concordar.
@@ -343,7 +343,6 @@ Se uma API de back-end não exigir um escopo (não recomendado), você poderá u
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Em seguida, aprenda a conectar um usuário e a adquirir tokens no tutorial do Angular:
+Se você é novo no gerenciamento de identidade e acesso, temos vários artigos para ajudar você a aprender conceitos de autenticação modernos, começando com [autenticação vs. autorização](authentication-vs-authorization.md).
 
-> [!div class="nextstepaction"]
-> [Tutorial do Angular](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
+Se você quiser aprofundar-se no desenvolvimento de aplicativos de página única na plataforma de identidade da Microsoft, a série de artigos [Cenário: aplicativo de página única](scenario-spa-overview.md) em várias partes pode ajudar você a começar.

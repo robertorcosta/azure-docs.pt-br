@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877925"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873425"
 ---
 # <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com escopos
 
@@ -67,9 +67,12 @@ O Gerenciamento de Custos é compatível com as seguintes funções internas par
 
 É recomendado que a função de Colaborador do Gerenciamento de Custos seja aquela com o mínimo de privilégios. Ela concede acesso para criar e gerenciar orçamentos e exportações a fim de monitorar e gerar relatórios de custos com mais eficiência. Os Colaboradores do Gerenciamento de Custos também podem exigir funções adicionais para dar suporte a cenários de gerenciamento de custos de ponta a ponta. Considere os seguintes cenário:
 
+- **Relatórios sobre o uso de recursos** – o Gerenciamento de Custos do Azure mostra o custo no portal do Azure e também inclui o uso, já que ele se refere ao custo na API e no download de uso completo e encargos, mas talvez seja interessante também analisar as métricas de uso detalhadas no Azure Monitor para obter uma compreensão mais profunda. Considere conceder [Leitor de Monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader) em qualquer escopo em que você precise também relatar as métricas de uso detalhadas.
 - **Agir quando os orçamentos forem excedidos** – os Colaboradores do Gerenciamento de Custos também precisam de acesso para criar e/ou gerenciar grupos de ações para reagir automaticamente a excedentes. Considere a possibilidade de conceder um [Colaborador de Monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a um grupo de recursos que contenha o grupo de ações a ser usado quando os limites de orçamento forem excedidos. Automatizar ações específicas requer funções adicionais para os serviços específicos usados, como a Automação e o Azure Functions.
 - **Agendar exportação de dados de custo** – os Colaboradores do Gerenciamento de Custos também precisam de acesso para gerenciar contas de armazenamento a fim de agendar uma exportação para copiar dados para uma conta de armazenamento. Considere a possibilidade de conceder um [Colaborador da Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a um grupo de recursos que contém a conta de armazenamento na qual os dados de custo são exportados.
 - **Exibir recomendações de economia de custos** – os Leitores do Gerenciamento de Custos e os Colaboradores do Gerenciamento de Custos têm acesso à *exibição* de recomendações de custo por padrão. No entanto, o acesso para agir segundo as recomendações de custo exige acesso a recursos individuais. Considere a possibilidade de conceder uma [função específica a um serviço](../../role-based-access-control/built-in-roles.md#all) se você quiser agir segundo uma recomendação baseada em custo.
+
+Somente haverá suporte para grupos de gerenciamento se eles contiverem assinaturas EA (Contrato Enterprise), PAYG (pagas conforme o uso) ou internas da Microsoft. Grupos de gerenciamento com outros tipos de assinatura, como o Contrato de Cliente da Microsoft ou assinaturas do Azure Active Directory, não podem exibir os custos. Se você tiver uma combinação de assinaturas, mova as assinaturas sem suporte para um braço separado da hierarquia de grupo de gerenciamento para habilitar o Gerenciamento de Custos para as assinaturas com suporte. Por exemplo, crie dois grupos de gerenciamento no grupo de gerenciamento raiz: **Azure AD** e **Minha Organização**. Mova sua assinatura do Azure AD para o grupo de gerenciamento do **Azure AD** e, em seguida, exiba e gerencie os custos usando o grupo de gerenciamento **Minha Organização**.
 
 ## <a name="enterprise-agreement-scopes"></a>Escopos do Contrato Enterprise
 

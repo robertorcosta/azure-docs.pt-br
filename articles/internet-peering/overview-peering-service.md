@@ -3,17 +3,17 @@ title: Emparelhamento de Internet vs. Serviço de Emparelhamento
 titleSuffix: Azure
 description: Emparelhamento de Internet vs. Serviço de Emparelhamento
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 6c1205fcacd3d7228f1aecf1e603b66d9e1fcee5
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 5/22/2020
+ms.author: derekol
+ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75772803"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849375"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Emparelhamento de Internet vs. Serviço de Emparelhamento
 
@@ -38,15 +38,15 @@ Na figura acima, cada filial de uma empresa global conecta-se à localização d
 
 **Benefícios para o cliente do Serviço de Emparelhamento:**
 * Melhores roteiros públicos pela Internet aos serviços em nuvem da Microsoft para desempenho e confiabilidade ideais.
-* Capacidade de selecionar o SP preferencial para se conectar à Nuvem da Microsoft.
+* Capacidade de selecionar o provedor de serviço preferencial para se conectar à Nuvem da Microsoft.
 * Insights de tráfego, como relatórios de latência e monitoramento de prefixo.
 * Saltos de rede ideais (saltos AS) da Nuvem da Microsoft.
 * Análise de roteiros e estatísticas: eventos de anomalias de rota do [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) (Border Gateway Protocol) (detecção de vazamento/sequestro) e roteamento abaixo do ideal.
 
 ## <a name="peering-service-partnership-requirements"></a>Requisitos de parceria do Serviço de Emparelhamento
-* Conectividade com a Nuvem da Microsoft em uma localização mais próxima ao cliente. Um provedor de serviços parceiro roteará o tráfego do usuário para a borda da Microsoft mais próxima ao usuário. Da mesma forma, no tráfego para o usuário, a Microsoft roteará o tráfego (usando a marca do BGP) para a localização de borda mais próxima ao usuário e o SP entregará o tráfego ao usuário.
+* Conectividade com a Nuvem da Microsoft em uma localização mais próxima ao cliente. Um provedor de serviços parceiro roteará o tráfego do usuário para a borda da Microsoft mais próxima ao usuário. Da mesma forma, no tráfego para o usuário, a Microsoft roteará o tráfego (usando a tag do BGP) para a localização de borda mais próxima ao usuário e o provedor de serviço entregará o tráfego ao usuário.
 * O parceiro manterá uma conectividade altamente disponível, com alta taxa de transferência e redundância geográfica com a rede global da Microsoft.
-* O parceiro pode utilizar o emparelhamento existente para dar suporte ao Serviço de Emparelhamento caso ele atenda ao requisito
+* O parceiro pode utilizar o emparelhamento existente para dar suporte ao Serviço de Emparelhamento caso ele atenda ao requisito.
 
 ## <a name="faq"></a>Perguntas frequentes
 Para obter as perguntas frequentes, confira [Serviço de Emparelhamento: perguntas frequentes](service-faqs.md).

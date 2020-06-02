@@ -8,36 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 7ea8b272871e681bd9caacf8cf1a84eb91d8849d
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: e1084c1962db3c04b951245361da80bee098329a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80238898"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199829"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o C# 
 
-Use este início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito em C#, a API de Pesquisa Personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
+Use este início rápido para saber como solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito em C#, a API de Pesquisa Personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingCustomSearchv7.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância da Pesquisa Personalizada do Bing. Confira [Início Rápido: Criar sua primeira instância da Pesquisa Personalizada do Bing](quick-start.md) para obter mais informações.
-- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Qualquer edição do [Visual Studio 2019 ou posterior](https://www.visualstudio.com/downloads/)
+- Uma instância da Pesquisa Personalizada do Bing. Para saber mais, confira [Início Rápido: Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
+- [Microsoft .NET Core](https://www.microsoft.com/net/download/core).
+- Qualquer edição do [Visual Studio 2019 ou posterior](https://www.visualstudio.com/downloads/).
 - Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).
-- O pacote NuGet [Pesquisa Personalizada do Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0). 
-    - No **Gerenciador de Soluções** do Visual Studio, clique com o botão direito do mouse no seu projeto e selecione **Gerenciar Pacotes NuGet** no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. A instalação do pacote Pesquisa Personalizada do NuGet também instala os assemblies a seguir:
-        - Microsoft.Rest.ClientRuntime
-        - Microsoft.Rest.ClientRuntime.Azure
-        - Newtonsoft.Json
+- O pacote NuGet [Pesquisa Personalizada do Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/2.0.0). 
+
+   Para instalar o pacote no Visual Studio: 
+     1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções** e selecione **Gerenciar Pacotes NuGet**. 
+     2. Pesquise e selecione *Microsoft.Azure.CognitiveServices.Search.CustomSearch* e, em seguida, instale o pacote.
+
+   Quando você instala o pacote NuGet da Pesquisa Personalizada do Bing, o Visual Studio também instala os seguintes pacotes:
+     - **Microsoft.Rest.ClientRuntime**
+     - **Microsoft.Rest.ClientRuntime.Azure**
+     - **Newtonsoft.Json**
+
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-1. No Visual Studio, crie um novo aplicativo de console C#. Depois, adicione os seguintes pacotes ao seu projeto.
+1. No Visual Studio, crie um novo aplicativo de console C#. Depois, adicione os seguintes pacotes ao seu projeto:
 
     ```csharp
     using System;
@@ -46,7 +52,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
     using Newtonsoft.Json;
     ```
 
-2. Crie as seguintes classes para armazenar os resultados da pesquisa retornados pela API de Pesquisa Personalizada do Bing.
+2. Crie as seguintes classes para armazenar os resultados da pesquisa retornados pela API de Pesquisa Personalizada do Bing:
 
     ```csharp
     public class BingCustomSearchResponse {        
@@ -70,7 +76,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
     }
     ```
 
-3. No método principal do seu projeto, crie variáveis para sua chave de assinatura de API de Pesquisa Personalizada do Bing, a ID de Configuração Personalizada da sua instância de pesquisa e um termo de pesquisa.
+3. No método principal do seu projeto, crie as seguintes variáveis da sua chave de assinatura de API de Pesquisa Personalizada do Bing, pesquise a ID de configuração personalizada da instância e pesquise o termo:
 
     ```csharp
     var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
@@ -78,7 +84,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
     var searchTerm = args.Length > 0 ? args[0]:"microsoft";
     ```
 
-4. Construa a URL de solicitação acrescentando o termo de pesquisa ao parâmetro de consulta `q=` e a ID de Configuração Personalizada da instância de pesquisa a `customconfig=`. separe os parâmetros com um caractere `&`. `url` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+4. Construa a URL de solicitação acrescentando o termo de pesquisa ao parâmetro de consulta `q=` e a ID de configuração personalizada da instância de pesquisa ao parâmetro `customconfig=`. Separe os parâmetros com um “e” comercial (`&`). Para o valor da variável `url`, você pode usar o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```csharp
     var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
@@ -102,9 +108,9 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
     var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
     BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
     ```
-   ## <a name="process-and-view-the-results"></a>Processar e ver os resultados
+## <a name="process-and-view-the-results"></a>Processar e ver os resultados
 
-3. Itere sobre o objeto de resposta para exibir informações sobre cada resultado da pesquisa, incluindo nome, URL e a data em que a página da Web foi rastreada pela última vez.
+- Itere sobre o objeto de resposta para exibir informações sobre cada resultado da pesquisa, incluindo nome, URL e a data em que a página da Web foi rastreada pela última vez.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

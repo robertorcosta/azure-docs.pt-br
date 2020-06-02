@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 5ebd29b5fb6fdedcdfbc434209b350512c4cd5dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 361a75c2e5951dc540830efd6be057753402daf1
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77657300"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006102"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Visão geral de Âncoras Espaciais do Azure
 
@@ -26,7 +26,7 @@ Esses pontos de interesse precisos são chamados de Âncoras Espaciais.
 
 Alguns casos de uso de exemplo habilitados por Âncoras Espaciais incluem:
 
-- [Experiências multiusuários](tutorials/tutorial-share-anchors-across-devices.md). O recurso Âncoras Espaciais torna mais fácil para pessoas no mesmo lugar participarem de aplicativos de realidade misturada multiusuário. Por exemplo, duas pessoas podem iniciar um jogo de xadrez de realidade misturada colocando um tabuleiro de xadrez virtual em uma tabela. Em seguida, apontando o dispositivo para a tabela, elas podem exibir e interagir com o tabuleiro de xadrez virtual juntas.
+- [Experiências multiusuários](tutorials/tutorial-share-anchors-across-devices.md). O recurso Âncoras Espaciais do Azure torna mais fácil para pessoas no mesmo lugar participarem de aplicativos de realidade misturada multiusuário. Por exemplo, duas pessoas podem iniciar um jogo de xadrez de realidade misturada colocando um tabuleiro de xadrez virtual em uma tabela. Em seguida, apontando o dispositivo para a tabela, elas podem exibir e interagir com o tabuleiro de xadrez virtual juntas.
 
 - [Localização de caminho](concepts/anchor-relationships-way-finding.md). Os desenvolvedores também podem conectar Âncoras Espaciais criando relações entre elas. Por exemplo, um aplicativo pode incluir uma experiência com dois ou mais pontos de interesse com que um usuário deve interagir para concluir uma tarefa. Esses pontos de interesse podem ser criados de maneira conectada. Posteriormente, quando o usuário estiver concluindo a tarefa de várias etapas, o aplicativo poderá solicitar âncoras que estejam próximas da atual para direcionar o usuário para a próxima etapa na tarefa.
 
@@ -36,7 +36,7 @@ O recurso Âncoras Espaciais do Azure é composto por um serviço gerenciado e o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Crie seu primeiro aplicativo com Âncoras Espaciais.
+Criar seu primeiro aplicativo com Âncoras Espaciais do Azure.
 
 > [!div class="nextstepaction"]
 > [Unity (HoloLens)](quickstarts/get-started-unity-hololens.md)

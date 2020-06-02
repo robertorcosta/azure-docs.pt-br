@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 04/25/2020
-ms.openlocfilehash: e4afa3c122fa6e21b29b6ad52a386096b20aa055
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2a2e292390b2f060bf31d739605d7506203a5619
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184349"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901410"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Tutorial: Consultar um índice do Cognitive Search por meio do Power Apps
 
@@ -82,7 +82,7 @@ Um conector no Power Apps é uma conexão de fonte de dados. Nesta etapa, você 
 
        :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importar do exemplo" border="true":::
 
-1. Clique em **Importar** para preencher automaticamente a solicitação. Conclua a configuração dos metadados de parâmetro clicando no símbolo de **…** ao lado de cada um dos parâmetros. Clique em **Voltar** para retornar à página de solicitação após cada atualização de parâmetro.
+1. Clique em **Importar** para preencher automaticamente a solicitação. Conclua a configuração dos metadados do parâmetro clicando no símbolo **...** ao lado de cada um dos parâmetros. Clique em **Voltar** para retornar à página de solicitação após cada atualização de parâmetro.
 
    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importar da caixa de diálogo de exemplo" border="true":::
 

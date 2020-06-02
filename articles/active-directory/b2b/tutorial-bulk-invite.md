@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/13/2020
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81603395"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926896"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Convidar usuários de colaboração B2B do Azure AD em massa
 
@@ -29,6 +29,27 @@ Se você usar a colaboração B2B do Azure AD (Azure Active Directory) para trab
 
 Caso não tenha o Azure Active Directory, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+## <a name="understand-the-csv-template"></a>Entender o modelo CSV
+
+Baixe e preencha o modelo CSV de carregamento em massa para ajudá-lo a convidar com êxito os usuários convidados do Azure AD em massa. O modelo CSV que você baixa pode ser semelhante a este exemplo:
+
+![Planilha para upload e limites de chamada que explicam a finalidade e os valores de cada linha e coluna](media/tutorial-bulk-invite/understand-template.png)
+
+### <a name="csv-template-structure"></a>Estrutura do modelo CSV
+
+As linhas em um modelo CSV baixado são as seguintes:
+
+- **Número de versão**: A primeira linha que contém o número de versão deve ser incluída no CSV de carregamento.
+- **Cabeçalhos de coluna**: O formato dos cabeçalhos de coluna é &lt;*Nome do item*&gt; [PropertyName]&lt;*Obrigatório ou em branco*&gt;. Por exemplo, `Email address to invite [inviteeEmail] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações.
+- **Linha de exemplos**: incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Você deve remover a linha de exemplos e substituí-la por suas entradas.
+
+### <a name="additional-guidance"></a>Diretriz adicional
+
+- As duas primeiras linhas do modelo de carregamento não devem ser removidas nem modificadas ou o carregamento não poderá ser processado.
+- As colunas necessárias são listadas primeiro.
+- Não recomendamos adicionar novas colunas ao modelo. Todas as colunas extras adicionadas são ignoradas e não são processadas.
+- Recomendamos que você baixe a versão mais recente do modelo CSV sempre que possível.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter duas ou mais contas de email de teste para enviar o convite. As contas precisam estar fora da organização. É possível usar qualquer tipo de conta, incluindo contas sociais, como endereços gmail.com ou outlook.com.
@@ -38,11 +59,11 @@ Caso não tenha o Azure Active Directory, crie uma [conta gratuita](https://azur
 1. Entre no portal do Azure com uma conta que seja um Administrador de usuários na organização.
 2. No painel de navegação, selecione **Azure Active Directory**.
 3. Em **Gerenciar**, selecione **Usuários** > **Convidar em massa**.
-4. Na página **Convidar usuários em massa**, selecione **Baixar** para obter um arquivo .csv válido com as propriedades do convite.
+4. Na página **Convidar usuários em massa**, selecione **Baixar** para obter um modelo .csv válido com as propriedades do convite.
 
     ![Botão Baixar em Convidar em massa](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Abra o arquivo .csv e adicione uma linha para cada usuário convidado. Os valores obrigatórios são:
+5. Abra o modelo .csv e adicione uma linha para cada usuário convidado. Os valores obrigatórios são:
 
    * **Endereço de email a ser convidado** – o usuário que receberá um convite
 

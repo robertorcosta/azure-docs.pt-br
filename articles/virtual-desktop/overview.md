@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 927696d029bf1b8742dc0001e03799322f368191
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261713"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929818"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows? 
 
@@ -67,8 +67,8 @@ Planejamos adicionar suporte aos sistemas operacionais a seguir, então verifiqu
 
 |Sistema operacional|Licença necessária|
 |---|---|
-|Windows 10 Enterprise de várias sessões ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise de várias sessões ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|CAL (licença de acesso para cliente) do RDS com o Software Assurance|
 
 A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabalho Virtual do Windows:
@@ -98,9 +98,12 @@ As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windo
 |prod.warmpath.msftcloudes.com|443|Tráfego de agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
+|wvdportalstorageblob.blob.core.windows.net|443|Suporte do portal do Azure|AzureCloud|
 
 >[!IMPORTANT]
->Recomendamos que você use as tags de serviço em vez de URLs na maioria dos casos para evitar problemas de serviço. Desbloquear essas URLs é essencial para uma implantação da Área de Trabalho Virtual do Windows confiável. Não há suporte ao bloqueio do acesso a essas URLs e isso afetará a funcionalidade do serviço. Essas URLs são correspondentes apenas aos sites e recursos da Área de Trabalho Virtual do Windows e não incluem URLs para outros serviços, como o Azure Active Directory.
+>Agora, a Área de Trabalho Virtual do Windows dá suporte à marca FQDN. Para obter mais informações, confira [Usar o Firewall do Azure para proteger implantações da Área de Trabalho Virtual do Windows](../firewall/protect-windows-virtual-desktop.md).
+>
+>Recomendamos que você use marcas de FQDN ou marcas de serviço, em vez de URLs, para evitar problemas de serviço. As URLs e as marcas listadas correspondem apenas aos sites e aos recursos da Área de Trabalho Virtual do Windows. Não incluem URLs para outros serviços, como Azure Active Directory.
 
 A seguinte tabela lista as URLs opcionais às quais suas máquinas virtuais do Azure podem ter acesso:
 
@@ -180,20 +183,22 @@ A Área de Trabalho Virtual do Windows não é compatível com imagens do sistem
 
 As opções de automação e implantação disponíveis dependem do sistema operacional e da versão escolhidos, conforme mostrado na tabela a seguir: 
 
-|Sistema operacional|Galeria de Imagens do Azure|Implantação manual de VM|Integração de modelos do Azure Resource Manager|Provisionar pools de hosts no Azure Marketplace|Atualizações do Agente da Área de Trabalho Virtual do Windows|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Várias sessões do Windows 10, versão 1903|Sim|Sim|Sim|Sim|Automático|
-|Várias sessões do Windows 10, versão 1809|Sim|Sim|Não|Não|Automático|
-|Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|Automático|
-|Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|Automático|
-|Windows 7 Enterprise|Sim|Sim|Não|Não|Manual|
-|Windows Server 2019|Sim|Sim|Não|Não|Automático|
-|Windows Server 2016|Sim|Sim|Sim|Sim|Automático|
-|Windows Server 2012 R2|Sim|Sim|Não|Não|Automático|
+|Sistema operacional|Galeria de Imagens do Azure|Implantação manual de VM|Integração de modelos do Azure Resource Manager|Provisionar pools de hosts no Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Várias sessões do Windows 10, versão 1903|Sim|Sim|Sim|Sim|
+|Várias sessões do Windows 10, versão 1809|Sim|Sim|Não|Não|
+|Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|
+|Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|
+|Windows 7 Enterprise|Sim|Sim|Não|Não|
+|Windows Server 2019|Sim|Sim|Não|Não|
+|Windows Server 2016|Sim|Sim|Sim|Sim|
+|Windows Server 2012 R2|Sim|Sim|Não|Não|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, você precisará criar um locatário. Para saber mais sobre como criar um locatário, continue para o tutorial de criação de locatário.
+Se estiver usando a versão Fall 2019 da Área de Trabalho Virtual do Windows, comece com nosso tutorial em [Criar um locatário na Área de Trabalho Virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+
+Se estiver usando a versão Spring 2020 da Área de Trabalho Virtual do Windows, você precisará criar um pool de host em vez disso. Vá para o tutorial a seguir para começar.
 
 > [!div class="nextstepaction"]
-> [Criar um locatário na Área de Trabalho Virtual do Windows](tenant-setup-azure-active-directory.md)
+> [Criar um pool de host com o portal do Azure](create-host-pools-azure-marketplace.md)

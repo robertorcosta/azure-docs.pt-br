@@ -8,21 +8,21 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: e2ee959fb6fc7e8454919c71cfa20e2bb9055dfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c475787eafde4ba847b292df57e4b0d18cfe5d0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393854"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196044"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na nuvem com o Armazenamento do Azure
 
 Este tutorial é a primeira parte de uma série. Neste tutorial, você aprenderá como implantar um aplicativo Web que usa a biblioteca de clientes do armazenamento de Blobs do Azure para carregar imagens para uma conta de armazenamento. Ao terminar, você terá um aplicativo Web que armazena e exibe imagens do Armazenamento do Azure.
 
-# <a name="net-v12-sdk"></a>[\.SDK do NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 ![Aplicativo de redimensionador de imagem no .NET](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10-sdk"></a>[SDK do Node.js v10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 ![Aplicativo de redimensionador de imagem no Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -37,7 +37,7 @@ Na primeira parte da série, você aprenderá a:
 > * Definir configurações de aplicativo
 > * Interagir com o aplicativo Web
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa de uma assinatura do Azure. Crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
@@ -111,7 +111,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 O aplicativo Web fornece um espaço de hospedagem para o código do aplicativo de exemplo que é implantado do repositório de exemplo do GitHub. Crie um [aplicativo Web](../../app-service/overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp).  
 
-No comando a seguir, substitua `<web_app>` por um nome exclusivo. Os caracteres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` não for exclusivo, você receberá a mensagem de erro: *O site com o nome `<web_app>` fornecido já existe.* A URL padrão do aplicativo Web é `https://<web_app>.azurewebsites.net`.  
+No comando a seguir, substitua `<web_app>` por um nome exclusivo. Os caracteres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` for não exclusivo, você receberá a mensagem de erro: *O site com o nome `<web_app>` atribuído já existe.* A URL padrão do aplicativo Web é `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
 webapp="<web_app>"
@@ -121,7 +121,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Implantar o aplicativo de exemplo do repositório do GitHub
 
-# <a name="net-v12-sdk"></a>[\.SDK do NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 Serviço de Aplicativo dá suporte a várias maneiras de implantar o conteúdo em um aplicativo Web. Neste tutorial, você implanta o aplicativo Web de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure a implantação do GitHub para o aplicativo Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
@@ -133,7 +133,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# <a name="nodejs-v10-sdk"></a>[SDK do Node.js v10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 Serviço de Aplicativo dá suporte a várias maneiras de implantar o conteúdo em um aplicativo Web. Neste tutorial, você implanta o aplicativo Web de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configure a implantação do GitHub para o aplicativo Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
 ```azurecli-interactive
@@ -146,7 +146,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## <a name="configure-web-app-settings"></a>Definir configurações do aplicativo Web
 
-# <a name="net-v12-sdk"></a>[\.SDK do NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 O aplicativo Web de exemplo usa as [APIs do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage) para carregar imagens. As credenciais da conta de armazenamento são definidas nas configurações do aplicativo para o aplicativo Web. Adicione configurações de aplicativo ao aplicativo implantado com o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -158,7 +158,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# <a name="nodejs-v10-sdk"></a>[SDK do Node.js v10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 
 O aplicativo Web de exemplo usa a [Biblioteca de Clientes do Armazenamento do Azure](https://github.com/Azure/azure-storage-js) para solicitar tokens de acesso, que são usados para carregar imagens. As credenciais da conta de armazenamento usadas pelo SDK do Armazenamento são definidas nas configurações do aplicativo para o aplicativo Web. Adicione configurações de aplicativo ao aplicativo implantado com o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -176,7 +176,7 @@ Depois de implantar e configurar o aplicativo Web, você pode testar a funcional
 
 Para testar o aplicativo Web, navegue para a URL do aplicativo publicado. A URL padrão do aplicativo Web é `https://<web_app>.azurewebsites.net`.
 
-# <a name="net-v12-sdk"></a>[\.SDK do NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 Selecione a região **Carregar fotos** para especificar e carregar um arquivo ou arraste um arquivo para a região. A imagem desaparece se for carregada com êxito. A seção **Miniaturas Geradas** permanecerá vazia até a testarmos mais adiante neste tópico.
 
@@ -218,7 +218,7 @@ As seguintes classes e métodos são usados na tarefa anterior:
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [Construtor StorageSharedKeyCredential(String, String)](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# <a name="nodejs-v10-sdk"></a>[SDK do Node.js v10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 
 Selecione **Escolher Arquivo** para selecionar um arquivo e, em seguida, clique em **Carregar Imagem**. A seção **Miniaturas Geradas** permanecerá vazia até a testarmos mais adiante neste tópico. 
 
@@ -304,7 +304,7 @@ Entre no [portal do Azure](https://portal.azure.com). No menu à esquerda, selec
 
 Verifique se a imagem é mostrada no contêiner.
 
-![Listagem do Portal do Azure do contêiner de imagens](media/storage-upload-process-images/figure13.png)
+![Listagem do portal do Azure do contêiner de imagens](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Exibição de miniaturas de teste
 
@@ -316,10 +316,10 @@ Escolha um arquivo com o seletor de arquivos e selecione **Carregar**.
 
 Navegue de volta para seu aplicativo para verificar se a imagem carregada para o contêiner **miniaturas** está visível.
 
-# <a name="net-v12-sdk"></a>[\.SDK do NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 ![Aplicativo de redimensionamento de imagem do .NET com a nova imagem exibida](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v10-sdk"></a>[SDK do Node.js v10](#tab/nodejsv10)
+# <a name="nodejs-v10"></a>[Node.js v10](#tab/nodejsv10)
 ![Aplicativo de redimensionamento de imagem do Node.js V10 com a nova imagem exibida](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---

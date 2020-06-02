@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 08/01/2019
-ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 05/26/2020
+ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68976868"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860980"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Início Rápido: Criar um Catálogo de Dados do Azure
 
@@ -22,6 +22,9 @@ Este guia de início rápido ajuda você a começar a criar um Catálogo de Dado
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!Note]
+> Devido aos requisitos de segurança do Azure, o Catálogo de Dados do Azure gerou o protocolo TLS 1.2. O TLS 1.0 e o TLS 1.1 foram desabilitados. Você poderá encontrar erros ao executar a ferramenta de registro se o computador não estiver atualizado para o TLS 1.2. Confira [Habilitar o protocolo TLS (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) para atualizar seu computador para o TLS 1.2.
 
 Para começar, você precisa ter:
 

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1da862a7994d7db5ee8c9f090119e14f19c6b13a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 05dd9f6c2f1f08ec0e420bd4257d2c26e1963e5b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637887"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850055"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início Rápido: Coletar dados de um computador Linux em um ambiente híbrido com o Azure Monitor
 
@@ -115,7 +115,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 O Azure Monitor pode coletar eventos especificados do Syslog do Linux e de contadores de desempenho especificados para análise e geração de relatórios de longo prazo. Além disso, o recurso pode realizar uma ação quando detectar uma condição específica. Siga estas etapas para configurar a coleta de eventos do Syslog do Linux e de vários contadores de desempenho comuns para começar.  
 
-1. No canto superior esquerdo do portal do Azure, selecione **Mais serviços**. Na caixa de pesquisa, insira **Log Analytics**. A lista filtra com base em sua entrada, à medida que você digita. Escolha **workspaces do Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite o Log Analytics. A lista filtra com base em sua entrada, à medida que você digita. Selecione **workspaces do Log Analytics** e, em sua lista de workspaces do Log Analytics, selecione o workspace que você está procurando e selecione **Configurações avançadas** do workspace **log Analytics**.
 
 2. Selecione **Dados** e **Syslog**.  
 

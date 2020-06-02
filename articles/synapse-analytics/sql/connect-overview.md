@@ -9,21 +9,24 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9748b0354ce09752296fb7d736e09af716f19351
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: f09f9a503348efc51fb50c283e7fe856869e0dd5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81420870"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198511"
 ---
 # <a name="connect-to-synapse-sql"></a>Conectar-se ao Synapse SQL
 Conecte-se à funcionalidade Synapse SQL no Azure Synapse Analytics.
 
 ## <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas compatíveis com o SQL sob demanda (versão prévia)
 
-A ferramenta totalmente compatível é o Azure Data Studio (versão prévia).
+O [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) tem total compatibilidade da versão 1.18.0 em diante. O SSMS tem compatibilidade parcial da versão 18.5 em diante. Você pode usá-lo somente para se conectar e consultar.
 
-Há suporte parcial para o SQL Server Management Studio na versão 18.4 em diante. Há recursos limitados, como conexão e consulta.
+> [!NOTE]
+> Se um logon do AAD tiver uma conexão aberta por mais de 1 hora no momento da execução da consulta, qualquer consulta que depender do AAD falhará. Isso inclui consultar o armazenamento usando a passagem do AAD e instruções que interagem com o AAD (como CREATE EXTERNAL PROVIDER). Isso afeta todas as ferramentas que mantêm conexões abertas, como no editor de consultas no SSMS e no ADS. As ferramentas que abrem novas conexões para executar uma consulta, como o Synapse Studio, não são afetadas.
+
+> Você pode reiniciar o SSMS ou conectar-se e desconectar-se no ADS para atenuar esse problema. 
 
 ## <a name="find-your-server-name"></a>Localizar o nome do servidor
 

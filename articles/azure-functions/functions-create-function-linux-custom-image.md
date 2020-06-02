@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: fee4e16bd77664e541eeb36cb807a77d13191899
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbd42668a0a1821e0ab7a6edc8ad05c79bfebe7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82165715"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123510"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
@@ -295,17 +295,24 @@ Com a imagem implantada no aplicativo de funções no Azure, você pode invocar 
 
     # <a name="portal"></a>[Portal](#tab/portal)
 
-    1. Entre no portal do Azure e, em seguida, localize o aplicativo de funções inserindo o nome dele na caixa **Pesquisar** na parte superior da página. Nos resultados, selecione o recurso **Serviço de Aplicativo**.
+    1. Entre no portal do Azure, em seguida, procure e selecione **Aplicativo de Funções**.
 
-    1. No painel de navegação à esquerda, em **Funções (Somente Leitura)** , selecione o nome da função.
+    1. Selecione a função que você deseja verificar.
 
-    1. No painel de detalhes, selecione **</> Obter URL da função**:
+    1. No painel de navegação esquerdo, selecione **Funções** e, em seguida, selecione a função que você deseja verificar.
+
+        ![O comando Obter URL da função no portal do Azure](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
     
-        ![O comando Obter URL da função no portal do Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
+    1. Selecione **Obter a URL da função**.
 
-    1. No pop-up, selecione **Padrão (chave de função)** e, em seguida, **Copiar**. A chave é a cadeia de caracteres que segue `?code=`.
+        ![O comando Obter URL da função no portal do Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
-        ![Copiando a URL da função do Portal do Azure](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+    
+    1. Na janela pop-up, selecione **padrão (chave de função)** e, em seguida, copie a URL para a área de transferência. A chave é a cadeia de caracteres que segue `?code=`.
+
+        ![O comando Obter URL da função no portal do Azure](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
 
     > [!NOTE]  
     > Já que seu aplicativo de funções é implantado como um contêiner, você não pode fazer alterações no seu código de função no portal. Em vez disso, você precisa atualizar o projeto na imagem local, enviar a imagem por push para o Registro novamente e reimplantar no Azure. Você pode configurar a implantação contínua em uma seção posterior.
@@ -340,11 +347,11 @@ Com a imagem implantada no aplicativo de funções no Azure, você pode invocar 
 
     ---
 
-1. Cole a URL da função na barra de endereços do navegador, adicionando o parâmetro `&name=Azure` ao final da URL. Um texto semelhante a"Olá Azure" deve aparecer no navegador.
+1. Cole a URL da função na barra de endereços do navegador, adicionando o parâmetro `&name=Azure` ao final da URL. Um texto semelhante a"Olá, Azure" deve aparecer no navegador.
 
     ![Resposta da função no navegador.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. Para testar a autorização, remova o parâmetro code= da URL e verifique se você não recebe nenhuma resposta da função.
+1. Para testar a autorização, remova o parâmetro `code=` da URL e verifique se você não recebe nenhuma resposta da função.
 
 
 ## <a name="enable-continuous-deployment-to-azure"></a>Habilitar a implantação contínua no Azure

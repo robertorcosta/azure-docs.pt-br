@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231213"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007542"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -22,7 +22,7 @@ A rotulagem de um grande volume de dados em projetos de Machine Learning costuma
  
 O [Azure Machine Learning](https://ml.azure.com/) oferece um lugar central para criar, gerenciar e monitorar projetos de rotulagem (versão prévia pública). Use-o para coordenar dados, rótulos e membros da equipe, a fim de gerenciar tarefas de rotulagem com eficiência. O Machine Learning dá suporte à classificação de imagem, de vários rótulos ou multiclasse, e à identificação do objeto com caixas delimitadoras.
 
-Azure Machine Learning rastreia o progresso e mantém a fila de tarefas de rotulagem incompletas.
+O Azure Machine Learning acompanha o progresso e mantém a fila de tarefas de rotulagem incompletas.
 
 Você pode iniciar e parar o projeto e monitorar o progresso do rótulo. Você pode exportar os dados rotulados no formato COCO ou como um conjunto de dados do Azure Machine Learning.
 
@@ -49,7 +49,7 @@ Neste artigo, você aprenderá a:
 
 ## <a name="create-a-labeling-project"></a>Criar um projeto de rotulagem
 
-Os projetos de rotulagem são administrados no Azure Machine Learning. Use a página **rotulando projetos** para gerenciar seus projetos.
+Os projetos de rotulagem são administrados no Azure Machine Learning. Use a página **Projetos de rotulagem** para gerenciar os projetos.
 
 Caso os seus dados já estejam no Armazenamento de Blobs do Azure, você deverá disponibilizá-los como um armazenamento de dados antes de criar o projeto de rotulagem. Para obter um exemplo de como usar um armazenamento de dados, veja o [Tutorial: Criar seu primeiro projeto de rotulagem de classificação de imagens](tutorial-labeling.md).
 
@@ -138,8 +138,6 @@ Com relação às caixas delimitadoras, entre as perguntas importantes se inclue
 
 A página **Rotulagem assistida por ML** permite que você dispare modelos de machine learning automáticos para acelerar a tarefa de rotulagem. No início do projeto de rotulagem, as imagens são embaralhadas em ordem aleatória para reduzir o desvio potencial. No entanto, qualquer desvio presente no conjunto de dados será refletido no modelo treinado. Por exemplo, se 80% das imagens forem de uma só classe, aproximadamente 80% dos dados usados para treinar o modelo serão dessa classe. Este treinamento não inclui o aprendizado ativo.
 
-Esse recurso está disponível para tarefas de classificação de imagem (multiclasse ou vários rótulos).  
-
 Selecione *Habilitar a rotulagem assistida por ML* e especifique uma GPU para habilitar a rotulagem assistida, que consiste em duas fases:
 * Clustering
 * Pré-rotulagem
@@ -150,13 +148,15 @@ Como os rótulos finais ainda dependem da entrada do rotulador, essa tecnologia,
 
 ### <a name="clustering"></a>Clustering
 
-Depois que um número especificado de rótulos é enviado, o modelo de machine learning começa a agrupar imagens semelhantes.  Essas imagens semelhantes são apresentadas aos rotuladores na mesma tela para acelerar a marcação manual. O clustering é especialmente útil quando o rotulador exibe uma grade de 4, 6 ou 9 imagens. 
+Depois que um número especificado de rótulos é enviado, o modelo de machine learning para classificação de imagens começa a agrupar imagens semelhantes.  Essas imagens semelhantes são apresentadas aos rotuladores na mesma tela para acelerar a marcação manual. O clustering é especialmente útil quando o rotulador exibe uma grade de 4, 6 ou 9 imagens. 
 
 Depois que um modelo de machine learning for treinado nos dados rotulados manualmente, o modelo será truncado para a última camada totalmente conectada. As imagens sem rótulo são passadas pelo modelo truncado em um processo normalmente conhecido como "incorporação" ou "personalização". Isso incorpora cada imagem em um espaço altamente dimensional definido por essa camada de modelo. As imagens que são os vizinhos mais próximos no espaço são usadas para tarefas de clustering. 
 
+A fase de clustering não é exibida para modelos de detecção de objetos.
+
 ### <a name="prelabeling"></a>Pré-rotulagem
 
-Depois de mais rótulos de imagem serem enviados, um modelo de classificação é usado para prever marcas de imagem.  O rotulador agora vê as páginas que contêm rótulos previstos já presentes em cada imagem.  A tarefa passa a ser o exame desses rótulos e a correção das imagens incorretamente rotuladas antes de enviar a página.  
+Depois que rótulos de imagem suficientes são enviados, um modelo de classificação é usado para prever marcas de imagem. Ou um modelo de detecção de objetos é usado para prever caixas delimitadoras. O rotulador agora vê as páginas que contêm rótulos previstos já presentes em cada imagem. Para a detecção de objetos, as caixas previstas também são mostradas. A tarefa passa a ser a análise dessas previsões e a correção das imagens incorretamente rotuladas antes de enviar a página.  
 
 Depois que um modelo de machine learning for treinado nos dados rotulados manualmente, o modelo será avaliado em um conjunto de teste de imagens rotuladas manualmente para determinar a precisão em uma variedade de limites de confiança diferentes. Esse processo de avaliação é usado para determinar um limite de confiança acima do qual o modelo é preciso o suficiente para mostrar os pré-rótulos. O modelo é então avaliado em relação aos dados sem rótulo. As imagens com previsões mais confiantes do que esse limite são usadas para a pré-rotulagem.
 

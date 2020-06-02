@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 8f6022f03d28362e85fba3fd75e60c4d7032b41b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd02a0ea51faa7dae14e0f9d61c446aae55dcbe1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448377"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849562"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Ruby
 
-Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Este aplicativo Ruby simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) com anotações de código e tratamentos de erro adicionais.
+Use este início rápido para fazer sua primeira chamada à API da Pesquisa de Vídeo do Bing. Este aplicativo Ruby simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. 
+
+O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) com anotações de código e tratamentos de erro adicionais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +31,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-1. importe os pacotes a seguir em seu arquivo de código.
+1. Importar os seguintes pacotes em seu arquivo de código:
 
     ```ruby
     require 'net/https'
@@ -37,7 +39,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
     require 'json'
     ```
 
-2. Crie variáveis para o ponto de extremidade da API, o caminho de pesquisa da API de vídeo, sua chave de assinatura e o termo de pesquisa. `uri` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Crie variáveis para o ponto de extremidade da API, o caminho de pesquisa da API de vídeo, sua chave de assinatura e o termo de pesquisa. Para o valor `url`, você pode usar o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -48,7 +50,7 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar uma solicitação de API
 
-1. Use as variáveis da última etapa para formatar uma URL de pesquisa para a solicitação. Combine seu URI e o caminho e, em seguida, codifique seu termo de pesquisa na URL antes de acrescentá-lo ao parâmetro `?q=`.
+1. Use as variáveis da etapa anterior para formatar uma URL de pesquisa para a solicitação. Combine seu URI e o caminho e, em seguida, codifique seu termo de pesquisa na URL antes de acrescentá-lo ao parâmetro `?q=`.
 
     ```ruby
     uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -71,11 +73,11 @@ Use este início rápido para fazer sua primeira chamada à API de Pesquisa de V
 
 ## <a name="process-and-view-the-response"></a>Processar e ver a resposta
 
-1. Depois que a resposta é recebida, você pode imprimir a resposta JSON.
+Depois que a resposta é recebida, imprima a resposta JSON.
 
-    ```ruby
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
+```ruby
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## <a name="json-response"></a>Resposta JSON
 

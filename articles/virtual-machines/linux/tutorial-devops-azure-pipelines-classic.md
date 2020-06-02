@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Configurar implantações sem interrupção para Máquinas Virtuais do Linux do Azure
-description: Neste tutorial, você aprenderá a configurar o pipeline de CD (implantação contínua) que atualiza de modo incremental um grupo de Máquinas Virtuais do Linux do Azure usando a estratégia de implantação sem interrupção
+title: Tutorial – Configurar implantações sem interrupção para máquinas virtuais do Linux do Azure
+description: Neste tutorial, você aprenderá a configurar um pipeline de CD (implantação contínua). Esse pipeline atualiza incrementalmente um grupo de máquinas virtuais do Linux do Azure usando a estratégia de implantação sem interrupção.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,75 +12,86 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 75888b1ebbda33891296fe0b54c5d204955e32a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 28f093bc464a45862d3b253d628b7ae03810f81a
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113469"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871222"
 ---
-# <a name="tutorial---configure-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial – Configurar estratégia de implantação sem interrupção para Máquinas Virtuais do Linux do Azure
+# <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial – Configurar estratégia de implantação sem interrupção para Máquinas Virtuais do Linux do Azure
 
-O Azure DevOps é um serviço interno do Azure que automatiza cada parte do processo de DevOps com integração contínua e entrega contínua para qualquer recurso do Azure.
-Se seu aplicativo usa máquinas virtuais, aplicativos Web, Kubernetes ou qualquer outro recurso, você pode implementar infraestrutura como código, integração contínua, teste contínuo, entrega contínua e monitoramento contínuo com o Azure e o Azure DevOps.  
+O Azure DevOps é um serviço interno do Azure que automatiza cada parte do processo de DevOps para qualquer recurso do Azure. Se seu aplicativo usa máquinas virtuais, aplicativos Web, Kubernetes ou qualquer outro recurso, você pode implementar IaaC (infraestrutura como código), integração contínua, teste contínuo, entrega contínua e monitoramento contínuo com o Azure e o Azure DevOps.
 
-![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
+![O portal do Azure com o Azure DevOps selecionado em serviços](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>IaaS (infraestrutura como serviço) – configurar CI/CD
 
-## <a name="iaas---configure-cicd"></a>IaaS – Configurar CI/CD 
-O Azure Pipelines fornece um conjunto completo de ferramentas de automação de CI/CD para implantações em máquinas virtuais. Você pode configurar um pipeline de entrega contínua para uma VM do Azure diretamente do portal do Azure. Este documento contém as etapas associadas à configuração de um pipeline de CI/CD para fazer implantações sem interrupção em vários computadores usando o portal do Azure. Você também pode dar uma olhada em outras estratégias, como [canário](https://aka.ms/AA7jdrz) e [azul-verde](https://aka.ms/AA83fwu), que são inatamente compatíveis por meio do portal do Azure. 
+O Azure Pipelines fornece um conjunto de ferramentas de automação de CI/CD para implantações em máquinas virtuais. Você pode configurar um pipeline de entrega contínua para uma VM do Azure do portal do Azure.
 
+Este artigo mostra como configurar um pipeline de CI/CD para a reversão de implantações de vários computadores do portal do Azure. O portal do Azure também dá suporte a outras estratégias, como [canário](https://aka.ms/AA7jdrz) e [azul-verde](https://aka.ms/AA83fwu).
 
-**Configurar CI/CD em máquinas virtuais**
+### <a name="configure-cicd-on-virtual-machines"></a>Configurar CI/CD em máquinas virtuais
 
-Máquinas virtuais podem ser adicionadas como destinos em um [grupo de implantação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e podem ser direcionadas para atualizações em vários computadores. Após implantado, o **Histórico de Implantação** dentro de um grupo de implantação fornece rastreabilidade da VM ao pipeline e, em seguida, até o commit. 
- 
+Você pode adicionar máquinas virtuais como destinos a um [grupo de implantação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Em seguida, você pode direcioná-las para atualizações de vários computadores. Depois de implantar o computadores, veja o **Histórico de Implantação** em um grupo de implantação. Essa exibição permite que você rastreie da VM para o pipeline e, em seguida, para a confirmação.
 
-**Implantações Sem Interrupção**: uma implantação sem interrupção substitui as instâncias da versão anterior de um aplicativo por instâncias da nova versão do aplicativo em um conjunto fixo de computadores (conjunto sem interrupção) em cada iteração. Vejamos como você pode configurar uma atualização sem interrupção para máquinas virtuais.  
-Você pode configurar atualizações sem interrupção em suas "**máquinas virtuais**" dentro do portal do Azure usando a opção de entrega contínua. 
+### <a name="rolling-deployments"></a>Implantações sem interrupção
 
-Veja um passo a passo do processo. 
-1. Entre no portal do Azure e navegue até uma máquina virtual. 
-2. No painel da VM à esquerda, navegue até o menu de  **entrega contínua** . Em seguida, clique em **Configurar**. 
+Em cada iteração, uma implantação sem interrupção substitui as instâncias da versão anterior de um aplicativo. Ela os substitui por instâncias da nova versão em um conjunto fixo de computadores (conjunto dinâmico). As instruções a seguir mostram como configurar uma atualização sem interrupção para máquinas virtuais.
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. No painel de configuração, clique em "Organização do Azure DevOps" para selecionar uma conta existente ou criar uma. Em seguida, selecione o projeto no qual deseja configurar o pipeline.  
+Usando a opção de entrega contínua, você pode configurar atualizações sem interrupção em suas máquinas virtuais dentro do portal do Azure. Veja um passo a passo do processo:
 
+1. Entre no portal do Azure e navegue até uma máquina virtual.
+1. No painel mais à esquerda das configurações da VM, selecione **Entrega contínua**. Em seguida, selecione **Configurar**.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. Um grupo de implantação é um conjunto lógico de computadores de destino da implantação que representam os ambientes físicos; por exemplo, "Desenvolvimento", "Teste", "UAT" e "Produção". Você pode criar um grupo de implantação ou selecionar um existente. 
-5. Selecione o pipeline de build que publica o pacote a ser implantado na máquina virtual. Observe que o pacote publicado deve ter um script de implantação _deploy.ps1_ ou _deploy.sh_ na pasta `deployscripts` na raiz do pacote. Esse script de implantação será executado pelo pipeline do Azure DevOps em tempo de execução.
-6. Selecione a estratégia de implantação de sua escolha. Nesse caso, vamos selecionar "Sem Interrupção".
-7. Opcionalmente, você pode marcar o computador com a função. Por exemplo, "Web", "DB" etc. Isso ajuda você a direcionar as VMs que têm apenas uma função específica.
-8. Clique em **OK** na caixa de diálogo para configurar o pipeline de entrega contínua. 
-9. Depois de concluído, você terá um pipeline de entrega contínua configurado para implantação na máquina virtual.  
+   ![O painel Entrega contínua com o botão Configurar](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
+1. No painel de configuração, clique em **Organização do Azure DevOps** para selecionar uma conta ou criar uma. Em seguida, selecione o projeto no qual deseja configurar o pipeline.  
 
-   ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
-10. Você verá que a implantação na máquina virtual está em andamento. Você pode clicar no link para navegar até o pipeline. Clique em **Versão 1** para exibir a implantação. Ou você pode clicar em **Editar** para modificar a definição do pipeline de lançamento. 
-11. Se tiver várias VMs a serem configuradas, repita as etapas 2 a 4 para que outras VMs sejam adicionadas ao grupo de implantação. Observe que, se você selecionar um Grupo de Implantação para o qual já exista uma execução de pipeline, a VM será adicionada ao grupo de implantação sem criar pipelines. 
-12. Quando terminar, clique na definição do pipeline, navegue até a organização do Azure DevOps e clique em **Editar** pipeline de lançamento. 
-   ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
-13. Clique no link **1 trabalho, 1 tarefa** na fase **desenvolvimento**. Clique na fase **Implantar**.
-   ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
-14. No painel de configuração à direita, você pode especificar o número de computadores que deseja implantar em paralelo em cada iteração. Caso queira implantar em vários computadores de uma vez, você poderá especificá-los em termos de percentual, usando o controle deslizante.  
+   ![O painel de Entrega contínua](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-15. A tarefa Executar Script de Implantação executará, por padrão, o script de implantação _deploy.ps1_ ou _deploy.sh_ na pasta "deployscripts" no diretório raiz do pacote publicado.  
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. Um grupo de implantação é um conjunto lógico de computadores de destino de implantação que representam os ambientes físicos. Desenvolvimento, teste, UAT e produção são exemplos. Você pode criar um grupo de implantação ou selecionar um existente.
+1. Selecione o pipeline de build que publica o pacote a ser implantado na máquina virtual. O pacote publicado deve ter um script de implantação chamado deploy.ps1 ou deploy.sh na pasta deployscripts na pasta raiz do pacote. O pipeline executa esse script de implantação.
+1. Em **Estratégia de implantação**, selecione **Sem interrupção**.
+1. Opcionalmente, você pode marcar cada computador com sua função. As marcas "web" e "db" são exemplos. Essas marcas ajudam a direcionar apenas as VMs que têm uma função específica.
+1. Selecione **OK** para configurar o pipeline de entrega contínua.
+1. Após a conclusão da configuração, você tem um pipeline de entrega contínua configurado para implantar na máquina virtual.  
+
+   ![O painel de entrega contínua mostrando o histórico de implantação](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
+
+1. Os detalhes da implantação para a máquina virtual são exibidos. Você pode selecionar o link para acessar o pipeline, **Release-1** para exibir a implantação ou **Editar** para modificar a definição do pipeline de lançamento.
+
+1. Se você estiver configurando várias VMs, repita as etapas de 2 a 4 para outras VMs a serem adicionadas ao grupo de implantação. Se você selecionar um grupo de implantação que já tenha uma execução de pipeline, as VMs serão adicionadas apenas ao grupo de implantação. Nenhum pipeline é criado.
+1. Após a conclusão da configuração, selecione a definição de pipeline, navegue até a organização Azure DevOps e selecione **Editar** para o pipeline de lançamento.
+
+   ![Como editar o pipeline sem interrupção](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
+
+1. Selecione **1 trabalho, 1 tarefa** na fase **dev**. Selecione a fase **Implantar**.
+
+   ![Tarefas do pipeline sem interrupção com a tarefa Implantar selecionada](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
+
+1. No painel de configuração à direita, você pode especificar o número de computadores que deseja implantar em paralelo em cada iteração. Se você quiser implantar em vários computadores por vez, poderá especificar o número de computadores como um percentual usando o controle deslizante.  
+
+1. A tarefa Executar Script de Implantação, por padrão, executa o script de implantação deploy.ps1 ou deploy.sh. O script está na pasta deployscripts na pasta raiz do pacote publicado.
+
+   ![O painel Artefatos mostrando deploy.sh na pasta deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Outras estratégias de implantação
 
 - [Configurar a estratégia de implantação canário](https://aka.ms/AA7jdrz)
-- [Configurar estratégia de implantação azul-verde](https://aka.ms/AA83fwu)
+- [Configurar a estratégia de implantação azul-verde](https://aka.ms/AA83fwu)
 
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Você pode começar a usar o Azure facilmente. Com o Azure DevOps Projects, comece a executar seu aplicativo em qualquer serviço do Azure em apenas três etapas, selecionando:
+
+- Uma linguagem do aplicativo
+- Um runtime
+- Um serviço do Azure
  
-## <a name="azure-devops-project"></a>Projeto do Azure DevOps 
-Comece a usar o Azure com mais facilidade do que nunca.
+[Saiba mais](https://azure.microsoft.com/features/devops-projects/).
  
-Com o DevOps Projects, comece a executar seu aplicativo em qualquer serviço do Azure em apenas três etapas: selecione um idioma do aplicativo, um runtime e um serviço do Azure.
- 
-[Saiba mais](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Recursos adicionais 
-- [Implantar em Máquinas Virtuais do Azure usando um projeto do DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementar a implantação contínua do aplicativo em um Conjunto de Dimensionamento de Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+## <a name="additional-resources"></a>Recursos adicionais
+
+- [Implantar em máquinas virtuais do Azure usando Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+- [Implementar a implantação contínua do aplicativo em um conjunto de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

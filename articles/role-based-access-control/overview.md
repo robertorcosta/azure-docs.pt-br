@@ -1,6 +1,6 @@
 ---
-title: O que é o RBAC (controle de acesso baseado em função) para recursos do Azure? | Microsoft Docs
-description: Obtenha uma visão geral do RBAC (controle de acesso baseado em função) para recursos do Azure. Use atribuições de função para controlar o acesso aos recursos no Azure.
+title: O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?
+description: Obtenha uma visão geral do RBAC do Azure (controle de acesso baseado em função do Azure). Use atribuições de função para controlar o acesso aos recursos no Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,31 +14,31 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81686482"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996486"
 ---
-# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o RBAC (controle de acesso baseado em função) para recursos do Azure?
+# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?
 
-O gerenciamento de acesso para recursos de nuvem é uma função crítica para qualquer organização que esteja usando a nuvem. O controle de acesso baseado em funções (RBAC) ajuda a gerenciar quem tem acesso aos recursos do Azure, o que pode fazer com esses recursos e a quais áreas tem acesso.
+O gerenciamento de acesso para recursos de nuvem é uma função crítica para qualquer organização que esteja usando a nuvem. O RBAC do Azure (controle de acesso baseado em funções do Azure) ajuda a gerenciar quem tem acesso aos recursos do Azure, o que pode fazer com esses recursos e a quais áreas tem acesso.
 
-O RBAC é um sistema de autorização baseado no [Azure Resource Manager](../azure-resource-manager/management/overview.md) que fornece gerenciamento de acesso refinado dos recursos do Azure.
+O RBAC do Azure é um sistema de autorização baseado no [Azure Resource Manager](../azure-resource-manager/management/overview.md) que fornece gerenciamento de acesso refinado dos recursos do Azure.
 
-## <a name="what-can-i-do-with-rbac"></a>O que posso fazer com o RBAC?
+## <a name="what-can-i-do-with-azure-rbac"></a>O que posso fazer com o RBAC do Azure?
 
-Aqui estão alguns exemplos do que você pode fazer com o RBAC:
+Aqui estão alguns exemplos do que você pode fazer com o RBAC do Azure:
 
 - Permitir que um usuário gerencie máquinas virtuais em uma assinatura e outro usuário gerencie redes virtuais
 - Permitir que um grupo de DBA gerencie bancos de dados SQL em uma assinatura
 - Permitir que um usuário gerencie todos os recursos em um grupo de recursos, como máquinas virtuais, sites e sub-redes
 - Permitir que um aplicativo acesse todos os recursos em um grupo de recursos
 
-## <a name="how-rbac-works"></a>Como funciona o RBAC
+## <a name="how-azure-rbac-works"></a>Como o RBAC do Azure funciona
 
-A maneira de controlar o acesso aos recursos usando RBAC é criar atribuições de função. Esse é um conceito fundamental que deve ser entendido: como as permissões são aplicadas. Uma atribuição de função consiste em três elementos: entidade de segurança, definição de função e escopo.
+A maneira de controlar o acesso aos recursos usando RBAC do Azure é criar atribuições de função. Esse é um conceito fundamental que deve ser entendido: como as permissões são aplicadas. Uma atribuição de função consiste em três elementos: entidade de segurança, definição de função e escopo.
 
 ### <a name="security-principal"></a>Entidade de segurança
 
@@ -64,9 +64,9 @@ O Azure inclui várias [funções internas](built-in-roles.md) que você pode us
 - [Leitor](built-in-roles.md#reader) - Pode exibir os recursos existentes do Azure.
 - [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator) - Permite gerenciar o acesso do usuário aos recursos do Azure.
 
-As demais funções internas permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite que um usuário crie e gerencie máquinas virtuais. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas para recursos do Azure](custom-roles.md).
+As demais funções internas permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite que um usuário crie e gerencie máquinas virtuais. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar [funções personalizadas do Azure](custom-roles.md) próprias.
 
-O Azure tem operações de dados que permitem a você conceder acesso a dados em um objeto. Por exemplo, se um usuário tem acesso de leitura de dados para uma conta de armazenamento, eles podem ler blobs ou mensagens dentro dessa conta de armazenamento. Para obter mais informações, confira [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md).
+O Azure tem operações de dados que permitem a você conceder acesso a dados em um objeto. Por exemplo, se um usuário tem acesso de leitura de dados para uma conta de armazenamento, eles podem ler blobs ou mensagens dentro dessa conta de armazenamento. Para saber mais, veja [Noções básicas sobre definições de função do Azure](role-definitions.md).
 
 ### <a name="scope"></a>Escopo
 
@@ -90,21 +90,21 @@ O diagrama a seguir mostra um exemplo de uma atribuição de função. Neste exe
 
 ![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
 
-Você pode criar atribuições de função usando o portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Você pode ter até **2.000** atribuições de função em cada assinatura e **500** atribuições de função em cada grupo de gerenciamento. Para criar e remover as atribuições de função, você deve ter a permissão `Microsoft.Authorization/roleAssignments/*`. Essa permissão deve ser concedida pelas funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator).
+Você pode criar atribuições de função usando o portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST. Em cada assinatura, você pode ter até **2 mil** atribuições de função. Esse limite inclui atribuições de função na assinatura, no grupo de recursos e nos escopos de recursos. Você pode ter até **500** atribuições de função em cada grupo de gerenciamento. Para criar e remover as atribuições de função, você deve ter a permissão `Microsoft.Authorization/roleAssignments/*`. Essa permissão deve ser concedida pelas funções [Proprietário](built-in-roles.md#owner) ou [Administrador de Acesso do Usuário](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Atribuições de função múltiplas
 
-O que acontece se você tem várias atribuições de função sobrepostas? O RBAC é um modelo aditivo e, portanto, suas permissões efetivas são a soma das atribuições de função. Considere o exemplo a seguir em que um usuário recebe a função Colaborador no escopo da assinatura e a função Leitor em um grupo de recursos. A soma das permissões de Colaborador e das permissões de Leitor é, efetivamente, a função Colaborador para o grupo de recursos. Portanto, nesse caso, a atribuição de função Leitor não tem nenhum impacto.
+O que acontece se você tem várias atribuições de função sobrepostas? O RBAC do Azure é um modelo aditivo e, portanto, suas permissões efetivas são a soma das atribuições de função. Considere o exemplo a seguir em que um usuário recebe a função Colaborador no escopo da assinatura e a função Leitor em um grupo de recursos. A soma das permissões de Colaborador e das permissões de Leitor é, efetivamente, a função Colaborador para o grupo de recursos. Portanto, nesse caso, a atribuição de função Leitor não tem nenhum impacto.
 
 ![Atribuições de função múltiplas](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Negar atribuições
 
-Anteriormente, o RBAC era um modelo somente de permissão, sem negação, mas agora ele dá suporte a atribuições de negações, com limitações. Semelhante a uma atribuição de função, uma *atribuição de negação* anexa um conjunto de ações de negação a um usuário, grupo, entidade de serviço ou identidade gerenciada em um escopo específico com o objetivo de negar acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Em outras palavras, as atribuições de negação impedem que os usuários executem ações especificadas, mesmo quando uma atribuição de função lhes concede acesso. As atribuições de negação têm precedência sobre as atribuições de função. Para obter mais informações, confira [Compreender atribuições de negação de recursos do Azure](deny-assignments.md).
+Anteriormente, o RBAC do Azure era um modelo somente de permissão, sem negação, mas agora ele é compatível com atribuições de negações, com limitações. Semelhante a uma atribuição de função, uma *atribuição de negação* anexa um conjunto de ações de negação a um usuário, grupo, entidade de serviço ou identidade gerenciada em um escopo específico com o objetivo de negar acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Em outras palavras, as atribuições de negação impedem que os usuários executem ações especificadas, mesmo quando uma atribuição de função lhes concede acesso. As atribuições de negação têm precedência sobre as atribuições de função. Para obter mais informações, confira [Compreender atribuições de negação do Azure](deny-assignments.md).
 
-## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Como o RBAC determina se um usuário tem acesso a um recurso
+## <a name="how-azure-rbac-determines-if-a-user-has-access-to-a-resource"></a>Como o RBAC do Azure determina se um usuário tem acesso a um recurso
 
-A seguir estão as etapas gerais que o RBAC usa para determinar se você tem acesso a um recurso no plano de gerenciamento. Convém entender isso quando você está tentando solucionar problemas de acesso.
+Veja a seguir as etapas gerais que o RBAC do Azure usa para determinar se você tem acesso a um recurso no plano de gerenciamento. Convém entender isso quando você está tentando solucionar problemas de acesso.
 
 1. Um usuário (ou uma entidade de serviço) adquire um token do Azure Resource Manager.
 
@@ -128,7 +128,7 @@ A seguir estão as etapas gerais que o RBAC usa para determinar se você tem ace
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Início Rápido: Exibir o acesso que um usuário tem aos recursos do Azure usando o portal do Azure](check-access.md)
-- [Gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](role-assignments-portal.md)
-- [Entender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
+- [Início Rápido: Ver o acesso que um usuário tem aos recursos do Azure](check-access.md)
+- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md)
+- [Entender as diferentes funções](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: Gerenciamento de acesso aos recursos no Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

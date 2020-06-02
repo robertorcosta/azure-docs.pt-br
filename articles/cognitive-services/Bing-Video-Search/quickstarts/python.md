@@ -8,20 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: fbf20c2d54506b0f314697d6df34f9a430e7c016
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 28d9726bfa1e195fa87b41914841083c56dbc844
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382677"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849579"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e Python
 
-Use este início rápido para fazer sua primeira chamada à API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Este aplicativo Python simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) com anotações de código e tratamentos de erro adicionais.
+Use este início rápido para fazer sua primeira chamada à API da Pesquisa de Vídeo do Bing. Este aplicativo Python simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. 
 
-Você pode executar esse exemplo como um bloco de anotações do Jupyter em [MyBinder](https://mybinder.org) clicando no selo de inicialização do Binder: 
+O código-fonte para esse exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) com anotações de código e tratamentos de erro adicionais.
+
+Você pode executar esse exemplo como um notebook Jupyter em [MyBinder](https://mybinder.org) selecionando a notificação de **inicialização do associador**: 
 
 [![Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
@@ -34,13 +36,13 @@ Você pode executar esse exemplo como um bloco de anotações do Jupyter em [MyB
 
 ## <a name="initialize-the-application"></a>Inicializar o aplicativo
 
-1. Crie um novo arquivo do Python em seu IDE ou editor favorito e importe as bibliotecas a seguir.
+1. Crie um arquivo do Python em seu IDE ou editor favorito e importe as seguintes bibliotecas:
 
     ```python
     import requests
     from IPython.display import HTML
     ```
-2.  Crie variáveis para a chave de assinatura, um ponto de extremidade de pesquisa e um termo de pesquisa. `search_url` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2.  Crie variáveis para a chave de assinatura, um ponto de extremidade de pesquisa e um termo de pesquisa. Para o valor `search_url`, você pode usar o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
     
     ```python
     subscription_key = None
@@ -57,7 +59,7 @@ Você pode executar esse exemplo como um bloco de anotações do Jupyter em [MyB
 
 ## <a name="send-your-request"></a>Envie sua solicitação
 
-1. Adicione parâmetros à sua solicitação criando um dicionário chamado `params`. Adicione o termo de pesquisa ao parâmetro `q`, uma contagem de vídeos de 5, `free` para o preço dos vídeos retornados e `short` para o tamanho do vídeo.
+1. Adicione parâmetros à sua solicitação criando um dicionário chamado `params`. Adicione os termos de pesquisa ao parâmetro `q`: uma contagem de vídeos de 5, `free` para o preço dos vídeos retornados e `short` para o tamanho do vídeo.
 
     ```python
     params  = {"q": search_term, "count":5, "pricing": "free", "videoLength":"short"}

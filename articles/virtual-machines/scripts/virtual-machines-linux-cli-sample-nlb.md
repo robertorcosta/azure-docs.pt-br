@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3182b3f059bf586dce32d8a555ec0d15542c6afc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5765c2e7335183734c86f1ddd11e4fa61576740c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460351"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82977542"
 ---
 # <a name="create-a-highly-available-vm"></a>Criar uma máquina virtual altamente disponível
 
@@ -53,7 +53,7 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Cria um endereço IP público com um endereço IP estático e um nome DNS associado. |
 | [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) | Cria um balanceador de carga de rede (NLB) do Azure. |
 | [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) | Cria uma investigação NLB. Uma investigação NLB é usada para monitorar cada VM no conjunto do NLB. Se qualquer VM ficar inacessível, o tráfego não é roteado para a máquina virtual. |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria uma regra NLB. Neste exemplo, uma regra é criada para a porta 80. Conforme o tráfego HTTP chega ao NLB, ele é roteado para a porta 80, uma das VMs no conjunto do NLB. |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Cria uma regra NLB. Neste exemplo, uma regra é criada para a porta 80. Conforme o tráfego HTTP chega ao NLB, ele é roteado para a porta 80 de uma das VMs no conjunto do NLB. |
 | [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) | Cria uma regra de conversão de endereços de rede (NAT) do NLB.  Regras de NAT mapeiam uma porta do NLB para uma porta em uma máquina virtual. Neste exemplo, é criada uma regra de NAT para o tráfego SSH para cada VM no conjunto do NLB.  |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg) | Cria um grupo de segurança de rede (NSG), que é um limite de segurança entre a Internet e a máquina virtual. |
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | Cria uma regra NSG para permitir o tráfego de entrada. Neste exemplo, a porta 22 é aberta para o tráfego SSH. |

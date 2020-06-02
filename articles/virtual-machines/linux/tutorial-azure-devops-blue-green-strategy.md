@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Configurar implantações canário para Máquinas Virtuais do Linux do Azure
-description: Neste tutorial, você aprenderá a configurar o pipeline de CD (implantação contínua) que atualiza um grupo de máquinas virtuais do Azure usando a estratégia de implantação azul-verde
+title: Tutorial – Configurar implantações canário para máquinas virtuais do Linux do Azure
+description: Neste tutorial, você aprenderá a configurar um pipeline de CD (implantação contínua). Esse pipeline atualiza um grupo de máquinas virtuais do Linux do Azure usando a estratégia de implantação azul-verde.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,69 +12,81 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b1a57245434bb188ffaab56a8891b4b0ee27f044
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a98989ed48e515cafeca27ae492c83efca6002c4
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82120544"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871605"
 ---
-# <a name="tutorial---configure-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial – Configurar a estratégia de implantação Azul-Verde para Máquinas Virtuais do Linux do Azure
+# <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial – Configurar a estratégia de implantação azul-verde para máquinas virtuais do Linux do Azure
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>IaaS (infraestrutura como serviço) – configurar CI/CD
 
-## <a name="iaas---configure-cicd"></a>IaaS – Configurar CI/CD 
-O Azure Pipelines fornece um conjunto completo de ferramentas de automação de CI/CD para implantações em máquinas virtuais. Você pode configurar um pipeline de entrega contínua para uma VM do Azure diretamente do portal do Azure. Este documento contém as etapas associadas à configuração de um pipeline de CI/CD que usa a estratégia azul-verde para fazer implantações em vários computadores. Você também pode dar uma olhada em outras estratégias, como [distribuída](https://aka.ms/AA7jlh8) e [canário](https://aka.ms/AA7jdrz), que são inatamente compatíveis por meio do portal do Azure. 
+O Azure Pipelines fornece um conjunto de ferramentas de automação de CI/CD para implantações em máquinas virtuais. Você pode configurar um pipeline de entrega contínua para uma VM do Azure do portal do Azure.
 
- 
- **Configurar CI/CD em máquinas virtuais**
+Este artigo mostra como configurar um pipeline de CI/CD que usa a estratégia azul-verde para implantações em vários computadores. O portal do Azure também dá suporte a outras estratégias, como [sem interrupção](https://aka.ms/AA7jlh8) e [canário](https://aka.ms/AA7jdrz).
 
-Máquinas virtuais podem ser adicionadas como destinos em um [grupo de implantação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) e podem ser direcionadas para atualizações em vários computadores. Após implantadas, a exibição do **Histórico de Implantação** dentro de um grupo de implantação fornece rastreabilidade da VM ao pipeline e, em seguida, até a confirmação. 
- 
-  
-**Implantações Azul-Verde**: Uma implantação Azul-Verde reduz o tempo de inatividade por ter um ambiente de espera idêntico. Um dos ambientes sempre está em atividade. Ao se preparar para uma nova versão, você conclui o estágio final do teste no ambiente verde. Quando o software estiver funcionando no ambiente verde, mude o tráfego para que todas as solicitações de entrada vão para o ambiente verde – o ambiente azul agora está ocioso.
-Você pode configurar implantações do tipo Azul e Verde em suas "**máquinas virtuais**" no portal do Azure usando a opção de entrega contínua. 
+### <a name="configure-cicd-on-virtual-machines"></a>Configurar CI/CD em máquinas virtuais
 
-Veja um passo a passo do processo.
+Você pode adicionar máquinas virtuais como destinos a um [grupo de implantação](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Em seguida, você pode direcioná-las para atualizações de vários computadores. Depois de implantar o computadores, veja o **Histórico de Implantação** em um grupo de implantação. Essa exibição permite que você rastreie da VM para o pipeline e, em seguida, para a confirmação.
 
-1. Entre no portal do Azure e navegue até uma máquina virtual 
-2. No painel da VM à esquerda, acesse **Entrega contínua**. Clique em **Configurar**. 
+### <a name="blue-green-deployments"></a>Implantações azul-verde
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. No painel de configuração, clique em **Organização do Azure DevOps** para selecionar uma conta existente ou criar uma. Em seguida, selecione o projeto no qual deseja configurar o pipeline.  
+Uma implantação azul-verde reduz o tempo de inatividade por ter um ambiente de espera idêntico. Apenas um ambiente está ativo por vez.
 
+Ao se preparar para uma nova versão, você conclui o estágio final do teste no ambiente verde. Depois que o software funciona no ambiente verde, alterne o tráfego para todas as solicitações de entrada irem para o ambiente verde. O ambiente azul está ocioso.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. Um grupo de implantação é um conjunto lógico de computadores de destino da implantação que representam os ambientes físicos; por exemplo, "Desenvolvimento", "Teste", "UAT" e "Produção". Você pode criar um grupo de implantação ou selecionar um existente. 
-5. Selecione o pipeline de build que publica o pacote a ser implantado na máquina virtual. Observe que o pacote publicado deve ter um script de implantação _deploy.ps1_ ou _deploy.sh_ na pasta `deployscripts` na raiz do pacote. Esse script de implantação será executado pelo pipeline do Azure DevOps em tempo de execução.
-6. Selecione a estratégia de implantação de sua escolha. Selecione **Azul-Verde**.
-7. Adicione uma tag "azul" ou "verde" às VMs que devem fazer parte das implantações do tipo Azul-Verde. Se a VM for para uma função em espera, você deverá marcá-la como "verde"; caso contrário, marque-a como "azul".
-![AzDevOps_bluegreen_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+Usando a opção de entrega contínua, você pode configurar implantações do tipo azul-verde em suas máquinas virtuais no portal do Azure. Veja um passo a passo do processo:
 
-8. Clique em **OK** para configurar o pipeline de entrega contínua. Agora você terá um pipeline de entrega contínua configurado para implantação na máquina virtual.
-![AzDevOps_bluegreen_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+1. Entre no portal do Azure e navegue até uma máquina virtual.
+1. No painel mais à esquerda das configurações da VM, selecione **Entrega contínua**. Em seguida, selecione **Configurar**.
 
+   ![O painel Entrega contínua com o botão Configurar](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-9. Clique em **Editar** pipeline de lançamento no Azure DevOps para ver a configuração do pipeline. O pipeline consiste em três fases. A primeira fase é uma fase de grupo de implantação e é implantada em VMs que são marcadas como _verde_ (VMs em espera). A segunda fase pausa o pipeline e aguarda a intervenção manual para retomar a execução. Depois que um usuário estiver satisfeito com a estabilidade da implantação, ele poderá redirecionar o tráfego para VMs _verdes_ e retomar a execução do pipeline que, em seguida, alternará as tags _azul_ e _verde_ nas VMs. Isso garante que as VMs com versão mais antiga do aplicativo sejam marcadas como _verdes_ e implantadas na próxima execução do pipeline.
-![AzDevOps_bluegreen_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+1. No painel de configuração, clique em **Organização do Azure DevOps** para selecionar uma conta ou criar uma. Em seguida, selecione o projeto no qual deseja configurar o pipeline.  
 
+   ![O painel de Entrega contínua](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-10. A tarefa Executar Script de Implantação executará, por padrão, o script de implantação _deploy.ps1_ ou _deploy.sh_ na pasta `deployscripts` no diretório raiz do pacote publicado. Verifique se o pipeline de build selecionado publica isso na pasta raiz do pacote.
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. Um grupo de implantação é um conjunto lógico de computadores de destino de implantação que representam os ambientes físicos. Desenvolvimento, teste, UAT e produção são exemplos. Você pode criar um grupo de implantação ou selecionar um existente.
+1. Selecione o pipeline de build que publica o pacote a ser implantado na máquina virtual. O pacote publicado deve ter um script de implantação chamado deploy.ps1 ou deploy.sh na pasta deployscripts na pasta raiz do pacote. O pipeline executa esse script de implantação.
+1. Em **Estratégia de implantação**, selecione **Azul-verde**.
+1. Adicione uma tag "azul" ou "verde" às VMs que devem fazer parte das implantações do tipo azul-verde. Se uma VM for para uma função em espera, marque-a como "verde". Caso contrário, marque-a como "azul".
 
+   ![O painel de Entrega contínua, com o valor da estratégia de implantação azul-verde escolhido](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
+1. Selecione **OK** para configurar o pipeline de entrega contínua para implantar na máquina virtual.
 
+   ![O pipeline azul-verde](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+
+1. Os detalhes da implantação para a máquina virtual são exibidos. Você pode selecionar o link para acessar o pipeline de lançamento no Azure DevOps. No pipeline de lançamento, selecione **Editar** para ver a configuração do pipeline. O pipeline tem estas três fases:
+
+   1. Esta fase é uma fase de grupo de implantação. Os aplicativos são implantados em VMs em espera, que são marcadas como "verdes".
+   1. Nessa fase, pipeline é colocado em pausa e aguarda a intervenção manual para retomar a execução. Os usuários podem retomar a execução do pipeline depois de garantir manualmente a estabilidade da implantação para as VMs marcadas como "verdes".
+   1. Essa fase troca as marcas "azul" e "verde" nas VMs. Isso garante que as VMs com versões mais antigas do aplicativo agora estejam marcadas como "verdes". Durante a próxima execução do pipeline, os aplicativos serão implantados nessas VMs.
+
+      ![O painel do grupo de implantação para a tarefa Implantar Azul-Verde](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+
+1. A tarefa Executar Script de Implantação, por padrão, executa o script de implantação deploy.ps1 ou deploy.sh. O script está na pasta deployscripts na pasta raiz do pacote publicado. Verifique se o pipeline de build selecionado publica a implantação na pasta raiz do pacote.
+
+   ![O painel Artefatos mostrando deploy.sh na pasta deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Outras estratégias de implantação
+
 - [Configurar a estratégia de implantação distribuída](https://aka.ms/AA7jlh8)
 - [Configurar a estratégia de implantação canário](https://aka.ms/AA7jdrz)
 
-## <a name="azure-devops-project"></a>Projeto do Azure DevOps 
-Comece a usar o Azure com mais facilidade do que nunca.
- 
-Com o DevOps Projects, comece a executar seu aplicativo em qualquer serviço do Azure em apenas três etapas: selecione um idioma do aplicativo, um runtime e um serviço do Azure.
- 
-[Saiba mais](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Recursos adicionais 
-- [Implantar em Máquinas Virtuais do Azure usando um projeto do DevOps](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementar a implantação contínua do aplicativo em um Conjunto de Dimensionamento de Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Você pode começar a usar o Azure facilmente. Com o Azure DevOps Projects, comece a executar seu aplicativo em qualquer serviço do Azure em apenas três etapas, selecionando:
+
+- Uma linguagem do aplicativo
+- Um runtime
+- Um serviço do Azure
+
+[Saiba mais](https://azure.microsoft.com/features/devops-projects/).
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+- [Implantar em máquinas virtuais do Azure usando Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+- [Implementar a implantação contínua do aplicativo em um conjunto de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

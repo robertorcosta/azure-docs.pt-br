@@ -4,12 +4,12 @@ description: Saiba como conectar o Azure Functions a uma fila de armazenamento d
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c32f98fc1b3de98592f8e7ceb43c17aa8a9049f7
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: bb5db5858a65759c6cf20789da9cb5bfca761b1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673498"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125820"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Conectar o Azure Functions ao Armazenamento do Azure usando o Visual Studio Code
 
@@ -50,13 +50,13 @@ No [artigo de início rápido anterior](functions-create-first-function-vs-code.
 
 ## <a name="register-binding-extensions"></a>Registrar as extensões de associação
 
-Como está usando uma associação de saída Armazenamento de Filas, você precisa ter a extensão de associações de Armazenamento instalada antes de executar o projeto. 
+Como você está usando uma associação de saída do Armazenamento de Filas, você precisa ter a extensão de associações de Armazenamento instalada antes de executar o projeto. 
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
 Seu projeto foi configurado para usar [pacotes de extensão](functions-bindings-register.md#extension-bundles), que instalam automaticamente um conjunto predefinido de pacotes de extensão. 
 
-Os pacotes de extensão são habilitados no arquivo host.json na raiz do projeto, cuja aparência é semelhante à seguinte:
+O uso de pacotes de extensão é habilitado no arquivo host.json na raiz do projeto, cuja aparência é semelhante à seguinte:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -188,7 +188,7 @@ Agora, chegou a hora de republicar o aplicativo de funções atualizado no Azure
 
 1. No Visual Studio Code, pressione F1 para abrir a paleta de comandos. Na paleta de comandos, pesquise e selecione `Azure Functions: Deploy to function app...`.
 
-1. Escolha o aplicativo de funções que você criou no primeiro artigo. Como você está reimplementando seu projeto para o mesmo aplicativo, selecione **Implantar** para descartar o aviso de substituição de arquivos.
+1. Escolha o aplicativo de funções que você criou no primeiro artigo. Como você está reimplantando seu projeto no mesmo aplicativo, selecione **Implantar** para descartar o aviso de substituição de arquivos.
 
 1. Após a conclusão da implantação, você poderá usar novamente o cURL ou um navegador para testar a função reimplementada. Como antes, acrescente a cadeia de consulta `&name=<yourname>` à URL, como no seguinte exemplo:
 
@@ -200,7 +200,7 @@ Agora, chegou a hora de republicar o aplicativo de funções atualizado no Azure
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Os *Recursos* no Azure se referem a aplicativos de funções, funções, contas de armazenamento e assim por diante. Eles são agrupados em *grupos de recursos*, e você pode excluir tudo junto ao excluir o grupo.
+No Azure, os *Recursos* se referem a aplicativos de funções, funções, contas de armazenamento e assim por diante. Eles são agrupados em *grupos de recursos* e você pode excluir tudo junto ao excluir o grupo.
 
 Você criou recursos para concluir esses guias de início rápido. Você pode ser cobrado por esses recursos, dependendo do [status de conta](https://azure.microsoft.com/account/) e [preços do serviço](https://azure.microsoft.com/pricing/). Caso não precise mais dos recursos, é possível excluí-los desta maneira:
 

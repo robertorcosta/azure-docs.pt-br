@@ -2,15 +2,15 @@
 title: Expor suas funções com a OpenAPI usando o Gerenciamento de API do Azure
 description: Crie uma definição de OpenAPI que permite que outros aplicativos e serviços chamem sua função no Azure.
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 04/21/2020
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7d63d5ea17184ffa6e456877079da0821a75d59e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77210201"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121371"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Crie uma definição de OpenAPI para uma API sem servidor usando o Gerenciamento de API do Azure
 
@@ -39,17 +39,19 @@ Este tutorial usa uma função disparada por HTTP que usa dois parâmetros:
 * O tempo estimado para reparar uma turbina, em horas.
 * A capacidade da turbina, em quilowatts. 
 
-A função, em seguida, calcula o custo do reparo e o valor da receita que a turbina proporcionaria em um período de 24 horas. Para criar uma função disparada por HTTP no [portal do Azure](https://portal.azure.com):
+Depois, a função calculará o custo do reparo e o valor da receita que a turbina proporcionaria em um período de 24 horas. Para criar uma função disparada por HTTP no [portal do Azure](https://portal.azure.com):
 
-1. Expanda seu aplicativo de funções e selecione o botão **+** ao lado de **Functions**. Selecione **No portal** > **Continuar**.
+1. No menu esquerdo do seu aplicativo de funções, selecione **Funções** e **Adicionar** no menu superior.
 
-1. Selecione **Mais modelos...** e, em seguida, **Concluir e exibir modelos**
+1. Na janela **Nova Função**, selecione **Gatilho Http**.
 
-1. Selecione o acionador HTTP, digite `TurbineRepair` para sua função **Nome**, escolha `Function` para **[Nível de autenticação](functions-bindings-http-webhook-trigger.md#http-auth)** e, em seguida, selecione **Criar**.  
+1. Para **Nova Função**, insira `TurbineRepair`. 
 
-    ![Criar função HTTP para OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
+1. Escolha **Função** na lista suspensa **[Nível de autorização](functions-bindings-http-webhook-trigger.md#http-auth)** e, em seguida, selecione **Criar Função**.
 
-1. Substitua o conteúdo do arquivo do script C# run.csx pelo código abaixo e selecione **Salvar**:
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="Criar função HTTP para OpenAPI":::
+
+1. Selecione **Código + Teste** e, em seguida, selecione **run.csx** na lista suspensa. Substitua o conteúdo do arquivo do script C# run.csx pelo código abaixo e selecione **Salvar**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -102,9 +104,9 @@ A função, em seguida, calcula o custo do reparo e o valor da receita que a tur
     }
     ```
 
-    Esse código de função retorna uma mensagem de `Yes` ou `No` para indicar se um reparo de emergência é econômico, bem como as oportunidades de receita que representa a turbina e o custo para reparar a turbina.
+    Esse código de função retorna uma mensagem de `Yes` ou `No` para indicar se um reparo de emergência é econômico. Ele também retorna a oportunidade de receita que a turbina representa e o custo para reparar a turbina.
 
-1. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite o seguinte valor para o **Corpo da solicitação** e clique em **Executar**.
+1. Para testar a função, selecione **Testar**, selecione a guia **Entrada**, insira a seguinte entrada no **Corpo** e, em seguida, selecione **Executar**:
 
     ```json
     {
@@ -113,9 +115,9 @@ A função, em seguida, calcula o custo do reparo e o valor da receita que a tur
     }
     ```
 
-    ![Testar a função no portal do Azure](media/functions-openapi-definition/test-function.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Testar a função no portal do Azure":::
 
-    O valor a seguir é retornado no corpo da resposta.
+    A seguinte saída será retornada na guia **Saída**:
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
@@ -125,47 +127,48 @@ Agora você tem uma função que determina o custo-benefício de reparos de emer
 
 ## <a name="generate-the-openapi-definition"></a>Gerar a definição de OpenAPI
 
-Agora você está pronto para gerar a definição de OpenAPI.
+Para gerar a definição de OpenAPI:
 
-1. Selecione o aplicativo de função; em seguida, em **Funcionalidades da plataforma**, escolha **Gerenciamento de API** e selecione **Criar novo** no **Gerenciamento de API**.
+1. Selecione o aplicativo de funções, escolha **Gerenciamento de API** no menu esquerdo e, em seguida, selecione **Criar** em **Gerenciamento de API**.
 
-    ![Escolher Gerenciamento de API nas Funcionalidades da Plataforma](media/functions-openapi-definition/select-all-settings-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Escolha Gerenciamento de API":::
 
-1. Use as configurações de Gerenciamento de API conforme especificado na tabela abaixo da imagem.
 
-    ![Criar um novo serviço de Gerenciamento de API](media/functions-openapi-definition/new-apim-service-openapi.png)
+1. Use as configurações do Gerenciamento de API conforme especificado na seguinte tabela:
 
     | Configuração      | Valor sugerido  | Descrição                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | Nome globalmente exclusivo | Um nome é gerado com base no nome do seu aplicativo de funções. |
     | **Assinatura** | Sua assinatura | A assinatura na qual este novo recurso será criado. |  
-    | **[Grupo de Recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | O mesmo recurso que seu aplicativo de funções, que deve estar definido para você. |
+    | **[Grupo de recursos](../azure-resource-manager/management/overview.md)** |  myResourceGroup | O mesmo recurso que seu aplicativo de funções, que deve estar definido para você. |
     | **Localidade** | Oeste dos EUA | Escolha o local Oeste dos EUA. |
     | **Nome da organização** | Contoso | O nome da organização usado no portal do desenvolvedor e para notificações por email. |
     | **Email do administrador** | seu email | Email que recebeu notificações do sistema de Gerenciamento de API. |
-    | **Tipo de preços** | Consumo (versão prévia) | A camada de consumo está em versão prévia e não está disponível em todas as regiões. Para obter detalhes completos sobre preços, confira a [Página de preços de Gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Tipo de preços** | Consumo | A camada de consumo não está disponível em todas as regiões. Para obter detalhes completos sobre preços, confira a [Página de preços de Gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/) |
+
+    ![Criar um novo serviço de Gerenciamento de API](media/functions-openapi-definition/new-apim-service-openapi.png)
 
 1. Escolha **Criar** para criar a instância de Gerenciamento de API, o que pode levar vários minutos.
 
-1. Selecione **Habilitar o Application Insights** para enviar logs para o mesmo local que o aplicativo de função, aceite os padrões restantes e selecione **API de link**.
+1. Depois que o Azure cria a instância, ele habilita a opção **Habilitar Application Insights** na página. Selecione-a para enviar logs para o mesmo local que o aplicativo de funções e, em seguida, selecione **Vincular API**.
 
 1. **Importar Funções do Azure** é exibido com a função **TurbineRepair** realçada. Clique em **Selecionar** para continuar.
 
     ![Importar Funções do Azure para o Gerenciamento de API](media/functions-openapi-definition/import-function-openapi.png)
 
-1. Na página **Criar do Aplicativo de funções**, aceite os padrões e selecione **Criar**
+1. Na página **Criar com base no Aplicativo de Funções**, aceite os padrões e selecione **Criar**.
 
-    ![Criar do Aplicativo de funções](media/functions-openapi-definition/create-function-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Criar com base no Aplicativo de Funções":::
 
-A API foi criada para a função.
+    O Azure cria a API para a função.
 
 ## <a name="test-the-api"></a>Testar a API
 
 Antes de usar a definição de OpenAPI, você deve verificar se a API funciona.
 
-1. Na guia **Testar** da sua função, selecione a operação **POST**.
+1. Na página do aplicativo de funções, selecione **Gerenciamento de API**, selecione a guia **Teste** e, em seguida, selecione **POST TurbineRepair**. 
 
-1. Insira valores para **horas** e **capacidade**
+1. Insira o seguinte código no **Corpo da solicitação**:
 
     ```json
     {
@@ -174,9 +177,9 @@ Antes de usar a definição de OpenAPI, você deve verificar se a API funciona.
     }
     ```
 
-1. Clique em **Enviar** e exiba a resposta HTTP.
+1. Selecione **Enviar** e veja a **Resposta HTTP**.
 
-    ![API de função de teste](media/functions-openapi-definition/test-function-api-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="Testar API de função":::
 
 ## <a name="download-the-openapi-definition"></a>Baixar a definição de OpenAPI
 
@@ -186,7 +189,7 @@ Se sua API funcionar conforme esperado, será possível baixar a definição de 
    
    ![Baixar definição de OpenAPI](media/functions-openapi-definition/download-definition.png)
 
-2. Abra o arquivo JSON baixado e examine a definição.
+2. Salve o arquivo JSON baixado e abra-o. Examine a definição.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 

@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Sua primeira consulta do portal'
 description: Neste início rápido, você segue etapas necessárias para executar sua primeira consulta no portal do Azure usando o Azure Resource Graph Explorer.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74406794"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872096"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início Rápido: Executar a primeira consulta do Resource Graph usando o Azure Resource Graph Explorer
 
@@ -36,11 +36,11 @@ Abra o [portal do Azure](https://portal.azure.com) para localizar e usar o Resou
 1. Atualize a consulta para `order by` a propriedade **Name**: `Resources | project name, type | limit 5 | order by name asc`. Em seguida, selecione **Executar Consulta**.
 
    > [!NOTE]
-   > Assim como ocorre com a primeira consulta, executar esta consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação. A ordem dos comandos de consulta é importante. Neste exemplo, o `order by` vem após o `limit`. Isso primeiro limitará os resultados da consulta e, em seguida, os ordenará.
+   > Assim como ocorre com a primeira consulta, executar esta consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação. A ordem dos comandos de consulta é importante. Neste exemplo, o `order by` vem após o `limit`. Essa ordem de comando limita primeiro os resultados da consulta e os ordena.
 
 1. Atualize a consulta para, primeiro, `order by` a propriedade **Name** e depois `limit` conforme os primeiros cinco resultados: `Resources | project name, type | order by name asc | limit 5`. Em seguida, selecione **Executar Consulta**.
 
-Quando a consulta final for executada várias vezes, supondo que nada em seu ambiente esteja sendo alterado, os resultados retornados serão consistentes e conforme o esperado – ordenados segundo a propriedade **Name**, mas ainda limitados aos cinco primeiros resultados.
+Quando a consulta final for executada várias vezes, supondo que nada em seu ambiente esteja sendo alterado, os resultados retornados serão consistentes e ordenados segundo a propriedade **Name**, mas ainda limitados aos cinco primeiros resultados.
 
 ### <a name="schema-browser"></a>Navegador de esquema
 
@@ -119,7 +119,7 @@ Se quiser remover os painéis de exemplo do Resource Graph de seu ambiente do po
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você usou o Gerenciador do Azure Resource Graph para executar sua primeira consulta e examinou os exemplos de painel fornecidos pelo Resource Graph. Para saber mais sobre a linguagem do Resource Graph, continue na página de detalhes da linguagem de consulta.
+Neste início rápido, você usou o Gerenciador do Azure Resource Graph para executar sua primeira consulta e examinou os exemplos de painel fornecidos pelo Resource Graph. Para saber mais sobre a linguagem do Resource Graph, prossiga para a página de detalhes da linguagem de consulta.
 
 > [!div class="nextstepaction"]
 > [Obter mais informações sobre a linguagem de consulta](./concepts/query-language.md)

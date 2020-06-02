@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao PolicyStat | Microsoft Docs'
+title: 'Tutorial: Integração do Azure Active Directory com o PolicyStat | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o PolicyStat.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68943437"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848712"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory ao PolicyStat
+# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com o PolicyStat
 
 Neste tutorial, você aprende a integrar o PolicyStat ao Azure AD (Azure Active Directory).
 A integração do PolicyStat ao Azure AD oferece os seguintes benefícios:
@@ -34,7 +34,7 @@ A integração do PolicyStat ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao PolicyStat, você precisa dos seguintes itens:
 
@@ -80,10 +80,9 @@ Para configurar e testar o logon único do Azure AD com o PolicyStat, você prec
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o logon único do PolicyStat](#configure-policystat-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do PolicyStat](#create-policystat-test-user)** – para ter um equivalente de Brenda Fernandes no PolicyStat que esteja vinculado à representação do usuário do Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+3. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+4. **[Criar um usuário de teste do PolicyStat](#create-policystat-test-user)** – para ter um equivalente de Brenda Fernandes no PolicyStat que esteja vinculado à representação do usuário do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -164,25 +163,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
    
     ![Menu do Administrador](./media/policystat-tutorial/ic808633.png "Menu do Administrador")
 
-3. Na seção **Configuração**, selecione **Habilitar Integração de Logon Único**.
-   
-    ![Configuração de logon único](./media/policystat-tutorial/ic808634.png "Configuração de Logon Único")
-
-4. Clique em **Configurar Atributos** e, em seguida, na seção **Configurar Atributos**, realize as seguintes etapas:
-   
-    ![Configuração de logon único](./media/policystat-tutorial/ic808635.png "Configuração de Logon Único")
-   
-    a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
-
-    b. Na caixa de texto **Atributo de Nome**, digite o **firstname** do usuário **Brenda**.
-
-    c. Na caixa de texto **Atributo de Sobrenome**, digite o **lastname** do usuário **Fernandes**.
-
-    d. Na caixa de texto **Atributo de Email**, digite o **emailaddress** do usuário `BrittaSimon@contoso.com`.
-
-    e. Clique em **Salvar Alterações**.
-
-5. Clique em **Seus Metadados do IDP** e, na seção **Seus Metadados do IDP**, realize as seguintes etapas:
+3. Clique em **Seus Metadados do IDP** e, na seção **Seus Metadados do IDP**, realize as seguintes etapas:
    
     ![Configuração de logon único](./media/policystat-tutorial/ic808636.png "Configuração de Logon Único")
    
@@ -190,33 +171,26 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
     b. Clique em **Salvar Alterações**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
+4. Clique em **Configurar Atributos** e, em seguida, na seção **Configurar Atributos**, realize as seguintes etapas:
+   
+    a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+    b. Na caixa de texto **Atributo de Nome**, digite o nome da declaração de Atributo de Nome no Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
+    c. Na caixa de texto **Atributo de Sobrenome**, digite o nome da declaração de Atributo de Sobrenome no Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
 
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
+    d. Na caixa de texto **Atributo de Email**, digite o nome da declaração de Atributo de Email no Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-2. Selecione **Novo usuário** na parte superior da tela.
+    e. Clique em **Salvar Alterações**.
 
-    ![Botão Novo usuário](common/new-user.png)
+5. Na seção **Configuração**, selecione **Habilitar Integração de Logon Único**.
+   
+    ![Configuração de logon único](./media/policystat-tutorial/ic808634.png "Configuração de Logon Único")
 
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome**, insira **BrendaFernandes**.
-  
-    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao PolicyStat.
+Nesta seção, você permite que sua própria conta use o logon único do Azure concedendo acesso ao PolicyStat.
 
 1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **PolicyStat**.
 
@@ -234,7 +208,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![O painel Adicionar Atribuição](common/add-assign-user.png)
 
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+5. Na caixa de diálogo **Usuários e grupos**, selecione sua conta na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 
 6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
 
@@ -260,4 +234,3 @@ Ao clicar no bloco do PolicyStat no painel de acesso, você será conectado auto
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

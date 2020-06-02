@@ -1,14 +1,14 @@
 ---
 title: Exemplo de controles de blueprint do PBMM Federal do Canadá
 description: Mapeamento de controle das amostras de blueprint do PBMM Federal do Canadá. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
-ms.date: 09/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74545248"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005707"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint do PBMM Federal do Canadá
 
@@ -57,8 +57,8 @@ Ter apenas um proprietário de assinatura do Azure não permite a redundância a
 
 - Um máximo de três proprietários deve ser designado para sua assinatura
 - Deve haver mais de um proprietário atribuído à sua assinatura
-- Auditar as VMs do Windows nas quais o grupo Administradores contém um dos membros especificados
-- Auditar as VMs do Windows nas quais o grupo Administradores não contém todos os membros especificados
+- Mostrar os resultados da auditoria das VMs do Windows nas quais o grupo Administradores contém qualquer um dos membros especificados
+- Mostrar os resultados da auditoria das VMs do Windows em que o grupo Administradores não contém todos os membros especificados
 - Implantar requisitos para auditar as VMs do Windows nas quais o grupo Administradores contém um dos membros especificados
 - Implantar requisitos para auditar as VMs do Windows nas quais o grupo Administradores não contém todos os membros especificados
 
@@ -68,8 +68,8 @@ O Azure implementa o RBAC ([controle de acesso baseado em função](../../../../
 
 - Um máximo de três proprietários deve ser designado para sua assinatura
 - Deve haver mais de um proprietário atribuído à sua assinatura
-- Auditar as VMs do Windows nas quais o grupo Administradores contém um dos membros especificados
-- Auditar as VMs do Windows nas quais o grupo Administradores não contém todos os membros especificados
+- Mostrar os resultados da auditoria das VMs do Windows nas quais o grupo Administradores contém qualquer um dos membros especificados
+- Mostrar os resultados da auditoria das VMs do Windows em que o grupo Administradores não contém todos os membros especificados
 - Implantar requisitos para auditar as VMs do Windows nas quais o grupo Administradores contém um dos membros especificados
 - Implantar requisitos para auditar as VMs do Windows nas quais o grupo Administradores não contém todos os membros especificados
 
@@ -85,7 +85,7 @@ A capacidade de classificação e descoberta de dados da Segurança de Dados Ava
 
 Este blueprint ajuda você a monitorar e controlar o acesso remoto por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) para monitorar se a depuração remota do aplicativo do Serviço de Aplicativo do Azure está desligada. Este blueprint também atribui definições de política que auditam as Máquinas Virtuais do Linux que permitem conexões remotas em contas sem senhas. Além disso, o blueprint atribui uma definição do Azure Policy que ajuda você a monitorar o acesso irrestrito a contas de armazenamento. Monitorar esses indicadores pode ajudá-lo a garantir que os métodos de acesso remoto estejam em conformidade com sua política de segurança.
 
-- \[Versão Prévia\]: Auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que permitem conexões remotas em contas sem senhas
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que permitem conexões remotas em contas sem senhas
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - A depuração remota deve ser desligada para o aplicativo de API
@@ -107,7 +107,7 @@ Dados de log coletados pelo Azure Monitor são armazenados em um workspace do Lo
 Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que monitoram configurações de auditoria e log de eventos. Monitorar essas configurações pode fornecer um indicador de falha ou de configuração incorreta do sistema de auditoria e ajudá-lo a adotar uma ação corretiva.
 
 - Configuração de diagnóstico de auditoria
-- Auditar configurações de Auditoria de nível do servidor SQL
+- A auditoria no SQL Server deve ser habilitada
 - A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 
@@ -131,7 +131,7 @@ Este blueprint ajuda você a garantir que os eventos do sistema sejam registrado
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux
 - \[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows
 - Configuração de diagnóstico de auditoria
-- Auditar configurações de Auditoria de nível do servidor SQL
+- A auditoria no SQL Server deve ser habilitada
 - A Segurança de Dados Avançada deve ser habilitada nas instâncias gerenciadas
 - A Segurança de Dados Avançada deve ser habilitada nos servidores SQL
 - Implantar Segurança de Dados Avançada em servidores SQL
@@ -167,8 +167,8 @@ Este blueprint ajuda você a restringir e controlar o acesso privilegiado por me
 
 Este blueprint atribui definições do [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais do Linux que permitem conexões remotas em contas sem senhas e/ou que têm permissões incorretas definidas no arquivo de senha. Este blueprint também atribui definições de política que auditam a configuração do tipo de criptografia de senha para máquinas virtuais do Windows. O monitoramento desses indicadores ajuda você a garantir que os autenticadores do sistema estejam em conformidade com a política de identificação e autenticação de sua organização.
 
-- \[Versão Prévia\]: Auditar as VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
-- \[Versão Prévia\]: Auditar as VMs do Linux que têm contas sem senhas
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Linux que têm contas sem senhas
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que não têm as permissões de arquivo de senha definidas como 0644
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Linux que têm contas sem senhas
 
@@ -176,11 +176,11 @@ Este blueprint atribui definições do [Azure Policy](../../../policy/overview.m
 
 Este blueprint ajuda você a impor senhas fortes por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. O reconhecimento de máquinas virtuais que estão violando a política de força da senha ajuda você a tomar ações corretivas para garantir que as senhas de todas as contas de usuário da máquina virtual estejam em conformidade com a política de senha de sua organização.
 
-- \[Versão Prévia\]: Auditar as VMs do Windows que podem reutilizar as 24 senhas anteriores
-- \[Versão Prévia\]: Auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
-- \[Versão Prévia\]: Auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
-- \[Versão Prévia\]: Auditar as VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão Prévia\]: Auditar as VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que permitir reutilizar as 24 senhas anteriores
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração máxima da senha de 70 dias
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm uma duração mínima da senha de 1 dia
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Versão Prévia\]: Mostrar os resultados da auditoria das VMs do Windows que não restringem o tamanho mínimo da senha a 14 caracteres
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que podem reutilizar as últimas 24 senhas
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não têm uma duração máxima da senha de 70 dias
 - \[Versão Prévia\]: Implantar requisitos para auditar as VMs do Windows que não têm uma duração mínima da senha de 1 dia
@@ -217,10 +217,9 @@ O nível Standard da proteção contra DDoS (ataque de negação de serviço dis
 Este blueprint ajuda você a gerenciar e controlar o limite do sistema por meio da atribuição de uma definição do [Azure Policy](../../../policy/overview.md) que monitora as recomendações de proteção do grupo de segurança de rede na Central de Segurança do Azure. A Central de Segurança do Azure analisa padrões de tráfego de máquinas virtuais voltadas para a Internet e fornece recomendações de regras de grupo de segurança de rede para reduzir a superfície de ataque potencial.
 Além disso, este blueprint atribui definições de política que monitoram pontos de extremidade, contas de armazenamento e aplicativos desprotegidos. Os pontos de extremidade e os aplicativos que não estão protegidos por um firewall e as contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
 
-- As regras do grupo de segurança de rede para máquinas virtuais para a Internet devem ser protegidas
+- As recomendações da Proteção de Rede Adaptável devem ser aplicadas nas máquinas virtuais para a Internet
 - O acesso pelo ponto de extremidade para a Internet deve ser restrito
 - Auditar o acesso irrestrito à rede para contas de armazenamento
-- As regras NSGs para aplicativos Web em IaaS devem ser protegidas
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Proteção de Limite | Pontos de Acesso
 
@@ -239,7 +238,7 @@ O acesso JIT (Just-In-Time) à máquina virtual bloqueia o tráfego de entrada �
 Este blueprint ajuda você a proteger a confidencialidade e a integridade das informações transmitidas por meio da atribuição de definições do [Azure Policy](../../../policy/overview.md) que ajudam a monitorar o mecanismo criptográfico implementado para protocolos de comunicação. A garantia de que a comunicação é criptografada corretamente pode ajudar você a atender aos requisitos de sua organização ou proteger as informações contra divulgação e modificação não autorizadas.
 
 - O aplicativo de API só deve estar acessível via HTTPS
-- Auditar os servidores Web do Windows que não estão usando protocolos de comunicação segura
+- Mostrar os resultados da auditoria dos servidores Web do Windows que não estão usando protocolos de comunicação segura
 - Implantar requisitos para auditar os servidores Web do Windows que não estão usando protocolos de comunicação segura
 - O aplicativo de funções deve ser acessível apenas por HTTPS
 - Apenas conexões seguras com o Cache Redis devem ser habilitadas
