@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3a98308716696f677f04db66e83ff4e9d5d08c85
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382840"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869836"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Node.js
 
-Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo Node simples envia uma solicitação à API e retorna uma lista de palavras não reconhecidas por ele, seguido das correções sugeridas. Embora esse aplicativo seja escrito em Node.js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Use este Início Rápido para fazer sua primeira chamada à API REST de Verificação Ortográfica do Bing. Este aplicativo JavaScript simples envia uma solicitação à API e retorna uma lista de correções sugeridas. 
+
+Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte desse aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,7 +32,7 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina o rigor e exija `https`. Em seguida, crie variáveis para o host do ponto de extremidade de API, o caminho e a chave de assinatura. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina o rigor e exija `https`. Em seguida, crie variáveis para o host do ponto de extremidade de API, o caminho e a chave de assinatura. É possível usar o ponto de extremidade global no código a seguir ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```javascript
     'use strict';
@@ -41,7 +43,11 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Crie variáveis para os parâmetros de pesquisa e o texto que deseja verificar. Acrescente o código de mercado após `mkt=`. O código de mercado é o país no qual você faz a solicitação. Além disso, acrescente o modo de verificação ortográfica após `&mode=`. O modo é `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos erros de ortografia, mas não tantos erros de gramática).
+2. Crie variáveis para os parâmetros de pesquisa e o texto que deseja verificar: 
+
+   a. Atribua seu código de mercado ao parâmetro `mkt` com o operador `=`. O código de mercado é o código do país/da região em que você faz a solicitação. 
+
+   b. Adicione o parâmetro `mode` com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos erros de ortografia, mas não tantos erros de gramática).
 
     ```javascript
     let mkt = "en-US";
@@ -52,7 +58,7 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
 
 ## <a name="create-the-request-parameters"></a>Criar os parâmetros de solicitação
 
-Crie os parâmetros de solicitação criando um objeto com um método `POST`. Adicione o caminho acrescentando o caminho do ponto de extremidade e a cadeia de consulta. Adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
+Crie os parâmetros de solicitação criando um objeto com um método `POST`. Adicione o caminho acrescentando o caminho do ponto de extremidade e a cadeia de consulta. Em seguida, adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
 ```javascript
 let request_params = {
@@ -69,7 +75,7 @@ let request_params = {
 
 ## <a name="create-a-response-handler"></a>Criar um manipulador de resposta
 
-Crie uma função chamada `response_handler` para obter a resposta JSON da API e imprima-a. Criar uma variável para o corpo da resposta. Acrescente a resposta quando um sinalizador `data` for recebido, usando `response.on()`. Quando um sinalizador `end` for recebido, imprima o corpo JSON no console.
+Crie uma função chamada `response_handler` para obter a resposta JSON da API e imprima-a. Criar uma variável para o corpo da resposta. Acrescente a resposta quando um sinalizador `data` for recebido, usando `response.on()`. Depois que um sinalizador `end` for recebido, imprima o corpo JSON no console.
 
 ```javascript
 let response_handler = function (response) {
@@ -89,7 +95,7 @@ let response_handler = function (response) {
 
 ## <a name="send-the-request"></a>Enviar a solicitação
 
-Chame a API usando `https.request()` com os parâmetros de solicitação e o manipulador de resposta. Escreva o texto na API e encerre a solicitação em seguida.
+Chame a API usando `https.request()` com os parâmetros de solicitação e o manipulador de resposta. Escreva o texto na API e encerre a solicitação.
 
 ```javascript
 let req = https.request (request_params, response_handler);
@@ -100,13 +106,13 @@ req.end ();
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-Compile e execute seu projeto.
+1. Compile e execute seu projeto.
 
-Se estiver usando a linha de comando, use os comandos a seguir para compilar e executar o aplicativo.
+1. Se estiver usando a linha de comando, use o seguinte comando para criar e executar o aplicativo:
 
-```bash
-node <FILE_NAME>.js
-```
+   ```bash
+   node <FILE_NAME>.js
+   ```
 
 
 ## <a name="example-json-response"></a>Resposta JSON de exemplo

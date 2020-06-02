@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691330"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871370"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -143,6 +143,7 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
     > * Valores de rótulo como aparecem no formulário. Não tente dividir um valor em duas partes com duas marcas diferentes. Por exemplo, um campo de endereço deve ser rotulado com uma só marca, mesmo que abranja várias linhas.
     > * Não inclua chaves nos campos marcados &mdash; apenas os valores.
     > * Os dados da tabela devem ser detectados automaticamente e estarão disponíveis no arquivo JSON de saída final. No entanto, se o modelo não detectar todos os dados da tabela, você também poderá marcar esses campos manualmente. Marque cada célula na tabela com um rótulo diferente. Se os formulários tiverem tabelas com números variados de linhas, marque pelo menos um formulário com a maior tabela possível.
+    > * Para excluir uma tag aplicada, selecione o retângulo na exibição do documento e pressione a tecla Delete.
 
 ![Janela principal do editor da ferramenta de rótulo de exemplo](../media/label-tool/main-editor.png)
 
@@ -164,6 +165,27 @@ Os tipos de valor e as variações a seguir são compatíveis no momento:
     * padrão, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> Confira estas regras para a formatação de data:
+> 
+> Os caracteres a seguir podem ser usados como delimitadores de data DMA: `, - / . \`. O espaço em branco não pode ser usado como um delimitador. Por exemplo:
+> * 01,01,2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> O dia e o mês podem ser escritos como tendo um ou dois dígitos, e o ano pode ter dois ou quatro dígitos:
+> * 1-1-2020
+> * 1-01-20
+>
+> Se uma cadeia de caracteres de data DMA tiver oito dígitos, o delimitador será opcional:
+> * 01012020
+> * 01 01 2020
+>
+> O mês também pode ser escrito como nome completo ou curto. Se o nome for usado, os caracteres delimitadores serão opcionais:
+> * 01/jan/2020
+> * 01jan2020
+> * 01 de janeiro de 2020
 
 ## <a name="train-a-custom-model"></a>Treinar um modelo personalizado
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1fdeffb5ee5b1e2d66fbf5586d307cd8d8b78858
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0fa70cfb287cc4a68892ada1044283a996d8dd50
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76166740"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873920"
 ---
 # <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Início Rápido: Usar o Java para pesquisar a Web com a API REST de Pesquisa na Web do Bing, um serviço cognitivo do Azure
 
-Neste início rápido, você usará um aplicativo Java para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber a resposta JSON. Este aplicativo Java envia uma solicitação de pesquisa à API e exibe a resposta. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Neste início rápido, você usará um aplicativo Java para fazer sua primeira chamada à API de Pesquisa na Web do Bing. Este aplicativo Java envia uma solicitação de pesquisa à API e exibe a resposta JSON. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ import com.google.gson.JsonParser;
 
 ### <a name="declare-gson-in-the-maven-pom-file"></a>Declarar Gson no arquivo POM do Maven
 
-Se você estiver usando Maven, declare Gson no `POM.xml`. Ignore esta etapa se você tiver instalado o Gson localmente.
+Se você estiver usando o Maven, declare Gson no POM.xml. Ignore esta etapa se você tiver instalado o Gson localmente.
 
 ```xml
 <dependency>
@@ -61,7 +61,7 @@ Se você estiver usando Maven, declare Gson no `POM.xml`. Ignore esta etapa se v
 
 ## <a name="declare-the-bingwebsearch-class"></a>Declare a classe BingWebSearch
 
-Declare a classe `BingWebSearch`. Incluirá a maior parte do código que examinamos neste início rápido, incluindo o método `main`.  
+Declare a classe `BingWebSearch`. Isso inclui a maior parte do código que examinamos neste início rápido, incluindo o método `main()`.  
 
 ```java
 public class BingWebSearch {
@@ -73,7 +73,13 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Definir variáveis
 
-Este código define `subscriptionKey`, `host`, `path` e `searchTerm`. `host` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Substitua o valor `subscriptionKey` por uma chave de assinatura válida da sua conta do Azure. Fique à vontade para personalizar a consulta de pesquisa substituindo o valor para `searchTerm`. Lembre-se de adicionar esse código à classe `BingWebSearch`, conforme observado acima.
+O código a seguir define o `subscriptionKey`, `host`, `path` e `searchTerm`. Adicione este código à classe `BingWebSearch` descrita na seção anterior:
+
+1. Para o valor `host`, você pode usar o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. 
+
+2. Substitua o valor `subscriptionKey` por uma chave de assinatura válida da sua conta do Azure. 
+
+3. Opcionalmente, personalize a consulta de pesquisa substituindo o valor para `searchTerm`. 
 
 ```java
 // Enter a valid subscription key.
@@ -91,7 +97,7 @@ static String searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="construct-a-request"></a>Construir uma solicitação
 
-Esse método, que reside na classe `BingWebSearch`, cria a `url`, recebe e analisa a resposta e extrai os cabeçalhos HTTP relacionados ao Bing.  
+O método `SearchWeb()`, incluído na classe `BingWebSearch`, constrói o `url`, recebe e analisa a resposta e extrai cabeçalhos HTTP relacionados ao Bing.  
 
 ```java
 public static SearchResults SearchWeb (String searchQuery) throws Exception {
@@ -137,7 +143,7 @@ public static String prettify(String json_text) {
 
 ## <a name="declare-the-main-method"></a>Declarar o método Main
 
-Esse método é necessário e é o primeiro invocado quando o programa é iniciado. Neste aplicativo, ele inclui código que valida a `subscriptionKey`, faz uma solicitação e imprime a resposta JSON.
+O método `main()` é necessário e é o primeiro método invocado quando você inicia o programa. Neste aplicativo, ele inclui código que valida a `subscriptionKey`, faz uma solicitação e imprime a resposta JSON.
 
 ```java
 public static void main (String[] args) {
@@ -167,7 +173,7 @@ public static void main (String[] args) {
 
 ## <a name="create-a-container-class-for-search-results"></a>Criar uma classe de contêiner para os resultados da pesquisa
 
-A classe de contêiner `SearchResults` está fora da classe `BingWebSearch`. Inclui os cabeçalhos pertinentes e dados JSON para a resposta.
+A classe de contêiner `SearchResults` é definida fora da classe `BingWebSearch`. Inclui os cabeçalhos pertinentes e dados JSON para a resposta.
 
 ```java
 class SearchResults{
@@ -182,7 +188,7 @@ class SearchResults{
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 
-A última etapa é compilar o código e executá-lo! Aqui estão os comandos:
+A última etapa é compilar o código e executá-lo. Use os seguintes comandos:
 
 ```powershell
 javac BingWebSearch.java -classpath ./gson-2.8.5.jar -encoding UTF-8
@@ -191,7 +197,7 @@ java -cp ./gson-2.8.5.jar BingWebSearch
 
 Se você quiser comparar seu código com o nosso, o [exemplo de código está disponível no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).
 
-## <a name="sample-response"></a>Resposta de exemplo
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 As respostas da API de Pesquisa na Web do Bing são retornadas como JSON. Este exemplo de resposta foi truncado para mostrar um único resultado.
 
@@ -320,6 +326,6 @@ As respostas da API de Pesquisa na Web do Bing são retornadas como JSON. Este e
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicativo de página única de pesquisa na Web do Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicativo de página única da API de Pesquisa na Web do Bing](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  

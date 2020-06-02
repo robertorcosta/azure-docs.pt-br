@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a0d1ba696b39b9331c4a85c9cf37d13d545ffad5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593692"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870687"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do Hugo na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -98,7 +98,7 @@ As etapas a seguir mostram como criar um novo aplicativo de site estático e imp
 ### <a name="create-the-application"></a>Criar o aplicativo
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**
+1. Clique em **Criar um Recurso**.
 1. Pesquise **Aplicativos Web Estáticos**
 1. Clique em **Aplicativos Web Estáticos (Versão Prévia)**
 1. Clique em **Criar**
@@ -133,13 +133,11 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 1. Clique em **Avançar: Build >** para editar a configuração do build
 
-1. Defina o _Local do aplicativo_ para **/** .
+1. Defina o _Local do aplicativo_ como **público**.
 
-1. Defina o _Local do artefato do aplicativo_ como **público**.
+1. Deixe _Local do artefato do aplicativo_ em branco.
 
    Não é necessário um valor para _Local da API_, pois você não está implantando uma API no momento.
-
-   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="Configurações do Build":::
 
 ### <a name="review-and-create"></a>Examinar e criar
 
@@ -155,12 +153,12 @@ Em seguida, você adiciona as definições de configuração que o processo de c
 
 1. Abra o aplicativo Hugo em um editor de texto e abra o arquivo _.github/workflows/azure-pages-<NOME_FLUXO_TRABALHO>.yml_.
 
-1. Substitua a linha `- uses: actions/checkout@v1` (linha 18) pelo seguinte para compilar o aplicativo Hugo.
+1. Substitua a linha `- uses: actions/checkout@v2` (linha 18) pelo seguinte para compilar o aplicativo Hugo.
 
    ```yml
    - uses: actions/checkout@v2
-        with:
-          submodules: true
+     with:
+       submodules: true
 
    - name: Setup Hugo
      uses: peaceiris/actions-hugo@v2.4.8

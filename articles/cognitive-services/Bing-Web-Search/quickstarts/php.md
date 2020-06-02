@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169724"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873818"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início Rápido: Usar PHP para chamar a API de Pesquisa na Web do Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início Rápido: usar PHP para chamar a API de Pesquisa na Web do Bing  
 
-Use este Início Rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber a resposta JSON. Este aplicativo Node.js envia uma solicitação de pesquisa à API e exibe a resposta. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este início rápido para fazer sua primeira chamada à API da Pesquisa na Web do Bing. Este aplicativo Node.js envia uma solicitação de pesquisa à API e mostra a resposta JSON. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Aqui estão alguns itens de que você poderá precisar antes de executar este início rápido:
 
@@ -33,7 +33,7 @@ Aqui estão alguns itens de que você poderá precisar antes de executar este in
 
 ## <a name="enable-secure-http-support"></a>Habilitar o suporte a HTTP seguro
 
-Antes de começar, localize `php.ini` e remova a marca de comentário desta linha:
+Antes de começar, localize php.ini e remova a marca de comentário desta linha:
 
 ```php
 ; extension=php_openssl.dll
@@ -41,9 +41,13 @@ Antes de começar, localize `php.ini` e remova a marca de comentário desta linh
 
 ## <a name="create-a-project-and-define-variables"></a>Criar um projeto e definir variáveis
 
-Crie um projeto PHP em seu IDE ou editor favorito. Não se esqueça de adicionar marcas de abertura e fechamento `<?php` e `?>`.
+1. Crie um projeto PHP em seu IDE ou editor favorito. Adicione tags de abertura e fechamento: `<?php` e `?>`.
 
-Algumas variáveis devem ser definidas antes de podermos continuar. `$endpoint` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. Confirme que `$endpoint` está correto e substitua o valor `$accesskey` por uma chave de assinatura válida da sua conta do Azure. Fique à vontade para personalizar a consulta de pesquisa substituindo o valor para `$term`.
+2. Para o valor `$endpoint`, você pode usar o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso. 
+
+3. Confirme se o valor `$endpoint` está correto e substitua o valor `$accesskey` por uma chave de assinatura válida da sua conta do Azure. 
+
+4. Opcionalmente, personalize a consulta de pesquisa substituindo o valor para `$term`.
 
 ```php
 $accessKey = 'enter key here';
@@ -113,7 +117,7 @@ if (strlen($accessKey) == 32) {
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 
-A última etapa é validar o seu código e executá-lo. Se você quiser comparar seu código com o nosso, aqui está o programa concluído:
+A última etapa é validar seu código e executá-lo. Se você quiser comparar seu código com o nosso, aqui está o programa concluído:
 
 ```php
 <?php
@@ -155,7 +159,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## <a name="sample-response"></a>Resposta de exemplo
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 As respostas da API de Pesquisa na Web do Bing são retornadas como JSON. Este exemplo de resposta foi truncado para mostrar um único resultado.  
 
@@ -284,6 +288,6 @@ As respostas da API de Pesquisa na Web do Bing são retornadas como JSON. Este e
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicativo de página única de pesquisa na Web do Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicativo de página única da API de Pesquisa na Web do Bing](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

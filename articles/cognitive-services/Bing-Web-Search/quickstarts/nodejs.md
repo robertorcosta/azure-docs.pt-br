@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 54f4b38e01b51289319390779a140346befc6f0c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4a96f31588e199d5696e2d9eff351051d46c1f96
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76168815"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873955"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Início Rápido: Pesquise na Web usando a API REST de Pesquisa na Web do Bing e Node.js
 
-Use este Início Rápido para fazer sua primeira chamada à API de Pesquisa na Web do Bing e receber a resposta JSON. Este aplicativo Node.js envia uma solicitação de pesquisa à API e exibe a resposta. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este início rápido para fazer sua primeira chamada à API da Pesquisa na Web do Bing. Este aplicativo Node.js envia uma solicitação de pesquisa à API e mostra a resposta JSON. Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,8 +33,7 @@ Aqui estão alguns itens de que você poderá precisar antes de executar este in
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Criar um projeto e declarar os módulos necessários
 
-Crie um projeto Node.js em seu IDE ou editor favorito.
-Em seguida, copie o snippet de código abaixo para seu projeto em um arquivo denominado `search.js`.
+Crie um projeto Node.js em seu IDE ou editor favorito. Em seguida, copie o seguinte snippet de código ao seu projeto em um arquivo denominado search.js:
 
 ```javascript
 // Use this simple app to query the Bing Web Search API and get a JSON response.
@@ -44,9 +43,9 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Definir a chave de assinatura
 
-Este snippet de código usa a variável de ambiente `AZURE_SUBSCRIPTION_KEY` para armazenar sua chave de assinatura; é uma prática recomendada para evitar a exposição acidental das suas chaves no momento de implantar código. Vá para a [Sua página de APIs](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) para pesquisar a chave da sua assinatura.
+Este snippet de código usa a variável de ambiente `AZURE_SUBSCRIPTION_KEY` para armazenar sua chave de assinatura; é uma boa prática para evitar a exposição acidental das suas chaves no momento de implantar código. Para pesquisar sua chave de assinatura, confira [Suas APIs](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
 
-Se não estiver familiarizado com o uso de variáveis de ambiente ou se quiser executar esse aplicativo o mais rápido possível, você poderá substituir `process.env['AZURE_SUBSCRIPTION_KEY']` pelo seu conjunto de chaves de assinatura como uma cadeia de caracteres.
+Se não estiver familiarizado com o uso de variáveis de ambiente ou se desejar executar esse aplicativo o mais rápido possível, substitua `process.env['AZURE_SUBSCRIPTION_KEY']` pelo seu conjunto de chaves de assinatura como uma cadeia de caracteres.
 
 ```javascript
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
@@ -57,7 +56,15 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Criar uma função para fazer a solicitação
 
-Essa função fará uma solicitação GET segura, salvando a consulta de pesquisa como um parâmetro de consulta no caminho. `hostname` pode ser o ponto de extremidade global abaixo ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.  `encodeURIComponent` é usado para fugir dos caracteres inválidos; a chave de assinatura é passada em um cabeçalho. O retorno de chamada recebe uma [resposta](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) que assina o evento `data` para agregar o corpo JSON, o evento `error` para criar o log de problemas e o evento `end` para saber quando a mensagem deve ser considerada concluída. Ao concluir, o aplicativo imprimirá os cabeçalhos interessantes e o corpo da mensagem. Você pode experimentar as cores e definir a profundidade de acordo com sua preferência; uma profundidade de `1` oferece um bom resumo da resposta.
+Essa função faz uma solicitação GET segura e salva a consulta de pesquisa como um parâmetro de consulta no caminho. 
+
+1. Para o valor `hostname`, você pode usar o ponto de extremidade global no código a seguir ou usar o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.  
+
+2. Use `encodeURIComponent` para ignorar caracteres inválidos. A chave de assinatura é passada em um cabeçalho. 
+
+3. O retorno de chamada recebe uma [resposta](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) que assina o evento `data` para agregar o corpo JSON, o evento `error` para criar o log de problemas e o evento `end` para saber quando a mensagem deve ser considerada concluída. 
+
+4. Quando o aplicativo for concluído, ele imprimirá os cabeçalhos relevantes e o corpo da mensagem. Você pode ajustar as cores e definir a profundidade de acordo co sua preferência. Uma profundidade de `1` fornece um bom resumo da resposta.
 
 ```javascript
 function bingWebSearch(query) {
@@ -95,7 +102,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 
 ## <a name="make-a-request-and-print-the-response"></a>Fazer uma solicitação e imprimir a resposta
 
-Agora que tudo está definido, vamos chamar nossa função!
+Agora que tudo está definido, vamos chamar nossa função.
 
 ```javascript
 bingWebSearch(query)
@@ -103,7 +110,7 @@ bingWebSearch(query)
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 
-A última etapa é executar seu código: `node search.js "<your query>"`.
+A última etapa é executar seu código com o comando: `node search.js "<your query>"`.
 
 Se você quiser comparar seu código com o nosso, aqui está o programa concluído:
 
@@ -140,7 +147,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 bingWebSearch(query)
 ```
 
-## <a name="sample-response"></a>Resposta de exemplo
+## <a name="example-json-response"></a>Resposta JSON de exemplo
 
 As respostas da API de Pesquisa na Web do Bing são retornadas como JSON. Este exemplo de resposta foi truncado para mostrar um único resultado.
 
@@ -269,6 +276,6 @@ As respostas da API de Pesquisa na Web do Bing são retornadas como JSON. Este e
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicativo de página única de pesquisa na Web do Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Tutorial de aplicativo de página única da API de Pesquisa na Web do Bing](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

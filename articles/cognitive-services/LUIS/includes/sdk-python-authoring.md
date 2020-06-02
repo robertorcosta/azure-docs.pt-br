@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/26/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 631185c20b816191530158fab2b7cd1ed68c3092
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1e51c4e9d0c3da8b6ad76b4b45869ea8b2394008
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77371623"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871252"
 ---
 Use a biblioteca de clientes de criação de LUIS (Reconhecimento Vocal) para Python com o objetivo de:
 
@@ -28,53 +28,12 @@ Use a biblioteca de clientes de criação de LUIS (Reconhecimento Vocal) para Py
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conta do portal do LUIS (Reconhecimento Vocal): [Crie um gratuitamente](https://www.luis.ai).
-* [Python 3.x](https://www.python.org/)
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/)
+* A versão atual do [Python 3.x](https://www.python.org/).
+* Quando você tiver sua assinatura do Azure, [crie um recurso de criação do Reconhecimento vocal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) no portal do Azure para obter a chave e o ponto de extremidade. Aguarde até que ele seja implantado e clique no botão **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso que você [criar](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) para conectar seu aplicativo à criação do Reconhecimento vocal. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido. Você pode usar o tipo de preço gratuito (`F0`) para experimentar o serviço.
 
 ## <a name="setting-up"></a>Configurando
-
-### <a name="get-your-language-understanding-luis-starter-key"></a>Obtenha sua chave inicial do LUIS (Reconhecimento vocal)
-
-Obtenha sua [chave inicial](../luis-how-to-azure-subscription.md#starter-key) criando um recurso de criação do LUIS. Mantenha sua chave e a região da chave para a próxima etapa.
-
-### <a name="create-an-environment-variable"></a>Criar uma variável de ambiente
-
-Usando a chave e a região da chave, crie duas variáveis de ambiente para autenticação:
-
-* `LUIS_AUTHORING_KEY` – a chave de recurso para autenticar as solicitações.
-* `LUIS_REGION` – a região associada à chave. Por exemplo, `westus`.
-
-Use as instruções para seu sistema operacional.
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
-setx LUIS_REGION <replace-with-your-luis-region>
-```
-
-Depois de adicionar a variável de ambiente, reinicie a janela do console.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_REGION=<replace-with-your-luis-region>
-```
-
-Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir da janela de console para que as alterações entrem em vigor.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Edite seu `.bash_profile` e adicione a variável de ambiente:
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_REGION=<replace-with-your-luis-region>
-```
-
-Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela de console para que as alterações entrem em vigor.
-***
 
 ### <a name="install-the-python-library-for-luis"></a>Instalar a biblioteca do Python para LUIS
 

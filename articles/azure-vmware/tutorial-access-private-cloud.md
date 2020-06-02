@@ -3,18 +3,18 @@ title: Tutorial – Saiba como acessar sua nuvem privada
 description: Saiba como acessar uma nuvem privada da AVS (Solução VMware no Azure) do Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: fcee332818c89d9c8b00795dca9e74f68260eefd
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 332b1b01f05ca97b03264201384ee38ac266470f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739581"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873594"
 ---
 # <a name="tutorial-learn-how-to-access-an-azure-vmware-solution-avs-private-cloud"></a>Tutorial: Saiba como acessar uma nuvem privada da AVS (Solução VMware no Azure) do Azure
 
 Durante a versão prévia, a AVS não permite que você gerencie sua nuvem privada com o vCenter local. Você precisará realizar uma configuração e uma conexão adicional com uma instância do vCenter local por meio de uma caixa de salto. 
 
-Neste tutorial, você cria uma máquina virtual do Windows para uma caixa de salto no grupo de recursos criado no tutorial anterior, [Tutorial: Configurar a rede para sua nuvem privada do VMWare no Azure](tutorial-configure-networking.md) e entra no vCenter. Essa VM fica na mesma rede virtual que você criou e fornece acesso ao vCenter e ao NSX Manager. 
+Neste tutorial, você cria uma máquina virtual do Windows para uma caixa de salto no grupo de recursos criado no tutorial anterior, [Tutorial: Configurar a rede para sua nuvem privada do VMware no Azure](tutorial-configure-networking.md) e entrar no vCenter. Essa VM fica na mesma rede virtual que você criou e fornece acesso ao vCenter e ao NSX Manager. 
 
 Neste tutorial, você aprenderá como:
 

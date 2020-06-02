@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 02c86e5a4c1a04b98ebba73653980e8e5e00f645
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 292b94e56d988a1126db83e2f8ce40bbb0af6f42
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80238884"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873253"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o Java
 
-Use este início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito em Java, a API de Pesquisa Personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
+Use este início rápido para saber como solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito em Java, a API de Pesquisa Personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância da Pesquisa Personalizada do Bing. Confira [Início Rápido: Criar sua primeira instância da Pesquisa Personalizada do Bing](quick-start.md) para obter mais informações.
+- Uma instância da Pesquisa Personalizada do Bing. Para saber mais, confira [Início Rápido: Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
 
-- A versão mais recente do [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
+- O [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) mais recente.
 
-- A [biblioteca Gson](https://github.com/google/gson)
+- A [biblioteca Gson](https://github.com/google/gson).
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar o aplicativo
 
-1. Crie um novo projeto Java em seu IDE ou editor favorito e importe as bibliotecas a seguir.
+1. Crie um projeto do Java em seu IDE ou editor favorito e importe as seguintes bibliotecas:
 
     ```java
     import java.io.InputStream;
@@ -50,7 +50,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
     import com.google.gson.JsonParser;
     ```
 
-2. Crie uma classe denominada `CustomSrchJava` e crie variáveis para a chave de assinatura, o ponto de extremidade de pesquisa personalizada e a ID de configuração personalizada da instância de pesquisa. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Crie uma classe denominada `CustomSrchJava` e crie variáveis para a chave de assinatura, o ponto de extremidade de pesquisa personalizada e a ID de configuração personalizada da instância de pesquisa. É possível usar o ponto de extremidade global no código a seguir ou o ponto de extremidade do [subdomínio personalizado](../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
@@ -63,8 +63,8 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
 
 3. Criar outra classe denominada `SearchResults` para conter a resposta da sua instância da Pesquisa Personalizada do Bing.
 
-    ```csharp
-    class SearchResults{
+    ```java
+    class SearchResults {
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {
@@ -88,7 +88,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
 
 ## <a name="send-and-receive-a-search-request"></a>Enviar e receber uma solicitação de pesquisa 
 
-1. Crie uma função chamada `SearchWeb()` que envia uma solicitação e retorna um objeto `SearchResults`. Crie a URL de solicitação pela combinação de suas informações de ID de Configuração Personalizada, consulta e ponto de extremidade. Adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
+1. Crie uma função chamada `SearchWeb()` que envia uma solicitação e retorna um objeto `SearchResults`. Crie a URL de solicitação pela combinação de suas informações de ID de configuração personalizada, consulta e ponto de extremidade. Adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
     ```java
     public class CustomSrchJava {
@@ -120,7 +120,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
         }
     ```
 
-3. No método principal do seu aplicativo, chame `SearchWeb()` com seu termo de pesquisa. 
+3. Imprima a resposta JSON.
 
     ```java
     System.out.println("\nJSON Response:\n");
