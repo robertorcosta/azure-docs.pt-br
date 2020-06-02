@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 05/20/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d60f1101fc858e9dcaa22162be97417544e13693
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d6b55a7f3df7657e2b6b0b23b797d36788658f32
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81405036"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745172"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Início Rápido: Gerar uma miniatura usando a API REST da Pesquisa Visual Computacional e o cURL
 
@@ -41,10 +41,11 @@ Para criar e executar o exemplo, siga estas etapas:
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Opcionalmente, altere a URL da imagem no corpo da solicitação (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) para a URL de uma imagem diferente da qual você deseja gerar uma miniatura.
 1. Abra una janela de prompt de comando.
-1. Cole o comando do editor de texto na janela do prompt de comando e, em seguida, execute-o.
+1. Cole o comando do editor de texto na janela do prompt de comando.
+1. Pressione Enter para executar o programa.
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westus.api.cognitive.microsoft.com/vision/v3.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 
 ## <a name="examine-the-response"></a>Examinar a resposta
@@ -53,7 +54,7 @@ Uma resposta bem-sucedida grava a imagem em miniatura para o arquivo especificad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore a API da Pesquisa Visual Computacional para saber como analisar uma imagem, detectar celebridades e pontos de referência, criar uma miniatura e extrair textos manuscritos e impressos. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API da Pesquisa Visual Computacional para saber como analisar uma imagem, detectar celebridades e pontos de referência, criar uma miniatura e extrair textos manuscritos e impressos. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20c).
 
 > [!div class="nextstepaction"]
-> [Explorar a API da Pesquisa Visual Computacional](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API da Pesquisa Visual Computacional](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b)

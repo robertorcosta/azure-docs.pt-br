@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1c755176a62b7e362707da093a899ae96cfe69a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 992aa8a4cb0ff31f7f1657be45fa1a64fdb27e7c
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128885"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780553"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -47,7 +47,7 @@ Essa camada é recomendada para cenários de avaliação, desenvolvimento e test
 
 ### <a name="basic-tier"></a>Camada básica
 
-O nível é recomendado para soluções de produção com modelos tabulares menores, concorrência limitada do usuário e requisitos simples de atualização de dados. A expansão de réplica de consulta *não está disponível* para essa camada. Perspectivas, várias partições e recursos do modelo tabular do DirectQuery *não têm suporte* nessa camada.  
+Esse nível é recomendado para soluções de produção com modelos tabulares menores, simultaneidade limitada de usuários e requisitos simples de atualização de dados. A expansão de réplica de consulta *não está disponível* para essa camada. Perspectivas, várias partições e recursos do modelo tabular do DirectQuery *não têm suporte* nessa camada.  
 
 |Plano  |QPUs  |Memória (GB)  |
 |---------|---------|---------|

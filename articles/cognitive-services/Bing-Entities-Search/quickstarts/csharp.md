@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c343c160f67eda2dd390ffc39f3b4f1ff49cacb6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd89f2ae13b10c83c3fc22023fc2e3cae1770c98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448661"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650283"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Início Rápido: Enviar uma solicitação de pesquisa para a API REST da Pesquisa de Entidade do Bing usando o C#
 
@@ -30,9 +30,9 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
 
 - A estrutura [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote do NuGet. Para instalar o pacote NuGet no Visual Studio:
 
-   1. Clique com botão direito no seu projeto no **Gerenciador de Soluções**.
+   1. Clique com o botão direito do mouse no projeto no **Gerenciador de Soluções**.
    2. Selecione **Gerenciar Pacotes NuGet**.
-   3. Pesquise por *Newtonsoft.Json* e instale o pacote.
+   3. Pesquise e selecione *Newtonsoft.Json* e, em seguida, instale o pacote.
 
 - Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).
 
@@ -41,7 +41,7 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. crie uma solução de console C# no Visual Studio. Em seguida, adicione os seguintes namespaces no arquivo de código principal.
+1. Crie uma solução de console C# no Visual Studio. Então, adicione os seguintes namespaces no arquivo de código principal:
     
     ```csharp
     using Newtonsoft.Json;
@@ -50,7 +50,7 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
     using System.Text;
     ```
 
-2. Crie uma nova classe e adicione variáveis para o ponto de extremidade da API, sua chave de assinatura e a consulta que você deseja pesquisar. Você pode usar o ponto de extremidade global abaixo ou o ponto de extremidade de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
+2. Crie uma classe e adicione variáveis para o ponto de extremidade da API, sua chave de assinatura e a consulta que você deseja pesquisar. É possível usar o ponto de extremidade global no código a seguir ou o ponto de extremidade do [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal do Azure para seu recurso.
 
     ```csharp
     namespace EntitySearchSample
@@ -73,11 +73,13 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
 
 ## <a name="send-a-request-and-get-the-api-response"></a>Enviar uma solicitação e obter a resposta da API
 
-1. Na classe, crie uma função chamada `Search()`. Crie um novo objeto `HttpClient` e adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
+1. Na classe, crie uma função chamada `Search()`. Dentro desta função, crie um objeto `HttpClient` e adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
-   1. Construa o URI da sua solicitação combinando o host e o caminho. Em seguida, adicione o mercado e codifique a consulta como URL.
-   2. Aguarde `client.GetAsync()` para obter uma resposta HTTP e, em seguida, armazene a resposta json aguardando `ReadAsStringAsync()`.
-   3. Formate a cadeia de caracteres JSON com `JsonConvert.DeserializeObject()` e imprima-a no console.
+2. Construa o URI da sua solicitação combinando o host e o caminho. Em seguida, adicione o mercado e codifique a consulta como URL.
+
+3. Aguarde `client.GetAsync()` para obter uma resposta HTTP e, em seguida, armazene a resposta JSON aguardando `ReadAsStringAsync()`.
+
+4. Formate a cadeia de caracteres JSON com `JsonConvert.DeserializeObject()` e imprima-a no console.
 
       ```csharp
       async static void Search()
@@ -96,7 +98,7 @@ Embora esse aplicativo seja escrito em C#, a API é um serviço Web RESTful comp
       }
       ```
 
-2. No principal método do aplicativo, chame a função `Search()`.
+5. No método `Main()` do aplicativo, chame a função `Search()`.
     
     ```csharp
     static void Main(string[] args)
@@ -178,4 +180,4 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 > [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
 * [O que é a API de Pesquisa de Entidade do Bing?](../overview.md )
-* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Referência da API de Pesquisa de Entidade do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

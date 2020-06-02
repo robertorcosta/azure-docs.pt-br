@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677681"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682558"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Início Rápido: Renderizar um modelo com o Unity
 
@@ -66,7 +66,7 @@ O modelo padrão que renderizamos é um [modelo de exemplo interno](../samples/s
 
 1. No navegador de ativos do Unity, navegue até a pasta *Cenas* e abra a cena **Início Rápido**.
 1. Na *Hierarquia*, selecione o objeto de jogo **RemoteRendering**.
-1. No *Inspetor*, insira suas [credenciais de conta](../how-tos/create-an-account.md).
+1. No *Inspetor*, insira suas [credenciais de conta](../how-tos/create-an-account.md). Se ainda não tiver uma conta, [crie uma](../how-tos/create-an-account.md).
 
 ![Informações de Conta do ARR](./media/arr-sample-account-info.png)
 

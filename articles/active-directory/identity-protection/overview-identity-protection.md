@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2b1d9748b243dcc2104ce7b8e0e8735a7b7276f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 27adab85f684143db29e248739492b68af869404
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79497684"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647344"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é Azure Active Directory Identity Protection?
 
@@ -85,6 +85,8 @@ O Identity Protection requer que os usuários sejam um Leitor de Segurança, Ope
 | Administrador de segurança | Acesso total à proteção de identidade | Redefinir senha para um usuário |
 | Operador de segurança | Exibir todos os relatórios da Proteção de Identidade e a folha de Visão Geral <br><br> Ignorar o risco do usuário, confirmar a entrada segura, confirmar o comprometimento | Configurar ou alterar políticas <br><br> Redefinir senha para um usuário <br><br> Configurar alertas |
 | Leitor de segurança | Exibir todos os relatórios da Proteção de Identidade e a folha de Visão Geral | Configurar ou alterar políticas <br><br> Redefinir senha para um usuário <br><br> Configurar alertas <br><br> Fornecer comentários sobre as detecções |
+
+Atualmente, a função de operador de segurança não pode acessar o relatório de entradas suspeitas.
 
 Os administradores do Acesso Condicional também podem criar políticas que consideram o risco de entrada como uma condição; encontre mais informações no artigo [Acesso condicional: Condições](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 

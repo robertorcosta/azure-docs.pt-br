@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: extrair dados estruturados com entidades de aprendizado de máquina – LUIS'
+title: 'Tutorial: extrair dados estruturados com entidade de aprendizado de máquina – LUIS'
 description: Extrair dados estruturados de um enunciado usando a entidade de aprendizado de máquina. Para aumentar a precisão de extração, adicione subentidades com recursos.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: d1bc8fc6aac52e264cb4352ca05f9df45ccfc50e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588863"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83676176"
 ---
-# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados do enunciado do usuário usando entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
+# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados do enunciado do usuário usando entidades de aprendizado de máquina no LUIS (Reconhecimento vocal)
 
 Neste tutorial, extraia dados estruturados de um enunciado usando a entidade de aprendizado de máquina.
 
@@ -20,7 +20,7 @@ A entidade de aprendizado de máquina dá suporte ao [conceito de decomposição
 
 > [!div class="checklist"]
 > * Importar o aplicativo de exemplo
-> * Adicionar entidade de aprendizado de máquina
+> * Entidade de aprendizado de máquina
 > * Adicionar subentidade e recurso
 > * Treinar, testar e publicar aplicativo
 > * Obter uma previsão de entidade do ponto de extremidade
@@ -28,7 +28,7 @@ A entidade de aprendizado de máquina dá suporte ao [conceito de decomposição
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
 
 
-## <a name="why-use-a-machine-learned-entity"></a>Por que usar uma entidade de aprendizado de máquina?
+## <a name="why-use-a-machine-learning-entity"></a>Por que usar uma entidade de aprendizado de máquina?
 
 Este tutorial adiciona uma entidade de aprendizado de máquina para extrair dados do enunciado de um usuário.
 
@@ -58,7 +58,7 @@ Baixe e salve o [arquivo JSON do aplicativo](https://raw.githubusercontent.com/A
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-## <a name="label-text-as-entities-in-example-utterances"></a>Rotular o texto como entidades nos enunciados de exemplo
+## <a name="create-machine-learned-entity"></a>Criar entidade de aprendizado de máquina
 
 Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de aprendizado de máquina de nível superior.
 
@@ -70,7 +70,7 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Comece a seleção um pouco antes do texto mais à esquerda de `pickup` (nº 1) e, em seguida, vá um pouco além do texto mais à direita, `anchovies` (nº 2 – isso encerra o processo de rotulagem). Um menu pop-up é exibido. Na caixa pop-up, insira o nome da entidade como `Order` (nº 3). Em seguida, selecione `Order - Create new entity` na lista (nº 4).
+    Comece a seleção um pouco antes do texto mais à esquerda de `pickup` (nº 1) e, em seguida, vá um pouco além do texto mais à direita, `anchovies` (nº 2 – isso encerra o processo de rotulagem). Um menu pop-up é exibido. Na caixa pop-up, insira o nome da entidade como `Order` (nº 3). Em seguida, selecione `Order Create new entity` na lista (nº 4).
 
     ![Rotular o início e o fim do texto do pedido concluído](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -81,139 +81,165 @@ Para extrair os detalhes sobre um pedido de pizza, crie uma entidade `Order` de 
 
     ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. Na caixa **Criar uma entidade de aprendizado de máquina**, na caixa **Estrutura**, adicione `Size` e, em seguida, selecione Enter.
-1. Para adicionar um **Recurso**, selecione o `+` na área **Recursos**. Em seguida, selecione **Criar nova lista de frases**.
+1. Na caixa **Adicionar subentidades (opcional)** , selecione **+** na linha `Order`, em seguida, adicione `Size` e `Quantity` como subentidades e selecione **Criar**.
 
-1. Na caixa **Criar nova lista de frases**, insira o nome `SizeFeature` e, em seguida, insira os valores `small`, `medium` e `large`. Quando a caixa **Sugestões** for preenchida, selecione `extra large` e `xl`. Selecione **Concluído** para criar a nova lista de frases.
+    > [!div class="mx-imgBorder"]
+    > ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
-    Essa lista de frases ajuda a subentidade `Size` a localizar palavras relacionadas ao tamanho, fornecendo a ela palavras de exemplo. Essa lista não precisa incluir todas as palavras de tamanho, mas deve incluir palavras que precisam indicar o tamanho.
+## <a name="edit-subentities-to-improve-extraction"></a>Editar subentidades para aprimorar a extração
 
-    ![Criar um recurso para a subentidade de tamanho](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
+As etapas anteriores criam a entidade e a subentidade. Para aprimorar a extração, adicione recursos às subentidades.
 
-1. Na janela **Criar uma entidade de aprendizado de máquina**, selecione **Criar** para concluir a criação da subentidade `Size`.
+### <a name="improve-size-extraction-with-phrase-list"></a>Aprimorar a extração de tamanho com a lista de frases
 
-    A entidade `Order` com uma entidade `Size` é criada, mas apenas a entidade `Order` foi aplicada ao enunciado. Você precisa rotular o texto da entidade `Size` no enunciado de exemplo.
+1. Selecione **Entidades** no menu esquerdo e, em seguida, selecione a entidade **Ordem**.
 
-1. No mesmo enunciado de exemplo, rotule a subentidade de **Tamanho** de `large` selecionando a palavra e, em seguida, selecionando a entidade **Tamanho** na lista suspensa.
+1. Na guia **Esquema e recursos**, selecione a subentidade **Tamanho** e, em seguida, selecione **+ Adicionar recurso**.
 
-    ![Rotule a entidade de tamanho para o texto no enunciado.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
+1. Selecione **Criar lista de frases** no menu suspenso.
 
-    A linha é sólida abaixo do texto, porque a rotulagem e a previsão correspondem, pois você rotulou _explicitamente_ o texto.
+1. Na caixa **Criar nova lista de frases**, insira o nome `SizePhraselist` e, em seguida, insira os valores `small`, `medium` e `large`. Quando a caixa **Sugestões** for preenchida, selecione `extra large` e `xl`. Selecione **Salvar** para criar a nova lista de frases.
 
-1. Rotule a entidade `Order` nos enunciados restantes junto com a entidade de tamanho. Os colchetes no texto indicam a entidade `Order` rotulada e a entidade `Size` na parte interna.
+    Essa lista de frases ajuda a subentidade `Size` a localizar palavras relacionadas ao tamanho, fornecendo a ela palavras de exemplo. Essa lista de frases não precisa incluir todas as palavras de tamanho, mas deve incluir palavras que precisam indicar o tamanho.
 
-    |Enunciados de exemplo de pedido|
-    |--|
-    |`can i get [a pepperoni pizza and a can of coke] please`|
-    |`can i get [a [small] pizza with onions peppers and olives]`|
-    |`[delivery for a [small] pepperoni pizza]`|
-    |`i need [2 [large] cheese pizzas 6 [large] pepperoni pizzas and 1 [large] supreme pizza]`|
+### <a name="add-sizelist-entity"></a>Adicionar entidade SizeList
 
-    ![Crie a entidade e as subentidades em todos os enunciados de exemplo restantes.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
+Adicionar uma lista de tamanhos conhecidos que o aplicativo cliente reconhece também ajudará na extração.
 
-    > [!CAUTION]
-    > Como tratar dados implícitos, como a letra `a` implicando em uma única pizza? Ou a falta de `pickup` e `delivery` para indicar em que local a pizza é esperada? Ou a falta de um tamanho para indicar o tamanho padrão, pequeno ou grande? Considere tratados os dados implícitos como parte de suas regras empresariais no aplicativo cliente, em vez de ou além de no LUIS.
+1. Selecione **Entidades** no menu esquerdo e, em seguida, selecione **+ Criar**.
 
-1. Para treinar o aplicativo, selecione **Treinar**. O treinamento aplica as alterações, como as novas entidades e os enunciados rotulados, ao modelo ativo.
+1. Defina o nome da entidade como `SizeListentity` para que seja fácil identificá-la quando comparada ao `SizePhraselist` criado na seção anterior.
 
-1. Após o treinamento, adicione um novo enunciado de exemplo à intenção para entender o nível de entendimento do LUIS da entidade de aprendizado de máquina.
+1. Adicione os tamanhos que o aplicativo cliente espera: `Small`, `Medium`, `Large` e `XLarge`, em seguida, adicione sinônimos para cada um. Os sinônimos devem ser os termos que um usuário insere no chatbot. A entidade é extraída com uma entidade de lista quando corresponde exatamente ao valor normalizado ou aos sinônimos.
+
+    |Valor normalizado|Sinônimos|
+    |--|--|
+    |Pequena|sm, sml, tiny, smallest|
+    |Médio|md, mdm, regular, average, middle|
+    |grande|lg, lrg, big|
+    |XLarge|xl, biggest, giant|
+
+
+    > [!div class="mx-imgBorder"]
+    > ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+
+### <a name="add-feature-of-sizelist-entity"></a>Adicionar recurso da entidade SizeList
+
+1. Selecione **Entidades** do menu esquerdo para retornar à lista de entidades.
+
+1. Selecione **Ordem** na lista de entidades.
+
+1. Na guia **Esquema e recursos**, selecione a entidade **Tamanho** e, em seguida, selecione **+ Adicionar recurso**.
+
+1. Selecione **@ SizeList** na lista suspensa.
+
+<a name="add-prebuilt-number-entity-to-app"></a>
+
+### <a name="add-prebuilt-number-entity"></a>Adicionar uma entidade de número predefinida
+
+Adicionar uma entidade de número predefinida também ajudará na extração.
+
+1. Selecione **Entidades** no menu à esquerda e, em seguida, selecione **Adicionar entidade predefinida**.
+
+1. Selecione **Número** na lista e selecione **Concluído**.
+
+1. Selecione **Entidades** do menu esquerdo para retornar à lista de entidades.
+
+### <a name="add-feature-of-prebuilt-number-entity"></a>Adicionar recurso de entidade de número predefinida
+
+1. Selecione **Ordem** na lista de entidades.
+
+1. Na guia **Esquema e recursos**, selecione a entidade **Quantidade** e, em seguida, selecione **+ Adicionar recurso**.
+
+1. Selecione **@ número** na lista suspensa.
+
+<a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>
+
+## <a name="configure-required-features"></a>Configurar os recursos necessários
+
+Na página de detalhes da entidade **Ordem**, selecione o asterisco, `*`, para o recurso **@ SizeList** e o recurso **@ number**. O asterisco aparece no mesmo rótulo que o nome do recurso.
+
+> [!div class="mx-imgBorder"]
+> ![Adicionar uma estrutura à entidade](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+
+<a name="label-text-as-entities-in-example-utterances"></a>
+<a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
+
+## <a name="label-example-utterances"></a>Rotular enunciados de exemplo
+
+A entidade de aprendizado de máquina é criada e as subentidades têm recursos. Para concluir ao aprimoramento da extração, os enunciados de exemplo precisam ser rotulados com as subentidades.
+
+1. Selecione **Intenções** no painel de navegação esquerdo e, em seguida, selecione a intenção **OrderPizza**.
+
+1. Para abrir a **Paleta de Entidades**, selecione o símbolo **@** na barra de ferramentas contextual.
+
+1. Selecione cada linha de entidade na paleta e, em seguida, use o cursor de paleta para selecionar a entidade em cada exemplo de enunciado. Quando você terminar, a lista de entidades deverá ser parecida com a imagem a seguir.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela parcial da configuração do recurso necessário](media/tutorial-machine-learned-entity/labeled-example-utterances-for-machine-learned-entity.png)
+
+## <a name="train-the-app"></a>Treinar o aplicativo
+
+Para treinar o aplicativo, selecione **Treinar**. O treinamento aplica as alterações, como as novas entidades e os enunciados rotulados, ao modelo ativo.
+
+## <a name="add-a-new-example-utterance"></a>Adicionar um novo exemplo de enunciado
+
+1. Após o treinamento, adicione um novo enunciado de exemplo à intenção `OrderPizza` para entender o nível de entendimento do LUIS da entidade de aprendizado de máquina.
 
     |Enunciado de exemplo de pedido|
     |--|
-    |`pickup XL meat lovers pizza`|
+    |`I need a large pepperoni pizza`|
 
     A entidade superior geral, `Order`, é rotulada, e a subentidade `Size` também é rotulada com linhas pontilhadas.
 
-    ![Novo enunciado de exemplo previsto com a entidade](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela parcial do novo enunciado de exemplo previsto com a entidade](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-    A linha pontilhada indica a previsão.
+    A linha pontilhada indica a previsão com base no aplicativo treinado atual.
 
-1. Para alterar a previsão para uma entidade rotulada, selecione a linha e, em seguida, selecione **Confirmar previsões de entidade**.
+1. Para alterar a previsão para uma entidade rotulada, selecione a marca de seleção na mesma linha.
 
-    ![Aceite a previsão selecionando Confirmar previsão de entidade.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela parcial do novo enunciado de exemplo previsto com a entidade](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     Neste ponto, a entidade de aprendizado de máquina está funcionando porque pode encontrar a entidade em um novo enunciado de exemplo. Ao adicionar o enunciado de exemplo, se a entidade não for prevista corretamente, rotule a entidade e as subentidades. Se a entidade for prevista corretamente, você precisará confirmar as previsões.
 
 
-<a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>
-
-## <a name="add-subentity-with-feature-of-prebuilt-entity"></a>Adicionar uma subentidade com o recurso da entidade predefinida
-
-As informações do pedido também devem incluir a quantidade de um determinado item no pedido, como a quantidade de pizzas. Para extrair esses dados, uma nova subentidade de aprendizado de máquina precisa ser adicionada ao `Order`, e essa subentidade precisa de um recurso obrigatório de um número predefinido. Usando um recurso de uma entidade predefinida, a entidade encontrará e extrairá números se o texto for um dígito, `2`, ou um texto, `two`.
-
-## <a name="add-prebuilt-number-entity-to-app"></a>Adicionar entidade de número predefinida ao aplicativo
-As informações do pedido também devem incluir a quantidade de itens no pedido, como a quantidade de pizzas. Para extrair esses dados, um novo subcomponente de aprendizado de máquina precisa ser adicionado ao `Order`, e esse componente precisa de um recurso obrigatório de um número predefinido. Ao restringir a entidade a um número predefinido, a entidade encontrará e extrairá números se o texto for um dígito, `2`, ou um texto, `two`.
-
-Comece adicionando a entidade de número predefinido ao aplicativo.
-
-1. Selecione **Entidades** no menu à esquerda e, em seguida, selecione **+ Adicionar entidade predefinida**.
-
-1. Na caixa **Adicionar entidades predefinidas**, pesquise e selecione **número** e, em seguida, selecione **Concluído**.
-
-    ![Adicionar entidade pré-compilada](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
-
-    A entidade predefinida é adicionada ao aplicativo, mas ainda não é um recurso.
-
-## <a name="create-subentity-entity-with-required-feature-to-help-extract-data"></a>Criar uma entidade de subentidade com recurso obrigatório para ajudar a extrair dados
-
-A entidade `Order` deve ter uma subentidade `Quantity` para determinar a quantidade de um item no pedido. A quantidade deve usar um recurso obrigatório de um número predefinido, de modo que os dados extraídos sejam disponibilizados imediatamente ao aplicativo cliente por nome.
-
-Um recurso obrigatório é aplicado como uma correspondência de texto, seja com a correspondência exata (como uma entidade de lista), seja por meio de expressões regulares (como uma entidade de expressão regular ou uma entidade predefinida).
-
-Usando uma entidade não de machine learning como um recurso, somente o texto que corresponde é extraído.
-
-1. Selecione **Entidades** e, em seguida, a entidade `Order`.
-1. Selecione **+ Adicionar entidade** e, em seguida, insira o nome `Quantity` e selecione Enter para adicionar a nova subentidade à entidade `Order`.
-1. Após a notificação de êxito, nas **Opções Avançadas**, selecione o lápis de Restrição.
-1. Na lista suspensa, selecione o número predefinido.
-
-    ![Crie uma entidade de quantidade com um número predefinido como restrição.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
-
-    A entidade `Quantity` é aplicada quando o texto corresponde à entidade de número predefinido.
-
-    A entidade com o recurso obrigatório é criada, mas ainda não foi aplicada aos enunciados de exemplo.
-
-    > [!NOTE]
-    > Uma subentidade pode ser aninhada dentro de uma subentidade até 5 níveis. Embora isso não seja mostrado neste artigo, ele está disponível no portal e na API.
-
-## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Rotular o enunciado de exemplo para ensinar o LUIS sobre a entidade
-
-1. Selecione **Intenções** no painel de navegação à esquerda e, em seguida, selecione a intenção **OrderPizza**. Os três números nos enunciados a seguir são rotulados, mas estão visualmente abaixo da linha da entidade `Order`. Esse nível inferior significa que as entidades foram encontradas, mas não são consideradas uma parte da entidade `Order`.
-
-    ![O número predefinido foi encontrado, mas ainda não é considerado separado da entidade Order.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
-
-1. Rotule os números com a entidade `Quantity` selecionando o `2` no enunciado de exemplo e, em seguida, selecionando `Quantity` na lista. Rotule o `6` e o `1` no mesmo enunciado de exemplo.
-
-    ![Texto do rótulo com entidade de quantidade.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)
-
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Treinar o aplicativo para aplicar as alterações de entidade ao aplicativo
 
-Selecione **Treinar** para treinar o aplicativo com esses novos enunciados. Após o treinamento, a subentidade `Quantity` é prevista corretamente na entidade `Order`. Essa previsão correta é indicada com uma linha sólida.
-
-![Treine o aplicativo e examine os enunciados de exemplo.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
+Selecione **Treinar** para treinar o aplicativo com os novos enunciados.
 
 Neste ponto, o pedido tem alguns detalhes que podem ser extraídos (tamanho, quantidade e texto do pedido total). Há um refinamento ainda maior da entidade `Order`, como coberturas da pizza, tipo de borda e acompanhamentos. Cada um deles deve ser criado como subentidades da entidade `Order`.
 
 ## <a name="test-the-app-to-validate-the-changes"></a>Testar o aplicativo para validar as alterações
 
-Teste o aplicativo usando o painel **Teste** interativo. Esse processo permite que você insira um novo enunciado e exiba os resultados da previsão para ver se o aplicativo ativo e treinado está funcionando corretamente. A previsão da intenção deve ser razoavelmente confiante (acima de 70%) e a extração de entidade deve selecionar, pelo menos, a entidade `Order`. Os detalhes da entidade de pedido podem estar ausentes porque cinco enunciados não são suficientes para tratar todos os casos.
+Teste o aplicativo usando o painel **Teste** interativo. Esse processo permite que você insira um novo enunciado e exiba os resultados da previsão para ver se o aplicativo ativo e treinado está funcionando corretamente. A previsão da intenção deve ser razoavelmente confiante (acima de 60%) e a extração de entidade deve selecionar, pelo menos, a entidade `Order`. Os detalhes da entidade de pedido podem estar ausentes porque esses poucos enunciados não são suficientes para tratar todos os casos.
 
 1. Selecione **Testar** na navegação superior.
-1. Insira o enunciado `deliver a medium veggie pizza` e selecione Enter. O modelo ativo previu a intenção correta com mais de 70% de confiança.
+1. Insira o enunciado `2 small cheese pizzas for pickup` e selecione Enter. O modelo ativo previu a intenção correta com mais de 60% de confiança.
 
-    ![Insira um novo enunciado para testar a intenção.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance.png)
 
 1. Selecione **Inspecionar** para ver as previsões de entidade.
 
-    ![Exiba as previsões de entidade no painel de teste interativo.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela parcial da exibição das previsões de entidade no painel de teste interativo.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
 
-    O tamanho foi identificado corretamente. Lembre-se de que o enunciado de exemplo na intenção `OrderPizza` não tem um exemplo de `medium` como tamanho, mas usa um recurso de uma lista de frases `SizeFeature` que inclui médio.
-
-    A quantidade não foi prevista corretamente. Corrija isso no aplicativo cliente padronizando o tamanho para um (1) se nenhum tamanho for retornado na previsão do LUIS.
+<a name="publish-with-sentiment-analysis"></a>
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicar o aplicativo para acessá-lo por meio do ponto de extremidade HTTP
 
-[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+Para receber uma previsão do LUIS em um chat bot ou em outro aplicativo cliente, publique o aplicativo no ponto de extremidade.
+
+1. Selecione **Publicar** no painel de navegação superior direito.
+
+    ![Captura de tela da publicação do LUIS para o botão do ponto de extremidade no menu à direita superior](./media/howto-publish/publish-button.png)
+
+1. Selecione o slot de **Produção**, selecione **Alterar configurações**, escolha **Análise de Sentimento** e, em seguida, selecione **Concluído**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Captura de tela da publicação do LUIS para o ponto de extremidade](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
+
+1. Selecione o link **Acessar as URLs do ponto de extremidade** na notificação para ir à página **Recursos do Azure**. As URLs do ponto de extremidade são listadas como a **Consulta de Exemplo**.
 
 ## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>Obter a previsão de intenção e de entidade do ponto de extremidade HTTP
 
@@ -221,13 +247,13 @@ Teste o aplicativo usando o painel **Teste** interativo. Esse processo permite q
 
 1. Vá para o final da URL na barra de endereços e substitua _YOUR_QUERY_HERE_ pela mesma consulta que você inseriu no painel de teste interativo.
 
-    `deliver a medium veggie pizza`
+    `2 small cheese pizzas for pickup`
 
     O último parâmetro de querystring é `query`, o enunciado **consulta**.
 
     ```json
     {
-        "query": "deliver a medium veggie pizza",
+        "query": "2 small cheese pizzas for pickup",
         "prediction": {
             "topIntent": "OrderPizza",
             "intents": {
@@ -248,44 +274,19 @@ Teste o aplicativo usando o painel **Teste** interativo. Esse processo permite q
                 "Order": [
                     {
                         "Size": [
-                            "medium"
+                            "small"
                         ],
-                        "$instance": {
-                            "Size": [
-                                {
-                                    "type": "Size",
-                                    "text": "medium",
-                                    "startIndex": 10,
-                                    "length": 6,
-                                    "score": 0.9955588,
-                                    "modelTypeId": 1,
-                                    "modelType": "Entity Extractor",
-                                    "recognitionSources": [
-                                        "model"
-                                    ]
-                                }
-                            ]
-                        }
+                        "Quantity": [
+                            2
+                        ]
                     }
-                ],
-                "$instance": {
-                    "Order": [
-                        {
-                            "type": "Order",
-                            "text": "a medium veggie pizza",
-                            "startIndex": 8,
-                            "length": 21,
-                            "score": 0.7983857,
-                            "modelTypeId": 1,
-                            "modelType": "Entity Extractor",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
-                    ]
-                }
+                ]
             }
-        }
+        },
+        "sentimentAnalysis":{
+            "label":"neutral",
+            "score":0.98
+       }
     }
     ```
 

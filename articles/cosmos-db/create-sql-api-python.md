@@ -1,30 +1,30 @@
 ---
 title: 'Início Rápido: criar um aplicativo Web do Python usando a conta de API de SQL do Azure Cosmos DB'
 description: Apresenta um exemplo de código Python que pode ser usado para se conectar à API do SQL do Azure Cosmos DB e consultá-la
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 03/09/2020
-ms.author: sngun
+ms.date: 05/11/2020
+ms.author: anfeldma
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 10247e22b3fbe1250a15b06a0cce974905ca6b7f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 674b9d132f96b8807355955949463c000565bb38
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78942613"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654604"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Início Rápido: criar um aplicativo do Python usando uma conta de API de SQL do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [SDK do Java v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)

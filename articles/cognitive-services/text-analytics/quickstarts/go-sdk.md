@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0b4495616c750b2b3e8431e011d71ae8671af1ef
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f9b5fb1837fdafe818fdb27221f8575d93ec304d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77912626"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701617"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Início Rápido: Usar a biblioteca de clientes da Análise de Texto para o Go
 
-[Documentação de referência](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [Pacote (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[Documentação de referência](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-go/blob/090dc0ee4d8d2d60e2a9525774d967a4111a2b0c/services/cognitiveservices/v2.1/textanalytics/client.go) | [Pacote (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 > [!NOTE]
 > Este início rápido só se aplica à Análise de Texto versão 2.1. Atualmente, uma biblioteca de clientes v3 para o Go não está disponível.
@@ -89,7 +89,7 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Estes snippets de código mostram como realizar o seguinte com a biblioteca de clientes de Análise de Texto para Python:
+Estes snippets de código mostram como fazer o seguinte com a biblioteca de clientes da Análise de Texto para Go:
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimento](#sentiment-analysis)

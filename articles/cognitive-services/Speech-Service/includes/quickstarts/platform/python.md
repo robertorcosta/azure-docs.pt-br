@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 924532318fc6638059bbe9eef0065349463523ae
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7947c468f5d35869b9185062b8dc479234297486
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400870"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673230"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se quiser apenas o nome do pacote para começar por conta própria, execute `pip install azure-cognitiveservices-speech`.
 
@@ -40,7 +40,7 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - No RHEL/CentOS 8, execute os seguintes comandos para instalar os pacotes necessários:
+  - No RHEL/CentOS, execute os seguintes comandos para instalar os pacotes necessários:
 
         ```sh
         sudo yum update
@@ -48,7 +48,8 @@ Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/spe
         ```
 
 > [!NOTE]
-> No RHEL/CentOS 8, siga as instruções em [como configurar o OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - No RHEL/CentOS 7, siga as instruções sobre [como configurar o RHEL/CentOS 7 para o SDK de Fala](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - No RHEL/CentOS 8, siga as instruções em [como configurar o OpenSSL para Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Observe que, ao instalá-los pela primeira vez, pode ser necessário reiniciar o Windows antes de continuar com este guia.
 - E, por fim, você precisará do [Python 3.5 ao 3.8](https://www.python.org/downloads/). Para verificar a instalação, abra um prompt de comando, digite o comando `python --version` e verifique o resultado. Se estiver instalado corretamente, você receberá uma resposta "Python 3.5.1" ou semelhante.

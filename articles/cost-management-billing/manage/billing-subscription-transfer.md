@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238152"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745845"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -92,7 +92,7 @@ Se você aceitou a propriedade de cobrança de uma assinatura do Azure, recomend
 1. Examine e atualize o Administrador de Serviços, os Coadministradores e outras funções do RBAC. Para obter mais informações, confira [Adicionar ou alterar os administradores de assinatura do Azure](add-change-subscription-administrator.md) e [Gerenciar o acesso usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 1. Atualize as credenciais associadas aos serviços dessa assinatura, incluindo:
    1. Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md)
-   1. Teclas de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
+   1. Chaves de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md)
    1. Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 1. Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nessa assinatura. Você pode atualizar a ID do parceiro no [Portal do Azure](https://portal.azure.com). Para obter mais informações, confira [Vincular uma ID de parceiro a suas contas do Azure](link-partner-id.md)
 
@@ -144,8 +144,8 @@ Se você não tiver certeza de quem é o administrador da conta de uma assinatur
 
 Todos os recursos – como VMs, discos e sites – são transferidos para a nova conta. No entanto, se você transferir uma assinatura para uma conta em outro locatário do Azure AD, nenhuma atribuição de [função de administrador](add-change-subscription-administrator.md) e [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) da assinatura [será transferida](#transfer-a-subscription-to-another-azure-ad-tenant-account). Além disso, os [Registros de aplicativo](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e outros serviços específicos do locatário também não serão transferidos juntamente com a assinatura.
 
-### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Eu posso transferir a propriedade para uma conta em outro país?
-Infelizmente, transferências entre países não podem ser executadas no portal do Azure. Para transferir sua assinatura para outro país, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>Posso transferir a propriedade para uma conta em outro país/região?
+Transferências entre países/regiões não podem ser executadas no portal do Azure. Para transferir a assinatura para outro país/região, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>Sou administrador em duas contas. Posso transferir uma assinatura de uma das minhas contas para a outra?
 Sim, você pode transferir assinaturas entre suas contas. Conceitualmente, suas contas são consideradas como pertencentes a dois usuários distintos, logo, você pode usar as etapas acima para transferir assinaturas entre suas contas.
@@ -182,7 +182,7 @@ Sim. No entanto, as atribuições de [funções de administrador](add-change-sub
 Mesmo que as atribuições de [RBAC (controle de acesso baseado em função)](../../role-based-access-control/role-assignments-portal.md) sejam removidas durante a transferência, os usuários da conta do proprietário original ainda poderão ter acesso à assinatura por meio de alguns mecanismos de segurança, incluindo:
 
 * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../../cloud-services/cloud-services-certs-create.md).
-* Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
+* Chaves de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../../storage/common/storage-create-storage-account.md).
 * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
 Se o destinatário precisar restringir o acesso a seus recursos, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
@@ -204,7 +204,7 @@ Sim. Ao aceitar a solicitação de transferência, você pode selecionar uma for
 
 O administrador corporativo pode atualizar a propriedade da conta de qualquer conta, mesmo se o proprietário original da conta não faz mais parte da organização. Isso é possível seguindo as instruções para [Transferir a propriedade da conta para todas as assinaturas](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal do EA.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="why-dont-i-see-the-transfer-subscription-button"></a><a id="no-button"></a> Por que não vejo o botão “Transferir Assinatura”?
 

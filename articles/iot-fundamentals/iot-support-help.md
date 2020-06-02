@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
-ms.openlocfilehash: c40aa9b0a94940f48a8edbd046a744678f02cbd2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76775338"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827228"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opções de ajuda e suporte do Azure IoT
 
@@ -53,11 +53,11 @@ Para abordar tecnologias e serviços para criar soluções de IoT. O MSDN é o c
 
 Se não conseguir encontrar uma resposta para seu problema por meio da pesquisa, envie uma nova pergunta para o MSDN no fórum relacionado ao serviço:
 
-- [Gêmeos Digitais do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredigitaltwins)
-- [Hub IoT do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
-- [Azure IoT Edge](https://social.msdn.microsoft.com/Forums/en-US/home?forum=iotedge)
-- [Mapas do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
-- [Azure Time Series Insights](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights)
+- [Página de P e R da Microsoft para Gêmeos Digitais do Azure](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Página de P e R da Microsoft para o Hub IoT do Azure](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Página de P e R da Microsoft para Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Página de P e R da Microsoft para Azure Mapas](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Página de P e R da Microsoft para Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Enviar comentários nos Comentários sobre o Azure
 

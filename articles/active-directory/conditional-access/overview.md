@@ -5,18 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 05/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: contperfq4
+ms.openlocfilehash: 0e13fcba4b961efb6a839f95ad0e8100382619c0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79215984"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798253"
 ---
 # <a name="what-is-conditional-access"></a>O que é Acesso Condicional?
 
@@ -33,7 +34,7 @@ Os administradores enfrentam dois objetivos principais:
 - Capacitar os usuários para serem produtivos sempre e em qualquer lugar
 - Proteger os ativos da organização
 
-Usando as políticas de acesso condicional, você pode aplicar os controles de acesso certos, quando necessário, para manter sua organização segura e não atrapalhar o usuário quando não for necessário.
+Usando as políticas de Acesso Condicional, você pode aplicar os controles de acesso certos, quando necessário, para manter sua organização segura e não atrapalhar o usuário quando não for necessário.
 
 ![Fluxo do processo de acesso condicional conceitual](./media/overview/conditional-access-overview-how-it-works.png)
 
@@ -47,7 +48,7 @@ Os sinais comuns que o acesso condicional pode levar em conta ao tomar uma decis
    - As políticas podem ser direcionadas a usuários e grupos específicos, proporcionando aos administradores um controle refinado sobre o acesso.
 - Informações de localização de IP
    - As organizações podem criar intervalos de endereços IP confiáveis que podem ser usados ao tomar decisões sobre política. 
-   - Os administradores podem especificar intervalos de IP de países inteiros para bloquear ou permitir o tráfego.
+   - Os administradores podem especificar intervalos de IP para bloquear ou permitir o tráfego proveniente de países/regiões inteiros.
 - Dispositivo
    - Os usuários com dispositivos de plataformas específicas ou marcados com um estado específico podem ser usados ao impor políticas de acesso condicional.
 - Aplicativo
@@ -71,7 +72,7 @@ Os sinais comuns que o acesso condicional pode levar em conta ao tomar uma decis
 
 ## <a name="commonly-applied-policies"></a>Políticas comumente aplicadas
 
-Muitas organizações têm preocupações comuns sobre o acesso, com as quais as políticas de acesso condicional podem ajudar, como:
+Muitas organizações têm [preocupações comuns sobre o acesso, com as quais as políticas de Acesso Condicional podem ajudar](concept-conditional-access-policy-common.md), como:
 
 - Exigir a autenticação multifator para usuários com funções administrativas
 - Exigir a autenticação multifator para tarefas de gerenciamento do Azure
@@ -96,12 +97,8 @@ Os clientes com [licenças do Microsoft 365 Business](/office365/servicedescript
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Como criar uma política de acesso condicional por partes](concept-conditional-access-policies.md)
-
-Para saber como implementar o Acesso Condicional em seu ambiente, confira [Planejar a implantação do Acesso Condicional no Azure Active Directory](plan-conditional-access.md).
-
-[Sais mais sobre o Identity Protection](../identity-protection/overview-v2.md)
-
-[Saiba mais sobre o Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
-
-[Saiba mais sobre o Microsoft Intune](/intune/index)
+- [Como criar uma política de acesso condicional por partes](concept-conditional-access-policies.md)
+- [Planejar sua implantação de Acesso Condicional](plan-conditional-access.md)
+- [Sais mais sobre o Identity Protection](../identity-protection/overview-v2.md)
+- [Saiba mais sobre o Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [Saiba mais sobre o Microsoft Intune](/intune/index)

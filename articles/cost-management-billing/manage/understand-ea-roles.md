@@ -5,16 +5,16 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.author: banders
-ms.openlocfilehash: b8c523acabd02dc30e9b13f7f83a4a44554cbd4d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 79d0a648645743751eed3b50edb628a20023546e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690936"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660362"
 ---
-# <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Entenda as funções administrativas do Contrato Azure Enterprise no Azure
+# <a name="managing-azure-enterprise-roles"></a>Gerenciando funções do Azure Enterprise
 
 Para ajudar a gerenciar o uso e o gasto de sua organização, os clientes do Azure com um Contrato Enterprise (EA) podem atribuir cinco funções administrativas distintas:
 
@@ -62,6 +62,19 @@ As seções a seguir descrevem as limitações e os recursos de cada função.
 - <sup>4</sup> Os contatos para notificação recebem comunicações por email sobre o Contrato Enterprise do Azure.
 - <sup>5</sup> A tarefa é limitada às contas do seu departamento.
 
+## <a name="add-a-new-enterprise-administrator"></a>Adicionar um novo administrador corporativo
+
+Os administradores corporativos têm mais privilégios ao gerenciar um registro de EA do Azure. O administrador inicial do EA do Azure foi criado quando o contrato de EA foi configurado. No entanto, você pode adicionar ou remover novos administradores a qualquer momento. Novos administradores são adicionados somente por administradores existentes. Para obter mais informações sobre como adicionar outros admins corporativos, confira [Criar outro admin corporativo](ea-portal-get-started.md#create-another-enterprise-administrator). Para saber mais sobre funções e tarefas do perfil de cobrança, confira [Funções e tarefas do perfil de cobrança](understand-mca-roles.md#billing-profile-roles-and-tasks).
+
+## <a name="update-account-owner-state-from-pending-to-active"></a>Atualizar estado do proprietário da conta de pendente para ativo
+
+Quando novos AOs (proprietários de conta) são adicionados a um registro de EA do Azure pela primeira vez, o status deles aparece como _pendente_. Quando um novo proprietário da conta receber o email de ativação de boas-vindas, ele poderá entrar para ativar a própria conta. Assim que ele ativa a própria conta, o status da conta é atualizado de _pendente_ para _ativo_. O proprietário da conta precisa ler a mensagem de 'Aviso' e selecionar **Continuar**. Pode ser solicitado de novos usuários que insiram o nome e sobrenome deles para criar uma conta de comércio. Nesse caso, eles precisam adicionar as informações necessárias para continuar e, em seguida, a conta é ativada.
+
+## <a name="add-a-department-admin"></a>Adicionar um administrador de departamento
+
+Depois que um administrador de EA cria um departamento, o administrador corporativo do Azure pode adicionar administradores de departamento e associar cada um deles a um departamento. Um administrador de departamento pode criar novas contas. Novas contas são necessárias para que as assinaturas de EA do Azure sejam criadas.
+
+Para obter mais informações sobre como adicionar um administrador de departamento, confira [Criar um administrador de departamento do Azure EA](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Acesso de uso e os custos por função
 
@@ -77,8 +90,7 @@ As seções a seguir descrevem as limitações e os recursos de cada função.
 - <sup>6</sup> Exige que o administrador corporativo habilite a política de **preços de exibição de DA** no Enterprise Portal. O Administrador do Departamento pode, então, ver os detalhes do custo para o departamento.
 - <sup>7</sup> Exige que o administrador corporativo habilite a política de **preços de exibição de AO** no Enterprise Portal. O proprietário da conta pode ver detalhes do custo da conta.
 
-
-## <a name="pricing-in-azure-portal"></a>Preço no portal do Azure
+## <a name="see-pricing-for-different-user-roles"></a>Consulte os preços das diferentes funções de usuário
 
 Você pode ver preços diferentes no portal do Azure, dependendo de sua função administrativa e de como as políticas de cobranças de visualização são definidas pelo administrador corporativo. As duas políticas no portal da empresa que afetam o preço que você vê no portal do Azure são:
 
@@ -98,6 +110,8 @@ A tabela a seguir mostra o relacionamento entre as funções de administração 
 |Nenhum|Não aplicável |Proprietário|Preço de varejo|
 
 Você define a função de administrador da empresa e exibe as políticas de cobranças no portal da empresa. A função RBAC pode ser atualizada no portal do Azure. Para obter mais informações, confira [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

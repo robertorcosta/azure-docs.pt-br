@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/18/2020
+ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81682583"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770917"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -54,9 +54,6 @@ Internamente, as identidades gerenciadas são entidades de serviço de um tipo e
 Além disso, quando uma identidade atribuída pelo usuário ou pelo sistema é criada, o MSRP (Provedor de Recursos de Identidade Gerenciada) emite um certificado internamente para essa identidade. 
 
 Seu código pode usar uma identidade gerenciada para solicitar tokens de acesso para os serviços que dão suporte à autenticação do Azure AD. O Azure é responsável por reverter as credenciais que são usadas pela instância de serviço. 
-
-## <a name="credential-rotation"></a>Rotação de credenciais
-A rotação de credenciais é controlada pelo provedor de recursos que hospeda o recurso do Azure. A rotação padrão da credencial ocorre a cada 46 dias. Cabe ao provedor de recursos chamar novas credenciais, então o provedor de recursos poderia esperar mais de 46 dias por isso.
 
 O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam com VMs (máquinas virtuais):
 
@@ -107,6 +104,9 @@ O diagrama abaixo mostra como as identidades de serviço gerenciadas funcionam c
 
 6. A chamada é feita ao Azure AD para solicitar acesso ao token (conforme especificado na etapa 5) usando a ID do cliente e o certificado configurados na etapa 3. O Azure AD retorna um token de acesso do JSON Web Token (JWT).
 7. Seu código envia o token de acesso em uma chamada para um serviço que dá suporte à autenticação do Azure AD.
+
+## <a name="credential-rotation"></a>Rotação de credenciais
+A rotação de credenciais é controlada pelo provedor de recursos que hospeda o recurso do Azure. A rotação padrão da credencial ocorre a cada 46 dias. Cabe ao provedor de recursos chamar novas credenciais, então o provedor de recursos poderia esperar mais de 46 dias por isso.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Como usar identidades gerenciadas para recursos do Azure?
 
