@@ -3,16 +3,16 @@ title: 'Tutorial: Gerenciar a governança de marcas'
 description: Neste tutorial, use o efeito Modificar do Azure Policy para criar e impor um modelo de governança de tag em recursos novos e existentes.
 ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81759071"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142258"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerenciar a governança de marca com o Azure Policy
 
-[Marcas](../../../azure-resource-manager/management/tag-resources.md) representam um aspecto fundamental da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para gerenciamento de marcas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), essas podem ser a base de aplicação das suas políticas de negócios com o Azure Policy ou para [controlar custos com o Gerenciamento de Custos](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[Marcas](../../../azure-resource-manager/management/tag-resources.md) representam um aspecto fundamental da organização dos recursos do Azure em uma taxonomia. Ao seguir as [práticas recomendadas para gerenciamento de marcas](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources), essas podem ser a base de aplicação das suas políticas de negócios com o Azure Policy ou para [controlar custos com o Gerenciamento de Custos](../../../cost-management-billing/costs/cost-mgt-best-practices.md#tag-shared-resources).
 Não importa como ou por quê você usa essas marcas, é importante que possa adicionar, alterar e removê-las rapidamente de seus recursos do Azure. Para ver se o recurso do Azure é compatível com marcação, confira [Suporte à marcação](../../../azure-resource-manager/management/tag-support.md).
 
 O efeito [Modificar](../concepts/effects.md#modify) do Azure Policy foi desenvolvido para ajudar na governança das marcas, independentemente do estágio atual da governança do recurso. O **Modificar** ajuda quando:
