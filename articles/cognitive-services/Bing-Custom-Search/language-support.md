@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 004bd973651d5903db4254a8883be2c8a83d9b38
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66388572"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310573"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte de idioma e região para a API de Pesquisa Personalizada do Bing
 
@@ -36,7 +36,7 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canada|CA|
+|Canadá|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
@@ -65,13 +65,13 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Suíça|CH|
 |Taiwan|TW|
 |Turquia|TR|
-|United Kingdom|GB|
+|Reino Unido|GB|
 |Estados Unidos|EUA|
 
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Linguagem|Código de mercado|
+|País/região|Language|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -79,14 +79,14 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Bélgica|Holandês|nl-BE|
 |Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canada|Inglês|en-CA|
-|Canada|Francês|fr-CA|
+|Canadá|Inglês|en-CA|
+|Canadá|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|Rae de Hong Kong|Chinês tradicional|zh-HK|
+|RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
@@ -110,6 +110,6 @@ O cabeçalho `Accept-Language` e o parâmetro de consulta `setLang` são mutuame
 |Suíça|Alemão|de-CH|
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|United Kingdom|Inglês|en-GB|
+|Reino Unido|Inglês|en-GB|
 |Estados Unidos|Inglês|pt-BR|
 |Estados Unidos|Espanhol|es-US|
