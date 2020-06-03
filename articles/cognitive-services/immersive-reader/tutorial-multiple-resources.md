@@ -9,16 +9,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d4fa61f8290f3bf9e2f065ec841fa94d8ecaaac1
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195614"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267198"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integrar vários recursos da Leitura Avançada
 
-Na [visão geral](./overview.md), você aprendeu sobre o que é a Leitura Avançada e como ela implementa técnicas comprovadas para melhorar a compreensão de leitura para aprendizes do idioma, leitores emergentes e estudantes com diferenças de aprendizado. No [Início rápido do Node.js](./quickstart-nodejs.md), você aprendeu a usar a Leitura Avançada com apenas um recurso. Este tutorial aborda como integrar vários recursos da Leitura Avançada no mesmo aplicativo. Neste tutorial, você aprenderá como:
+Na [visão geral](./overview.md), você aprendeu sobre o que é a Leitura Avançada e como ela implementa técnicas comprovadas para melhorar a compreensão de leitura para aprendizes do idioma, leitores emergentes e estudantes com diferenças de aprendizado. No [Início rápido do Node.js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs), você aprendeu a usar a Leitura Avançada com apenas um recurso. Este tutorial aborda como integrar vários recursos da Leitura Avançada no mesmo aplicativo. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar vários recursos da Leitura Avançada em um grupo de recursos existente
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Siga o [início rápido](./quickstart-nodejs.md) para criar um aplicativo Web que inicia a Leitura Avançada com Node.js. Nesse início rápido, você configura apenas um recurso da Leitura Avançada. Nós vamos nos basear nele neste tutorial.
+* Siga o [início rápido](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) para criar um aplicativo Web que inicia a Leitura Avançada com Node.js. Nesse início rápido, você configura apenas um recurso da Leitura Avançada. Nós vamos nos basear nele neste tutorial.
 
 ## <a name="create-the-immersive-reader-resources"></a>Criar os recursos da Leitura Avançada
 

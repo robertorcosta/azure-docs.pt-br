@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para a Central de Segurança do Azure
 description: Lista as definições de políticas internas do Azure Policy para a Central de Segurança do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 30ad99228ce9c3a936c8c43e61489d7b0cc94114
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0014625fbc09c6fbf37ea206cb3ce9aadaa0087e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650142"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234730"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-security-center"></a>Definições de políticas internas do Azure Policy para a Central de Segurança do Azure
 
