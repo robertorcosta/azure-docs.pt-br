@@ -6,12 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
-ms.openlocfilehash: e5fbb14477275ca329243797b75550cfe92077b6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: a92c5fde68227bf94342dd380250429675bd084d
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701561"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248848"
 ---
 # <a name="use-circuit-breaker-dashboard-with-azure-spring-cloud"></a>Usar o Painel do Circuit Breaker com o Azure Spring Cloud
 O Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) é amplamente usado para agregar vários fluxos de métricas de [Hystrix](https://github.com/Netflix/Hystrix) para que os fluxos possam ser monitorados em uma só exibição usando o painel do Hystrix. Este tutorial demostra como usá-lo no Azure Spring Cloud.
@@ -59,7 +59,7 @@ Depois que todos os aplicativos estiverem em execução e detectáveis, acesse `
 Verifique usando pontos de extremidade públicos ou pontos de extremidade de teste privados.
 
 ### <a name="using-public-endpoints"></a>Usando pontos de extremidade públicos
-Acesse hystrix-turbine com o caminho `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` de seu navegador.  A figura a seguir mostra o painel do Hystrix em execução neste aplicativo.
+Acesse hystrix-turbine com o caminho `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` de seu navegador.  A figura a seguir mostra o painel do Hystrix em execução neste aplicativo.
 
 ![Painel do Hystrix](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 
