@@ -7,12 +7,12 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 81818cc5ba2af1f9f0f70f7aa27fe62ed2c90c77
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bfa84a993fafe9240ba765de8d87ea4afb69cbd5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065676"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015940"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Entenda como o desconto de reserva é aplicado ao Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Para saber mais sobre as reservas do Azure, consulte os seguintes artigos:
 
 * [Quais são as reservas para o Azure](save-compute-costs-reservations.md)  
 * [Pagar antecipadamente por recursos do Azure Cosmos DB com capacidade reservada do Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)  
-* [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../../sql-database/sql-database-reserved-capacity.md)  
+* [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../../azure-sql/database/reserved-capacity-overview.md)  
 * [Gerenciar reservas do Azure](manage-reserved-vm-instance.md)  
 * [Entender o uso de reserva para a sua assinatura paga conforme o uso](understand-reserved-instance-usage.md)  
 * [Entender o uso de reserva para seu registro de empresa](understand-reserved-instance-usage-ea.md)

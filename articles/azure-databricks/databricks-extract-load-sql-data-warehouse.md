@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: d97fae777b06625488234eb6d48a74a60a83f4d6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382734"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018711"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
@@ -370,7 +370,7 @@ Como mencionado anteriormente, o conector do Azure Synapse usa o Armazenamento d
    > [!NOTE]
    > Este exemplo usa o sinalizador `forward_spark_azure_storage_credentials`, o que faz o Azure Synapse acessar os dados do Armazenamento de Blobs usando uma Chave de Acesso. Esse é o único método de autenticação compatível.
    >
-   > Se o Armazenamento de Blobs do Azure estiver restrito para selecionar as redes virtuais, o Azure Synapse exigirá a [Identidade de Serviço Gerenciada em vez de Chaves de Acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isso causará o erro: "Esta solicitação não está autorizada a executar esta operação".
+   > Se o Armazenamento de Blobs do Azure estiver restrito para selecionar as redes virtuais, o Azure Synapse exigirá a [Identidade de Serviço Gerenciada em vez de Chaves de Acesso](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isso causará o erro: "Esta solicitação não está autorizada a executar esta operação".
 
 6. Conecte-se ao banco de dados SQL e verifique se você consegue ver um banco de dados **SampleTable**.
 

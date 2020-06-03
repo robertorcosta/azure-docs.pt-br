@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: 0e18fd0c52fd4090477599f53cd0ef0bc05855f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 550579b40470d7a1ad02031b8140e7d0a7164f46
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587333"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310590"
 ---
 # <a name="long-audio-api-preview"></a>API de áudio longo (visualização)
 
@@ -48,7 +48,7 @@ Ao preparar seu arquivo de texto, verifique se:
   * Para texto sem formatação, cada parágrafo é separado ao pressionar o exemplo **Inserir/retornar** -exibir [entrada de texto sem formatação](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * Para o texto SSML, cada parte da SSML é considerada um parágrafo. As partes de SSML devem ser separadas por parágrafos diferentes – exibir [exemplo de entrada de texto de SSML](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
-> Para chinês (continente), chinês (Hong Kong), chinês (Taiwan), japonês e coreano, uma palavra será contada como dois caracteres. 
+> Para chinês (continente), chinês (RAE de Hong Kong), chinês (Taiwan), japonês e coreano, uma palavra será contada como dois caracteres. 
 
 ## <a name="submit-synthesis-requests"></a>Enviar solicitações de síntese
 
@@ -108,7 +108,7 @@ Damos suporte a formatos de saída de áudio flexíveis. Você pode gerar saída
 * Audio-24kHz-96kbitrate-mono-mp3
 * Audio-24kHz-160kbitrate-mono-mp3
 
-## <a name="quickstarts"></a>Início rápido
+## <a name="quickstarts"></a>Inícios rápidos
 
 Oferecemos guias de início rápido projetados para ajudá-lo a executar a API de áudio longo com êxito. Esta tabela inclui uma lista de guias de início rápido da API de áudio longa organizados por idioma.
 

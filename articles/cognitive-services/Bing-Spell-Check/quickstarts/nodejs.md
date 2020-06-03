@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 3a98308716696f677f04db66e83ff4e9d5d08c85
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: f35c2ebc4cd6e31fe59ad715d4f317e650bca52e
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869836"
+ms.locfileid: "83995948"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Node.js
 
@@ -45,9 +45,9 @@ Embora esse aplicativo seja escrito em JavaScript, a API é um serviço Web REST
 
 2. Crie variáveis para os parâmetros de pesquisa e o texto que deseja verificar: 
 
-   a. Atribua seu código de mercado ao parâmetro `mkt` com o operador `=`. O código de mercado é o código do país/da região em que você faz a solicitação. 
+   1. Atribua seu código de mercado ao parâmetro `mkt` com o operador `=`. O código de mercado é o código do país/da região em que você faz a solicitação. 
 
-   b. Adicione o parâmetro `mode` com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos erros de ortografia, mas não tantos erros de gramática).
+   1. Adicione o parâmetro `mode` com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos erros de ortografia, mas não tantos erros de gramática).
 
     ```javascript
     let mkt = "en-US";
