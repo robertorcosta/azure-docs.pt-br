@@ -3,12 +3,12 @@ title: 'Tutorial: Gerenciar consultas no portal do Azure'
 description: Neste tutorial, você cria uma consulta do Resource Graph e compartilha a nova consulta com outras pessoas no portal do Azure.
 ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 80725bd03d31a4985374005fe68a62e16aaef000
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83637758"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148014"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e compartilhar uma consulta do Azure Resource Graph no portal do Azure
 
@@ -44,7 +44,7 @@ As consultas particulares são acessíveis e visíveis somente para a conta que 
 
    Selecione **Executar consulta** para ver os resultados da consulta no painel inferior.
 
-   Para obter mais informações sobre essa consulta, veja [Amostras – contar máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-virtual-machines-by-os-type).
+   Para obter mais informações sobre essa consulta, veja [Amostras – contar máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os).
 
 
 1. Selecione **Salvar** ou **Salvar como**, insira **Contar VMs por sistema operacional** como o nome, deixe o tipo como **Consulta privada** e, em seguida, selecione **Salvar** na parte inferior do painel **Salvar consulta**. O título da guia muda de **Consulta 1** para **Contar VMs por SO**.
@@ -76,7 +76,7 @@ Para criar uma nova consulta compartilhada, siga estas etapas:
     
    Selecione **Executar consulta** para ver os resultados da consulta no painel inferior.
 
-   Para obter mais informações sobre essa consulta, veja [Amostras – contar máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-virtual-machines-by-os-type).
+   Para obter mais informações sobre essa consulta, veja [Amostras – contar máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os).
 
 1. Selecione **Salvar** ou **Salvar como**.
 
