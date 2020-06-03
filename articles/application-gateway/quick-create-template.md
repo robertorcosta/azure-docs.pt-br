@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/23/2020
+ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604893"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170487"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – modelo do Resource Manager
 
@@ -60,7 +60,9 @@ Implantar o modelo do Resource Manager no Azure:
    [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Selecione ou crie seu grupo de recursos, digite o nome de usuário e a senha do administrador da máquina virtual.
-3. Selecione **Concordo com os termos e condições declarados acima** e selecione **Comprar**. A implantação pode levar 20 minutos ou mais para ser concluída.
+3. Selecione **Examinar + Criar** e **Criar**.
+
+   A implantação pode levar 20 minutos ou mais para ser concluída.
 
 ## <a name="validate-the-deployment"></a>Validar a implantação
 

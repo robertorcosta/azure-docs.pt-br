@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/27/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 4af2d060c11b804c5fa09bfdabbcb9753f7d5885
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 79a12505ccc7cea709a88818513ba95710989954
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204676"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142360"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxa para a API de Análise de Texto
 <a name="data-limits"></a>
@@ -36,7 +36,7 @@ Use este artigo para localizar os limites para o tamanho e as tarifas para as qu
 
 O número máximo de documentos que você pode enviar em uma solicitação dependerá da versão da API e do recurso que você está usando.
 
-#### <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
+#### <a name="version-3"></a>[Versão 3](#tab/version-3)
 
 > [!NOTE]
 > Se a sua solicitação de API v3 exceder esses limites, mas estiver dentro dos limites de v2, um aviso será retornado na resposta da API. A partir de 15/07/2020, um código de erro 400 será retornado em vez disso. 

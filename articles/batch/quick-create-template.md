@@ -4,18 +4,16 @@ description: Aprenda rapidamente a executar um trabalho do Lote com a CLI do Azu
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 535c8c34ea7af8e6bc56c3ecfe564de4c1b2bc54
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a4d2e791d810a55b765669c8e909cf448a68fc99
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694118"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266892"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Início Rápido: Criar uma conta do Lote usando um modelo do Azure Resource Manager
 
-Você precisa de uma conta do Lote para criar recursos de computação (pools de nós de computação) e trabalhos do Lote. Você pode vincular uma conta do Armazenamento do Azure com sua conta do Lote, o que é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real.
-
-Este guia de início rápido mostra como usar o modelo do Azure Resource Manager para criar uma conta do Lote, incluindo o armazenamento. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
+Você precisa de uma conta do Lote para criar recursos de computação (pools de nós de computação) e trabalhos do Lote. Você pode vincular uma conta do Armazenamento do Azure com sua conta do Lote, o que é útil para implantar aplicativos e armazenar dados de entrada e saída para a maioria das cargas de trabalho da vida real. Este guia de início rápido mostra como usar o modelo do Azure Resource Manager para criar uma conta do Lote, incluindo o armazenamento. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,9 +27,9 @@ Este guia de início rápido mostra como usar o modelo do Azure Resource Manager
 
 ### <a name="review-the-template"></a>Examinar o modelo
 
-O modelo usado neste início rápido é proveniente dos [modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-batchaccount-with-storage).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
 
 Há dois recursos do Azure definidos no modelo:
 

@@ -3,16 +3,16 @@ title: Contratos e aditamentos de EA do Azure
 description: Este artigo explica como os contratos e aditamentos de EA do Azure afetam o uso do Portal do EA do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648188"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298135"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratos e aditamentos de EA do Azure
 
@@ -43,7 +43,7 @@ Um registro tem um dos valores de status a seguir. Cada valor determina como voc
 
 **Expirado**: o registro do EA expira quando atinge a data de término do Contrato Enterprise. O cliente EA é desvinculado do termo estendido e todos os serviços dele são desabilitados.
 
-Desde 1º de agosto de 2019, novos formulários de recusa não são aceitos para clientes comerciais do Azure. Em vez disso, todos os registros entram em um termo estendido indefinido. Se você quiser parar de usar os serviços do Azure, encerre sua assinatura no [portal do Azure EA](https://portal.azure.com). Ou, seu parceiro pode enviar uma solicitação de encerramento https://www.explore.ms. Não há alteração para clientes com tipos de contrato governamentais.
+Desde 1º de agosto de 2019, novos formulários de recusa não são aceitos para clientes comerciais do Azure. Em vez disso, todos os registros entram em um termo estendido indefinido. Se você quiser parar de usar os serviços do Azure, feche sua assinatura no [portal do Azure](https://portal.azure.com). Ou, seu parceiro pode enviar uma solicitação de encerramento https://www.explore.ms. Não há alteração para clientes com tipos de contrato governamentais.
 
 **Transferido** – o status transferido é aplicado a registros que têm os respectivos serviços e contas associados transferidos para um novo registro. Os registros não são transferidos automaticamente se um novo número de registro é gerado durante a renovação. O número de registro anterior deve ser incluído na solicitação de renovação do cliente para uma transferência automática.
 
