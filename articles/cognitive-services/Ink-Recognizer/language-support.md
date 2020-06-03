@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e5c1c74a3659be855b3f846c16672d0d73b9de4
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67721747"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309689"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Suporte a idiomas e regiões para a API do reconhecedor de tinta
 
@@ -70,7 +70,7 @@ Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tin
 | Russo                                    |     `ru-RU`     |
 | Gaélico escocês                            |     `gd-GB`     |
 | Soto setentrional                           |    `nso-ZA`     |
-| Sérvio (cirílico, Bósnia e Herzegovina) |  `sr-Cyrl-BA`   |
+| Sérvio (Cirílico, Bósnia e Herzegovina) |  `sr-Cyrl-BA`   |
 | Sérvio (cirílico, Montenegro)             |  `sr-Cyrl-ME`   |
 | Sérvio (Cirílico, Sérvia)                 |  `sr-Cyrl-RS`   |
 | Sérvio (latino, Bósnia e Herzegovina)    |  `sr-Latn-BA`   |
@@ -89,7 +89,7 @@ Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tin
 | Xhosa                                      |     `xh-ZA`     |
 | Zulu                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [O que é a API de Reconhecimento de Tinta Digital?](overview.md)
 * [Enviando traços de tinta digital para a API do reconhecedor de tinta](concepts/send-ink-data.md)

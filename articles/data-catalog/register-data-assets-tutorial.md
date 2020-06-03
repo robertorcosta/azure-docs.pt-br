@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68950243"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021595"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Gerenciar ativos de dados no Catálogo de Dados do Azure
 
@@ -39,7 +39,7 @@ Para configurar o Catálogo de Dados, você deve ser o proprietário ou o coprop
 
 ### <a name="register-a-data-source"></a>Registrar uma fonte de dados
 
-Você registra ativos de dados (tabelas) de uma [amostra de Banco de Dados SQL do Azure](../sql-database/sql-database-single-database-get-started.md), mas pode usar qualquer fonte de dados com suporte caso prefira trabalhar usando dados familiares e relevantes para sua função. Para obter uma lista das fontes de dados com suporte, confira [Fontes de dados com suporte](data-catalog-dsr.md).
+Você registra ativos de dados (tabelas) de uma [amostra de Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md), mas pode usar qualquer fonte de dados com suporte caso prefira trabalhar usando dados familiares e relevantes para sua função. Para obter uma lista das fontes de dados com suporte, confira [Fontes de dados com suporte](data-catalog-dsr.md).
 
 O nome do Banco de Dados SQL do Azure que estamos usando neste tutorial é *RLSTest*.
 

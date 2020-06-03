@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 043e61f498417b74831cd49f046f78b02e907964
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73744371"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310301"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Suporte de idioma para a API do Content Moderator
 
@@ -113,7 +113,7 @@ ms.locfileid: "73744371"
 | | Russo | | |
 | | Gaélico escocês | | |
 | | Sérvio (cirílico) | | |
-| | Sérvio (cirílico, Bósnia e Herzegovina) | | |
+| | Sérvio (Cirílico, Bósnia e Herzegovina) | | |
 | | Sérvio (latino) | | |
 | | Soto do sul | | |
 | | Soto setentrional | | |

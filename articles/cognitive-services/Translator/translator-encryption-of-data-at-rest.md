@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: egeaney
-ms.openlocfilehash: 0a4a1f49735a30d7ad764e7f031610eabd09763e
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995761"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310828"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Criptografia do tradutor de dados em repouso
 
@@ -45,11 +45,11 @@ Siga estas etapas para habilitar chaves gerenciadas pelo cliente para o Tradutor
 2. Habilitou a identidade gerenciada no portal do Azure e adicione as informações de chave gerenciada pelo cliente.
 3. Crie um novo espaço de trabalho no Tradutor personalizado e associe essas informações de assinatura.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
 
-Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. O recurso de serviços cognitivas e o cofre de chaves devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo cliente. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. O recurso de serviços cognitivas e o cofre de chaves devem estar na mesma região e no mesmo locatário Azure Active Directory (Azure AD), mas podem estar em assinaturas diferentes. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 Um novo recurso de serviços cognitivas é sempre criptografado usando chaves gerenciadas pela Microsoft. Não é possível habilitar chaves gerenciadas pelo cliente no momento em que o recurso é criado. As chaves gerenciadas pelo cliente são armazenadas em Azure Key Vault, e o cofre de chaves deve ser provisionado com políticas de acesso que concedem permissões de chave para a identidade gerenciada associada ao recurso de serviços cognitivas. A identidade gerenciada está disponível assim que o recurso é criado.
 

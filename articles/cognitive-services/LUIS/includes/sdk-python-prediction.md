@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: eabec50f57785bde6760db053eb3b12f6f5b6452
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.openlocfilehash: 8aeb6b964ab38a68a6d8681a4e5c93e1650c6a69
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81732062"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171254"
 ---
 Use a biblioteca de clientes de previsão de LUIS (Reconhecimento vocal) para Python com o objetivo de:
 
@@ -69,7 +69,7 @@ Estes snippets de códigos mostram como fazer o seguinte com a biblioteca de cli
 
 No diretório do projeto, abra o arquivo `prediction_quickstart.py` no IDE ou no editor de sua preferência. Adicione as seguintes dependências:
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Dependencies)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Dependencies)]
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -79,16 +79,16 @@ No diretório do projeto, abra o arquivo `prediction_quickstart.py` no IDE ou no
 
     Crie uma variável para conter o nome do recurso `LUIS_RUNTIME_ENDPOINT`.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=AuthorizationVariables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=AuthorizationVariables)]
 
 1. Crie uma variável para a ID do aplicativo como uma variável de ambiente chamada `LUIS_APP_ID`. Defina a variável de ambiente para o aplicativo de IoT público, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Crie uma variável para definir o slot publicado `production`.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=OtherVariables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=OtherVariables)]
 
 
 1. Crie um objeto de credenciais com sua chave e use-o com o ponto de extremidade para criar um objeto [LUISRuntimeClientConfiguration]https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python().
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Client)]
 
 ## <a name="get-prediction-from-runtime"></a>Obter uma previsão do runtime
 
@@ -98,7 +98,7 @@ O enunciado do usuário faz parte do objeto [prediction_request](https://docs.mi
 
 O método **[get_slot_prediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.operations.predictionoperations?view=azure-python#get-slot-prediction-app-id--slot-name--prediction-request--verbose-none--show-all-intents-none--log-none--custom-headers-none--raw-false----operation-config-)** precisa de vários parâmetros, como a ID do aplicativo, o nome do slot e o objeto de solicitação de previsão, para atender à solicitação. As outras opções, como detalhada, mostram todas as intenções e log são opcionais. A solicitação retorna um objeto [PredictionResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.predictionresponse?view=azure-python).
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=predict)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=predict)]
 
 ## <a name="main-code-for-the-prediction"></a>Código principal para a previsão
 
