@@ -2,19 +2,19 @@
 title: Machine learning e IA com o ONNX no SQL do Azure no Edge (versão prévia)
 description: O aprendizado de máquina no SQL do Azure no Edge (versão prévia) é compatível com os modelos no formato ONNX (Open Neural Network Exchange). O ONNX é um formato aberto que você pode usar para trocar modelos entre várias estruturas e ferramentas de aprendizado de máquina.
 keywords: Implantar o SQL no Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 12c1294a804c2063d405c5ec08440865283d51d3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b36052fa3ee0d7d449be1719e67554b539d0207
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83594585"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233172"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Machine learning e IA com o ONNX no SQL no Edge (versão prévia)
 
