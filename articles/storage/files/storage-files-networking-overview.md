@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80067161"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296520"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de rede dos Arquivos do Azure 
 Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneiras:
@@ -51,7 +51,7 @@ Os Arquivos do Azure dão suporte aos seguintes mecanismos para criar túnel de 
 
 - [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md): Um gateway de VPN é um tipo específico de gateway de rede virtual que é usado para enviar tráfego criptografado entre uma rede virtual do Azure e uma localização alternativa (como localmente) na Internet. Um Gateway de VPN do Azure é um recurso do Azure que pode ser implantado em um grupo de recursos junto com uma conta de armazenamento ou outros recursos do Azure. Os gateways de VPN expõem dois tipos diferentes de conexões:
     - Conexões de gateway de [VPN P2S (ponto a site)](../../vpn-gateway/point-to-site-about.md), que são conexões VPN entre o Azure e um cliente individual. Essa solução é útil principalmente para dispositivos que não fazem parte da rede local de sua organização, como telecomutadores que desejam poder montar o compartilhamento de arquivo do Azure de casa, de uma cafeteria ou de um hotel em trânsito. Para usar uma conexão VPN P2S com os Arquivos do Azure, será preciso configurar uma conexão VPN P2S para cada cliente que desejar se conectar. Para simplificar a implantação de uma conexão VPN P2S, confira [Configurar uma VPN P2S (Ponto a Site) no Windows para uso com os Arquivos do Azure](storage-files-configure-p2s-vpn-windows.md) e [Configurar uma VPN P2S (Ponto a Site) no Linux para uso com os Arquivos do Azure](storage-files-configure-p2s-vpn-linux.md).
-    - [VPN S2S (site a site)](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), que são conexões VPN entre o Azure e a rede de sua organização. Uma conexão VPN S2S permite que você configure uma conexão VPN uma vez, para um servidor VPN ou dispositivo hospedado na rede de sua organização, em vez de fazer isso para cada dispositivo cliente que precisar acessar o compartilhamento de arquivo do Azure. Para simplificar a implantação de uma conexão VPN S2S, confira [Configurar uma VPN S2S (Site a Site) para uso com os Arquivos do Azure](storage-files-configure-s2s-vpn.md).
+    - [VPN S2S (site a site)](../../vpn-gateway/design.md#s2smulti), que são conexões VPN entre o Azure e a rede de sua organização. Uma conexão VPN S2S permite que você configure uma conexão VPN uma vez, para um servidor VPN ou dispositivo hospedado na rede de sua organização, em vez de fazer isso para cada dispositivo cliente que precisar acessar o compartilhamento de arquivo do Azure. Para simplificar a implantação de uma conexão VPN S2S, confira [Configurar uma VPN S2S (Site a Site) para uso com os Arquivos do Azure](storage-files-configure-s2s-vpn.md).
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), que permite que você crie uma rota definida entre o Azure e sua rede local que não atravesse a Internet. Como o ExpressRoute fornece um caminho dedicado entre o datacenter local e o Azure, ele pode ser útil quando o desempenho da rede é importante. O ExpressRoute também é uma boa opção quando os requisitos regulatórios ou de política de sua organização exigem um caminho determinístico para seus recursos na nuvem.
 
 Independentemente do método de túnel que você usa para acessar seus compartilhamentos de arquivo do Azure, você precisa de um mecanismo para verificar se o tráfego para sua conta de armazenamento passa pelo túnel, em vez de pela conexão de Internet regular. É tecnicamente possível rotear para o ponto de extremidade público da conta de armazenamento. No entanto, isso requer o hard-coding de todos os endereços IP dos clusters de armazenamento do Azure em uma região, pois as contas de armazenamento podem ser movidas entre clusters de armazenamento a qualquer momento. Isso também exige a atualização constante dos mapeamentos de endereços IP, já que novos clusters são adicionados o tempo todo.

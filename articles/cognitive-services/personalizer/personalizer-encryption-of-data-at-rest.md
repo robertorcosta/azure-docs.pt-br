@@ -9,25 +9,25 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 63526454bb366b214c27bddce24ed9ebc09556b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10eb627a340b45c93b2cfb2973e294d8d5d7c7e5
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80071084"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307786"
 ---
 # <a name="personalizer-service-encryption-of-data-at-rest"></a>Criptografia do serviço de personalização de dados em repouso
 
 O serviço personalizado criptografa automaticamente os dados quando persistidos na nuvem. A criptografia do serviço personalizado protege seus dados e para ajudá-lo a atender aos compromissos de conformidade e segurança da organização.
 
-[!INCLUDE [cognitive-services-about-encryption](../../../includes/cognitive-services-about-encryption.md)]
+[!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 
 > [!IMPORTANT]
 > As chaves gerenciadas pelo cliente estão disponíveis somente no tipo de preço E0. Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [formulário de solicitação de chave gerenciada pelo cliente do serviço personalizado](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com o serviço personalizador, será necessário criar um novo recurso personalizado e selecionar E0 como o tipo de preço. Depois que o recurso personalizador com o tipo de preço E0 for criado, você poderá usar Azure Key Vault para configurar sua identidade gerenciada.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
