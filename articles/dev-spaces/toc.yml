@@ -5,7 +5,7 @@
       items:
         - name: O que é o Azure Dev Spaces?
           href: about.md
-    - name: Início rápido
+    - name: Inícios rápidos
       items:
         - name: Desenvolvimento da equipe
           href: quickstart-team-development.md
@@ -73,8 +73,8 @@
               href: how-dev-spaces-works-routing.md
             - name: Depuração remota
               href: how-dev-spaces-works-remote-debugging.md
-            - name: Conectar seu computador de desenvolvimento ao AKS
-              href: how-dev-spaces-works-connect.md
+            - name: Local Process with Kubernetes
+              href: how-dev-spaces-works-local-process-kubernetes.md
         - name: Como o VS Code funciona com o Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Configuração de rede em diferentes topologias de rede
@@ -111,8 +111,10 @@
           href: how-to/ingress-https-traefik.md
         - name: Usar o NGINX para entrada personalizada e HTTPS
           href: how-to/ingress-https-nginx.md
-        - name: Conectar seu computador de desenvolvimento a um cluster do AKS (versão prévia)
-          href: how-to/connect.md
+        - name: Usar o Local Process with Kubernetes com o Visual Studio Code (versão prévia)
+          href: how-to/local-process-kubernetes-vs-code.md
+        - name: Usar o Local Process with Kubernetes com o Visual Studio (versão prévia)
+          href: how-to/local-process-kubernetes-visual-studio.md
     - name: Solução de problemas
       href: troubleshooting.md
     - name: Perguntas frequentes

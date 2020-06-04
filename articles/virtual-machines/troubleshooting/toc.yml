@@ -69,6 +69,8 @@
       items:
         - name: Diagnóstico de inicialização
           href: boot-diagnostics.md
+        - name: Erro de inicialização – Erro de leitura de disco
+          href: boot-error-disk-read-error-occurred.md
         - name: Erros de BitLocker
           href: troubleshoot-bitlocker-boot-error.md
         - name: Erros de tela azul

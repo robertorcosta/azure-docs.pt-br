@@ -129,6 +129,8 @@
           href: batch-custom-images.md
         - name: Criar um pool em uma rede virtual
           href: batch-virtual-network.md
+        - name: Criar um pool com endereços IP públicos
+          href: create-pool-public-ip.md
         - name: Montar um sistema de arquivos virtual
           href: virtual-file-mount.md
         - name: Montar um compartilhamento de arquivos do Azure
