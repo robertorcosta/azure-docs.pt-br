@@ -8,34 +8,34 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: c4ea9c5663755a4feb1693dd925d99b10c466140
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7726219076aee0c25c59f57003967cf2220d531f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70256597"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344162"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar o Gerenciador de Tráfego do Microsoft Azure para gerenciar a cota do ponto de extremidade entre chaves
-O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**. 
+O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**.
 
-O aplicativo cliente precisa gerenciar o tráfego entre as chaves. O LUIS não faz isso. 
+O aplicativo cliente precisa gerenciar o tráfego entre as chaves. O LUIS não faz isso.
 
-Este artigo explica como gerenciar o tráfego entre chaves com o [Gerenciador de Tráfego][traffic-manager-marketing] do Azure. Você precisa já ter treinado e publicado um aplicativo LUIS. Se não tiver um, siga o [início rápido](luis-get-started-create-app.md) do domínio predefinido. 
+Este artigo explica como gerenciar o tráfego entre chaves com o [Gerenciador de Tráfego][traffic-manager-marketing] do Azure. Você precisa já ter treinado e publicado um aplicativo LUIS. Se não tiver um, siga o [início rápido](luis-get-started-create-app.md) do domínio predefinido.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>Conectar-se ao PowerShell no portal do Azure
-No portal do [Azure][azure-portal], abra a janela do PowerShell. O ícone da janela do PowerShell é o **>_** na barra de navegação superior. Usando o PowerShell no portal, você obtém a versão mais recente do PowerShell e é autenticado. O PowerShell no portal requer uma conta de [Armazenamento do Azure](https://azure.microsoft.com/services/storage/). 
+No portal do [Azure][azure-portal], abra a janela do PowerShell. O ícone da janela do PowerShell é o **>_** na barra de navegação superior. Usando o PowerShell no portal, você obtém a versão mais recente do PowerShell e é autenticado. O PowerShell no portal requer uma conta de [Armazenamento do Azure](https://azure.microsoft.com/services/storage/).
 
 ![Captura de tela do portal do Azure com a janela do PowerShell aberta](./media/traffic-manager/azure-portal-powershell.png)
 
 As seções a seguir usam os [cmdlets do PowerShell do Gerenciador de Tráfego](https://docs.microsoft.com/powershell/module/az.trafficmanager/#traffic_manager).
 
 ## <a name="create-azure-resource-group-with-powershell"></a>Criar grupo de recursos do Azure com o PowerShell
-Antes de criar os recursos do Azure, crie um grupo de recursos para conter todos eles. Dê o nome `luis-traffic-manager` ao grupo de recursos e use a região `West US`. A região do grupo de recursos armazena metadados sobre o grupo. Ela não desacelerará seus recursos se eles estiverem em outra região. 
+Antes de criar os recursos do Azure, crie um grupo de recursos para conter todos eles. Dê o nome `luis-traffic-manager` ao grupo de recursos e use a região `West US`. A região do grupo de recursos armazena metadados sobre o grupo. Ela não desacelerará seus recursos se eles estiverem em outra região.
 
 Criar grupo de recursos com o cmdlet **[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** :
 
@@ -44,16 +44,16 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
 ## <a name="create-luis-keys-to-increase-total-endpoint-quota"></a>Criar chaves LUIS para aumentar a cota total do ponto de extremidade
-1. No portal do Azure, crie duas chaves de **Reconhecimento vocal**, uma no `West US` e outra no `East US`. Use o grupo de recursos existente, criado na seção anterior, chamada `luis-traffic-manager`. 
+1. No portal do Azure, crie duas chaves de **Reconhecimento vocal**, uma no `West US` e outra no `East US`. Use o grupo de recursos existente, criado na seção anterior, chamada `luis-traffic-manager`.
 
     ![Captura de tela do portal do Azure com duas chaves LUIS no grupo de recursos luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. No site do [Luis][LUIS] , na seção **gerenciar** , na página **recursos do Azure** , atribua chaves ao aplicativo e Republique o aplicativo selecionando o botão **publicar** no menu superior direito. 
+2. No site do [Luis][LUIS] , na seção **gerenciar** , na página **recursos do Azure** , atribua chaves ao aplicativo e Republique o aplicativo selecionando o botão **publicar** no menu superior direito.
 
     A URL de exemplo na coluna **ponto de extremidade** usa uma solicitação GET com a chave de ponto de extremidade como um parâmetro de consulta. Copie as URLs do ponto de extremidade das duas novas chaves. Elas são usadas como parte da configuração do Gerenciador de Tráfego posteriormente neste artigo.
 
 ## <a name="manage-luis-endpoint-requests-across-keys-with-traffic-manager"></a>Gerenciar solicitações de ponto de extremidade LUIS entre chaves com o Gerenciador de Tráfego
-O Gerenciador de Tráfego cria um novo ponto de acesso do DNS para seus pontos de extremidade. Ele não funciona como gateway ou proxy, mas estritamente no nível do DNS. Esse exemplo não muda nenhum registro do DNS. Ele usa uma biblioteca do DNS para se comunicar com o Gerenciador de Tráfego para obter o ponto de extremidade correto para essa solicitação específica. _Cada_ solicitação destinada para o LUIS requer primeiro uma solicitação do Gerenciador de Tráfego para determinar qual ponto de extremidade LUIS usar. 
+O Gerenciador de Tráfego cria um novo ponto de acesso do DNS para seus pontos de extremidade. Ele não funciona como gateway ou proxy, mas estritamente no nível do DNS. Esse exemplo não muda nenhum registro do DNS. Ele usa uma biblioteca do DNS para se comunicar com o Gerenciador de Tráfego para obter o ponto de extremidade correto para essa solicitação específica. _Cada_ solicitação destinada para o LUIS requer primeiro uma solicitação do Gerenciador de Tráfego para determinar qual ponto de extremidade LUIS usar.
 
 ### <a name="polling-uses-luis-endpoint"></a>A sondagem usa o ponto de extremidade LUIS
 O Gerenciador de Tráfego sonda os pontos de extremidade periodicamente para garantir que o ponto de extremidade ainda está disponível. A URL do Gerenciador de Tráfego sondado precisa estar acessível com uma solicitação GET e retornar um 200. A URL do ponto de extremidade na página **Publicar** faz isso. Como cada chave de ponto de extremidade tem um roteamento e parâmetros de cadeia de caracteres de consulta diferentes, cada chave de ponto de extremidade precisa de um caminho de pesquisa diferente. Cada vez que o Gerenciador de Tráfego faz uma sondagem, custa uma solicitação de cota. O parâmetro de cadeia de caracteres de consulta **q** do ponto de extremidade LUIS é a declaração enviada ao LUIS. Esse parâmetro, em vez de enviar uma declaração, é usado para adicionar a sondagem do Gerenciador de Tráfego ao log do ponto de extremidade LUIS como uma técnica de depuração ao configurar o Gerenciador de Tráfego.
@@ -63,10 +63,10 @@ Como cada ponto de extremidade LUIS precisa do seu próprio caminho, ele precisa
 Depois que o Gerenciador de Tráfego for configurado, lembre-se de alterar o caminho para usar o parâmetro da cadeia de caracteres de consulta logging=false para seu log não ser preenchido com sondagem.
 
 ## <a name="configure-traffic-manager-with-nested-profiles"></a>Configurar o Gerenciador de Tráfego com perfis aninhados
-As seguintes seções criam dois perfis filho, um para a chave LUIS Leste e um para a chave LUIS Oeste. Em seguida, um perfil pai é criado e os dois perfis filho são adicionados ao perfil pai. 
+As seguintes seções criam dois perfis filho, um para a chave LUIS Leste e um para a chave LUIS Oeste. Em seguida, um perfil pai é criado e os dois perfis filho são adicionados ao perfil pai.
 
 ### <a name="create-the-east-us-traffic-manager-profile-with-powershell"></a>Criar o perfil do Gerenciador de Tráfego do Leste dos EUA com o PowerShell
-Para criar o perfil do Gerenciador de Tráfego do Leste dos EUA, há várias etapas: criar perfil, adicionar o ponto de extremidade e definir o ponto de extremidade. Um perfil do Gerenciador de Tráfego pode ter muitos pontos de extremidade, mas cada ponto de extremidade tem o mesmo caminho de validação. Como as URLs do ponto de extremidade de LUIS para as assinaturas leste e oeste são diferentes devido à região e à chave de ponto de extremidade, cada ponto de extremidade de LUIS precisa ser um ponto de extremidade único no perfil. 
+Para criar o perfil do Gerenciador de Tráfego do Leste dos EUA, há várias etapas: criar perfil, adicionar o ponto de extremidade e definir o ponto de extremidade. Um perfil do Gerenciador de Tráfego pode ter muitos pontos de extremidade, mas cada ponto de extremidade tem o mesmo caminho de validação. Como as URLs do ponto de extremidade de LUIS para as assinaturas leste e oeste são diferentes devido à região e à chave de ponto de extremidade, cada ponto de extremidade de LUIS precisa ser um ponto de extremidade único no perfil.
 
 1. Criar perfil com o cmdlet **[New-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile)**
 
@@ -75,9 +75,9 @@ Para criar o perfil do Gerenciador de Tráfego do Leste dos EUA, há várias eta
     ```powerShell
     $eastprofile = New-AzTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
-    
+
     Esta tabela explica cada variável no cmdlet:
-    
+
     |Parâmetro de configuração|Nome ou valor da variável|Finalidade|
     |--|--|--|
     |-Name|luis-profile-eastus|Nome do Gerenciador de Tráfego no portal do Azure|
@@ -87,7 +87,7 @@ Para criar o perfil do Gerenciador de Tráfego do Leste dos EUA, há várias eta
     |-Ttl|30|Intervalo de sondagem, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|A porta e o protocolo do LUIS é HTTPS/443|
     |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Substitua `<appIdLuis>` e `<subscriptionKeyLuis>` pelos seus próprios valores.|
-    
+
     Uma solicitação bem-sucedida não tem nenhuma resposta.
 
 2. Adicionar ponto de extremidade leste dos EUA com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)**
@@ -143,9 +143,9 @@ Para criar o perfil do Gerenciador de Tráfego do Oeste dos EUA, siga as mesmas 
     ```powerShell
     $westprofile = New-AzTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
-    
+
     Esta tabela explica cada variável no cmdlet:
-    
+
     |Parâmetro de configuração|Nome ou valor da variável|Finalidade|
     |--|--|--|
     |-Name|luis-profile-westus|Nome do Gerenciador de Tráfego no portal do Azure|
@@ -155,7 +155,7 @@ Para criar o perfil do Gerenciador de Tráfego do Oeste dos EUA, siga as mesmas 
     |-Ttl|30|Intervalo de sondagem, 30 segundos|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|A porta e o protocolo do LUIS é HTTPS/443|
     |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Substitua `<appId>` e `<subscriptionKey>` pelos seus próprios valores. Lembre-se de que essa chave de ponto de extremidade é diferente da chave de ponto de extremidade leste|
-    
+
     Uma solicitação bem-sucedida não tem nenhuma resposta.
 
 2. Adicionar ponto de extremidade oeste dos EUA com o cmdlet **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.TrafficManager/Add-azTrafficManagerEndpointConfig)**
@@ -243,7 +243,7 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
     |-EndpointLocation|"eastus"|[Nome da região do Azure](https://azure.microsoft.com/global-infrastructure/regions/) do recurso|
     |-MinChildEndpoints|1|Número mínimo de pontos de extremidade filho|
 
-    A resposta bem-sucedida tem a seguinte aparência e inclui o novo ponto de extremidade `child-endpoint-useast`:    
+    A resposta bem-sucedida tem a seguinte aparência e inclui o novo ponto de extremidade `child-endpoint-useast`:
 
     ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
@@ -299,7 +299,7 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
     Endpoints                        : {child-endpoint-useast, child-endpoint-uswest}
     ```
 
-4. Definir pontos de extremidade com o cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)** 
+4. Definir pontos de extremidade com o cmdlet **[set-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Set-azTrafficManagerProfile)**
 
     ```powerShell
     Set-AzTrafficManagerProfile -TrafficManagerProfile $parentprofile
@@ -308,16 +308,16 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
     Uma resposta bem-sucedida é a mesma resposta que a etapa 3.
 
 ### <a name="powershell-variables"></a>Variáveis do PowerShell
-Nas seções anteriores, três variáveis do PowerShell foram criadas: `$eastprofile`, `$westprofile`, `$parentprofile`. Essas variáveis são usadas no fim da configuração do Gerenciador de Tráfego. Se você optou por não criar as variáveis ou se esqueceu de, ou a janela do PowerShell atingir o tempo limite, poderá usar o cmdlet do PowerShell, **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, para obter o perfil novamente e atribuí-lo a uma variável. 
+Nas seções anteriores, três variáveis do PowerShell foram criadas: `$eastprofile`, `$westprofile`, `$parentprofile`. Essas variáveis são usadas no fim da configuração do Gerenciador de Tráfego. Se você optou por não criar as variáveis ou se esqueceu de, ou a janela do PowerShell atingir o tempo limite, poderá usar o cmdlet do PowerShell, **[Get-AzTrafficManagerProfile](https://docs.microsoft.com/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)**, para obter o perfil novamente e atribuí-lo a uma variável.
 
-Substitua os itens entre colchetes angulares, `<>`, pelos valores corretos para cada um dos três perfis de que você precisa. 
+Substitua os itens entre colchetes angulares, `<>`, pelos valores corretos para cada um dos três perfis de que você precisa.
 
 ```powerShell
 $<variable-name> = Get-AzTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
 ## <a name="verify-traffic-manager-works"></a>Verificar como o Gerenciador de Tráfego funciona
-Para verificar se os perfis do Gerenciador de Tráfego funcionam, os perfis precisam ter o status de `Online` Esse status é baseado no caminho de sondagem do ponto de extremidade. 
+Para verificar se os perfis do Gerenciador de Tráfego funcionam, os perfis precisam ter o status de `Online` Esse status é baseado no caminho de sondagem do ponto de extremidade.
 
 ### <a name="view-new-profiles-in-the-azure-portal"></a>Exibir novos perfis no portal do Azure
 É possível verificar se todos os três perfis foram criados examinando os recursos no grupo de recursos `luis-traffic-manager`.
@@ -325,7 +325,7 @@ Para verificar se os perfis do Gerenciador de Tráfego funcionam, os perfis prec
 ![Captura de tela do luis-traffic-manager do grupo de recursos do Azure](./media/traffic-manager/traffic-manager-profiles.png)
 
 ### <a name="verify-the-profile-status-is-online"></a>Verifique se o status do perfil está Online
-O Gerenciador de Tráfego pesquisa o caminho de cada ponto de extremidade para garantir que ele está online. Se ele estiver online, o status dos perfis filho serão `Online`. Isso é exibido na **Visão geral** de cada perfil. 
+O Gerenciador de Tráfego pesquisa o caminho de cada ponto de extremidade para garantir que ele está online. Se ele estiver online, o status dos perfis filho serão `Online`. Isso é exibido na **Visão geral** de cada perfil.
 
 ![Captura de tela da Visão geral do perfil do Gerenciador de Tráfego do Azure mostrando Monitorar status de online](./media/traffic-manager/profile-status-online.png)
 
@@ -355,25 +355,25 @@ A resposta bem-sucedida com o ponto de extremidade LUIS é:
 ```json
 [
     {
-        value: 'westus.api.cognitive.microsoft.com', 
+        value: 'westus.api.cognitive.microsoft.com',
         type: 'CNAME'
     }
 ]
 ```
 
 ## <a name="use-the-traffic-manager-parent-profile"></a>Usar o perfil pai do Gerenciador de Tráfego
-Para gerenciar o tráfego entre pontos de extremidade, é necessário inserir uma chamada ao DNS do Gerenciador de Tráfego para localizar o ponto de extremidade LUIS. Essa chamada é feita para toda solicitação do ponto de extremidade LUIS e precisa simular a localização geográfica do usuário do aplicativo cliente LUIS. Adicione o código de resposta do DNS entre seu aplicativo cliente LUIS e a solicitação para o LUIS da previsão do ponto de extremidade. 
+Para gerenciar o tráfego entre pontos de extremidade, é necessário inserir uma chamada ao DNS do Gerenciador de Tráfego para localizar o ponto de extremidade LUIS. Essa chamada é feita para toda solicitação do ponto de extremidade LUIS e precisa simular a localização geográfica do usuário do aplicativo cliente LUIS. Adicione o código de resposta do DNS entre seu aplicativo cliente LUIS e a solicitação para o LUIS da previsão do ponto de extremidade.
 
 ## <a name="resolving-a-degraded-state"></a>Resolvendo um estado degradado
 
 Habilitar [logs de diagnóstico](../../traffic-manager/traffic-manager-diagnostic-logs.md) do Gerenciador de Tráfego para ver por que o status do ponto de extremidade está degradado.
 
 ## <a name="clean-up"></a>Limpar
-Remova as duas chaves de ponto de extremidade de LUIS, os três perfis do Gerenciador de Tráfego e o grupo de recursos que continha esses cinco recursos. Isso é feito no portal do Azure. Exclua os cinco recursos da lista de recursos. Em seguida, exclua o grupo de recursos. 
+Remova as duas chaves de ponto de extremidade de LUIS, os três perfis do Gerenciador de Tráfego e o grupo de recursos que continha esses cinco recursos. Isso é feito no portal do Azure. Exclua os cinco recursos da lista de recursos. Em seguida, exclua o grupo de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine as opções [middleware](https://docs.microsoft.com/azure/bot-service/bot-builder-create-middleware?view=azure-bot-service-4.0&tabs=csaddmiddleware%2Ccsetagoverwrite%2Ccsmiddlewareshortcircuit%2Ccsfallback%2Ccsactivityhandler) no BotFramework v4 para entender como esse código de gerenciamento de tráfego pode ser adicionado a um bot do BotFramework. 
+Examine as opções [middleware](https://docs.microsoft.com/azure/bot-service/bot-builder-create-middleware?view=azure-bot-service-4.0&tabs=csaddmiddleware%2Ccsetagoverwrite%2Ccsmiddlewareshortcircuit%2Ccsfallback%2Ccsactivityhandler) no BotFramework v4 para entender como esse código de gerenciamento de tráfego pode ser adicionado a um bot do BotFramework.
 
 [traffic-manager-marketing]: https://azure.microsoft.com/services/traffic-manager/
 [traffic-manager-docs]: https://docs.microsoft.com/azure/traffic-manager/

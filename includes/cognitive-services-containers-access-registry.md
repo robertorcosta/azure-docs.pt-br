@@ -15,13 +15,13 @@ ms.locfileid: "67704258"
 
 É possível autenticar com o registro de contêiner privado para Contêineres de Serviços Cognitivos, mas o método recomendado por meio da linha de comando é usando a [CLI do Docker](https://docs.docker.com/engine/reference/commandline/cli/).
 
-Use o [ `docker login` comando](https://docs.docker.com/engine/reference/commandline/login/), conforme mostrado no exemplo a seguir, para fazer logon no `containerpreview.azurecr.io`, o registro de contêiner privado para contêineres de serviços cognitivas. Substitua * \<username\> * pelo nome de usuário e * \<senha\> * pela senha fornecida nas credenciais que você recebeu da equipe de serviços cognitivas do Azure.
+Use o [ `docker login` comando](https://docs.docker.com/engine/reference/commandline/login/), conforme mostrado no exemplo a seguir, para fazer logon no `containerpreview.azurecr.io` , o registro de contêiner privado para contêineres de serviços cognitivas. Substitua * \< username \> * pelo nome de usuário e * \< senha \> * pela senha fornecida nas credenciais que você recebeu da equipe de serviços cognitivas do Azure.
 
 ```
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
-Se você tiver protegido suas credenciais em um arquivo de texto, poderá concatenar o conteúdo desse arquivo de texto, usando o comando `cat` para o comando `docker login`, conforme mostrado no exemplo a seguir. Substitua * \<passwordfile\> * pelo caminho e nome do arquivo de texto que contém a * \<\> senha e o nome de* usuário pelo que é fornecido em suas credenciais.
+Se você tiver protegido suas credenciais em um arquivo de texto, poderá concatenar o conteúdo desse arquivo de texto, usando o comando `cat` para o comando `docker login`, conforme mostrado no exemplo a seguir. Substitua * \< passwordfile \> * pelo caminho e nome do arquivo de texto que contém a * \< \> senha e o nome de* usuário pelo que é fornecido em suas credenciais.
 
 ```
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin

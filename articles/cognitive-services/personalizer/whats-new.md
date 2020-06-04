@@ -7,15 +7,15 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 0c52771573c1df6a7a0efefbf950e88e1f1728f7
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 55153cc7fc125c97a5b73084f83dd320240ca256
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800621"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342096"
 ---
 # <a name="whats-new-in-personalizer"></a>O que há de novo no Personalizador
 
@@ -33,7 +33,7 @@ Os itens a seguir estão disponíveis em **Visualização pública**:
 
 * Agora o TLS 1.2 é obrigatório para todas as solicitações HTTP a este serviço. Para saber mais, confira [Segurança nos Serviços Cognitivos do Azure](../cognitive-services-security.md).
 
-### <a name="november-2019---ignite-conference"></a>2019 de novembro-conferência Ignite
+### <a name="november-2019---ignite-conference"></a>Novembro de 2019 – Conferência do Ignite
 
 * O personalizador está disponível para o público geral (GA)
 * Azure Notebooks [tutorial](tutorial-use-azure-notebook-generate-loop-data.md) com o ciclo de vida inteiro

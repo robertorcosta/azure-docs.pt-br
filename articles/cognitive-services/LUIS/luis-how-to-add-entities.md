@@ -7,15 +7,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: fa7e2321d61721e370ef6b5924dc6f820dd1f724
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685290"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344468"
 ---
 # <a name="add-entities-to-extract-data"></a>Adicionar entidades para extrair dados
 
@@ -61,7 +61,7 @@ Você pode criar todas as entidades na página **entidades** ou pode criar duas 
 
 Esse processo funciona para entidades aprendidas por computador, entidades de lista e entidades de expressão regular.
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Selecione a página **entidades** .
 1. Selecione **+ criar**e, em seguida, selecione o tipo de entidade.
@@ -69,7 +69,7 @@ Esse processo funciona para entidades aprendidas por computador, entidades de li
 
 ## <a name="create-a-machine-learned-entity"></a>Criar uma entidade aprendida pelo computador
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione **+ criar**.
 1. Na caixa de diálogo **criar um tipo de entidade** , digite o nome da entidade e selecione **computador aprendido**, selecione. Para adicionar subentidades, selecione **Adicionar estrutura**. Selecione **Criar**.
@@ -86,7 +86,7 @@ Esse processo funciona para entidades aprendidas por computador, entidades de li
 
 ## <a name="add-a-feature-to-a-machine-learned-entity"></a>Adicionar um recurso a uma entidade aprendida pelo computador
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione a entidade aprendida do computador.
 1. Adicione um recurso selecionando **+ Adicionar recurso** na linha entidade ou subentidade.
@@ -98,7 +98,7 @@ Esse processo funciona para entidades aprendidas por computador, entidades de li
 
 ## <a name="create-a-regular-expression-entity"></a>Criar uma entidade de expressão regular
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione **+ criar**.
 
@@ -123,7 +123,7 @@ A lista a seguir demonstra o nome canônico e os sinônimos.
 |Verde|Kelly, verde-limão|
 
 Use o procedimento para criar uma entidade de lista. Depois que a entidade de lista for criada, você não precisará rotular declarações de exemplo em uma intenção. Itens de lista e sinônimos são correspondidos usando texto exato.
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione **+ criar**.
 
@@ -151,7 +151,7 @@ No expressão a seguir, há dois locais, e cada um é especificado semanticament
 `Pick up the package from Seattle and deliver to New York City.`
 
 Neste procedimento, adicione `origin` funções e `destination` a uma entidade geographyV2 predefinida.
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Na seção **Build**, selecione **Entities** no painel esquerdo.
 
@@ -173,7 +173,7 @@ Neste procedimento, adicione `origin` funções e `destination` a uma entidade g
 > [!TIP]
 > As funções podem ser substituídas por rótulos com subentidades de entidades de aprendizado de máquina.
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Vá para a página de detalhes da intenção, que tem exemplo declarações que usam a função.
 1. Para rotular com a função, selecione o rótulo da entidade (linha sólida em texto) no exemplo expressão e selecione **Exibir no painel de entidade** na lista suspensa.
