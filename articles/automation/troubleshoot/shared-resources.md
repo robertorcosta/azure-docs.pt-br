@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de recursos compartilhados na automação do Azure
-description: Saiba como solucionar problemas e resolver questões com recursos compartilhados da automação do Azure.
+title: Solucionar problemas com recursos compartilhados de Automação do Azure
+description: Este artigo informa como solucionar problemas com os recursos compartilhados de Automação do Azure.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,41 +8,38 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c59e8ec67777a9cfebc12508b197e1237a61df4a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
-ms.translationtype: MT
+ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864191"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680877"
 ---
-# <a name="troubleshoot-shared-resources-in-azure-automation"></a>Solucionar problemas de recursos compartilhados na automação do Azure
+# <a name="troubleshoot-shared-resource-issues"></a>Solucionar problemas de recursos compartilhados
 
-Este artigo aborda soluções para problemas que você pode ter quando estiver usando [recursos compartilhados](../automation-intro.md#shared-resources) na automação do Azure.
-
->[!NOTE]
->Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM no momento. Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Para obter instruções de instalação do módulo Az no seu Hybrid Runbook Worker, confira [Instalar o módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). Para sua conta de automação, você pode atualizar seus módulos para a versão mais recente usando [como atualizar os módulos Azure PowerShell na automação do Azure](../automation-update-azure-modules.md).
+Este artigo aborda os problemas que podem surgir quando você estiver usando [recursos compartilhados](../automation-intro.md#shared-resources) na Automação do Azure.
 
 ## <a name="modules"></a>Módulos
 
-### <a name="scenario-a-module-is-stuck-during-import"></a><a name="module-stuck-importing"></a>Cenário: um módulo está preso durante A importação
+### <a name="scenario-a-module-is-stuck-during-import"></a><a name="module-stuck-importing"></a>Cenário: Um módulo está paralisado durante a importação
 
 #### <a name="issue"></a>Problema
 
-Um módulo está preso no estado de *importação* quando você está importando ou atualizando seus módulos de automação do Azure.
+Um módulo está paralisado no estado *Importando* quando você importa ou atualiza os módulos na Automação do Azure.
 
 #### <a name="cause"></a>Causa
 
-Como a importação de módulos do PowerShell é um processo complexo e de várias etapas, um módulo pode não ser importado corretamente e pode estar preso em um estado transitório. Para saber mais sobre o processo de importação, consulte [importando um módulo do PowerShell](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
+Como a importação de módulos do PowerShell é um processo complexo e de várias etapas, um módulo pode não ser importado corretamente e pode estar preso em um estado transitório. Para saber mais sobre esse processo, consulte [Importação de um módulo do PowerShell](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Resolução
 
-Para resolver esse problema, você deve remover o módulo que está preso usando o cmdlet [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) . Você pode, em seguida, tente importar novamente o módulo.
+Para resolver esse problema, você deve remover o módulo que está preso usando o cmdlet [Remove-AzureRmAutomationModule.](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) Você pode, em seguida, tente importar novamente o módulo.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="scenario-azurerm-modules-are-stuck-during-import-after-an-update-attempt"></a><a name="update-azure-modules-importing"></a>Cenário: os módulos AzureRM são presos durante a importação após uma tentativa de atualização
+### <a name="scenario-azurerm-modules-are-stuck-during-import-after-an-update-attempt"></a><a name="update-azure-modules-importing"></a>Cenário: Os módulos AzureRM estão presos durante a importação após uma tentativa de atualização
 
 #### <a name="issue"></a>Problema
 
@@ -64,43 +61,43 @@ Para atualizar os módulos do AzureRM na sua conta de automação, a conta deve 
 
 #### <a name="issue"></a>Problema
 
-Falha na importação de um módulo ou ele é importado com êxito, mas nenhum cmdlet é extraído.
+Falha ao importar de um módulo ou importa com êxito, mas nenhum cmdlets são extraídos.
 
 #### <a name="cause"></a>Causa
 
 Algumas razões comuns para que um módulo não pode importar com êxito à automação do Azure são:
 
-* A estrutura não corresponde à estrutura necessária para a automação.
+* A estrutura não corresponde à estrutura em que a Automação precisa.
 * O módulo depende de outro módulo que não tenha sido implantado em sua conta de Automação.
 * O módulo não tem suas dependências na pasta.
-* O cmdlet [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) está sendo usado para carregar o módulo e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL publicamente acessível.
+* O cmdlet [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) está sendo usado para carregar o módulo, e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL acessível publicamente.
 
 #### <a name="resolution"></a>Resolução
 
 Use qualquer uma dessas soluções para corrigir o problema:
 
-* Certifique-se de que o módulo segue o formato: ModuleName. zip-> Móduloname ou número de versão-> (ModuleName. psm1, ModuleName. psd1).
-* Abra o arquivo **. psd1** e veja se o módulo tem alguma dependência. Se tiver, carregue esses módulos para a conta de Automação.
-* Certifique-se de que todos os arquivos **. dll** referenciados estão presentes na pasta do módulo.
+* Certifique-se de que o módulo segue o formato a seguir: NomeMódulo.Zip -> NomeMódulo ou Número de Versão -> (NomeMódulo.psm1, NomeMódulo.psd1).
+* Abra o arquivo **.psd1** e veja se o módulo tem dependências. Se tiver, carregue esses módulos para a conta de Automação.
+* Verifique se quaisquer **.dll** referenciadas estão presentes na pasta do módulo.
 
-### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Cenário: Update-AzureModule. ps1 suspende ao atualizar módulos
+### <a name="scenario-update-azuremoduleps1-suspends-when-updating-modules"></a><a name="all-modules-suspended"></a>Cenário: Update-AzureModule.ps1 é suspenso ao atualizar os módulos
 
 #### <a name="issue"></a>Problema
 
-Quando você estiver usando o runbook [Update-AzureModule. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) para atualizar seus módulos do Azure, o processo de atualização do módulo será suspenso.
+Ao usar o runbook [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) para atualizar os módulos do Azure, o processo de atualização de módulo é suspenso.
 
 #### <a name="cause"></a>Causa
 
-Para esse runbook, a configuração padrão para determinar quantos módulos são atualizados simultaneamente é 10. O processo de atualização é propenso a erros quando muitos módulos estão sendo atualizados ao mesmo tempo.
+Para este runbook, a configuração padrão para determinar quantos módulos são atualizados simultaneamente é 10. O processo de atualização é propenso a erros quando muitos módulos estão sendo atualizados ao mesmo tempo.
 
 #### <a name="resolution"></a>Resolução
 
-Não é comum que todos os módulos AzureRM ou AZ sejam necessários na mesma conta de automação. Você só deve importar os módulos específicos de que precisa.
+Não é comum todos os módulos AzureRM ou Az serem necessários na mesma conta de automação. Você só deve importar os módulos específicos de que precisa.
 
 > [!NOTE]
-> Evite importar todo `Az.Automation` o módulo `AzureRM.Automation` ou, que importa todos os módulos contidos.
+> Evite importar todo o `Az.Automation` ou o módulo `AzureRM.Automation`, que importa todos os módulos contidos.
 
-Se o processo de atualização suspender, adicione `SimultaneousModuleImportJobCount` o parâmetro ao script **Update-AzureModules. ps1** e forneça um valor mais baixo do que o padrão de 10. Se você implementar essa lógica, tente começar com um valor de 3 ou 5. `SimultaneousModuleImportJobCount`é um parâmetro do runbook do sistema **Update-AutomationAzureModulesForAccount** que é usado para atualizar os módulos do Azure. Se você fizer esse ajuste, o processo de atualização será executado por mais tempo, mas terá uma chance melhor de concluir. O exemplo a seguir mostra o parâmetro e onde colocá-lo no runbook:
+Se o processo de atualização ficar suspenso, você precisará adicionar o parâmetro `SimultaneousModuleImportJobCount` ao script **Update-AzureModules.ps1** e fornecer um valor inferior ao padrão, que é 10. Caso implemente essa lógica, tente iniciar com um valor de 3 ou 5. O `SimultaneousModuleImportJobCount` é um parâmetro do runbook do sistema **Update-AutomationAzureModulesForAccount** que é usado para atualizar módulos do Azure. Se você fizer esse ajuste, o processo de atualização será executado por mais tempo, mas terá uma chance melhor de concluir. O exemplo a seguir mostra o parâmetro e onde colocá-lo no runbook:
 
  ```powershell
          $Body = @"
@@ -121,11 +118,11 @@ Se o processo de atualização suspender, adicione `SimultaneousModuleImportJobC
 
 ## <a name="run-as-accounts"></a>Contas Executar como
 
-### <a name="scenario-youre-unable-to-create-or-update-a-run-as-account"></a><a name="unable-create-update"></a>Cenário: não é possível criar ou atualizar uma conta Executar como
+### <a name="scenario-youre-unable-to-create-or-update-a-run-as-account"></a><a name="unable-create-update"></a>Cenário: Não é possível criar ou atualizar uma conta Executar como
 
 #### <a name="issue"></a>Problema
 
-Ao tentar criar ou atualizar uma conta Executar como, você receberá um erro semelhante ao seguinte:
+Ao tentar criar ou atualizar uma conta Executar como, um erro semelhante ao seguinte é exibido:
 
 ```error
 You do not have permissions to create…
@@ -133,15 +130,15 @@ You do not have permissions to create…
 
 #### <a name="cause"></a>Causa
 
-Você não tem as permissões necessárias para criar ou atualizar a conta Executar como, ou o recurso está bloqueado em um nível de grupo de recursos.
+Você não tem as permissões necessárias para criar ou atualizar a conta Executar como ou o recurso está bloqueado em um nível de grupo de recursos.
 
 #### <a name="resolution"></a>Resolução
 
-Para criar ou atualizar uma conta Executar como, você deve ter [as permissões](../manage-runas-account.md#permissions) apropriadas para os vários recursos usados pela conta Executar como. 
+Para criar ou atualizar uma conta Executar como, você deve ter [permissões](../manage-runas-account.md#permissions) apropriadas para os diversos recursos usados pela conta Executar como. 
 
-Se o problema for devido a um bloqueio, verifique se o bloqueio pode ser removido. Em seguida, vá para o recurso que está bloqueado no portal do Azure, clique com o botão direito do mouse no bloqueio e selecione **excluir**.
+Se o problema for por causa de um bloqueio, verifique se pode ser removido. Em seguida, vá para o recurso bloqueado no portal do Azure, clique com o botão direito do mouse no bloqueio e selecione **Excluir**.
 
-### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Cenário: você recebe o erro "não foi possível encontrar um ponto de entrada chamado ' GetPerAdapterInfo ' na DLL ' iplpapi. dll '" ao executar um runbook
+### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Cenário: Você recebe o erro "não foi possível encontrar um ponto de entrada chamado 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" ao executar um runbook
 
 #### <a name="issue"></a>Problema
 
@@ -153,7 +150,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-Esse erro é provavelmente causado por uma [conta Executar como](../manage-runas-account.md)configurada incorretamente.
+Esse erro é provavelmente causado por uma [conta Executar como ](../manage-runas-account.md)configurada incorretamente.
 
 #### <a name="resolution"></a>Resolução
 
@@ -167,9 +164,9 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se este artigo não resolver o problema, tente um dos seguintes canais para obter suporte adicional:
+Se este artigo não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio dos [fóruns do Azure](https://azure.microsoft.com/support/forums/).
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport)se com. Esta é a conta de Microsoft Azure oficial para conectar a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione **obter suporte**.
+* Obtenha respostas de especialistas do Azure por meio de [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
+* Conectar-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é  a conta oficial do Microsoft Azure para conectar-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
+* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
 

@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735881"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170249"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -50,7 +50,7 @@ Esse erro pode ocorrer por um dos seguintes motivos:
 
 * Visite [Planejamento de rede](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) para saber mais sobre quais endereços e portas devem ter permissão para que o Agente de análise de logs funcione.
 
-* Verifique se há problemas de configuração de escopo. A [configuração de escopo](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determina quais computadores estão configurados para Gerenciamento de Atualizações. Se o computador estiver aparecendo no seu espaço de trabalho, e não no portal de Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber mais sobre a configuração de escopo, consulte [Habilitar máquinas no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Verifique se há problemas de configuração de escopo. A [configuração de escopo](../automation-scope-configurations-update-management.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Se o computador estiver aparecendo no seu espaço de trabalho, e não no portal de Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber mais sobre a configuração de escopo, consulte [Habilitar máquinas no espaço de trabalho](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Remova a configuração de trabalho seguindo as etapas em [Remover o Hybrid Runbook Worker de um computador local com Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) ou [Remover o Hybrid Runbook Worker de um computador Linux local](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
