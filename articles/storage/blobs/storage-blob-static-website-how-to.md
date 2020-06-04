@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 020c25dfb17f733359e596100cfd24cfa3f68036
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648551"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194907"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar site estático no Armazenamento do Microsoft Azure
 
@@ -48,7 +48,7 @@ A hospedagem de site estática é um recurso que você precisa habilitar na cont
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-<a id="cli" />
+<a id="cli"></a>
 
 Você pode habilitar a hospedagem de site estático usando a [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -76,7 +76,7 @@ Você pode habilitar a hospedagem de site estático usando a [CLI (interface de 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-<a id="powershell" />
+<a id="powershell"></a>
 
 Você pode habilitar a hospedagem de site estático usando o módulo do Azure PowerShell.
 
@@ -195,7 +195,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-<a id="portal-find-url" />
+<a id="portal-find-url"></a>
 
 ## <a name="find-the-website-url"></a>Localizar a URL do site
 
@@ -234,7 +234,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-<a id="metrics" />
+<a id="metrics"></a>
 
 ## <a name="enable-metrics-on-static-website-pages"></a>Você pode habilitar métricas em páginas de sites estáticos
 
