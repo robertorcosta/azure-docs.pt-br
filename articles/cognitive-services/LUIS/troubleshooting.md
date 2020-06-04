@@ -1,15 +1,15 @@
 ---
 title: Perguntas frequentes – LUIS
 description: Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal).
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 79cee94a0f04cb89aa65f65cde63e48b6f078d2c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834995"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343518"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -82,7 +82,7 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Ponto de extremidade
+## <a name="endpoint"></a>Ponto de Extremidade
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como corrigi-la?
 

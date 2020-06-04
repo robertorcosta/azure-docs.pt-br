@@ -1,14 +1,14 @@
 ---
 title: Gerenciar configurações de modelo e aprendizado-personalizador
 description: As configurações de modelo e aprendizado aprendidas por computador podem ser exportadas para backup em seu próprio sistema de controle do código-fonte.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: c544d058019c8d507f65dc6bfd854376b364abd1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 59af5a64ea5752ec03fb44df91440e8d395e3782
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624292"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344349"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Como gerenciar configurações de modelo e aprendizado
 

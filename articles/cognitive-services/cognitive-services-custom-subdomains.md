@@ -96,7 +96,7 @@ Sim. Esta é uma lista de pontos de extremidade regionais que você pode usar co
 | China | Leste da China 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Norte da China | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Quais são os serviços cognitivas?](Welcome.md)
 * [Autenticação](authentication.md)

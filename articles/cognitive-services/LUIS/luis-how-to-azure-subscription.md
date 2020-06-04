@@ -2,14 +2,14 @@
 title: Como usar as chaves de criação e tempo de execução-LUIS
 description: Ao usar o Reconhecimento vocal (LUIS) pela primeira vez, você não precisa criar uma chave de criação. Quando você pretende publicar o aplicativo, use o ponto de extremidade do tempo de execução, você precisa criar e atribuir a chave de tempo de execução ao aplicativo.
 services: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101018"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344451"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
@@ -51,7 +51,7 @@ Quando você estiver pronto para publicar seu ponto de extremidade de previsão,
 
 Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) para criar cada recurso individualmente.
 
-Recurso `kind`:
+Recurso `kind` :
 
 * Criação`LUIS.Authoring`
 * Previsão`LUIS`
@@ -64,13 +64,13 @@ Recurso `kind`:
 
     Isso abre um navegador para permitir que você selecione a conta correta e forneça a autenticação.
 
-1. Crie um **recurso de criação de Luis**, de `LUIS.Authoring`tipo, `my-luis-authoring-resource` nomeado no grupo de recursos _existente_ chamado `my-resource-group` para `westus` a região.
+1. Crie um **recurso de criação de Luis**, de tipo `LUIS.Authoring` , nomeado `my-luis-authoring-resource` no grupo de recursos _existente_ chamado `my-resource-group` para a `westus` região.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Crie um **recurso de ponto de extremidade de previsão Luis**, `LUIS`de `my-luis-prediction-resource` tipo, nomeado no grupo de `my-resource-group` recursos _existente_ denominado para a `westus` região. Se você quiser uma taxa de transferência mais alta do que a `F0` camada `S0`gratuita, altere para. Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-limits.md#key-limits).
+1. Crie um **recurso de ponto de extremidade de previsão Luis**, de tipo `LUIS` , nomeado `my-luis-prediction-resource` no grupo de recursos _existente_ denominado `my-resource-group` para a `westus` região. Se você quiser uma taxa de transferência mais alta do que a camada gratuita, altere `F0` para `S0` . Saiba mais sobre os [tipos de preço e a taxa de transferência](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -124,9 +124,9 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     |Type|Configuração|Valor|
     |--|--|--|
-    |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
-    |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
-    |Cabeçalho|`Content-type`|`application/json`|
+    |parâmetro|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
+    |parâmetro|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
+    |parâmetro|`Content-type`|`application/json`|
     |Querystring|`appid`|A ID do aplicativo de LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
@@ -150,7 +150,7 @@ Quando você cancelar a atribuição de um recurso, ele não será excluído do 
 
 Gere novamente as chaves do Azure no portal do Azure, na página **chaves** .
 
-## <a name="delete-account"></a>Exclui a conta
+## <a name="delete-account"></a>Excluir conta
 
 Consulte [Armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais dados são excluídos quando você exclui sua conta.
 

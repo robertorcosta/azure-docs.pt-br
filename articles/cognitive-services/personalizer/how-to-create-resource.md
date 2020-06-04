@@ -1,14 +1,14 @@
 ---
 title: Crie um recurso do Personalizador
 description: A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço faz explorações, com que frequência o modelo é treinado novamente e quantos dados são armazenados.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: adb97db53d1fc0b6f0cdb14b697c82ec52501b84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b56516b5555ca971d7ab1db3caf5b76f252729b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80336053"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344366"
 ---
 # <a name="create-a-personalizer-resource"></a>Criar um recurso personalizado
 

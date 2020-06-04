@@ -8,22 +8,22 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 954562f3f88276b5aef7dbd4e2237d180a4c2e40
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e9c8b607b1dc3f7f67ee1fdad353d15023318947
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653932"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340684"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo, treinado em um ponto de extremidade de preparo ou produção
 
 Quando você terminar de criar, treinar e testar seu aplicativo LUIS ativo, disponibilize-o para o aplicativo cliente publicando-o no ponto de extremidade.
 
 ## <a name="publishing"></a>Publicação
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Para publicar no ponto de extremidade, selecione **Publicar** no painel superior direito.
 
@@ -37,7 +37,7 @@ Quando você terminar de criar, treinar e testar seu aplicativo LUIS ativo, disp
 
 Selecione o slot correto quando a janela pop-up for exibida:
 
-* Preparando
+* Staging
 * Produção
 
 Usando os dois slots de publicação, isso permite que você tenha duas versões diferentes do seu aplicativo disponíveis nos pontos de extremidade publicados ou na mesma versão em dois pontos de extremidade diferentes.

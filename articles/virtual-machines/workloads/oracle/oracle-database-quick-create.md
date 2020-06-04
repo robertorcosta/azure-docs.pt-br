@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
-ms.openlocfilehash: 77a374a83c178639052e8db6fc85c31e366ac0e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 070477c638e5a625e0c03751a1778fa0a246cd77
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683635"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995812"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Criar um Banco de Dados Oracle em uma VM do Azure
 
@@ -85,7 +85,7 @@ O software Oracle já está instalado na imagem do Marketplace. Crie um banco de
 1.  Altere para o superusuário *oracle* e inicialize o ouvinte para o registro em log:
 
     ```bash
-    $ sudo su - oracle
+    $ sudo -su oracle
     $ lsnrctl start
     ```
 
@@ -150,7 +150,7 @@ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Você também pode adicionar as variáveis ORACLE_HOME e ORACLE_SID ao arquivo .bashrc. Isso salvaria as variáveis de ambiente para logons futuros. Confirme se as instruções a seguir foram adicionadas `~/.bashrc` ao arquivo usando o editor de sua escolha.
+Você também pode adicionar as variáveis ORACLE_HOME e ORACLE_SID ao arquivo .bashrc. Isso economiza as variáveis de ambiente para entradas futuras. Confirme se as instruções a seguir foram adicionadas ao arquivo `~/.bashrc` usando o editor de sua escolha.
 
 ```bash
 # Add ORACLE_HOME. 

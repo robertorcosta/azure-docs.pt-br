@@ -1,14 +1,14 @@
 ---
 title: Testar o aplicativo no portal do LUIS
 description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar seu reconhecimento vocal.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
-ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 86ee90e2d3bb322a4f55439d105941cf43462d3e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714369"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344145"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 
@@ -22,7 +22,7 @@ ms.locfileid: "83714369"
 
 ## <a name="train-before-testing"></a>Treinar antes do teste
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Para testar a versão mais recente do aplicativo ativo, selecione **treinar** no menu superior, antes de testar.
 
@@ -30,7 +30,7 @@ ms.locfileid: "83714369"
 
 O expressão de teste não deve ser exatamente o mesmo que qualquer declarações de exemplo no aplicativo. O expressão de teste deve incluir a opção de palavra, o comprimento da frase e o uso da entidade que você espera para um usuário.
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 
 1. Para acessar o painel de deslizamento de **teste** , selecione **teste** no painel superior do seu aplicativo.
