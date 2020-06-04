@@ -17,7 +17,7 @@ ms.author: mazha
 ms.custom: has-adal-ref
 ms.openlocfilehash: e03616bf0d02f7ce063c027912cba4ab4e8f8d3f
 ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/30/2020
 ms.locfileid: "82611459"
@@ -52,7 +52,7 @@ Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NuGet.  Va
 1. Clique no menu **Ferramentas**, **Gerenciador de Pacotes Nuget** e, em seguida, **Console do Gerenciador de Pacotes**.
 
     ![Gerenciar pacotes NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. No Console do Gerenciador de Pacotes, execute o seguinte comando para instalar a **ADAL (Biblioteca de Autenticação do Active Directory)**:
+2. No Console do Gerenciador de Pacotes, execute o seguinte comando para instalar a **ADAL (Biblioteca de Autenticação do Active Directory)** :
 
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Execute o seguinte para instalar a **biblioteca de gerenciamento do Azure CDN**:
@@ -74,7 +74,7 @@ Vejamos a estrutura básica do nosso programa gravado.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Precisamos definir algumas constantes que serão usadas nos nossos métodos.  Na classe `Program`, mas antes do método `Main`, adicione o seguinte.  Certifique-se de substituir os espaços reservados, incluindo os ** &lt;colchetes&gt;angulares**, pelos seus próprios valores, conforme necessário.
+2. Precisamos definir algumas constantes que serão usadas nos nossos métodos.  Na classe `Program`, mas antes do método `Main`, adicione o seguinte.  Substitua os espaços reservados, inclusive os **&lt;sinais maior e menor que&gt;** , por seus próprios valores, conforme necessário.
 
     ```csharp
     //Tenant app constants

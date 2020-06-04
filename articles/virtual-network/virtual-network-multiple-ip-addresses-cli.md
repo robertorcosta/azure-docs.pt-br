@@ -16,7 +16,7 @@ ms.date: 11/17/2016
 ms.author: allensu
 ms.openlocfilehash: cb101095aa95f9d41f7891bc3c18f7e5bfeb59db
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148108"
@@ -205,7 +205,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para uma inte
         --dns-name mypublicdns3
         ```
 
-        Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, digite o seguinte comando:
+        Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIP3* associado, insira o seguinte comando:
 
         ```azurecli
         az network nic ip-config create \

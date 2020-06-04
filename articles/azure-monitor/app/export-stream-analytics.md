@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 15d1efa3a632024429d41f27fc23c569cd85bec2
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536872"
@@ -58,7 +58,7 @@ Exportação contínua sempre gera dados para uma conta de armazenamento do Azur
 1. Deixe que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](../../azure-monitor/platform/metrics-charts.md) e eventos individuais na [pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
    
     E, além disso, os dados serão exportados para seu armazenamento. 
-2. Inspecione os dados exportados. No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
+2. Inspecione os dados exportados. No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento. (se você não tiver essa opção de menu, será necessário instalar o SDK do Azure: Abra a caixa de diálogo Novo Projeto e abra o Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
    
     ![](./media/export-stream-analytics/04-data.png)
    
@@ -89,7 +89,7 @@ Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamen
 
 ### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
 
-**Certifique-se de definir o formato de data como aaaa-MM-DD (com traços).**
+**Defina o Formato de Data como AAAA-MM-DD (com traços).**
 
 O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 
@@ -107,7 +107,7 @@ Neste exemplo:
 > 
 
 ## <a name="add-new-output"></a>Adicionar nova saída
-Agora, selecione seu trabalho > **saídas** > **Adicionar**.
+Agora, selecione seu trabalho > **Saídas** > **Adicionar**.
 
 ![](./media/export-stream-analytics/SA006.png)
 

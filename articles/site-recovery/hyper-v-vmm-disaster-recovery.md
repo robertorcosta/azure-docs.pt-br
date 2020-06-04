@@ -9,7 +9,7 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: f7de3c28463a86852cba03713ca4c500e7ca0339
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "80437498"
@@ -29,7 +29,7 @@ Este artigo mostra como configurar a recuperação de desastre para um site secu
 > * Habilitar a replicação para uma VM
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este cenário:
 
@@ -132,8 +132,8 @@ Antes de começar, verifique se todos os hosts que estão usando a política tê
 1. Em **Frequência de cópia**, especifique com que frequência você deseja replicar os dados delta após a replicação inicial (a cada 30 segundos, 5 ou 15 minutos).
 2. Em **Retenção de ponto de recuperação**, especifique quanto tempo (em horas) terá o período de retenção de cada ponto de recuperação. As máquinas replicadas podem ser recuperadas para qualquer ponto dentro de um período.
 3. Em **Frequência do instantâneo consistente com aplicativo**, especifique com que frequência (1 a 12 horas) são criados os pontos de recuperação que contêm instantâneos consistentes com o aplicativo. O Hyper-V usa dois tipos de instantâneos:
-    - **Instantâneo padrão**: fornece um instantâneo incremental da máquina virtual inteira.
-    - **Instantâneo consistente com o aplicativo**: cria um instantâneo pontual dos dados do aplicativo dentro da VM. O VSS (Serviço de Cópias de Sombra de Volume) garante que os aplicativos estejam em um estado consistente quando o instantâneo é criado. Habilitar instantâneos consistentes com aplicativos afeta o desempenho do aplicativo em VMs de origem. Defina um valor que seja menor do que o número de pontos de recuperação adicionais configurados.
+    - **Instantâneo padrão**: Fornece um instantâneo incremental da máquina virtual inteira.
+    - **Instantâneo consistente com o aplicativo**: Cria um instantâneo pontual dos dados do aplicativo dentro da VM. O VSS (Serviço de Cópias de Sombra de Volume) garante que os aplicativos estejam em um estado consistente quando o instantâneo é criado. Habilitar instantâneos consistentes com aplicativos afeta o desempenho do aplicativo em VMs de origem. Defina um valor que seja menor do que o número de pontos de recuperação adicionais configurados.
 4. Em **Compactação de transferência de dados**, especifique se os dados de replicação transferidos devem ser compactados.
 5. Selecione **Excluir VM de réplica** para especificar que a máquina virtual de réplica deverá ser excluída se você desabilitar a proteção para a VM de origem. Se você habilitar essa configuração, quando você desabilitar a proteção para a VM de origem, ela será removida do console de Recuperação de Site, as configurações de Recuperação de Site para o VMM serão removidas do console do VMM e a réplica será excluída.
 6. Em **Método de replicação inicial**, se você estiver replicando na rede, especifique se deseja iniciar a replicação inicial ou agendá-la. Para economizar largura de banda de rede, talvez você deseje agendá-la fora de seus horários mais ocupados. Em seguida, clique em **OK**.
