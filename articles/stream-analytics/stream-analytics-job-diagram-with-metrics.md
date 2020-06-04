@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 00e1175cc85f1c34260c5e03ed3f81ac25cf7448
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426069"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836491"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada a dados usando o diagrama de trabalho
 
-O diagrama de trabalho na folha **monitoramento** do portal do Azure pode ajudá-lo a visualizar o pipeline de trabalho. Ele mostra entradas, saídas e etapas de consulta. Você pode usar o diagrama de trabalho para examinar as métricas de cada etapa e isolar mais rapidamente a origem de um problema ao solucioná-lo.
+O diagrama de trabalho na folha **Monitoramento** do Portal do Azure pode ajudar a visualizar o pipeline de trabalho. Ele mostra entradas, saídas e etapas de consulta. Você pode usar o diagrama de trabalho para examinar as métricas de cada etapa e isolar mais rapidamente a origem de um problema ao solucioná-lo.
 
 ## <a name="using-the-job-diagram"></a>Usando o diagrama de trabalho
 
@@ -55,7 +55,7 @@ Se a etapa de consulta anterior for um processador de entrada, use as métricas 
 *   **InputEventsSourcesTotal** é o número de unidades de dados lidas. Por exemplo, o número de blobs.
 *   **InputEventsTotal** é o número de eventos lidos. Essa métrica está disponível por partição.
 *   **InputEventsInBytesTotal** é o número de bytes lidos.
-*   **InputEventsLastArrivalTime** é atualizado com cada tempo de enfileiramento do evento recebido.
+*   **InputEventsLastArrivalTime** é atualizado com o tempo na fila de cada evento recebido.
  
 ### <a name="is-time-moving-forward-if-actual-events-are-read-punctuation-might-not-be-issued"></a>O tempo está avançando? Se eventos reais forem lidos, a pontuação não poderá ser emitida.
 
@@ -79,11 +79,11 @@ Se a etapa de consulta anterior for um processador de entrada, use as métricas 
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Para obter mais assistência, experimente a nossa [página de Perguntas e respostas da Microsoft do Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência da linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API REST de gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

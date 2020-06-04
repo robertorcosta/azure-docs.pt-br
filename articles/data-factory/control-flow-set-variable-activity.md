@@ -11,12 +11,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417973"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832769"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir Atividade Variável no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,18 +28,18 @@ Use a atividade Definir Variável para definir o valor de uma variável existent
 Propriedade | Descrição | Obrigatório
 -------- | ----------- | --------
 name | Nome da atividade no pipeline | sim
-description | Texto descrevendo o que a atividade realiza | não
+descrição | Texto descrevendo o que a atividade realiza | não
 type | Deve ser definido como **SetVariable** | sim
-value | Literal de cadeia de caracteres ou valor de objeto de expressão ao qual a variável será atribuída | sim
-variableName | Nome da variável que será definida por essa atividade | sim
+value | Valor de objeto de expressão ou literal de cadeia de caracteres ao qual a variável é atribuída | sim
+variableName | O nome da variável definida por essa atividade | sim
 
 ## <a name="incrementing-a-variable"></a>Incrementando uma variável
 
-Um cenário comum envolvendo variáveis no Azure Data Factory está usando uma variável como um iterador dentro de uma atividade until ou ForEach. Em uma atividade definir variável, você não pode fazer referência à variável que `value` está sendo definida no campo. Para solucionar essa limitação, defina uma variável temporária e, em seguida, crie uma segunda atividade Set Variable. A segunda atividade Set Variable define o valor do iterador para a variável temporária. 
+Um cenário comum envolvendo variáveis no Azure Data Factory é usar uma variável como um iterador dentro de uma atividade until ou foreach. Em uma atividade set variable, você não pode fazer referência à variável que está sendo definida no campo `value`. Para solucionar essa limitação, defina uma variável temporária e, em seguida, crie uma segunda atividade set variable. A segunda atividade set variable define o valor do iterador para a variável temporária. 
 
 Abaixo está um exemplo desse padrão:
 
-![Incrementar variável](media/control-flow-set-variable-activity/increment-variable.png "Incrementar variável")
+![Incrementar a variável](media/control-flow-set-variable-activity/increment-variable.png "Incrementar variável")
 
 ``` json
 {

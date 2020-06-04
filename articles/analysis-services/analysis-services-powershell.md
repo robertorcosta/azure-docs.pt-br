@@ -1,24 +1,24 @@
 ---
 title: Gerenciar o Azure Analysis Services com o PowerShell | Microsoft Docs
-description: Descreve Azure Analysis Services cmdlets do PowerShell para tarefas administrativas comuns, como criar servidores, suspender operações ou alterar o nível de serviço.
+description: Descreve os cmdlets do PowerShell do Azure Analysis Services para tarefas administrativas comuns, como criar servidores, suspender operações ou alterar o nível de serviço.
 author: minewiskan
 ms.service: azure-analysis-services
-ms.topic: reference
-ms.date: 10/28/2019
+ms.topic: conceptual
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2c8f4c0541d97a189087af692658cfe794eaaf7e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: dfa9de94665c0ee98d0252be6de807f18e39b087
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572701"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697963"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerenciar o Azure Analysis Services com PowerShell
 
 Este artigo descreve os cmdlets do PowerShell usados para executar tarefas de gerenciamento de banco de dados e servidor do Azure Analysis Services. 
 
-Tarefas de gerenciamento de recursos de servidor como criar ou excluir um servidor, suspender ou retomar operações de servidor ou alterar o nível de serviço (camada) usam cmdlets Azure Analysis Services. Outras tarefas de gerenciamento de bancos de dados, como adição ou remoção de membros da função, processamento ou particionamento, usam os cmdlets incluídos no mesmo módulo SqlServer que o SQL Server Analysis Services.
+As tarefas de gerenciamento de recursos, como criar ou excluir um servidor, suspender ou retomar operações de servidor ou alterar o nível de serviço (camada), usam cmdlets do Azure Analysis Services. Outras tarefas de gerenciamento de bancos de dados, como adição ou remoção de membros da função, processamento ou particionamento, usam os cmdlets incluídos no mesmo módulo SqlServer que o SQL Server Analysis Services.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -26,12 +26,12 @@ Tarefas de gerenciamento de recursos de servidor como criar ou excluir um servid
 
 A maioria das tarefas do PowerShell exige privilégios de administrador no servidor do Analysis Services que está sendo gerenciado. As tarefas agendadas do PowerShell são operações autônomas. A conta ou a entidade de serviço que executa o agendador precisa ter privilégios de administrador no servidor do Analysis Services. 
 
-Para operações de servidor usando cmdlets Azure PowerShell, sua conta ou o Agendador que executa a conta também deve pertencer à função de proprietário do recurso no [RBAC (controle de acesso baseado em função) do Azure](../role-based-access-control/overview.md). 
+Para operações de servidor usando os cmdlets Azure PowerShell, sua conta ou a conta que executa o Agendador também deve pertencer à função de Proprietário do recurso no [Controle de Acesso Baseado em Função do Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-and-server-operations"></a>Operações de servidor e de recurso 
 
-Instalar módulo- [AZ. AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
-Documentação – [referência AZ. AnalysisServices](/powershell/module/az.analysisservices)
+Instalar o módulo - [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
+Documentação - [Referência ao Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 ## <a name="database-operations"></a>Operações de banco de dados
 
@@ -39,10 +39,10 @@ As operações de banco de dados do Azure Analysis Services usam o mesmo módulo
 
 O módulo SqlServer fornece cmdlets de gerenciamento de banco de dados de tarefas específicas e o cmdlet Invoke-ASCmd de uso geral que aceita um script ou consulta de Linguagem de Script de Modelo Tabular (TMSL). Os cmdlets a seguir no módulo SqlServer têm suporte para o Azure Analysis Services.
 
-Instalar módulo- [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
-Documentação- [referência do SqlServer](/powershell/module/sqlserver)
+Instalar módulo - [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
+Documentação - [Referência do SqlServer](/powershell/module/sqlserver)
 
-### <a name="supported-cmdlets"></a>Cmdlets com suporte
+### <a name="supported-cmdlets"></a>cmdlets compatíveis
 
 |Cmdlet|Descrição|
 |------------|-----------------| 

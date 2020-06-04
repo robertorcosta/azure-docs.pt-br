@@ -1,84 +1,97 @@
 ---
-title: Configuração de cluster nos serviços Kubernetess do Azure (AKS)
-description: Saiba como configurar um cluster no serviço kubernetes do Azure (AKS)
+title: Configuração de cluster no AKS (Serviços de Kubernetes do Azure)
+description: Saiba como configurar um cluster no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 94f84beee2d7a76e48ac1470a0ce0b387929cc08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: fe5ce13d9db8f2bc2231f87de7e602e63d239bfa
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479157"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725139"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
-Como parte da criação de um cluster AKS, talvez seja necessário personalizar a configuração do cluster para atender às suas necessidades. Este artigo apresenta algumas opções para personalizar o cluster AKS.
+Como parte da criação de um cluster do AKS, talvez seja necessário personalizar a configuração do cluster para atender às suas necessidades. Este artigo apresenta algumas opções para personalizar o cluster do AKS.
 
-## <a name="os-configuration-preview"></a>Configuração do so (versão prévia)
+## <a name="os-configuration-preview"></a>Configuração do SO (versão prévia)
 
-O AKS agora dá suporte ao Ubuntu 18, 4 como o sistema operacional do nó (SO) na versão prévia. Durante o período de visualização, ambos o Ubuntu 16, 4 e o Ubuntu 18, 4 estão disponíveis.
+O AKS agora dá suporte ao Ubuntu 18.04 como o SO (sistema operacional) do nó em versão prévia. Durante o período de versão prévia, tanto o Ubuntu 16.04 quanto o Ubuntu 18.04 está disponível.
 
 Você deve ter os seguintes recursos instalados:
 
-- O CLI do Azure, versão 2.2.0 ou posterior
-- A extensão 0.4.35 AKs-Preview
+- A CLI do Azure versão 2.2.0 ou posterior
+- A extensão da versão prévia do AKS 0.4.35
 
-Para instalar a extensão AKs-preview 0.4.35 ou posterior, use os seguintes comandos de CLI do Azure:
+Para instalar a extensão da versão prévia do AKS 0.4.35 ou posterior, use os seguintes comandos da CLI do Azure:
 
 ```azurecli
 az extension add --name aks-preview
 az extension list
 ```
 
-Registre o `UseCustomizedUbuntuPreview` recurso:
+Registrar o recurso `UseCustomizedUbuntuPreview`:
 
 ```azurecli
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
 ```
 
-Pode levar vários minutos para que o status seja exibido como **registrado**. Você pode verificar o status do registro usando o comando [AZ Feature List](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+Pode levar vários minutos para que o status seja exibido como **Registrado**. Você pode verificar o status de registro usando o comando [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando o status for exibido como registrado, atualize o registro do `Microsoft.ContainerService` provedor de recursos usando o comando [AZ Provider Register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+Quando o status aparecer como registrado, atualize o registro do provedor de recursos `Microsoft.ContainerService` usando o comando [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register):
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
 
-Configure o cluster para usar o Ubuntu 18, 4 quando o cluster for criado. Use o `--aks-custom-headers` sinalizador para definir o Ubuntu 18, 4 como o sistema operacional padrão.
+### <a name="new-clusters"></a>Novos clusters
+
+Configure o cluster para usar o Ubuntu 18.04 quando o cluster for criado. Use o sinalizador `--aks-custom-headers` para definir o Ubuntu 18.04 como o SO padrão.
 
 ```azure-cli
 az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
 
-Se você quiser criar um cluster do Ubuntu 16, 4 regular, poderá fazer isso omitindo a marca personalizada `--aks-custom-headers` .
+Se você quiser criar um cluster do Ubuntu 16.04 regular, poderá fazer isso omitindo a tag `--aks-custom-headers` personalizada.
+
+### <a name="existing-clusters"></a>Clusters existentes
+
+Configure um novo pool de nós para usar o Ubuntu 18.04. Use o sinalizador `--aks-custom-headers` para definir o Ubuntu 18.04 como o SO padrão para esse pool de nós.
+
+```azure-cli
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
+```
+
+Se você quiser criar um pool de nós do Ubuntu 16.04 regular, poderá fazer isso omitindo a tag `--aks-custom-headers` personalizada.
+
 
 ## <a name="custom-resource-group-name"></a>Nome do grupo de recursos personalizado
 
-Quando você implanta um cluster do serviço kubernetes do Azure no Azure, um segundo grupo de recursos é criado para os nós de trabalho. Por padrão, AKS nomeará o grupo `MC_resourcegroupname_clustername_location`de recursos do nó, mas você também poderá fornecer seu próprio nome.
+Quando você implanta um cluster do Serviço de Kubernetes do Azure no Azure, um segundo grupo de recursos é criado para os nós de trabalho. Por padrão, o AKS dará ao grupo de recursos do nó o nome `MC_resourcegroupname_clustername_location`, mas você também poderá fornecer seu próprio nome.
 
-Para especificar seu próprio nome de grupo de recursos, instale o AKs-Preview CLI do Azure versão de extensão 0.3.2 ou posterior. Usando o CLI do Azure, use o `--node-resource-group` parâmetro do `az aks create` comando para especificar um nome personalizado para o grupo de recursos. Se você usar um modelo de Azure Resource Manager para implantar um cluster AKS, poderá definir o nome do grupo de recursos usando `nodeResourceGroup` a propriedade.
+Para especificar um nome do grupo de recursos, instale a extensão da CLI do Azure da versão prévia do AKS versão 0.3.2 ou posterior. Usando a CLI do Azure, use o parâmetro `--node-resource-group` do comando `az aks create` para especificar um nome personalizado para o grupo de recursos. Se você usar um modelo do Azure Resource Manager para implantar um cluster do AKS, defina o nome do grupo de recursos usando a propriedade `nodeResourceGroup`.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
 ```
 
-O grupo de recursos secundário é criado automaticamente pelo provedor de recursos do Azure em sua própria assinatura. Observe que você só pode especificar o nome do grupo de recursos personalizado quando o cluster é criado. 
+O grupo de recursos secundário é criado automaticamente pelo provedor de recursos do Azure na própria assinatura. Você só pode especificar o nome do grupo de recursos personalizado quando o cluster é criado. 
 
 Ao trabalhar com o grupo de recursos do nó, tenha em mente que não é possível:
 
-- Especifique um grupo de recursos existente para o grupo de recursos do nó.
-- Especifique uma assinatura diferente para o grupo de recursos do nó.
-- Altere o nome do grupo de recursos do nó depois que o cluster tiver sido criado.
-- Especifique nomes para os recursos gerenciados dentro do grupo de recursos do nó.
-- Modifique ou exclua as marcas criadas pelo Azure de recursos gerenciados dentro do grupo de recursos do nó.
+- Especificar um grupo de recursos existente para o grupo de recursos do nó.
+- Especificar uma assinatura diferente para o grupo de recursos do nó.
+- Alterar o nome do grupo de recursos do nó depois que o cluster for criado.
+- Especificar nomes para os recursos gerenciados dentro do grupo de recursos do nó.
+- Modificar ou excluir marcas criadas pelo Azure de recursos gerenciados dentro do grupo de recursos do nó.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar `Kured` o para [aplicar atualizações de segurança e kernel a nós do Linux](node-updates-kured.md) em seu cluster.
-- Consulte [atualizar um cluster do AKS (serviço kubernetes do Azure)](upgrade-cluster.md) para saber como atualizar o cluster para a versão mais recente do kubernetes.
-- Consulte a lista de [perguntas](faq.md) frequentes sobre o AKs para encontrar respostas para algumas perguntas comuns sobre o AKs.
+- Saiba como usar `Kured` para [aplicar atualizações de segurança e kernel a nós do Linux](node-updates-kured.md) no cluster.
+- Confira [Atualizar um cluster do AKS (Serviço de Kubernetes do Azure)](upgrade-cluster.md) para saber como atualizar o cluster para a versão mais recente do Kubernetes.
+- Confira a lista de [Perguntas frequentes sobre o AKS](faq.md) para encontrar respostas a algumas perguntas comuns sobre o AKS.

@@ -1,27 +1,30 @@
 ---
 title: Executar trabalhos de ponta a ponta usando modelos
 description: Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 634a0b66379d8c94988d5f974baffe475af94c2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117345"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815988"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
 
-Ao usar a extensão do Lote do Microsoft Azure é possível executar trabalhos do Lote sem escrever código.
+Ao usar a extensão do Lote para a CLI do Azure, é possível executar trabalhos em Lote sem escrever código.
 
 Criar e usar arquivos de modelo JSON com a CLI do Azure para criar pools de Lote, trabalhos e tarefas. Use os comandos de extensão CLI para carregar facilmente os arquivos de entrada de trabalho na conta de armazenamento associada à conta do Lote e baixe os arquivos de saída de trabalho.
+
+> [!NOTE]
+> Os arquivos JSON não dão suporte à mesma funcionalidade que [modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md). Elas devem ser formatadas como o corpo da solicitação REST bruta. A extensão da CLI não altera nenhum comando existente, mas tem uma opção de modelo semelhante que adiciona a funcionalidade de modelo do Azure Resource Manager parcial. Confira [Extensões da CLI do Lote do Azure para Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## <a name="overview"></a>Visão geral
 
 Uma extensão da CLI do Azure permite que o Lote seja usado de ponta a ponta por usuários que não são desenvolvedores. Somente com comandos CLI é possível criar um pool, carregar dados de entrada, criar trabalhos e tarefas associadas e baixar os dados de saída resultantes. Nenhum código adicional é necessário. Execute os comandos CLI diretamente ou integre-os aos scripts.
 
-Os modelos de lote são criados no suporte de lote existente no [CLI do Azure](batch-cli-get-started.md#json-files-for-resource-creation) para arquivos JSON para especificar valores de propriedade ao criar pools, trabalhos, tarefas e outros itens. Os modelos do lote adicionam os seguintes recursos:
+Os modelos do Lote compilam o [suporte do Lote existente na CLI do Azure](batch-cli-get-started.md#json-files-for-resource-creation) para que os arquivos JSON especifiquem os valores de propriedade ao criar pools, trabalhos, tarefas e outros itens. Os modelos do lote adicionam os seguintes recursos:
 
 -   Parâmetros podem ser definidos. Quando o modelo é usado, somente os valores de parâmetro são especificados para criar o item, com outros valores de propriedade de item sendo especificados no corpo do modelo. Um usuário que entende o Lote e os aplicativos a serem executados pelo Lote pode criar modelos especificando os valores de propriedade de pool, de trabalho e de tarefa. Um usuário menos familiarizado com o Lote e/ou os aplicativos só precisa especificar os valores para os parâmetros definidos.
 
@@ -59,9 +62,9 @@ Para fazer logon em uma conta do lote com a CLI do Azure, consulte [Gerenciar re
 
 Os modelos do Lote do Azure são semelhantes aos modelos do Azure Resource Manager, na funcionalidade e na sintaxe. Eles são arquivos JSON que contêm valores e nomes de propriedade do item, mas adicionam os conceitos principais a seguir:
 
--   **Parameters**
+-   **Parâmetros**
 
-    -   Permitem que os valores de propriedade sejam especificados em uma seção de corpo, com necessidade de fornecer apenas os valores de parâmetro quando o modelo é usado. Por exemplo, a definição completa de um pool poderia ser colocada no corpo e apenas um parâmetro definido para `poolId`; Portanto, somente uma cadeia de caracteres de ID de pool precisa ser fornecida para criar um pool.
+    -   Permitem que os valores de propriedade sejam especificados em uma seção de corpo, com necessidade de fornecer apenas os valores de parâmetro quando o modelo é usado. Por exemplo, a definição completa para um pool pode ser colocada no corpo e apenas um parâmetro definido para a `poolId`; assim, para criar um pool, é necessário fornecer apenas uma cadeia de caracteres de ID do pool.
         
     -   O corpo do modelo pode ser criado por uma pessoa com conhecimento do Lote e dos aplicativos a serem executados pelo Lote; somente os valores dos parâmetros definidos pelo autor devem ser fornecidos quando o modelo é usado. Portanto, um usuário sem o conhecimento detalhado do Lote e/ou do aplicativo pode usar os modelos.
 
@@ -253,7 +256,7 @@ Você pode carregar um modelo de CLI do lote para o aplicativo de desktop do [Az
 
 Para carregar um modelo:
 
-1. Em batch Explorer, selecione **Gallery** > **modelos locais**da galeria.
+1. No Azure Batch Explorer, selecione **Galeria** > **Modelos locais**.
 
 2. Selecione, ou arraste e solte, um pool local ou o modelo de trabalho.
 

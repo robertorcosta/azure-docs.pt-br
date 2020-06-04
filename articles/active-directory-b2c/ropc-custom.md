@@ -1,28 +1,28 @@
 ---
-title: Configurar o fluxo de credenciais de senha do proprietário do recurso com políticas personalizadas
+title: Configure o fluxo de credenciais de senha de proprietário do recurso com políticas personalizadas
 titleSuffix: Azure AD B2C
-description: Saiba como configurar o fluxo de credenciais de senha do proprietário do recurso (ROPC) usando políticas personalizadas no Azure Active Directory B2C.
+description: Aprenda a configurar o fluxo de credenciais de senha de proprietário do recurso (ROPC) usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 207f4aecfb57480293c138c95ed6e8f6562bbc7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5c6956c38d15213d84b43b24784d2bb2b3a1963f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529189"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638573"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurar o fluxo de credenciais de senha de proprietário do recurso no Azure Active Directory B2C usando uma política personalizada
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-No Azure Active Directory B2C (Azure AD B2C), o fluxo de credenciais de senha do proprietário do recurso (ROPC) é um fluxo de autenticação padrão do OAuth. Nesse fluxo, um aplicativo, também conhecido como a terceira parte confiável, troca de credenciais válidas para tokens. As credenciais incluem um ID de usuário e senha. Os tokens retornados são um ID de token, um token de acesso e um token de atualização.
+No Azure Active Directory B2C (Azure AD B2C), o fluxo de credenciais (ROPC) de senha de proprietário do recurso é um fluxo de autenticação padrão do OAuth. Nesse fluxo, um aplicativo, também conhecido como a terceira parte confiável, troca de credenciais válidas para tokens. As credenciais incluem um ID de usuário e senha. Os tokens retornados são um ID de token, um token de acesso e um token de atualização.
 
 [!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
@@ -124,7 +124,7 @@ Conclua as etapas em [Introdução às políticas personalizadas no Azure Active
     </TechnicalProfile>
     ```
 
-    Substitua o **DefaultValue** de **client_id** pela ID do aplicativo ProxyIdentityExperienceFramework que você criou no tutorial de pré-requisito. Em seguida, substitua **DefaultValue** de **resource_id** pela ID do aplicativo IdentityExperienceFramework que você também criou no tutorial de pré-requisito.
+    Substitua o **DefaultValue** do **client_id** pela ID do aplicativo ProxyIdentityExperienceFramework criada no tutorial de pré-requisito. Em seguida, substitua o **DefaultValue** do **resource_id** pela ID do aplicativo IdentityExperienceFramework criada no tutorial de pré-requisito.
 
 5. Adicionar os seguintes elementos **ClaimsProvider** com seus perfis técnicos para o elemento **ClaimsProviders**:
 
@@ -239,24 +239,24 @@ Em seguida, atualize o arquivo de terceira parte confiável que iniciará o perc
     ```
 
 5. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
-6. Habilite **substituir a política se ela existir**e, em seguida, navegue até e selecione o arquivo *ROPC_Auth. xml* .
+6. Habilite **Substituir a política se ela existir** e, em seguida, navegue até o arquivo *ROPC_Auth.xml* e selecione-o.
 7. Clique em **Carregar**.
 
 ## <a name="test-the-policy"></a>Testar a política
 
 Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de API e analise a resposta para depurar sua política. Construa uma chamada de exemplo com as seguintes informações no corpo da solicitação POST:
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-- Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C.
+- Substitua `<tenant-name>` pelo nome de seu locatário do Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` com o nome completo da política de credenciais de senha do proprietário do recurso.
 
 | Chave | Valor |
 | --- | ----- |
-| username | `user-account` |
+| Nome de Usuário | `user-account` |
 | password | `password1` |
 | grant_type | password |
-| escopo | OpenID `application-id` offline_access |
+| scope | OpenID `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |
 
@@ -268,8 +268,8 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 A solicitação POST real tem a aparência do exemplo a seguir:
 
 ```HTTPS
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -291,9 +291,9 @@ Uma resposta bem-sucedida com acesso offline se parece com o seguinte exemplo:
 
 Construa uma chamada POST como esta. Use as informações na tabela a seguir como o corpo da solicitação:
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-- Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C.
+- Substitua `<tenant-name>` pelo nome de seu locatário do Azure AD B2C.
 - Substitua `B2C_1A_ROPC_Auth` com o nome completo da política de credenciais de senha do proprietário do recurso.
 
 | Chave | Valor |

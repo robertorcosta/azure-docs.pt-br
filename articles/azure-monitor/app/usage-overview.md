@@ -3,12 +3,12 @@ title: Usar análise com o Azure Application Insights | Microsoft Docs
 description: Compreenda seus usuários e o que eles fazem com o seu aplicativo.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283949"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797787"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 
@@ -20,9 +20,9 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
 
 1. **Código do servidor:** Instale o módulo apropriado para o [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) ou [outro](../../azure-monitor/app/platforms.md) aplicativo.
 
-    * *Não deseja instalar o código do servidor? Basta [criar um recurso de informações de aplicativo Azure](../../azure-monitor/app/create-new-resource.md ).*
+    * *Não quer instalar o código do servidor? Apenas [crie um recurso do Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **Código da página da Web:** Adicione o script a seguir à sua página da Web antes ``</head>``do fechamento. Substitua a chave de instrumentação pelo valor apropriado para seu recurso do Application Insights:
+2. **URL da página na web:** Adicione o seguinte script à página da Web antes do fechamento ``</head>``. Substitua a chave de instrumentação pelo valor apropriado para seu recurso do Application Insights:
     
     ```html
     <script type="text/javascript">
@@ -34,9 +34,9 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
     </script>
     ```
 
-    Para saber mais sobre configurações avançadas para o monitoramento de sites, confira o [artigo de referência do SDK do JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    Para saber sobre configurações mais avançadas para o monitoramento de sites, confira o [artigo de referência do SDK de JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
-3. **Código de aplicativo móvel:** use o SDK do App Center para coletar eventos do seu aplicativo e, em seguida, envie cópias desses eventos ao Application Insights para análise [seguindo este guia](../../azure-monitor/learn/mobile-center-quickstart.md).
+3. **Código do aplicativo móvel:** Use o SDK do App Center para coletar eventos do seu aplicativo e, em seguida, envie cópias desses eventos ao Application Insights para análise [seguindo este guia](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 4. **Obter telemetria:** Execute seu projeto no modo de depuração por alguns minutos e, em seguida, procure resultados na folha Visão Geral em Application Insights.
 
@@ -152,12 +152,12 @@ No inicializador do aplicativo Web, como Global.asax.cs:
     }
 ```
 
-**ASP.NET Core aplicativos**
+**Aplicativos ASP.NET Core**
 
 > [!NOTE]
-> Adicionar inicializador `ApplicationInsights.config` usando ou `TelemetryConfiguration.Active` usando não é válido para aplicativos ASP.NET Core. 
+> Adicionar inicializador usando `ApplicationInsights.config` ou usando `TelemetryConfiguration.Active` não é válido para aplicativos ASP.NET Core. 
 
-Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no `ConfigureServices` método da sua `Startup.cs` classe.
+Para [aplicativos ASP.NET Core](asp-net-core.md#adding-telemetryinitializers), adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no método `ConfigureServices` de sua classe `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -175,5 +175,5 @@ Todos os novos TelemetryClients adicionam automaticamente o valor da propriedade
    - [Funis](usage-funnels.md)
    - [Retenção](usage-retention.md)
    - [Fluxos de Usuário](usage-flows.md)
-   - [Pastas de trabalho](../../azure-monitor/app/usage-workbooks.md)
+   - [Pastas de trabalho](../../azure-monitor/platform/workbooks-overview.md)
    - [Adicionar contexto de usuário](usage-send-user-context.md)

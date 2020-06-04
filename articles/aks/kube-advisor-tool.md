@@ -1,5 +1,5 @@
 ---
-title: Verificar implantações para obter as práticas recomendadas
+title: Confira implantações para conhecer as melhores práticas
 titleSuffix: Azure Kubernetes Service
 description: Verifique suas implantações do Kubernetes no Azure para implementar as melhores práticas
 services: container-service
@@ -7,12 +7,12 @@ author: seanmck
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 17e21c142dc354de7b72bc17396b19366027c5cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9dc5a38a05ef73863f85e4dbe92d52eb94b2715f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668394"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773797"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar as práticas recomendadas do Kubernetes no seu cluster
 
@@ -22,7 +22,7 @@ Existem várias práticas recomendadas que você deve seguir nas implantações 
 
 A ferramenta [kube-advisor][kube-advisor-github] é um único contêiner projetado para ser executado em seu cluster. Ele consulta o servidor da API do Kubernetes para obter informações sobre suas implementações e retorna um conjunto de melhorias sugeridas.
 
-A ferramenta Kube-Advisor pode relatar a solicitação de recursos e os limites ausentes no PodSpecs para aplicativos do Windows, bem como aplicativos do Linux, mas a ferramenta Kube-Advisor em si deve ser agendada em um pod do Linux. Você pode agendar um pod para ser executado em um pool de nós com um sistema operacional específico usando um [seletor de nó][k8s-node-selector] na configuração do pod.
+A ferramenta kube-advisor pode relatar a solicitação de recursos e os limites ausentes no PodSpecs para aplicativos do Windows, bem como aplicativos do Linux, mas a ferramenta kube-advisor em si deve ser agendada em um pod do Linux. Você pode agendar um pod para ser executado em um pool de nós com um sistema operacional específico usando um [seletor de nó][k8s-node-selector] na configuração do pod.
 
 > [!NOTE]
 > A ferramenta kube-advisor é suportada pela Microsoft com base no melhor esforço. Questões e sugestões devem ser arquivadas no GitHub.
@@ -34,7 +34,7 @@ Para executar a ferramenta em um cluster configurado para [controle de acesso ba
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
-kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
+kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }" --namespace default
 ```
 
 Se você não estiver usando o RBAC, poderá executar o comando da seguinte maneira:
@@ -53,7 +53,7 @@ A ferramenta valida várias práticas recomendadas do Kubernetes, cada uma com s
 
 ### <a name="resource-requests-and-limits"></a>Solicitações de recursos e limites
 
-O Kubernetes suporta a definição de [solicitações de recursos e limites nas especificações do pod ][kube-cpumem]. A solicitação define o mínimo de CPU e memória necessária para executar o contêiner. O limite define a CPU e a memória máximas que devem ser permitidas.
+O Kubernetes é compatível com a definição de [solicitações de recursos e limites nas especificações do pod][kube-cpumem]. A solicitação define o mínimo de CPU e memória necessária para executar o contêiner. O limite define a CPU e a memória máximas que devem ser permitidas.
 
 Por padrão, nenhuma solicitação ou limite é definido nas especificações do pod. Isso pode levar a que os nós sejam excedidos em excesso e que os recipientes fiquem sem alimentação. A ferramenta kube-advisor destaca os pods sem solicitações e limites definidos.
 

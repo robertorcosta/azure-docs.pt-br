@@ -1,15 +1,15 @@
 ---
-title: Criar consultas de lista eficientes
+title: Projetar consultas de lista eficientes
 description: Aumente o desempenho filtrando suas consultas ao solicitar informações sobre os recursos do Lote, como pools, trabalhos, tarefas e nós de computação.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fea8efd4e4946b67754bad98589b728e8d696425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 987a31f9506dcd1b13b04d544465c7529f23122d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116104"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726699"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar recursos do Lote com eficiência
 
@@ -24,7 +24,7 @@ Quase todos os aplicativos do Lote precisam executar algum tipo de monitoramento
 ## <a name="meet-the-detaillevel"></a>Atender DetailLevel
 Em um aplicativo do Lote de produção, as entidades, como trabalhos, tarefas e nós de computação, podem chegar a milhares. Quando você solicita informações sobre esses recursos, uma quantidade de dados potencialmente grande deve "cruzar a transmissão" do serviço do Lote para seu aplicativo em cada consulta. Limitando o número de itens e o tipo de informação retornada por uma consulta, você pode aumentar a velocidade de suas consultas e, portanto, o desempenho de seu aplicativo.
 
-Esse snippet de código da API do [.NET do Lote][api_net] lista *todas* as tarefas associadas a um trabalho, bem como *todas* as propriedades de cada tarefa:
+Esse snippet de código da API [.NET do Lote][api_net] lista *todas* as tarefas associadas a um trabalho, bem como *todas* as propriedades de cada tarefa:
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -95,9 +95,9 @@ A cadeia de caracteres expand reduz o número de chamadas de API necessárias pa
 ## <a name="efficient-querying-in-batch-net"></a>Consulta eficiente no .NET de Lote
 Na API [.NET do Lote][api_net], a classe [ODATADetailLevel][odata] é usada para fornecimento de cadeias de caracteres filter, select e expand para operações de lista. A classe ODataDetailLevel tem três propriedades de cadeia de caracteres públicas que podem ser especificadas no construtor ou definidas diretamente. Em seguida, você passa o objeto ODataDetailLevel como um parâmetro para as várias operações da lista, como [ListPools][net_list_pools], [ListJobs][net_list_jobs] e [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[FilterClause][odata_filter]: limitar o número de itens retornados.
-* [ODATADetailLevel][odata].[SelectClause][odata_select]: especificar quais valores da propriedade são retornados com cada item.
-* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: recuperar dados de todos os itens em uma única chamada à API, em vez de chamadas separadas para cada item.
+* [ODATADetailLevel][odata].[FilterClause][odata_filter]: Limite o número de itens retornados.
+* [ODATADetailLevel][odata].[SelectClause][odata_select]: Especifique quais valores de propriedade retornam com cada item.
+* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Recupere dados de todos os itens em uma única chamada à API, em vez de chamadas separadas para cada item.
 
 O snippet de código abaixo usa a API de Lote .NET para consultar o serviço de Lote com eficiência a fim de obter as estatísticas de um conjunto específico de pools. Nesse cenário, o usuário de Lote tem grupos de teste e de produção. As IDs do pool de teste são prefixadas com "test", e as IDs do grupo de produção são prefixadas com "prod". No snippet de código, *myBatchClient* é uma instância devidamente inicializada da classe [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient).
 
@@ -137,7 +137,7 @@ Os nomes de propriedade nas cadeias de caracteres de filtro, seleção e expans�
 
 ### <a name="mappings-for-filter-strings"></a>Mapeamentos para cadeias de caracteres de filtro
 * **Métodos da lista .NET**: cada um dos métodos da API .NET nesta coluna aceita um objeto [ODATADetailLevel][odata] como parâmetro.
-* **Solicitações da lista REST**: cada página da API REST associada a essa coluna contém uma tabela especificando as propriedades e as operações permitidas nas cadeias de caracteres *filter* . Você usará esses nomes de propriedade e operações ao construir uma cadeia de caracteres [ODATADetailLevel.FilterClause][odata_filter].
+* **Solicitações da lista REST**: cada página da API REST associada a essa coluna contém uma tabela especificando as propriedades e as operações permitidas nas cadeias de caracteres *filter*. Você usará esses nomes de propriedade e operações ao construir uma cadeia de caracteres [ODATADetailLevel.FilterClause][odata_filter].
 
 | Métodos da lista .NET | Solicitações da lista REST |
 | --- | --- |
@@ -148,25 +148,25 @@ Os nomes de propriedade nas cadeias de caracteres de filtro, seleção e expans�
 | [JobOperations.ListNodeFiles][net_list_nodefiles] |[Listar os arquivos em um nó][rest_list_nodefiles] |
 | [JobOperations.ListTasks][net_list_tasks] |[Listar as tarefas associadas a um trabalho][rest_list_tasks] |
 | [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[Listar os cronogramas de trabalho em uma conta][rest_list_job_schedules] |
-| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Listar os trabalhos associados a um cronograma de trabalho][rest_list_schedule_jobs] |
+| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[Listar os trabalhos associados a uma agenda de trabalho][rest_list_schedule_jobs] |
 | [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[Listar os nós de computação em um pool][rest_list_compute_nodes] |
 | [PoolOperations.ListPools][net_list_pools] |[Listar os pools em uma conta][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Mapeamentos para cadeias de caracteres de seleção
-* **Tipos de Lote .NET**: tipos de API do Lote .NET.
+* **Tipos .NET do Lote**: Tipos de API .NET do Lote.
 * **Entidades da API REST**: cada página nesta coluna contém uma ou mais tabelas que listam os nomes de propriedade da API REST para o tipo. Esses nomes de propriedade são usados ao construir as cadeias de caracteres *select* . Você usará esses mesmos nomes de propriedade ao construir uma cadeia de caracteres [ODATADetailLevel.SelectClause][odata_select].
 
 | Tipos de Lote .NET | Entidades da API REST |
 | --- | --- |
 | [Certificado][net_cert] |[Obter informações sobre um certificado][rest_get_cert] |
 | [CloudJob][net_job] |[Obter informações sobre um trabalho][rest_get_job] |
-| [CloudJobSchedule][net_schedule] |[Obter informações sobre um cronograma de trabalho][rest_get_schedule] |
+| [CloudJobSchedule][net_schedule] |[Obter informações sobre uma agenda de trabalho][rest_get_schedule] |
 | [ComputeNode][net_node] |[Obter informações sobre um nó][rest_get_node] |
 | [CloudPool][net_pool] |[Obter informações sobre um pool][rest_get_pool] |
 | [CloudTask][net_task] |[Obter informações sobre uma tarefa][rest_get_task] |
 
 ## <a name="example-construct-a-filter-string"></a>Exemplo: construir uma cadeia de caracteres filter
-Ao construir uma cadeia de caracteres filter para [ODATADetailLevel.FilterClause][odata_filter], consulte a tabela acima em “Mapeamentos para cadeias de caracteres filter” para localizar a página da documentação da API REST correspondente à operação de lista que você deseja executar. Você encontrará as propriedades e os operadores com suporte na primeira tabela com várias linhas nessa página. Se quiser recuperar todas as tarefas cujo código de saída era diferente de zero, por exemplo, essa linha em [Listar as tarefas associadas a um trabalho][rest_list_tasks] especificará a cadeia de caracteres da propriedade aplicável e os operadores permitidos:
+Ao construir uma cadeia de caracteres filter para [ODATADetailLevel.FilterClause][odata_filter], confira a tabela acima em "Mapeamentos para cadeias de caracteres filter" para localizar a página da documentação da API REST correspondente à operação de lista que você deseja executar. Você encontrará as propriedades e os operadores com suporte na primeira tabela com várias linhas nessa página. Se quiser recuperar todas as tarefas cujo código de saída era diferente de zero, por exemplo, essa linha em [Listar as tarefas associadas a um trabalho][rest_list_tasks] especificará a cadeia de caracteres da propriedade aplicável e os operadores permitidos:
 
 | Propriedade | Operações permitidas | Type |
 |:--- |:--- |:--- |
@@ -177,7 +177,7 @@ Assim, a cadeia de caracteres de filtro para listar todas as tarefas com um cód
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## <a name="example-construct-a-select-string"></a>Exemplo: construir uma cadeia de caracteres select
-Para construir um [ODATADetailLevel.SelectClause][odata_select], consulte a tabela acima em “Mapeamentos para as cadeias de caracteres select” e navegue até a página da API REST correspondente ao tipo de entidade listada. Você encontrará as propriedades selecionáveis e os operadores com suporte na primeira tabela de várias linha nessa página. Se quiser recuperar apenas a ID e a linha de comando de cada tarefa em uma lista, por exemplo, você encontrará essas linhas na tabela aplicável em [Obter informações sobre uma tarefa][rest_get_task]:
+Para construir um [ODATADetailLevel.SelectClause][odata_select], confira a tabela acima em “Mapeamentos para as cadeias de caracteres select” e navegue até a página da API REST correspondente ao tipo de entidade listada. Você encontrará as propriedades selecionáveis e os operadores com suporte na primeira tabela de várias linha nessa página. Se quiser recuperar apenas a ID e a linha de comando de cada tarefa em uma lista, por exemplo, você encontrará essas linhas na tabela aplicável em [Obter informações sobre uma tarefa][rest_get_task]:
 
 | Propriedade | Type | Observações |
 |:--- |:--- |:--- |

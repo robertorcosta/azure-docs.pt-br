@@ -1,18 +1,18 @@
 ---
 title: Limites de recursos e objetos do Azure Analysis Services | Microsoft Docs
-description: Este artigo descreve os limites de recurso e objeto para um servidor de Azure Analysis Services.
+description: Este artigo descreve os limites de recursos e objetos do servidor Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: c2caab4e449f4299d00fff14b697887ec00f35e6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73573206"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697499"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Limites de recurso e objeto do Analysis Services
 
@@ -20,7 +20,7 @@ Este artigo descreve os limites de objeto de recurso e modelo.
 
 ## <a name="tier-limits"></a>Limites de camada
 
-Para obter limites de QPU e memória para as camadas de desenvolvedor, básica e Standard, consulte a [página de preços Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+Para obter limites de QPU e memória das camadas de desenvolvedor de nível básico e padrão, consulte a [página de preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## <a name="object-limits"></a>Limites do objeto
 
@@ -30,7 +30,7 @@ Esses limites são teóricos. Desempenho será ser diminuído em números mais b
 |------------|----------------------------|  
 |Bancos de dados em uma instância|16.000|  
 |Número combinado de tabelas e colunas em um banco de dados|16.000|  
-|Linhas em uma tabela|Ilimitado<br /><br /> **Aviso:** com a restrição de que nenhuma coluna única na tabela pode ter mais de 1.999.999.997 valores distintos.|  
+|Linhas em uma tabela|Ilimitado<br /><br /> **Aviso:** Com a restrição de que nenhuma coluna única na tabela pode ter mais de 1.999.999.997 valores distintos.|  
 |Hierarquias em uma tabela|15,999|  
 |Níveis em uma hierarquia|15,999|  
 |Relações|8,000|  

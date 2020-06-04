@@ -90,6 +90,10 @@
                   href: tutorial-incremental-copy-change-tracking-feature-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+            - name: Usando o CDA no MI do SQL do Azure
+              items:
+                - name: Interface do usuário (IU)
+                  href: tutorial-incremental-copy-change-data-capture-feature-portal.md
             - name: Novos arquivos por data da última modificação
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
             - name: Novos arquivos por nome de arquivo particionado por tempo
@@ -196,6 +200,8 @@
       items:
         - name: Criar visualmente as fábricas de dados
           href: author-visually.md
+        - name: Hub de gerenciamento
+          href: author-management-hub.md
         - name: Controle do código-fonte
           href: source-control.md
         - name: Integração e entrega contínuas

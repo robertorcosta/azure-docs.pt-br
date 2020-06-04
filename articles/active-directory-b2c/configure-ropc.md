@@ -1,5 +1,5 @@
 ---
-title: Configurar o fluxo de credenciais de senha do proprietário do recurso
+title: Configure o fluxo de credenciais de senha de proprietário do recurso
 titleSuffix: Azure AD B2C
 description: Saiba como configurar o fluxo ROPC no Azure AD B2C.
 services: active-directory-b2c
@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189694"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636408"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -30,17 +30,17 @@ O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo d
 
 1. Entre no portal do Azure como administrador global do locatário Azure AD B2C.
 2. Para alternar para seu locatário do Azure AD B2C, selecione o diretório do B2C no canto superior direito do portal.
-3. Clique em **Fluxos de usuário **e selecione **Novo fluxo de usuário**.
-4. Clique na guia **tudo** e selecione **entrar usando ROPC**.
+3. Clique em **Fluxos de usuário** e selecione **Novo fluxo de usuário**.
+4. Clique na guia **Todos** e selecione **Entrar usando o ROPC**.
 5. Forneça um nome para o fluxo de usuário, como *ROPC_Auth_app*.
 6. Em **Declarações de aplicativo**, clique em **Mostrar mais**.
 7. Selecione as declarações de aplicativo de que você precisa para seu aplicativo, como Nome de Exibição, Endereço de Email, e Provedor de Identidade.
-8. Selecione **OK**e, em seguida, selecione **criar**.
+8. Selecione **OK** e, então, selecione **Criar**.
 9. Clique em **Executar fluxo de usuário**.
 
    Você verá um ponto de extremidade, como neste exemplo:
 
-   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
 
 ## <a name="register-an-application"></a>Registrar um aplicativo
@@ -50,18 +50,18 @@ O fluxo de credenciais de senha de proprietário do recurso (ROPC) é um fluxo d
 ## <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
 Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de API e analise a resposta para depurar seu fluxo de usuário. Construa uma chamada como esta com as informações na tabela a seguir como o corpo da solicitação POST:
-- Substitua * \<yourtenant.onmicrosoft.com>* pelo nome do seu locatário B2C.
-- Substitua * \<B2C_1A_ROPC_Auth>* pelo nome completo da política de credenciais de senha do proprietário do recurso.
-- Substitua * \<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* com a ID do aplicativo do seu registro.
+- Substitua *\<tenant-name>.onmicrosoft.com* pelo nome do seu locatário B2C.
+- Substitua *\<B2C_1A_ROPC_Auth >* com o nome completo da política de credenciais de senha do proprietário do recurso.
+- Substitua *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* pela ID do aplicativo de seu registro.
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Chave | Valor |
 | --- | ----- |
-| username | leadiocl@outlook.com |
+| Nome de Usuário | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| escopo | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
+| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
@@ -70,8 +70,8 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 A solicitação POST real tem a aparência a seguir:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -94,7 +94,7 @@ Uma resposta bem-sucedida com acesso offline se parece com o seguinte exemplo:
 
 Construa uma chamada POST como a monstrada aqui com as informações na tabela a seguir como o corpo da solicitação:
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
 | Chave | Valor |
 | --- | ----- |
@@ -124,7 +124,7 @@ Uma resposta bem-sucedida se parece com o seguinte exemplo:
 }
 ```
 > [!NOTE]
-> Ao criar usuários por meio de API do Graph, o aplicativo precisa ter permissões "OpenID", "offline_access" e "perfil" de Microsoft Graph.
+> Ao criar usuários por meio da API do Graph, o aplicativo precisa ter permissões "openid", "offline_access" e "profile" no Microsoft Graph.
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementar com o SDK nativo preferencial ou usar App-Auth
 

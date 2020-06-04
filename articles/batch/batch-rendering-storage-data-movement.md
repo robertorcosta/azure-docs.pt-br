@@ -1,24 +1,24 @@
 ---
-title: Armazenamento e movimentação de dados para renderização
-description: Saiba mais sobre as várias opções de armazenamento e movimentação de dados para processar cargas de trabalho de ativos e arquivos de saída.
+title: Movimentação de dados para renderização
+description: Conheça as várias opções de armazenamento e movimentação de dados para ativo de renderização e cargas de trabalho dos arquivos de saída.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 497f3b3b42d98c08b06744eaa976ae188443b90d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.topic: how-to
+ms.openlocfilehash: dcb9d43b228428379414ca5d7688cff709a9959e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115662"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726410"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opções de armazenamento e movimentação de dados para ativo de renderização e arquivos de saída
 
 Há várias opções para disponibilizar os arquivos de cena e ativo para os aplicativos de renderização no pool de VMs:
 
-* [Armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
+* [Armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction):
   * Arquivos de cena e ativo são carregados no armazenamento de blobs de um sistema de arquivos local. Quando o aplicativo é executado por uma tarefa, os arquivos necessários são copiados do armazenamento de BLOBs na máquina virtual para que possam ser acessados pelo aplicativo de renderização. Os arquivos de saída são gravados pelo aplicativo de renderização para o disco da VM e, em seguida, copiados para o armazenamento de BLOBs.  Se necessário, os arquivos de saída podem ser baixados do armazenamento de BLOBs para um sistema de arquivos local.
   * O armazenamento de BLOBs do Azure é uma opção simple e econômica para projetos menores.  Como ativo todos os arquivos são necessários em cada pool de VM, em seguida, depois que aumenta o número e tamanho dos arquivos de ativo, tome cuidado para garantir que as transferências de arquivo sejam tão eficientes quanto possíveis.  
 * Armazenamento do Azure como um sistema de arquivos usando [blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux):

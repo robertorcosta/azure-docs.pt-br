@@ -4,12 +4,12 @@ description: O Application Insights executa uma análise inteligente da telemetr
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687680"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697166"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -41,7 +41,7 @@ As notificações incluem informações de diagnóstico. Aqui está um exemplo:
 
 1. **Triagem**. A notificação mostra quantos usuários ou quantas operações foram afetadas. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
 2. **Escopo**. O problema está afetando todo o tráfego ou apenas algumas páginas? Ele é restrito a navegadores ou locais específicos? Essas informações podem ser obtidas na notificação.
-3. **Diagnostique**. Com frequência, as informações de diagnóstico na notificação sugerem a natureza do problema. Por exemplo, se o tempo de resposta fica mais lento quando a taxa de solicitação está alta, o que sugere que seu servidor ou suas dependências estão sobrecarregadas. 
+3. **Diagnosticar**. Com frequência, as informações de diagnóstico na notificação sugerem a natureza do problema. Por exemplo, se o tempo de resposta fica mais lento quando a taxa de solicitação está alta, o que sugere que seu servidor ou suas dependências estão sobrecarregadas. 
 
     Caso contrário, abra a folha Desempenho no Application Insights. Nela, você encontrará dados do [Criador de Perfil](profiler.md). Se forem geradas exceções, você também poderá tentar usar o [depurador instantâneo](../../azure-monitor/app/snapshot-debugger.md).
 
@@ -49,7 +49,7 @@ As notificações incluem informações de diagnóstico. Aqui está um exemplo:
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por email
 
-As notificações de detecção inteligente são habilitadas por padrão e enviadas aos que têm acesso de [monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [monitoramento de colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) para a assinatura na qual reside o recurso de Application insights. Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
+As notificações de Detecção Inteligente ficam habilitadas por padrão e são enviadas para aqueles que têm acesso de [Leitor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e de [Contribuidor de monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) à assinatura em que reside o recurso Application Insights. Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
   
   ![Configurações de Detecção Inteligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -70,12 +70,12 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 * *Posso criar minhas próprias regras de detecção de anomalias ou personalizar regras existentes?*
 
   * Ainda não, mas você pode:
-    * [Configure alertas](../../azure-monitor/app/alerts.md) que informam quando uma métrica ultrapassa um limite.
-    * [Exportar telemetria](../../azure-monitor/app/export-telemetry.md) para um [banco de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou [para Power bi](../../azure-monitor/app/export-power-bi.md ), onde você mesmo pode analisá-lo.
+    * [Configurar alertas](/azure/azure-monitor/platform/alerts-log) que informam quando uma métrica excede um limite.
+    * [Exporte a telemetria](../../azure-monitor/app/export-telemetry.md) para um [banco de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) ou para o [Power BI](../../azure-monitor/app/export-power-bi.md ), onde você mesmo poderá analisá-la.
 * *Com que frequência a análise é executada?*
 
   * Executamos diariamente a análise da telemetria do dia anterior (dia inteiro no fuso-horário UTC).
-* *Então isso substitui os [alertas de métrica](../../azure-monitor/app/alerts.md)?*
+* *Então isso substitui os [alertas de métrica](/azure/azure-monitor/platform/alerts-log)?*
   * Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
 
@@ -107,9 +107,9 @@ Abra a folha Métrica de navegadores. A exibição segmentada do tempo de carreg
 ### <a name="improve-slow-pages"></a>Aprimorar páginas lentas
 Há muitos conselhos na Web sobre como melhorar os tempos de resposta de seu servidor e de carregamento da página, portanto não os repetiremos aqui. Veja algumas dicas as quais você provavelmente já conhece, apenas para ajudá-lo a pensar:
 
-* Carregamento lento devido a arquivos grandes: carregue os scripts e outros componentes de forma assíncrona. Use o agrupamento de script. Divida a página principal em widgets que carregam os dados separadamente. Não envie o antigo HTML simples para tabelas longas: use um script para solicitar os dados como JSON ou outro formato compacto e preencha a tabela. Há estruturas excelentes para ajudar você com tudo isso. (Que também envolvem scripts grandes, é claro).
-* Diminuir as dependências do servidor: considere os locais geográficos de seus componentes. Por exemplo, se você estiver usando o Azure, verifique se o servidor Web e o banco de dados estão na mesma região. As consultas recuperam mais informações do que o necessário? O armazenamento em cache ou o envio em lote ajudaria?
-* Problemas de capacidade: examine as métricas do servidor relacionadas aos tempos de resposta e contagens de solicitação. Se os tempos de resposta apresentarem picos desproporcionais, com picos nas contagens de solicitação, é provável que seus servidores estejam alongados.
+* Carregamento lento devido a arquivos grandes: Carregue os scripts e outras partes de forma assíncrona. Use o agrupamento de script. Divida a página principal em widgets que carregam os dados separadamente. Não envie o antigo HTML simples para tabelas longas: use um script para solicitar os dados como JSON ou outro formato compacto e preencha a tabela. Há estruturas excelentes para ajudar você com tudo isso. (Que também envolvem scripts grandes, é claro).
+* Dependências lentas do servidor: Considere as localizações geográficas dos componentes. Por exemplo, se você estiver usando o Azure, verifique se o servidor Web e o banco de dados estão na mesma região. As consultas recuperam mais informações do que o necessário? O armazenamento em cache ou o envio em lote ajudaria?
+* Problemas de capacidade: Observe as métricas do servidor de tempos de resposta e contagens de solicitações. Se os tempos de resposta apresentarem picos desproporcionais, com picos nas contagens de solicitação, é provável que seus servidores estejam alongados.
 
 
 ## <a name="server-response-time-degradation"></a>Degradação do tempo de resposta do servidor
@@ -125,11 +125,11 @@ A notificação de degradação do tempo de resposta lhe informa:
   * Rastreamentos do Criador de Perfil para ajudá-lo a exibir onde o tempo de operação é gasto (o link fica disponível se exemplos de rastreamento do Criador de Perfil tiverem sido coletados para essa operação durante o período de detecção). 
   * Relatórios de desempenho no Gerenciador de Métricas, nos quais você pode dividir e os filtros/intervalos de tempo para a operação.
   * Pesquise essa chamada para exibir propriedades de chamadas específicas.
-  * Relatórios de falha – se a contagem > 1 isso significa que houve falhas nessa operação que podem ter contribuído para degradação do desempenho.
+  * Relatórios de falha - quando a contagem é maior que 1, existem falhas nessa operação que podem ter contribuído para a degradação do desempenho.
 
 ## <a name="dependency-duration-degradation"></a>Degradação da duração da dependência
 
-Os aplicativos modernos cada vez mais adotam uma abordagem de design de micro Services, que, em muitos casos, leva a uma grande confiabilidade em serviços externos. Por exemplo, se seu aplicativo depender de uma plataforma de dados ou mesmo se você criar seu próprio serviço de bot, provavelmente você usará algum provedor de serviços cognitivos para habilitar seus bots a interagirem de maneiras mais humanas, além de um serviço de armazenamento de dados do qual o bot obterá as respostas.  
+Os aplicativos modernos adotam cada vez mais uma abordagem de design de microsserviços que, em muitos casos, leva a uma grande dependência de serviços externos. Por exemplo, se seu aplicativo depender de uma plataforma de dados ou mesmo se você criar seu próprio serviço de bot, provavelmente você usará algum provedor de serviços cognitivos para habilitar seus bots a interagirem de maneiras mais humanas, além de um serviço de armazenamento de dados do qual o bot obterá as respostas.  
 
 Exemplo de notificação de degradação de dependência:
 
@@ -173,12 +173,12 @@ Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 ## <a name="next-steps"></a>Próximas etapas
 Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
 
-* [Criador de perfil](profiler.md) 
-* [Depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md)
-* [Análise](../../azure-monitor/log-query/get-started-portal.md)
+* [Profiler](profiler.md) 
+* [Depurador instantâneo](../../azure-monitor/app/snapshot-debugger.md)
+* [Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnóstico inteligente do Analytics](../../azure-monitor/app/analytics.md)
 
 As detecções inteligentes são totalmente automáticas. Mas talvez você queira configurar alguns outros alertas?
 
-* [Alertas de métrica configurados manualmente](../../azure-monitor/app/alerts.md)
+* [Alertas de métrica configurados manualmente](/azure/azure-monitor/platform/alerts-log)
 * [Testes de disponibilidade na Web](../../azure-monitor/app/monitor-web-app-availability.md)

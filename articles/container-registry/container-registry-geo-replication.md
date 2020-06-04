@@ -1,16 +1,16 @@
 ---
 title: Replicação geográfica de um registro
-description: Comece a criar e gerenciar um registro de contêiner do Azure com replicação geográfica, que permite que o registro sirva várias regiões com réplicas regionais de vários mestres.
+description: Comece a criar e gerenciar um registro de contêiner do Azure com replicação geográfica, que permite que o registro atenda a várias regiões com réplicas regionais de vários mestres.
 author: stevelas
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: d238de30e458261a11c941c03ac127c732ca8d3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456451"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711560"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 
@@ -61,11 +61,11 @@ Usando o recurso de replicação geográfica do Registro de Contêiner do Azure,
 
 ## <a name="configure-geo-replication"></a>Configurar a replicação geográfica
 
-Configurar a replicação geográfica é tão fácil quanto clicar em regiões em um mapa. Você também pode gerenciar a replicação geográfica usando ferramentas que incluem os comandos [AZ ACR Replication](/cli/azure/acr/replication) na CLI do Azure ou implantar um registro habilitado para replicação geográfica com um modelo de [Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
+Configurar a replicação geográfica é tão fácil quanto clicar em regiões em um mapa. Você também pode gerenciar a replicação geográfica usando ferramentas que incluem os comandos [az acr replication](/cli/azure/acr/replication) na CLI do Azure ou implantar um registro habilitado para replicação geográfica com um [modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
-A replicação geográfica é um recurso de [Registros Premium](container-registry-skus.md) somente. Se seu Registro ainda não é Premium, é possível alterar de Básico e Standard para Premium no [Portal do Azure](https://portal.azure.com):
+A replicação geográfica é um recurso de [Registros Premium](container-registry-skus.md). Se seu Registro ainda não é Premium, é possível alterar de Básico e Standard para Premium no [Portal do Azure](https://portal.azure.com):
 
-![Alternando SKUs no Portal do Azure](media/container-registry-skus/update-registry-sku.png)
+![Como alternar camadas de serviço no portal do Azure](media/container-registry-skus/update-registry-sku.png)
 
 Para configurar a replicação geográfica para o registro do Premium, faça logon no Portal do Azure em https://portal.azure.com.
 
@@ -92,25 +92,30 @@ O ACR começa a sincronizar imagens em réplicas configurados. Depois de conclu�
 ## <a name="considerations-for-using-a-geo-replicated-registry"></a>Considerações sobre o uso de um registro com replicação geográfica
 
 * Cada região em um registro com replicação geográfica é independente após a configuração. Os SLAs de Registro de Contêiner do Azure se aplicam a cada região geográfica replicada.
-* Quando você envia imagens por push ou pull de um registro com replicação geográfica, o Gerenciador de Tráfego do Azure em segundo plano envia a solicitação para o registro localizado na região mais próxima de você.
+* Quando você envia imagens por push ou pull de um registro com replicação geográfica, o Gerenciador de Tráfego do Azure em segundo plano envia a solicitação para o registro localizado na região mais próxima de você em termos de latência de rede.
 * Depois que você envia uma atualização de imagem ou marca por push para a região mais próxima, demora algum tempo até o Registro de Contêiner do Azure replicar as camadas e manifestos para as demais regiões que você aceitou. As imagens maiores demoram mais tempo para replicar do que as menores. As imagens e marcas são sincronizadas em todas as regiões de replicação com um modelo de consistência eventual.
-* Para gerenciar fluxos de trabalho que dependem de atualizações por push para uma replicação geográfica, recomendamos que você configure [WebHooks](container-registry-webhook.md) para responder aos eventos de push. Você pode configurar webhooks regionais dentro de um registro com replicação geográfica para acompanhar eventos por push, conforme eles são concluídos em todas as regiões com replicação geográfica.
+* Para gerenciar fluxos de trabalho que dependem de atualizações por push para um registro com replicação geográfica, recomendamos que você configure [webhooks](container-registry-webhook.md) para responder a eventos por push. Você pode configurar webhooks regionais dentro de um registro com replicação geográfica para acompanhar eventos por push, conforme eles são concluídos em todas as regiões com replicação geográfica.
+* Para atender a blobs que representam camadas de conteúdo, o Registro de Contêiner do Azure usa pontos de extremidade de dados. Você pode habilitar [pontos de extremidade de dados dedicados](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) para seu registro em cada uma das regiões replicadas geograficamente do registro. Esses pontos de extremidade permitem a configuração de regras de acesso a firewall com escopo bem delimitado.
+* Se você configurar um [link privado](container-registry-private-link.md) para o registro usando pontos de extremidade privados em uma rede virtual, os pontos de extremidade de dados dedicados em cada uma das regiões com replicação geográfica serão habilitados por padrão. 
 
 ## <a name="delete-a-replica"></a>Excluir uma réplica
 
-Depois de configurar uma réplica para o registro, você poderá excluí-la a qualquer momento se ela não for mais necessária. Exclua uma réplica usando o portal do Azure ou outras ferramentas, como o comando [AZ ACR Replication Delete](/cli/azure/acr/replication#az-acr-replication-delete) no CLI do Azure.
+Depois de configurar uma réplica para o registro, você poderá excluí-la a qualquer momento se ela não for mais necessária. Exclua uma réplica usando o portal do Azure ou outras ferramentas, como o comando [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) na CLI do Azure.
 
 Para excluir uma réplica no portal do Azure:
 
-1. Navegue até o registro de contêiner do Azure e selecione **replicações**.
-1. Selecione o nome de uma réplica e selecione **excluir**. Confirme que você deseja excluir a réplica.
+1. Navegue até o Registro de Contêiner do Azure e selecione **Replicações**.
+1. Selecione o nome de uma réplica e selecione **Excluir**. Confirme que você realmente deseja excluir a réplica.
 
-> [!NOTE]
-> Não é possível excluir a réplica de registro na *região de início* do registro, ou seja, o local em que você criou o registro. Você só pode excluir a réplica inicial excluindo o registro em si.
+Para usar a CLI do Azure para excluir uma réplica de *myregistry* na região leste dos EUA:
+
+```azurecli
+az acr replication delete --name eastus --registry myregistry
+```
 
 ## <a name="geo-replication-pricing"></a>Preços da replicação geográfica
 
-A replicação geográfica é um recurso do [SKU Premium](container-registry-skus.md) do Registro de Contêiner do Azure. Quando você replica um Registro para as regiões desejadas, incorre em taxas de Registro do Premium para cada região.
+A replicação geográfica é um recurso da [camada de serviço Premium](container-registry-skus.md) do Registro de Contêiner do Azure. Quando você replica um Registro para as regiões desejadas, incorre em taxas de Registro do Premium para cada região.
 
 No exemplo anterior, a Contoso consolidou dois registros inoperantes em um, adicionado réplicas ao Oeste dos EUA, Canadá Central e Europa Ocidental. A Contoso pagaria o Premium quatro vezes por mês, sem nenhuma configuração ou gerenciamento adicional. Agora cada região efetua pull de suas imagens localmente, melhorando o desempenho e a confiabilidade sem taxas de saída de rede do Oeste dos EUA para o Canadá e o Leste dos EUA.
 

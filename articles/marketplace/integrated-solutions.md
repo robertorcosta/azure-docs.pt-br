@@ -1,52 +1,51 @@
 ---
-title: Soluções integradas-Azure Marketplace
-description: Soluções integradas no Azure Marketplace e AppSource
+title: Soluções integradas - Microsoft Commercial Marketplace
+description: Saiba mais sobre as vantagens, os recursos e as próximas etapas para oferecer soluções integradas no Commercial Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 4c32fe80b681e6d82d40b0f5c94d5e9288f72cd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: bf20473b407db1804a4275fdc6dd3d528de1f189
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684411"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658001"
 ---
-# <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Soluções integradas no Microsoft AppSource e no Azure Marketplace
+# <a name="integrated-solutions-in-the-commercial-marketplace"></a>Soluções integradas no Commercial Marketplace
+Uma solução integrada reúne as tecnologias mais avançadas de parceiros da Microsoft, juntamente com consultoria, implantação e suporte fornecidos por parceiros de serviços especializados.
 
-Uma solução integrada reúne as melhores tecnologias de parceiros da Microsoft, juntamente com consultoria, implantação e suporte fornecidos por parceiros de serviços especializados.
+Dois ou mais parceiros da Microsoft integram sua tecnologia e seus serviços para criar uma experiência de implantação unificada, direta e repetida, e isso ajuda a colocar os clientes em funcionamento rapidamente.  O parceiro potencial na solução (geralmente o parceiro de serviços) fornece um único ponto de contato para o cliente, oferecendo personalização, consultoria e suporte relevantes sobre a solução.
 
-Dois ou mais parceiros da Microsoft integram sua tecnologia e seus serviços para criar uma experiência de implantação unificada, direta e repetível, a fim de colocar os clientes em funcionamento rapidamente.  O parceiro cliente potencial na solução (geralmente o parceiro de serviços) fornece um único ponto de contato para o cliente, fornecendo personalização, consultoria e suporte relevantes em relação à solução.
-
-Em outros cenários, os parceiros covendem ou comercadoam sua solução juntas, enquanto uma solução integrada é uma nova solução compilada em conjunto, que integra a tecnologia e os serviços entre parceiros.
+Em outros cenários, os parceiros fazem uma venda ou um marketing conjunto de suas soluções, enquanto uma solução integrada é uma nova solução compilada em conjunto, que integra a tecnologia e os serviços entre parceiros.
 
 ## <a name="advantages"></a>Vantagens
 
 As vantagens de uma abordagem integrada são:
 
-* *Experiência do setor*: parceiros de serviço fornecendo conhecimento e soluções específicas do setor
-* *Tempo de*retorno: abordagem de implantação integrada para ajudá-lo a obter benefícios imediatos
-* *Melhores soluções*: Descubra a facilidade de uma experiência integrada de compra e de implementação
+* *Conhecimento do setor*: Os parceiros de serviço fornecem conhecimento e soluções específicas do setor
+* *Tempo de retorno*: Abordagem de implantação integrada para ajudá-lo a obter benefícios imediatos
+* *Soluções mais avançadas*: Descubra a facilidade de uma experiência de compra e de implementação integrada
 
-Para obter mais informações, consulte [publicar uma solução integrada](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers).
+Para obter mais informações, consulte [Publicar uma solução integrada](./integrated-solutions-for-publishers.md).
 
-## <a name="submit-a-nomination"></a>Enviar uma indicação
+## <a name="submit-a-nomination"></a>Enviar uma nominação
 
-Os parceiros que desejam participar do programa devem identificar outros parceiros com os quais desejam trabalhar. Eles devem concluir o [formulário de nominação de soluções integradas](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx). A equipe do programa de soluções integradas revisa a indicação e segue em até 10 dias úteis. A equipe fornece aprovação e próximas etapas.
+Os parceiros que desejam participar do programa devem identificar outros parceiros com os quais desejam trabalhar. Eles devem preencher o [formulário de nominação de soluções integradas](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx). A equipe do programa de soluções integradas revisa a indicação e responde em até 10 dias úteis. A equipe fornece a aprovação e as próximas etapas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode descobrir soluções integradas e conectar-se com esses parceiros importantes visitando suas listagens aqui:
+Descubra soluções integradas e conecte-se a esses parceiros importantes visitando suas listagens aqui:
 
-* [Cliente 360 da plataforma Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [Customer 360 da plataforma Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
 * [Comércio rápido](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
 * [Análise de portfólio de empréstimos](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
-* [Pilha de segurança da nuvem de saúde](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [Pilha de segurança da nuvem de integridade](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
 * [Mecanismo de aceleração DevOps](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
 * [Fim do suporte do Windows Server](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
-* [Início rápido de consolidação de datacenter](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rivermeadowsoftwareinc.rapid-datacenter-consolidation-jumpstart?flightCodes=100discovermigrate)
+* [Início rápido da consolidação do datacenter](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rivermeadowsoftwareinc.rapid-datacenter-consolidation-jumpstart?flightCodes=100discovermigrate)
 * [DeviceTone IoT para serviço de campo conectado](https://azuremarketplace.microsoft.com/marketplace/apps/marketplaceprodware.devicetone_iot_for_connected_field_service?tab=Overview)
-* [Não em harmonia: uma solução unificada de gerenciamento de marketing](https://appsource.microsoft.com/marketplace/consulting-services/barhead_solutions.unison_p2p?pub_source=email&pub_status=success)
-* [Inteligente M&uma auditoria detalhada](https://azuremarketplace.microsoft.com/marketplace/consulting-services/avanadeinc.intelligent_ma_due_diligence)
+* [Unison: Uma solução unificada de gerenciamento de marketing](https://appsource.microsoft.com/marketplace/consulting-services/barhead_solutions.unison_p2p?pub_source=email&pub_status=success)
+* [Intelligent M&A Due Diligence](https://azuremarketplace.microsoft.com/marketplace/consulting-services/avanadeinc.intelligent_ma_due_diligence)

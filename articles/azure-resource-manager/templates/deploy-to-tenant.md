@@ -3,23 +3,23 @@ title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930056"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653342"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
 
-À medida que sua organização amadureceu, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseados em função](../../role-based-access-control/overview.md) em seu locatário do Azure AD. Com os modelos de nível de locatário, você pode aplicar políticas declarativamente e atribuir funções em um nível global.
+À medida que sua organização cresce, talvez seja necessário definir e atribuir [políticas](../../governance/policy/overview.md) ou [controles de acesso baseado em função](../../role-based-access-control/overview.md) em seu locatário do Azure AD. Com os modelos de nível de locatário, você pode aplicar políticas declarativamente e atribuir funções em um nível global.
 
 ## <a name="supported-resources"></a>Recursos compatíveis
 
 Você pode implantar os seguintes tipos de recursos no nível do locatário:
 
-* [implantações](/azure/templates/microsoft.resources/deployments) – para modelos aninhados que são implantados em grupos de gerenciamento ou assinaturas.
-* managementGroups
+* [implantações](/azure/templates/microsoft.resources/deployments) - para modelos aninhados que são implantados em grupos de gerenciamento ou assinaturas.
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -28,7 +28,7 @@ Você pode implantar os seguintes tipos de recursos no nível do locatário:
 
 ### <a name="schema"></a>Esquema
 
-O esquema usado para implantações de locatário é diferente do esquema para implantações de grupo de recursos.
+O esquema que você pode usar para implantações de locatário são diferentes dos esquemas para implantações do grupo de recursos.
 
 Para modelos, use:
 
@@ -36,7 +36,7 @@ Para modelos, use:
 https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
 ```
 
-O esquema para um arquivo de parâmetro é o mesmo para todos os escopos de implantação. Para arquivos de parâmetro, use:
+O esquema para um arquivo de parâmetro é o mesmo para todos os escopos de implantação. Para arquivos de parâmetros, use:
 
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
@@ -44,11 +44,11 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 ## <a name="required-access"></a>Acesso necessário
 
-A entidade de segurança que está implantando o modelo deve ter permissões para criar recursos no escopo do locatário. A entidade de segurança deve ter permissão para executar as ações`Microsoft.Resources/deployments/*`de implantação () e para criar os recursos definidos no modelo. Por exemplo, para criar um grupo de gerenciamento, a entidade de segurança deve ter permissão de colaborador no escopo do locatário. Para criar atribuições de função, a entidade de segurança deve ter permissão de proprietário.
+A entidade de segurança que está implantando o modelo deve ter permissões para criar recursos no escopo do locatário. A entidade de segurança deve ter permissão para executar as ações de implantação (`Microsoft.Resources/deployments/*`) e para criar os recursos definidos no modelo. Por exemplo, para criar um grupo de gerenciamento, a entidade de segurança deve ter permissão de colaborador no escopo do locatário. Para criar atribuições de função, a entidade de segurança deve ter permissão de proprietário.
 
-O administrador global do Azure Active Directory não tem automaticamente permissão para atribuir funções. Para habilitar implantações de modelo no escopo do locatário, o administrador global deve executar as seguintes etapas:
+O administrador global do Microsoft Azure Active Directory não tem automaticamente permissão para atribuir funções. Para habilitar implantações de modelo no escopo do locatário, o administrador global deve executar as seguintes etapas:
 
-1. Eleve o acesso à conta para que o administrador global possa atribuir funções. Para obter mais informações, consulte [elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](../../role-based-access-control/elevate-access-global-admin.md).
+1. Eleve o acesso à conta para que o administrador global possa atribuir funções. Para obter mais informações, confira [Elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
 1. Atribua o proprietário ou colaborador à entidade de segurança que precisa implantar os modelos.
 
@@ -64,9 +64,9 @@ O principal agora tem as permissões necessárias para implantar o modelo.
 
 ## <a name="deployment-commands"></a>Comandos de implantação
 
-Os comandos para implantações de locatário são diferentes dos comandos para implantações de grupo de recursos.
+Os comandos para implantações de locatário são diferentes dos comandos para implantações do grupo de recursos.
 
-Para CLI do Azure, use [AZ Deployment locatário Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+Para CLI do Azure, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -84,32 +84,32 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
 ```
 
-Para a API REST, use [implantações-criar ou atualizar no escopo do locatário](/rest/api/resources/deployments/createorupdateattenantscope).
+Para REST API, use [Implantações – Criar ou atualizar no escopo do locatário](/rest/api/resources/deployments/createorupdateattenantscope).
 
-## <a name="deployment-location-and-name"></a>Local e nome da implantação
+## <a name="deployment-location-and-name"></a>Nome e local da implantação
 
-Para implantações em nível de locatário, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
+Para implantações no nível do locatário, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação.
 
-Você pode fornecer um nome para a implantação ou usar o nome de implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
 
-Para cada nome de implantação, o local é imutável. Não é possível criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
+O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 
 ## <a name="use-template-functions"></a>Usar funções de modelo
 
-Para implantações de locatários, há algumas considerações importantes ao usar funções de modelo:
+Para implantações de locatário, há algumas considerações importantes ao usar funções de modelo:
 
 * A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
-* **Não** há suporte para a função [Subscription ()](template-functions-resource.md#subscription) .
+* A função [subscription()](template-functions-resource.md#subscription) **não** tem suporte.
 * A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
-* Use a função [tenantResourceId ()](template-functions-resource.md#tenantresourceid) para obter a ID do recurso para os recursos que são implantados no nível do locatário.
+* Use a função [tenantResourceId()](template-functions-resource.md#tenantresourceid) para obter a ID do recurso para os recursos que são implantados no nível do locatário.
 
-  Por exemplo, para obter a ID de recurso para uma definição de política, use:
+  Por exemplo, para obter a ID do recurso para uma definição de política, use:
 
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
 
-  A ID de recurso retornada tem o seguinte formato:
+  A ID do recurso retornada tem o seguinte formato:
 
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -117,7 +117,7 @@ Para implantações de locatários, há algumas considerações importantes ao u
 
 ## <a name="create-management-group"></a>Criar grupo de gerenciamento
 
-O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) cria um grupo de gerenciamento.
+O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) cria um grupo de recursos vazio.
 
 ```json
 {
@@ -185,5 +185,5 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como atribuir funções, consulte [gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
-* Você também pode implantar modelos no nível da [assinatura](deploy-to-subscription.md) ou do [grupo de gerenciamento](deploy-to-management-group.md).
+* Para saber mais sobre como atribuir funções, confira [Gerenciar o acesso a recursos do Azure usando modelos do RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Você também pode implantar modelos no [nível de assinatura](deploy-to-subscription.md) e [nível do grupo de gerenciamento](deploy-to-management-group.md).

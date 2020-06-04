@@ -1,35 +1,35 @@
 ---
-title: Associação de saída da grade de eventos do Azure para Azure Functions
-description: Saiba como enviar um evento de grade de eventos no Azure Functions.
+title: Associação de saída da Grade de Eventos do Azure para Azure Functions
+description: Saiba como enviar um evento da Grade de Eventos no Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627680"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773945"
 ---
-# <a name="azure-event-grid-output-binding-for-azure-functions"></a>Associação de saída da grade de eventos do Azure para Azure Functions
+# <a name="azure-event-grid-output-binding-for-azure-functions"></a>Associação de saída da Grade de Eventos do Azure para Azure Functions
 
-Use a associação de saída da grade de eventos para gravar eventos em um tópico personalizado. Você deve ter uma [chave de acesso válida para o tópico personalizado](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
+Use a associação de saída da Grade de Eventos para gravar eventos em um tópico personalizado. Você deve ter uma [chave de acesso válida para o tópico personalizado](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
 
-Para obter informações sobre configuração e detalhes de configuração, consulte a [visão geral](./functions-bindings-event-grid.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](./functions-bindings-event-grid.md).
 
 > [!NOTE]
-> A associação de saída da grade de eventos não oferece suporte a assinaturas de acesso compartilhado (tokens SAS). Você deve usar a tecla de acesso do tópico.
+> A associação de saída da Grade de Eventos não oferece suporte a assinaturas de acesso compartilhado (tokens SAS). Você deve usar a chave de acesso do tópico.
 
 > [!IMPORTANT]
-> A associação de saída da grade de eventos só está disponível para o Functions 2. x e superior.
+> A associação de saída da Grade de Eventos só está disponível para o Functions 2.x e superiores.
 
 ## <a name="example"></a>Exemplo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que grava uma mensagem em um tópico personalizado da grade de eventos, usando o valor de retorno do método como a saída:
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que grava uma mensagem em um tópico personalizado da Grade de Eventos usando o valor retornado do método como a saída:
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -40,7 +40,7 @@ public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTim
 }
 ```
 
-O exemplo a seguir mostra como usar a `IAsyncCollector` interface para enviar um lote de mensagens.
+O exemplo a seguir mostra como usar a interface `IAsyncCollector` para enviar um lote de mensagens.
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -59,7 +59,7 @@ public static async Task Run(
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-O exemplo a seguir mostra os dados de associação de saída da grade de eventos no arquivo *Function. JSON* .
+O exemplo a seguir mostra os dados de associação de saída da Grade de Eventos no arquivo *function.json*.
 
 ```json
 {
@@ -71,7 +71,7 @@ O exemplo a seguir mostra os dados de associação de saída da grade de eventos
 }
 ```
 
-Aqui está o código do script C# que cria um evento:
+Este é o código C# script que cria um evento:
 
 ```cs
 #r "Microsoft.Azure.EventGrid"
@@ -85,7 +85,7 @@ public static void Run(TimerInfo myTimer, out EventGridEvent outputEvent, ILogge
 }
 ```
 
-Aqui está o código do script C# que cria vários eventos:
+Este é o código de script C# que cria vários eventos:
 
 ```cs
 #r "Microsoft.Azure.EventGrid"
@@ -102,7 +102,7 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O exemplo a seguir mostra os dados de associação de saída da grade de eventos no arquivo *Function. JSON* .
+O exemplo a seguir mostra os dados de associação de saída da Grade de Eventos no arquivo *function.json*.
 
 ```json
 {
@@ -162,11 +162,57 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-A associação de saída da grade de eventos não está disponível para Python.
+O exemplo a seguir mostra uma associação de gatilho em um arquivo *function.json* e uma [função Python](functions-reference-python.md) que usa a associação. Em seguida, ele envia em um evento para o tópico Grade de Eventos personalizado, conforme especificado pelo `topicEndpointUri`.
+
+Aqui estão os dados de associação no arquivo *function.json*:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    },
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Aqui está o exemplo do Python para enviar um evento a um tópico de Grade de Eventos personalizado definindo o `EventGridOutputEvent`:
+
+```python
+import logging
+import azure.functions as func
+import datetime
+
+
+def main(eventGridEvent: func.EventGridEvent, 
+         outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
+
+    logging.log("eventGridEvent: ", eventGridEvent)
+
+    outputEvent.set(
+        func.EventGridOutputEvent(
+            id="test-id",
+            data={"tag1": "value1", "tag2": "value2"},
+            subject="test-subject",
+            event_type="test-event-1",
+            event_time=datetime.datetime.utcnow(),
+            data_version="1.0"))
+```
 
 # <a name="java"></a>[Java](#tab/java)
 
-A associação de saída da grade de eventos não está disponível para Java.
+A associação de saída da Grade de Eventos não está disponível para Java.
 
 ---
 
@@ -174,7 +220,7 @@ A associação de saída da grade de eventos não está disponível para Java.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para [bibliotecas de classes C#](functions-dotnet-class-library.md), use o atributo [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) .
+Para [bibliotecas de classes de C#](functions-dotnet-class-library.md), use o atributo [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs).
 
 O construtor do atributo usa o nome de uma configuração de aplicativo que contém o nome do tópico personalizado e o nome de uma configuração de aplicativo que contém a chave do tópico. Para obter mais informações sobre essas configurações, consulte [Saída - configuração](#configuration). Este é um `EventGrid` exemplo de atributo:
 
@@ -187,42 +233,42 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-Para obter um exemplo completo, consulte [exemplo](#example).
+Para ver um exemplo completo, confira o [exemplo](#example).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
-Não há suporte para atributos pelo script C#.
+O script C# não dá suporte a atributos.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Não há suporte para atributos pelo JavaScript.
+O JavaScript não dá suporte a atributos.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A associação de saída da grade de eventos não está disponível para Python.
+A associação de saída da Grade de Eventos não está disponível para Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A associação de saída da grade de eventos não está disponível para Java.
+A associação de saída da Grade de Eventos não está disponível para Java.
 
 ---
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *Function. JSON* e o `EventGrid` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `EventGrid`.
 
 |Propriedade function.json | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | N/D | Deve ser definido como "eventGrid". |
-|**direção** | N/D | Deve ser definido como "out". Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure. |
-|**name** | N/D | É o nome da variável usada no código da função que representa o evento. |
+|**tipo** | n/d | Deve ser definido como "eventGrid". |
+|**direction** | n/d | Deve ser definido como "out". Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure. |
+|**name** | n/d | É o nome da variável usada no código da função que representa o evento. |
 |**topicEndpointUri** |**TopicEndpointUri** | O nome de uma configuração de aplicativo que contém o URI para o tópico personalizado, como `MyTopicEndpointUri`. |
 |**topicKeySetting** |**TopicKeySetting** | O nome de uma configuração de aplicativo que contém uma chave de acesso para o tópico personalizado. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Certifique-se de definir o valor da `TopicEndpointUri` propriedade de configuração como o nome de uma configuração de aplicativo que contém o URI do tópico personalizado. Não especifique o URI do tópico personalizado diretamente nesta propriedade.
+> Defina o valor da propriedade de configuração `TopicEndpointUri` como o nome de uma configuração de aplicativo que contém o URI do tópico personalizado. Não especifique o URI do tópico personalizado diretamente nesta propriedade.
 
 ## <a name="usage"></a>Uso
 
@@ -236,18 +282,18 @@ Envie mensagens usando um parâmetro de método, como `out EventGridEvent paramN
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Acesse o evento de saída `context.bindings.<name>` usando `<name>` WHERE é o valor especificado na `name` propriedade de *Function. JSON*.
+Acesse o evento de saída usando `context.bindings.<name>`, em que `<name>` é o valor especificado na propriedade `name` de *function.json*.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A associação de saída da grade de eventos não está disponível para Python.
+A associação de saída da Grade de Eventos não está disponível para Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-A associação de saída da grade de eventos não está disponível para Java.
+A associação de saída da Grade de Eventos não está disponível para Java.
 
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Enviar um evento de grade de eventos](./functions-bindings-event-grid-trigger.md)
+* [Enviar um evento de Grade de Eventos](./functions-bindings-event-grid-trigger.md)

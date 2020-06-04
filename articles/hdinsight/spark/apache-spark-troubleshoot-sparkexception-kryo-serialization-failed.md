@@ -1,26 +1,26 @@
 ---
-title: Problemas com JDBC/ODBC & o Apache Thrift Framework-Azure HDInsight
-description: Não é possível baixar conjuntos de dados grandes usando JDBC/ODBC e a estrutura de software Apache Thrift no Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
+title: Problemas com JDBC/ODBC e a estrutura do Apache Thrift - Azure HDInsight
+description: Não é possível baixar conjuntos de dados grandes usando JDBC/ODBC e a estrutura de software do Apache Thrift no Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 07/29/2019
-ms.openlocfilehash: 23693dcae2f361b88440ec88ca39fd8ed229d85a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 05/14/2020
+ms.openlocfilehash: a8dcd6ae844810213ed6706002cdb9a31de94f60
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75894269"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653591"
 ---
-# <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>Não é possível baixar conjuntos de dados grandes usando JDBC/ODBC e a estrutura de software Apache Thrift no HDInsight
+# <a name="unable-to-download-large-data-sets-using-jdbcodbc-and-apache-thrift-software-framework-in-hdinsight"></a>Não é possível baixar conjuntos de dados grandes usando JDBC/ODBC e a estrutura de software do Apache Thrift no HDInsight
 
-Este artigo descreve as etapas de solução de problemas e as possíveis resoluções para problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
+Este artigo descreve as etapas de solução de problemas e as possíveis resoluções de problemas ao usar os componentes do Apache Spark nos clusters do Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Ao tentar baixar grandes conjuntos de dados usando JDBC/ODBC e a estrutura de software Apache Thrift no Azure HDInsight, você receberá uma mensagem de erro semelhante à seguinte:
+Ao tentar baixar grandes conjuntos de dados usando JDBC/ODBC e a estrutura de software do Apache Thrift no Azure HDInsight, você receberá uma mensagem de erro semelhante à seguinte:
 
 ```
 org.apache.spark.SparkException: Kryo serialization failed:
@@ -29,18 +29,21 @@ Buffer overflow. Available: 0, required: 36518. To avoid this, increase spark.kr
 
 ## <a name="cause"></a>Causa
 
-Essa exceção é causada pelo processo de serialização que está tentando usar mais espaço de buffer do que é permitido. No Spark 2.0.0, a classe `org.apache.spark.serializer.KryoSerializer` é usada para serializar objetos quando os dados são acessados por meio da estrutura de software Apache thrift. Uma classe diferente é usada para dados que serão enviados pela rede ou armazenados em cache na forma serializada.
+Essa exceção é causada pelo processo de serialização que está tentando usar mais espaço de buffer do que o permitido. No Spark 2.0.0, a classe `org.apache.spark.serializer.KryoSerializer` é usada para serializar objetos quando os dados são acessados por meio da estrutura de software do Apache Thrift. Uma classe diferente é usada para dados que serão enviados pela rede ou armazenados em cache na forma serializada.
 
 ## <a name="resolution"></a>Resolução
 
-Aumente o `Kryoserializer` valor do buffer. Adicione uma chave chamada `spark.kryoserializer.buffer.max` e defina-a `2048` como em spark2 config `Custom spark2-thrift-sparkconf`em.
+Aumente o valor do buffer de `Kryoserializer`. Adicione uma chave chamada `spark.kryoserializer.buffer.max` e defina-a como `2047` no spark2 config em `Custom spark2-thrift-sparkconf`. Reinicie todos os componentes afetados.
+
+> [!IMPORTANT]
+> O valor de `spark.kryoserializer.buffer.max` deve ser menor que 2048. Valores fracionados não são compatíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você não encontrou seu problema ou não conseguiu resolver seu problema, visite um dos seguintes canais para obter mais suporte:
 
-* Obtenha respostas de especialistas do Azure por meio do [suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
+* Obtenha respostas de especialistas do Azure por meio do [Suporte da Comunidade do Azure](https://azure.microsoft.com/support/community/).
 
-* Conecte- [@AzureSupport](https://twitter.com/azuresupport) se com a conta de Microsoft Azure oficial para melhorar a experiência do cliente conectando a Comunidade do Azure aos recursos certos: respostas, suporte e especialistas.
+* Conecte-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente conectando-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 
-* Se precisar de mais ajuda, você poderá enviar uma solicitação de suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **suporte** na barra de menus ou abra o Hub **ajuda + suporte** . Para obter informações mais detalhadas, consulte [como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o suporte técnico é fornecido por meio de um dos [planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
+* Se você precisar de mais ajuda, poderá enviar uma solicitação de suporte no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selecione **Suporte** na barra de menus ou abra o hub **Ajuda + suporte**. Para obter informações mais detalhadas, consulte [Como criar uma solicitação de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). O acesso ao Gerenciamento de assinaturas e ao suporte de cobrança está incluído na sua assinatura do Microsoft Azure, e o Suporte técnico é fornecido por meio de um dos [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).

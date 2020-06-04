@@ -1,5 +1,5 @@
 ---
-title: Regras para associação de grupos dinamicamente preenchidos – Azure AD | Microsoft Docs
+title: Regras para associação de grupos preenchidos dinamicamente – Azure AD | Microsoft Docs
 description: Como criar regras de associação para preencher automaticamente os grupos e uma referência de regra.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
-ms.translationtype: MT
+ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582893"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744688"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Associação dinâmica do Azure Active Directory para grupos
 
@@ -31,24 +31,24 @@ Quando os atributos de um usuário ou um dispositivo são alterados, o sistema a
 - Você não pode criar um grupo de dispositivos com base em atributos os proprietários do dispositivo. Regras de associação de dispositivo só podem fazer referência a atributos do dispositivo.
 
 > [!NOTE]
-> Este recurso requer uma licença do Azure AD Premium P1 para cada usuário exclusivo que for um membro de um ou mais grupos dinâmicos. Você não precisa atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos, mas você deve ter o número mínimo de licenças na organização do Azure AD para abranger todos esses usuários. Por exemplo, se você tivesse um total de 1.000 usuários exclusivos em todos os grupos dinâmicos em sua organização, precisaria de pelo menos uma licença de 1.000 para Azure AD Premium P1 para atender ao requisito de licença.
+> Este recurso requer uma licença do Azure AD Premium P1 para cada usuário exclusivo que for um membro de um ou mais grupos dinâmicos. Você não precisa atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos, mas é necessário ter o número mínimo de licenças na organização do Azure AD para cobrir todos esses usuários. Por exemplo, se você tiver o total de 1.000 usuários exclusivos em todos os grupos dinâmicos na organização, serão necessárias pelo menos 1.000 licenças do Azure AD Premium P1 para atender ao requisito de licença.
 > Nenhuma licença é necessária para dispositivos que são membros de um grupo de dispositivos dinâmico.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Construtor de regras no portal do Azure
 
 O Azure AD fornece um construtor de regras para criar e atualizar suas regras importantes mais rapidamente. O construtor de regras dá suporte à construção de até cinco expressões. O construtor de regras torna mais fácil formar uma regra com algumas expressões simples, no entanto, ela não pode ser usada para reproduzir todas as regras. Se o construtor de regras não oferecer suporte à regra que você deseja criar, você poderá usar a caixa de texto.
 
-Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recomendamos que você construa usando a caixa de texto:
+Aqui estão alguns exemplos de regras ou sintaxe avançadas para as quais recomendamos que você construa usando a caixa de texto:
 
 - Regra com mais de cinco expressões
-- A regra de relatórios diretos
-- Definindo a [precedência de operador](groups-dynamic-membership.md#operator-precedence)
-- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo`(user.proxyAddresses -any (_ -contains "contoso"))`
+- A regra de Subordinados diretos
+- Como definir a [precedência do operador](groups-dynamic-membership.md#operator-precedence)
+- [Regras com expressões complexas](groups-dynamic-membership.md#rules-with-complex-expressions); por exemplo `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de forma alguma.
+> O construtor de regras pode não conseguir exibir algumas regras construídas na caixa de texto. Você poderá ver uma mensagem quando o construtor de regras não puder exibir a regra. O construtor de regras não altera a sintaxe com suporte, a validação nem o processamento de regras de grupo dinâmicas de modo algum.
 
-Para obter instruções passo a passo, consulte [criar ou atualizar um grupo dinâmico](groups-create-rule.md).
+Para obter instruções passo a passo, confira [Criar ou atualizar um grupo dinâmico](groups-create-rule.md).
 
 ![Adicionar regra de associação a um grupo dinâmico](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
@@ -95,32 +95,32 @@ Estas são todas as propriedades do usuário que você pode usar para criar uma 
 
 | Propriedades | Valores permitidos | Uso |
 | --- | --- | --- |
-| city |Qualquer valor de cadeia de caracteres ou *nulo* |(user.city -eq "valor") |
-| country |Qualquer valor de cadeia de caracteres ou *nulo* |(user.country -eq "valor") |
-| companyName | Qualquer valor de cadeia de caracteres ou *nulo* | (user.companyName -eq "value") |
-| department |Qualquer valor de cadeia de caracteres ou *nulo* |(user.department -eq "value") A propriedade  |
+| city |Qualquer valor de cadeia de caracteres ou *null* |(user.city -eq "valor") |
+| country |Qualquer valor de cadeia de caracteres ou *null* |(user.country -eq "valor") |
+| companyName | Qualquer valor de cadeia de caracteres ou *null* | (user.companyName -eq "value") |
+| department |Qualquer valor de cadeia de caracteres ou *null* |(user.department -eq "value") A propriedade |
 | displayName |Qualquer valor de cadeia de caracteres |(user. DisplayName -eq "valor") |
 | employeeId |Qualquer valor de cadeia de caracteres |(user.employeeId -eq "valor")<br>(user.employeeId -ne *null*) |
-| facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |user.facsimileTelephoneNumber -eq ("valor") |
-| givenName |Qualquer valor de cadeia de caracteres ou *nulo* |user.givenName -eq ("valor") |
-| jobTitle |Qualquer valor de cadeia de caracteres ou *nulo* |(user.jobTitle - eq "valor") |
-| mail |Qualquer valor de cadeia de caracteres ou *nulo* (endereço SMTP do usuário) |(user.mail - eq "valor") |
+| facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou *null* |user.facsimileTelephoneNumber -eq ("valor") |
+| givenName |Qualquer valor de cadeia de caracteres ou *null* |user.givenName -eq ("valor") |
+| jobTitle |Qualquer valor de cadeia de caracteres ou *null* |(user.jobTitle - eq "valor") |
+| mail |Qualquer valor de cadeia de caracteres ou *null* (endereço SMTP do usuário) |(user.mail - eq "valor") |
 | mailNickName |Qualquer valor de cadeia de caracteres (alias de email do usuário) |(user.mailNickName - eq "valor") |
-| Serviço Móvel |Qualquer valor de cadeia de caracteres ou *nulo* |(user.mobile -eq "valor") |
+| Serviço Móvel |Qualquer valor de cadeia de caracteres ou *null* |(user.mobile -eq "valor") |
 | objectId |GUID do objeto de usuário |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | SID (ID de segurança) local para usuários que foram sincronizados do local para a nuvem. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *nulo* |(user.physicalDeliveryOfficeName -eq "valor") |
-| postalCode |Qualquer valor de cadeia de caracteres ou *nulo* |(user.postalCode - eq "valor") |
+| physicalDeliveryOfficeName |Qualquer valor de cadeia de caracteres ou *null* |(user.physicalDeliveryOfficeName -eq "valor") |
+| postalCode |Qualquer valor de cadeia de caracteres ou *null* |(user.postalCode - eq "valor") |
 | preferredLanguage |ISO 639-1 code |(user.preferredLanguage - eq "en-US") |
-| sipProxyAddress |Qualquer valor de cadeia de caracteres ou *nulo* |(user.sipProxyAddress -eq "valor") |
-| state |Qualquer valor de cadeia de caracteres ou *nulo* |(user.state -eq "valor") |
-| streetAddress |Qualquer valor de cadeia de caracteres ou *nulo* |(user.streetAddress -eq "valor") |
-| sobrenome |Qualquer valor de cadeia de caracteres ou *nulo* |(user.surname -eq "valor") |
-| telephoneNumber |Qualquer valor de cadeia de caracteres ou *nulo* |(user.telephoneNumber -eq "valor") |
-| usageLocation |Código do país indicados dois |(user.usageLocation -eq "EUA") |
+| sipProxyAddress |Qualquer valor de cadeia de caracteres ou *null* |(user.sipProxyAddress -eq "valor") |
+| state |Qualquer valor de cadeia de caracteres ou *null* |(user.state -eq "valor") |
+| streetAddress |Qualquer valor de cadeia de caracteres ou *null* |(user.streetAddress -eq "valor") |
+| sobrenome |Qualquer valor de cadeia de caracteres ou *null* |(user.surname -eq "valor") |
+| telephoneNumber |Qualquer valor de cadeia de caracteres ou *null* |(user.telephoneNumber -eq "valor") |
+| usageLocation |Código de duas letras do país/região |(user.usageLocation -eq "EUA") |
 | userPrincipalName |Qualquer valor de cadeia de caracteres |(user.userPrincipalName -eq "alias@domain") |
-| userType |membro convidado *nulo* |(ser.userType -eq "Membro") |
+| userType |member guest *null* |(ser.userType -eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeias de caracteres de tipo
 
@@ -144,7 +144,7 @@ A tabela a seguir lista os operadores com suporte e sua sintaxe para uma única 
 | Não contém |-notContains |
 | Contém |-contains |
 | Não corresponde |-notMatch |
-| Correspondência |-match |
+| Corresponder a |-match |
 | No | -in |
 | Não está em | -notIn |
 
@@ -301,7 +301,7 @@ Os relatórios diretos são construídos usando a sintaxe a seguir:
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Aqui está um exemplo de uma regra válida em que "62e19b97-8b3d-4d4a-A106-4ce66896a863" é o objectID do gerente:
+Aqui está um exemplo de regra válida em que "62e19b97-8b3d-4d4a-a106-4ce66896a863" é a objectID do gerente:
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -310,15 +310,15 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 As dicas a seguir podem ajudá-lo a usar a regra corretamente.
 
 - O **Manager ID** é a ID de objeto do Gerenciador. Ele pode ser encontrado no Gerenciador de **Perfil**.
-- Para que a regra funcione, verifique se a propriedade **Manager** está definida corretamente para os usuários em sua organização. Você pode verificar o valor atual no **Perfil** do usuário.
+- Para que a regra funcione, verifique se a propriedade **ID do Gerenciador** está definida corretamente nos usuários em sua organização. Você pode verificar o valor atual no **Perfil** do usuário.
 - Essa regra dá suporte a apenas os relatórios de diretos do gerente. Em outras palavras, é possível criar um grupo com subordinados diretos do gerente *e* seus relatórios.
 - Esta regra não pode ser combinada com nenhuma outra regra avançada.
 
 ### <a name="create-an-all-users-rule"></a>Criar uma regra de "Todos os usuários"
 
-Você pode criar um grupo que contém todos os usuários em uma organização usando uma regra de associação. Quando os usuários são adicionados ou removidos da organização no futuro, a associação do grupo é ajustada automaticamente.
+Você pode criar um grupo contendo todos os usuários dentro de uma organização usando uma regra de associação. Quando os usuários são adicionados ou removidos da organização no futuro, a associação do grupo é ajustada automaticamente.
 
-A regra "todos os usuários" é construída usando uma única expressão usando o operador-ne e o valor nulo. Essa regra adiciona usuários convidados de B2B, bem como os usuários de membro ao grupo.
+A regra "Todos os usuários" é construída usando a única expressão usando o operador -ne e o valor nulo. Essa regra adiciona usuários convidados de B2B, bem como os usuários de membro ao grupo.
 
 ```
 user.objectId -ne null
@@ -329,11 +329,11 @@ Se você quiser que o grupo exclua os usuários convidados e inclua somente os m
 (user.objectId -ne null) -and (user.userType -eq "Member")
 ```
 
-### <a name="create-an-all-devices-rule"></a>Criar uma regra de "todos os dispositivos"
+### <a name="create-an-all-devices-rule"></a>Criar uma regra "Todos os dispositivos"
 
-Você pode criar um grupo que contém todos os dispositivos de uma organização usando uma regra de associação. Quando os dispositivos são adicionados ou removidos da organização no futuro, a associação do grupo é ajustada automaticamente.
+Você pode criar um grupo contendo todos os dispositivos dentro de uma organização usando uma regra de associação. Quando os dispositivos são adicionados ou removidos da organização no futuro, a associação do grupo é ajustada automaticamente.
 
-A regra "todos os dispositivos" é construída usando uma única expressão usando o operador-ne e o valor nulo:
+A regra "Todos os Dispositivos" é construída usando a única expressão usando o operador -ne e o valor nulo:
 
 ```
 device.objectId -ne null
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>As propriedades de extensão e as propriedades de extensão personalizado
 
-Atributos de extensão e propriedades de extensão personalizadas têm suporte como propriedades de cadeia de caracteres em regras de associação dinâmica. Os [atributos de extensão](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) são sincronizados do AD do servidor de janelas local e têm o formato "ExtensionAttributeX", onde X é igual a 1-15. Um exemplo de uma regra que usa um atributo de extensão como propriedade:
+Os atributos de extensão e as propriedades de extensão personalizada têm suporte como propriedades de cadeia de caracteres nas regras de associação dinâmica. Os [atributos de extensão](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) são sincronizados no AD do Windows Server local e têm o formato "ExtensionAttributeX", em que X é igual a 1 a 15. Um exemplo de uma regra que usa um atributo de extensão como propriedade:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[As propriedades de extensão personalizadas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) são sincronizadas do AD do Windows Server local ou de um aplicativo SaaS conectado e têm o formato de `user.extension_[GUID]_[Attribute]`, em que:
+As [propriedades de extensão personalizadas](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) são sincronizadas no AD do Windows Server local ou de um aplicativo SaaS conectado e estão no formato de `user.extension_[GUID]_[Attribute]`, em que:
 
 * [GUID] é o identificador exclusivo no Microsoft Azure Active Directory para o aplicativo que criou a propriedade do Microsoft Azure Active Directory
 * [Atributo] é o nome da propriedade como ele foi criado
@@ -370,27 +370,27 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 > [!NOTE]
 > systemlabels é um atributo somente leitura que não pode ser definido com o Intune.
 >
-> Para o Windows 10, o formato correto do atributo deviceOSVersion é o seguinte: (Device. deviceOSVersion-EQ "10.0.17763"). A formatação pode ser validada com o cmdlet Get-MsolDevice do PowerShell.
+> Para o Windows 10, o formato correto do atributo deviceOSVersion é: (device.deviceOSVersion- eq "10.0.17763"). A formatação pode ser validada com o cmdlet Get-MsolDevice do PowerShell.
 
 Os seguintes atributos de dispositivo podem ser usados.
 
  Atributo do dispositivo  | Valores | Exemplo
  ----- | ----- | ----------------
  accountEnabled | verdadeiro, falso | (device.accountEnabled -eq true)
- displayName | Um valor de cadeia de caracteres. |(Device. displayName-EQ "Rob iPhone")
- deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(Device. deviceOSType-contém "AndroidEnterprise")<br>(Device. deviceOSType-EQ "AndroidForWork")
+ displayName | Um valor de cadeia de caracteres. |(device.displayName -eq "Rob iPhone")
+ deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | Um valor de cadeia de caracteres. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | o nome de uma categoria de dispositivo válida | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Um valor de cadeia de caracteres. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Um valor de cadeia de caracteres. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, Empresa, Desconhecido | (device.deviceOwnership -eq "Company")
- enrollmentProfileName | Perfil de registro de dispositivo da Apple, registro de dispositivo-identificadores de dispositivo corporativo (Android-quiosque) ou nome do perfil do Windows AutoPilot | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Perfil de Registro de Dispositivo da Apple, Registro de dispositivo – identificadores de dispositivo corporativo (Android – quiosque) ou nome do perfil do Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | verdadeiro, falso | (device.isRooted -eq true)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (device.managementType -eq "MDM")
  deviceId | uma ID de dispositivo do Azure AD válida | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | uma ID de objeto do Azure AD válida |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
- devicePhysicalIds | qualquer valor de cadeia de caracteres usado pelo AutoPilot, como todos os dispositivos AutoPilot, OrderID ou PurchaseOrderID  | (Device. devicePhysicalIDs-any _ contém "[ZTDId]") (Device. devicePhysicalIds-qualquer _-EQ "[OrderID]: 179887111881") (Device. devicePhysicalIds-qualquer _-EQ "[PurchaseOrderId]: 76222342342")
- systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcação de dispositivos de Local de Trabalho Moderno | (Device. systemLabels-contém "M365Managed")
+ devicePhysicalIds | qualquer valor de cadeia de caracteres usado pelo AutoPilot, como todos os dispositivos Autopilot, OrderID ou PurchaseOrderID  | (device.devicePhysicalIDs -any _ -contains "[ZTDId]") (device.devicePhysicalIds -any _ -eq "[OrderID]:179887111881") (device.devicePhysicalIds -any _ -eq "[PurchaseOrderId]:76222342342")
+ systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcação de dispositivos de Local de Trabalho Moderno | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > Para o deviceOwnership ao criar grupos dinâmicos para dispositivos, é necessário definir o valor igual a "Company". No Intune, a propriedade do dispositivo é representada como Corporate. Consulte [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 

@@ -1,137 +1,138 @@
 ---
 title: Transformar dados
 titleSuffix: Azure Machine Learning
-description: Saiba como transformar dados no designer de Azure Machine Learning para criar seus próprios conjuntos.
+description: Saiba como transformar dados no designer do Azure Machine Learning para criar seus próprios conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 05/04/2020
-ms.openlocfilehash: 5296ac54cab403ef78b3e8bd32fe5ebe6ea43119
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.custom: designer
+ms.openlocfilehash: 718023424834ffca7a026dc5b3d35b8fb11fe633
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82842871"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644295"
 ---
-# <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transformar dados no designer de Azure Machine Learning (versão prévia)
+# <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transformar dados no designer do Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a transformar e salvar conjuntos de dados no designer de Azure Machine Learning para que possa preparar seus próprios dados para o aprendizado de máquina.
+Neste artigo, você aprenderá a transformar e salvar conjuntos de dados no designer de Azure Machine Learning para que possa preparar seus próprios dados para o machine learning.
 
-Você usará o conjunto de dados de [classificação binária de renda de censo adulto](sample-designer-datasets.md) de exemplo para preparar dois conjuntos de dados: um conjunto que inclui informações de censo somente para adultos do Estados Unidos e outro conjunto de dados que inclui informações de censo de pessoas que não são adultos.
+Você usará o conjunto de dados de exemplo de [Classificação Binária de Renda de Censo de Adulto](sample-designer-datasets.md) para preparar dois conjuntos de dados: um que inclui informações de censo somente de adultos residentes nos Estados Unidos e outro com informações de censo de adultos não residentes nos EUA.
 
 Neste artigo, você aprenderá como:
 
-1. Transforme um conjunto de um DataSet para prepará-lo para treinamento.
-1. Exporte os conjuntos de resultados resultantes para um repositório de armazenamento.
-1. Exibir resultados.
+1. Transforme um conjunto de dados a fim de prepará-lo para treinamento.
+1. Exporte os conjuntos de dados resultantes para um armazenamento de dados.
+1. Veja os resultados.
 
-Este "como" é um pré-requisito para o artigo [como treinar modelos de designer](how-to-retrain-designer.md) . Nesse artigo, você aprenderá a usar os conjuntos de valores transformados para treinar vários modelos com parâmetros de pipeline.
+Estas instruções são um pré-requisito para o artigo [Como treinar novamente os modelos de designer](how-to-retrain-designer.md). Nesse artigo, você aprenderá a usar os conjuntos de dados transformados para treinar vários modelos com parâmetros de pipeline.
 
-## <a name="transform-a-dataset"></a>Transformar um conjunto de uma
+## <a name="transform-a-dataset"></a>Transformar um conjunto de dados
 
-Nesta seção, você aprenderá a importar o conjunto de dados de exemplo e a dividir os dados em conjuntos de data e fora dos EUA. Para obter mais informações sobre como importar seus próprios dados para o designer, consulte [como importar dados](how-to-designer-import-data.md).
+Nesta seção, você aprenderá a importar o conjunto de dados de exemplo e a dividir os dados em conjuntos de dados para residentes dos EUA e para residentes de outros países. Para obter mais informações sobre como importar seus próprios dados para o designer, confira [como importar dados](how-to-designer-import-data.md).
 
 ### <a name="import-data"></a>Importar dados
 
-Use as etapas a seguir para importar o conjunto de exemplos.
+Use as etapas a seguir para importar o conjunto de dados de exemplo.
 
 1. Entre em <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a> e selecione o workspace com o qual deseja trabalhar.
 
-1. Vá para o designer. Selecione **módulos de precompilação fáceis de usar** para criar um novo pipeline.
+1. Acesse o designer. Selecione **Módulos de precompilação fáceis de usar** para criar um pipeline.
 
 1. Selecione um destino de computação padrão para executar o pipeline.
 
-1. À esquerda da tela do pipeline há uma paleta de conjuntos de dados e módulos. Selecione **conjuntos**de os. Em seguida, exiba a seção de **exemplos** .
+1. À esquerda da tela do pipeline há uma paleta de conjuntos de dados e módulos. Selecione **Conjuntos de dados**. Em seguida, veja a seção **Exemplos**.
 
-1. Arraste e solte o conjunto de **censo de classificação binária de renda do adulto** para a tela.
+1. Arraste e solte o conjunto de dados **Classificação Binária de Renda de Censo de Adulto** na tela.
 
-1. Selecione o módulo de conjunto de **censo de renda de adulto** .
+1. Selecione o módulo do conjunto de dados **Renda de Censo de Adulto**.
 
-1. No painel de detalhes que aparece à direita da tela, selecione **saídas**.
+1. No painel de detalhes que aparece na parte direita da tela, selecione **Saídas**.
 
-1. Selecione o ícone Visualizar ![ícone de visualização](media/how-to-designer-transform-data/visualize-icon.png).
+1. Selecionar o ícone Visualizar ![ícone visualizar](media/how-to-designer-transform-data/visualize-icon.png).
 
-1. Use a janela de visualização de dados para explorar o conjunto. Tome nota especial dos valores de coluna "nativo-país".
+1. Use a janela de visualização de dados para explorar o conjunto de dados. Tome nota especial dos valores de coluna "native-country".
 
 ### <a name="split-the-data"></a>Dividir os dados
 
-Nesta seção, você usará o [módulo dividir dados](algorithm-module-reference/split-data.md) para identificar e dividir as linhas que contêm "Estados Unidos" na coluna "nativo-país". 
+Nesta seção, você usa o módulo [Dividir módulo de dados](algorithm-module-reference/split-data.md) para identificar e dividir as linhas que contêm "United-States" na coluna "native-country". 
 
-1. Na paleta de módulos à esquerda da tela, expanda a seção **transformação de dados** e localize o módulo **dividir dados** .
+1. Na paleta de módulos à esquerda da tela, expanda a seção **Transformação de Dados** e localize o módulo **Dividir Dados**.
 
-1. Arraste o módulo **dividir dados** para a tela e solte o módulo abaixo do módulo DataSet.
+1. Arraste o módulo **Dividir Dados** para a tela e solte o módulo abaixo do módulo conjunto de dados.
 
-1. Conecte o módulo DataSet ao módulo **dividir dados** .
+1. Conecte o módulo conjunto de dados ao módulo **Dividir Dados**.
 
 1. Selecione o módulo **Dividir dados**.
 
-1. No painel detalhes do módulo à direita da tela, defina modo de **divisão** como **expressão regular**.
+1. No painel detalhes do módulo à direita da tela, defina **Modo de divisão** como **Expressão Regular**.
 
-1. Insira a **expressão regular**: `\"native-country" United-States`.
+1. Insira a **Expressão Regular**: `\"native-country" United-States`.
 
-    O modo de **expressão regular** testa uma única coluna para um valor. Para obter mais informações sobre o módulo dividir dados, consulte a [página de referência do módulo do algoritmo](algorithm-module-reference/split-data.md)relacionado.
+    O modo de **Expressão Regular** testa uma coluna para um valor. Para obter mais informações sobre o módulo Dividir Dados, confira a [página de referência do módulo de algoritmo](algorithm-module-reference/split-data.md) relacionado.
 
 Seu pipeline deve ter esta aparência:
 
-![Captura de tela mostrando como configurar o pipeline e o módulo dividir dados](media/how-to-designer-transform-data/split-data.png).
+![Captura de tela mostrando como configurar o pipeline e o módulo Dividir Dados](media/how-to-designer-transform-data/split-data.png).
 
 
-## <a name="save-the-datasets"></a>Salvar os conjuntos de os
+## <a name="save-the-datasets"></a>Salvar os conjuntos de dados
 
-Agora que seu pipeline está configurado para dividir os dados, você precisa especificar onde deseja manter os DataSets. Para este exemplo, use o módulo **exportar dados** para salvar o conjunto de dados em um repositório de armazenamento. Para obter mais informações sobre armazenamentos de dados, consulte [conectar-se aos serviços de armazenamento do Azure](how-to-access-data.md)
+Agora que seu pipeline está configurado para dividir os dados, você precisa especificar onde deseja manter os conjuntos de dados. Para este exemplo, use o módulo **Exportar Dados** para salvar o conjunto de dados em um armazenamento de dados. Para obter mais informações sobre armazenamentos de dados, confira [Conectar aos serviços do Armazenamento do Azure](how-to-access-data.md)
 
-1. Na paleta de módulos à esquerda da tela, expanda a seção **entrada e saída de dados** e localize o módulo **exportar dados** .
+1. Na paleta de módulos à esquerda da tela, expanda a seção **Entrada e Saída de Dados** e localize o módulo **Exportar Dados**.
 
-1. Arraste e solte dois módulos **exportar dados** abaixo do módulo **dividir dados** .
+1. Arraste e solte dois módulos **Exportar Dados** abaixo do módulo **Dividir Dados**.
 
-1. Conecte cada porta de saída do módulo **dividir dados** a um módulo de **dados de exportação** diferente.
+1. Conecte cada porta de saída do módulo **Dividir Dados** a outro módulo **Exportar Dados**.
 
-    Seu pipeline deve ser semelhante a este:
+    Seu pipeline deve ser semelhante ao seguinte:
 
-    ![Captura de tela mostrando como conectar os módulos exportar dados](media/how-to-designer-transform-data/export-data-pipeline.png).
+    ![Captura de tela mostrando como conectar os módulos Exportar Dados](media/how-to-designer-transform-data/export-data-pipeline.png).
 
-1. Selecione o módulo **exportar dados** que está conectado à porta mais *à esquerda*do módulo **dividir dados** .
+1. Selecione o módulo **Exportar Dados** que está conectado à porta mais à *esquerda* do módulo **Dividir Dados**.
 
-    A ordem das portas de saída importantes para o módulo **dividir dados** . A primeira porta de saída contém as linhas em que a expressão regular é verdadeira. Nesse caso, a primeira porta contém linhas para renda com base nos EUA e a segunda porta contém linhas para renda não baseada em EUA.
+    A ordem das portas de saída é importante para o módulo **Dividir Dados**. A primeira porta de saída contém as linhas em que a expressão regular é verdadeira. Nesse caso, a primeira porta contém linhas para renda de residentes nos EUA e a segunda porta contém linhas para renda de não residentes nos EUA.
 
-1. No painel detalhes do módulo à direita da tela, defina as seguintes opções:
+1. No painel de detalhes do módulo à direita da tela, defina as seguintes opções:
     
-    **Tipo de repositório de armazenamento**: armazenamento de BLOBs do Azure
+    **Tipo de armazenamento de dados**: Armazenamento do Blobs do Azure
 
-    **Repositório de armazenamento**: selecione um repositório de armazenamento existente ou selecione "novo repositório de armazenamento" para criar um agora.
+    **Armazenamento de dados**: Selecione um armazenamento de dados existente ou selecione "Novo armazenamento de dados" para criar um agora.
 
-    **Caminho**:`/data/us-income`
+    **Caminho**: `/data/us-income`
 
-    **Formato de arquivo**: CSV
+    **Formato de arquivo**: csv
 
     > [!NOTE]
-    > Este artigo pressupõe que você tenha acesso a um repositório de armazenamento registrado para o espaço de trabalho atual do Azure Machine Learning. Para obter instruções sobre como configurar um repositório de armazenamento, consulte [conectar-se aos serviços de armazenamento do Azure](how-to-access-data.md#azure-machine-learning-studio).
+    > Este artigo pressupõe que você tenha acesso a um armazenamento de dados registrado para o workspace atual do Azure Machine Learning. Para obter instruções sobre como configurar um armazenamento de dados, confira [Conectar aos serviços do Armazenamento do Azure](how-to-access-data.md#azure-machine-learning-studio).
 
-    Se você não tiver um repositório de armazenamento, poderá criar um agora. Para fins de exemplo, este artigo salvará os conjuntos de valores na conta de armazenamento de BLOBs padrão associada ao espaço de trabalho. Ele salvará os conjuntos de itens no `azureml` contêiner em uma nova pasta chamada `data`.
+    Se você não tiver um armazenamento de dados, poderá criar um agora. Para fins de exemplo, este artigo salvará os conjuntos de dados na conta de armazenamento de blobs padrão associada ao workspace. Ele salvará os conjuntos de itens no contêiner `azureml` em uma nova pasta chamada `data`.
 
-1.  Selecione o módulo **exportar dados** conectado à porta mais *à direita*do módulo **dividir dados** .
+1.  Selecione o módulo **Exportar Dados** que está conectado à porta mais à *direita* do módulo **Dividir Dados**.
 
-1. No painel detalhes do módulo à direita da tela, defina as seguintes opções:
+1. No painel de detalhes do módulo à direita da tela, defina as seguintes opções:
     
-    **Tipo de repositório de armazenamento**: armazenamento de BLOBs do Azure
+    **Tipo de armazenamento de dados**: Armazenamento do Blobs do Azure
 
-    **Repositório de armazenamento**: selecione o mesmo repositório de armazenamento que está acima
+    **Armazenamento de dados**: Selecione o mesmo armazenamento de dados que foi selecionado acima
 
-    **Caminho**:`/data/non-us-income`
+    **Caminho**: `/data/non-us-income`
 
-    **Formato de arquivo**: CSV
+    **Formato de arquivo**: csv
 
-1. Confirme se o módulo **exportar dados** conectado à porta à esquerda dos **dados divididos** tem o **caminho** `/data/us-income`.
+1. Confirme que o módulo **Exportar Dados** conectado à porta à esquerda do módulo **Dividir Dados** tem o **Caminho** `/data/us-income`.
 
-1. Confirme se o módulo **exportar dados** conectado à porta à direita tem o **caminho** `/data/non-us-income`.
+1. Confirme se o módulo **Exportar Dados** conectado à porta à direita tem o **Caminho** `/data/non-us-income`.
 
-    O pipeline e as configurações devem ter a seguinte aparência:
+    Seu pipeline e configurações devem ter esta aparência:
     
-    ![Captura de tela mostrando como configurar os módulos exportar dados](media/how-to-designer-transform-data/us-income-export-data.png).
+    ![Captura de tela mostrando como configurar os módulos Exportar Dados](media/how-to-designer-transform-data/us-income-export-data.png).
 
 ### <a name="submit-the-run"></a>Enviar a execução
 
@@ -139,38 +140,38 @@ Agora que o pipeline está configurado para dividir e exportar os dados, envie u
 
 1. Na parte superior da tela, selecione **Enviar**.
 
-1. Na caixa de diálogo **configurar execução de pipeline** , selecione **criar novo** para criar um experimento.
+1. Na caixa de diálogo **Configurar execução de pipeline**, selecione **Criar** para criar um experimento.
 
-    Os experimentos agrupam logicamente as execuções de pipeline relacionadas. Se você executar esse pipeline no futuro, deverá usar o mesmo experimento para fins de log e acompanhamento.
+    Os experimentos agrupam logicamente execuções de pipeline relacionadas. Se você executar esse pipeline no futuro, deverá usar o mesmo experimento para fins de acompanhamento e registro em log.
 
-1. Forneça um nome de teste descritivo como "split-censo-data".
+1. Forneça um nome de teste descritivo, como "dados-de-censo-divididos".
 
 1. Selecione **Enviar**.
 
 ## <a name="view-results"></a>Exibir os resultados
 
-Depois que o pipeline for concluído, você poderá exibir os resultados navegando até o armazenamento de BLOBs na portal do Azure. Você também pode exibir os resultados intermediários do módulo **dividir dados** para confirmar que seus dados foram divididos corretamente.
+Depois que o pipeline for concluído, você poderá exibir os resultados navegando até o armazenamento de blobs no portal do Azure. Você também pode exibir os resultados intermediários do módulo **Dividir Dados** para confirmar que seus dados foram divididos corretamente.
 
 1. Selecione o módulo **Dividir dados**.
 
 1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + logs**. 
 
-1. Selecione o ícone de ![visualização Visualizar](media/how-to-designer-transform-data/visualize-icon.png) ícone ao lado de **resultados dataSet1**. 
+1. Selecione o ícone visualizar ![ícone visualizar](media/how-to-designer-transform-data/visualize-icon.png) ao lado de **Conjunto de dados 1 de resultados**. 
 
-1. Verifique se a coluna "Native-Country" contém apenas o valor "United-States".
+1. Verifique se a coluna "native-country" contém apenas o valor "United-States".
 
-1. Selecione o ícone de ![visualização Visualizar](media/how-to-designer-transform-data/visualize-icon.png) ícone ao lado de **resultados dataset2**. 
+1. Selecione o ícone visualizar ![ícone visualizar](media/how-to-designer-transform-data/visualize-icon.png) ao lado de **Conjunto de dados 2 de resultados**. 
 
-1. Verifique se a coluna "Native-Country" não contém o valor "United-States".
+1. Confirme que a coluna "native-country" não contém o valor "United-States".
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Ignore esta seção se quiser continuar com a parte 2 deste "como" para readaptar [modelos com o designer de Azure Machine Learning](how-to-retrain-designer.md).
+Ignore esta seção se quiser continuar com a parte 2 destas instruções, [Treinar modelos novamente com o designer do Azure Machine Learning](how-to-retrain-designer.md).
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como transformar um conjunto de um DataSet e salvá-lo em um repositório de armazenamento registrado.
+Neste artigo, você aprendeu como transformar um conjunto de dados e salvá-lo em um armazenamento de dados registrado.
 
-Continue na próxima parte desta série de instruções com a [readaptação de modelos com Azure Machine Learning designer](how-to-retrain-designer.md) para usar seus conjuntos de valores transformados e parâmetros de pipeline para treinar modelos de aprendizado de máquina.
+Prossiga para a próxima parte desta série de instruções com [Treinar modelos novamente com o designer do Azure Machine Learning](how-to-retrain-designer.md) para usar seus conjuntos de dados transformados e parâmetros de pipeline para treinar modelos de machine learning.

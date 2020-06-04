@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119885"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642201"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2 | Microsoft Docs
 
@@ -107,7 +107,7 @@ Aplicativos de terceiros que usam APIs REST para funcionar continuarão a funcio
 
 Se o [acesso de leitura anônimo](storage-manage-access-to-resources.md) tiver sido concedido a um contêiner, as ACLs não terão nenhum efeito nesse contêiner nem nos arquivos desse contêiner.
 
-## <a name="premium-performance-block-blob-storage-accounts"></a>Contas de armazenamento de blobs de blocos de desempenho Premium
+## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Contas de armazenamento de BlockBlobStorage de desempenho Premium
 
 ### <a name="diagnostic-logs"></a>Logs de diagnóstico
 
@@ -126,7 +126,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="lifecycle-management-policies"></a>Políticas de gerenciamento do ciclo de vida
 
-- Políticas de gerenciamento de ciclo de vida ainda não são compatíveis com contas de armazenamento de blobs de blocos Premium. 
+- As políticas de gerenciamento de ciclo de vida ainda não são compatíveis com contas de armazenamento de BlockBlobStorage Premium. 
 
 - Os dados não podem ser movidos da camada Premium para as camadas inferiores. 
 
@@ -134,11 +134,11 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="hdinsight-support"></a>Suporte do HDInsight
 
-Ao criar um cluster n do HDInsight, você ainda não pode selecionar uma conta de armazenamento de blobs de blocos que tem o recurso de namespace hierárquico habilitado nela. No entanto, você pode anexar a conta ao cluster depois de criá-la.
+Ao criar um cluster n do HDInsight, você ainda não pode selecionar uma conta de armazenamento de BlockBlobStorage que tem o recurso de namespace hierárquico habilitado nela. No entanto, você pode anexar a conta ao cluster depois de criá-la.
 
 ### <a name="dremio-support"></a>Suporte do Dremio
 
-O Dremio ainda não se conecta a uma conta de armazenamento de blobs de blocos que tem o recurso de namespace hierárquico habilitado nela. 
+O Dremio ainda não se conecta a uma conta de armazenamento de BlockBlobStorage que tem o recurso de namespace hierárquico habilitado nela. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Driver do WASB (Windows Azure Storage Blob) (não compatível com o Data Lake Storage Gen2)
 

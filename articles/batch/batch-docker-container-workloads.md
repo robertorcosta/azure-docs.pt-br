@@ -1,15 +1,15 @@
 ---
 title: Cargas de trabalho de contêiner
-description: Saiba como executar e dimensionar aplicativos de imagens de contêiner no lote do Azure. Crie um pool de nós de computação que dão suporte a tarefas de contêiner em execução.
-ms.topic: article
-ms.date: 03/02/2020
+description: Saiba como executar e dimensionar aplicativos de imagens de contêiner no Lote do Azure. Crie um pool de nós de computação que dão suporte a tarefas de contêiner em execução.
+ms.topic: how-to
+ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 27edfe67152857a89840f5cd24b06d66ae8d94c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b1310af2797e43659ac8859e74d1be8bdbab3c98
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116121"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726716"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
@@ -23,16 +23,16 @@ O uso de contêineres fornece uma maneira fácil para executar tarefas do Lote s
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Versões do SDK**: os SDKs do lote dão suporte a imagens de contêiner a partir das seguintes versões:
+* **Versão do SDK**: Os SDKs do Lote começam a dar suporte a imagens de contêiner nas seguintes versões:
     * API REST do Lote versão 2017-09-01.6.0
     * SDK do .NET para o Lote versão 8.0.0
     * SDK do Python para o Lote versão 4.0
     * SDK Java para o Lote versão 3.0
     * SDK Node. js para o Lote versão 3.0
 
-* **Contas**: em sua assinatura do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma conta do Armazenamento do Azure.
+* **Contas**: Em sua assinatura do Azure, você precisa criar uma conta do Lote e, opcionalmente, uma conta do Armazenamento do Microsoft Azure.
 
-* **Uma imagem de VM compatível**: há suporte para contêineres apenas nos pools criados com a Configuração de Máquina Virtual com base nas imagens detalhadas na seção a seguir, "Imagens de máquina virtual compatíveis". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
+* **Uma imagem de máquina virtual com suporte**: Os contêineres só têm suporte em pools criados com a configuração de maquina virtual a partir de imagens detalhadas na seção a seguir, "Imagens de máquina virtual com suporte". Se você fornecer uma imagem personalizada, consulte as considerações na seção a seguir e os requisitos em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
 
 ### <a name="limitations"></a>Limitações
 
@@ -46,33 +46,33 @@ Use uma das imagens a seguir com suporte do Windows ou Linux para criar um conju
 
 ### <a name="windows-support"></a>Suporte do Windows
 
-O lote dá suporte a imagens do Windows Server que têm designações de suporte de contêiner. Normalmente, esses nomes de SKU de imagem têm `-with-containers` um `-with-containers-smalldisk`sufixo de ou. Além disso, [a API para listar todas as imagens com suporte no lote](batch-linux-nodes.md#list-of-virtual-machine-images) denotará um `DockerCompatible` recurso se a imagem der suporte a contêineres do Docker.
+O Lote dá suporte a imagens do Windows Server que têm designações de suporte de contêiner. Normalmente, esses nomes de SKU de imagem têm um sufixo `-with-containers` ou `-with-containers-smalldisk`. Além disso, [a API para listar todas as imagens com suporte no lote](batch-linux-nodes.md#list-of-virtual-machine-images) denotará uma funcionalidade de `DockerCompatible` se a imagem for compatível com contêineres do Docker.
 
 Também é possível criar imagens personalizadas de VMs executando Docker no Windows.
 
 ### <a name="linux-support"></a>Suporte para Linux
 
-Para cargas de trabalho de contêiner do Linux, o lote atualmente dá suporte às seguintes imagens do Linux publicadas por Lote do Microsoft Azure no Azure Marketplace sem a necessidade de uma imagem personalizada.
+Para cargas de trabalho de contêiner do Linux, atualmente o Lote dá suporte para as imagens a seguir do Linux publicadas pelo Lote do Microsoft Azure no Azure Marketplace sem a necessidade de uma imagem personalizada.
 
 #### <a name="vm-sizes-without-rdma"></a>Tamanhos de VM sem RDMA
 
-- Programa`microsoft-azure-batch`
-  - Proporcionar`centos-container`
-  - Proporcionar`ubuntu-server-container`
+- Editor: `microsoft-azure-batch`
+  - Oferta: `centos-container`
+  - Oferta: `ubuntu-server-container`
 
 #### <a name="vm-sizes-with-rdma"></a>Tamanhos de VM com RDMA
 
-- Programa`microsoft-azure-batch`
-  - Proporcionar`centos-container-rdma`
-  - Proporcionar`ubuntu-server-container-rdma`
+- Editor: `microsoft-azure-batch`
+  - Oferta: `centos-container-rdma`
+  - Oferta: `ubuntu-server-container-rdma`
 
-Essas imagens só têm suporte para uso em pools do lote do Azure e são direcionadas para a execução de contêiner do Docker. Elas apresentam:
+Essas imagens só têm suporte para uso em pools do Lote do Azure e são direcionadas para a execução de contêiner do Docker. Elas apresentam:
 
-* Um tempo de execução de contêiner [Moby](https://github.com/moby/moby) compatível com o Docker pré-instalado
+* Um runtime de contêiner [Moby](https://github.com/moby/moby) compatível com o Docker pré-instalado
 
-* Drivers NVIDIA GPU pré-instalados e tempo de execução de contêiner NVIDIA para simplificar a implantação nas VMs da série N do Azure
+* Drivers de GPU NVIDIA pré-instalados e runtime de contêiner NVIDIA para simplificar a implantação nas VMs da série N do Azure
 
-* Imagem pré-instalada/pré-configurada com suporte para tamanhos de VM Infiniband RDMA para imagens com o sufixo de `-rdma`. Atualmente, essas imagens não dão suporte aos tamanhos de VM SR-IOV IB/RDMA.
+* Imagem pré-instalada/pré-configurada com suporte para tamanhos de VM RDMA Infiniband para imagens com o sufixo de `-rdma`. Atualmente, essas imagens não dão suporte aos tamanhos de VM SR-IOV IB/RDMA.
 
 Também é possível criar imagens personalizadas de VMs executando Docker em uma das distribuições do Linux compatíveis com Lote. Se você optar por fornecer sua própria imagem personalizada do Linux, confira as instruções em [Usar uma imagem personalizada gerenciada para criar um pool de máquinas virtuais](batch-custom-images.md).
 
@@ -159,32 +159,40 @@ new_pool = batch.models.PoolAddParameter(
 O exemplo C# a seguir pressupõe que você deseja pré-buscar uma imagem do TensorFlow do [Hub do Docker](https://hub.docker.com). Este exemplo inclui uma tarefa inicial que é executada no host de VM em nós do pool. Você pode executar uma tarefa inicial no host, por exemplo, para montar um servidor de arquivos que pode ser acessado por meio dos contêineres.
 
 ```csharp
-
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
     sku: "16-04-lts",
     version: "latest");
 
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "https://hub.docker.com",
+    userName: "UserName",
+    password: "YourPassword"                
+);
+
 // Specify container configuration, prefetching Docker images
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> { "tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry };
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
-StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
+StartTask startTaskContainer = new StartTask( commandLine: "<native-host-command-line>" );
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
+    virtualMachineConfiguration: virtualMachineConfiguration);
+
+// Start the task in the pool
+pool.StartTask = startTaskContainer;
 ...
 ```
 
@@ -195,22 +203,22 @@ Você também pode executar a pré-busca de imagens de contêiner ao fazer a aut
 
 ```csharp
 // Specify a container registry
-ContainerRegistry containerRegistry = new ContainerRegistry (
+ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "myContainerRegistry.azurecr.io",
-    username: "myUserName",
+    userName: "myUserName",
     password: "myPassword");
 
 // Create container configuration, prefetching Docker images from the container registry
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> {
-        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
-    containerRegistries: new List<ContainerRegistry> { containerRegistry } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -225,7 +233,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Para executar uma tarefa de contêiner em um pool habilitado para contêiner, especifique as configurações específicas do contêiner. As configurações incluem a imagem a ser usada, o registro e as opções de execução do contêiner.
 
-* Use a propriedade `ContainerSettings` das classes de tarefa para definir configurações específicas ao contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Observe que a `--rm` opção de contêiner não requer uma `--runtime` opção adicional, pois ela é encarregada pelo lote.
+* Use a propriedade `ContainerSettings` das classes de tarefa para definir configurações específicas ao contêiner. Essas configurações são definidas pela classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Observe que a opção de contêiner `--rm` não requer uma opção de `--runtime` adicional, pois o Lote cuida dela.
 
 * Se você executar tarefas em imagens de contêiner, a [tarefa nuvem](/dotnet/api/microsoft.azure.batch.cloudtask) e a [tarefa do gerenciador de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) exigirão configurações de contêiner. No entanto, [iniciar tarefa](/dotnet/api/microsoft.azure.batch.starttask), [tarefa de preparação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e [tarefa de liberação de trabalho](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) não exigem configurações de contêiner (ou seja, podem ser executados em um contexto de contêiner ou diretamente no nó).
 
@@ -285,7 +293,6 @@ O exemplo C# a seguir mostra as configurações básicas do contêiner para uma 
 
 ```csharp
 // Simple container task command
-
 string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
@@ -295,10 +302,9 @@ TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
 
 CloudTask containerTask = new CloudTask (
     id: "Task1",
-    containerSettings: cmdContainerSettings,
-    commandLine: cmdLine);
+    commandline: cmdLine);
+containerTask.ContainerSettings = cmdContainerSettings;
 ```
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

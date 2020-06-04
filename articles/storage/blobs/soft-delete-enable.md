@@ -1,44 +1,44 @@
 ---
-title: Habilitar e gerenciar a exclusão reversível para BLOBs
+title: Habilitar e gerenciar exclusão reversível para blobs
 titleSuffix: Azure Storage
-description: Habilite a exclusão reversível para objetos de BLOB para recuperar seus dados com mais facilidade quando eles forem modificados ou excluídos erroneamente.
+description: Habilite a exclusão reversível para objetos de blob para recuperar seus dados com mais facilidade quando forem modificados ou excluídos erroneamente.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
-ms.translationtype: MT
+ms.openlocfilehash: 5d6cbf873ac1b76c24f5907a47038157b22e5680
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120089"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634112"
 ---
-# <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitar e gerenciar a exclusão reversível para BLOBs
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitar e gerenciar exclusão reversível para blobs
 
-A exclusão reversível protege dados de blob de serem modificados ou excluídos acidentalmente ou erroneamente. Quando a exclusão reversível está habilitada para uma conta de armazenamento, BLOBs, versões de BLOB (versão prévia) e instantâneos na conta de armazenamento podem ser recuperados após serem excluídos, dentro de um período de retenção especificado por você.
+A exclusão reversível impede que os dados de blob sejam modificados ou excluídos acidental ou erroneamente. Quando a exclusão reversível é habilitada para uma conta de armazenamento, os blobs, as versões de blob (versão prévia) e os instantâneos na conta de armazenamento podem ser recuperados após serem excluídos, dentro de um período de retenção especificado por você.
 
-Se houver uma possibilidade de que seus dados possam ser acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, a Microsoft recomenda a ativação da exclusão reversível.
+Se houver uma possibilidade de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário de conta de armazenamento, é recomendável ativar a exclusão reversível.
 
-Este artigo mostra como começar a usar a exclusão reversível.
+Este artigo mostra uma introdução à exclusão reversível.
 
 ## <a name="enable-soft-delete"></a>Habilitar exclusão reversível
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Habilite a exclusão reversível para BLOBs em sua conta de armazenamento usando portal do Azure:
+Habilite a exclusão reversível para blobs em sua conta de armazenamento usando o portal do Azure:
 
-1. Na [portal do Azure](https://portal.azure.com/), selecione sua conta de armazenamento. 
+1. No [portal do Azure](https://portal.azure.com/), selecione a conta de armazenamento. 
 
-2. Navegue até a opção **proteção de dados** em **serviço blob**.
+2. Navegue até a opção **Proteção de dados** em **Serviço do blob**.
 
-3. Clique em **habilitado** em **blob exclusão reversível**
+3. Clique em **Habilitado** em **Exclusão reversível de blob**
 
-4. Insira o número de dias que você deseja *reter para* **as políticas de retenção**
+4. Insira o número de dias que deseja *reter* em **Políticas de retenção**
 
-5. Escolha o botão **salvar** para confirmar suas configurações de proteção de dados
+5. Selecione o botão **Salvar** para confirmar as configurações da Proteção de dados
 
 ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
@@ -137,7 +137,21 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+Para habilitar a exclusão reversível, atualize as propriedades do serviço do cliente de um blob:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
+
+Para recuperar os blobs que foram excluídos acidentalmente, chame Restaurar nesses blobs. Lembre-se de que selecionar **Desfazer exclusão** em blobs ativos e com exclusão reversível restaurará todos os instantâneos com exclusão reversível associados como ativos. O exemplo a seguir chama Restaurar em todos os blobs com exclusão reversível e ativos em um contêiner:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
+
+Para recuperar para uma versão específica do blob, primeiro chame Restaurar em um blob e depois copie o instantâneo desejado sobre o blob. O exemplo a seguir recupera um blob de blocos para o seu instantâneo gerado mais recentemente:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 Para habilitar a exclusão reversível, atualize as propriedades do serviço do cliente de um blob:
 
@@ -153,7 +167,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-Para recuperar os blobs que foram excluídos acidentalmente, chame Restaurar nesses blobs. Lembre-se de que chamar **Restaurar Blob** em blobs ativos e com exclusão reversível restaurará todos os instantâneos com exclusão reversível associados como ativos. O exemplo a seguir chama Restaurar em todos os blobs com exclusão reversível e ativos em um contêiner:
+Para recuperar os blobs que foram excluídos acidentalmente, chame Restaurar nesses blobs. Lembre-se de que selecionar **Desfazer exclusão** em blobs ativos e com exclusão reversível restaurará todos os instantâneos com exclusão reversível associados como ativos. O exemplo a seguir chama Restaurar em todos os blobs com exclusão reversível e ativos em um contêiner:
 
 ```csharp
 // Recover all blobs in a container
@@ -177,11 +191,11 @@ IEnumerable<IListBlobItem> allBlobVersions = container.ListBlobs(
 CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
-```
+```  
 
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Exclusão reversível para armazenamento de BLOBs](soft-delete-overview.md)
-- [Controle de versão de BLOB (visualização)](versioning-overview.md)
+- [Exclusão reversível do armazenamento de blobs](soft-delete-overview.md)
+- [Controle de versão de blob (versão prévia)](versioning-overview.md)

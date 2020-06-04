@@ -1,6 +1,6 @@
 ---
-title: Filtragem geográfica em um domínio para a porta frontal do Azure | Microsoft Docs
-description: Neste artigo, você aprenderá sobre a política de filtragem geográfica para a porta frontal do Azure
+title: Filtragem geográfica em um domínio do Azure Front Door | Microsoft Docs
+description: Neste artigo, você aprenderá sobre a política de filtragem geográfica do Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -13,24 +13,24 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 2cdde705d0e9f0905d4c33648b5415758d838b06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 98c86d839868eb0714c7106d5267d1c55e6e99d5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411175"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739304"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é a filtragem geográfica em um domínio do Azure Front Door?
 
-Por padrão, a porta frontal do Azure responde às solicitações do usuário, independentemente do local do usuário que faz a solicitação. No entanto, em alguns casos, é possível restringir o acesso ao conteúdo dos aplicativos Web por país/região. O serviço WAF (firewall do aplicativo Web) no Front Door permite que você defina uma política usando regras personalizadas de acesso para um caminho específico no seu ponto de extremidade para permitir ou bloquear o acesso de países/regiões específicos. 
+Por padrão, o Azure Front Door responde às solicitações de usuário, independentemente do local do usuário que faz a solicitação. No entanto, em alguns casos, é possível restringir o acesso ao conteúdo dos aplicativos Web por país/região. O serviço WAF (firewall do aplicativo Web) no Front Door permite que você defina uma política usando regras personalizadas de acesso para um caminho específico no seu ponto de extremidade para permitir ou bloquear o acesso de países/regiões específicos. 
 
-Uma política de WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é composta de condições de correspondência, uma ação e uma prioridade. Na condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência.  Para a regra de filtragem geográfica, a variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, o valor é o código de país de duas letras. Você pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de caracteres REQUEST_URI para criar uma regra de filtragem geográfica com base no caminho.
+Uma política de WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é composta de condições de correspondência, uma ação e uma prioridade. Na condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência.  Para a regra de filtragem geográfica, a variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, o valor é o código de interesse do país/região de duas letras. Você pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de caracteres REQUEST_URI para criar uma regra de filtragem geográfica com base no caminho.
 
 Você pode configurar uma política de filtragem geográfica para seu Front Door usando o [Azure PowerShell](front-door-tutorial-geo-filtering.md) ou usando nosso [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Referência do código do país
+## <a name="countryregion-code-reference"></a>Referência de código de país/região
 
-|Código do país | Nome do país |
+|Código de país/região | Nome do país/região |
 | ----- | ----- |
 | AD | Andorra |
 | AE | Emirados Árabes Unidos|
@@ -48,7 +48,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | BB | Barbados|
 | BD | Bangladesh|
 | BE | Bélgica|
-| BF | Burquina Faso|
+| BF | Burkina Faso|
 | BG | Bulgária|
 | BH | Bahrein|
 | BI | Burundi|
@@ -110,7 +110,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | IQ | Iraque|
 | IR | Irã, República Islâmica do|
 | IS | Islândia|
-| TI | Itália|
+| IT | Itália|
 | JM | Jamaica|
 | JO | Jordânia|
 | JP | Japão|
@@ -138,7 +138,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | MD | Moldávia, República da|
 | MG | Madagascar|
 | MK | Macedônia do Norte|
-| ML | Máli|
+| ML | Mali|
 | MM | Myanmar|
 | MN | Mongólia|
 | MO | RAE de Macau|
@@ -201,7 +201,7 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 | EUA | Estados Unidos|
 | UY | Uruguai|
 | UZ | Uzbequistão|
-| VC | São Vicente e Granadinas|
+| VC | São Vincent e Granadinas|
 | VE | Venezuela|
 | VG | Ilhas Virgens Britânicas|
 | VI | Ilhas Virgens Americanas|

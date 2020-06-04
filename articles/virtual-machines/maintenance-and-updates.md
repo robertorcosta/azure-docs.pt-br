@@ -5,98 +5,98 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 97605b0cdc7ac6368b21e9427f64e4bca7e35d4a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250225"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815937"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Manutenção para máquinas virtuais no Azure
 
-O Azure atualiza periodicamente sua plataforma para melhorar a confiabilidade, o desempenho e a segurança da infraestrutura de host para máquinas virtuais. A finalidade dessas atualizações vai desde a aplicação de patch de componentes de software no ambiente de hospedagem até a atualização de componentes de rede ou o encerramento de hardware. 
+O Azure atualiza a plataforma periodicamente para aprimorar a confiabilidade, o desempenho e a segurança da infraestrutura de host para máquinas virtuais. A finalidade dessas atualizações vai desde a aplicação de patch de componentes de software no ambiente de hospedagem até a atualização de componentes de rede ou o encerramento de hardware. 
 
-As atualizações raramente afetam as VMs hospedadas. Quando as atualizações têm um efeito, o Azure escolhe o método de impacto mínimo para atualizações:
+As atualizações raramente afetam as VMs hospedadas. Quando as atualizações têm um efeito, o Azure escolhe o método menos impactante de atualizações:
 
-- Se a atualização não exigir uma reinicialização, a VM será pausada enquanto o host for atualizado ou a VM será migrada ao vivo para um host já atualizado. 
-- Se a manutenção exigir uma reinicialização, você será notificado sobre a manutenção planejada. O Azure também fornece uma janela de tempo na qual você pode iniciar a manutenção por conta própria, ao mesmo tempo que funciona para você. A janela de automanutenção normalmente é de 30 dias, a menos que a manutenção seja urgente. O Azure está investindo em tecnologias para reduzir o número de casos em que a manutenção de plataforma planejada exige que as VMs sejam reinicializadas. Para obter instruções sobre como gerenciar a manutenção planejada, consulte tratamento de notificações de manutenção planejada usando a [CLI](maintenance-notifications-cli.md)do Azure, o [PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md).
+- Se a atualização não exigir uma reinicialização, a VM será pausada, enquanto o host é atualizado ou a VM é migrada ao vivo para um host já atualizado. 
+- Se a manutenção exigir uma reinicialização, você será notificado sobre a manutenção planejada. O Azure também fornece uma janela de tempo, na qual você pode iniciar a manutenção, em um momento mais oportuno para você. A janela de manutenção automática normalmente é de 35 dias, a menos que a manutenção seja urgente. O Azure está investindo em tecnologias para reduzir o número de casos em que a manutenção planejada de plataforma exige a reinicialização das VMs. Para obter instruções sobre como gerenciar a manutenção planejada, confira Lidar com notificações de manutenção planejada usando a [CLI](maintenance-notifications-cli.md) do Azure, o [PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md).
 
-Esta página descreve como o Microsoft Azure executa os dois tipos de manutenção. Para obter mais informações sobre eventos não planejados (interrupções), consulte [gerenciar a disponibilidade de VMs para Windows](./windows/manage-availability.md) ou o artigo correspondente para [Linux](./linux/manage-availability.md).
+Esta página descreve como o Microsoft Azure executa os dois tipos de manutenção. Para obter mais informações sobre eventos não planejados (interrupções), confira  [Gerenciar a disponibilidade das VMs para Windows](./windows/manage-availability.md) ou o artigo correspondente para [Linux](./linux/manage-availability.md).
 
-Em uma VM, você pode obter notificações sobre a manutenção futura [usando eventos agendados para Windows](./windows/scheduled-events.md) ou para [Linux](./linux/scheduled-events.md).
+De uma VM, você pode obter notificações sobre manutenção futura [usando os Eventos Agendados para Windows](./windows/scheduled-events.md) ou para [Linux](./linux/scheduled-events.md).
 
 
 
 ## <a name="maintenance-that-doesnt-require-a-reboot"></a>Manutenção que não exige uma reinicialização
 
-A maioria das atualizações de plataforma não afeta as VMs do cliente. Quando uma atualização sem impacto não é possível, o Azure escolhe o mecanismo de atualização que é menos impactante para as VMs dos clientes. 
+A maioria das atualizações de plataforma não afeta as VMs do cliente. Quando uma atualização sem impacto não é possível, o Azure escolhe o mecanismo de atualização menos impactante para as VMs dos clientes. 
 
-A manutenção de impacto mais diferente de zero pausa a VM por menos de 10 segundos. Em determinados casos, o Azure usa mecanismos de manutenção de preservação de memória. Esses mecanismos pausam a VM por até 30 segundos e preservam a memória na RAM. Em seguida, a VM é retomada e seu relógio é sincronizado automaticamente. 
+A manutenção de impacto mais diferente de zero pausa a VM por menos de 10 segundos. Em determinados casos, o Azure usa mecanismos de manutenção de preservação de memória. Esses mecanismos pausam a VM por até 30 segundos e preservam a memória na RAM. Depois, a VM é reiniciada e o respectivo relógio é sincronizado automaticamente. 
 
-A manutenção de preservação de memória funciona por mais de 90% das VMs do Azure. Ele não funciona para as séries G, M, N e H. O Azure usa cada vez mais as tecnologias de migração ao vivo e aprimora os mecanismos de manutenção de preservação de memória para reduzir as durações de pausa.  
+A manutenção de preservação de memória funciona para mais de 90% das VMs do Azure. Ela não funciona para as séries G, M, N e H. Cada vez mais, o Azure usa tecnologias de migração ao vivo e aprimora o mecanismo de manutenção de preservação de memória para reduzir as durações da pausa.  
 
-Essas operações de manutenção que não exigem uma reinicialização são aplicadas um domínio de falha por vez. Eles serão interrompidos se receberem sinais de integridade de aviso. 
+Essas operações de manutenção que não exigem uma reinicialização são aplicadas a um domínio de falha por vez. Elas serão interrompidas se receberem sinais de integridade de aviso das ferramentas de monitoramento de plataforma. 
 
-Esses tipos de atualizações podem afetar alguns aplicativos. Quando a VM é migrada ao vivo para um host diferente, algumas cargas de trabalho confidenciais podem mostrar uma pequena degradação de desempenho em alguns minutos, levando a uma pausa na VM. Para se preparar para a manutenção da VM e reduzir o impacto durante a manutenção do Azure, tente [usar eventos agendados para Windows](./windows/scheduled-events.md) ou [Linux](./linux/scheduled-events.md) para tais aplicativos. 
+Esses tipos de atualizações podem afetar alguns aplicativos. Quando a VM é migrada ao vivo para um host diferente, algumas cargas de trabalho confidenciais podem mostrar uma ligeira degradação do desempenho em alguns minutos que levam a pausar a máquina virtual. Para se preparar para a manutenção da VM e reduzir o impacto durante a manutenção do Azure, experimente [usar os Eventos Agendados para Windows](./windows/scheduled-events.md) ou [Linux](./linux/scheduled-events.md) para esses aplicativos. 
 
-Há também um recurso, controle de manutenção, em visualização pública que pode ajudar a gerenciar a manutenção que não exige uma reinicialização. Você deve estar usando [hosts dedicados do Azure](./linux/dedicated-hosts.md) ou uma [VM isolada](../security/fundamentals/isolation-choices.md). O controle de manutenção oferece a opção de ignorar as atualizações de plataforma e aplicar as atualizações em sua escolha de tempo dentro de uma janela sem interrupção de 35 dias. Para obter mais informações, consulte [controlar atualizações com o controle de manutenção e o CLI do Azure](maintenance-control-cli.md).
+Para obter maior controle sobre todas as atividades de manutenção, incluindo impacto zero e atualizações sem reinicialização, você pode usar o recurso de Controle de Manutenção. Você precisa estar usando [Hosts Dedicados do Azure](./linux/dedicated-hosts.md) ou uma [VM isolada](../security/fundamentals/isolation-choices.md). O controle de manutenção oferece a opção de ignorar todas as atualizações de plataforma e aplicar as atualizações à sua escolha de tempo em uma janela sem interrupção de 35 dias. Para obter mais informações, confira [Controlar atualizações com o Controle de Manutenção e a CLI do Azure](maintenance-control.md).
 
 
 ### <a name="live-migration"></a>Migração ao vivo
 
-A migração ao vivo é uma operação que não exige uma reinicialização e preserva a memória da VM. Isso causa uma pausa ou congelamento, normalmente com duração de mais de 5 segundos. Exceto para as séries G, M, N e H, todas as VMs de IaaS (infraestrutura como serviço) são elegíveis para a migração ao vivo. As VMs qualificadas representam mais de 90% das VMs IaaS implantadas no Azure frota. 
+A migração ao vivo é uma operação que não exige uma reinicialização e preserva a memória da VM. Ela causa uma pausa ou um congelamento, normalmente com duração não superior a cinco segundos. Exceto para as séries G, M, N e H, todas as VMs de IaaS (infraestrutura como serviço) são qualificadas para a migração ao vivo. As VMs qualificadas representam mais de 90% das VMs de IaaS implantadas na frota do Azure. 
 
-A plataforma Azure inicia a migração dinâmica nos seguintes cenários:
+A plataforma Azure inicia a migração ao vivo nos seguintes cenários:
 - Manutenção planejada
 - Falha de hardware
 - Otimizações de alocação
 
-Alguns cenários de manutenção planejada usam a migração dinâmica e você pode usar Eventos Agendados para saber com antecedência quando as operações de migração ao vivo serão iniciadas.
+Alguns cenários de manutenção planejada usam a migração ao vivo, e você pode usar Eventos Agendados para saber com antecedência quando as operações de migração ao vivo serão iniciadas.
 
-A migração ao vivo também pode ser usada para mover VMs quando os algoritmos de Azure Machine Learning preveem uma falha iminente de hardware ou quando você deseja otimizar as alocações de VM. Para obter mais informações sobre modelagem preditiva que detecta instâncias de hardware degradado, consulte [melhorando a resiliência de VM do Azure com o aprendizado de máquina preditiva e migração dinâmica](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). As notificações de migração ao vivo aparecem na portal do Azure nos logs de monitoramento e de integridade do serviço, bem como em Eventos Agendados se você usar esses serviços.
+A migração ao vivo também pode ser usada para mover VMs quando os algoritmos do Azure Machine Learning preveem uma falha de hardware iminente ou quando você deseja otimizar as alocações de VM. Para obter mais informações sobre modelagem preditiva que detecta instâncias de hardware degradado, confira [Improving Azure VM resiliency with predictive machine learning and live migration](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure) (Aprimorar a resiliência da VM do Azure com o machine learning de previsão e a migração ao vivo). As notificações de migração ao vivo aparecem na portal do Azure nos logs de Monitoramento e de Integridade do Serviço, bem como nos Eventos Agendados se você usar esses serviços.
 
 ## <a name="maintenance-that-requires-a-reboot"></a>Manutenção que requer uma reinicialização
 
-No caso raro em que as VMs precisam ser reinicializadas para manutenção planejada, você será notificado com antecedência. A manutenção planejada tem duas fases: a fase de autoatendimento e uma fase de manutenção agendada.
+Quando as VMs precisarem ser reinicializadas para manutenção planejada, você será notificado com antecedência. A manutenção planejada tem duas fases: uma fase de autoatendimento e uma fase de manutenção agendada.
 
-Durante a *fase de autoatendimento*, que geralmente dura quatro semanas, você inicia a manutenção em suas VMs. Como parte do autoatendimento, você pode consultar cada VM para ver seu status e o resultado da última solicitação de manutenção.
+Durante a fase de *autoatendimento*, que geralmente dura quatro semanas, você inicia a manutenção em suas VMs. Como parte do autoatendimento, você pode consultar cada VM para ver o status e o resultado de sua última solicitação de manutenção.
 
-Quando você inicia a manutenção de autoatendimento, sua VM é reimplantada em um nó já atualizado. Como a VM é reiniciada, o disco temporário é perdido e os endereços IP dinâmicos associados à interface de rede virtual são atualizados.
+Quando você inicia a manutenção de autoatendimento, sua VM é reimplantada em um nó já atualizado. Como a VM é reiniciada, o disco temporário é perdido e os endereços IP dinâmicos associados ao adaptador de rede virtual são atualizados.
 
-Se ocorrer um erro durante a manutenção de autoatendimento, a operação será interrompida, a VM não será atualizada e você terá a opção de tentar novamente a manutenção de autoatendimento. 
+Se surgir um erro durante a manutenção de autoatendimento, a operação será interrompida, a VM não será atualizada e você terá a opção de tentar novamente a manutenção de autoatendimento. 
 
-Quando a fase de autoatendimento termina, a *fase de manutenção agendada* começa. Durante essa fase, você ainda pode consultar a fase de manutenção, mas não pode iniciar a manutenção por conta própria.
+Quando a fase de autoatendimento termina, a *fase de manutenção agendada* é iniciada. Durante essa fase, você ainda pode consultar a fase de manutenção, mas não pode iniciar a manutenção por conta própria.
 
-Para obter mais informações sobre como gerenciar a manutenção que exige uma reinicialização, consulte **lidando com notificações de manutenção planejada** usando a [CLI](maintenance-notifications-cli.md)do Azure, o [PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md). 
+Para obter mais informações sobre como gerenciar a manutenção que exige uma reinicialização, confira **Lidar com notificações de manutenção planejada** usando a [CLI](maintenance-notifications-cli.md) do Azure, o [PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md). 
 
-### <a name="availability-considerations-during-scheduled-maintenance"></a>Considerações de disponibilidade durante a manutenção agendada 
+### <a name="availability-considerations-during-scheduled-maintenance"></a>Considerações sobre disponibilidade durante a manutenção agendada 
 
-Se você decidir esperar até a fase de manutenção agendada, há algumas coisas que você deve considerar para manter a maior disponibilidade de suas VMs. 
+Se você decidir aguardar até a fase de manutenção agendada, há alguns aspectos a serem considerados para manter a disponibilidade mais alta de suas VMs. 
 
 #### <a name="paired-regions"></a>Regiões emparelhadas
 
-Cada região do Azure é emparelhada com outra região dentro das mesmas proximidades geográficas. Juntos, eles fazem um par de regiões. Durante a fase de manutenção agendada, o Azure atualiza somente as VMs em uma única região de um par de regiões. Por exemplo, ao atualizar a VM no norte EUA Central, o Azure não atualiza nenhuma VM no Sul EUA Central ao mesmo tempo. No entanto, outras regiões, como o Norte da Europa, podem estar em manutenção simultaneamente com Leste dos EUA. Noções básicas sobre como funcionam os pares de região podem ajudá-lo a melhor distribuir suas VMs entre regiões. Para obter mais informações, consulte [pares de regiões do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Cada região do Azure é emparelhada com outra na mesma proximidade geográfica. Juntas, elas fazem um par de regiões. Durante a fase de manutenção agendada, o Azure atualiza somente as VMs em uma só região de um par de regiões. Por exemplo, ao atualizar a VM no Centro-Norte dos EUA, o Azure não atualiza nenhuma VM no Centro-Sul dos EUA ao mesmo tempo. No entanto, outras regiões, como o Norte da Europa, podem estar em manutenção simultaneamente com Leste dos EUA. Noções básicas sobre como funcionam os pares de região podem ajudá-lo a melhor distribuir suas VMs entre regiões. Para obter mais informações, consulte [pares de regiões do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 #### <a name="availability-sets-and-scale-sets"></a>Conjuntos de disponibilidade e conjuntos de dimensionamento
 
-Ao implantar uma carga de trabalho em VMs do Azure, você pode criar as VMs em um *conjunto de disponibilidade* para fornecer alta disponibilidade ao seu aplicativo. Usando conjuntos de disponibilidade, você pode garantir que, durante uma interrupção ou eventos de manutenção que exijam uma reinicialização, pelo menos uma VM esteja disponível.
+Ao implantar uma carga de trabalho usando VMs do Azure, é possível criar as VMs em um *conjunto de disponibilidade* para fornecer alta disponibilidade para o aplicativo. Usando conjuntos de disponibilidade, você pode garantir que, durante uma interrupção ou eventos de manutenção que exijam uma reinicialização, pelo menos uma VM esteja disponível.
 
-Em um conjunto de disponibilidade, VMs individuais são distribuídas em até 20 domínios de atualização. Durante a manutenção agendada, apenas um domínio de atualização é atualizado em um determinado momento. Os domínios de atualização não são necessariamente atualizados em sequência. 
+Em um conjunto de disponibilidade, VMs individuais são distribuídas em até 20 domínios de atualização. Durante a manutenção agendada, somente um domínio é atualizado em um período específico. Os domínios de atualização não são necessariamente atualizados em sequência. 
 
-Os *conjuntos de dimensionamento* de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas como um único recurso. O conjunto de dimensionamento é implantado automaticamente em UDs, como VMs em um conjunto de disponibilidade. Assim como acontece com os conjuntos de disponibilidade, quando você usa conjuntos de dimensionamento, apenas um UD é atualizado em um determinado momento durante a manutenção agendada.
+Os *conjuntos de dimensionamento* de máquinas virtuais são um recurso de computação do Azure que pode ser usado para implantar e gerenciar um conjunto de VMs idênticas como um só recurso. O conjunto de dimensionamento é implantado automaticamente nos UDs, como VMs em um conjunto de disponibilidade. Assim como com conjuntos de disponibilidade, quando você usa conjuntos de dimensionamento, somente um UD é afetado em um determinado momento durante a manutenção agendada.
 
-Para obter mais informações sobre como configurar suas VMs para alta disponibilidade, consulte [gerenciar a disponibilidade de suas VMs para Windows](./windows/manage-availability.md) ou o artigo correspondente para [Linux](./linux/manage-availability.md).
+Para obter mais informações sobre como configurar suas VMs para alta disponibilidade, confira  [Gerenciar a disponibilidade das VMs para Windows](./windows/manage-availability.md) ou o artigo correspondente para [Linux](./linux/manage-availability.md).
 
 #### <a name="availability-zones"></a>Zonas de disponibilidade
 
 As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. 
 
-Uma zona de disponibilidade é uma combinação de um domínio de falha e um domínio de atualização. Se você criar três ou mais VMs em três zonas em uma região do Azure, suas VMs serão efetivamente distribuídas entre três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
+Uma zona de disponibilidade é uma combinação de um domínio de falha e um domínio de atualização. Se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição nos domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
-Cada atualização de infraestrutura distribui a zona por zona, dentro de uma única região. No entanto, você pode fazer com que a implantação seja ativada em Zona 1, e a implantação diferente entrará em Zona 2, ao mesmo tempo. Implantações não são todas serializadas. Mas, uma única implantação apenas distribui uma zona por vez para reduzir o risco.
+Cada atualização de infraestrutura é distribuída zona por zona, dentro de uma só região. No entanto, você pode ter uma implantação em andamento na Zona 1 e uma implantação diferente em andamento na Zona 2, ao mesmo tempo. Implantações não são todas serializadas. Porém, uma só implantação distribui uma zona por vez para reduzir o risco.
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-Você pode usar o [CLI do Azure](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md) para gerenciar a manutenção planejada. 
+Você pode usar a [CLI do Azure](maintenance-notifications-cli.md), o [Azure PowerShell](maintenance-notifications-powershell.md) ou o [portal](maintenance-notifications-portal.md) para gerenciar a manutenção planejada. 

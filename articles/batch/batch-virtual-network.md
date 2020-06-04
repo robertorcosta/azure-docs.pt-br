@@ -1,15 +1,15 @@
 ---
-title: Provisionar o pool em uma rede virtual | Microsoft Docs
+title: Provisionar um pool em uma rede virtual
 description: Como criar um pool de lotes em uma rede virtual do Azure para que os nós de computação possam se comunicar com segurança com outras VMs na rede, como um servidor de arquivos.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 616118d5f75f9bfa6d97d89baac9d7ea9186cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111888"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797513"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
@@ -49,13 +49,13 @@ Depois de criar sua rede virtual e ter atribuído uma sub-rede a ele, você pode
 
 Você pode ter requisitos em sua organização para redirecionar (forçar) o tráfego associado à Internet da sub-rede de volta para a sua localização para inspeção e registro em log. Talvez você tenha habilitado o túnel forçado para as sub-redes na sua rede virtual.
 
-Para garantir que seus nós de computação do pool do Lote do Azure funcionam em uma rede virtual com túnel forçado habilitado, você deve adicionar as seguintes [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) para essa sub-rede:
+Para garantir que seus nós de computação do pool do Lote do Azure funcionam em uma rede virtual com túnel forçado habilitado, você deve adicionar as seguintes UDRs ([rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md)) a essa sub-rede:
 
-* O serviço do Lote precisa se comunicar com os nós de computação do pool para o agendamento de tarefas. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para saber como obter a lista de endereços IP do serviço de lote, consulte [marcas de serviço locais](../virtual-network/service-tags-overview.md). Os endereços IP do serviço de lote serão associados à `BatchNodeManagement` marca de serviço (ou à variante regional que corresponde à sua região de conta do lote).
+* O serviço do Lote precisa se comunicar com os nós de computação do pool para o agendamento de tarefas. Para habilitar essa comunicação, adicione uma UDR a cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para saber como obter a lista de endereços IP do serviço de lote, confira [Marcas de serviço locais](../virtual-network/service-tags-overview.md).
 
 * Certifique-se de que o tráfego de saída no Armazenamento do Azure (especificamente, as URLs da forma `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) não está bloqueado por meio de seu dispositivo de rede local.
 
-Quando você adicionar uma rota definida pelo usuário, defina a rota para cada prefixo de endereço IP de lote relacionado e defina **Próximo tipo de salto** como **Internet**. Consulte o seguinte exemplo:
+Quando você adicionar uma UDR, defina a rota para cada prefixo de endereço IP de lote relacionado e defina **Próximo tipo de salto** como **Internet**. Consulte o seguinte exemplo:
 
 ![Rota definida pelo usuário](./media/batch-virtual-network/user-defined-route.png)
 
@@ -64,5 +64,5 @@ Quando você adicionar uma rota definida pelo usuário, defina a rota para cada 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para uma visão geral detalhada do Lote, confira [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md).
-- Para saber mais sobre como criar uma rota definida pelo usuário, consulte [Create a user-defined route – Azure portal](../virtual-network/tutorial-create-route-table-portal.md) (Criar uma rota definida pelo usuário – Portal do Azure).
+- Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
+- Para obter informações sobre como criar uma rota definida pelo usuário, confira [Criar uma rota definida pelo usuário – portal do Azure](../virtual-network/tutorial-create-route-table-portal.md).

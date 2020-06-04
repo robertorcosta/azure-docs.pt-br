@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 80da8d2880509a8ed6a2af8cb181b3bc2c281c09
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: MT
+ms.openlocfilehash: 37a458aea659cb6215cf29e6abcbc3341c7e0b7b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930566"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643264"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -34,7 +34,7 @@ O Azure usa SNAT (conversão de endereço de rede de origem) para realizar essa 
 Há vários [cenários de saída](#scenarios). É possível combinar esses cenários conforme necessário. Revise-os cuidadosamente para entender os recursos, as restrições e os padrões, e como se aplicam ao seu modelo de implantação e cenário de aplicativo. Revise as diretrizes para [gerenciar esses cenários](#snatexhaust).
 
 >[!IMPORTANT] 
->O Standard Load Balancer e o IP Público Standard apresentam novas habilidades e comportamentos diferentes da conectividade de saída.  Eles não são o mesmo que SKUs Básicos.  Se quiser ter conectividade de saída ao trabalhar com SKUs Standard, você precisará defini-la explicitamente com endereços IP públicos Standard ou com o Load Balancer Standard público.  Isso inclui a criação de conectividade de saída ao usar um Standard Load Balancer interno.  É recomendável que você sempre use regras de saída em um Load Balancer Standard público.  O [Cenário 3](#defaultsnat) não está disponível com o SKU Standard.  Isso significa que, quando um Standard Load Balancer for usado, você precisará executar etapas para criar a conectividade de saída para as VMs no pool de back-end se a conectividade de saída for desejada.  No contexto da conectividade de saída, uma única VM autônoma, todas as VMs em um conjunto de disponibilidade, todas as instâncias em um VMSS se comportam como um grupo. Isso significa que, se uma única VM em um conjunto de disponibilidade estiver associada a um SKU Standard, todas as instâncias de VM neste conjunto de disponibilidade agora se comportarão de acordo com as mesmas regras que se aplicariam se elas estivessem associados ao SKU Standard, mesmo se uma instância individual não estivesse diretamente associada a ele. Esse comportamento também é observado no caso de uma VM autônoma com várias placas de interface de rede anexadas a um balanceador de carga. Se uma NIC for adicionada como autônoma, ela terá o mesmo comportamento. Revise atentamente todo este documento para entender os conceitos gerais, revise [Standard Load Balancer](load-balancer-standard-overview.md) para ver as diferenças entre as SKUs e revise [regras de saída](load-balancer-outbound-rules-overview.md).  Usar regras de saída permite ter um controle refinado sobre todos os aspectos da conectividade de saída.
+>O Standard Load Balancer e o IP Público Standard apresentam novas habilidades e comportamentos diferentes da conectividade de saída.  Eles não são o mesmo que SKUs Básicos.  Se quiser ter conectividade de saída ao trabalhar com SKUs Standard, você precisará defini-la explicitamente com endereços IP públicos Standard ou com o Load Balancer Standard público.  Isso inclui a criação da conectividade de saída ao usar um Standard Load Balancer interno.  É recomendável que você sempre use regras de saída em um Load Balancer Standard público.  O [Cenário 3](#defaultsnat) não está disponível com o SKU Standard.  Isso significa que, quando um Standard Load Balancer for usado, você precisará executar etapas para criar a conectividade de saída para as VMs no pool de back-end se a conectividade de saída for desejada.  No contexto da conectividade de saída, uma única VM autônoma, todas as VMs em um conjunto de disponibilidade, todas as instâncias em um VMSS se comportam como um grupo. Isso significa que, se uma única VM em um conjunto de disponibilidade estiver associada a um SKU Standard, todas as instâncias de VM neste conjunto de disponibilidade agora se comportarão de acordo com as mesmas regras que se aplicariam se elas estivessem associados ao SKU Standard, mesmo se uma instância individual não estivesse diretamente associada a ele. Esse comportamento também é observado no caso de uma VM autônoma com várias placas adaptadoras de rede anexadas a um balanceador de carga. Se uma NIC for adicionada como autônoma, ela terá o mesmo comportamento. Revise atentamente todo este documento para entender os conceitos gerais, revise [Standard Load Balancer](load-balancer-standard-overview.md) para ver as diferenças entre as SKUs e revise [regras de saída](load-balancer-outbound-rules-overview.md).  Usar regras de saída permite ter um controle refinado sobre todos os aspectos da conectividade de saída.
 
 ## <a name="scenario-overview"></a><a name="scenarios"></a>Visão geral do cenário
 
@@ -42,25 +42,25 @@ O Azure Load Balancer e os recursos relacionados são explicitamente definidos a
 
 | SKUs | Cenário | Método | Protocolos IP | Descrição |
 | --- | --- | --- | --- | --- |
-| Standard, Básico | [1. VM com um endereço IP público em nível de instância (com ou sem Load Balancer)](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa o IP público atribuído à configuração de IP do NIC da instância. A instância possui todas as portas efêmeras disponíveis. Ao usar Standard Load Balancer, [as regras de saída](load-balancer-outbound-rules-overview.md) não serão suportadas se um IP público for atribuído à máquina virtual. |
-| Standard, Básico | [2. Load Balancer público associado a uma VM (nenhum endereço IP público na instância)](#lb) | SNAT com PAT (disfarce de porta) usando front-ends do Load Balancer | TCP, UDP |O Azure compartilha o endereço IP público dos front-ends do Load Balancer público com vários endereços IP privados. O Azure usa os portas efêmeras dos front-ends para PAT. Você deve usar [regras de saída](load-balancer-outbound-rules-overview.md) para definir explicitamente a conectividade de saída. |
-| Nenhuma ou Básico | [3. VM autônoma (sem Load Balancer, nenhum endereço IP público)](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com vários endereços IP privados do conjunto de disponibilidade e usa portas efêmeras desse endereço IP público. Esse cenário é um fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. |
+| Standard, Básico | [1. VM com um endereço IP Público em Nível de Instância (com ou sem Load Balancer)](#ilpip) | SNAT, disfarce de porta não usado | TCP, UDP, ICMP, ESP | O Azure usa o IP público atribuído à configuração de IP do NIC da instância. A instância possui todas as portas efêmeras disponíveis. Ao usar o Standard Load Balancer, [regras de saída](load-balancer-outbound-rules-overview.md) não serão compatíveis se um IP público for atribuído à máquina virtual. |
+| Standard, Básico | [2. Load Balancer público associado a uma VM (sem endereço IP público na instância)](#lb) | SNAT com PAT (disfarce de porta) usando front-ends do Load Balancer | TCP, UDP |O Azure compartilha o endereço IP público dos front-ends do Load Balancer público com vários endereços IP privados. O Azure usa os portas efêmeras dos front-ends para PAT. Você precisa usar [regras de saída](load-balancer-outbound-rules-overview.md) para definir explicitamente a conectividade de saída. |
+| Nenhuma ou Básico | [3. VM autônoma (sem Load Balancer, sem endereço IP público)](#defaultsnat) | SNAT com disfarce de porta (PAT) | TCP, UDP | O Azure designa automaticamente um endereço IP público para SNAT, compartilha esse endereço IP público com vários endereços IP privados do conjunto de disponibilidade e usa portas efêmeras desse endereço IP público. Esse cenário é um fallback para os cenários anteriores. Não é recomendável se você precisar de visibilidade e controle. |
 
 Se você não quiser que uma VM comunique-se com os pontos de extremidade fora do Azure no espaço de endereço IP público, poderá usar NSGs (grupos de segurança de rede) para bloquear o acesso conforme necessário. A seção [Impedir conectividade de saída](#preventoutbound) descreve sobre os NSGs mais detalhadamente. As diretrizes sobre a projeto, implementação e gerenciamento de uma rede virtual sem qualquer acesso de saída estão fora do escopo deste artigo.
 
 ### <a name="scenario-1-vm-with-public-ip-address"></a><a name="ilpip"></a>Cenário 1: VM com endereço IP público
 
-Nesse cenário, a VM tem um IP público atribuído a ela. No que diz respeito às conexões de saída, não importa se a VM é com balanceamento de carga ou não. Esse cenário tem precedência sobre os outros. Quando um endereço IP público é usado, a VM usa o endereço IP público para todos os fluxos de saída.  
+Nesse cenário, a VM tem um IP Público atribuído a ela. No que diz respeito às conexões de saída, não importa se a VM é com balanceamento de carga ou não. Esse cenário tem precedência sobre os outros. Quando um endereço IP público é usado, a VM usa o endereço IP público para todos os fluxos de saída.  
 
 Um IP público atribuído a uma VM é uma relação 1:1 (em vez de 1:muitos) e implementado como sem estado 1:1 NAT.  A PAT (disfarce de porta) não é usada e a VM tem todas as portas efêmeras disponíveis para uso.
 
-Se seu aplicativo iniciar muitos fluxos de saída e você enfrentar esgotamento de porta SNAT, considere atribuir um [endereço IP público para atenuar as restrições SNAT](#assignilpip). Revise [Gerenciar esgotamento de SNAT](#snatexhaust) completamente.
+Se o aplicativo iniciar muitos fluxos de saída e for observado um esgotamento da porta SNAT, considere atribuir um [endereço IP público para mitigar as restrições SNAT](#assignilpip). Revise [Gerenciar esgotamento de SNAT](#snatexhaust) completamente.
 
 ### <a name="scenario-2-load-balanced-vm-without-a-public-ip-address"></a><a name="lb"></a>Cenário 2: VM com balanceamento de carga sem um endereço IP público
 
 Nesse cenário, a VM faz parte de um pool de back-end do balanceador de carga público. A VM não tem um endereço IP público atribuído a ela. O recurso do Load Balancer deve ser configurado com uma regra de balanceador de carga para criar um link entre o front-end de IP público e o pool de back-end.
 
-Se você não concluir essa configuração de regra, o comportamento será conforme descrito no cenário para [VM autônoma sem IP público](#defaultsnat). Não é necessário que a regra tenha um ouvinte trabalhando no pool de back-end ou a investigação de integridade para ter êxito.
+Se você não concluir essa configuração da regra, o comportamento será conforme descrito no cenário para [VM autônoma sem IP](#defaultsnat). Não é necessário que a regra tenha um ouvinte trabalhando no pool de back-end ou a investigação de integridade para ter êxito.
 
 Quando a VM com balanceamento de carga cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP público do frontend do Balanceador de Carga público. O Azure usa SNAT para executar essa função. O Azure também usa [PAT](#pat) para disfarçar vários endereços IP privados por trás de um endereço IP público. 
 
@@ -70,18 +70,18 @@ As portas SNAT são pré-alocadas, conforme descrito na seção [Entendendo SNAT
 
 Quando [vários endereços IP (públicos) estão associados ao Load Balancer Básico](load-balancer-multivip-overview.md), qualquer um desses endereços IP públicos é um candidato para fluxos de saída e um é selecionado aleatoriamente.  
 
-Para monitorar a integridade das conexões de saída com o Load Balancer Basic, você pode usar [logs de Azure monitor para Load Balancer](load-balancer-monitor-log.md) e [logs de eventos de alerta](load-balancer-monitor-log.md#alert-event-log) para monitorar mensagens de esgotamento de porta SNAT.
+Para monitorar a integridade das conexões de saída com o Load Balancer Básico, é possível usar [logs do Azure Monitor para Load Balancer](load-balancer-monitor-log.md) e [logs de eventos de alerta](load-balancer-monitor-log.md#alert-event-log) para monitorar as mensagens de esgotamento da porta SNAT.
 
 ### <a name="scenario-3-standalone-vm-without-a-public-ip-address"></a><a name="defaultsnat"></a>Cenário 3: VM autônoma sem um endereço IP público
 
-Nesse cenário, a VM não faz parte de um pool de Load Balancer público (e não faz parte de um pool de Standard Load Balancer interno) e não tem um endereço IP público atribuído a ele. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável e não conta para o limite de recursos IP públicos da assinatura. Esse endereço IP público não pertence a você e não pode ser reservado. Se você reimplantar o conjunto de dimensionamento de VMs ou conjuntos de disponibilidade ou máquinas virtuais, esse endereço IP público será liberado e um novo endereço IP público será solicitado. Não use esse cenário para endereços IP de lista de permissões. Em vez disso, use um dos outros dois cenários para declarar explicitamente o cenário de saída e o endereço IP público a ser usado para conectividade de saída.
+Nesse cenário, a VM não faz parte de um pool público do Load Balancer (e não faz parte de um pool do Standard Load Balancer interno) e nenhum endereço IP público está atribuído a ela. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável e não conta para o limite de recursos IP públicos da assinatura. Esse endereço IP público não pertence a você e não pode ser reservado. Se você reimplantar o conjunto de dimensionamento de VMs ou conjuntos de disponibilidade ou máquinas virtuais, esse endereço IP público será liberado e um novo endereço IP público será solicitado. Não use esse cenário para endereços IP de lista de permissões. Em vez disso, use um dos outros dois cenários para declarar explicitamente o cenário de saída e o endereço IP público a ser usado para conectividade de saída.
 
 >[!IMPORTANT] 
 >Esse cenário também será aplicável quando __somente__ um Load Balancer Básico interno estiver conectado. O cenário 3 será __não disponível__ quando um Load Balancer Standard interno for anexado a uma VM.  É necessário criar explicitamente o [cenário 1](#ilpip) ou [cenário 2](#lb), além de usar um Load Balancer Standard interno.
 
-O Azure usa SNAT com disfarce de porta ([PAT](#pat)) para executar essa função. Esse cenário é semelhante ao [cenário 2](#lb), exceto que não há nenhum controle sobre o endereço IP usado. Este é um cenário de fallback para quando os cenários 1 e 2 não existirem. Não é recomendável esse cenário, se você quiser controlar o endereço de saída. Se as conexões de saída são uma parte crítica do seu aplicativo, você deve escolher outro cenário.
+O Azure usa SNAT com disfarce de porta ([PAT](#pat)) para executar essa função. Esse cenário é semelhante ao [cenário 2](#lb), exceto que não há controle sobre o endereço IP usado. Este é um cenário de fallback para quando os cenários 1 e 2 não existirem. Não é recomendável esse cenário, se você quiser controlar o endereço de saída. Se as conexões de saída são uma parte crítica do seu aplicativo, você deve escolher outro cenário.
 
-As portas SNAT são prealocadas conforme descrito na seção [entendendo SNAT e Pat](#snat) .  O número de VMs que compartilham um Conjunto de Disponibilidade determina qual camada de pré-alocação se aplica.  Uma VM autônoma sem um Conjunto de Disponibilidade é efetivamente um pool de 1 para fins de determinação de pré-alocação (portas de SNAT 1024). As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são [consumidas](#pat). Para entender como projetar para esse consumo e mitigar, conforme necessário, revise [Gerenciar esgotamento de SNAT](#snatexhaust).
+As portas SNAT são pré-alocadas conforme descrito na seção [Entendendo SNAT e PAT](#snat).  O número de VMs que compartilham um Conjunto de Disponibilidade determina qual camada de pré-alocação se aplica.  Uma VM autônoma sem um Conjunto de Disponibilidade é efetivamente um pool de 1 para fins de determinação de pré-alocação (portas de SNAT 1024). As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são [consumidas](#pat). Para entender como projetar para esse consumo e mitigar, conforme necessário, revise [Gerenciar esgotamento de SNAT](#snatexhaust).
 
 ### <a name="multiple-combined-scenarios"></a><a name="combinations"></a>Cenários combinados, vários
 
@@ -111,7 +111,7 @@ Normalmente, a opção `disableOutboundSnat` é padronizada como _falso_ e signi
 
 O Load Balancer Basic escolhe um único front-end para ser utilizado em fluxos de saída quando [vários front-ends de IP (público)](load-balancer-multivip-overview.md) forem candidatos para fluxos de saída. Essa seleção não é configurável e você deverá considerar o algoritmo de seleção como aleatório. Você pode designar um endereço IP específico para a saída, conforme descrito em [Cenários múltiplos e combinados](#combinations).
 
-### <a name="availability-zones"></a><a name="az"></a>Zonas de Disponibilidade
+### <a name="availability-zones"></a><a name="az"></a> Zonas de Disponibilidades
 
 Ao usar o [Load Balancer Standard com Zonas de Disponibilidade](load-balancer-standard-availability-zones.md), os front-ends com redundância de zona podem fornecer conexões de SNAT de saída com redundância de zona e a programação de SNAT sobrevive à falha da zona.  Quando front-ends zonais são utilizados, as conexões de SNAT de saída compartilham o destino com a zona à qual pertencem.
 
@@ -119,7 +119,7 @@ Ao usar o [Load Balancer Standard com Zonas de Disponibilidade](load-balancer-st
 
 ### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>Disfarce de porta SNAT (PAT)
 
-Quando um recurso de Load Balancer público é associado a instâncias de VM, que não têm endereços IP públicos dedicados, cada fonte de conexão de saída é reescrita. A origem é regravada do espaço do endereço IP privado da rede virtual para o endereço IP Público de front-end do balanceador de carga. No espaço de endereço IP público, as 5 tuplas do fluxo (endereço IP de origem, porta de origem, protocolo de transporte IP, endereço IP de destino, porta de destino) devem ser exclusivas. O SNAT simulado de porta pode ser usado com protocolos TCP ou IP UDP.
+Quando um recurso público do Load Balancer estiver associado a instâncias de VM, que não têm endereços IP públicos dedicados, cada fonte de conexão de saída será reescrita. A origem é regravada do espaço do endereço IP privado da rede virtual para o endereço IP Público de front-end do balanceador de carga. No espaço de endereço IP público, as 5 tuplas do fluxo (endereço IP de origem, porta de origem, protocolo de transporte IP, endereço IP de destino, porta de destino) devem ser exclusivas. O SNAT simulado de porta pode ser usado com protocolos TCP ou IP UDP.
 
 As portas efêmeras (portas SNAT) são usadas para conseguir isso após a regravação do endereço IP de origem privada, já que vários fluxos originam-se de um único endereço IP público. O algoritmo de SNAT de disfarce de porta aloca as portas SNAT de forma diferente para UDP e TCP.
 
@@ -135,7 +135,7 @@ Portas SNAT UDP são gerenciadas por um algoritmo diferente do que as portas SNA
 
 #### <a name="snat-port-reuse"></a>Reutilização de porta SNAT
 
-Depois que uma porta for liberada, a porta estará disponível para reutilização conforme necessário.  Você pode considerar as portas SNAT como uma sequência do mais baixo para o mais alto disponível para um determinado cenário, e a primeira porta SNAT disponível é usada para novas conexões. 
+Depois que uma porta for liberada, a porta estará disponível para reutilização conforme necessário.  Você pode considerar as portas SNAT como uma sequência da mais baixa para a mais alta disponível para um determinado cenário, em que a primeira porta SNAT disponível é usada para novas conexões. 
  
 #### <a name="exhaustion"></a>Esgotamento
 
@@ -160,7 +160,7 @@ A tabela a seguir mostra as pré-alocações de porta SNAT para níveis de taman
 
 | Tamanho do pool (instâncias VM) | Portas SNAT pré-alocadas por configuração de IP|
 | --- | --- |
-| 1-50 | 1.024 |
+| 1-50 | 1\.024 |
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
@@ -168,7 +168,7 @@ A tabela a seguir mostra as pré-alocações de porta SNAT para níveis de taman
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> Ao utilizar o Standard Load Balancer com [vários front-ends](load-balancer-multivip-overview.md), cada endereço IP de front-end multiplica o número de portas de SNAT disponíveis na tabela anterior. Por exemplo, um pool de back-end de VMs 50 com 2 regras de balanceamento de carga, cada uma com um endereço IP de front-end separado, usará as portas SNAT 2048 (2x 1024) por regra. Consulte os detalhes para [vários front-ends](#multife).
+> Ao utilizar o Standard Load Balancer com [vários front-ends](load-balancer-multivip-overview.md), cada endereço IP de front-end multiplica o número de portas de SNAT disponíveis na tabela anterior. Por exemplo, um conjunto de back-end de 50 VMs com duas regras de balanceamento de carga, cada uma com um endereço IP front-end separado, usará 2.048 (2x 1.024) portas SNAT por regra. Consulte os detalhes para [vários front-ends](#multife).
 
 Lembre-se de que o número de portas SNAT disponíveis não movem diretamente em número de fluxos. Uma única porta SNAT pode ser reutilizada para vários destinos exclusivos. As portas são consumidas apenas se for necessário fazer fluxos exclusivos. Para diretrizes de projeto e mitigação, consulte a seção sobre [como gerenciar esse recurso esgotável](#snatexhaust) e a seção que descreve a [PAT](#pat).
 
@@ -180,7 +180,7 @@ As alocações de portas SNAT são o protocolo de transporte IP específico (TCP
 
 ### <a name="tcp-snat-port-release"></a>Liberação da porta TCP SNAT
 
-- Se o servidor/cliente enviar FINACK, a porta SNAT será liberada após 240 segundos.
+- Se o servidor ou o cliente enviar FINACK, a porta SNAT será liberada após 240 segundos.
 - Se um RST for visto, a porta SNAT será liberada após 15 segundos.
 - Se o tempo limite de ociosidade tiver sido atingido, a porta será liberada.
 
@@ -193,14 +193,14 @@ As alocações de portas SNAT são o protocolo de transporte IP específico (TCP
 Esta seção destina-se a ajudar a mitigar o esgotamento de SNAT e que pode ocorrer com conexões de saída no Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Gerenciar esgotamento da porta SNAT (PAT)
-[As portas efêmeras](#preallocatedports) usadas [para Pat](#pat) são um recurso esse esgotável, conforme descrito em [VM autônoma sem um endereço IP público](#defaultsnat) e [VM com balanceamento de carga sem um endereço IP público](#lb). Você pode monitorar o uso de portas efêmeras e comparar com sua alocação atual para determinar o risco de ou confirmar o esgotamento de SNAT usando [este](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guia.
+As [portas efêmeras](#preallocatedports) usadas para [PAT](#pat) são um recurso esgotável, conforme descrito em [VM autônoma sem um endereço IP público](#defaultsnat) e [VM com balanceamento de carga sem um endereço IP público](#lb). Você pode monitorar o uso de portas efêmeras e comparar com sua alocação atual para determinar o risco do esgotamento de SNAT ou para confirmá-lo usando [este](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guia.
 
 Se você sabe que está iniciando muitas conexões TCP ou UDP de saída para o mesmo endereço e porta IP de destino, se você observa as conexões de saída com falha ou é avisado pelo suporte que as portas SNAT ([portas efêmeras](#preallocatedports) pré-alocadas usadas pela [PAT](#pat)) estão se esgotando, você terá várias opções gerais de mitigação. Avalie essas opções e decida o que está disponível e melhor para o seu cenário. É possível que uma ou mais possam ajudar a gerenciar esse cenário.
 
 Se você tiver problemas para entender o comportamento da conexão de saída, poderá usar as estatísticas de pilha de IP (netstat). Ou pode ser útil observar comportamentos de conexão usando capturas de pacote. Você pode executar essas capturas de pacotes no sistema operacional convidado da sua instância ou usar o [Observador de Rede para captura de pacote](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
 
-#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Alocar manualmente portas SNAT para maximizar as portas SNAT por VM
-Conforme definido em [portas](#preallocatedports)predefinidas, o balanceador de carga irá alocar automaticamente as portas com base no número de VMs no back-end. Por padrão, isso é feito de forma conservadora para garantir a escalabilidade. Se você souber o número máximo de VMs que terá no back-end, poderá alocar manualmente as portas SNAT configurando-as em cada regra de saída. Por exemplo, se você souber que terá um máximo de 10 VMs, poderá alocar 6.400 portas SNAT por VM em vez do 1.024 padrão. 
+#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Alocar portas SNAT manualmente para maximizar o número de portas SNAT por VM
+Conforme definido em [portas prealocadas](#preallocatedports), o balanceador de carga alocará automaticamente as portas com base no número de VMs no back-end. Por padrão, isso é feito de maneira conservadora para garantir a escalabilidade. Se você souber o número máximo de VMs que terá no back-end, poderá alocar manualmente as portas SNAT configurando essa informação em cada regra de saída. Por exemplo, se você souber que terá um máximo de dez VMs, poderá alocar 6.400 portas SNAT por VM em vez de 1.024, o número padrão. 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modificar o aplicativo para reutilizar conexões 
 Você pode reduzir a demanda por portas efêmeras usadas para SNAT, reutilizando as conexões em sua aplicação. Isto é especialmente verdadeiro para protocolos como HTTP/1.1, onde a reutilização de conexão é a padrão. E outros protocolos que usam o HTTP como seu transporte (por exemplo, REST) podem se beneficiar por sua vez. 
@@ -217,8 +217,8 @@ Quando as [portas efêmeras pré-alocadas](#preallocatedports) usadas para [PAT]
 
 As portas efêmeras têm um tempo limite de ociosidade de 4 minutos (não ajustável). Se as tentativas forem muito agressivas, o esgotamento não terá oportunidade de limpar por conta própria. Portanto, considerando como -- e com que frequência -- o aplicativo reage transações é uma parte crítica do projeto.
 
-#### <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Atribuir um IP público a cada VM
-A atribuição de um endereço IP público altera seu cenário para o [IP público para uma VM](#ilpip). Todas as portas efêmeras do IP público que são usadas para cada VM estão disponíveis para a VM. (Em oposição aos cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo pool de back-end.) Há compensações a serem consideradas, como o custo adicional de endereços IP públicos e o possível impacto da lista de permissões de um grande número de endereços IP individuais.
+#### <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Atribuir um endereço IP a cada VM
+A atribuição de um endereço IP público altera seu cenário para [IP público para uma VM](#ilpip). Todas as portas efêmeras do IP público que são usadas para cada VM estão disponíveis para a VM. (Em oposição aos cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo grupo de back-end.) Há compromissos a considerar, tais como o custo adicional dos endereços IP públicos e o potencial impacto da listagem de permissões de um grande número de endereços IP individuais.
 
 >[!NOTE] 
 >Essa opção não está disponível para as funções de trabalho da Web.
@@ -230,17 +230,17 @@ Ao utilizar o Load Balancer Standard púbico, você atribui [vários endereços 
 >[!NOTE]
 >Na maioria dos casos, o esgotamento das portas de SNAT é um sinal de design inapropriado.  Antes de utilizar mais front-ends para adicionar portas de SNAT, certifique-se de reconhecer por que as portas estão esgotando.  É possível que esteja mascarando um problema que posteriormente poderá resultar em falha.
 
-#### <a name="scale-out"></a><a name="scaleout"></a>Escalar horizontalmente
+#### <a name="scale-out"></a><a name="scaleout"></a>Escala horizontal
 
-[As portas pré-designadas](#preallocatedports) são atribuídas com base no tamanho do pool de back-end e agrupadas em camadas para minimizar a interrupção quando algumas das portas precisam ser realocadas para acomodar a próxima camada de tamanho do pool de back-end.  Você pode ter a opção de aumentar a intensidade da utilização da porta SNAT para um determinado frontend, dimensionando o pool de back-end para o tamanho máximo de um determinado nível.  Isso requer que o aplicativo dimensione com eficiência.
+[As portas pré-designadas](#preallocatedports) são atribuídas com base no tamanho do pool de back-end e agrupadas em camadas para minimizar a interrupção quando algumas das portas precisam ser realocadas para acomodar a próxima camada de tamanho do pool de back-end.  Você pode ter a opção de aumentar a intensidade da utilização da porta SNAT para um determinado frontend, dimensionando o pool de back-end para o tamanho máximo de um determinado nível.  Isso requer que o aplicativo escale horizontalmente com eficiência.
 
-Por exemplo, duas máquinas virtuais no pool de back-end teriam 1024 portas SNAT disponíveis por configuração de IP, permitindo um total de 2048 portas SNAT para a implantação.  Se a implantação for aumentada para 50 máquinas virtuais, mesmo que o número de portas pré-alocas permaneça constante por máquina virtual, um total de portas SNAT 51.200 (50 x 1024) podem ser usadas pela implantação.  Se você deseja expandir sua implantação, verifique o número de [portas pré-alocadas](#preallocatedports) por nível para certificar-se que você dimensionou ao máximo para a camada respectiva.  No exemplo anterior, se você tivesse escolhido dimensionar para 51 em vez de 50 instâncias, você progrediria para a próxima camada e acabaria com menos portas SNAT por VM, assim como no total.
+Por exemplo, duas máquinas virtuais no pool de back-end teriam 1024 portas SNAT disponíveis por configuração de IP, permitindo um total de 2048 portas SNAT para a implantação.  Se a implantação for aumentada para 50 máquinas virtuais, mesmo que o número de portas pré-alocas permaneça constante por máquina virtual, um total de portas SNAT 51.200 (50 x 1024) podem ser usadas pela implantação.  Se você deseja expandir sua implantação, verifique o número de [portas pré-alocadas](#preallocatedports) por nível para certificar-se que você dimensionou ao máximo para a camada respectiva.  No exemplo anterior, se você tivesse escolhido escalar horizontalmente para 51 em vez de 50 instâncias, você progrediria para a próxima camada e acabaria com menos portas SNAT por VM, assim como no total.
 
 Se você escalar horizontalmente para a próxima camada de tamanho maior de pool de back-end, há potencial para que algumas das conexões de saída atinjam tempo limite se as portas alocadas precisarem ser realocadas.  Se você estiver usando apenas algumas das portas SNAT, escalar horizontalmente no próximo tamanho maior de pool de back-end é irrelevante.  Metade das portas existentes será realocada cada vez que você mover para a próxima camada de pool de back-end.  Se não desejar que isso ocorra, é necessário formatar sua implantação para o tamanho da camada.  Ou, verifique se seu aplicativo pode detectar e repita conforme necessário.  TCP keepalives podem ajudá-lo a detectar quando as portas SNAT não funcionam mais devido a terem sido realocadas.
 
 ### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Usar keepalives para redefinir o tempo limite ocioso de saída
 
-Conexões de saída têm um tempo limite de ociosidade de 4 minutos. Esse tempo limite é ajustável por meio de [regras de saída](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Você também pode usar o transporte (por exemplo, TCP keepalives) ou keepalives da camada de aplicativo para atualizar um fluxo ocioso e redefinir esse tempo limite ocioso, se necessário.  
+Conexões de saída têm um tempo limite de ociosidade de 4 minutos. Esse tempo limite é ajustável por meio de [Regras de saída](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Você também pode usar o transporte (por exemplo, TCP keepalives) ou keepalives da camada de aplicação para atualizar um fluxo ocioso e redefinir esse tempo limite ocioso, se necessário.  
 
 Ao usar TCP keepalives, é suficiente habilitá-los em um lado da conexão. Por exemplo, é suficiente habilitá-las no lado do servidor apenas para redefinir o timer de ociosidade do fluxo e não é necessário para os dois lados iniciados do TCP keepalives.  Conceitos semelhantes existem para a camada de aplicativo, incluindo as configurações de cliente-servidor de banco de dados.  Verifique o lado do servidor para as opções existentes para o aplicativo keepalives específico.
 
@@ -257,6 +257,10 @@ Usando o comando nslookup, você pode enviar uma consulta DNS para o nome myip.o
 Ao aplicar um NSG a uma VM com balanceamento de carga, atente-se às [marcas de serviço](../virtual-network/security-overview.md#service-tags) e às [regras de segurança padrão](../virtual-network/security-overview.md#default-security-rules). Certifique-se de que a VM possa receber solicitações de investigação de integridade do Azure Load Balancer. 
 
 Se um NSG bloquear solicitações de investigação de integridade da marcação padrão AZURE_LOADBALANCER, o teste de integridade da VM falhará e a VM será reduzida. O Balanceador de Carga interrompe o envio de novos fluxos para a VM.
+
+## <a name="connections-to-azure-storage-in-the-same-region"></a>Conexões com o Armazenamento do Azure na mesma região
+
+Não é necessário ter conectividade de saída por meio dos cenários acima para se conectar ao Armazenamento na mesma região que a VM. Se você não quiser isso, use NSGs (grupos de segurança de rede), conforme explicado acima. Para a conectividade com o armazenamento em outras regiões, a conectividade de saída é necessária. Observe que, ao se conectar ao Armazenamento de uma VM na mesma região, o endereço IP de origem nos logs de diagnóstico de Armazenamento será um endereço de provedor interno e não o endereço IP público da VM. Se você quiser restringir o acesso à sua conta de armazenamento a VMs em uma ou mais sub-redes de rede virtual na mesma região, use [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) (e não seu endereço IP público) ao configurar o firewall da conta de armazenamento. Depois que os pontos de extremidade de serviço forem configurados, você verá seu endereço IP privado da rede virtual nos logs de diagnóstico de armazenamento e não no endereço do provedor interno.
 
 ## <a name="limitations"></a>Limitações
 - Funções de trabalho sem uma rede virtual e outros serviços da plataforma Microsoft podem ser acessados quando apenas um Standard Load Balancer interno é usado devido a um efeito colateral de como os serviços pré-VNet e outros serviços da plataforma funcionam. Não confie neste efeito colateral como o próprio serviço em si ou a plataforma subjacente pode mudar sem aviso prévio. Você sempre deve supor que precisa criar conectividade de saída explicitamente se desejado ao usar apenas um Standard Load Balancer interno. O cenário [SNAT padrão](#defaultsnat) 3 descrito neste artigo não está disponível.

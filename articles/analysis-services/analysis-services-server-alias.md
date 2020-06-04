@@ -1,22 +1,22 @@
 ---
 title: Nome de servidor de alias do Azure Analysis Services | Microsoft Docs
-description: Saiba como criar Azure Analysis Services aliases de nome de servidor. Os usuários podem, então, se conectar ao seu servidor com um nome de alias mais curto em vez do nome do servidor.
+description: Saiba como criar aliases de nome do servidor do Azure Analysis Services. Os usuários podem, então, se conectar ao servidor com um nome de alias mais curto, em vez do nome do servidor.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e7017fad90e32cb8c4b952987fe248e463e4d03
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 4b416a25fd0befa91076fed5f9bf5df23ea30844
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572286"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698992"
 ---
 # <a name="alias-server-names"></a>Nome de servidor de alias
 
-Usando um alias de nome de servidor, os usuários podem se conectar ao seu servidor do Azure Analysis Services com um *alias* mais curto em vez do nome do servidor. Ao conectar-se usando um aplicativo cliente, o alias é especificado como um ponto de extremidade usando o formato de protocolo **link://**. O ponto de extremidade então retorna o nome de servidor real para se conectar.
+Usando um alias de nome de servidor, os usuários podem se conectar ao seu servidor do Azure Analysis Services com um *alias* mais curto em vez do nome do servidor. Ao conectar-se usando um aplicativo cliente, o alias é especificado como um ponto de extremidade usando o formato de protocolo **link://** . O ponto de extremidade então retorna o nome de servidor real para se conectar.
 
 Nomes de servidor de alias são bons para:
 
@@ -29,7 +29,7 @@ Qualquer ponto de extremidade HTTPS que retorne um nome de servidor válido do A
 
 ![Alias usando o formato de link](media/analysis-services-alias/aas-alias-browser.png)
 
-Ao conectar-se usando um cliente, o nome do servidor de alias é inserido usando o formato do protocolo **link://**. Por exemplo, no Power BI Desktop:
+Ao conectar-se usando um cliente, o nome do servidor de alias é inserido usando o formato do protocolo **link://** . Por exemplo, no Power BI Desktop:
 
 ![Conexão do Power BI Desktop](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
@@ -54,5 +54,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## <a name="see-also"></a>Confira também
 
-[Bibliotecas de cliente](analysis-services-data-providers.md)   
+[Bibliotecas do cliente](analysis-services-data-providers.md)   
 [Conectar-se a partir do Power BI Desktop](analysis-services-connect-pbi.md)

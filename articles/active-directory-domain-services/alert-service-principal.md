@@ -1,6 +1,6 @@
 ---
-title: Resolver alertas de entidade de serviço no Azure AD Domain Services | Microsoft Docs
-description: Saiba como solucionar problemas de alertas de configuração da entidade de serviço para Azure Active Directory Domain Services
+title: Solucionar alertas de entidade de serviço no Azure AD Domain Services | Microsoft Docs
+description: Saiba como solucionar problemas de alertas de configuração de entidade de serviço do Azure Active Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,105 +11,105 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 175bfe63176b78c5aeafc7147c46dd5ab1110325
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71257957"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845960"
 ---
-# <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas de entidade de serviço no Azure Active Directory Domain Services
+# <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: Alertas de entidade de serviço no Azure Active Directory Domain Services
 
-As [entidades de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicativos que a plataforma Azure usa para gerenciar, atualizar e manter um domínio gerenciado do Azure AD DS. Se uma entidade de serviço for excluída, a funcionalidade no domínio gerenciado AD DS do Azure será afetada.
+As [entidades de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicativos usados pela plataforma Azure para gerenciar, atualizar e manter um domínio gerenciado do Azure AD DS. Se uma entidade de serviço for excluída, a funcionalidade no domínio gerenciado do Azure AD DS será afetada.
 
-Este artigo ajuda você a solucionar problemas e resolver alertas de configuração relacionados à entidade de serviço.
+Este artigo ajuda a solucionar problemas e resolver alertas de configuração relacionados à entidade de serviço.
 
-## <a name="alert-aadds102-service-principal-not-found"></a>AADDS102 de alerta: entidade de serviço não encontrada
+## <a name="alert-aadds102-service-principal-not-found"></a>Alerta AADDS102: Entidade de serviço não encontrada
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*Uma entidade de serviço necessária para que o Azure AD Domain Services funcione corretamente foi excluída do seu diretório do Azure AD. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patches e sincronizar seu domínio gerenciado.*
+*Uma Entidade de Serviço necessária para o funcionamento correto do Azure AD Domain Services foi excluída do seu diretório do Azure AD. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado.*
 
-Se uma entidade de serviço necessária for excluída, a plataforma do Azure não poderá executar tarefas de gerenciamento automatizadas. O Azure AD DS domínio gerenciado pode não aplicar atualizações corretamente ou fazer backups.
+Se uma entidade de serviço necessária for excluída, a plataforma Azure não poderá executar tarefas de gerenciamento automatizadas. O domínio gerenciado do Azure AD DS pode não aplicar atualizações corretamente ou fazer backups.
 
 ### <a name="check-for-missing-service-principals"></a>Verificar entidades de serviço ausentes
 
 Para verificar qual entidade de serviço está ausente e precisa ser recriada, conclua as seguintes etapas:
 
-1. Na portal do Azure, selecione **Azure Active Directory** no menu de navegação à esquerda.
-1. Selecione **Aplicativos empresariais**. Escolha *todos os aplicativos* no menu suspenso **tipo de aplicativo** e, em seguida, selecione **aplicar**.
-1. Pesquise cada uma das IDs de aplicativo. Se nenhum aplicativo existente for encontrado, siga as etapas de *resolução* para criar a entidade de serviço ou registrar novamente o namespace.
+1. No portal do Azure, selecione **Azure Active Directory** no menu de navegação à esquerda.
+1. Selecione **Aplicativos empresariais**. Selecione *Todos os aplicativos* no menu suspenso **Tipo de aplicativo** e, sem seguida, **Aplicar**.
+1. Pesquise cada uma das IDs de aplicativo. Se nenhum aplicativo existente for encontrado, siga as etapas de *Resolução* para criar a entidade de serviço ou registrar novamente o namespace.
 
     | ID do aplicativo | Resolução |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar uma entidade de serviço ausente](#recreate-a-missing-service-principal) |
-    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Registrar novamente o namespace Microsoft. AAD](#re-register-the-microsoft-aad-namespace) |
-    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [Registrar novamente o namespace Microsoft. AAD](#re-register-the-microsoft-aad-namespace) |
-    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Registrar novamente o namespace Microsoft. AAD](#re-register-the-microsoft-aad-namespace) |
+    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Registrar novamente no namespace Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
+    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [Registrar novamente no namespace Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
+    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Registrar novamente o namespace Microsoft.AAD](#re-register-the-microsoft-aad-namespace) |
 
-### <a name="recreate-a-missing-service-principal"></a>Recriar uma entidade de serviço ausente
+### <a name="recreate-a-missing-service-principal"></a>Recriar entidade de serviço ausente
 
-Se a ID do aplicativo *2565bd9d-DA50-47d4-8b85-4c97f669dc36* estiver ausente do seu diretório do Azure AD, use o PowerShell do Azure ad para concluir as etapas a seguir. Para obter mais informações, consulte [instalar o PowerShell do Azure ad](/powershell/azure/active-directory/install-adv2).
+Se a ID do aplicativo *2565bd9d-DA50-47d4-8b85-4c97f669dc36* não estiver no diretório do Azure AD, use o PowerShell do Azure AD para concluir as etapas a seguir. Para obter mais informações, consulte [Instalar o Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Instale o módulo do PowerShell do Azure AD e importe-o da seguinte maneira:
+1. Instale o módulo do Azure AD PowerShell e importe-o da seguinte forma:
 
     ```powershell
     Install-Module AzureAD
     Import-Module AzureAD
     ```
 
-1. Agora recrie a entidade de serviço usando o cmdlet [New-AzureAdServicePrincipal][New-AzureAdServicePrincipal] :
+1. Agora recrie uma entidade de serviço usando o cmdlet [New-AzureADServicePrincipal][New-AzureAdServicePrincipal]:
 
     ```powershell
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamente dentro de duas horas e remove o alerta.
+A integridade do domínio gerenciado do Azure AD DS se atualiza automaticamente dentro de duas horas e remove o alerta.
 
-### <a name="re-register-the-microsoft-aad-namespace"></a>Registrar novamente o namespace do Microsoft AAD
+### <a name="re-register-the-microsoft-aad-namespace"></a>Registrar novamente o namespace Microsoft.AAD
 
-Se a ID do aplicativo *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*ou *d87dcbc6-a371-462e-88e3-28ad15ec4e64* estiver ausente no seu diretório do Azure AD, conclua as etapas a seguir para registrar novamente o provedor de recursos *Microsoft. AAD* :
+Se a ID do aplicativo *443155a6-77f3-45e3-882b-22b3a8d431fb, abba844e-bc0e-44b0-947a-dc74e5d09022 ou d87dcbc6-a371-462e-88e3-28ad15ec4e64 não estiver no diretório do Azure AD, conclua as etapas a seguir para registrar novamente o provedor de recursos Microsoft. AAD:
 
-1. No portal do Azure, procure e selecione **assinaturas**.
-1. Escolha a assinatura associada ao seu domínio gerenciado AD DS do Azure.
-1. Na navegação à esquerda, escolha provedores de **recursos**.
-1. Pesquise *Microsoft. AAD*e, em seguida, selecione **registrar novamente**.
+1. No Portal do Azure, pesquise e selecione **Assinaturas**.
+1. Escolha a assinatura associada ao seu domínio gerenciado do Azure AD DS.
+1. No painel de navegação à esquerda, escolha **Provedores de recursos**.
+1. Pesquise por *Microsoft. AAD* e, em seguida, selecione **Registrar novamente**.
 
-A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamente dentro de duas horas e remove o alerta.
+A integridade do domínio gerenciado do Azure AD DS se atualiza automaticamente dentro de duas horas e remove o alerta.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: O aplicativo de sincronização de senha está desatualizado
 
 ### <a name="alert-message"></a>Mensagem de alerta
 
-*A entidade de serviço com a ID de aplicativo "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi excluída e recriada. A recreação deixa por trás das permissões inconsistentes em Azure AD Domain Services recursos necessários para atender ao domínio gerenciado. A sincronização de senhas em seu domínio gerenciado pode ser afetada.*
+*A entidade de serviço com a ID do aplicativo “d87dcbc6-a371-462e-88e3-28ad15ec4e64” foi excluída e depois recriada. A recriação ignora permissões divergentes nos recursos do Azure AD Domain Services necessários para atender o domínio gerenciado. A sincronização de senhas no domínio gerenciado pode ser afetada.*
 
-O Azure AD DS sincroniza automaticamente as contas de usuário e as credenciais do Azure AD. Se houver um problema com o aplicativo do Azure AD usado para esse processo, a sincronização de credenciais entre o Azure AD DS e o Azure AD falhará.
+O Azure AD DS sincroniza automaticamente as contas de usuário e as credenciais do Azure AD. Se houver um problema com o aplicativo Azure AD usado para esse processo, a sincronização de credenciais entre o Azure AD DS e o Azure AD falhará.
 
 ### <a name="resolution"></a>Resolução
 
-Para recriar o aplicativo do Azure AD usado para sincronização de credenciais, use o PowerShell do Azure AD para concluir as etapas a seguir. Para obter mais informações, consulte [instalar o PowerShell do Azure ad](/powershell/azure/active-directory/install-adv2).
+Para recriar o aplicativo do Azure AD usado para sincronização de credenciais, use o PowerShell do Azure AD para concluir as etapas a seguir. Para obter mais informações, consulte [Instalar o Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 
-1. Instale o módulo do PowerShell do Azure AD e importe-o da seguinte maneira:
+1. Instale o módulo do Azure AD PowerShell e importe-o da seguinte forma:
 
     ```powershell
     Install-Module AzureAD
     Import-Module AzureAD
     ```
 
-2. Agora exclua o aplicativo e o objeto antigo usando os seguintes cmdlets do PowerShell:
+2. Agora exclua o aplicativo e objeto antigos usando os seguintes cmdlets do PowerShell:
 
     ```powershell
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
-    Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
+    Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-Depois de excluir ambos os aplicativos, a plataforma do Azure os recria automaticamente e tenta retomar a sincronização de senha. A integridade do domínio gerenciado do AD DS do Azure se atualiza automaticamente dentro de duas horas e remove o alerta.
+Depois de excluir ambos os aplicativos, a plataforma Azure os recria automaticamente e tenta retomar a sincronização de senha. A integridade do domínio gerenciado do Azure AD DS se atualiza automaticamente dentro de duas horas e remove o alerta.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
+Se ainda tiver problemas, [abra uma solicitação de suporte do Azure][azure-support] para obter assistência de solução de problemas adicional.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

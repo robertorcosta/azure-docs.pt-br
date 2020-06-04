@@ -24,7 +24,7 @@
           href: batch-transcription.md
         - name: Noções básicas de reconhecimento de fala
           href: speech-to-text-basics.md
-    - name: Guia de Início Rápido
+    - name: Inícios rápidos
       items:
         - name: Reconhecer uma fala com a entrada do microfone
           href: quickstarts/speech-to-text-from-microphone.md
@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Reconhecer uma fala armazenada no Armazenamento de Blobs
           href: quickstarts/from-blob.md
+        - name: Testar um modelo usando arquivos de áudio no Estúdio de Fala
+          href: quickstarts/speech-studio-test-model.md
     - name: Guias de instruções
       items:
         - name: Escolher o modo de reconhecimento de fala
