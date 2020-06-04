@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: f1bad4a8f178358ba33d1a14815b8630b447615a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4af8f90abf2a5581ec18ea550cbc5f1a5df50a4e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680399"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344893"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
 Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](luis-concept-roles.md)de entidade e texto opcional.
@@ -26,7 +26,7 @@ Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use u
 
 ## <a name="add-template-utterance-using-correct-syntax"></a>Adicionar modelo expressão usando a sintaxe correta
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Selecione **padrões** no painel esquerdo, em **melhorar o desempenho do aplicativo**.
 
@@ -51,7 +51,7 @@ Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use u
 
 [Padrão. todas as](luis-concept-entity-types.md) entidades são válidas apenas em [padrões](luis-how-to-model-intent-pattern.md), não como declarações de exemplo. Esse tipo de entidade ajuda o LUIS a encontrar o fim de entidades de comprimento variável e escolha de palavras. Como essa entidade é usada em um padrão, o LUIS sabe onde o final da entidade está no modelo de emissão.
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Na seção **Compilar** , selecione **entidades** no painel esquerdo e, em seguida, selecione **+ criar**.
 
@@ -63,7 +63,7 @@ Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use u
 
 Se você quiser adicionar um padrão para uma entidade, a maneira _mais fácil_ é criar o padrão na página de detalhes da intenção. Isso garante que a sintaxe corresponda ao exemplo expressão.
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione sua **assinatura** e recurso de **criação** para ver os aplicativos atribuídos a esse recurso de criação.
+1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
 1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
 1. Na página lista de **tentativas** , selecione o nome da intenção do exemplo expressão para o qual você deseja criar um modelo expressão.
 1. Na página detalhes da intenção, selecione a linha do exemplo expressão que você deseja usar como o modelo expressão e, em seguida, selecione **+ Adicionar como padrão** na barra de ferramentas de contexto.

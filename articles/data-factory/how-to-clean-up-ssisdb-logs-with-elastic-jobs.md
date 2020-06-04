@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: 02952c3baea5d9089061b10f2429be57a9322398
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8d15ab5f08b7f9f5bc4824aec8980ed4b711ae1d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606172"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020278"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpar os logs do SSISDB com Trabalhos de Banco de Dados Elástico do Azure
 
@@ -25,7 +25,7 @@ Este artigo descreve como usar Trabalhos de Banco de Dados Elástico do Azure pa
 
 Os Trabalhos de Banco de Dados Elástico é um serviço do Azure que facilita a automatização e a execução de trabalhos em um banco de dados ou um grupo de bancos de dados. Você pode agendar, executar e monitorar esses trabalhos usando o portal do Azure, o Transact-SQL, o PowerShell ou as APIs REST. Use o Trabalho de Banco de Dados Elástico para disparar o procedimento armazenado para a limpeza de log uma única vez ou de acordo com um agendamento. Você pode escolher o intervalo de agendamento com base no uso de recursos do SSISDB para evitar uma carga pesada do banco de dados.
 
-Para obter mais informações, confira [Gerenciar grupos de bancos de dados com Trabalhos de Banco de Dados Elástico](../sql-database/elastic-jobs-overview.md).
+Para obter mais informações, confira [Gerenciar grupos de bancos de dados com Trabalhos de Banco de Dados Elástico](../azure-sql/database/elastic-jobs-overview.md).
 
 As seções a seguir descrevem como disparar o procedimento armazenado `[internal].[cleanup_server_retention_window_exclusive]`, que remove os logs do SSISDB que estão fora da janela de retenção definida pelo administrador.
 
@@ -33,7 +33,7 @@ As seções a seguir descrevem como disparar o procedimento armazenado `[interna
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-Os scripts de exemplo do PowerShell a seguir criam um novo Trabalho Elástico para disparar o procedimento armazenado para limpeza de log do SSISDB. Para obter mais informações, confira [Criar um agente de Trabalho Elástico usando o PowerShell](../sql-database/elastic-jobs-powershell.md).
+Os scripts de exemplo do PowerShell a seguir criam um novo Trabalho Elástico para disparar o procedimento armazenado para limpeza de log do SSISDB. Para obter mais informações, confira [Criar um agente de Trabalho Elástico usando o PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
 
 ### <a name="create-parameters"></a>Criar parâmetros
 
@@ -41,7 +41,7 @@ Os scripts de exemplo do PowerShell a seguir criam um novo Trabalho Elástico pa
 # Parameters needed to create the Job Database
 param(
 $ResourceGroupName = $(Read-Host "Please enter an existing resource group name"),
-$AgentServerName = $(Read-Host "Please enter the name of an existing Azure SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
+$AgentServerName = $(Read-Host "Please enter the name of an existing logical SQL server(for example, yhxserver) to hold the SSISDBLogCleanup job database"),
 $SSISDBLogCleanupJobDB = $(Read-Host "Please enter a name for the Job Database to be created in the given SQL Server"),
 # The Job Database should be a clean,empty,S0 or higher service tier. We set S0 as default.
 $PricingTier = "S0",
@@ -52,7 +52,7 @@ $SSISDBLogCleanupAgentName = $(Read-Host "Please enter a name for your new Elast
 # Parameters needed to create the job credential in the Job Database to connect to SSISDB
 $PasswordForSSISDBCleanupUser = $(Read-Host "Please provide a new password for SSISDBLogCleanup job user to connect to SSISDB database for log cleanup"),
 # Parameters needed to create a login and a user in the SSISDB of the target server
-$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target Azure SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
+$SSISDBServerEndpoint = $(Read-Host "Please enter the name of the target logical SQL server which contains SSISDB you need to cleanup, for example, myserver") + '.database.windows.net',
 $SSISDBServerAdminUserName = $(Read-Host "Please enter the target server admin username for SQL authentication"),
 $SSISDBServerAdminPassword = $(Read-Host "Please enter the target server admin password for SQL authentication"),
 $SSISDBName = "SSISDB",
@@ -191,7 +191,7 @@ Os scripts de exemplo do Transact-SQL a seguir criam um novo Trabalho Elástico 
     SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
     SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
     ```
-4. Conceda as permissões apropriadas para o banco de dados SSISDB. O catálogo do SSISDB precisa ter permissões adequadas para que o procedimento armazenado execute a limpeza de log do SSISDB com êxito. Para obter diretrizes detalhadas, confira [Gerenciar logons](../sql-database/sql-database-manage-logins.md).
+4. Conceda as permissões apropriadas para o banco de dados SSISDB. O catálogo do SSISDB precisa ter permissões adequadas para que o procedimento armazenado execute a limpeza de log do SSISDB com êxito. Para obter diretrizes detalhadas, confira [Gerenciar logons](../azure-sql/database/logins-create-manage.md).
 
     ```sql
     -- Connect to the master database in the target server including SSISDB 
@@ -266,6 +266,6 @@ ORDER BY start_time DESC
 
 Para tarefas de gerenciamento e monitoramento relacionadas ao Azure-SSIS Integration Runtime, confira os artigos a seguir. O Azure-SSIS IR é o mecanismo de runtime para pacotes SSIS armazenados no SSISDB no Banco de Dados SQL do Azure.
 
--   [Reconfigurar o runtime de integração do Azure-SSIS](manage-azure-ssis-integration-runtime.md)
+-   [Reconfigurar o Azure-SSIS Integration Runtime](manage-azure-ssis-integration-runtime.md)
 
 -   [Monitorar o Azure-SSIS Integration Runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).

@@ -24,7 +24,7 @@ A metodologia de ensino de máquina do LUIS permite que você ensine facilmente 
 
 <a name="v3-authoring-model-decomposition"></a>
 
-## <a name="intents-classify-utterances"></a>Tentativas de classificação declarações
+## <a name="intents-classify-utterances"></a>Enunciados de classificação de intenções
 
 Uma intenção classifica o exemplo declarações para ensinar LUIS sobre a intenção. Os declarações de exemplo em uma intenção são usados como exemplos positivos de expressão. Esses mesmos declarações são usados como exemplos negativos em todas as outras intenções.
 

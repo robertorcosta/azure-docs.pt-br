@@ -91,7 +91,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
         | PREP     | Preposições |
         | PRON     | Pronomes     |
         | VERBO     | Verbos        |
-        | OUTROS    | Outros        |
+        | OUTROS    | Outro        |
 
         Como uma observação de implementação, essas marcas foram determinadas por marcação de parte de fala no lado em inglês e, em seguida, pegando a marca mais frequente para cada par de origem/destino. Assim, se as pessoas costumam traduzir uma palavra em espanhol para uma marcação de parte da fala diferente em inglês, as marcações podem acabar ficando incorretas (com relação à palavra em espanhol).
 

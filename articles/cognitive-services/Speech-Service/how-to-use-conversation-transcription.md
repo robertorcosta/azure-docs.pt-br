@@ -19,7 +19,7 @@ ms.locfileid: "82735395"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Transcrição de conversa em tempo real (visualização)
 
-A API **ConversationTranscriber** do SDK de fala permite transcrever reuniões e outras conversas com a capacidade de adicionar, remover e identificar vários participantes transmitindo o áudio para o serviço de fala usando `PullStream` o ou `PushStream`o. Este tópico exige que você saiba como usar a conversão de fala em texto com o SDK de fala (versão 1.8.0 ou posterior). Para obter mais informações, consulte [o que são os serviços de fala](overview.md).
+A API **ConversationTranscriber** do SDK de fala permite transcrever reuniões e outras conversas com a capacidade de adicionar, remover e identificar vários participantes transmitindo o áudio para o serviço de fala usando o `PullStream` ou o `PushStream` . Este tópico exige que você saiba como usar a conversão de fala em texto com o SDK de fala (versão 1.8.0 ou posterior). Para obter mais informações, consulte [o que são os serviços de fala](overview.md).
 
 ## <a name="limitations"></a>Limitações
 
@@ -108,12 +108,12 @@ O código de exemplo a seguir demonstra como transcrever conversas em tempo real
 
 Os destaques do código de exemplo incluem:
 
-- Criando um `Conversation` objeto a `SpeechConfig` partir do objeto usando um identificador de reunião gerado usando`Guid.NewGuid()`
-- Criando um `ConversationTranscriber` objeto e ingressando na conversa `JoinConversationAsync()` com para iniciar a transcrição
+- Criando um `Conversation` objeto a partir do `SpeechConfig` objeto usando um identificador de reunião gerado usando`Guid.NewGuid()`
+- Criando um `ConversationTranscriber` objeto e ingressando na conversa com `JoinConversationAsync()` para iniciar a transcrição
 - Registrando os eventos de interesse
 - Adicionando ou removendo participantes da conversa usando o objeto de conversa
 - Transmitindo o áudio
-- No SDK de fala versão 1.9.0 e em diante, `int` `string` ambos os tipos de valor têm suporte no campo versão da assinatura de voz.
+- No SDK de fala versão 1.9.0 e em diante, ambos os `int` `string` tipos de valor têm suporte no campo versão da assinatura de voz.
 
 A transcrição e o identificador do palestrante retornam nos eventos registrados.
 

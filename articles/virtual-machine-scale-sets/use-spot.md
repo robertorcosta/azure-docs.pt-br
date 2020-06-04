@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer
-ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 756e0d62927b67d26ae75af90c64facfe9c92d31
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125019"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310556"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs do Azure Spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -160,7 +160,7 @@ Para excluir a instância depois que ela tiver sido removida, altere o parâmetr
 | Pré-pago                | Sim                               |
 | Provedor de Serviços de Nuvem (CSP) | [Entre em contato com seu parceiro](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefícios                     | Não disponível                     |
-| Patrocinado                    | Não disponível                     |
+| Patrocinado                    | Sim                               |
 | Avaliação gratuita                   | Não disponível                     |
 
 

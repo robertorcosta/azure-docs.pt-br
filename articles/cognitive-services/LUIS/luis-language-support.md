@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 69ff3aa3f649b054192f9dd001af83dc8dbc2317
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 43858015857303d404b1abc0fe410aa462671587
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745689"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340191"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -30,7 +30,7 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Idioma |Locale  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
+| Language |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
@@ -84,7 +84,7 @@ Os idiomas híbridos combinam palavras de duas culturas, como inglês e chinês.
 ## <a name="tokenization"></a>Geração de tokens
 Para executar o aprendizado de máquina, o LUIS divide uma declaração em [tokens](luis-glossary.md#token) com base na cultura.
 
-|Idioma|  cada espaço ou caractere especial | nível do caractere|palavras compostas
+|Language|  cada espaço ou caractere especial | nível do caractere|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||

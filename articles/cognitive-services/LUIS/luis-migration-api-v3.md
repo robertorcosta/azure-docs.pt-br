@@ -1,15 +1,15 @@
 ---
 title: Alterações de ponto de extremidade de previsão na API v3
 description: As APIs de ponto de extremidade de previsão de consulta foram alteradas. Use este guia para entender como migrar para as APIs de ponto de extremidade da versão 3.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 293cbd583e1493c5f142604457a00a8055c7a802
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849324"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338185"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -88,7 +88,7 @@ Se desejar consultar por versão, primeiro você precisará [publicar via API](h
 
 A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 
-|Nome do parâmetro|Tipo|Versão|Padrão|Finalidade|
+|Nome do parâmetro|Type|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
 |`log`|booleano|V2 & V3|false|Armazenar consulta no arquivo de log. O valor padrão é falso.|
 |`query`|string|Somente V3|Nenhum padrão-ele é necessário na solicitação GET|**Em v2**, o expressão a ser previsto está no `q` parâmetro. <br><br>**No v3**, a funcionalidade é passada no `query` parâmetro.|
@@ -112,7 +112,7 @@ A API v3 tem parâmetros de cadeia de caracteres de consulta diferentes.
 }
 ```
 
-|Propriedade|Tipo|Versão|Padrão|Finalidade|
+|Propriedade|Type|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
 |`dynamicLists`|matriz|Somente V3|Não obrigatório.|As [listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
 |`externalEntities`|matriz|Somente V3|Não obrigatório.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |

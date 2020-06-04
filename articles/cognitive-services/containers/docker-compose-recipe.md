@@ -172,7 +172,7 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-containers"></a>Contêineres de teste
 
-Abra um navegador no computador host e vá para **localhost** usando a porta especificada do arquivo *Docker-Compose. YAML* , como http://localhost:5021/swagger/index.html. Por exemplo, você pode usar o recurso **experimentar** na API para testar o ponto de extremidade do reconhecedor de formulário. Ambas as páginas do Swagger de contêineres devem estar disponíveis e ser testada.
+Abra um navegador no computador host e vá para **localhost** usando a porta especificada do arquivo *Docker-Compose. YAML* , como http://localhost:5021/swagger/index.html . Por exemplo, você pode usar o recurso **experimentar** na API para testar o ponto de extremidade do reconhecedor de formulário. Ambas as páginas do Swagger de contêineres devem estar disponíveis e ser testada.
 
 ![Contêiner do reconhecedor de formulário](media/form-recognizer-swagger-page.png)
 

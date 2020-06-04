@@ -283,9 +283,9 @@ Em LUIS [listar entidades](reference-entity-list.md), você pode criar um valor 
 
 |Valor de Nomalized| Sinônimos|
 |--|--|
-|Pequeno| o pouco, 8 onças|
+|Pequena| o pouco, 8 onças|
 |Médio| regular, 12 onças|
-|Grande| Big, 16 onças|
+|grande| Big, 16 onças|
 |Xtra grande| o maior, 24 onças|
 
 O modelo retornará o valor normalizado para a entidade quando qualquer um dos sinônimos for visto na entrada.

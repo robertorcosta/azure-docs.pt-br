@@ -11,7 +11,7 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 05/20/2020
 ms.locfileid: "83682198"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto expressão com intenções e entidades
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de um texto do enunciado com intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
 
 Os dados mais difíceis de extrair são os dados de aprendizado de máquina porque não é uma correspondência exata de texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizado de máquina precisa fazer parte do [ciclo de criação](luis-concept-app-iteration.md) até que você tenha certeza de que você receberá os dados esperados.
@@ -71,7 +71,7 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 |Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|
-|Intencional|Cadeia de caracteres|topScoringIntent.intent|"GetStoreInfo"|
+|Intencional|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se seu aplicativo de chamada de chatbot ou LUIS tomar uma decisão com base em mais de uma pontuação de intenção, retornará todas as pontuações de intenções.
 
@@ -133,8 +133,8 @@ As intenções são ordenadas da pontuação mais alta para a mais baixa.
 
 |Objeto de dados|Tipo de Dados|Local dos dados|Valor|Pontuação|
 |--|--|--|--|:--|
-|Intencional|Cadeia de caracteres|intents[0].intent|"GetStoreInfo"|0,984749258|
-|Intencional|Cadeia de caracteres|intents[1].intent|"None"|0,0168218873|
+|Intencional|String|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Intencional|String|intents[1].intent|"None"|0,0168218873|
 
 Se você adicionar domínios predefinidos, o nome da intenção indicará o domínio, como `Utilties` ou `Communication`, assim como a intenção:
 
@@ -194,9 +194,9 @@ Saiba mais sobre o [ponto de extremidade de previsão V3](luis-migration-api-v3.
 
 |Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Valor|
 |--|--|--|--|--|
-|Utilitários|Intencional|Cadeia de caracteres|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicação|Intencional|Cadeia de caracteres|intents[1].intent|<b>Communication</b>.StartOver"|
-||Intencional|Cadeia de caracteres|intents[2].intent|"None"|
+|Utilitários|Intencional|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicação|Intencional|String|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intencional|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Dados de entidades
